@@ -13,9 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_dx_gateway_example = new aws.directconnect.Gateway("example", {
+ * const example = new aws.directconnect.Gateway("example", {
  *     amazonSideAsn: "64512",
- *     name: "tf-dxg-example",
  * });
  * ```
  */

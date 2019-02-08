@@ -8,12 +8,12 @@ import * as utilities from "../utilities";
  * Provides a AWS Transfer Server resource.
  * 
  * 
- * ```hcl
- * resource "aws_iam_role" "foo" {
- * 	name = "tf-test-transfer-server-iam-role"
- *   
- * 	assume_role_policy = <<EOF
- * {
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const fooRole = new aws.iam.Role("foo", {
+ *     assumeRolePolicy: `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
  * 		{
@@ -25,14 +25,10 @@ import * as utilities from "../utilities";
  * 		}
  * 	]
  * }
- * EOF
- * }
- * 
- * resource "aws_iam_role_policy" "foo" {
- * 	name = "tf-test-transfer-server-iam-policy-%s"
- * 	role = "${aws_iam_role.foo.id}"
- * 	policy = <<POLICY
- * {
+ * `,
+ * });
+ * const fooRolePolicy = new aws.iam.RolePolicy("foo", {
+ *     policy: `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
  * 		{
@@ -45,19 +41,17 @@ import * as utilities from "../utilities";
  * 		}
  * 	]
  * }
- * POLICY
- * }
- * 
- * 
- * resource "aws_transfer_server" "foo" {
- *   identity_provider_type = "SERVICE_MANAGED"
- *   logging_role = "${aws_iam_role.foo.arn}"
- * 
- *   tags {
- * 	NAME   = "tf-acc-test-transfer-server"
- * 	ENV    = "test"
- *   }
- * }
+ * `,
+ *     role: fooRole.id,
+ * });
+ * const fooServer = new aws.transfer.Server("foo", {
+ *     identityProviderType: "SERVICE_MANAGED",
+ *     loggingRole: fooRole.arn,
+ *     tags: {
+ *         ENV: "test",
+ *         NAME: "tf-acc-test-transfer-server",
+ *     },
+ * });
  * ```
  */
 export class Server extends pulumi.CustomResource {

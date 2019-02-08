@@ -15,13 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_redshift_snapshot_copy_grant_test = new aws.redshift.SnapshotCopyGrant("test", {
+ * const testSnapshotCopyGrant = new aws.redshift.SnapshotCopyGrant("test", {
  *     snapshotCopyGrantName: "my-grant",
  * });
- * const aws_redshift_cluster_test = new aws.redshift.Cluster("test", {
+ * const testCluster = new aws.redshift.Cluster("test", {
+ *     // ... other configuration ...
  *     snapshotCopy: {
  *         destinationRegion: "us-east-2",
- *         grantName: aws_redshift_snapshot_copy_grant_test.snapshotCopyGrantName,
+ *         grantName: testSnapshotCopyGrant.snapshotCopyGrantName,
  *     },
  * });
  * ```

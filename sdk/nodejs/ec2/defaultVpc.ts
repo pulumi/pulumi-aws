@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_default_vpc_default = new aws.ec2.DefaultVpc("default", {
+ * const defaultDefaultVpc = new aws.ec2.DefaultVpc("default", {
  *     tags: {
  *         Name: "Default VPC",
  *     },

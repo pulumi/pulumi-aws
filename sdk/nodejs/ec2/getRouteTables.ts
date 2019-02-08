@@ -6,6 +6,33 @@ import * as utilities from "../utilities";
 
 /**
  * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+ * 
+ * ## Example Usage
+ * 
+ * The following adds a route for a particular cidr block to every (private
+ * kops) route table in a specified vpc to use a particular vpc peering
+ * connection.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const rts = pulumi.output(aws.ec2.getRouteTables({
+ *     filters: [{
+ *         name: "tag:kubernetes.io/kops/role",
+ *         values: ["private*"],
+ *     }],
+ *     vpcId: var_vpc_id,
+ * }));
+ * const route: aws.ec2.Route[] = [];
+ * for (let i = 0; i < rts.apply(rts => rts.ids.length); i++) {
+ *     route.push(new aws.ec2.Route(`r-${i}`, {
+ *         destinationCidrBlock: "10.0.1.0/22",
+ *         routeTableId: rts.apply(rts => rts.ids[i]),
+ *         vpcPeeringConnectionId: "pcx-0e9a7a9ecd137dc54",
+ *     }));
+ * }
+ * ```
  */
 export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTablesResult> {
     args = args || {};

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -28,38 +29,43 @@ class AssessmentTemplate(pulumi.CustomResource):
     """
     The assessment target ARN to attach the template to.
     """
-    def __init__(__self__, __name__, __opts__=None, duration=None, name=None, rules_package_arns=None, target_arn=None):
+    def __init__(__self__, resource_name, opts=None, duration=None, name=None, rules_package_arns=None, target_arn=None, __name__=None, __opts__=None):
         """
         Provides a Inspector assessment template
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] duration: The duration of the inspector run.
         :param pulumi.Input[str] name: The name of the assessment template.
         :param pulumi.Input[list] rules_package_arns: The rules to be used during the run.
         :param pulumi.Input[str] target_arn: The assessment target ARN to attach the template to.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not duration:
+        if duration is None:
             raise TypeError('Missing required property duration')
         __props__['duration'] = duration
 
         __props__['name'] = name
 
-        if not rules_package_arns:
+        if rules_package_arns is None:
             raise TypeError('Missing required property rules_package_arns')
         __props__['rules_package_arns'] = rules_package_arns
 
-        if not target_arn:
+        if target_arn is None:
             raise TypeError('Missing required property target_arn')
         __props__['target_arn'] = target_arn
 
@@ -67,9 +73,9 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         super(AssessmentTemplate, __self__).__init__(
             'aws:inspector/assessmentTemplate:AssessmentTemplate',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

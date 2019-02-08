@@ -17,9 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ecr_repository_foo = new aws.ecr.Repository("foo", {
- *     name: "bar",
- * });
+ * const foo = new aws.ecr.Repository("foo", {});
  * ```
  */
 export class Repository extends pulumi.CustomResource {

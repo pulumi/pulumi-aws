@@ -13,37 +13,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_waf_ipset_ipset = new aws.waf.IpSet("ipset", {
+ * const ipset = new aws.waf.IpSet("ipset", {
  *     ipSetDescriptors: [{
  *         type: "IPV4",
  *         value: "192.0.7.0/24",
  *     }],
- *     name: "tfIPSet",
  * });
- * const aws_waf_rule_wafrule = new aws.waf.Rule("wafrule", {
+ * const wafrule = new aws.waf.Rule("wafrule", {
  *     metricName: "tfWAFRule",
- *     name: "tfWAFRule",
  *     predicates: [{
- *         dataId: aws_waf_ipset_ipset.id,
+ *         dataId: ipset.id,
  *         negated: false,
  *         type: "IPMatch",
  *     }],
- * }, {dependsOn: [aws_waf_ipset_ipset]});
- * const aws_waf_web_acl_waf_acl = new aws.waf.WebAcl("waf_acl", {
+ * }, {dependsOn: [ipset]});
+ * const wafAcl = new aws.waf.WebAcl("waf_acl", {
  *     defaultAction: {
  *         type: "ALLOW",
  *     },
  *     metricName: "tfWebACL",
- *     name: "tfWebACL",
  *     rules: [{
  *         action: {
  *             type: "BLOCK",
  *         },
  *         priority: 1,
- *         ruleId: aws_waf_rule_wafrule.id,
+ *         ruleId: wafrule.id,
  *         type: "REGULAR",
  *     }],
- * }, {dependsOn: [aws_waf_ipset_ipset, aws_waf_rule_wafrule]});
+ * }, {dependsOn: [ipset, wafrule]});
  * ```
  */
 export class WebAcl extends pulumi.CustomResource {

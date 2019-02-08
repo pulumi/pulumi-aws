@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_securityhub_account_example = new aws.securityhub.Account("example", {});
- * const aws_region_current = pulumi.output(aws.getRegion({}));
- * const aws_securityhub_product_subscription_example = new aws.securityhub.ProductSubscription("example", {
- *     productArn: aws_region_current.apply(__arg0 => `arn:aws:securityhub:${__arg0.name}:733251395267:product/alertlogic/althreatmanagement`),
- * }, {dependsOn: [aws_securityhub_account_example]});
+ * const exampleAccount = new aws.securityhub.Account("example", {});
+ * const current = pulumi.output(aws.getRegion({}));
+ * const exampleProductSubscription = new aws.securityhub.ProductSubscription("example", {
+ *     productArn: current.apply(current => `arn:aws:securityhub:${current.name}:733251395267:product/alertlogic/althreatmanagement`),
+ * }, {dependsOn: [exampleAccount]});
  * ```
  */
 export class ProductSubscription extends pulumi.CustomResource {

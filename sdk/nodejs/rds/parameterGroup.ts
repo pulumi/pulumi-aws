@@ -18,9 +18,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_db_parameter_group_default = new aws.rds.ParameterGroup("default", {
+ * const defaultParameterGroup = new aws.rds.ParameterGroup("default", {
  *     family: "mysql5.6",
- *     name: "rds-pg",
  *     parameters: [
  *         {
  *             name: "character_set_server",

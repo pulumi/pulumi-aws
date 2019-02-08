@@ -15,7 +15,7 @@ import {ARN} from "../index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ec2_transit_gateway_example = new aws.ec2transitgateway.TransitGateway("example", {
+ * const example = new aws.ec2transitgateway.TransitGateway("example", {
  *     description: "example",
  * });
  * ```

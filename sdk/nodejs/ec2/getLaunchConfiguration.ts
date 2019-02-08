@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_launch_configuration_ubuntu = pulumi.output(aws.ec2.getLaunchConfiguration({
+ * const ubuntu = pulumi.output(aws.ec2.getLaunchConfiguration({
  *     name: "test-launch-config",
  * }));
  * ```

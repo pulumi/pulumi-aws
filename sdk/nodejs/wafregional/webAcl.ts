@@ -13,38 +13,57 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_wafregional_ipset_ipset = new aws.wafregional.IpSet("ipset", {
+ * const ipset = new aws.wafregional.IpSet("ipset", {
  *     ipSetDescriptors: [{
  *         type: "IPV4",
  *         value: "192.0.7.0/24",
  *     }],
- *     name: "tfIPSet",
  * });
- * const aws_wafregional_rule_wafrule = new aws.wafregional.Rule("wafrule", {
+ * const wafrule = new aws.wafregional.Rule("wafrule", {
  *     metricName: "tfWAFRule",
- *     name: "tfWAFRule",
  *     predicates: [{
- *         dataId: aws_wafregional_ipset_ipset.id,
+ *         dataId: ipset.id,
  *         negated: false,
  *         type: "IPMatch",
  *     }],
  * });
- * const aws_wafregional_web_acl_wafacl = new aws.wafregional.WebAcl("wafacl", {
+ * const wafacl = new aws.wafregional.WebAcl("wafacl", {
  *     defaultAction: {
  *         type: "ALLOW",
  *     },
  *     metricName: "tfWebACL",
- *     name: "tfWebACL",
  *     rules: [{
  *         action: {
  *             type: "BLOCK",
  *         },
  *         priority: 1,
- *         ruleId: aws_wafregional_rule_wafrule.id,
+ *         ruleId: wafrule.id,
  *         type: "REGULAR",
  *     }],
  * });
  * ```
+ * 
+ * ## Nested Fields
+ * 
+ * ### `rule`
+ * 
+ * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_ActivatedRule.html) for all details and supported values.
+ * 
+ * #### Arguments
+ * 
+ * * `action` - (Required) The action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`.
+ * * `override_action` - (Required) Override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`.
+ * * `priority` - (Required) Specifies the order in which the rules in a WebACL are evaluated.
+ *   Rules with a lower value are evaluated before rules with a higher value.
+ * * `rule_id` - (Required) ID of the associated WAF (Regional) rule (e.g. [`aws_wafregional_rule`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)). WAF (Global) rules cannot be used.
+ * * `type` - (Optional) The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+ * 
+ * ### `default_action` / `action`
+ * 
+ * #### Arguments
+ * 
+ * * `type` - (Required) Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule.
+ *   e.g. `ALLOW`, `BLOCK` or `COUNT`
  */
 export class WebAcl extends pulumi.CustomResource {
     /**

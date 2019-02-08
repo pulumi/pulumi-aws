@@ -15,11 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_licensemanager_license_configuration_example = new aws.licensemanager.LicenseConfiguration("example", {
+ * const exampleLicenseConfiguration = new aws.licensemanager.LicenseConfiguration("example", {
  *     licenseCountingType: "Instance",
- *     name: "Example",
  * });
- * const aws_ami_example = pulumi.output(aws.getAmi({
+ * const exampleAmi = pulumi.output(aws.getAmi({
  *     filters: [
  *         {
  *             name: "owner-alias",
@@ -32,13 +31,13 @@ import * as utilities from "../utilities";
  *     ],
  *     mostRecent: true,
  * }));
- * const aws_instance_example = new aws.ec2.Instance("example", {
- *     ami: aws_ami_example.apply(__arg0 => __arg0.id),
+ * const exampleInstance = new aws.ec2.Instance("example", {
+ *     ami: exampleAmi.apply(exampleAmi => exampleAmi.id),
  *     instanceType: "t2.micro",
  * });
- * const aws_licensemanager_association_example = new aws.licensemanager.Association("example", {
- *     licenseConfigurationArn: aws_licensemanager_license_configuration_example.arn,
- *     resourceArn: aws_instance_example.arn,
+ * const exampleAssociation = new aws.licensemanager.Association("example", {
+ *     licenseConfigurationArn: exampleLicenseConfiguration.arn,
+ *     resourceArn: exampleInstance.arn,
  * });
  * ```
  */

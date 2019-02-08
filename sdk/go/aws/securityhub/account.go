@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// -> **Note:** Destroying this resource will disable Security Hub for this AWS account.
+// > **Note:** Destroying this resource will disable Security Hub for this AWS account.
 // 
 // Enables Security Hub for this AWS account.
 type Account struct {

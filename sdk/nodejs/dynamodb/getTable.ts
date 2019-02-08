@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_dynamodb_table_tableName = pulumi.output(aws.dynamodb.getTable({
+ * const tableName = pulumi.output(aws.dynamodb.getTable({
  *     name: "tableName",
  * }));
  * ```

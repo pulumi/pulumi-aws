@@ -8,6 +8,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// ## Attributes
+// 
+// The following additional atttributes are provided:
+// 
+// * `id` - The name of the Neptune event notification subscription.
+// * `arn` - The Amazon Resource Name of the Neptune event notification subscription.
+// * `customer_aws_id` - The AWS customer account associated with the Neptune event notification subscription.
 type EventSubscription struct {
 	s *pulumi.ResourceState
 }

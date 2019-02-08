@@ -14,11 +14,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  * 
- * const aws_iam_saml_provider_default = new aws.iam.SamlProvider("default", {
- *     name: "my-saml-provider",
+ * const defaultSamlProvider = new aws.iam.SamlProvider("default", {
  *     samlMetadataDocument: fs.readFileSync("saml-metadata.xml", "utf-8"),
  * });
- * const aws_cognito_identity_pool_main = new aws.cognito.IdentityPool("main", {
+ * const main = new aws.cognito.IdentityPool("main", {
  *     allowUnauthenticatedIdentities: false,
  *     cognitoIdentityProviders: [
  *         {
@@ -34,7 +33,7 @@ import * as utilities from "../utilities";
  *     ],
  *     identityPoolName: "identity pool",
  *     openidConnectProviderArns: ["arn:aws:iam::123456789012:oidc-provider/foo.example.com"],
- *     samlProviderArns: [aws_iam_saml_provider_default.arn],
+ *     samlProviderArns: [defaultSamlProvider.arn],
  *     supportedLoginProviders: {
  *         "accounts.google.com": "123456789012.apps.googleusercontent.com",
  *         "graph.facebook.com": "7346241598935552",

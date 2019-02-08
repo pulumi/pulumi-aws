@@ -15,14 +15,13 @@ import {RestApi} from "./restApi";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_api_gateway_rest_api_MyDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
+ * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
- *     name: "MyDemoAPI",
  * });
- * const aws_api_gateway_resource_MyDemoResource = new aws.apigateway.Resource("MyDemoResource", {
- *     parentId: aws_api_gateway_rest_api_MyDemoAPI.rootResourceId,
+ * const myDemoResource = new aws.apigateway.Resource("MyDemoResource", {
+ *     parentId: myDemoAPI.rootResourceId,
  *     pathPart: "mydemoresource",
- *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
+ *     restApi: myDemoAPI.id,
  * });
  * ```
  */

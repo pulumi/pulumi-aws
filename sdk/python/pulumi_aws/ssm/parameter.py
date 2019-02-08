@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -26,7 +27,7 @@ class Parameter(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    The name of the parameter.
+    The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
     """
     overwrite: pulumi.Output[bool]
     """
@@ -44,28 +45,33 @@ class Parameter(pulumi.CustomResource):
     """
     The value of the parameter.
     """
-    def __init__(__self__, __name__, __opts__=None, allowed_pattern=None, arn=None, description=None, key_id=None, name=None, overwrite=None, tags=None, type=None, value=None):
+    def __init__(__self__, resource_name, opts=None, allowed_pattern=None, arn=None, description=None, key_id=None, name=None, overwrite=None, tags=None, type=None, value=None, __name__=None, __opts__=None):
         """
         Provides an SSM Parameter resource.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allowed_pattern: A regular expression used to validate the parameter value.
         :param pulumi.Input[str] arn: The ARN of the parameter.
         :param pulumi.Input[str] description: The description of the parameter.
         :param pulumi.Input[str] key_id: The KMS key id or arn for encrypting a SecureString.
-        :param pulumi.Input[str] name: The name of the parameter.
+        :param pulumi.Input[str] name: The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
         :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by terraform to avoid overwrite of existing resource and will default to `true` otherwise (terraform lifecycle rules should then be used to manage the update behavior).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
         :param pulumi.Input[str] type: The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
         :param pulumi.Input[str] value: The value of the parameter.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -84,19 +90,19 @@ class Parameter(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
-        if not type:
+        if type is None:
             raise TypeError('Missing required property type')
         __props__['type'] = type
 
-        if not value:
+        if value is None:
             raise TypeError('Missing required property value')
         __props__['value'] = value
 
         super(Parameter, __self__).__init__(
             'aws:ssm/parameter:Parameter',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

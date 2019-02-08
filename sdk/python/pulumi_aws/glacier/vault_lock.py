@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -24,7 +25,7 @@ class VaultLock(pulumi.CustomResource):
     """
     The name of the Glacier Vault.
     """
-    def __init__(__self__, __name__, __opts__=None, complete_lock=None, ignore_deletion_error=None, policy=None, vault_name=None):
+    def __init__(__self__, resource_name, opts=None, complete_lock=None, ignore_deletion_error=None, policy=None, vault_name=None, __name__=None, __opts__=None):
         """
         Manages a Glacier Vault Lock. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html) for a full explanation of the Glacier Vault Lock functionality.
         
@@ -32,42 +33,47 @@ class VaultLock(pulumi.CustomResource):
         
         !> **WARNING:** Once a Glacier Vault Lock is completed, it is immutable. The deletion of the Glacier Vault Lock is not be possible and attempting to remove it from Terraform will return an error. Set the `ignore_deletion_error` argument to `true` and apply this configuration before attempting to delete this resource via Terraform or use `terraform state rm` to remove this resource from Terraform management.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] complete_lock: Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the Terraform resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
         :param pulumi.Input[bool] ignore_deletion_error: Allow Terraform to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via Terraform, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
         :param pulumi.Input[str] policy: JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
         :param pulumi.Input[str] vault_name: The name of the Glacier Vault.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not complete_lock:
+        if complete_lock is None:
             raise TypeError('Missing required property complete_lock')
         __props__['complete_lock'] = complete_lock
 
         __props__['ignore_deletion_error'] = ignore_deletion_error
 
-        if not policy:
+        if policy is None:
             raise TypeError('Missing required property policy')
         __props__['policy'] = policy
 
-        if not vault_name:
+        if vault_name is None:
             raise TypeError('Missing required property vault_name')
         __props__['vault_name'] = vault_name
 
         super(VaultLock, __self__).__init__(
             'aws:glacier/vaultLock:VaultLock',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

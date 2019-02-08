@@ -13,8 +13,64 @@ import * as utilities from "../utilities";
  * a VPC Endpoint resource with `route_table_ids` and `subnet_ids` attributes.
  * Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
  * Doing so will cause a conflict of associations and will overwrite the association.
- * > **NOTE The `dns_entry` output is a list of maps:** Terraform interpolation support for lists of maps requires the `lookup` and `[]` until full support of lists of maps is available
  * 
+ * ## Example Usage
+ * 
+ * Basic usage:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const s3 = new aws.ec2.VpcEndpoint("s3", {
+ *     serviceName: "com.amazonaws.us-west-2.s3",
+ *     vpcId: aws_vpc_main.id,
+ * });
+ * ```
+ * 
+ * Interface type usage:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const ec2 = new aws.ec2.VpcEndpoint("ec2", {
+ *     privateDnsEnabled: true,
+ *     securityGroupIds: [aws_security_group_sg1.id],
+ *     serviceName: "com.amazonaws.us-west-2.ec2",
+ *     vpcEndpointType: "Interface",
+ *     vpcId: aws_vpc_main.id,
+ * });
+ * ```
+ * 
+ * Custom Service Usage:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const ptfeServiceVpcEndpoint = new aws.ec2.VpcEndpoint("ptfe_service", {
+ *     privateDnsEnabled: false,
+ *     securityGroupIds: [aws_security_group_ptfe_service.id],
+ *     serviceName: var_ptfe_service,
+ *     subnetIds: [local_subnet_ids],
+ *     vpcEndpointType: "Interface",
+ *     vpcId: var_vpc_id,
+ * });
+ * const internal = pulumi.output(aws.route53.getZone({
+ *     name: "vpc.internal.",
+ *     privateZone: true,
+ *     vpcId: var_vpc_id,
+ * }));
+ * const ptfeServiceRecord = new aws.route53.Record("ptfe_service", {
+ *     records: [ptfeServiceVpcEndpoint.dnsEntries.apply(dnsEntries => (<any>dnsEntries[0])["dns_name"])],
+ *     ttl: 300,
+ *     type: "CNAME",
+ *     zoneId: internal.apply(internal => internal.zoneId),
+ * });
+ * ```
+ * 
+ * > **NOTE The `dns_entry` output is a list of maps:** Terraform interpolation support for lists of maps requires the `lookup` and `[]` until full support of lists of maps is available
  */
 export class VpcEndpoint extends pulumi.CustomResource {
     /**

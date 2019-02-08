@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -20,7 +21,7 @@ class SubnetGroup(pulumi.CustomResource):
     """
     List of VPC Subnet IDs for the cache subnet group
     """
-    def __init__(__self__, __name__, __opts__=None, description=None, name=None, subnet_ids=None):
+    def __init__(__self__, resource_name, opts=None, description=None, name=None, subnet_ids=None, __name__=None, __opts__=None):
         """
         Provides an ElastiCache Subnet Group resource.
         
@@ -28,37 +29,42 @@ class SubnetGroup(pulumi.CustomResource):
         ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
         ElastiCache Security Group resource.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description for the cache subnet group. Defaults to "Managed by Terraform".
         :param pulumi.Input[str] name: Name for the cache subnet group. Elasticache converts this name to lowercase.
         :param pulumi.Input[list] subnet_ids: List of VPC Subnet IDs for the cache subnet group
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not description:
+        if description is None:
             description = 'Managed by Pulumi'
         __props__['description'] = description
 
         __props__['name'] = name
 
-        if not subnet_ids:
+        if subnet_ids is None:
             raise TypeError('Missing required property subnet_ids')
         __props__['subnet_ids'] = subnet_ids
 
         super(SubnetGroup, __self__).__init__(
             'aws:elasticache/subnetGroup:SubnetGroup',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

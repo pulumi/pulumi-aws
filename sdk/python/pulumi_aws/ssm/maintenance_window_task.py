@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -53,13 +54,12 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     """
     The Id of the maintenance window to register the task with.
     """
-    def __init__(__self__, __name__, __opts__=None, description=None, logging_info=None, max_concurrency=None, max_errors=None, name=None, priority=None, service_role_arn=None, targets=None, task_arn=None, task_parameters=None, task_type=None, window_id=None):
+    def __init__(__self__, resource_name, opts=None, description=None, logging_info=None, max_concurrency=None, max_errors=None, name=None, priority=None, service_role_arn=None, targets=None, task_arn=None, task_parameters=None, task_type=None, window_id=None, __name__=None, __opts__=None):
         """
         Provides an SSM Maintenance Window Task resource
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the maintenance window task.
         :param pulumi.Input[dict] logging_info: A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
         :param pulumi.Input[str] max_concurrency: The maximum number of targets this task can be run for in parallel.
@@ -73,11 +73,17 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[str] task_type: The type of task being registered. The only allowed value is `RUN_COMMAND`.
         :param pulumi.Input[str] window_id: The Id of the maintenance window to register the task with.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -86,11 +92,11 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
         __props__['logging_info'] = logging_info
 
-        if not max_concurrency:
+        if max_concurrency is None:
             raise TypeError('Missing required property max_concurrency')
         __props__['max_concurrency'] = max_concurrency
 
-        if not max_errors:
+        if max_errors is None:
             raise TypeError('Missing required property max_errors')
         __props__['max_errors'] = max_errors
 
@@ -98,33 +104,33 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
         __props__['priority'] = priority
 
-        if not service_role_arn:
+        if service_role_arn is None:
             raise TypeError('Missing required property service_role_arn')
         __props__['service_role_arn'] = service_role_arn
 
-        if not targets:
+        if targets is None:
             raise TypeError('Missing required property targets')
         __props__['targets'] = targets
 
-        if not task_arn:
+        if task_arn is None:
             raise TypeError('Missing required property task_arn')
         __props__['task_arn'] = task_arn
 
         __props__['task_parameters'] = task_parameters
 
-        if not task_type:
+        if task_type is None:
             raise TypeError('Missing required property task_type')
         __props__['task_type'] = task_type
 
-        if not window_id:
+        if window_id is None:
             raise TypeError('Missing required property window_id')
         __props__['window_id'] = window_id
 
         super(MaintenanceWindowTask, __self__).__init__(
             'aws:ssm/maintenanceWindowTask:MaintenanceWindowTask',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

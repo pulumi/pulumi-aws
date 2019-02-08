@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -52,7 +53,7 @@ class Route(pulumi.CustomResource):
     """
     Identifier of a VPC peering connection.
     """
-    def __init__(__self__, __name__, __opts__=None, destination_cidr_block=None, destination_ipv6_cidr_block=None, egress_only_gateway_id=None, gateway_id=None, instance_id=None, nat_gateway_id=None, network_interface_id=None, route_table_id=None, transit_gateway_id=None, vpc_peering_connection_id=None):
+    def __init__(__self__, resource_name, opts=None, destination_cidr_block=None, destination_ipv6_cidr_block=None, egress_only_gateway_id=None, gateway_id=None, instance_id=None, nat_gateway_id=None, network_interface_id=None, route_table_id=None, transit_gateway_id=None, vpc_peering_connection_id=None, __name__=None, __opts__=None):
         """
         Provides a resource to create a routing table entry (a route) in a VPC routing table.
         
@@ -62,9 +63,8 @@ class Route(pulumi.CustomResource):
         in conjunction with any Route resources. Doing so will cause
         a conflict of rule settings and will overwrite rules.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_cidr_block: The destination CIDR block.
         :param pulumi.Input[str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
@@ -76,11 +76,17 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
         :param pulumi.Input[str] vpc_peering_connection_id: Identifier of a VPC peering connection.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -99,7 +105,7 @@ class Route(pulumi.CustomResource):
 
         __props__['network_interface_id'] = network_interface_id
 
-        if not route_table_id:
+        if route_table_id is None:
             raise TypeError('Missing required property route_table_id')
         __props__['route_table_id'] = route_table_id
 
@@ -114,9 +120,9 @@ class Route(pulumi.CustomResource):
 
         super(Route, __self__).__init__(
             'aws:ec2/route:Route',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_kms_key_oauth_config = new aws.kms.Key("oauth_config", {
+ * const oauthConfig = new aws.kms.Key("oauth_config", {
  *     description: "oauth config",
  *     isEnabled: true,
  * });
- * const aws_kms_ciphertext_oauth = pulumi.output(aws.kms.getCipherText({
- *     keyId: aws_kms_key_oauth_config.keyId,
+ * const oauth = pulumi.output(aws.kms.getCipherText({
+ *     keyId: oauthConfig.keyId,
  *     plaintext: `{
  *   "client_id": "e587dbae22222f55da22",
  *   "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"

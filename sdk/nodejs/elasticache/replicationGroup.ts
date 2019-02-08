@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_elasticache_replication_group_example = new aws.elasticache.ReplicationGroup("example", {
+ * const example = new aws.elasticache.ReplicationGroup("example", {
  *     automaticFailoverEnabled: true,
  *     availabilityZones: [
  *         "us-west-2a",
@@ -41,6 +41,7 @@ import * as utilities from "../utilities";
  *     replicationGroupId: "tf-rep-group-1",
  * });
  * ```
+ * 
  * You have two options for adjusting the number of replicas:
  * 
  * * Adjusting `number_cache_clusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g. preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
@@ -50,7 +51,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_elasticache_replication_group_example = new aws.elasticache.ReplicationGroup("example", {
+ * const example = new aws.elasticache.ReplicationGroup("example", {
  *     automaticFailoverEnabled: true,
  *     availabilityZones: [
  *         "us-west-2a",
@@ -63,11 +64,12 @@ import * as utilities from "../utilities";
  *     replicationGroupDescription: "test description",
  *     replicationGroupId: "tf-rep-group-1",
  * });
- * const aws_elasticache_cluster_replica = new aws.elasticache.Cluster("replica", {
+ * const replica = new aws.elasticache.Cluster("replica", {
  *     clusterId: `tf-rep-group-1-${1}`,
- *     replicationGroupId: aws_elasticache_replication_group_example.id,
+ *     replicationGroupId: example.id,
  * });
  * ```
+ * 
  * ### Redis Cluster Mode Enabled
  * 
  * To create two shards with a primary and a single read replica each:
@@ -76,7 +78,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_elasticache_replication_group_baz = new aws.elasticache.ReplicationGroup("baz", {
+ * const baz = new aws.elasticache.ReplicationGroup("baz", {
  *     automaticFailoverEnabled: true,
  *     clusterMode: {
  *         numNodeGroups: 2,
@@ -89,12 +91,12 @@ import * as utilities from "../utilities";
  *     replicationGroupId: "tf-redis-cluster",
  * });
  * ```
+ * 
  * > **Note:** We currently do not support passing a `primary_cluster_id` in order to create the Replication Group.
  * 
  * > **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
  * and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
  * for full details on using Replication Groups.
- * 
  */
 export class ReplicationGroup extends pulumi.CustomResource {
     /**

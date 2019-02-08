@@ -7,6 +7,21 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get the id of a Resource in API Gateway. 
  * To fetch the Resource, you must provide the REST API id as well as the full path.  
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const myResource = pulumi.output(aws.apigateway.getResource({
+ *     path: "/endpoint/path",
+ *     restApiId: aws_api_gateway_rest_api_my_rest_api.id,
+ * }));
+ * const myRestApi = pulumi.output(aws.apigateway.getRestApi({
+ *     name: "my-rest-api",
+ * }));
+ * ```
  */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
     return pulumi.runtime.invoke("aws:apigateway/getResource:getResource", {

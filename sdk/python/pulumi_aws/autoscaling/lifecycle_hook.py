@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -40,7 +41,7 @@ class LifecycleHook(pulumi.CustomResource):
     """
     The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
     """
-    def __init__(__self__, __name__, __opts__=None, autoscaling_group_name=None, default_result=None, heartbeat_timeout=None, lifecycle_transition=None, name=None, notification_metadata=None, notification_target_arn=None, role_arn=None):
+    def __init__(__self__, resource_name, opts=None, autoscaling_group_name=None, default_result=None, heartbeat_timeout=None, lifecycle_transition=None, name=None, notification_metadata=None, notification_target_arn=None, role_arn=None, __name__=None, __opts__=None):
         """
         Provides an AutoScaling Lifecycle Hook resource.
         
@@ -56,9 +57,8 @@ class LifecycleHook(pulumi.CustomResource):
         [`aws_autoscaling_group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
         but take care to not duplicate those hooks with this resource.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] autoscaling_group_name: The name of the Auto Scaling group to which you want to assign the lifecycle hook
         :param pulumi.Input[str] default_result: Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
         :param pulumi.Input[int] heartbeat_timeout: Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter
@@ -68,16 +68,22 @@ class LifecycleHook(pulumi.CustomResource):
         :param pulumi.Input[str] notification_target_arn: The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not autoscaling_group_name:
+        if autoscaling_group_name is None:
             raise TypeError('Missing required property autoscaling_group_name')
         __props__['autoscaling_group_name'] = autoscaling_group_name
 
@@ -85,7 +91,7 @@ class LifecycleHook(pulumi.CustomResource):
 
         __props__['heartbeat_timeout'] = heartbeat_timeout
 
-        if not lifecycle_transition:
+        if lifecycle_transition is None:
             raise TypeError('Missing required property lifecycle_transition')
         __props__['lifecycle_transition'] = lifecycle_transition
 
@@ -99,9 +105,9 @@ class LifecycleHook(pulumi.CustomResource):
 
         super(LifecycleHook, __self__).__init__(
             'aws:autoscaling/lifecycleHook:LifecycleHook',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

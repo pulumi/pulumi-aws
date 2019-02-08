@@ -6,6 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks memcached layer resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const cache = new aws.opsworks.MemcachedLayer("cache", {
+ *     stackId: aws_opsworks_stack_main.id,
+ * });
+ * ```
  */
 export class MemcachedLayer extends pulumi.CustomResource {
     /**

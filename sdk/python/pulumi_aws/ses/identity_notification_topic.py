@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -20,31 +21,36 @@ class IdentityNotificationTopic(pulumi.CustomResource):
     """
     The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
     """
-    def __init__(__self__, __name__, __opts__=None, identity=None, notification_type=None, topic_arn=None):
+    def __init__(__self__, resource_name, opts=None, identity=None, notification_type=None, topic_arn=None, __name__=None, __opts__=None):
         """
         Resource for managing SES Identity Notification Topics
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identity: The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
         :param pulumi.Input[str] notification_type: The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
         :param pulumi.Input[str] topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not identity:
+        if identity is None:
             raise TypeError('Missing required property identity')
         __props__['identity'] = identity
 
-        if not notification_type:
+        if notification_type is None:
             raise TypeError('Missing required property notification_type')
         __props__['notification_type'] = notification_type
 
@@ -52,9 +58,9 @@ class IdentityNotificationTopic(pulumi.CustomResource):
 
         super(IdentityNotificationTopic, __self__).__init__(
             'aws:ses/identityNotificationTopic:IdentityNotificationTopic',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

@@ -15,17 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_user_u = new aws.iam.User("u", {
+ * const user = new aws.iam.User("u", {
  *     forceDestroy: true,
- *     name: "auser",
  *     path: "/",
  * });
- * const aws_iam_user_login_profile_u = new aws.iam.UserLoginProfile("u", {
+ * const userLoginProfile = new aws.iam.UserLoginProfile("u", {
  *     pgpKey: "keybase:some_person_that_exists",
- *     user: aws_iam_user_u.name,
+ *     user: user.name,
  * });
  * 
- * export const password = aws_iam_user_login_profile_u.encryptedPassword;
+ * export const password = userLoginProfile.encryptedPassword;
  * ```
  */
 export class UserLoginProfile extends pulumi.CustomResource {

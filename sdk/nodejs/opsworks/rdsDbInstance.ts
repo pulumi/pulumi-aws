@@ -9,6 +9,20 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const myInstance = new aws.opsworks.RdsDbInstance("my_instance", {
+ *     dbPassword: "somePass",
+ *     dbUser: "someUser",
+ *     rdsDbInstanceArn: aws_db_instance_my_instance.arn,
+ *     stackId: aws_opsworks_stack_my_stack.id,
+ * });
+ * ```
  */
 export class RdsDbInstance extends pulumi.CustomResource {
     /**
@@ -36,7 +50,7 @@ export class RdsDbInstance extends pulumi.CustomResource {
      */
     public readonly rdsDbInstanceArn: pulumi.Output<string>;
     /**
-     * The stack to register a db inatance for. Changing this will force a new resource.
+     * The stack to register a db instance for. Changing this will force a new resource.
      */
     public readonly stackId: pulumi.Output<string>;
 
@@ -96,7 +110,7 @@ export interface RdsDbInstanceState {
      */
     readonly rdsDbInstanceArn?: pulumi.Input<string>;
     /**
-     * The stack to register a db inatance for. Changing this will force a new resource.
+     * The stack to register a db instance for. Changing this will force a new resource.
      */
     readonly stackId?: pulumi.Input<string>;
 }
@@ -118,7 +132,7 @@ export interface RdsDbInstanceArgs {
      */
     readonly rdsDbInstanceArn: pulumi.Input<string>;
     /**
-     * The stack to register a db inatance for. Changing this will force a new resource.
+     * The stack to register a db instance for. Changing this will force a new resource.
      */
     readonly stackId: pulumi.Input<string>;
 }

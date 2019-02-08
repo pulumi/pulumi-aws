@@ -13,10 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_api_gateway_rest_api_main = new aws.apigateway.RestApi("main", {
- *     name: "MyDemoAPI",
- * });
- * const aws_api_gateway_gateway_response_test = new aws.apigateway.Response("test", {
+ * const main = new aws.apigateway.RestApi("main", {});
+ * const test = new aws.apigateway.Response("test", {
  *     responseParameters: {
  *         "gatewayresponse.header.Authorization": "'Basic'",
  *     },
@@ -24,7 +22,7 @@ import * as utilities from "../utilities";
  *         "application/json": "{'message':$context.error.messageString}",
  *     },
  *     responseType: "UNAUTHORIZED",
- *     restApiId: aws_api_gateway_rest_api_main.id,
+ *     restApiId: main.id,
  *     statusCode: "401",
  * });
  * ```

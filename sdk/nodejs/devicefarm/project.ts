@@ -11,6 +11,16 @@ import * as utilities from "../utilities";
  * 
  * For more information about Device Farm Projects, see the AWS Documentation on
  * [Device Farm Projects][aws-get-project].
+ * 
+ * ## Basic Example Usage
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const awesomeDevices = new aws.devicefarm.Project("awesome_devices", {});
+ * ```
  */
 export class Project extends pulumi.CustomResource {
     /**

@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_mq_configuration_example = new aws.mq.Configuration("example", {
+ * const example = new aws.mq.Configuration("example", {
  *     data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
  * <broker xmlns="http://activemq.apache.org/schema/core">
  *   <plugins>
@@ -28,7 +28,6 @@ import * as utilities from "../utilities";
  *     description: "Example Configuration",
  *     engineType: "ActiveMQ",
  *     engineVersion: "5.15.0",
- *     name: "example",
  * });
  * ```
  */
@@ -75,6 +74,10 @@ export class Configuration extends pulumi.CustomResource {
      * The name of the configuration
      */
     public readonly name: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Configuration resource with the given unique name, arguments, and options.
@@ -95,6 +98,7 @@ export class Configuration extends pulumi.CustomResource {
             inputs["engineVersion"] = state ? state.engineVersion : undefined;
             inputs["latestRevision"] = state ? state.latestRevision : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ConfigurationArgs | undefined;
             if (!args || args.data === undefined) {
@@ -111,6 +115,7 @@ export class Configuration extends pulumi.CustomResource {
             inputs["engineType"] = args ? args.engineType : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["latestRevision"] = undefined /*out*/;
         }
@@ -152,6 +157,10 @@ export interface ConfigurationState {
      * The name of the configuration
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -180,4 +189,8 @@ export interface ConfigurationArgs {
      * The name of the configuration
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

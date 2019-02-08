@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const config = new pulumi.Config();
- * const var_file_system_id = config.get("fileSystemId") || "";
+ * const fileSystemId = config.get("fileSystemId") || "";
  * 
- * const aws_efs_file_system_by_id = pulumi.output(aws.efs.getFileSystem({
- *     fileSystemId: var_file_system_id,
+ * const byId = pulumi.output(aws.efs.getFileSystem({
+ *     fileSystemId: fileSystemId,
  * }));
  * ```
  */

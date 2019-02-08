@@ -6,6 +6,26 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EKS Cluster.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.eks.Cluster("example", {
+ *     roleArn: aws_iam_role_example.arn,
+ *     vpcConfig: {
+ *         subnetIds: [
+ *             aws_subnet_example1.id,
+ *             aws_subnet_example2.id,
+ *         ],
+ *     },
+ * });
+ * 
+ * export const endpoint = example.endpoint;
+ * export const kubeconfig_certificate_authority_data = example.certificateAuthority.apply(certificateAuthority => certificateAuthority.data);
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

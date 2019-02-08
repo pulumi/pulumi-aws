@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_openid_connect_provider_default = new aws.iam.OpenIdConnectProvider("default", {
+ * const defaultOpenIdConnectProvider = new aws.iam.OpenIdConnectProvider("default", {
  *     clientIdLists: ["266362248691-342342xasdasdasda-apps.googleusercontent.com"],
  *     thumbprintLists: [],
  *     url: "https://accounts.google.com",

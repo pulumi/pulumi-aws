@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -68,13 +69,12 @@ class Stage(pulumi.CustomResource):
     """
     Whether active tracing with X-ray is enabled. Defaults to `false`.
     """
-    def __init__(__self__, __name__, __opts__=None, access_log_settings=None, cache_cluster_enabled=None, cache_cluster_size=None, client_certificate_id=None, deployment=None, description=None, documentation_version=None, rest_api=None, stage_name=None, tags=None, variables=None, xray_tracing_enabled=None):
+    def __init__(__self__, resource_name, opts=None, access_log_settings=None, cache_cluster_enabled=None, cache_cluster_size=None, client_certificate_id=None, deployment=None, description=None, documentation_version=None, rest_api=None, stage_name=None, tags=None, variables=None, xray_tracing_enabled=None, __name__=None, __opts__=None):
         """
         Provides an API Gateway Stage.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] access_log_settings: Enables access logs for the API stage. Detailed below.
         :param pulumi.Input[bool] cache_cluster_enabled: Specifies whether a cache cluster is enabled for the stage
         :param pulumi.Input[str] cache_cluster_size: The size of the cache cluster for the stage, if enabled.
@@ -89,11 +89,17 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[dict] variables: A map that defines the stage variables
         :param pulumi.Input[bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -106,7 +112,7 @@ class Stage(pulumi.CustomResource):
 
         __props__['client_certificate_id'] = client_certificate_id
 
-        if not deployment:
+        if deployment is None:
             raise TypeError('Missing required property deployment')
         __props__['deployment'] = deployment
 
@@ -114,11 +120,11 @@ class Stage(pulumi.CustomResource):
 
         __props__['documentation_version'] = documentation_version
 
-        if not rest_api:
+        if rest_api is None:
             raise TypeError('Missing required property rest_api')
         __props__['rest_api'] = rest_api
 
-        if not stage_name:
+        if stage_name is None:
             raise TypeError('Missing required property stage_name')
         __props__['stage_name'] = stage_name
 
@@ -133,9 +139,9 @@ class Stage(pulumi.CustomResource):
 
         super(Stage, __self__).__init__(
             'aws:apigateway/stage:Stage',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

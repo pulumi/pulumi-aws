@@ -15,7 +15,7 @@ import {PolicyDocument} from "./documents";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_role_test_role = new aws.iam.Role("test_role", {
+ * const testRole = new aws.iam.Role("test_role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -30,7 +30,6 @@ import {PolicyDocument} from "./documents";
  *   ]
  * }
  * `,
- *     name: "test_role",
  *     tags: {
  *         "tag-key": "tag-value",
  *     },
@@ -43,7 +42,7 @@ import {PolicyDocument} from "./documents";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_policy_document_instance_assume_role_policy = pulumi.output(aws.iam.getPolicyDocument({
+ * const instance_assume_role_policy = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         principals: [{
@@ -52,9 +51,8 @@ import {PolicyDocument} from "./documents";
  *         }],
  *     }],
  * }));
- * const aws_iam_role_instance = new aws.iam.Role("instance", {
- *     assumeRolePolicy: aws_iam_policy_document_instance_assume_role_policy.apply(__arg0 => __arg0.json),
- *     name: "instance_role",
+ * const instance = new aws.iam.Role("instance", {
+ *     assumeRolePolicy: instance_assume_role_policy.apply(instance_assume_role_policy => instance_assume_role_policy.json),
  *     path: "/system/",
  * });
  * ```

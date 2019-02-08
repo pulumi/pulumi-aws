@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_neptune_cluster_default = new aws.neptune.Cluster("default", {
+ * const defaultCluster = new aws.neptune.Cluster("default", {
  *     applyImmediately: true,
  *     backupRetentionPeriod: 5,
  *     clusterIdentifier: "neptune-cluster-demo",
@@ -31,9 +31,9 @@ import * as utilities from "../utilities";
  *     skipFinalSnapshot: true,
  * });
  * ```
+ * 
  * > **Note:** AWS Neptune does not support user name/password–based access control.
  * See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
- * 
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -69,7 +69,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly clusterIdentifier: pulumi.Output<string>;
     /**
-     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      */
     public readonly clusterIdentifierPrefix: pulumi.Output<string>;
     /**
@@ -261,7 +261,7 @@ export interface ClusterState {
      */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
-     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      */
     readonly clusterIdentifierPrefix?: pulumi.Input<string>;
     /**
@@ -375,7 +375,7 @@ export interface ClusterArgs {
      */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
-     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      */
     readonly clusterIdentifierPrefix?: pulumi.Input<string>;
     /**

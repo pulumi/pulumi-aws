@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -24,7 +25,7 @@ class KeyPair(pulumi.CustomResource):
     """
     The public key material.
     """
-    def __init__(__self__, __name__, __opts__=None, key_name=None, key_name_prefix=None, public_key=None):
+    def __init__(__self__, resource_name, opts=None, key_name=None, key_name_prefix=None, public_key=None, __name__=None, __opts__=None):
         """
         Provides an [EC2 key pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) resource. A key pair is used to control login access to EC2 instances.
         
@@ -36,18 +37,23 @@ class KeyPair(pulumi.CustomResource):
         * Base64 encoded DER format
         * SSH public key file format as specified in RFC4716
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_name: The name for the key pair.
         :param pulumi.Input[str] key_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
         :param pulumi.Input[str] public_key: The public key material.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -56,7 +62,7 @@ class KeyPair(pulumi.CustomResource):
 
         __props__['key_name_prefix'] = key_name_prefix
 
-        if not public_key:
+        if public_key is None:
             raise TypeError('Missing required property public_key')
         __props__['public_key'] = public_key
 
@@ -64,9 +70,9 @@ class KeyPair(pulumi.CustomResource):
 
         super(KeyPair, __self__).__init__(
             'aws:ec2/keyPair:KeyPair',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

@@ -13,20 +13,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_waf_rule_example = new aws.waf.Rule("example", {
+ * const exampleRule = new aws.waf.Rule("example", {
  *     metricName: "example",
- *     name: "example",
  * });
- * const aws_waf_rule_group_example = new aws.waf.RuleGroup("example", {
+ * const exampleRuleGroup = new aws.waf.RuleGroup("example", {
  *     activatedRules: [{
  *         action: {
  *             type: "COUNT",
  *         },
  *         priority: 50,
- *         ruleId: aws_waf_rule_example.id,
+ *         ruleId: exampleRule.id,
  *     }],
  *     metricName: "example",
- *     name: "example",
  * });
  * ```
  */

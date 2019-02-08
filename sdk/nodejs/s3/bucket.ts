@@ -8,22 +8,193 @@ import {CannedAcl} from "./cannedAcl";
 
 /**
  * Provides a S3 bucket resource.
+ * 
+ * ## Example Usage
+ * 
+ * ### Private Bucket w/ Tags
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const bucket = new aws.s3.Bucket("b", {
+ *     acl: "private",
+ *     bucket: "my-tf-test-bucket",
+ *     tags: {
+ *         Environment: "Dev",
+ *         Name: "My bucket",
+ *     },
+ * });
+ * ```
+ * 
+ * ### Static Website Hosting
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ * 
+ * const bucket = new aws.s3.Bucket("b", {
+ *     acl: "public-read",
+ *     bucket: "s3-website-test.hashicorp.com",
+ *     policy: fs.readFileSync("policy.json", "utf-8"),
+ *     website: {
+ *         errorDocument: "error.html",
+ *         indexDocument: "index.html",
+ *         routingRules: `[{
+ *     "Condition": {
+ *         "KeyPrefixEquals": "docs/"
+ *     },
+ *     "Redirect": {
+ *         "ReplaceKeyPrefixWith": "documents/"
+ *     }
+ * }]
+ * `,
+ *     },
+ * });
+ * ```
+ * 
+ * ### Using CORS
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const bucket = new aws.s3.Bucket("b", {
+ *     acl: "public-read",
+ *     bucket: "s3-website-test.hashicorp.com",
+ *     corsRules: [{
+ *         allowedHeaders: ["*"],
+ *         allowedMethods: [
+ *             "PUT",
+ *             "POST",
+ *         ],
+ *         allowedOrigins: ["https://s3-website-test.hashicorp.com"],
+ *         exposeHeaders: ["ETag"],
+ *         maxAgeSeconds: 3000,
+ *     }],
+ * });
+ * ```
+ * 
+ * ### Using versioning
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const bucket = new aws.s3.Bucket("b", {
+ *     acl: "private",
+ *     bucket: "my-tf-test-bucket",
+ *     versioning: {
+ *         enabled: true,
+ *     },
+ * });
+ * ```
+ * 
+ * ### Enable Logging
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const logBucket = new aws.s3.Bucket("log_bucket", {
+ *     acl: "log-delivery-write",
+ *     bucket: "my-tf-log-bucket",
+ * });
+ * const bucket = new aws.s3.Bucket("b", {
+ *     acl: "private",
+ *     bucket: "my-tf-test-bucket",
+ *     loggings: [{
+ *         targetBucket: logBucket.id,
+ *         targetPrefix: "log/",
+ *     }],
+ * });
+ * ```
+ * 
+ * ### Using object lifecycle
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const bucket = new aws.s3.Bucket("bucket", {
+ *     acl: "private",
+ *     bucket: "my-bucket",
+ *     lifecycleRules: [
+ *         {
+ *             enabled: true,
+ *             expiration: {
+ *                 days: 90,
+ *             },
+ *             id: "log",
+ *             prefix: "log/",
+ *             tags: {
+ *                 autoclean: "true",
+ *                 rule: "log",
+ *             },
+ *             transitions: [
+ *                 {
+ *                     days: 30,
+ *                     storageClass: "STANDARD_IA", // or "ONEZONE_IA"
+ *                 },
+ *                 {
+ *                     days: 60,
+ *                     storageClass: "GLACIER",
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             enabled: true,
+ *             expiration: {
+ *                 date: "2016-01-12",
+ *             },
+ *             id: "tmp",
+ *             prefix: "tmp/",
+ *         },
+ *     ],
+ * });
+ * const versioningBucket = new aws.s3.Bucket("versioning_bucket", {
+ *     acl: "private",
+ *     bucket: "my-versioning-bucket",
+ *     lifecycleRules: [{
+ *         enabled: true,
+ *         noncurrentVersionExpiration: {
+ *             days: 90,
+ *         },
+ *         noncurrentVersionTransitions: [
+ *             {
+ *                 days: 30,
+ *                 storageClass: "STANDARD_IA",
+ *             },
+ *             {
+ *                 days: 60,
+ *                 storageClass: "GLACIER",
+ *             },
+ *         ],
+ *         prefix: "config/",
+ *     }],
+ *     versioning: {
+ *         enabled: true,
+ *     },
+ * });
+ * ```
+ * 
  * ### Enable Default Server Side Encryption
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_kms_key_mykey = new aws.kms.Key("mykey", {
+ * const mykey = new aws.kms.Key("mykey", {
  *     deletionWindowInDays: 10,
  *     description: "This key is used to encrypt bucket objects",
  * });
- * const aws_s3_bucket_mybucket = new aws.s3.Bucket("mybucket", {
+ * const mybucket = new aws.s3.Bucket("mybucket", {
  *     bucket: "mybucket",
  *     serverSideEncryptionConfiguration: {
  *         rule: {
  *             applyServerSideEncryptionByDefault: {
- *                 kmsMasterKeyId: aws_kms_key_mykey.arn,
+ *                 kmsMasterKeyId: mykey.arn,
  *                 sseAlgorithm: "aws:kms",
  *             },
  *         },
@@ -87,7 +258,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
      */
-    public readonly lifecycleRules: pulumi.Output<{ abortIncompleteMultipartUploadDays?: number, enabled: boolean, expirations?: { date?: string, days?: number, expiredObjectDeleteMarker?: boolean }[], id: string, noncurrentVersionExpirations?: { days?: number }[], noncurrentVersionTransitions?: { days?: number, storageClass: string }[], prefix?: string, tags?: {[key: string]: any}, transitions?: { date?: string, days?: number, storageClass: string }[] }[] | undefined>;
+    public readonly lifecycleRules: pulumi.Output<{ abortIncompleteMultipartUploadDays?: number, enabled: boolean, expiration?: { date?: string, days?: number, expiredObjectDeleteMarker?: boolean }, id: string, noncurrentVersionExpiration?: { days?: number }, noncurrentVersionTransitions?: { days?: number, storageClass: string }[], prefix?: string, tags?: {[key: string]: any}, transitions?: { date?: string, days?: number, storageClass: string }[] }[] | undefined>;
     /**
      * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      */
@@ -253,7 +424,7 @@ export interface BucketState {
     /**
      * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
      */
-    readonly lifecycleRules?: pulumi.Input<pulumi.Input<{ abortIncompleteMultipartUploadDays?: pulumi.Input<number>, enabled: pulumi.Input<boolean>, expirations?: pulumi.Input<pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, expiredObjectDeleteMarker?: pulumi.Input<boolean> }>[]>, id?: pulumi.Input<string>, noncurrentVersionExpirations?: pulumi.Input<pulumi.Input<{ days?: pulumi.Input<number> }>[]>, noncurrentVersionTransitions?: pulumi.Input<pulumi.Input<{ days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }>[]>, prefix?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}>, transitions?: pulumi.Input<pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }>[]> }>[]>;
+    readonly lifecycleRules?: pulumi.Input<pulumi.Input<{ abortIncompleteMultipartUploadDays?: pulumi.Input<number>, enabled: pulumi.Input<boolean>, expiration?: pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, expiredObjectDeleteMarker?: pulumi.Input<boolean> }>, id?: pulumi.Input<string>, noncurrentVersionExpiration?: pulumi.Input<{ days?: pulumi.Input<number> }>, noncurrentVersionTransitions?: pulumi.Input<pulumi.Input<{ days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }>[]>, prefix?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}>, transitions?: pulumi.Input<pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }>[]> }>[]>;
     /**
      * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      */
@@ -347,7 +518,7 @@ export interface BucketArgs {
     /**
      * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
      */
-    readonly lifecycleRules?: pulumi.Input<pulumi.Input<{ abortIncompleteMultipartUploadDays?: pulumi.Input<number>, enabled: pulumi.Input<boolean>, expirations?: pulumi.Input<pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, expiredObjectDeleteMarker?: pulumi.Input<boolean> }>[]>, id?: pulumi.Input<string>, noncurrentVersionExpirations?: pulumi.Input<pulumi.Input<{ days?: pulumi.Input<number> }>[]>, noncurrentVersionTransitions?: pulumi.Input<pulumi.Input<{ days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }>[]>, prefix?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}>, transitions?: pulumi.Input<pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }>[]> }>[]>;
+    readonly lifecycleRules?: pulumi.Input<pulumi.Input<{ abortIncompleteMultipartUploadDays?: pulumi.Input<number>, enabled: pulumi.Input<boolean>, expiration?: pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, expiredObjectDeleteMarker?: pulumi.Input<boolean> }>, id?: pulumi.Input<string>, noncurrentVersionExpiration?: pulumi.Input<{ days?: pulumi.Input<number> }>, noncurrentVersionTransitions?: pulumi.Input<pulumi.Input<{ days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }>[]>, prefix?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}>, transitions?: pulumi.Input<pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }>[]> }>[]>;
     /**
      * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      */

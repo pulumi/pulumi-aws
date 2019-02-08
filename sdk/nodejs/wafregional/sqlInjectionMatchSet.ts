@@ -13,8 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_wafregional_sql_injection_match_set_sql_injection_match_set = new aws.wafregional.SqlInjectionMatchSet("sql_injection_match_set", {
- *     name: "tf-sql_injection_match_set",
+ * const sqlInjectionMatchSet = new aws.wafregional.SqlInjectionMatchSet("sql_injection_match_set", {
  *     sqlInjectionMatchTuples: [{
  *         fieldToMatch: {
  *             type: "QUERY_STRING",

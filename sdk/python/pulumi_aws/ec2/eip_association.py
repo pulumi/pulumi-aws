@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -41,7 +42,7 @@ class EipAssociation(pulumi.CustomResource):
     """
     The Elastic IP address. This is required for EC2-Classic.
     """
-    def __init__(__self__, __name__, __opts__=None, allocation_id=None, allow_reassociation=None, instance_id=None, network_interface_id=None, private_ip_address=None, public_ip=None):
+    def __init__(__self__, resource_name, opts=None, allocation_id=None, allow_reassociation=None, instance_id=None, network_interface_id=None, private_ip_address=None, public_ip=None, __name__=None, __opts__=None):
         """
         Provides an AWS EIP Association as a top level resource, to associate and
         disassociate Elastic IPs from AWS Instances and Network Interfaces.
@@ -51,9 +52,8 @@ class EipAssociation(pulumi.CustomResource):
         > **NOTE:** `aws_eip_association` is useful in scenarios where EIPs are either
         pre-existing or distributed to customers or users and therefore cannot be changed.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocation_id: The allocation ID. This is required for EC2-VPC.
         :param pulumi.Input[bool] allow_reassociation: Whether to allow an Elastic IP to
                be re-associated. Defaults to `true` in VPC.
@@ -70,11 +70,17 @@ class EipAssociation(pulumi.CustomResource):
                address.
         :param pulumi.Input[str] public_ip: The Elastic IP address. This is required for EC2-Classic.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -93,9 +99,9 @@ class EipAssociation(pulumi.CustomResource):
 
         super(EipAssociation, __self__).__init__(
             'aws:ec2/eipAssociation:EipAssociation',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

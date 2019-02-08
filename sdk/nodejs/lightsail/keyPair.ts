@@ -17,8 +17,30 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_lightsail_key_pair_lg_key_pair = new aws.lightsail.KeyPair("lg_key_pair", {
- *     name: "lg_key_pair",
+ * // Create a new Lightsail Key Pair
+ * const lgKeyPair = new aws.lightsail.KeyPair("lg_key_pair", {});
+ * ```
+ * 
+ * ## Create new Key Pair, encrypting the private key with a PGP Key
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const lgKeyPair = new aws.lightsail.KeyPair("lg_key_pair", {
+ *     pgpKey: "keybase:keybaseusername",
+ * });
+ * ```
+ * 
+ * ## Import an existing public key
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ * 
+ * const lgKeyPair = new aws.lightsail.KeyPair("lg_key_pair", {
+ *     publicKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf-8"),
  * });
  * ```
  */

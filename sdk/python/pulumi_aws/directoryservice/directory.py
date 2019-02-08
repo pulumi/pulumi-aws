@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -68,16 +69,15 @@ class Directory(pulumi.CustomResource):
     """
     VPC related information about the directory. Fields documented below.
     """
-    def __init__(__self__, __name__, __opts__=None, alias=None, connect_settings=None, description=None, edition=None, enable_sso=None, name=None, password=None, short_name=None, size=None, tags=None, type=None, vpc_settings=None):
+    def __init__(__self__, resource_name, opts=None, alias=None, connect_settings=None, description=None, edition=None, enable_sso=None, name=None, password=None, short_name=None, size=None, tags=None, type=None, vpc_settings=None, __name__=None, __opts__=None):
         """
         Provides a Simple or Managed Microsoft directory in AWS Directory Service.
         
         > **Note:** All arguments including the password and customer username will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
         :param pulumi.Input[dict] connect_settings: Connector related information about the directory. Fields documented below.
         :param pulumi.Input[str] description: A textual description for the directory.
@@ -91,11 +91,17 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
         :param pulumi.Input[dict] vpc_settings: VPC related information about the directory. Fields documented below.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -112,7 +118,7 @@ class Directory(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        if not password:
+        if password is None:
             raise TypeError('Missing required property password')
         __props__['password'] = password
 
@@ -132,9 +138,9 @@ class Directory(pulumi.CustomResource):
 
         super(Directory, __self__).__init__(
             'aws:directoryservice/directory:Directory',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

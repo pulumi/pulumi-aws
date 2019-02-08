@@ -13,17 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_api_gateway_rest_api_example = new aws.apigateway.RestApi("example", {
- *     name: "example_api",
- * });
- * const aws_api_gateway_documentation_part_example = new aws.apigateway.DocumentationPart("example", {
+ * const exampleRestApi = new aws.apigateway.RestApi("example", {});
+ * const exampleDocumentationPart = new aws.apigateway.DocumentationPart("example", {
  *     location: {
  *         method: "GET",
  *         path: "/example",
  *         type: "METHOD",
  *     },
  *     properties: "{\"description\":\"Example description\"}",
- *     restApiId: aws_api_gateway_rest_api_example.id,
+ *     restApiId: exampleRestApi.id,
  * });
  * ```
  */

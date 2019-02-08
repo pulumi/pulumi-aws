@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_group_example = pulumi.output(aws.iam.getGroup({
+ * const example = pulumi.output(aws.iam.getGroup({
  *     groupName: "an_example_group_name",
  * }));
  * ```

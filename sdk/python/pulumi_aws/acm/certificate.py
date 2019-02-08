@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -49,7 +50,7 @@ class Certificate(pulumi.CustomResource):
     Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into Terraform.
     * Importing an existing certificate
     """
-    def __init__(__self__, __name__, __opts__=None, certificate_body=None, certificate_chain=None, domain_name=None, private_key=None, subject_alternative_names=None, tags=None, validation_method=None):
+    def __init__(__self__, resource_name, opts=None, certificate_body=None, certificate_chain=None, domain_name=None, private_key=None, subject_alternative_names=None, tags=None, validation_method=None, __name__=None, __opts__=None):
         """
         The ACM certificate resource allows requesting and management of certificates
         from the Amazon Certificate Manager.
@@ -69,9 +70,8 @@ class Certificate(pulumi.CustomResource):
         It's recommended to specify `create_before_destroy = true` in a [lifecycle][1] block to replace a certificate
         which is currently in use (eg, by `aws_lb_listener`).
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_body: The certificate's PEM-formatted public key
         :param pulumi.Input[str] certificate_chain: The certificate's PEM-formatted chain
         :param pulumi.Input[str] domain_name: A domain name for which the certificate should be issued
@@ -81,11 +81,17 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into Terraform.
                * Importing an existing certificate
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -110,9 +116,9 @@ class Certificate(pulumi.CustomResource):
 
         super(Certificate, __self__).__init__(
             'aws:acm/certificate:Certificate',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

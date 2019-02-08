@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -135,7 +136,7 @@ class ReplicationGroup(pulumi.CustomResource):
     """
     Whether to enable encryption in transit.
     """
-    def __init__(__self__, __name__, __opts__=None, apply_immediately=None, at_rest_encryption_enabled=None, auth_token=None, auto_minor_version_upgrade=None, automatic_failover_enabled=None, availability_zones=None, cluster_mode=None, engine=None, engine_version=None, maintenance_window=None, node_type=None, notification_topic_arn=None, number_cache_clusters=None, parameter_group_name=None, port=None, replication_group_description=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_arns=None, snapshot_name=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None, transit_encryption_enabled=None):
+    def __init__(__self__, resource_name, opts=None, apply_immediately=None, at_rest_encryption_enabled=None, auth_token=None, auto_minor_version_upgrade=None, automatic_failover_enabled=None, availability_zones=None, cluster_mode=None, engine=None, engine_version=None, maintenance_window=None, node_type=None, notification_topic_arn=None, number_cache_clusters=None, parameter_group_name=None, port=None, replication_group_description=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_arns=None, snapshot_name=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None, transit_encryption_enabled=None, __name__=None, __opts__=None):
         """
         Provides an ElastiCache Replication Group resource.
         For working with Memcached or single primary Redis instances (Cluster Mode Disabled), see the
@@ -149,9 +150,8 @@ class ReplicationGroup(pulumi.CustomResource):
         immediately. Using `apply_immediately` can result in a brief downtime as
         servers reboots.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[bool] at_rest_encryption_enabled: Whether to enable encryption at rest.
         :param pulumi.Input[str] auth_token: The password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
@@ -190,11 +190,17 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -229,7 +235,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
         __props__['port'] = port
 
-        if not replication_group_description:
+        if replication_group_description is None:
             raise TypeError('Missing required property replication_group_description')
         __props__['replication_group_description'] = replication_group_description
 
@@ -259,9 +265,9 @@ class ReplicationGroup(pulumi.CustomResource):
 
         super(ReplicationGroup, __self__).__init__(
             'aws:elasticache/replicationGroup:ReplicationGroup',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

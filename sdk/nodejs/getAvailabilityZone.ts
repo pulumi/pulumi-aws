@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const config = new pulumi.Config();
- * const var_az_number = config.get("azNumber") || {
+ * const azNumber = config.get("azNumber") || {
  *     a: 1,
  *     b: 2,
  *     c: 3,
@@ -35,7 +35,7 @@ import * as utilities from "./utilities";
  *     e: 5,
  *     f: 6,
  * };
- * const var_region_number = config.get("regionNumber") || {
+ * const regionNumber = config.get("regionNumber") || {
  *     "ap-northeast-1": 5,
  *     "eu-central-1": 4,
  *     "us-east-1": 1,
@@ -43,21 +43,25 @@ import * as utilities from "./utilities";
  *     "us-west-2": 3,
  * };
  * 
- * const aws_availability_zone_example = pulumi.output(aws.getAvailabilityZone({
+ * // Retrieve the AZ where we want to create network resources
+ * // This must be in the region selected on the AWS provider.
+ * const exampleAvailabilityZone = pulumi.output(aws.getAvailabilityZone({
  *     name: "eu-central-1a",
  * }));
- * const aws_vpc_example = new aws.ec2.Vpc("example", {
- *     cidrBlock: aws_availability_zone_example.apply(__arg0 => (() => {
+ * // Create a VPC for the region associated with the AZ
+ * const exampleVpc = new aws.ec2.Vpc("example", {
+ *     cidrBlock: exampleAvailabilityZone.apply(exampleAvailabilityZone => (() => {
  *         throw "tf2pulumi error: NYI: call to cidrsubnet";
  *         return (() => { throw "NYI: call to cidrsubnet"; })();
  *     })()),
  * });
- * const aws_subnet_example = new aws.ec2.Subnet("example", {
- *     cidrBlock: pulumi.all([aws_vpc_example.cidrBlock, aws_availability_zone_example]).apply(([__arg0, __arg1]) => (() => {
+ * // Create a subnet for the AZ within the regional VPC
+ * const exampleSubnet = new aws.ec2.Subnet("example", {
+ *     cidrBlock: pulumi.all([exampleVpc.cidrBlock, exampleAvailabilityZone]).apply(([cidrBlock, exampleAvailabilityZone]) => (() => {
  *         throw "tf2pulumi error: NYI: call to cidrsubnet";
  *         return (() => { throw "NYI: call to cidrsubnet"; })();
  *     })()),
- *     vpcId: aws_vpc_example.id,
+ *     vpcId: exampleVpc.id,
  * });
  * ```
  */

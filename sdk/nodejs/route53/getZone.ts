@@ -18,16 +18,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_route53_zone_selected = pulumi.output(aws.route53.getZone({
+ * const selected = pulumi.output(aws.route53.getZone({
  *     name: "test.com.",
  *     privateZone: true,
  * }));
- * const aws_route53_record_www = new aws.route53.Record("www", {
- *     name: aws_route53_zone_selected.apply(__arg0 => `www.${__arg0.name}`),
+ * const www = new aws.route53.Record("www", {
  *     records: ["10.0.0.1"],
- *     ttl: Number.parseFloat("300"),
+ *     ttl: 300,
  *     type: "A",
- *     zoneId: aws_route53_zone_selected.apply(__arg0 => __arg0.zoneId),
+ *     zoneId: selected.apply(selected => selected.zoneId),
  * });
  * ```
  */

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -67,7 +68,7 @@ class Group(pulumi.CustomResource):
     """
     launch_template: pulumi.Output[dict]
     """
-    Nested argument with Launch template specification to use to launch instances. Defined below.
+    Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
     """
     load_balancers: pulumi.Output[list]
     """
@@ -155,15 +156,76 @@ class Group(pulumi.CustomResource):
     `min_elb_capacity` behavior.)
     (See also Waiting for Capacity below.)
     """
-    def __init__(__self__, __name__, __opts__=None, availability_zones=None, default_cooldown=None, desired_capacity=None, enabled_metrics=None, force_delete=None, health_check_grace_period=None, health_check_type=None, initial_lifecycle_hooks=None, launch_configuration=None, launch_template=None, load_balancers=None, max_size=None, metrics_granularity=None, min_elb_capacity=None, min_size=None, mixed_instances_policy=None, name=None, name_prefix=None, placement_group=None, protect_from_scale_in=None, service_linked_role_arn=None, suspended_processes=None, tags=None, tags_collection=None, target_group_arns=None, termination_policies=None, vpc_zone_identifiers=None, wait_for_capacity_timeout=None, wait_for_elb_capacity=None):
+    def __init__(__self__, resource_name, opts=None, availability_zones=None, default_cooldown=None, desired_capacity=None, enabled_metrics=None, force_delete=None, health_check_grace_period=None, health_check_type=None, initial_lifecycle_hooks=None, launch_configuration=None, launch_template=None, load_balancers=None, max_size=None, metrics_granularity=None, min_elb_capacity=None, min_size=None, mixed_instances_policy=None, name=None, name_prefix=None, placement_group=None, protect_from_scale_in=None, service_linked_role_arn=None, suspended_processes=None, tags=None, tags_collection=None, target_group_arns=None, termination_policies=None, vpc_zone_identifiers=None, wait_for_capacity_timeout=None, wait_for_elb_capacity=None, __name__=None, __opts__=None):
         """
         Provides an AutoScaling Group resource.
         
-        -> **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
+        > **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
         
+        ## Waiting for Capacity
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        A newly-created ASG is initially empty and begins to scale to `min_size` (or
+        `desired_capacity`, if specified) by launching instances using the provided
+        Launch Configuration. These instances take time to launch and boot.
+        
+        On ASG Update, changes to these values also take time to result in the target
+        number of instances providing service.
+        
+        Terraform provides two mechanisms to help consistently manage ASG scale up
+        time across dependent resources.
+        
+        #### Waiting for ASG Capacity
+        
+        The first is default behavior. Terraform waits after ASG creation for
+        `min_size` (or `desired_capacity`, if specified) healthy instances to show up
+        in the ASG before continuing.
+        
+        If `min_size` or `desired_capacity` are changed in a subsequent update,
+        Terraform will also wait for the correct number of healthy instances before
+        continuing.
+        
+        Terraform considers an instance "healthy" when the ASG reports `HealthStatus:
+        "Healthy"` and `LifecycleState: "InService"`. See the [AWS AutoScaling
+        Docs](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html)
+        for more information on an ASG's lifecycle.
+        
+        Terraform will wait for healthy instances for up to
+        `wait_for_capacity_timeout`. If ASG creation is taking more than a few minutes,
+        it's worth investigating for scaling activity errors, which can be caused by
+        problems with the selected Launch Configuration.
+        
+        Setting `wait_for_capacity_timeout` to `"0"` disables ASG Capacity waiting.
+        
+        #### Waiting for ELB Capacity
+        
+        The second mechanism is optional, and affects ASGs with attached ELBs specified
+        via the `load_balancers` attribute or with ALBs specified with `target_group_arns`.
+        
+        The `min_elb_capacity` parameter causes Terraform to wait for at least the
+        requested number of instances to show up `"InService"` in all attached ELBs
+        during ASG creation.  It has no effect on ASG updates.
+        
+        If `wait_for_elb_capacity` is set, Terraform will wait for exactly that number
+        of Instances to be `"InService"` in all attached ELBs on both creation and
+        updates.
+        
+        These parameters can be used to ensure that service is being provided before
+        Terraform moves on. If new instances don't pass the ELB's health checks for any
+        reason, the Terraform apply will time out, and the ASG will be marked as
+        tainted (i.e. marked to be destroyed in a follow up run).
+        
+        As with ASG Capacity, Terraform will wait for up to `wait_for_capacity_timeout`
+        for the proper number of instances to be healthy.
+        
+        #### Troubleshooting Capacity Waiting Timeouts
+        
+        If ASG creation takes more than a few minutes, this could indicate one of a
+        number of configuration problems. See the [AWS Docs on Load Balancer
+        Troubleshooting](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-troubleshooting.html)
+        for more information.
+        
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] availability_zones: A list of one or more availability zones for the group. This parameter should not be specified when using `vpc_zone_identifier`.
         :param pulumi.Input[int] default_cooldown: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         :param pulumi.Input[int] desired_capacity: The number of Amazon EC2 instances that
@@ -190,7 +252,7 @@ class Group(pulumi.CustomResource):
                resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
                a new autoscaling group. For all other use-cases, please use `aws_autoscaling_lifecycle_hook` resource.
         :param pulumi.Input[str] launch_configuration: The name of the launch configuration to use.
-        :param pulumi.Input[dict] launch_template: Nested argument with Launch template specification to use to launch instances. Defined below.
+        :param pulumi.Input[dict] launch_template: Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
         :param pulumi.Input[list] load_balancers: A list of elastic load balancer names to add to the autoscaling
                group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
         :param pulumi.Input[int] max_size: The maximum size of the auto scale group.
@@ -224,11 +286,17 @@ class Group(pulumi.CustomResource):
                `min_elb_capacity` behavior.)
                (See also Waiting for Capacity below.)
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -255,7 +323,7 @@ class Group(pulumi.CustomResource):
 
         __props__['load_balancers'] = load_balancers
 
-        if not max_size:
+        if max_size is None:
             raise TypeError('Missing required property max_size')
         __props__['max_size'] = max_size
 
@@ -263,7 +331,7 @@ class Group(pulumi.CustomResource):
 
         __props__['min_elb_capacity'] = min_elb_capacity
 
-        if not min_size:
+        if min_size is None:
             raise TypeError('Missing required property min_size')
         __props__['min_size'] = min_size
 
@@ -299,9 +367,9 @@ class Group(pulumi.CustomResource):
 
         super(Group, __self__).__init__(
             'aws:autoscaling/group:Group',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

@@ -28,6 +28,12 @@ import (
 // > **Note:** All arguments including the username and password will be stored in
 // the raw state as plain-text. [Read more about sensitive data in
 // state](https://www.terraform.io/docs/state/sensitive-data.html).
+// 
+// ## RDS Instance Class Types
+// 
+// Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
+// and Burstable Performance. For more information please read the AWS RDS documentation
+// about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
 type Instance struct {
 	s *pulumi.ResourceState
 }
@@ -382,7 +388,7 @@ func (r *Instance) Identifier() *pulumi.StringOutput {
 }
 
 // Creates a unique
-// identifier beginning with the specified prefix. Conflicts with `identifer`.
+// identifier beginning with the specified prefix. Conflicts with `identifier`.
 func (r *Instance) IdentifierPrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["identifierPrefix"])
 }
@@ -658,7 +664,7 @@ type InstanceState struct {
 	// if omitted, Terraform will assign a random, unique identifier.
 	Identifier interface{}
 	// Creates a unique
-	// identifier beginning with the specified prefix. Conflicts with `identifer`.
+	// identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix interface{}
 	// The instance type of the RDS instance.
 	InstanceClass interface{}
@@ -837,7 +843,7 @@ type InstanceArgs struct {
 	// if omitted, Terraform will assign a random, unique identifier.
 	Identifier interface{}
 	// Creates a unique
-	// identifier beginning with the specified prefix. Conflicts with `identifer`.
+	// identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix interface{}
 	// The instance type of the RDS instance.
 	InstanceClass interface{}

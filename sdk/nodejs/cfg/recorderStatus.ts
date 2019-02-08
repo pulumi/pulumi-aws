@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_role_r = new aws.iam.Role("r", {
+ * const role = new aws.iam.Role("r", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -30,26 +30,21 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     name: "example-awsconfig",
  * });
- * const aws_s3_bucket_b = new aws.s3.Bucket("b", {
+ * const bucket = new aws.s3.Bucket("b", {
  *     bucket: "awsconfig-example",
  * });
- * const aws_config_configuration_recorder_foo = new aws.cfg.Recorder("foo", {
- *     name: "example",
- *     roleArn: aws_iam_role_r.arn,
+ * const fooRecorder = new aws.cfg.Recorder("foo", {
+ *     roleArn: role.arn,
  * });
- * const aws_config_delivery_channel_foo = new aws.cfg.DeliveryChannel("foo", {
- *     name: "example",
- *     s3BucketName: aws_s3_bucket_b.bucket,
+ * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("foo", {
+ *     s3BucketName: bucket.bucket,
  * });
- * const aws_config_configuration_recorder_status_foo = new aws.cfg.RecorderStatus("foo", {
+ * const fooRecorderStatus = new aws.cfg.RecorderStatus("foo", {
  *     isEnabled: true,
- *     name: aws_config_configuration_recorder_foo.name,
- * }, {dependsOn: [aws_config_delivery_channel_foo]});
- * const aws_iam_role_policy_p = new aws.iam.RolePolicy("p", {
- *     name: "awsconfig-example",
- *     policy: pulumi.all([aws_s3_bucket_b.arn, aws_s3_bucket_b.arn]).apply(([__arg0, __arg1]) => `{
+ * }, {dependsOn: [fooDeliveryChannel]});
+ * const rolePolicy = new aws.iam.RolePolicy("p", {
+ *     policy: pulumi.all([bucket.arn, bucket.arn]).apply(([bucketArn, bucketArn1]) => `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -58,18 +53,18 @@ import * as utilities from "../utilities";
  *       ],
  *       "Effect": "Allow",
  *       "Resource": [
- *         "${__arg0}",
- *         "${__arg1}/*"
+ *         "${bucketArn}",
+ *         "${bucketArn1}/*"
  *       ]
  *     }
  *   ]
  * }
  * `),
- *     role: aws_iam_role_r.id,
+ *     role: role.id,
  * });
- * const aws_iam_role_policy_attachment_a = new aws.iam.RolePolicyAttachment("a", {
+ * const rolePolicyAttachment = new aws.iam.RolePolicyAttachment("a", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSConfigRole",
- *     role: aws_iam_role_r.name,
+ *     role: role.name,
  * });
  * ```
  */

@@ -16,11 +16,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ebs_volume_example = new aws.ebs.Volume("example", {
+ * const example = new aws.ebs.Volume("example", {
  *     availabilityZone: "us-west-2a",
  *     size: 1,
  * });
- * const aws_instance_web = new aws.ec2.Instance("web", {
+ * const web = new aws.ec2.Instance("web", {
  *     ami: "ami-21f78e11",
  *     availabilityZone: "us-west-2a",
  *     instanceType: "t1.micro",
@@ -28,10 +28,10 @@ import * as utilities from "../utilities";
  *         Name: "HelloWorld",
  *     },
  * });
- * const aws_volume_attachment_ebs_att = new aws.ec2.VolumeAttachment("ebs_att", {
+ * const ebsAtt = new aws.ec2.VolumeAttachment("ebs_att", {
  *     deviceName: "/dev/sdh",
- *     instanceId: aws_instance_web.id,
- *     volumeId: aws_ebs_volume_example.id,
+ *     instanceId: web.id,
+ *     volumeId: example.id,
  * });
  * ```
  */

@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ami_ids_ubuntu = pulumi.output(aws.getAmiIds({
+ * const ubuntu = pulumi.output(aws.getAmiIds({
  *     filters: [{
  *         name: "name",
  *         values: ["ubuntu/images/ubuntu-*-*-amd64-server-*"],

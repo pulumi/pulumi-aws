@@ -15,13 +15,36 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_instance_test = new aws.ec2.Instance("test", {});
- * const aws_lb_target_group_test = new aws.elasticloadbalancingv2.TargetGroup("test", {});
- * const aws_lb_target_group_attachment_test = new aws.elasticloadbalancingv2.TargetGroupAttachment("test", {
+ * const testInstance = new aws.ec2.Instance("test", {});
+ * const testTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("test", {});
+ * const testTargetGroupAttachment = new aws.elasticloadbalancingv2.TargetGroupAttachment("test", {
  *     port: 80,
- *     targetGroupArn: aws_lb_target_group_test.arn,
- *     targetId: aws_instance_test.id,
+ *     targetGroupArn: testTargetGroup.arn,
+ *     targetId: testInstance.id,
  * });
+ * ```
+ * 
+ * ## Usage with lambda
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const testFunction = new aws.lambda.Function("test", {});
+ * const testTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("test", {
+ *     targetType: "lambda",
+ * });
+ * const withLb = new aws.lambda.Permission("with_lb", {
+ *     action: "lambda:InvokeFunction",
+ *     function: testFunction.arn,
+ *     principal: "elasticloadbalancing.amazonaws.com",
+ *     sourceArn: testTargetGroup.arn,
+ *     statementId: "AllowExecutionFromlb",
+ * });
+ * const testTargetGroupAttachment = new aws.elasticloadbalancingv2.TargetGroupAttachment("test", {
+ *     targetGroupArn: testTargetGroup.arn,
+ *     targetId: testFunction.arn,
+ * }, {dependsOn: [withLb]});
  * ```
  */
 export class TargetGroupAttachment extends pulumi.CustomResource {

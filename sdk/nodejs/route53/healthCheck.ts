@@ -6,25 +6,80 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Route53 health check.
+ * 
+ * ## Example Usage
+ * 
+ * ### Connectivity and HTTP Status Code Check
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.route53.HealthCheck("example", {
+ *     failureThreshold: 5,
+ *     fqdn: "example.com",
+ *     port: 80,
+ *     requestInterval: 30,
+ *     resourcePath: "/",
+ *     tags: {
+ *         Name: "tf-test-health-check",
+ *     },
+ *     type: "HTTP",
+ * });
+ * ```
+ * 
+ * ### Connectivity and String Matching Check
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.route53.HealthCheck("example", {
+ *     failureThreshold: 5,
+ *     fqdn: "example.com",
+ *     port: 443,
+ *     requestInterval: 30,
+ *     resourcePath: "/",
+ *     searchString: "example",
+ *     type: "HTTPS_STR_MATCH",
+ * });
+ * ```
+ * 
+ * ### Aggregate Check
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const parent = new aws.route53.HealthCheck("parent", {
+ *     childHealthThreshold: 1,
+ *     childHealthchecks: [aws_route53_health_check_child.id],
+ *     tags: {
+ *         Name: "tf-test-calculated-health-check",
+ *     },
+ *     type: "CALCULATED",
+ * });
+ * ```
+ * 
  * ### CloudWatch Alarm Check
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_cloudwatch_metric_alarm_foobar = new aws.cloudwatch.MetricAlarm("foobar", {
+ * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
  *     alarmDescription: "This metric monitors ec2 cpu utilization",
  *     name: "terraform-test-foobar5",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
- *     evaluationPeriods: Number.parseFloat("2"),
+ *     evaluationPeriods: 2,
  *     metricName: "CPUUtilization",
  *     namespace: "AWS/EC2",
- *     period: Number.parseFloat("120"),
+ *     period: 120,
  *     statistic: "Average",
- *     threshold: Number.parseFloat("80"),
+ *     threshold: 80,
  * });
- * const aws_route53_health_check_foo = new aws.route53.HealthCheck("foo", {
- *     cloudwatchAlarmName: aws_cloudwatch_metric_alarm_foobar.alarmName,
+ * const foo = new aws.route53.HealthCheck("foo", {
+ *     cloudwatchAlarmName: foobar.alarmName,
  *     cloudwatchAlarmRegion: "us-west-2",
  *     insufficientDataHealthStatus: "Healthy",
  *     type: "CLOUDWATCH_METRIC",

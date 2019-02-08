@@ -25,10 +25,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_autoscaling_group_foobar = new aws.autoscaling.Group("foobar", {
+ * const foobarGroup = new aws.autoscaling.Group("foobar", {
  *     availabilityZones: ["us-west-2a"],
  *     healthCheckType: "EC2",
- *     name: "terraform-test-foobar5",
  *     tags: [{
  *         key: "Foo",
  *         propagateAtLaunch: true,
@@ -36,12 +35,11 @@ import * as utilities from "../utilities";
  *     }],
  *     terminationPolicies: ["OldestInstance"],
  * });
- * const aws_autoscaling_lifecycle_hook_foobar = new aws.autoscaling.LifecycleHook("foobar", {
- *     autoscalingGroupName: aws_autoscaling_group_foobar.name,
+ * const foobarLifecycleHook = new aws.autoscaling.LifecycleHook("foobar", {
+ *     autoscalingGroupName: foobarGroup.name,
  *     defaultResult: "CONTINUE",
  *     heartbeatTimeout: 2000,
  *     lifecycleTransition: "autoscaling:EC2_INSTANCE_LAUNCHING",
- *     name: "foobar",
  *     notificationMetadata: `{
  *   "foo": "bar"
  * }

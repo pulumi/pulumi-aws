@@ -15,20 +15,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ec2_transit_gateway_example = pulumi.output(aws.ec2transitgateway.getTransitGateway({
+ * const example = pulumi.output(aws.ec2transitgateway.getTransitGateway({
  *     filters: [{
  *         name: "amazon-side-asn",
  *         values: ["64512"],
  *     }],
  * }));
  * ```
+ * 
  * ### By Identifier
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ec2_transit_gateway_example = pulumi.output(aws.ec2transitgateway.getTransitGateway({
+ * const example = pulumi.output(aws.ec2transitgateway.getTransitGateway({
  *     id: "tgw-12345678",
  * }));
  * ```

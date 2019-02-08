@@ -13,10 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_cognito_user_pool_main = new aws.cognito.UserPool("main", {
- *     name: "identity pool",
- * });
- * const aws_iam_role_group_role = new aws.iam.Role("group_role", {
+ * const mainUserPool = new aws.cognito.UserPool("main", {});
+ * const groupRole = new aws.iam.Role("group_role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -39,14 +37,12 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     name: "user-group-role",
  * });
- * const aws_cognito_user_group_main = new aws.cognito.UserGroup("main", {
+ * const mainUserGroup = new aws.cognito.UserGroup("main", {
  *     description: "Managed by Terraform",
- *     name: "user-group",
  *     precedence: 42,
- *     roleArn: aws_iam_role_group_role.arn,
- *     userPoolId: aws_cognito_user_pool_main.id,
+ *     roleArn: groupRole.arn,
+ *     userPoolId: mainUserPool.id,
  * });
  * ```
  */

@@ -13,30 +13,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_api_gateway_rest_api_myapi = new aws.apigateway.RestApi("myapi", {
- *     name: "MyDemoAPI",
- * });
- * const aws_api_gateway_deployment_dev = new aws.apigateway.Deployment("dev", {
- *     restApi: aws_api_gateway_rest_api_myapi.id,
+ * const myapi = new aws.apigateway.RestApi("myapi", {});
+ * const dev = new aws.apigateway.Deployment("dev", {
+ *     restApi: myapi.id,
  *     stageName: "dev",
  * });
- * const aws_api_gateway_deployment_prod = new aws.apigateway.Deployment("prod", {
- *     restApi: aws_api_gateway_rest_api_myapi.id,
+ * const prod = new aws.apigateway.Deployment("prod", {
+ *     restApi: myapi.id,
  *     stageName: "prod",
  * });
- * const aws_api_gateway_usage_plan_MyUsagePlan = new aws.apigateway.UsagePlan("MyUsagePlan", {
+ * const myUsagePlan = new aws.apigateway.UsagePlan("MyUsagePlan", {
  *     apiStages: [
  *         {
- *             apiId: aws_api_gateway_rest_api_myapi.id,
- *             stage: aws_api_gateway_deployment_dev.stageName,
+ *             apiId: myapi.id,
+ *             stage: dev.stageName,
  *         },
  *         {
- *             apiId: aws_api_gateway_rest_api_myapi.id,
- *             stage: aws_api_gateway_deployment_prod.stageName,
+ *             apiId: myapi.id,
+ *             stage: prod.stageName,
  *         },
  *     ],
  *     description: "my description",
- *     name: "my-usage-plan",
  *     productCode: "MYCODE",
  *     quotaSettings: {
  *         limit: 20,

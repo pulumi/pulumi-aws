@@ -15,38 +15,161 @@ import {RestApi} from "./restApi";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_api_gateway_rest_api_MyDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
+ * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
- *     name: "MyDemoAPI",
  * });
- * const aws_api_gateway_resource_MyDemoResource = new aws.apigateway.Resource("MyDemoResource", {
- *     parentId: aws_api_gateway_rest_api_MyDemoAPI.rootResourceId,
+ * const myDemoResource = new aws.apigateway.Resource("MyDemoResource", {
+ *     parentId: myDemoAPI.rootResourceId,
  *     pathPart: "mydemoresource",
- *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
+ *     restApi: myDemoAPI.id,
  * });
- * const aws_api_gateway_method_MyDemoMethod = new aws.apigateway.Method("MyDemoMethod", {
+ * const myDemoMethod = new aws.apigateway.Method("MyDemoMethod", {
  *     authorization: "NONE",
  *     httpMethod: "GET",
- *     resourceId: aws_api_gateway_resource_MyDemoResource.id,
- *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
+ *     resourceId: myDemoResource.id,
+ *     restApi: myDemoAPI.id,
  * });
- * const aws_api_gateway_integration_MyDemoIntegration = new aws.apigateway.Integration("MyDemoIntegration", {
+ * const myDemoIntegration = new aws.apigateway.Integration("MyDemoIntegration", {
  *     cacheKeyParameters: ["method.request.path.param"],
  *     cacheNamespace: "foobar",
- *     httpMethod: aws_api_gateway_method_MyDemoMethod.httpMethod,
+ *     httpMethod: myDemoMethod.httpMethod,
  *     requestParameters: {
  *         "integration.request.header.X-Authorization": "'static'",
  *     },
+ *     // Transforms the incoming XML request to JSON
  *     requestTemplates: {
  *         "application/xml": `{
  *    "body" : $input.json('$')
  * }
  * `,
  *     },
- *     resourceId: aws_api_gateway_resource_MyDemoResource.id,
- *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
+ *     resourceId: myDemoResource.id,
+ *     restApi: myDemoAPI.id,
  *     timeoutMilliseconds: 29000,
  *     type: "MOCK",
+ * });
+ * ```
+ * 
+ * ## Lambda integration
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ * 
+ * const config = new pulumi.Config();
+ * const accountId = config.require("accountId");
+ * // Variables
+ * const myregion = config.require("myregion");
+ * 
+ * // API Gateway
+ * const api = new aws.apigateway.RestApi("api", {});
+ * // IAM
+ * const role = new aws.iam.Role("role", {
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "lambda.amazonaws.com"
+ *       },
+ *       "Effect": "Allow",
+ *       "Sid": ""
+ *     }
+ *   ]
+ * }
+ * `,
+ * });
+ * const resource = new aws.apigateway.Resource("resource", {
+ *     parentId: api.rootResourceId,
+ *     pathPart: "resource",
+ *     restApi: api.id,
+ * });
+ * const method = new aws.apigateway.Method("method", {
+ *     authorization: "NONE",
+ *     httpMethod: "GET",
+ *     resourceId: resource.id,
+ *     restApi: api.id,
+ * });
+ * const lambda = new aws.lambda.Function("lambda", {
+ *     code: new pulumi.asset.FileArchive("lambda.zip"),
+ *     name: "mylambda",
+ *     handler: "lambda.lambda_handler",
+ *     role: role.arn,
+ *     runtime: "python2.7",
+ * });
+ * const integration = new aws.apigateway.Integration("integration", {
+ *     httpMethod: method.httpMethod,
+ *     integrationHttpMethod: "POST",
+ *     resourceId: resource.id,
+ *     restApi: api.id,
+ *     type: "AWS_PROXY",
+ *     uri: lambda.arn.apply(arn => `arn:aws:apigateway:${myregion}:lambda:path/2015-03-31/functions/${arn}/invocations`),
+ * });
+ * // Lambda
+ * const apigwLambda = new aws.lambda.Permission("apigw_lambda", {
+ *     action: "lambda:InvokeFunction",
+ *     function: lambda.arn,
+ *     principal: "apigateway.amazonaws.com",
+ *     sourceArn: pulumi.all([api.id, method.httpMethod, resource.path]).apply(([id, httpMethod, path]) => `arn:aws:execute-api:${myregion}:${accountId}:${id}/*&#47;${httpMethod}/${path}`),
+ *     statementId: "AllowExecutionFromAPIGateway",
+ * });
+ * ```
+ * 
+ * ## VPC Link
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const config = new pulumi.Config();
+ * const name = config.require("name");
+ * const subnetId = config.require("subnetId");
+ * 
+ * const testRestApi = new aws.apigateway.RestApi("test", {});
+ * const testResource = new aws.apigateway.Resource("test", {
+ *     parentId: testRestApi.rootResourceId,
+ *     pathPart: "test",
+ *     restApi: testRestApi.id,
+ * });
+ * const testMethod = new aws.apigateway.Method("test", {
+ *     authorization: "NONE",
+ *     httpMethod: "GET",
+ *     requestModels: {
+ *         "application/json": "Error",
+ *     },
+ *     resourceId: testResource.id,
+ *     restApi: testRestApi.id,
+ * });
+ * const testLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("test", {
+ *     internal: true,
+ *     loadBalancerType: "network",
+ *     subnets: [subnetId],
+ * });
+ * const testVpcLink = new aws.apigateway.VpcLink("test", {
+ *     targetArn: testLoadBalancer.arn,
+ * });
+ * const testIntegration = new aws.apigateway.Integration("test", {
+ *     connectionId: testVpcLink.id,
+ *     connectionType: "VPC_LINK",
+ *     contentHandling: "CONVERT_TO_TEXT",
+ *     httpMethod: testMethod.httpMethod,
+ *     integrationHttpMethod: "GET",
+ *     passthroughBehavior: "WHEN_NO_MATCH",
+ *     requestParameters: {
+ *         "integration.request.header.X-Authorization": "'static'",
+ *         "integration.request.header.X-Foo": "'Bar'",
+ *     },
+ *     requestTemplates: {
+ *         "application/json": "",
+ *         "application/xml": `#set($inputRoot = $input.path('$'))
+ * { }`,
+ *     },
+ *     resourceId: testResource.id,
+ *     restApi: testRestApi.id,
+ *     type: "HTTP",
+ *     uri: "https://www.google.de",
  * });
  * ```
  */

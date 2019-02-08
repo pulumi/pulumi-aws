@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * 
  * ## Example Usage
  * 
  * The following example below creates a CloudFront public key.
@@ -15,10 +14,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  * 
- * const aws_cloudfront_public_key_example = new aws.cloudfront.PublicKey("example", {
+ * const example = new aws.cloudfront.PublicKey("example", {
  *     comment: "test public key",
  *     encodedKey: fs.readFileSync("public_key.pem", "utf-8"),
- *     name: "test_key",
  * });
  * ```
  */

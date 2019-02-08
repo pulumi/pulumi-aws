@@ -13,25 +13,24 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ip_ranges_european_ec2 = pulumi.output(aws.getIpRanges({
+ * const europeanEc2 = pulumi.output(aws.getIpRanges({
  *     regions: [
  *         "eu-west-1",
  *         "eu-central-1",
  *     ],
  *     services: ["ec2"],
  * }));
- * const aws_security_group_from_europe = new aws.ec2.SecurityGroup("from_europe", {
+ * const fromEurope = new aws.ec2.SecurityGroup("from_europe", {
  *     ingress: [{
- *         cidrBlocks: aws_ip_ranges_european_ec2.apply(__arg0 => __arg0.cidrBlocks),
- *         fromPort: Number.parseFloat("443"),
- *         ipv6CidrBlocks: aws_ip_ranges_european_ec2.apply(__arg0 => __arg0.ipv6CidrBlocks),
+ *         cidrBlocks: europeanEc2.apply(europeanEc2 => europeanEc2.cidrBlocks),
+ *         fromPort: 443,
+ *         ipv6CidrBlocks: europeanEc2.apply(europeanEc2 => europeanEc2.ipv6CidrBlocks),
  *         protocol: "tcp",
- *         toPort: Number.parseFloat("443"),
+ *         toPort: 443,
  *     }],
- *     name: "from_europe",
  *     tags: {
- *         CreateDate: aws_ip_ranges_european_ec2.apply(__arg0 => __arg0.createDate),
- *         SyncToken: aws_ip_ranges_european_ec2.apply(__arg0 => __arg0.syncToken),
+ *         CreateDate: europeanEc2.apply(europeanEc2 => europeanEc2.createDate),
+ *         SyncToken: europeanEc2.apply(europeanEc2 => europeanEc2.syncToken),
  *     },
  * });
  * ```

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -53,7 +54,6 @@ async def get_task_definition(task_definition=None):
     """
     The ECS task definition data source allows access to details of
     a specific AWS ECS task definition.
-    
     """
     __args__ = dict()
 

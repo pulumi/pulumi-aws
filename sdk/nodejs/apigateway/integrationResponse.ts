@@ -9,7 +9,7 @@ import {RestApi} from "./restApi";
 /**
  * Provides an HTTP Method Integration Response for an API Gateway Resource.
  * 
- * -> **Note:** Depends on having `aws_api_gateway_integration` inside your rest api. To ensure this
+ * > **Note:** Depends on having `aws_api_gateway_integration` inside your rest api. To ensure this
  * you might need to add an explicit `depends_on` for clean runs.
  * 
  * ## Example Usage
@@ -18,36 +18,36 @@ import {RestApi} from "./restApi";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_api_gateway_rest_api_MyDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
+ * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
- *     name: "MyDemoAPI",
  * });
- * const aws_api_gateway_resource_MyDemoResource = new aws.apigateway.Resource("MyDemoResource", {
- *     parentId: aws_api_gateway_rest_api_MyDemoAPI.rootResourceId,
+ * const myDemoResource = new aws.apigateway.Resource("MyDemoResource", {
+ *     parentId: myDemoAPI.rootResourceId,
  *     pathPart: "mydemoresource",
- *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
+ *     restApi: myDemoAPI.id,
  * });
- * const aws_api_gateway_method_MyDemoMethod = new aws.apigateway.Method("MyDemoMethod", {
+ * const myDemoMethod = new aws.apigateway.Method("MyDemoMethod", {
  *     authorization: "NONE",
  *     httpMethod: "GET",
- *     resourceId: aws_api_gateway_resource_MyDemoResource.id,
- *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
+ *     resourceId: myDemoResource.id,
+ *     restApi: myDemoAPI.id,
  * });
- * const aws_api_gateway_integration_MyDemoIntegration = new aws.apigateway.Integration("MyDemoIntegration", {
- *     httpMethod: aws_api_gateway_method_MyDemoMethod.httpMethod,
- *     resourceId: aws_api_gateway_resource_MyDemoResource.id,
- *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
+ * const myDemoIntegration = new aws.apigateway.Integration("MyDemoIntegration", {
+ *     httpMethod: myDemoMethod.httpMethod,
+ *     resourceId: myDemoResource.id,
+ *     restApi: myDemoAPI.id,
  *     type: "MOCK",
  * });
- * const aws_api_gateway_method_response_200 = new aws.apigateway.MethodResponse("200", {
- *     httpMethod: aws_api_gateway_method_MyDemoMethod.httpMethod,
- *     resourceId: aws_api_gateway_resource_MyDemoResource.id,
- *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
+ * const _200 = new aws.apigateway.MethodResponse("200", {
+ *     httpMethod: myDemoMethod.httpMethod,
+ *     resourceId: myDemoResource.id,
+ *     restApi: myDemoAPI.id,
  *     statusCode: "200",
  * });
- * const aws_api_gateway_integration_response_MyDemoIntegrationResponse = new aws.apigateway.IntegrationResponse("MyDemoIntegrationResponse", {
- *     httpMethod: aws_api_gateway_method_MyDemoMethod.httpMethod,
- *     resourceId: aws_api_gateway_resource_MyDemoResource.id,
+ * const myDemoIntegrationResponse = new aws.apigateway.IntegrationResponse("MyDemoIntegrationResponse", {
+ *     httpMethod: myDemoMethod.httpMethod,
+ *     resourceId: myDemoResource.id,
+ *     // Transforms the backend JSON response to XML
  *     responseTemplates: {
  *         "application/xml": `#set($inputRoot = $input.path('$'))
  * <?xml version="1.0" encoding="UTF-8"?>
@@ -56,8 +56,8 @@ import {RestApi} from "./restApi";
  * </message>
  * `,
  *     },
- *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
- *     statusCode: aws_api_gateway_method_response_200.statusCode,
+ *     restApi: myDemoAPI.id,
+ *     statusCode: _200.statusCode,
  * });
  * ```
  */

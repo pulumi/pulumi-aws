@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -44,7 +45,7 @@ class VpcEndpointService(pulumi.CustomResource):
     """
     The state of the VPC endpoint service.
     """
-    def __init__(__self__, __name__, __opts__=None, acceptance_required=None, allowed_principals=None, network_load_balancer_arns=None):
+    def __init__(__self__, resource_name, opts=None, acceptance_required=None, allowed_principals=None, network_load_balancer_arns=None, __name__=None, __opts__=None):
         """
         Provides a VPC Endpoint Service resource.
         Service consumers can create an _Interface_ VPC Endpoint to connect to the service.
@@ -55,29 +56,34 @@ class VpcEndpointService(pulumi.CustomResource):
         a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
         and will overwrite the association.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] acceptance_required: Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
         :param pulumi.Input[list] allowed_principals: The ARNs of one or more principals allowed to discover the endpoint service.
         :param pulumi.Input[list] network_load_balancer_arns: The ARNs of one or more Network Load Balancers for the endpoint service.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not acceptance_required:
+        if acceptance_required is None:
             raise TypeError('Missing required property acceptance_required')
         __props__['acceptance_required'] = acceptance_required
 
         __props__['allowed_principals'] = allowed_principals
 
-        if not network_load_balancer_arns:
+        if network_load_balancer_arns is None:
             raise TypeError('Missing required property network_load_balancer_arns')
         __props__['network_load_balancer_arns'] = network_load_balancer_arns
 
@@ -90,9 +96,9 @@ class VpcEndpointService(pulumi.CustomResource):
 
         super(VpcEndpointService, __self__).__init__(
             'aws:ec2/vpcEndpointService:VpcEndpointService',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

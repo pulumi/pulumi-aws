@@ -9,7 +9,6 @@ import (
 )
 
 // Attaches a load balancer policy to an ELB backend server.
-// 
 type LoadBalancerBackendServerPolicy struct {
 	s *pulumi.ResourceState
 }

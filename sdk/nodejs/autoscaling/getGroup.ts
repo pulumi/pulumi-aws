@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_autoscaling_group_foo = pulumi.output(aws.autoscaling.getGroup({
+ * const foo = pulumi.output(aws.autoscaling.getGroup({
  *     name: "foo",
  * }));
  * ```

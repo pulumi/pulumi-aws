@@ -13,38 +13,41 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_budgets_budget_ec2 = new aws.budgets.Budget("ec2", {
+ * const ec2 = new aws.budgets.Budget("ec2", {
  *     budgetType: "COST",
  *     costFilters: {
  *         Service: "Amazon Elastic Compute Cloud - Compute",
  *     },
  *     limitAmount: "1200",
  *     limitUnit: "USD",
- *     name: "budget-ec2-monthly",
  *     timePeriodEnd: "2087-06-15_00:00",
  *     timePeriodStart: "2017-07-01_00:00",
  *     timeUnit: "MONTHLY",
  * });
  * ```
+ * 
  * Create a budget for *$100*.
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_budgets_budget_cost = new aws.budgets.Budget("cost", {
+ * const cost = new aws.budgets.Budget("cost", {
+ *     // ...
  *     budgetType: "COST",
  *     limitAmount: "100",
  *     limitUnit: "USD",
  * });
  * ```
+ * 
  * Create a budget for s3 with a limit of *3 GB* of storage.
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_budgets_budget_s3 = new aws.budgets.Budget("s3", {
+ * const s3 = new aws.budgets.Budget("s3", {
+ *     // ...
  *     budgetType: "USAGE",
  *     limitAmount: "3",
  *     limitUnit: "GB",

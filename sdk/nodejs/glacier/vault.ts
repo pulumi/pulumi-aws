@@ -15,10 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_sns_topic_aws_sns_topic = new aws.sns.Topic("aws_sns_topic", {
- *     name: "glacier-sns-topic",
- * });
- * const aws_glacier_vault_my_archive = new aws.glacier.Vault("my_archive", {
+ * const awsSnsTopic = new aws.sns.Topic("aws_sns_topic", {});
+ * const myArchive = new aws.glacier.Vault("my_archive", {
  *     accessPolicy: `{
  *     "Version":"2012-10-17",
  *     "Statement":[
@@ -35,13 +33,12 @@ import * as utilities from "../utilities";
  *     ]
  * }
  * `,
- *     name: "MyArchive",
  *     notifications: [{
  *         events: [
  *             "ArchiveRetrievalCompleted",
  *             "InventoryRetrievalCompleted",
  *         ],
- *         snsTopic: aws_sns_topic_aws_sns_topic.arn,
+ *         snsTopic: awsSnsTopic.arn,
  *     }],
  *     tags: {
  *         Test: "MyArchive",

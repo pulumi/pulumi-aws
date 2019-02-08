@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_pricing_product_example = pulumi.output(aws.pricing.getProduct({
+ * const example = pulumi.output(aws.pricing.getProduct({
  *     filters: [
  *         {
  *             field: "instanceType",
@@ -44,11 +44,12 @@ import * as utilities from "../utilities";
  *     serviceCode: "AmazonEC2",
  * }));
  * ```
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_pricing_product_example = pulumi.output(aws.pricing.getProduct({
+ * const example = pulumi.output(aws.pricing.getProduct({
  *     filters: [
  *         {
  *             field: "instanceType",

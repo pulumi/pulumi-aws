@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -69,15 +70,14 @@ class TargetGroup(pulumi.CustomResource):
     """
     The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
     """
-    def __init__(__self__, __name__, __opts__=None, deregistration_delay=None, health_check=None, name=None, name_prefix=None, port=None, protocol=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
+    def __init__(__self__, resource_name, opts=None, deregistration_delay=None, health_check=None, name=None, name_prefix=None, port=None, protocol=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None, __name__=None, __opts__=None):
         """
         Provides a Target Group resource for use with Load Balancer resources.
         
         > **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] deregistration_delay: The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         :param pulumi.Input[dict] health_check: A Health Check block. Health Check blocks are documented below.
         :param pulumi.Input[str] name: The name of the target group. If omitted, Terraform will assign a random, unique name.
@@ -96,11 +96,17 @@ class TargetGroup(pulumi.CustomResource):
                You can't specify publicly routable IP addresses.
         :param pulumi.Input[str] vpc_id: The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -134,9 +140,9 @@ class TargetGroup(pulumi.CustomResource):
 
         super(TargetGroup, __self__).__init__(
             'aws:elasticloadbalancingv2/targetGroup:TargetGroup',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

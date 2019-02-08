@@ -20,13 +20,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ami_example = new aws.ec2.Ami("example", {
+ * // Create an AMI that will start a machine whose root device is backed by
+ * // an EBS volume populated from a snapshot. It is assumed that such a snapshot
+ * // already exists with the id "snap-xxxxxxxx".
+ * const example = new aws.ec2.Ami("example", {
  *     ebsBlockDevices: [{
  *         deviceName: "/dev/xvda",
  *         snapshotId: "snap-xxxxxxxx",
  *         volumeSize: 8,
  *     }],
- *     name: "terraform-example",
  *     rootDeviceName: "/dev/xvda",
  *     virtualizationType: "hvm",
  * });

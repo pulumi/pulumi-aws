@@ -30,7 +30,6 @@ import (
 // point in time. See the [AWS Spot Instance
 // documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
 // for more information.
-// 
 type SpotInstanceRequest struct {
 	s *pulumi.ResourceState
 }

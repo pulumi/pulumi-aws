@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_api_gateway_api_key_my_api_key = pulumi.output(aws.apigateway.getKey({
+ * const myApiKey = pulumi.output(aws.apigateway.getKey({
  *     id: "ru3mpjgse6",
  * }));
  * ```

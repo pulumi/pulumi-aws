@@ -12,6 +12,34 @@ import * as utilities from "./utilities";
  * and to obtain the CIDR blocks (IP address ranges) for the associated
  * AWS service. The latter may be useful e.g. for adding network ACL
  * rules.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const bar = new aws.ec2.NetworkAcl("bar", {
+ *     vpcId: aws_vpc_foo.id,
+ * });
+ * const privateS3VpcEndpoint = new aws.ec2.VpcEndpoint("private_s3", {
+ *     serviceName: "com.amazonaws.us-west-2.s3",
+ *     vpcId: aws_vpc_foo.id,
+ * });
+ * const privateS3PrefixList = pulumi.output(aws.getPrefixList({
+ *     prefixListId: privateS3VpcEndpoint.prefixListId,
+ * }));
+ * const privateS3NetworkAclRule = new aws.ec2.NetworkAclRule("private_s3", {
+ *     cidrBlock: privateS3PrefixList.apply(privateS3PrefixList => privateS3PrefixList.cidrBlocks[0]),
+ *     egress: false,
+ *     fromPort: 443,
+ *     networkAclId: bar.id,
+ *     protocol: "tcp",
+ *     ruleAction: "allow",
+ *     ruleNumber: 200,
+ *     toPort: 443,
+ * });
+ * ```
  */
 export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixListResult> {
     args = args || {};

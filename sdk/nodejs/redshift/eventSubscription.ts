@@ -13,30 +13,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_redshift_cluster_default = new aws.redshift.Cluster("default", {
+ * const defaultCluster = new aws.redshift.Cluster("default", {
  *     clusterIdentifier: "default",
  *     databaseName: "default",
  * });
- * const aws_sns_topic_default = new aws.sns.Topic("default", {
- *     name: "redshift-events",
- * });
- * const aws_redshift_event_subscription_default = new aws.redshift.EventSubscription("default", {
+ * const defaultTopic = new aws.sns.Topic("default", {});
+ * const defaultEventSubscription = new aws.redshift.EventSubscription("default", {
  *     eventCategories: [
  *         "configuration",
  *         "management",
  *         "monitoring",
  *         "security",
  *     ],
- *     name: "redshift-event-sub",
  *     severity: "INFO",
- *     snsTopic: aws_sns_topic_default.arn,
- *     sourceIds: [aws_redshift_cluster_default.id],
+ *     snsTopic: defaultTopic.arn,
+ *     sourceIds: [defaultCluster.id],
  *     sourceType: "cluster",
  *     tags: {
  *         Name: "default",
  *     },
  * });
  * ```
+ * 
+ * ## Attributes
+ * 
+ * The following additional atttributes are provided:
+ * 
+ * * `id` - The name of the Redshift event notification subscription
+ * * `customer_aws_id` - The AWS customer account associated with the Redshift event notification subscription
  */
 export class EventSubscription extends pulumi.CustomResource {
     /**

@@ -8,6 +8,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Provides a Pinpoint APNs VoIP Channel resource.
+// 
+// > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
+// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 type ApnsVoipChannel struct {
 	s *pulumi.ResourceState
 }
@@ -80,64 +84,100 @@ func (r *ApnsVoipChannel) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The application ID.
 func (r *ApnsVoipChannel) ApplicationId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["applicationId"])
 }
 
+// The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
 func (r *ApnsVoipChannel) BundleId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["bundleId"])
 }
 
+// The pem encoded TLS Certificate from Apple.
 func (r *ApnsVoipChannel) Certificate() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["certificate"])
 }
 
+// The default authentication method used for APNs. 
+// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
+// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
+// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
 func (r *ApnsVoipChannel) DefaultAuthenticationMethod() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultAuthenticationMethod"])
 }
 
+// Whether the channel is enabled or disabled. Defaults to `true`.
 func (r *ApnsVoipChannel) Enabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
+// The Certificate Private Key file (ie. `.key` file).
 func (r *ApnsVoipChannel) PrivateKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["privateKey"])
 }
 
+// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 func (r *ApnsVoipChannel) TeamId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["teamId"])
 }
 
+// The `.p8` file that you download from your Apple developer account when you create an authentication key. 
 func (r *ApnsVoipChannel) TokenKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["tokenKey"])
 }
 
+// The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
 func (r *ApnsVoipChannel) TokenKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["tokenKeyId"])
 }
 
 // Input properties used for looking up and filtering ApnsVoipChannel resources.
 type ApnsVoipChannelState struct {
+	// The application ID.
 	ApplicationId interface{}
+	// The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
 	BundleId interface{}
+	// The pem encoded TLS Certificate from Apple.
 	Certificate interface{}
+	// The default authentication method used for APNs. 
+	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
+	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
+	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
 	DefaultAuthenticationMethod interface{}
+	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled interface{}
+	// The Certificate Private Key file (ie. `.key` file).
 	PrivateKey interface{}
+	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId interface{}
+	// The `.p8` file that you download from your Apple developer account when you create an authentication key. 
 	TokenKey interface{}
+	// The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
 	TokenKeyId interface{}
 }
 
 // The set of arguments for constructing a ApnsVoipChannel resource.
 type ApnsVoipChannelArgs struct {
+	// The application ID.
 	ApplicationId interface{}
+	// The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
 	BundleId interface{}
+	// The pem encoded TLS Certificate from Apple.
 	Certificate interface{}
+	// The default authentication method used for APNs. 
+	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
+	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
+	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
 	DefaultAuthenticationMethod interface{}
+	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled interface{}
+	// The Certificate Private Key file (ie. `.key` file).
 	PrivateKey interface{}
+	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId interface{}
+	// The `.p8` file that you download from your Apple developer account when you create an authentication key. 
 	TokenKey interface{}
+	// The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
 	TokenKeyId interface{}
 }

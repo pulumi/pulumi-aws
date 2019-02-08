@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_macie_s3_bucket_association_example = new aws.macie.S3BucketAssociation("example", {
+ * const example = new aws.macie.S3BucketAssociation("example", {
  *     bucketName: "tf-macie-example",
  *     classificationType: {
  *         oneTime: "FULL",

@@ -17,12 +17,11 @@ import {ARN} from "../index";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  * 
- * const aws_iot_certificate_cert = new aws.iot.Certificate("cert", {
+ * const cert = new aws.iot.Certificate("cert", {
  *     active: true,
  *     csr: fs.readFileSync("csr.pem", "utf-8"),
  * });
- * const aws_iot_policy_pubsub = new aws.iot.Policy("pubsub", {
- *     name: "PubSubToAnyTopic",
+ * const pubsub = new aws.iot.Policy("pubsub", {
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -37,9 +36,9 @@ import {ARN} from "../index";
  * }
  * `,
  * });
- * const aws_iot_policy_attachment_att = new aws.iot.PolicyAttachment("att", {
- *     policy: aws_iot_policy_pubsub.name,
- *     target: aws_iot_certificate_cert.arn,
+ * const att = new aws.iot.PolicyAttachment("att", {
+ *     policy: pubsub.name,
+ *     target: cert.arn,
  * });
  * ```
  */

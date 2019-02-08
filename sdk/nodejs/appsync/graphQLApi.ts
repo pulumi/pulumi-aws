@@ -6,38 +6,68 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AppSync GraphQL API.
+ * 
+ * ## Example Usage
+ * 
+ * ### API Key Authentication
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "API_KEY",
+ * });
+ * ```
+ * 
+ * ### AWS Cognito User Pool Authentication
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "AMAZON_COGNITO_USER_POOLS",
+ *     userPoolConfig: {
+ *         awsRegion: aws_region_current.name.apply(name => name),
+ *         defaultAction: "DENY",
+ *         userPoolId: aws_cognito_user_pool_example.id,
+ *     },
+ * });
+ * ```
+ * 
  * ### AWS IAM Authentication
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_appsync_graphql_api_example = new aws.appsync.GraphQLApi("example", {
+ * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "AWS_IAM",
- *     name: "example",
  * });
  * ```
+ * 
  * ### OpenID Connect Authentication
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_appsync_graphql_api_example = new aws.appsync.GraphQLApi("example", {
+ * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "OPENID_CONNECT",
- *     name: "example",
  *     openidConnectConfig: {
  *         issuer: "https://example.com",
  *     },
  * });
  * ```
+ * 
  * ### Enabling Logging
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_role_example = new aws.iam.Role("example", {
+ * const exampleRole = new aws.iam.Role("example", {
  *     assumeRolePolicy: `{
  *     "Version": "2012-10-17",
  *     "Statement": [
@@ -51,17 +81,16 @@ import * as utilities from "../utilities";
  *     ]
  * }
  * `,
- *     name: "example",
  * });
- * const aws_appsync_graphql_api_example = new aws.appsync.GraphQLApi("example", {
+ * const exampleGraphQLApi = new aws.appsync.GraphQLApi("example", {
  *     logConfig: {
- *         cloudwatchLogsRoleArn: aws_iam_role_example.arn,
+ *         cloudwatchLogsRoleArn: exampleRole.arn,
  *         fieldLogLevel: "ERROR",
  *     },
  * });
- * const aws_iam_role_policy_attachment_example = new aws.iam.RolePolicyAttachment("example", {
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
- *     role: aws_iam_role_example.name,
+ *     role: exampleRole.name,
  * });
  * ```
  */

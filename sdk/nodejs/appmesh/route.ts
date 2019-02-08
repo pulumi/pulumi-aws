@@ -13,9 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_appmesh_route_serviceb = new aws.appmesh.Route("serviceb", {
+ * const serviceb = new aws.appmesh.Route("serviceb", {
  *     meshName: "simpleapp",
- *     name: "serviceB-route",
  *     spec: {
  *         httpRoute: {
  *             action: {

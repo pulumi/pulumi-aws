@@ -13,24 +13,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_wafregional_ipset_ipset = new aws.wafregional.IpSet("ipset", {
+ * const ipset = new aws.wafregional.IpSet("ipset", {
  *     ipSetDescriptors: [{
  *         type: "IPV4",
  *         value: "192.0.7.0/24",
  *     }],
- *     name: "tfIPSet",
  * });
- * const aws_wafregional_rate_based_rule_wafrule = new aws.wafregional.RateBasedRule("wafrule", {
+ * const wafrule = new aws.wafregional.RateBasedRule("wafrule", {
  *     metricName: "tfWAFRule",
- *     name: "tfWAFRule",
  *     predicates: [{
- *         dataId: aws_wafregional_ipset_ipset.id,
+ *         dataId: ipset.id,
  *         negated: false,
  *         type: "IPMatch",
  *     }],
  *     rateKey: "IP",
  *     rateLimit: 2000,
- * }, {dependsOn: [aws_wafregional_ipset_ipset]});
+ * }, {dependsOn: [ipset]});
  * ```
  */
 export class RateBasedRule extends pulumi.CustomResource {

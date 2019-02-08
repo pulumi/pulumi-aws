@@ -13,16 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_route53_delegation_set_main = new aws.route53.DelegationSet("main", {
+ * const main = new aws.route53.DelegationSet("main", {
  *     referenceName: "DynDNS",
  * });
- * const aws_route53_zone_primary = new aws.route53.Zone("primary", {
- *     delegationSetId: aws_route53_delegation_set_main.id,
- *     name: "hashicorp.com",
+ * const primary = new aws.route53.Zone("primary", {
+ *     delegationSetId: main.id,
  * });
- * const aws_route53_zone_secondary = new aws.route53.Zone("secondary", {
- *     delegationSetId: aws_route53_delegation_set_main.id,
- *     name: "terraform.io",
+ * const secondary = new aws.route53.Zone("secondary", {
+ *     delegationSetId: main.id,
  * });
  * ```
  */

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_globalaccelerator_accelerator_example = new aws.globalaccelerator.Accelerator("example", {
+ * const example = new aws.globalaccelerator.Accelerator("example", {
  *     attributes: {
  *         flowLogsEnabled: true,
  *         flowLogsS3Bucket: "example-bucket",
@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  *     },
  *     enabled: true,
  *     ipAddressType: "IPV4",
- *     name: "Example",
  * });
  * ```
  */

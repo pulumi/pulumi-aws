@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_acm_certificate_example = pulumi.output(aws.acm.getCertificate({
+ * const example = pulumi.output(aws.acm.getCertificate({
  *     domain: "tf.example.com",
  *     mostRecent: true,
  *     types: ["AMAZON_ISSUED"],

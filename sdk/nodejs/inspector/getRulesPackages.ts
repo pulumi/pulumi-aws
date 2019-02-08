@@ -15,21 +15,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_inspector_resource_group_group = new aws.inspector.ResourceGroup("group", {
+ * // e.g. Use in aws_inspector_assessment_template
+ * const group = new aws.inspector.ResourceGroup("group", {
  *     tags: {
  *         test: "test",
  *     },
  * });
- * const aws_inspector_rules_packages_rules = pulumi.output(aws.inspector.getRulesPackages({}));
- * const aws_inspector_assessment_target_assessment = new aws.inspector.AssessmentTarget("assessment", {
- *     name: "test",
- *     resourceGroupArn: aws_inspector_resource_group_group.arn,
+ * // Declare the data source
+ * const rules = pulumi.output(aws.inspector.getRulesPackages({}));
+ * const assessmentAssessmentTarget = new aws.inspector.AssessmentTarget("assessment", {
+ *     resourceGroupArn: group.arn,
  * });
- * const aws_inspector_assessment_template_assessment = new aws.inspector.AssessmentTemplate("assessment", {
- *     duration: Number.parseFloat("60"),
- *     name: "Test",
- *     rulesPackageArns: aws_inspector_rules_packages_rules.apply(__arg0 => __arg0.arns),
- *     targetArn: aws_inspector_assessment_target_assessment.arn,
+ * const assessmentAssessmentTemplate = new aws.inspector.AssessmentTemplate("assessment", {
+ *     duration: 60,
+ *     rulesPackageArns: rules.apply(rules => rules.arns),
+ *     targetArn: assessmentAssessmentTarget.arn,
  * });
  * ```
  */

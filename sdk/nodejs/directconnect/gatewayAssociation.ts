@@ -6,6 +6,27 @@ import * as utilities from "../utilities";
 
 /**
  * Associates a Direct Connect Gateway with a VGW.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const exampleGateway = new aws.directconnect.Gateway("example", {
+ *     amazonSideAsn: "64512",
+ * });
+ * const exampleVpc = new aws.ec2.Vpc("example", {
+ *     cidrBlock: "10.255.255.0/28",
+ * });
+ * const exampleVpnGateway = new aws.ec2.VpnGateway("example", {
+ *     vpcId: aws_vpc_test.id,
+ * });
+ * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("example", {
+ *     dxGatewayId: exampleGateway.id,
+ *     vpnGatewayId: exampleVpnGateway.id,
+ * });
+ * ```
  */
 export class GatewayAssociation extends pulumi.CustomResource {
     /**

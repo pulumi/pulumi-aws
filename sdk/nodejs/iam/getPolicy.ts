@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_policy_example = pulumi.output(aws.iam.getPolicy({
+ * const example = pulumi.output(aws.iam.getPolicy({
  *     arn: "arn:aws:iam::123456789012:policy/UsersManageOwnCredentials",
  * }));
  * ```

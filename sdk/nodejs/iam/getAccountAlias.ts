@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_account_alias_current = pulumi.output(aws.iam.getAccountAlias({}));
+ * const current = pulumi.output(aws.iam.getAccountAlias({}));
  * 
- * export const accountId = aws_iam_account_alias_current.apply(__arg0 => __arg0.accountAlias);
+ * export const accountId = current.apply(current => current.accountAlias);
  * ```
  */
 export function getAccountAlias(opts?: pulumi.InvokeOptions): Promise<GetAccountAliasResult> {

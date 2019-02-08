@@ -10,7 +10,7 @@ import (
 
 // Provides a resource to create an association between a WAF Regional WebACL and Application Load Balancer.
 // 
-// -> **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
+// > **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
 type WebAclAssociation struct {
 	s *pulumi.ResourceState
 }

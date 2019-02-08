@@ -13,13 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ses_receipt_rule_store = new aws.ses.ReceiptRule("store", {
+ * // Add a header to the email and store it in S3
+ * const store = new aws.ses.ReceiptRule("store", {
  *     addHeaderActions: [{
  *         headerName: "Custom-Header",
  *         headerValue: "Added by SES",
  *     }],
  *     enabled: true,
- *     name: "store",
  *     recipients: ["karen@example.com"],
  *     ruleSetName: "default-rule-set",
  *     s3Actions: [{

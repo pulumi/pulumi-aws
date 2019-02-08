@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_dynamodb_table_basic_dynamodb_table = new aws.dynamodb.Table("basic-dynamodb-table", {
+ * const basic_dynamodb_table = new aws.dynamodb.Table("basic-dynamodb-table", {
  *     attributes: [
  *         {
  *             name: "UserId",
@@ -44,7 +44,6 @@ import * as utilities from "../utilities";
  *         writeCapacity: 10,
  *     }],
  *     hashKey: "UserId",
- *     name: "GameScores",
  *     rangeKey: "GameTitle",
  *     readCapacity: 20,
  *     tags: {
@@ -58,11 +57,11 @@ import * as utilities from "../utilities";
  *     writeCapacity: 20,
  * });
  * ```
+ * 
  * Notes: `attribute` can be lists
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * 
  * ```
  */
 export class Table extends pulumi.CustomResource {

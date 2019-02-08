@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -24,23 +25,28 @@ class UserProfile(pulumi.CustomResource):
     """
     The user's IAM ARN
     """
-    def __init__(__self__, __name__, __opts__=None, allow_self_management=None, ssh_public_key=None, ssh_username=None, user_arn=None):
+    def __init__(__self__, resource_name, opts=None, allow_self_management=None, ssh_public_key=None, ssh_username=None, user_arn=None, __name__=None, __opts__=None):
         """
         Provides an OpsWorks User Profile resource.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_self_management: Whether users can specify their own SSH public key through the My Settings page
         :param pulumi.Input[str] ssh_public_key: The users public key
         :param pulumi.Input[str] ssh_username: The ssh username, with witch this user wants to log in
         :param pulumi.Input[str] user_arn: The user's IAM ARN
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -49,19 +55,19 @@ class UserProfile(pulumi.CustomResource):
 
         __props__['ssh_public_key'] = ssh_public_key
 
-        if not ssh_username:
+        if ssh_username is None:
             raise TypeError('Missing required property ssh_username')
         __props__['ssh_username'] = ssh_username
 
-        if not user_arn:
+        if user_arn is None:
             raise TypeError('Missing required property user_arn')
         __props__['user_arn'] = user_arn
 
         super(UserProfile, __self__).__init__(
             'aws:opsworks/userProfile:UserProfile',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

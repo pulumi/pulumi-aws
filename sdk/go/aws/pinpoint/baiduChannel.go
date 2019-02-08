@@ -12,7 +12,6 @@ import (
 // 
 // > **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-// 
 type BaiduChannel struct {
 	s *pulumi.ResourceState
 }

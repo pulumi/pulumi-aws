@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_service_linked_role_elasticbeanstalk = new aws.iam.ServiceLinkedRole("elasticbeanstalk", {
+ * const elasticbeanstalk = new aws.iam.ServiceLinkedRole("elasticbeanstalk", {
  *     awsServiceName: "elasticbeanstalk.amazonaws.com",
  * });
  * ```

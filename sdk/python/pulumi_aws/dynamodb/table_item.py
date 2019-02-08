@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -25,50 +26,55 @@ class TableItem(pulumi.CustomResource):
     """
     The name of the table to contain the item.
     """
-    def __init__(__self__, __name__, __opts__=None, hash_key=None, item=None, range_key=None, table_name=None):
+    def __init__(__self__, resource_name, opts=None, hash_key=None, item=None, range_key=None, table_name=None, __name__=None, __opts__=None):
         """
         Provides a DynamoDB table item resource
         
-        -> **Note:** This resource is not meant to be used for managing large amounts of data in your table, it is not designed to scale.
+        > **Note:** This resource is not meant to be used for managing large amounts of data in your table, it is not designed to scale.
           You should perform **regular backups** of all data in the table, see [AWS docs for more](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html).
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hash_key: Hash key to use for lookups and identification of the item
         :param pulumi.Input[str] item: JSON representation of a map of attribute name/value pairs, one for each attribute.
                Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         :param pulumi.Input[str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         :param pulumi.Input[str] table_name: The name of the table to contain the item.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not hash_key:
+        if hash_key is None:
             raise TypeError('Missing required property hash_key')
         __props__['hash_key'] = hash_key
 
-        if not item:
+        if item is None:
             raise TypeError('Missing required property item')
         __props__['item'] = item
 
         __props__['range_key'] = range_key
 
-        if not table_name:
+        if table_name is None:
             raise TypeError('Missing required property table_name')
         __props__['table_name'] = table_name
 
         super(TableItem, __self__).__init__(
             'aws:dynamodb/tableItem:TableItem',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

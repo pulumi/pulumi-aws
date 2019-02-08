@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_role_r = new aws.iam.Role("r", {
+ * const role = new aws.iam.Role("r", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -30,11 +30,9 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     name: "awsconfig-example",
  * });
- * const aws_config_configuration_recorder_foo = new aws.cfg.Recorder("foo", {
- *     name: "example",
- *     roleArn: aws_iam_role_r.arn,
+ * const foo = new aws.cfg.Recorder("foo", {
+ *     roleArn: role.arn,
  * });
  * ```
  */

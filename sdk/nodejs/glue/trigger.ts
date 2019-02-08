@@ -6,6 +6,57 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Glue Trigger resource.
+ * 
+ * ## Example Usage
+ * 
+ * ### Conditional Trigger
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.glue.Trigger("example", {
+ *     actions: [{
+ *         jobName: aws_glue_job_example1.name,
+ *     }],
+ *     predicate: {
+ *         conditions: [{
+ *             jobName: aws_glue_job_example2.name,
+ *             state: "SUCCEEDED",
+ *         }],
+ *     },
+ *     type: "CONDITIONAL",
+ * });
+ * ```
+ * 
+ * ### On-Demand Trigger
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.glue.Trigger("example", {
+ *     actions: [{
+ *         jobName: aws_glue_job_example.name,
+ *     }],
+ *     type: "ON_DEMAND",
+ * });
+ * ```
+ * 
+ * ### Scheduled Trigger
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.glue.Trigger("example", {
+ *     actions: [{
+ *         jobName: aws_glue_job_example.name,
+ *     }],
+ *     schedule: "cron(15 12 * * ? *)",
+ *     type: "SCHEDULED",
+ * });
+ * ```
  */
 export class Trigger extends pulumi.CustomResource {
     /**

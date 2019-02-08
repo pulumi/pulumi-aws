@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -12,36 +13,41 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
     """
     The VPC ID to create in.
     """
-    def __init__(__self__, __name__, __opts__=None, vpc_id=None):
+    def __init__(__self__, resource_name, opts=None, vpc_id=None, __name__=None, __opts__=None):
         """
         [IPv6 only] Creates an egress-only Internet gateway for your VPC.
         An egress-only Internet gateway is used to enable outbound communication
         over IPv6 from instances in your VPC to the Internet, and prevents hosts
         outside of your VPC from initiating an IPv6 connection with your instance.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID to create in.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not vpc_id:
+        if vpc_id is None:
             raise TypeError('Missing required property vpc_id')
         __props__['vpc_id'] = vpc_id
 
         super(EgressOnlyInternetGateway, __self__).__init__(
             'aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

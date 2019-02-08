@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -96,13 +97,12 @@ class MetricAlarm(pulumi.CustomResource):
     """
     The unit for the alarm's associated metric.
     """
-    def __init__(__self__, __name__, __opts__=None, actions_enabled=None, alarm_actions=None, alarm_description=None, name=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentiles=None, evaluation_periods=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, namespace=None, ok_actions=None, period=None, statistic=None, threshold=None, treat_missing_data=None, unit=None):
+    def __init__(__self__, resource_name, opts=None, actions_enabled=None, alarm_actions=None, alarm_description=None, name=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentiles=None, evaluation_periods=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, namespace=None, ok_actions=None, period=None, statistic=None, threshold=None, treat_missing_data=None, unit=None, __name__=None, __opts__=None):
         """
         Provides a CloudWatch Metric Alarm resource.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] actions_enabled: Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
         :param pulumi.Input[list] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Number (ARN).
         :param pulumi.Input[str] alarm_description: The description for the alarm.
@@ -131,11 +131,17 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[str] treat_missing_data: Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
         :param pulumi.Input[str] unit: The unit for the alarm's associated metric.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -148,7 +154,7 @@ class MetricAlarm(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        if not comparison_operator:
+        if comparison_operator is None:
             raise TypeError('Missing required property comparison_operator')
         __props__['comparison_operator'] = comparison_operator
 
@@ -158,7 +164,7 @@ class MetricAlarm(pulumi.CustomResource):
 
         __props__['evaluate_low_sample_count_percentiles'] = evaluate_low_sample_count_percentiles
 
-        if not evaluation_periods:
+        if evaluation_periods is None:
             raise TypeError('Missing required property evaluation_periods')
         __props__['evaluation_periods'] = evaluation_periods
 
@@ -166,23 +172,23 @@ class MetricAlarm(pulumi.CustomResource):
 
         __props__['insufficient_data_actions'] = insufficient_data_actions
 
-        if not metric_name:
+        if metric_name is None:
             raise TypeError('Missing required property metric_name')
         __props__['metric_name'] = metric_name
 
-        if not namespace:
+        if namespace is None:
             raise TypeError('Missing required property namespace')
         __props__['namespace'] = namespace
 
         __props__['ok_actions'] = ok_actions
 
-        if not period:
+        if period is None:
             raise TypeError('Missing required property period')
         __props__['period'] = period
 
         __props__['statistic'] = statistic
 
-        if not threshold:
+        if threshold is None:
             raise TypeError('Missing required property threshold')
         __props__['threshold'] = threshold
 
@@ -194,9 +200,9 @@ class MetricAlarm(pulumi.CustomResource):
 
         super(MetricAlarm, __self__).__init__(
             'aws:cloudwatch/metricAlarm:MetricAlarm',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

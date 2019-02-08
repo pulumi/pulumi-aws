@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_codecommit_repository_test = pulumi.output(aws.codecommit.getRepository({
+ * const test = pulumi.output(aws.codecommit.getRepository({
  *     repositoryName: "MyTestRepository",
  * }));
  * ```

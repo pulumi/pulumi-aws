@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -16,7 +17,7 @@ class ListenerCertificate(pulumi.CustomResource):
     """
     The ARN of the listener to which to attach the certificate.
     """
-    def __init__(__self__, __name__, __opts__=None, certificate_arn=None, listener_arn=None):
+    def __init__(__self__, resource_name, opts=None, certificate_arn=None, listener_arn=None, __name__=None, __opts__=None):
         """
         Provides a Load Balancer Listener Certificate resource.
         
@@ -24,34 +25,39 @@ class ListenerCertificate(pulumi.CustomResource):
         
         > **Note:** `aws_alb_listener_certificate` is known as `aws_lb_listener_certificate`. The functionality is identical.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_arn: The ARN of the certificate to attach to the listener.
         :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the certificate.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not certificate_arn:
+        if certificate_arn is None:
             raise TypeError('Missing required property certificate_arn')
         __props__['certificate_arn'] = certificate_arn
 
-        if not listener_arn:
+        if listener_arn is None:
             raise TypeError('Missing required property listener_arn')
         __props__['listener_arn'] = listener_arn
 
         super(ListenerCertificate, __self__).__init__(
             'aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

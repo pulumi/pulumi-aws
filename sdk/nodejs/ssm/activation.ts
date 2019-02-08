@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_role_test_role = new aws.iam.Role("test_role", {
+ * const testRole = new aws.iam.Role("test_role", {
  *     assumeRolePolicy: `  {
  *     "Version": "2012-10-17",
  *     "Statement": {
@@ -23,18 +23,16 @@ import * as utilities from "../utilities";
  *     }
  *   }
  * `,
- *     name: "test_role",
  * });
- * const aws_iam_role_policy_attachment_test_attach = new aws.iam.RolePolicyAttachment("test_attach", {
+ * const testAttach = new aws.iam.RolePolicyAttachment("test_attach", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM",
- *     role: aws_iam_role_test_role.name,
+ *     role: testRole.name,
  * });
- * const aws_ssm_activation_foo = new aws.ssm.Activation("foo", {
+ * const foo = new aws.ssm.Activation("foo", {
  *     description: "Test",
- *     iamRole: aws_iam_role_test_role.id,
- *     name: "test_ssm_activation",
- *     registrationLimit: Number.parseFloat("5"),
- * }, {dependsOn: [aws_iam_role_policy_attachment_test_attach]});
+ *     iamRole: testRole.id,
+ *     registrationLimit: 5,
+ * }, {dependsOn: [testAttach]});
  * ```
  */
 export class Activation extends pulumi.CustomResource {

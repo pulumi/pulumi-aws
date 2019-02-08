@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -43,40 +44,45 @@ class Deployment(pulumi.CustomResource):
     """
     A map that defines variables for the stage
     """
-    def __init__(__self__, __name__, __opts__=None, description=None, rest_api=None, stage_description=None, stage_name=None, variables=None):
+    def __init__(__self__, resource_name, opts=None, description=None, rest_api=None, stage_description=None, stage_name=None, variables=None, __name__=None, __opts__=None):
         """
         Provides an API Gateway Deployment.
         
-        -> **Note:** Depends on having `aws_api_gateway_integration` inside your rest api (which in turn depends on `aws_api_gateway_method`). To avoid race conditions
+        > **Note:** Depends on having `aws_api_gateway_integration` inside your rest api (which in turn depends on `aws_api_gateway_method`). To avoid race conditions
         you might need to add an explicit `depends_on = ["aws_api_gateway_integration.name"]`.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the deployment
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] stage_description: The description of the stage
         :param pulumi.Input[str] stage_name: The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment. Use `""` to point at the default stage.
         :param pulumi.Input[dict] variables: A map that defines variables for the stage
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['description'] = description
 
-        if not rest_api:
+        if rest_api is None:
             raise TypeError('Missing required property rest_api')
         __props__['rest_api'] = rest_api
 
         __props__['stage_description'] = stage_description
 
-        if not stage_name:
+        if stage_name is None:
             raise TypeError('Missing required property stage_name')
         __props__['stage_name'] = stage_name
 
@@ -88,9 +94,9 @@ class Deployment(pulumi.CustomResource):
 
         super(Deployment, __self__).__init__(
             'aws:apigateway/deployment:Deployment',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

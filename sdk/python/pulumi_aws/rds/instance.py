@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -144,7 +145,7 @@ class Instance(pulumi.CustomResource):
     identifier_prefix: pulumi.Output[str]
     """
     Creates a unique
-    identifier beginning with the specified prefix. Conflicts with `identifer`.
+    identifier beginning with the specified prefix. Conflicts with `identifier`.
     """
     instance_class: pulumi.Output[str]
     """
@@ -299,7 +300,7 @@ class Instance(pulumi.CustomResource):
     List of VPC security groups to
     associate.
     """
-    def __init__(__self__, __name__, __opts__=None, allocated_storage=None, allow_major_version_upgrade=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, backup_window=None, character_set_name=None, copy_tags_to_snapshot=None, db_subnet_group_name=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, identifier=None, identifier_prefix=None, instance_class=None, iops=None, kms_key_id=None, license_model=None, maintenance_window=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, name=None, option_group_name=None, parameter_group_name=None, password=None, port=None, publicly_accessible=None, replicate_source_db=None, s3_import=None, security_group_names=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, username=None, vpc_security_group_ids=None):
+    def __init__(__self__, resource_name, opts=None, allocated_storage=None, allow_major_version_upgrade=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, backup_window=None, character_set_name=None, copy_tags_to_snapshot=None, db_subnet_group_name=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, identifier=None, identifier_prefix=None, instance_class=None, iops=None, kms_key_id=None, license_model=None, maintenance_window=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, name=None, option_group_name=None, parameter_group_name=None, password=None, port=None, publicly_accessible=None, replicate_source_db=None, s3_import=None, security_group_names=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, username=None, vpc_security_group_ids=None, __name__=None, __opts__=None):
         """
         Provides an RDS instance resource.  A DB instance is an isolated database
         environment in the cloud.  A DB instance can contain multiple user-created
@@ -322,9 +323,14 @@ class Instance(pulumi.CustomResource):
         the raw state as plain-text. [Read more about sensitive data in
         state](https://www.terraform.io/docs/state/sensitive-data.html).
         
+        ## RDS Instance Class Types
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
+        and Burstable Performance. For more information please read the AWS RDS documentation
+        about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
+        
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] allocated_storage: (Required unless a `snapshot_identifier` or
                `replicate_source_db` is provided) The allocated storage in gibibytes.
         :param pulumi.Input[bool] allow_major_version_upgrade: Indicates that major version
@@ -380,7 +386,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] identifier: The name of the RDS instance,
                if omitted, Terraform will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique
-               identifier beginning with the specified prefix. Conflicts with `identifer`.
+               identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance type of the RDS instance.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
                storage_type of "io1".
@@ -451,11 +457,17 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[list] vpc_security_group_ids: List of VPC security groups to
                associate.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -500,7 +512,7 @@ class Instance(pulumi.CustomResource):
 
         __props__['identifier_prefix'] = identifier_prefix
 
-        if not instance_class:
+        if instance_class is None:
             raise TypeError('Missing required property instance_class')
         __props__['instance_class'] = instance_class
 
@@ -563,9 +575,9 @@ class Instance(pulumi.CustomResource):
 
         super(Instance, __self__).__init__(
             'aws:rds/instance:Instance',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

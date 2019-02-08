@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// -> **Note:** There is only a single account alias per AWS account.
+// > **Note:** There is only a single account alias per AWS account.
 // 
 // Manages the account alias for the AWS Account.
 type AccountAlias struct {

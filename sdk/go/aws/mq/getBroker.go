@@ -14,6 +14,7 @@ func LookupBroker(ctx *pulumi.Context, args *GetBrokerArgs) (*GetBrokerResult, e
 		inputs["brokerId"] = args.BrokerId
 		inputs["brokerName"] = args.BrokerName
 		inputs["logs"] = args.Logs
+		inputs["tags"] = args.Tags
 	}
 	outputs, err := ctx.Invoke("aws:mq/getBroker:getBroker", inputs)
 	if err != nil {
@@ -34,6 +35,7 @@ func LookupBroker(ctx *pulumi.Context, args *GetBrokerArgs) (*GetBrokerResult, e
 		PubliclyAccessible: outputs["publiclyAccessible"],
 		SecurityGroups: outputs["securityGroups"],
 		SubnetIds: outputs["subnetIds"],
+		Tags: outputs["tags"],
 		Users: outputs["users"],
 		Id: outputs["id"],
 	}, nil
@@ -46,6 +48,7 @@ type GetBrokerArgs struct {
 	// The unique name of the mq broker.
 	BrokerName interface{}
 	Logs interface{}
+	Tags interface{}
 }
 
 // A collection of values returned by getBroker.
@@ -64,6 +67,7 @@ type GetBrokerResult struct {
 	PubliclyAccessible interface{}
 	SecurityGroups interface{}
 	SubnetIds interface{}
+	Tags interface{}
 	Users interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

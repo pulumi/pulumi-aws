@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -33,66 +34,30 @@ async def get_policy_document(override_json=None, policy_id=None, source_json=No
     an IAM policy document, for use with resources which expect policy documents,
     such as the `aws_iam_policy` resource.
     
-    -> For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
+    > For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
     
-    ```hcl
-    data "aws_iam_policy_document" "example" {
-      statement {
-        sid = "1"
-    
-        actions = [
-          "s3:ListAllMyBuckets",
-          "s3:GetBucketLocation",
-        ]
-    
-        resources = [
-          "arn:aws:s3:::*",
-        ]
-      }
-    
-      statement {
-        actions = [
-          "s3:ListBucket",
-        ]
-    
-        resources = [
-          "arn:aws:s3:::${var.s3_bucket_name}",
-        ]
-    
-        condition {
-          test     = "StringLike"
-          variable = "s3:prefix"
-    
-          values = [
-            "",
-            "home/",
-            "home/&{aws:username}/",
-          ]
-        }
-      }
-    
-      statement {
-        actions = [
-          "s3:*",
-        ]
-    
-        resources = [
-          "arn:aws:s3:::${var.s3_bucket_name}/home/&{aws:username}",
-          "arn:aws:s3:::${var.s3_bucket_name}/home/&{aws:username}/*",
-        ]
-      }
-    }
-    
-    resource "aws_iam_policy" "example" {
-      name   = "example_policy"
-      path   = "/"
-      policy = "${data.aws_iam_policy_document.example.json}"
-    }
-    ```
     
     Using this data source to generate policy documents is *optional*. It is also
     valid to use literal JSON strings within your configuration, or to use the
     `file` interpolation function to read a raw JSON policy document from a file.
+    
+    ## Context Variable Interpolation
+    
+    The IAM policy document format allows context variables to be interpolated
+    into various strings within a statement. The native IAM policy document format
+    uses `${...}`-style syntax that is in conflict with Terraform's interpolation
+    syntax, so this data source instead uses `&{...}` syntax for interpolations that
+    should be processed by AWS rather than by Terraform.
+    
+    ## Wildcard Principal
+    
+    In order to define wildcard principal (a.k.a. anonymous user) use `type = "*"` and
+    `identifiers = ["*"]`. In that case the rendered json will contain `"Principal": "*"`.
+    Note, that even though the [IAM Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html)
+    states that `"Principal": "*"` and `"Principal": {"AWS": "*"}` are equivalent,
+    those principals have different behavior for IAM Role Trust Policy. Therefore
+    Terraform will normalize the principal field only in above-mentioned case and principals
+    like `type = "AWS"` and `identifiers = ["*"]` will be rendered as `"Principal": {"AWS": "*"}`.
     """
     __args__ = dict()
 

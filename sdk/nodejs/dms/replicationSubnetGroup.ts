@@ -13,7 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_dms_replication_subnet_group_test = new aws.dms.ReplicationSubnetGroup("test", {
+ * // Create a new replication subnet group
+ * const test = new aws.dms.ReplicationSubnetGroup("test", {
  *     replicationSubnetGroupDescription: "Test replication subnet group",
  *     replicationSubnetGroupId: "test-dms-replication-subnet-group-tf",
  *     subnetIds: ["subnet-12345678"],

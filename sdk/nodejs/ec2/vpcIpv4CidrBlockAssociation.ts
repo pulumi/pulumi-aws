@@ -16,12 +16,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_vpc_main = new aws.ec2.Vpc("main", {
+ * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });
- * const aws_vpc_ipv4_cidr_block_association_secondary_cidr = new aws.ec2.VpcIpv4CidrBlockAssociation("secondary_cidr", {
+ * const secondaryCidr = new aws.ec2.VpcIpv4CidrBlockAssociation("secondary_cidr", {
  *     cidrBlock: "172.2.0.0/16",
- *     vpcId: aws_vpc_main.id,
+ *     vpcId: main.id,
  * });
  * ```
  */

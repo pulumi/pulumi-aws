@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -28,24 +29,29 @@ class Response(pulumi.CustomResource):
     """
     The HTTP status code of the Gateway Response.
     """
-    def __init__(__self__, __name__, __opts__=None, response_parameters=None, response_templates=None, response_type=None, rest_api_id=None, status_code=None):
+    def __init__(__self__, resource_name, opts=None, response_parameters=None, response_templates=None, response_type=None, rest_api_id=None, status_code=None, __name__=None, __opts__=None):
         """
         Provides an API Gateway Gateway Response for a REST API Gateway.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] response_parameters: A map specifying the templates used to transform the response body.
         :param pulumi.Input[dict] response_templates: A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
         :param pulumi.Input[str] response_type: The response type of the associated GatewayResponse.
         :param pulumi.Input[str] rest_api_id: The string identifier of the associated REST API.
         :param pulumi.Input[str] status_code: The HTTP status code of the Gateway Response.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -54,11 +60,11 @@ class Response(pulumi.CustomResource):
 
         __props__['response_templates'] = response_templates
 
-        if not response_type:
+        if response_type is None:
             raise TypeError('Missing required property response_type')
         __props__['response_type'] = response_type
 
-        if not rest_api_id:
+        if rest_api_id is None:
             raise TypeError('Missing required property rest_api_id')
         __props__['rest_api_id'] = rest_api_id
 
@@ -66,9 +72,9 @@ class Response(pulumi.CustomResource):
 
         super(Response, __self__).__init__(
             'aws:apigateway/response:Response',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

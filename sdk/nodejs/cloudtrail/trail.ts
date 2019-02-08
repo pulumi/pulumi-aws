@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_s3_bucket_foo = new aws.s3.Bucket("foo", {
+ * const foo = new aws.s3.Bucket("foo", {
  *     bucket: "tf-test-trail",
  *     forceDestroy: true,
  *     policy: `{
@@ -55,24 +55,24 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const aws_cloudtrail_foobar = new aws.cloudtrail.Trail("foobar", {
+ * const foobar = new aws.cloudtrail.Trail("foobar", {
  *     includeGlobalServiceEvents: false,
- *     name: "tf-trail-foobar",
- *     s3BucketName: aws_s3_bucket_foo.id,
+ *     s3BucketName: foo.id,
  *     s3KeyPrefix: "prefix",
  * });
  * ```
+ * 
  * ### Data Event Logging
  * 
  * CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the [CloudTrail API DataResource documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html).
  * 
- * ### Logging All Lambda Function Invocations
+ * #### Logging All Lambda Function Invocations
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_cloudtrail_example = new aws.cloudtrail.Trail("example", {
+ * const example = new aws.cloudtrail.Trail("example", {
  *     eventSelectors: [{
  *         dataResources: [{
  *             type: "AWS::Lambda::Function",
@@ -83,13 +83,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * ### Logging All S3 Bucket Object Events
+ * 
+ * #### Logging All S3 Bucket Object Events
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_cloudtrail_example = new aws.cloudtrail.Trail("example", {
+ * const example = new aws.cloudtrail.Trail("example", {
  *     eventSelectors: [{
  *         dataResources: [{
  *             type: "AWS::S3::Object",
@@ -100,20 +101,23 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * ### Logging Individual S3 Bucket Events
+ * 
+ * #### Logging Individual S3 Bucket Events
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_s3_bucket_important_bucket = pulumi.output(aws.s3.getBucket({
+ * const important_bucket = pulumi.output(aws.s3.getBucket({
  *     bucket: "important-bucket",
  * }));
- * const aws_cloudtrail_example = new aws.cloudtrail.Trail("example", {
+ * const example = new aws.cloudtrail.Trail("example", {
  *     eventSelectors: [{
  *         dataResources: [{
  *             type: "AWS::S3::Object",
- *             values: [aws_s3_bucket_important_bucket.apply(__arg0 => `${__arg0.arn}/`)],
+ *             // Make sure to append a trailing '/' to your ARN if you want
+ *             // to monitor all objects in a bucket.
+ *             values: [important_bucket.apply(important_bucket => `${important_bucket.arn}/`)],
  *         }],
  *         includeManagementEvents: true,
  *         readWriteType: "All",

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -49,13 +50,12 @@ class Zone(pulumi.CustomResource):
     """
     The Hosted Zone ID. This can be referenced by zone records.
     """
-    def __init__(__self__, __name__, __opts__=None, comment=None, delegation_set_id=None, force_destroy=None, name=None, tags=None, vpcs=None, vpc_id=None, vpc_region=None):
+    def __init__(__self__, resource_name, opts=None, comment=None, delegation_set_id=None, force_destroy=None, name=None, tags=None, vpcs=None, vpc_id=None, vpc_region=None, __name__=None, __opts__=None):
         """
         Manages a Route53 Hosted Zone.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: A comment for the hosted zone. Defaults to 'Managed by Terraform'.
         :param pulumi.Input[str] delegation_set_id: The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` and `vpc_id` as delegation sets can only be used for public zones.
         :param pulumi.Input[bool] force_destroy: Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone.
@@ -65,16 +65,22 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[str] vpc_id: ID of the VPC to associate.
         :param pulumi.Input[str] vpc_region: Region of the VPC to associate. Defaults to AWS provider region.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not comment:
+        if comment is None:
             comment = 'Managed by Pulumi'
         __props__['comment'] = comment
 
@@ -97,9 +103,9 @@ class Zone(pulumi.CustomResource):
 
         super(Zone, __self__).__init__(
             'aws:route53/zone:Zone',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

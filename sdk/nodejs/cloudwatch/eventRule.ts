@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_cloudwatch_event_rule_console = new aws.cloudwatch.EventRule("console", {
+ * const console = new aws.cloudwatch.EventRule("console", {
  *     description: "Capture each AWS Console Sign In",
  *     eventPattern: `{
  *   "detail-type": [
@@ -21,17 +21,14 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     name: "capture-aws-sign-in",
  * });
- * const aws_sns_topic_aws_logins = new aws.sns.Topic("aws_logins", {
- *     name: "aws-console-logins",
- * });
- * const aws_cloudwatch_event_target_sns = new aws.cloudwatch.EventTarget("sns", {
- *     arn: aws_sns_topic_aws_logins.arn,
- *     rule: aws_cloudwatch_event_rule_console.name,
+ * const awsLogins = new aws.sns.Topic("aws_logins", {});
+ * const sns = new aws.cloudwatch.EventTarget("sns", {
+ *     arn: awsLogins.arn,
+ *     rule: console.name,
  *     targetId: "SendToSNS",
  * });
- * const aws_iam_policy_document_sns_topic_policy = pulumi.output(aws.iam.getPolicyDocument({
+ * const snsTopicPolicy = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["SNS:Publish"],
  *         effect: "Allow",
@@ -39,12 +36,12 @@ import * as utilities from "../utilities";
  *             identifiers: ["events.amazonaws.com"],
  *             type: "Service",
  *         }],
- *         resources: [aws_sns_topic_aws_logins.arn],
+ *         resources: [awsLogins.arn],
  *     }],
  * }));
- * const aws_sns_topic_policy_default = new aws.sns.TopicPolicy("default", {
- *     arn: aws_sns_topic_aws_logins.arn,
- *     policy: aws_iam_policy_document_sns_topic_policy.apply(__arg0 => __arg0.json),
+ * const defaultTopicPolicy = new aws.sns.TopicPolicy("default", {
+ *     arn: awsLogins.arn,
+ *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
  * });
  * ```
  */

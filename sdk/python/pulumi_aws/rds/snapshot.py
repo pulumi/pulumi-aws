@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -82,31 +83,36 @@ class Snapshot(pulumi.CustomResource):
     """
     Specifies the storage type associated with DB snapshot.
     """
-    def __init__(__self__, __name__, __opts__=None, db_instance_identifier=None, db_snapshot_identifier=None, tags=None):
+    def __init__(__self__, resource_name, opts=None, db_instance_identifier=None, db_snapshot_identifier=None, tags=None, __name__=None, __opts__=None):
         """
         Manages a RDS database instance snapshot. For managing RDS database cluster snapshots, see the [`aws_db_cluster_snapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_cluster_snapshot.html).
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_instance_identifier: The DB Instance Identifier from which to take the snapshot.
         :param pulumi.Input[str] db_snapshot_identifier: The Identifier for the snapshot.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not db_instance_identifier:
+        if db_instance_identifier is None:
             raise TypeError('Missing required property db_instance_identifier')
         __props__['db_instance_identifier'] = db_instance_identifier
 
-        if not db_snapshot_identifier:
+        if db_snapshot_identifier is None:
             raise TypeError('Missing required property db_snapshot_identifier')
         __props__['db_snapshot_identifier'] = db_snapshot_identifier
 
@@ -132,9 +138,9 @@ class Snapshot(pulumi.CustomResource):
 
         super(Snapshot, __self__).__init__(
             'aws:rds/snapshot:Snapshot',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

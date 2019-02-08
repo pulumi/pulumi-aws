@@ -14,11 +14,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_dx_hosted_private_virtual_interface_foo = new aws.directconnect.HostedPrivateVirtualInterface("foo", {
+ * const foo = new aws.directconnect.HostedPrivateVirtualInterface("foo", {
  *     addressFamily: "ipv4",
  *     bgpAsn: 65352,
  *     connectionId: "dxcon-zzzzzzzz",
- *     name: "vif-foo",
  *     vlan: 4094,
  * });
  * ```

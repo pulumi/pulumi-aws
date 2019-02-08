@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_role_a = new aws.iam.Role("a", {
+ * const role = new aws.iam.Role("a", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -28,18 +28,16 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     name: "iam-role-for-grant",
  * });
- * const aws_kms_key_a = new aws.kms.Key("a", {});
- * const aws_kms_grant_a = new aws.kms.Grant("a", {
+ * const key = new aws.kms.Key("a", {});
+ * const grant = new aws.kms.Grant("a", {
  *     constraints: [{
  *         encryptionContextEquals: {
  *             Department: "Finance",
  *         },
  *     }],
- *     granteePrincipal: aws_iam_role_a.arn,
- *     keyId: aws_kms_key_a.keyId,
- *     name: "my-grant",
+ *     granteePrincipal: role.arn,
+ *     keyId: key.keyId,
  *     operations: [
  *         "Encrypt",
  *         "Decrypt",

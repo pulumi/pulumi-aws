@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_elb_service_account_main = pulumi.output(aws.elasticloadbalancing.getServiceAccount({}));
- * const aws_s3_bucket_elb_logs = new aws.s3.Bucket("elb_logs", {
+ * const main = pulumi.output(aws.elasticloadbalancing.getServiceAccount({}));
+ * const elbLogs = new aws.s3.Bucket("elb_logs", {
  *     acl: "private",
  *     bucket: "my-elb-tf-test-bucket",
- *     policy: aws_elb_service_account_main.apply(__arg0 => `{
+ *     policy: main.apply(main => `{
  *   "Id": "Policy",
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *       "Resource": "arn:aws:s3:::my-elb-tf-test-bucket/AWSLogs/*",
  *       "Principal": {
  *         "AWS": [
- *           "${__arg0.arn}"
+ *           "${main.arn}"
  *         ]
  *       }
  *     }
@@ -38,9 +38,9 @@ import * as utilities from "../utilities";
  * }
  * `),
  * });
- * const aws_elb_bar = new aws.elasticloadbalancing.LoadBalancer("bar", {
+ * const bar = new aws.elasticloadbalancing.LoadBalancer("bar", {
  *     accessLogs: {
- *         bucket: aws_s3_bucket_elb_logs.bucket,
+ *         bucket: elbLogs.bucket,
  *         interval: 5,
  *     },
  *     availabilityZones: ["us-west-2a"],
@@ -50,7 +50,6 @@ import * as utilities from "../utilities";
  *         lbPort: 80,
  *         lbProtocol: "http",
  *     }],
- *     name: "my-foobar-terraform-elb",
  * });
  * ```
  */

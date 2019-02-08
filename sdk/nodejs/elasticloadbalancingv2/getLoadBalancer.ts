@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const config = new pulumi.Config();
- * const var_lb_arn = config.get("lbArn") || "";
- * const var_lb_name = config.get("lbName") || "";
+ * const lbArn = config.get("lbArn") || "";
+ * const lbName = config.get("lbName") || "";
  * 
- * const aws_lb_test = pulumi.output(aws.elasticloadbalancingv2.getLoadBalancer({
- *     arn: var_lb_arn,
- *     name: var_lb_name,
+ * const test = pulumi.output(aws.elasticloadbalancingv2.getLoadBalancer({
+ *     arn: lbArn,
+ *     name: lbName,
  * }));
  * ```
  */

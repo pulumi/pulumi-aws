@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -36,7 +37,7 @@ class ParameterGroup(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, __name__, __opts__=None, description=None, family=None, name=None, name_prefix=None, parameters=None, tags=None):
+    def __init__(__self__, resource_name, opts=None, description=None, family=None, name=None, name_prefix=None, parameters=None, tags=None, __name__=None, __opts__=None):
         """
         Provides an RDS DB parameter group resource .Documentation of the available parameters for various RDS engines can be found at:
         * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
@@ -45,9 +46,8 @@ class ParameterGroup(pulumi.CustomResource):
         * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
         * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the DB parameter group. Defaults to "Managed by Terraform".
         :param pulumi.Input[str] family: The family of the DB parameter group.
         :param pulumi.Input[str] name: The name of the DB parameter.
@@ -55,20 +55,26 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[list] parameters: A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not description:
+        if description is None:
             description = 'Managed by Pulumi'
         __props__['description'] = description
 
-        if not family:
+        if family is None:
             raise TypeError('Missing required property family')
         __props__['family'] = family
 
@@ -84,9 +90,9 @@ class ParameterGroup(pulumi.CustomResource):
 
         super(ParameterGroup, __self__).__init__(
             'aws:rds/parameterGroup:ParameterGroup',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

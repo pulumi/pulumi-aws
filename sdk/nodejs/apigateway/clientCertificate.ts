@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_api_gateway_client_certificate_demo = new aws.apigateway.ClientCertificate("demo", {
+ * const demo = new aws.apigateway.ClientCertificate("demo", {
  *     description: "My client certificate",
  * });
  * ```

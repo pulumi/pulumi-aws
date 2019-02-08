@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -85,7 +86,7 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     license_specifications: pulumi.Output[list]
     """
-    A list of license specifications to associate with. See License Specifications below for more details.
+    A list of license specifications to associate with. See License Specification below for more details.
     """
     monitoring: pulumi.Output[dict]
     """
@@ -119,7 +120,7 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     tag_specifications: pulumi.Output[list]
     """
-    The tags to apply to the resources during launch. See Tags below for more details.
+    The tags to apply to the resources during launch. See Tag Specifications below for more details.
     """
     tags: pulumi.Output[dict]
     """
@@ -133,13 +134,12 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     A list of security group IDs to associate with.
     """
-    def __init__(__self__, __name__, __opts__=None, block_device_mappings=None, capacity_reservation_specification=None, credit_specification=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, license_specifications=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
+    def __init__(__self__, resource_name, opts=None, block_device_mappings=None, capacity_reservation_specification=None, credit_specification=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, license_specifications=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None, __name__=None, __opts__=None):
         """
         Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] block_device_mappings: Specify volumes to attach to the instance besides the volumes specified by the AMI.
                See Block Devices below for details.
         :param pulumi.Input[dict] capacity_reservation_specification: Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
@@ -161,7 +161,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] instance_type: The type of the instance.
         :param pulumi.Input[str] kernel_id: The kernel ID.
         :param pulumi.Input[str] key_name: The key name to use for the instance.
-        :param pulumi.Input[list] license_specifications: A list of license specifications to associate with. See License Specifications below for more details.
+        :param pulumi.Input[list] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
         :param pulumi.Input[dict] monitoring: The monitoring option for the instance. See Monitoring below for more details.
         :param pulumi.Input[str] name: The name of the launch template. If you leave this blank, Terraform will auto-generate a unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -171,16 +171,22 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] ram_disk_id: The ID of the RAM disk.
         :param pulumi.Input[list] security_group_names: A list of security group names to associate with. If you are creating Instances in a VPC, use
                `vpc_security_group_ids` instead.
-        :param pulumi.Input[list] tag_specifications: The tags to apply to the resources during launch. See Tags below for more details.
+        :param pulumi.Input[list] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the launch template.
         :param pulumi.Input[str] user_data: The Base64-encoded user data to provide when launching the instance.
         :param pulumi.Input[list] vpc_security_group_ids: A list of security group IDs to associate with.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -243,9 +249,9 @@ class LaunchTemplate(pulumi.CustomResource):
 
         super(LaunchTemplate, __self__).__init__(
             'aws:ec2/launchTemplate:LaunchTemplate',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

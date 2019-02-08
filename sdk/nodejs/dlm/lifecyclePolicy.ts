@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_role_dlm_lifecycle_role = new aws.iam.Role("dlm_lifecycle_role", {
+ * const dlmLifecycleRole = new aws.iam.Role("dlm_lifecycle_role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -28,11 +28,10 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     name: "dlm-lifecycle-role",
  * });
- * const aws_dlm_lifecycle_policy_example = new aws.dlm.LifecyclePolicy("example", {
+ * const example = new aws.dlm.LifecyclePolicy("example", {
  *     description: "example DLM lifecycle policy",
- *     executionRoleArn: aws_iam_role_dlm_lifecycle_role.arn,
+ *     executionRoleArn: dlmLifecycleRole.arn,
  *     policyDetails: {
  *         resourceTypes: ["VOLUME"],
  *         schedules: [{
@@ -56,8 +55,7 @@ import * as utilities from "../utilities";
  *     },
  *     state: "ENABLED",
  * });
- * const aws_iam_role_policy_dlm_lifecycle = new aws.iam.RolePolicy("dlm_lifecycle", {
- *     name: "dlm-lifecycle-policy",
+ * const dlmLifecycle = new aws.iam.RolePolicy("dlm_lifecycle", {
  *     policy: `{
  *    "Version": "2012-10-17",
  *    "Statement": [
@@ -81,7 +79,7 @@ import * as utilities from "../utilities";
  *    ]
  * }
  * `,
- *     role: aws_iam_role_dlm_lifecycle_role.id,
+ *     role: dlmLifecycleRole.id,
  * });
  * ```
  */

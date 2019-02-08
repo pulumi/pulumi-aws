@@ -6,6 +6,33 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DMS (Data Migration Service) replication instance resource. DMS replication instances can be created, updated, deleted, and imported.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * // Create a new replication instance
+ * const test = new aws.dms.ReplicationInstance("test", {
+ *     allocatedStorage: 20,
+ *     applyImmediately: true,
+ *     autoMinorVersionUpgrade: true,
+ *     availabilityZone: "us-west-2c",
+ *     engineVersion: "1.9.0",
+ *     kmsKeyArn: "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
+ *     multiAz: false,
+ *     preferredMaintenanceWindow: "sun:10:30-sun:14:30",
+ *     publiclyAccessible: true,
+ *     replicationInstanceClass: "dms.t2.micro",
+ *     replicationInstanceId: "test-dms-replication-instance-tf",
+ *     replicationSubnetGroupId: aws_dms_replication_subnet_group_test_dms_replication_subnet_group_tf.id,
+ *     tags: {
+ *         Name: "test",
+ *     },
+ *     vpcSecurityGroupIds: ["sg-12345678"],
+ * });
+ * ```
  */
 export class ReplicationInstance extends pulumi.CustomResource {
     /**

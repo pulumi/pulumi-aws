@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -20,43 +21,48 @@ class Route(pulumi.CustomResource):
     """
     Identifier of EC2 Transit Gateway Route Table.
     """
-    def __init__(__self__, __name__, __opts__=None, destination_cidr_block=None, transit_gateway_attachment_id=None, transit_gateway_route_table_id=None):
+    def __init__(__self__, resource_name, opts=None, destination_cidr_block=None, transit_gateway_attachment_id=None, transit_gateway_route_table_id=None, __name__=None, __opts__=None):
         """
         Manages an EC2 Transit Gateway Route.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_cidr_block: IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
         :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not destination_cidr_block:
+        if destination_cidr_block is None:
             raise TypeError('Missing required property destination_cidr_block')
         __props__['destination_cidr_block'] = destination_cidr_block
 
-        if not transit_gateway_attachment_id:
+        if transit_gateway_attachment_id is None:
             raise TypeError('Missing required property transit_gateway_attachment_id')
         __props__['transit_gateway_attachment_id'] = transit_gateway_attachment_id
 
-        if not transit_gateway_route_table_id:
+        if transit_gateway_route_table_id is None:
             raise TypeError('Missing required property transit_gateway_route_table_id')
         __props__['transit_gateway_route_table_id'] = transit_gateway_route_table_id
 
         super(Route, __self__).__init__(
             'aws:ec2transitgateway/route:Route',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

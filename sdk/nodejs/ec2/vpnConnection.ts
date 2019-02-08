@@ -21,40 +21,41 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_customer_gateway_example = new aws.ec2.CustomerGateway("example", {
+ * const exampleCustomerGateway = new aws.ec2.CustomerGateway("example", {
  *     bgpAsn: 65000,
  *     ipAddress: "172.0.0.1",
  *     type: "ipsec.1",
  * });
- * const aws_ec2_transit_gateway_example = new aws.ec2transitgateway.TransitGateway("example", {});
- * const aws_vpn_connection_example = new aws.ec2.VpnConnection("example", {
- *     customerGatewayId: aws_customer_gateway_example.id,
- *     transitGatewayId: aws_ec2_transit_gateway_example.id,
- *     type: aws_customer_gateway_example.type,
+ * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("example", {});
+ * const exampleVpnConnection = new aws.ec2.VpnConnection("example", {
+ *     customerGatewayId: exampleCustomerGateway.id,
+ *     transitGatewayId: exampleTransitGateway.id,
+ *     type: exampleCustomerGateway.type,
  * });
  * ```
+ * 
  * ### Virtual Private Gateway
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_customer_gateway_customer_gateway = new aws.ec2.CustomerGateway("customer_gateway", {
+ * const customerGateway = new aws.ec2.CustomerGateway("customer_gateway", {
  *     bgpAsn: 65000,
  *     ipAddress: "172.0.0.1",
  *     type: "ipsec.1",
  * });
- * const aws_vpc_vpc = new aws.ec2.Vpc("vpc", {
+ * const vpc = new aws.ec2.Vpc("vpc", {
  *     cidrBlock: "10.0.0.0/16",
  * });
- * const aws_vpn_gateway_vpn_gateway = new aws.ec2.VpnGateway("vpn_gateway", {
- *     vpcId: aws_vpc_vpc.id,
+ * const vpnGateway = new aws.ec2.VpnGateway("vpn_gateway", {
+ *     vpcId: vpc.id,
  * });
- * const aws_vpn_connection_main = new aws.ec2.VpnConnection("main", {
- *     customerGatewayId: aws_customer_gateway_customer_gateway.id,
+ * const main = new aws.ec2.VpnConnection("main", {
+ *     customerGatewayId: customerGateway.id,
  *     staticRoutesOnly: true,
  *     type: "ipsec.1",
- *     vpnGatewayId: aws_vpn_gateway_vpn_gateway.id,
+ *     vpnGatewayId: vpnGateway.id,
  * });
  * ```
  */

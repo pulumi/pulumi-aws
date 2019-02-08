@@ -13,9 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_gamelift_alias_example = new aws.gamelift.Alias("example", {
+ * const example = new aws.gamelift.Alias("example", {
  *     description: "Example Description",
- *     name: "example-alias",
  *     routingStrategy: {
  *         message: "Example Message",
  *         type: "TERMINAL",

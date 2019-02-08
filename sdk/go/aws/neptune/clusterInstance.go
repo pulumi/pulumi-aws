@@ -12,7 +12,6 @@ import (
 // 
 // You can simply add neptune instances and Neptune manages the replication. You can use the [count][1]
 // meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instance_class` sizes.
-// 
 type ClusterInstance struct {
 	s *pulumi.ResourceState
 }
@@ -182,7 +181,7 @@ func (r *ClusterInstance) Identifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["identifier"])
 }
 
-// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 func (r *ClusterInstance) IdentifierPrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["identifierPrefix"])
 }
@@ -273,7 +272,7 @@ type ClusterInstanceState struct {
 	EngineVersion interface{}
 	// The indentifier for the neptune instance, if omitted, Terraform will assign a random, unique identifier.
 	Identifier interface{}
-	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix interface{}
 	// The instance class to use.
 	InstanceClass interface{}
@@ -319,7 +318,7 @@ type ClusterInstanceArgs struct {
 	EngineVersion interface{}
 	// The indentifier for the neptune instance, if omitted, Terraform will assign a random, unique identifier.
 	Identifier interface{}
-	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix interface{}
 	// The instance class to use.
 	InstanceClass interface{}

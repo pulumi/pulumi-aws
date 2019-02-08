@@ -13,9 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_appmesh_virtual_node_serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
+ * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
  *     meshName: "simpleapp",
- *     name: "serviceBv1",
  *     spec: {
  *         backends: ["servicea.simpleapp.local"],
  *         listener: {

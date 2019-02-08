@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -51,15 +52,14 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     """
     Specifies the table version for the output data schema. Defaults to `LATEST`.
     """
-    def __init__(__self__, __name__, __opts__=None, arn=None, destination=None, destination_id=None, elasticsearch_configuration=None, extended_s3_configuration=None, kinesis_source_configuration=None, name=None, redshift_configuration=None, s3_configuration=None, splunk_configuration=None, tags=None, version_id=None):
+    def __init__(__self__, resource_name, opts=None, arn=None, destination=None, destination_id=None, elasticsearch_configuration=None, extended_s3_configuration=None, kinesis_source_configuration=None, name=None, redshift_configuration=None, s3_configuration=None, splunk_configuration=None, tags=None, version_id=None, __name__=None, __opts__=None):
         """
         Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 and Amazon Redshift.
         
         For more details, see the [Amazon Kinesis Firehose Documentation][1].
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the Stream
         :param pulumi.Input[str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
         :param pulumi.Input[str] destination_id
@@ -77,18 +77,24 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['arn'] = arn
 
-        if not destination:
+        if destination is None:
             raise TypeError('Missing required property destination')
         __props__['destination'] = destination
 
@@ -114,9 +120,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
         super(FirehoseDeliveryStream, __self__).__init__(
             'aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

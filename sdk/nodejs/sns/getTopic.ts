@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_sns_topic_example = pulumi.output(aws.sns.getTopic({
+ * const example = pulumi.output(aws.sns.getTopic({
  *     name: "an_example_topic",
  * }));
  * ```

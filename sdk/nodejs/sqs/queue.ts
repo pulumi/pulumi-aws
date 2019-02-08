@@ -4,6 +4,49 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const terraformQueue = new aws.sqs.Queue("terraform_queue", {
+ *     delaySeconds: 90,
+ *     maxMessageSize: 2048,
+ *     messageRetentionSeconds: 86400,
+ *     receiveWaitTimeSeconds: 10,
+ *     redrivePolicy: aws_sqs_queue_terraform_queue_deadletter.arn.apply(arn => `{"deadLetterTargetArn":"${arn}","maxReceiveCount":4}`),
+ *     tags: {
+ *         Environment: "production",
+ *     },
+ * });
+ * ```
+ * 
+ * ## FIFO queue
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const terraformQueue = new aws.sqs.Queue("terraform_queue", {
+ *     contentBasedDeduplication: true,
+ *     fifoQueue: true,
+ * });
+ * ```
+ * 
+ * ## Server-side encryption (SSE)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const terraformQueue = new aws.sqs.Queue("terraform_queue", {
+ *     kmsDataKeyReusePeriodSeconds: 300,
+ *     kmsMasterKeyId: "alias/aws/sqs",
+ * });
+ * ```
+ */
 export class Queue extends pulumi.CustomResource {
     /**
      * Get an existing Queue resource's state with the given name, ID, and optional extra

@@ -13,26 +13,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_instance_instance = new aws.ec2.Instance("instance", {
+ * const instance = new aws.ec2.Instance("instance", {
  *     ami: "ami-4fccb37f",
  *     instanceType: "m1.small",
  * });
- * const aws_ssm_maintenance_window_window = new aws.ssm.MaintenanceWindow("window", {
+ * const window = new aws.ssm.MaintenanceWindow("window", {
  *     cutoff: 1,
  *     duration: 3,
- *     name: "maintenance-window-%s",
  *     schedule: "cron(0 16 ? * TUE *)",
  * });
- * const aws_ssm_maintenance_window_task_task = new aws.ssm.MaintenanceWindowTask("task", {
+ * const task = new aws.ssm.MaintenanceWindowTask("task", {
  *     description: "This is a maintenance window task",
  *     maxConcurrency: "2",
  *     maxErrors: "1",
- *     name: "maintenance-window-task",
  *     priority: 1,
  *     serviceRoleArn: "arn:aws:iam::187416307283:role/service-role/AWS_Events_Invoke_Run_Command_112316643",
  *     targets: [{
  *         key: "InstanceIds",
- *         values: [aws_instance_instance.id],
+ *         values: [instance.id],
  *     }],
  *     taskArn: "AWS-RunShellScript",
  *     taskParameters: [{
@@ -40,7 +38,7 @@ import * as utilities from "../utilities";
  *         values: ["pwd"],
  *     }],
  *     taskType: "RUN_COMMAND",
- *     windowId: aws_ssm_maintenance_window_window.id,
+ *     windowId: window.id,
  * });
  * ```
  */

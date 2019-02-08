@@ -14,14 +14,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const config = new pulumi.Config();
- * const var_broker_id = config.get("brokerId") || "";
- * const var_broker_name = config.get("brokerName") || "";
+ * const brokerId = config.get("brokerId") || "";
+ * const brokerName = config.get("brokerName") || "";
  * 
- * const aws_mq_broker_by_id = pulumi.output(aws.mq.getBroker({
- *     brokerId: var_broker_id,
+ * const byId = pulumi.output(aws.mq.getBroker({
+ *     brokerId: brokerId,
  * }));
- * const aws_mq_broker_by_name = pulumi.output(aws.mq.getBroker({
- *     brokerName: var_broker_name,
+ * const byName = pulumi.output(aws.mq.getBroker({
+ *     brokerName: brokerName,
  * }));
  * ```
  */
@@ -31,6 +31,7 @@ export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Pr
         "brokerId": args.brokerId,
         "brokerName": args.brokerName,
         "logs": args.logs,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -47,6 +48,7 @@ export interface GetBrokerArgs {
      */
     readonly brokerName?: string;
     readonly logs?: { audit?: boolean, general?: boolean };
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -67,6 +69,7 @@ export interface GetBrokerResult {
     readonly publiclyAccessible: boolean;
     readonly securityGroups: string[];
     readonly subnetIds: string[];
+    readonly tags: {[key: string]: any};
     readonly users: { consoleAccess: boolean, groups: string[], username: string }[];
     /**
      * id is the provider-assigned unique ID for this managed resource.

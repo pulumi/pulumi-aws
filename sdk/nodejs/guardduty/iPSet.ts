@@ -15,24 +15,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_guardduty_detector_master = new aws.guardduty.Detector("master", {
+ * const master = new aws.guardduty.Detector("master", {
  *     enable: true,
  * });
- * const aws_s3_bucket_bucket = new aws.s3.Bucket("bucket", {
+ * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "private",
  * });
- * const aws_s3_bucket_object_MyIPSet = new aws.s3.BucketObject("MyIPSet", {
+ * const myIPSetBucketObject = new aws.s3.BucketObject("MyIPSet", {
  *     acl: "public-read",
- *     bucket: aws_s3_bucket_bucket.id,
+ *     bucket: bucket.id,
  *     content: "10.0.0.0/8\n",
  *     key: "MyIPSet",
  * });
- * const aws_guardduty_ipset_MyIPSet = new aws.guardduty.IPSet("MyIPSet", {
+ * const myIPSetIPSet = new aws.guardduty.IPSet("MyIPSet", {
  *     activate: true,
- *     detectorId: aws_guardduty_detector_master.id,
+ *     detectorId: master.id,
  *     format: "TXT",
- *     location: pulumi.all([aws_s3_bucket_object_MyIPSet.bucket, aws_s3_bucket_object_MyIPSet.key]).apply(([__arg0, __arg1]) => `https://s3.amazonaws.com/${__arg0}/${__arg1}`),
- *     name: "MyIPSet",
+ *     location: pulumi.all([myIPSetBucketObject.bucket, myIPSetBucketObject.key]).apply(([bucket, key]) => `https://s3.amazonaws.com/${bucket}/${key}`),
  * });
  * ```
  */

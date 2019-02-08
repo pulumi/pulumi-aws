@@ -13,12 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ssm_patch_baseline_production = new aws.ssm.PatchBaseline("production", {
+ * const production = new aws.ssm.PatchBaseline("production", {
  *     approvedPatches: ["KB123456"],
- *     name: "patch-baseline",
  * });
- * const aws_ssm_patch_group_patchgroup = new aws.ssm.PatchGroup("patchgroup", {
- *     baselineId: aws_ssm_patch_baseline_production.id,
+ * const patchgroup = new aws.ssm.PatchGroup("patchgroup", {
+ *     baselineId: production.id,
  *     patchGroup: "patch-group-name",
  * });
  * ```

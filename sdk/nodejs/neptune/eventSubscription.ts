@@ -5,14 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * 
  * ## Example Usage
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_neptune_cluster_default = new aws.neptune.Cluster("default", {
+ * const defaultCluster = new aws.neptune.Cluster("default", {
  *     applyImmediately: true,
  *     backupRetentionPeriod: 5,
  *     clusterIdentifier: "neptune-cluster-demo",
@@ -21,16 +20,14 @@ import * as utilities from "../utilities";
  *     preferredBackupWindow: "07:00-09:00",
  *     skipFinalSnapshot: true,
  * });
- * const aws_sns_topic_default = new aws.sns.Topic("default", {
- *     name: "neptune-events",
- * });
- * const aws_neptune_cluster_instance_example = new aws.neptune.ClusterInstance("example", {
+ * const defaultTopic = new aws.sns.Topic("default", {});
+ * const example = new aws.neptune.ClusterInstance("example", {
  *     applyImmediately: true,
- *     clusterIdentifier: aws_neptune_cluster_default.id,
+ *     clusterIdentifier: defaultCluster.id,
  *     engine: "neptune",
  *     instanceClass: "db.r4.large",
  * });
- * const aws_neptune_event_subscription_default = new aws.neptune.EventSubscription("default", {
+ * const defaultEventSubscription = new aws.neptune.EventSubscription("default", {
  *     eventCategories: [
  *         "maintenance",
  *         "availability",
@@ -45,15 +42,22 @@ import * as utilities from "../utilities";
  *         "configuration change",
  *         "read replica",
  *     ],
- *     name: "neptune-event-sub",
- *     snsTopicArn: aws_sns_topic_default.arn,
- *     sourceIds: [aws_neptune_cluster_instance_example.id],
+ *     snsTopicArn: defaultTopic.arn,
+ *     sourceIds: [example.id],
  *     sourceType: "db-instance",
  *     tags: {
  *         env: "test",
  *     },
  * });
  * ```
+ * 
+ * ## Attributes
+ * 
+ * The following additional atttributes are provided:
+ * 
+ * * `id` - The name of the Neptune event notification subscription.
+ * * `arn` - The Amazon Resource Name of the Neptune event notification subscription.
+ * * `customer_aws_id` - The AWS customer account associated with the Neptune event notification subscription.
  */
 export class EventSubscription extends pulumi.CustomResource {
     /**

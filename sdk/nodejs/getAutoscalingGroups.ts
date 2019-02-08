@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_autoscaling_groups_groups = pulumi.output(aws.getAutoscalingGroups({
+ * const groups = pulumi.output(aws.getAutoscalingGroups({
  *     filters: [
  *         {
  *             name: "key",
@@ -26,8 +26,8 @@ import * as utilities from "./utilities";
  *         },
  *     ],
  * }));
- * const aws_autoscaling_notification_slack_notifications = new aws.autoscaling.Notification("slack_notifications", {
- *     groupNames: aws_autoscaling_groups_groups.apply(__arg0 => __arg0.names),
+ * const slackNotifications = new aws.autoscaling.Notification("slack_notifications", {
+ *     groupNames: groups.apply(groups => groups.names),
  *     notifications: [
  *         "autoscaling:EC2_INSTANCE_LAUNCH",
  *         "autoscaling:EC2_INSTANCE_TERMINATE",

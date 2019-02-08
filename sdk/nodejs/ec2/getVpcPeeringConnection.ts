@@ -7,6 +7,29 @@ import * as utilities from "../utilities";
 /**
  * The VPC Peering Connection data source provides details about
  * a specific VPC peering connection.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * // Create a route table
+ * const rt = new aws.ec2.RouteTable("rt", {
+ *     vpcId: aws_vpc_foo.id,
+ * });
+ * // Declare the data source
+ * const pc = pulumi.output(aws.ec2.getVpcPeeringConnection({
+ *     peerCidrBlock: "10.0.1.0/22",
+ *     vpcId: aws_vpc_foo.id,
+ * }));
+ * // Create a route
+ * const route = new aws.ec2.Route("r", {
+ *     destinationCidrBlock: pc.apply(pc => pc.peerCidrBlock),
+ *     routeTableId: rt.id,
+ *     vpcPeeringConnectionId: pc.apply(pc => pc.id),
+ * });
+ * ```
  */
 export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcPeeringConnectionResult> {
     args = args || {};

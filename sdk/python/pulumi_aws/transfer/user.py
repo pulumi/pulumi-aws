@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -14,11 +15,11 @@ class User(pulumi.CustomResource):
     """
     home_directory: pulumi.Output[str]
     """
-    The landing directory (folder) for a user when they log in to the server using their SFTP client.
+    The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
     """
     policy: pulumi.Output[str]
     """
-    An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).
+    An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).  These are evaluated on-the-fly when navigating the bucket.
     """
     role: pulumi.Output[str]
     """
@@ -36,82 +37,30 @@ class User(pulumi.CustomResource):
     """
     The name used for log in to your SFTP server.
     """
-    def __init__(__self__, __name__, __opts__=None, home_directory=None, policy=None, role=None, server_id=None, tags=None, user_name=None):
+    def __init__(__self__, resource_name, opts=None, home_directory=None, policy=None, role=None, server_id=None, tags=None, user_name=None, __name__=None, __opts__=None):
         """
         Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the [`aws_transfer_ssh_key` resource](https://www.terraform.io/docs/providers/aws/r/transfer_ssh_key.html).
         
-        
-        ```hcl
-        resource "aws_transfer_server" "foo" {
-        	identity_provider_type = "SERVICE_MANAGED"
-        
-        	tags {
-        		NAME     = "tf-acc-test-transfer-server"
-        	}
-        }
-        
-        resource "aws_iam_role" "foo" {
-        	name = "tf-test-transfer-user-iam-role"
-        
-        	assume_role_policy = <<EOF
-        {
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        		"Effect": "Allow",
-        		"Principal": {
-        			"Service": "transfer.amazonaws.com"
-        		},
-        		"Action": "sts:AssumeRole"
-        		}
-        	]
-        }
-        EOF
-        }
-        
-        resource "aws_iam_role_policy" "foo" {
-        	name = "tf-test-transfer-user-iam-policy"
-        	role = "${aws_iam_role.foo.id}"
-        	policy = <<POLICY
-        {
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        			"Sid": "AllowFullAccesstoS3",
-        			"Effect": "Allow",
-        			"Action": [
-        				"s3:*"
-        			],
-        			"Resource": "*"
-        		}
-        	]
-        }
-        POLICY
-        }
-        
-        resource "aws_transfer_user" "foo" {
-        	server_id      = "${aws_transfer_server.foo.id}"
-        	user_name      = "tftestuser"
-        	role           = "${aws_iam_role.foo.arn}"
-        }
-        
-        ```
-        
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
-        :param pulumi.Input[str] home_directory: The landing directory (folder) for a user when they log in to the server using their SFTP client.
-        :param pulumi.Input[str] policy: An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] home_directory: The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
+        :param pulumi.Input[str] policy: An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).  These are evaluated on-the-fly when navigating the bucket.
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g. `s-12345678`)
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] user_name: The name used for log in to your SFTP server.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -120,17 +69,17 @@ class User(pulumi.CustomResource):
 
         __props__['policy'] = policy
 
-        if not role:
+        if role is None:
             raise TypeError('Missing required property role')
         __props__['role'] = role
 
-        if not server_id:
+        if server_id is None:
             raise TypeError('Missing required property server_id')
         __props__['server_id'] = server_id
 
         __props__['tags'] = tags
 
-        if not user_name:
+        if user_name is None:
             raise TypeError('Missing required property user_name')
         __props__['user_name'] = user_name
 
@@ -138,9 +87,9 @@ class User(pulumi.CustomResource):
 
         super(User, __self__).__init__(
             'aws:transfer/user:User',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

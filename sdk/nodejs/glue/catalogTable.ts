@@ -13,9 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_glue_catalog_table_aws_glue_catalog_table = new aws.glue.CatalogTable("aws_glue_catalog_table", {
+ * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws_glue_catalog_table", {
  *     databaseName: "MyCatalogDatabase",
- *     name: "MyCatalogTable",
  * });
  * ```
  */

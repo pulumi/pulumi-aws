@@ -13,14 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_waf_size_constraint_set_size_constraint_set = new aws.waf.SizeConstraintSet("size_constraint_set", {
- *     name: "tfsize_constraints",
+ * const sizeConstraintSet = new aws.waf.SizeConstraintSet("size_constraint_set", {
  *     sizeConstraints: [{
  *         comparisonOperator: "EQ",
  *         fieldToMatch: {
  *             type: "BODY",
  *         },
- *         size: Number.parseFloat("4096"),
+ *         size: 4096,
  *         textTransformation: "NONE",
  *     }],
  * });

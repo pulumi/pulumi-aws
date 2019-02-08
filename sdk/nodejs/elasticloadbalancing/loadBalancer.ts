@@ -15,6 +15,65 @@ import * as utilities from "../utilities";
  * `instances` defined in-line. At this time you cannot use an ELB with in-line
  * instances in conjunction with a ELB Attachment resources. Doing so will cause a
  * conflict and will overwrite attachments.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * // Create a new load balancer
+ * const bar = new aws.elasticloadbalancing.LoadBalancer("bar", {
+ *     accessLogs: {
+ *         bucket: "foo",
+ *         bucketPrefix: "bar",
+ *         interval: 60,
+ *     },
+ *     availabilityZones: [
+ *         "us-west-2a",
+ *         "us-west-2b",
+ *         "us-west-2c",
+ *     ],
+ *     connectionDraining: true,
+ *     connectionDrainingTimeout: 400,
+ *     crossZoneLoadBalancing: true,
+ *     healthCheck: {
+ *         healthyThreshold: 2,
+ *         interval: 30,
+ *         target: "HTTP:8000/",
+ *         timeout: 3,
+ *         unhealthyThreshold: 2,
+ *     },
+ *     idleTimeout: 400,
+ *     instances: [aws_instance_foo.id],
+ *     listeners: [
+ *         {
+ *             instancePort: 8000,
+ *             instanceProtocol: "http",
+ *             lbPort: 80,
+ *             lbProtocol: "http",
+ *         },
+ *         {
+ *             instancePort: 8000,
+ *             instanceProtocol: "http",
+ *             lbPort: 443,
+ *             lbProtocol: "https",
+ *             sslCertificateId: "arn:aws:iam::123456789012:server-certificate/certName",
+ *         },
+ *     ],
+ *     tags: {
+ *         Name: "foobar-terraform-elb",
+ *     },
+ * });
+ * ```
+ * 
+ * ## Note on ECDSA Key Algorithm
+ * 
+ * If the ARN of the `ssl_certificate_id` that is pointed to references a
+ * certificate that was signed by an ECDSA key, note that ELB only supports the
+ * P256 and P384 curves.  Using a certificate signed by a key using a different
+ * curve could produce the error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your
+ * browser.
  */
 export class LoadBalancer extends pulumi.CustomResource {
     /**
