@@ -71,7 +71,7 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:0784b3feadc48a6ca95891fbbd9592eac6233328b0f364aacc99eb890659b347"
+  digest = "1:28d643e5dedba6b2c4d8b954fb60d4004cf1a097baa01d3645f7b958fc706fd3"
   name = "github.com/aws/aws-sdk-go"
   packages = [
     "aws",
@@ -116,17 +116,20 @@
     "service/acm",
     "service/acmpca",
     "service/apigateway",
+    "service/apigatewayv2",
     "service/applicationautoscaling",
     "service/appmesh",
     "service/appsync",
     "service/athena",
     "service/autoscaling",
+    "service/backup",
     "service/batch",
     "service/budgets",
     "service/cloud9",
     "service/cloudformation",
     "service/cloudfront",
     "service/cloudhsmv2",
+    "service/cloudsearch",
     "service/cloudtrail",
     "service/cloudwatch",
     "service/cloudwatchevents",
@@ -138,7 +141,9 @@
     "service/cognitoidentity",
     "service/cognitoidentityprovider",
     "service/configservice",
+    "service/costandusagereportservice",
     "service/databasemigrationservice",
+    "service/datapipeline",
     "service/datasync",
     "service/dax",
     "service/devicefarm",
@@ -161,6 +166,7 @@
     "service/emr",
     "service/firehose",
     "service/fms",
+    "service/fsx",
     "service/gamelift",
     "service/glacier",
     "service/globalaccelerator",
@@ -169,6 +175,7 @@
     "service/iam",
     "service/inspector",
     "service/iot",
+    "service/kafka",
     "service/kinesis",
     "service/kinesisanalytics",
     "service/kms",
@@ -177,8 +184,12 @@
     "service/licensemanager",
     "service/lightsail",
     "service/macie",
+    "service/mediaconnect",
+    "service/mediaconvert",
+    "service/medialive",
     "service/mediapackage",
     "service/mediastore",
+    "service/mediastoredata",
     "service/mq",
     "service/neptune",
     "service/opsworks",
@@ -190,11 +201,13 @@
     "service/redshift",
     "service/resourcegroups",
     "service/route53",
+    "service/route53resolver",
     "service/s3",
     "service/s3control",
     "service/sagemaker",
     "service/secretsmanager",
     "service/securityhub",
+    "service/serverlessapplicationrepository",
     "service/servicecatalog",
     "service/servicediscovery",
     "service/ses",
@@ -209,11 +222,12 @@
     "service/transfer",
     "service/waf",
     "service/wafregional",
+    "service/worklink",
     "service/workspaces",
   ]
   pruneopts = ""
-  revision = "d2d8f8c33f49af99cdd889f6897ffd525c520407"
-  version = "v1.16.19"
+  revision = "81f3829f5a9d041041bdf56e55926691309d7699"
+  version = "v1.16.26"
 
 [[projects]]
   digest = "1:b5f28f7eda54d2695765c778c951a2ace52c06afb7da1f7e0c7485baa5b02100"
@@ -324,7 +338,17 @@
   version = "v0.7.0"
 
 [[projects]]
-  branch = "master"
+  digest = "1:527e1e468c5586ef2645d143e9f5fbd50b4fe5abc8b1e25d9f1c416d22d24895"
+  name = "github.com/gogo/protobuf"
+  packages = [
+    "proto",
+    "sortkeys",
+  ]
+  pruneopts = ""
+  revision = "4cbf7e384e768b4e01799441fdf2a706a5635ae7"
+  version = "v1.2.0"
+
+[[projects]]
   digest = "1:107b233e45174dbab5b1324201d092ea9448e58243ab9f039e4c0f332e121e3a"
   name = "github.com/golang/glog"
   packages = ["."]
@@ -354,6 +378,13 @@
   packages = ["."]
   pruneopts = ""
   revision = "2e65f85255dbc3072edf28d6b5b8efc472979f5a"
+
+[[projects]]
+  digest = "1:754f77e9c839b24778a4b64422236d38515301d2baeb63113aa3edc42e6af692"
+  name = "github.com/google/gofuzz"
+  packages = ["."]
+  pruneopts = ""
+  revision = "24818f796faf91cd76ec7bddd72458fbced7a6c1"
 
 [[projects]]
   branch = "master"
@@ -473,7 +504,7 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:adbdc4a779169cf390037f1e5f1558c3fe9b23596f61db5ef93b1d657d3aa41d"
+  digest = "1:688cb240e2fa4eb81cbf93471eef796868d580218f7ac48383321451630de281"
   name = "github.com/hashicorp/terraform"
   packages = [
     "config",
@@ -507,8 +538,8 @@
     "version",
   ]
   pruneopts = ""
-  revision = "48c1ae62b3e1f5e5bc1c2e9ab3e64c7b4b86a6a1"
-  version = "v0.11.9-beta1"
+  revision = "ac4fff416318bf0915a0ab80e062a99ef3724334"
+  version = "v0.11.11"
 
 [[projects]]
   digest = "1:d18bd2106eed6a53efcd3f4dc9faa9492488f51b94e6fd80eae92abda0ec0202"
@@ -547,11 +578,11 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:c4239c01bae2646fbc5d0120deb86b8cabc40d01bde261b9cea497fb6f8542ad"
+  digest = "1:13fe471d0ed891e8544eddfeeb0471fd3c9f2015609a1c000aefdedf52a19d40"
   name = "github.com/jmespath/go-jmespath"
   packages = ["."]
   pruneopts = ""
-  revision = "bd40a432e4c76585ef6b72d3fd96fb9b6dc7b68d"
+  revision = "c2b33e84"
 
 [[projects]]
   branch = "master"
@@ -595,12 +626,22 @@
   version = "v1.0.1"
 
 [[projects]]
-  digest = "1:9ea83adf8e96d6304f394d40436f2eb44c1dc3250d223b74088cc253a6cd0a1c"
+  digest = "1:68a6e186197511a29f6447792f1d947d5be6894d9606748598131a94d5e6aa98"
+  name = "github.com/kubernetes-sigs/aws-iam-authenticator"
+  packages = [
+    "pkg/arn",
+    "pkg/token",
+  ]
+  pruneopts = ""
+  revision = "82544ec86140b7027a07890b09c2f03fca97228a"
+
+[[projects]]
+  digest = "1:0f79867e9aac8a4e20bc1b0956d81f340da9ade9bcc00a4bfb1ebd738c152f7a"
   name = "github.com/mattn/go-colorable"
   packages = ["."]
   pruneopts = ""
-  revision = "167de6bfdfba052fa6b2d3664c8f5272e23c9072"
-  version = "v0.0.9"
+  revision = "efa589957cd060542a26d2dd7832fd6a6c6c3ade"
+  version = "v0.1.0"
 
 [[projects]]
   digest = "1:3140e04675a6a91d2a20ea9d10bdadf6072085502e6def6768361260aee4b967"
@@ -673,11 +714,12 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:bb0e4a3978e431057311bea87d9246cc79e6a433894e402866c6dc5c0f540b2e"
+  digest = "1:bcc46a0fbd9e933087bef394871256b5c60269575bb661935874729c65bbbf60"
   name = "github.com/mitchellh/mapstructure"
   packages = ["."]
   pruneopts = ""
-  revision = "53818660ed4955e899c0bcafa97299a388bd7c8e"
+  revision = "3536a929edddb9a5b34bd6861dc4a9647cb459fe"
+  version = "v1.1.2"
 
 [[projects]]
   digest = "1:5584c8fba4fbaac85a65c9b86320fdfb6fdd5ce86b3f8fd7ddb5082d20567bd3"
@@ -737,7 +779,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:988961f23131e2aa873e5433a4bb3f262bf40d930121b82233d906de54172c3e"
+  digest = "1:3cd2ee0fc4d4c21d8a6373ce710e73125ebd7512fa44faef76fad971644eb4d0"
   name = "github.com/pulumi/pulumi"
   packages = [
     "pkg/apitype",
@@ -784,26 +826,26 @@
     "sdk/proto/go",
   ]
   pruneopts = ""
-  revision = "0b8fd47fb541a3ceae04b8661d8ad9ed642f711e"
+  revision = "4229f85fdaabcfc7bc866379b271b730c2384b6c"
 
 [[projects]]
   branch = "master"
-  digest = "1:06a35c7046592cb52f649451d9aa1649926011cd2863b3152aa64fa393184014"
+  digest = "1:ee977962b3fd8565483e1114262993016dcec9f170447a86b690b08ad5ab5bde"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen",
   ]
   pruneopts = ""
-  revision = "b0770d37ae5ab50be1a2d316a6b5a7b41e8043cb"
+  revision = "50c3039457f71c1bbc62f0acd86e0f8ed72e2cea"
 
 [[projects]]
   branch = "master"
-  digest = "1:5d372d623fca34e1bddf0ca733b47dbfad0220644753213ade88cc60be366710"
+  digest = "1:54469a609929faa3afc743b2e56086963a62920f375b2bce839e0e60551d3df4"
   name = "github.com/reconquest/loreley"
   packages = ["."]
   pruneopts = ""
-  revision = "2ab6b7470a54bfa9b5b0289f9b4e8fc4839838f7"
+  revision = "7824c7cf5983a9247573e2e9a6fd38b6a9abe7ad"
 
 [[projects]]
   digest = "1:7f569d906bdd20d906b606415b7d794f798f91a62fcfb6a4daa6d50690fb7a3f"
@@ -868,11 +910,11 @@
 
 [[projects]]
   branch = "pulumi-master"
-  digest = "1:db0dd413e29efece2b47e4811064aa51bf7c0bc906c87d49739c196267c7fdc9"
+  digest = "1:4dd44afe5797cd3615984d09a7083b998837867ebd6798d7fab396689b1ba27c"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
   pruneopts = ""
-  revision = "e31ea4589d701213d32460991a1671a1146fca66"
+  revision = "d832bde0f617e0666cf932807a29cb5111baee78"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -1060,7 +1102,7 @@
   revision = "b5eab4ccac6df282ff981436a5a87554d7377c75"
 
 [[projects]]
-  digest = "1:8f5753fc4fe7f8bd23d5cf6b82b6cc8e2522d29bd176cb58874917cbd26431cb"
+  digest = "1:17d1f647fe6a7d4eebb15e0e468178c058e365e4e734d1402ca7215169dd8d29"
   name = "gopkg.in/AlecAivazis/survey.v1"
   packages = [
     ".",
@@ -1068,8 +1110,16 @@
     "terminal",
   ]
   pruneopts = ""
-  revision = "38cdfa1242b19e0eb8b6f33004bf8e89832b8743"
-  version = "v1.8.0"
+  revision = "ee72c28b95a5ff3e227cfd403f556f0ef4b07ca5"
+  version = "v1.8.2"
+
+[[projects]]
+  digest = "1:75fb3fcfc73a8c723efde7777b40e8e8ff9babf30d8c56160d01beffea8a95a6"
+  name = "gopkg.in/inf.v0"
+  packages = ["."]
+  pruneopts = ""
+  revision = "d2d2541c53f18d2a059457998ce2876cc8e67cbf"
+  version = "v0.9.1"
 
 [[projects]]
   digest = "1:cc4fc94e3088593a2cde96c032e05d1e3c7d494147d7a7d707445ccc478bf4a0"
@@ -1086,7 +1136,7 @@
   version = "v4.3.0"
 
 [[projects]]
-  digest = "1:2575e0987bd652097e3921a4713b886f786483fecac75ca0707cf7dad26424f3"
+  digest = "1:a72d911e18578e34367f4b849340501c7e6a2787a3a05651b3d53c6cb96990f4"
   name = "gopkg.in/src-d/go-git.v4"
   packages = [
     ".",
@@ -1131,8 +1181,8 @@
     "utils/merkletrie/noder",
   ]
   pruneopts = ""
-  revision = "3dbfb89e0f5bce0008724e547b999fe3af9f60db"
-  version = "v4.8.1"
+  revision = "a1f6ef44dfed1253ef7f3bc049f66b15f8fc2ab2"
+  version = "v4.9.1"
 
 [[projects]]
   digest = "1:ceec7e96590fb8168f36df4795fefe17051d4b0c2acc7ec4e260d8138c4dafac"
@@ -1149,6 +1199,54 @@
   pruneopts = ""
   revision = "5420a8b6744d3b0345ab293f6fcba19c978f1183"
   version = "v2.2.1"
+
+[[projects]]
+  digest = "1:f768020148e1ccd263684d6b946c8803ab27fac46894d5fae8405fdb0816b9d6"
+  name = "k8s.io/apimachinery"
+  packages = [
+    "pkg/api/resource",
+    "pkg/apis/meta/v1",
+    "pkg/conversion",
+    "pkg/conversion/queryparams",
+    "pkg/fields",
+    "pkg/labels",
+    "pkg/runtime",
+    "pkg/runtime/schema",
+    "pkg/selection",
+    "pkg/types",
+    "pkg/util/errors",
+    "pkg/util/intstr",
+    "pkg/util/json",
+    "pkg/util/naming",
+    "pkg/util/net",
+    "pkg/util/runtime",
+    "pkg/util/sets",
+    "pkg/util/validation",
+    "pkg/util/validation/field",
+    "pkg/watch",
+    "third_party/forked/golang/reflect",
+  ]
+  pruneopts = ""
+  revision = "a98ff070d70e1d5c58428a86787e7a05a38cabe8"
+
+[[projects]]
+  digest = "1:96ab89894f66b77a0137bba12e607c6a9be992acadfb075b5602939e8519a157"
+  name = "k8s.io/client-go"
+  packages = [
+    "pkg/apis/clientauthentication",
+    "pkg/apis/clientauthentication/v1alpha1",
+  ]
+  pruneopts = ""
+  revision = "e64494209f554a6723674bd494d69445fb76a1d4"
+  version = "v10.0.0"
+
+[[projects]]
+  digest = "1:4f5eb833037cc0ba0bf8fe9cae6be9df62c19dd1c869415275c708daa8ccfda5"
+  name = "k8s.io/klog"
+  packages = ["."]
+  pruneopts = ""
+  revision = "a5bc97fbc634d635061f3146511332c7e313a55a"
+  version = "v0.1.0"
 
 [solve-meta]
   analyzer-name = "dep"
