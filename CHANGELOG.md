@@ -1,5 +1,11 @@
 ## 0.16.8 (Unreleased)
 
+### Improvements
+
+- Updated to the v1.58.0 version of the AWS Terraform Provider.
+
+- Examples in the documentation comments for the Node.js SDK have improved formatting.
+
 ## 0.16.7 (Release January 19th, 2019)
 
 ### Improvements
