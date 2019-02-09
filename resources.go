@@ -42,6 +42,7 @@ const (
 	appautoscalingMod    = "appautoscaling"           // Application Auto Scaling
 	athenaMod            = "athena"                   // Athena
 	autoscalingMod       = "autoscaling"              // Auto Scaling
+	backupMod            = "backup"                   // Backup
 	batchMod             = "batch"                    // Batch
 	budgetsMod           = "budgets"                  // Budgets
 	cloud9Mod            = "cloud9"                   // Cloud9
@@ -67,6 +68,7 @@ const (
 	dmsMod               = "dms"                      // Data Migraiton Services
 	ebsMod               = "ebs"                      // Elastic Block Store
 	ec2Mod               = "ec2"                      // EC2
+	ec2ClientVpnMod      = "ec2clientvpn"             // EC2 Client VPN
 	ec2TransitGatewayMod = "ec2transitgateway"        // EC2 Transit Gateway
 	ecrMod               = "ecr"                      // Elastic Container Registry
 	ecsMod               = "ecs"                      // Elastic Container Service
@@ -102,6 +104,7 @@ const (
 	organizationsMod     = "organizations"            // Organizations
 	pinpointMod          = "pinpoint"                 // Pinpoint
 	pricingMod           = "pricing"                  // Pricing
+	ramMod               = "ram"                      // Resource Access Manager
 	rdsMod               = "rds"                      // Relational Database Service (RDS)
 	redshiftMod          = "redshift"                 // RedShift
 	resourcegroupsMod    = "resourcegroups"           // Resource Groups
@@ -123,6 +126,7 @@ const (
 	transferMod          = "transfer"                 // Transfer Service
 	wafMod               = "waf"                      // Web Application Firewall (WAF)
 	wafregionalMod       = "wafregional"              // Web Application Firewall (WAF) Regional
+	worklinkMod          = "worklink"                 // Worklink
 	workspacesMod        = "workspaces"               // Workspaces
 )
 
@@ -452,6 +456,8 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_autoscaling_policy":   {Tok: awsResource(autoscalingMod, "Policy")},
 			"aws_autoscaling_schedule": {Tok: awsResource(autoscalingMod, "Schedule")},
+			// Backup
+			"aws_backup_vault": {Tok: awsResource(backupMod, "Vault")},
 			// Batch
 			"aws_batch_compute_environment": {Tok: awsResource(batchMod, "ComputeEnvironment")},
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
@@ -609,7 +615,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_directory_service_conditional_forwarder": {Tok: awsResource(directoryserviceMod, "ConditionalForwader")},
 			"aws_directory_service_directory":             {Tok: awsResource(directoryserviceMod, "Directory")},
 			// Document DB
+			"aws_docdb_cluster":                 {Tok: awsResource(docdbMod, "Cluster")},
 			"aws_docdb_cluster_parameter_group": {Tok: awsResource(docdbMod, "ClusterParameterGroup")},
+			"aws_docdb_cluster_snapshot":        {Tok: awsResource(docdbMod, "ClusterSnapshot")},
 			"aws_docdb_subnet_group":            {Tok: awsResource(docdbMod, "SubnetGroup")},
 			// Direct Connect
 			"aws_dx_bgp_peer":                         {Tok: awsResource(dxMod, "BgpPeer")},
@@ -878,6 +886,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_vpn_gateway":                            {Tok: awsResource(ec2Mod, "VpnGateway")},
 			"aws_vpn_gateway_attachment":                 {Tok: awsResource(ec2Mod, "VpnGatewayAttachment")},
 			"aws_vpn_gateway_route_propagation":          {Tok: awsResource(ec2Mod, "VpnGatewayRoutePropagation")},
+			// EC2 Client VPN
+			"aws_ec2_client_vpn_endpoint":            {Tok: awsResource(ec2ClientVpnMod, "Endpoint")},
+			"aws_ec2_client_vpn_network_association": {Tok: awsResource(ec2ClientVpnMod, "NetworkAssociation")},
 			// EC2 Transit Gateway
 			"aws_ec2_transit_gateway": {
 				Tok: awsResource(ec2TransitGatewayMod, "TransitGateway"),
@@ -1343,6 +1354,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_pinpoint_event_stream":              {Tok: awsResource(pinpointMod, "EventStream")},
 			"aws_pinpoint_gcm_channel":               {Tok: awsResource(pinpointMod, "GcmChannel")},
 			"aws_pinpoint_sms_channel":               {Tok: awsResource(pinpointMod, "SmsChannel")},
+			// Resource Access Manager
+			"aws_ram_resource_share": {Tok: awsResource(ramMod, "ResourceShare")},
 			// Relational Database Service (RDS)
 			"aws_rds_cluster":          {Tok: awsResource(rdsMod, "Cluster")},
 			"aws_rds_cluster_endpoint": {Tok: awsResource(rdsMod, "ClusterEndpoint")},
@@ -1449,6 +1462,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_route53_health_check": {Tok: awsResource(route53Mod, "HealthCheck")},
 			// Sagemaker
+			"aws_sagemaker_model":             {Tok: awsResource(sagemakerMod, "Model")},
 			"aws_sagemaker_notebook_instance": {Tok: awsResource(sagemakerMod, "NotebookInstance")},
 			// Secrets Manager
 			"aws_secretsmanager_secret":         {Tok: awsResource(secretsmanagerMod, "Secret")},
@@ -1627,6 +1641,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_wafregional_web_acl":                 {Tok: awsResource(wafregionalMod, "WebAcl")},
 			"aws_wafregional_web_acl_association":     {Tok: awsResource(wafregionalMod, "WebAclAssociation")},
 			"aws_wafregional_xss_match_set":           {Tok: awsResource(wafregionalMod, "XssMatchSet")},
+			// Worklink
+			"aws_worklink_fleet": {Tok: awsResource(worklinkMod, "Fleet")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// AWS
@@ -1728,7 +1744,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_efs_file_system":  {Tok: awsDataSource(efsMod, "getFileSystem")},
 			"aws_efs_mount_target": {Tok: awsDataSource(efsMod, "getMountTarget")},
 			// ECS for Kubernetes
-			"aws_eks_cluster": {Tok: awsDataSource(eksMod, "getCluster")},
+			"aws_eks_cluster":      {Tok: awsDataSource(eksMod, "getCluster")},
+			"aws_eks_cluster_auth": {Tok: awsDataSource(eksMod, "getClusterAuth")},
 			// Elastic Beanstalk
 			"aws_elastic_beanstalk_solution_stack": {Tok: awsDataSource(elasticbeanstalkMod, "getSolutionStack")},
 			"aws_elastic_beanstalk_hosted_zone":    {Tok: awsDataSource(elasticbeanstalkMod, "getHostedZone")},
