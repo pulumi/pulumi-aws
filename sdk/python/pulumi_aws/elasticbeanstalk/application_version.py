@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -33,7 +34,7 @@ class ApplicationVersion(pulumi.CustomResource):
     """
     A unique name for the this Application Version.
     """
-    def __init__(__self__, __name__, __opts__=None, application=None, bucket=None, description=None, force_delete=None, key=None, name=None):
+    def __init__(__self__, resource_name, opts=None, application=None, bucket=None, description=None, force_delete=None, key=None, name=None, __name__=None, __opts__=None):
         """
         Provides an Elastic Beanstalk Application Version Resource. Elastic Beanstalk allows
         you to deploy and manage applications in the AWS cloud without worrying about
@@ -52,9 +53,8 @@ class ApplicationVersion(pulumi.CustomResource):
         Elastic Beanstalk Application. For example &lt;revision&gt;-&lt;environment&gt;.</li>
         </ol>
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application: Name of the Beanstalk Application the version is associated with.
         :param pulumi.Input[str] bucket: S3 bucket that contains the Application Version source bundle.
         :param pulumi.Input[str] description: Short description of the Application Version.
@@ -63,20 +63,26 @@ class ApplicationVersion(pulumi.CustomResource):
         :param pulumi.Input[str] key: S3 object that is the Application Version source bundle.
         :param pulumi.Input[str] name: A unique name for the this Application Version.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not application:
+        if application is None:
             raise TypeError('Missing required property application')
         __props__['application'] = application
 
-        if not bucket:
+        if bucket is None:
             raise TypeError('Missing required property bucket')
         __props__['bucket'] = bucket
 
@@ -84,7 +90,7 @@ class ApplicationVersion(pulumi.CustomResource):
 
         __props__['force_delete'] = force_delete
 
-        if not key:
+        if key is None:
             raise TypeError('Missing required property key')
         __props__['key'] = key
 
@@ -92,9 +98,9 @@ class ApplicationVersion(pulumi.CustomResource):
 
         super(ApplicationVersion, __self__).__init__(
             'aws:elasticbeanstalk/applicationVersion:ApplicationVersion',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

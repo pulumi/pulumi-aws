@@ -13,22 +13,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ebs_volume_example = new aws.ebs.Volume("example", {
+ * const example = new aws.ebs.Volume("example", {
  *     availabilityZone: "us-west-2a",
  *     size: 40,
  *     tags: {
  *         Name: "HelloWorld",
  *     },
  * });
- * const aws_ebs_snapshot_example_snapshot = new aws.ebs.Snapshot("example_snapshot", {
+ * const exampleSnapshot = new aws.ebs.Snapshot("example_snapshot", {
  *     tags: {
  *         Name: "HelloWorld_snap",
  *     },
- *     volumeId: aws_ebs_volume_example.id,
+ *     volumeId: example.id,
  * });
- * const aws_ebs_snapshot_copy_example_copy = new aws.ebs.SnapshotCopy("example_copy", {
+ * const exampleCopy = new aws.ebs.SnapshotCopy("example_copy", {
  *     sourceRegion: "us-west-2",
- *     sourceSnapshotId: aws_ebs_snapshot_example_snapshot.id,
+ *     sourceSnapshotId: exampleSnapshot.id,
  *     tags: {
  *         Name: "HelloWorld_copy_snap",
  *     },

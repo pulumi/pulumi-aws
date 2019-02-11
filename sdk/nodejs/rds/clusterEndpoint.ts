@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_rds_cluster_default = new aws.rds.Cluster("default", {
+ * const defaultCluster = new aws.rds.Cluster("default", {
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
@@ -28,40 +28,40 @@ import * as utilities from "../utilities";
  *     masterUsername: "foo",
  *     preferredBackupWindow: "07:00-09:00",
  * });
- * const aws_rds_cluster_instance_test1 = new aws.rds.ClusterInstance("test1", {
+ * const test1 = new aws.rds.ClusterInstance("test1", {
  *     applyImmediately: true,
- *     clusterIdentifier: aws_rds_cluster_default.id,
+ *     clusterIdentifier: defaultCluster.id,
  *     identifier: "test1",
  *     instanceClass: "db.t2.small",
  * });
- * const aws_rds_cluster_instance_test2 = new aws.rds.ClusterInstance("test2", {
+ * const test2 = new aws.rds.ClusterInstance("test2", {
  *     applyImmediately: true,
- *     clusterIdentifier: aws_rds_cluster_default.id,
+ *     clusterIdentifier: defaultCluster.id,
  *     identifier: "test2",
  *     instanceClass: "db.t2.small",
  * });
- * const aws_rds_cluster_endpoint_eligible = new aws.rds.ClusterEndpoint("eligible", {
+ * const eligible = new aws.rds.ClusterEndpoint("eligible", {
  *     clusterEndpointIdentifier: "reader",
- *     clusterIdentifier: aws_rds_cluster_default.id,
+ *     clusterIdentifier: defaultCluster.id,
  *     customEndpointType: "READER",
  *     excludedMembers: [
- *         aws_rds_cluster_instance_test1.id,
- *         aws_rds_cluster_instance_test2.id,
+ *         test1.id,
+ *         test2.id,
  *     ],
  * });
- * const aws_rds_cluster_instance_test3 = new aws.rds.ClusterInstance("test3", {
+ * const test3 = new aws.rds.ClusterInstance("test3", {
  *     applyImmediately: true,
- *     clusterIdentifier: aws_rds_cluster_default.id,
+ *     clusterIdentifier: defaultCluster.id,
  *     identifier: "test3",
  *     instanceClass: "db.t2.small",
  * });
- * const aws_rds_cluster_endpoint_static = new aws.rds.ClusterEndpoint("static", {
+ * const static = new aws.rds.ClusterEndpoint("static", {
  *     clusterEndpointIdentifier: "static",
- *     clusterIdentifier: aws_rds_cluster_default.id,
+ *     clusterIdentifier: defaultCluster.id,
  *     customEndpointType: "READER",
  *     staticMembers: [
- *         aws_rds_cluster_instance_test1.id,
- *         aws_rds_cluster_instance_test3.id,
+ *         test1.id,
+ *         test3.id,
  *     ],
  * });
  * ```

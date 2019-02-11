@@ -17,15 +17,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_pinpoint_app_app = new aws.pinpoint.App("app", {});
- * const aws_pinpoint_adm_channel_channel = new aws.pinpoint.AdmChannel("channel", {
- *     applicationId: aws_pinpoint_app_app.applicationId,
+ * const app = new aws.pinpoint.App("app", {});
+ * const channel = new aws.pinpoint.AdmChannel("channel", {
+ *     applicationId: app.applicationId,
  *     clientId: "",
  *     clientSecret: "",
  *     enabled: true,
  * });
  * ```
- * 
  */
 export class AdmChannel extends pulumi.CustomResource {
     /**

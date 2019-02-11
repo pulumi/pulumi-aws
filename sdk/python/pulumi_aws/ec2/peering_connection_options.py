@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -24,7 +25,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
     """
     The ID of the requester VPC peering connection.
     """
-    def __init__(__self__, __name__, __opts__=None, accepter=None, requester=None, vpc_peering_connection_id=None):
+    def __init__(__self__, resource_name, opts=None, accepter=None, requester=None, vpc_peering_connection_id=None, __name__=None, __opts__=None):
         """
         Provides a resource to manage VPC peering connection options.
         
@@ -38,124 +39,11 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         
         Basic usage:
         
-        ```hcl
-        resource "aws_vpc" "foo" {
-          cidr_block = "10.0.0.0/16"
-        }
-        
-        resource "aws_vpc" "bar" {
-          cidr_block = "10.1.0.0/16"
-        }
-        
-        resource "aws_vpc_peering_connection" "foo" {
-          vpc_id      = "${aws_vpc.foo.id}"
-          peer_vpc_id = "${aws_vpc.bar.id}"
-          auto_accept = true
-        }
-        
-        resource "aws_vpc_peering_connection_options" "foo" {
-          vpc_peering_connection_id = "${aws_vpc_peering_connection.foo.id}"
-        
-          accepter {
-            allow_remote_vpc_dns_resolution = true
-          }
-        
-          requester {
-            allow_vpc_to_remote_classic_link = true
-            allow_classic_link_to_remote_vpc = true
-          }
-        }
-        ```
         
         Basic cross-account usage:
         
-        ```hcl
-        provider "aws" {
-          alias = "requester"
-        
-          # Requester's credentials.
-        }
-        
-        provider "aws" {
-          alias = "accepter"
-        
-          # Accepter's credentials.
-        }
-        
-        resource "aws_vpc" "main" {
-          provider = "aws.requester"
-        
-          cidr_block = "10.0.0.0/16"
-        
-          enable_dns_support   = true
-          enable_dns_hostnames = true
-        }
-        
-        resource "aws_vpc" "peer" {
-          provider = "aws.accepter"
-        
-          cidr_block = "10.1.0.0/16"
-        
-          enable_dns_support   = true
-          enable_dns_hostnames = true
-        }
-        
-        data "aws_caller_identity" "peer" {
-          provider = "aws.accepter"
-        }
-        
-        # Requester's side of the connection.
-        resource "aws_vpc_peering_connection" "peer" {
-          provider = "aws.requester"
-        
-          vpc_id        = "${aws_vpc.main.id}"
-          peer_vpc_id   = "${aws_vpc.peer.id}"
-          peer_owner_id = "${data.aws_caller_identity.peer.account_id}"
-          auto_accept   = false
-        
-          tags = {
-            Side = "Requester"
-          }
-        }
-        
-        # Accepter's side of the connection.
-        resource "aws_vpc_peering_connection_accepter" "peer" {
-          provider = "aws.accepter"
-        
-          vpc_peering_connection_id = "${aws_vpc_peering_connection.peer.id}"
-          auto_accept               = true
-        
-          tags = {
-            Side = "Accepter"
-          }
-        }
-        
-        resource "aws_vpc_peering_connection_options" "requester" {
-          provider = "aws.requester"
-        
-          # As options can't be set until the connection has been accepted
-          # create an explicit dependency on the accepter.
-          vpc_peering_connection_id = "${aws_vpc_peering_connection_accepter.peer.id}"
-        
-          requester {
-            allow_remote_vpc_dns_resolution = true
-          }
-        }
-        
-        resource "aws_vpc_peering_connection_options" "accepter" {
-          provider = "aws.accepter"
-        
-          vpc_peering_connection_id = "${aws_vpc_peering_connection_accepter.peer.id}"
-        
-          accepter {
-            allow_remote_vpc_dns_resolution = true
-          }
-        }
-        ```
-        
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] accepter: An optional configuration block that allows for [VPC Peering Connection]
                (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
                the peering connection (a maximum of one).
@@ -164,11 +52,17 @@ class PeeringConnectionOptions(pulumi.CustomResource):
                the peering connection (a maximum of one).
         :param pulumi.Input[str] vpc_peering_connection_id: The ID of the requester VPC peering connection.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -177,15 +71,15 @@ class PeeringConnectionOptions(pulumi.CustomResource):
 
         __props__['requester'] = requester
 
-        if not vpc_peering_connection_id:
+        if vpc_peering_connection_id is None:
             raise TypeError('Missing required property vpc_peering_connection_id')
         __props__['vpc_peering_connection_id'] = vpc_peering_connection_id
 
         super(PeeringConnectionOptions, __self__).__init__(
             'aws:ec2/peeringConnectionOptions:PeeringConnectionOptions',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

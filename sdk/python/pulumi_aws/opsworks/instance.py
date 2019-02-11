@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -142,13 +143,66 @@ class Instance(pulumi.CustomResource):
     Keyword to choose what virtualization mode created instances
     will use. Can be either `"paravirtual"` or `"hvm"`.
     """
-    def __init__(__self__, __name__, __opts__=None, agent_version=None, ami_id=None, architecture=None, auto_scaling_type=None, availability_zone=None, created_at=None, delete_ebs=None, delete_eip=None, ebs_block_devices=None, ebs_optimized=None, ecs_cluster_arn=None, elastic_ip=None, ephemeral_block_devices=None, hostname=None, infrastructure_class=None, install_updates_on_boot=None, instance_profile_arn=None, instance_type=None, last_service_error_id=None, layer_ids=None, os=None, platform=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, registered_by=None, reported_agent_version=None, reported_os_family=None, reported_os_name=None, reported_os_version=None, root_block_devices=None, root_device_type=None, root_device_volume_id=None, security_group_ids=None, ssh_host_dsa_key_fingerprint=None, ssh_host_rsa_key_fingerprint=None, ssh_key_name=None, stack_id=None, state=None, status=None, subnet_id=None, tenancy=None, virtualization_type=None):
+    def __init__(__self__, resource_name, opts=None, agent_version=None, ami_id=None, architecture=None, auto_scaling_type=None, availability_zone=None, created_at=None, delete_ebs=None, delete_eip=None, ebs_block_devices=None, ebs_optimized=None, ecs_cluster_arn=None, elastic_ip=None, ephemeral_block_devices=None, hostname=None, infrastructure_class=None, install_updates_on_boot=None, instance_profile_arn=None, instance_type=None, last_service_error_id=None, layer_ids=None, os=None, platform=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, registered_by=None, reported_agent_version=None, reported_os_family=None, reported_os_name=None, reported_os_version=None, root_block_devices=None, root_device_type=None, root_device_volume_id=None, security_group_ids=None, ssh_host_dsa_key_fingerprint=None, ssh_host_rsa_key_fingerprint=None, ssh_key_name=None, stack_id=None, state=None, status=None, subnet_id=None, tenancy=None, virtualization_type=None, __name__=None, __opts__=None):
         """
         Provides an OpsWorks instance resource.
         
+        ## Block devices
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        Each of the `*_block_device` attributes controls a portion of the AWS
+        Instance's "Block Device Mapping". It's a good idea to familiarize yourself with [AWS's Block Device
+        Mapping docs](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)
+        to understand the implications of using these attributes.
+        
+        The `root_block_device` mapping supports the following:
+        
+        * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
+          or `"io1"`. (Default: `"standard"`).
+        * `volume_size` - (Optional) The size of the volume in gigabytes.
+        * `iops` - (Optional) The amount of provisioned
+          [IOPS](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+          This must be set with a `volume_type` of `"io1"`.
+        * `delete_on_termination` - (Optional) Whether the volume should be destroyed
+          on instance termination (Default: `true`).
+        
+        Modifying any of the `root_block_device` settings requires resource
+        replacement.
+        
+        Each `ebs_block_device` supports the following:
+        
+        * `device_name` - The name of the device to mount.
+        * `snapshot_id` - (Optional) The Snapshot ID to mount.
+        * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
+          or `"io1"`. (Default: `"standard"`).
+        * `volume_size` - (Optional) The size of the volume in gigabytes.
+        * `iops` - (Optional) The amount of provisioned
+          [IOPS](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+          This must be set with a `volume_type` of `"io1"`.
+        * `delete_on_termination` - (Optional) Whether the volume should be destroyed
+          on instance termination (Default: `true`).
+        
+        Modifying any `ebs_block_device` currently requires resource replacement.
+        
+        Each `ephemeral_block_device` supports the following:
+        
+        * `device_name` - The name of the block device to mount on the instance.
+        * `virtual_name` - The [Instance Store Device
+          Name](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
+          (e.g. `"ephemeral0"`)
+        
+        Each AWS Instance type has a different set of Instance Store block devices
+        available for attachment. AWS [publishes a
+        list](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes)
+        of which ephemeral devices are available on each type. The devices are always
+        identified by the `virtual_name` in the format `"ephemeral{0..N}"`.
+        
+        > **NOTE:** Currently, changes to `*_block_device` configuration of _existing_
+        resources cannot be automatically detected by Terraform. After making updates
+        to block device configuration, resource recreation can be manually triggered by
+        using the [`taint` command](https://www.terraform.io/docs/commands/taint.html).
+        
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_version: The AWS OpsWorks agent to install.  Defaults to `"INHERIT"`.
         :param pulumi.Input[str] ami_id: The AMI to use for the instance.  If an AMI is specified, `os` must be `"Custom"`.
         :param pulumi.Input[str] architecture: Machine architecture for created instances.  Can be either `"x86_64"` (the default) or `"i386"`
@@ -202,11 +256,17 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either `"paravirtual"` or `"hvm"`.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -249,7 +309,7 @@ class Instance(pulumi.CustomResource):
 
         __props__['last_service_error_id'] = last_service_error_id
 
-        if not layer_ids:
+        if layer_ids is None:
             raise TypeError('Missing required property layer_ids')
         __props__['layer_ids'] = layer_ids
 
@@ -289,7 +349,7 @@ class Instance(pulumi.CustomResource):
 
         __props__['ssh_key_name'] = ssh_key_name
 
-        if not stack_id:
+        if stack_id is None:
             raise TypeError('Missing required property stack_id')
         __props__['stack_id'] = stack_id
 
@@ -307,9 +367,9 @@ class Instance(pulumi.CustomResource):
 
         super(Instance, __self__).__init__(
             'aws:opsworks/instance:Instance',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

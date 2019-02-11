@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -24,28 +25,33 @@ class NamedQuery(pulumi.CustomResource):
     """
     The text of the query itself. In other words, all query statements. Maximum length of 262144.
     """
-    def __init__(__self__, __name__, __opts__=None, database=None, description=None, name=None, query=None):
+    def __init__(__self__, resource_name, opts=None, database=None, description=None, name=None, query=None, __name__=None, __opts__=None):
         """
         Provides an Athena Named Query resource.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database: The database to which the query belongs.
         :param pulumi.Input[str] description: A brief explanation of the query. Maximum length of 1024.
         :param pulumi.Input[str] name: The plain language name for the query. Maximum length of 128.
         :param pulumi.Input[str] query: The text of the query itself. In other words, all query statements. Maximum length of 262144.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not database:
+        if database is None:
             raise TypeError('Missing required property database')
         __props__['database'] = database
 
@@ -53,15 +59,15 @@ class NamedQuery(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        if not query:
+        if query is None:
             raise TypeError('Missing required property query')
         __props__['query'] = query
 
         super(NamedQuery, __self__).__init__(
             'aws:athena/namedQuery:NamedQuery',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

@@ -6,6 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create an association between a subnet and routing table.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const routeTableAssociation = new aws.ec2.RouteTableAssociation("a", {
+ *     routeTableId: aws_route_table_bar.id,
+ *     subnetId: aws_subnet_foo.id,
+ * });
+ * ```
  */
 export class RouteTableAssociation extends pulumi.CustomResource {
     /**

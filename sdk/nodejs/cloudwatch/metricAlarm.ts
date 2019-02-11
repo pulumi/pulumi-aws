@@ -15,22 +15,51 @@ import {Topic} from "../sns/topic";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_cloudwatch_metric_alarm_foobar = new aws.cloudwatch.MetricAlarm("foobar", {
+ * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
  *     alarmDescription: "This metric monitors ec2 cpu utilization",
  *     name: "terraform-test-foobar5",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
- *     evaluationPeriods: Number.parseFloat("2"),
+ *     evaluationPeriods: 2,
  *     insufficientDataActions: [],
  *     metricName: "CPUUtilization",
  *     namespace: "AWS/EC2",
- *     period: Number.parseFloat("120"),
+ *     period: 120,
  *     statistic: "Average",
- *     threshold: Number.parseFloat("80"),
+ *     threshold: 80,
  * });
  * ```
+ * 
+ * ## Example in Conjunction with Scaling Policies
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const batPolicy = new aws.autoscaling.Policy("bat", {
+ *     adjustmentType: "ChangeInCapacity",
+ *     autoscalingGroupName: aws_autoscaling_group_bar.name,
+ *     cooldown: 300,
+ *     scalingAdjustment: 4,
+ * });
+ * const batMetricAlarm = new aws.cloudwatch.MetricAlarm("bat", {
+ *     alarmActions: [batPolicy.arn],
+ *     alarmDescription: "This metric monitors ec2 cpu utilization",
+ *     name: "terraform-test-foobar5",
+ *     comparisonOperator: "GreaterThanOrEqualToThreshold",
+ *     dimensions: {
+ *         AutoScalingGroupName: aws_autoscaling_group_bar.name,
+ *     },
+ *     evaluationPeriods: 2,
+ *     metricName: "CPUUtilization",
+ *     namespace: "AWS/EC2",
+ *     period: 120,
+ *     statistic: "Average",
+ *     threshold: 80,
+ * });
+ * ```
+ * 
  * > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
  * You must choose one or the other
- * 
  */
 export class MetricAlarm extends pulumi.CustomResource {
     /**

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -94,7 +95,7 @@ class VpnConnection(pulumi.CustomResource):
     """
     The ID of the Virtual Private Gateway.
     """
-    def __init__(__self__, __name__, __opts__=None, customer_gateway_configuration=None, customer_gateway_id=None, routes=None, static_routes_only=None, tags=None, transit_gateway_id=None, tunnel1_inside_cidr=None, tunnel1_preshared_key=None, tunnel2_inside_cidr=None, tunnel2_preshared_key=None, type=None, vgw_telemetries=None, vpn_gateway_id=None):
+    def __init__(__self__, resource_name, opts=None, customer_gateway_configuration=None, customer_gateway_id=None, routes=None, static_routes_only=None, tags=None, transit_gateway_id=None, tunnel1_inside_cidr=None, tunnel1_preshared_key=None, tunnel2_inside_cidr=None, tunnel2_preshared_key=None, type=None, vgw_telemetries=None, vpn_gateway_id=None, __name__=None, __opts__=None):
         """
         Manages an EC2 VPN connection. These objects can be connected to customer gateways, and allow you to establish tunnels between your network and Amazon.
         
@@ -104,9 +105,8 @@ class VpnConnection(pulumi.CustomResource):
         > **Note:** The CIDR blocks in the arguments `tunnel1_inside_cidr` and `tunnel2_inside_cidr` must have a prefix of /30 and be a part of a specific range.
         [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_gateway_configuration: The configuration information for the VPN connection's customer gateway (in the native XML format).
         :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway.
         :param pulumi.Input[list] routes
@@ -121,18 +121,24 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[list] vgw_telemetries
         :param pulumi.Input[str] vpn_gateway_id: The ID of the Virtual Private Gateway.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['customer_gateway_configuration'] = customer_gateway_configuration
 
-        if not customer_gateway_id:
+        if customer_gateway_id is None:
             raise TypeError('Missing required property customer_gateway_id')
         __props__['customer_gateway_id'] = customer_gateway_id
 
@@ -152,7 +158,7 @@ class VpnConnection(pulumi.CustomResource):
 
         __props__['tunnel2_preshared_key'] = tunnel2_preshared_key
 
-        if not type:
+        if type is None:
             raise TypeError('Missing required property type')
         __props__['type'] = type
 
@@ -173,9 +179,9 @@ class VpnConnection(pulumi.CustomResource):
 
         super(VpnConnection, __self__).__init__(
             'aws:ec2/vpnConnection:VpnConnection',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

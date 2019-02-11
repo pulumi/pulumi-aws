@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a load balancer policy, which can be attached to an ELB listener or backend server.
- * This example shows how to enable backend authentication for an ELB as well as customize the TLS settings.
- * 
  */
 export class LoadBalancerPolicy extends pulumi.CustomResource {
     /**

@@ -17,7 +17,7 @@ import {Role} from "./role";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_role_role = new aws.iam.Role("role", {
+ * const role = new aws.iam.Role("role", {
  *     assumeRolePolicy: `{
  *     "Version": "2012-10-17",
  *     "Statement": [
@@ -32,12 +32,10 @@ import {Role} from "./role";
  *     ]
  * }
  * `,
- *     name: "test_role",
  *     path: "/",
  * });
- * const aws_iam_instance_profile_test_profile = new aws.iam.InstanceProfile("test_profile", {
- *     name: "test_profile",
- *     role: aws_iam_role_role.name,
+ * const testProfile = new aws.iam.InstanceProfile("test_profile", {
+ *     role: role.name,
  * });
  * ```
  */

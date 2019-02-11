@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -45,7 +46,7 @@ class ComputeEnvironment(pulumi.CustomResource):
     """
     The type of compute environment. Valid items are `EC2` or `SPOT`.
     """
-    def __init__(__self__, __name__, __opts__=None, compute_environment_name=None, compute_resources=None, service_role=None, state=None, type=None):
+    def __init__(__self__, resource_name, opts=None, compute_environment_name=None, compute_resources=None, service_role=None, state=None, type=None, __name__=None, __opts__=None):
         """
         Creates a AWS Batch compute environment. Compute environments contain the Amazon ECS container instances that are used to run containerized batch jobs.
         
@@ -55,37 +56,42 @@ class ComputeEnvironment(pulumi.CustomResource):
         > **Note:** To prevent a race condition during environment deletion, make sure to set `depends_on` to the related `aws_iam_role_policy_attachment`;
            otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch][3] .
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compute_environment_name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
         :param pulumi.Input[dict] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         :param pulumi.Input[str] service_role: The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         :param pulumi.Input[str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2` or `SPOT`.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not compute_environment_name:
+        if compute_environment_name is None:
             raise TypeError('Missing required property compute_environment_name')
         __props__['compute_environment_name'] = compute_environment_name
 
         __props__['compute_resources'] = compute_resources
 
-        if not service_role:
+        if service_role is None:
             raise TypeError('Missing required property service_role')
         __props__['service_role'] = service_role
 
         __props__['state'] = state
 
-        if not type:
+        if type is None:
             raise TypeError('Missing required property type')
         __props__['type'] = type
 
@@ -97,9 +103,9 @@ class ComputeEnvironment(pulumi.CustomResource):
 
         super(ComputeEnvironment, __self__).__init__(
             'aws:batch/computeEnvironment:ComputeEnvironment',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -24,36 +25,41 @@ class BasePathMapping(pulumi.CustomResource):
     """
     The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
     """
-    def __init__(__self__, __name__, __opts__=None, rest_api=None, base_path=None, domain_name=None, stage_name=None):
+    def __init__(__self__, resource_name, opts=None, rest_api=None, base_path=None, domain_name=None, stage_name=None, __name__=None, __opts__=None):
         """
         Connects a custom domain name registered via `aws_api_gateway_domain_name`
         with a deployed API so that its methods can be called via the
         custom domain name.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] rest_api: The id of the API to connect.
         :param pulumi.Input[str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
         :param pulumi.Input[str] domain_name: The already-registered domain name to connect the API to.
         :param pulumi.Input[str] stage_name: The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not rest_api:
+        if rest_api is None:
             raise TypeError('Missing required property rest_api')
         __props__['rest_api'] = rest_api
 
         __props__['base_path'] = base_path
 
-        if not domain_name:
+        if domain_name is None:
             raise TypeError('Missing required property domain_name')
         __props__['domain_name'] = domain_name
 
@@ -61,9 +67,9 @@ class BasePathMapping(pulumi.CustomResource):
 
         super(BasePathMapping, __self__).__init__(
             'aws:apigateway/basePathMapping:BasePathMapping',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

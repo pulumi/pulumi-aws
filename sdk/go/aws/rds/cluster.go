@@ -213,7 +213,7 @@ func (r *Cluster) ClusterIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterIdentifier"])
 }
 
-// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
 func (r *Cluster) ClusterIdentifierPrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterIdentifierPrefix"])
 }
@@ -400,7 +400,7 @@ type ClusterState struct {
 	BackupRetentionPeriod interface{}
 	// The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
 	ClusterIdentifier interface{}
-	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
 	ClusterIdentifierPrefix interface{}
 	// List of RDS Instances that are a part of this cluster
 	ClusterMembers interface{}
@@ -488,7 +488,7 @@ type ClusterArgs struct {
 	BackupRetentionPeriod interface{}
 	// The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
 	ClusterIdentifier interface{}
-	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
 	ClusterIdentifierPrefix interface{}
 	// List of RDS Instances that are a part of this cluster
 	ClusterMembers interface{}

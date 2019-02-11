@@ -9,6 +9,14 @@ import (
 )
 
 // Provides a DB event subscription resource.
+// 
+// ## Attributes
+// 
+// The following additional atttributes are provided:
+// 
+// * `id` - The name of the RDS event notification subscription
+// * `arn` - The Amazon Resource Name of the RDS event notification subscription
+// * `customer_aws_id` - The AWS customer account associated with the RDS event notification subscription
 type EventSubscription struct {
 	s *pulumi.ResourceState
 }

@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const config = new pulumi.Config();
- * const var_mount_target_id = config.get("mountTargetId") || "";
+ * const mountTargetId = config.get("mountTargetId") || "";
  * 
- * const aws_efs_mount_target_by_id = pulumi.output(aws.efs.getMountTarget({
- *     mountTargetId: var_mount_target_id,
+ * const byId = pulumi.output(aws.efs.getMountTarget({
+ *     mountTargetId: mountTargetId,
  * }));
  * ```
  */

@@ -14,11 +14,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_caller_identity_current = pulumi.output(aws.getCallerIdentity({}));
+ * const current = pulumi.output(aws.getCallerIdentity({}));
  * 
- * export const accountId = aws_caller_identity_current.apply(__arg0 => __arg0.accountId);
- * export const callerArn = aws_caller_identity_current.apply(__arg0 => __arg0.arn);
- * export const callerUser = aws_caller_identity_current.apply(__arg0 => __arg0.userId);
+ * export const accountId = current.apply(current => current.accountId);
+ * export const callerArn = current.apply(current => current.arn);
+ * export const callerUser = current.apply(current => current.userId);
  * ```
  */
 export function getCallerIdentity(opts?: pulumi.InvokeOptions): Promise<GetCallerIdentityResult> {

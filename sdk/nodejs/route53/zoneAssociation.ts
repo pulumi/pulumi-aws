@@ -17,25 +17,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_vpc_primary = new aws.ec2.Vpc("primary", {
+ * const primary = new aws.ec2.Vpc("primary", {
  *     cidrBlock: "10.6.0.0/16",
  *     enableDnsHostnames: true,
  *     enableDnsSupport: true,
  * });
- * const aws_vpc_secondary = new aws.ec2.Vpc("secondary", {
+ * const secondaryVpc = new aws.ec2.Vpc("secondary", {
  *     cidrBlock: "10.7.0.0/16",
  *     enableDnsHostnames: true,
  *     enableDnsSupport: true,
  * });
- * const aws_route53_zone_example = new aws.route53.Zone("example", {
- *     name: "example.com",
+ * const example = new aws.route53.Zone("example", {
+ *     // NOTE: The aws_route53_zone vpc argument accepts multiple configuration
+ *     //       blocks. The below usage of the single vpc configuration, the
+ *     //       lifecycle configuration, and the aws_route53_zone_association
+ *     //       resource is for illustrative purposes (e.g. for a separate
+ *     //       cross-account authorization process, which is not shown here).
  *     vpcs: [{
- *         vpcId: aws_vpc_primary.id,
+ *         vpcId: primary.id,
  *     }],
  * });
- * const aws_route53_zone_association_secondary = new aws.route53.ZoneAssociation("secondary", {
- *     vpcId: aws_vpc_secondary.id,
- *     zoneId: aws_route53_zone_example.zoneId,
+ * const secondaryZoneAssociation = new aws.route53.ZoneAssociation("secondary", {
+ *     vpcId: secondaryVpc.id,
+ *     zoneId: example.zoneId,
  * });
  * ```
  */

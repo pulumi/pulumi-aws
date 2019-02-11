@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -49,13 +50,36 @@ class Policy(pulumi.CustomResource):
     """
     A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
     """
-    def __init__(__self__, __name__, __opts__=None, adjustment_type=None, alarms=None, cooldown=None, metric_aggregation_type=None, min_adjustment_magnitude=None, name=None, policy_type=None, resource_id=None, scalable_dimension=None, service_namespace=None, step_adjustments=None, step_scaling_policy_configurations=None, target_tracking_scaling_policy_configuration=None):
+    def __init__(__self__, resource_name, opts=None, adjustment_type=None, alarms=None, cooldown=None, metric_aggregation_type=None, min_adjustment_magnitude=None, name=None, policy_type=None, resource_id=None, scalable_dimension=None, service_namespace=None, step_adjustments=None, step_scaling_policy_configurations=None, target_tracking_scaling_policy_configuration=None, __name__=None, __opts__=None):
         """
         Provides an Application AutoScaling Policy resource.
         
+        ## Nested fields
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        ### `target_tracking_scaling_policy_configuration`
+        
+        * `target_value` - (Required) The target value for the metric.
+        * `disable_scale_in` - (Optional) Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
+        * `scale_in_cooldown` - (Optional) The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+        * `scale_out_cooldown` - (Optional) The amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
+        * `customized_metric_specification` - (Optional) Reserved for future use. See supported fields below.
+        * `predefined_metric_specification` - (Optional) A predefined metric. See supported fields below.
+        
+        ### `customized_metric_specification`
+        
+        * `dimensions` - (Optional) The dimensions of the metric.
+        * `metric_name` - (Required) The name of the metric.
+        * `namespace` - (Required) The namespace of the metric.
+        * `statistic` - (Required) The statistic of the metric.
+        * `unit` - (Optional) The unit of the metric.
+        
+        ### `predefined_metric_specification`
+        
+        * `predefined_metric_type` - (Required) The metric type.
+        * `resource_label` - (Optional) Reserved for future use.
+        
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] adjustment_type: The scaling policy's adjustment type.
         :param pulumi.Input[list] alarms
         :param pulumi.Input[int] cooldown
@@ -70,11 +94,17 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[list] step_scaling_policy_configurations: Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
         :param pulumi.Input[dict] target_tracking_scaling_policy_configuration: A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -93,15 +123,15 @@ class Policy(pulumi.CustomResource):
 
         __props__['policy_type'] = policy_type
 
-        if not resource_id:
+        if resource_id is None:
             raise TypeError('Missing required property resource_id')
         __props__['resource_id'] = resource_id
 
-        if not scalable_dimension:
+        if scalable_dimension is None:
             raise TypeError('Missing required property scalable_dimension')
         __props__['scalable_dimension'] = scalable_dimension
 
-        if not service_namespace:
+        if service_namespace is None:
             raise TypeError('Missing required property service_namespace')
         __props__['service_namespace'] = service_namespace
 
@@ -115,9 +145,9 @@ class Policy(pulumi.CustomResource):
 
         super(Policy, __self__).__init__(
             'aws:appautoscaling/policy:Policy',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

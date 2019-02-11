@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -20,32 +21,36 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
     """
     List of Policy Names to apply to the backend server.
     """
-    def __init__(__self__, __name__, __opts__=None, instance_port=None, load_balancer_name=None, policy_names=None):
+    def __init__(__self__, resource_name, opts=None, instance_port=None, load_balancer_name=None, policy_names=None, __name__=None, __opts__=None):
         """
         Attaches a load balancer policy to an ELB backend server.
         
-        
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] instance_port: The instance port to apply the policy to.
         :param pulumi.Input[str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[list] policy_names: List of Policy Names to apply to the backend server.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not instance_port:
+        if instance_port is None:
             raise TypeError('Missing required property instance_port')
         __props__['instance_port'] = instance_port
 
-        if not load_balancer_name:
+        if load_balancer_name is None:
             raise TypeError('Missing required property load_balancer_name')
         __props__['load_balancer_name'] = load_balancer_name
 
@@ -53,9 +58,9 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
 
         super(LoadBalancerBackendServerPolicy, __self__).__init__(
             'aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

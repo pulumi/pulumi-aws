@@ -17,35 +17,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_glue_classifier_example = new aws.glue.Classifier("example", {
+ * const example = new aws.glue.Classifier("example", {
  *     grokClassifier: {
  *         classification: "example",
  *         grokPattern: "example",
  *     },
- *     name: "example",
  * });
  * ```
+ * 
  * ### JSON Classifier
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_glue_classifier_example = new aws.glue.Classifier("example", {
+ * const example = new aws.glue.Classifier("example", {
  *     jsonClassifier: {
  *         jsonPath: "example",
  *     },
- *     name: "example",
  * });
  * ```
+ * 
  * ### XML Classifier
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_glue_classifier_example = new aws.glue.Classifier("example", {
- *     name: "example",
+ * const example = new aws.glue.Classifier("example", {
  *     xmlClassifier: {
  *         classification: "example",
  *         rowTag: "example",

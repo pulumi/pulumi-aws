@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const config = new pulumi.Config();
- * const var_function_name = config.require("functionName");
+ * const functionName = config.require("functionName");
  * 
- * const aws_lambda_function_existing = pulumi.output(aws.lambda.getFunction({
- *     functionName: var_function_name,
+ * const existing = pulumi.output(aws.lambda.getFunction({
+ *     functionName: functionName,
  * }));
  * ```
  */

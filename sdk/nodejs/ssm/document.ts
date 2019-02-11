@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ssm_document_foo = new aws.ssm.Document("foo", {
+ * const foo = new aws.ssm.Document("foo", {
  *     content: `  {
  *     "schemaVersion": "1.2",
  *     "description": "Check ip configuration of a Linux instance.",
@@ -37,9 +37,19 @@ import * as utilities from "../utilities";
  *   }
  * `,
  *     documentType: "Command",
- *     name: "test_document",
  * });
  * ```
+ * 
+ * ## Permissions
+ * 
+ * The permissions attribute specifies how you want to share the document. If you share a document privately,
+ * you must specify the AWS user account IDs for those people who can use the document. If you share a document
+ * publicly, you must specify All as the account ID.
+ * 
+ * The permissions mapping supports the following:
+ * 
+ * * `type` - The permission type for the document. The permission type can be `Share`.
+ * * `account_ids` - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or `All`.
  */
 export class Document extends pulumi.CustomResource {
     /**

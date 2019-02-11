@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -36,13 +37,12 @@ class Webhook(pulumi.CustomResource):
     """
     The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
     """
-    def __init__(__self__, __name__, __opts__=None, authentication=None, authentication_configuration=None, filters=None, name=None, target_action=None, target_pipeline=None):
+    def __init__(__self__, resource_name, opts=None, authentication=None, authentication_configuration=None, filters=None, name=None, target_action=None, target_pipeline=None, __name__=None, __opts__=None):
         """
         Provides a CodePipeline Webhook.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authentication: The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
         :param pulumi.Input[dict] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         :param pulumi.Input[list] filters: One or more `filter` blocks. Filter blocks are documented below.
@@ -50,32 +50,38 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[str] target_action: The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
         :param pulumi.Input[str] target_pipeline: The name of the pipeline.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not authentication:
+        if authentication is None:
             raise TypeError('Missing required property authentication')
         __props__['authentication'] = authentication
 
         __props__['authentication_configuration'] = authentication_configuration
 
-        if not filters:
+        if filters is None:
             raise TypeError('Missing required property filters')
         __props__['filters'] = filters
 
         __props__['name'] = name
 
-        if not target_action:
+        if target_action is None:
             raise TypeError('Missing required property target_action')
         __props__['target_action'] = target_action
 
-        if not target_pipeline:
+        if target_pipeline is None:
             raise TypeError('Missing required property target_pipeline')
         __props__['target_pipeline'] = target_pipeline
 
@@ -83,9 +89,9 @@ class Webhook(pulumi.CustomResource):
 
         super(Webhook, __self__).__init__(
             'aws:codepipeline/webhook:Webhook',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

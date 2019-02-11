@@ -13,21 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_appsync_graphql_api_example = new aws.appsync.GraphQLApi("example", {
+ * const exampleGraphQLApi = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "API_KEY",
- *     name: "tf_appsync_example",
  * });
- * const aws_dynamodb_table_example = new aws.dynamodb.Table("example", {
+ * const exampleTable = new aws.dynamodb.Table("example", {
  *     attributes: [{
  *         name: "UserId",
  *         type: "S",
  *     }],
  *     hashKey: "UserId",
- *     name: "example",
  *     readCapacity: 1,
  *     writeCapacity: 1,
  * });
- * const aws_iam_role_example = new aws.iam.Role("example", {
+ * const exampleRole = new aws.iam.Role("example", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -41,20 +39,17 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     name: "example",
  * });
- * const aws_appsync_datasource_example = new aws.appsync.DataSource("example", {
- *     apiId: aws_appsync_graphql_api_example.id,
+ * const exampleDataSource = new aws.appsync.DataSource("example", {
+ *     apiId: exampleGraphQLApi.id,
  *     dynamodbConfig: {
- *         tableName: aws_dynamodb_table_example.name,
+ *         tableName: exampleTable.name,
  *     },
- *     name: "tf_appsync_example",
- *     serviceRoleArn: aws_iam_role_example.arn,
+ *     serviceRoleArn: exampleRole.arn,
  *     type: "AMAZON_DYNAMODB",
  * });
- * const aws_iam_role_policy_example = new aws.iam.RolePolicy("example", {
- *     name: "example",
- *     policy: aws_dynamodb_table_example.arn.apply(__arg0 => `{
+ * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
+ *     policy: exampleTable.arn.apply(arn => `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -63,13 +58,13 @@ import * as utilities from "../utilities";
  *       ],
  *       "Effect": "Allow",
  *       "Resource": [
- *         "${__arg0}"
+ *         "${arn}"
  *       ]
  *     }
  *   ]
  * }
  * `),
- *     role: aws_iam_role_example.id,
+ *     role: exampleRole.id,
  * });
  * ```
  */

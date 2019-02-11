@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_cloudwatch_event_rule_console = new aws.cloudwatch.EventRule("console", {
+ * const console = new aws.cloudwatch.EventRule("console", {
  *     description: "Capture all EC2 scaling events",
  *     eventPattern: `{
  *   "source": [
@@ -27,15 +27,13 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     name: "capture-ec2-scaling-events",
  * });
- * const aws_kinesis_stream_test_stream = new aws.kinesis.Stream("test_stream", {
- *     name: "terraform-kinesis-test",
+ * const testStream = new aws.kinesis.Stream("test_stream", {
  *     shardCount: 1,
  * });
- * const aws_cloudwatch_event_target_yada = new aws.cloudwatch.EventTarget("yada", {
- *     arn: aws_kinesis_stream_test_stream.arn,
- *     rule: aws_cloudwatch_event_rule_console.name,
+ * const yada = new aws.cloudwatch.EventTarget("yada", {
+ *     arn: testStream.arn,
+ *     rule: console.name,
  *     runCommandTargets: [
  *         {
  *             key: "tag:Name",
@@ -56,12 +54,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_cloudwatch_event_rule_stop_instances = new aws.cloudwatch.EventRule("stop_instances", {
+ * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stop_instances", {
  *     description: "Stop instances nightly",
- *     name: "StopInstance",
  *     scheduleExpression: "cron(0 0 * * ? *)",
  * });
- * const aws_ssm_document_stop_instance = new aws.ssm.Document("stop_instance", {
+ * const stopInstance = new aws.ssm.Document("stop_instance", {
  *     content: `  {
  *     "schemaVersion": "1.2",
  *     "description": "Stop an instance",
@@ -81,9 +78,8 @@ import * as utilities from "../utilities";
  *   }
  * `,
  *     documentType: "Command",
- *     name: "stop_instance",
  * });
- * const aws_iam_policy_document_ssm_lifecycle_trust = pulumi.output(aws.iam.getPolicyDocument({
+ * const ssmLifecycleTrust = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         principals: [{
@@ -92,21 +88,20 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * }));
- * const aws_iam_role_ssm_lifecycle = new aws.iam.Role("ssm_lifecycle", {
- *     assumeRolePolicy: aws_iam_policy_document_ssm_lifecycle_trust.apply(__arg0 => __arg0.json),
- *     name: "SSMLifecycle",
+ * const ssmLifecycleRole = new aws.iam.Role("ssm_lifecycle", {
+ *     assumeRolePolicy: ssmLifecycleTrust.apply(ssmLifecycleTrust => ssmLifecycleTrust.json),
  * });
- * const aws_cloudwatch_event_target_stop_instances = new aws.cloudwatch.EventTarget("stop_instances", {
- *     arn: aws_ssm_document_stop_instance.arn,
- *     roleArn: aws_iam_role_ssm_lifecycle.arn,
- *     rule: aws_cloudwatch_event_rule_stop_instances.name,
+ * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stop_instances", {
+ *     arn: stopInstance.arn,
+ *     roleArn: ssmLifecycleRole.arn,
+ *     rule: stopInstancesEventRule.name,
  *     runCommandTargets: [{
  *         key: "tag:Terminate",
  *         values: ["midnight"],
  *     }],
  *     targetId: "StopInstance",
  * });
- * const aws_iam_policy_document_ssm_lifecycle = pulumi.output(aws.iam.getPolicyDocument({
+ * const ssmLifecyclePolicyDocument = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             actions: ["ssm:SendCommand"],
@@ -121,13 +116,97 @@ import * as utilities from "../utilities";
  *         {
  *             actions: ["ssm:SendCommand"],
  *             effect: "Allow",
- *             resources: [aws_ssm_document_stop_instance.arn],
+ *             resources: [stopInstance.arn],
  *         },
  *     ],
  * }));
- * const aws_iam_policy_ssm_lifecycle = new aws.iam.Policy("ssm_lifecycle", {
- *     name: "SSMLifecycle",
- *     policy: aws_iam_policy_document_ssm_lifecycle.apply(__arg0 => __arg0.json),
+ * const ssmLifecyclePolicy = new aws.iam.Policy("ssm_lifecycle", {
+ *     policy: ssmLifecyclePolicyDocument.apply(ssmLifecyclePolicyDocument => ssmLifecyclePolicyDocument.json),
+ * });
+ * ```
+ * 
+ * ## Example RunCommand Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stop_instances", {
+ *     description: "Stop instances nightly",
+ *     scheduleExpression: "cron(0 0 * * ? *)",
+ * });
+ * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stop_instances", {
+ *     arn: `arn:aws:ssm:${var_aws_region}::document/AWS-RunShellScript`,
+ *     input: "{\"commands\":[\"halt\"]}",
+ *     roleArn: aws_iam_role_ssm_lifecycle.arn,
+ *     rule: stopInstancesEventRule.name,
+ *     runCommandTargets: [{
+ *         key: "tag:Terminate",
+ *         values: ["midnight"],
+ *     }],
+ *     targetId: "StopInstance",
+ * });
+ * ```
+ * 
+ * ## Example ECS Run Task with Role and Task Override Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const ecsEvents = new aws.iam.Role("ecs_events", {
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "events.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   ]
+ * }
+ * `,
+ * });
+ * const ecsScheduledTask = new aws.cloudwatch.EventTarget("ecs_scheduled_task", {
+ *     arn: aws_ecs_cluster_cluster_name.arn,
+ *     ecsTarget: {
+ *         taskCount: 1,
+ *         taskDefinitionArn: aws_ecs_task_definition_task_name.arn,
+ *     },
+ *     input: `{
+ *   "containerOverrides": [
+ *     {
+ *       "name": "name-of-container-to-override",
+ *       "command": ["bin/console", "scheduled-task"]
+ *     }
+ *   ]
+ * }
+ * `,
+ *     roleArn: ecsEvents.arn,
+ *     rule: aws_cloudwatch_event_rule_every_hour.name,
+ *     targetId: "run-scheduled-task-every-hour",
+ * });
+ * const ecsEventsRunTaskWithAnyRole = new aws.iam.RolePolicy("ecs_events_run_task_with_any_role", {
+ *     policy: aws_ecs_task_definition_task_name.arn.apply(arn => `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [
+ *         {
+ *             "Effect": "Allow",
+ *             "Action": "iam:PassRole",
+ *             "Resource": "*"
+ *         },
+ *         {
+ *             "Effect": "Allow",
+ *             "Action": "ecs:RunTask",
+ *             "Resource": "${arn.replace("/:\\d+$/", ":*")}"
+ *         }
+ *     ]
+ * }
+ * `),
+ *     role: ecsEvents.id,
  * });
  * ```
  */

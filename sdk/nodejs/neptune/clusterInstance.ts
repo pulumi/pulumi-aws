@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_neptune_cluster_default = new aws.neptune.Cluster("default", {
+ * const defaultCluster = new aws.neptune.Cluster("default", {
  *     applyImmediately: true,
  *     backupRetentionPeriod: 5,
  *     clusterIdentifier: "neptune-cluster-demo",
@@ -28,11 +28,11 @@ import * as utilities from "../utilities";
  *     preferredBackupWindow: "07:00-09:00",
  *     skipFinalSnapshot: true,
  * });
- * const aws_neptune_cluster_instance_example: aws.neptune.ClusterInstance[] = [];
+ * const example: aws.neptune.ClusterInstance[] = [];
  * for (let i = 0; i < 2; i++) {
- *     aws_neptune_cluster_instance_example.push(new aws.neptune.ClusterInstance(`example-${i}`, {
+ *     example.push(new aws.neptune.ClusterInstance(`example-${i}`, {
  *         applyImmediately: true,
- *         clusterIdentifier: aws_neptune_cluster_default.id,
+ *         clusterIdentifier: defaultCluster.id,
  *         engine: "neptune",
  *         instanceClass: "db.r4.large",
  *     }));
@@ -98,7 +98,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly identifier: pulumi.Output<string>;
     /**
-     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     public readonly identifierPrefix: pulumi.Output<string>;
     /**
@@ -274,7 +274,7 @@ export interface ClusterInstanceState {
      */
     readonly identifier?: pulumi.Input<string>;
     /**
-     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     readonly identifierPrefix?: pulumi.Input<string>;
     /**
@@ -362,7 +362,7 @@ export interface ClusterInstanceArgs {
      */
     readonly identifier?: pulumi.Input<string>;
     /**
-     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     readonly identifierPrefix?: pulumi.Input<string>;
     /**

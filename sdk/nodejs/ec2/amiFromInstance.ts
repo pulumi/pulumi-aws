@@ -29,8 +29,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ami_from_instance_example = new aws.ec2.AmiFromInstance("example", {
- *     name: "terraform-example",
+ * const example = new aws.ec2.AmiFromInstance("example", {
  *     sourceInstanceId: "i-xxxxxxxx",
  * });
  * ```

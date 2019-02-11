@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -111,7 +112,7 @@ class Environment(pulumi.CustomResource):
     wait for an Elastic Beanstalk Environment to be in a ready state before timing
     out.
     """
-    def __init__(__self__, __name__, __opts__=None, application=None, cname_prefix=None, description=None, name=None, platform_arn=None, poll_interval=None, settings=None, solution_stack_name=None, tags=None, template_name=None, tier=None, version=None, wait_for_ready_timeout=None):
+    def __init__(__self__, resource_name, opts=None, application=None, cname_prefix=None, description=None, name=None, platform_arn=None, poll_interval=None, settings=None, solution_stack_name=None, tags=None, template_name=None, tier=None, version=None, wait_for_ready_timeout=None, __name__=None, __opts__=None):
         """
         Provides an Elastic Beanstalk Environment Resource. Elastic Beanstalk allows
         you to deploy and manage applications in the AWS cloud without worrying about
@@ -120,9 +121,20 @@ class Environment(pulumi.CustomResource):
         Environments are often things such as `development`, `integration`, or
         `production`.
         
+        ## Option Settings
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
+        for supported options and examples.
+        
+        The `setting` and `all_settings` mappings support the following format:
+        
+        * `namespace` - unique namespace identifying the option's associated AWS resource
+        * `name` - name of the configuration option
+        * `value` - value for the configuration option
+        * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+        
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application: Name of the application that contains the version
                to be deployed
         :param pulumi.Input[str] cname_prefix: Prefix to use for the fully qualified DNS name of
@@ -153,16 +165,22 @@ class Environment(pulumi.CustomResource):
                wait for an Elastic Beanstalk Environment to be in a ready state before timing
                out.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not application:
+        if application is None:
             raise TypeError('Missing required property application')
         __props__['application'] = application
 
@@ -202,9 +220,9 @@ class Environment(pulumi.CustomResource):
 
         super(Environment, __self__).__init__(
             'aws:elasticbeanstalk/environment:Environment',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

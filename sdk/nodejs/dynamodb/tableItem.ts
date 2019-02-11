@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a DynamoDB table item resource
  * 
- * -> **Note:** This resource is not meant to be used for managing large amounts of data in your table, it is not designed to scale.
+ * > **Note:** This resource is not meant to be used for managing large amounts of data in your table, it is not designed to scale.
  *   You should perform **regular backups** of all data in the table, see [AWS docs for more](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html).
  * 
  * ## Example Usage
@@ -16,18 +16,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_dynamodb_table_example = new aws.dynamodb.Table("example", {
+ * const exampleTable = new aws.dynamodb.Table("example", {
  *     attributes: [{
  *         name: "exampleHashKey",
  *         type: "S",
  *     }],
  *     hashKey: "exampleHashKey",
- *     name: "example-name",
  *     readCapacity: 10,
  *     writeCapacity: 10,
  * });
- * const aws_dynamodb_table_item_example = new aws.dynamodb.TableItem("example", {
- *     hashKey: aws_dynamodb_table_example.hashKey,
+ * const exampleTableItem = new aws.dynamodb.TableItem("example", {
+ *     hashKey: exampleTable.hashKey,
  *     item: `{
  *   "exampleHashKey": {"S": "something"},
  *   "one": {"N": "11111"},
@@ -36,7 +35,7 @@ import * as utilities from "../utilities";
  *   "four": {"N": "44444"}
  * }
  * `,
- *     tableName: aws_dynamodb_table_example.name,
+ *     tableName: exampleTable.name,
  * });
  * ```
  */

@@ -21,6 +21,29 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.mq.Broker("example", {
+ *     brokerName: "example",
+ *     configuration: {
+ *         id: aws_mq_configuration_test.id,
+ *         revision: aws_mq_configuration_test.latestRevision,
+ *     },
+ *     engineType: "ActiveMQ",
+ *     engineVersion: "5.15.0",
+ *     hostInstanceType: "mq.t2.micro",
+ *     securityGroups: [aws_security_group_test.id],
+ *     users: [{
+ *         password: "MindTheGap",
+ *         username: "ExampleUser",
+ *     }],
+ * });
+ * ```
  */
 export class Broker extends pulumi.CustomResource {
     /**
@@ -105,6 +128,10 @@ export class Broker extends pulumi.CustomResource {
      */
     public readonly subnetIds: pulumi.Output<string[]>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The list of all ActiveMQ usernames for the specified broker. See below.
      */
     public readonly users: pulumi.Output<{ consoleAccess?: boolean, groups?: string[], password: string, username: string }[]>;
@@ -136,6 +163,7 @@ export class Broker extends pulumi.CustomResource {
             inputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
             inputs["securityGroups"] = state ? state.securityGroups : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as BrokerArgs | undefined;
@@ -170,6 +198,7 @@ export class Broker extends pulumi.CustomResource {
             inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             inputs["securityGroups"] = args ? args.securityGroups : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["users"] = args ? args.users : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["instances"] = undefined /*out*/;
@@ -252,6 +281,10 @@ export interface BrokerState {
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The list of all ActiveMQ usernames for the specified broker. See below.
      */
     readonly users?: pulumi.Input<pulumi.Input<{ consoleAccess?: pulumi.Input<boolean>, groups?: pulumi.Input<pulumi.Input<string>[]>, password: pulumi.Input<string>, username: pulumi.Input<string> }>[]>;
@@ -314,6 +347,10 @@ export interface BrokerArgs {
      * The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The list of all ActiveMQ usernames for the specified broker. See below.
      */

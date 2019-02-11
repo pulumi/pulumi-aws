@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_role_r = new aws.iam.Role("r", {
+ * const role = new aws.iam.Role("r", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -30,21 +30,17 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     name: "my-awsconfig-role",
  * });
- * const aws_config_configuration_recorder_foo = new aws.cfg.Recorder("foo", {
- *     name: "example",
- *     roleArn: aws_iam_role_r.arn,
+ * const foo = new aws.cfg.Recorder("foo", {
+ *     roleArn: role.arn,
  * });
- * const aws_config_config_rule_r = new aws.cfg.Rule("r", {
- *     name: "example",
+ * const rule = new aws.cfg.Rule("r", {
  *     source: {
  *         owner: "AWS",
  *         sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
  *     },
- * }, {dependsOn: [aws_config_configuration_recorder_foo]});
- * const aws_iam_role_policy_p = new aws.iam.RolePolicy("p", {
- *     name: "my-awsconfig-policy",
+ * }, {dependsOn: [foo]});
+ * const rolePolicy = new aws.iam.RolePolicy("p", {
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -57,7 +53,7 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     role: aws_iam_role_r.id,
+ *     role: role.id,
  * });
  * ```
  */

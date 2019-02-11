@@ -13,9 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_redshift_parameter_group_bar = new aws.redshift.ParameterGroup("bar", {
+ * const bar = new aws.redshift.ParameterGroup("bar", {
  *     family: "redshift-1.0",
- *     name: "parameter-group-test-terraform",
  *     parameters: [
  *         {
  *             name: "require_ssl",

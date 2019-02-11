@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_arn_db_instance = pulumi.output(aws.getArn({
+ * const dbInstance = pulumi.output(aws.getArn({
  *     arn: "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
  * }));
  * ```

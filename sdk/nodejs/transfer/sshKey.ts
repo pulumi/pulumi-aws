@@ -8,21 +8,12 @@ import * as utilities from "../utilities";
  * Provides a AWS Transfer User SSH Key resource.
  * 
  * 
- * ```hcl
- * resource "aws_transfer_server" "foo" {
- * 	identity_provider_type = "SERVICE_MANAGED"
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
  * 
- * 	tags {
- * 		NAME     = "tf-acc-test-transfer-server"
- * 	}
- * }
- * 
- * 
- * resource "aws_iam_role" "foo" {
- * 	name = "tf-test-transfer-user-iam-role-%s"
- * 
- * 	assume_role_policy = <<EOF
- * {
+ * const fooRole = new aws.iam.Role("foo", {
+ *     assumeRolePolicy: `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
  * 		{
@@ -34,14 +25,16 @@ import * as utilities from "../utilities";
  * 		}
  * 	]
  * }
- * EOF
- * }
- * 
- * resource "aws_iam_role_policy" "foo" {
- * 	name = "tf-test-transfer-user-iam-policy-%s"
- * 	role = "${aws_iam_role.foo.id}"
- * 	policy = <<POLICY
- * {
+ * `,
+ * });
+ * const fooServer = new aws.transfer.Server("foo", {
+ *     identityProviderType: "SERVICE_MANAGED",
+ *     tags: {
+ *         NAME: "tf-acc-test-transfer-server",
+ *     },
+ * });
+ * const fooRolePolicy = new aws.iam.RolePolicy("foo", {
+ *     policy: `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
  * 		{
@@ -54,26 +47,22 @@ import * as utilities from "../utilities";
  * 		}
  * 	]
  * }
- * POLICY
- * }
- * 
- * 
- * resource "aws_transfer_user" "foo" {
- * 	server_id      = "${aws_transfer_server.foo.id}"
- * 	user_name      = "tftestuser"
- * 	role           = "${aws_iam_role.foo.arn}"
- * 
- * 	tags {
- * 		NAME = "tftestuser"
- * 	}
- * }
- * 
- * resource "aws_transfer_ssh_key" "foo" {
- * 	server_id = "${aws_transfer_server.foo.id}"
- * 	user_name = "${aws_transfer_user.foo.user_name}"
- * 	body 	  = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 example@example.com"
- * }
- * 
+ * `,
+ *     role: fooRole.id,
+ * });
+ * const fooUser = new aws.transfer.User("foo", {
+ *     role: fooRole.arn,
+ *     serverId: fooServer.id,
+ *     tags: {
+ *         NAME: "tftestuser",
+ *     },
+ *     userName: "tftestuser",
+ * });
+ * const fooSshKey = new aws.transfer.SshKey("foo", {
+ *     body: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 example@example.com",
+ *     serverId: fooServer.id,
+ *     userName: fooUser.userName,
+ * });
  * ```
  */
 export class SshKey extends pulumi.CustomResource {

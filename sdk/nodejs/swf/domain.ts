@@ -15,9 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_swf_domain_foo = new aws.swf.Domain("foo", {
+ * const foo = new aws.swf.Domain("foo", {
  *     description: "Terraform SWF Domain",
- *     name: "foo",
  *     workflowExecutionRetentionPeriodInDays: "30",
  * });
  * ```

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Provides a Pinpoint GCM Channel resource.
+ * 
+ * > **Note:** Api Key argument will be stored in the raw state as plain-text.
+ * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  * 
  * ## Example Usage
  * 
@@ -12,13 +16,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_pinpoint_app_app = new aws.pinpoint.App("app", {});
- * const aws_pinpoint_gcm_channel_gcm = new aws.pinpoint.GcmChannel("gcm", {
+ * const app = new aws.pinpoint.App("app", {});
+ * const gcm = new aws.pinpoint.GcmChannel("gcm", {
  *     apiKey: "api_key",
- *     applicationId: aws_pinpoint_app_app.applicationId,
+ *     applicationId: app.applicationId,
  * });
  * ```
- * 
  */
 export class GcmChannel extends pulumi.CustomResource {
     /**
@@ -33,8 +36,17 @@ export class GcmChannel extends pulumi.CustomResource {
         return new GcmChannel(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Platform credential API key from Google.
+     */
     public readonly apiKey: pulumi.Output<string>;
+    /**
+     * The application ID.
+     */
     public readonly applicationId: pulumi.Output<string>;
+    /**
+     * Whether the channel is enabled or disabled. Defaults to `true`.
+     */
     public readonly enabled: pulumi.Output<boolean | undefined>;
 
     /**
@@ -72,8 +84,17 @@ export class GcmChannel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GcmChannel resources.
  */
 export interface GcmChannelState {
+    /**
+     * Platform credential API key from Google.
+     */
     readonly apiKey?: pulumi.Input<string>;
+    /**
+     * The application ID.
+     */
     readonly applicationId?: pulumi.Input<string>;
+    /**
+     * Whether the channel is enabled or disabled. Defaults to `true`.
+     */
     readonly enabled?: pulumi.Input<boolean>;
 }
 
@@ -81,7 +102,16 @@ export interface GcmChannelState {
  * The set of arguments for constructing a GcmChannel resource.
  */
 export interface GcmChannelArgs {
+    /**
+     * Platform credential API key from Google.
+     */
     readonly apiKey: pulumi.Input<string>;
+    /**
+     * The application ID.
+     */
     readonly applicationId: pulumi.Input<string>;
+    /**
+     * Whether the channel is enabled or disabled. Defaults to `true`.
+     */
     readonly enabled?: pulumi.Input<boolean>;
 }

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -36,15 +37,26 @@ class LicenseConfiguration(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, __name__, __opts__=None, description=None, license_count=None, license_count_hard_limit=None, license_counting_type=None, license_rules=None, name=None, tags=None):
+    def __init__(__self__, resource_name, opts=None, description=None, license_count=None, license_count_hard_limit=None, license_counting_type=None, license_rules=None, name=None, tags=None, __name__=None, __opts__=None):
         """
         Provides a License Manager license configuration resource.
         
         > **Note:** Removing the `license_count` attribute is not supported by the License Manager API - use `terraform taint aws_licensemanager_license_configuration.<id>` to recreate the resource instead.
         
+        ## Rules
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
+        
+        * `minimumVcpus` - Resource must have minimum vCPU count in order to use the license. Default: 1
+        * `maximumVcpus` - Resource must have maximum vCPU count in order to use the license. Default: unbounded, limit: 10000
+        * `minimumCores` - Resource must have minimum core count in order to use the license. Default: 1
+        * `maximumCores` - Resource must have maximum core count in order to use the license. Default: unbounded, limit: 10000
+        * `minimumSockets` - Resource must have minimum socket count in order to use the license. Default: 1
+        * `maximumSockets` - Resource must have maximum socket count in order to use the license. Default: unbounded, limit: 10000
+        * `allowedTenancy` - Defines where the license can be used. If set, restricts license usage to selected tenancies. Specify a comma delimited list of `EC2-Default`, `EC2-DedicatedHost`, `EC2-DedicatedInstance`
+        
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the license configuration.
         :param pulumi.Input[int] license_count: Number of licenses managed by the license configuration.
         :param pulumi.Input[bool] license_count_hard_limit: Sets the number of available licenses as a hard limit.
@@ -53,11 +65,17 @@ class LicenseConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the license configuration.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -68,7 +86,7 @@ class LicenseConfiguration(pulumi.CustomResource):
 
         __props__['license_count_hard_limit'] = license_count_hard_limit
 
-        if not license_counting_type:
+        if license_counting_type is None:
             raise TypeError('Missing required property license_counting_type')
         __props__['license_counting_type'] = license_counting_type
 
@@ -80,9 +98,9 @@ class LicenseConfiguration(pulumi.CustomResource):
 
         super(LicenseConfiguration, __self__).__init__(
             'aws:licensemanager/licenseConfiguration:LicenseConfiguration',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

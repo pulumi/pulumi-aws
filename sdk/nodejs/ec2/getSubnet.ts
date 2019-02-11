@@ -22,19 +22,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const config = new pulumi.Config();
- * const var_subnet_id = config.require("subnetId");
+ * const subnetId = config.require("subnetId");
  * 
- * const aws_subnet_selected = pulumi.output(aws.ec2.getSubnet({
- *     id: var_subnet_id,
+ * const selected = pulumi.output(aws.ec2.getSubnet({
+ *     id: subnetId,
  * }));
- * const aws_security_group_subnet = new aws.ec2.SecurityGroup("subnet", {
+ * const subnet = new aws.ec2.SecurityGroup("subnet", {
  *     ingress: [{
- *         cidrBlocks: [aws_subnet_selected.apply(__arg0 => __arg0.cidrBlock)],
+ *         cidrBlocks: [selected.apply(selected => selected.cidrBlock)],
  *         fromPort: 80,
  *         protocol: "tcp",
  *         toPort: 80,
  *     }],
- *     vpcId: aws_subnet_selected.apply(__arg0 => __arg0.vpcId),
+ *     vpcId: selected.apply(selected => selected.vpcId),
  * });
  * ```
  */

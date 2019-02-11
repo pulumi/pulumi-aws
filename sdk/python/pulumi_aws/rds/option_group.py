@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -40,7 +41,7 @@ class OptionGroup(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, __name__, __opts__=None, engine_name=None, major_engine_version=None, name=None, name_prefix=None, options=None, option_group_description=None, tags=None):
+    def __init__(__self__, resource_name, opts=None, engine_name=None, major_engine_version=None, name=None, name_prefix=None, options=None, option_group_description=None, tags=None, __name__=None, __opts__=None):
         """
         Provides an RDS DB option group resource. Documentation of the available options for various RDS engines can be found at:
         * [MariaDB Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Options.html)
@@ -48,9 +49,8 @@ class OptionGroup(pulumi.CustomResource):
         * [MySQL Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.Options.html)
         * [Oracle Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.html)
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] engine_name: Specifies the name of the engine that this option group should be associated with.
         :param pulumi.Input[str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
         :param pulumi.Input[str] name: The Name of the setting.
@@ -59,20 +59,26 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] option_group_description: The description of the option group. Defaults to "Managed by Terraform".
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not engine_name:
+        if engine_name is None:
             raise TypeError('Missing required property engine_name')
         __props__['engine_name'] = engine_name
 
-        if not major_engine_version:
+        if major_engine_version is None:
             raise TypeError('Missing required property major_engine_version')
         __props__['major_engine_version'] = major_engine_version
 
@@ -82,7 +88,7 @@ class OptionGroup(pulumi.CustomResource):
 
         __props__['options'] = options
 
-        if not option_group_description:
+        if option_group_description is None:
             option_group_description = 'Managed by Pulumi'
         __props__['option_group_description'] = option_group_description
 
@@ -92,9 +98,9 @@ class OptionGroup(pulumi.CustomResource):
 
         super(OptionGroup, __self__).__init__(
             'aws:rds/optionGroup:OptionGroup',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

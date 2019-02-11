@@ -18,17 +18,14 @@ import {Group} from "./group";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_group_group = new aws.iam.Group("group", {
- *     name: "test-group",
- * });
- * const aws_iam_policy_policy = new aws.iam.Policy("policy", {
+ * const group = new aws.iam.Group("group", {});
+ * const policy = new aws.iam.Policy("policy", {
  *     description: "A test policy",
- *     name: "test-policy",
- *     policy: "",
+ *     policy: "", // insert policy here
  * });
- * const aws_iam_group_policy_attachment_test_attach = new aws.iam.GroupPolicyAttachment("test-attach", {
- *     group: aws_iam_group_group.name,
- *     policyArn: aws_iam_policy_policy.arn,
+ * const test_attach = new aws.iam.GroupPolicyAttachment("test-attach", {
+ *     group: group.name,
+ *     policyArn: policy.arn,
  * });
  * ```
  */

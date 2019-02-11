@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to create an association between a WAF Regional WebACL and Application Load Balancer.
  * 
- * -> **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
+ * > **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
  * 
  * ## Example Usage
  * 
@@ -15,60 +15,57 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_vpc_foo = new aws.ec2.Vpc("foo", {
+ * const fooVpc = new aws.ec2.Vpc("foo", {
  *     cidrBlock: "10.1.0.0/16",
  * });
- * const aws_wafregional_ipset_ipset = new aws.wafregional.IpSet("ipset", {
+ * const ipset = new aws.wafregional.IpSet("ipset", {
  *     ipSetDescriptors: [{
  *         type: "IPV4",
  *         value: "192.0.7.0/24",
  *     }],
- *     name: "tfIPSet",
  * });
- * const aws_availability_zones_available = pulumi.output(aws.getAvailabilityZones({}));
- * const aws_subnet_bar = new aws.ec2.Subnet("bar", {
- *     availabilityZone: aws_availability_zones_available.apply(__arg0 => __arg0.names[1]),
+ * const available = pulumi.output(aws.getAvailabilityZones({}));
+ * const bar = new aws.ec2.Subnet("bar", {
+ *     availabilityZone: available.apply(available => available.names[1]),
  *     cidrBlock: "10.1.2.0/24",
- *     vpcId: aws_vpc_foo.id,
+ *     vpcId: fooVpc.id,
  * });
- * const aws_subnet_foo = new aws.ec2.Subnet("foo", {
- *     availabilityZone: aws_availability_zones_available.apply(__arg0 => __arg0.names[0]),
+ * const fooSubnet = new aws.ec2.Subnet("foo", {
+ *     availabilityZone: available.apply(available => available.names[0]),
  *     cidrBlock: "10.1.1.0/24",
- *     vpcId: aws_vpc_foo.id,
+ *     vpcId: fooVpc.id,
  * });
- * const aws_alb_foo = new aws.applicationloadbalancing.LoadBalancer("foo", {
+ * const fooLoadBalancer = new aws.applicationloadbalancing.LoadBalancer("foo", {
  *     internal: true,
  *     subnets: [
- *         aws_subnet_foo.id,
- *         aws_subnet_bar.id,
+ *         fooSubnet.id,
+ *         bar.id,
  *     ],
  * });
- * const aws_wafregional_rule_foo = new aws.wafregional.Rule("foo", {
+ * const fooRule = new aws.wafregional.Rule("foo", {
  *     metricName: "tfWAFRule",
- *     name: "tfWAFRule",
  *     predicates: [{
- *         dataId: aws_wafregional_ipset_ipset.id,
+ *         dataId: ipset.id,
  *         negated: false,
  *         type: "IPMatch",
  *     }],
  * });
- * const aws_wafregional_web_acl_foo = new aws.wafregional.WebAcl("foo", {
+ * const fooWebAcl = new aws.wafregional.WebAcl("foo", {
  *     defaultAction: {
  *         type: "ALLOW",
  *     },
  *     metricName: "foo",
- *     name: "foo",
  *     rules: [{
  *         action: {
  *             type: "BLOCK",
  *         },
  *         priority: 1,
- *         ruleId: aws_wafregional_rule_foo.id,
+ *         ruleId: fooRule.id,
  *     }],
  * });
- * const aws_wafregional_web_acl_association_foo = new aws.wafregional.WebAclAssociation("foo", {
- *     resourceArn: aws_alb_foo.arn,
- *     webAclId: aws_wafregional_web_acl_foo.id,
+ * const fooWebAclAssociation = new aws.wafregional.WebAclAssociation("foo", {
+ *     resourceArn: fooLoadBalancer.arn,
+ *     webAclId: fooWebAcl.id,
  * });
  * ```
  */

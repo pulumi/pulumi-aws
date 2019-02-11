@@ -13,15 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_cognito_identity_pool_main = new aws.cognito.IdentityPool("main", {
+ * const mainIdentityPool = new aws.cognito.IdentityPool("main", {
  *     allowUnauthenticatedIdentities: false,
  *     identityPoolName: "identity pool",
  *     supportedLoginProviders: {
  *         "graph.facebook.com": "7346241598935555",
  *     },
  * });
- * const aws_iam_role_authenticated = new aws.iam.Role("authenticated", {
- *     assumeRolePolicy: aws_cognito_identity_pool_main.id.apply(__arg0 => `{
+ * const authenticatedRole = new aws.iam.Role("authenticated", {
+ *     assumeRolePolicy: mainIdentityPool.id.apply(id => `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *       "Action": "sts:AssumeRoleWithWebIdentity",
  *       "Condition": {
  *         "StringEquals": {
- *           "cognito-identity.amazonaws.com:aud": "${__arg0}"
+ *           "cognito-identity.amazonaws.com:aud": "${id}"
  *         },
  *         "ForAnyValue:StringLike": {
  *           "cognito-identity.amazonaws.com:amr": "authenticated"
@@ -42,27 +42,25 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `),
- *     name: "cognito_authenticated",
  * });
- * const aws_cognito_identity_pool_roles_attachment_main = new aws.cognito.IdentityPoolRoleAttachment("main", {
- *     identityPoolId: aws_cognito_identity_pool_main.id,
+ * const mainIdentityPoolRoleAttachment = new aws.cognito.IdentityPoolRoleAttachment("main", {
+ *     identityPoolId: mainIdentityPool.id,
  *     roleMappings: [{
  *         ambiguousRoleResolution: "AuthenticatedRole",
  *         identityProvider: "graph.facebook.com",
  *         mappingRules: [{
  *             claim: "isAdmin",
  *             matchType: "Equals",
- *             roleArn: aws_iam_role_authenticated.arn,
+ *             roleArn: authenticatedRole.arn,
  *             value: "paid",
  *         }],
  *         type: "Rules",
  *     }],
  *     roles: {
- *         authenticated: aws_iam_role_authenticated.arn,
+ *         authenticated: authenticatedRole.arn,
  *     },
  * });
- * const aws_iam_role_policy_authenticated = new aws.iam.RolePolicy("authenticated", {
- *     name: "authenticated_policy",
+ * const authenticatedRolePolicy = new aws.iam.RolePolicy("authenticated", {
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -80,7 +78,7 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     role: aws_iam_role_authenticated.id,
+ *     role: authenticatedRole.id,
  * });
  * ```
  */

@@ -8,20 +8,12 @@ import * as utilities from "../utilities";
  * Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the [`aws_transfer_ssh_key` resource](https://www.terraform.io/docs/providers/aws/r/transfer_ssh_key.html).
  * 
  * 
- * ```hcl
- * resource "aws_transfer_server" "foo" {
- * 	identity_provider_type = "SERVICE_MANAGED"
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
  * 
- * 	tags {
- * 		NAME     = "tf-acc-test-transfer-server"
- * 	}
- * }
- * 
- * resource "aws_iam_role" "foo" {
- * 	name = "tf-test-transfer-user-iam-role"
- * 
- * 	assume_role_policy = <<EOF
- * {
+ * const fooRole = new aws.iam.Role("foo", {
+ *     assumeRolePolicy: `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
  * 		{
@@ -33,14 +25,16 @@ import * as utilities from "../utilities";
  * 		}
  * 	]
  * }
- * EOF
- * }
- * 
- * resource "aws_iam_role_policy" "foo" {
- * 	name = "tf-test-transfer-user-iam-policy"
- * 	role = "${aws_iam_role.foo.id}"
- * 	policy = <<POLICY
- * {
+ * `,
+ * });
+ * const fooServer = new aws.transfer.Server("foo", {
+ *     identityProviderType: "SERVICE_MANAGED",
+ *     tags: {
+ *         NAME: "tf-acc-test-transfer-server",
+ *     },
+ * });
+ * const fooRolePolicy = new aws.iam.RolePolicy("foo", {
+ *     policy: `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
  * 		{
@@ -53,15 +47,14 @@ import * as utilities from "../utilities";
  * 		}
  * 	]
  * }
- * POLICY
- * }
- * 
- * resource "aws_transfer_user" "foo" {
- * 	server_id      = "${aws_transfer_server.foo.id}"
- * 	user_name      = "tftestuser"
- * 	role           = "${aws_iam_role.foo.arn}"
- * }
- * 
+ * `,
+ *     role: fooRole.id,
+ * });
+ * const fooUser = new aws.transfer.User("foo", {
+ *     role: fooRole.arn,
+ *     serverId: fooServer.id,
+ *     userName: "tftestuser",
+ * });
  * ```
  */
 export class User extends pulumi.CustomResource {
@@ -82,11 +75,11 @@ export class User extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The landing directory (folder) for a user when they log in to the server using their SFTP client.
+     * The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
      */
     public readonly homeDirectory: pulumi.Output<string | undefined>;
     /**
-     * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).
+     * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).  These are evaluated on-the-fly when navigating the bucket.
      */
     public readonly policy: pulumi.Output<string | undefined>;
     /**
@@ -157,11 +150,11 @@ export interface UserState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The landing directory (folder) for a user when they log in to the server using their SFTP client.
+     * The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
      */
     readonly homeDirectory?: pulumi.Input<string>;
     /**
-     * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).
+     * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).  These are evaluated on-the-fly when navigating the bucket.
      */
     readonly policy?: pulumi.Input<string>;
     /**
@@ -187,11 +180,11 @@ export interface UserState {
  */
 export interface UserArgs {
     /**
-     * The landing directory (folder) for a user when they log in to the server using their SFTP client.
+     * The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
      */
     readonly homeDirectory?: pulumi.Input<string>;
     /**
-     * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).
+     * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).  These are evaluated on-the-fly when navigating the bucket.
      */
     readonly policy?: pulumi.Input<string>;
     /**

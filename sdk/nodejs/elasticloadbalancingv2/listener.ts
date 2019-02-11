@@ -17,28 +17,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_lb_front_end = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
- * const aws_lb_target_group_front_end = new aws.elasticloadbalancingv2.TargetGroup("front_end", {});
- * const aws_lb_listener_front_end = new aws.elasticloadbalancingv2.Listener("front_end", {
+ * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
+ * const frontEndTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("front_end", {});
+ * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {
  *     certificateArn: "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
  *     defaultAction: {
- *         targetGroupArn: aws_lb_target_group_front_end.arn,
+ *         targetGroupArn: frontEndTargetGroup.arn,
  *         type: "forward",
  *     },
- *     loadBalancerArn: aws_lb_front_end.arn,
- *     port: Number.parseFloat("443"),
+ *     loadBalancerArn: frontEndLoadBalancer.arn,
+ *     port: 443,
  *     protocol: "HTTPS",
  *     sslPolicy: "ELBSecurityPolicy-2016-08",
  * });
  * ```
+ * 
  * ### Redirect Action
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_lb_front_end = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
- * const aws_lb_listener_front_end = new aws.elasticloadbalancingv2.Listener("front_end", {
+ * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
+ * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {
  *     defaultAction: {
  *         redirect: {
  *             port: "443",
@@ -47,19 +48,20 @@ import * as utilities from "../utilities";
  *         },
  *         type: "redirect",
  *     },
- *     loadBalancerArn: aws_lb_front_end.arn,
- *     port: Number.parseFloat("80"),
+ *     loadBalancerArn: frontEndLoadBalancer.arn,
+ *     port: 80,
  *     protocol: "HTTP",
  * });
  * ```
+ * 
  * ### Fixed-response Action
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_lb_front_end = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
- * const aws_lb_listener_front_end = new aws.elasticloadbalancingv2.Listener("front_end", {
+ * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
+ * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {
  *     defaultAction: {
  *         fixedResponse: {
  *             contentType: "text/plain",
@@ -68,55 +70,57 @@ import * as utilities from "../utilities";
  *         },
  *         type: "fixed-response",
  *     },
- *     loadBalancerArn: aws_lb_front_end.arn,
- *     port: Number.parseFloat("80"),
+ *     loadBalancerArn: frontEndLoadBalancer.arn,
+ *     port: 80,
  *     protocol: "HTTP",
  * });
  * ```
+ * 
  * ### Authenticate-cognito Action
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_cognito_user_pool_pool = new aws.cognito.UserPool("pool", {});
- * const aws_cognito_user_pool_client_client = new aws.cognito.UserPoolClient("client", {});
- * const aws_cognito_user_pool_domain_domain = new aws.cognito.UserPoolDomain("domain", {});
- * const aws_lb_front_end = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
- * const aws_lb_target_group_front_end = new aws.elasticloadbalancingv2.TargetGroup("front_end", {});
- * const aws_lb_listener_front_end = new aws.elasticloadbalancingv2.Listener("front_end", {
- *     defaultAction: pulumi.all([aws_cognito_user_pool_pool.arn, aws_cognito_user_pool_client_client.id, aws_cognito_user_pool_domain_domain.domain, aws_lb_target_group_front_end.arn]).apply(([__arg0, __arg1, __arg2, __arg3]) => (() => {
+ * const pool = new aws.cognito.UserPool("pool", {});
+ * const client = new aws.cognito.UserPoolClient("client", {});
+ * const domain = new aws.cognito.UserPoolDomain("domain", {});
+ * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
+ * const frontEndTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("front_end", {});
+ * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {
+ *     defaultAction: pulumi.all([pool.arn, client.id, domain.domain, frontEndTargetGroup.arn]).apply(([poolArn, id, domain, frontEndTargetGroupArn]) => (() => {
  *         throw "tf2pulumi error: aws_lb_listener.front_end.default_action: expected at most one item in list, got 2";
  *         return [
  *             {
  *                 authenticateCognito: {
- *                     userPoolArn: __arg0,
- *                     userPoolClientId: __arg1,
- *                     userPoolDomain: __arg2,
+ *                     userPoolArn: poolArn,
+ *                     userPoolClientId: id,
+ *                     userPoolDomain: domain,
  *                 },
  *                 type: "authenticate-cognito",
  *             },
  *             {
- *                 targetGroupArn: __arg3,
+ *                 targetGroupArn: frontEndTargetGroupArn,
  *                 type: "forward",
  *             },
  *         ];
  *     })()),
- *     loadBalancerArn: aws_lb_front_end.arn,
- *     port: Number.parseFloat("80"),
+ *     loadBalancerArn: frontEndLoadBalancer.arn,
+ *     port: 80,
  *     protocol: "HTTP",
  * });
  * ```
+ * 
  * ### Authenticate-oidc Action
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_lb_front_end = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
- * const aws_lb_target_group_front_end = new aws.elasticloadbalancingv2.TargetGroup("front_end", {});
- * const aws_lb_listener_front_end = new aws.elasticloadbalancingv2.Listener("front_end", {
- *     defaultAction: aws_lb_target_group_front_end.arn.apply(__arg0 => (() => {
+ * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
+ * const frontEndTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("front_end", {});
+ * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {
+ *     defaultAction: frontEndTargetGroup.arn.apply(arn => (() => {
  *         throw "tf2pulumi error: aws_lb_listener.front_end.default_action: expected at most one item in list, got 2";
  *         return [
  *             {
@@ -131,17 +135,16 @@ import * as utilities from "../utilities";
  *                 type: "authenticate-oidc",
  *             },
  *             {
- *                 targetGroupArn: __arg0,
+ *                 targetGroupArn: arn,
  *                 type: "forward",
  *             },
  *         ];
  *     })()),
- *     loadBalancerArn: aws_lb_front_end.arn,
- *     port: Number.parseFloat("80"),
+ *     loadBalancerArn: frontEndLoadBalancer.arn,
+ *     port: 80,
  *     protocol: "HTTP",
  * });
  * ```
- * 
  */
 export class Listener extends pulumi.CustomResource {
     /**
@@ -181,7 +184,7 @@ export class Listener extends pulumi.CustomResource {
      */
     public readonly protocol: pulumi.Output<string | undefined>;
     /**
-     * The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS`.
+     * The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
      */
     public readonly sslPolicy: pulumi.Output<string>;
 
@@ -256,7 +259,7 @@ export interface ListenerState {
      */
     readonly protocol?: pulumi.Input<string>;
     /**
-     * The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS`.
+     * The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
      */
     readonly sslPolicy?: pulumi.Input<string>;
 }
@@ -286,7 +289,7 @@ export interface ListenerArgs {
      */
     readonly protocol?: pulumi.Input<string>;
     /**
-     * The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS`.
+     * The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
      */
     readonly sslPolicy?: pulumi.Input<string>;
 }

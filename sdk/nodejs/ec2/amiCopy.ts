@@ -23,9 +23,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ami_copy_example = new aws.ec2.AmiCopy("example", {
+ * const example = new aws.ec2.AmiCopy("example", {
  *     description: "A copy of ami-xxxxxxxx",
- *     name: "terraform-example",
  *     sourceAmiId: "ami-xxxxxxxx",
  *     sourceAmiRegion: "us-west-1",
  *     tags: {

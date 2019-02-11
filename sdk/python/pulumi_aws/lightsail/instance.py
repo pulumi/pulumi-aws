@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -52,7 +53,7 @@ class Instance(pulumi.CustomResource):
     launch script to configure server with additional user data
     """
     username: pulumi.Output[str]
-    def __init__(__self__, __name__, __opts__=None, availability_zone=None, blueprint_id=None, bundle_id=None, key_pair_name=None, name=None, user_data=None):
+    def __init__(__self__, resource_name, opts=None, availability_zone=None, blueprint_id=None, bundle_id=None, key_pair_name=None, name=None, user_data=None, __name__=None, __opts__=None):
         """
         Provides a Lightsail Instance. Amazon Lightsail is a service to provide easy virtual private servers
         with custom software already setup. See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail)
@@ -60,9 +61,91 @@ class Instance(pulumi.CustomResource):
         
         > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
         
+        ## Availability Zones
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        Lightsail currently supports the following Availability Zones (e.g. `us-east-1a`):
+        
+        - `ap-northeast-1{a,c,d}`
+        - `ap-northeast-2{a,c}`
+        - `ap-south-1{a,b}`
+        - `ap-southeast-1{a,b,c}`
+        - `ap-southeast-2{a,b,c}`
+        - `ca-central-1{a,b}`
+        - `eu-central-1{a,b,c}`
+        - `eu-west-1{a,b,c}`
+        - `eu-west-2{a,b,c}`
+        - `eu-west-3{a,b,c}`
+        - `us-east-1{a,b,c,d,e,f}`
+        - `us-east-2{a,b,c}`
+        - `us-west-2{a,b,c}`
+        
+        ## Blueprints
+        
+        Lightsail currently supports the following Blueprint IDs:
+        
+        ### OS Only
+        
+        - `amazon_linux_2018_03_0_2`
+        - `centos_7_1805_01`
+        - `debian_8_7`
+        - `debian_9_5`
+        - `freebsd_11_1`
+        - `opensuse_42_2`
+        - `ubuntu_16_04_2`
+        - `ubuntu_18_04`
+        
+        ### Apps and OS
+        
+        - `drupal_8_5_6`
+        - `gitlab_11_1_4_1`
+        - `joomla_3_8_11`
+        - `lamp_5_6_37_2`
+        - `lamp_7_1_20_1`
+        - `magento_2_2_5`
+        - `mean_4_0_1`
+        - `nginx_1_14_0_1`
+        - `nodejs_10_8_0`
+        - `plesk_ubuntu_17_8_11_1`
+        - `redmine_3_4_6`
+        - `wordpress_4_9_8`
+        - `wordpress_multisite_4_9_8`
+        
+        ## Bundles
+        
+        Lightsail currently supports the following Bundle IDs (e.g. an instance in `ap-northeast-1` would use `small_2_0`):
+        
+        ### Prefix
+        
+        A Bundle ID starts with one of the below size prefixes:
+        
+        - `nano_`
+        - `micro_`
+        - `small_`
+        - `medium_`
+        - `large_`
+        - `xlarge_`
+        - `2xlarge_`
+        
+        ### Suffix
+        
+        A Bundle ID ends with one of the following suffixes depending on Availability Zone:
+        
+        - ap-northeast-1: `2_0`
+        - ap-northeast-2: `2_0`
+        - ap-south-1: `2_1`
+        - ap-southeast-1: `2_0`
+        - ap-southeast-2: `2_2`
+        - ca-central-1: `2_0`
+        - eu-central-1: `2_0`
+        - eu-west-1: `2_0`
+        - eu-west-2: `2_0`
+        - eu-west-3: `2_0`
+        - us-east-1: `2_0`
+        - us-east-2: `2_0`
+        - us-west-2: `2_0`
+        
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your
                instance (see list below)
         :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image
@@ -73,24 +156,30 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Lightsail Instance
         :param pulumi.Input[str] user_data: launch script to configure server with additional user data
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not availability_zone:
+        if availability_zone is None:
             raise TypeError('Missing required property availability_zone')
         __props__['availability_zone'] = availability_zone
 
-        if not blueprint_id:
+        if blueprint_id is None:
             raise TypeError('Missing required property blueprint_id')
         __props__['blueprint_id'] = blueprint_id
 
-        if not bundle_id:
+        if bundle_id is None:
             raise TypeError('Missing required property bundle_id')
         __props__['bundle_id'] = bundle_id
 
@@ -112,9 +201,9 @@ class Instance(pulumi.CustomResource):
 
         super(Instance, __self__).__init__(
             'aws:lightsail/instance:Instance',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

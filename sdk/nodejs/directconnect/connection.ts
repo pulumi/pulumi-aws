@@ -13,10 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_dx_connection_hoge = new aws.directconnect.Connection("hoge", {
+ * const hoge = new aws.directconnect.Connection("hoge", {
  *     bandwidth: "1Gbps",
  *     location: "EqDC2",
- *     name: "tf-dx-connection",
  * });
  * ```
  */

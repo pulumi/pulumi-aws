@@ -35,7 +35,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_spot_instance_request_cheap_worker = new aws.ec2.SpotInstanceRequest("cheap_worker", {
+ * // Request a spot instance at $0.03
+ * const cheapWorker = new aws.ec2.SpotInstanceRequest("cheap_worker", {
  *     ami: "ami-1234",
  *     instanceType: "c4.xlarge",
  *     spotPrice: "0.03",

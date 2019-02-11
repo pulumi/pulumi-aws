@@ -23,36 +23,37 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_acm_certificate_cert = new aws.acm.Certificate("cert", {
+ * const certCertificate = new aws.acm.Certificate("cert", {
  *     domainName: "example.com",
  *     validationMethod: "DNS",
  * });
- * const aws_route53_zone_zone = pulumi.output(aws.route53.getZone({
+ * const zone = pulumi.output(aws.route53.getZone({
  *     name: "example.com.",
  *     privateZone: false,
  * }));
- * const aws_route53_record_cert_validation = new aws.route53.Record("cert_validation", {
- *     name: aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[0].resourceRecordName),
- *     records: [aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[0].resourceRecordValue)],
+ * const certValidation = new aws.route53.Record("cert_validation", {
+ *     records: [certCertificate.domainValidationOptions.apply(domainValidationOptions => domainValidationOptions[0].resourceRecordValue)],
  *     ttl: 60,
- *     type: aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[0].resourceRecordType),
- *     zoneId: aws_route53_zone_zone.apply(__arg0 => __arg0.id),
+ *     type: certCertificate.domainValidationOptions.apply(domainValidationOptions => domainValidationOptions[0].resourceRecordType),
+ *     zoneId: zone.apply(zone => zone.id),
  * });
- * const aws_acm_certificate_validation_cert = new aws.acm.CertificateValidation("cert", {
- *     certificateArn: aws_acm_certificate_cert.arn,
- *     validationRecordFqdns: [aws_route53_record_cert_validation.fqdn],
+ * const certCertificateValidation = new aws.acm.CertificateValidation("cert", {
+ *     certificateArn: certCertificate.arn,
+ *     validationRecordFqdns: [certValidation.fqdn],
  * });
- * const aws_lb_listener_front_end = new aws.elasticloadbalancingv2.Listener("front_end", {
- *     certificateArn: aws_acm_certificate_validation_cert.certificateArn,
+ * const frontEnd = new aws.elasticloadbalancingv2.Listener("front_end", {
+ *     // [...]
+ *     certificateArn: certCertificateValidation.certificateArn,
  * });
  * ```
+ * 
  * ### Alternative Domains DNS Validation with Route 53
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_acm_certificate_cert = new aws.acm.Certificate("cert", {
+ * const certCertificate = new aws.acm.Certificate("cert", {
  *     domainName: "example.com",
  *     subjectAlternativeNames: [
  *         "www.example.com",
@@ -60,47 +61,46 @@ import * as utilities from "../utilities";
  *     ],
  *     validationMethod: "DNS",
  * });
- * const aws_route53_zone_zone = pulumi.output(aws.route53.getZone({
+ * const zone = pulumi.output(aws.route53.getZone({
  *     name: "example.com.",
  *     privateZone: false,
  * }));
- * const aws_route53_zone_zone_alt = pulumi.output(aws.route53.getZone({
+ * const zoneAlt = pulumi.output(aws.route53.getZone({
  *     name: "example.org.",
  *     privateZone: false,
  * }));
- * const aws_route53_record_cert_validation = new aws.route53.Record("cert_validation", {
- *     name: aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[0].resourceRecordName),
- *     records: [aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[0].resourceRecordValue)],
+ * const certValidation = new aws.route53.Record("cert_validation", {
+ *     records: [certCertificate.domainValidationOptions.apply(domainValidationOptions => domainValidationOptions[0].resourceRecordValue)],
  *     ttl: 60,
- *     type: aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[0].resourceRecordType),
- *     zoneId: aws_route53_zone_zone.apply(__arg0 => __arg0.id),
+ *     type: certCertificate.domainValidationOptions.apply(domainValidationOptions => domainValidationOptions[0].resourceRecordType),
+ *     zoneId: zone.apply(zone => zone.id),
  * });
- * const aws_route53_record_cert_validation_alt1 = new aws.route53.Record("cert_validation_alt1", {
- *     name: aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[1].resourceRecordName),
- *     records: [aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[1].resourceRecordValue)],
+ * const certValidationAlt1 = new aws.route53.Record("cert_validation_alt1", {
+ *     records: [certCertificate.domainValidationOptions.apply(domainValidationOptions => domainValidationOptions[1].resourceRecordValue)],
  *     ttl: 60,
- *     type: aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[1].resourceRecordType),
- *     zoneId: aws_route53_zone_zone.apply(__arg0 => __arg0.id),
+ *     type: certCertificate.domainValidationOptions.apply(domainValidationOptions => domainValidationOptions[1].resourceRecordType),
+ *     zoneId: zone.apply(zone => zone.id),
  * });
- * const aws_route53_record_cert_validation_alt2 = new aws.route53.Record("cert_validation_alt2", {
- *     name: aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[2].resourceRecordName),
- *     records: [aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[2].resourceRecordValue)],
+ * const certValidationAlt2 = new aws.route53.Record("cert_validation_alt2", {
+ *     records: [certCertificate.domainValidationOptions.apply(domainValidationOptions => domainValidationOptions[2].resourceRecordValue)],
  *     ttl: 60,
- *     type: aws_acm_certificate_cert.domainValidationOptions.apply(__arg0 => __arg0[2].resourceRecordType),
- *     zoneId: aws_route53_zone_zone_alt.apply(__arg0 => __arg0.id),
+ *     type: certCertificate.domainValidationOptions.apply(domainValidationOptions => domainValidationOptions[2].resourceRecordType),
+ *     zoneId: zoneAlt.apply(zoneAlt => zoneAlt.id),
  * });
- * const aws_acm_certificate_validation_cert = new aws.acm.CertificateValidation("cert", {
- *     certificateArn: aws_acm_certificate_cert.arn,
+ * const certCertificateValidation = new aws.acm.CertificateValidation("cert", {
+ *     certificateArn: certCertificate.arn,
  *     validationRecordFqdns: [
- *         aws_route53_record_cert_validation.fqdn,
- *         aws_route53_record_cert_validation_alt1.fqdn,
- *         aws_route53_record_cert_validation_alt2.fqdn,
+ *         certValidation.fqdn,
+ *         certValidationAlt1.fqdn,
+ *         certValidationAlt2.fqdn,
  *     ],
  * });
- * const aws_lb_listener_front_end = new aws.elasticloadbalancingv2.Listener("front_end", {
- *     certificateArn: aws_acm_certificate_validation_cert.certificateArn,
+ * const frontEnd = new aws.elasticloadbalancingv2.Listener("front_end", {
+ *     // [...]
+ *     certificateArn: certCertificateValidation.certificateArn,
  * });
  * ```
+ * 
  * ### Email Validation
  * 
  * In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
@@ -109,12 +109,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_acm_certificate_cert = new aws.acm.Certificate("cert", {
+ * const certCertificate = new aws.acm.Certificate("cert", {
  *     domainName: "example.com",
  *     validationMethod: "EMAIL",
  * });
- * const aws_acm_certificate_validation_cert = new aws.acm.CertificateValidation("cert", {
- *     certificateArn: aws_acm_certificate_cert.arn,
+ * const certCertificateValidation = new aws.acm.CertificateValidation("cert", {
+ *     certificateArn: certCertificate.arn,
  * });
  * ```
  */

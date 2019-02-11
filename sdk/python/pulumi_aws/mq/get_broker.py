@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -11,7 +12,7 @@ class GetBrokerResult(object):
     """
     A collection of values returned by getBroker.
     """
-    def __init__(__self__, arn=None, auto_minor_version_upgrade=None, broker_id=None, broker_name=None, configuration=None, deployment_mode=None, engine_type=None, engine_version=None, host_instance_type=None, instances=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, users=None, id=None):
+    def __init__(__self__, arn=None, auto_minor_version_upgrade=None, broker_id=None, broker_name=None, configuration=None, deployment_mode=None, engine_type=None, engine_version=None, host_instance_type=None, instances=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, tags=None, users=None, id=None):
         if arn and not isinstance(arn, str):
             raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
@@ -54,6 +55,9 @@ class GetBrokerResult(object):
         if subnet_ids and not isinstance(subnet_ids, list):
             raise TypeError('Expected argument subnet_ids to be a list')
         __self__.subnet_ids = subnet_ids
+        if tags and not isinstance(tags, dict):
+            raise TypeError('Expected argument tags to be a dict')
+        __self__.tags = tags
         if users and not isinstance(users, list):
             raise TypeError('Expected argument users to be a list')
         __self__.users = users
@@ -64,7 +68,7 @@ class GetBrokerResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_broker(broker_id=None, broker_name=None, logs=None):
+async def get_broker(broker_id=None, broker_name=None, logs=None, tags=None):
     """
     Provides information about a MQ Broker.
     """
@@ -73,6 +77,7 @@ async def get_broker(broker_id=None, broker_name=None, logs=None):
     __args__['brokerId'] = broker_id
     __args__['brokerName'] = broker_name
     __args__['logs'] = logs
+    __args__['tags'] = tags
     __ret__ = await pulumi.runtime.invoke('aws:mq/getBroker:getBroker', __args__)
 
     return GetBrokerResult(
@@ -90,5 +95,6 @@ async def get_broker(broker_id=None, broker_name=None, logs=None):
         publicly_accessible=__ret__.get('publiclyAccessible'),
         security_groups=__ret__.get('securityGroups'),
         subnet_ids=__ret__.get('subnetIds'),
+        tags=__ret__.get('tags'),
         users=__ret__.get('users'),
         id=__ret__.get('id'))

@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_rds_cluster_default = new aws.rds.Cluster("default", {
+ * const defaultCluster = new aws.rds.Cluster("default", {
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
@@ -37,10 +37,10 @@ import * as utilities from "../utilities";
  *     masterPassword: "barbut8chars",
  *     masterUsername: "foo",
  * });
- * const aws_rds_cluster_instance_cluster_instances: aws.rds.ClusterInstance[] = [];
+ * const clusterInstances: aws.rds.ClusterInstance[] = [];
  * for (let i = 0; i < 2; i++) {
- *     aws_rds_cluster_instance_cluster_instances.push(new aws.rds.ClusterInstance(`cluster_instances-${i}`, {
- *         clusterIdentifier: aws_rds_cluster_default.id,
+ *     clusterInstances.push(new aws.rds.ClusterInstance(`cluster_instances-${i}`, {
+ *         clusterIdentifier: defaultCluster.id,
  *         identifier: `aurora-cluster-demo-${i}`,
  *         instanceClass: "db.r4.large",
  *     }));
@@ -117,7 +117,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly identifier: pulumi.Output<string>;
     /**
-     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     public readonly identifierPrefix: pulumi.Output<string>;
     /**
@@ -340,7 +340,7 @@ export interface ClusterInstanceState {
      */
     readonly identifier?: pulumi.Input<string>;
     /**
-     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     readonly identifierPrefix?: pulumi.Input<string>;
     /**
@@ -471,7 +471,7 @@ export interface ClusterInstanceArgs {
      */
     readonly identifier?: pulumi.Input<string>;
     /**
-     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     readonly identifierPrefix?: pulumi.Input<string>;
     /**

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -38,15 +39,18 @@ class Configuration(pulumi.CustomResource):
     """
     The name of the configuration
     """
-    def __init__(__self__, __name__, __opts__=None, data=None, description=None, engine_type=None, engine_version=None, name=None):
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
+    def __init__(__self__, resource_name, opts=None, data=None, description=None, engine_type=None, engine_version=None, name=None, tags=None, __name__=None, __opts__=None):
         """
         Provides an MQ Configuration Resource. 
         
         For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data: The broker configuration in XML format.
                See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
                for supported parameters and format of the XML.
@@ -54,40 +58,49 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.Input[str] engine_type: The type of broker engine.
         :param pulumi.Input[str] engine_version: The version of the broker engine.
         :param pulumi.Input[str] name: The name of the configuration
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not data:
+        if data is None:
             raise TypeError('Missing required property data')
         __props__['data'] = data
 
         __props__['description'] = description
 
-        if not engine_type:
+        if engine_type is None:
             raise TypeError('Missing required property engine_type')
         __props__['engine_type'] = engine_type
 
-        if not engine_version:
+        if engine_version is None:
             raise TypeError('Missing required property engine_version')
         __props__['engine_version'] = engine_version
 
         __props__['name'] = name
+
+        __props__['tags'] = tags
 
         __props__['arn'] = None
         __props__['latest_revision'] = None
 
         super(Configuration, __self__).__init__(
             'aws:mq/configuration:Configuration',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

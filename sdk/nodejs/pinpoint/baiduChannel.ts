@@ -17,14 +17,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_pinpoint_app_app = new aws.pinpoint.App("app", {});
- * const aws_pinpoint_baidu_channel_channel = new aws.pinpoint.BaiduChannel("channel", {
+ * const app = new aws.pinpoint.App("app", {});
+ * const channel = new aws.pinpoint.BaiduChannel("channel", {
  *     apiKey: "",
- *     applicationId: aws_pinpoint_app_app.applicationId,
+ *     applicationId: app.applicationId,
  *     secretKey: "",
  * });
  * ```
- * 
  */
 export class BaiduChannel extends pulumi.CustomResource {
     /**

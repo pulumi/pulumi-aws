@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ebs_volume_example = new aws.ebs.Volume("example", {
+ * const example = new aws.ebs.Volume("example", {
  *     availabilityZone: "us-west-2a",
  *     size: 40,
  *     tags: {
@@ -21,8 +21,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * > **NOTE**: One of `size` or `snapshot_id` is required when specifying an EBS volume 
  * 
+ * > **NOTE**: One of `size` or `snapshot_id` is required when specifying an EBS volume 
  */
 export class Volume extends pulumi.CustomResource {
     /**

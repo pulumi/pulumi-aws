@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -36,29 +37,34 @@ class GraphQLApi(pulumi.CustomResource):
     """
     The Amazon Cognito User Pool configuration. Defined below.
     """
-    def __init__(__self__, __name__, __opts__=None, authentication_type=None, log_config=None, name=None, openid_connect_config=None, user_pool_config=None):
+    def __init__(__self__, resource_name, opts=None, authentication_type=None, log_config=None, name=None, openid_connect_config=None, user_pool_config=None, __name__=None, __opts__=None):
         """
         Provides an AppSync GraphQL API.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authentication_type: The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
         :param pulumi.Input[dict] log_config: Nested argument containing logging configuration. Defined below.
         :param pulumi.Input[str] name: A user-supplied name for the GraphqlApi.
         :param pulumi.Input[dict] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
         :param pulumi.Input[dict] user_pool_config: The Amazon Cognito User Pool configuration. Defined below.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not authentication_type:
+        if authentication_type is None:
             raise TypeError('Missing required property authentication_type')
         __props__['authentication_type'] = authentication_type
 
@@ -75,9 +81,9 @@ class GraphQLApi(pulumi.CustomResource):
 
         super(GraphQLApi, __self__).__init__(
             'aws:appsync/graphQLApi:GraphQLApi',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

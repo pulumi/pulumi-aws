@@ -93,7 +93,7 @@ func (r *RdsDbInstance) RdsDbInstanceArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["rdsDbInstanceArn"])
 }
 
-// The stack to register a db inatance for. Changing this will force a new resource.
+// The stack to register a db instance for. Changing this will force a new resource.
 func (r *RdsDbInstance) StackId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["stackId"])
 }
@@ -106,7 +106,7 @@ type RdsDbInstanceState struct {
 	DbUser interface{}
 	// The db instance to register for this stack. Changing this will force a new resource.
 	RdsDbInstanceArn interface{}
-	// The stack to register a db inatance for. Changing this will force a new resource.
+	// The stack to register a db instance for. Changing this will force a new resource.
 	StackId interface{}
 }
 
@@ -118,6 +118,6 @@ type RdsDbInstanceArgs struct {
 	DbUser interface{}
 	// The db instance to register for this stack. Changing this will force a new resource.
 	RdsDbInstanceArn interface{}
-	// The stack to register a db inatance for. Changing this will force a new resource.
+	// The stack to register a db instance for. Changing this will force a new resource.
 	StackId interface{}
 }

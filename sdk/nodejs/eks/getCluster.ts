@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_eks_cluster_example = pulumi.output(aws.eks.getCluster({
+ * const example = pulumi.output(aws.eks.getCluster({
  *     name: "example",
  * }));
  * 
- * export const endpoint = aws_eks_cluster_example.apply(__arg0 => __arg0.endpoint);
- * export const kubeconfig_certificate_authority_data = aws_eks_cluster_example.apply(__arg0 => __arg0.certificateAuthority.data);
+ * export const endpoint = example.apply(example => example.endpoint);
+ * export const kubeconfig_certificate_authority_data = example.apply(example => example.certificateAuthority.data);
  * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {

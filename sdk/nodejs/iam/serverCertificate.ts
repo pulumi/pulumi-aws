@@ -28,30 +28,30 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  * 
- * const aws_iam_server_certificate_test_cert = new aws.iam.ServerCertificate("test_cert", {
+ * const testCert = new aws.iam.ServerCertificate("test_cert", {
  *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf-8"),
- *     name: "some_test_cert",
  *     privateKey: fs.readFileSync("test-key.pem", "utf-8"),
  * });
  * ```
+ * 
  * **Example with cert in-line:**
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_server_certificate_test_cert_alt = new aws.iam.ServerCertificate("test_cert_alt", {
+ * const testCertAlt = new aws.iam.ServerCertificate("test_cert_alt", {
  *     certificateBody: `-----BEGIN CERTIFICATE-----
  * [......] # cert contents
  * -----END CERTIFICATE-----
  * `,
- *     name: "alt_test_cert",
  *     privateKey: `-----BEGIN RSA PRIVATE KEY-----
  * [......] # cert contents
  * -----END RSA PRIVATE KEY-----
  * `,
  * });
  * ```
+ * 
  * **Use in combination with an AWS ELB resource:**
  * 
  * Some properties of an IAM Server Certificates cannot be updated while they are
@@ -66,12 +66,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  * 
- * const aws_iam_server_certificate_test_cert = new aws.iam.ServerCertificate("test_cert", {
+ * const testCert = new aws.iam.ServerCertificate("test_cert", {
  *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf-8"),
  *     namePrefix: "example-cert",
  *     privateKey: fs.readFileSync("test-key.pem", "utf-8"),
  * });
- * const aws_elb_ourapp = new aws.elasticloadbalancing.LoadBalancer("ourapp", {
+ * const ourapp = new aws.elasticloadbalancing.LoadBalancer("ourapp", {
  *     availabilityZones: ["us-west-2a"],
  *     crossZoneLoadBalancing: true,
  *     listeners: [{
@@ -79,9 +79,8 @@ import * as utilities from "../utilities";
  *         instanceProtocol: "http",
  *         lbPort: 443,
  *         lbProtocol: "https",
- *         sslCertificateId: aws_iam_server_certificate_test_cert.arn,
+ *         sslCertificateId: testCert.arn,
  *     }],
- *     name: "terraform-asg-deployment-example",
  * });
  * ```
  */

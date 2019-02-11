@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -16,38 +17,43 @@ class LogDestinationPolicy(pulumi.CustomResource):
     """
     A name for the subscription filter
     """
-    def __init__(__self__, __name__, __opts__=None, access_policy=None, destination_name=None):
+    def __init__(__self__, resource_name, opts=None, access_policy=None, destination_name=None, __name__=None, __opts__=None):
         """
         Provides a CloudWatch Logs destination policy resource.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] destination_name: A name for the subscription filter
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not access_policy:
+        if access_policy is None:
             raise TypeError('Missing required property access_policy')
         __props__['access_policy'] = access_policy
 
-        if not destination_name:
+        if destination_name is None:
             raise TypeError('Missing required property destination_name')
         __props__['destination_name'] = destination_name
 
         super(LogDestinationPolicy, __self__).__init__(
             'aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

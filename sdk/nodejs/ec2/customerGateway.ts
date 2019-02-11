@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_customer_gateway_main = new aws.ec2.CustomerGateway("main", {
+ * const main = new aws.ec2.CustomerGateway("main", {
  *     bgpAsn: 65000,
  *     ipAddress: "172.83.124.10",
  *     tags: {

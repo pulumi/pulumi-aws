@@ -13,13 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_vpc_example = new aws.ec2.Vpc("example", {
+ * const exampleVpc = new aws.ec2.Vpc("example", {
  *     cidrBlock: "10.0.0.0/16",
  * });
- * const aws_service_discovery_private_dns_namespace_example = new aws.servicediscovery.PrivateDnsNamespace("example", {
+ * const examplePrivateDnsNamespace = new aws.servicediscovery.PrivateDnsNamespace("example", {
  *     description: "example",
- *     name: "hoge.example.local",
- *     vpc: aws_vpc_example.id,
+ *     vpc: exampleVpc.id,
  * });
  * ```
  */

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -44,13 +45,12 @@ class VpcAttachment(pulumi.CustomResource):
     """
     Identifier of the AWS account that owns the EC2 VPC.
     """
-    def __init__(__self__, __name__, __opts__=None, dns_support=None, ipv6_support=None, subnet_ids=None, tags=None, transit_gateway_default_route_table_association=None, transit_gateway_default_route_table_propagation=None, transit_gateway_id=None, vpc_id=None):
+    def __init__(__self__, resource_name, opts=None, dns_support=None, ipv6_support=None, subnet_ids=None, tags=None, transit_gateway_default_route_table_association=None, transit_gateway_default_route_table_propagation=None, transit_gateway_id=None, vpc_id=None, __name__=None, __opts__=None):
         """
         Manages an EC2 Transit Gateway VPC Attachment. For examples of custom route table association and propagation, see the EC2 Transit Gateway Networking Examples Guide.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[list] subnet_ids: Identifiers of EC2 Subnets.
@@ -60,11 +60,17 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         :param pulumi.Input[str] vpc_id: Identifier of EC2 VPC.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -73,7 +79,7 @@ class VpcAttachment(pulumi.CustomResource):
 
         __props__['ipv6_support'] = ipv6_support
 
-        if not subnet_ids:
+        if subnet_ids is None:
             raise TypeError('Missing required property subnet_ids')
         __props__['subnet_ids'] = subnet_ids
 
@@ -83,11 +89,11 @@ class VpcAttachment(pulumi.CustomResource):
 
         __props__['transit_gateway_default_route_table_propagation'] = transit_gateway_default_route_table_propagation
 
-        if not transit_gateway_id:
+        if transit_gateway_id is None:
             raise TypeError('Missing required property transit_gateway_id')
         __props__['transit_gateway_id'] = transit_gateway_id
 
-        if not vpc_id:
+        if vpc_id is None:
             raise TypeError('Missing required property vpc_id')
         __props__['vpc_id'] = vpc_id
 
@@ -95,9 +101,9 @@ class VpcAttachment(pulumi.CustomResource):
 
         super(VpcAttachment, __self__).__init__(
             'aws:ec2transitgateway/vpcAttachment:VpcAttachment',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

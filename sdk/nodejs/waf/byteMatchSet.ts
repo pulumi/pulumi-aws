@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_waf_byte_match_set_byte_set = new aws.waf.ByteMatchSet("byte_set", {
+ * const byteSet = new aws.waf.ByteMatchSet("byte_set", {
  *     byteMatchTuples: [{
  *         fieldToMatch: {
  *             data: "referer",
@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  *         targetString: "badrefer1",
  *         textTransformation: "NONE",
  *     }],
- *     name: "tf_waf_byte_match_set",
  * });
  * ```
  */

@@ -14,18 +14,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_redshift_service_account_main = pulumi.output(aws.redshift.getServiceAccount({}));
- * const aws_s3_bucket_bucket = new aws.s3.Bucket("bucket", {
+ * const main = pulumi.output(aws.redshift.getServiceAccount({}));
+ * const bucket = new aws.s3.Bucket("bucket", {
  *     bucket: "tf-redshift-logging-test-bucket",
  *     forceDestroy: true,
- *     policy: pulumi.all([aws_redshift_service_account_main, aws_redshift_service_account_main]).apply(([__arg0, __arg1]) => `{
+ *     policy: pulumi.all([main, main]).apply(([main, main1]) => `{
  * 	"Version": "2008-10-17",
  * 	"Statement": [
  * 		{
  *         			"Sid": "Put bucket policy needed for audit logging",
  *         			"Effect": "Allow",
  *         			"Principal": {
- * 						"AWS": "${__arg0.arn}"
+ * 						"AWS": "${main.arn}"
  *         			},
  *         			"Action": "s3:PutObject",
  *         			"Resource": "arn:aws:s3:::tf-redshift-logging-test-bucket/*"
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *         			"Sid": "Get bucket policy needed for audit logging ",
  *         			"Effect": "Allow",
  *         			"Principal": {
- * 						"AWS": "${__arg1.arn}"
+ * 						"AWS": "${main1.arn}"
  *         			},
  *         			"Action": "s3:GetBucketAcl",
  *         			"Resource": "arn:aws:s3:::tf-redshift-logging-test-bucket"

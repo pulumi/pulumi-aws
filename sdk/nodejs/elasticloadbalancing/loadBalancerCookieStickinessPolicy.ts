@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_elb_lb = new aws.elasticloadbalancing.LoadBalancer("lb", {
+ * const lb = new aws.elasticloadbalancing.LoadBalancer("lb", {
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [{
  *         instancePort: 8000,
@@ -21,13 +21,11 @@ import * as utilities from "../utilities";
  *         lbPort: 80,
  *         lbProtocol: "http",
  *     }],
- *     name: "test-lb",
  * });
- * const aws_lb_cookie_stickiness_policy_foo = new aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy("foo", {
+ * const foo = new aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy("foo", {
  *     cookieExpirationPeriod: 600,
  *     lbPort: 80,
- *     loadBalancer: aws_elb_lb.id,
- *     name: "foo-policy",
+ *     loadBalancer: lb.id,
  * });
  * ```
  */

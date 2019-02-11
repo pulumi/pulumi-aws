@@ -15,9 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_cognito_user_pool_pool = new aws.cognito.UserPool("pool", {
- *     name: "mypool",
- * });
+ * const pool = new aws.cognito.UserPool("pool", {});
  * ```
  */
 export class UserPool extends pulumi.CustomResource {

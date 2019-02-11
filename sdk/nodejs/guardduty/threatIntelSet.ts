@@ -15,24 +15,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_guardduty_detector_master = new aws.guardduty.Detector("master", {
+ * const master = new aws.guardduty.Detector("master", {
  *     enable: true,
  * });
- * const aws_s3_bucket_bucket = new aws.s3.Bucket("bucket", {
+ * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "private",
  * });
- * const aws_s3_bucket_object_MyThreatIntelSet = new aws.s3.BucketObject("MyThreatIntelSet", {
+ * const myThreatIntelSetBucketObject = new aws.s3.BucketObject("MyThreatIntelSet", {
  *     acl: "public-read",
- *     bucket: aws_s3_bucket_bucket.id,
+ *     bucket: bucket.id,
  *     content: "10.0.0.0/8\n",
  *     key: "MyThreatIntelSet",
  * });
- * const aws_guardduty_threatintelset_MyThreatIntelSet = new aws.guardduty.ThreatIntelSet("MyThreatIntelSet", {
+ * const myThreatIntelSetThreatIntelSet = new aws.guardduty.ThreatIntelSet("MyThreatIntelSet", {
  *     activate: true,
- *     detectorId: aws_guardduty_detector_master.id,
+ *     detectorId: master.id,
  *     format: "TXT",
- *     location: pulumi.all([aws_s3_bucket_object_MyThreatIntelSet.bucket, aws_s3_bucket_object_MyThreatIntelSet.key]).apply(([__arg0, __arg1]) => `https://s3.amazonaws.com/${__arg0}/${__arg1}`),
- *     name: "MyThreatIntelSet",
+ *     location: pulumi.all([myThreatIntelSetBucketObject.bucket, myThreatIntelSetBucketObject.key]).apply(([bucket, key]) => `https://s3.amazonaws.com/${bucket}/${key}`),
  * });
  * ```
  */

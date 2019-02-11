@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ebs_snapshot_ebs_volume = pulumi.output(aws.ebs.getSnapshot({
+ * const ebsVolume = pulumi.output(aws.ebs.getSnapshot({
  *     filters: [
  *         {
  *             name: "volume-size",

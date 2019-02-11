@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_api_gateway_vpc_link_my_api_gateway_vpc_link = pulumi.output(aws.apigateway.getVpcLink({
+ * const myApiGatewayVpcLink = pulumi.output(aws.apigateway.getVpcLink({
  *     name: "my-vpc-link",
  * }));
  * ```

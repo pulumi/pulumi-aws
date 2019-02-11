@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_kms_key_a = new aws.kms.Key("a", {
+ * const key = new aws.kms.Key("a", {
  *     deletionWindowInDays: 10,
  *     description: "KMS key 1",
  * });

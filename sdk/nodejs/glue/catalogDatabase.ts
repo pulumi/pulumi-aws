@@ -13,9 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_glue_catalog_database_aws_glue_catalog_database = new aws.glue.CatalogDatabase("aws_glue_catalog_database", {
- *     name: "MyCatalogDatabase",
- * });
+ * const awsGlueCatalogDatabase = new aws.glue.CatalogDatabase("aws_glue_catalog_database", {});
  * ```
  */
 export class CatalogDatabase extends pulumi.CustomResource {

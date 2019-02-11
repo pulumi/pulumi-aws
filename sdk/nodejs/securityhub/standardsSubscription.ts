@@ -13,10 +13,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_securityhub_account_example = new aws.securityhub.Account("example", {});
- * const aws_securityhub_standards_subscription_example = new aws.securityhub.StandardsSubscription("example", {
+ * const exampleAccount = new aws.securityhub.Account("example", {});
+ * const exampleStandardsSubscription = new aws.securityhub.StandardsSubscription("example", {
  *     standardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
- * }, {dependsOn: [aws_securityhub_account_example]});
+ * }, {dependsOn: [exampleAccount]});
  * ```
  */
 export class StandardsSubscription extends pulumi.CustomResource {

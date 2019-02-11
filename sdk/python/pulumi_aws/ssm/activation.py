@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -40,24 +41,29 @@ class Activation(pulumi.CustomResource):
     """
     The maximum number of managed instances you want to register. The default value is 1 instance.
     """
-    def __init__(__self__, __name__, __opts__=None, description=None, expiration_date=None, iam_role=None, name=None, registration_limit=None):
+    def __init__(__self__, resource_name, opts=None, description=None, expiration_date=None, iam_role=None, name=None, registration_limit=None, __name__=None, __opts__=None):
         """
         Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the resource that you want to register.
         :param pulumi.Input[str] expiration_date: A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time.
         :param pulumi.Input[str] iam_role: The IAM Role to attach to the managed instance.
         :param pulumi.Input[str] name: The default name of the registered managed instance.
         :param pulumi.Input[int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -66,7 +72,7 @@ class Activation(pulumi.CustomResource):
 
         __props__['expiration_date'] = expiration_date
 
-        if not iam_role:
+        if iam_role is None:
             raise TypeError('Missing required property iam_role')
         __props__['iam_role'] = iam_role
 
@@ -80,9 +86,9 @@ class Activation(pulumi.CustomResource):
 
         super(Activation, __self__).__init__(
             'aws:ssm/activation:Activation',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

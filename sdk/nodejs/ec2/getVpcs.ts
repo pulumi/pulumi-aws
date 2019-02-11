@@ -17,29 +17,30 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_vpcs_foo = pulumi.output(aws.ec2.getVpcs({
+ * const fooVpcs = pulumi.output(aws.ec2.getVpcs({
  *     tags: {
  *         service: "production",
  *     },
  * }));
  * 
- * export const foo = aws_vpcs_foo.apply(__arg0 => __arg0.ids);
+ * export const foo = fooVpcs.apply(fooVpcs => fooVpcs.ids);
  * ```
+ * 
  * An example use case would be interpolate the `aws_vpcs` output into `count` of an aws_flow_log resource.
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_vpcs_foo = pulumi.output(aws.ec2.getVpcs({}));
- * const aws_flow_log_test_flow_log: aws.ec2.FlowLog[] = [];
- * for (let i = 0; i < aws_vpcs_foo.apply(__arg0 => __arg0.ids.length); i++) {
- *     aws_flow_log_test_flow_log.push(new aws.ec2.FlowLog(`test_flow_log-${i}`, {
- *         vpcId: aws_vpcs_foo.apply(__arg0 => __arg0.ids[i]),
+ * const fooVpcs = pulumi.output(aws.ec2.getVpcs({}));
+ * const testFlowLog: aws.ec2.FlowLog[] = [];
+ * for (let i = 0; i < fooVpcs.apply(fooVpcs => fooVpcs.ids.length); i++) {
+ *     testFlowLog.push(new aws.ec2.FlowLog(`test_flow_log-${i}`, {
+ *         vpcId: fooVpcs.apply(fooVpcs => fooVpcs.ids[i]),
  *     }));
  * }
  * 
- * export const foo = aws_vpcs_foo.apply(__arg0 => __arg0.ids);
+ * export const foo = fooVpcs.apply(fooVpcs => fooVpcs.ids);
  * ```
  */
 export function getVpcs(args?: GetVpcsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcsResult> {

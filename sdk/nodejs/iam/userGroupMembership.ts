@@ -18,28 +18,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_group_group1 = new aws.iam.Group("group1", {
- *     name: "group1",
- * });
- * const aws_iam_group_group2 = new aws.iam.Group("group2", {
- *     name: "group2",
- * });
- * const aws_iam_group_group3 = new aws.iam.Group("group3", {
- *     name: "group3",
- * });
- * const aws_iam_user_user1 = new aws.iam.User("user1", {
- *     name: "user1",
- * });
- * const aws_iam_user_group_membership_example1 = new aws.iam.UserGroupMembership("example1", {
+ * const group1 = new aws.iam.Group("group1", {});
+ * const group2 = new aws.iam.Group("group2", {});
+ * const group3 = new aws.iam.Group("group3", {});
+ * const user1 = new aws.iam.User("user1", {});
+ * const example1 = new aws.iam.UserGroupMembership("example1", {
  *     groups: [
- *         aws_iam_group_group1.name,
- *         aws_iam_group_group2.name,
+ *         group1.name,
+ *         group2.name,
  *     ],
- *     user: aws_iam_user_user1.name,
+ *     user: user1.name,
  * });
- * const aws_iam_user_group_membership_example2 = new aws.iam.UserGroupMembership("example2", {
- *     groups: [aws_iam_group_group3.name],
- *     user: aws_iam_user_user1.name,
+ * const example2 = new aws.iam.UserGroupMembership("example2", {
+ *     groups: [group3.name],
+ *     user: user1.name,
  * });
  * ```
  */

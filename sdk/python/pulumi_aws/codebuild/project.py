@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -72,13 +73,12 @@ class Project(pulumi.CustomResource):
     """
     Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
     """
-    def __init__(__self__, __name__, __opts__=None, artifacts=None, badge_enabled=None, build_timeout=None, cache=None, description=None, encryption_key=None, environment=None, name=None, secondary_artifacts=None, secondary_sources=None, service_role=None, source=None, tags=None, vpc_config=None):
+    def __init__(__self__, resource_name, opts=None, artifacts=None, badge_enabled=None, build_timeout=None, cache=None, description=None, encryption_key=None, environment=None, name=None, secondary_artifacts=None, secondary_sources=None, service_role=None, source=None, tags=None, vpc_config=None, __name__=None, __opts__=None):
         """
         Provides a CodeBuild Project resource. See also the [`aws_codebuild_webhook` resource](https://www.terraform.io/docs/providers/aws/r/codebuild_webhook.html), which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] artifacts: Information about the project's build output artifacts. Artifact blocks are documented below.
         :param pulumi.Input[bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
         :param pulumi.Input[int] build_timeout: How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
@@ -94,16 +94,22 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] vpc_config: Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not artifacts:
+        if artifacts is None:
             raise TypeError('Missing required property artifacts')
         __props__['artifacts'] = artifacts
 
@@ -117,7 +123,7 @@ class Project(pulumi.CustomResource):
 
         __props__['encryption_key'] = encryption_key
 
-        if not environment:
+        if environment is None:
             raise TypeError('Missing required property environment')
         __props__['environment'] = environment
 
@@ -127,11 +133,11 @@ class Project(pulumi.CustomResource):
 
         __props__['secondary_sources'] = secondary_sources
 
-        if not service_role:
+        if service_role is None:
             raise TypeError('Missing required property service_role')
         __props__['service_role'] = service_role
 
-        if not source:
+        if source is None:
             raise TypeError('Missing required property source')
         __props__['source'] = source
 
@@ -144,9 +150,9 @@ class Project(pulumi.CustomResource):
 
         super(Project, __self__).__init__(
             'aws:codebuild/project:Project',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

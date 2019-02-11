@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -36,15 +37,14 @@ class Member(pulumi.CustomResource):
     """
     The status of the relationship between the member account and its master account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
     """
-    def __init__(__self__, __name__, __opts__=None, account_id=None, detector_id=None, disable_email_notification=None, email=None, invitation_message=None, invite=None):
+    def __init__(__self__, resource_name, opts=None, account_id=None, detector_id=None, disable_email_notification=None, email=None, invitation_message=None, invite=None, __name__=None, __opts__=None):
         """
         Provides a resource to manage a GuardDuty member.
         
         > **NOTE:** Currently after using this resource, you must manually accept member account invitations before GuardDuty will begin sending cross-account events. More information for how to accomplish this via the AWS Console or API can be found in the [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_accounts.html). Terraform implementation of the member acceptance resource can be tracked in [Github](https://github.com/terraform-providers/terraform-provider-aws/issues/2489).
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: AWS account ID for member account.
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty account where you want to create member accounts.
         :param pulumi.Input[bool] disable_email_notification: Boolean whether an email notification is sent to the accounts. Defaults to `false`.
@@ -52,26 +52,32 @@ class Member(pulumi.CustomResource):
         :param pulumi.Input[str] invitation_message: Message for invitation.
         :param pulumi.Input[bool] invite: Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the Terraform state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not account_id:
+        if account_id is None:
             raise TypeError('Missing required property account_id')
         __props__['account_id'] = account_id
 
-        if not detector_id:
+        if detector_id is None:
             raise TypeError('Missing required property detector_id')
         __props__['detector_id'] = detector_id
 
         __props__['disable_email_notification'] = disable_email_notification
 
-        if not email:
+        if email is None:
             raise TypeError('Missing required property email')
         __props__['email'] = email
 
@@ -83,9 +89,9 @@ class Member(pulumi.CustomResource):
 
         super(Member, __self__).__init__(
             'aws:guardduty/member:Member',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

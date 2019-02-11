@@ -13,11 +13,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_cognito_user_pool_example = new aws.cognito.UserPool("example", {
+ * const example = new aws.cognito.UserPool("example", {
  *     autoVerifiedAttributes: ["email"],
- *     name: "example-pool",
  * });
- * const aws_cognito_identity_provider_example_provider = new aws.cognito.IdentityProvider("example_provider", {
+ * const exampleProvider = new aws.cognito.IdentityProvider("example_provider", {
  *     attributeMapping: {
  *         email: "email",
  *         username: "sub",
@@ -29,7 +28,7 @@ import * as utilities from "../utilities";
  *     },
  *     providerName: "Google",
  *     providerType: "Google",
- *     userPoolId: aws_cognito_user_pool_example.id,
+ *     userPoolId: example.id,
  * });
  * ```
  */

@@ -14,6 +14,18 @@ import (
 // 
 // Environments are often things such as `development`, `integration`, or
 // `production`.
+// 
+// ## Option Settings
+// 
+// Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
+// for supported options and examples.
+// 
+// The `setting` and `all_settings` mappings support the following format:
+// 
+// * `namespace` - unique namespace identifying the option's associated AWS resource
+// * `name` - name of the configuration option
+// * `value` - value for the configuration option
+// * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
 type Environment struct {
 	s *pulumi.ResourceState
 }

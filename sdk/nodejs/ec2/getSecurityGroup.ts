@@ -21,14 +21,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const config = new pulumi.Config();
- * const var_security_group_id = config.require("securityGroupId");
+ * const securityGroupId = config.require("securityGroupId");
  * 
- * const aws_security_group_selected = pulumi.output(aws.ec2.getSecurityGroup({
- *     id: var_security_group_id,
+ * const selected = pulumi.output(aws.ec2.getSecurityGroup({
+ *     id: securityGroupId,
  * }));
- * const aws_subnet_subnet = new aws.ec2.Subnet("subnet", {
+ * const subnet = new aws.ec2.Subnet("subnet", {
  *     cidrBlock: "10.0.1.0/24",
- *     vpcId: aws_security_group_selected.apply(__arg0 => __arg0.vpcId),
+ *     vpcId: selected.apply(selected => selected.vpcId),
  * });
  * ```
  */

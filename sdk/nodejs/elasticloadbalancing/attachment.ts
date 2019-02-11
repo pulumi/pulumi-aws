@@ -13,6 +13,19 @@ import * as utilities from "../utilities";
  * `instances` defined in-line. At this time you cannot use an ELB with in-line
  * instances in conjunction with an ELB Attachment resource. Doing so will cause a
  * conflict and will overwrite attachments.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * // Create a new load balancer attachment
+ * const baz = new aws.elasticloadbalancing.Attachment("baz", {
+ *     elb: aws_elb_bar.id,
+ *     instance: aws_instance_foo.id,
+ * });
+ * ```
  */
 export class Attachment extends pulumi.CustomResource {
     /**

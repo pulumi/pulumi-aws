@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Provides a Virtual Private Gateway attachment resource, allowing for an existing
  * hardware VPN gateway to be attached and/or detached from a VPC.
  * 
- * -> **Note:** The `aws_vpn_gateway`
+ * > **Note:** The `aws_vpn_gateway`
  * resource can also automatically attach the Virtual Private Gateway it creates
  * to an existing VPC by setting the `vpc_id` attribute accordingly.
  * 
@@ -18,23 +18,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_vpc_network = new aws.ec2.Vpc("network", {
+ * const network = new aws.ec2.Vpc("network", {
  *     cidrBlock: "10.0.0.0/16",
  * });
- * const aws_vpn_gateway_vpn = new aws.ec2.VpnGateway("vpn", {
+ * const vpn = new aws.ec2.VpnGateway("vpn", {
  *     tags: {
  *         Name: "example-vpn-gateway",
  *     },
  * });
- * const aws_vpn_gateway_attachment_vpn_attachment = new aws.ec2.VpnGatewayAttachment("vpn_attachment", {
- *     vpcId: aws_vpc_network.id,
- *     vpnGatewayId: aws_vpn_gateway_vpn.id,
+ * const vpnAttachment = new aws.ec2.VpnGatewayAttachment("vpn_attachment", {
+ *     vpcId: network.id,
+ *     vpnGatewayId: vpn.id,
  * });
  * ```
+ * 
  * See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
  * and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
  * guides for more information.
- * 
  */
 export class VpnGatewayAttachment extends pulumi.CustomResource {
     /**

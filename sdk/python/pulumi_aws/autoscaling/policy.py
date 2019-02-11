@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -56,7 +57,7 @@ class Policy(pulumi.CustomResource):
     """
     A target tracking policy. These have the following structure:
     """
-    def __init__(__self__, __name__, __opts__=None, adjustment_type=None, autoscaling_group_name=None, cooldown=None, estimated_instance_warmup=None, metric_aggregation_type=None, min_adjustment_magnitude=None, min_adjustment_step=None, name=None, policy_type=None, scaling_adjustment=None, step_adjustments=None, target_tracking_configuration=None):
+    def __init__(__self__, resource_name, opts=None, adjustment_type=None, autoscaling_group_name=None, cooldown=None, estimated_instance_warmup=None, metric_aggregation_type=None, min_adjustment_magnitude=None, min_adjustment_step=None, name=None, policy_type=None, scaling_adjustment=None, step_adjustments=None, target_tracking_configuration=None, __name__=None, __opts__=None):
         """
         Provides an AutoScaling Scaling Policy resource.
         
@@ -66,9 +67,8 @@ class Policy(pulumi.CustomResource):
         or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
         (policy-based) scaling.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] adjustment_type: Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         :param pulumi.Input[str] autoscaling_group_name: The name of the autoscaling group.
         :param pulumi.Input[int] cooldown: The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
@@ -84,18 +84,24 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[list] step_adjustments
         :param pulumi.Input[dict] target_tracking_configuration: A target tracking policy. These have the following structure:
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['adjustment_type'] = adjustment_type
 
-        if not autoscaling_group_name:
+        if autoscaling_group_name is None:
             raise TypeError('Missing required property autoscaling_group_name')
         __props__['autoscaling_group_name'] = autoscaling_group_name
 
@@ -123,9 +129,9 @@ class Policy(pulumi.CustomResource):
 
         super(Policy, __self__).__init__(
             'aws:autoscaling/policy:Policy',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

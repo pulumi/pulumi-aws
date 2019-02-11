@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -80,7 +81,7 @@ class Trail(pulumi.CustomResource):
     """
     A mapping of tags to assign to the trail
     """
-    def __init__(__self__, __name__, __opts__=None, cloud_watch_logs_group_arn=None, cloud_watch_logs_role_arn=None, enable_log_file_validation=None, enable_logging=None, event_selectors=None, include_global_service_events=None, is_multi_region_trail=None, is_organization_trail=None, kms_key_id=None, name=None, s3_bucket_name=None, s3_key_prefix=None, sns_topic_name=None, tags=None):
+    def __init__(__self__, resource_name, opts=None, cloud_watch_logs_group_arn=None, cloud_watch_logs_role_arn=None, enable_log_file_validation=None, enable_logging=None, event_selectors=None, include_global_service_events=None, is_multi_region_trail=None, is_organization_trail=None, kms_key_id=None, name=None, s3_bucket_name=None, s3_key_prefix=None, sns_topic_name=None, tags=None, __name__=None, __opts__=None):
         """
         Provides a CloudTrail resource.
         
@@ -88,9 +89,8 @@ class Trail(pulumi.CustomResource):
         
         > *NOTE:* For an organization trail, this resource must be in the master account of the organization.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloud_watch_logs_group_arn: Specifies a log group name using an Amazon Resource Name (ARN),
                that represents the log group to which CloudTrail logs will be delivered.
         :param pulumi.Input[str] cloud_watch_logs_role_arn: Specifies the role for the CloudWatch Logs
@@ -114,11 +114,17 @@ class Trail(pulumi.CustomResource):
                defined for notification of log file delivery.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the trail
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -143,7 +149,7 @@ class Trail(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        if not s3_bucket_name:
+        if s3_bucket_name is None:
             raise TypeError('Missing required property s3_bucket_name')
         __props__['s3_bucket_name'] = s3_bucket_name
 
@@ -158,9 +164,9 @@ class Trail(pulumi.CustomResource):
 
         super(Trail, __self__).__init__(
             'aws:cloudtrail/trail:Trail',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

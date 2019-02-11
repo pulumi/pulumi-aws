@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_instance_profile_example = pulumi.output(aws.iam.getInstanceProfile({
+ * const example = pulumi.output(aws.iam.getInstanceProfile({
  *     name: "an_example_instance_profile_name",
  * }));
  * ```

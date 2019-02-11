@@ -13,8 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_wafregional_regex_pattern_set_example = new aws.wafregional.RegexPatternSet("example", {
- *     name: "example",
+ * const example = new aws.wafregional.RegexPatternSet("example", {
  *     regexPatternStrings: [
  *         "one",
  *         "two",

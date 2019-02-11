@@ -13,9 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_media_store_container_example = new aws.mediastore.Container("example", {
- *     name: "example",
- * });
+ * const example = new aws.mediastore.Container("example", {});
  * ```
  */
 export class Container extends pulumi.CustomResource {

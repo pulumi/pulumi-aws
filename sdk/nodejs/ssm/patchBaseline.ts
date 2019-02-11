@@ -19,18 +19,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ssm_patch_baseline_production = new aws.ssm.PatchBaseline("production", {
+ * const production = new aws.ssm.PatchBaseline("production", {
  *     approvedPatches: ["KB123456"],
- *     name: "patch-baseline",
  * });
  * ```
+ * 
  * Advanced usage, specifying patch filters
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ssm_patch_baseline_production = new aws.ssm.PatchBaseline("production", {
+ * const production = new aws.ssm.PatchBaseline("production", {
  *     approvalRules: [
  *         {
  *             approveAfterDays: 7,
@@ -85,11 +85,9 @@ import * as utilities from "../utilities";
  *             values: ["Low"],
  *         },
  *     ],
- *     name: "patch-baseline",
  *     rejectedPatches: ["KB987654"],
  * });
  * ```
- * 
  */
 export class PatchBaseline extends pulumi.CustomResource {
     /**

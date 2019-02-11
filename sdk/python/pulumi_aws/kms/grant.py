@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -44,13 +45,12 @@ class Grant(pulumi.CustomResource):
     """
     retire_on_delete: pulumi.Output[bool]
     retiring_principal: pulumi.Output[str]
-    def __init__(__self__, __name__, __opts__=None, constraints=None, grant_creation_tokens=None, grantee_principal=None, key_id=None, name=None, operations=None, retire_on_delete=None, retiring_principal=None):
+    def __init__(__self__, resource_name, opts=None, constraints=None, grant_creation_tokens=None, grantee_principal=None, key_id=None, name=None, operations=None, retire_on_delete=None, retiring_principal=None, __name__=None, __opts__=None):
         """
         Provides a resource-based access control mechanism for a KMS customer master key.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] constraints: A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
         :param pulumi.Input[list] grant_creation_tokens: A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
                * `retire_on_delete` -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
@@ -62,11 +62,17 @@ class Grant(pulumi.CustomResource):
         :param pulumi.Input[bool] retire_on_delete
         :param pulumi.Input[str] retiring_principal
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -75,17 +81,17 @@ class Grant(pulumi.CustomResource):
 
         __props__['grant_creation_tokens'] = grant_creation_tokens
 
-        if not grantee_principal:
+        if grantee_principal is None:
             raise TypeError('Missing required property grantee_principal')
         __props__['grantee_principal'] = grantee_principal
 
-        if not key_id:
+        if key_id is None:
             raise TypeError('Missing required property key_id')
         __props__['key_id'] = key_id
 
         __props__['name'] = name
 
-        if not operations:
+        if operations is None:
             raise TypeError('Missing required property operations')
         __props__['operations'] = operations
 
@@ -98,9 +104,9 @@ class Grant(pulumi.CustomResource):
 
         super(Grant, __self__).__init__(
             'aws:kms/grant:Grant',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

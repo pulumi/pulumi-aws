@@ -19,26 +19,20 @@ import {NotificationType} from "./notificationType";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_autoscaling_group_bar = new aws.autoscaling.Group("bar", {
- *     name: "foobar1-terraform-test",
- * });
- * const aws_autoscaling_group_foo = new aws.autoscaling.Group("foo", {
- *     name: "barfoo-terraform-test",
- * });
- * const aws_sns_topic_example = new aws.sns.Topic("example", {
- *     name: "example-topic",
- * });
- * const aws_autoscaling_notification_example_notifications = new aws.autoscaling.Notification("example_notifications", {
+ * const bar = new aws.autoscaling.Group("bar", {});
+ * const foo = new aws.autoscaling.Group("foo", {});
+ * const example = new aws.sns.Topic("example", {});
+ * const exampleNotifications = new aws.autoscaling.Notification("example_notifications", {
  *     groupNames: [
- *         aws_autoscaling_group_bar.name,
- *         aws_autoscaling_group_foo.name,
+ *         bar.name,
+ *         foo.name,
  *     ],
  *     notifications: [
  *         "autoscaling:EC2_INSTANCE_LAUNCH",
  *         "autoscaling:EC2_INSTANCE_TERMINATE",
  *         "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
  *     ],
- *     topicArn: aws_sns_topic_example.arn,
+ *     topicArn: example.arn,
  * });
  * ```
  */

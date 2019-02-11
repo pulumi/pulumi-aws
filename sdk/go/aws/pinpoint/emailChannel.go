@@ -8,6 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Provides a Pinpoint SMS Channel resource.
 type EmailChannel struct {
 	s *pulumi.ResourceState
 }
@@ -79,45 +80,62 @@ func (r *EmailChannel) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The application ID.
 func (r *EmailChannel) ApplicationId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["applicationId"])
 }
 
+// Whether the channel is enabled or disabled. Defaults to `true`.
 func (r *EmailChannel) Enabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
+// The email address used to send emails from.
 func (r *EmailChannel) FromAddress() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["fromAddress"])
 }
 
+// The ARN of an identity verified with SES.
 func (r *EmailChannel) Identity() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["identity"])
 }
 
+// Messages per second that can be sent.
 func (r *EmailChannel) MessagesPerSecond() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["messagesPerSecond"])
 }
 
+// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
 func (r *EmailChannel) RoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["roleArn"])
 }
 
 // Input properties used for looking up and filtering EmailChannel resources.
 type EmailChannelState struct {
+	// The application ID.
 	ApplicationId interface{}
+	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled interface{}
+	// The email address used to send emails from.
 	FromAddress interface{}
+	// The ARN of an identity verified with SES.
 	Identity interface{}
+	// Messages per second that can be sent.
 	MessagesPerSecond interface{}
+	// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
 	RoleArn interface{}
 }
 
 // The set of arguments for constructing a EmailChannel resource.
 type EmailChannelArgs struct {
+	// The application ID.
 	ApplicationId interface{}
+	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled interface{}
+	// The email address used to send emails from.
 	FromAddress interface{}
+	// The ARN of an identity verified with SES.
 	Identity interface{}
+	// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
 	RoleArn interface{}
 }

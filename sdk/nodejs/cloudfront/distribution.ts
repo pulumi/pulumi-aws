@@ -25,15 +25,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const local_s3_origin_id = "myS3Origin";
- * const aws_s3_bucket_b = new aws.s3.Bucket("b", {
+ * const s3OriginId = "myS3Origin";
+ * const bucket = new aws.s3.Bucket("b", {
  *     acl: "private",
  *     bucket: "mybucket",
  *     tags: {
  *         Name: "My bucket",
  *     },
  * });
- * const aws_cloudfront_distribution_s3_distribution = new aws.cloudfront.Distribution("s3_distribution", {
+ * const s3Distribution = new aws.cloudfront.Distribution("s3_distribution", {
  *     aliases: [
  *         "mysite.example.com",
  *         "yoursite.example.com",
@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  *         },
  *         maxTtl: 86400,
  *         minTtl: 0,
- *         targetOriginId: local_s3_origin_id,
+ *         targetOriginId: s3OriginId,
  *         viewerProtocolPolicy: "allow-all",
  *     },
  *     defaultRootObject: "index.html",
@@ -74,6 +74,7 @@ import * as utilities from "../utilities";
  *         prefix: "myprefix",
  *     },
  *     orderedCacheBehaviors: [
+ *         // Cache behavior with precedence 0
  *         {
  *             allowedMethods: [
  *                 "GET",
@@ -97,9 +98,10 @@ import * as utilities from "../utilities";
  *             maxTtl: 31536000,
  *             minTtl: 0,
  *             pathPattern: "/content/immutable/*",
- *             targetOriginId: local_s3_origin_id,
+ *             targetOriginId: s3OriginId,
  *             viewerProtocolPolicy: "redirect-to-https",
  *         },
+ *         // Cache behavior with precedence 1
  *         {
  *             allowedMethods: [
  *                 "GET",
@@ -121,13 +123,13 @@ import * as utilities from "../utilities";
  *             maxTtl: 86400,
  *             minTtl: 0,
  *             pathPattern: "/content/*",
- *             targetOriginId: local_s3_origin_id,
+ *             targetOriginId: s3OriginId,
  *             viewerProtocolPolicy: "redirect-to-https",
  *         },
  *     ],
  *     origins: [{
- *         domainName: aws_s3_bucket_b.bucketRegionalDomainName,
- *         originId: local_s3_origin_id,
+ *         domainName: bucket.bucketRegionalDomainName,
+ *         originId: s3OriginId,
  *         s3OriginConfig: {
  *             originAccessIdentity: "origin-access-identity/cloudfront/ABCDEFG1234567",
  *         },

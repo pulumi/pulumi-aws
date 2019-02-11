@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -20,112 +21,48 @@ class SshKey(pulumi.CustomResource):
     """
     The name of the user account that is assigned to one or more servers.
     """
-    def __init__(__self__, __name__, __opts__=None, body=None, server_id=None, user_name=None):
+    def __init__(__self__, resource_name, opts=None, body=None, server_id=None, user_name=None, __name__=None, __opts__=None):
         """
         Provides a AWS Transfer User SSH Key resource.
         
-        
-        ```hcl
-        resource "aws_transfer_server" "foo" {
-        	identity_provider_type = "SERVICE_MANAGED"
-        
-        	tags {
-        		NAME     = "tf-acc-test-transfer-server"
-        	}
-        }
-        
-        
-        resource "aws_iam_role" "foo" {
-        	name = "tf-test-transfer-user-iam-role-%s"
-        
-        	assume_role_policy = <<EOF
-        {
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        		"Effect": "Allow",
-        		"Principal": {
-        			"Service": "transfer.amazonaws.com"
-        		},
-        		"Action": "sts:AssumeRole"
-        		}
-        	]
-        }
-        EOF
-        }
-        
-        resource "aws_iam_role_policy" "foo" {
-        	name = "tf-test-transfer-user-iam-policy-%s"
-        	role = "${aws_iam_role.foo.id}"
-        	policy = <<POLICY
-        {
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        			"Sid": "AllowFullAccesstoS3",
-        			"Effect": "Allow",
-        			"Action": [
-        				"s3:*"
-        			],
-        			"Resource": "*"
-        		}
-        	]
-        }
-        POLICY
-        }
-        
-        
-        resource "aws_transfer_user" "foo" {
-        	server_id      = "${aws_transfer_server.foo.id}"
-        	user_name      = "tftestuser"
-        	role           = "${aws_iam_role.foo.arn}"
-        
-        	tags {
-        		NAME = "tftestuser"
-        	}
-        }
-        
-        resource "aws_transfer_ssh_key" "foo" {
-        	server_id = "${aws_transfer_server.foo.id}"
-        	user_name = "${aws_transfer_user.foo.user_name}"
-        	body 	  = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 example@example.com"
-        }
-        
-        ```
-        
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] body: The public key portion of an SSH key pair.
         :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g. `s-12345678`)
         :param pulumi.Input[str] user_name: The name of the user account that is assigned to one or more servers.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not body:
+        if body is None:
             raise TypeError('Missing required property body')
         __props__['body'] = body
 
-        if not server_id:
+        if server_id is None:
             raise TypeError('Missing required property server_id')
         __props__['server_id'] = server_id
 
-        if not user_name:
+        if user_name is None:
             raise TypeError('Missing required property user_name')
         __props__['user_name'] = user_name
 
         super(SshKey, __self__).__init__(
             'aws:transfer/sshKey:SshKey',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

@@ -216,7 +216,7 @@ func (r *ClusterInstance) Identifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["identifier"])
 }
 
-// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 func (r *ClusterInstance) IdentifierPrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["identifierPrefix"])
 }
@@ -344,7 +344,7 @@ type ClusterInstanceState struct {
 	EngineVersion interface{}
 	// The indentifier for the RDS instance, if omitted, Terraform will assign a random, unique identifier.
 	Identifier interface{}
-	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix interface{}
 	// The instance class to use. For details on CPU
 	// and memory, see [Scaling Aurora DB Instances][4]. Aurora currently
@@ -423,7 +423,7 @@ type ClusterInstanceArgs struct {
 	EngineVersion interface{}
 	// The indentifier for the RDS instance, if omitted, Terraform will assign a random, unique identifier.
 	Identifier interface{}
-	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix interface{}
 	// The instance class to use. For details on CPU
 	// and memory, see [Scaling Aurora DB Instances][4]. Aurora currently

@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_kms_alias_s3 = pulumi.output(aws.kms.getAlias({
+ * const s3 = pulumi.output(aws.kms.getAlias({
  *     name: "alias/aws/s3",
  * }));
  * ```

@@ -14,8 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  * 
- * const aws_iam_saml_provider_default = new aws.iam.SamlProvider("default", {
- *     name: "myprovider",
+ * const defaultSamlProvider = new aws.iam.SamlProvider("default", {
  *     samlMetadataDocument: fs.readFileSync("saml-metadata.xml", "utf-8"),
  * });
  * ```

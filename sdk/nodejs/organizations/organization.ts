@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_organizations_organization_org = new aws.organizations.Organization("org", {
+ * const org = new aws.organizations.Organization("org", {
  *     awsServiceAccessPrincipals: [
  *         "cloudtrail.amazonaws.com",
  *         "config.amazonaws.com",

@@ -12,8 +12,8 @@
   source = "github.com/pulumi/terraform-provider-aws"
 
   [constraint.metadata]
-    govendor-override = true
-    govendor-exclude-prefixes = [
+    gomod-override = true
+    gomod-exclude-prefixes = [
       "github.com/golang/protobuf",
     ]
 

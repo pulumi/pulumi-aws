@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -68,13 +69,12 @@ class UserPoolClient(pulumi.CustomResource):
     """
     List of user pool attributes the application client can write to.
     """
-    def __init__(__self__, __name__, __opts__=None, allowed_oauth_flows=None, allowed_oauth_flows_user_pool_client=None, allowed_oauth_scopes=None, callback_urls=None, default_redirect_uri=None, explicit_auth_flows=None, generate_secret=None, logout_urls=None, name=None, read_attributes=None, refresh_token_validity=None, supported_identity_providers=None, user_pool_id=None, write_attributes=None):
+    def __init__(__self__, resource_name, opts=None, allowed_oauth_flows=None, allowed_oauth_flows_user_pool_client=None, allowed_oauth_scopes=None, callback_urls=None, default_redirect_uri=None, explicit_auth_flows=None, generate_secret=None, logout_urls=None, name=None, read_attributes=None, refresh_token_validity=None, supported_identity_providers=None, user_pool_id=None, write_attributes=None, __name__=None, __opts__=None):
         """
         Provides a Cognito User Pool Client resource.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] allowed_oauth_flows: List of allowed OAuth flows (code, implicit, client_credentials).
         :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
         :param pulumi.Input[list] allowed_oauth_scopes: List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
@@ -90,11 +90,17 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[str] user_pool_id: The user pool the client belongs to.
         :param pulumi.Input[list] write_attributes: List of user pool attributes the application client can write to.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -123,7 +129,7 @@ class UserPoolClient(pulumi.CustomResource):
 
         __props__['supported_identity_providers'] = supported_identity_providers
 
-        if not user_pool_id:
+        if user_pool_id is None:
             raise TypeError('Missing required property user_pool_id')
         __props__['user_pool_id'] = user_pool_id
 
@@ -133,9 +139,9 @@ class UserPoolClient(pulumi.CustomResource):
 
         super(UserPoolClient, __self__).__init__(
             'aws:cognito/userPoolClient:UserPoolClient',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_organizations_policy_example = new aws.organizations.Policy("example", {
+ * const example = new aws.organizations.Policy("example", {
  *     content: `{
  *   "Version": "2012-10-17",
  *   "Statement": {
@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  *   }
  * }
  * `,
- *     name: "example",
  * });
  * ```
  */

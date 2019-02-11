@@ -12,6 +12,21 @@ import * as utilities from "../utilities";
  * and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
  * a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
  * and will overwrite the association.
+ * 
+ * ## Example Usage
+ * 
+ * Basic usage:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const current = pulumi.output(aws.getCallerIdentity({}));
+ * const allowMeToFoo = new aws.ec2.VpcEndpointServiceAllowedPrinciple("allow_me_to_foo", {
+ *     principalArn: current.apply(current => current.arn),
+ *     vpcEndpointServiceId: aws_vpc_endpoint_service_foo.id,
+ * });
+ * ```
  */
 export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
     /**

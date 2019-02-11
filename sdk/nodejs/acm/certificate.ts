@@ -22,6 +22,23 @@ import * as utilities from "../utilities";
  * 
  * It's recommended to specify `create_before_destroy = true` in a [lifecycle][1] block to replace a certificate
  * which is currently in use (eg, by `aws_lb_listener`).
+ * 
+ * ## Example Usage
+ * 
+ * ### Certificate creation
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const cert = new aws.acm.Certificate("cert", {
+ *     domainName: "example.com",
+ *     tags: {
+ *         Environment: "test",
+ *     },
+ *     validationMethod: "DNS",
+ * });
+ * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

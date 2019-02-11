@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -69,13 +70,12 @@ class Stack(pulumi.CustomResource):
     """
     The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
     """
-    def __init__(__self__, __name__, __opts__=None, capabilities=None, disable_rollback=None, iam_role_arn=None, name=None, notification_arns=None, on_failure=None, parameters=None, policy_body=None, policy_url=None, tags=None, template_body=None, template_url=None, timeout_in_minutes=None):
+    def __init__(__self__, resource_name, opts=None, capabilities=None, disable_rollback=None, iam_role_arn=None, name=None, notification_arns=None, on_failure=None, parameters=None, policy_body=None, policy_url=None, tags=None, template_body=None, template_url=None, timeout_in_minutes=None, __name__=None, __opts__=None):
         """
         Provides a CloudFormation Stack resource.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] capabilities: A list of capabilities.
                Valid values: `CAPABILITY_IAM` or `CAPABILITY_NAMED_IAM`
         :param pulumi.Input[bool] disable_rollback: Set to true to disable rollback of the stack if stack creation failed.
@@ -95,11 +95,17 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[str] template_url: Location of a file containing the template body (max size: 460,800 bytes).
         :param pulumi.Input[int] timeout_in_minutes: The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -134,9 +140,9 @@ class Stack(pulumi.CustomResource):
 
         super(Stack, __self__).__init__(
             'aws:cloudformation/stack:Stack',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

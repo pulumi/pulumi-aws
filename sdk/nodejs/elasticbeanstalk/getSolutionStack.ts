@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_elastic_beanstalk_solution_stack_multi_docker = pulumi.output(aws.elasticbeanstalk.getSolutionStack({
+ * const multiDocker = pulumi.output(aws.elasticbeanstalk.getSolutionStack({
  *     mostRecent: true,
  *     nameRegex: "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
  * }));

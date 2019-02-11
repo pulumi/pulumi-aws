@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -56,16 +57,15 @@ class EventSourceMapping(pulumi.CustomResource):
     """
     The UUID of the created event source mapping.
     """
-    def __init__(__self__, __name__, __opts__=None, batch_size=None, enabled=None, event_source_arn=None, function_name=None, starting_position=None, starting_position_timestamp=None):
+    def __init__(__self__, resource_name, opts=None, batch_size=None, enabled=None, event_source_arn=None, function_name=None, starting_position=None, starting_position_timestamp=None, __name__=None, __opts__=None):
         """
         Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB and SQS
         
         For information about Lambda and how to use it, see [What is AWS Lambda?][1]
         For information about event source mappings, see [CreateEventSourceMapping][2] in the API docs.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
         :param pulumi.Input[str] event_source_arn: The event source ARN - can either be a Kinesis or DynamoDB stream.
@@ -73,11 +73,17 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[str] starting_position: The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
         :param pulumi.Input[str] starting_position_timestamp: A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -86,11 +92,11 @@ class EventSourceMapping(pulumi.CustomResource):
 
         __props__['enabled'] = enabled
 
-        if not event_source_arn:
+        if event_source_arn is None:
             raise TypeError('Missing required property event_source_arn')
         __props__['event_source_arn'] = event_source_arn
 
-        if not function_name:
+        if function_name is None:
             raise TypeError('Missing required property function_name')
         __props__['function_name'] = function_name
 
@@ -107,9 +113,9 @@ class EventSourceMapping(pulumi.CustomResource):
 
         super(EventSourceMapping, __self__).__init__(
             'aws:lambda/eventSourceMapping:EventSourceMapping',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

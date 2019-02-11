@@ -21,13 +21,50 @@ import {ApplicationVersion} from "./applicationVersion";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_elastic_beanstalk_application_tftest = new aws.elasticbeanstalk.Application("tftest", {
+ * const tftest = new aws.elasticbeanstalk.Application("tftest", {
  *     description: "tf-test-desc",
- *     name: "tf-test-name",
  * });
- * const aws_elastic_beanstalk_environment_tfenvtest = new aws.elasticbeanstalk.Environment("tfenvtest", {
- *     application: aws_elastic_beanstalk_application_tftest.name,
- *     name: "tf-test-name",
+ * const tfenvtest = new aws.elasticbeanstalk.Environment("tfenvtest", {
+ *     application: tftest.name,
+ *     solutionStackName: "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
+ * });
+ * ```
+ * 
+ * ## Option Settings
+ * 
+ * Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
+ * for supported options and examples.
+ * 
+ * The `setting` and `all_settings` mappings support the following format:
+ * 
+ * * `namespace` - unique namespace identifying the option's associated AWS resource
+ * * `name` - name of the configuration option
+ * * `value` - value for the configuration option
+ * * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+ * 
+ * ### Example With Options
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const tftest = new aws.elasticbeanstalk.Application("tftest", {
+ *     description: "tf-test-desc",
+ * });
+ * const tfenvtest = new aws.elasticbeanstalk.Environment("tfenvtest", {
+ *     application: tftest.name,
+ *     settings: [
+ *         {
+ *             name: "VPCId",
+ *             namespace: "aws:ec2:vpc",
+ *             value: "vpc-xxxxxxxx",
+ *         },
+ *         {
+ *             name: "Subnets",
+ *             namespace: "aws:ec2:vpc",
+ *             value: "subnet-xxxxxxxx",
+ *         },
+ *     ],
  *     solutionStackName: "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
  * });
  * ```

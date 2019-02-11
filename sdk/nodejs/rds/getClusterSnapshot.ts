@@ -16,17 +16,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_db_cluster_snapshot_development_final_snapshot = pulumi.output(aws.rds.getClusterSnapshot({
+ * const developmentFinalSnapshot = pulumi.output(aws.rds.getClusterSnapshot({
  *     dbClusterIdentifier: "development_cluster",
  *     mostRecent: true,
  * }));
- * const aws_rds_cluster_aurora = new aws.rds.Cluster("aurora", {
+ * // Use the last snapshot of the dev database before it was destroyed to create
+ * // a new dev database.
+ * const auroraCluster = new aws.rds.Cluster("aurora", {
  *     clusterIdentifier: "development_cluster",
  *     dbSubnetGroupName: "my_db_subnet_group",
- *     snapshotIdentifier: aws_db_cluster_snapshot_development_final_snapshot.apply(__arg0 => __arg0.id),
+ *     snapshotIdentifier: developmentFinalSnapshot.apply(developmentFinalSnapshot => developmentFinalSnapshot.id),
  * });
- * const aws_rds_cluster_instance_aurora = new aws.rds.ClusterInstance("aurora", {
- *     clusterIdentifier: aws_rds_cluster_aurora.id,
+ * const auroraClusterInstance = new aws.rds.ClusterInstance("aurora", {
+ *     clusterIdentifier: auroraCluster.id,
  *     dbSubnetGroupName: "my_db_subnet_group",
  *     instanceClass: "db.t2.small",
  * });

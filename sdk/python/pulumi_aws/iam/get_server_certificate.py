@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -43,6 +44,11 @@ class GetServerCertificateResult(object):
 async def get_server_certificate(latest=None, name=None, name_prefix=None, path_prefix=None):
     """
     Use this data source to lookup information about IAM Server Certificates.
+    
+    ## Import 
+    
+    The terraform import function will read in certificate body, certificate chain (if it exists), id, name, path, and arn. 
+    It will not retrieve the private key which is not available through the AWS API.   
     """
     __args__ = dict()
 

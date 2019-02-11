@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -92,13 +93,67 @@ class LaunchConfiguration(pulumi.CustomResource):
     """
     The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
     """
-    def __init__(__self__, __name__, __opts__=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, image_id=None, instance_type=None, key_name=None, name=None, name_prefix=None, placement_tenancy=None, root_block_device=None, security_groups=None, spot_price=None, user_data=None, user_data_base64=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None):
+    def __init__(__self__, resource_name, opts=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, image_id=None, instance_type=None, key_name=None, name=None, name_prefix=None, placement_tenancy=None, root_block_device=None, security_groups=None, spot_price=None, user_data=None, user_data_base64=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None, __name__=None, __opts__=None):
         """
         Provides a resource to create a new launch configuration, used for autoscaling groups.
         
+        ## Block devices
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        Each of the `*_block_device` attributes controls a portion of the AWS
+        Launch Configuration's "Block Device Mapping". It's a good idea to familiarize yourself with [AWS's Block Device
+        Mapping docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)
+        to understand the implications of using these attributes.
+        
+        The `root_block_device` mapping supports the following:
+        
+        * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
+          or `"io1"`. (Default: `"standard"`).
+        * `volume_size` - (Optional) The size of the volume in gigabytes.
+        * `iops` - (Optional) The amount of provisioned
+          [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+          This must be set with a `volume_type` of `"io1"`.
+        * `delete_on_termination` - (Optional) Whether the volume should be destroyed
+          on instance termination (Default: `true`).
+        
+        Modifying any of the `root_block_device` settings requires resource
+        replacement.
+        
+        Each `ebs_block_device` supports the following:
+        
+        * `device_name` - (Required) The name of the device to mount.
+        * `snapshot_id` - (Optional) The Snapshot ID to mount.
+        * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
+          or `"io1"`. (Default: `"standard"`).
+        * `volume_size` - (Optional) The size of the volume in gigabytes.
+        * `iops` - (Optional) The amount of provisioned
+          [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+          This must be set with a `volume_type` of `"io1"`.
+        * `delete_on_termination` - (Optional) Whether the volume should be destroyed
+          on instance termination (Default: `true`).
+        * `encrypted` - (Optional) Whether the volume should be encrypted or not. Do not use this option if you are using `snapshot_id` as the encrypted flag will be determined by the snapshot. (Default: `false`).
+        
+        Modifying any `ebs_block_device` currently requires resource replacement.
+        
+        Each `ephemeral_block_device` supports the following:
+        
+        * `device_name` - The name of the block device to mount on the instance.
+        * `virtual_name` - The [Instance Store Device
+          Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
+          (e.g. `"ephemeral0"`)
+        
+        Each AWS Instance type has a different set of Instance Store block devices
+        available for attachment. AWS [publishes a
+        list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes)
+        of which ephemeral devices are available on each type. The devices are always
+        identified by the `virtual_name` in the format `"ephemeral{0..N}"`.
+        
+        > **NOTE:** Changes to `*_block_device` configuration of _existing_ resources
+        cannot currently be detected by Terraform. After updating to block device
+        configuration, resource recreation can be manually triggered by using the
+        [`taint` command](https://www.terraform.io/docs/commands/taint.html).
+        
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
         :param pulumi.Input[list] ebs_block_devices: Additional EBS block devices to attach to the
                instance.  See Block Devices below for details.
@@ -127,11 +182,17 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] vpc_classic_link_id: The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
         :param pulumi.Input[list] vpc_classic_link_security_groups: The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -148,11 +209,11 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         __props__['iam_instance_profile'] = iam_instance_profile
 
-        if not image_id:
+        if image_id is None:
             raise TypeError('Missing required property image_id')
         __props__['image_id'] = image_id
 
-        if not instance_type:
+        if instance_type is None:
             raise TypeError('Missing required property instance_type')
         __props__['instance_type'] = instance_type
 
@@ -180,9 +241,9 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         super(LaunchConfiguration, __self__).__init__(
             'aws:ec2/launchConfiguration:LaunchConfiguration',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

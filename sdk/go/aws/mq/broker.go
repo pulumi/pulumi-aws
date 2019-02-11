@@ -64,6 +64,7 @@ func NewBroker(ctx *pulumi.Context,
 		inputs["publiclyAccessible"] = nil
 		inputs["securityGroups"] = nil
 		inputs["subnetIds"] = nil
+		inputs["tags"] = nil
 		inputs["users"] = nil
 	} else {
 		inputs["applyImmediately"] = args.ApplyImmediately
@@ -79,6 +80,7 @@ func NewBroker(ctx *pulumi.Context,
 		inputs["publiclyAccessible"] = args.PubliclyAccessible
 		inputs["securityGroups"] = args.SecurityGroups
 		inputs["subnetIds"] = args.SubnetIds
+		inputs["tags"] = args.Tags
 		inputs["users"] = args.Users
 	}
 	inputs["arn"] = nil
@@ -111,6 +113,7 @@ func GetBroker(ctx *pulumi.Context,
 		inputs["publiclyAccessible"] = state.PubliclyAccessible
 		inputs["securityGroups"] = state.SecurityGroups
 		inputs["subnetIds"] = state.SubnetIds
+		inputs["tags"] = state.Tags
 		inputs["users"] = state.Users
 	}
 	s, err := ctx.ReadResource("aws:mq/broker:Broker", name, id, inputs, opts...)
@@ -214,6 +217,11 @@ func (r *Broker) SubnetIds() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["subnetIds"])
 }
 
+// A mapping of tags to assign to the resource.
+func (r *Broker) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // The list of all ActiveMQ usernames for the specified broker. See below.
 func (r *Broker) Users() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["users"])
@@ -260,6 +268,8 @@ type BrokerState struct {
 	SecurityGroups interface{}
 	// The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
 	SubnetIds interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// The list of all ActiveMQ usernames for the specified broker. See below.
 	Users interface{}
 }
@@ -293,6 +303,8 @@ type BrokerArgs struct {
 	SecurityGroups interface{}
 	// The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
 	SubnetIds interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// The list of all ActiveMQ usernames for the specified broker. See below.
 	Users interface{}
 }

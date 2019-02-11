@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_guardduty_detector_MyDetector = new aws.guardduty.Detector("MyDetector", {
+ * const myDetector = new aws.guardduty.Detector("MyDetector", {
  *     enable: true,
  *     findingPublishingFrequency: "SIX_HOURS",
  * });

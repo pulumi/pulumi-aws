@@ -15,27 +15,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_cognito_user_pool_pool = new aws.cognito.UserPool("pool", {
- *     name: "pool",
- * });
- * const aws_cognito_user_pool_client_client = new aws.cognito.UserPoolClient("client", {
- *     name: "client",
- *     userPoolId: aws_cognito_user_pool_pool.id,
+ * const pool = new aws.cognito.UserPool("pool", {});
+ * const client = new aws.cognito.UserPoolClient("client", {
+ *     userPoolId: pool.id,
  * });
  * ```
+ * 
  * ### Create a user pool client with no SRP authentication
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_cognito_user_pool_pool = new aws.cognito.UserPool("pool", {
- *     name: "pool",
- * });
- * const aws_cognito_user_pool_client_client = new aws.cognito.UserPoolClient("client", {
+ * const pool = new aws.cognito.UserPool("pool", {});
+ * const client = new aws.cognito.UserPoolClient("client", {
  *     explicitAuthFlows: ["ADMIN_NO_SRP_AUTH"],
  *     generateSecret: true,
- *     name: "client",
- *     userPoolId: aws_cognito_user_pool_pool.id,
+ *     userPoolId: pool.id,
  * });
  * ```
  */

@@ -22,26 +22,18 @@ import {User} from "./user";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_group_group = new aws.iam.Group("group", {
- *     name: "test-group",
- * });
- * const aws_iam_policy_policy = new aws.iam.Policy("policy", {
+ * const group = new aws.iam.Group("group", {});
+ * const policy = new aws.iam.Policy("policy", {
  *     description: "A test policy",
- *     name: "test-policy",
- *     policy: "",
+ *     policy: "", // insert policy here
  * });
- * const aws_iam_role_role = new aws.iam.Role("role", {
- *     name: "test-role",
- * });
- * const aws_iam_user_user = new aws.iam.User("user", {
- *     name: "test-user",
- * });
- * const aws_iam_policy_attachment_test_attach = new aws.iam.PolicyAttachment("test-attach", {
- *     groups: [aws_iam_group_group.name],
- *     name: "test-attachment",
- *     policyArn: aws_iam_policy_policy.arn,
- *     roles: [aws_iam_role_role.name],
- *     users: [aws_iam_user_user.name],
+ * const role = new aws.iam.Role("role", {});
+ * const user = new aws.iam.User("user", {});
+ * const test_attach = new aws.iam.PolicyAttachment("test-attach", {
+ *     groups: [group.name],
+ *     policyArn: policy.arn,
+ *     roles: [role.name],
+ *     users: [user.name],
  * });
  * ```
  */

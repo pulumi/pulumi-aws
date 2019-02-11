@@ -26,18 +26,23 @@ import * as utilities from "../utilities";
  * the raw state as plain-text. [Read more about sensitive data in
  * state](https://www.terraform.io/docs/state/sensitive-data.html).
  * 
+ * ## RDS Instance Class Types
+ * 
+ * Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
+ * and Burstable Performance. For more information please read the AWS RDS documentation
+ * about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
+ * 
  * ## Example Usage
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_db_instance_default = new aws.rds.Instance("default", {
+ * const defaultInstance = new aws.rds.Instance("default", {
  *     allocatedStorage: 10,
  *     engine: "mysql",
  *     engineVersion: "5.7",
  *     instanceClass: "db.t2.micro",
- *     name: "mydb",
  *     parameterGroupName: "default.mysql5.7",
  *     password: "foobarbaz",
  *     storageType: "gp2",
@@ -193,7 +198,7 @@ export class Instance extends pulumi.CustomResource {
     public readonly identifier: pulumi.Output<string>;
     /**
      * Creates a unique
-     * identifier beginning with the specified prefix. Conflicts with `identifer`.
+     * identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     public readonly identifierPrefix: pulumi.Output<string>;
     /**
@@ -617,7 +622,7 @@ export interface InstanceState {
     readonly identifier?: pulumi.Input<string>;
     /**
      * Creates a unique
-     * identifier beginning with the specified prefix. Conflicts with `identifer`.
+     * identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     readonly identifierPrefix?: pulumi.Input<string>;
     /**
@@ -892,7 +897,7 @@ export interface InstanceArgs {
     readonly identifier?: pulumi.Input<string>;
     /**
      * Creates a unique
-     * identifier beginning with the specified prefix. Conflicts with `identifer`.
+     * identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     readonly identifierPrefix?: pulumi.Input<string>;
     /**

@@ -13,11 +13,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_partition_current = pulumi.output(aws.getPartition({}));
- * const aws_iam_policy_document_s3_policy = pulumi.output(aws.iam.getPolicyDocument({
+ * const current = pulumi.output(aws.getPartition({}));
+ * const s3Policy = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["s3:ListBucket"],
- *         resources: [aws_partition_current.apply(__arg0 => `arn:${__arg0.partition}:s3:::my-bucket`)],
+ *         resources: [current.apply(current => `arn:${current.partition}:s3:::my-bucket`)],
  *         sid: "1",
  *     }],
  * }));

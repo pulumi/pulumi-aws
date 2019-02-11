@@ -13,9 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ecs_cluster_foo = new aws.ecs.Cluster("foo", {
- *     name: "white-hart",
- * });
+ * const foo = new aws.ecs.Cluster("foo", {});
  * ```
  */
 export class Cluster extends pulumi.CustomResource {

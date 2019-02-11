@@ -226,7 +226,7 @@ func (r *LaunchTemplate) LatestVersion() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["latestVersion"])
 }
 
-// A list of license specifications to associate with. See License Specifications below for more details.
+// A list of license specifications to associate with. See License Specification below for more details.
 func (r *LaunchTemplate) LicenseSpecifications() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["licenseSpecifications"])
 }
@@ -268,7 +268,7 @@ func (r *LaunchTemplate) SecurityGroupNames() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["securityGroupNames"])
 }
 
-// The tags to apply to the resources during launch. See Tags below for more details.
+// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 func (r *LaunchTemplate) TagSpecifications() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["tagSpecifications"])
 }
@@ -331,7 +331,7 @@ type LaunchTemplateState struct {
 	KeyName interface{}
 	// The latest version of the launch template.
 	LatestVersion interface{}
-	// A list of license specifications to associate with. See License Specifications below for more details.
+	// A list of license specifications to associate with. See License Specification below for more details.
 	LicenseSpecifications interface{}
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring interface{}
@@ -349,7 +349,7 @@ type LaunchTemplateState struct {
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpc_security_group_ids` instead.
 	SecurityGroupNames interface{}
-	// The tags to apply to the resources during launch. See Tags below for more details.
+	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 	TagSpecifications interface{}
 	// A mapping of tags to assign to the launch template.
 	Tags interface{}
@@ -396,7 +396,7 @@ type LaunchTemplateArgs struct {
 	KernelId interface{}
 	// The key name to use for the instance.
 	KeyName interface{}
-	// A list of license specifications to associate with. See License Specifications below for more details.
+	// A list of license specifications to associate with. See License Specification below for more details.
 	LicenseSpecifications interface{}
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring interface{}
@@ -414,7 +414,7 @@ type LaunchTemplateArgs struct {
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpc_security_group_ids` instead.
 	SecurityGroupNames interface{}
-	// The tags to apply to the resources during launch. See Tags below for more details.
+	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
 	TagSpecifications interface{}
 	// A mapping of tags to assign to the launch template.
 	Tags interface{}

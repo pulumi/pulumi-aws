@@ -8,6 +8,36 @@ import * as utilities from "../utilities";
  * Provides an SES domain MAIL FROM resource.
  * 
  * > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the [aws_ses_domain_identity resource](https://www.terraform.io/docs/providers/aws/r/ses_domain_identity.html). To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html) for more information.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * // Example SES Domain Identity
+ * const exampleDomainIdentity = new aws.ses.DomainIdentity("example", {
+ *     domain: "example.com",
+ * });
+ * const exampleMailFrom = new aws.ses.MailFrom("example", {
+ *     domain: exampleDomainIdentity.domain,
+ *     mailFromDomain: exampleDomainIdentity.domain.apply(domain => `bounce.${domain}`),
+ * });
+ * // Example Route53 MX record
+ * const exampleSesDomainMailFromMx = new aws.route53.Record("example_ses_domain_mail_from_mx", {
+ *     records: ["10 feedback-smtp.us-east-1.amazonses.com"], // Change to the region in which `aws_ses_domain_identity.example` is created
+ *     ttl: 600,
+ *     type: "MX",
+ *     zoneId: aws_route53_zone_example.id,
+ * });
+ * // Example Route53 TXT record for SPF
+ * const exampleSesDomainMailFromTxt = new aws.route53.Record("example_ses_domain_mail_from_txt", {
+ *     records: ["v=spf1 include:amazonses.com -all"],
+ *     ttl: 600,
+ *     type: "TXT",
+ *     zoneId: aws_route53_zone_example.id,
+ * });
+ * ```
  */
 export class MailFrom extends pulumi.CustomResource {
     /**

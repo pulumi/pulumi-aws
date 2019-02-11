@@ -13,16 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_ebs_volume_example = new aws.ebs.Volume("example", {
+ * const example = new aws.ebs.Volume("example", {
  *     availabilityZone: "us-west-2a",
  *     size: 40,
  * });
- * const aws_ebs_snapshot_example_snapshot = new aws.ebs.Snapshot("example_snapshot", {
- *     volumeId: aws_ebs_volume_example.id,
+ * const exampleSnapshot = new aws.ebs.Snapshot("example_snapshot", {
+ *     volumeId: example.id,
  * });
- * const aws_snapshot_create_volume_permission_example_perm = new aws.ec2.SnapshotCreateVolumePermission("example_perm", {
+ * const examplePerm = new aws.ec2.SnapshotCreateVolumePermission("example_perm", {
  *     accountId: "12345678",
- *     snapshotId: aws_ebs_snapshot_example_snapshot.id,
+ *     snapshotId: exampleSnapshot.id,
  * });
  * ```
  */

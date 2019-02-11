@@ -15,15 +15,13 @@ import {PolicyDocument} from "./documents";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iam_user_lb = new aws.iam.User("lb", {
- *     name: "loadbalancer",
+ * const lbUser = new aws.iam.User("lb", {
  *     path: "/system/",
  * });
- * const aws_iam_access_key_lb = new aws.iam.AccessKey("lb", {
- *     user: aws_iam_user_lb.name,
+ * const lbAccessKey = new aws.iam.AccessKey("lb", {
+ *     user: lbUser.name,
  * });
- * const aws_iam_user_policy_lb_ro = new aws.iam.UserPolicy("lb_ro", {
- *     name: "test",
+ * const lbRo = new aws.iam.UserPolicy("lb_ro", {
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -37,7 +35,7 @@ import {PolicyDocument} from "./documents";
  *   ]
  * }
  * `,
- *     user: aws_iam_user_lb.name,
+ *     user: lbUser.name,
  * });
  * ```
  */

@@ -13,8 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const aws_iot_policy_pubsub = new aws.iot.Policy("pubsub", {
- *     name: "PubSubToAnyTopic",
+ * const pubsub = new aws.iot.Policy("pubsub", {
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
