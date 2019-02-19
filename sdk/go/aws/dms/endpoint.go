@@ -138,7 +138,7 @@ func (r *Endpoint) EndpointType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["endpointType"])
 }
 
-// The type of engine for the endpoint. Can be one of `mysql | oracle | postgres | mariadb | aurora | redshift | sybase | sqlserver | dynamodb | mongodb | s3 | azuredb`.
+// The type of engine for the endpoint. Can be one of `aurora | azuredb | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 func (r *Endpoint) EngineName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineName"])
 }
@@ -210,7 +210,7 @@ type EndpointState struct {
 	EndpointId interface{}
 	// The type of endpoint. Can be one of `source | target`.
 	EndpointType interface{}
-	// The type of engine for the endpoint. Can be one of `mysql | oracle | postgres | mariadb | aurora | redshift | sybase | sqlserver | dynamodb | mongodb | s3 | azuredb`.
+	// The type of engine for the endpoint. Can be one of `aurora | azuredb | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName interface{}
 	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
 	ExtraConnectionAttributes interface{}
@@ -246,7 +246,7 @@ type EndpointArgs struct {
 	EndpointId interface{}
 	// The type of endpoint. Can be one of `source | target`.
 	EndpointType interface{}
-	// The type of engine for the endpoint. Can be one of `mysql | oracle | postgres | mariadb | aurora | redshift | sybase | sqlserver | dynamodb | mongodb | s3 | azuredb`.
+	// The type of engine for the endpoint. Can be one of `aurora | azuredb | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName interface{}
 	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
 	ExtraConnectionAttributes interface{}

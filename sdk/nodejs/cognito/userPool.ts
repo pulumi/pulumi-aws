@@ -112,6 +112,10 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
+     * Configuration block for user pool add-ons to enable user pool advanced security mode features.
+     */
+    public readonly userPoolAddOns: pulumi.Output<{ advancedSecurityMode: string } | undefined>;
+    /**
      * Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
      */
     public readonly usernameAttributes: pulumi.Output<string[] | undefined>;
@@ -152,6 +156,7 @@ export class UserPool extends pulumi.CustomResource {
             inputs["smsConfiguration"] = state ? state.smsConfiguration : undefined;
             inputs["smsVerificationMessage"] = state ? state.smsVerificationMessage : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["userPoolAddOns"] = state ? state.userPoolAddOns : undefined;
             inputs["usernameAttributes"] = state ? state.usernameAttributes : undefined;
             inputs["verificationMessageTemplate"] = state ? state.verificationMessageTemplate : undefined;
         } else {
@@ -172,6 +177,7 @@ export class UserPool extends pulumi.CustomResource {
             inputs["smsConfiguration"] = args ? args.smsConfiguration : undefined;
             inputs["smsVerificationMessage"] = args ? args.smsVerificationMessage : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["userPoolAddOns"] = args ? args.userPoolAddOns : undefined;
             inputs["usernameAttributes"] = args ? args.usernameAttributes : undefined;
             inputs["verificationMessageTemplate"] = args ? args.verificationMessageTemplate : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -268,6 +274,10 @@ export interface UserPoolState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
+     * Configuration block for user pool add-ons to enable user pool advanced security mode features.
+     */
+    readonly userPoolAddOns?: pulumi.Input<{ advancedSecurityMode: pulumi.Input<string> }>;
+    /**
      * Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
      */
     readonly usernameAttributes?: pulumi.Input<pulumi.Input<string>[]>;
@@ -345,6 +355,10 @@ export interface UserPoolArgs {
      * A mapping of tags to assign to the User Pool.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Configuration block for user pool add-ons to enable user pool advanced security mode features.
+     */
+    readonly userPoolAddOns?: pulumi.Input<{ advancedSecurityMode: pulumi.Input<string> }>;
     /**
      * Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
      */

@@ -9,28 +9,6 @@ import (
 )
 
 // Provides a WAF Regional Web ACL Resource for use with Application Load Balancer.
-// 
-// ## Nested Fields
-// 
-// ### `rule`
-// 
-// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_ActivatedRule.html) for all details and supported values.
-// 
-// #### Arguments
-// 
-// * `action` - (Required) The action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`.
-// * `override_action` - (Required) Override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`.
-// * `priority` - (Required) Specifies the order in which the rules in a WebACL are evaluated.
-//   Rules with a lower value are evaluated before rules with a higher value.
-// * `rule_id` - (Required) ID of the associated WAF (Regional) rule (e.g. [`aws_wafregional_rule`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)). WAF (Global) rules cannot be used.
-// * `type` - (Optional) The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-// 
-// ### `default_action` / `action`
-// 
-// #### Arguments
-// 
-// * `type` - (Required) Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule.
-//   e.g. `ALLOW`, `BLOCK` or `COUNT`
 type WebAcl struct {
 	s *pulumi.ResourceState
 }
@@ -47,15 +25,18 @@ func NewWebAcl(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["defaultAction"] = nil
+		inputs["loggingConfiguration"] = nil
 		inputs["metricName"] = nil
 		inputs["name"] = nil
 		inputs["rules"] = nil
 	} else {
 		inputs["defaultAction"] = args.DefaultAction
+		inputs["loggingConfiguration"] = args.LoggingConfiguration
 		inputs["metricName"] = args.MetricName
 		inputs["name"] = args.Name
 		inputs["rules"] = args.Rules
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:wafregional/webAcl:WebAcl", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -69,7 +50,9 @@ func GetWebAcl(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *WebAclState, opts ...pulumi.ResourceOpt) (*WebAcl, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["defaultAction"] = state.DefaultAction
+		inputs["loggingConfiguration"] = state.LoggingConfiguration
 		inputs["metricName"] = state.MetricName
 		inputs["name"] = state.Name
 		inputs["rules"] = state.Rules
@@ -91,9 +74,19 @@ func (r *WebAcl) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// Amazon Resource Name (ARN) of the WAF Regional WebACL.
+func (r *WebAcl) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
+}
+
 // The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
 func (r *WebAcl) DefaultAction() *pulumi.Output {
 	return r.s.State["defaultAction"]
+}
+
+// Configuration block to enable WAF logging. Detailed below.
+func (r *WebAcl) LoggingConfiguration() *pulumi.Output {
+	return r.s.State["loggingConfiguration"]
 }
 
 // The name or description for the Amazon CloudWatch metric of this web ACL.
@@ -106,20 +99,24 @@ func (r *WebAcl) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The rules to associate with the web ACL and the settings for each rule.
+// Set of configuration blocks containing rules for the web ACL. Detailed below.
 func (r *WebAcl) Rules() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["rules"])
 }
 
 // Input properties used for looking up and filtering WebAcl resources.
 type WebAclState struct {
+	// Amazon Resource Name (ARN) of the WAF Regional WebACL.
+	Arn interface{}
 	// The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
 	DefaultAction interface{}
+	// Configuration block to enable WAF logging. Detailed below.
+	LoggingConfiguration interface{}
 	// The name or description for the Amazon CloudWatch metric of this web ACL.
 	MetricName interface{}
 	// The name or description of the web ACL.
 	Name interface{}
-	// The rules to associate with the web ACL and the settings for each rule.
+	// Set of configuration blocks containing rules for the web ACL. Detailed below.
 	Rules interface{}
 }
 
@@ -127,10 +124,12 @@ type WebAclState struct {
 type WebAclArgs struct {
 	// The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
 	DefaultAction interface{}
+	// Configuration block to enable WAF logging. Detailed below.
+	LoggingConfiguration interface{}
 	// The name or description for the Amazon CloudWatch metric of this web ACL.
 	MetricName interface{}
 	// The name or description of the web ACL.
 	Name interface{}
-	// The rules to associate with the web ACL and the settings for each rule.
+	// Set of configuration blocks containing rules for the web ACL. Detailed below.
 	Rules interface{}
 }

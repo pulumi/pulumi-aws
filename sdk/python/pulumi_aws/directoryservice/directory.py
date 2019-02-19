@@ -47,7 +47,7 @@ class Directory(pulumi.CustomResource):
     """
     security_group_id: pulumi.Output[str]
     """
-    The ID of the security group created by the directory (`SimpleAD` or `MicrosoftAD` only).
+    The ID of the security group created by the directory.
     """
     short_name: pulumi.Output[str]
     """

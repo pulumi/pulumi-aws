@@ -25,15 +25,18 @@ func NewWebAcl(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["defaultAction"] = nil
+		inputs["loggingConfiguration"] = nil
 		inputs["metricName"] = nil
 		inputs["name"] = nil
 		inputs["rules"] = nil
 	} else {
 		inputs["defaultAction"] = args.DefaultAction
+		inputs["loggingConfiguration"] = args.LoggingConfiguration
 		inputs["metricName"] = args.MetricName
 		inputs["name"] = args.Name
 		inputs["rules"] = args.Rules
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:waf/webAcl:WebAcl", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -47,7 +50,9 @@ func GetWebAcl(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *WebAclState, opts ...pulumi.ResourceOpt) (*WebAcl, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["defaultAction"] = state.DefaultAction
+		inputs["loggingConfiguration"] = state.LoggingConfiguration
 		inputs["metricName"] = state.MetricName
 		inputs["name"] = state.Name
 		inputs["rules"] = state.Rules
@@ -69,9 +74,18 @@ func (r *WebAcl) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
+func (r *WebAcl) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
+}
+
+// Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
 func (r *WebAcl) DefaultAction() *pulumi.Output {
 	return r.s.State["defaultAction"]
+}
+
+// Configuration block to enable WAF logging. Detailed below.
+func (r *WebAcl) LoggingConfiguration() *pulumi.Output {
+	return r.s.State["loggingConfiguration"]
 }
 
 // The name or description for the Amazon CloudWatch metric of this web ACL.
@@ -84,31 +98,36 @@ func (r *WebAcl) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The rules to associate with the web ACL and the settings for each rule.
+// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 func (r *WebAcl) Rules() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["rules"])
 }
 
 // Input properties used for looking up and filtering WebAcl resources.
 type WebAclState struct {
-	// The action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
+	Arn interface{}
+	// Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
 	DefaultAction interface{}
+	// Configuration block to enable WAF logging. Detailed below.
+	LoggingConfiguration interface{}
 	// The name or description for the Amazon CloudWatch metric of this web ACL.
 	MetricName interface{}
 	// The name or description of the web ACL.
 	Name interface{}
-	// The rules to associate with the web ACL and the settings for each rule.
+	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules interface{}
 }
 
 // The set of arguments for constructing a WebAcl resource.
 type WebAclArgs struct {
-	// The action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
+	// Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
 	DefaultAction interface{}
+	// Configuration block to enable WAF logging. Detailed below.
+	LoggingConfiguration interface{}
 	// The name or description for the Amazon CloudWatch metric of this web ACL.
 	MetricName interface{}
 	// The name or description of the web ACL.
 	Name interface{}
-	// The rules to associate with the web ACL and the settings for each rule.
+	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules interface{}
 }

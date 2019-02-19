@@ -125,7 +125,7 @@ func (r *Table) BillingMode() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["billingMode"])
 }
 
-// Describe a GSO for the table;
+// Describe a GSI for the table;
 // subject to the normal limits on the number of GSIs, projected
 // attributes, etc.
 func (r *Table) GlobalSecondaryIndexes() *pulumi.ArrayOutput {
@@ -165,7 +165,7 @@ func (r *Table) ReadCapacity() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["readCapacity"])
 }
 
-// Encrypt at rest options.
+// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 func (r *Table) ServerSideEncryption() *pulumi.Output {
 	return r.s.State["serverSideEncryption"]
 }
@@ -216,7 +216,7 @@ type TableState struct {
 	Attributes interface{}
 	// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
 	BillingMode interface{}
-	// Describe a GSO for the table;
+	// Describe a GSI for the table;
 	// subject to the normal limits on the number of GSIs, projected
 	// attributes, etc.
 	GlobalSecondaryIndexes interface{}
@@ -235,7 +235,7 @@ type TableState struct {
 	RangeKey interface{}
 	// The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
 	ReadCapacity interface{}
-	// Encrypt at rest options.
+	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 	ServerSideEncryption interface{}
 	// The ARN of the Table Stream. Only available when `stream_enabled = true`
 	StreamArn interface{}
@@ -262,7 +262,7 @@ type TableArgs struct {
 	Attributes interface{}
 	// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
 	BillingMode interface{}
-	// Describe a GSO for the table;
+	// Describe a GSI for the table;
 	// subject to the normal limits on the number of GSIs, projected
 	// attributes, etc.
 	GlobalSecondaryIndexes interface{}
@@ -281,7 +281,7 @@ type TableArgs struct {
 	RangeKey interface{}
 	// The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
 	ReadCapacity interface{}
-	// Encrypt at rest options.
+	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 	ServerSideEncryption interface{}
 	// Indicates whether Streams are to be enabled (true) or disabled (false).
 	StreamEnabled interface{}

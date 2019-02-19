@@ -23,7 +23,7 @@ class Table(pulumi.CustomResource):
     """
     global_secondary_indexes: pulumi.Output[list]
     """
-    Describe a GSO for the table;
+    Describe a GSI for the table;
     subject to the normal limits on the number of GSIs, projected
     attributes, etc.
     """
@@ -56,7 +56,7 @@ class Table(pulumi.CustomResource):
     """
     server_side_encryption: pulumi.Output[dict]
     """
-    Encrypt at rest options.
+    Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
     """
     stream_arn: pulumi.Output[str]
     """
@@ -99,7 +99,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] attributes: List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
         :param pulumi.Input[str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
-        :param pulumi.Input[list] global_secondary_indexes: Describe a GSO for the table;
+        :param pulumi.Input[list] global_secondary_indexes: Describe a GSI for the table;
                subject to the normal limits on the number of GSIs, projected
                attributes, etc.
         :param pulumi.Input[str] hash_key: The name of the hash key in the index; must be
@@ -111,7 +111,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[dict] point_in_time_recovery: Point-in-time recovery options.
         :param pulumi.Input[str] range_key: The name of the range key; must be defined
         :param pulumi.Input[int] read_capacity: The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
-        :param pulumi.Input[dict] server_side_encryption: Encrypt at rest options.
+        :param pulumi.Input[dict] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
         :param pulumi.Input[bool] stream_enabled: Indicates whether Streams are to be enabled (true) or disabled (false).
         :param pulumi.Input[str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
         :param pulumi.Input[dict] tags: A map of tags to populate on the created table.

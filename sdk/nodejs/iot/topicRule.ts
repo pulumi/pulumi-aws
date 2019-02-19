@@ -79,7 +79,7 @@ export class TopicRule extends pulumi.CustomResource {
      * The description of the rule.
      */
     public readonly description: pulumi.Output<string | undefined>;
-    public readonly dynamodb: pulumi.Output<{ hashKeyField: string, hashKeyType?: string, hashKeyValue: string, payloadField?: string, rangeKeyField: string, rangeKeyType?: string, rangeKeyValue: string, roleArn: string, tableName: string } | undefined>;
+    public readonly dynamodb: pulumi.Output<{ hashKeyField: string, hashKeyType?: string, hashKeyValue: string, payloadField?: string, rangeKeyField?: string, rangeKeyType?: string, rangeKeyValue?: string, roleArn: string, tableName: string } | undefined>;
     public readonly elasticsearch: pulumi.Output<{ endpoint: string, id: string, index: string, roleArn: string, type: string } | undefined>;
     /**
      * Specifies whether the rule is enabled.
@@ -181,7 +181,7 @@ export interface TopicRuleState {
      * The description of the rule.
      */
     readonly description?: pulumi.Input<string>;
-    readonly dynamodb?: pulumi.Input<{ hashKeyField: pulumi.Input<string>, hashKeyType?: pulumi.Input<string>, hashKeyValue: pulumi.Input<string>, payloadField?: pulumi.Input<string>, rangeKeyField: pulumi.Input<string>, rangeKeyType?: pulumi.Input<string>, rangeKeyValue: pulumi.Input<string>, roleArn: pulumi.Input<string>, tableName: pulumi.Input<string> }>;
+    readonly dynamodb?: pulumi.Input<{ hashKeyField: pulumi.Input<string>, hashKeyType?: pulumi.Input<string>, hashKeyValue: pulumi.Input<string>, payloadField?: pulumi.Input<string>, rangeKeyField?: pulumi.Input<string>, rangeKeyType?: pulumi.Input<string>, rangeKeyValue?: pulumi.Input<string>, roleArn: pulumi.Input<string>, tableName: pulumi.Input<string> }>;
     readonly elasticsearch?: pulumi.Input<{ endpoint: pulumi.Input<string>, id: pulumi.Input<string>, index: pulumi.Input<string>, roleArn: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * Specifies whether the rule is enabled.
@@ -218,7 +218,7 @@ export interface TopicRuleArgs {
      * The description of the rule.
      */
     readonly description?: pulumi.Input<string>;
-    readonly dynamodb?: pulumi.Input<{ hashKeyField: pulumi.Input<string>, hashKeyType?: pulumi.Input<string>, hashKeyValue: pulumi.Input<string>, payloadField?: pulumi.Input<string>, rangeKeyField: pulumi.Input<string>, rangeKeyType?: pulumi.Input<string>, rangeKeyValue: pulumi.Input<string>, roleArn: pulumi.Input<string>, tableName: pulumi.Input<string> }>;
+    readonly dynamodb?: pulumi.Input<{ hashKeyField: pulumi.Input<string>, hashKeyType?: pulumi.Input<string>, hashKeyValue: pulumi.Input<string>, payloadField?: pulumi.Input<string>, rangeKeyField?: pulumi.Input<string>, rangeKeyType?: pulumi.Input<string>, rangeKeyValue?: pulumi.Input<string>, roleArn: pulumi.Input<string>, tableName: pulumi.Input<string> }>;
     readonly elasticsearch?: pulumi.Input<{ endpoint: pulumi.Input<string>, id: pulumi.Input<string>, index: pulumi.Input<string>, roleArn: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * Specifies whether the rule is enabled.
