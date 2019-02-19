@@ -52,7 +52,7 @@
 
 [[override]]
   name = "github.com/aws/aws-sdk-go"
-  version = "=v1.16.26"
+  version = "=v1.16.32"
   [override.metadata]
     gomod-overridden=true
 

@@ -71,7 +71,7 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:28d643e5dedba6b2c4d8b954fb60d4004cf1a097baa01d3645f7b958fc706fd3"
+  digest = "1:b4dd9ed9eabe3c73796010798cab7632f73ee46695f1bdb71a07a8dce71a1ac3"
   name = "github.com/aws/aws-sdk-go"
   packages = [
     "aws",
@@ -178,6 +178,7 @@
     "service/kafka",
     "service/kinesis",
     "service/kinesisanalytics",
+    "service/kinesisanalyticsv2",
     "service/kms",
     "service/lambda",
     "service/lexmodelbuildingservice",
@@ -226,8 +227,8 @@
     "service/workspaces",
   ]
   pruneopts = ""
-  revision = "81f3829f5a9d041041bdf56e55926691309d7699"
-  version = "v1.16.26"
+  revision = "503020bbd95ec9f25b061a83aa62567bc43e6d96"
+  version = "v1.16.32"
 
 [[projects]]
   digest = "1:b5f28f7eda54d2695765c778c951a2ace52c06afb7da1f7e0c7485baa5b02100"
@@ -779,7 +780,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:3cd2ee0fc4d4c21d8a6373ce710e73125ebd7512fa44faef76fad971644eb4d0"
+  digest = "1:75a43f0388c170e50a70f97e08023e3d2d0d36cff0a943428685cf6ba497d71e"
   name = "github.com/pulumi/pulumi"
   packages = [
     "pkg/apitype",
@@ -826,18 +827,18 @@
     "sdk/proto/go",
   ]
   pruneopts = ""
-  revision = "4229f85fdaabcfc7bc866379b271b730c2384b6c"
+  revision = "b6a9814e673c589968dd0a264f31aef9fc24cd6b"
 
 [[projects]]
   branch = "master"
-  digest = "1:ee977962b3fd8565483e1114262993016dcec9f170447a86b690b08ad5ab5bde"
+  digest = "1:b4514ceee7c3249a5a6bd7c7b17058c33c055a451c15128b84325e5fc3df4349"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen",
   ]
   pruneopts = ""
-  revision = "50c3039457f71c1bbc62f0acd86e0f8ed72e2cea"
+  revision = "13fc8ad0d1dcc1d73aa294c71a447de579fb4a63"
 
 [[projects]]
   branch = "master"
@@ -910,11 +911,11 @@
 
 [[projects]]
   branch = "pulumi-master"
-  digest = "1:4dd44afe5797cd3615984d09a7083b998837867ebd6798d7fab396689b1ba27c"
+  digest = "1:bbb7d27a4bb412729e8b4972b6275b1e14e3d0ffe4e0725757c614cd1282a1c4"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
   pruneopts = ""
-  revision = "d832bde0f617e0666cf932807a29cb5111baee78"
+  revision = "dc5e212432f161bc8d6390b5d05c9ac28288e1ca"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -1136,12 +1137,13 @@
   version = "v4.3.0"
 
 [[projects]]
-  digest = "1:a72d911e18578e34367f4b849340501c7e6a2787a3a05651b3d53c6cb96990f4"
+  digest = "1:8b8c3a2fa9908caa5d9e1c8a7f57e527758522bbde64e2bafd59f86293c23da1"
   name = "gopkg.in/src-d/go-git.v4"
   packages = [
     ".",
     "config",
     "internal/revision",
+    "internal/url",
     "plumbing",
     "plumbing/cache",
     "plumbing/filemode",
@@ -1181,8 +1183,8 @@
     "utils/merkletrie/noder",
   ]
   pruneopts = ""
-  revision = "a1f6ef44dfed1253ef7f3bc049f66b15f8fc2ab2"
-  version = "v4.9.1"
+  revision = "db6c41c156481962abf9a55a324858674c25ab08"
+  version = "v4.10.0"
 
 [[projects]]
   digest = "1:ceec7e96590fb8168f36df4795fefe17051d4b0c2acc7ec4e260d8138c4dafac"
