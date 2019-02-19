@@ -2,6 +2,5 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./principalAssociation";
-export * from "./resourceAssociation";
-export * from "./resourceShare";
+export * from "./getReportDefinition";
+export * from "./reportDefinition";
