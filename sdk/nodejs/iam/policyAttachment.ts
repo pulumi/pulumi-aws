@@ -162,3 +162,29 @@ export interface PolicyAttachmentArgs {
      */
     readonly users?: pulumi.Input<pulumi.Input<User>[]>;
 }
+
+/**
+ * The live PolicyAttachment resource.
+ */
+export interface PolicyAttachmentResult {
+    /**
+     * The group(s) the policy should be applied to
+     */
+    readonly groups?: Group[];
+    /**
+     * The name of the attachment. This cannot be an empty string.
+     */
+    readonly name: string;
+    /**
+     * The ARN of the policy you want to apply
+     */
+    readonly policyArn: ARN;
+    /**
+     * The role(s) the policy should be applied to
+     */
+    readonly roles?: Role[];
+    /**
+     * The user(s) the policy should be applied to
+     */
+    readonly users?: User[];
+}

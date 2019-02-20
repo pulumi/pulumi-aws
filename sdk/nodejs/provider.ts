@@ -116,3 +116,9 @@ export interface ProviderArgs {
      */
     readonly token?: pulumi.Input<string>;
 }
+
+/**
+ * The live Provider resource.
+ */
+export interface ProviderResult {
+}

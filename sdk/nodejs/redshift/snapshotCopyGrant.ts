@@ -116,3 +116,21 @@ export interface SnapshotCopyGrantArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live SnapshotCopyGrant resource.
+ */
+export interface SnapshotCopyGrantResult {
+    /**
+     * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+     */
+    readonly kmsKeyId: string;
+    /**
+     * A friendly name for identifying the grant.
+     */
+    readonly snapshotCopyGrantName: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

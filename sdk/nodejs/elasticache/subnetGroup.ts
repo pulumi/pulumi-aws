@@ -126,3 +126,21 @@ export interface SubnetGroupArgs {
      */
     readonly subnetIds: pulumi.Input<pulumi.Input<string>[]>;
 }
+
+/**
+ * The live SubnetGroup resource.
+ */
+export interface SubnetGroupResult {
+    /**
+     * Description for the cache subnet group. Defaults to "Managed by Terraform".
+     */
+    readonly description: string;
+    /**
+     * Name for the cache subnet group. Elasticache converts this name to lowercase.
+     */
+    readonly name: string;
+    /**
+     * List of VPC Subnet IDs for the cache subnet group
+     */
+    readonly subnetIds: string[];
+}

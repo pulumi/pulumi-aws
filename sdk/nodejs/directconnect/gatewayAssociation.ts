@@ -107,3 +107,17 @@ export interface GatewayAssociationArgs {
      */
     readonly vpnGatewayId: pulumi.Input<string>;
 }
+
+/**
+ * The live GatewayAssociation resource.
+ */
+export interface GatewayAssociationResult {
+    /**
+     * The ID of the Direct Connect Gateway.
+     */
+    readonly dxGatewayId: string;
+    /**
+     * The ID of the VGW with which to associate the gateway.
+     */
+    readonly vpnGatewayId: string;
+}

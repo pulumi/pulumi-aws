@@ -121,3 +121,17 @@ export interface PolicyAttachmentArgs {
      */
     readonly target: pulumi.Input<ARN>;
 }
+
+/**
+ * The live PolicyAttachment resource.
+ */
+export interface PolicyAttachmentResult {
+    /**
+     * The name of the policy to attach.
+     */
+    readonly policy: string;
+    /**
+     * The identity to which the policy is attached.
+     */
+    readonly target: ARN;
+}

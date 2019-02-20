@@ -139,3 +139,29 @@ export interface PermissionArgs {
      */
     readonly userArn: pulumi.Input<string>;
 }
+
+/**
+ * The live Permission resource.
+ */
+export interface PermissionResult {
+    /**
+     * Whether the user is allowed to use SSH to communicate with the instance
+     */
+    readonly allowSsh: boolean;
+    /**
+     * Whether the user is allowed to use sudo to elevate privileges
+     */
+    readonly allowSudo: boolean;
+    /**
+     * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
+     */
+    readonly level: string;
+    /**
+     * The stack to set the permissions for
+     */
+    readonly stackId: string;
+    /**
+     * The user's IAM ARN to set permissions for
+     */
+    readonly userArn: string;
+}

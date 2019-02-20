@@ -162,3 +162,29 @@ export interface IPSetArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live IPSet resource.
+ */
+export interface IPSetResult {
+    /**
+     * Specifies whether GuardDuty is to start using the uploaded IPSet.
+     */
+    readonly activate: boolean;
+    /**
+     * The detector ID of the GuardDuty.
+     */
+    readonly detectorId: string;
+    /**
+     * The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+     */
+    readonly format: string;
+    /**
+     * The URI of the file that contains the IPSet.
+     */
+    readonly location: string;
+    /**
+     * The friendly name to identify the IPSet.
+     */
+    readonly name: string;
+}

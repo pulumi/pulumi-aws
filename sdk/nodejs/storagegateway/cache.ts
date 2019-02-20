@@ -99,3 +99,17 @@ export interface CacheArgs {
      */
     readonly gatewayArn: pulumi.Input<string>;
 }
+
+/**
+ * The live Cache resource.
+ */
+export interface CacheResult {
+    /**
+     * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+     */
+    readonly diskId: string;
+    /**
+     * The Amazon Resource Name (ARN) of the gateway.
+     */
+    readonly gatewayArn: string;
+}

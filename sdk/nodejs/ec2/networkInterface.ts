@@ -192,3 +192,43 @@ export interface NetworkInterfaceArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live NetworkInterface resource.
+ */
+export interface NetworkInterfaceResult {
+    /**
+     * Block to define the attachment of the ENI. Documented below.
+     */
+    readonly attachments: { attachmentId: string, deviceIndex: number, instance: string }[];
+    /**
+     * A description for the network interface.
+     */
+    readonly description?: string;
+    readonly privateDnsName: string;
+    readonly privateIp: string;
+    /**
+     * List of private IPs to assign to the ENI.
+     */
+    readonly privateIps: string[];
+    /**
+     * Number of private IPs to assign to the ENI.
+     */
+    readonly privateIpsCount: number;
+    /**
+     * List of security group IDs to assign to the ENI.
+     */
+    readonly securityGroups: string[];
+    /**
+     * Whether to enable source destination checking for the ENI. Default true.
+     */
+    readonly sourceDestCheck?: boolean;
+    /**
+     * Subnet ID to create the ENI in.
+     */
+    readonly subnetId: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

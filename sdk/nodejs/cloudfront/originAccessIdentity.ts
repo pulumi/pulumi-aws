@@ -201,3 +201,40 @@ export interface OriginAccessIdentityArgs {
      */
     readonly comment?: pulumi.Input<string>;
 }
+
+/**
+ * The live OriginAccessIdentity resource.
+ */
+export interface OriginAccessIdentityResult {
+    /**
+     * Internal value used by CloudFront to allow future
+     * updates to the origin access identity.
+     */
+    readonly callerReference: string;
+    /**
+     * A shortcut to the full path for the
+     * origin access identity to use in CloudFront, see below.
+     */
+    readonly cloudfrontAccessIdentityPath: string;
+    /**
+     * An optional comment for the origin access identity.
+     */
+    readonly comment?: string;
+    /**
+     * The current version of the origin access identity's information.
+     * For example: `E2QWRUHAPOMQZL`.
+     */
+    readonly etag: string;
+    /**
+     * A pre-generated ARN for use in S3 bucket policies (see below).
+     * Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
+     * E2QWRUHAPOMQZL`.
+     */
+    readonly iamArn: string;
+    /**
+     * The Amazon S3 canonical user ID for the origin
+     * access identity, which you use when giving the origin access identity read
+     * permission to an object in Amazon S3.
+     */
+    readonly s3CanonicalUserId: string;
+}

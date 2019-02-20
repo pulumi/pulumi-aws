@@ -217,3 +217,49 @@ export interface FleetArgs {
      */
     readonly type?: pulumi.Input<string>;
 }
+
+/**
+ * The live Fleet resource.
+ */
+export interface FleetResult {
+    /**
+     * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+     */
+    readonly excessCapacityTerminationPolicy?: string;
+    /**
+     * Nested argument containing EC2 Launch Template configurations. Defined below.
+     */
+    readonly launchTemplateConfig: { launchTemplateSpecification: { launchTemplateId?: string, launchTemplateName?: string, version: string }, overrides?: { availabilityZone?: string, instanceType?: string, maxPrice?: string, priority?: number, subnetId?: string, weightedCapacity?: number }[] };
+    /**
+     * Nested argument containing On-Demand configurations. Defined below.
+     */
+    readonly onDemandOptions?: { allocationStrategy?: string };
+    /**
+     * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+     */
+    readonly replaceUnhealthyInstances?: boolean;
+    /**
+     * Nested argument containing Spot configurations. Defined below.
+     */
+    readonly spotOptions?: { allocationStrategy?: string, instanceInterruptionBehavior?: string, instancePoolsToUseCount?: number };
+    /**
+     * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
+     */
+    readonly tags?: {[key: string]: string};
+    /**
+     * Nested argument containing target capacity configurations. Defined below.
+     */
+    readonly targetCapacitySpecification: { defaultTargetCapacityType: string, onDemandTargetCapacity?: number, spotTargetCapacity?: number, totalTargetCapacity: number };
+    /**
+     * Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
+     */
+    readonly terminateInstances?: boolean;
+    /**
+     * Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
+     */
+    readonly terminateInstancesWithExpiration?: boolean;
+    /**
+     * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+     */
+    readonly type?: string;
+}

@@ -260,3 +260,46 @@ export interface EipArgs {
      */
     readonly vpc?: pulumi.Input<boolean>;
 }
+
+/**
+ * The live Eip resource.
+ */
+export interface EipResult {
+    readonly allocationId: string;
+    /**
+     * A user specified primary or secondary private IP address to
+     * associate with the Elastic IP address. If no private IP address is specified,
+     * the Elastic IP address is associated with the primary private IP address.
+     */
+    readonly associateWithPrivateIp?: string;
+    readonly associationId: string;
+    readonly domain: string;
+    /**
+     * EC2 instance ID.
+     */
+    readonly instance: string;
+    /**
+     * Network interface ID to associate with.
+     */
+    readonly networkInterface: string;
+    /**
+     * Contains the private IP address (if in VPC).
+     */
+    readonly privateIp: string;
+    /**
+     * Contains the public IP address.
+     */
+    readonly publicIp: string;
+    /**
+     * EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+     */
+    readonly publicIpv4Pool: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * Boolean if the EIP is in a VPC or not.
+     */
+    readonly vpc: boolean;
+}

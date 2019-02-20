@@ -275,3 +275,61 @@ export interface CertificateAuthorityArgs {
      */
     readonly type?: pulumi.Input<string>;
 }
+
+/**
+ * The live CertificateAuthority resource.
+ */
+export interface CertificateAuthorityResult {
+    /**
+     * Amazon Resource Name (ARN) of the certificate authority.
+     */
+    readonly arn: string;
+    /**
+     * Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
+     */
+    readonly certificate: string;
+    /**
+     * Nested argument containing algorithms and certificate subject information. Defined below.
+     */
+    readonly certificateAuthorityConfiguration: { keyAlgorithm: string, signingAlgorithm: string, subject: { commonName?: string, country?: string, distinguishedNameQualifier?: string, generationQualifier?: string, givenName?: string, initials?: string, locality?: string, organization?: string, organizationalUnit?: string, pseudonym?: string, state?: string, surname?: string, title?: string } };
+    /**
+     * Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
+     */
+    readonly certificateChain: string;
+    /**
+     * The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
+     */
+    readonly certificateSigningRequest: string;
+    /**
+     * Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+     */
+    readonly enabled?: boolean;
+    /**
+     * Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
+     */
+    readonly notAfter: string;
+    /**
+     * Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
+     */
+    readonly notBefore: string;
+    /**
+     * Nested argument containing revocation configuration. Defined below.
+     */
+    readonly revocationConfiguration?: { crlConfiguration?: { customCname?: string, enabled?: boolean, expirationInDays: number, s3BucketName?: string } };
+    /**
+     * Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
+     */
+    readonly serial: string;
+    /**
+     * Status of the certificate authority.
+     */
+    readonly status: string;
+    /**
+     * Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The type of the certificate authority. Currently, this must be `SUBORDINATE`.
+     */
+    readonly type?: string;
+}

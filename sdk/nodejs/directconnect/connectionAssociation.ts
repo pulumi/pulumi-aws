@@ -108,3 +108,17 @@ export interface ConnectionAssociationArgs {
      */
     readonly lagId: pulumi.Input<string>;
 }
+
+/**
+ * The live ConnectionAssociation resource.
+ */
+export interface ConnectionAssociationResult {
+    /**
+     * The ID of the connection.
+     */
+    readonly connectionId: string;
+    /**
+     * The ID of the LAG with which to associate the connection.
+     */
+    readonly lagId: string;
+}

@@ -215,3 +215,63 @@ export interface ClusterSnapshotArgs {
      */
     readonly dbClusterSnapshotIdentifier: pulumi.Input<string>;
 }
+
+/**
+ * The live ClusterSnapshot resource.
+ */
+export interface ClusterSnapshotResult {
+    /**
+     * Specifies the allocated storage size in gigabytes (GB).
+     */
+    readonly allocatedStorage: number;
+    /**
+     * List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
+     */
+    readonly availabilityZones: string[];
+    /**
+     * The DB Cluster Identifier from which to take the snapshot.
+     */
+    readonly dbClusterIdentifier: string;
+    /**
+     * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+     */
+    readonly dbClusterSnapshotArn: string;
+    /**
+     * The Identifier for the snapshot.
+     */
+    readonly dbClusterSnapshotIdentifier: string;
+    /**
+     * Specifies the name of the database engine.
+     */
+    readonly engine: string;
+    /**
+     * Version of the database engine for this DB cluster snapshot.
+     */
+    readonly engineVersion: string;
+    /**
+     * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+     */
+    readonly kmsKeyId: string;
+    /**
+     * License model information for the restored DB cluster.
+     */
+    readonly licenseModel: string;
+    /**
+     * Port that the DB cluster was listening on at the time of the snapshot.
+     */
+    readonly port: number;
+    readonly snapshotType: string;
+    readonly sourceDbClusterSnapshotArn: string;
+    /**
+     * The status of this DB Cluster Snapshot.
+     */
+    readonly status: string;
+    /**
+     * Specifies whether the DB cluster snapshot is encrypted.
+     */
+    readonly storageEncrypted: boolean;
+    /**
+     * The VPC ID associated with the DB cluster snapshot.
+     */
+    readonly vpcId: string;
+}

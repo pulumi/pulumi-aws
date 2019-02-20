@@ -174,3 +174,25 @@ export interface WebAclArgs {
      */
     readonly rules?: pulumi.Input<pulumi.Input<{ action?: pulumi.Input<{ type: pulumi.Input<string> }>, overrideAction?: pulumi.Input<{ type: pulumi.Input<string> }>, priority: pulumi.Input<number>, ruleId: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
 }
+
+/**
+ * The live WebAcl resource.
+ */
+export interface WebAclResult {
+    /**
+     * The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
+     */
+    readonly defaultAction: { type: string };
+    /**
+     * The name or description for the Amazon CloudWatch metric of this web ACL.
+     */
+    readonly metricName: string;
+    /**
+     * The name or description of the web ACL.
+     */
+    readonly name: string;
+    /**
+     * The rules to associate with the web ACL and the settings for each rule.
+     */
+    readonly rules?: { action?: { type: string }, overrideAction?: { type: string }, priority: number, ruleId: string, type?: string }[];
+}

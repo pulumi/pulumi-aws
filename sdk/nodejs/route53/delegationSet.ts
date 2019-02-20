@@ -99,3 +99,19 @@ export interface DelegationSetArgs {
      */
     readonly referenceName?: pulumi.Input<string>;
 }
+
+/**
+ * The live DelegationSet resource.
+ */
+export interface DelegationSetResult {
+    /**
+     * A list of authoritative name servers for the hosted zone
+     * (effectively a list of NS records).
+     */
+    readonly nameServers: string[];
+    /**
+     * This is a reference name used in Caller Reference
+     * (helpful for identifying single delegation set amongst others)
+     */
+    readonly referenceName?: string;
+}

@@ -420,3 +420,106 @@ export interface StackArgs {
      */
     readonly vpcId?: pulumi.Input<string>;
 }
+
+/**
+ * The live Stack resource.
+ */
+export interface StackResult {
+    /**
+     * If set to `"LATEST"`, OpsWorks will automatically install the latest version.
+     */
+    readonly agentVersion: string;
+    readonly arn: string;
+    /**
+     * If `manage_berkshelf` is enabled, the version of Berkshelf to use.
+     */
+    readonly berkshelfVersion?: string;
+    /**
+     * Color to paint next to the stack's resources in the OpsWorks console.
+     */
+    readonly color?: string;
+    /**
+     * Name of the configuration manager to use. Defaults to "Chef".
+     */
+    readonly configurationManagerName?: string;
+    /**
+     * Version of the configuration manager to use. Defaults to "11.4".
+     */
+    readonly configurationManagerVersion?: string;
+    /**
+     * When `use_custom_cookbooks` is set, provide this sub-object as
+     * described below.
+     */
+    readonly customCookbooksSources: { password?: string, revision?: string, sshKey?: string, type: string, url: string, username?: string }[];
+    /**
+     * Custom JSON attributes to apply to the entire stack.
+     */
+    readonly customJson?: string;
+    /**
+     * Name of the availability zone where instances will be created
+     * by default. This is required unless you set `vpc_id`.
+     */
+    readonly defaultAvailabilityZone: string;
+    /**
+     * The ARN of an IAM Instance Profile that created instances
+     * will have by default.
+     */
+    readonly defaultInstanceProfileArn: string;
+    /**
+     * Name of OS that will be installed on instances by default.
+     */
+    readonly defaultOs?: string;
+    /**
+     * Name of the type of root device instances will have by default.
+     */
+    readonly defaultRootDeviceType?: string;
+    /**
+     * Name of the SSH keypair that instances will have by default.
+     */
+    readonly defaultSshKeyName?: string;
+    /**
+     * Id of the subnet in which instances will be created by default. Mandatory
+     * if `vpc_id` is set, and forbidden if it isn't.
+     */
+    readonly defaultSubnetId: string;
+    /**
+     * Keyword representing the naming scheme that will be used for instance hostnames
+     * within this stack.
+     */
+    readonly hostnameTheme?: string;
+    /**
+     * Boolean value controlling whether Opsworks will run Berkshelf for this stack.
+     */
+    readonly manageBerkshelf?: boolean;
+    /**
+     * The name of the stack.
+     */
+    readonly name: string;
+    /**
+     * The name of the region where the stack will exist.
+     */
+    readonly region: string;
+    /**
+     * The ARN of an IAM role that the OpsWorks service will act as.
+     */
+    readonly serviceRoleArn: string;
+    readonly stackEndpoint: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * Boolean value controlling whether the custom cookbook settings are
+     * enabled.
+     */
+    readonly useCustomCookbooks?: boolean;
+    /**
+     * Boolean value controlling whether the standard OpsWorks
+     * security groups apply to created instances.
+     */
+    readonly useOpsworksSecurityGroups?: boolean;
+    /**
+     * The id of the VPC that this stack belongs to.
+     */
+    readonly vpcId: string;
+}

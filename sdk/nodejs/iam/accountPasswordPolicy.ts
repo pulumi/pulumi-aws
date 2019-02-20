@@ -214,3 +214,52 @@ export interface AccountPasswordPolicyArgs {
      */
     readonly requireUppercaseCharacters?: pulumi.Input<boolean>;
 }
+
+/**
+ * The live AccountPasswordPolicy resource.
+ */
+export interface AccountPasswordPolicyResult {
+    /**
+     * Whether to allow users to change their own password
+     */
+    readonly allowUsersToChangePassword?: boolean;
+    /**
+     * Indicates whether passwords in the account expire.
+     * Returns `true` if `max_password_age` contains a value greater than `0`.
+     * Returns `false` if it is `0` or _not present_.
+     */
+    readonly expirePasswords: boolean;
+    /**
+     * Whether users are prevented from setting a new password after their password has expired
+     * (i.e. require administrator reset)
+     */
+    readonly hardExpiry: boolean;
+    /**
+     * The number of days that an user password is valid.
+     */
+    readonly maxPasswordAge: number;
+    /**
+     * Minimum length to require for user passwords.
+     */
+    readonly minimumPasswordLength?: number;
+    /**
+     * The number of previous passwords that users are prevented from reusing.
+     */
+    readonly passwordReusePrevention: number;
+    /**
+     * Whether to require lowercase characters for user passwords.
+     */
+    readonly requireLowercaseCharacters: boolean;
+    /**
+     * Whether to require numbers for user passwords.
+     */
+    readonly requireNumbers: boolean;
+    /**
+     * Whether to require symbols for user passwords.
+     */
+    readonly requireSymbols: boolean;
+    /**
+     * Whether to require uppercase characters for user passwords.
+     */
+    readonly requireUppercaseCharacters: boolean;
+}

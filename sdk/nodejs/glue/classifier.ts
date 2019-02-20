@@ -155,3 +155,25 @@ export interface ClassifierArgs {
      */
     readonly xmlClassifier?: pulumi.Input<{ classification: pulumi.Input<string>, rowTag: pulumi.Input<string> }>;
 }
+
+/**
+ * The live Classifier resource.
+ */
+export interface ClassifierResult {
+    /**
+     * A classifier that uses grok patterns. Defined below.
+     */
+    readonly grokClassifier?: { classification: string, customPatterns?: string, grokPattern: string };
+    /**
+     * A classifier for JSON content. Defined below.
+     */
+    readonly jsonClassifier?: { jsonPath: string };
+    /**
+     * The name of the classifier.
+     */
+    readonly name: string;
+    /**
+     * A classifier for XML content. Defined below.
+     */
+    readonly xmlClassifier?: { classification: string, rowTag: string };
+}

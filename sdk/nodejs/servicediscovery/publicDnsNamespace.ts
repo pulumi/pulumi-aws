@@ -111,3 +111,25 @@ export interface PublicDnsNamespaceArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live PublicDnsNamespace resource.
+ */
+export interface PublicDnsNamespaceResult {
+    /**
+     * The ARN that Amazon Route 53 assigns to the namespace when you create it.
+     */
+    readonly arn: string;
+    /**
+     * The description that you specify for the namespace when you create it.
+     */
+    readonly description?: string;
+    /**
+     * The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
+     */
+    readonly hostedZone: string;
+    /**
+     * The name of the namespace.
+     */
+    readonly name: string;
+}

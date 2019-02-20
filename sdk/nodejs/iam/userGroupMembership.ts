@@ -121,3 +121,17 @@ export interface UserGroupMembershipArgs {
      */
     readonly user: pulumi.Input<string>;
 }
+
+/**
+ * The live UserGroupMembership resource.
+ */
+export interface UserGroupMembershipResult {
+    /**
+     * A list of [IAM Groups][1] to add the user to
+     */
+    readonly groups: string[];
+    /**
+     * The name of the [IAM User][2] to add to groups
+     */
+    readonly user: string;
+}

@@ -135,3 +135,26 @@ export interface CustomerGatewayArgs {
      */
     readonly type: pulumi.Input<string>;
 }
+
+/**
+ * The live CustomerGateway resource.
+ */
+export interface CustomerGatewayResult {
+    /**
+     * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+     */
+    readonly bgpAsn: number;
+    /**
+     * The IP address of the gateway's Internet-routable external interface.
+     */
+    readonly ipAddress: string;
+    /**
+     * Tags to apply to the gateway.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The type of customer gateway. The only type AWS
+     * supports at this time is "ipsec.1".
+     */
+    readonly type: string;
+}

@@ -97,3 +97,17 @@ export interface RouteTableAssociationArgs {
      */
     readonly subnetId: pulumi.Input<string>;
 }
+
+/**
+ * The live RouteTableAssociation resource.
+ */
+export interface RouteTableAssociationResult {
+    /**
+     * The ID of the routing table to associate with.
+     */
+    readonly routeTableId: string;
+    /**
+     * The subnet ID to create an association.
+     */
+    readonly subnetId: string;
+}

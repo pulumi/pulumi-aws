@@ -440,3 +440,58 @@ export interface EventTargetArgs {
      */
     readonly targetId?: pulumi.Input<string>;
 }
+
+/**
+ * The live EventTarget resource.
+ */
+export interface EventTargetResult {
+    /**
+     * The Amazon Resource Name (ARN) associated of the target.
+     */
+    readonly arn: string;
+    /**
+     * Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
+     */
+    readonly batchTarget?: { arraySize?: number, jobAttempts?: number, jobDefinition: string, jobName: string };
+    /**
+     * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
+     */
+    readonly ecsTarget?: { group?: string, launchType?: string, networkConfiguration?: { assignPublicIp?: boolean, securityGroups?: string[], subnets: string[] }, platformVersion?: string, taskCount?: number, taskDefinitionArn: string };
+    /**
+     * Valid JSON text passed to the target.
+     */
+    readonly input?: string;
+    /**
+     * The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
+     * that is used for extracting part of the matched event when passing it to the target.
+     */
+    readonly inputPath?: string;
+    /**
+     * Parameters used when you are providing a custom input to a target based on certain event data.
+     */
+    readonly inputTransformer?: { inputPaths?: {[key: string]: any}, inputTemplate: string };
+    /**
+     * Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
+     */
+    readonly kinesisTarget?: { partitionKeyPath?: string };
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
+     */
+    readonly roleArn?: string;
+    /**
+     * The name of the rule you want to add targets to.
+     */
+    readonly rule: string;
+    /**
+     * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
+     */
+    readonly runCommandTargets?: { key: string, values: string[] }[];
+    /**
+     * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
+     */
+    readonly sqsTarget?: { messageGroupId?: string };
+    /**
+     * The unique target assignment ID.  If missing, will generate a random, unique id.
+     */
+    readonly targetId: string;
+}

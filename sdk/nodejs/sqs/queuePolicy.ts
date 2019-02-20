@@ -119,3 +119,17 @@ export interface QueuePolicyArgs {
      */
     readonly queueUrl: pulumi.Input<string>;
 }
+
+/**
+ * The live QueuePolicy resource.
+ */
+export interface QueuePolicyResult {
+    /**
+     * The JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
+     */
+    readonly policy: string;
+    /**
+     * The URL of the SQS Queue to which to attach the policy
+     */
+    readonly queueUrl: string;
+}

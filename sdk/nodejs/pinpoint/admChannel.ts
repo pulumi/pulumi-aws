@@ -135,3 +135,25 @@ export interface AdmChannelArgs {
      */
     readonly enabled?: pulumi.Input<boolean>;
 }
+
+/**
+ * The live AdmChannel resource.
+ */
+export interface AdmChannelResult {
+    /**
+     * The application ID.
+     */
+    readonly applicationId: string;
+    /**
+     * Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
+     */
+    readonly clientId: string;
+    /**
+     * Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
+     */
+    readonly clientSecret: string;
+    /**
+     * Specifies whether to enable the channel. Defaults to `true`.
+     */
+    readonly enabled?: boolean;
+}

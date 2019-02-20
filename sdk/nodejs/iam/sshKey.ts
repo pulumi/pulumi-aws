@@ -153,3 +153,33 @@ export interface SshKeyArgs {
      */
     readonly username: pulumi.Input<string>;
 }
+
+/**
+ * The live SshKey resource.
+ */
+export interface SshKeyResult {
+    /**
+     * Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
+     */
+    readonly encoding: string;
+    /**
+     * The MD5 message digest of the SSH public key.
+     */
+    readonly fingerprint: string;
+    /**
+     * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
+     */
+    readonly publicKey: string;
+    /**
+     * The unique identifier for the SSH public key.
+     */
+    readonly sshPublicKeyId: string;
+    /**
+     * The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
+     */
+    readonly status: string;
+    /**
+     * The name of the IAM user to associate the SSH public key with.
+     */
+    readonly username: string;
+}

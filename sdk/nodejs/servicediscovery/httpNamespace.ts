@@ -99,3 +99,21 @@ export interface HttpNamespaceArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live HttpNamespace resource.
+ */
+export interface HttpNamespaceResult {
+    /**
+     * The ARN that Amazon Route 53 assigns to the namespace when you create it.
+     */
+    readonly arn: string;
+    /**
+     * The description that you specify for the namespace when you create it.
+     */
+    readonly description?: string;
+    /**
+     * The name of the http namespace.
+     */
+    readonly name: string;
+}

@@ -105,3 +105,17 @@ export interface AttachmentArgs {
      */
     readonly instance: pulumi.Input<string>;
 }
+
+/**
+ * The live Attachment resource.
+ */
+export interface AttachmentResult {
+    /**
+     * The name of the ELB.
+     */
+    readonly elb: string;
+    /**
+     * Instance ID to place in the ELB pool.
+     */
+    readonly instance: string;
+}

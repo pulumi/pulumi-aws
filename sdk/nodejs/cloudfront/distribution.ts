@@ -636,3 +636,147 @@ export interface DistributionArgs {
      */
     readonly webAclId?: pulumi.Input<string>;
 }
+
+/**
+ * The live Distribution resource.
+ */
+export interface DistributionResult {
+    /**
+     * The key pair IDs that CloudFront is aware of for
+     * each trusted signer, if the distribution is set up to serve private content
+     * with signed URLs.
+     */
+    readonly activeTrustedSigners: {[key: string]: any};
+    /**
+     * Extra CNAMEs (alternate domain names), if any, for
+     * this distribution.
+     */
+    readonly aliases?: string[];
+    /**
+     * The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+     */
+    readonly arn: string;
+    /**
+     * **Deprecated**, use `ordered_cache_behavior` instead.
+     */
+    readonly cacheBehaviors?: { allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl?: number, fieldLevelEncryptionId?: string, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }, headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }, lambdaFunctionAssociations?: { eventType: string, includeBody?: boolean, lambdaArn: string }[], maxTtl?: number, minTtl?: number, pathPattern: string, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string }[];
+    /**
+     * Internal value used by CloudFront to allow future
+     * updates to the distribution configuration.
+     */
+    readonly callerReference: string;
+    /**
+     * Any comments you want to include about the
+     * distribution.
+     */
+    readonly comment?: string;
+    /**
+     * One or more custom error response elements (multiples allowed).
+     */
+    readonly customErrorResponses?: { errorCachingMinTtl?: number, errorCode: number, responseCode?: number, responsePagePath?: string }[];
+    /**
+     * The default cache behavior for this distribution (maximum
+     * one).
+     */
+    readonly defaultCacheBehavior: { allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl?: number, fieldLevelEncryptionId?: string, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }, headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }, lambdaFunctionAssociations?: { eventType: string, includeBody?: boolean, lambdaArn: string }[], maxTtl?: number, minTtl?: number, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string };
+    /**
+     * The object that you want CloudFront to
+     * return (for example, index.html) when an end user requests the root URL.
+     */
+    readonly defaultRootObject?: string;
+    /**
+     * The DNS domain name of either the S3 bucket, or
+     * web site of your custom origin.
+     */
+    readonly domainName: string;
+    /**
+     * Whether the distribution is enabled to accept end
+     * user requests for content.
+     */
+    readonly enabled: boolean;
+    /**
+     * The current version of the distribution's information. For example:
+     * `E2QWRUHAPOMQZL`.
+     */
+    readonly etag: string;
+    /**
+     * The CloudFront Route 53 zone ID that can be used to
+     * route an [Alias Resource Record Set][7] to. This attribute is simply an
+     * alias for the zone ID `Z2FDTNDATAQYW2`.
+     */
+    readonly hostedZoneId: string;
+    /**
+     * The maximum HTTP version to support on the
+     * distribution. Allowed values are `http1.1` and `http2`. The default is
+     * `http2`.
+     */
+    readonly httpVersion?: string;
+    /**
+     * The number of invalidation batches
+     * currently in progress.
+     */
+    readonly inProgressValidationBatches: number;
+    /**
+     * Whether the IPv6 is enabled for the distribution.
+     */
+    readonly isIpv6Enabled?: boolean;
+    /**
+     * The date and time the distribution was last modified.
+     */
+    readonly lastModifiedTime: string;
+    /**
+     * The logging
+     * configuration that controls how logs are written
+     * to your distribution (maximum one).
+     */
+    readonly loggingConfig?: { bucket: string, includeCookies?: boolean, prefix?: string };
+    /**
+     * An ordered list of cache behaviors
+     * resource for this distribution. List from top to bottom
+     * +    in order of precedence. The topmost cache behavior will have precedence 0.
+     */
+    readonly orderedCacheBehaviors?: { allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl?: number, fieldLevelEncryptionId?: string, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }, headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }, lambdaFunctionAssociations?: { eventType: string, includeBody?: boolean, lambdaArn: string }[], maxTtl?: number, minTtl?: number, pathPattern: string, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string }[];
+    /**
+     * One or more origins for this
+     * distribution (multiples allowed).
+     */
+    readonly origins: { customHeaders?: { name: string, value: string }[], customOriginConfig?: { httpPort: number, httpsPort: number, originKeepaliveTimeout?: number, originProtocolPolicy: string, originReadTimeout?: number, originSslProtocols: string[] }, domainName: string, originId: string, originPath?: string, s3OriginConfig?: { originAccessIdentity: string } }[];
+    /**
+     * The price class for this distribution. One of
+     * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
+     */
+    readonly priceClass?: string;
+    /**
+     * The restriction
+     * configuration for this distribution (maximum one).
+     */
+    readonly restrictions: { geoRestriction: { locations?: string[], restrictionType: string } };
+    /**
+     * Disables the distribution instead of
+     * deleting it when destroying the resource through Terraform. If this is set,
+     * the distribution needs to be deleted manually afterwards. Default: `false`.
+     */
+    readonly retainOnDelete?: boolean;
+    /**
+     * The current status of the distribution. `Deployed` if the
+     * distribution's information is fully propagated throughout the Amazon
+     * CloudFront system.
+     */
+    readonly status: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The SSL
+     * configuration for this distribution (maximum
+     * one).
+     */
+    readonly viewerCertificate: { acmCertificateArn?: string, cloudfrontDefaultCertificate?: boolean, iamCertificateId?: string, minimumProtocolVersion?: string, sslSupportMethod?: string };
+    /**
+     * If you're using AWS WAF to filter CloudFront
+     * requests, the Id of the AWS WAF web ACL that is associated with the
+     * distribution.
+     */
+    readonly webAclId?: string;
+}

@@ -130,3 +130,17 @@ export interface TopicPolicyArgs {
      */
     readonly policy: pulumi.Input<string>;
 }
+
+/**
+ * The live TopicPolicy resource.
+ */
+export interface TopicPolicyResult {
+    /**
+     * The ARN of the SNS topic
+     */
+    readonly arn: string;
+    /**
+     * The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
+     */
+    readonly policy: string;
+}

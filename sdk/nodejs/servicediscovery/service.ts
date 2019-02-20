@@ -189,3 +189,33 @@ export interface ServiceArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live Service resource.
+ */
+export interface ServiceResult {
+    /**
+     * The ARN of the service.
+     */
+    readonly arn: string;
+    /**
+     * The description of the service.
+     */
+    readonly description?: string;
+    /**
+     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+     */
+    readonly dnsConfig: { dnsRecords: { ttl: number, type: string }[], namespaceId: string, routingPolicy?: string };
+    /**
+     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+     */
+    readonly healthCheckConfig?: { failureThreshold?: number, resourcePath?: string, type?: string };
+    /**
+     * A complex type that contains settings for ECS managed health checks.
+     */
+    readonly healthCheckCustomConfig?: { failureThreshold?: number };
+    /**
+     * The name of the service.
+     */
+    readonly name: string;
+}

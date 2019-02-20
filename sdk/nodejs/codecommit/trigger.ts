@@ -84,3 +84,15 @@ export interface TriggerArgs {
     readonly repositoryName: pulumi.Input<string>;
     readonly triggers: pulumi.Input<pulumi.Input<{ branches?: pulumi.Input<pulumi.Input<string>[]>, customData?: pulumi.Input<string>, destinationArn: pulumi.Input<string>, events: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string> }>[]>;
 }
+
+/**
+ * The live Trigger resource.
+ */
+export interface TriggerResult {
+    readonly configurationId: string;
+    /**
+     * The name for the repository. This needs to be less than 100 characters.
+     */
+    readonly repositoryName: string;
+    readonly triggers: { branches?: string[], customData?: string, destinationArn: string, events: string[], name: string }[];
+}

@@ -148,3 +148,17 @@ export interface RecorderStatusArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live RecorderStatus resource.
+ */
+export interface RecorderStatusResult {
+    /**
+     * Whether the configuration recorder should be enabled or disabled.
+     */
+    readonly isEnabled: boolean;
+    /**
+     * The name of the recorder
+     */
+    readonly name: string;
+}

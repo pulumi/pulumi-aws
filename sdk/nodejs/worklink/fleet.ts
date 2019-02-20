@@ -232,3 +232,53 @@ export interface FleetArgs {
      */
     readonly optimizeForEndUserLocation?: pulumi.Input<boolean>;
 }
+
+/**
+ * The live Fleet resource.
+ */
+export interface FleetResult {
+    /**
+     * The ARN of the created WorkLink Fleet.
+     */
+    readonly arn: string;
+    /**
+     * The ARN of the Amazon Kinesis data stream that receives the audit events.
+     */
+    readonly auditStreamArn?: string;
+    /**
+     * The identifier used by users to sign in to the Amazon WorkLink app.
+     */
+    readonly companyCode: string;
+    /**
+     * The time that the fleet was created.
+     */
+    readonly createdTime: string;
+    /**
+     * The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
+     */
+    readonly deviceCaCertificate?: string;
+    /**
+     * The name of the fleet.
+     */
+    readonly displayName?: string;
+    /**
+     * Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
+     */
+    readonly identityProvider?: { samlMetadata: string, type: string };
+    /**
+     * The time that the fleet was last updated.
+     */
+    readonly lastUpdatedTime: string;
+    /**
+     * A region-unique name for the AMI.
+     */
+    readonly name: string;
+    /**
+     * Provide this to allow manage the company network configuration for the fleet. Fields documented below.
+     */
+    readonly network?: { securityGroupIds: string[], subnetIds: string[], vpcId: string };
+    /**
+     * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+     */
+    readonly optimizeForEndUserLocation?: boolean;
+}

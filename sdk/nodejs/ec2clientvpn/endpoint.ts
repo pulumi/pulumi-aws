@@ -204,3 +204,45 @@ export interface EndpointArgs {
      */
     readonly transportProtocol?: pulumi.Input<string>;
 }
+
+/**
+ * The live Endpoint resource.
+ */
+export interface EndpointResult {
+    /**
+     * Information about the authentication method to be used to authenticate clients.
+     */
+    readonly authenticationOptions: { activeDirectoryId?: string, rootCertificateChainArn?: string, type: string };
+    /**
+     * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
+     */
+    readonly clientCidrBlock: string;
+    /**
+     * Information about the client connection logging options.
+     */
+    readonly connectionLogOptions: { cloudwatchLogGroup?: string, cloudwatchLogStream?: string, enabled: boolean };
+    /**
+     * Name of the repository.
+     */
+    readonly description?: string;
+    /**
+     * The DNS name to be used by clients when establishing their VPN session.
+     */
+    readonly dnsName: string;
+    /**
+     * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
+     */
+    readonly dnsServers?: string[];
+    /**
+     * The ARN of the ACM server certificate.
+     */
+    readonly serverCertificateArn: string;
+    /**
+     * The current state of the Client VPN endpoint.
+     */
+    readonly status: string;
+    /**
+     * The transport protocol to be used by the VPN session. Default value is `udp`.
+     */
+    readonly transportProtocol?: string;
+}

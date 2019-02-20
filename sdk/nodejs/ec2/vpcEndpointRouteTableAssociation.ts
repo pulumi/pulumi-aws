@@ -97,3 +97,17 @@ export interface VpcEndpointRouteTableAssociationArgs {
      */
     readonly vpcEndpointId: pulumi.Input<string>;
 }
+
+/**
+ * The live VpcEndpointRouteTableAssociation resource.
+ */
+export interface VpcEndpointRouteTableAssociationResult {
+    /**
+     * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
+     */
+    readonly routeTableId: string;
+    /**
+     * Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
+     */
+    readonly vpcEndpointId: string;
+}

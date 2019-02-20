@@ -142,3 +142,29 @@ export interface GameSessionQueueArgs {
      */
     readonly timeoutInSeconds?: pulumi.Input<number>;
 }
+
+/**
+ * The live GameSessionQueue resource.
+ */
+export interface GameSessionQueueResult {
+    /**
+     * Game Session Queue ARN.
+     */
+    readonly arn: string;
+    /**
+     * List of fleet/alias ARNs used by session queue for placing game sessions.
+     */
+    readonly destinations?: string[];
+    /**
+     * Name of the session queue.
+     */
+    readonly name: string;
+    /**
+     * One or more policies used to choose fleet based on player latency. See below.
+     */
+    readonly playerLatencyPolicies?: { maximumIndividualPlayerLatencyMilliseconds: number, policyDurationSeconds?: number }[];
+    /**
+     * Maximum time a game session request can remain in the queue.
+     */
+    readonly timeoutInSeconds?: number;
+}

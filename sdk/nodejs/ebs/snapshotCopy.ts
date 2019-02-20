@@ -205,3 +205,48 @@ export interface SnapshotCopyArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live SnapshotCopy resource.
+ */
+export interface SnapshotCopyResult {
+    /**
+     * The data encryption key identifier for the snapshot.
+     * * `source_snapshot_id` The ARN of the copied snapshot.
+     * * `source_region` The region of the source snapshot.
+     */
+    readonly dataEncryptionKeyId: string;
+    /**
+     * A description of what the snapshot is.
+     */
+    readonly description?: string;
+    /**
+     * Whether the snapshot is encrypted.
+     */
+    readonly encrypted?: boolean;
+    /**
+     * The ARN for the KMS encryption key.
+     * * `source_snapshot_id` The ARN for the snapshot to be copied.
+     * * `source_region` The region of the source snapshot.
+     */
+    readonly kmsKeyId?: string;
+    /**
+     * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
+     */
+    readonly ownerAlias: string;
+    /**
+     * The AWS account ID of the snapshot owner.
+     */
+    readonly ownerId: string;
+    readonly sourceRegion: string;
+    readonly sourceSnapshotId: string;
+    /**
+     * A mapping of tags for the snapshot.
+     */
+    readonly tags?: {[key: string]: any};
+    readonly volumeId: string;
+    /**
+     * The size of the drive in GiBs.
+     */
+    readonly volumeSize: number;
+}

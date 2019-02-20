@@ -360,3 +360,99 @@ export interface ClusterArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live Cluster resource.
+ */
+export interface ClusterResult {
+    /**
+     * The ARN of the DAX cluster
+     */
+    readonly arn: string;
+    /**
+     * List of Availability Zones in which the
+     * nodes will be created
+     */
+    readonly availabilityZones?: string[];
+    /**
+     * The DNS name of the DAX cluster without the port appended
+     */
+    readonly clusterAddress: string;
+    /**
+     * Group identifier. DAX converts this name to
+     * lowercase
+     */
+    readonly clusterName: string;
+    /**
+     * The configuration endpoint for this DAX cluster,
+     * consisting of a DNS name and a port number
+     */
+    readonly configurationEndpoint: string;
+    /**
+     * Description for the cluster
+     */
+    readonly description?: string;
+    /**
+     * A valid Amazon Resource Name (ARN) that identifies
+     * an IAM role. At runtime, DAX will assume this role and use the role's
+     * permissions to access DynamoDB on your behalf
+     */
+    readonly iamRoleArn: string;
+    /**
+     * Specifies the weekly time range for when
+     * maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
+     * (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
+     * `sun:05:00-sun:09:00`
+     */
+    readonly maintenanceWindow: string;
+    /**
+     * The compute and memory capacity of the nodes. See
+     * [Nodes][1] for supported node types
+     */
+    readonly nodeType: string;
+    /**
+     * List of node objects including `id`, `address`, `port` and
+     * `availability_zone`. Referenceable e.g. as
+     * `${aws_dax_cluster.test.nodes.0.address}`
+     */
+    readonly nodes: { address: string, availabilityZone: string, id: string, port: number }[];
+    /**
+     * An Amazon Resource Name (ARN) of an
+     * SNS topic to send DAX notifications to. Example:
+     * `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+     */
+    readonly notificationTopicArn?: string;
+    /**
+     * Name of the parameter group to associate
+     * with this DAX cluster
+     */
+    readonly parameterGroupName: string;
+    /**
+     * The port used by the configuration endpoint
+     */
+    readonly port: number;
+    /**
+     * The number of nodes in the DAX cluster. A
+     * replication factor of 1 will create a single-node cluster, without any read
+     * replicas
+     */
+    readonly replicationFactor: number;
+    /**
+     * One or more VPC security groups associated
+     * with the cluster
+     */
+    readonly securityGroupIds: string[];
+    /**
+     * Encrypt at rest options
+     */
+    readonly serverSideEncryption?: { enabled?: boolean };
+    /**
+     * Name of the subnet group to be used for the
+     * cluster
+     */
+    readonly subnetGroupName: string;
+    /**
+     * A mapping of tags to assign to the resource
+     */
+    readonly tags?: {[key: string]: any};
+}

@@ -106,3 +106,25 @@ export interface ClientCertificateArgs {
      */
     readonly description?: pulumi.Input<string>;
 }
+
+/**
+ * The live ClientCertificate resource.
+ */
+export interface ClientCertificateResult {
+    /**
+     * The date when the client certificate was created.
+     */
+    readonly createdDate: string;
+    /**
+     * The description of the client certificate.
+     */
+    readonly description?: string;
+    /**
+     * The date when the client certificate will expire.
+     */
+    readonly expirationDate: string;
+    /**
+     * The PEM-encoded public key of the client certificate.
+     */
+    readonly pemEncodedCertificate: string;
+}

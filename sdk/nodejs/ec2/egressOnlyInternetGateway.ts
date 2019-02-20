@@ -86,3 +86,13 @@ export interface EgressOnlyInternetGatewayArgs {
      */
     readonly vpcId: pulumi.Input<string>;
 }
+
+/**
+ * The live EgressOnlyInternetGateway resource.
+ */
+export interface EgressOnlyInternetGatewayResult {
+    /**
+     * The VPC ID to create in.
+     */
+    readonly vpcId: string;
+}

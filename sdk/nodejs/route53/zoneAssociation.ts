@@ -136,3 +136,21 @@ export interface ZoneAssociationArgs {
      */
     readonly zoneId: pulumi.Input<string>;
 }
+
+/**
+ * The live ZoneAssociation resource.
+ */
+export interface ZoneAssociationResult {
+    /**
+     * The VPC to associate with the private hosted zone.
+     */
+    readonly vpcId: string;
+    /**
+     * The VPC's region. Defaults to the region of the AWS provider.
+     */
+    readonly vpcRegion: string;
+    /**
+     * The private hosted zone to associate.
+     */
+    readonly zoneId: string;
+}

@@ -187,3 +187,51 @@ export interface VpcPeeringConnectionAccepterArgs {
      */
     readonly vpcPeeringConnectionId: pulumi.Input<string>;
 }
+
+/**
+ * The live VpcPeeringConnectionAccepter resource.
+ */
+export interface VpcPeeringConnectionAccepterResult {
+    /**
+     * The status of the VPC Peering Connection request.
+     */
+    readonly acceptStatus: string;
+    /**
+     * A configuration block that describes [VPC Peering Connection]
+     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
+     */
+    readonly accepter: { allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean };
+    /**
+     * Whether or not to accept the peering request. Defaults to `false`.
+     */
+    readonly autoAccept?: boolean;
+    /**
+     * The AWS account ID of the owner of the requester VPC.
+     */
+    readonly peerOwnerId: string;
+    /**
+     * The region of the accepter VPC.
+     */
+    readonly peerRegion: string;
+    /**
+     * The ID of the requester VPC.
+     */
+    readonly peerVpcId: string;
+    /**
+     * A configuration block that describes [VPC Peering Connection]
+     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
+     */
+    readonly requester: { allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean };
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The ID of the accepter VPC.
+     */
+    readonly vpcId: string;
+    /**
+     * The VPC Peering Connection ID to manage.
+     */
+    readonly vpcPeeringConnectionId: string;
+}

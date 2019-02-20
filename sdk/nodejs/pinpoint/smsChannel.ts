@@ -142,3 +142,33 @@ export interface SmsChannelArgs {
      */
     readonly shortCode?: pulumi.Input<string>;
 }
+
+/**
+ * The live SmsChannel resource.
+ */
+export interface SmsChannelResult {
+    /**
+     * The application ID.
+     */
+    readonly applicationId: string;
+    /**
+     * Whether the channel is enabled or disabled. Defaults to `true`.
+     */
+    readonly enabled?: boolean;
+    /**
+     * Promotional messages per second that can be sent.
+     */
+    readonly promotionalMessagesPerSecond: number;
+    /**
+     * Sender identifier of your messages.
+     */
+    readonly senderId?: string;
+    /**
+     * The Short Code registered with the phone provider.
+     */
+    readonly shortCode?: string;
+    /**
+     * Transactional messages per second that can be sent.
+     */
+    readonly transactionalMessagesPerSecond: number;
+}

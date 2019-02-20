@@ -256,3 +256,46 @@ export interface ComputeEnvironmentArgs {
      */
     readonly type: pulumi.Input<string>;
 }
+
+/**
+ * The live ComputeEnvironment resource.
+ */
+export interface ComputeEnvironmentResult {
+    /**
+     * The Amazon Resource Name (ARN) of the compute environment.
+     */
+    readonly arn: string;
+    /**
+     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
+     */
+    readonly computeEnvironmentName: string;
+    /**
+     * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
+     */
+    readonly computeResources?: { bidPercentage?: number, desiredVcpus?: number, ec2KeyPair?: string, imageId?: string, instanceRole: string, instanceTypes: string[], maxVcpus: number, minVcpus: number, securityGroupIds: string[], spotIamFleetRole?: string, subnets: string[], tags?: {[key: string]: any}, type: string };
+    readonly eccClusterArn: string;
+    /**
+     * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+     */
+    readonly ecsClusterArn: string;
+    /**
+     * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+     */
+    readonly serviceRole: string;
+    /**
+     * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     */
+    readonly state?: string;
+    /**
+     * The current status of the compute environment (for example, CREATING or VALID).
+     */
+    readonly status: string;
+    /**
+     * A short, human-readable string to provide additional details about the current status of the compute environment.
+     */
+    readonly statusReason: string;
+    /**
+     * The type of compute environment. Valid items are `EC2` or `SPOT`.
+     */
+    readonly type: string;
+}

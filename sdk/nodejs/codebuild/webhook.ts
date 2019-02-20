@@ -131,3 +131,29 @@ export interface WebhookArgs {
      */
     readonly projectName: pulumi.Input<string>;
 }
+
+/**
+ * The live Webhook resource.
+ */
+export interface WebhookResult {
+    /**
+     * A regular expression used to determine which branches get built. Default is all branches are built.
+     */
+    readonly branchFilter?: string;
+    /**
+     * The CodeBuild endpoint where webhook events are sent.
+     */
+    readonly payloadUrl: string;
+    /**
+     * The name of the build project.
+     */
+    readonly projectName: string;
+    /**
+     * The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
+     */
+    readonly secret: string;
+    /**
+     * The URL to the webhook.
+     */
+    readonly url: string;
+}

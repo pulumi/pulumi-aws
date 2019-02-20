@@ -195,3 +195,43 @@ export interface ConfigurationArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live Configuration resource.
+ */
+export interface ConfigurationResult {
+    /**
+     * The ARN of the configuration.
+     */
+    readonly arn: string;
+    /**
+     * The broker configuration in XML format.
+     * See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
+     * for supported parameters and format of the XML.
+     */
+    readonly data: string;
+    /**
+     * The description of the configuration.
+     */
+    readonly description?: string;
+    /**
+     * The type of broker engine.
+     */
+    readonly engineType: string;
+    /**
+     * The version of the broker engine.
+     */
+    readonly engineVersion: string;
+    /**
+     * The latest revision of the configuration.
+     */
+    readonly latestRevision: number;
+    /**
+     * The name of the configuration
+     */
+    readonly name: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

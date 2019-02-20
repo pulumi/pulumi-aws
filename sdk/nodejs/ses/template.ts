@@ -122,3 +122,25 @@ export interface TemplateArgs {
      */
     readonly text?: pulumi.Input<string>;
 }
+
+/**
+ * The live Template resource.
+ */
+export interface TemplateResult {
+    /**
+     * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+     */
+    readonly html?: string;
+    /**
+     * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+     */
+    readonly name: string;
+    /**
+     * The subject line of the email.
+     */
+    readonly subject?: string;
+    /**
+     * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+     */
+    readonly text?: string;
+}

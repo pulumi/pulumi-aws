@@ -241,3 +241,41 @@ export interface FlowLogArgs {
      */
     readonly vpcId?: pulumi.Input<string>;
 }
+
+/**
+ * The live FlowLog resource.
+ */
+export interface FlowLogResult {
+    /**
+     * Elastic Network Interface ID to attach to
+     */
+    readonly eniId?: string;
+    /**
+     * The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
+     */
+    readonly iamRoleArn?: string;
+    /**
+     * The ARN of the logging destination.
+     */
+    readonly logDestination: string;
+    /**
+     * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+     */
+    readonly logDestinationType?: string;
+    /**
+     * *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
+     */
+    readonly logGroupName: string;
+    /**
+     * Subnet ID to attach to
+     */
+    readonly subnetId?: string;
+    /**
+     * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+     */
+    readonly trafficType: string;
+    /**
+     * VPC ID to attach to
+     */
+    readonly vpcId?: string;
+}

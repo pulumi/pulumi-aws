@@ -249,3 +249,44 @@ export interface TopicRuleArgs {
     readonly sqlVersion: pulumi.Input<string>;
     readonly sqs?: pulumi.Input<{ queueUrl: pulumi.Input<string>, roleArn: pulumi.Input<string>, useBase64: pulumi.Input<boolean> }>;
 }
+
+/**
+ * The live TopicRule resource.
+ */
+export interface TopicRuleResult {
+    /**
+     * The ARN of the topic rule
+     */
+    readonly arn: string;
+    readonly cloudwatchAlarm?: { alarmName: string, roleArn: string, stateReason: string, stateValue: string };
+    readonly cloudwatchMetric?: { metricName: string, metricNamespace: string, metricTimestamp?: string, metricUnit: string, metricValue: string, roleArn: string };
+    /**
+     * The description of the rule.
+     */
+    readonly description?: string;
+    readonly dynamodb?: { hashKeyField: string, hashKeyType?: string, hashKeyValue: string, payloadField?: string, rangeKeyField: string, rangeKeyType?: string, rangeKeyValue: string, roleArn: string, tableName: string };
+    readonly elasticsearch?: { endpoint: string, id: string, index: string, roleArn: string, type: string };
+    /**
+     * Specifies whether the rule is enabled.
+     */
+    readonly enabled: boolean;
+    readonly firehose?: { deliveryStreamName: string, roleArn: string, separator?: string };
+    readonly kinesis?: { partitionKey?: string, roleArn: string, streamName: string };
+    readonly lambda?: { functionArn: string };
+    /**
+     * The name of the rule.
+     */
+    readonly name: string;
+    readonly republish?: { roleArn: string, topic: string };
+    readonly s3?: { bucketName: string, key: string, roleArn: string };
+    readonly sns?: { messageFormat?: string, roleArn: string, targetArn: string };
+    /**
+     * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
+     */
+    readonly sql: string;
+    /**
+     * The version of the SQL rules engine to use when evaluating the rule.
+     */
+    readonly sqlVersion: string;
+    readonly sqs?: { queueUrl: string, roleArn: string, useBase64: boolean };
+}

@@ -145,3 +145,29 @@ export interface AssessmentTemplateArgs {
      */
     readonly targetArn: pulumi.Input<string>;
 }
+
+/**
+ * The live AssessmentTemplate resource.
+ */
+export interface AssessmentTemplateResult {
+    /**
+     * The template assessment ARN.
+     */
+    readonly arn: string;
+    /**
+     * The duration of the inspector run.
+     */
+    readonly duration: number;
+    /**
+     * The name of the assessment template.
+     */
+    readonly name: string;
+    /**
+     * The rules to be used during the run.
+     */
+    readonly rulesPackageArns: string[];
+    /**
+     * The assessment target ARN to attach the template to.
+     */
+    readonly targetArn: string;
+}

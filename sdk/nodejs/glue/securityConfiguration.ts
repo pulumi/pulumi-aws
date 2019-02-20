@@ -105,3 +105,17 @@ export interface SecurityConfigurationArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live SecurityConfiguration resource.
+ */
+export interface SecurityConfigurationResult {
+    /**
+     * Configuration block containing encryption configuration. Detailed below.
+     */
+    readonly encryptionConfiguration: { cloudwatchEncryption: { cloudwatchEncryptionMode?: string, kmsKeyArn?: string }, jobBookmarksEncryption: { jobBookmarksEncryptionMode?: string, kmsKeyArn?: string }, s3Encryption: { kmsKeyArn?: string, s3EncryptionMode?: string } };
+    /**
+     * Name of the security configuration.
+     */
+    readonly name: string;
+}

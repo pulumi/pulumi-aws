@@ -140,3 +140,29 @@ export interface PolicyArgs {
      */
     readonly type?: pulumi.Input<string>;
 }
+
+/**
+ * The live Policy resource.
+ */
+export interface PolicyResult {
+    /**
+     * Amazon Resource Name (ARN) of the policy.
+     */
+    readonly arn: string;
+    /**
+     * The policy content to add to the new policy. For example, if you create a [service control policy (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles. For more information about the SCP syntax, see the [Service Control Policy Syntax documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html).
+     */
+    readonly content: string;
+    /**
+     * A description to assign to the policy.
+     */
+    readonly description?: string;
+    /**
+     * The friendly name to assign to the policy.
+     */
+    readonly name: string;
+    /**
+     * The type of policy to create. Currently, the only valid value is `SERVICE_CONTROL_POLICY` (SCP).
+     */
+    readonly type?: string;
+}

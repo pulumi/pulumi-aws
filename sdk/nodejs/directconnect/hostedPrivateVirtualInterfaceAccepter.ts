@@ -121,3 +121,29 @@ export interface HostedPrivateVirtualInterfaceAccepterArgs {
      */
     readonly vpnGatewayId?: pulumi.Input<string>;
 }
+
+/**
+ * The live HostedPrivateVirtualInterfaceAccepter resource.
+ */
+export interface HostedPrivateVirtualInterfaceAccepterResult {
+    /**
+     * The ARN of the virtual interface.
+     */
+    readonly arn: string;
+    /**
+     * The ID of the Direct Connect gateway to which to connect the virtual interface.
+     */
+    readonly dxGatewayId?: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The ID of the Direct Connect virtual interface to accept.
+     */
+    readonly virtualInterfaceId: string;
+    /**
+     * The ID of the virtual private gateway to which to connect the virtual interface.
+     */
+    readonly vpnGatewayId?: string;
+}

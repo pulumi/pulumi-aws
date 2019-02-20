@@ -134,3 +134,33 @@ export interface OrganizationArgs {
      */
     readonly featureSet?: pulumi.Input<string>;
 }
+
+/**
+ * The live Organization resource.
+ */
+export interface OrganizationResult {
+    /**
+     * ARN of the organization
+     */
+    readonly arn: string;
+    /**
+     * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
+     */
+    readonly awsServiceAccessPrincipals?: string[];
+    /**
+     * Specify "ALL" (default) or "CONSOLIDATED_BILLING".
+     */
+    readonly featureSet?: string;
+    /**
+     * ARN of the master account
+     */
+    readonly masterAccountArn: string;
+    /**
+     * Email address of the master account
+     */
+    readonly masterAccountEmail: string;
+    /**
+     * Identifier of the master account
+     */
+    readonly masterAccountId: string;
+}

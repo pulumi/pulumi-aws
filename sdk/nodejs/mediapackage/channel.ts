@@ -114,3 +114,25 @@ export interface ChannelArgs {
      */
     readonly description?: pulumi.Input<string>;
 }
+
+/**
+ * The live Channel resource.
+ */
+export interface ChannelResult {
+    /**
+     * The ARN of the channel
+     */
+    readonly arn: string;
+    /**
+     * A unique identifier describing the channel
+     */
+    readonly channelId: string;
+    /**
+     * A description of the channel
+     */
+    readonly description?: string;
+    /**
+     * A single item list of HLS ingest information
+     */
+    readonly hlsIngests: { ingestEndpoints: { password: string, url: string, username: string }[] }[];
+}

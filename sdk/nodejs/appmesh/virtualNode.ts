@@ -155,3 +155,33 @@ export interface VirtualNodeArgs {
      */
     readonly spec: pulumi.Input<{ backends?: pulumi.Input<pulumi.Input<string>[]>, listener?: pulumi.Input<{ portMapping: pulumi.Input<{ port: pulumi.Input<number>, protocol: pulumi.Input<string> }> }>, serviceDiscovery?: pulumi.Input<{ dns: pulumi.Input<{ serviceName: pulumi.Input<string> }> }> }>;
 }
+
+/**
+ * The live VirtualNode resource.
+ */
+export interface VirtualNodeResult {
+    /**
+     * The ARN of the virtual node.
+     */
+    readonly arn: string;
+    /**
+     * The creation date of the virtual node.
+     */
+    readonly createdDate: string;
+    /**
+     * The last update date of the virtual node.
+     */
+    readonly lastUpdatedDate: string;
+    /**
+     * The name of the service mesh in which to create the virtual node.
+     */
+    readonly meshName: string;
+    /**
+     * The name to use for the virtual node.
+     */
+    readonly name: string;
+    /**
+     * The virtual node specification to apply.
+     */
+    readonly spec: { backends?: string[], listener?: { portMapping: { port: number, protocol: string } }, serviceDiscovery?: { dns: { serviceName: string } } };
+}

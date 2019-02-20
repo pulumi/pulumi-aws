@@ -122,3 +122,21 @@ export interface DocumentationVersionArgs {
      */
     readonly version: pulumi.Input<string>;
 }
+
+/**
+ * The live DocumentationVersion resource.
+ */
+export interface DocumentationVersionResult {
+    /**
+     * The description of the API documentation version.
+     */
+    readonly description?: string;
+    /**
+     * The ID of the associated Rest API
+     */
+    readonly restApiId: string;
+    /**
+     * The version identifier of the API documentation snapshot.
+     */
+    readonly version: string;
+}

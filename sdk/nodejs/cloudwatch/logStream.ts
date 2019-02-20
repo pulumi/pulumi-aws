@@ -107,3 +107,21 @@ export interface LogStreamArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live LogStream resource.
+ */
+export interface LogStreamResult {
+    /**
+     * The Amazon Resource Name (ARN) specifying the log stream.
+     */
+    readonly arn: string;
+    /**
+     * The name of the log group under which the log stream is to be created.
+     */
+    readonly logGroupName: string;
+    /**
+     * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
+     */
+    readonly name: string;
+}

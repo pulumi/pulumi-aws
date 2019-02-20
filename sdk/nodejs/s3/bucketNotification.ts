@@ -357,3 +357,25 @@ export interface BucketNotificationArgs {
      */
     readonly topics?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, topicArn: pulumi.Input<string> }>[]>;
 }
+
+/**
+ * The live BucketNotification resource.
+ */
+export interface BucketNotificationResult {
+    /**
+     * The name of the bucket to put notification configuration.
+     */
+    readonly bucket: string;
+    /**
+     * Used to configure notifications to a Lambda Function (documented below).
+     */
+    readonly lambdaFunctions?: { events: string[], filterPrefix?: string, filterSuffix?: string, id: string, lambdaFunctionArn?: string }[];
+    /**
+     * The notification configuration to SQS Queue (documented below).
+     */
+    readonly queues?: { events: string[], filterPrefix?: string, filterSuffix?: string, id: string, queueArn: string }[];
+    /**
+     * The notification configuration to SNS Topic (documented below).
+     */
+    readonly topics?: { events: string[], filterPrefix?: string, filterSuffix?: string, id: string, topicArn: string }[];
+}

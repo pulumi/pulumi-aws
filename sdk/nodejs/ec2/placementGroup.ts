@@ -97,3 +97,17 @@ export interface PlacementGroupArgs {
      */
     readonly strategy: pulumi.Input<PlacementStrategy>;
 }
+
+/**
+ * The live PlacementGroup resource.
+ */
+export interface PlacementGroupResult {
+    /**
+     * The name of the placement group.
+     */
+    readonly name: string;
+    /**
+     * The placement strategy.
+     */
+    readonly strategy: PlacementStrategy;
+}

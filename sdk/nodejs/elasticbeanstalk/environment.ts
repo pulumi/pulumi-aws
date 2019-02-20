@@ -438,3 +438,112 @@ export interface EnvironmentArgs {
      */
     readonly waitForReadyTimeout?: pulumi.Input<string>;
 }
+
+/**
+ * The live Environment resource.
+ */
+export interface EnvironmentResult {
+    /**
+     * List of all option settings configured in the Environment. These
+     * are a combination of default settings and their overrides from `setting` in
+     * the configuration.
+     */
+    readonly allSettings: { name: string, namespace: string, resource?: string, value: string }[];
+    /**
+     * Name of the application that contains the version
+     * to be deployed
+     */
+    readonly application: Application;
+    readonly arn: string;
+    /**
+     * The autoscaling groups used by this environment.
+     */
+    readonly autoscalingGroups: string[];
+    /**
+     * Fully qualified DNS name for the Environment.
+     */
+    readonly cname: string;
+    /**
+     * Prefix to use for the fully qualified DNS name of
+     * the Environment.
+     */
+    readonly cnamePrefix: string;
+    /**
+     * Short description of the Environment
+     */
+    readonly description?: string;
+    /**
+     * Instances used by this environment.
+     */
+    readonly instances: string[];
+    /**
+     * Launch configurations in use by this environment.
+     */
+    readonly launchConfigurations: string[];
+    /**
+     * Elastic load balancers in use by this environment.
+     */
+    readonly loadBalancers: string[];
+    /**
+     * A unique name for this Environment. This name is used
+     * in the application URL
+     */
+    readonly name: string;
+    /**
+     * The [ARN][2] of the Elastic Beanstalk [Platform][3]
+     * to use in deployment
+     */
+    readonly platformArn: string;
+    /**
+     * The time between polling the AWS API to
+     * check if changes have been applied. Use this to adjust the rate of API calls
+     * for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
+     * use the default behavior, which is an exponential backoff
+     */
+    readonly pollInterval?: string;
+    /**
+     * SQS queues in use by this environment.
+     */
+    readonly queues: string[];
+    /**
+     * Option settings to configure the new Environment. These
+     * override specific values that are set as defaults. The format is detailed
+     * below in Option Settings
+     */
+    readonly settings?: { name: string, namespace: string, resource?: string, value: string }[];
+    /**
+     * A solution stack to base your environment
+     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     */
+    readonly solutionStackName: string;
+    /**
+     * A set of tags to apply to the Environment.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The name of the Elastic Beanstalk Configuration
+     * template to use in deployment
+     */
+    readonly templateName?: string;
+    /**
+     * Elastic Beanstalk Environment tier. Valid values are `Worker`
+     * or `WebServer`. If tier is left blank `WebServer` will be used.
+     */
+    readonly tier?: string;
+    /**
+     * Autoscaling triggers in use by this environment.
+     */
+    readonly triggers: string[];
+    /**
+     * The name of the Elastic Beanstalk Application Version
+     * to use in deployment.
+     */
+    readonly version: ApplicationVersion;
+    /**
+     * The maximum
+     * [duration](https://golang.org/pkg/time/#ParseDuration) that Terraform should
+     * wait for an Elastic Beanstalk Environment to be in a ready state before timing
+     * out.
+     */
+    readonly waitForReadyTimeout?: string;
+}

@@ -105,3 +105,17 @@ export interface VpcEndpointSubnetAssociationArgs {
      */
     readonly vpcEndpointId: pulumi.Input<string>;
 }
+
+/**
+ * The live VpcEndpointSubnetAssociation resource.
+ */
+export interface VpcEndpointSubnetAssociationResult {
+    /**
+     * The ID of the subnet to be associated with the VPC endpoint.
+     */
+    readonly subnetId: string;
+    /**
+     * The ID of the VPC endpoint with which the subnet will be associated.
+     */
+    readonly vpcEndpointId: string;
+}

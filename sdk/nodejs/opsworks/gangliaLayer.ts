@@ -346,3 +346,86 @@ export interface GangliaLayerArgs {
      */
     readonly username?: pulumi.Input<string>;
 }
+
+/**
+ * The live GangliaLayer resource.
+ */
+export interface GangliaLayerResult {
+    /**
+     * Whether to automatically assign an elastic IP address to the layer's instances.
+     */
+    readonly autoAssignElasticIps?: boolean;
+    /**
+     * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
+     */
+    readonly autoAssignPublicIps?: boolean;
+    /**
+     * Whether to enable auto-healing for the layer.
+     */
+    readonly autoHealing?: boolean;
+    readonly customConfigureRecipes?: string[];
+    readonly customDeployRecipes?: string[];
+    /**
+     * The ARN of an IAM profile that will be used for the layer's instances.
+     */
+    readonly customInstanceProfileArn?: string;
+    /**
+     * Custom JSON attributes to apply to the layer.
+     */
+    readonly customJson?: string;
+    /**
+     * Ids for a set of security groups to apply to the layer's instances.
+     */
+    readonly customSecurityGroupIds?: string[];
+    readonly customSetupRecipes?: string[];
+    readonly customShutdownRecipes?: string[];
+    readonly customUndeployRecipes?: string[];
+    /**
+     * Whether to enable Elastic Load Balancing connection draining.
+     */
+    readonly drainElbOnShutdown?: boolean;
+    /**
+     * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+     */
+    readonly ebsVolumes?: { iops?: number, mountPoint: string, numberOfDisks: number, raidLevel?: string, size: number, type?: string }[];
+    /**
+     * Name of an Elastic Load Balancer to attach to this layer
+     */
+    readonly elasticLoadBalancer?: string;
+    /**
+     * Whether to install OS and package updates on each instance when it boots.
+     */
+    readonly installUpdatesOnBoot?: boolean;
+    /**
+     * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+     */
+    readonly instanceShutdownTimeout?: number;
+    /**
+     * A human-readable name for the layer.
+     */
+    readonly name: string;
+    /**
+     * The password to use for Ganglia.
+     */
+    readonly password: string;
+    /**
+     * The id of the stack the layer will belong to.
+     */
+    readonly stackId: string;
+    /**
+     * Names of a set of system packages to install on the layer's instances.
+     */
+    readonly systemPackages?: string[];
+    /**
+     * The URL path to use for Ganglia. Defaults to "/ganglia".
+     */
+    readonly url?: string;
+    /**
+     * Whether to use EBS-optimized instances.
+     */
+    readonly useEbsOptimizedInstances?: boolean;
+    /**
+     * The username to use for Ganglia. Defaults to "opsworks".
+     */
+    readonly username?: string;
+}

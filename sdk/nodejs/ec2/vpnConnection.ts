@@ -373,3 +373,95 @@ export interface VpnConnectionArgs {
      */
     readonly vpnGatewayId?: pulumi.Input<string>;
 }
+
+/**
+ * The live VpnConnection resource.
+ */
+export interface VpnConnectionResult {
+    /**
+     * The configuration information for the VPN connection's customer gateway (in the native XML format).
+     */
+    readonly customerGatewayConfiguration: string;
+    /**
+     * The ID of the customer gateway.
+     */
+    readonly customerGatewayId: string;
+    readonly routes: { destinationCidrBlock: string, source: string, state: string }[];
+    /**
+     * Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
+     */
+    readonly staticRoutesOnly: boolean;
+    /**
+     * Tags to apply to the connection.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The ID of the EC2 Transit Gateway.
+     */
+    readonly transitGatewayId?: string;
+    /**
+     * The public IP address of the first VPN tunnel.
+     */
+    readonly tunnel1Address: string;
+    /**
+     * The bgp asn number of the first VPN tunnel.
+     */
+    readonly tunnel1BgpAsn: string;
+    /**
+     * The bgp holdtime of the first VPN tunnel.
+     */
+    readonly tunnel1BgpHoldtime: number;
+    /**
+     * The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
+     */
+    readonly tunnel1CgwInsideAddress: string;
+    /**
+     * The CIDR block of the inside IP addresses for the first VPN tunnel.
+     */
+    readonly tunnel1InsideCidr: string;
+    /**
+     * The preshared key of the first VPN tunnel.
+     */
+    readonly tunnel1PresharedKey: string;
+    /**
+     * The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
+     */
+    readonly tunnel1VgwInsideAddress: string;
+    /**
+     * The public IP address of the second VPN tunnel.
+     */
+    readonly tunnel2Address: string;
+    /**
+     * The bgp asn number of the second VPN tunnel.
+     */
+    readonly tunnel2BgpAsn: string;
+    /**
+     * The bgp holdtime of the second VPN tunnel.
+     */
+    readonly tunnel2BgpHoldtime: number;
+    /**
+     * The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
+     */
+    readonly tunnel2CgwInsideAddress: string;
+    /**
+     * The CIDR block of the second IP addresses for the first VPN tunnel.
+     */
+    readonly tunnel2InsideCidr: string;
+    /**
+     * The preshared key of the second VPN tunnel.
+     */
+    readonly tunnel2PresharedKey: string;
+    /**
+     * The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
+     */
+    readonly tunnel2VgwInsideAddress: string;
+    /**
+     * The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
+     */
+    readonly type: string;
+    readonly vgwTelemetries: { acceptedRouteCount: number, lastStatusChange: string, outsideIpAddress: string, status: string, statusMessage: string }[];
+    /**
+     * The ID of the Virtual Private Gateway.
+     */
+    readonly vpnGatewayId?: string;
+}

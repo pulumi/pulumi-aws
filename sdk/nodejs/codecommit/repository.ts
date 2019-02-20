@@ -152,3 +152,37 @@ export interface RepositoryArgs {
      */
     readonly repositoryName: pulumi.Input<string>;
 }
+
+/**
+ * The live Repository resource.
+ */
+export interface RepositoryResult {
+    /**
+     * The ARN of the repository
+     */
+    readonly arn: string;
+    /**
+     * The URL to use for cloning the repository over HTTPS.
+     */
+    readonly cloneUrlHttp: string;
+    /**
+     * The URL to use for cloning the repository over SSH.
+     */
+    readonly cloneUrlSsh: string;
+    /**
+     * The default branch of the repository. The branch specified here needs to exist.
+     */
+    readonly defaultBranch?: string;
+    /**
+     * The description of the repository. This needs to be less than 1000 characters
+     */
+    readonly description?: string;
+    /**
+     * The ID of the repository
+     */
+    readonly repositoryId: string;
+    /**
+     * The name for the repository. This needs to be less than 100 characters.
+     */
+    readonly repositoryName: string;
+}

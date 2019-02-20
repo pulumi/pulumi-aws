@@ -105,3 +105,19 @@ export interface ByteMatchSetArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live ByteMatchSet resource.
+ */
+export interface ByteMatchSetResult {
+    /**
+     * Specifies the bytes (typically a string that corresponds
+     * with ASCII characters) that you want to search for in web requests,
+     * the location in requests that you want to search, and other settings.
+     */
+    readonly byteMatchTuples?: { fieldToMatch: { data?: string, type: string }, positionalConstraint: string, targetString?: string, textTransformation: string }[];
+    /**
+     * The name or description of the Byte Match Set.
+     */
+    readonly name: string;
+}

@@ -293,3 +293,69 @@ export interface UserPoolClientArgs {
      */
     readonly writeAttributes?: pulumi.Input<pulumi.Input<string>[]>;
 }
+
+/**
+ * The live UserPoolClient resource.
+ */
+export interface UserPoolClientResult {
+    /**
+     * List of allowed OAuth flows (code, implicit, client_credentials).
+     */
+    readonly allowedOauthFlows?: string[];
+    /**
+     * Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
+     */
+    readonly allowedOauthFlowsUserPoolClient?: boolean;
+    /**
+     * List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
+     */
+    readonly allowedOauthScopes?: string[];
+    /**
+     * List of allowed callback URLs for the identity providers.
+     */
+    readonly callbackUrls?: string[];
+    /**
+     * The client secret of the user pool client.
+     */
+    readonly clientSecret: string;
+    /**
+     * The default redirect URI. Must be in the list of callback URLs.
+     */
+    readonly defaultRedirectUri?: string;
+    /**
+     * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH).
+     */
+    readonly explicitAuthFlows?: string[];
+    /**
+     * Should an application secret be generated. AWS JavaScript SDK requires this to be false.
+     */
+    readonly generateSecret?: boolean;
+    /**
+     * List of allowed logout URLs for the identity providers.
+     */
+    readonly logoutUrls?: string[];
+    /**
+     * The name of the application client.
+     */
+    readonly name: string;
+    /**
+     * List of user pool attributes the application client can read from.
+     */
+    readonly readAttributes?: string[];
+    /**
+     * The time limit in days refresh tokens are valid for.
+     */
+    readonly refreshTokenValidity?: number;
+    /**
+     * List of provider names for the identity providers that are supported on this client.
+     */
+    readonly supportedIdentityProviders?: string[];
+    /**
+     * The user pool the client belongs to.
+     */
+    readonly userPoolId: string;
+    /**
+     * List of user pool attributes the application client can write to.
+     */
+    readonly writeAttributes?: string[];
+}

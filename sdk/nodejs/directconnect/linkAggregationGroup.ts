@@ -166,3 +166,37 @@ export interface LinkAggregationGroupArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live LinkAggregationGroup resource.
+ */
+export interface LinkAggregationGroupResult {
+    /**
+     * The ARN of the LAG.
+     */
+    readonly arn: string;
+    /**
+     * The bandwidth of the individual physical connections bundled by the LAG. Available values: 1Gbps, 10Gbps. Case sensitive.
+     */
+    readonly connectionsBandwidth: string;
+    /**
+     * A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
+     */
+    readonly forceDestroy?: boolean;
+    /**
+     * The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
+     */
+    readonly location: string;
+    /**
+     * The name of the LAG.
+     */
+    readonly name: string;
+    /**
+     * The number of physical connections initially provisioned and bundled by the LAG. Use `aws_dx_connection` and `aws_dx_connection_association` resources instead. Default connections will be removed as part of LAG creation automatically in future versions.
+     */
+    readonly numberOfConnections: number;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

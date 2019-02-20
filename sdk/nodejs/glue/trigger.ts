@@ -209,3 +209,37 @@ export interface TriggerArgs {
      */
     readonly type: pulumi.Input<string>;
 }
+
+/**
+ * The live Trigger resource.
+ */
+export interface TriggerResult {
+    /**
+     * List of actions initiated by this trigger when it fires. Defined below.
+     */
+    readonly actions: { arguments?: {[key: string]: any}, jobName: string, timeout?: number }[];
+    /**
+     * A description of the new trigger.
+     */
+    readonly description?: string;
+    /**
+     * Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
+     */
+    readonly enabled?: boolean;
+    /**
+     * The name of the trigger.
+     */
+    readonly name: string;
+    /**
+     * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
+     */
+    readonly predicate?: { conditions: { jobName: string, logicalOperator?: string, state: string }[], logical?: string };
+    /**
+     * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+     */
+    readonly schedule?: string;
+    /**
+     * The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
+     */
+    readonly type: string;
+}

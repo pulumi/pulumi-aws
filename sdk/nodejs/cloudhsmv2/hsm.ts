@@ -157,3 +157,37 @@ export interface HsmArgs {
      */
     readonly subnetId?: pulumi.Input<string>;
 }
+
+/**
+ * The live Hsm resource.
+ */
+export interface HsmResult {
+    /**
+     * The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
+     */
+    readonly availabilityZone: string;
+    /**
+     * The ID of Cloud HSM v2 cluster to which HSM will be added.
+     */
+    readonly clusterId: string;
+    /**
+     * The id of the ENI interface allocated for HSM module.
+     */
+    readonly hsmEniId: string;
+    /**
+     * The id of the HSM module.
+     */
+    readonly hsmId: string;
+    /**
+     * The state of the HSM module.
+     */
+    readonly hsmState: string;
+    /**
+     * The IP address of HSM module. Must be within the CIDR of selected subnet.
+     */
+    readonly ipAddress: string;
+    /**
+     * The ID of subnet in which HSM module will be located.
+     */
+    readonly subnetId: string;
+}

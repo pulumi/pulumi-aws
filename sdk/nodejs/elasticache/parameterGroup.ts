@@ -134,3 +134,25 @@ export interface ParameterGroupArgs {
      */
     readonly parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
 }
+
+/**
+ * The live ParameterGroup resource.
+ */
+export interface ParameterGroupResult {
+    /**
+     * The description of the ElastiCache parameter group. Defaults to "Managed by Terraform".
+     */
+    readonly description: string;
+    /**
+     * The family of the ElastiCache parameter group.
+     */
+    readonly family: string;
+    /**
+     * The name of the ElastiCache parameter.
+     */
+    readonly name: string;
+    /**
+     * A list of ElastiCache parameters to apply.
+     */
+    readonly parameters?: { name: string, value: string }[];
+}

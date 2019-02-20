@@ -154,3 +154,25 @@ export interface TargetGroupAttachmentArgs {
      */
     readonly targetId: pulumi.Input<string>;
 }
+
+/**
+ * The live TargetGroupAttachment resource.
+ */
+export interface TargetGroupAttachmentResult {
+    /**
+     * The Availability Zone where the IP address of the target is to be registered.
+     */
+    readonly availabilityZone?: string;
+    /**
+     * The port on which targets receive traffic.
+     */
+    readonly port?: number;
+    /**
+     * The ARN of the target group with which to register targets
+     */
+    readonly targetGroupArn: string;
+    /**
+     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
+     */
+    readonly targetId: string;
+}

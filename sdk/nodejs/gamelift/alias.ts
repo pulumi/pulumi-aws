@@ -122,3 +122,25 @@ export interface AliasArgs {
      */
     readonly routingStrategy: pulumi.Input<{ fleetId?: pulumi.Input<string>, message?: pulumi.Input<string>, type: pulumi.Input<string> }>;
 }
+
+/**
+ * The live Alias resource.
+ */
+export interface AliasResult {
+    /**
+     * Alias ARN.
+     */
+    readonly arn: string;
+    /**
+     * Description of the alias.
+     */
+    readonly description?: string;
+    /**
+     * Name of the alias.
+     */
+    readonly name: string;
+    /**
+     * Specifies the fleet and/or routing type to use for the alias.
+     */
+    readonly routingStrategy: { fleetId?: string, message?: string, type: string };
+}

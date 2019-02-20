@@ -322,3 +322,89 @@ export interface AmiCopyArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live AmiCopy resource.
+ */
+export interface AmiCopyResult {
+    /**
+     * Machine architecture for created instances. Defaults to "x86_64".
+     */
+    readonly architecture: string;
+    /**
+     * A longer, human-readable description for the AMI.
+     */
+    readonly description?: string;
+    /**
+     * Nested block describing an EBS block device that should be
+     * attached to created instances. The structure of this block is described below.
+     */
+    readonly ebsBlockDevices: { deleteOnTermination: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[];
+    /**
+     * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     */
+    readonly enaSupport: boolean;
+    /**
+     * Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+     */
+    readonly encrypted?: boolean;
+    /**
+     * Nested block describing an ephemeral block device that
+     * should be attached to created instances. The structure of this block is described below.
+     */
+    readonly ephemeralBlockDevices: { deviceName: string, virtualName: string }[];
+    /**
+     * Path to an S3 object containing an image manifest, e.g. created
+     * by the `ec2-upload-bundle` command in the EC2 command line tools.
+     */
+    readonly imageLocation: string;
+    /**
+     * The id of the kernel image (AKI) that will be used as the paravirtual
+     * kernel in created instances.
+     */
+    readonly kernelId: string;
+    /**
+     * The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+     */
+    readonly kmsKeyId: string;
+    readonly manageEbsSnapshots: boolean;
+    /**
+     * A region-unique name for the AMI.
+     */
+    readonly name: string;
+    /**
+     * The id of an initrd image (ARI) that will be used when booting the
+     * created instances.
+     */
+    readonly ramdiskId: string;
+    /**
+     * The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+     */
+    readonly rootDeviceName: string;
+    readonly rootSnapshotId: string;
+    /**
+     * The id of the AMI to copy. This id must be valid in the region
+     * given by `source_ami_region`.
+     */
+    readonly sourceAmiId: string;
+    /**
+     * The region from which the AMI will be copied. This may be the
+     * same as the AWS provider region in order to create a copy within the same region.
+     */
+    readonly sourceAmiRegion: string;
+    /**
+     * When set to "simple" (the default), enables enhanced networking
+     * for created instances. No other value is supported at this time.
+     */
+    readonly sriovNetSupport: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * Keyword to choose what virtualization mode created instances
+     * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
+     * changes the set of further arguments that are required, as described below.
+     */
+    readonly virtualizationType: string;
+}

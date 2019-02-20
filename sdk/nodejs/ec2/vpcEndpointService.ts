@@ -180,3 +180,45 @@ export interface VpcEndpointServiceArgs {
      */
     readonly networkLoadBalancerArns: pulumi.Input<pulumi.Input<string>[]>;
 }
+
+/**
+ * The live VpcEndpointService resource.
+ */
+export interface VpcEndpointServiceResult {
+    /**
+     * Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
+     */
+    readonly acceptanceRequired: boolean;
+    /**
+     * The ARNs of one or more principals allowed to discover the endpoint service.
+     */
+    readonly allowedPrincipals: string[];
+    /**
+     * The Availability Zones in which the service is available.
+     */
+    readonly availabilityZones: string[];
+    /**
+     * The DNS names for the service.
+     */
+    readonly baseEndpointDnsNames: string[];
+    /**
+     * The ARNs of one or more Network Load Balancers for the endpoint service.
+     */
+    readonly networkLoadBalancerArns: string[];
+    /**
+     * The private DNS name for the service.
+     */
+    readonly privateDnsName: string;
+    /**
+     * The service name.
+     */
+    readonly serviceName: string;
+    /**
+     * The service type, `Gateway` or `Interface`.
+     */
+    readonly serviceType: string;
+    /**
+     * The state of the VPC endpoint service.
+     */
+    readonly state: string;
+}

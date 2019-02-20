@@ -104,3 +104,17 @@ export interface SnapshotCreateVolumePermissionArgs {
      */
     readonly snapshotId: pulumi.Input<string>;
 }
+
+/**
+ * The live SnapshotCreateVolumePermission resource.
+ */
+export interface SnapshotCreateVolumePermissionResult {
+    /**
+     * An AWS Account ID to add create volume permissions
+     */
+    readonly accountId: string;
+    /**
+     * A snapshot ID
+     */
+    readonly snapshotId: string;
+}

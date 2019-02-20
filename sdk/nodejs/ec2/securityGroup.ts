@@ -294,3 +294,62 @@ export interface SecurityGroupArgs {
      */
     readonly vpcId?: pulumi.Input<string>;
 }
+
+/**
+ * The live SecurityGroup resource.
+ */
+export interface SecurityGroupResult {
+    /**
+     * The ARN of the security group
+     */
+    readonly arn: string;
+    /**
+     * The security group description. Defaults to
+     * "Managed by Terraform". Cannot be "". __NOTE__: This field maps to the AWS
+     * `GroupDescription` attribute, for which there is no Update API. If you'd like
+     * to classify your security groups in a way that can be updated, use `tags`.
+     */
+    readonly description: string;
+    /**
+     * Can be specified multiple times for each
+     * egress rule. Each egress block supports fields documented below.
+     */
+    readonly egress: { cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[];
+    /**
+     * Can be specified multiple times for each
+     * ingress rule. Each ingress block supports fields documented below.
+     */
+    readonly ingress: { cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[];
+    /**
+     * The name of the security group. If omitted, Terraform will
+     * assign a random, unique name
+     */
+    readonly name: string;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
+    readonly namePrefix?: string;
+    /**
+     * The owner ID.
+     */
+    readonly ownerId: string;
+    /**
+     * Instruct Terraform to revoke all of the
+     * Security Groups attached ingress and egress rules before deleting the rule
+     * itself. This is normally not needed, however certain AWS services such as
+     * Elastic Map Reduce may automatically add required rules to security groups used
+     * with the service, and those rules may contain a cyclic dependency that prevent
+     * the security groups from being destroyed without removing the dependency first.
+     * Default `false`
+     */
+    readonly revokeRulesOnDelete?: boolean;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The VPC ID.
+     */
+    readonly vpcId: string;
+}

@@ -323,3 +323,77 @@ export interface EndpointArgs {
      */
     readonly username?: pulumi.Input<string>;
 }
+
+/**
+ * The live Endpoint resource.
+ */
+export interface EndpointResult {
+    /**
+     * The Amazon Resource Name (ARN) for the certificate.
+     */
+    readonly certificateArn: string;
+    /**
+     * The name of the endpoint database.
+     */
+    readonly databaseName?: string;
+    /**
+     * The Amazon Resource Name (ARN) for the endpoint.
+     */
+    readonly endpointArn: string;
+    /**
+     * The database endpoint identifier.
+     */
+    readonly endpointId: string;
+    /**
+     * The type of endpoint. Can be one of `source | target`.
+     */
+    readonly endpointType: string;
+    /**
+     * The type of engine for the endpoint. Can be one of `mysql | oracle | postgres | mariadb | aurora | redshift | sybase | sqlserver | dynamodb | mongodb | s3 | azuredb`.
+     */
+    readonly engineName: string;
+    /**
+     * Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+     */
+    readonly extraConnectionAttributes: string;
+    /**
+     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     */
+    readonly kmsKeyArn: string;
+    /**
+     * Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `PASSWORD`), `auth_mechanism` (default: `DEFAULT`), `nesting_level` (default: `NONE`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+     */
+    readonly mongodbSettings?: { authMechanism?: string, authSource?: string, authType?: string, docsToInvestigate?: string, extractDocId?: string, nestingLevel?: string };
+    /**
+     * The password to be used to login to the endpoint database.
+     */
+    readonly password?: string;
+    /**
+     * The port used by the endpoint database.
+     */
+    readonly port?: number;
+    /**
+     * Settings for the target S3 endpoint. Available settings are `service_access_role_arn`, `external_table_definition`, `csv_row_delimiter` (default: `\\n`), `csv_delimiter` (default: `,`), `bucket_folder`, `bucket_name` and `compression_type` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
+     */
+    readonly s3Settings?: { bucketFolder?: string, bucketName?: string, compressionType?: string, csvDelimiter?: string, csvRowDelimiter?: string, externalTableDefinition?: string, serviceAccessRoleArn?: string };
+    /**
+     * The host name of the server.
+     */
+    readonly serverName?: string;
+    /**
+     * The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
+     */
+    readonly serviceAccessRole?: string;
+    /**
+     * The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
+     */
+    readonly sslMode: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The user name to be used to login to the endpoint database.
+     */
+    readonly username?: string;
+}

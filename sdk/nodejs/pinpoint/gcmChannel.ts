@@ -115,3 +115,21 @@ export interface GcmChannelArgs {
      */
     readonly enabled?: pulumi.Input<boolean>;
 }
+
+/**
+ * The live GcmChannel resource.
+ */
+export interface GcmChannelResult {
+    /**
+     * Platform credential API key from Google.
+     */
+    readonly apiKey: string;
+    /**
+     * The application ID.
+     */
+    readonly applicationId: string;
+    /**
+     * Whether the channel is enabled or disabled. Defaults to `true`.
+     */
+    readonly enabled?: boolean;
+}

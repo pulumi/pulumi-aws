@@ -102,3 +102,17 @@ export interface VpcDhcpOptionsAssociationArgs {
      */
     readonly vpcId: pulumi.Input<string>;
 }
+
+/**
+ * The live VpcDhcpOptionsAssociation resource.
+ */
+export interface VpcDhcpOptionsAssociationResult {
+    /**
+     * The ID of the DHCP Options Set to associate to the VPC.
+     */
+    readonly dhcpOptionsId: string;
+    /**
+     * The ID of the VPC to which we would like to associate a DHCP Options Set.
+     */
+    readonly vpcId: string;
+}

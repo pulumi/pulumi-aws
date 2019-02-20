@@ -133,3 +133,23 @@ export interface RecorderArgs {
      */
     readonly roleArn: pulumi.Input<string>;
 }
+
+/**
+ * The live Recorder resource.
+ */
+export interface RecorderResult {
+    /**
+     * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+     */
+    readonly name: string;
+    /**
+     * Recording group - see below.
+     */
+    readonly recordingGroup: { allSupported?: boolean, includeGlobalResourceTypes?: boolean, resourceTypes?: string[] };
+    /**
+     * Amazon Resource Name (ARN) of the IAM role.
+     * used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
+     * See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+     */
+    readonly roleArn: string;
+}

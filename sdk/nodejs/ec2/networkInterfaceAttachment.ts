@@ -135,3 +135,29 @@ export interface NetworkInterfaceAttachmentArgs {
      */
     readonly networkInterfaceId: pulumi.Input<string>;
 }
+
+/**
+ * The live NetworkInterfaceAttachment resource.
+ */
+export interface NetworkInterfaceAttachmentResult {
+    /**
+     * The ENI Attachment ID.
+     */
+    readonly attachmentId: string;
+    /**
+     * Network interface index (int).
+     */
+    readonly deviceIndex: number;
+    /**
+     * Instance ID to attach.
+     */
+    readonly instanceId: string;
+    /**
+     * ENI ID to attach.
+     */
+    readonly networkInterfaceId: string;
+    /**
+     * The status of the Network Interface Attachment.
+     */
+    readonly status: string;
+}

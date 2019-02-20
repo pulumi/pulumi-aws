@@ -136,3 +136,25 @@ export interface RdsDbInstanceArgs {
      */
     readonly stackId: pulumi.Input<string>;
 }
+
+/**
+ * The live RdsDbInstance resource.
+ */
+export interface RdsDbInstanceResult {
+    /**
+     * A db password
+     */
+    readonly dbPassword: string;
+    /**
+     * A db username
+     */
+    readonly dbUser: string;
+    /**
+     * The db instance to register for this stack. Changing this will force a new resource.
+     */
+    readonly rdsDbInstanceArn: string;
+    /**
+     * The stack to register a db instance for. Changing this will force a new resource.
+     */
+    readonly stackId: string;
+}

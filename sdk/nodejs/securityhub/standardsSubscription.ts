@@ -80,3 +80,13 @@ export interface StandardsSubscriptionArgs {
      */
     readonly standardsArn: pulumi.Input<string>;
 }
+
+/**
+ * The live StandardsSubscription resource.
+ */
+export interface StandardsSubscriptionResult {
+    /**
+     * The ARN of a standard - see below.
+     */
+    readonly standardsArn: string;
+}

@@ -113,3 +113,17 @@ export interface LogDestinationPolicyArgs {
      */
     readonly destinationName: pulumi.Input<string>;
 }
+
+/**
+ * The live LogDestinationPolicy resource.
+ */
+export interface LogDestinationPolicyResult {
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
+    readonly accessPolicy: string;
+    /**
+     * A name for the subscription filter
+     */
+    readonly destinationName: string;
+}

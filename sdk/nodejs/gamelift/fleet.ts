@@ -226,3 +226,54 @@ export interface FleetArgs {
      */
     readonly runtimeConfiguration?: pulumi.Input<{ gameSessionActivationTimeoutSeconds?: pulumi.Input<number>, maxConcurrentGameSessionActivations?: pulumi.Input<number>, serverProcesses?: pulumi.Input<pulumi.Input<{ concurrentExecutions: pulumi.Input<number>, launchPath: pulumi.Input<string>, parameters?: pulumi.Input<string> }>[]> }>;
 }
+
+/**
+ * The live Fleet resource.
+ */
+export interface FleetResult {
+    /**
+     * Fleet ARN.
+     */
+    readonly arn: string;
+    /**
+     * ID of the Gamelift Build to be deployed on the fleet.
+     */
+    readonly buildId: string;
+    /**
+     * Human-readable description of the fleet.
+     */
+    readonly description?: string;
+    /**
+     * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
+     */
+    readonly ec2InboundPermissions?: { fromPort: number, ipRange: string, protocol: string, toPort: number }[];
+    /**
+     * Name of an EC2 instance type. e.g. `t2.micro`
+     */
+    readonly ec2InstanceType: string;
+    readonly logPaths: string[];
+    /**
+     * List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
+     */
+    readonly metricGroups: string[];
+    /**
+     * The name of the fleet.
+     */
+    readonly name: string;
+    /**
+     * Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
+     */
+    readonly newGameSessionProtectionPolicy?: string;
+    /**
+     * Operating system of the fleet's computing resources.
+     */
+    readonly operatingSystem: string;
+    /**
+     * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
+     */
+    readonly resourceCreationLimitPolicy?: { newGameSessionsPerCreator?: number, policyPeriodInMinutes?: number };
+    /**
+     * Instructions for launching server processes on each instance in the fleet. See below.
+     */
+    readonly runtimeConfiguration?: { gameSessionActivationTimeoutSeconds?: number, maxConcurrentGameSessionActivations?: number, serverProcesses?: { concurrentExecutions: number, launchPath: string, parameters?: string }[] };
+}

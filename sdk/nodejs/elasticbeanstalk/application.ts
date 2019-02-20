@@ -106,3 +106,18 @@ export interface ApplicationArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live Application resource.
+ */
+export interface ApplicationResult {
+    readonly appversionLifecycle?: { deleteSourceFromS3?: boolean, maxAgeInDays?: number, maxCount?: number, serviceRole: string };
+    /**
+     * Short description of the application
+     */
+    readonly description?: string;
+    /**
+     * The name of the application, must be unique within your account
+     */
+    readonly name: string;
+}

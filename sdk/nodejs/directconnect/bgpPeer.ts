@@ -173,3 +173,39 @@ export interface BgpPeerArgs {
      */
     readonly virtualInterfaceId: pulumi.Input<string>;
 }
+
+/**
+ * The live BgpPeer resource.
+ */
+export interface BgpPeerResult {
+    /**
+     * The address family for the BGP peer. `ipv4 ` or `ipv6`.
+     */
+    readonly addressFamily: string;
+    /**
+     * The IPv4 CIDR address to use to send traffic to Amazon.
+     * Required for IPv4 BGP peers on public virtual interfaces.
+     */
+    readonly amazonAddress: string;
+    /**
+     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     */
+    readonly bgpAsn: number;
+    /**
+     * The authentication key for BGP configuration.
+     */
+    readonly bgpAuthKey: string;
+    /**
+     * The Up/Down state of the BGP peer.
+     */
+    readonly bgpStatus: string;
+    /**
+     * The IPv4 CIDR destination address to which Amazon should send traffic.
+     * Required for IPv4 BGP peers on public virtual interfaces.
+     */
+    readonly customerAddress: string;
+    /**
+     * The ID of the Direct Connect virtual interface on which to create the BGP peer.
+     */
+    readonly virtualInterfaceId: string;
+}

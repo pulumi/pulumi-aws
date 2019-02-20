@@ -169,3 +169,33 @@ export interface VpcEndpointConnectionNotificationArgs {
      */
     readonly vpcEndpointServiceId?: pulumi.Input<string>;
 }
+
+/**
+ * The live VpcEndpointConnectionNotification resource.
+ */
+export interface VpcEndpointConnectionNotificationResult {
+    /**
+     * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+     */
+    readonly connectionEvents: string[];
+    /**
+     * The ARN of the SNS topic for the notifications.
+     */
+    readonly connectionNotificationArn: string;
+    /**
+     * The type of notification.
+     */
+    readonly notificationType: string;
+    /**
+     * The state of the notification.
+     */
+    readonly state: string;
+    /**
+     * The ID of the VPC Endpoint to receive notifications for.
+     */
+    readonly vpcEndpointId?: string;
+    /**
+     * The ID of the VPC Endpoint Service to receive notifications for.
+     */
+    readonly vpcEndpointServiceId?: string;
+}

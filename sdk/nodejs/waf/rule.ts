@@ -120,3 +120,21 @@ export interface RuleArgs {
      */
     readonly predicates?: pulumi.Input<pulumi.Input<{ dataId: pulumi.Input<string>, negated: pulumi.Input<boolean>, type: pulumi.Input<string> }>[]>;
 }
+
+/**
+ * The live Rule resource.
+ */
+export interface RuleResult {
+    /**
+     * The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
+     */
+    readonly metricName: string;
+    /**
+     * The name or description of the rule.
+     */
+    readonly name: string;
+    /**
+     * One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
+     */
+    readonly predicates?: { dataId: string, negated: boolean, type: string }[];
+}

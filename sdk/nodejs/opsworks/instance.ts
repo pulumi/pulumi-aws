@@ -614,3 +614,143 @@ export interface InstanceArgs {
      */
     readonly virtualizationType?: pulumi.Input<string>;
 }
+
+/**
+ * The live Instance resource.
+ */
+export interface InstanceResult {
+    /**
+     * The AWS OpsWorks agent to install.  Defaults to `"INHERIT"`.
+     */
+    readonly agentVersion?: string;
+    /**
+     * The AMI to use for the instance.  If an AMI is specified, `os` must be `"Custom"`.
+     */
+    readonly amiId: string;
+    /**
+     * Machine architecture for created instances.  Can be either `"x86_64"` (the default) or `"i386"`
+     */
+    readonly architecture?: string;
+    /**
+     * Creates load-based or time-based instances.  If set, can be either: `"load"` or `"timer"`.
+     */
+    readonly autoScalingType?: string;
+    /**
+     * Name of the availability zone where instances will be created
+     * by default.
+     */
+    readonly availabilityZone: string;
+    readonly createdAt: string;
+    readonly deleteEbs?: boolean;
+    readonly deleteEip?: boolean;
+    /**
+     * Additional EBS block devices to attach to the
+     * instance.  See Block Devices below for details.
+     */
+    readonly ebsBlockDevices: { deleteOnTermination?: boolean, deviceName: string, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[];
+    /**
+     * If true, the launched EC2 instance will be EBS-optimized.
+     */
+    readonly ebsOptimized?: boolean;
+    /**
+     * EC2 instance ID
+     */
+    readonly ec2InstanceId: string;
+    readonly ecsClusterArn: string;
+    readonly elasticIp: string;
+    /**
+     * Customize Ephemeral (also known as
+     * "Instance Store") volumes on the instance. See Block Devices below for details.
+     */
+    readonly ephemeralBlockDevices: { deviceName: string, virtualName: string }[];
+    /**
+     * The instance's host name.
+     */
+    readonly hostname: string;
+    readonly infrastructureClass: string;
+    /**
+     * Controls where to install OS and package updates when the instance boots.  Defaults to `true`.
+     */
+    readonly installUpdatesOnBoot?: boolean;
+    readonly instanceProfileArn: string;
+    /**
+     * The type of instance to start
+     */
+    readonly instanceType?: string;
+    readonly lastServiceErrorId: string;
+    /**
+     * The ids of the layers the instance will belong to.
+     */
+    readonly layerIds: string[];
+    /**
+     * Name of operating system that will be installed.
+     */
+    readonly os: string;
+    readonly platform: string;
+    /**
+     * The private DNS name assigned to the instance. Can only be
+     * used inside the Amazon EC2, and only available if you've enabled DNS hostnames
+     * for your VPC
+     */
+    readonly privateDns: string;
+    /**
+     * The private IP address assigned to the instance
+     */
+    readonly privateIp: string;
+    /**
+     * The public DNS name assigned to the instance. For EC2-VPC, this
+     * is only available if you've enabled DNS hostnames for your VPC
+     */
+    readonly publicDns: string;
+    /**
+     * The public IP address assigned to the instance, if applicable.
+     */
+    readonly publicIp: string;
+    readonly registeredBy: string;
+    readonly reportedAgentVersion: string;
+    readonly reportedOsFamily: string;
+    readonly reportedOsName: string;
+    readonly reportedOsVersion: string;
+    /**
+     * Customize details about the root block
+     * device of the instance. See Block Devices below for details.
+     */
+    readonly rootBlockDevices: { deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }[];
+    /**
+     * Name of the type of root device instances will have by default.  Can be either `"ebs"` or `"instance-store"`
+     */
+    readonly rootDeviceType: string;
+    readonly rootDeviceVolumeId: string;
+    /**
+     * The associated security groups.
+     */
+    readonly securityGroupIds: string[];
+    readonly sshHostDsaKeyFingerprint: string;
+    readonly sshHostRsaKeyFingerprint: string;
+    /**
+     * Name of the SSH keypair that instances will have by default.
+     */
+    readonly sshKeyName: string;
+    /**
+     * The id of the stack the instance will belong to.
+     */
+    readonly stackId: string;
+    /**
+     * The desired state of the instance.  Can be either `"running"` or `"stopped"`.
+     */
+    readonly state?: string;
+    readonly status: string;
+    /**
+     * Subnet ID to attach to
+     */
+    readonly subnetId: string;
+    /**
+     * Instance tenancy to use. Can be one of `"default"`, `"dedicated"` or `"host"`
+     */
+    readonly tenancy: string;
+    /**
+     * Keyword to choose what virtualization mode created instances
+     * will use. Can be either `"paravirtual"` or `"hvm"`.
+     */
+    readonly virtualizationType: string;
+}

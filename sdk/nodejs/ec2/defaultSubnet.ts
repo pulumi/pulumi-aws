@@ -170,3 +170,40 @@ export interface DefaultSubnetArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live DefaultSubnet resource.
+ */
+export interface DefaultSubnetResult {
+    readonly arn: string;
+    readonly assignIpv6AddressOnCreation: boolean;
+    readonly availabilityZone: string;
+    readonly availabilityZoneId: string;
+    /**
+     * The CIDR block for the subnet.
+     */
+    readonly cidrBlock: string;
+    /**
+     * The IPv6 CIDR block.
+     */
+    readonly ipv6CidrBlock: string;
+    readonly ipv6CidrBlockAssociationId: string;
+    /**
+     * Specify true to indicate
+     * that instances launched into the subnet should be assigned
+     * a public IP address.
+     */
+    readonly mapPublicIpOnLaunch: boolean;
+    /**
+     * The ID of the AWS account that owns the subnet.
+     */
+    readonly ownerId: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The VPC ID.
+     */
+    readonly vpcId: string;
+}

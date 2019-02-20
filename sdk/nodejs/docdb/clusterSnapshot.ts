@@ -195,3 +195,55 @@ export interface ClusterSnapshotArgs {
      */
     readonly dbClusterSnapshotIdentifier: pulumi.Input<string>;
 }
+
+/**
+ * The live ClusterSnapshot resource.
+ */
+export interface ClusterSnapshotResult {
+    /**
+     * List of EC2 Availability Zones that instances in the DocDB cluster snapshot can be restored in.
+     */
+    readonly availabilityZones: string[];
+    /**
+     * The DocDB Cluster Identifier from which to take the snapshot.
+     */
+    readonly dbClusterIdentifier: string;
+    /**
+     * The Amazon Resource Name (ARN) for the DocDB Cluster Snapshot.
+     */
+    readonly dbClusterSnapshotArn: string;
+    /**
+     * The Identifier for the snapshot.
+     */
+    readonly dbClusterSnapshotIdentifier: string;
+    /**
+     * Specifies the name of the database engine.
+     */
+    readonly engine: string;
+    /**
+     * Version of the database engine for this DocDB cluster snapshot.
+     */
+    readonly engineVersion: string;
+    /**
+     * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
+     */
+    readonly kmsKeyId: string;
+    /**
+     * Port that the DocDB cluster was listening on at the time of the snapshot.
+     */
+    readonly port: number;
+    readonly snapshotType: string;
+    readonly sourceDbClusterSnapshotArn: string;
+    /**
+     * The status of this DocDB Cluster Snapshot.
+     */
+    readonly status: string;
+    /**
+     * Specifies whether the DocDB cluster snapshot is encrypted.
+     */
+    readonly storageEncrypted: boolean;
+    /**
+     * The VPC ID associated with the DocDB cluster snapshot.
+     */
+    readonly vpcId: string;
+}

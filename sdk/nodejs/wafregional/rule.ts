@@ -132,3 +132,21 @@ export interface RuleArgs {
      */
     readonly predicates?: pulumi.Input<pulumi.Input<{ dataId: pulumi.Input<string>, negated: pulumi.Input<boolean>, type: pulumi.Input<string> }>[]>;
 }
+
+/**
+ * The live Rule resource.
+ */
+export interface RuleResult {
+    /**
+     * The name or description for the Amazon CloudWatch metric of this rule.
+     */
+    readonly metricName: string;
+    /**
+     * The name or description of the rule.
+     */
+    readonly name: string;
+    /**
+     * The objects to include in a rule.
+     */
+    readonly predicates?: { dataId: string, negated: boolean, type: string }[];
+}

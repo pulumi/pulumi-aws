@@ -119,3 +119,22 @@ export interface SecurityGroupArgs {
      */
     readonly securityGroupNames: pulumi.Input<pulumi.Input<string>[]>;
 }
+
+/**
+ * The live SecurityGroup resource.
+ */
+export interface SecurityGroupResult {
+    /**
+     * description for the cache security group. Defaults to "Managed by Terraform".
+     */
+    readonly description: string;
+    /**
+     * Name for the cache security group. This value is stored as a lowercase string.
+     */
+    readonly name: string;
+    /**
+     * List of EC2 security group names to be
+     * authorized for ingress to the cache security group
+     */
+    readonly securityGroupNames: string[];
+}

@@ -182,3 +182,42 @@ export interface AssociationArgs {
      */
     readonly targets?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
 }
+
+/**
+ * The live Association resource.
+ */
+export interface AssociationResult {
+    readonly associationId: string;
+    /**
+     * The descriptive name for the association.
+     */
+    readonly associationName?: string;
+    /**
+     * The document version you want to associate with the target(s). Can be a specific version or the default version.
+     */
+    readonly documentVersion: string;
+    /**
+     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+     */
+    readonly instanceId?: string;
+    /**
+     * The name of the SSM document to apply.
+     */
+    readonly name: string;
+    /**
+     * An output location block. Output Location is documented below.
+     */
+    readonly outputLocation?: { s3BucketName: string, s3KeyPrefix?: string };
+    /**
+     * A block of arbitrary string parameters to pass to the SSM document.
+     */
+    readonly parameters: {[key: string]: any};
+    /**
+     * A cron expression when the association will be applied to the target(s).
+     */
+    readonly scheduleExpression?: string;
+    /**
+     * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
+     */
+    readonly targets: { key: string, values: string[] }[];
+}

@@ -125,3 +125,29 @@ export interface VaultArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
+
+/**
+ * The live Vault resource.
+ */
+export interface VaultResult {
+    /**
+     * The ARN of the vault.
+     */
+    readonly arn: string;
+    /**
+     * The server-side encryption key that is used to protect your backups.
+     */
+    readonly kmsKeyArn: string;
+    /**
+     * Name of the backup vault to create.
+     */
+    readonly name: string;
+    /**
+     * The number of recovery points that are stored in a backup vault.
+     */
+    readonly recoveryPoints: number;
+    /**
+     * Metadata that you can assign to help organize the resources that you create.
+     */
+    readonly tags?: {[key: string]: string};
+}

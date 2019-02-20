@@ -144,3 +144,25 @@ export interface EventPermissionArgs {
      */
     readonly statementId: pulumi.Input<string>;
 }
+
+/**
+ * The live EventPermission resource.
+ */
+export interface EventPermissionResult {
+    /**
+     * The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
+     */
+    readonly action?: string;
+    /**
+     * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+     */
+    readonly condition?: { key: string, type: string, value: string };
+    /**
+     * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
+     */
+    readonly principal: string;
+    /**
+     * An identifier string for the external account that you are granting permissions to.
+     */
+    readonly statementId: string;
+}

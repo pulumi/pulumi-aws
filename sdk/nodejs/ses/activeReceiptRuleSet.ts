@@ -79,3 +79,13 @@ export interface ActiveReceiptRuleSetArgs {
      */
     readonly ruleSetName: pulumi.Input<string>;
 }
+
+/**
+ * The live ActiveReceiptRuleSet resource.
+ */
+export interface ActiveReceiptRuleSetResult {
+    /**
+     * The name of the rule set
+     */
+    readonly ruleSetName: string;
+}

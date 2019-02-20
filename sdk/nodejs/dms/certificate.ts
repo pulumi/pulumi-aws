@@ -122,3 +122,25 @@ export interface CertificateArgs {
      */
     readonly certificateWallet?: pulumi.Input<string>;
 }
+
+/**
+ * The live Certificate resource.
+ */
+export interface CertificateResult {
+    /**
+     * The Amazon Resource Name (ARN) for the certificate.
+     */
+    readonly certificateArn: string;
+    /**
+     * The certificate identifier.
+     */
+    readonly certificateId: string;
+    /**
+     * The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+     */
+    readonly certificatePem?: string;
+    /**
+     * The contents of the Oracle Wallet certificate for use with SSL. Either `certificate_pem` or `certificate_wallet` must be set.
+     */
+    readonly certificateWallet?: string;
+}

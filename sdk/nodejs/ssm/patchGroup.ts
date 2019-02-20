@@ -101,3 +101,17 @@ export interface PatchGroupArgs {
      */
     readonly patchGroup: pulumi.Input<string>;
 }
+
+/**
+ * The live PatchGroup resource.
+ */
+export interface PatchGroupResult {
+    /**
+     * The ID of the patch baseline to register the patch group with.
+     */
+    readonly baselineId: string;
+    /**
+     * The name of the patch group that should be registered with the patch baseline.
+     */
+    readonly patchGroup: string;
+}

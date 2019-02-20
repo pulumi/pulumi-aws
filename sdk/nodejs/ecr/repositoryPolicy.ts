@@ -142,3 +142,21 @@ export interface RepositoryPolicyArgs {
      */
     readonly repository: pulumi.Input<string>;
 }
+
+/**
+ * The live RepositoryPolicy resource.
+ */
+export interface RepositoryPolicyResult {
+    /**
+     * The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
+     */
+    readonly policy: string;
+    /**
+     * The registry ID where the repository was created.
+     */
+    readonly registryId: string;
+    /**
+     * Name of the repository to apply the policy.
+     */
+    readonly repository: string;
+}

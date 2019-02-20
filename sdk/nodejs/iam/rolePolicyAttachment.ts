@@ -136,3 +136,17 @@ export interface RolePolicyAttachmentArgs {
      */
     readonly role: pulumi.Input<Role>;
 }
+
+/**
+ * The live RolePolicyAttachment resource.
+ */
+export interface RolePolicyAttachmentResult {
+    /**
+     * The ARN of the policy you want to apply
+     */
+    readonly policyArn: ARN;
+    /**
+     * The role the policy should be applied to
+     */
+    readonly role: Role;
+}

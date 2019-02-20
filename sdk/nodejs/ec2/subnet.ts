@@ -250,3 +250,58 @@ export interface SubnetArgs {
      */
     readonly vpcId: pulumi.Input<string>;
 }
+
+/**
+ * The live Subnet resource.
+ */
+export interface SubnetResult {
+    /**
+     * The ARN of the subnet.
+     */
+    readonly arn: string;
+    /**
+     * Specify true to indicate
+     * that network interfaces created in the specified subnet should be
+     * assigned an IPv6 address. Default is `false`
+     */
+    readonly assignIpv6AddressOnCreation?: boolean;
+    /**
+     * The AZ for the subnet.
+     */
+    readonly availabilityZone: string;
+    /**
+     * The AZ ID of the subnet.
+     */
+    readonly availabilityZoneId: string;
+    /**
+     * The CIDR block for the subnet.
+     */
+    readonly cidrBlock: string;
+    /**
+     * The IPv6 network range for the subnet,
+     * in CIDR notation. The subnet size must use a /64 prefix length.
+     */
+    readonly ipv6CidrBlock: string;
+    /**
+     * The association ID for the IPv6 CIDR block.
+     */
+    readonly ipv6CidrBlockAssociationId: string;
+    /**
+     * Specify true to indicate
+     * that instances launched into the subnet should be assigned
+     * a public IP address. Default is `false`.
+     */
+    readonly mapPublicIpOnLaunch?: boolean;
+    /**
+     * The ID of the AWS account that owns the subnet.
+     */
+    readonly ownerId: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The VPC ID.
+     */
+    readonly vpcId: string;
+}

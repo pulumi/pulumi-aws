@@ -107,3 +107,17 @@ export interface ThingPrincipalAttachmentArgs {
      */
     readonly thing: pulumi.Input<string>;
 }
+
+/**
+ * The live ThingPrincipalAttachment resource.
+ */
+export interface ThingPrincipalAttachmentResult {
+    /**
+     * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
+     */
+    readonly principal: ARN;
+    /**
+     * The name of the thing.
+     */
+    readonly thing: string;
+}

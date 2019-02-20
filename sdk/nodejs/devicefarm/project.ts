@@ -92,3 +92,17 @@ export interface ProjectArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live Project resource.
+ */
+export interface ProjectResult {
+    /**
+     * The Amazon Resource Name of this project
+     */
+    readonly arn: string;
+    /**
+     * The name of the project
+     */
+    readonly name: string;
+}

@@ -259,3 +259,49 @@ export interface DataSourceArgs {
      */
     readonly type: pulumi.Input<string>;
 }
+
+/**
+ * The live DataSource resource.
+ */
+export interface DataSourceResult {
+    /**
+     * The API ID for the GraphQL API for the DataSource.
+     */
+    readonly apiId: string;
+    /**
+     * The ARN
+     */
+    readonly arn: string;
+    /**
+     * A description of the DataSource.
+     */
+    readonly description?: string;
+    /**
+     * DynamoDB settings. See below
+     */
+    readonly dynamodbConfig?: { region: string, tableName: string, useCallerCredentials?: boolean };
+    /**
+     * Amazon Elasticsearch settings. See below
+     */
+    readonly elasticsearchConfig?: { endpoint: string, region: string };
+    /**
+     * HTTP settings. See below
+     */
+    readonly httpConfig?: { endpoint: string };
+    /**
+     * AWS Lambda settings. See below
+     */
+    readonly lambdaConfig?: { functionArn: string };
+    /**
+     * A user-supplied name for the DataSource.
+     */
+    readonly name: string;
+    /**
+     * The IAM service role ARN for the data source.
+     */
+    readonly serviceRoleArn?: string;
+    /**
+     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+     */
+    readonly type: string;
+}

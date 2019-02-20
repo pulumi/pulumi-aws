@@ -572,3 +572,136 @@ export interface ReplicationGroupArgs {
      */
     readonly transitEncryptionEnabled?: pulumi.Input<boolean>;
 }
+
+/**
+ * The live ReplicationGroup resource.
+ */
+export interface ReplicationGroupResult {
+    /**
+     * Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
+     */
+    readonly applyImmediately: boolean;
+    /**
+     * Whether to enable encryption at rest.
+     */
+    readonly atRestEncryptionEnabled?: boolean;
+    /**
+     * The password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+     */
+    readonly authToken?: string;
+    /**
+     * Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. Defaults to `true`.
+     */
+    readonly autoMinorVersionUpgrade?: boolean;
+    /**
+     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+     */
+    readonly automaticFailoverEnabled?: boolean;
+    /**
+     * A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
+     */
+    readonly availabilityZones?: string[];
+    /**
+     * Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed.
+     */
+    readonly clusterMode: { numNodeGroups: number, replicasPerNodeGroup: number };
+    /**
+     * The address of the replication group configuration endpoint when cluster mode is enabled.
+     */
+    readonly configurationEndpointAddress: string;
+    /**
+     * The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
+     */
+    readonly engine?: string;
+    /**
+     * The version number of the cache engine to be used for the cache clusters in this replication group.
+     */
+    readonly engineVersion: string;
+    /**
+     * Specifies the weekly time range for when maintenance
+     * on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
+     * The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
+     */
+    readonly maintenanceWindow: string;
+    /**
+     * The identifiers of all the nodes that are part of this replication group.
+     */
+    readonly memberClusters: string[];
+    /**
+     * The compute and memory capacity of the nodes in the node group.
+     */
+    readonly nodeType: string;
+    /**
+     * An Amazon Resource Name (ARN) of an
+     * SNS topic to send ElastiCache notifications to. Example:
+     * `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+     */
+    readonly notificationTopicArn?: string;
+    /**
+     * The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
+     */
+    readonly numberCacheClusters: number;
+    /**
+     * The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
+     */
+    readonly parameterGroupName: string;
+    /**
+     * The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
+     */
+    readonly port?: number;
+    /**
+     * (Redis only) The address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
+     */
+    readonly primaryEndpointAddress: string;
+    /**
+     * A user-created description for the replication group.
+     */
+    readonly replicationGroupDescription: string;
+    /**
+     * The replication group identifier. This parameter is stored as a lowercase string.
+     */
+    readonly replicationGroupId: string;
+    /**
+     * One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
+     */
+    readonly securityGroupIds: string[];
+    /**
+     * A list of cache security group names to associate with this replication group.
+     */
+    readonly securityGroupNames: string[];
+    /**
+     * A single-element string list containing an
+     * Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
+     * Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
+     */
+    readonly snapshotArns?: string[];
+    /**
+     * The name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
+     */
+    readonly snapshotName?: string;
+    /**
+     * The number of days for which ElastiCache will
+     * retain automatic cache cluster snapshots before deleting them. For example, if you set
+     * SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
+     * before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
+     * Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+     */
+    readonly snapshotRetentionLimit?: number;
+    /**
+     * The daily time range (in UTC) during which ElastiCache will
+     * begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+     */
+    readonly snapshotWindow: string;
+    /**
+     * The name of the cache subnet group to be used for the replication group.
+     */
+    readonly subnetGroupName: string;
+    /**
+     * A mapping of tags to assign to the resource
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * Whether to enable encryption in transit.
+     */
+    readonly transitEncryptionEnabled?: boolean;
+}

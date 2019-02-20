@@ -188,3 +188,38 @@ export interface NetworkAclArgs {
      */
     readonly vpcId: pulumi.Input<string>;
 }
+
+/**
+ * The live NetworkAcl resource.
+ */
+export interface NetworkAclResult {
+    /**
+     * Specifies an egress rule. Parameters defined below.
+     */
+    readonly egress: { action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[];
+    /**
+     * Specifies an ingress rule. Parameters defined below.
+     */
+    readonly ingress: { action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[];
+    /**
+     * The ID of the AWS account that owns the network ACL.
+     */
+    readonly ownerId: string;
+    /**
+     * The ID of the associated Subnet. This
+     * attribute is deprecated, please use the `subnet_ids` attribute instead
+     */
+    readonly subnetId?: string;
+    /**
+     * A list of Subnet IDs to apply the ACL to
+     */
+    readonly subnetIds: string[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The ID of the associated VPC.
+     */
+    readonly vpcId: string;
+}

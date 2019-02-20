@@ -256,3 +256,50 @@ export interface GatewayArgs {
      */
     readonly tapeDriveType?: pulumi.Input<string>;
 }
+
+/**
+ * The live Gateway resource.
+ */
+export interface GatewayResult {
+    /**
+     * Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
+     */
+    readonly activationKey: string;
+    /**
+     * Amazon Resource Name (ARN) of the gateway.
+     */
+    readonly arn: string;
+    /**
+     * Identifier of the gateway.
+     */
+    readonly gatewayId: string;
+    /**
+     * Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where Terraform is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
+     */
+    readonly gatewayIpAddress: string;
+    /**
+     * Name of the gateway.
+     */
+    readonly gatewayName: string;
+    /**
+     * Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
+     */
+    readonly gatewayTimezone: string;
+    /**
+     * Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
+     */
+    readonly gatewayType?: string;
+    readonly mediumChangerType?: string;
+    /**
+     * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
+     */
+    readonly smbActiveDirectorySettings?: { domainName: string, password: string, username: string };
+    /**
+     * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. Terraform can only detect drift of the existence of a guest password, not its actual value from the gateway. Terraform can however update the password with changing the argument.
+     */
+    readonly smbGuestPassword?: string;
+    /**
+     * Type of tape drive to use for tape gateway. Terraform cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
+     */
+    readonly tapeDriveType?: string;
+}

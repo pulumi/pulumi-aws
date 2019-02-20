@@ -114,3 +114,17 @@ export interface VpnGatewayAttachmentArgs {
      */
     readonly vpnGatewayId: pulumi.Input<string>;
 }
+
+/**
+ * The live VpnGatewayAttachment resource.
+ */
+export interface VpnGatewayAttachmentResult {
+    /**
+     * The ID of the VPC.
+     */
+    readonly vpcId: string;
+    /**
+     * The ID of the Virtual Private Gateway.
+     */
+    readonly vpnGatewayId: string;
+}

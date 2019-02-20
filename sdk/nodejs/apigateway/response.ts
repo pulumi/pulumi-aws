@@ -149,3 +149,29 @@ export interface ResponseArgs {
      */
     readonly statusCode?: pulumi.Input<string>;
 }
+
+/**
+ * The live Response resource.
+ */
+export interface ResponseResult {
+    /**
+     * A map specifying the templates used to transform the response body.
+     */
+    readonly responseParameters?: {[key: string]: string};
+    /**
+     * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
+     */
+    readonly responseTemplates?: {[key: string]: string};
+    /**
+     * The response type of the associated GatewayResponse.
+     */
+    readonly responseType: string;
+    /**
+     * The string identifier of the associated REST API.
+     */
+    readonly restApiId: string;
+    /**
+     * The HTTP status code of the Gateway Response.
+     */
+    readonly statusCode?: string;
+}

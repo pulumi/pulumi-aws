@@ -76,3 +76,13 @@ export interface DomainArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live Domain resource.
+ */
+export interface DomainResult {
+    /**
+     * The name of the SimpleDB domain
+     */
+    readonly name: string;
+}

@@ -62,3 +62,9 @@ export interface AccountState {
  */
 export interface AccountArgs {
 }
+
+/**
+ * The live Account resource.
+ */
+export interface AccountResult {
+}

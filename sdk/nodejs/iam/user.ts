@@ -182,3 +182,39 @@ export interface UserArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live User resource.
+ */
+export interface UserResult {
+    /**
+     * The ARN assigned by AWS for this user.
+     */
+    readonly arn: string;
+    /**
+     * When destroying this user, destroy even if it
+     * has non-Terraform-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+     * a user with non-Terraform-managed access keys and login profile will fail to be destroyed.
+     */
+    readonly forceDestroy?: boolean;
+    /**
+     * The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
+     */
+    readonly name: string;
+    /**
+     * Path in which to create the user.
+     */
+    readonly path?: string;
+    /**
+     * The ARN of the policy that is used to set the permissions boundary for the user.
+     */
+    readonly permissionsBoundary?: string;
+    /**
+     * Key-value mapping of tags for the IAM user
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The [unique ID][1] assigned by AWS.
+     */
+    readonly uniqueId: string;
+}

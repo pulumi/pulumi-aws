@@ -140,3 +140,22 @@ export interface NotificationArgs {
      */
     readonly topicArn: pulumi.Input<string>;
 }
+
+/**
+ * The live Notification resource.
+ */
+export interface NotificationResult {
+    /**
+     * A list of AutoScaling Group Names
+     */
+    readonly groupNames: string[];
+    /**
+     * A list of Notification Types that trigger
+     * notifications. Acceptable values are documented [in the AWS documentation here][1]
+     */
+    readonly notifications: NotificationType[];
+    /**
+     * The Topic ARN for notifications to be sent through
+     */
+    readonly topicArn: string;
+}

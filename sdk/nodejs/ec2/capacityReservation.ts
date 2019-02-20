@@ -235,3 +235,53 @@ export interface CapacityReservationArgs {
      */
     readonly tenancy?: pulumi.Input<Tenancy>;
 }
+
+/**
+ * The live CapacityReservation resource.
+ */
+export interface CapacityReservationResult {
+    /**
+     * The Availability Zone in which to create the Capacity Reservation.
+     */
+    readonly availabilityZone: string;
+    /**
+     * Indicates whether the Capacity Reservation supports EBS-optimized instances.
+     */
+    readonly ebsOptimized?: boolean;
+    /**
+     * The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     */
+    readonly endDate?: string;
+    /**
+     * Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
+     */
+    readonly endDateType?: string;
+    /**
+     * Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
+     */
+    readonly ephemeralStorage?: boolean;
+    /**
+     * The number of instances for which to reserve capacity.
+     */
+    readonly instanceCount: number;
+    /**
+     * Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
+     */
+    readonly instanceMatchCriteria?: string;
+    /**
+     * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
+     */
+    readonly instancePlatform: InstancePlatform;
+    /**
+     * The instance type for which to reserve capacity.
+     */
+    readonly instanceType: InstanceType;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
+     */
+    readonly tenancy?: Tenancy;
+}

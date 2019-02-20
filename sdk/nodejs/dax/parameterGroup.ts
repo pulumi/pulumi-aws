@@ -121,3 +121,21 @@ export interface ParameterGroupArgs {
      */
     readonly parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
 }
+
+/**
+ * The live ParameterGroup resource.
+ */
+export interface ParameterGroupResult {
+    /**
+     * A description of the parameter group.
+     */
+    readonly description?: string;
+    /**
+     * The name of the parameter group.
+     */
+    readonly name: string;
+    /**
+     * The parameters of the parameter group.
+     */
+    readonly parameters: { name: string, value: string }[];
+}

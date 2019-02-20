@@ -149,3 +149,28 @@ export interface AppCookieStickinessPolicyArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live AppCookieStickinessPolicy resource.
+ */
+export interface AppCookieStickinessPolicyResult {
+    /**
+     * The application cookie whose lifetime the ELB's cookie should follow.
+     */
+    readonly cookieName: string;
+    /**
+     * The load balancer port to which the policy
+     * should be applied. This must be an active listener on the load
+     * balancer.
+     */
+    readonly lbPort: number;
+    /**
+     * The name of load balancer to which the policy
+     * should be attached.
+     */
+    readonly loadBalancer: string;
+    /**
+     * The name of the stickiness policy.
+     */
+    readonly name: string;
+}

@@ -299,3 +299,74 @@ export interface AmiArgs {
      */
     readonly virtualizationType?: pulumi.Input<string>;
 }
+
+/**
+ * The live Ami resource.
+ */
+export interface AmiResult {
+    /**
+     * Machine architecture for created instances. Defaults to "x86_64".
+     */
+    readonly architecture?: string;
+    /**
+     * A longer, human-readable description for the AMI.
+     */
+    readonly description?: string;
+    /**
+     * Nested block describing an EBS block device that should be
+     * attached to created instances. The structure of this block is described below.
+     */
+    readonly ebsBlockDevices: { deleteOnTermination?: boolean, deviceName: string, encrypted?: boolean, iops?: number, snapshotId?: string, volumeSize: number, volumeType?: string }[];
+    /**
+     * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+     */
+    readonly enaSupport?: boolean;
+    /**
+     * Nested block describing an ephemeral block device that
+     * should be attached to created instances. The structure of this block is described below.
+     */
+    readonly ephemeralBlockDevices: { deviceName: string, virtualName: string }[];
+    /**
+     * Path to an S3 object containing an image manifest, e.g. created
+     * by the `ec2-upload-bundle` command in the EC2 command line tools.
+     */
+    readonly imageLocation: string;
+    /**
+     * The id of the kernel image (AKI) that will be used as the paravirtual
+     * kernel in created instances.
+     */
+    readonly kernelId?: string;
+    readonly manageEbsSnapshots: boolean;
+    /**
+     * A region-unique name for the AMI.
+     */
+    readonly name: string;
+    /**
+     * The id of an initrd image (ARI) that will be used when booting the
+     * created instances.
+     */
+    readonly ramdiskId?: string;
+    /**
+     * The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+     */
+    readonly rootDeviceName?: string;
+    /**
+     * The Snapshot ID for the root volume (for EBS-backed AMIs)
+     */
+    readonly rootSnapshotId: string;
+    /**
+     * When set to "simple" (the default), enables enhanced networking
+     * for created instances. No other value is supported at this time.
+     */
+    readonly sriovNetSupport?: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * Keyword to choose what virtualization mode created instances
+     * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
+     * changes the set of further arguments that are required, as described below.
+     */
+    readonly virtualizationType?: string;
+}

@@ -194,3 +194,29 @@ export interface DeploymentConfigArgs {
      */
     readonly trafficRoutingConfig?: pulumi.Input<{ timeBasedCanary?: pulumi.Input<{ interval?: pulumi.Input<number>, percentage?: pulumi.Input<number> }>, timeBasedLinear?: pulumi.Input<{ interval?: pulumi.Input<number>, percentage?: pulumi.Input<number> }>, type?: pulumi.Input<string> }>;
 }
+
+/**
+ * The live DeploymentConfig resource.
+ */
+export interface DeploymentConfigResult {
+    /**
+     * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
+     */
+    readonly computePlatform?: string;
+    /**
+     * The AWS Assigned deployment config id
+     */
+    readonly deploymentConfigId: string;
+    /**
+     * The name of the deployment config.
+     */
+    readonly deploymentConfigName: string;
+    /**
+     * A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
+     */
+    readonly minimumHealthyHosts?: { type?: string, value?: number };
+    /**
+     * A traffic_routing_config block. Traffic Routing Config is documented below.
+     */
+    readonly trafficRoutingConfig?: { timeBasedCanary?: { interval?: number, percentage?: number }, timeBasedLinear?: { interval?: number, percentage?: number }, type?: string };
+}

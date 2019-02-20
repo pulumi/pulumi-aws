@@ -146,3 +146,33 @@ export interface ConnectionArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live Connection resource.
+ */
+export interface ConnectionResult {
+    /**
+     * The ARN of the connection.
+     */
+    readonly arn: string;
+    /**
+     * The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
+     */
+    readonly bandwidth: string;
+    /**
+     * Boolean value representing if jumbo frames have been enabled for this connection.
+     */
+    readonly jumboFrameCapable: boolean;
+    /**
+     * The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
+     */
+    readonly location: string;
+    /**
+     * The name of the connection.
+     */
+    readonly name: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

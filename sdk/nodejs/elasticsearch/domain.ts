@@ -444,3 +444,79 @@ export interface DomainArgs {
      */
     readonly vpcOptions?: pulumi.Input<{ availabilityZones?: pulumi.Input<pulumi.Input<string>[]>, securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, subnetIds?: pulumi.Input<pulumi.Input<string>[]>, vpcId?: pulumi.Input<string> }>;
 }
+
+/**
+ * The live Domain resource.
+ */
+export interface DomainResult {
+    /**
+     * IAM policy document specifying the access policies for the domain
+     */
+    readonly accessPolicies: string;
+    /**
+     * Key-value string pairs to specify advanced configuration options.
+     * Note that the values for these configuration options must be strings (wrapped in quotes) or they
+     * may be wrong and cause a perpetual diff, causing Terraform to want to recreate your Elasticsearch
+     * domain on every apply.
+     */
+    readonly advancedOptions: {[key: string]: any};
+    /**
+     * Amazon Resource Name (ARN) of the domain.
+     */
+    readonly arn: string;
+    /**
+     * Cluster configuration of the domain, see below.
+     */
+    readonly clusterConfig: { dedicatedMasterCount?: number, dedicatedMasterEnabled?: boolean, dedicatedMasterType?: string, instanceCount?: number, instanceType?: string, zoneAwarenessEnabled?: boolean };
+    readonly cognitoOptions?: { enabled?: boolean, identityPoolId: string, roleArn: string, userPoolId: string };
+    /**
+     * Unique identifier for the domain.
+     */
+    readonly domainId: string;
+    /**
+     * Name of the domain.
+     */
+    readonly domainName: string;
+    /**
+     * EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
+     */
+    readonly ebsOptions: { ebsEnabled: boolean, iops?: number, volumeSize?: number, volumeType: string };
+    /**
+     * The version of Elasticsearch to deploy. Defaults to `1.5`
+     */
+    readonly elasticsearchVersion?: string;
+    /**
+     * Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
+     */
+    readonly encryptAtRest: { enabled: boolean, kmsKeyId: string };
+    /**
+     * Domain-specific endpoint used to submit index, search, and data upload requests.
+     */
+    readonly endpoint: string;
+    /**
+     * Domain-specific endpoint for kibana without https scheme.
+     * * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+     * * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
+     */
+    readonly kibanaEndpoint: string;
+    /**
+     * Options for publishing slow logs to CloudWatch Logs.
+     */
+    readonly logPublishingOptions?: { cloudwatchLogGroupArn: string, enabled?: boolean, logType: string }[];
+    /**
+     * Node-to-node encryption options. See below.
+     */
+    readonly nodeToNodeEncryption: { enabled: boolean };
+    /**
+     * Snapshot related options, see below.
+     */
+    readonly snapshotOptions?: { automatedSnapshotStartHour: number };
+    /**
+     * A mapping of tags to assign to the resource
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
+     */
+    readonly vpcOptions?: { availabilityZones: string[], securityGroupIds?: string[], subnetIds?: string[], vpcId: string };
+}

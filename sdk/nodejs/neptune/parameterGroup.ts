@@ -150,3 +150,33 @@ export interface ParameterGroupArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live ParameterGroup resource.
+ */
+export interface ParameterGroupResult {
+    /**
+     * The Neptune parameter group Amazon Resource Name (ARN).
+     */
+    readonly arn: string;
+    /**
+     * The description of the Neptune parameter group. Defaults to "Managed by Terraform".
+     */
+    readonly description?: string;
+    /**
+     * The family of the Neptune parameter group.
+     */
+    readonly family: string;
+    /**
+     * The name of the Neptune parameter.
+     */
+    readonly name: string;
+    /**
+     * A list of Neptune parameters to apply.
+     */
+    readonly parameters?: { applyMethod?: string, name: string, value: string }[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

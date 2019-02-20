@@ -127,3 +127,25 @@ export interface S3BucketAssociationArgs {
      */
     readonly prefix?: pulumi.Input<string>;
 }
+
+/**
+ * The live S3BucketAssociation resource.
+ */
+export interface S3BucketAssociationResult {
+    /**
+     * The name of the S3 bucket that you want to associate with Amazon Macie.
+     */
+    readonly bucketName: string;
+    /**
+     * The configuration of how Amazon Macie classifies the S3 objects.
+     */
+    readonly classificationType: { continuous?: string, oneTime?: string };
+    /**
+     * The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `member_account_id` isn't specified, the action associates specified S3 resources with Macie for the current master account.
+     */
+    readonly memberAccountId?: string;
+    /**
+     * Object key prefix identifying one or more S3 objects to which the association applies.
+     */
+    readonly prefix?: string;
+}

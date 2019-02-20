@@ -115,3 +115,17 @@ export interface DomainPolicyArgs {
      */
     readonly domainName: pulumi.Input<string>;
 }
+
+/**
+ * The live DomainPolicy resource.
+ */
+export interface DomainPolicyResult {
+    /**
+     * IAM policy document specifying the access policies for the domain
+     */
+    readonly accessPolicies: string;
+    /**
+     * Name of the domain.
+     */
+    readonly domainName: string;
+}

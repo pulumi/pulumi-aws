@@ -165,3 +165,37 @@ export interface UserLoginProfileArgs {
      */
     readonly user: pulumi.Input<string>;
 }
+
+/**
+ * The live UserLoginProfile resource.
+ */
+export interface UserLoginProfileResult {
+    /**
+     * The encrypted password, base64 encoded.
+     */
+    readonly encryptedPassword: string;
+    /**
+     * The fingerprint of the PGP key used to encrypt
+     * the password
+     */
+    readonly keyFingerprint: string;
+    /**
+     * The length of the generated
+     * password.
+     */
+    readonly passwordLength?: number;
+    /**
+     * Whether the
+     * user should be forced to reset the generated password on first login.
+     */
+    readonly passwordResetRequired?: boolean;
+    /**
+     * Either a base-64 encoded PGP public key, or a
+     * keybase username in the form `keybase:username`.
+     */
+    readonly pgpKey: string;
+    /**
+     * The IAM user's name.
+     */
+    readonly user: string;
+}

@@ -107,3 +107,21 @@ export interface AggregateAuthorizationArgs {
      */
     readonly region: pulumi.Input<string>;
 }
+
+/**
+ * The live AggregateAuthorization resource.
+ */
+export interface AggregateAuthorizationResult {
+    /**
+     * Account ID
+     */
+    readonly accountId: string;
+    /**
+     * The ARN of the authorization
+     */
+    readonly arn: string;
+    /**
+     * Region
+     */
+    readonly region: string;
+}

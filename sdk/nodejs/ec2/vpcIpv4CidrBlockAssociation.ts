@@ -103,3 +103,17 @@ export interface VpcIpv4CidrBlockAssociationArgs {
      */
     readonly vpcId: pulumi.Input<string>;
 }
+
+/**
+ * The live VpcIpv4CidrBlockAssociation resource.
+ */
+export interface VpcIpv4CidrBlockAssociationResult {
+    /**
+     * The additional IPv4 CIDR block to associate with the VPC.
+     */
+    readonly cidrBlock: string;
+    /**
+     * The ID of the VPC to make the association with.
+     */
+    readonly vpcId: string;
+}

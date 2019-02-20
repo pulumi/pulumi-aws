@@ -183,3 +183,41 @@ export interface NotebookInstanceArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live NotebookInstance resource.
+ */
+export interface NotebookInstanceResult {
+    /**
+     * The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
+     */
+    readonly arn: string;
+    /**
+     * The name of ML compute instance type.
+     */
+    readonly instanceType: string;
+    /**
+     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+     */
+    readonly kmsKeyId?: string;
+    /**
+     * The name of the notebook instance (must be unique).
+     */
+    readonly name: string;
+    /**
+     * The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
+     */
+    readonly roleArn: string;
+    /**
+     * The associated security groups.
+     */
+    readonly securityGroups: string[];
+    /**
+     * The VPC subnet ID.
+     */
+    readonly subnetId?: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

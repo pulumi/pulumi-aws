@@ -113,3 +113,25 @@ export interface RouteTableArgs {
      */
     readonly transitGatewayId: pulumi.Input<string>;
 }
+
+/**
+ * The live RouteTable resource.
+ */
+export interface RouteTableResult {
+    /**
+     * Boolean whether this is the default association route table for the EC2 Transit Gateway.
+     */
+    readonly defaultAssociationRouteTable: boolean;
+    /**
+     * Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
+     */
+    readonly defaultPropagationRouteTable: boolean;
+    /**
+     * Key-value tags for the EC2 Transit Gateway Route Table.
+     */
+    readonly tags?: {[key: string]: string};
+    /**
+     * Identifier of EC2 Transit Gateway.
+     */
+    readonly transitGatewayId: string;
+}

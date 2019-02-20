@@ -100,3 +100,21 @@ export interface ClusterArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live Cluster resource.
+ */
+export interface ClusterResult {
+    /**
+     * The Amazon Resource Name (ARN) that identifies the cluster
+     */
+    readonly arn: string;
+    /**
+     * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+     */
+    readonly name: string;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: {[key: string]: any};
+}

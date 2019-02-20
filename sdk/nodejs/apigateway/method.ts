@@ -301,3 +301,60 @@ export interface MethodArgs {
      */
     readonly restApi: pulumi.Input<RestApi>;
 }
+
+/**
+ * The live Method resource.
+ */
+export interface MethodResult {
+    /**
+     * Specify if the method requires an API key
+     */
+    readonly apiKeyRequired?: boolean;
+    /**
+     * The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
+     */
+    readonly authorization: string;
+    /**
+     * The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
+     */
+    readonly authorizationScopes?: string[];
+    /**
+     * The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+     */
+    readonly authorizerId?: string;
+    /**
+     * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     */
+    readonly httpMethod: string;
+    /**
+     * A map of the API models used for the request's content type
+     * where key is the content type (e.g. `application/json`)
+     * and value is either `Error`, `Empty` (built-in models) or `aws_api_gateway_model`'s `name`.
+     */
+    readonly requestModels?: {[key: string]: string};
+    /**
+     * A map of request query string parameters and headers that should be passed to the integration.
+     * For example:
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
+     * would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
+     */
+    readonly requestParameters?: {[key: string]: boolean};
+    /**
+     * **Deprecated**, use `request_parameters` instead.
+     */
+    readonly requestParametersInJson?: string;
+    /**
+     * The ID of a `aws_api_gateway_request_validator`
+     */
+    readonly requestValidatorId?: string;
+    /**
+     * The API resource ID
+     */
+    readonly resourceId: string;
+    /**
+     * The ID of the associated REST API
+     */
+    readonly restApi: RestApi;
+}

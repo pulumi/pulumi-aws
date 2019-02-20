@@ -125,3 +125,25 @@ export interface DatabaseArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live Database resource.
+ */
+export interface DatabaseResult {
+    /**
+     * Name of s3 bucket to save the results of the query execution.
+     */
+    readonly bucket: string;
+    /**
+     * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
+     */
+    readonly encryptionConfiguration?: { encryptionOption: string, kmsKey?: string };
+    /**
+     * A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+     */
+    readonly forceDestroy?: boolean;
+    /**
+     * Name of the database to create.
+     */
+    readonly name: string;
+}

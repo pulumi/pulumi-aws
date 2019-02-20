@@ -195,3 +195,33 @@ export interface EmailChannelArgs {
      */
     readonly roleArn: pulumi.Input<string>;
 }
+
+/**
+ * The live EmailChannel resource.
+ */
+export interface EmailChannelResult {
+    /**
+     * The application ID.
+     */
+    readonly applicationId: string;
+    /**
+     * Whether the channel is enabled or disabled. Defaults to `true`.
+     */
+    readonly enabled?: boolean;
+    /**
+     * The email address used to send emails from.
+     */
+    readonly fromAddress: string;
+    /**
+     * The ARN of an identity verified with SES.
+     */
+    readonly identity: string;
+    /**
+     * Messages per second that can be sent.
+     */
+    readonly messagesPerSecond: number;
+    /**
+     * The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+     */
+    readonly roleArn: string;
+}

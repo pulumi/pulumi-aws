@@ -169,3 +169,34 @@ export interface RouteArgs {
     readonly spec: pulumi.Input<{ httpRoute?: pulumi.Input<{ action: pulumi.Input<{ weightedTargets: pulumi.Input<pulumi.Input<{ virtualNode: pulumi.Input<string>, weight: pulumi.Input<number> }>[]> }>, match: pulumi.Input<{ prefix: pulumi.Input<string> }> }> }>;
     readonly virtualRouterName: pulumi.Input<string>;
 }
+
+/**
+ * The live Route resource.
+ */
+export interface RouteResult {
+    /**
+     * The ARN of the route.
+     */
+    readonly arn: string;
+    /**
+     * The creation date of the route.
+     */
+    readonly createdDate: string;
+    /**
+     * The last update date of the route.
+     */
+    readonly lastUpdatedDate: string;
+    /**
+     * The name of the service mesh in which to create the route.
+     */
+    readonly meshName: string;
+    /**
+     * The name to use for the route.
+     */
+    readonly name: string;
+    /**
+     * The route specification to apply.
+     */
+    readonly spec: { httpRoute?: { action: { weightedTargets: { virtualNode: string, weight: number }[] }, match: { prefix: string } } };
+    readonly virtualRouterName: string;
+}

@@ -265,3 +265,58 @@ export interface RoleArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live Role resource.
+ */
+export interface RoleResult {
+    /**
+     * The Amazon Resource Name (ARN) specifying the role.
+     */
+    readonly arn: string;
+    /**
+     * The policy that grants an entity permission to assume the role.
+     */
+    readonly assumeRolePolicy: string;
+    /**
+     * The creation date of the IAM role.
+     */
+    readonly createDate: string;
+    /**
+     * The description of the role.
+     */
+    readonly description?: string;
+    /**
+     * Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
+     */
+    readonly forceDetachPolicies?: boolean;
+    /**
+     * The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
+     */
+    readonly maxSessionDuration?: number;
+    /**
+     * The name of the role. If omitted, Terraform will assign a random, unique name.
+     */
+    readonly name: string;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    readonly namePrefix?: string;
+    /**
+     * The path to the role.
+     * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+     */
+    readonly path?: string;
+    /**
+     * The ARN of the policy that is used to set the permissions boundary for the role.
+     */
+    readonly permissionsBoundary?: string;
+    /**
+     * Key-value mapping of tags for the IAM role
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The stable and unique string identifying the role.
+     */
+    readonly uniqueId: string;
+}

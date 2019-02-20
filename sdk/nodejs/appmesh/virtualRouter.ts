@@ -144,3 +144,33 @@ export interface VirtualRouterArgs {
      */
     readonly spec: pulumi.Input<{ serviceNames: pulumi.Input<pulumi.Input<string>[]> }>;
 }
+
+/**
+ * The live VirtualRouter resource.
+ */
+export interface VirtualRouterResult {
+    /**
+     * The ARN of the virtual router.
+     */
+    readonly arn: string;
+    /**
+     * The creation date of the virtual router.
+     */
+    readonly createdDate: string;
+    /**
+     * The last update date of the virtual router.
+     */
+    readonly lastUpdatedDate: string;
+    /**
+     * The name of the service mesh in which to create the virtual router.
+     */
+    readonly meshName: string;
+    /**
+     * The name to use for the virtual router.
+     */
+    readonly name: string;
+    /**
+     * The virtual router specification to apply.
+     */
+    readonly spec: { serviceNames: string[] };
+}

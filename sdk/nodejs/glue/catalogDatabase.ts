@@ -132,3 +132,29 @@ export interface CatalogDatabaseArgs {
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
+
+/**
+ * The live CatalogDatabase resource.
+ */
+export interface CatalogDatabaseResult {
+    /**
+     * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
+     */
+    readonly catalogId: string;
+    /**
+     * Description of the database.
+     */
+    readonly description?: string;
+    /**
+     * The location of the database (for example, an HDFS path).
+     */
+    readonly locationUri?: string;
+    /**
+     * The name of the database.
+     */
+    readonly name: string;
+    /**
+     * A list of key-value pairs that define parameters and properties of the database.
+     */
+    readonly parameters?: {[key: string]: string};
+}

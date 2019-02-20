@@ -215,3 +215,50 @@ export interface CertificateArgs {
      */
     readonly validationMethod?: pulumi.Input<string>;
 }
+
+/**
+ * The live Certificate resource.
+ */
+export interface CertificateResult {
+    /**
+     * The ARN of the certificate
+     */
+    readonly arn: string;
+    /**
+     * The certificate's PEM-formatted public key
+     */
+    readonly certificateBody?: string;
+    /**
+     * The certificate's PEM-formatted chain
+     */
+    readonly certificateChain?: string;
+    /**
+     * A domain name for which the certificate should be issued
+     */
+    readonly domainName: string;
+    /**
+     * A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+     */
+    readonly domainValidationOptions: { domainName: string, resourceRecordName: string, resourceRecordType: string, resourceRecordValue: string }[];
+    /**
+     * The certificate's PEM-formatted private key
+     */
+    readonly privateKey?: string;
+    /**
+     * A list of domains that should be SANs in the issued certificate
+     */
+    readonly subjectAlternativeNames: string[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+     */
+    readonly validationEmails: string[];
+    /**
+     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into Terraform.
+     * * Importing an existing certificate
+     */
+    readonly validationMethod: string;
+}

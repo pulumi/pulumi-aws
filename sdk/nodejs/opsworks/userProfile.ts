@@ -125,3 +125,25 @@ export interface UserProfileArgs {
      */
     readonly userArn: pulumi.Input<string>;
 }
+
+/**
+ * The live UserProfile resource.
+ */
+export interface UserProfileResult {
+    /**
+     * Whether users can specify their own SSH public key through the My Settings page
+     */
+    readonly allowSelfManagement?: boolean;
+    /**
+     * The users public key
+     */
+    readonly sshPublicKey?: string;
+    /**
+     * The ssh username, with witch this user wants to log in
+     */
+    readonly sshUsername: string;
+    /**
+     * The user's IAM ARN
+     */
+    readonly userArn: string;
+}

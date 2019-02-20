@@ -97,3 +97,17 @@ export interface AmiLaunchPermissionArgs {
      */
     readonly imageId: pulumi.Input<string>;
 }
+
+/**
+ * The live AmiLaunchPermission resource.
+ */
+export interface AmiLaunchPermissionResult {
+    /**
+     * An AWS Account ID to add launch permissions.
+     */
+    readonly accountId: string;
+    /**
+     * A region-unique name for the AMI.
+     */
+    readonly imageId: string;
+}

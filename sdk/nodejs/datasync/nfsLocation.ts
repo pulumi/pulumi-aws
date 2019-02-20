@@ -147,3 +147,30 @@ export interface NfsLocationArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
+
+/**
+ * The live NfsLocation resource.
+ */
+export interface NfsLocationResult {
+    /**
+     * Amazon Resource Name (ARN) of the DataSync Location.
+     */
+    readonly arn: string;
+    /**
+     * Configuration block containing information for connecting to the NFS File System.
+     */
+    readonly onPremConfig: { agentArns: string[] };
+    /**
+     * Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
+     */
+    readonly serverHostname: string;
+    /**
+     * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
+     */
+    readonly subdirectory: string;
+    /**
+     * Key-value pairs of resource tags to assign to the DataSync Location.
+     */
+    readonly tags?: {[key: string]: string};
+    readonly uri: string;
+}

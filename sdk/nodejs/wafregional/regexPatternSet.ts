@@ -94,3 +94,17 @@ export interface RegexPatternSetArgs {
      */
     readonly regexPatternStrings?: pulumi.Input<pulumi.Input<string>[]>;
 }
+
+/**
+ * The live RegexPatternSet resource.
+ */
+export interface RegexPatternSetResult {
+    /**
+     * The name or description of the Regex Pattern Set.
+     */
+    readonly name: string;
+    /**
+     * A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+     */
+    readonly regexPatternStrings?: string[];
+}

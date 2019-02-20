@@ -150,3 +150,17 @@ export interface WebAclAssociationArgs {
      */
     readonly webAclId: pulumi.Input<string>;
 }
+
+/**
+ * The live WebAclAssociation resource.
+ */
+export interface WebAclAssociationResult {
+    /**
+     * Application Load Balancer ARN to associate with.
+     */
+    readonly resourceArn: string;
+    /**
+     * The ID of the WAF Regional WebACL to create an association.
+     */
+    readonly webAclId: string;
+}

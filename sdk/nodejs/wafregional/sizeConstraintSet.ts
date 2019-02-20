@@ -98,3 +98,17 @@ export interface SizeConstraintSetArgs {
      */
     readonly sizeConstraints?: pulumi.Input<pulumi.Input<{ comparisonOperator: pulumi.Input<string>, fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, size: pulumi.Input<number>, textTransformation: pulumi.Input<string> }>[]>;
 }
+
+/**
+ * The live SizeConstraintSet resource.
+ */
+export interface SizeConstraintSetResult {
+    /**
+     * The name or description of the Size Constraint Set.
+     */
+    readonly name: string;
+    /**
+     * Specifies the parts of web requests that you want to inspect the size of.
+     */
+    readonly sizeConstraints?: { comparisonOperator: string, fieldToMatch: { data?: string, type: string }, size: number, textTransformation: string }[];
+}

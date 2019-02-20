@@ -175,3 +175,36 @@ export interface ConfigurationTemplateArgs {
      */
     readonly solutionStackName?: pulumi.Input<string>;
 }
+
+/**
+ * The live ConfigurationTemplate resource.
+ */
+export interface ConfigurationTemplateResult {
+    /**
+     * name of the application to associate with this configuration template
+     */
+    readonly application: string;
+    /**
+     * Short description of the Template
+     */
+    readonly description?: string;
+    /**
+     * The ID of the environment used with this configuration template
+     */
+    readonly environmentId?: string;
+    /**
+     * A unique name for this Template.
+     */
+    readonly name: string;
+    /**
+     * Option settings to configure the new Environment. These
+     * override specific values that are set as defaults. The format is detailed
+     * below in Option Settings
+     */
+    readonly settings: { name: string, namespace: string, resource?: string, value: string }[];
+    /**
+     * A solution stack to base your Template
+     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     */
+    readonly solutionStackName?: string;
+}

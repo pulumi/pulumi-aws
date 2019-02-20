@@ -138,3 +138,25 @@ export interface MaintenanceWindowTargetArgs {
      */
     readonly windowId: pulumi.Input<string>;
 }
+
+/**
+ * The live MaintenanceWindowTarget resource.
+ */
+export interface MaintenanceWindowTargetResult {
+    /**
+     * User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
+     */
+    readonly ownerInformation?: string;
+    /**
+     * The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
+     */
+    readonly resourceType: string;
+    /**
+     * The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value.
+     */
+    readonly targets: { key: string, values: string[] }[];
+    /**
+     * The Id of the maintenance window to register the target with.
+     */
+    readonly windowId: string;
+}

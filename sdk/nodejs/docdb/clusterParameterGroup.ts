@@ -165,3 +165,37 @@ export interface ClusterParameterGroupArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live ClusterParameterGroup resource.
+ */
+export interface ClusterParameterGroupResult {
+    /**
+     * The ARN of the documentDB cluster parameter group.
+     */
+    readonly arn: string;
+    /**
+     * The description of the documentDB cluster parameter group. Defaults to "Managed by Terraform".
+     */
+    readonly description?: string;
+    /**
+     * The family of the documentDB cluster parameter group.
+     */
+    readonly family: string;
+    /**
+     * The name of the documentDB parameter.
+     */
+    readonly name: string;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    readonly namePrefix: string;
+    /**
+     * A list of documentDB parameters to apply.
+     */
+    readonly parameters?: { applyMethod?: string, name: string, value: string }[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

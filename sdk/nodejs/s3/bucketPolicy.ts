@@ -120,3 +120,17 @@ export interface BucketPolicyArgs {
      */
     readonly policy: pulumi.Input<string | PolicyDocument>;
 }
+
+/**
+ * The live BucketPolicy resource.
+ */
+export interface BucketPolicyResult {
+    /**
+     * The name of the bucket to which to apply the policy.
+     */
+    readonly bucket: string;
+    /**
+     * The text of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
+     */
+    readonly policy: string;
+}

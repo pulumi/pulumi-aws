@@ -216,3 +216,53 @@ export interface RouteArgs {
      */
     readonly vpcPeeringConnectionId?: pulumi.Input<string>;
 }
+
+/**
+ * The live Route resource.
+ */
+export interface RouteResult {
+    /**
+     * The destination CIDR block.
+     */
+    readonly destinationCidrBlock?: string;
+    /**
+     * The destination IPv6 CIDR block.
+     */
+    readonly destinationIpv6CidrBlock?: string;
+    readonly destinationPrefixListId: string;
+    /**
+     * Identifier of a VPC Egress Only Internet Gateway.
+     */
+    readonly egressOnlyGatewayId: string;
+    /**
+     * Identifier of a VPC internet gateway or a virtual private gateway.
+     */
+    readonly gatewayId: string;
+    /**
+     * Identifier of an EC2 instance.
+     */
+    readonly instanceId: string;
+    readonly instanceOwnerId: string;
+    /**
+     * Identifier of a VPC NAT gateway.
+     */
+    readonly natGatewayId: string;
+    /**
+     * Identifier of an EC2 network interface.
+     */
+    readonly networkInterfaceId: string;
+    readonly origin: string;
+    /**
+     * The ID of the routing table.
+     */
+    readonly routeTableId: string;
+    readonly state: string;
+    /**
+     * Identifier of an EC2 Transit Gateway.
+     */
+    readonly transitGatewayId?: string;
+    /**
+     * Identifier of a VPC peering connection.
+     */
+    readonly vpcPeeringConnectionId?: string;
+}

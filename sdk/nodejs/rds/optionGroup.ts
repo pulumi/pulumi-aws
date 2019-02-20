@@ -204,3 +204,41 @@ export interface OptionGroupArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live OptionGroup resource.
+ */
+export interface OptionGroupResult {
+    /**
+     * The ARN of the db option group.
+     */
+    readonly arn: string;
+    /**
+     * Specifies the name of the engine that this option group should be associated with.
+     */
+    readonly engineName: string;
+    /**
+     * Specifies the major version of the engine that this option group should be associated with.
+     */
+    readonly majorEngineVersion: string;
+    /**
+     * The Name of the setting.
+     */
+    readonly name: string;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
+     */
+    readonly namePrefix: string;
+    /**
+     * A list of Options to apply.
+     */
+    readonly options?: { dbSecurityGroupMemberships?: string[], optionName: string, optionSettings?: { name: string, value: string }[], port?: number, version?: string, vpcSecurityGroupMemberships?: string[] }[];
+    /**
+     * The description of the option group. Defaults to "Managed by Terraform".
+     */
+    readonly optionGroupDescription: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

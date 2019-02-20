@@ -241,3 +241,53 @@ export interface HostedPublicVirtualInterfaceArgs {
      */
     readonly vlan: pulumi.Input<number>;
 }
+
+/**
+ * The live HostedPublicVirtualInterface resource.
+ */
+export interface HostedPublicVirtualInterfaceResult {
+    /**
+     * The address family for the BGP peer. `ipv4 ` or `ipv6`.
+     */
+    readonly addressFamily: string;
+    /**
+     * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
+     */
+    readonly amazonAddress: string;
+    /**
+     * The ARN of the virtual interface.
+     */
+    readonly arn: string;
+    /**
+     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     */
+    readonly bgpAsn: number;
+    /**
+     * The authentication key for BGP configuration.
+     */
+    readonly bgpAuthKey: string;
+    /**
+     * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
+     */
+    readonly connectionId: string;
+    /**
+     * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
+     */
+    readonly customerAddress: string;
+    /**
+     * The name for the virtual interface.
+     */
+    readonly name: string;
+    /**
+     * The AWS account that will own the new virtual interface.
+     */
+    readonly ownerAccountId: string;
+    /**
+     * A list of routes to be advertised to the AWS network in this region.
+     */
+    readonly routeFilterPrefixes: string[];
+    /**
+     * The VLAN ID.
+     */
+    readonly vlan: number;
+}

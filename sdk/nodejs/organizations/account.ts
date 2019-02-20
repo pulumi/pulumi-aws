@@ -148,3 +148,32 @@ export interface AccountArgs {
      */
     readonly roleName?: pulumi.Input<string>;
 }
+
+/**
+ * The live Account resource.
+ */
+export interface AccountResult {
+    /**
+     * The ARN for this account.
+     */
+    readonly arn: string;
+    /**
+     * The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+     */
+    readonly email: string;
+    /**
+     * If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
+     */
+    readonly iamUserAccessToBilling?: string;
+    readonly joinedMethod: string;
+    readonly joinedTimestamp: string;
+    /**
+     * A friendly name for the member account.
+     */
+    readonly name: string;
+    /**
+     * The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account.
+     */
+    readonly roleName?: string;
+    readonly status: string;
+}

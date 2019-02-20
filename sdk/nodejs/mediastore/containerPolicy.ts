@@ -115,3 +115,17 @@ export interface ContainerPolicyArgs {
      */
     readonly policy: pulumi.Input<string>;
 }
+
+/**
+ * The live ContainerPolicy resource.
+ */
+export interface ContainerPolicyResult {
+    /**
+     * The name of the container.
+     */
+    readonly containerName: string;
+    /**
+     * The contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
+     */
+    readonly policy: string;
+}

@@ -204,3 +204,44 @@ export interface DeploymentArgs {
      */
     readonly variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
+
+/**
+ * The live Deployment resource.
+ */
+export interface DeploymentResult {
+    /**
+     * The creation date of the deployment
+     */
+    readonly createdDate: string;
+    /**
+     * The description of the deployment
+     */
+    readonly description?: string;
+    /**
+     * The execution ARN to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
+     * when allowing API Gateway to invoke a Lambda function,
+     * e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+     */
+    readonly executionArn: string;
+    /**
+     * The URL to invoke the API pointing to the stage,
+     * e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+     */
+    readonly invokeUrl: string;
+    /**
+     * The ID of the associated REST API
+     */
+    readonly restApi: RestApi;
+    /**
+     * The description of the stage
+     */
+    readonly stageDescription?: string;
+    /**
+     * The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment. Use `""` to point at the default stage.
+     */
+    readonly stageName: string;
+    /**
+     * A map that defines variables for the stage
+     */
+    readonly variables?: {[key: string]: string};
+}

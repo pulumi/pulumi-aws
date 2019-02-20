@@ -95,3 +95,17 @@ export interface DomainArgs {
      */
     readonly domainName: pulumi.Input<string>;
 }
+
+/**
+ * The live Domain resource.
+ */
+export interface DomainResult {
+    /**
+     * The ARN of the Lightsail domain
+     */
+    readonly arn: string;
+    /**
+     * The name of the Lightsail domain to manage
+     */
+    readonly domainName: string;
+}

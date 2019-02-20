@@ -220,3 +220,37 @@ export interface EventDestinationArgs {
      */
     readonly snsDestination?: pulumi.Input<{ topicArn: pulumi.Input<string> }>;
 }
+
+/**
+ * The live EventDestination resource.
+ */
+export interface EventDestinationResult {
+    /**
+     * CloudWatch destination for the events
+     */
+    readonly cloudwatchDestinations?: { defaultValue: string, dimensionName: string, valueSource: string }[];
+    /**
+     * The name of the configuration set
+     */
+    readonly configurationSetName: string;
+    /**
+     * If true, the event destination will be enabled
+     */
+    readonly enabled?: boolean;
+    /**
+     * Send the events to a kinesis firehose destination
+     */
+    readonly kinesisDestination?: { roleArn: string, streamArn: string };
+    /**
+     * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
+     */
+    readonly matchingTypes: string[];
+    /**
+     * The name of the event destination
+     */
+    readonly name: string;
+    /**
+     * Send the events to an SNS Topic destination
+     */
+    readonly snsDestination?: { topicArn: string };
+}

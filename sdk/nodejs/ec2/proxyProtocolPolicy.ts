@@ -124,3 +124,19 @@ export interface ProxyProtocolPolicyArgs {
      */
     readonly loadBalancer: pulumi.Input<string>;
 }
+
+/**
+ * The live ProxyProtocolPolicy resource.
+ */
+export interface ProxyProtocolPolicyResult {
+    /**
+     * List of instance ports to which the policy
+     * should be applied. This can be specified if the protocol is SSL or TCP.
+     */
+    readonly instancePorts: string[];
+    /**
+     * The load balancer to which the policy
+     * should be attached.
+     */
+    readonly loadBalancer: string;
+}

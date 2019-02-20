@@ -170,3 +170,41 @@ export interface EnvironmentEC2Args {
      */
     readonly subnetId?: pulumi.Input<string>;
 }
+
+/**
+ * The live EnvironmentEC2 resource.
+ */
+export interface EnvironmentEC2Result {
+    /**
+     * The ARN of the environment.
+     */
+    readonly arn: string;
+    /**
+     * The number of minutes until the running instance is shut down after the environment has last been used.
+     */
+    readonly automaticStopTimeMinutes?: number;
+    /**
+     * The description of the environment.
+     */
+    readonly description?: string;
+    /**
+     * The type of instance to connect to the environment, e.g. `t2.micro`.
+     */
+    readonly instanceType: string;
+    /**
+     * The name of the environment.
+     */
+    readonly name: string;
+    /**
+     * The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
+     */
+    readonly ownerArn: string;
+    /**
+     * The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
+     */
+    readonly subnetId?: string;
+    /**
+     * The type of the environment (e.g. `ssh` or `ec2`)
+     */
+    readonly type: string;
+}

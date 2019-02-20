@@ -108,3 +108,21 @@ export interface ResourceShareArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live ResourceShare resource.
+ */
+export interface ResourceShareResult {
+    /**
+     * Indicates whether principals outside your organization can be associated with a resource share.
+     */
+    readonly allowExternalPrincipals?: boolean;
+    /**
+     * The name of the resource share.
+     */
+    readonly name: string;
+    /**
+     * A mapping of tags to assign to the resource share.
+     */
+    readonly tags?: {[key: string]: any};
+}

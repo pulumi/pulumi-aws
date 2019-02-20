@@ -161,3 +161,17 @@ export interface NetworkInterfaceSecurityGroupAttachmentArgs {
      */
     readonly securityGroupId: pulumi.Input<string>;
 }
+
+/**
+ * The live NetworkInterfaceSecurityGroupAttachment resource.
+ */
+export interface NetworkInterfaceSecurityGroupAttachmentResult {
+    /**
+     * The ID of the network interface to attach to.
+     */
+    readonly networkInterfaceId: string;
+    /**
+     * The ID of the security group.
+     */
+    readonly securityGroupId: string;
+}

@@ -250,3 +250,39 @@ export interface DefaultNetworkAclArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live DefaultNetworkAcl resource.
+ */
+export interface DefaultNetworkAclResult {
+    /**
+     * The Network ACL ID to manage. This
+     * attribute is exported from `aws_vpc`, or manually found via the AWS Console.
+     */
+    readonly defaultNetworkAclId: string;
+    /**
+     * Specifies an egress rule. Parameters defined below.
+     */
+    readonly egress?: { action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[];
+    /**
+     * Specifies an ingress rule. Parameters defined below.
+     */
+    readonly ingress?: { action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[];
+    /**
+     * The ID of the AWS account that owns the Default Network ACL
+     */
+    readonly ownerId: string;
+    /**
+     * A list of Subnet IDs to apply the ACL to. See the
+     * notes below on managing Subnets in the Default Network ACL
+     */
+    readonly subnetIds?: string[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The ID of the associated VPC
+     */
+    readonly vpcId: string;
+}

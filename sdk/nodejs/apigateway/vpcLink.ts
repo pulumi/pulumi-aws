@@ -117,3 +117,21 @@ export interface VpcLinkArgs {
      */
     readonly targetArn: pulumi.Input<string>;
 }
+
+/**
+ * The live VpcLink resource.
+ */
+export interface VpcLinkResult {
+    /**
+     * The description of the VPC link.
+     */
+    readonly description?: string;
+    /**
+     * The name used to label and identify the VPC link.
+     */
+    readonly name: string;
+    /**
+     * The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+     */
+    readonly targetArn: string;
+}

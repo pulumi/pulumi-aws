@@ -175,3 +175,37 @@ export interface ParameterGroupArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live ParameterGroup resource.
+ */
+export interface ParameterGroupResult {
+    /**
+     * The ARN of the db parameter group.
+     */
+    readonly arn: string;
+    /**
+     * The description of the DB parameter group. Defaults to "Managed by Terraform".
+     */
+    readonly description: string;
+    /**
+     * The family of the DB parameter group.
+     */
+    readonly family: string;
+    /**
+     * The name of the DB parameter.
+     */
+    readonly name: string;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    readonly namePrefix: string;
+    /**
+     * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+     */
+    readonly parameters?: { applyMethod?: string, name: string, value: string }[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

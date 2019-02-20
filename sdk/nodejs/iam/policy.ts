@@ -163,3 +163,34 @@ export interface PolicyArgs {
      */
     readonly policy: pulumi.Input<string>;
 }
+
+/**
+ * The live Policy resource.
+ */
+export interface PolicyResult {
+    /**
+     * The ARN assigned by AWS to this policy.
+     */
+    readonly arn: string;
+    /**
+     * Description of the IAM policy.
+     */
+    readonly description?: string;
+    /**
+     * The name of the policy. If omitted, Terraform will assign a random, unique name.
+     */
+    readonly name: string;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    readonly namePrefix?: string;
+    /**
+     * Path in which to create the policy.
+     * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+     */
+    readonly path?: string;
+    /**
+     * The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
+     */
+    readonly policy: string;
+}

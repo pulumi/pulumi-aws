@@ -116,3 +116,25 @@ export interface LoadBalancerPolicyArgs {
      */
     readonly policyTypeName: pulumi.Input<string>;
 }
+
+/**
+ * The live LoadBalancerPolicy resource.
+ */
+export interface LoadBalancerPolicyResult {
+    /**
+     * The load balancer on which the policy is defined.
+     */
+    readonly loadBalancerName: string;
+    /**
+     * Policy attribute to apply to the policy.
+     */
+    readonly policyAttributes?: { name?: string, value?: string }[];
+    /**
+     * The name of the load balancer policy.
+     */
+    readonly policyName: string;
+    /**
+     * The policy type.
+     */
+    readonly policyTypeName: string;
+}

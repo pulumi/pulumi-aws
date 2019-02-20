@@ -236,3 +236,37 @@ export interface GraphQLApiArgs {
      */
     readonly userPoolConfig?: pulumi.Input<{ appIdClientRegex?: pulumi.Input<string>, awsRegion?: pulumi.Input<string>, defaultAction: pulumi.Input<string>, userPoolId: pulumi.Input<string> }>;
 }
+
+/**
+ * The live GraphQLApi resource.
+ */
+export interface GraphQLApiResult {
+    /**
+     * The ARN
+     */
+    readonly arn: string;
+    /**
+     * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+     */
+    readonly authenticationType: string;
+    /**
+     * Nested argument containing logging configuration. Defined below.
+     */
+    readonly logConfig?: { cloudwatchLogsRoleArn: string, fieldLogLevel: string };
+    /**
+     * A user-supplied name for the GraphqlApi.
+     */
+    readonly name: string;
+    /**
+     * Nested argument containing OpenID Connect configuration. Defined below.
+     */
+    readonly openidConnectConfig?: { authTtl?: number, clientId?: string, iatTtl?: number, issuer: string };
+    /**
+     * Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+     */
+    readonly uris: {[key: string]: string};
+    /**
+     * The Amazon Cognito User Pool configuration. Defined below.
+     */
+    readonly userPoolConfig?: { appIdClientRegex?: string, awsRegion: string, defaultAction: string, userPoolId: string };
+}

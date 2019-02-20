@@ -147,3 +147,30 @@ export interface ReplicationSubnetGroupArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live ReplicationSubnetGroup resource.
+ */
+export interface ReplicationSubnetGroupResult {
+    readonly replicationSubnetGroupArn: string;
+    /**
+     * The description for the subnet group.
+     */
+    readonly replicationSubnetGroupDescription: string;
+    /**
+     * The name for the replication subnet group. This value is stored as a lowercase string.
+     */
+    readonly replicationSubnetGroupId: string;
+    /**
+     * A list of the EC2 subnet IDs for the subnet group.
+     */
+    readonly subnetIds: string[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The ID of the VPC the subnet group is in.
+     */
+    readonly vpcId: string;
+}

@@ -113,3 +113,25 @@ export interface BuildArgs {
      */
     readonly version?: pulumi.Input<string>;
 }
+
+/**
+ * The live Build resource.
+ */
+export interface BuildResult {
+    /**
+     * Name of the build
+     */
+    readonly name: string;
+    /**
+     * Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
+     */
+    readonly operatingSystem: string;
+    /**
+     * Information indicating where your game build files are stored. See below.
+     */
+    readonly storageLocation: { bucket: string, key: string, roleArn: string };
+    /**
+     * Version that is associated with this build.
+     */
+    readonly version?: string;
+}

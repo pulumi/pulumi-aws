@@ -237,3 +237,41 @@ export interface InventoryArgs {
      */
     readonly schedule: pulumi.Input<{ frequency: pulumi.Input<string> }>;
 }
+
+/**
+ * The live Inventory resource.
+ */
+export interface InventoryResult {
+    /**
+     * The S3 bucket configuration where inventory results are published (documented below).
+     */
+    readonly bucket: string;
+    /**
+     * Destination bucket where inventory list files are written (documented below).
+     */
+    readonly destination: { bucket: { accountId?: string, bucketArn: string, encryption?: { sseKms?: { keyId: string }, sseS3?: {  } }, format: string, prefix?: string } };
+    /**
+     * Specifies whether the inventory is enabled or disabled.
+     */
+    readonly enabled?: boolean;
+    /**
+     * Object filtering that accepts a prefix (documented below).
+     */
+    readonly filter?: { prefix?: string };
+    /**
+     * Object filtering that accepts a prefix (documented below). Can be `All` or `Current`.
+     */
+    readonly includedObjectVersions: string;
+    /**
+     * Unique identifier of the inventory configuration for the bucket.
+     */
+    readonly name: string;
+    /**
+     * Contains the optional fields that are included in the inventory results.
+     */
+    readonly optionalFields?: string[];
+    /**
+     * Contains the frequency for generating inventory results (documented below).
+     */
+    readonly schedule: { frequency: string };
+}

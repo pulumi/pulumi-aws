@@ -273,3 +273,65 @@ export interface ReceiptRuleArgs {
      */
     readonly workmailActions?: pulumi.Input<pulumi.Input<{ organizationArn: pulumi.Input<string>, position: pulumi.Input<number>, topicArn?: pulumi.Input<string> }>[]>;
 }
+
+/**
+ * The live ReceiptRule resource.
+ */
+export interface ReceiptRuleResult {
+    /**
+     * A list of Add Header Action blocks. Documented below.
+     */
+    readonly addHeaderActions?: { headerName: string, headerValue: string, position: number }[];
+    /**
+     * The name of the rule to place this rule after
+     */
+    readonly after?: string;
+    /**
+     * A list of Bounce Action blocks. Documented below.
+     */
+    readonly bounceActions?: { message: string, position: number, sender: string, smtpReplyCode: string, statusCode?: string, topicArn?: string }[];
+    /**
+     * If true, the rule will be enabled
+     */
+    readonly enabled: boolean;
+    /**
+     * A list of Lambda Action blocks. Documented below.
+     */
+    readonly lambdaActions?: { functionArn: string, invocationType: string, position: number, topicArn?: string }[];
+    /**
+     * The name of the rule
+     */
+    readonly name: string;
+    /**
+     * A list of email addresses
+     */
+    readonly recipients?: string[];
+    /**
+     * The name of the rule set
+     */
+    readonly ruleSetName: string;
+    /**
+     * A list of S3 Action blocks. Documented below.
+     */
+    readonly s3Actions?: { bucketName: string, kmsKeyArn?: string, objectKeyPrefix?: string, position: number, topicArn?: string }[];
+    /**
+     * If true, incoming emails will be scanned for spam and viruses
+     */
+    readonly scanEnabled: boolean;
+    /**
+     * A list of SNS Action blocks. Documented below.
+     */
+    readonly snsActions?: { position: number, topicArn: string }[];
+    /**
+     * A list of Stop Action blocks. Documented below.
+     */
+    readonly stopActions?: { position: number, scope: string, topicArn?: string }[];
+    /**
+     * Require or Optional
+     */
+    readonly tlsPolicy: string;
+    /**
+     * A list of WorkMail Action blocks. Documented below.
+     */
+    readonly workmailActions?: { organizationArn: string, position: number, topicArn?: string }[];
+}

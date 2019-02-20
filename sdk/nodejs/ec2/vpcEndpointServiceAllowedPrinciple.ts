@@ -106,3 +106,17 @@ export interface VpcEndpointServiceAllowedPrincipleArgs {
      */
     readonly vpcEndpointServiceId: pulumi.Input<string>;
 }
+
+/**
+ * The live VpcEndpointServiceAllowedPrinciple resource.
+ */
+export interface VpcEndpointServiceAllowedPrincipleResult {
+    /**
+     * The ARN of the principal to allow permissions.
+     */
+    readonly principalArn: string;
+    /**
+     * The ID of the VPC endpoint service to allow permission.
+     */
+    readonly vpcEndpointServiceId: string;
+}

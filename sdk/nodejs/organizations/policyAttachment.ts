@@ -123,3 +123,17 @@ export interface PolicyAttachmentArgs {
      */
     readonly targetId: pulumi.Input<string>;
 }
+
+/**
+ * The live PolicyAttachment resource.
+ */
+export interface PolicyAttachmentResult {
+    /**
+     * The unique identifier (ID) of the policy that you want to attach to the target.
+     */
+    readonly policyId: string;
+    /**
+     * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
+     */
+    readonly targetId: string;
+}

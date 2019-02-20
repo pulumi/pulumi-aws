@@ -137,3 +137,33 @@ export interface ThingArgs {
      */
     readonly thingTypeName?: pulumi.Input<string>;
 }
+
+/**
+ * The live Thing resource.
+ */
+export interface ThingResult {
+    /**
+     * The ARN of the thing.
+     */
+    readonly arn: string;
+    /**
+     * Map of attributes of the thing.
+     */
+    readonly attributes?: {[key: string]: any};
+    /**
+     * The default client ID.
+     */
+    readonly defaultClientId: string;
+    /**
+     * The name of the thing.
+     */
+    readonly name: string;
+    /**
+     * The thing type name.
+     */
+    readonly thingTypeName?: string;
+    /**
+     * The current version of the thing record in the registry.
+     */
+    readonly version: number;
+}

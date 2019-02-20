@@ -126,3 +126,25 @@ export interface PolicyArgs {
      */
     readonly policy: pulumi.Input<string>;
 }
+
+/**
+ * The live Policy resource.
+ */
+export interface PolicyResult {
+    /**
+     * The ARN assigned by AWS to this policy.
+     */
+    readonly arn: string;
+    /**
+     * The default version of this policy.
+     */
+    readonly defaultVersionId: string;
+    /**
+     * The name of the policy.
+     */
+    readonly name: string;
+    /**
+     * The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
+     */
+    readonly policy: string;
+}

@@ -104,3 +104,17 @@ export interface XssMatchSetArgs {
      */
     readonly xssMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, textTransformation: pulumi.Input<string> }>[]>;
 }
+
+/**
+ * The live XssMatchSet resource.
+ */
+export interface XssMatchSetResult {
+    /**
+     * The name or description of the SizeConstraintSet.
+     */
+    readonly name: string;
+    /**
+     * The parts of web requests that you want to inspect for cross-site scripting attacks.
+     */
+    readonly xssMatchTuples?: { fieldToMatch: { data?: string, type: string }, textTransformation: string }[];
+}

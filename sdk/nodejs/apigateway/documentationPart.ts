@@ -122,3 +122,21 @@ export interface DocumentationPartArgs {
      */
     readonly restApiId: pulumi.Input<string>;
 }
+
+/**
+ * The live DocumentationPart resource.
+ */
+export interface DocumentationPartResult {
+    /**
+     * The location of the targeted API entity of the to-be-created documentation part. See below.
+     */
+    readonly location: { method?: string, name?: string, path?: string, statusCode?: string, type: string };
+    /**
+     * A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
+     */
+    readonly properties: string;
+    /**
+     * The ID of the associated Rest API
+     */
+    readonly restApiId: string;
+}

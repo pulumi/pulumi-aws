@@ -151,3 +151,29 @@ export interface ModelArgs {
      */
     readonly schema?: pulumi.Input<string>;
 }
+
+/**
+ * The live Model resource.
+ */
+export interface ModelResult {
+    /**
+     * The content type of the model
+     */
+    readonly contentType: string;
+    /**
+     * The description of the model
+     */
+    readonly description?: string;
+    /**
+     * The name of the model
+     */
+    readonly name: string;
+    /**
+     * The ID of the associated REST API
+     */
+    readonly restApi: RestApi;
+    /**
+     * The schema of the model in a JSON form
+     */
+    readonly schema?: string;
+}

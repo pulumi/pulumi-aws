@@ -104,3 +104,17 @@ export interface ListenerCertificateArgs {
      */
     readonly listenerArn: pulumi.Input<string>;
 }
+
+/**
+ * The live ListenerCertificate resource.
+ */
+export interface ListenerCertificateResult {
+    /**
+     * The ARN of the certificate to attach to the listener.
+     */
+    readonly certificateArn: string;
+    /**
+     * The ARN of the listener to which to attach the certificate.
+     */
+    readonly listenerArn: string;
+}

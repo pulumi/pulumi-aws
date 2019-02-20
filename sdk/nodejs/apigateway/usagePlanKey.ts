@@ -148,3 +148,29 @@ export interface UsagePlanKeyArgs {
      */
     readonly usagePlanId: pulumi.Input<string>;
 }
+
+/**
+ * The live UsagePlanKey resource.
+ */
+export interface UsagePlanKeyResult {
+    /**
+     * The identifier of the API key resource.
+     */
+    readonly keyId: string;
+    /**
+     * The type of the API key resource. Currently, the valid key type is API_KEY.
+     */
+    readonly keyType: string;
+    /**
+     * The name of a usage plan key.
+     */
+    readonly name: string;
+    /**
+     * The Id of the usage plan resource representing to associate the key to.
+     */
+    readonly usagePlanId: string;
+    /**
+     * The value of a usage plan key.
+     */
+    readonly value: string;
+}

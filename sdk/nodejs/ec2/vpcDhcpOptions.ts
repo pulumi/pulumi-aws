@@ -190,3 +190,37 @@ export interface VpcDhcpOptionsArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live VpcDhcpOptions resource.
+ */
+export interface VpcDhcpOptionsResult {
+    /**
+     * the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
+     */
+    readonly domainName?: string;
+    /**
+     * List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
+     */
+    readonly domainNameServers?: string[];
+    /**
+     * List of NETBIOS name servers.
+     */
+    readonly netbiosNameServers?: string[];
+    /**
+     * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+     */
+    readonly netbiosNodeType?: string;
+    /**
+     * List of NTP servers to configure.
+     */
+    readonly ntpServers?: string[];
+    /**
+     * The ID of the AWS account that owns the DHCP options set.
+     */
+    readonly ownerId: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

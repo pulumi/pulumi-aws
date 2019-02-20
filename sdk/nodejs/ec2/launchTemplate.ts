@@ -472,3 +472,134 @@ export interface LaunchTemplateArgs {
      */
     readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
+
+/**
+ * The live LaunchTemplate resource.
+ */
+export interface LaunchTemplateResult {
+    /**
+     * Amazon Resource Name (ARN) of the launch template.
+     */
+    readonly arn: string;
+    /**
+     * Specify volumes to attach to the instance besides the volumes specified by the AMI.
+     * See Block Devices below for details.
+     */
+    readonly blockDeviceMappings?: { deviceName?: string, ebs?: { deleteOnTermination?: string, encrypted?: string, iops: number, kmsKeyId?: string, snapshotId?: string, volumeSize: number, volumeType: string }, noDevice?: string, virtualName?: string }[];
+    /**
+     * Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
+     */
+    readonly capacityReservationSpecification?: { capacityReservationPreference?: string, capacityReservationTarget?: { capacityReservationId?: string } };
+    /**
+     * Customize the credit specification of the instance. See Credit
+     * Specification below for more details.
+     */
+    readonly creditSpecification?: { cpuCredits?: string };
+    /**
+     * The default version of the launch template.
+     */
+    readonly defaultVersion: number;
+    /**
+     * Description of the launch template.
+     */
+    readonly description?: string;
+    /**
+     * If `true`, enables [EC2 Instance
+     * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+     */
+    readonly disableApiTermination?: boolean;
+    /**
+     * If `true`, the launched EC2 instance will be EBS-optimized.
+     */
+    readonly ebsOptimized?: string;
+    /**
+     * The elastic GPU to attach to the instance. See Elastic GPU
+     * below for more details.
+     */
+    readonly elasticGpuSpecifications?: { type: string }[];
+    /**
+     * The IAM Instance Profile to launch the instance with. See Instance Profile
+     * below for more details.
+     */
+    readonly iamInstanceProfile?: { arn?: string, name?: string };
+    /**
+     * The AMI from which to launch the instance.
+     */
+    readonly imageId?: string;
+    /**
+     * Shutdown behavior for the instance. Can be `stop` or `terminate`.
+     * (Default: `stop`).
+     */
+    readonly instanceInitiatedShutdownBehavior?: string;
+    /**
+     * The market (purchasing) option for the instance. See Market Options
+     * below for details.
+     */
+    readonly instanceMarketOptions?: { marketType?: string, spotOptions?: { blockDurationMinutes?: number, instanceInterruptionBehavior?: string, maxPrice?: string, spotInstanceType?: string, validUntil: string } };
+    /**
+     * The type of the instance.
+     */
+    readonly instanceType?: string;
+    /**
+     * The kernel ID.
+     */
+    readonly kernelId?: string;
+    /**
+     * The key name to use for the instance.
+     */
+    readonly keyName?: string;
+    /**
+     * The latest version of the launch template.
+     */
+    readonly latestVersion: number;
+    /**
+     * A list of license specifications to associate with. See License Specification below for more details.
+     */
+    readonly licenseSpecifications?: { licenseConfigurationArn: string }[];
+    /**
+     * The monitoring option for the instance. See Monitoring below for more details.
+     */
+    readonly monitoring?: { enabled?: boolean };
+    /**
+     * The name of the launch template. If you leave this blank, Terraform will auto-generate a unique name.
+     */
+    readonly name: string;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    readonly namePrefix?: string;
+    /**
+     * Customize network interfaces to be attached at instance boot time. See Network
+     * Interfaces below for more details.
+     */
+    readonly networkInterfaces?: { associatePublicIpAddress?: boolean, deleteOnTermination?: boolean, description?: string, deviceIndex?: number, ipv4AddressCount?: number, ipv4Addresses?: string[], ipv6AddressCount?: number, ipv6Addresses?: string[], networkInterfaceId?: string, privateIpAddress?: string, securityGroups?: string[], subnetId?: string }[];
+    /**
+     * The placement of the instance. See Placement below for more details.
+     */
+    readonly placement?: { affinity?: string, availabilityZone?: string, groupName?: string, hostId?: string, spreadDomain?: string, tenancy?: string };
+    /**
+     * The ID of the RAM disk.
+     */
+    readonly ramDiskId?: string;
+    /**
+     * A list of security group names to associate with. If you are creating Instances in a VPC, use
+     * `vpc_security_group_ids` instead.
+     */
+    readonly securityGroupNames?: string[];
+    /**
+     * The tags to apply to the resources during launch. See Tag Specifications below for more details.
+     */
+    readonly tagSpecifications?: { resourceType?: string, tags?: {[key: string]: any} }[];
+    /**
+     * A mapping of tags to assign to the launch template.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The Base64-encoded user data to provide when launching the instance.
+     */
+    readonly userData?: string;
+    /**
+     * A list of security group IDs to associate with.
+     */
+    readonly vpcSecurityGroupIds?: string[];
+}

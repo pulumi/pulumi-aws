@@ -192,3 +192,34 @@ export interface ApplicationVersionArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live ApplicationVersion resource.
+ */
+export interface ApplicationVersionResult {
+    /**
+     * Name of the Beanstalk Application the version is associated with.
+     */
+    readonly application: Application;
+    /**
+     * S3 bucket that contains the Application Version source bundle.
+     */
+    readonly bucket: string;
+    /**
+     * Short description of the Application Version.
+     */
+    readonly description?: string;
+    /**
+     * On delete, force an Application Version to be deleted when it may be in use
+     * by multiple Elastic Beanstalk Environments.
+     */
+    readonly forceDelete?: boolean;
+    /**
+     * S3 object that is the Application Version source bundle.
+     */
+    readonly key: string;
+    /**
+     * A unique name for the this Application Version.
+     */
+    readonly name: string;
+}

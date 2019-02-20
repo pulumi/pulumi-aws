@@ -143,3 +143,27 @@ export interface LogMetricFilterArgs {
      */
     readonly pattern: pulumi.Input<string>;
 }
+
+/**
+ * The live LogMetricFilter resource.
+ */
+export interface LogMetricFilterResult {
+    /**
+     * The name of the log group to associate the metric filter with.
+     */
+    readonly logGroupName: string;
+    /**
+     * A block defining collection of information
+     * needed to define how metric data gets emitted. See below.
+     */
+    readonly metricTransformation: { defaultValue?: string, name: string, namespace: string, value: string };
+    /**
+     * A name for the metric filter.
+     */
+    readonly name: string;
+    /**
+     * A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
+     * for extracting metric data out of ingested log events.
+     */
+    readonly pattern: string;
+}

@@ -107,3 +107,21 @@ export interface AssessmentTargetArgs {
      */
     readonly resourceGroupArn?: pulumi.Input<string>;
 }
+
+/**
+ * The live AssessmentTarget resource.
+ */
+export interface AssessmentTargetResult {
+    /**
+     * The target assessment ARN.
+     */
+    readonly arn: string;
+    /**
+     * The name of the assessment target.
+     */
+    readonly name: string;
+    /**
+     * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+     */
+    readonly resourceGroupArn?: string;
+}

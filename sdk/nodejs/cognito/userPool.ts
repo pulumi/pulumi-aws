@@ -356,3 +356,97 @@ export interface UserPoolArgs {
      */
     readonly verificationMessageTemplate?: pulumi.Input<{ defaultEmailOption?: pulumi.Input<string>, emailMessage?: pulumi.Input<string>, emailMessageByLink?: pulumi.Input<string>, emailSubject?: pulumi.Input<string>, emailSubjectByLink?: pulumi.Input<string>, smsMessage?: pulumi.Input<string> }>;
 }
+
+/**
+ * The live UserPool resource.
+ */
+export interface UserPoolResult {
+    /**
+     * The configuration for AdminCreateUser requests.
+     */
+    readonly adminCreateUserConfig: { allowAdminCreateUserOnly?: boolean, inviteMessageTemplate?: { emailMessage?: string, emailSubject?: string, smsMessage?: string }, unusedAccountValidityDays?: number };
+    /**
+     * Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `username_attributes`.
+     */
+    readonly aliasAttributes?: string[];
+    /**
+     * The ARN of the user pool.
+     */
+    readonly arn: string;
+    /**
+     * The attributes to be auto-verified. Possible values: email, phone_number.
+     */
+    readonly autoVerifiedAttributes?: string[];
+    /**
+     * The date the user pool was created.
+     */
+    readonly creationDate: string;
+    /**
+     * The configuration for the user pool's device tracking.
+     */
+    readonly deviceConfiguration?: { challengeRequiredOnNewDevice?: boolean, deviceOnlyRememberedOnUserPrompt?: boolean };
+    /**
+     * The Email Configuration.
+     */
+    readonly emailConfiguration?: { replyToEmailAddress?: string, sourceArn?: string };
+    /**
+     * A string representing the email verification message. Must contain the `{####}` placeholder. **NOTE:** - If `email_verification_message` and `verification_message_template.email_message` are specified and the values are different, either one is prioritized and updated.
+     */
+    readonly emailVerificationMessage: string;
+    /**
+     * A string representing the email verification subject. **NOTE:** - If `email_verification_subject` and `verification_message_template.email_subject` are specified and the values are different, either one is prioritized and updated.
+     */
+    readonly emailVerificationSubject: string;
+    /**
+     * The endpoint name of the user pool. Example format: cognito-idp.REGION.amazonaws.com/xxxx_yyyyy
+     */
+    readonly endpoint: string;
+    /**
+     * A container for the AWS Lambda triggers associated with the user pool.
+     */
+    readonly lambdaConfig: { createAuthChallenge?: string, customMessage?: string, defineAuthChallenge?: string, postAuthentication?: string, postConfirmation?: string, preAuthentication?: string, preSignUp?: string, preTokenGeneration?: string, userMigration?: string, verifyAuthChallengeResponse?: string };
+    /**
+     * The date the user pool was last modified.
+     */
+    readonly lastModifiedDate: string;
+    /**
+     * Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
+     */
+    readonly mfaConfiguration?: string;
+    /**
+     * The name of the attribute.
+     */
+    readonly name: string;
+    /**
+     * A container for information about the user pool password policy.
+     */
+    readonly passwordPolicy: { minimumLength?: number, requireLowercase?: boolean, requireNumbers?: boolean, requireSymbols?: boolean, requireUppercase?: boolean };
+    /**
+     * A container with the schema attributes of a user pool. Maximum of 50 attributes.
+     */
+    readonly schemas?: { attributeDataType: string, developerOnlyAttribute?: boolean, mutable?: boolean, name: string, numberAttributeConstraints?: { maxValue?: string, minValue?: string }, required?: boolean, stringAttributeConstraints?: { maxLength?: string, minLength?: string } }[];
+    /**
+     * A string representing the SMS authentication message.
+     */
+    readonly smsAuthenticationMessage?: string;
+    /**
+     * The SMS Configuration.
+     */
+    readonly smsConfiguration?: { externalId: string, snsCallerArn: string };
+    /**
+     * A string representing the SMS verification message.
+     */
+    readonly smsVerificationMessage?: string;
+    /**
+     * A mapping of tags to assign to the User Pool.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+     */
+    readonly usernameAttributes?: string[];
+    /**
+     * The verification message templates configuration.
+     */
+    readonly verificationMessageTemplate: { defaultEmailOption?: string, emailMessage: string, emailMessageByLink: string, emailSubject: string, emailSubjectByLink: string, smsMessage: string };
+}

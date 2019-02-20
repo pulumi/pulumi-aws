@@ -155,3 +155,36 @@ export interface LogGroupArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live LogGroup resource.
+ */
+export interface LogGroupResult {
+    /**
+     * The Amazon Resource Name (ARN) specifying the log group.
+     */
+    readonly arn: string;
+    /**
+     * The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
+     * AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
+     * permissions for the CMK whenever the encrypted data is requested.
+     */
+    readonly kmsKeyId?: string;
+    /**
+     * The name of the log group. If omitted, Terraform will assign a random, unique name.
+     */
+    readonly name: string;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    readonly namePrefix?: string;
+    /**
+     * Specifies the number of days
+     * you want to retain log events in the specified log group.
+     */
+    readonly retentionInDays?: number;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

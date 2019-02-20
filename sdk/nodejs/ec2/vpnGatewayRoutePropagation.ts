@@ -101,3 +101,17 @@ export interface VpnGatewayRoutePropagationArgs {
      */
     readonly vpnGatewayId: pulumi.Input<string>;
 }
+
+/**
+ * The live VpnGatewayRoutePropagation resource.
+ */
+export interface VpnGatewayRoutePropagationResult {
+    /**
+     * The id of the `aws_route_table` to propagate routes into.
+     */
+    readonly routeTableId: string;
+    /**
+     * The id of the `aws_vpn_gateway` to propagate routes from.
+     */
+    readonly vpnGatewayId: string;
+}

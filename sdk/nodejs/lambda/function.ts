@@ -519,3 +519,115 @@ export interface FunctionArgs {
      */
     readonly vpcConfig?: pulumi.Input<{ securityGroupIds: pulumi.Input<pulumi.Input<string>[]>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId?: pulumi.Input<string> }>;
 }
+
+/**
+ * The live Function resource.
+ */
+export interface FunctionResult {
+    /**
+     * The Amazon Resource Name (ARN) identifying your Lambda Function.
+     */
+    readonly arn: string;
+    /**
+     * Nested block to configure the function's *dead letter queue*. See details below.
+     */
+    readonly deadLetterConfig?: { targetArn: string };
+    /**
+     * Description of what your Lambda Function does.
+     */
+    readonly description?: string;
+    /**
+     * The Lambda environment's configuration settings. Fields documented below.
+     */
+    readonly environment?: { variables?: {[key: string]: string} };
+    /**
+     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+     */
+    readonly code?: pulumi.asset.Archive;
+    /**
+     * A unique name for your Lambda Function.
+     */
+    readonly name: string;
+    /**
+     * The function [entrypoint][3] in your code.
+     */
+    readonly handler: string;
+    /**
+     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+     */
+    readonly invokeArn: string;
+    /**
+     * The ARN for the KMS encryption key.
+     */
+    readonly kmsKeyArn?: string;
+    /**
+     * The date this resource was last modified.
+     */
+    readonly lastModified: string;
+    /**
+     * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
+     */
+    readonly layers?: string[];
+    /**
+     * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
+     */
+    readonly memorySize?: number;
+    /**
+     * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
+     */
+    readonly publish?: boolean;
+    /**
+     * The Amazon Resource Name (ARN) identifying your Lambda Function Version
+     * (if versioning is enabled via `publish = true`).
+     */
+    readonly qualifiedArn: string;
+    /**
+     * The amount of reserved concurrent executions for this lambda function. Defaults to Unreserved Concurrency Limits. See [Managing Concurrency][9]
+     */
+    readonly reservedConcurrentExecutions?: number;
+    /**
+     * IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
+     */
+    readonly role: ARN;
+    /**
+     * See [Runtimes][6] for valid values.
+     */
+    readonly runtime: string;
+    /**
+     * The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+     */
+    readonly s3Bucket?: string;
+    /**
+     * The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
+     */
+    readonly s3Key?: string;
+    /**
+     * The object version containing the function's deployment package. Conflicts with `filename`.
+     */
+    readonly s3ObjectVersion?: string;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${base64sha256(file("file.zip"))}`, where "file.zip" is the local filename of the lambda function source archive.
+     */
+    readonly sourceCodeHash: string;
+    /**
+     * The size in bytes of the function .zip file.
+     */
+    readonly sourceCodeSize: number;
+    /**
+     * A mapping of tags to assign to the object.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
+     */
+    readonly timeout?: number;
+    readonly tracingConfig: { mode: string };
+    /**
+     * Latest published version of your Lambda Function.
+     */
+    readonly version: string;
+    /**
+     * Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
+     */
+    readonly vpcConfig?: { securityGroupIds: string[], subnetIds: string[], vpcId: string };
+}

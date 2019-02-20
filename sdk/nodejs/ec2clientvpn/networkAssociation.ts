@@ -128,3 +128,29 @@ export interface NetworkAssociationArgs {
      */
     readonly subnetId: pulumi.Input<string>;
 }
+
+/**
+ * The live NetworkAssociation resource.
+ */
+export interface NetworkAssociationResult {
+    /**
+     * The ID of the Client VPN endpoint.
+     */
+    readonly clientVpnEndpointId: string;
+    /**
+     * The IDs of the security groups applied to the target network association.
+     */
+    readonly securityGroups: string[];
+    /**
+     * The current state of the target network association.
+     */
+    readonly status: string;
+    /**
+     * The ID of the subnet to associate with the Client VPN endpoint.
+     */
+    readonly subnetId: string;
+    /**
+     * The ID of the VPC in which the target network (subnet) is located. 
+     */
+    readonly vpcId: string;
+}

@@ -250,3 +250,57 @@ export interface PlatformApplicationArgs {
      */
     readonly successFeedbackSampleRate?: pulumi.Input<string>;
 }
+
+/**
+ * The live PlatformApplication resource.
+ */
+export interface PlatformApplicationResult {
+    /**
+     * The ARN of the SNS platform application
+     */
+    readonly arn: string;
+    /**
+     * SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+     */
+    readonly eventDeliveryFailureTopicArn?: string;
+    /**
+     * SNS Topic triggered when a new platform endpoint is added to your platform application.
+     */
+    readonly eventEndpointCreatedTopicArn?: string;
+    /**
+     * SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+     */
+    readonly eventEndpointDeletedTopicArn?: string;
+    /**
+     * SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+     */
+    readonly eventEndpointUpdatedTopicArn?: string;
+    /**
+     * The IAM role permitted to receive failure feedback for this application.
+     */
+    readonly failureFeedbackRoleArn?: string;
+    /**
+     * The friendly name for the SNS platform application
+     */
+    readonly name: string;
+    /**
+     * The platform that the app is registered with. See [Platform][1] for supported platforms.
+     */
+    readonly platform: string;
+    /**
+     * Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+     */
+    readonly platformCredential: string;
+    /**
+     * Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+     */
+    readonly platformPrincipal?: string;
+    /**
+     * The IAM role permitted to receive success feedback for this application.
+     */
+    readonly successFeedbackRoleArn?: string;
+    /**
+     * The percentage of success to sample (0-100)
+     */
+    readonly successFeedbackSampleRate?: string;
+}

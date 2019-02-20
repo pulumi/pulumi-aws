@@ -234,3 +234,57 @@ export interface CatalogTableArgs {
      */
     readonly viewOriginalText?: pulumi.Input<string>;
 }
+
+/**
+ * The live CatalogTable resource.
+ */
+export interface CatalogTableResult {
+    /**
+     * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+     */
+    readonly catalogId: string;
+    /**
+     * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+     */
+    readonly databaseName: string;
+    /**
+     * Description of the table.
+     */
+    readonly description?: string;
+    /**
+     * Name of the SerDe.
+     */
+    readonly name: string;
+    /**
+     * Owner of the table.
+     */
+    readonly owner?: string;
+    /**
+     * A map of initialization parameters for the SerDe, in key-value form.
+     */
+    readonly parameters?: {[key: string]: string};
+    /**
+     * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+     */
+    readonly partitionKeys?: { comment?: string, name: string, type?: string }[];
+    /**
+     * Retention time for this table.
+     */
+    readonly retention?: number;
+    /**
+     * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+     */
+    readonly storageDescriptor?: { bucketColumns?: string[], columns?: { comment?: string, name: string, type?: string }[], compressed?: boolean, inputFormat?: string, location?: string, numberOfBuckets?: number, outputFormat?: string, parameters?: {[key: string]: string}, serDeInfo?: { name?: string, parameters?: {[key: string]: string}, serializationLibrary?: string }, skewedInfo?: { skewedColumnNames?: string[], skewedColumnValueLocationMaps?: {[key: string]: string}, skewedColumnValues?: string[] }, sortColumns?: { column: string, sortOrder: number }[], storedAsSubDirectories?: boolean };
+    /**
+     * The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
+     */
+    readonly tableType?: string;
+    /**
+     * If the table is a view, the expanded text of the view; otherwise null.
+     */
+    readonly viewExpandedText?: string;
+    /**
+     * If the table is a view, the original text of the view; otherwise null.
+     */
+    readonly viewOriginalText?: string;
+}

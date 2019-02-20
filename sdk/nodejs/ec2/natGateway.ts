@@ -156,3 +156,33 @@ export interface NatGatewayArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live NatGateway resource.
+ */
+export interface NatGatewayResult {
+    /**
+     * The Allocation ID of the Elastic IP address for the gateway.
+     */
+    readonly allocationId: string;
+    /**
+     * The ENI ID of the network interface created by the NAT gateway.
+     */
+    readonly networkInterfaceId: string;
+    /**
+     * The private IP address of the NAT Gateway.
+     */
+    readonly privateIp: string;
+    /**
+     * The public IP address of the NAT Gateway.
+     */
+    readonly publicIp: string;
+    /**
+     * The Subnet ID of the subnet in which to place the gateway.
+     */
+    readonly subnetId: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

@@ -157,3 +157,33 @@ export interface StateMachineArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live StateMachine resource.
+ */
+export interface StateMachineResult {
+    /**
+     * The date the state machine was created.
+     */
+    readonly creationDate: string;
+    /**
+     * The Amazon States Language definition of the state machine.
+     */
+    readonly definition: string;
+    /**
+     * The name of the state machine.
+     */
+    readonly name: string;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+     */
+    readonly roleArn: string;
+    /**
+     * The current status of the state machine. Either "ACTIVE" or "DELETING".
+     */
+    readonly status: string;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: {[key: string]: any};
+}

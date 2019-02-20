@@ -184,3 +184,41 @@ export interface ActivationArgs {
      */
     readonly registrationLimit?: pulumi.Input<number>;
 }
+
+/**
+ * The live Activation resource.
+ */
+export interface ActivationResult {
+    /**
+     * The code the system generates when it processes the activation.
+     */
+    readonly activationCode: string;
+    /**
+     * The description of the resource that you want to register.
+     */
+    readonly description?: string;
+    /**
+     * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time.
+     */
+    readonly expirationDate?: string;
+    /**
+     * If the current activation has expired.
+     */
+    readonly expired: string;
+    /**
+     * The IAM Role to attach to the managed instance.
+     */
+    readonly iamRole: string;
+    /**
+     * The default name of the registered managed instance.
+     */
+    readonly name: string;
+    /**
+     * The number of managed instances that are currently registered using this activation.
+     */
+    readonly registrationCount: number;
+    /**
+     * The maximum number of managed instances you want to register. The default value is 1 instance.
+     */
+    readonly registrationLimit?: number;
+}

@@ -122,3 +122,25 @@ export interface ApiKeyArgs {
      */
     readonly expires?: pulumi.Input<string>;
 }
+
+/**
+ * The live ApiKey resource.
+ */
+export interface ApiKeyResult {
+    /**
+     * The ID of the associated AppSync API
+     */
+    readonly apiId: string;
+    /**
+     * The API key description. Defaults to "Managed by Terraform".
+     */
+    readonly description?: string;
+    /**
+     * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
+     */
+    readonly expires?: string;
+    /**
+     * The API key
+     */
+    readonly key: string;
+}

@@ -134,3 +134,25 @@ export interface BaiduChannelArgs {
      */
     readonly secretKey: pulumi.Input<string>;
 }
+
+/**
+ * The live BaiduChannel resource.
+ */
+export interface BaiduChannelResult {
+    /**
+     * Platform credential API key from Baidu.
+     */
+    readonly apiKey: string;
+    /**
+     * The application ID.
+     */
+    readonly applicationId: string;
+    /**
+     * Specifies whether to enable the channel. Defaults to `true`.
+     */
+    readonly enabled?: boolean;
+    /**
+     * Platform credential Secret key from Baidu.
+     */
+    readonly secretKey: string;
+}

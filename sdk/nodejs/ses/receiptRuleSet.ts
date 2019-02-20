@@ -79,3 +79,13 @@ export interface ReceiptRuleSetArgs {
      */
     readonly ruleSetName: pulumi.Input<string>;
 }
+
+/**
+ * The live ReceiptRuleSet resource.
+ */
+export interface ReceiptRuleSetResult {
+    /**
+     * The name of the rule set
+     */
+    readonly ruleSetName: string;
+}

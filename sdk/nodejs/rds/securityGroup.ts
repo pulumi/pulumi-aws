@@ -137,3 +137,29 @@ export interface SecurityGroupArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live SecurityGroup resource.
+ */
+export interface SecurityGroupResult {
+    /**
+     * The arn of the DB security group.
+     */
+    readonly arn: string;
+    /**
+     * The description of the DB security group. Defaults to "Managed by Terraform".
+     */
+    readonly description: string;
+    /**
+     * A list of ingress rules.
+     */
+    readonly ingress: { cidr?: string, securityGroupId: string, securityGroupName: string, securityGroupOwnerId: string }[];
+    /**
+     * The name of the DB security group.
+     */
+    readonly name: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

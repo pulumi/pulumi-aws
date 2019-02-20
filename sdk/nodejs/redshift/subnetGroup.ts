@@ -147,3 +147,25 @@ export interface SubnetGroupArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live SubnetGroup resource.
+ */
+export interface SubnetGroupResult {
+    /**
+     * The description of the Redshift Subnet group. Defaults to "Managed by Terraform".
+     */
+    readonly description: string;
+    /**
+     * The name of the Redshift Subnet group.
+     */
+    readonly name: string;
+    /**
+     * An array of VPC subnet IDs.
+     */
+    readonly subnetIds: string[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

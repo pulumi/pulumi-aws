@@ -195,3 +195,45 @@ export interface VpcAttachmentArgs {
      */
     readonly vpcId: pulumi.Input<string>;
 }
+
+/**
+ * The live VpcAttachment resource.
+ */
+export interface VpcAttachmentResult {
+    /**
+     * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+     */
+    readonly dnsSupport?: string;
+    /**
+     * Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+     */
+    readonly ipv6Support?: string;
+    /**
+     * Identifiers of EC2 Subnets.
+     */
+    readonly subnetIds: string[];
+    /**
+     * Key-value tags for the EC2 Transit Gateway VPC Attachment.
+     */
+    readonly tags?: {[key: string]: string};
+    /**
+     * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
+     */
+    readonly transitGatewayDefaultRouteTableAssociation?: boolean;
+    /**
+     * Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
+     */
+    readonly transitGatewayDefaultRouteTablePropagation?: boolean;
+    /**
+     * Identifier of EC2 Transit Gateway.
+     */
+    readonly transitGatewayId: string;
+    /**
+     * Identifier of EC2 VPC.
+     */
+    readonly vpcId: string;
+    /**
+     * Identifier of the AWS account that owns the EC2 VPC.
+     */
+    readonly vpcOwnerId: string;
+}

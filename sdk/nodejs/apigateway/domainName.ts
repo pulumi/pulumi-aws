@@ -394,3 +394,76 @@ export interface DomainNameArgs {
      */
     readonly regionalCertificateName?: pulumi.Input<string>;
 }
+
+/**
+ * The live DomainName resource.
+ */
+export interface DomainNameResult {
+    /**
+     * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
+     */
+    readonly certificateArn?: string;
+    /**
+     * The certificate issued for the domain name
+     * being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
+     * `regional_certificate_name`.
+     */
+    readonly certificateBody?: string;
+    /**
+     * The certificate for the CA that issued the
+     * certificate, along with any intermediate CA certificates required to
+     * create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`,
+     * `regional_certificate_arn`, and `regional_certificate_name`.
+     */
+    readonly certificateChain?: string;
+    /**
+     * The unique name to use when registering this
+     * certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
+     * `regional_certificate_name`. Required if `certificate_arn` is not set.
+     */
+    readonly certificateName?: string;
+    /**
+     * The private key associated with the
+     * domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
+     */
+    readonly certificatePrivateKey?: string;
+    /**
+     * The upload date associated with the domain certificate.
+     */
+    readonly certificateUploadDate: string;
+    /**
+     * The hostname created by Cloudfront to represent
+     * the distribution that implements this domain name mapping.
+     */
+    readonly cloudfrontDomainName: string;
+    /**
+     * For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`)
+     * that can be used to create a Route53 alias record for the distribution.
+     */
+    readonly cloudfrontZoneId: string;
+    /**
+     * The fully-qualified domain name to register
+     */
+    readonly domainName: string;
+    /**
+     * Configuration block defining API endpoint information including type. Defined below.
+     */
+    readonly endpointConfiguration: { types: string };
+    /**
+     * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
+     */
+    readonly regionalCertificateArn?: string;
+    /**
+     * The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
+     * `certificate_private_key`.
+     */
+    readonly regionalCertificateName?: string;
+    /**
+     * The hostname for the custom domain's regional endpoint.
+     */
+    readonly regionalDomainName: string;
+    /**
+     * The hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
+     */
+    readonly regionalZoneId: string;
+}

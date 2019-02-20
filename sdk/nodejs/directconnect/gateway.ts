@@ -94,3 +94,17 @@ export interface GatewayArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live Gateway resource.
+ */
+export interface GatewayResult {
+    /**
+     * The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
+     */
+    readonly amazonSideAsn: string;
+    /**
+     * The name of the connection.
+     */
+    readonly name: string;
+}

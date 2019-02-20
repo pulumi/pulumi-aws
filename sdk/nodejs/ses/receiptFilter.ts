@@ -112,3 +112,21 @@ export interface ReceiptFilterArgs {
      */
     readonly policy: pulumi.Input<string>;
 }
+
+/**
+ * The live ReceiptFilter resource.
+ */
+export interface ReceiptFilterResult {
+    /**
+     * The IP address or address range to filter, in CIDR notation
+     */
+    readonly cidr: string;
+    /**
+     * The name of the filter
+     */
+    readonly name: string;
+    /**
+     * Block or Allow
+     */
+    readonly policy: string;
+}

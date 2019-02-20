@@ -168,3 +168,35 @@ export interface InstanceGroupArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live InstanceGroup resource.
+ */
+export interface InstanceGroupResult {
+    /**
+     * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
+     */
+    readonly clusterId: string;
+    /**
+     * One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+     */
+    readonly ebsConfigs?: { iops?: number, size: number, type: string, volumesPerInstance?: number }[];
+    /**
+     * Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
+     */
+    readonly ebsOptimized?: boolean;
+    /**
+     * Target number of instances for the instance group. Defaults to 0.
+     */
+    readonly instanceCount?: number;
+    /**
+     * The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
+     */
+    readonly instanceType: string;
+    /**
+     * Human friendly name given to the instance group. Changing this forces a new resource to be created.
+     */
+    readonly name: string;
+    readonly runningInstanceCount: number;
+    readonly status: string;
+}

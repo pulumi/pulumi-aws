@@ -376,3 +376,89 @@ export interface TableArgs {
      */
     readonly writeCapacity?: pulumi.Input<number>;
 }
+
+/**
+ * The live Table resource.
+ */
+export interface TableResult {
+    /**
+     * The arn of the table
+     */
+    readonly arn: string;
+    /**
+     * List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+     */
+    readonly attributes: { name: string, type: string }[];
+    /**
+     * Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
+     */
+    readonly billingMode?: string;
+    /**
+     * Describe a GSO for the table;
+     * subject to the normal limits on the number of GSIs, projected
+     * attributes, etc.
+     */
+    readonly globalSecondaryIndexes?: { hashKey: string, name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey?: string, readCapacity?: number, writeCapacity?: number }[];
+    /**
+     * The name of the hash key in the index; must be
+     * defined as an attribute in the resource.
+     */
+    readonly hashKey: string;
+    /**
+     * Describe an LSI on the table;
+     * these can only be allocated *at creation* so you cannot change this
+     * definition after you have created the resource.
+     */
+    readonly localSecondaryIndexes?: { name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey: string }[];
+    /**
+     * The name of the index
+     */
+    readonly name: string;
+    /**
+     * Point-in-time recovery options.
+     */
+    readonly pointInTimeRecovery: { enabled: boolean };
+    /**
+     * The name of the range key; must be defined
+     */
+    readonly rangeKey?: string;
+    /**
+     * The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     */
+    readonly readCapacity?: number;
+    /**
+     * Encrypt at rest options.
+     */
+    readonly serverSideEncryption: { enabled: boolean };
+    /**
+     * The ARN of the Table Stream. Only available when `stream_enabled = true`
+     */
+    readonly streamArn: string;
+    /**
+     * Indicates whether Streams are to be enabled (true) or disabled (false).
+     */
+    readonly streamEnabled?: boolean;
+    /**
+     * A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
+     * a unique identifier for the stream on its own. However, the combination of AWS customer ID,
+     * table name and this field is guaranteed to be unique.
+     * It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+     */
+    readonly streamLabel: string;
+    /**
+     * When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+     */
+    readonly streamViewType: string;
+    /**
+     * A map of tags to populate on the created table.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * Defines ttl, has two properties, and can only be specified once:
+     */
+    readonly ttl?: { attributeName: string, enabled: boolean };
+    /**
+     * The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     */
+    readonly writeCapacity?: number;
+}

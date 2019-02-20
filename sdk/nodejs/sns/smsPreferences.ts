@@ -144,3 +144,33 @@ export interface SmsPreferencesArgs {
      */
     readonly usageReportS3Bucket?: pulumi.Input<string>;
 }
+
+/**
+ * The live SmsPreferences resource.
+ */
+export interface SmsPreferencesResult {
+    /**
+     * A string, such as your business brand, that is displayed as the sender on the receiving device.
+     */
+    readonly defaultSenderId?: string;
+    /**
+     * The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
+     */
+    readonly defaultSmsType?: string;
+    /**
+     * The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
+     */
+    readonly deliveryStatusIamRoleArn?: string;
+    /**
+     * The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
+     */
+    readonly deliveryStatusSuccessSamplingRate?: string;
+    /**
+     * The maximum amount in USD that you are willing to spend each month to send SMS messages.
+     */
+    readonly monthlySpendLimit?: string;
+    /**
+     * The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
+     */
+    readonly usageReportS3Bucket?: string;
+}

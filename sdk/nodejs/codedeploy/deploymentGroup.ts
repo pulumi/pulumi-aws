@@ -430,3 +430,69 @@ export interface DeploymentGroupArgs {
      */
     readonly triggerConfigurations?: pulumi.Input<pulumi.Input<{ triggerEvents: pulumi.Input<pulumi.Input<string>[]>, triggerName: pulumi.Input<string>, triggerTargetArn: pulumi.Input<string> }>[]>;
 }
+
+/**
+ * The live DeploymentGroup resource.
+ */
+export interface DeploymentGroupResult {
+    /**
+     * Configuration block of alarms associated with the deployment group (documented below).
+     */
+    readonly alarmConfiguration?: { alarms?: string[], enabled?: boolean, ignorePollAlarmFailure?: boolean };
+    /**
+     * The name of the application.
+     */
+    readonly appName: string;
+    /**
+     * Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
+     */
+    readonly autoRollbackConfiguration?: { enabled?: boolean, events?: string[] };
+    /**
+     * Autoscaling groups associated with the deployment group.
+     */
+    readonly autoscalingGroups?: string[];
+    /**
+     * Configuration block of the blue/green deployment options for a deployment group (documented below).
+     */
+    readonly blueGreenDeploymentConfig: { deploymentReadyOption?: { actionOnTimeout?: string, waitTimeInMinutes?: number }, greenFleetProvisioningOption: { action?: string }, terminateBlueInstancesOnDeploymentSuccess?: { action?: string, terminationWaitTimeInMinutes?: number } };
+    /**
+     * The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
+     */
+    readonly deploymentConfigName?: string;
+    /**
+     * The name of the deployment group.
+     */
+    readonly deploymentGroupName: string;
+    /**
+     * Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
+     */
+    readonly deploymentStyle: { deploymentOption?: string, deploymentType?: string };
+    /**
+     * Tag filters associated with the deployment group. See the AWS docs for details.
+     */
+    readonly ec2TagFilters?: { key?: string, type?: string, value?: string }[];
+    /**
+     * Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
+     */
+    readonly ec2TagSets?: { ec2TagFilters?: { key?: string, type?: string, value?: string }[] }[];
+    /**
+     * Configuration block(s) of the ECS services for a deployment group (documented below).
+     */
+    readonly ecsService?: { clusterName: string, serviceName: string };
+    /**
+     * Single configuration block of the load balancer to use in a blue/green deployment (documented below).
+     */
+    readonly loadBalancerInfo: { elbInfos?: { name?: string }[], targetGroupInfos?: { name?: string }[], targetGroupPairInfo?: { prodTrafficRoute: { listenerArns: string[] }, targetGroups: { name: string }[], testTrafficRoute?: { listenerArns: string[] } } };
+    /**
+     * On premise tag filters associated with the group. See the AWS docs for details.
+     */
+    readonly onPremisesInstanceTagFilters?: { key?: string, type?: string, value?: string }[];
+    /**
+     * The service role ARN that allows deployments.
+     */
+    readonly serviceRoleArn: string;
+    /**
+     * Configuration block(s) of the triggers for the deployment group (documented below).
+     */
+    readonly triggerConfigurations?: { triggerEvents: string[], triggerName: string, triggerTargetArn: string }[];
+}

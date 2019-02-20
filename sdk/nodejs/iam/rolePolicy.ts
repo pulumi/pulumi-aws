@@ -164,3 +164,27 @@ export interface RolePolicyArgs {
      */
     readonly role: pulumi.Input<string | Role>;
 }
+
+/**
+ * The live RolePolicy resource.
+ */
+export interface RolePolicyResult {
+    /**
+     * The name of the role policy. If omitted, Terraform will
+     * assign a random, unique name.
+     */
+    readonly name: string;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
+    readonly namePrefix?: string;
+    /**
+     * The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
+     */
+    readonly policy: string;
+    /**
+     * The IAM role to attach to the policy.
+     */
+    readonly role: string;
+}

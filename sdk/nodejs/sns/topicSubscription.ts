@@ -195,3 +195,45 @@ export interface TopicSubscriptionArgs {
      */
     readonly topic: pulumi.Input<Topic>;
 }
+
+/**
+ * The live TopicSubscription resource.
+ */
+export interface TopicSubscriptionResult {
+    /**
+     * The ARN of the subscription stored as a more user-friendly property
+     */
+    readonly arn: string;
+    /**
+     * Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols (default is 1 minute).
+     */
+    readonly confirmationTimeoutInMinutes?: number;
+    /**
+     * JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
+     */
+    readonly deliveryPolicy?: string;
+    /**
+     * The endpoint to send data to, the contents will vary with the protocol. (see below for more information)
+     */
+    readonly endpoint: string;
+    /**
+     * Boolean indicating whether the end point is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) e.g., PagerDuty (default is false)
+     */
+    readonly endpointAutoConfirms?: boolean;
+    /**
+     * JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
+     */
+    readonly filterPolicy?: string;
+    /**
+     * The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is option but unsupported, see below).
+     */
+    readonly protocol: string;
+    /**
+     * Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
+     */
+    readonly rawMessageDelivery?: boolean;
+    /**
+     * The ARN of the SNS topic to subscribe to
+     */
+    readonly topic: Topic;
+}

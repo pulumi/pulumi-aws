@@ -162,3 +162,21 @@ export interface SshKeyArgs {
      */
     readonly userName: pulumi.Input<string>;
 }
+
+/**
+ * The live SshKey resource.
+ */
+export interface SshKeyResult {
+    /**
+     * The public key portion of an SSH key pair.
+     */
+    readonly body: string;
+    /**
+     * The Server ID of the Transfer Server (e.g. `s-12345678`)
+     */
+    readonly serverId: string;
+    /**
+     * The name of the user account that is assigned to one or more servers.
+     */
+    readonly userName: string;
+}

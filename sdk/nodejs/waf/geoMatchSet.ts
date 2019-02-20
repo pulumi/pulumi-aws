@@ -100,3 +100,17 @@ export interface GeoMatchSetArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live GeoMatchSet resource.
+ */
+export interface GeoMatchSetResult {
+    /**
+     * The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
+     */
+    readonly geoMatchConstraints?: { type: string, value: string }[];
+    /**
+     * The name or description of the GeoMatchSet.
+     */
+    readonly name: string;
+}

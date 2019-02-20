@@ -154,3 +154,21 @@ export interface EventStreamArgs {
      */
     readonly roleArn: pulumi.Input<string>;
 }
+
+/**
+ * The live EventStream resource.
+ */
+export interface EventStreamResult {
+    /**
+     * The application ID.
+     */
+    readonly applicationId: string;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+     */
+    readonly destinationStreamArn: string;
+    /**
+     * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+     */
+    readonly roleArn: string;
+}

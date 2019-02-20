@@ -163,3 +163,29 @@ export interface RouteTableArgs {
      */
     readonly vpcId: pulumi.Input<string>;
 }
+
+/**
+ * The live RouteTable resource.
+ */
+export interface RouteTableResult {
+    /**
+     * The ID of the AWS account that owns the route table
+     */
+    readonly ownerId: string;
+    /**
+     * A list of virtual gateways for propagation.
+     */
+    readonly propagatingVgws: string[];
+    /**
+     * A list of route objects. Their keys are documented below.
+     */
+    readonly routes: { cidrBlock?: string, egressOnlyGatewayId?: string, gatewayId?: string, instanceId?: string, ipv6CidrBlock?: string, natGatewayId?: string, networkInterfaceId?: string, transitGatewayId?: string, vpcPeeringConnectionId?: string }[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The VPC ID.
+     */
+    readonly vpcId: string;
+}

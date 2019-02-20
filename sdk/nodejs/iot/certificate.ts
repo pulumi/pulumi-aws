@@ -114,3 +114,23 @@ export interface CertificateArgs {
      */
     readonly csr: pulumi.Input<string>;
 }
+
+/**
+ * The live Certificate resource.
+ */
+export interface CertificateResult {
+    /**
+     * Boolean flag to indicate if the certificate should be active
+     */
+    readonly active: boolean;
+    /**
+     * The ARN of the created AWS IoT certificate
+     */
+    readonly arn: string;
+    /**
+     * The certificate signing request. Review the
+     * [IoT API Reference Guide] (http://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
+     * for more information on creating a certificate from a certificate signing request (CSR).
+     */
+    readonly csr: string;
+}

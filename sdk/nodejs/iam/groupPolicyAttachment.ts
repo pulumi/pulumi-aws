@@ -110,3 +110,17 @@ export interface GroupPolicyAttachmentArgs {
      */
     readonly policyArn: pulumi.Input<ARN>;
 }
+
+/**
+ * The live GroupPolicyAttachment resource.
+ */
+export interface GroupPolicyAttachmentResult {
+    /**
+     * The group the policy should be applied to
+     */
+    readonly group: Group;
+    /**
+     * The ARN of the policy you want to apply
+     */
+    readonly policyArn: ARN;
+}

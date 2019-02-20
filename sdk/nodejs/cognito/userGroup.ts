@@ -167,3 +167,29 @@ export interface UserGroupArgs {
      */
     readonly userPoolId: pulumi.Input<string>;
 }
+
+/**
+ * The live UserGroup resource.
+ */
+export interface UserGroupResult {
+    /**
+     * The description of the user group.
+     */
+    readonly description?: string;
+    /**
+     * The name of the user group.
+     */
+    readonly name: string;
+    /**
+     * The precedence of the user group.
+     */
+    readonly precedence?: number;
+    /**
+     * The ARN of the IAM role to be associated with the user group.
+     */
+    readonly roleArn?: string;
+    /**
+     * The user pool ID.
+     */
+    readonly userPoolId: string;
+}

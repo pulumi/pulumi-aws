@@ -143,3 +143,25 @@ export interface BasePathMappingArgs {
      */
     readonly stageName?: pulumi.Input<string>;
 }
+
+/**
+ * The live BasePathMapping resource.
+ */
+export interface BasePathMappingResult {
+    /**
+     * The id of the API to connect.
+     */
+    readonly restApi: RestApi;
+    /**
+     * Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
+     */
+    readonly basePath?: string;
+    /**
+     * The already-registered domain name to connect the API to.
+     */
+    readonly domainName: string;
+    /**
+     * The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+     */
+    readonly stageName?: string;
+}

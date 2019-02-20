@@ -174,3 +174,25 @@ export interface MethodSettingsArgs {
      */
     readonly stageName: pulumi.Input<string>;
 }
+
+/**
+ * The live MethodSettings resource.
+ */
+export interface MethodSettingsResult {
+    /**
+     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage.
+     */
+    readonly methodPath: string;
+    /**
+     * The ID of the REST API
+     */
+    readonly restApi: RestApi;
+    /**
+     * The settings block, see below.
+     */
+    readonly settings: { cacheDataEncrypted?: boolean, cacheTtlInSeconds?: number, cachingEnabled?: boolean, dataTraceEnabled?: boolean, loggingLevel?: string, metricsEnabled?: boolean, requireAuthorizationForCacheControl?: boolean, throttlingBurstLimit?: number, throttlingRateLimit?: number, unauthorizedCacheControlHeaderStrategy?: string };
+    /**
+     * The name of the stage
+     */
+    readonly stageName: string;
+}

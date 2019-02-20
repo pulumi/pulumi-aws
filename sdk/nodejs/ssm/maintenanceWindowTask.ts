@@ -268,3 +268,54 @@ export interface MaintenanceWindowTaskArgs {
      */
     readonly windowId: pulumi.Input<string>;
 }
+
+/**
+ * The live MaintenanceWindowTask resource.
+ */
+export interface MaintenanceWindowTaskResult {
+    /**
+     * The description of the maintenance window task.
+     */
+    readonly description?: string;
+    /**
+     * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
+     */
+    readonly loggingInfo?: { s3BucketName: string, s3BucketPrefix?: string, s3Region: string };
+    /**
+     * The maximum number of targets this task can be run for in parallel.
+     */
+    readonly maxConcurrency: string;
+    /**
+     * The maximum number of errors allowed before this task stops being scheduled.
+     */
+    readonly maxErrors: string;
+    readonly name: string;
+    /**
+     * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+     */
+    readonly priority?: number;
+    /**
+     * The role that should be assumed when executing the task.
+     */
+    readonly serviceRoleArn: string;
+    /**
+     * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+     */
+    readonly targets: { key: string, values: string[] }[];
+    /**
+     * The ARN of the task to execute.
+     */
+    readonly taskArn: string;
+    /**
+     * A structure containing information about parameters required by the particular `task_arn`. Documented below.
+     */
+    readonly taskParameters?: { name: string, values: string[] }[];
+    /**
+     * The type of task being registered. The only allowed value is `RUN_COMMAND`.
+     */
+    readonly taskType: string;
+    /**
+     * The Id of the maintenance window to register the task with.
+     */
+    readonly windowId: string;
+}

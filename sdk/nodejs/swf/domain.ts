@@ -125,3 +125,25 @@ export interface DomainArgs {
      */
     readonly workflowExecutionRetentionPeriodInDays: pulumi.Input<string>;
 }
+
+/**
+ * The live Domain resource.
+ */
+export interface DomainResult {
+    /**
+     * The domain description.
+     */
+    readonly description?: string;
+    /**
+     * The name of the domain. If omitted, Terraform will assign a random, unique name.
+     */
+    readonly name: string;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    readonly namePrefix?: string;
+    /**
+     * Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
+     */
+    readonly workflowExecutionRetentionPeriodInDays: string;
+}

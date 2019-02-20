@@ -232,3 +232,29 @@ export interface ListenerRuleArgs {
      */
     readonly priority?: pulumi.Input<number>;
 }
+
+/**
+ * The live ListenerRule resource.
+ */
+export interface ListenerRuleResult {
+    /**
+     * An Action block. Action blocks are documented below.
+     */
+    readonly actions: { authenticateCognito?: { authenticationRequestExtraParams?: {[key: string]: any}, onUnauthenticatedRequest: string, scope: string, sessionCookieName: string, sessionTimeout: number, userPoolArn: string, userPoolClientId: string, userPoolDomain: string }, authenticateOidc?: { authenticationRequestExtraParams?: {[key: string]: any}, authorizationEndpoint: string, clientId: string, clientSecret: string, issuer: string, onUnauthenticatedRequest: string, scope: string, sessionCookieName: string, sessionTimeout: number, tokenEndpoint: string, userInfoEndpoint: string }, fixedResponse?: { contentType: string, messageBody?: string, statusCode: string }, order: number, redirect?: { host?: string, path?: string, port?: string, protocol?: string, query?: string, statusCode: string }, targetGroupArn?: string, type: string }[];
+    /**
+     * The ARN of the rule (matches `id`)
+     */
+    readonly arn: string;
+    /**
+     * A Condition block. Condition blocks are documented below.
+     */
+    readonly conditions: { field?: string, values?: string }[];
+    /**
+     * The ARN of the listener to which to attach the rule.
+     */
+    readonly listenerArn: string;
+    /**
+     * The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
+     */
+    readonly priority: number;
+}

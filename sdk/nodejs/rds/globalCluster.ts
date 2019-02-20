@@ -153,3 +153,38 @@ export interface GlobalClusterArgs {
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
 }
+
+/**
+ * The live GlobalCluster resource.
+ */
+export interface GlobalClusterResult {
+    /**
+     * RDS Global Cluster Amazon Resource Name (ARN)
+     */
+    readonly arn: string;
+    /**
+     * Name for an automatically created database on cluster creation.
+     */
+    readonly databaseName?: string;
+    /**
+     * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+     */
+    readonly deletionProtection?: boolean;
+    /**
+     * Name of the database engine to be used for this DB cluster. Valid values: `aurora`. Defaults to `aurora`.
+     */
+    readonly engine?: string;
+    /**
+     * Engine version of the Aurora global database.
+     */
+    readonly engineVersion: string;
+    readonly globalClusterIdentifier: string;
+    /**
+     * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+     */
+    readonly globalClusterResourceId: string;
+    /**
+     * Specifies whether the DB cluster is encrypted. The default is `false`.
+     */
+    readonly storageEncrypted?: boolean;
+}

@@ -110,3 +110,21 @@ export interface IpSetArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live IpSet resource.
+ */
+export interface IpSetResult {
+    /**
+     * The ARN of the WAF IPSet.
+     */
+    readonly arn: string;
+    /**
+     * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
+     */
+    readonly ipSetDescriptors?: { type: string, value: string }[];
+    /**
+     * The name or description of the IPSet.
+     */
+    readonly name: string;
+}

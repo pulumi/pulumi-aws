@@ -293,3 +293,37 @@ export interface ListenerArgs {
      */
     readonly sslPolicy?: pulumi.Input<string>;
 }
+
+/**
+ * The live Listener resource.
+ */
+export interface ListenerResult {
+    /**
+     * The ARN of the listener (matches `id`)
+     */
+    readonly arn: string;
+    /**
+     * The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+     */
+    readonly certificateArn?: string;
+    /**
+     * An Action block. Action blocks are documented below.
+     */
+    readonly defaultAction: { authenticateCognito?: { authenticationRequestExtraParams?: {[key: string]: any}, onUnauthenticatedRequest: string, scope: string, sessionCookieName: string, sessionTimeout: number, userPoolArn: string, userPoolClientId: string, userPoolDomain: string }, authenticateOidc?: { authenticationRequestExtraParams?: {[key: string]: any}, authorizationEndpoint: string, clientId: string, clientSecret: string, issuer: string, onUnauthenticatedRequest: string, scope: string, sessionCookieName: string, sessionTimeout: number, tokenEndpoint: string, userInfoEndpoint: string }, fixedResponse?: { contentType: string, messageBody?: string, statusCode: string }, order: number, redirect?: { host?: string, path?: string, port?: string, protocol?: string, query?: string, statusCode: string }, targetGroupArn?: string, type: string };
+    /**
+     * The ARN of the load balancer.
+     */
+    readonly loadBalancerArn: string;
+    /**
+     * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+     */
+    readonly port: number;
+    /**
+     * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+     */
+    readonly protocol?: string;
+    /**
+     * The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+     */
+    readonly sslPolicy: string;
+}

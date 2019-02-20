@@ -222,3 +222,50 @@ export interface PipelineArgs {
      */
     readonly thumbnailConfigPermissions?: pulumi.Input<pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }>[]>;
 }
+
+/**
+ * The live Pipeline resource.
+ */
+export interface PipelineResult {
+    readonly arn: string;
+    /**
+     * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+     */
+    readonly awsKmsKeyArn?: string;
+    /**
+     * The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
+     */
+    readonly contentConfig: { bucket: string, storageClass?: string };
+    /**
+     * The permissions for the `content_config` object. (documented below)
+     */
+    readonly contentConfigPermissions?: { accesses?: string[], grantee?: string, granteeType?: string }[];
+    /**
+     * The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
+     */
+    readonly inputBucket: string;
+    /**
+     * The name of the pipeline. Maximum 40 characters
+     */
+    readonly name: string;
+    /**
+     * The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
+     */
+    readonly notifications?: { completed?: string, error?: string, progressing?: string, warning?: string };
+    /**
+     * The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
+     */
+    readonly outputBucket: string;
+    /**
+     * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+     */
+    readonly role: string;
+    /**
+     * The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
+     */
+    readonly thumbnailConfig: { bucket: string, storageClass?: string };
+    /**
+     * The permissions for the `thumbnail_config` object. (documented below)
+     */
+    readonly thumbnailConfigPermissions?: { accesses?: string[], grantee?: string, granteeType?: string }[];
+}

@@ -193,3 +193,37 @@ export interface ConnectionArgs {
      */
     readonly physicalConnectionRequirements?: pulumi.Input<{ availabilityZone?: pulumi.Input<string>, securityGroupIdLists?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string> }>;
 }
+
+/**
+ * The live Connection resource.
+ */
+export interface ConnectionResult {
+    /**
+     * The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+     */
+    readonly catalogId: string;
+    /**
+     * A map of key-value pairs used as parameters for this connection.
+     */
+    readonly connectionProperties: {[key: string]: any};
+    /**
+     * The type of the connection. Defaults to `JBDC`.
+     */
+    readonly connectionType?: string;
+    /**
+     * Description of the connection.
+     */
+    readonly description?: string;
+    /**
+     * A list of criteria that can be used in selecting this connection.
+     */
+    readonly matchCriterias?: string[];
+    /**
+     * The name of the connection.
+     */
+    readonly name: string;
+    /**
+     * A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+     */
+    readonly physicalConnectionRequirements?: { availabilityZone?: string, securityGroupIdLists?: string[], subnetId?: string };
+}

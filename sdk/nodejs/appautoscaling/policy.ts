@@ -338,3 +338,50 @@ export interface PolicyArgs {
      */
     readonly targetTrackingScalingPolicyConfiguration?: pulumi.Input<{ customizedMetricSpecification?: pulumi.Input<{ dimensions?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, metricName: pulumi.Input<string>, namespace: pulumi.Input<string>, statistic: pulumi.Input<string>, unit?: pulumi.Input<string> }>, disableScaleIn?: pulumi.Input<boolean>, predefinedMetricSpecification?: pulumi.Input<{ predefinedMetricType: pulumi.Input<string>, resourceLabel?: pulumi.Input<string> }>, scaleInCooldown?: pulumi.Input<number>, scaleOutCooldown?: pulumi.Input<number>, targetValue: pulumi.Input<number> }>;
 }
+
+/**
+ * The live Policy resource.
+ */
+export interface PolicyResult {
+    /**
+     * The scaling policy's adjustment type.
+     */
+    readonly adjustmentType?: string;
+    readonly alarms?: string[];
+    /**
+     * The ARN assigned by AWS to the scaling policy.
+     */
+    readonly arn: string;
+    readonly cooldown?: number;
+    readonly metricAggregationType?: string;
+    readonly minAdjustmentMagnitude?: number;
+    /**
+     * The name of the policy.
+     */
+    readonly name: string;
+    /**
+     * For DynamoDB, only `TargetTrackingScaling` is supported. For Amazon ECS, Spot Fleet, and Amazon RDS, both `StepScaling` and `TargetTrackingScaling` are supported. For any other service, only `StepScaling` is supported. Defaults to `StepScaling`.
+     */
+    readonly policyType?: string;
+    /**
+     * The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+     */
+    readonly resourceId: string;
+    /**
+     * The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+     */
+    readonly scalableDimension: string;
+    /**
+     * The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
+     */
+    readonly serviceNamespace: string;
+    readonly stepAdjustments?: { metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[];
+    /**
+     * Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+     */
+    readonly stepScalingPolicyConfigurations?: { adjustmentType?: string, cooldown?: number, metricAggregationType?: string, minAdjustmentMagnitude?: number, stepAdjustments?: { metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[] }[];
+    /**
+     * A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+     */
+    readonly targetTrackingScalingPolicyConfiguration?: { customizedMetricSpecification?: { dimensions?: { name: string, value: string }[], metricName: string, namespace: string, statistic: string, unit?: string }, disableScaleIn?: boolean, predefinedMetricSpecification?: { predefinedMetricType: string, resourceLabel?: string }, scaleInCooldown?: number, scaleOutCooldown?: number, targetValue: number };
+}

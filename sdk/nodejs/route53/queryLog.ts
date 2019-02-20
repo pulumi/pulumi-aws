@@ -91,3 +91,17 @@ export interface QueryLogArgs {
      */
     readonly zoneId: pulumi.Input<string>;
 }
+
+/**
+ * The live QueryLog resource.
+ */
+export interface QueryLogResult {
+    /**
+     * CloudWatch log group ARN to send query logs.
+     */
+    readonly cloudwatchLogGroupArn: string;
+    /**
+     * Route53 hosted zone ID to enable query logs.
+     */
+    readonly zoneId: string;
+}

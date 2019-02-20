@@ -300,3 +300,78 @@ export interface DocumentArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live Document resource.
+ */
+export interface DocumentResult {
+    readonly arn: string;
+    /**
+     * The JSON or YAML content of the document.
+     */
+    readonly content: string;
+    /**
+     * The date the document was created.
+     */
+    readonly createdDate: string;
+    /**
+     * The default version of the document.
+     */
+    readonly defaultVersion: string;
+    /**
+     * The description of the document.
+     */
+    readonly description: string;
+    /**
+     * The format of the document. Valid document types include: `JSON` and `YAML`
+     */
+    readonly documentFormat?: string;
+    /**
+     * The type of the document. Valid document types include: `Command`, `Policy`, `Automation` and `Session`
+     */
+    readonly documentType: string;
+    /**
+     * The sha1 or sha256 of the document content
+     */
+    readonly hash: string;
+    /**
+     * "Sha1" "Sha256". The hashing algorithm used when hashing the content.
+     */
+    readonly hashType: string;
+    /**
+     * The latest version of the document.
+     */
+    readonly latestVersion: string;
+    /**
+     * The name of the document.
+     */
+    readonly name: string;
+    /**
+     * The AWS user account of the person who created the document.
+     */
+    readonly owner: string;
+    /**
+     * The parameters that are available to this document.
+     */
+    readonly parameters: { defaultValue?: string, description?: string, name?: string, type?: string }[];
+    /**
+     * Additional Permissions to attach to the document. See Permissions below for details.
+     */
+    readonly permissions?: { accountIds: string, type: string };
+    /**
+     * A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
+     */
+    readonly platformTypes: string[];
+    /**
+     * The schema version of the document.
+     */
+    readonly schemaVersion: string;
+    /**
+     * "Creating", "Active" or "Deleting". The current status of the document.
+     */
+    readonly status: string;
+    /**
+     * A mapping of tags to assign to the object.
+     */
+    readonly tags?: {[key: string]: any};
+}

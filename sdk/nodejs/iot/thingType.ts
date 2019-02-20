@@ -105,3 +105,22 @@ export interface ThingTypeArgs {
     readonly name?: pulumi.Input<string>;
     readonly properties?: pulumi.Input<{ description?: pulumi.Input<string>, searchableAttributes?: pulumi.Input<pulumi.Input<string>[]> }>;
 }
+
+/**
+ * The live ThingType resource.
+ */
+export interface ThingTypeResult {
+    /**
+     * The ARN of the created AWS IoT Thing Type.
+     */
+    readonly arn: string;
+    /**
+     * Whether the thing type is deprecated. If true, no new things could be associated with this type.
+     */
+    readonly deprecated?: boolean;
+    /**
+     * The name of the thing type.
+     */
+    readonly name: string;
+    readonly properties?: { description?: string, searchableAttributes: string[] };
+}

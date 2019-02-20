@@ -152,3 +152,33 @@ export interface SubnetGroupArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live SubnetGroup resource.
+ */
+export interface SubnetGroupResult {
+    /**
+     * The ARN of the docDB subnet group.
+     */
+    readonly arn: string;
+    /**
+     * The description of the docDB subnet group. Defaults to "Managed by Terraform".
+     */
+    readonly description?: string;
+    /**
+     * The name of the docDB subnet group. If omitted, Terraform will assign a random, unique name.
+     */
+    readonly name: string;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    readonly namePrefix: string;
+    /**
+     * A list of VPC subnet IDs.
+     */
+    readonly subnetIds: string[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

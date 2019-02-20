@@ -218,3 +218,49 @@ export interface ScheduleArgs {
      */
     readonly startTime?: pulumi.Input<string>;
 }
+
+/**
+ * The live Schedule resource.
+ */
+export interface ScheduleResult {
+    /**
+     * The ARN assigned by AWS to the autoscaling schedule.
+     */
+    readonly arn: string;
+    /**
+     * The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+     */
+    readonly autoscalingGroupName: string;
+    /**
+     * The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
+     */
+    readonly desiredCapacity: number;
+    /**
+     * The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+     * If you try to schedule your action in the past, Auto Scaling returns an error message.
+     */
+    readonly endTime: string;
+    /**
+     * The maximum size for the Auto Scaling group. Default 0.
+     * Set to -1 if you don't want to change the maximum size at the scheduled time.
+     */
+    readonly maxSize: number;
+    /**
+     * The minimum size for the Auto Scaling group. Default 0.
+     * Set to -1 if you don't want to change the minimum size at the scheduled time.
+     */
+    readonly minSize: number;
+    /**
+     * The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
+     */
+    readonly recurrence: string;
+    /**
+     * The name of this scaling action.
+     */
+    readonly scheduledActionName: string;
+    /**
+     * The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
+     * If you try to schedule your action in the past, Auto Scaling returns an error message.
+     */
+    readonly startTime: string;
+}

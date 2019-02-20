@@ -105,3 +105,17 @@ export interface DomainIdentityVerificationArgs {
      */
     readonly domain: pulumi.Input<string>;
 }
+
+/**
+ * The live DomainIdentityVerification resource.
+ */
+export interface DomainIdentityVerificationResult {
+    /**
+     * The ARN of the domain identity.
+     */
+    readonly arn: string;
+    /**
+     * The domain name of the SES domain identity to verify.
+     */
+    readonly domain: string;
+}

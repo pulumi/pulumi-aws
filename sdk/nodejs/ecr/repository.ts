@@ -124,3 +124,29 @@ export interface RepositoryArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live Repository resource.
+ */
+export interface RepositoryResult {
+    /**
+     * Full ARN of the repository.
+     */
+    readonly arn: string;
+    /**
+     * Name of the repository.
+     */
+    readonly name: string;
+    /**
+     * The registry ID where the repository was created.
+     */
+    readonly registryId: string;
+    /**
+     * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
+     */
+    readonly repositoryUrl: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

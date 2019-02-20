@@ -128,3 +128,27 @@ export interface PortfolioArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live Portfolio resource.
+ */
+export interface PortfolioResult {
+    readonly arn: string;
+    readonly createdTime: string;
+    /**
+     * Description of the portfolio
+     */
+    readonly description: string;
+    /**
+     * The name of the portfolio.
+     */
+    readonly name: string;
+    /**
+     * Name of the person or organization who owns the portfolio.
+     */
+    readonly providerName?: string;
+    /**
+     * Tags to apply to the connection.
+     */
+    readonly tags?: {[key: string]: any};
+}

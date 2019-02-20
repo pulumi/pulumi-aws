@@ -134,3 +134,30 @@ export interface AliasArgs {
      */
     readonly targetKeyId: pulumi.Input<string>;
 }
+
+/**
+ * The live Alias resource.
+ */
+export interface AliasResult {
+    /**
+     * The Amazon Resource Name (ARN) of the key alias.
+     */
+    readonly arn: string;
+    /**
+     * The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+     */
+    readonly name: string;
+    /**
+     * Creates an unique alias beginning with the specified prefix.
+     * The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+     */
+    readonly namePrefix?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the target key identifier.
+     */
+    readonly targetKeyArn: string;
+    /**
+     * Identifier for the key for which the alias is for, can be either an ARN or key_id.
+     */
+    readonly targetKeyId: string;
+}

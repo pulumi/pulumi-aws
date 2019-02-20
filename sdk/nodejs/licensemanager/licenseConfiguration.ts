@@ -185,3 +185,37 @@ export interface LicenseConfigurationArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live LicenseConfiguration resource.
+ */
+export interface LicenseConfigurationResult {
+    /**
+     * Description of the license configuration.
+     */
+    readonly description?: string;
+    /**
+     * Number of licenses managed by the license configuration.
+     */
+    readonly licenseCount?: number;
+    /**
+     * Sets the number of available licenses as a hard limit.
+     */
+    readonly licenseCountHardLimit?: boolean;
+    /**
+     * Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
+     */
+    readonly licenseCountingType: string;
+    /**
+     * Array of configured License Manager rules.
+     */
+    readonly licenseRules?: string[];
+    /**
+     * Name of the license configuration.
+     */
+    readonly name: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

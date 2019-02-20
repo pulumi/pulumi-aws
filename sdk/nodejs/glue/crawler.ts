@@ -290,3 +290,61 @@ export interface CrawlerArgs {
      */
     readonly tablePrefix?: pulumi.Input<string>;
 }
+
+/**
+ * The live Crawler resource.
+ */
+export interface CrawlerResult {
+    /**
+     * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
+     */
+    readonly classifiers?: string[];
+    /**
+     * JSON string of configuration information.
+     */
+    readonly configuration?: string;
+    /**
+     * Glue database where results are written.
+     */
+    readonly databaseName: string;
+    /**
+     * Description of the crawler.
+     */
+    readonly description?: string;
+    /**
+     * List of nested DynamoDB target arguments. See below.
+     */
+    readonly dynamodbTargets?: { path: string }[];
+    /**
+     * List of nested JBDC target arguments. See below.
+     */
+    readonly jdbcTargets?: { connectionName: string, exclusions?: string[], path: string }[];
+    /**
+     * Name of the crawler.
+     */
+    readonly name: string;
+    /**
+     * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
+     */
+    readonly role: string;
+    /**
+     * List nested Amazon S3 target arguments. See below.
+     */
+    readonly s3Targets?: { exclusions?: string[], path: string }[];
+    /**
+     * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
+     */
+    readonly schedule?: string;
+    /**
+     * Policy for the crawler's update and deletion behavior.
+     */
+    readonly schemaChangePolicy?: { deleteBehavior?: string, updateBehavior?: string };
+    /**
+     * The name of Security Configuration to be used by the crawler
+     */
+    readonly securityConfiguration?: string;
+    /**
+     * The table prefix used for catalog tables that are created.
+     */
+    readonly tablePrefix?: string;
+}

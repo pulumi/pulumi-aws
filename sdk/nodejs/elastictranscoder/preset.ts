@@ -246,3 +246,45 @@ export interface PresetArgs {
      */
     readonly videoWatermarks?: pulumi.Input<pulumi.Input<{ horizontalAlign?: pulumi.Input<string>, horizontalOffset?: pulumi.Input<string>, id?: pulumi.Input<string>, maxHeight?: pulumi.Input<string>, maxWidth?: pulumi.Input<string>, opacity?: pulumi.Input<string>, sizingPolicy?: pulumi.Input<string>, target?: pulumi.Input<string>, verticalAlign?: pulumi.Input<string>, verticalOffset?: pulumi.Input<string> }>[]>;
 }
+
+/**
+ * The live Preset resource.
+ */
+export interface PresetResult {
+    readonly arn: string;
+    /**
+     * Audio parameters object (documented below).
+     */
+    readonly audio?: { audioPackingMode?: string, bitRate?: string, channels?: string, codec?: string, sampleRate?: string };
+    /**
+     * Codec options for the audio parameters (documented below)
+     */
+    readonly audioCodecOptions?: { bitDepth?: string, bitOrder?: string, profile?: string, signed?: string };
+    /**
+     * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
+     */
+    readonly container: string;
+    /**
+     * A description of the preset (maximum 255 characters)
+     */
+    readonly description?: string;
+    /**
+     * The name of the preset. (maximum 40 characters)
+     */
+    readonly name: string;
+    /**
+     * Thumbnail parameters object (documented below)
+     */
+    readonly thumbnails?: { aspectRatio?: string, format?: string, interval?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string };
+    readonly type: string;
+    /**
+     * Video parameters object (documented below)
+     */
+    readonly video?: { aspectRatio?: string, bitRate?: string, codec?: string, displayAspectRatio?: string, fixedGop?: string, frameRate?: string, keyframesMaxDist?: string, maxFrameRate?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string };
+    readonly videoCodecOptions?: {[key: string]: any};
+    /**
+     * Watermark parameters for the video parameters (documented below)
+     * * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
+     */
+    readonly videoWatermarks?: { horizontalAlign?: string, horizontalOffset?: string, id?: string, maxHeight?: string, maxWidth?: string, opacity?: string, sizingPolicy?: string, target?: string, verticalAlign?: string, verticalOffset?: string }[];
+}

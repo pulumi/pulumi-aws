@@ -126,3 +126,25 @@ export interface RequestValidatorArgs {
      */
     readonly validateRequestParameters?: pulumi.Input<boolean>;
 }
+
+/**
+ * The live RequestValidator resource.
+ */
+export interface RequestValidatorResult {
+    /**
+     * The name of the request validator
+     */
+    readonly name: string;
+    /**
+     * The ID of the associated Rest API
+     */
+    readonly restApi: RestApi;
+    /**
+     * Boolean whether to validate request body. Defaults to `false`.
+     */
+    readonly validateRequestBody?: boolean;
+    /**
+     * Boolean whether to validate request parameters. Defaults to `false`.
+     */
+    readonly validateRequestParameters?: boolean;
+}

@@ -413,3 +413,81 @@ export interface TrailArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live Trail resource.
+ */
+export interface TrailResult {
+    /**
+     * The Amazon Resource Name of the trail.
+     */
+    readonly arn: string;
+    /**
+     * Specifies a log group name using an Amazon Resource Name (ARN),
+     * that represents the log group to which CloudTrail logs will be delivered.
+     */
+    readonly cloudWatchLogsGroupArn?: string;
+    /**
+     * Specifies the role for the CloudWatch Logs
+     * endpoint to assume to write to a user’s log group.
+     */
+    readonly cloudWatchLogsRoleArn?: string;
+    /**
+     * Specifies whether log file integrity validation is enabled.
+     * Defaults to `false`.
+     */
+    readonly enableLogFileValidation?: boolean;
+    /**
+     * Enables logging for the trail. Defaults to `true`.
+     * Setting this to `false` will pause logging.
+     */
+    readonly enableLogging?: boolean;
+    /**
+     * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
+     */
+    readonly eventSelectors?: { dataResources?: { type: string, values: string[] }[], includeManagementEvents?: boolean, readWriteType?: string }[];
+    /**
+     * The region in which the trail was created.
+     */
+    readonly homeRegion: string;
+    /**
+     * Specifies whether the trail is publishing events
+     * from global services such as IAM to the log files. Defaults to `true`.
+     */
+    readonly includeGlobalServiceEvents?: boolean;
+    /**
+     * Specifies whether the trail is created in the current
+     * region or in all regions. Defaults to `false`.
+     */
+    readonly isMultiRegionTrail?: boolean;
+    /**
+     * Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+     */
+    readonly isOrganizationTrail?: boolean;
+    /**
+     * Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
+     */
+    readonly kmsKeyId?: string;
+    /**
+     * Specifies the name of the trail.
+     */
+    readonly name: string;
+    /**
+     * Specifies the name of the S3 bucket designated for publishing log files.
+     */
+    readonly s3BucketName: string;
+    /**
+     * Specifies the S3 key prefix that precedes
+     * the name of the bucket you have designated for log file delivery.
+     */
+    readonly s3KeyPrefix?: string;
+    /**
+     * Specifies the name of the Amazon SNS topic
+     * defined for notification of log file delivery.
+     */
+    readonly snsTopicName?: string;
+    /**
+     * A mapping of tags to assign to the trail
+     */
+    readonly tags?: {[key: string]: any};
+}

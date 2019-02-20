@@ -177,3 +177,45 @@ export interface SnapshotArgs {
      */
     readonly volumeId: pulumi.Input<string>;
 }
+
+/**
+ * The live Snapshot resource.
+ */
+export interface SnapshotResult {
+    /**
+     * The data encryption key identifier for the snapshot.
+     */
+    readonly dataEncryptionKeyId: string;
+    /**
+     * A description of what the snapshot is.
+     */
+    readonly description?: string;
+    /**
+     * Whether the snapshot is encrypted.
+     */
+    readonly encrypted: boolean;
+    /**
+     * The ARN for the KMS encryption key.
+     */
+    readonly kmsKeyId: string;
+    /**
+     * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
+     */
+    readonly ownerAlias: string;
+    /**
+     * The AWS account ID of the EBS snapshot owner.
+     */
+    readonly ownerId: string;
+    /**
+     * A mapping of tags to assign to the snapshot
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The Volume ID of which to make a snapshot.
+     */
+    readonly volumeId: string;
+    /**
+     * The size of the drive in GiBs.
+     */
+    readonly volumeSize: number;
+}

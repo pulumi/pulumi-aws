@@ -209,3 +209,37 @@ export interface ClusterEndpointArgs {
      */
     readonly staticMembers?: pulumi.Input<pulumi.Input<string>[]>;
 }
+
+/**
+ * The live ClusterEndpoint resource.
+ */
+export interface ClusterEndpointResult {
+    /**
+     * Amazon Resource Name (ARN) of cluster
+     */
+    readonly arn: string;
+    /**
+     * The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+     */
+    readonly clusterEndpointIdentifier: string;
+    /**
+     * The cluster identifier.
+     */
+    readonly clusterIdentifier: string;
+    /**
+     * The type of the endpoint. One of: READER , ANY .
+     */
+    readonly customEndpointType: string;
+    /**
+     * A custom endpoint for the Aurora cluster
+     */
+    readonly endpoint: string;
+    /**
+     * List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+     */
+    readonly excludedMembers?: string[];
+    /**
+     * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+     */
+    readonly staticMembers?: string[];
+}

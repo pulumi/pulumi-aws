@@ -121,3 +121,25 @@ export interface VpnGatewayArgs {
      */
     readonly vpcId?: pulumi.Input<string>;
 }
+
+/**
+ * The live VpnGateway resource.
+ */
+export interface VpnGatewayResult {
+    /**
+     * The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
+     */
+    readonly amazonSideAsn: string;
+    /**
+     * The Availability Zone for the virtual private gateway.
+     */
+    readonly availabilityZone?: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The VPC ID to create in.
+     */
+    readonly vpcId: string;
+}

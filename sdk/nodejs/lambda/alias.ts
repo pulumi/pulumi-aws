@@ -169,3 +169,37 @@ export interface AliasArgs {
      */
     readonly routingConfig?: pulumi.Input<{ additionalVersionWeights?: pulumi.Input<{[key: string]: pulumi.Input<number>}> }>;
 }
+
+/**
+ * The live Alias resource.
+ */
+export interface AliasResult {
+    /**
+     * The Amazon Resource Name (ARN) identifying your Lambda function alias.
+     */
+    readonly arn: string;
+    /**
+     * Description of the alias.
+     */
+    readonly description?: string;
+    /**
+     * The function ARN of the Lambda function for which you want to create an alias.
+     */
+    readonly functionName: string;
+    /**
+     * Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+     */
+    readonly functionVersion: string;
+    /**
+     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+     */
+    readonly invokeArn: string;
+    /**
+     * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+     */
+    readonly name: string;
+    /**
+     * The Lambda alias' route configuration settings. Fields documented below
+     */
+    readonly routingConfig?: { additionalVersionWeights?: {[key: string]: number} };
+}

@@ -81,3 +81,13 @@ export interface AccountAliasArgs {
      */
     readonly accountAlias: pulumi.Input<string>;
 }
+
+/**
+ * The live AccountAlias resource.
+ */
+export interface AccountAliasResult {
+    /**
+     * The account alias
+     */
+    readonly accountAlias: string;
+}

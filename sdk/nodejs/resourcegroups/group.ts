@@ -131,3 +131,25 @@ export interface GroupArgs {
      */
     readonly resourceQuery: pulumi.Input<{ query: pulumi.Input<string>, type?: pulumi.Input<string> }>;
 }
+
+/**
+ * The live Group resource.
+ */
+export interface GroupResult {
+    /**
+     * The ARN assigned by AWS for this resource group.
+     */
+    readonly arn: string;
+    /**
+     * A description of the resource group.
+     */
+    readonly description?: string;
+    /**
+     * The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
+     */
+    readonly name: string;
+    /**
+     * A `resource_query` block. Resource queries are documented below.
+     */
+    readonly resourceQuery: { query: string, type?: string };
+}

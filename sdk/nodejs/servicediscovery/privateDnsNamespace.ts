@@ -132,3 +132,29 @@ export interface PrivateDnsNamespaceArgs {
      */
     readonly vpc: pulumi.Input<string>;
 }
+
+/**
+ * The live PrivateDnsNamespace resource.
+ */
+export interface PrivateDnsNamespaceResult {
+    /**
+     * The ARN that Amazon Route 53 assigns to the namespace when you create it.
+     */
+    readonly arn: string;
+    /**
+     * The description that you specify for the namespace when you create it.
+     */
+    readonly description?: string;
+    /**
+     * The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
+     */
+    readonly hostedZone: string;
+    /**
+     * The name of the namespace.
+     */
+    readonly name: string;
+    /**
+     * The ID of VPC that you want to associate the namespace with.
+     */
+    readonly vpc: string;
+}

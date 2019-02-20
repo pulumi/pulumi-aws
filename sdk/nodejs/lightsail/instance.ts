@@ -308,3 +308,53 @@ export interface InstanceArgs {
      */
     readonly userData?: pulumi.Input<string>;
 }
+
+/**
+ * The live Instance resource.
+ */
+export interface InstanceResult {
+    /**
+     * The ARN of the Lightsail instance (matches `id`).
+     * * `availability_zone`
+     * * `blueprint_id`
+     * * `bundle_id`
+     * * `key_pair_name`
+     * * `user_data`
+     */
+    readonly arn: string;
+    /**
+     * The Availability Zone in which to create your
+     * instance (see list below)
+     */
+    readonly availabilityZone: string;
+    /**
+     * The ID for a virtual private server image
+     * (see list below)
+     */
+    readonly blueprintId: string;
+    /**
+     * The bundle of specification information (see list below)
+     */
+    readonly bundleId: string;
+    readonly cpuCount: number;
+    readonly createdAt: string;
+    readonly ipv6Address: string;
+    readonly isStaticIp: boolean;
+    /**
+     * The name of your key pair. Created in the
+     * Lightsail console (cannot use `aws_key_pair` at this time)
+     */
+    readonly keyPairName?: string;
+    /**
+     * The name of the Lightsail Instance
+     */
+    readonly name: string;
+    readonly privateIpAddress: string;
+    readonly publicIpAddress: string;
+    readonly ramSize: number;
+    /**
+     * launch script to configure server with additional user data
+     */
+    readonly userData?: string;
+    readonly username: string;
+}

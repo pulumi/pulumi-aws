@@ -165,3 +165,21 @@ export interface LifecyclePolicyArgs {
      */
     readonly repository: pulumi.Input<string>;
 }
+
+/**
+ * The live LifecyclePolicy resource.
+ */
+export interface LifecyclePolicyResult {
+    /**
+     * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
+     */
+    readonly policy: string;
+    /**
+     * The registry ID where the repository was created.
+     */
+    readonly registryId: string;
+    /**
+     * Name of the repository to apply the policy.
+     */
+    readonly repository: string;
+}

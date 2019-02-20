@@ -193,3 +193,45 @@ export interface VolumeArgs {
      */
     readonly type?: pulumi.Input<string>;
 }
+
+/**
+ * The live Volume resource.
+ */
+export interface VolumeResult {
+    /**
+     * The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+     */
+    readonly arn: string;
+    /**
+     * The AZ where the EBS volume will exist.
+     */
+    readonly availabilityZone: string;
+    /**
+     * If true, the disk will be encrypted.
+     */
+    readonly encrypted: boolean;
+    /**
+     * The amount of IOPS to provision for the disk.
+     */
+    readonly iops: number;
+    /**
+     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+     */
+    readonly kmsKeyId: string;
+    /**
+     * The size of the drive in GiBs.
+     */
+    readonly size: number;
+    /**
+     * A snapshot to base the EBS volume off of.
+     */
+    readonly snapshotId: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
+     */
+    readonly type: string;
+}

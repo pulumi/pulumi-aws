@@ -100,3 +100,17 @@ export interface SpotDatafeedSubscriptionArgs {
      */
     readonly prefix?: pulumi.Input<string>;
 }
+
+/**
+ * The live SpotDatafeedSubscription resource.
+ */
+export interface SpotDatafeedSubscriptionResult {
+    /**
+     * The Amazon S3 bucket in which to store the Spot instance data feed.
+     */
+    readonly bucket: string;
+    /**
+     * Path of folder inside bucket to place spot pricing data.
+     */
+    readonly prefix?: string;
+}

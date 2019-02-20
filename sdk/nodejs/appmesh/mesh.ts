@@ -106,3 +106,25 @@ export interface MeshArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live Mesh resource.
+ */
+export interface MeshResult {
+    /**
+     * The ARN of the service mesh.
+     */
+    readonly arn: string;
+    /**
+     * The creation date of the service mesh.
+     */
+    readonly createdDate: string;
+    /**
+     * The last update date of the service mesh.
+     */
+    readonly lastUpdatedDate: string;
+    /**
+     * The name to use for the service mesh.
+     */
+    readonly name: string;
+}

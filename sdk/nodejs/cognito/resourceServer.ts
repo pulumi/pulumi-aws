@@ -152,3 +152,26 @@ export interface ResourceServerArgs {
     readonly scopes?: pulumi.Input<pulumi.Input<{ scopeDescription: pulumi.Input<string>, scopeName: pulumi.Input<string> }>[]>;
     readonly userPoolId: pulumi.Input<string>;
 }
+
+/**
+ * The live ResourceServer resource.
+ */
+export interface ResourceServerResult {
+    /**
+     * An identifier for the resource server.
+     */
+    readonly identifier: string;
+    /**
+     * A name for the resource server.
+     */
+    readonly name: string;
+    /**
+     * A list of Authorization Scope.
+     */
+    readonly scopes?: { scopeDescription: string, scopeName: string }[];
+    /**
+     * A list of all scopes configured for this resource server in the format identifier/scope_name.
+     */
+    readonly scopeIdentifiers: string[];
+    readonly userPoolId: string;
+}

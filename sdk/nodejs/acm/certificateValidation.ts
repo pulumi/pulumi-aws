@@ -197,3 +197,17 @@ export interface CertificateValidationArgs {
      */
     readonly validationRecordFqdns?: pulumi.Input<pulumi.Input<string>[]>;
 }
+
+/**
+ * The live CertificateValidation resource.
+ */
+export interface CertificateValidationResult {
+    /**
+     * The ARN of the certificate that is being validated.
+     */
+    readonly certificateArn: string;
+    /**
+     * List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
+     */
+    readonly validationRecordFqdns?: string[];
+}

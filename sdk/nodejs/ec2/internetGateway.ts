@@ -103,3 +103,21 @@ export interface InternetGatewayArgs {
      */
     readonly vpcId?: pulumi.Input<string>;
 }
+
+/**
+ * The live InternetGateway resource.
+ */
+export interface InternetGatewayResult {
+    /**
+     * The ID of the AWS account that owns the internet gateway.
+     */
+    readonly ownerId: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The VPC ID to create in.
+     */
+    readonly vpcId?: string;
+}

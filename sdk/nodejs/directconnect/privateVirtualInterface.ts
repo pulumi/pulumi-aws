@@ -269,3 +269,66 @@ export interface PrivateVirtualInterfaceArgs {
      */
     readonly vpnGatewayId?: pulumi.Input<string>;
 }
+
+/**
+ * The live PrivateVirtualInterface resource.
+ */
+export interface PrivateVirtualInterfaceResult {
+    /**
+     * The address family for the BGP peer. `ipv4 ` or `ipv6`.
+     */
+    readonly addressFamily: string;
+    /**
+     * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
+     */
+    readonly amazonAddress: string;
+    /**
+     * The ARN of the virtual interface.
+     */
+    readonly arn: string;
+    /**
+     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     */
+    readonly bgpAsn: number;
+    /**
+     * The authentication key for BGP configuration.
+     */
+    readonly bgpAuthKey: string;
+    /**
+     * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
+     */
+    readonly connectionId: string;
+    /**
+     * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
+     */
+    readonly customerAddress: string;
+    /**
+     * The ID of the Direct Connect gateway to which to connect the virtual interface.
+     */
+    readonly dxGatewayId?: string;
+    /**
+     * Indicates whether jumbo frames (9001 MTU) are supported.
+     */
+    readonly jumboFrameCapable: boolean;
+    /**
+     * The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
+     * The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
+     */
+    readonly mtu?: number;
+    /**
+     * The name for the virtual interface.
+     */
+    readonly name: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The VLAN ID.
+     */
+    readonly vlan: number;
+    /**
+     * The ID of the virtual private gateway to which to connect the virtual interface.
+     */
+    readonly vpnGatewayId?: string;
+}

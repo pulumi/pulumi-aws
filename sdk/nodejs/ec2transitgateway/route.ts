@@ -115,3 +115,21 @@ export interface RouteArgs {
      */
     readonly transitGatewayRouteTableId: pulumi.Input<string>;
 }
+
+/**
+ * The live Route resource.
+ */
+export interface RouteResult {
+    /**
+     * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+     */
+    readonly destinationCidrBlock: string;
+    /**
+     * Identifier of EC2 Transit Gateway Attachment.
+     */
+    readonly transitGatewayAttachmentId: string;
+    /**
+     * Identifier of EC2 Transit Gateway Route Table.
+     */
+    readonly transitGatewayRouteTableId: string;
+}

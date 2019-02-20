@@ -96,3 +96,21 @@ export interface ContainerArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live Container resource.
+ */
+export interface ContainerResult {
+    /**
+     * The ARN of the container.
+     */
+    readonly arn: string;
+    /**
+     * The DNS endpoint of the container.
+     */
+    readonly endpoint: string;
+    /**
+     * The name of the container. Must contain alphanumeric characters or underscores.
+     */
+    readonly name: string;
+}

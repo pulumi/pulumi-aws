@@ -117,3 +117,25 @@ export interface RouteTableAssociationArgs {
      */
     readonly transitGatewayRouteTableId: pulumi.Input<string>;
 }
+
+/**
+ * The live RouteTableAssociation resource.
+ */
+export interface RouteTableAssociationResult {
+    /**
+     * Identifier of the resource
+     */
+    readonly resourceId: string;
+    /**
+     * Type of the resource
+     */
+    readonly resourceType: string;
+    /**
+     * Identifier of EC2 Transit Gateway Attachment.
+     */
+    readonly transitGatewayAttachmentId: string;
+    /**
+     * Identifier of EC2 Transit Gateway Route Table.
+     */
+    readonly transitGatewayRouteTableId: string;
+}

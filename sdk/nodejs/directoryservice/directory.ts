@@ -366,3 +366,69 @@ export interface DirectoryArgs {
      */
     readonly vpcSettings?: pulumi.Input<{ subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId: pulumi.Input<string> }>;
 }
+
+/**
+ * The live Directory resource.
+ */
+export interface DirectoryResult {
+    /**
+     * The access URL for the directory, such as `http://alias.awsapps.com`.
+     */
+    readonly accessUrl: string;
+    /**
+     * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
+     */
+    readonly alias: string;
+    /**
+     * Connector related information about the directory. Fields documented below.
+     */
+    readonly connectSettings?: { customerDnsIps: string[], customerUsername: string, subnetIds: string[], vpcId: string };
+    /**
+     * A textual description for the directory.
+     */
+    readonly description?: string;
+    /**
+     * A list of IP addresses of the DNS servers for the directory or connector.
+     */
+    readonly dnsIpAddresses: string[];
+    /**
+     * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
+     */
+    readonly edition: string;
+    /**
+     * Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
+     */
+    readonly enableSso?: boolean;
+    /**
+     * The fully qualified name for the directory, such as `corp.example.com`
+     */
+    readonly name: string;
+    /**
+     * The password for the directory administrator or connector user.
+     */
+    readonly password: string;
+    /**
+     * The ID of the security group created by the directory (`SimpleAD` or `MicrosoftAD` only).
+     */
+    readonly securityGroupId: string;
+    /**
+     * The short name of the directory, such as `CORP`.
+     */
+    readonly shortName: string;
+    /**
+     * The size of the directory (`Small` or `Large` are accepted values).
+     */
+    readonly size: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
+     */
+    readonly type?: string;
+    /**
+     * VPC related information about the directory. Fields documented below.
+     */
+    readonly vpcSettings?: { subnetIds: string[], vpcId: string };
+}

@@ -119,3 +119,21 @@ export interface RuleGroupArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live RuleGroup resource.
+ */
+export interface RuleGroupResult {
+    /**
+     * A list of activated rules, see below
+     */
+    readonly activatedRules?: { action: { type: string }, priority: number, ruleId: string, type?: string }[];
+    /**
+     * A friendly name for the metrics from the rule group
+     */
+    readonly metricName: string;
+    /**
+     * A friendly name of the rule group
+     */
+    readonly name: string;
+}

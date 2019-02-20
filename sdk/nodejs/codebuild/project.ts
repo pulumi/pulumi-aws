@@ -398,3 +398,73 @@ export interface ProjectArgs {
      */
     readonly vpcConfig?: pulumi.Input<{ securityGroupIds: pulumi.Input<pulumi.Input<string>[]>, subnets: pulumi.Input<pulumi.Input<string>[]>, vpcId: pulumi.Input<string> }>;
 }
+
+/**
+ * The live Project resource.
+ */
+export interface ProjectResult {
+    /**
+     * The ARN of the CodeBuild project.
+     */
+    readonly arn: string;
+    /**
+     * Information about the project's build output artifacts. Artifact blocks are documented below.
+     */
+    readonly artifacts: { encryptionDisabled?: boolean, location?: string, name?: string, namespaceType?: string, packaging?: string, path?: string, type: string };
+    /**
+     * Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+     */
+    readonly badgeEnabled?: boolean;
+    /**
+     * The URL of the build badge when `badge_enabled` is enabled.
+     */
+    readonly badgeUrl: string;
+    /**
+     * How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+     */
+    readonly buildTimeout?: number;
+    /**
+     * Information about the cache storage for the project. Cache blocks are documented below.
+     */
+    readonly cache?: { location?: string, type?: string };
+    /**
+     * A short description of the project.
+     */
+    readonly description: string;
+    /**
+     * The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+     */
+    readonly encryptionKey: string;
+    /**
+     * Information about the project's build environment. Environment blocks are documented below.
+     */
+    readonly environment: { certificate?: string, computeType: string, environmentVariables: { name: string, type?: string, value: string }[], image: string, privilegedMode?: boolean, type: string };
+    /**
+     * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+     */
+    readonly name: string;
+    /**
+     * A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
+     */
+    readonly secondaryArtifacts?: { artifactIdentifier: string, encryptionDisabled?: boolean, location?: string, name?: string, namespaceType?: string, packaging?: string, path?: string, type: string }[];
+    /**
+     * A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
+     */
+    readonly secondarySources?: { auths?: { resource?: string, type: string }[], buildspec?: string, gitCloneDepth?: number, insecureSsl?: boolean, location?: string, reportBuildStatus?: boolean, sourceIdentifier: string, type: string }[];
+    /**
+     * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+     */
+    readonly serviceRole: string;
+    /**
+     * Information about the project's input source code. Source blocks are documented below.
+     */
+    readonly source: { auths?: { resource?: string, type: string }[], buildspec?: string, gitCloneDepth?: number, insecureSsl?: boolean, location?: string, reportBuildStatus?: boolean, type: string };
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
+     */
+    readonly vpcConfig?: { securityGroupIds: string[], subnets: string[], vpcId: string };
+}

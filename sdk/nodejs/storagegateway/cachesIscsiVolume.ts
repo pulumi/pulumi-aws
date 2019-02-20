@@ -269,3 +269,61 @@ export interface CachesIscsiVolumeArgs {
      */
     readonly volumeSizeInBytes: pulumi.Input<number>;
 }
+
+/**
+ * The live CachesIscsiVolume resource.
+ */
+export interface CachesIscsiVolumeResult {
+    /**
+     * Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+     */
+    readonly arn: string;
+    /**
+     * Whether mutual CHAP is enabled for the iSCSI target.
+     */
+    readonly chapEnabled: boolean;
+    /**
+     * The Amazon Resource Name (ARN) of the gateway.
+     */
+    readonly gatewayArn: string;
+    /**
+     * Logical disk number.
+     */
+    readonly lunNumber: number;
+    /**
+     * The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
+     */
+    readonly networkInterfaceId: string;
+    /**
+     * The port used to communicate with iSCSI targets.
+     */
+    readonly networkInterfacePort: number;
+    /**
+     * The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
+     */
+    readonly snapshotId?: string;
+    /**
+     * The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
+     */
+    readonly sourceVolumeArn?: string;
+    /**
+     * Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+     */
+    readonly targetArn: string;
+    /**
+     * The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
+     */
+    readonly targetName: string;
+    /**
+     * Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+     */
+    readonly volumeArn: string;
+    /**
+     * Volume ID, e.g. `vol-12345678`.
+     */
+    readonly volumeId: string;
+    /**
+     * The size of the volume in bytes.
+     */
+    readonly volumeSizeInBytes: number;
+}

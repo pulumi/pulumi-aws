@@ -94,3 +94,21 @@ export interface GlobalTableArgs {
      */
     readonly replicas: pulumi.Input<pulumi.Input<{ regionName: pulumi.Input<string> }>[]>;
 }
+
+/**
+ * The live GlobalTable resource.
+ */
+export interface GlobalTableResult {
+    /**
+     * The ARN of the DynamoDB Global Table
+     */
+    readonly arn: string;
+    /**
+     * The name of the global table. Must match underlying DynamoDB Table names in all regions.
+     */
+    readonly name: string;
+    /**
+     * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+     */
+    readonly replicas: { regionName: string }[];
+}

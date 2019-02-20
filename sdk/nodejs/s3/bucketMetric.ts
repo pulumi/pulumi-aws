@@ -135,3 +135,21 @@ export interface BucketMetricArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live BucketMetric resource.
+ */
+export interface BucketMetricResult {
+    /**
+     * The name of the bucket to put metric configuration.
+     */
+    readonly bucket: string;
+    /**
+     * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+     */
+    readonly filter?: { prefix?: string, tags?: {[key: string]: any} };
+    /**
+     * Unique identifier of the metrics configuration for the bucket.
+     */
+    readonly name: string;
+}

@@ -76,3 +76,13 @@ export interface ConfgurationSetArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live ConfgurationSet resource.
+ */
+export interface ConfgurationSetResult {
+    /**
+     * The name of the configuration set
+     */
+    readonly name: string;
+}

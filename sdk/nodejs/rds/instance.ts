@@ -1046,3 +1046,300 @@ export interface InstanceArgs {
      */
     readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
+
+/**
+ * The live Instance resource.
+ */
+export interface InstanceResult {
+    /**
+     * The hostname of the RDS instance. See also `endpoint` and `port`.
+     */
+    readonly address: string;
+    /**
+     * (Required unless a `snapshot_identifier` or
+     * `replicate_source_db` is provided) The allocated storage in gibibytes.
+     */
+    readonly allocatedStorage: number;
+    /**
+     * Indicates that major version
+     * upgrades are allowed. Changing this parameter does not result in an outage and
+     * the change is asynchronously applied as soon as possible.
+     */
+    readonly allowMajorVersionUpgrade?: boolean;
+    /**
+     * Specifies whether any database modifications
+     * are applied immediately, or during the next maintenance window. Default is
+     * `false`. See [Amazon RDS Documentation for more
+     * information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+     * for more information.
+     */
+    readonly applyImmediately: boolean;
+    /**
+     * The ARN of the RDS instance.
+     */
+    readonly arn: string;
+    /**
+     * Indicates that minor engine upgrades
+     * will be applied automatically to the DB instance during the maintenance window.
+     * Defaults to true.
+     */
+    readonly autoMinorVersionUpgrade?: boolean;
+    /**
+     * The AZ for the RDS instance.
+     */
+    readonly availabilityZone: string;
+    /**
+     * The days to retain backups for. Must be
+     * between `0` and `35`. When creating a Read Replica the value must be greater than `0`. [See Read Replica][1].
+     */
+    readonly backupRetentionPeriod: number;
+    /**
+     * The daily time range (in UTC) during which
+     * automated backups are created if they are enabled. Example: "09:46-10:16". Must
+     * not overlap with `maintenance_window`.
+     */
+    readonly backupWindow: string;
+    /**
+     * Specifies the identifier of the CA certificate for the
+     * DB instance.
+     */
+    readonly caCertIdentifier: string;
+    /**
+     * The character set name to use for DB
+     * encoding in Oracle instances. This can't be changed. See [Oracle Character Sets
+     * Supported in Amazon
+     * RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+     * for more information.
+     */
+    readonly characterSetName: string;
+    /**
+     * Copy all Instance `tags` to snapshots. Default is `false`.
+     */
+    readonly copyTagsToSnapshot?: boolean;
+    /**
+     * Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
+     * be created in the VPC associated with the DB subnet group. If unspecified, will
+     * be created in the `default` VPC, or in EC2 Classic, if available. When working
+     * with read replicas, it needs to be specified only if the source database
+     * specifies an instance in another AWS Region. See [DBSubnetGroupName in API
+     * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
+     * for additional read replica contraints.
+     */
+    readonly dbSubnetGroupName: string;
+    /**
+     * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+     */
+    readonly deletionProtection?: boolean;
+    /**
+     * The ID of the Directory Service Active Directory domain to create the instance in.
+     */
+    readonly domain?: string;
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service.
+     */
+    readonly domainIamRoleName?: string;
+    /**
+     * List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
+     */
+    readonly enabledCloudwatchLogsExports?: string[];
+    /**
+     * The connection endpoint in `address:port` format.
+     */
+    readonly endpoint: string;
+    /**
+     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+     * Note that for Amazon Aurora instances the engine must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine'.
+     * For information on the difference between the available Aurora MySQL engines
+     * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
+     * in the Amazon RDS User Guide.
+     */
+    readonly engine: string;
+    /**
+     * The engine version to use. If `auto_minor_version_upgrade`
+     * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
+     * this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+     * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+     * Note that for Amazon Aurora instances the engine version must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine version'.
+     */
+    readonly engineVersion: string;
+    /**
+     * The name of your final DB snapshot
+     * when this DB instance is deleted. If omitted, no final snapshot will be made.
+     */
+    readonly finalSnapshotIdentifier?: string;
+    /**
+     * The canonical hosted zone ID of the DB instance (to be used
+     * in a Route 53 Alias record).
+     */
+    readonly hostedZoneId: string;
+    /**
+     * Specifies whether or
+     * mappings of AWS Identity and Access Management (IAM) accounts to database
+     * accounts is enabled.
+     */
+    readonly iamDatabaseAuthenticationEnabled?: boolean;
+    /**
+     * The name of the RDS instance,
+     * if omitted, Terraform will assign a random, unique identifier.
+     */
+    readonly identifier: string;
+    /**
+     * Creates a unique
+     * identifier beginning with the specified prefix. Conflicts with `identifier`.
+     */
+    readonly identifierPrefix: string;
+    /**
+     * The instance type of the RDS instance.
+     */
+    readonly instanceClass: string;
+    /**
+     * The amount of provisioned IOPS. Setting this implies a
+     * storage_type of "io1".
+     */
+    readonly iops?: number;
+    /**
+     * The ARN for the KMS encryption key. If creating an
+     * encrypted replica, set this to the destination KMS ARN.
+     */
+    readonly kmsKeyId: string;
+    /**
+     * (Optional, but required for some DB engines, i.e. Oracle
+     * SE1) License model information for this DB instance.
+     */
+    readonly licenseModel: string;
+    /**
+     * The window to perform maintenance in.
+     * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
+     * Maintenance Window
+     * docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
+     * for more information.
+     */
+    readonly maintenanceWindow: string;
+    /**
+     * The interval, in seconds, between points
+     * when Enhanced Monitoring metrics are collected for the DB instance. To disable
+     * collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid
+     * Values: 0, 1, 5, 10, 15, 30, 60.
+     */
+    readonly monitoringInterval?: number;
+    /**
+     * The ARN for the IAM role that permits RDS
+     * to send enhanced monitoring metrics to CloudWatch Logs. You can find more
+     * information on the [AWS
+     * Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
+     * what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
+     */
+    readonly monitoringRoleArn: string;
+    /**
+     * Specifies if the RDS instance is multi-AZ
+     */
+    readonly multiAz: boolean;
+    /**
+     * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](http://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines.
+     */
+    readonly name: string;
+    /**
+     * Name of the DB option group to associate.
+     */
+    readonly optionGroupName: string;
+    /**
+     * Name of the DB parameter group to
+     * associate.
+     */
+    readonly parameterGroupName: string;
+    /**
+     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * is provided) Password for the master DB user. Note that this may show up in
+     * logs, and it will be stored in the state file.
+     */
+    readonly password?: string;
+    /**
+     * The port on which the DB accepts connections.
+     */
+    readonly port: number;
+    /**
+     * Bool to control if instance is publicly
+     * accessible. Default is `false`.
+     */
+    readonly publiclyAccessible?: boolean;
+    readonly replicas: string[];
+    /**
+     * Specifies that this resource is a Replicate
+     * database, and to use this value as the source database. This correlates to the
+     * `identifier` of another Amazon RDS Database to replicate. Note that if you are
+     * creating a cross-region replica of an encrypted database you will also need to
+     * specify a `kms_key_id`. See [DB Instance Replication][1] and [Working with
+     * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
+     * for more information on using Replication.
+     */
+    readonly replicateSourceDb?: string;
+    /**
+     * The RDS Resource ID of this instance.
+     */
+    readonly resourceId: string;
+    /**
+     * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
+     */
+    readonly s3Import?: { bucketName: string, bucketPrefix?: string, ingestionRole: string, sourceEngine: string, sourceEngineVersion: string };
+    /**
+     * List of DB Security Groups to
+     * associate. Only used for [DB Instances on the _EC2-Classic_
+     * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
+     */
+    readonly securityGroupNames?: string[];
+    /**
+     * Determines whether a final DB snapshot is
+     * created before the DB instance is deleted. If true is specified, no DBSnapshot
+     * is created. If false is specified, a DB snapshot is created before the DB
+     * instance is deleted, using the value from `final_snapshot_identifier`. Default
+     * is `false`.
+     */
+    readonly skipFinalSnapshot?: boolean;
+    /**
+     * Specifies whether or not to create this
+     * database from a snapshot. This correlates to the snapshot ID you'd find in the
+     * RDS console, e.g: rds:production-2015-06-26-06-05.
+     */
+    readonly snapshotIdentifier?: string;
+    /**
+     * The RDS instance status.
+     */
+    readonly status: string;
+    /**
+     * Specifies whether the DB instance is
+     * encrypted. Note that if you are creating a cross-region read replica this field
+     * is ignored and you should instead declare `kms_key_id` with a valid ARN. The
+     * default is `false` if not specified.
+     */
+    readonly storageEncrypted?: boolean;
+    /**
+     * One of "standard" (magnetic), "gp2" (general
+     * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
+     * specified, "standard" if not. Note that this behaviour is different from the AWS
+     * web console, where the default is "gp2".
+     */
+    readonly storageType: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * Time zone of the DB instance. `timezone` is currently
+     * only supported by Microsoft SQL Server. The `timezone` can only be set on
+     * creation. See [MSSQL User
+     * Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
+     * for more information.
+     */
+    readonly timezone: string;
+    /**
+     * (Required unless a `snapshot_identifier` or `replicate_source_db`
+     * is provided) Username for the master DB user.
+     */
+    readonly username: string;
+    /**
+     * List of VPC security groups to
+     * associate.
+     */
+    readonly vpcSecurityGroupIds: string[];
+}

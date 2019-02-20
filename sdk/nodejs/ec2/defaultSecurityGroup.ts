@@ -240,3 +240,39 @@ export interface DefaultSecurityGroupArgs {
      */
     readonly vpcId?: pulumi.Input<string>;
 }
+
+/**
+ * The live DefaultSecurityGroup resource.
+ */
+export interface DefaultSecurityGroupResult {
+    readonly arn: string;
+    /**
+     * Can be specified multiple times for each
+     * egress rule. Each egress block supports fields documented below.
+     */
+    readonly egress?: { cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[];
+    /**
+     * Can be specified multiple times for each
+     * ingress rule. Each ingress block supports fields documented below.
+     */
+    readonly ingress?: { cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[];
+    /**
+     * The name of the security group
+     */
+    readonly name: string;
+    /**
+     * The owner ID.
+     */
+    readonly ownerId: string;
+    readonly revokeRulesOnDelete?: boolean;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The VPC ID. **Note that changing
+     * the `vpc_id` will _not_ restore any default security group rules that were
+     * modified, added, or removed.** It will be left in its current state
+     */
+    readonly vpcId: string;
+}

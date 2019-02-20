@@ -333,3 +333,77 @@ export interface ApplicationArgs {
      */
     readonly type: pulumi.Input<string>;
 }
+
+/**
+ * The live Application resource.
+ */
+export interface ApplicationResult {
+    /**
+     * SCM configuration of the app as described below.
+     */
+    readonly appSources: { password?: string, revision?: string, sshKey?: string, type: string, url?: string, username?: string }[];
+    /**
+     * Run bundle install when deploying for application of type `rails`.
+     */
+    readonly autoBundleOnDeploy?: string;
+    /**
+     * Specify activity and workflow workers for your app using the aws-flow gem.
+     */
+    readonly awsFlowRubySettings?: string;
+    /**
+     * The data source's ARN.
+     */
+    readonly dataSourceArn?: string;
+    /**
+     * The database name.
+     */
+    readonly dataSourceDatabaseName?: string;
+    /**
+     * The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
+     */
+    readonly dataSourceType?: string;
+    /**
+     * A description of the app.
+     */
+    readonly description?: string;
+    /**
+     * Subfolder for the document root for application of type `rails`.
+     */
+    readonly documentRoot?: string;
+    /**
+     * A list of virtual host alias.
+     */
+    readonly domains?: string[];
+    /**
+     * Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
+     */
+    readonly enableSsl?: boolean;
+    /**
+     * Object to define environment variables.  Object is described below.
+     */
+    readonly environments?: { key: string, secure?: boolean, value: string }[];
+    /**
+     * A human-readable name for the application.
+     */
+    readonly name: string;
+    /**
+     * The name of the Rails environment for application of type `rails`.
+     */
+    readonly railsEnv?: string;
+    /**
+     * A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
+     */
+    readonly shortName: string;
+    /**
+     * The SSL configuration of the app. Object is described below.
+     */
+    readonly sslConfigurations?: { certificate: string, chain?: string, privateKey: string }[];
+    /**
+     * The id of the stack the application will belong to.
+     */
+    readonly stackId: string;
+    /**
+     * The type of source to use. For example, "archive".
+     */
+    readonly type: string;
+}

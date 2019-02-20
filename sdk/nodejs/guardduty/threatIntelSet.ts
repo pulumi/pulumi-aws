@@ -162,3 +162,29 @@ export interface ThreatIntelSetArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live ThreatIntelSet resource.
+ */
+export interface ThreatIntelSetResult {
+    /**
+     * Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
+     */
+    readonly activate: boolean;
+    /**
+     * The detector ID of the GuardDuty.
+     */
+    readonly detectorId: string;
+    /**
+     * The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+     */
+    readonly format: string;
+    /**
+     * The URI of the file that contains the ThreatIntelSet.
+     */
+    readonly location: string;
+    /**
+     * The friendly name to identify the ThreatIntelSet.
+     */
+    readonly name: string;
+}

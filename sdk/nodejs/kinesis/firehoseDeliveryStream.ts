@@ -428,3 +428,52 @@ export interface FirehoseDeliveryStreamArgs {
      */
     readonly versionId?: pulumi.Input<string>;
 }
+
+/**
+ * The live FirehoseDeliveryStream resource.
+ */
+export interface FirehoseDeliveryStreamResult {
+    /**
+     * The Amazon Resource Name (ARN) specifying the Stream
+     */
+    readonly arn: string;
+    /**
+     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
+     */
+    readonly destination: string;
+    readonly destinationId: string;
+    readonly elasticsearchConfiguration?: { bufferingInterval?: number, bufferingSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, domainArn: string, indexName: string, indexRotationPeriod?: string, processingConfiguration?: { enabled?: boolean, processors?: { parameters?: { parameterName: string, parameterValue: string }[], type: string }[] }, retryDuration?: number, roleArn: string, s3BackupMode?: string, typeName?: string };
+    /**
+     * Enhanced configuration options for the s3 destination. More details are given below.
+     */
+    readonly extendedS3Configuration?: { bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, compressionFormat?: string, dataFormatConversionConfiguration?: { enabled?: boolean, inputFormatConfiguration: { deserializer: { hiveJsonSerDe?: { timestampFormats?: string[] }, openXJsonSerDe?: { caseInsensitive?: boolean, columnToJsonKeyMappings?: {[key: string]: string}, convertDotsInJsonKeysToUnderscores?: boolean } } }, outputFormatConfiguration: { serializer: { orcSerDe?: { blockSizeBytes?: number, bloomFilterColumns?: string[], bloomFilterFalsePositiveProbability?: number, compression?: string, dictionaryKeyThreshold?: number, enablePadding?: boolean, formatVersion?: string, paddingTolerance?: number, rowIndexStride?: number, stripeSizeBytes?: number }, parquetSerDe?: { blockSizeBytes?: number, compression?: string, enableDictionaryCompression?: boolean, maxPaddingBytes?: number, pageSizeBytes?: number, writerVersion?: string } } }, schemaConfiguration: { catalogId: string, databaseName: string, region: string, roleArn: string, tableName: string, versionId?: string } }, errorOutputPrefix?: string, kmsKeyArn?: string, prefix?: string, processingConfiguration?: { enabled?: boolean, processors?: { parameters?: { parameterName: string, parameterValue: string }[], type: string }[] }, roleArn: string, s3BackupConfiguration?: { bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, compressionFormat?: string, kmsKeyArn?: string, prefix?: string, roleArn: string }, s3BackupMode?: string };
+    /**
+     * Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
+     */
+    readonly kinesisSourceConfiguration?: { kinesisStreamArn: string, roleArn: string };
+    /**
+     * A name to identify the stream. This is unique to the
+     * AWS account and region the Stream is created in.
+     */
+    readonly name: string;
+    /**
+     * Configuration options if redshift is the destination.
+     * Using `redshift_configuration` requires the user to also specify a
+     * `s3_configuration` block. More details are given below.
+     */
+    readonly redshiftConfiguration?: { cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, clusterJdbcurl: string, copyOptions?: string, dataTableColumns?: string, dataTableName: string, password: string, processingConfiguration?: { enabled?: boolean, processors?: { parameters?: { parameterName: string, parameterValue: string }[], type: string }[] }, retryDuration?: number, roleArn: string, s3BackupConfiguration?: { bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, compressionFormat?: string, kmsKeyArn?: string, prefix?: string, roleArn: string }, s3BackupMode?: string, username: string };
+    /**
+     * Configuration options for the s3 destination (or the intermediate bucket if the destination
+     * is redshift). More details are given below.
+     */
+    readonly s3Configuration?: { bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, compressionFormat?: string, kmsKeyArn?: string, prefix?: string, roleArn: string };
+    readonly splunkConfiguration?: { cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, hecAcknowledgmentTimeout?: number, hecEndpoint: string, hecEndpointType?: string, hecToken: string, processingConfiguration?: { enabled?: boolean, processors?: { parameters?: { parameterName: string, parameterValue: string }[], type: string }[] }, retryDuration?: number, s3BackupMode?: string };
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * Specifies the table version for the output data schema. Defaults to `LATEST`.
+     */
+    readonly versionId: string;
+}

@@ -183,3 +183,29 @@ export interface DeliveryChannelArgs {
      */
     readonly snsTopicArn?: pulumi.Input<string>;
 }
+
+/**
+ * The live DeliveryChannel resource.
+ */
+export interface DeliveryChannelResult {
+    /**
+     * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
+     */
+    readonly name: string;
+    /**
+     * The name of the S3 bucket used to store the configuration history.
+     */
+    readonly s3BucketName: string;
+    /**
+     * The prefix for the specified S3 bucket.
+     */
+    readonly s3KeyPrefix?: string;
+    /**
+     * Options for how AWS Config delivers configuration snapshots. See below
+     */
+    readonly snapshotDeliveryProperties?: { deliveryFrequency?: string };
+    /**
+     * The ARN of the SNS topic that AWS Config delivers notifications to.
+     */
+    readonly snsTopicArn?: string;
+}

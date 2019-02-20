@@ -514,3 +514,93 @@ export interface LaunchConfigurationArgs {
      */
     readonly vpcClassicLinkSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
 }
+
+/**
+ * The live LaunchConfiguration resource.
+ */
+export interface LaunchConfigurationResult {
+    /**
+     * Associate a public ip address with an instance in a VPC.
+     */
+    readonly associatePublicIpAddress?: boolean;
+    /**
+     * Additional EBS block devices to attach to the
+     * instance.  See Block Devices below for details.
+     */
+    readonly ebsBlockDevices: { deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, noDevice?: boolean, snapshotId: string, volumeSize: number, volumeType: string }[];
+    /**
+     * If true, the launched EC2 instance will be EBS-optimized.
+     */
+    readonly ebsOptimized: boolean;
+    /**
+     * Enables/disables detailed monitoring. This is enabled by default.
+     */
+    readonly enableMonitoring?: boolean;
+    /**
+     * Customize Ephemeral (also known as
+     * "Instance Store") volumes on the instance. See Block Devices below for details.
+     */
+    readonly ephemeralBlockDevices?: { deviceName: string, virtualName: string }[];
+    /**
+     * The name attribute of the IAM instance profile to associate
+     * with launched instances.
+     */
+    readonly iamInstanceProfile?: string;
+    /**
+     * The EC2 image ID to launch.
+     */
+    readonly imageId: string;
+    /**
+     * The size of instance to launch.
+     */
+    readonly instanceType: string;
+    /**
+     * The key name that should be used for the instance.
+     */
+    readonly keyName: string;
+    /**
+     * The name of the launch configuration. If you leave
+     * this blank, Terraform will auto-generate a unique name.
+     */
+    readonly name: string;
+    /**
+     * Creates a unique name beginning with the specified
+     * prefix. Conflicts with `name`.
+     */
+    readonly namePrefix?: string;
+    /**
+     * The tenancy of the instance. Valid values are
+     * `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
+     * for more details
+     */
+    readonly placementTenancy?: string;
+    /**
+     * Customize details about the root block
+     * device of the instance. See Block Devices below for details.
+     */
+    readonly rootBlockDevice: { deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string };
+    /**
+     * A list of associated security group IDS.
+     */
+    readonly securityGroups?: string[];
+    /**
+     * The maximum price to use for reserving spot instances.
+     */
+    readonly spotPrice?: string;
+    /**
+     * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+     */
+    readonly userData?: string;
+    /**
+     * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+     */
+    readonly userDataBase64?: string;
+    /**
+     * The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
+     */
+    readonly vpcClassicLinkId?: string;
+    /**
+     * The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
+     */
+    readonly vpcClassicLinkSecurityGroups?: string[];
+}

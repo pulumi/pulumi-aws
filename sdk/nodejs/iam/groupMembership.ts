@@ -131,3 +131,21 @@ export interface GroupMembershipArgs {
      */
     readonly users: pulumi.Input<pulumi.Input<string>[]>;
 }
+
+/**
+ * The live GroupMembership resource.
+ */
+export interface GroupMembershipResult {
+    /**
+     * The IAM Group name to attach the list of `users` to
+     */
+    readonly group: string;
+    /**
+     * The name to identify the Group Membership
+     */
+    readonly name: string;
+    /**
+     * A list of IAM User names to associate with the Group
+     */
+    readonly users: string[];
+}

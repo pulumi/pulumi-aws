@@ -204,3 +204,39 @@ export interface MethodResponseArgs {
      */
     readonly statusCode: pulumi.Input<string>;
 }
+
+/**
+ * The live MethodResponse resource.
+ */
+export interface MethodResponseResult {
+    /**
+     * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
+     */
+    readonly httpMethod: string;
+    /**
+     * The API resource ID
+     */
+    readonly resourceId: string;
+    /**
+     * A map of the API models used for the response's content type
+     */
+    readonly responseModels?: {[key: string]: string};
+    /**
+     * A map of response parameters that can be sent to the caller.
+     * For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
+     * would define that the header `X-Some-Header` can be provided on the response.
+     */
+    readonly responseParameters?: {[key: string]: boolean};
+    /**
+     * **Deprecated**, use `response_parameters` instead.
+     */
+    readonly responseParametersInJson?: string;
+    /**
+     * The ID of the associated REST API
+     */
+    readonly restApi: RestApi;
+    /**
+     * The HTTP status code
+     */
+    readonly statusCode: string;
+}

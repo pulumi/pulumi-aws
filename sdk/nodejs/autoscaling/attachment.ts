@@ -127,3 +127,21 @@ export interface AttachmentArgs {
      */
     readonly elb?: pulumi.Input<string>;
 }
+
+/**
+ * The live Attachment resource.
+ */
+export interface AttachmentResult {
+    /**
+     * The ARN of an ALB Target Group.
+     */
+    readonly albTargetGroupArn?: string;
+    /**
+     * Name of ASG to associate with the ELB.
+     */
+    readonly autoscalingGroupName: string;
+    /**
+     * The name of the ELB.
+     */
+    readonly elb?: string;
+}

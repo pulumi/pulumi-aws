@@ -92,3 +92,17 @@ export interface ResourceGroupArgs {
      */
     readonly tags: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live ResourceGroup resource.
+ */
+export interface ResourceGroupResult {
+    /**
+     * The resource group ARN.
+     */
+    readonly arn: string;
+    /**
+     * The tags on your EC2 Instance.
+     */
+    readonly tags: {[key: string]: any};
+}

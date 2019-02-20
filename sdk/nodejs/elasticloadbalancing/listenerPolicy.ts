@@ -144,3 +144,21 @@ export interface ListenerPolicyArgs {
      */
     readonly policyNames?: pulumi.Input<pulumi.Input<string>[]>;
 }
+
+/**
+ * The live ListenerPolicy resource.
+ */
+export interface ListenerPolicyResult {
+    /**
+     * The load balancer to attach the policy to.
+     */
+    readonly loadBalancerName: string;
+    /**
+     * The load balancer listener port to apply the policy to.
+     */
+    readonly loadBalancerPort: number;
+    /**
+     * List of Policy Names to apply to the backend server.
+     */
+    readonly policyNames?: string[];
+}

@@ -356,3 +356,86 @@ export interface BrokerArgs {
      */
     readonly users: pulumi.Input<pulumi.Input<{ consoleAccess?: pulumi.Input<boolean>, groups?: pulumi.Input<pulumi.Input<string>[]>, password: pulumi.Input<string>, username: pulumi.Input<string> }>[]>;
 }
+
+/**
+ * The live Broker resource.
+ */
+export interface BrokerResult {
+    /**
+     * Specifies whether any broker modifications
+     * are applied immediately, or during the next maintenance window. Default is `false`.
+     */
+    readonly applyImmediately?: boolean;
+    /**
+     * The ARN of the broker.
+     */
+    readonly arn: string;
+    /**
+     * Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions.
+     */
+    readonly autoMinorVersionUpgrade?: boolean;
+    /**
+     * The name of the broker.
+     */
+    readonly brokerName: string;
+    /**
+     * Configuration of the broker. See below.
+     */
+    readonly configuration: { id: string, revision: number };
+    /**
+     * The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
+     */
+    readonly deploymentMode?: string;
+    /**
+     * The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
+     */
+    readonly engineType: string;
+    /**
+     * The version of the broker engine. Currently, Amazon MQ supports only `5.15.0` or `5.15.6`.
+     */
+    readonly engineVersion: string;
+    /**
+     * The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
+     */
+    readonly hostInstanceType: string;
+    /**
+     * A list of information about allocated brokers (both active & standby).
+     * * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
+     * * `instances.0.ip_address` - The IP Address of the broker.
+     * * `instances.0.endpoints` - The broker's wire-level protocol endpoints in the following order & format referenceable e.g. as `instances.0.endpoints.0` (SSL):
+     * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
+     * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
+     * * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
+     * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
+     * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
+     */
+    readonly instances: { consoleUrl: string, endpoints: string[], ipAddress: string }[];
+    /**
+     * Logging configuration of the broker. See below.
+     */
+    readonly logs?: { audit?: boolean, general?: boolean };
+    /**
+     * Maintenance window start time. See below.
+     */
+    readonly maintenanceWindowStartTime: { dayOfWeek: string, timeOfDay: string, timeZone: string };
+    /**
+     * Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
+     */
+    readonly publiclyAccessible?: boolean;
+    /**
+     * The list of security group IDs assigned to the broker.
+     */
+    readonly securityGroups: string[];
+    /**
+     * The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
+     */
+    readonly subnetIds: string[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The list of all ActiveMQ usernames for the specified broker. See below.
+     */
+    readonly users: { consoleAccess?: boolean, groups?: string[], password: string, username: string }[];
+}

@@ -118,3 +118,21 @@ export interface ConditionalForwaderArgs {
      */
     readonly remoteDomainName: pulumi.Input<string>;
 }
+
+/**
+ * The live ConditionalForwader resource.
+ */
+export interface ConditionalForwaderResult {
+    /**
+     * The id of directory.
+     */
+    readonly directoryId: string;
+    /**
+     * A list of forwarder IP addresses.
+     */
+    readonly dnsIps: string[];
+    /**
+     * The fully qualified domain name of the remote domain for which forwarders will be used.
+     */
+    readonly remoteDomainName: string;
+}

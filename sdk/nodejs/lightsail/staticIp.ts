@@ -108,3 +108,25 @@ export interface StaticIpArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live StaticIp resource.
+ */
+export interface StaticIpResult {
+    /**
+     * The ARN of the Lightsail static IP
+     */
+    readonly arn: string;
+    /**
+     * The allocated static IP address
+     */
+    readonly ipAddress: string;
+    /**
+     * The name for the allocated static IP
+     */
+    readonly name: string;
+    /**
+     * The support code.
+     */
+    readonly supportCode: string;
+}

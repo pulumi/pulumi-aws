@@ -186,3 +186,46 @@ export interface AccessKeyArgs {
      */
     readonly user: pulumi.Input<string>;
 }
+
+/**
+ * The live AccessKey resource.
+ */
+export interface AccessKeyResult {
+    /**
+     * The encrypted secret, base64 encoded.
+     * > **NOTE:** The encrypted secret may be decrypted using the command line,
+     * for example: `terraform output encrypted_secret | base64 --decode | keybase pgp decrypt`.
+     */
+    readonly encryptedSecret: string;
+    /**
+     * The fingerprint of the PGP key used to encrypt
+     * the secret
+     */
+    readonly keyFingerprint: string;
+    /**
+     * Either a base-64 encoded PGP public key, or a
+     * keybase username in the form `keybase:some_person_that_exists`.
+     */
+    readonly pgpKey?: string;
+    /**
+     * The secret access key. Note that this will be written
+     * to the state file. Please supply a `pgp_key` instead, which will prevent the
+     * secret from being stored in plain text
+     */
+    readonly secret: string;
+    /**
+     * The secret access key converted into an SES SMTP
+     * password by applying [AWS's documented conversion
+     * algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
+     */
+    readonly sesSmtpPassword: string;
+    /**
+     * "Active" or "Inactive". Keys are initially active, but can be made
+     * inactive by other means.
+     */
+    readonly status: string;
+    /**
+     * The IAM user to associate with this access key.
+     */
+    readonly user: string;
+}

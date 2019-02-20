@@ -169,3 +169,37 @@ export interface TaskArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
+
+/**
+ * The live Task resource.
+ */
+export interface TaskResult {
+    /**
+     * Amazon Resource Name (ARN) of the DataSync Task.
+     */
+    readonly arn: string;
+    /**
+     * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
+     */
+    readonly cloudwatchLogGroupArn?: ARN;
+    /**
+     * Amazon Resource Name (ARN) of destination DataSync Location.
+     */
+    readonly destinationLocationArn: ARN;
+    /**
+     * Name of the DataSync Task.
+     */
+    readonly name: string;
+    /**
+     * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
+     */
+    readonly options?: { atime?: string, bytesPerSecond?: number, gid?: string, mtime?: string, posixPermissions?: string, preserveDeletedFiles?: string, preserveDevices?: string, uid?: string, verifyMode?: string };
+    /**
+     * Amazon Resource Name (ARN) of source DataSync Location.
+     */
+    readonly sourceLocationArn: ARN;
+    /**
+     * Key-value pairs of resource tags to assign to the DataSync Task.
+     */
+    readonly tags?: {[key: string]: string};
+}

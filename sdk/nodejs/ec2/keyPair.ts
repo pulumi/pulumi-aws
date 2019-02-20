@@ -126,3 +126,25 @@ export interface KeyPairArgs {
      */
     readonly publicKey: pulumi.Input<string>;
 }
+
+/**
+ * The live KeyPair resource.
+ */
+export interface KeyPairResult {
+    /**
+     * The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+     */
+    readonly fingerprint: string;
+    /**
+     * The name for the key pair.
+     */
+    readonly keyName: string;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
+     */
+    readonly keyNamePrefix?: string;
+    /**
+     * The public key material.
+     */
+    readonly publicKey: string;
+}

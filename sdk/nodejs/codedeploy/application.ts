@@ -122,3 +122,18 @@ export interface ApplicationArgs {
     readonly name?: pulumi.Input<string>;
     readonly uniqueId?: pulumi.Input<string>;
 }
+
+/**
+ * The live Application resource.
+ */
+export interface ApplicationResult {
+    /**
+     * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
+     */
+    readonly computePlatform?: string;
+    /**
+     * The name of the application.
+     */
+    readonly name: string;
+    readonly uniqueId: string;
+}

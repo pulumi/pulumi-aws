@@ -114,3 +114,17 @@ export interface VpnConnectionRouteArgs {
      */
     readonly vpnConnectionId: pulumi.Input<string>;
 }
+
+/**
+ * The live VpnConnectionRoute resource.
+ */
+export interface VpnConnectionRouteResult {
+    /**
+     * The CIDR block associated with the local subnet of the customer network.
+     */
+    readonly destinationCidrBlock: string;
+    /**
+     * The ID of the VPN connection.
+     */
+    readonly vpnConnectionId: string;
+}

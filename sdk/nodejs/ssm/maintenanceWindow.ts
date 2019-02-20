@@ -200,3 +200,45 @@ export interface MaintenanceWindowArgs {
      */
     readonly startDate?: pulumi.Input<string>;
 }
+
+/**
+ * The live MaintenanceWindow resource.
+ */
+export interface MaintenanceWindowResult {
+    /**
+     * Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
+     */
+    readonly allowUnassociatedTargets?: boolean;
+    /**
+     * The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
+     */
+    readonly cutoff: number;
+    /**
+     * The duration of the Maintenance Window in hours.
+     */
+    readonly duration: number;
+    /**
+     * Whether the maintenance window is enabled. Default: `true`.
+     */
+    readonly enabled?: boolean;
+    /**
+     * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
+     */
+    readonly endDate?: string;
+    /**
+     * The name of the maintenance window.
+     */
+    readonly name: string;
+    /**
+     * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+     */
+    readonly schedule: string;
+    /**
+     * Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
+     */
+    readonly scheduleTimezone?: string;
+    /**
+     * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
+     */
+    readonly startDate?: string;
+}

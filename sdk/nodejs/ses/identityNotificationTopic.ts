@@ -112,3 +112,21 @@ export interface IdentityNotificationTopicArgs {
      */
     readonly topicArn?: pulumi.Input<string>;
 }
+
+/**
+ * The live IdentityNotificationTopic resource.
+ */
+export interface IdentityNotificationTopicResult {
+    /**
+     * The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+     */
+    readonly identity: string;
+    /**
+     * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
+     */
+    readonly notificationType: string;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
+     */
+    readonly topicArn?: string;
+}

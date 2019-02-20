@@ -110,3 +110,21 @@ export interface SecurityGroupArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live SecurityGroup resource.
+ */
+export interface SecurityGroupResult {
+    /**
+     * The description of the Redshift security group. Defaults to "Managed by Terraform".
+     */
+    readonly description: string;
+    /**
+     * A list of ingress rules.
+     */
+    readonly ingress: { cidr?: string, securityGroupName: string, securityGroupOwnerId: string }[];
+    /**
+     * The name of the Redshift security group.
+     */
+    readonly name: string;
+}

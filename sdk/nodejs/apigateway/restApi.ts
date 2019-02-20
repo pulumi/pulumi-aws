@@ -225,3 +225,55 @@ export interface RestApiArgs {
      */
     readonly policy?: pulumi.Input<string>;
 }
+
+/**
+ * The live RestApi resource.
+ */
+export interface RestApiResult {
+    /**
+     * The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
+     */
+    readonly apiKeySource?: string;
+    /**
+     * The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
+     */
+    readonly binaryMediaTypes?: string[];
+    /**
+     * An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
+     */
+    readonly body?: string;
+    /**
+     * The creation date of the REST API
+     */
+    readonly createdDate: string;
+    /**
+     * The description of the REST API
+     */
+    readonly description?: string;
+    /**
+     * Nested argument defining API endpoint configuration including endpoint type. Defined below.
+     */
+    readonly endpointConfiguration: { types: string };
+    /**
+     * The execution ARN part to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
+     * when allowing API Gateway to invoke a Lambda function,
+     * e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+     */
+    readonly executionArn: string;
+    /**
+     * Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
+     */
+    readonly minimumCompressionSize?: number;
+    /**
+     * The name of the REST API
+     */
+    readonly name: string;
+    /**
+     * JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
+     */
+    readonly policy?: string;
+    /**
+     * The resource ID of the REST API's root
+     */
+    readonly rootResourceId: string;
+}

@@ -93,3 +93,21 @@ export interface HostedPublicVirtualInterfaceAccepterArgs {
      */
     readonly virtualInterfaceId: pulumi.Input<string>;
 }
+
+/**
+ * The live HostedPublicVirtualInterfaceAccepter resource.
+ */
+export interface HostedPublicVirtualInterfaceAccepterResult {
+    /**
+     * The ARN of the virtual interface.
+     */
+    readonly arn: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * The ID of the Direct Connect virtual interface to accept.
+     */
+    readonly virtualInterfaceId: string;
+}

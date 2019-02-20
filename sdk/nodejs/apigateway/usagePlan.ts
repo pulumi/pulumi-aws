@@ -178,3 +178,33 @@ export interface UsagePlanArgs {
      */
     readonly throttleSettings?: pulumi.Input<{ burstLimit?: pulumi.Input<number>, rateLimit?: pulumi.Input<number> }>;
 }
+
+/**
+ * The live UsagePlan resource.
+ */
+export interface UsagePlanResult {
+    /**
+     * The associated API stages of the usage plan.
+     */
+    readonly apiStages?: { apiId: string, stage: string }[];
+    /**
+     * The description of a usage plan.
+     */
+    readonly description?: string;
+    /**
+     * The name of the usage plan.
+     */
+    readonly name: string;
+    /**
+     * The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+     */
+    readonly productCode?: string;
+    /**
+     * The quota settings of the usage plan.
+     */
+    readonly quotaSettings?: { limit: number, offset?: number, period: string };
+    /**
+     * The throttling limits of the usage plan.
+     */
+    readonly throttleSettings?: { burstLimit?: number, rateLimit?: number };
+}

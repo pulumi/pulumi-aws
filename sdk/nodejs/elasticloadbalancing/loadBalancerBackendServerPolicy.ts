@@ -99,3 +99,21 @@ export interface LoadBalancerBackendServerPolicyArgs {
      */
     readonly policyNames?: pulumi.Input<pulumi.Input<string>[]>;
 }
+
+/**
+ * The live LoadBalancerBackendServerPolicy resource.
+ */
+export interface LoadBalancerBackendServerPolicyResult {
+    /**
+     * The instance port to apply the policy to.
+     */
+    readonly instancePort: number;
+    /**
+     * The load balancer to attach the policy to.
+     */
+    readonly loadBalancerName: string;
+    /**
+     * List of Policy Names to apply to the backend server.
+     */
+    readonly policyNames?: string[];
+}

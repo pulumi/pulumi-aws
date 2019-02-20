@@ -212,3 +212,43 @@ export interface EventSubscriptionArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live EventSubscription resource.
+ */
+export interface EventSubscriptionResult {
+    readonly customerAwsId: string;
+    /**
+     * A boolean flag to enable/disable the subscription. Defaults to true.
+     */
+    readonly enabled?: boolean;
+    /**
+     * A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
+     */
+    readonly eventCategories?: string[];
+    /**
+     * The name of the Redshift event subscription.
+     */
+    readonly name: string;
+    /**
+     * The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`.
+     */
+    readonly severity?: string;
+    /**
+     * The ARN of the SNS topic to send events to.
+     */
+    readonly snsTopicArn: string;
+    /**
+     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+     */
+    readonly sourceIds?: string[];
+    /**
+     * The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
+     */
+    readonly sourceType?: string;
+    readonly status: string;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

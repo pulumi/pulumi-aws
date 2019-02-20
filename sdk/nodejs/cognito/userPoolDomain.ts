@@ -169,3 +169,37 @@ export interface UserPoolDomainArgs {
      */
     readonly userPoolId: pulumi.Input<string>;
 }
+
+/**
+ * The live UserPoolDomain resource.
+ */
+export interface UserPoolDomainResult {
+    /**
+     * The AWS account ID for the user pool owner.
+     */
+    readonly awsAccountId: string;
+    /**
+     * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
+     */
+    readonly certificateArn?: string;
+    /**
+     * The ARN of the CloudFront distribution.
+     */
+    readonly cloudfrontDistributionArn: string;
+    /**
+     * The domain string.
+     */
+    readonly domain: string;
+    /**
+     * The S3 bucket where the static files for this domain are stored.
+     */
+    readonly s3Bucket: string;
+    /**
+     * The user pool ID.
+     */
+    readonly userPoolId: string;
+    /**
+     * The app version.
+     */
+    readonly version: string;
+}

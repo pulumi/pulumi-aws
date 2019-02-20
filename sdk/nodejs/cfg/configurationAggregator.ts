@@ -156,3 +156,25 @@ export interface ConfigurationAggregatorArgs {
      */
     readonly organizationAggregationSource?: pulumi.Input<{ allRegions?: pulumi.Input<boolean>, regions?: pulumi.Input<pulumi.Input<string>[]>, roleArn: pulumi.Input<string> }>;
 }
+
+/**
+ * The live ConfigurationAggregator resource.
+ */
+export interface ConfigurationAggregatorResult {
+    /**
+     * The account(s) to aggregate config data from as documented below.
+     */
+    readonly accountAggregationSource?: { accountIds: string[], allRegions?: boolean, regions?: string[] };
+    /**
+     * The ARN of the aggregator
+     */
+    readonly arn: string;
+    /**
+     * The name of the configuration aggregator.
+     */
+    readonly name: string;
+    /**
+     * The organization to aggregate config data from as documented below.
+     */
+    readonly organizationAggregationSource?: { allRegions?: boolean, regions?: string[], roleArn: string };
+}

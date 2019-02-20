@@ -121,3 +121,25 @@ export interface SubnetGroupArgs {
      */
     readonly subnetIds: pulumi.Input<pulumi.Input<string>[]>;
 }
+
+/**
+ * The live SubnetGroup resource.
+ */
+export interface SubnetGroupResult {
+    /**
+     * A description of the subnet group.
+     */
+    readonly description?: string;
+    /**
+     * The name of the subnet group.
+     */
+    readonly name: string;
+    /**
+     * A list of VPC subnet IDs for the subnet group.
+     */
+    readonly subnetIds: string[];
+    /**
+     * VPC ID of the subnet group.
+     */
+    readonly vpcId: string;
+}

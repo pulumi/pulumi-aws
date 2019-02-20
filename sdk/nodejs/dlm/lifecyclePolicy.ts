@@ -194,3 +194,25 @@ export interface LifecyclePolicyArgs {
      */
     readonly state?: pulumi.Input<string>;
 }
+
+/**
+ * The live LifecyclePolicy resource.
+ */
+export interface LifecyclePolicyResult {
+    /**
+     * A description for the DLM lifecycle policy.
+     */
+    readonly description: string;
+    /**
+     * The ARN of an IAM role that is able to be assumed by the DLM service.
+     */
+    readonly executionRoleArn: string;
+    /**
+     * See the `policy_details` configuration block. Max of 1.
+     */
+    readonly policyDetails: { resourceTypes: string[], schedules: { copyTags: boolean, createRule: { interval: number, intervalUnit?: string, times: string }, name: string, retainRule: { count: number }, tagsToAdd?: {[key: string]: any} }[], targetTags: {[key: string]: any} };
+    /**
+     * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
+     */
+    readonly state?: string;
+}

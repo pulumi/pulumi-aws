@@ -293,3 +293,70 @@ export interface StackArgs {
      */
     readonly timeoutInMinutes?: pulumi.Input<number>;
 }
+
+/**
+ * The live Stack resource.
+ */
+export interface StackResult {
+    /**
+     * A list of capabilities.
+     * Valid values: `CAPABILITY_IAM` or `CAPABILITY_NAMED_IAM`
+     */
+    readonly capabilities?: string[];
+    /**
+     * Set to true to disable rollback of the stack if stack creation failed.
+     * Conflicts with `on_failure`.
+     */
+    readonly disableRollback?: boolean;
+    /**
+     * The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
+     */
+    readonly iamRoleArn?: string;
+    /**
+     * Stack name.
+     */
+    readonly name: string;
+    /**
+     * A list of SNS topic ARNs to publish stack related events.
+     */
+    readonly notificationArns?: string[];
+    /**
+     * Action to be taken if stack creation fails. This must be
+     * one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
+     */
+    readonly onFailure?: string;
+    /**
+     * A map of outputs from the stack.
+     */
+    readonly outputs: {[key: string]: any};
+    /**
+     * A map of Parameter structures that specify input parameters for the stack.
+     */
+    readonly parameters: {[key: string]: any};
+    /**
+     * Structure containing the stack policy body.
+     * Conflicts w/ `policy_url`.
+     */
+    readonly policyBody: string;
+    /**
+     * Location of a file containing the stack policy.
+     * Conflicts w/ `policy_body`.
+     */
+    readonly policyUrl?: string;
+    /**
+     * A list of tags to associate with this stack.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * Structure containing the template body (max size: 51,200 bytes).
+     */
+    readonly templateBody: string;
+    /**
+     * Location of a file containing the template body (max size: 460,800 bytes).
+     */
+    readonly templateUrl?: string;
+    /**
+     * The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
+     */
+    readonly timeoutInMinutes?: number;
+}

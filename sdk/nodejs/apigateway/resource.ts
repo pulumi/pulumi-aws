@@ -131,3 +131,25 @@ export interface ResourceArgs {
      */
     readonly restApi: pulumi.Input<RestApi>;
 }
+
+/**
+ * The live Resource resource.
+ */
+export interface ResourceResult {
+    /**
+     * The ID of the parent API resource
+     */
+    readonly parentId: string;
+    /**
+     * The complete path for this API resource, including all parent paths.
+     */
+    readonly path: string;
+    /**
+     * The last path segment of this API resource.
+     */
+    readonly pathPart: string;
+    /**
+     * The ID of the associated REST API
+     */
+    readonly restApi: RestApi;
+}

@@ -143,3 +143,17 @@ export interface ResourceDataSyncArgs {
      */
     readonly s3Destination: pulumi.Input<{ bucketName: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string>, prefix?: pulumi.Input<string>, region: pulumi.Input<string>, syncFormat?: pulumi.Input<string> }>;
 }
+
+/**
+ * The live ResourceDataSync resource.
+ */
+export interface ResourceDataSyncResult {
+    /**
+     * Name for the configuration.
+     */
+    readonly name: string;
+    /**
+     * Amazon S3 configuration details for the sync.
+     */
+    readonly s3Destination: { bucketName: string, kmsKeyArn?: string, prefix?: string, region: string, syncFormat?: string };
+}

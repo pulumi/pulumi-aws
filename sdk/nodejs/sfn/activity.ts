@@ -100,3 +100,21 @@ export interface ActivityArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live Activity resource.
+ */
+export interface ActivityResult {
+    /**
+     * The date the activity was created.
+     */
+    readonly creationDate: string;
+    /**
+     * The name of the activity to create.
+     */
+    readonly name: string;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: {[key: string]: any};
+}

@@ -135,3 +135,29 @@ export interface AcceleratorArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live Accelerator resource.
+ */
+export interface AcceleratorResult {
+    /**
+     * The attributes of the accelerator. Fields documented below.
+     */
+    readonly attributes?: { flowLogsEnabled?: boolean, flowLogsS3Bucket?: string, flowLogsS3Prefix?: string };
+    /**
+     * Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
+     */
+    readonly enabled?: boolean;
+    /**
+     * The value for the address type must be `IPV4`.
+     */
+    readonly ipAddressType?: string;
+    /**
+     * IP address set associated with the accelerator.
+     */
+    readonly ipSets: { ipAddresses: string[], ipFamily: string }[];
+    /**
+     * The name of the accelerator.
+     */
+    readonly name: string;
+}

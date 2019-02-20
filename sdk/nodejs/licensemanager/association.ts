@@ -120,3 +120,17 @@ export interface AssociationArgs {
      */
     readonly resourceArn: pulumi.Input<string>;
 }
+
+/**
+ * The live Association resource.
+ */
+export interface AssociationResult {
+    /**
+     * ARN of the license configuration.
+     */
+    readonly licenseConfigurationArn: string;
+    /**
+     * ARN of the resource associated with the license configuration.
+     */
+    readonly resourceArn: string;
+}

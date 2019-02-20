@@ -447,3 +447,121 @@ export interface ClusterArgs {
      */
     readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
+
+/**
+ * The live Cluster resource.
+ */
+export interface ClusterResult {
+    /**
+     * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+     */
+    readonly applyImmediately: boolean;
+    /**
+     * The Neptune Cluster Amazon Resource Name (ARN)
+     */
+    readonly arn: string;
+    /**
+     * A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
+     */
+    readonly availabilityZones: string[];
+    /**
+     * The days to retain backups for. Default `1`
+     */
+    readonly backupRetentionPeriod?: number;
+    /**
+     * The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+     */
+    readonly clusterIdentifier: string;
+    /**
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+     */
+    readonly clusterIdentifierPrefix: string;
+    /**
+     * List of Neptune Instances that are a part of this cluster
+     */
+    readonly clusterMembers: string[];
+    /**
+     * The Neptune Cluster Resource ID
+     */
+    readonly clusterResourceId: string;
+    /**
+     * The DNS address of the Neptune instance
+     */
+    readonly endpoint: string;
+    /**
+     * The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
+     */
+    readonly engine?: string;
+    /**
+     * The database engine version.
+     */
+    readonly engineVersion: string;
+    /**
+     * The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
+     */
+    readonly finalSnapshotIdentifier?: string;
+    /**
+     * The Route53 Hosted Zone ID of the endpoint
+     */
+    readonly hostedZoneId: string;
+    /**
+     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+     */
+    readonly iamDatabaseAuthenticationEnabled?: boolean;
+    /**
+     * A List of ARNs for the IAM roles to associate to the Neptune Cluster.
+     */
+    readonly iamRoles?: string[];
+    /**
+     * The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+     */
+    readonly kmsKeyArn: string;
+    /**
+     * A cluster parameter group to associate with the cluster.
+     */
+    readonly neptuneClusterParameterGroupName?: string;
+    /**
+     * A Neptune subnet group to associate with this Neptune instance.
+     */
+    readonly neptuneSubnetGroupName: string;
+    /**
+     * The port on which the Neptune accepts connections. Default is `8182`.
+     */
+    readonly port?: number;
+    /**
+     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+     */
+    readonly preferredBackupWindow: string;
+    /**
+     * The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+     */
+    readonly preferredMaintenanceWindow: string;
+    /**
+     * A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
+     */
+    readonly readerEndpoint: string;
+    /**
+     * ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
+     */
+    readonly replicationSourceIdentifier?: string;
+    /**
+     * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     */
+    readonly skipFinalSnapshot?: boolean;
+    /**
+     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
+     */
+    readonly snapshotIdentifier?: string;
+    /**
+     * Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
+     */
+    readonly storageEncrypted?: boolean;
+    /**
+     * A mapping of tags to assign to the Neptune cluster.
+     */
+    readonly tags?: {[key: string]: any};
+    /**
+     * List of VPC security groups to associate with the Cluster
+     */
+    readonly vpcSecurityGroupIds: string[];
+}

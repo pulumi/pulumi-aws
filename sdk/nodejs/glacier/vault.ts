@@ -172,3 +172,34 @@ export interface VaultArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
+
+/**
+ * The live Vault resource.
+ */
+export interface VaultResult {
+    /**
+     * The policy document. This is a JSON formatted string.
+     * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+     */
+    readonly accessPolicy?: string;
+    /**
+     * The ARN of the vault.
+     */
+    readonly arn: string;
+    /**
+     * The URI of the vault that was created.
+     */
+    readonly location: string;
+    /**
+     * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+     */
+    readonly name: string;
+    /**
+     * The notifications for the Vault. Fields documented below.
+     */
+    readonly notifications?: { events: string[], snsTopic: string }[];
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: {[key: string]: any};
+}

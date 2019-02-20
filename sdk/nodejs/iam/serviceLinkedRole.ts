@@ -157,3 +157,41 @@ export interface ServiceLinkedRoleArgs {
      */
     readonly description?: pulumi.Input<string>;
 }
+
+/**
+ * The live ServiceLinkedRole resource.
+ */
+export interface ServiceLinkedRoleResult {
+    /**
+     * The Amazon Resource Name (ARN) specifying the role.
+     */
+    readonly arn: string;
+    /**
+     * The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
+     */
+    readonly awsServiceName: string;
+    /**
+     * The creation date of the IAM role.
+     */
+    readonly createDate: string;
+    /**
+     * Additional string appended to the role name. Not all AWS services support custom suffixes.
+     */
+    readonly customSuffix?: string;
+    /**
+     * The description of the role.
+     */
+    readonly description?: string;
+    /**
+     * The name of the role.
+     */
+    readonly name: string;
+    /**
+     * The path of the role.
+     */
+    readonly path: string;
+    /**
+     * The stable and unique string identifying the role.
+     */
+    readonly uniqueId: string;
+}

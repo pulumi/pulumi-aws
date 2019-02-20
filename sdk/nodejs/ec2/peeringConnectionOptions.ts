@@ -147,3 +147,25 @@ export interface PeeringConnectionOptionsArgs {
      */
     readonly vpcPeeringConnectionId: pulumi.Input<string>;
 }
+
+/**
+ * The live PeeringConnectionOptions resource.
+ */
+export interface PeeringConnectionOptionsResult {
+    /**
+     * An optional configuration block that allows for [VPC Peering Connection]
+     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
+     * the peering connection (a maximum of one).
+     */
+    readonly accepter: { allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean };
+    /**
+     * A optional configuration block that allows for [VPC Peering Connection]
+     * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
+     * the peering connection (a maximum of one).
+     */
+    readonly requester: { allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean };
+    /**
+     * The ID of the requester VPC peering connection.
+     */
+    readonly vpcPeeringConnectionId: string;
+}

@@ -122,3 +122,25 @@ export interface LogDestinationArgs {
      */
     readonly targetArn: pulumi.Input<string>;
 }
+
+/**
+ * The live LogDestination resource.
+ */
+export interface LogDestinationResult {
+    /**
+     * The Amazon Resource Name (ARN) specifying the log destination.
+     */
+    readonly arn: string;
+    /**
+     * A name for the log destination
+     */
+    readonly name: string;
+    /**
+     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
+     */
+    readonly roleArn: string;
+    /**
+     * The ARN of the target Amazon Kinesis stream or Amazon Lambda resource for the destination
+     */
+    readonly targetArn: string;
+}

@@ -176,3 +176,28 @@ export interface SslNegotiationPolicyArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live SslNegotiationPolicy resource.
+ */
+export interface SslNegotiationPolicyResult {
+    /**
+     * An SSL Negotiation policy attribute. Each has two properties:
+     */
+    readonly attributes?: { name: string, value: string }[];
+    /**
+     * The load balancer port to which the policy
+     * should be applied. This must be an active listener on the load
+     * balancer.
+     */
+    readonly lbPort: number;
+    /**
+     * The load balancer to which the policy
+     * should be attached.
+     */
+    readonly loadBalancer: string;
+    /**
+     * The name of the attribute
+     */
+    readonly name: string;
+}

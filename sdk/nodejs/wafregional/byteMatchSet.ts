@@ -113,3 +113,21 @@ export interface ByteMatchSetArgs {
      */
     readonly name?: pulumi.Input<string>;
 }
+
+/**
+ * The live ByteMatchSet resource.
+ */
+export interface ByteMatchSetResult {
+    /**
+     * **Deprecated**, use `byte_match_tuples` instead.
+     */
+    readonly byte_match_tuple?: { fieldToMatch: { data?: string, type: string }, positionalConstraint: string, targetString?: string, textTransformation: string }[];
+    /**
+     * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
+     */
+    readonly byteMatchTuples?: { fieldToMatch: { data?: string, type: string }, positionalConstraint: string, targetString?: string, textTransformation: string }[];
+    /**
+     * The name or description of the ByteMatchSet.
+     */
+    readonly name: string;
+}

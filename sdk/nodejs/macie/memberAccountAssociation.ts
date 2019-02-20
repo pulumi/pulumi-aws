@@ -81,3 +81,13 @@ export interface MemberAccountAssociationArgs {
      */
     readonly memberAccountId: pulumi.Input<string>;
 }
+
+/**
+ * The live MemberAccountAssociation resource.
+ */
+export interface MemberAccountAssociationResult {
+    /**
+     * The ID of the AWS account that you want to associate with Amazon Macie as a member account.
+     */
+    readonly memberAccountId: string;
+}
