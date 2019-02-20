@@ -32,6 +32,7 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ *     name: "firehose_test_role",
  * });
  * const lambdaIam = new aws.iam.Role("lambda_iam", {
  *     assumeRolePolicy: `{
@@ -48,6 +49,7 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ *     name: "lambda_iam",
  * });
  * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "private",
@@ -76,6 +78,7 @@ import * as utilities from "../utilities";
  *         },
  *         roleArn: firehoseRole.arn,
  *     },
+ *     name: "terraform-kinesis-firehose-extended-s3-test-stream",
  * });
  * ```
  * 
@@ -100,6 +103,7 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ *     name: "firehose_test_role",
  * });
  * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "private",
@@ -107,6 +111,7 @@ import * as utilities from "../utilities";
  * });
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
  *     destination: "s3",
+ *     name: "terraform-kinesis-firehose-test-stream",
  *     s3Configuration: {
  *         bucketArn: bucket.arn,
  *         roleArn: firehoseRole.arn,
@@ -130,6 +135,7 @@ import * as utilities from "../utilities";
  * });
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
  *     destination: "redshift",
+ *     name: "terraform-kinesis-firehose-test-stream",
  *     redshiftConfiguration: {
  *         clusterJdbcurl: pulumi.all([testCluster.endpoint, testCluster.databaseName]).apply(([endpoint, databaseName]) => `jdbc:redshift://${endpoint}/${databaseName}`),
  *         copyOptions: "delimiter '|'", // the default delimiter
@@ -184,6 +190,7 @@ import * as utilities from "../utilities";
  *         roleArn: aws_iam_role_firehose_role.arn,
  *         typeName: "test",
  *     },
+ *     name: "terraform-kinesis-firehose-test-stream",
  *     s3Configuration: {
  *         bucketArn: aws_s3_bucket_bucket.arn,
  *         bufferInterval: 400,
@@ -203,6 +210,7 @@ import * as utilities from "../utilities";
  * 
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
  *     destination: "splunk",
+ *     name: "terraform-kinesis-firehose-test-stream",
  *     s3Configuration: {
  *         bucketArn: aws_s3_bucket_bucket.arn,
  *         bufferInterval: 400,

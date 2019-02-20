@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -78,7 +77,7 @@ class Document(pulumi.CustomResource):
     """
     A mapping of tags to assign to the object.
     """
-    def __init__(__self__, resource_name, opts=None, content=None, document_format=None, document_type=None, name=None, permissions=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, content=None, document_format=None, document_type=None, name=None, permissions=None, tags=None):
         """
         Provides an SSM Document resource
         
@@ -97,8 +96,8 @@ class Document(pulumi.CustomResource):
         * `type` - The permission type for the document. The permission type can be `Share`.
         * `account_ids` - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or `All`.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] content: The JSON or YAML content of the document.
         :param pulumi.Input[str] document_format: The format of the document. Valid document types include: `JSON` and `YAML`
         :param pulumi.Input[str] document_type: The type of the document. Valid document types include: `Command`, `Policy`, `Automation` and `Session`
@@ -106,28 +105,22 @@ class Document(pulumi.CustomResource):
         :param pulumi.Input[dict] permissions: Additional Permissions to attach to the document. See Permissions below for details.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if content is None:
+        if not content:
             raise TypeError('Missing required property content')
         __props__['content'] = content
 
         __props__['document_format'] = document_format
 
-        if document_type is None:
+        if not document_type:
             raise TypeError('Missing required property document_type')
         __props__['document_type'] = document_type
 
@@ -152,9 +145,9 @@ class Document(pulumi.CustomResource):
 
         super(Document, __self__).__init__(
             'aws:ssm/document:Document',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

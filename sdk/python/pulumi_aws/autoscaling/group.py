@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -156,7 +155,7 @@ class Group(pulumi.CustomResource):
     `min_elb_capacity` behavior.)
     (See also Waiting for Capacity below.)
     """
-    def __init__(__self__, resource_name, opts=None, availability_zones=None, default_cooldown=None, desired_capacity=None, enabled_metrics=None, force_delete=None, health_check_grace_period=None, health_check_type=None, initial_lifecycle_hooks=None, launch_configuration=None, launch_template=None, load_balancers=None, max_size=None, metrics_granularity=None, min_elb_capacity=None, min_size=None, mixed_instances_policy=None, name=None, name_prefix=None, placement_group=None, protect_from_scale_in=None, service_linked_role_arn=None, suspended_processes=None, tags=None, tags_collection=None, target_group_arns=None, termination_policies=None, vpc_zone_identifiers=None, wait_for_capacity_timeout=None, wait_for_elb_capacity=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, availability_zones=None, default_cooldown=None, desired_capacity=None, enabled_metrics=None, force_delete=None, health_check_grace_period=None, health_check_type=None, initial_lifecycle_hooks=None, launch_configuration=None, launch_template=None, load_balancers=None, max_size=None, metrics_granularity=None, min_elb_capacity=None, min_size=None, mixed_instances_policy=None, name=None, name_prefix=None, placement_group=None, protect_from_scale_in=None, service_linked_role_arn=None, suspended_processes=None, tags=None, tags_collection=None, target_group_arns=None, termination_policies=None, vpc_zone_identifiers=None, wait_for_capacity_timeout=None, wait_for_elb_capacity=None):
         """
         Provides an AutoScaling Group resource.
         
@@ -224,8 +223,8 @@ class Group(pulumi.CustomResource):
         Troubleshooting](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-troubleshooting.html)
         for more information.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] availability_zones: A list of one or more availability zones for the group. This parameter should not be specified when using `vpc_zone_identifier`.
         :param pulumi.Input[int] default_cooldown: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         :param pulumi.Input[int] desired_capacity: The number of Amazon EC2 instances that
@@ -286,17 +285,11 @@ class Group(pulumi.CustomResource):
                `min_elb_capacity` behavior.)
                (See also Waiting for Capacity below.)
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -323,7 +316,7 @@ class Group(pulumi.CustomResource):
 
         __props__['load_balancers'] = load_balancers
 
-        if max_size is None:
+        if not max_size:
             raise TypeError('Missing required property max_size')
         __props__['max_size'] = max_size
 
@@ -331,7 +324,7 @@ class Group(pulumi.CustomResource):
 
         __props__['min_elb_capacity'] = min_elb_capacity
 
-        if min_size is None:
+        if not min_size:
             raise TypeError('Missing required property min_size')
         __props__['min_size'] = min_size
 
@@ -367,9 +360,9 @@ class Group(pulumi.CustomResource):
 
         super(Group, __self__).__init__(
             'aws:autoscaling/group:Group',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

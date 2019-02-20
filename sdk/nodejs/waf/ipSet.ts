@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  *             value: "10.16.16.0/16",
  *         },
  *     ],
+ *     name: "tfIPSet",
  * });
  * ```
  */

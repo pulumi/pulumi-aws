@@ -13,7 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const dada = new aws.cloudwatch.LogGroup("dada", {});
+ * const dada = new aws.cloudwatch.LogGroup("dada", {
+ *     name: "MyApp/access.log",
+ * });
  * const yada = new aws.cloudwatch.LogMetricFilter("yada", {
  *     logGroupName: dada.name,
  *     metricTransformation: {
@@ -21,6 +23,7 @@ import * as utilities from "../utilities";
  *         namespace: "YourNamespace",
  *         value: "1",
  *     },
+ *     name: "MyAppAccessCount",
  *     pattern: "",
  * });
  * ```

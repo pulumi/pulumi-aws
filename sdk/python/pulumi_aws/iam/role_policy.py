@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -27,12 +26,12 @@ class RolePolicy(pulumi.CustomResource):
     """
     The IAM role to attach to the policy.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, name_prefix=None, policy=None, role=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, name=None, name_prefix=None, policy=None, role=None):
         """
         Provides an IAM role policy.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] name: The name of the role policy. If omitted, Terraform will
                assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
@@ -40,17 +39,11 @@ class RolePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
         :param pulumi.Input[str] role: The IAM role to attach to the policy.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -59,19 +52,19 @@ class RolePolicy(pulumi.CustomResource):
 
         __props__['name_prefix'] = name_prefix
 
-        if policy is None:
+        if not policy:
             raise TypeError('Missing required property policy')
         __props__['policy'] = policy
 
-        if role is None:
+        if not role:
             raise TypeError('Missing required property role')
         __props__['role'] = role
 
         super(RolePolicy, __self__).__init__(
             'aws:iam/rolePolicy:RolePolicy',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

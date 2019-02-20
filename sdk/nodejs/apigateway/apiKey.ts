@@ -17,12 +17,15 @@ import {RestApi} from "./restApi";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {});
+ * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
+ *     name: "MyDemoAPI",
+ * });
  * const myDemoDeployment = new aws.apigateway.Deployment("MyDemoDeployment", {
  *     restApi: myDemoAPI.id,
  *     stageName: "test",
  * });
  * const myDemoApiKey = new aws.apigateway.ApiKey("MyDemoApiKey", {
+ *     name: "demo",
  *     stageKeys: [{
  *         restApi: myDemoAPI.id,
  *         stageName: myDemoDeployment.stageName,

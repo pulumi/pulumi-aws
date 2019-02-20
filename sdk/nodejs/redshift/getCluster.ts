@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * }));
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
  *     destination: "redshift",
+ *     name: "terraform-kinesis-firehose-test-stream",
  *     redshiftConfiguration: {
  *         clusterJdbcurl: pulumi.all([testCluster, testCluster]).apply(([testCluster, testCluster1]) => `jdbc:redshift://${testCluster.endpoint}/${testCluster1.databaseName}`),
  *         copyOptions: "delimiter '|'", // the default delimiter

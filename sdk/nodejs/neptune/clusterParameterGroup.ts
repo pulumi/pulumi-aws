@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  * const example = new aws.neptune.ClusterParameterGroup("example", {
  *     description: "neptune cluster parameter group",
  *     family: "neptune1",
+ *     name: "example",
  *     parameters: [{
  *         name: "neptune_enable_audit_log",
  *         value: "1",

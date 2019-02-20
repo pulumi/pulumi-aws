@@ -27,6 +27,7 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ *     name: "example",
  * });
  * const exampleBucket = new aws.s3.Bucket("example", {
  *     acl: "private",
@@ -58,6 +59,7 @@ import * as utilities from "../utilities";
  *         image: "aws/codebuild/nodejs:6.3.1",
  *         type: "LINUX_CONTAINER",
  *     },
+ *     name: "test-project",
  *     serviceRole: exampleRole.arn,
  *     source: {
  *         gitCloneDepth: 1,

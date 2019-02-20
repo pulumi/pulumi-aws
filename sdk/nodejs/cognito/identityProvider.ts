@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.cognito.UserPool("example", {
  *     autoVerifiedAttributes: ["email"],
+ *     name: "example-pool",
  * });
  * const exampleProvider = new aws.cognito.IdentityProvider("example_provider", {
  *     attributeMapping: {

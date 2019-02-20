@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
  *         lbProtocol: "https",
  *         sslCertificateId: my_domain.apply(my_domain => my_domain.arn),
  *     }],
+ *     name: "my-domain-elb",
  * });
  * ```
  * 

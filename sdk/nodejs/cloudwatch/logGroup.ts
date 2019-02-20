@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const yada = new aws.cloudwatch.LogGroup("yada", {
+ *     name: "Yada",
  *     tags: {
  *         Application: "serviceA",
  *         Environment: "production",

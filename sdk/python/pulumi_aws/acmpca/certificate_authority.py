@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -61,36 +60,30 @@ class CertificateAuthority(pulumi.CustomResource):
     """
     The type of the certificate authority. Currently, this must be `SUBORDINATE`.
     """
-    def __init__(__self__, resource_name, opts=None, certificate_authority_configuration=None, enabled=None, revocation_configuration=None, tags=None, type=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, certificate_authority_configuration=None, enabled=None, revocation_configuration=None, tags=None, type=None):
         """
         Provides a resource to manage AWS Certificate Manager Private Certificate Authorities (ACM PCA Certificate Authorities).
         
         > **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificate_signing_request` attribute and import the signed certificate outside of Terraform. Terraform can support another resource to manage that workflow automatically in the future.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] certificate_authority_configuration: Nested argument containing algorithms and certificate subject information. Defined below.
         :param pulumi.Input[bool] enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
         :param pulumi.Input[dict] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[dict] tags: Specifies a key-value map of user-defined tags that are attached to the certificate authority.
         :param pulumi.Input[str] type: The type of the certificate authority. Currently, this must be `SUBORDINATE`.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if certificate_authority_configuration is None:
+        if not certificate_authority_configuration:
             raise TypeError('Missing required property certificate_authority_configuration')
         __props__['certificate_authority_configuration'] = certificate_authority_configuration
 
@@ -113,9 +106,9 @@ class CertificateAuthority(pulumi.CustomResource):
 
         super(CertificateAuthority, __self__).__init__(
             'aws:acmpca/certificateAuthority:CertificateAuthority',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

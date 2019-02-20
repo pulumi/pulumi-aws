@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const serviceb = new aws.appmesh.VirtualRouter("serviceb", {
  *     meshName: "simpleapp",
+ *     name: "serviceB",
  *     spec: {
  *         serviceNames: ["serviceb.simpleapp.local"],
  *     },

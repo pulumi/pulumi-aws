@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -41,12 +40,12 @@ class NotebookInstance(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, instance_type=None, kms_key_id=None, name=None, role_arn=None, security_groups=None, subnet_id=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, instance_type=None, kms_key_id=None, name=None, role_arn=None, security_groups=None, subnet_id=None, tags=None):
         """
         Provides a Sagemaker Notebook Instance resource.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] instance_type: The name of ML compute instance type.
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         :param pulumi.Input[str] name: The name of the notebook instance (must be unique).
@@ -55,22 +54,16 @@ class NotebookInstance(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_id: The VPC subnet ID.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if instance_type is None:
+        if not instance_type:
             raise TypeError('Missing required property instance_type')
         __props__['instance_type'] = instance_type
 
@@ -78,7 +71,7 @@ class NotebookInstance(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        if role_arn is None:
+        if not role_arn:
             raise TypeError('Missing required property role_arn')
         __props__['role_arn'] = role_arn
 
@@ -92,9 +85,9 @@ class NotebookInstance(pulumi.CustomResource):
 
         super(NotebookInstance, __self__).__init__(
             'aws:sagemaker/notebookInstance:NotebookInstance',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

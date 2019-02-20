@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * 
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
+ *     name: "MyDemoAPI",
  * });
  * ```
  * 
@@ -30,6 +31,7 @@ import * as utilities from "../utilities";
  *     endpointConfiguration: {
  *         types: "REGIONAL",
  *     },
+ *     name: "regional-example",
  * });
  * ```
  */

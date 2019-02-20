@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -21,48 +20,42 @@ class SshKey(pulumi.CustomResource):
     """
     The name of the user account that is assigned to one or more servers.
     """
-    def __init__(__self__, resource_name, opts=None, body=None, server_id=None, user_name=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, body=None, server_id=None, user_name=None):
         """
         Provides a AWS Transfer User SSH Key resource.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] body: The public key portion of an SSH key pair.
         :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g. `s-12345678`)
         :param pulumi.Input[str] user_name: The name of the user account that is assigned to one or more servers.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if body is None:
+        if not body:
             raise TypeError('Missing required property body')
         __props__['body'] = body
 
-        if server_id is None:
+        if not server_id:
             raise TypeError('Missing required property server_id')
         __props__['server_id'] = server_id
 
-        if user_name is None:
+        if not user_name:
             raise TypeError('Missing required property user_name')
         __props__['user_name'] = user_name
 
         super(SshKey, __self__).__init__(
             'aws:transfer/sshKey:SshKey',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

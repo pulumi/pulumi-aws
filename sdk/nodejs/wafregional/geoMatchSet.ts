@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  *             value: "CA",
  *         },
  *     ],
+ *     name: "geo_match_set",
  * });
  * ```
  */

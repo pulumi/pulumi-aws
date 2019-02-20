@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -42,12 +41,12 @@ class Association(pulumi.CustomResource):
     """
     A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
     """
-    def __init__(__self__, resource_name, opts=None, association_name=None, document_version=None, instance_id=None, name=None, output_location=None, parameters=None, schedule_expression=None, targets=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, association_name=None, document_version=None, instance_id=None, name=None, output_location=None, parameters=None, schedule_expression=None, targets=None):
         """
         Associates an SSM Document to an instance or EC2 tag.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] association_name: The descriptive name for the association.
         :param pulumi.Input[str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
         :param pulumi.Input[str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
@@ -57,17 +56,11 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[str] schedule_expression: A cron expression when the association will be applied to the target(s).
         :param pulumi.Input[list] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -92,9 +85,9 @@ class Association(pulumi.CustomResource):
 
         super(Association, __self__).__init__(
             'aws:ssm/association:Association',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

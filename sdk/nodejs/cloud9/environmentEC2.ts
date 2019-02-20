@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.cloud9.EnvironmentEC2("example", {
  *     instanceType: "t2.micro",
+ *     name: "example-env",
  * });
  * ```
  */

@@ -33,6 +33,7 @@ import * as utilities from "../utilities";
  *     ]
  * }
  * `,
+ *     name: "aws_batch_service_role",
  * });
  * const ecsInstanceRoleRole = new aws.iam.Role("ecs_instance_role", {
  *     assumeRolePolicy: `{
@@ -48,12 +49,16 @@ import * as utilities from "../utilities";
  *     ]
  * }
  * `,
+ *     name: "ecs_instance_role",
  * });
- * const sampleSecurityGroup = new aws.ec2.SecurityGroup("sample", {});
+ * const sampleSecurityGroup = new aws.ec2.SecurityGroup("sample", {
+ *     name: "aws_batch_compute_environment_security_group",
+ * });
  * const sampleVpc = new aws.ec2.Vpc("sample", {
  *     cidrBlock: "10.1.0.0/16",
  * });
  * const ecsInstanceRoleInstanceProfile = new aws.iam.InstanceProfile("ecs_instance_role", {
+ *     name: "ecs_instance_role",
  *     role: ecsInstanceRoleRole.name,
  * });
  * const awsBatchServiceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("aws_batch_service_role", {

@@ -23,9 +23,11 @@ import {ApplicationVersion} from "./applicationVersion";
  * 
  * const tftest = new aws.elasticbeanstalk.Application("tftest", {
  *     description: "tf-test-desc",
+ *     name: "tf-test-name",
  * });
  * const tfenvtest = new aws.elasticbeanstalk.Environment("tfenvtest", {
  *     application: tftest.name,
+ *     name: "tf-test-name",
  *     solutionStackName: "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
  * });
  * ```
@@ -50,9 +52,11 @@ import {ApplicationVersion} from "./applicationVersion";
  * 
  * const tftest = new aws.elasticbeanstalk.Application("tftest", {
  *     description: "tf-test-desc",
+ *     name: "tf-test-name",
  * });
  * const tfenvtest = new aws.elasticbeanstalk.Environment("tfenvtest", {
  *     application: tftest.name,
+ *     name: "tf-test-name",
  *     settings: [
  *         {
  *             name: "VPCId",

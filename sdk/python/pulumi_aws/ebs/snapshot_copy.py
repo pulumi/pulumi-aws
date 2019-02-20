@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -48,12 +47,12 @@ class SnapshotCopy(pulumi.CustomResource):
     """
     The size of the drive in GiBs.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, encrypted=None, kms_key_id=None, source_region=None, source_snapshot_id=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, description=None, encrypted=None, kms_key_id=None, source_region=None, source_snapshot_id=None, tags=None):
         """
         Creates a Snapshot of a snapshot.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] description: A description of what the snapshot is.
         :param pulumi.Input[bool] encrypted: Whether the snapshot is encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
@@ -63,17 +62,11 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] source_snapshot_id
         :param pulumi.Input[dict] tags: A mapping of tags for the snapshot.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -84,11 +77,11 @@ class SnapshotCopy(pulumi.CustomResource):
 
         __props__['kms_key_id'] = kms_key_id
 
-        if source_region is None:
+        if not source_region:
             raise TypeError('Missing required property source_region')
         __props__['source_region'] = source_region
 
-        if source_snapshot_id is None:
+        if not source_snapshot_id:
             raise TypeError('Missing required property source_snapshot_id')
         __props__['source_snapshot_id'] = source_snapshot_id
 
@@ -102,9 +95,9 @@ class SnapshotCopy(pulumi.CustomResource):
 
         super(SnapshotCopy, __self__).__init__(
             'aws:ebs/snapshotCopy:SnapshotCopy',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

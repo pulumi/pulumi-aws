@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *     description: "a sample description",
  *     functionName: aws_lambda_function_lambda_function_test.arn,
  *     functionVersion: "1",
+ *     name: "testalias",
  *     routingConfig: {
  *         additionalVersionWeights: {
  *             "2": 0.5,

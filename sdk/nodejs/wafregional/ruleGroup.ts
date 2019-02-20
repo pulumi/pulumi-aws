@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const exampleRule = new aws.wafregional.Rule("example", {
  *     metricName: "example",
+ *     name: "example",
  * });
  * const exampleRuleGroup = new aws.wafregional.RuleGroup("example", {
  *     activatedRules: [{
@@ -25,6 +26,7 @@ import * as utilities from "../utilities";
  *         ruleId: exampleRule.id,
  *     }],
  *     metricName: "example",
+ *     name: "example",
  * });
  * ```
  */

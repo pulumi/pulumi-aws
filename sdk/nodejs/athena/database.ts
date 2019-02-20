@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * });
  * const hogeDatabase = new aws.athena.Database("hoge", {
  *     bucket: hogeBucket.bucket,
+ *     name: "database_name",
  * });
  * ```
  */

@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -50,7 +49,7 @@ class Cluster(pulumi.CustomResource):
     """
     The id of the VPC that the CloudHSM cluster resides in.
     """
-    def __init__(__self__, resource_name, opts=None, hsm_type=None, source_backup_identifier=None, subnet_ids=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, hsm_type=None, source_backup_identifier=None, subnet_ids=None, tags=None):
         """
         Creates an Amazon CloudHSM v2 cluster.
         
@@ -63,35 +62,29 @@ class Cluster(pulumi.CustomResource):
         If you need to delete a cluster, you have to remove its HSM modules first.
         To initialize cluster you have to sign CSR and upload it.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] hsm_type: The type of HSM module in the cluster. Currently, only hsm1.medium is supported.
         :param pulumi.Input[str] source_backup_identifier: The id of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[list] subnet_ids: The IDs of subnets in which cluster will operate.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if hsm_type is None:
+        if not hsm_type:
             raise TypeError('Missing required property hsm_type')
         __props__['hsm_type'] = hsm_type
 
         __props__['source_backup_identifier'] = source_backup_identifier
 
-        if subnet_ids is None:
+        if not subnet_ids:
             raise TypeError('Missing required property subnet_ids')
         __props__['subnet_ids'] = subnet_ids
 
@@ -105,9 +98,9 @@ class Cluster(pulumi.CustomResource):
 
         super(Cluster, __self__).__init__(
             'aws:cloudhsmv2/cluster:Cluster',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

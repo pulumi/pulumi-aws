@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
  *     clusterId: aws_emr_cluster_tf_test_cluster.id,
  *     instanceCount: 1,
  *     instanceType: "m5.xlarge",
+ *     name: "my little instance group",
  * });
  * ```
  */

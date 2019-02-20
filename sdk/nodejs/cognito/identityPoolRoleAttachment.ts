@@ -42,6 +42,7 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `),
+ *     name: "cognito_authenticated",
  * });
  * const mainIdentityPoolRoleAttachment = new aws.cognito.IdentityPoolRoleAttachment("main", {
  *     identityPoolId: mainIdentityPool.id,
@@ -61,6 +62,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const authenticatedRolePolicy = new aws.iam.RolePolicy("authenticated", {
+ *     name: "authenticated_policy",
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [

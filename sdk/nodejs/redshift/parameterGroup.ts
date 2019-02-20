@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const bar = new aws.redshift.ParameterGroup("bar", {
  *     family: "redshift-1.0",
+ *     name: "parameter-group-test-terraform",
  *     parameters: [
  *         {
  *             name: "require_ssl",

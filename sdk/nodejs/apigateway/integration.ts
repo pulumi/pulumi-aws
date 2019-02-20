@@ -17,6 +17,7 @@ import {RestApi} from "./restApi";
  * 
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
+ *     name: "MyDemoAPI",
  * });
  * const myDemoResource = new aws.apigateway.Resource("MyDemoResource", {
  *     parentId: myDemoAPI.rootResourceId,
@@ -63,7 +64,9 @@ import {RestApi} from "./restApi";
  * const myregion = config.require("myregion");
  * 
  * // API Gateway
- * const api = new aws.apigateway.RestApi("api", {});
+ * const api = new aws.apigateway.RestApi("api", {
+ *     name: "myapi",
+ * });
  * // IAM
  * const role = new aws.iam.Role("role", {
  *     assumeRolePolicy: `{
@@ -80,6 +83,7 @@ import {RestApi} from "./restApi";
  *   ]
  * }
  * `,
+ *     name: "myrole",
  * });
  * const resource = new aws.apigateway.Resource("resource", {
  *     parentId: api.rootResourceId,
@@ -127,7 +131,9 @@ import {RestApi} from "./restApi";
  * const name = config.require("name");
  * const subnetId = config.require("subnetId");
  * 
- * const testRestApi = new aws.apigateway.RestApi("test", {});
+ * const testRestApi = new aws.apigateway.RestApi("test", {
+ *     name: name,
+ * });
  * const testResource = new aws.apigateway.Resource("test", {
  *     parentId: testRestApi.rootResourceId,
  *     pathPart: "test",
@@ -145,9 +151,11 @@ import {RestApi} from "./restApi";
  * const testLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("test", {
  *     internal: true,
  *     loadBalancerType: "network",
+ *     name: name,
  *     subnets: [subnetId],
  * });
  * const testVpcLink = new aws.apigateway.VpcLink("test", {
+ *     name: name,
  *     targetArn: testLoadBalancer.arn,
  * });
  * const testIntegration = new aws.apigateway.Integration("test", {

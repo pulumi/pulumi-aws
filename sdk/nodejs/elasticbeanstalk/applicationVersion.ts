@@ -33,6 +33,7 @@ import {Application} from "./application";
  * 
  * const defaultApplication = new aws.elasticbeanstalk.Application("default", {
  *     description: "tf-test-desc",
+ *     name: "tf-test-name",
  * });
  * const defaultBucket = new aws.s3.Bucket("default", {
  *     bucket: "tftest.applicationversion.bucket",
@@ -47,6 +48,7 @@ import {Application} from "./application";
  *     bucket: defaultBucket.id,
  *     description: "application version created by terraform",
  *     key: defaultBucketObject.id,
+ *     name: "tf-test-version-label",
  * });
  * ```
  */

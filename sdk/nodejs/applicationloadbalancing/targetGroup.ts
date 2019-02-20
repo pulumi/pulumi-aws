@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  *     cidrBlock: "10.0.0.0/16",
  * });
  * const test = new aws.elasticloadbalancingv2.TargetGroup("test", {
+ *     name: "tf-example-lb-tg",
  *     port: 80,
  *     protocol: "HTTP",
  *     vpcId: main.id,
@@ -37,6 +38,7 @@ import * as utilities from "../utilities";
  *     cidrBlock: "10.0.0.0/16",
  * });
  * const ip_example = new aws.elasticloadbalancingv2.TargetGroup("ip-example", {
+ *     name: "tf-example-lb-tg",
  *     port: 80,
  *     protocol: "HTTP",
  *     targetType: "ip",
@@ -51,6 +53,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const lambda_example = new aws.elasticloadbalancingv2.TargetGroup("lambda-example", {
+ *     name: "tf-example-lb-tg",
  *     targetType: "lambda",
  * });
  * ```

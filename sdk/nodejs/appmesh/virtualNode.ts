@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
  *     meshName: "simpleapp",
+ *     name: "serviceBv1",
  *     spec: {
  *         backends: ["servicea.simpleapp.local"],
  *         listener: {

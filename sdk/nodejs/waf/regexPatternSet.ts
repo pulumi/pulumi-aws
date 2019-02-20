@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = new aws.waf.RegexPatternSet("example", {
+ *     name: "tf_waf_regex_pattern_set",
  *     regexPatternStrings: [
  *         "one",
  *         "two",

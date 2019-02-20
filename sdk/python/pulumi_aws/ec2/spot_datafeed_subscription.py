@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -17,34 +16,28 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
     """
     Path of folder inside bucket to place spot pricing data.
     """
-    def __init__(__self__, resource_name, opts=None, bucket=None, prefix=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, bucket=None, prefix=None):
         """
         > **Note:** There is only a single subscription allowed per account.
         
         To help you understand the charges for your Spot instances, Amazon EC2 provides a data feed that describes your Spot instance usage and pricing.
         This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] bucket: The Amazon S3 bucket in which to store the Spot instance data feed.
         :param pulumi.Input[str] prefix: Path of folder inside bucket to place spot pricing data.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if bucket is None:
+        if not bucket:
             raise TypeError('Missing required property bucket')
         __props__['bucket'] = bucket
 
@@ -52,9 +45,9 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
 
         super(SpotDatafeedSubscription, __self__).__init__(
             'aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

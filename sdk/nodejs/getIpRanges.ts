@@ -28,6 +28,7 @@ import * as utilities from "./utilities";
  *         protocol: "tcp",
  *         toPort: 443,
  *     }],
+ *     name: "from_europe",
  *     tags: {
  *         CreateDate: europeanEc2.apply(europeanEc2 => europeanEc2.createDate),
  *         SyncToken: europeanEc2.apply(europeanEc2 => europeanEc2.syncToken),

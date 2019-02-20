@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -25,30 +24,24 @@ class Classifier(pulumi.CustomResource):
     """
     A classifier for XML content. Defined below.
     """
-    def __init__(__self__, resource_name, opts=None, grok_classifier=None, json_classifier=None, name=None, xml_classifier=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, grok_classifier=None, json_classifier=None, name=None, xml_classifier=None):
         """
         Provides a Glue Classifier resource.
         
         > **NOTE:** It is only valid to create one type of classifier (grok, JSON, or XML). Changing classifier types will recreate the classifier.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] grok_classifier: A classifier that uses grok patterns. Defined below.
         :param pulumi.Input[dict] json_classifier: A classifier for JSON content. Defined below.
         :param pulumi.Input[str] name: The name of the classifier.
         :param pulumi.Input[dict] xml_classifier: A classifier for XML content. Defined below.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -63,9 +56,9 @@ class Classifier(pulumi.CustomResource):
 
         super(Classifier, __self__).__init__(
             'aws:glue/classifier:Classifier',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

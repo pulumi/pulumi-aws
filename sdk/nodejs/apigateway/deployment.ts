@@ -20,6 +20,7 @@ import {RestApi} from "./restApi";
  * 
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
+ *     name: "MyDemoAPI",
  * });
  * const myDemoResource = new aws.apigateway.Resource("MyDemoResource", {
  *     parentId: myDemoAPI.rootResourceId,

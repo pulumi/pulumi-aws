@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -45,12 +44,12 @@ class ScheduledAction(pulumi.CustomResource):
     """
     The date and time for the scheduled action to start. Specify the following format: 2006-01-02T15:04:05Z
     """
-    def __init__(__self__, resource_name, opts=None, end_time=None, name=None, resource_id=None, scalable_dimension=None, scalable_target_action=None, schedule=None, service_namespace=None, start_time=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, end_time=None, name=None, resource_id=None, scalable_dimension=None, scalable_target_action=None, schedule=None, service_namespace=None, start_time=None):
         """
         Provides an Application AutoScaling ScheduledAction resource.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] end_time: The date and time for the scheduled action to end. Specify the following format: 2006-01-02T15:04:05Z
         :param pulumi.Input[str] name: The name of the scheduled action.
         :param pulumi.Input[str] resource_id: The identifier of the resource associated with the scheduled action. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ResourceId)
@@ -60,17 +59,11 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[str] service_namespace: The namespace of the AWS service. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ServiceNamespace) Example: ecs
         :param pulumi.Input[str] start_time: The date and time for the scheduled action to start. Specify the following format: 2006-01-02T15:04:05Z
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -79,7 +72,7 @@ class ScheduledAction(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        if resource_id is None:
+        if not resource_id:
             raise TypeError('Missing required property resource_id')
         __props__['resource_id'] = resource_id
 
@@ -89,7 +82,7 @@ class ScheduledAction(pulumi.CustomResource):
 
         __props__['schedule'] = schedule
 
-        if service_namespace is None:
+        if not service_namespace:
             raise TypeError('Missing required property service_namespace')
         __props__['service_namespace'] = service_namespace
 
@@ -99,9 +92,9 @@ class ScheduledAction(pulumi.CustomResource):
 
         super(ScheduledAction, __self__).__init__(
             'aws:appautoscaling/scheduledAction:ScheduledAction',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

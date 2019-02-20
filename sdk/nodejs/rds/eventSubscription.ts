@@ -19,11 +19,14 @@ import * as utilities from "../utilities";
  *     engine: "mysql",
  *     engineVersion: "5.6.17",
  *     instanceClass: "db.t2.micro",
+ *     name: "mydb",
  *     parameterGroupName: "default.mysql5.6",
  *     password: "bar",
  *     username: "foo",
  * });
- * const defaultTopic = new aws.sns.Topic("default", {});
+ * const defaultTopic = new aws.sns.Topic("default", {
+ *     name: "rds-events",
+ * });
  * const defaultEventSubscription = new aws.rds.EventSubscription("default", {
  *     eventCategories: [
  *         "availability",
@@ -37,6 +40,7 @@ import * as utilities from "../utilities";
  *         "recovery",
  *         "restoration",
  *     ],
+ *     name: "rds-event-sub",
  *     snsTopic: defaultTopic.arn,
  *     sourceIds: [defaultInstance.id],
  *     sourceType: "db-instance",

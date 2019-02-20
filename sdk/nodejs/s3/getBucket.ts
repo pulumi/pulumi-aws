@@ -29,6 +29,7 @@ import * as utilities from "../utilities";
  *         name: selected.apply(selected => selected.websiteDomain),
  *         zoneId: selected.apply(selected => selected.hostedZoneId),
  *     }],
+ *     name: "bucket",
  *     type: "A",
  *     zoneId: testZone.apply(testZone => testZone.id),
  * });

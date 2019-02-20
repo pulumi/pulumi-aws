@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -39,12 +38,12 @@ class BgpPeer(pulumi.CustomResource):
     """
     The ID of the Direct Connect virtual interface on which to create the BGP peer.
     """
-    def __init__(__self__, resource_name, opts=None, address_family=None, amazon_address=None, bgp_asn=None, bgp_auth_key=None, customer_address=None, virtual_interface_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, address_family=None, amazon_address=None, bgp_asn=None, bgp_auth_key=None, customer_address=None, virtual_interface_id=None):
         """
         Provides a Direct Connect BGP peer resource.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
         :param pulumi.Input[str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon.
                Required for IPv4 BGP peers on public virtual interfaces.
@@ -54,28 +53,22 @@ class BgpPeer(pulumi.CustomResource):
                Required for IPv4 BGP peers on public virtual interfaces.
         :param pulumi.Input[str] virtual_interface_id: The ID of the Direct Connect virtual interface on which to create the BGP peer.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if address_family is None:
+        if not address_family:
             raise TypeError('Missing required property address_family')
         __props__['address_family'] = address_family
 
         __props__['amazon_address'] = amazon_address
 
-        if bgp_asn is None:
+        if not bgp_asn:
             raise TypeError('Missing required property bgp_asn')
         __props__['bgp_asn'] = bgp_asn
 
@@ -83,7 +76,7 @@ class BgpPeer(pulumi.CustomResource):
 
         __props__['customer_address'] = customer_address
 
-        if virtual_interface_id is None:
+        if not virtual_interface_id:
             raise TypeError('Missing required property virtual_interface_id')
         __props__['virtual_interface_id'] = virtual_interface_id
 
@@ -91,9 +84,9 @@ class BgpPeer(pulumi.CustomResource):
 
         super(BgpPeer, __self__).__init__(
             'aws:directconnect/bgpPeer:BgpPeer',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  *         PASSWORD: "examplepassword",
  *         USERNAME: "exampleusername",
  *     },
+ *     name: "example",
  * });
  * ```
  * 
@@ -38,6 +39,7 @@ import * as utilities from "../utilities";
  *         PASSWORD: "examplepassword",
  *         USERNAME: "exampleusername",
  *     },
+ *     name: "example",
  *     physicalConnectionRequirements: {
  *         availabilityZone: aws_subnet_example.availabilityZone,
  *         securityGroupIdLists: [aws_security_group_example.id],

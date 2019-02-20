@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -21,7 +20,7 @@ class RepositoryPolicy(pulumi.CustomResource):
     """
     Name of the repository to apply the policy.
     """
-    def __init__(__self__, resource_name, opts=None, policy=None, repository=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, policy=None, repository=None):
         """
         Provides an ECR repository policy.
         
@@ -31,31 +30,25 @@ class RepositoryPolicy(pulumi.CustomResource):
         in all regions - available regions are listed
         [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#ecr_region).
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
         :param pulumi.Input[str] repository: Name of the repository to apply the policy.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if policy is None:
+        if not policy:
             raise TypeError('Missing required property policy')
         __props__['policy'] = policy
 
-        if repository is None:
+        if not repository:
             raise TypeError('Missing required property repository')
         __props__['repository'] = repository
 
@@ -63,9 +56,9 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         super(RepositoryPolicy, __self__).__init__(
             'aws:ecr/repositoryPolicy:RepositoryPolicy',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

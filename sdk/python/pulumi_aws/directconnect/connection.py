@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -33,37 +32,31 @@ class Connection(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, bandwidth=None, location=None, name=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, bandwidth=None, location=None, name=None, tags=None):
         """
         Provides a Connection of Direct Connect.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] bandwidth: The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
         :param pulumi.Input[str] location: The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
         :param pulumi.Input[str] name: The name of the connection.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if bandwidth is None:
+        if not bandwidth:
             raise TypeError('Missing required property bandwidth')
         __props__['bandwidth'] = bandwidth
 
-        if location is None:
+        if not location:
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
@@ -76,9 +69,9 @@ class Connection(pulumi.CustomResource):
 
         super(Connection, __self__).__init__(
             'aws:directconnect/connection:Connection',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

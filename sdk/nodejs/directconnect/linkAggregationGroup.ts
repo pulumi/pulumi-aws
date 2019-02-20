@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  *     connectionsBandwidth: "1Gbps",
  *     forceDestroy: true,
  *     location: "EqDC2",
+ *     name: "tf-dx-lag",
  *     numberOfConnections: 2,
  * });
  * ```

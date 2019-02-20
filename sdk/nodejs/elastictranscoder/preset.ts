@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
  *     },
  *     container: "mp4",
  *     description: "Sample Preset",
+ *     name: "sample_preset",
  *     thumbnails: {
  *         format: "png",
  *         interval: "120",

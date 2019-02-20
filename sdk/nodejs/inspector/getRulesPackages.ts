@@ -24,10 +24,12 @@ import * as utilities from "../utilities";
  * // Declare the data source
  * const rules = pulumi.output(aws.inspector.getRulesPackages({}));
  * const assessmentAssessmentTarget = new aws.inspector.AssessmentTarget("assessment", {
+ *     name: "test",
  *     resourceGroupArn: group.arn,
  * });
  * const assessmentAssessmentTemplate = new aws.inspector.AssessmentTemplate("assessment", {
  *     duration: 60,
+ *     name: "Test",
  *     rulesPackageArns: rules.apply(rules => rules.arns),
  *     targetArn: assessmentAssessmentTarget.arn,
  * });

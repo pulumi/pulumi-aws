@@ -16,7 +16,9 @@ import {RestApi} from "./restApi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  * 
- * const demoRestApi = new aws.apigateway.RestApi("demo", {});
+ * const demoRestApi = new aws.apigateway.RestApi("demo", {
+ *     name: "auth-demo",
+ * });
  * const invocationRole = new aws.iam.Role("invocation_role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -32,6 +34,7 @@ import {RestApi} from "./restApi";
  *   ]
  * }
  * `,
+ *     name: "api_gateway_auth_invocation",
  *     path: "/",
  * });
  * const lambda = new aws.iam.Role("lambda", {
@@ -49,6 +52,7 @@ import {RestApi} from "./restApi";
  *   ]
  * }
  * `,
+ *     name: "demo-lambda",
  * });
  * const authorizer = new aws.lambda.Function("authorizer", {
  *     code: new pulumi.asset.FileArchive("lambda-function.zip"),
@@ -59,9 +63,11 @@ import {RestApi} from "./restApi";
  * const demoAuthorizer = new aws.apigateway.Authorizer("demo", {
  *     authorizerCredentials: invocationRole.arn,
  *     authorizerUri: authorizer.invokeArn,
+ *     name: "demo",
  *     restApi: demoRestApi.id,
  * });
  * const invocationPolicy = new aws.iam.RolePolicy("invocation_policy", {
+ *     name: "default",
  *     policy: authorizer.arn.apply(arn => `{
  *   "Version": "2012-10-17",
  *   "Statement": [

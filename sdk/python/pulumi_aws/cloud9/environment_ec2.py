@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -41,12 +40,12 @@ class EnvironmentEC2(pulumi.CustomResource):
     """
     The type of the environment (e.g. `ssh` or `ec2`)
     """
-    def __init__(__self__, resource_name, opts=None, automatic_stop_time_minutes=None, description=None, instance_type=None, name=None, owner_arn=None, subnet_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, automatic_stop_time_minutes=None, description=None, instance_type=None, name=None, owner_arn=None, subnet_id=None):
         """
         Provides a Cloud9 EC2 Development Environment.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
         :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g. `t2.micro`.
@@ -54,17 +53,11 @@ class EnvironmentEC2(pulumi.CustomResource):
         :param pulumi.Input[str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         :param pulumi.Input[str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -73,7 +66,7 @@ class EnvironmentEC2(pulumi.CustomResource):
 
         __props__['description'] = description
 
-        if instance_type is None:
+        if not instance_type:
             raise TypeError('Missing required property instance_type')
         __props__['instance_type'] = instance_type
 
@@ -88,9 +81,9 @@ class EnvironmentEC2(pulumi.CustomResource):
 
         super(EnvironmentEC2, __self__).__init__(
             'aws:cloud9/environmentEC2:EnvironmentEC2',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

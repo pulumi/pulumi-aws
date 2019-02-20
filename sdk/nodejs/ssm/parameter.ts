@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const foo = new aws.ssm.Parameter("foo", {
+ *     name: "foo",
  *     type: "String",
  *     value: "bar",
  * });
@@ -33,6 +34,7 @@ import * as utilities from "../utilities";
  *     engine: "mysql",
  *     engineVersion: "5.7.16",
  *     instanceClass: "db.t2.micro",
+ *     name: "mydb",
  *     parameterGroupName: "default.mysql5.7",
  *     password: var_database_master_password,
  *     storageType: "gp2",
@@ -40,6 +42,7 @@ import * as utilities from "../utilities";
  * });
  * const secret = new aws.ssm.Parameter("secret", {
  *     description: "The parameter description",
+ *     name: `/${var_environment}/database/password/master`,
  *     tags: {
  *         environment: var_environment,
  *     },

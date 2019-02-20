@@ -13,7 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const myapi = new aws.apigateway.RestApi("myapi", {});
+ * const myapi = new aws.apigateway.RestApi("myapi", {
+ *     name: "MyDemoAPI",
+ * });
  * const dev = new aws.apigateway.Deployment("dev", {
  *     restApi: myapi.id,
  *     stageName: "dev",
@@ -34,6 +36,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     description: "my description",
+ *     name: "my-usage-plan",
  *     productCode: "MYCODE",
  *     quotaSettings: {
  *         limit: 20,

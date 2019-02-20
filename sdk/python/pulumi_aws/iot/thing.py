@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -33,27 +32,21 @@ class Thing(pulumi.CustomResource):
     """
     The current version of the thing record in the registry.
     """
-    def __init__(__self__, resource_name, opts=None, attributes=None, name=None, thing_type_name=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, attributes=None, name=None, thing_type_name=None):
         """
         Creates and manages an AWS IoT Thing.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] attributes: Map of attributes of the thing.
         :param pulumi.Input[str] name: The name of the thing.
         :param pulumi.Input[str] thing_type_name: The thing type name.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -70,9 +63,9 @@ class Thing(pulumi.CustomResource):
 
         super(Thing, __self__).__init__(
             'aws:iot/thing:Thing',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

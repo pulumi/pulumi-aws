@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * const defaultClusterParameterGroup = new aws.rds.ClusterParameterGroup("default", {
  *     description: "RDS default cluster parameter group",
  *     family: "aurora5.6",
+ *     name: "rds-cluster-pg",
  *     parameters: [
  *         {
  *             name: "character_set_server",

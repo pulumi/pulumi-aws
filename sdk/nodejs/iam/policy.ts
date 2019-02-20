@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const policy = new aws.iam.Policy("policy", {
  *     description: "My test policy",
+ *     name: "test_policy",
  *     path: "/",
  *     policy: `{
  *   "Version": "2012-10-17",

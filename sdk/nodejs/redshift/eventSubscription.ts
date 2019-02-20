@@ -17,7 +17,9 @@ import * as utilities from "../utilities";
  *     clusterIdentifier: "default",
  *     databaseName: "default",
  * });
- * const defaultTopic = new aws.sns.Topic("default", {});
+ * const defaultTopic = new aws.sns.Topic("default", {
+ *     name: "redshift-events",
+ * });
  * const defaultEventSubscription = new aws.redshift.EventSubscription("default", {
  *     eventCategories: [
  *         "configuration",
@@ -25,6 +27,7 @@ import * as utilities from "../utilities";
  *         "monitoring",
  *         "security",
  *     ],
+ *     name: "redshift-event-sub",
  *     severity: "INFO",
  *     snsTopic: defaultTopic.arn,
  *     sourceIds: [defaultCluster.id],

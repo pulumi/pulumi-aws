@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -43,12 +42,12 @@ class NetworkInterface(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, attachments=None, description=None, private_ip=None, private_ips=None, private_ips_count=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, attachments=None, description=None, private_ip=None, private_ips=None, private_ips_count=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None):
         """
         Provides an Elastic network interface (ENI) resource.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] attachments: Block to define the attachment of the ENI. Documented below.
         :param pulumi.Input[str] description: A description for the network interface.
         :param pulumi.Input[str] private_ip
@@ -59,17 +58,11 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_id: Subnet ID to create the ENI in.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -88,7 +81,7 @@ class NetworkInterface(pulumi.CustomResource):
 
         __props__['source_dest_check'] = source_dest_check
 
-        if subnet_id is None:
+        if not subnet_id:
             raise TypeError('Missing required property subnet_id')
         __props__['subnet_id'] = subnet_id
 
@@ -98,9 +91,9 @@ class NetworkInterface(pulumi.CustomResource):
 
         super(NetworkInterface, __self__).__init__(
             'aws:ec2/networkInterface:NetworkInterface',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -45,7 +44,7 @@ class TopicSubscription(pulumi.CustomResource):
     """
     The ARN of the SNS topic to subscribe to
     """
-    def __init__(__self__, resource_name, opts=None, confirmation_timeout_in_minutes=None, delivery_policy=None, endpoint=None, endpoint_auto_confirms=None, filter_policy=None, protocol=None, raw_message_delivery=None, topic=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, confirmation_timeout_in_minutes=None, delivery_policy=None, endpoint=None, endpoint_auto_confirms=None, filter_policy=None, protocol=None, raw_message_delivery=None, topic=None):
         """
           Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to.
         This resource allows you to automatically place messages sent to SNS topics in SQS queues, send them as HTTP(S) POST requests
@@ -60,8 +59,8 @@ class TopicSubscription(pulumi.CustomResource):
         
         > **NOTE:** If SNS topic and SQS queue are in different AWS accounts and different AWS regions it is important to recognize that the subscription needs to be initiated from the account with the SQS queue but in the region of the SNS topic.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[int] confirmation_timeout_in_minutes: Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols (default is 1 minute).
         :param pulumi.Input[str] delivery_policy: JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
         :param pulumi.Input[str] endpoint: The endpoint to send data to, the contents will vary with the protocol. (see below for more information)
@@ -71,17 +70,11 @@ class TopicSubscription(pulumi.CustomResource):
         :param pulumi.Input[bool] raw_message_delivery: Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
         :param pulumi.Input[str] topic: The ARN of the SNS topic to subscribe to
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -90,7 +83,7 @@ class TopicSubscription(pulumi.CustomResource):
 
         __props__['delivery_policy'] = delivery_policy
 
-        if endpoint is None:
+        if not endpoint:
             raise TypeError('Missing required property endpoint')
         __props__['endpoint'] = endpoint
 
@@ -98,13 +91,13 @@ class TopicSubscription(pulumi.CustomResource):
 
         __props__['filter_policy'] = filter_policy
 
-        if protocol is None:
+        if not protocol:
             raise TypeError('Missing required property protocol')
         __props__['protocol'] = protocol
 
         __props__['raw_message_delivery'] = raw_message_delivery
 
-        if topic is None:
+        if not topic:
             raise TypeError('Missing required property topic')
         __props__['topic'] = topic
 
@@ -112,9 +105,9 @@ class TopicSubscription(pulumi.CustomResource):
 
         super(TopicSubscription, __self__).__init__(
             'aws:sns/topicSubscription:TopicSubscription',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

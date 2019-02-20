@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const portfolio = new aws.servicecatalog.Portfolio("portfolio", {
  *     description: "List of my organizations apps",
+ *     name: "My App Portfolio",
  *     providerName: "Brett",
  * });
  * ```

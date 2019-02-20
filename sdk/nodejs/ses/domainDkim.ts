@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  * const exampleAmazonsesVerificationRecord: aws.route53.Record[] = [];
  * for (let i = 0; i < 3; i++) {
  *     exampleAmazonsesVerificationRecord.push(new aws.route53.Record(`example_amazonses_verification_record-${i}`, {
+ *         name: exampleDomainDkim.dkimTokens.apply(dkimTokens => `${dkimTokens[i]}._domainkey.example.com`),
  *         records: [exampleDomainDkim.dkimTokens.apply(dkimTokens => `${dkimTokens[i]}.dkim.amazonses.com`)],
  *         ttl: 600,
  *         type: "CNAME",

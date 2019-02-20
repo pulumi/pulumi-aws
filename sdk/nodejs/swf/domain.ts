@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * 
  * const foo = new aws.swf.Domain("foo", {
  *     description: "Terraform SWF Domain",
+ *     name: "foo",
  *     workflowExecutionRetentionPeriodInDays: "30",
  * });
  * ```

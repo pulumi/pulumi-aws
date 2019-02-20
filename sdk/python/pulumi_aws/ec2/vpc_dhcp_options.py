@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -37,7 +36,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, domain_name=None, domain_name_servers=None, netbios_name_servers=None, netbios_node_type=None, ntp_servers=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, domain_name=None, domain_name_servers=None, netbios_name_servers=None, netbios_node_type=None, ntp_servers=None, tags=None):
         """
         Provides a VPC DHCP Options resource.
         
@@ -49,8 +48,8 @@ class VpcDhcpOptions(pulumi.CustomResource):
         * If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set.
         * In most cases unless you're configuring your own DNS you'll want to set `domain_name_servers` to `AmazonProvidedDNS`.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] domain_name: the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
         :param pulumi.Input[list] domain_name_servers: List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
         :param pulumi.Input[list] netbios_name_servers: List of NETBIOS name servers.
@@ -58,17 +57,11 @@ class VpcDhcpOptions(pulumi.CustomResource):
         :param pulumi.Input[list] ntp_servers: List of NTP servers to configure.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -89,9 +82,9 @@ class VpcDhcpOptions(pulumi.CustomResource):
 
         super(VpcDhcpOptions, __self__).__init__(
             'aws:ec2/vpcDhcpOptions:VpcDhcpOptions',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

@@ -19,7 +19,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const foo = new aws.ecr.Repository("foo", {});
+ * const foo = new aws.ecr.Repository("foo", {
+ *     name: "bar",
+ * });
  * const foopolicy = new aws.ecr.RepositoryPolicy("foopolicy", {
  *     policy: `{
  *     "Version": "2008-10-17",

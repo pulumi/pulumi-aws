@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -37,35 +36,29 @@ class Hsm(pulumi.CustomResource):
     """
     The ID of subnet in which HSM module will be located.
     """
-    def __init__(__self__, resource_name, opts=None, availability_zone=None, cluster_id=None, ip_address=None, subnet_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, availability_zone=None, cluster_id=None, ip_address=None, subnet_id=None):
         """
         Creates an HSM module in Amazon CloudHSM v2 cluster.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] availability_zone: The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
         :param pulumi.Input[str] cluster_id: The ID of Cloud HSM v2 cluster to which HSM will be added.
         :param pulumi.Input[str] ip_address: The IP address of HSM module. Must be within the CIDR of selected subnet.
         :param pulumi.Input[str] subnet_id: The ID of subnet in which HSM module will be located.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['availability_zone'] = availability_zone
 
-        if cluster_id is None:
+        if not cluster_id:
             raise TypeError('Missing required property cluster_id')
         __props__['cluster_id'] = cluster_id
 
@@ -79,9 +72,9 @@ class Hsm(pulumi.CustomResource):
 
         super(Hsm, __self__).__init__(
             'aws:cloudhsmv2/hsm:Hsm',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

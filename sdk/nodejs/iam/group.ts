@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const developers = new aws.iam.Group("developers", {
+ *     name: "developers",
  *     path: "/users/",
  * });
  * ```

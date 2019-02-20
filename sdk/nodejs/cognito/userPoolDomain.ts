@@ -14,7 +14,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = new aws.cognito.UserPool("example", {});
+ * const example = new aws.cognito.UserPool("example", {
+ *     name: "example-pool",
+ * });
  * const main = new aws.cognito.UserPoolDomain("main", {
  *     domain: "example-domain",
  *     userPoolId: example.id,
@@ -25,7 +27,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = new aws.cognito.UserPool("example", {});
+ * const example = new aws.cognito.UserPool("example", {
+ *     name: "example-pool",
+ * });
  * const main = new aws.cognito.UserPoolDomain("main", {
  *     certificateArn: aws_acm_certificate_cert.arn,
  *     domain: "example-domain.example.com",

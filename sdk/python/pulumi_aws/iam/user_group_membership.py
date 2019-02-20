@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -17,7 +16,7 @@ class UserGroupMembership(pulumi.CustomResource):
     """
     The name of the [IAM User][2] to add to groups
     """
-    def __init__(__self__, resource_name, opts=None, groups=None, user=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, groups=None, user=None):
         """
         Provides a resource for adding an [IAM User][2] to [IAM Groups][1]. This
         resource can be used multiple times with the same user for non-overlapping
@@ -26,39 +25,33 @@ class UserGroupMembership(pulumi.CustomResource):
         To exclusively manage the users in a group, see the
         [`aws_iam_group_membership` resource][3].
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] groups: A list of [IAM Groups][1] to add the user to
         :param pulumi.Input[str] user: The name of the [IAM User][2] to add to groups
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if groups is None:
+        if not groups:
             raise TypeError('Missing required property groups')
         __props__['groups'] = groups
 
-        if user is None:
+        if not user:
             raise TypeError('Missing required property user')
         __props__['user'] = user
 
         super(UserGroupMembership, __self__).__init__(
             'aws:iam/userGroupMembership:UserGroupMembership',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

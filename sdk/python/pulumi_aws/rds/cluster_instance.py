@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -146,7 +145,7 @@ class ClusterInstance(pulumi.CustomResource):
     """
     Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
     """
-    def __init__(__self__, resource_name, opts=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, cluster_identifier=None, copy_tags_to_snapshot=None, db_parameter_group_name=None, db_subnet_group_name=None, engine=None, engine_version=None, identifier=None, identifier_prefix=None, instance_class=None, monitoring_interval=None, monitoring_role_arn=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, preferred_backup_window=None, preferred_maintenance_window=None, promotion_tier=None, publicly_accessible=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, cluster_identifier=None, copy_tags_to_snapshot=None, db_parameter_group_name=None, db_subnet_group_name=None, engine=None, engine_version=None, identifier=None, identifier_prefix=None, instance_class=None, monitoring_interval=None, monitoring_role_arn=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, preferred_backup_window=None, preferred_maintenance_window=None, promotion_tier=None, publicly_accessible=None, tags=None):
         """
         Provides an RDS Cluster Resource Instance. A Cluster Instance Resource defines
         attributes that are specific to a single instance in a [RDS Cluster][3],
@@ -163,8 +162,8 @@ class ClusterInstance(pulumi.CustomResource):
         
         > **NOTE:** Deletion Protection from the RDS service can only be enabled at the cluster level, not for individual cluster instances. You can still add the [`prevent_destroy` lifecycle behavior](https://www.terraform.io/docs/configuration/resources.html#prevent_destroy) to your Terraform resource configuration if you desire protection from accidental deletion.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any database modifications
                are applied immediately, or during the next maintenance window. Default is`false`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
@@ -212,17 +211,11 @@ class ClusterInstance(pulumi.CustomResource):
                details on controlling this property.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the instance.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -233,7 +226,7 @@ class ClusterInstance(pulumi.CustomResource):
 
         __props__['availability_zone'] = availability_zone
 
-        if cluster_identifier is None:
+        if not cluster_identifier:
             raise TypeError('Missing required property cluster_identifier')
         __props__['cluster_identifier'] = cluster_identifier
 
@@ -251,7 +244,7 @@ class ClusterInstance(pulumi.CustomResource):
 
         __props__['identifier_prefix'] = identifier_prefix
 
-        if instance_class is None:
+        if not instance_class:
             raise TypeError('Missing required property instance_class')
         __props__['instance_class'] = instance_class
 
@@ -283,9 +276,9 @@ class ClusterInstance(pulumi.CustomResource):
 
         super(ClusterInstance, __self__).__init__(
             'aws:rds/clusterInstance:ClusterInstance',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

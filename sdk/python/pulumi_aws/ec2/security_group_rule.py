@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -57,7 +56,7 @@ class SecurityGroupRule(pulumi.CustomResource):
     The type of rule being created. Valid options are `ingress` (inbound)
     or `egress` (outbound).
     """
-    def __init__(__self__, resource_name, opts=None, cidr_blocks=None, description=None, from_port=None, ipv6_cidr_blocks=None, prefix_list_ids=None, protocol=None, security_group_id=None, self=None, source_security_group_id=None, to_port=None, type=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, cidr_blocks=None, description=None, from_port=None, ipv6_cidr_blocks=None, prefix_list_ids=None, protocol=None, security_group_id=None, self=None, source_security_group_id=None, to_port=None, type=None):
         """
         Provides a security group rule resource. Represents a single `ingress` or
         `egress` group rule, which can be added to external Security Groups.
@@ -73,8 +72,8 @@ class SecurityGroupRule(pulumi.CustomResource):
         
         > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id`.
         :param pulumi.Input[str] description: Description of the rule.
         :param pulumi.Input[int] from_port: The start port (or ICMP type number if protocol is "icmp").
@@ -91,17 +90,11 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of rule being created. Valid options are `ingress` (inbound)
                or `egress` (outbound).
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -110,7 +103,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
         __props__['description'] = description
 
-        if from_port is None:
+        if not from_port:
             raise TypeError('Missing required property from_port')
         __props__['from_port'] = from_port
 
@@ -118,11 +111,11 @@ class SecurityGroupRule(pulumi.CustomResource):
 
         __props__['prefix_list_ids'] = prefix_list_ids
 
-        if protocol is None:
+        if not protocol:
             raise TypeError('Missing required property protocol')
         __props__['protocol'] = protocol
 
-        if security_group_id is None:
+        if not security_group_id:
             raise TypeError('Missing required property security_group_id')
         __props__['security_group_id'] = security_group_id
 
@@ -130,19 +123,19 @@ class SecurityGroupRule(pulumi.CustomResource):
 
         __props__['source_security_group_id'] = source_security_group_id
 
-        if to_port is None:
+        if not to_port:
             raise TypeError('Missing required property to_port')
         __props__['to_port'] = to_port
 
-        if type is None:
+        if not type:
             raise TypeError('Missing required property type')
         __props__['type'] = type
 
         super(SecurityGroupRule, __self__).__init__(
             'aws:ec2/securityGroupRule:SecurityGroupRule',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

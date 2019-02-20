@@ -35,6 +35,7 @@ import {ARN} from "../index";
  *   ]
  * }
  * `,
+ *     name: "iam_for_lambda",
  * });
  * const testLambda = new aws.lambda.Function("test_lambda", {
  *     environment: {
@@ -76,11 +77,13 @@ import {ARN} from "../index";
  * // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
  * // If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
  * const example = new aws.cloudwatch.LogGroup("example", {
+ *     name: aws_lambda_function_test_lambda.functionName.apply(functionName => `/aws/lambda/${functionName}`),
  *     retentionInDays: 14,
  * });
  * // See also the following AWS managed policy: AWSLambdaBasicExecutionRole
  * const lambdaLogging = new aws.iam.Policy("lambda_logging", {
  *     description: "IAM policy for logging from a lambda",
+ *     name: "lambda_logging",
  *     path: "/",
  *     policy: `{
  *   "Version": "2012-10-17",

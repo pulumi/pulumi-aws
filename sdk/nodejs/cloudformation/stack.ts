@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const network = new aws.cloudformation.Stack("network", {
+ *     name: "networking-stack",
  *     parameters: {
  *         VPCCidr: "10.0.0.0/16",
  *     },

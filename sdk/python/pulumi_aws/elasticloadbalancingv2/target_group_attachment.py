@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -25,30 +24,24 @@ class TargetGroupAttachment(pulumi.CustomResource):
     """
     The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
     """
-    def __init__(__self__, resource_name, opts=None, availability_zone=None, port=None, target_group_arn=None, target_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, availability_zone=None, port=None, target_group_arn=None, target_id=None):
         """
         Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the [`aws_elb_attachment` resource](https://www.terraform.io/docs/providers/aws/r/elb_attachment.html).
         
         > **Note:** `aws_alb_target_group_attachment` is known as `aws_lb_target_group_attachment`. The functionality is identical.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone where the IP address of the target is to be registered.
         :param pulumi.Input[int] port: The port on which targets receive traffic.
         :param pulumi.Input[str] target_group_arn: The ARN of the target group with which to register targets
         :param pulumi.Input[str] target_id: The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -57,19 +50,19 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         __props__['port'] = port
 
-        if target_group_arn is None:
+        if not target_group_arn:
             raise TypeError('Missing required property target_group_arn')
         __props__['target_group_arn'] = target_group_arn
 
-        if target_id is None:
+        if not target_id:
             raise TypeError('Missing required property target_id')
         __props__['target_id'] = target_id
 
         super(TargetGroupAttachment, __self__).__init__(
             'aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  *         aws_batch_compute_environment_test_environment_1.arn,
  *         aws_batch_compute_environment_test_environment_2.arn,
  *     ],
+ *     name: "tf-test-batch-job-queue",
  *     priority: 1,
  *     state: "ENABLED",
  * });

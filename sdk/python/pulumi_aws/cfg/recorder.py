@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -23,31 +22,25 @@ class Recorder(pulumi.CustomResource):
     used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
     See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, recording_group=None, role_arn=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, name=None, recording_group=None, role_arn=None):
         """
         Provides an AWS Config Configuration Recorder. Please note that this resource **does not start** the created recorder automatically.
         
         > **Note:** _Starting_ the Configuration Recorder requires a [delivery channel](https://www.terraform.io/docs/providers/aws/r/config_delivery_channel.html) (while delivery channel creation requires Configuration Recorder). This is why [`aws_config_configuration_recorder_status`](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder_status.html) is a separate resource.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input[dict] recording_group: Recording group - see below.
         :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role.
                used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
                See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -56,15 +49,15 @@ class Recorder(pulumi.CustomResource):
 
         __props__['recording_group'] = recording_group
 
-        if role_arn is None:
+        if not role_arn:
             raise TypeError('Missing required property role_arn')
         __props__['role_arn'] = role_arn
 
         super(Recorder, __self__).__init__(
             'aws:cfg/recorder:Recorder',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

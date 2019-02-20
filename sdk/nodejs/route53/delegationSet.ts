@@ -18,9 +18,11 @@ import * as utilities from "../utilities";
  * });
  * const primary = new aws.route53.Zone("primary", {
  *     delegationSetId: main.id,
+ *     name: "hashicorp.com",
  * });
  * const secondary = new aws.route53.Zone("secondary", {
  *     delegationSetId: main.id,
+ *     name: "terraform.io",
  * });
  * ```
  */

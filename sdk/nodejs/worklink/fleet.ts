@@ -13,7 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = new aws.worklink.Fleet("example", {});
+ * const example = new aws.worklink.Fleet("example", {
+ *     name: "terraform-example",
+ * });
  * ```
  * 
  * Network Configuration Usage:
@@ -23,6 +25,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = new aws.worklink.Fleet("example", {
+ *     name: "terraform-example",
  *     network: {
  *         securityGroupIds: [aws_security_group_test.id],
  *         subnetIds: [aws_subnet_test.map(v => v.id)],
@@ -43,6 +46,7 @@ import * as utilities from "../utilities";
  *         samlMetadata: fs.readFileSync("saml-metadata.xml", "utf-8"),
  *         type: "SAML",
  *     },
+ *     name: "tf-worklink-fleet-%s",
  * });
  * ```
  */

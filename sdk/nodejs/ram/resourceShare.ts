@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.ram.ResourceShare("example", {
  *     allowExternalPrincipals: true,
+ *     name: "example",
  *     tags: {
  *         Environment: "Production",
  *     },

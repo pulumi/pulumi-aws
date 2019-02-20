@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -53,12 +52,12 @@ class PublicVirtualInterface(pulumi.CustomResource):
     """
     The VLAN ID.
     """
-    def __init__(__self__, resource_name, opts=None, address_family=None, amazon_address=None, bgp_asn=None, bgp_auth_key=None, connection_id=None, customer_address=None, name=None, route_filter_prefixes=None, tags=None, vlan=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, address_family=None, amazon_address=None, bgp_asn=None, bgp_auth_key=None, connection_id=None, customer_address=None, name=None, route_filter_prefixes=None, tags=None, vlan=None):
         """
         Provides a Direct Connect public virtual interface resource.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
         :param pulumi.Input[str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         :param pulumi.Input[int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
@@ -70,34 +69,28 @@ class PublicVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] vlan: The VLAN ID.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if address_family is None:
+        if not address_family:
             raise TypeError('Missing required property address_family')
         __props__['address_family'] = address_family
 
         __props__['amazon_address'] = amazon_address
 
-        if bgp_asn is None:
+        if not bgp_asn:
             raise TypeError('Missing required property bgp_asn')
         __props__['bgp_asn'] = bgp_asn
 
         __props__['bgp_auth_key'] = bgp_auth_key
 
-        if connection_id is None:
+        if not connection_id:
             raise TypeError('Missing required property connection_id')
         __props__['connection_id'] = connection_id
 
@@ -105,13 +98,13 @@ class PublicVirtualInterface(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        if route_filter_prefixes is None:
+        if not route_filter_prefixes:
             raise TypeError('Missing required property route_filter_prefixes')
         __props__['route_filter_prefixes'] = route_filter_prefixes
 
         __props__['tags'] = tags
 
-        if vlan is None:
+        if not vlan:
             raise TypeError('Missing required property vlan')
         __props__['vlan'] = vlan
 
@@ -119,9 +112,9 @@ class PublicVirtualInterface(pulumi.CustomResource):
 
         super(PublicVirtualInterface, __self__).__init__(
             'aws:directconnect/publicVirtualInterface:PublicVirtualInterface',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

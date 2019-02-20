@@ -30,6 +30,7 @@ import {PolicyDocument} from "./documents";
  *   ]
  * }
  * `,
+ *     name: "test_role",
  *     tags: {
  *         "tag-key": "tag-value",
  *     },
@@ -53,6 +54,7 @@ import {PolicyDocument} from "./documents";
  * }));
  * const instance = new aws.iam.Role("instance", {
  *     assumeRolePolicy: instance_assume_role_policy.apply(instance_assume_role_policy => instance_assume_role_policy.json),
+ *     name: "instance_role",
  *     path: "/system/",
  * });
  * ```

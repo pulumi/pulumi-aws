@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = new aws.ssm.Association("example", {
+ *     name: aws_ssm_document_example.name,
  *     targets: [{
  *         key: "InstanceIds",
  *         values: aws_instance_example.id,

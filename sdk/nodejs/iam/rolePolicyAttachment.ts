@@ -20,6 +20,7 @@ import {Role} from "./role";
  * 
  * const policy = new aws.iam.Policy("policy", {
  *     description: "A test policy",
+ *     name: "test-policy",
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -49,6 +50,7 @@ import {Role} from "./role";
  *       ]
  *     }
  * `,
+ *     name: "test-role",
  * });
  * const test_attach = new aws.iam.RolePolicyAttachment("test-attach", {
  *     policyArn: policy.arn,

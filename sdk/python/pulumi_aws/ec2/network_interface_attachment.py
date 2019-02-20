@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -29,40 +28,34 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
     """
     The status of the Network Interface Attachment.
     """
-    def __init__(__self__, resource_name, opts=None, device_index=None, instance_id=None, network_interface_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, device_index=None, instance_id=None, network_interface_id=None):
         """
         Attach an Elastic network interface (ENI) resource with EC2 instance.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[int] device_index: Network interface index (int).
         :param pulumi.Input[str] instance_id: Instance ID to attach.
         :param pulumi.Input[str] network_interface_id: ENI ID to attach.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if device_index is None:
+        if not device_index:
             raise TypeError('Missing required property device_index')
         __props__['device_index'] = device_index
 
-        if instance_id is None:
+        if not instance_id:
             raise TypeError('Missing required property instance_id')
         __props__['instance_id'] = instance_id
 
-        if network_interface_id is None:
+        if not network_interface_id:
             raise TypeError('Missing required property network_interface_id')
         __props__['network_interface_id'] = network_interface_id
 
@@ -71,9 +64,9 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
 
         super(NetworkInterfaceAttachment, __self__).__init__(
             'aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

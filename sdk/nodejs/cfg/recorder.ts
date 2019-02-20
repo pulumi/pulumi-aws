@@ -30,8 +30,10 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ *     name: "awsconfig-example",
  * });
  * const foo = new aws.cfg.Recorder("foo", {
+ *     name: "example",
  *     roleArn: role.arn,
  * });
  * ```

@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -29,38 +28,32 @@ class DeliveryChannel(pulumi.CustomResource):
     """
     The ARN of the SNS topic that AWS Config delivers notifications to.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, s3_bucket_name=None, s3_key_prefix=None, snapshot_delivery_properties=None, sns_topic_arn=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, name=None, s3_bucket_name=None, s3_key_prefix=None, snapshot_delivery_properties=None, sns_topic_arn=None):
         """
         Provides an AWS Config Delivery Channel.
         
         > **Note:** Delivery Channel requires a [Configuration Recorder](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input[str] s3_bucket_name: The name of the S3 bucket used to store the configuration history.
         :param pulumi.Input[str] s3_key_prefix: The prefix for the specified S3 bucket.
         :param pulumi.Input[dict] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
         :param pulumi.Input[str] sns_topic_arn: The ARN of the SNS topic that AWS Config delivers notifications to.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['name'] = name
 
-        if s3_bucket_name is None:
+        if not s3_bucket_name:
             raise TypeError('Missing required property s3_bucket_name')
         __props__['s3_bucket_name'] = s3_bucket_name
 
@@ -72,9 +65,9 @@ class DeliveryChannel(pulumi.CustomResource):
 
         super(DeliveryChannel, __self__).__init__(
             'aws:cfg/deliveryChannel:DeliveryChannel',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

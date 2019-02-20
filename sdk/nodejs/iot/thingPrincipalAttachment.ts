@@ -20,7 +20,9 @@ import {ARN} from "../index";
  *     active: true,
  *     csr: fs.readFileSync("csr.pem", "utf-8"),
  * });
- * const example = new aws.iot.Thing("example", {});
+ * const example = new aws.iot.Thing("example", {
+ *     name: "example",
+ * });
  * const att = new aws.IotThingAttachment("att", {
  *     principal: cert.arn,
  *     thing: example.name,

@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -65,7 +64,7 @@ class LayerVersion(pulumi.CustomResource):
     """
     This Lamba Layer version.
     """
-    def __init__(__self__, resource_name, opts=None, compatible_runtimes=None, description=None, filename=None, layer_name=None, license_info=None, s3_bucket=None, s3_key=None, s3_object_version=None, source_code_hash=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, compatible_runtimes=None, description=None, filename=None, layer_name=None, license_info=None, s3_bucket=None, s3_key=None, s3_object_version=None, source_code_hash=None):
         """
         Provides a Lambda Layer Version resource. Lambda Layers allow you to reuse shared bits of code across multiple lambda functions.
         
@@ -85,8 +84,8 @@ class LayerVersion(pulumi.CustomResource):
         For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
         large files efficiently.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] compatible_runtimes: A list of [Runtimes][2] this layer is compatible with. Up to 5 runtimes can be specified.
         :param pulumi.Input[str] description: Description of what your Lambda Layer does.
         :param pulumi.Input[str] filename: The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
@@ -97,17 +96,11 @@ class LayerVersion(pulumi.CustomResource):
         :param pulumi.Input[str] s3_object_version: The object version containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${base64sha256(file("file.zip"))}`, where "file.zip" is the local filename of the lambda layer source archive.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -118,7 +111,7 @@ class LayerVersion(pulumi.CustomResource):
 
         __props__['filename'] = filename
 
-        if layer_name is None:
+        if not layer_name:
             raise TypeError('Missing required property layer_name')
         __props__['layer_name'] = layer_name
 
@@ -140,9 +133,9 @@ class LayerVersion(pulumi.CustomResource):
 
         super(LayerVersion, __self__).__init__(
             'aws:lambda/layerVersion:LayerVersion',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

@@ -32,6 +32,7 @@ import {InstanceProfile} from "../iam";
  * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {
  *     imageId: ubuntu.apply(ubuntu => ubuntu.id),
  *     instanceType: "t2.micro",
+ *     name: "web_config",
  * });
  * ```
  * 
@@ -72,6 +73,7 @@ import {InstanceProfile} from "../iam";
  *     launchConfiguration: asConf.name,
  *     maxSize: 2,
  *     minSize: 1,
+ *     name: "terraform-asg-example",
  * });
  * ```
  * 
@@ -113,6 +115,7 @@ import {InstanceProfile} from "../iam";
  * });
  * const bar = new aws.autoscaling.Group("bar", {
  *     launchConfiguration: asConf.name,
+ *     name: "terraform-asg-example",
  * });
  * ```
  * 

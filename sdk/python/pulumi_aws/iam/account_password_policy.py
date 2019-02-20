@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -52,7 +51,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
     """
     Whether to require uppercase characters for user passwords.
     """
-    def __init__(__self__, resource_name, opts=None, allow_users_to_change_password=None, hard_expiry=None, max_password_age=None, minimum_password_length=None, password_reuse_prevention=None, require_lowercase_characters=None, require_numbers=None, require_symbols=None, require_uppercase_characters=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, allow_users_to_change_password=None, hard_expiry=None, max_password_age=None, minimum_password_length=None, password_reuse_prevention=None, require_lowercase_characters=None, require_numbers=None, require_symbols=None, require_uppercase_characters=None):
         """
         > **Note:** There is only a single policy allowed per AWS account. An existing policy will be lost when using this resource as an effect of this limitation.
         
@@ -60,8 +59,8 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         See more about [Account Password Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html)
         in the official AWS docs.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] allow_users_to_change_password: Whether to allow users to change their own password
         :param pulumi.Input[bool] hard_expiry: Whether users are prevented from setting a new password after their password has expired
                (i.e. require administrator reset)
@@ -73,17 +72,11 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] require_symbols: Whether to require symbols for user passwords.
         :param pulumi.Input[bool] require_uppercase_characters: Whether to require uppercase characters for user passwords.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -110,9 +103,9 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
         super(AccountPasswordPolicy, __self__).__init__(
             'aws:iam/accountPasswordPolicy:AccountPasswordPolicy',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

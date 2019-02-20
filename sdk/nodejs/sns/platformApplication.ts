@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const apnsApplication = new aws.sns.PlatformApplication("apns_application", {
+ *     name: "apns_application",
  *     platform: "APNS",
  *     platformCredential: "<APNS PRIVATE KEY>",
  *     platformPrincipal: "<APNS CERTIFICATE>",
@@ -29,6 +30,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const gcmApplication = new aws.sns.PlatformApplication("gcm_application", {
+ *     name: "gcm_application",
  *     platform: "GCM",
  *     platformCredential: "<GCM API KEY>",
  * });

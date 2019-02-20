@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * });
  * const examplePrivateDnsNamespace = new aws.servicediscovery.PrivateDnsNamespace("example", {
  *     description: "example",
+ *     name: "example.terraform.local",
  *     vpc: exampleVpc.id,
  * });
  * const exampleService = new aws.servicediscovery.Service("example", {
@@ -32,6 +33,7 @@ import * as utilities from "../utilities";
  *     healthCheckCustomConfig: {
  *         failureThreshold: 1,
  *     },
+ *     name: "example",
  * });
  * ```
  * 
@@ -41,6 +43,7 @@ import * as utilities from "../utilities";
  * 
  * const examplePublicDnsNamespace = new aws.servicediscovery.PublicDnsNamespace("example", {
  *     description: "example",
+ *     name: "example.terraform.com",
  * });
  * const exampleService = new aws.servicediscovery.Service("example", {
  *     dnsConfig: {
@@ -55,6 +58,7 @@ import * as utilities from "../utilities";
  *         resourcePath: "path",
  *         type: "HTTP",
  *     },
+ *     name: "example",
  * });
  * ```
  */

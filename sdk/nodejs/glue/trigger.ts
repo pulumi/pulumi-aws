@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *     actions: [{
  *         jobName: aws_glue_job_example1.name,
  *     }],
+ *     name: "example",
  *     predicate: {
  *         conditions: [{
  *             jobName: aws_glue_job_example2.name,
@@ -39,6 +40,7 @@ import * as utilities from "../utilities";
  *     actions: [{
  *         jobName: aws_glue_job_example.name,
  *     }],
+ *     name: "example",
  *     type: "ON_DEMAND",
  * });
  * ```
@@ -53,6 +55,7 @@ import * as utilities from "../utilities";
  *     actions: [{
  *         jobName: aws_glue_job_example.name,
  *     }],
+ *     name: "example",
  *     schedule: "cron(15 12 * * ? *)",
  *     type: "SCHEDULED",
  * });

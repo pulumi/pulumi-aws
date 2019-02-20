@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
  *         lbProtocol: "https",
  *         sslCertificateId: "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
  *     }],
+ *     name: "wu-tang",
  *     tags: {
  *         Name: "wu-tang",
  *     },

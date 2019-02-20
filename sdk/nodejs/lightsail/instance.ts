@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
  *     blueprintId: "string",
  *     bundleId: "string",
  *     keyPairName: "some_key_name",
+ *     name: "custom gitlab",
  * });
  * ```
  * 

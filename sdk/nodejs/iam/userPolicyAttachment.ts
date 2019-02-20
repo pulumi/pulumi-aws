@@ -20,9 +20,12 @@ import {User} from "./user";
  * 
  * const policy = new aws.iam.Policy("policy", {
  *     description: "A test policy",
+ *     name: "test-policy",
  *     policy: "", // insert policy here
  * });
- * const user = new aws.iam.User("user", {});
+ * const user = new aws.iam.User("user", {
+ *     name: "test-user",
+ * });
  * const test_attach = new aws.iam.UserPolicyAttachment("test-attach", {
  *     policyArn: policy.arn,
  *     user: user.name,

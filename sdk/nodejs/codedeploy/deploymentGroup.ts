@@ -15,7 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const exampleApplication = new aws.codedeploy.Application("example", {});
+ * const exampleApplication = new aws.codedeploy.Application("example", {
+ *     name: "example-app",
+ * });
  * const exampleRole = new aws.iam.Role("example", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -31,8 +33,11 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ *     name: "example-role",
  * });
- * const exampleTopic = new aws.sns.Topic("example", {});
+ * const exampleTopic = new aws.sns.Topic("example", {
+ *     name: "example-topic",
+ * });
  * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("example", {
  *     alarmConfiguration: {
  *         alarms: ["my-alarm-name"],
@@ -79,6 +84,7 @@ import * as utilities from "../utilities";
  * 
  * const exampleApplication = new aws.codedeploy.Application("example", {
  *     computePlatform: "ECS",
+ *     name: "example",
  * });
  * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("example", {
  *     appName: exampleApplication.name,
@@ -130,7 +136,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const exampleApplication = new aws.codedeploy.Application("example", {});
+ * const exampleApplication = new aws.codedeploy.Application("example", {
+ *     name: "example-app",
+ * });
  * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("example", {
  *     appName: exampleApplication.name,
  *     blueGreenDeploymentConfig: {

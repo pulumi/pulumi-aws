@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const lbUser = new aws.iam.User("lb", {
+ *     name: "loadbalancer",
  *     path: "/system/",
  * });
  * const lbAccessKey = new aws.iam.AccessKey("lb", {
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  *     user: lbUser.name,
  * });
  * const lbRo = new aws.iam.UserPolicy("lb_ro", {
+ *     name: "test",
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [

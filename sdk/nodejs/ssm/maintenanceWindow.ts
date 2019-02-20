@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  * const production = new aws.ssm.MaintenanceWindow("production", {
  *     cutoff: 1,
  *     duration: 3,
+ *     name: "maintenance-window-application",
  *     schedule: "cron(0 16 ? * TUE *)",
  * });
  * ```

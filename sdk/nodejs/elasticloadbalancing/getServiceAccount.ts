@@ -50,6 +50,7 @@ import * as utilities from "../utilities";
  *         lbPort: 80,
  *         lbProtocol: "http",
  *     }],
+ *     name: "my-foobar-terraform-elb",
  * });
  * ```
  */

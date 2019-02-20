@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.ec2.AmiCopy("example", {
  *     description: "A copy of ami-xxxxxxxx",
+ *     name: "terraform-example",
  *     sourceAmiId: "ami-xxxxxxxx",
  *     sourceAmiRegion: "us-west-1",
  *     tags: {

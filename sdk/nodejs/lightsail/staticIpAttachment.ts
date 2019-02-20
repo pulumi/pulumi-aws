@@ -20,8 +20,11 @@ import * as utilities from "../utilities";
  *     blueprintId: "string",
  *     bundleId: "string",
  *     keyPairName: "some_key_name",
+ *     name: "example",
  * });
- * const testStaticIp = new aws.lightsail.StaticIp("test", {});
+ * const testStaticIp = new aws.lightsail.StaticIp("test", {
+ *     name: "example",
+ * });
  * const testStaticIpAttachment = new aws.lightsail.StaticIpAttachment("test", {
  *     instanceName: testInstance.name,
  *     staticIpName: testStaticIp.name,

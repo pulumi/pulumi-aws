@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -95,7 +94,7 @@ class LoadBalancer(pulumi.CustomResource):
     """
     The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
     """
-    def __init__(__self__, resource_name, opts=None, access_logs=None, availability_zones=None, connection_draining=None, connection_draining_timeout=None, cross_zone_load_balancing=None, health_check=None, idle_timeout=None, instances=None, internal=None, listeners=None, name=None, name_prefix=None, security_groups=None, source_security_group=None, subnets=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, access_logs=None, availability_zones=None, connection_draining=None, connection_draining_timeout=None, cross_zone_load_balancing=None, health_check=None, idle_timeout=None, instances=None, internal=None, listeners=None, name=None, name_prefix=None, security_groups=None, source_security_group=None, subnets=None, tags=None):
         """
         Provides an Elastic Load Balancer resource, also known as a "Classic
         Load Balancer" after the release of
@@ -116,8 +115,8 @@ class LoadBalancer(pulumi.CustomResource):
         curve could produce the error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your
         browser.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] access_logs: An Access Logs block. Access Logs documented below.
         :param pulumi.Input[list] availability_zones: The AZ's to serve traffic in.
         :param pulumi.Input[bool] connection_draining: Boolean to enable connection draining. Default: `false`
@@ -139,17 +138,11 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[list] subnets: A list of subnet IDs to attach to the ELB.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -172,7 +165,7 @@ class LoadBalancer(pulumi.CustomResource):
 
         __props__['internal'] = internal
 
-        if listeners is None:
+        if not listeners:
             raise TypeError('Missing required property listeners')
         __props__['listeners'] = listeners
 
@@ -195,9 +188,9 @@ class LoadBalancer(pulumi.CustomResource):
 
         super(LoadBalancer, __self__).__init__(
             'aws:elasticloadbalancing/loadBalancer:LoadBalancer',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

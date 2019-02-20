@@ -28,6 +28,7 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ *     name: "dlm-lifecycle-role",
  * });
  * const example = new aws.dlm.LifecyclePolicy("example", {
  *     description: "example DLM lifecycle policy",
@@ -56,6 +57,7 @@ import * as utilities from "../utilities";
  *     state: "ENABLED",
  * });
  * const dlmLifecycle = new aws.iam.RolePolicy("dlm_lifecycle", {
+ *     name: "dlm-lifecycle-policy",
  *     policy: `{
  *    "Version": "2012-10-17",
  *    "Statement": [

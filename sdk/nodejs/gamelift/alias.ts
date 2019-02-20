@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.gamelift.Alias("example", {
  *     description: "Example Description",
+ *     name: "example-alias",
  *     routingStrategy: {
  *         message: "Example Message",
  *         type: "TERMINAL",

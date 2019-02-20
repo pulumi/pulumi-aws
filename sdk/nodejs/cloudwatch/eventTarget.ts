@@ -27,8 +27,10 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ *     name: "capture-ec2-scaling-events",
  * });
  * const testStream = new aws.kinesis.Stream("test_stream", {
+ *     name: "terraform-kinesis-test",
  *     shardCount: 1,
  * });
  * const yada = new aws.cloudwatch.EventTarget("yada", {
@@ -56,6 +58,7 @@ import * as utilities from "../utilities";
  * 
  * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stop_instances", {
  *     description: "Stop instances nightly",
+ *     name: "StopInstance",
  *     scheduleExpression: "cron(0 0 * * ? *)",
  * });
  * const stopInstance = new aws.ssm.Document("stop_instance", {
@@ -78,6 +81,7 @@ import * as utilities from "../utilities";
  *   }
  * `,
  *     documentType: "Command",
+ *     name: "stop_instance",
  * });
  * const ssmLifecycleTrust = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [{
@@ -90,6 +94,7 @@ import * as utilities from "../utilities";
  * }));
  * const ssmLifecycleRole = new aws.iam.Role("ssm_lifecycle", {
  *     assumeRolePolicy: ssmLifecycleTrust.apply(ssmLifecycleTrust => ssmLifecycleTrust.json),
+ *     name: "SSMLifecycle",
  * });
  * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stop_instances", {
  *     arn: stopInstance.arn,
@@ -121,6 +126,7 @@ import * as utilities from "../utilities";
  *     ],
  * }));
  * const ssmLifecyclePolicy = new aws.iam.Policy("ssm_lifecycle", {
+ *     name: "SSMLifecycle",
  *     policy: ssmLifecyclePolicyDocument.apply(ssmLifecyclePolicyDocument => ssmLifecyclePolicyDocument.json),
  * });
  * ```
@@ -133,6 +139,7 @@ import * as utilities from "../utilities";
  * 
  * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stop_instances", {
  *     description: "Stop instances nightly",
+ *     name: "StopInstance",
  *     scheduleExpression: "cron(0 0 * * ? *)",
  * });
  * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stop_instances", {
@@ -169,6 +176,7 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ *     name: "ecs_events",
  * });
  * const ecsScheduledTask = new aws.cloudwatch.EventTarget("ecs_scheduled_task", {
  *     arn: aws_ecs_cluster_cluster_name.arn,
@@ -190,6 +198,7 @@ import * as utilities from "../utilities";
  *     targetId: "run-scheduled-task-every-hour",
  * });
  * const ecsEventsRunTaskWithAnyRole = new aws.iam.RolePolicy("ecs_events_run_task_with_any_role", {
+ *     name: "ecs_events_run_task_with_any_role",
  *     policy: aws_ecs_task_definition_task_name.arn.apply(arn => `{
  *     "Version": "2012-10-17",
  *     "Statement": [

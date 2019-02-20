@@ -32,6 +32,7 @@ import * as utilities from "../utilities";
  *     detectorId: master.id,
  *     format: "TXT",
  *     location: pulumi.all([myIPSetBucketObject.bucket, myIPSetBucketObject.key]).apply(([bucket, key]) => `https://s3.amazonaws.com/${bucket}/${key}`),
+ *     name: "MyIPSet",
  * });
  * ```
  */

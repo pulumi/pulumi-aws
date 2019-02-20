@@ -39,6 +39,7 @@ import {Topic} from "../sns/topic";
  *     adjustmentType: "ChangeInCapacity",
  *     autoscalingGroupName: aws_autoscaling_group_bar.name,
  *     cooldown: 300,
+ *     name: "foobar3-terraform-test",
  *     scalingAdjustment: 4,
  * });
  * const batMetricAlarm = new aws.cloudwatch.MetricAlarm("bat", {

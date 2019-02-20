@@ -18,9 +18,11 @@ import * as utilities from "../utilities";
  * });
  * const hogeDatabase = new aws.athena.Database("hoge", {
  *     bucket: hogeBucket.bucket,
+ *     name: "users",
  * });
  * const foo = new aws.athena.NamedQuery("foo", {
  *     database: hogeDatabase.name,
+ *     name: "bar",
  *     query: hogeDatabase.name.apply(name => `SELECT * FROM ${name} limit 10;`),
  * });
  * ```

@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -121,7 +120,7 @@ class Cluster(pulumi.CustomResource):
     """
     List of VPC security groups to associate with the Cluster
     """
-    def __init__(__self__, resource_name, opts=None, apply_immediately=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_arn=None, neptune_cluster_parameter_group_name=None, neptune_subnet_group_name=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, replication_source_identifier=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, apply_immediately=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_arn=None, neptune_cluster_parameter_group_name=None, neptune_subnet_group_name=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, replication_source_identifier=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
         """
         Provides an Neptune Cluster Resource. A Cluster Resource defines attributes that are
         applied to the entire cluster of Neptune Cluster Instances.
@@ -133,8 +132,8 @@ class Cluster(pulumi.CustomResource):
         `apply_immediately` flag to instruct the service to apply the change immediately
         (see documentation below).
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[list] availability_zones: A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
         :param pulumi.Input[int] backup_retention_period: The days to retain backups for. Default `1`
@@ -158,17 +157,11 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Neptune cluster.
         :param pulumi.Input[list] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -226,9 +219,9 @@ class Cluster(pulumi.CustomResource):
 
         super(Cluster, __self__).__init__(
             'aws:neptune/cluster:Cluster',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

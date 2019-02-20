@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  *     limits: {
  *         maximumDuration: 600,
  *     },
+ *     name: "test-app",
  *     quietTime: {
  *         end: "06:00",
  *         start: "00:00",

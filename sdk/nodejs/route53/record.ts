@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const www = new aws.route53.Record("www", {
+ *     name: "www.example.com",
  *     records: [aws_eip_lb.publicIp],
  *     ttl: 300,
  *     type: "A",
@@ -31,6 +32,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const www_dev = new aws.route53.Record("www-dev", {
+ *     name: "www",
  *     records: ["dev.example.com"],
  *     setIdentifier: "dev",
  *     ttl: 5,
@@ -41,6 +43,7 @@ import * as utilities from "../utilities";
  *     zoneId: aws_route53_zone_primary.zoneId,
  * });
  * const www_live = new aws.route53.Record("www-live", {
+ *     name: "www",
  *     records: ["live.example.com"],
  *     setIdentifier: "live",
  *     ttl: 5,
@@ -71,6 +74,7 @@ import * as utilities from "../utilities";
  *         lbPort: 80,
  *         lbProtocol: "http",
  *     }],
+ *     name: "foobar-terraform-elb",
  * });
  * const www = new aws.route53.Record("www", {
  *     aliases: [{
@@ -78,6 +82,7 @@ import * as utilities from "../utilities";
  *         name: main.dnsName,
  *         zoneId: main.zoneId,
  *     }],
+ *     name: "example.com",
  *     type: "A",
  *     zoneId: aws_route53_zone_primary.zoneId,
  * });

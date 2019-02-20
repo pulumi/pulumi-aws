@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  *     delaySeconds: 90,
  *     maxMessageSize: 2048,
  *     messageRetentionSeconds: 86400,
+ *     name: "terraform-example-queue",
  *     receiveWaitTimeSeconds: 10,
  *     redrivePolicy: aws_sqs_queue_terraform_queue_deadletter.arn.apply(arn => `{"deadLetterTargetArn":"${arn}","maxReceiveCount":4}`),
  *     tags: {
@@ -32,6 +33,7 @@ import * as utilities from "../utilities";
  * const terraformQueue = new aws.sqs.Queue("terraform_queue", {
  *     contentBasedDeduplication: true,
  *     fifoQueue: true,
+ *     name: "terraform-example-queue.fifo",
  * });
  * ```
  * 
@@ -44,6 +46,7 @@ import * as utilities from "../utilities";
  * const terraformQueue = new aws.sqs.Queue("terraform_queue", {
  *     kmsDataKeyReusePeriodSeconds: 300,
  *     kmsMasterKeyId: "alias/aws/sqs",
+ *     name: "terraform-example-queue",
  * });
  * ```
  */

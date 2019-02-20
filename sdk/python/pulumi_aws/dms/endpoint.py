@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -77,15 +76,15 @@ class Endpoint(pulumi.CustomResource):
     """
     The user name to be used to login to the endpoint database.
     """
-    def __init__(__self__, resource_name, opts=None, certificate_arn=None, database_name=None, endpoint_id=None, endpoint_type=None, engine_name=None, extra_connection_attributes=None, kms_key_arn=None, mongodb_settings=None, password=None, port=None, s3_settings=None, server_name=None, service_access_role=None, ssl_mode=None, tags=None, username=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, certificate_arn=None, database_name=None, endpoint_id=None, endpoint_type=None, engine_name=None, extra_connection_attributes=None, kms_key_arn=None, mongodb_settings=None, password=None, port=None, s3_settings=None, server_name=None, service_access_role=None, ssl_mode=None, tags=None, username=None):
         """
         Provides a DMS (Data Migration Service) endpoint resource. DMS endpoints can be created, updated, deleted, and imported.
         
         > **Note:** All arguments including the password will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the certificate.
         :param pulumi.Input[str] database_name: The name of the endpoint database.
         :param pulumi.Input[str] endpoint_id: The database endpoint identifier.
@@ -103,17 +102,11 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] username: The user name to be used to login to the endpoint database.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -122,15 +115,15 @@ class Endpoint(pulumi.CustomResource):
 
         __props__['database_name'] = database_name
 
-        if endpoint_id is None:
+        if not endpoint_id:
             raise TypeError('Missing required property endpoint_id')
         __props__['endpoint_id'] = endpoint_id
 
-        if endpoint_type is None:
+        if not endpoint_type:
             raise TypeError('Missing required property endpoint_type')
         __props__['endpoint_type'] = endpoint_type
 
-        if engine_name is None:
+        if not engine_name:
             raise TypeError('Missing required property engine_name')
         __props__['engine_name'] = engine_name
 
@@ -160,9 +153,9 @@ class Endpoint(pulumi.CustomResource):
 
         super(Endpoint, __self__).__init__(
             'aws:dms/endpoint:Endpoint',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "dynamodb",
  * });
  * const dynamodbTableReadPolicy = new aws.appautoscaling.Policy("dynamodb_table_read_policy", {
+ *     name: dynamodbTableReadTarget.resourceId.apply(resourceId => `DynamoDBReadCapacityUtilization:${resourceId}`),
  *     policyType: "TargetTrackingScaling",
  *     resourceId: dynamodbTableReadTarget.resourceId,
  *     scalableDimension: dynamodbTableReadTarget.scalableDimension,
@@ -52,6 +53,7 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "ecs",
  * });
  * const ecsPolicy = new aws.appautoscaling.Policy("ecs_policy", {
+ *     name: "scale-down",
  *     policyType: "StepScaling",
  *     resourceId: "service/clusterName/serviceName",
  *     scalableDimension: "ecs:service:DesiredCount",
@@ -77,6 +79,7 @@ import * as utilities from "../utilities";
  * const ecsService = new aws.ecs.Service("ecs_service", {
  *     cluster: "clusterName",
  *     desiredCount: 2,
+ *     name: "serviceName",
  *     taskDefinition: "taskDefinitionFamily:1",
  * });
  * ```
@@ -95,6 +98,7 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "rds",
  * });
  * const replicasPolicy = new aws.appautoscaling.Policy("replicas", {
+ *     name: "cpu-auto-scaling",
  *     policyType: "TargetTrackingScaling",
  *     resourceId: replicasTarget.resourceId,
  *     scalableDimension: replicasTarget.scalableDimension,

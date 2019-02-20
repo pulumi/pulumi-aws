@@ -30,6 +30,7 @@ import * as utilities from "../utilities";
  *         },
  *     },
  *     includedObjectVersions: "All",
+ *     name: "EntireBucketDaily",
  *     schedule: {
  *         frequency: "Daily",
  *     },
@@ -61,6 +62,7 @@ import * as utilities from "../utilities";
  *         prefix: "documents/",
  *     },
  *     includedObjectVersions: "All",
+ *     name: "DocumentsWeekly",
  *     schedule: {
  *         frequency: "Daily",
  *     },

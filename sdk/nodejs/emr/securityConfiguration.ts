@@ -30,6 +30,7 @@ import * as utilities from "../utilities";
  *   }
  * }
  * `,
+ *     name: "emrsc_other",
  * });
  * ```
  */

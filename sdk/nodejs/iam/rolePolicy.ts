@@ -31,8 +31,10 @@ import {Role} from "./role";
  *   ]
  * }
  * `,
+ *     name: "test_role",
  * });
  * const testPolicy = new aws.iam.RolePolicy("test_policy", {
+ *     name: "test_policy",
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [

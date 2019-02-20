@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -25,32 +24,26 @@ class ApiKey(pulumi.CustomResource):
     """
     The API key
     """
-    def __init__(__self__, resource_name, opts=None, api_id=None, description=None, expires=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, api_id=None, description=None, expires=None):
         """
         Provides an AppSync API Key.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] api_id: The ID of the associated AppSync API
         :param pulumi.Input[str] description: The API key description. Defaults to "Managed by Terraform".
         :param pulumi.Input[str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if api_id is None:
+        if not api_id:
             raise TypeError('Missing required property api_id')
         __props__['api_id'] = api_id
 
@@ -62,9 +55,9 @@ class ApiKey(pulumi.CustomResource):
 
         super(ApiKey, __self__).__init__(
             'aws:appsync/apiKey:ApiKey',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

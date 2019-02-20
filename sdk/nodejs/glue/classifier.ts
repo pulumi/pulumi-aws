@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
  *         classification: "example",
  *         grokPattern: "example",
  *     },
+ *     name: "example",
  * });
  * ```
  * 
@@ -35,6 +36,7 @@ import * as utilities from "../utilities";
  *     jsonClassifier: {
  *         jsonPath: "example",
  *     },
+ *     name: "example",
  * });
  * ```
  * 
@@ -45,6 +47,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = new aws.glue.Classifier("example", {
+ *     name: "example",
  *     xmlClassifier: {
  *         classification: "example",
  *         rowTag: "example",

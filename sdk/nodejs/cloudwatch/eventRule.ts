@@ -21,8 +21,11 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ *     name: "capture-aws-sign-in",
  * });
- * const awsLogins = new aws.sns.Topic("aws_logins", {});
+ * const awsLogins = new aws.sns.Topic("aws_logins", {
+ *     name: "aws-console-logins",
+ * });
  * const sns = new aws.cloudwatch.EventTarget("sns", {
  *     arn: awsLogins.arn,
  *     rule: console.name,

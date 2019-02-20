@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -53,7 +52,7 @@ class NetworkAclRule(pulumi.CustomResource):
     """
     The to port to match.
     """
-    def __init__(__self__, resource_name, opts=None, cidr_block=None, egress=None, from_port=None, icmp_code=None, icmp_type=None, ipv6_cidr_block=None, network_acl_id=None, protocol=None, rule_action=None, rule_number=None, to_port=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, cidr_block=None, egress=None, from_port=None, icmp_code=None, icmp_type=None, ipv6_cidr_block=None, network_acl_id=None, protocol=None, rule_action=None, rule_number=None, to_port=None):
         """
         Creates an entry (a rule) in a network ACL with the specified rule number.
         
@@ -63,8 +62,8 @@ class NetworkAclRule(pulumi.CustomResource):
         in conjunction with any Network ACL Rule resources. Doing so will cause
         a conflict of rule settings and will overwrite rules.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] cidr_block: The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
         :param pulumi.Input[bool] egress: Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
         :param pulumi.Input[int] from_port: The from port to match.
@@ -77,17 +76,11 @@ class NetworkAclRule(pulumi.CustomResource):
         :param pulumi.Input[int] rule_number: The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
         :param pulumi.Input[int] to_port: The to port to match.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -104,19 +97,19 @@ class NetworkAclRule(pulumi.CustomResource):
 
         __props__['ipv6_cidr_block'] = ipv6_cidr_block
 
-        if network_acl_id is None:
+        if not network_acl_id:
             raise TypeError('Missing required property network_acl_id')
         __props__['network_acl_id'] = network_acl_id
 
-        if protocol is None:
+        if not protocol:
             raise TypeError('Missing required property protocol')
         __props__['protocol'] = protocol
 
-        if rule_action is None:
+        if not rule_action:
             raise TypeError('Missing required property rule_action')
         __props__['rule_action'] = rule_action
 
-        if rule_number is None:
+        if not rule_number:
             raise TypeError('Missing required property rule_number')
         __props__['rule_number'] = rule_number
 
@@ -124,9 +117,9 @@ class NetworkAclRule(pulumi.CustomResource):
 
         super(NetworkAclRule, __self__).__init__(
             'aws:ec2/networkAclRule:NetworkAclRule',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

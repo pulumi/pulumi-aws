@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  *     },
  *     enabled: true,
  *     ipAddressType: "IPV4",
+ *     name: "Example",
  * });
  * ```
  */

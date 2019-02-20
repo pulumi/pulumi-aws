@@ -29,6 +29,7 @@ import * as utilities from "../utilities";
  *         snapshotId: "snap-xxxxxxxx",
  *         volumeSize: 8,
  *     }],
+ *     name: "terraform-example",
  *     rootDeviceName: "/dev/xvda",
  *     virtualizationType: "hvm",
  * });

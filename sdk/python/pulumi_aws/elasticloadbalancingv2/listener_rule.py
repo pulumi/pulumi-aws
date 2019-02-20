@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -29,43 +28,37 @@ class ListenerRule(pulumi.CustomResource):
     """
     The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
     """
-    def __init__(__self__, resource_name, opts=None, actions=None, conditions=None, listener_arn=None, priority=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, actions=None, conditions=None, listener_arn=None, priority=None):
         """
         Provides a Load Balancer Listener Rule resource.
         
         > **Note:** `aws_alb_listener_rule` is known as `aws_lb_listener_rule`. The functionality is identical.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] actions: An Action block. Action blocks are documented below.
         :param pulumi.Input[list] conditions: A Condition block. Condition blocks are documented below.
         :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the rule.
         :param pulumi.Input[int] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if actions is None:
+        if not actions:
             raise TypeError('Missing required property actions')
         __props__['actions'] = actions
 
-        if conditions is None:
+        if not conditions:
             raise TypeError('Missing required property conditions')
         __props__['conditions'] = conditions
 
-        if listener_arn is None:
+        if not listener_arn:
             raise TypeError('Missing required property listener_arn')
         __props__['listener_arn'] = listener_arn
 
@@ -75,9 +68,9 @@ class ListenerRule(pulumi.CustomResource):
 
         super(ListenerRule, __self__).__init__(
             'aws:elasticloadbalancingv2/listenerRule:ListenerRule',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

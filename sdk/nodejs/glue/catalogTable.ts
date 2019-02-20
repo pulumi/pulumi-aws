@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws_glue_catalog_table", {
  *     databaseName: "MyCatalogDatabase",
+ *     name: "MyCatalogTable",
  * });
  * ```
  */

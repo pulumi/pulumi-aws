@@ -30,18 +30,22 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ *     name: "awsconfig-example",
  * });
  * const bucket = new aws.s3.Bucket("b", {
  *     bucket: "example-awsconfig",
  *     forceDestroy: true,
  * });
  * const fooRecorder = new aws.cfg.Recorder("foo", {
+ *     name: "example",
  *     roleArn: role.arn,
  * });
  * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("foo", {
+ *     name: "example",
  *     s3BucketName: bucket.bucket,
  * }, {dependsOn: [fooRecorder]});
  * const rolePolicy = new aws.iam.RolePolicy("p", {
+ *     name: "awsconfig-example",
  *     policy: pulumi.all([bucket.arn, bucket.arn]).apply(([bucketArn, bucketArn1]) => `{
  *   "Version": "2012-10-17",
  *   "Statement": [

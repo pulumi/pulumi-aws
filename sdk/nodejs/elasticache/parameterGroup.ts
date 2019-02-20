@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * 
  * const defaultParameterGroup = new aws.elasticache.ParameterGroup("default", {
  *     family: "redis2.8",
+ *     name: "cache-params",
  *     parameters: [
  *         {
  *             name: "activerehashing",

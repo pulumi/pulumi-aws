@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -74,12 +73,12 @@ class TaskDefinition(pulumi.CustomResource):
     """
     A set of volume blocks that containers in your task may use.
     """
-    def __init__(__self__, resource_name, opts=None, container_definitions=None, cpu=None, execution_role_arn=None, family=None, ipc_mode=None, memory=None, network_mode=None, pid_mode=None, placement_constraints=None, requires_compatibilities=None, tags=None, task_role_arn=None, volumes=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, container_definitions=None, cpu=None, execution_role_arn=None, family=None, ipc_mode=None, memory=None, network_mode=None, pid_mode=None, placement_constraints=None, requires_compatibilities=None, tags=None, task_role_arn=None, volumes=None):
         """
         Manages a revision of an ECS task definition to be used in `aws_ecs_service`.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] container_definitions: A list of valid [container definitions]
                (http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a
                single valid JSON document. Please note that you should only provide values that are part of the container
@@ -99,22 +98,16 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] task_role_arn: The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         :param pulumi.Input[list] volumes: A set of volume blocks that containers in your task may use.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if container_definitions is None:
+        if not container_definitions:
             raise TypeError('Missing required property container_definitions')
         __props__['container_definitions'] = container_definitions
 
@@ -122,7 +115,7 @@ class TaskDefinition(pulumi.CustomResource):
 
         __props__['execution_role_arn'] = execution_role_arn
 
-        if family is None:
+        if not family:
             raise TypeError('Missing required property family')
         __props__['family'] = family
 
@@ -149,9 +142,9 @@ class TaskDefinition(pulumi.CustomResource):
 
         super(TaskDefinition, __self__).__init__(
             'aws:ecs/taskDefinition:TaskDefinition',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

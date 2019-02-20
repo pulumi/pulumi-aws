@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
  *             s3EncryptionMode: "SSE-KMS",
  *         },
  *     },
+ *     name: "example",
  * });
  * ```
  */

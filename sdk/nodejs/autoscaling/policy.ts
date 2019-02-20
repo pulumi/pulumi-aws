@@ -27,11 +27,13 @@ import * as utilities from "../utilities";
  *     launchConfiguration: aws_launch_configuration_foo.name,
  *     maxSize: 5,
  *     minSize: 2,
+ *     name: "foobar3-terraform-test",
  * });
  * const bat = new aws.autoscaling.Policy("bat", {
  *     adjustmentType: "ChangeInCapacity",
  *     autoscalingGroupName: bar.name,
  *     cooldown: 300,
+ *     name: "foobar3-terraform-test",
  *     scalingAdjustment: 4,
  * });
  * ```

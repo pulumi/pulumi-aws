@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *         storageClass: "Standard",
  *     },
  *     inputBucket: aws_s3_bucket_input_bucket.bucket,
+ *     name: "aws_elastictranscoder_pipeline_tf_test_",
  *     role: aws_iam_role_test_role.arn,
  *     thumbnailConfig: {
  *         bucket: aws_s3_bucket_thumb_bucket.bucket,

@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const exampleGraphQLApi = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "API_KEY",
+ *     name: "tf_appsync_example",
  * });
  * const exampleTable = new aws.dynamodb.Table("example", {
  *     attributes: [{
@@ -22,6 +23,7 @@ import * as utilities from "../utilities";
  *         type: "S",
  *     }],
  *     hashKey: "UserId",
+ *     name: "example",
  *     readCapacity: 1,
  *     writeCapacity: 1,
  * });
@@ -39,16 +41,19 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ *     name: "example",
  * });
  * const exampleDataSource = new aws.appsync.DataSource("example", {
  *     apiId: exampleGraphQLApi.id,
  *     dynamodbConfig: {
  *         tableName: exampleTable.name,
  *     },
+ *     name: "tf_appsync_example",
  *     serviceRoleArn: exampleRole.arn,
  *     type: "AMAZON_DYNAMODB",
  * });
  * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
+ *     name: "example",
  *     policy: exampleTable.arn.apply(arn => `{
  *   "Version": "2012-10-17",
  *   "Statement": [

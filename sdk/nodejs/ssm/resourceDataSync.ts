@@ -50,6 +50,7 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const foo = new aws.ssm.ResourceDataSync("foo", {
+ *     name: "foo",
  *     s3Destination: {
  *         bucketName: hogeBucket.bucket,
  *         region: hogeBucket.region,

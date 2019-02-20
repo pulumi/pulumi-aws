@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *     bucket: "your_bucket_name",
  * });
  * const topic = new aws.sns.Topic("topic", {
+ *     name: "s3-event-notification-topic",
  *     policy: bucket.arn.apply(arn => `{
  *     "Version":"2012-10-17",
  *     "Statement":[{
@@ -53,6 +54,7 @@ import * as utilities from "../utilities";
  *     bucket: "your_bucket_name",
  * });
  * const queue = new aws.sqs.Queue("queue", {
+ *     name: "s3-event-notification-queue",
  *     policy: bucket.arn.apply(arn => `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -99,6 +101,7 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ *     name: "iam_for_lambda",
  * });
  * const bucket = new aws.s3.Bucket("bucket", {
  *     bucket: "your_bucket_name",
@@ -148,6 +151,7 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ *     name: "iam_for_lambda",
  * });
  * const bucket = new aws.s3.Bucket("bucket", {
  *     bucket: "your_bucket_name",
@@ -208,6 +212,7 @@ import * as utilities from "../utilities";
  *     bucket: "your_bucket_name",
  * });
  * const queue = new aws.sqs.Queue("queue", {
+ *     name: "s3-event-notification-queue",
  *     policy: bucket.arn.apply(arn => `{
  *   "Version": "2012-10-17",
  *   "Statement": [

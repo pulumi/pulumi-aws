@@ -26,8 +26,10 @@ import * as utilities from "../utilities";
  * 	]
  * }
  * `,
+ *     name: "tf-test-transfer-server-iam-role",
  * });
  * const fooRolePolicy = new aws.iam.RolePolicy("foo", {
+ *     name: "tf-test-transfer-server-iam-policy-%s",
  *     policy: `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [

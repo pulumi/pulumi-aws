@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const defaultSubnetGroup = new aws.neptune.SubnetGroup("default", {
+ *     name: "main",
  *     subnetIds: [
  *         aws_subnet_frontend.id,
  *         aws_subnet_backend.id,

@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const myTemplate = new aws.ses.Template("MyTemplate", {
  *     html: "<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
+ *     name: "MyTemplate",
  *     subject: "Greetings, {{name}}!",
  *     text: `Hello {{name}},
  * Your favorite animal is {{favoriteanimal}}.`,

@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  * const example = new aws.gamelift.Fleet("example", {
  *     buildId: aws_gamelift_build_example.id,
  *     ec2InstanceType: "t2.micro",
+ *     name: "example-fleet-name",
  *     runtimeConfiguration: {
  *         serverProcesses: [{
  *             concurrentExecutions: 1,

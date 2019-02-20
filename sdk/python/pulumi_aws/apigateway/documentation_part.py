@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -21,48 +20,42 @@ class DocumentationPart(pulumi.CustomResource):
     """
     The ID of the associated Rest API
     """
-    def __init__(__self__, resource_name, opts=None, location=None, properties=None, rest_api_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, location=None, properties=None, rest_api_id=None):
         """
         Provides a settings of an API Gateway Documentation Part.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] location: The location of the targeted API entity of the to-be-created documentation part. See below.
         :param pulumi.Input[str] properties: A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
         :param pulumi.Input[str] rest_api_id: The ID of the associated Rest API
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if location is None:
+        if not location:
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
-        if properties is None:
+        if not properties:
             raise TypeError('Missing required property properties')
         __props__['properties'] = properties
 
-        if rest_api_id is None:
+        if not rest_api_id:
             raise TypeError('Missing required property rest_api_id')
         __props__['rest_api_id'] = rest_api_id
 
         super(DocumentationPart, __self__).__init__(
             'aws:apigateway/documentationPart:DocumentationPart',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

@@ -35,6 +35,7 @@ import * as utilities from "../utilities";
  * 
  * const bar = new aws.ecs.Service("bar", {
  *     cluster: aws_ecs_cluster_foo.id,
+ *     name: "bar",
  *     schedulingStrategy: "DAEMON",
  *     taskDefinition: aws_ecs_task_definition_bar.arn,
  * });

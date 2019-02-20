@@ -27,6 +27,7 @@ import * as utilities from "../utilities";
  *         "bounce",
  *         "send",
  *     ],
+ *     name: "event-destination-cloudwatch",
  * });
  * ```
  * 
@@ -47,6 +48,7 @@ import * as utilities from "../utilities";
  *         "bounce",
  *         "send",
  *     ],
+ *     name: "event-destination-kinesis",
  * });
  * ```
  * 
@@ -63,6 +65,7 @@ import * as utilities from "../utilities";
  *         "bounce",
  *         "send",
  *     ],
+ *     name: "event-destination-sns",
  *     snsDestination: {
  *         topicArn: aws_sns_topic_example.arn,
  *     },

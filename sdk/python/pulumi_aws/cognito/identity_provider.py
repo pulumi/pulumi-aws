@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -33,12 +32,12 @@ class IdentityProvider(pulumi.CustomResource):
     """
     The user pool id
     """
-    def __init__(__self__, resource_name, opts=None, attribute_mapping=None, idp_identifiers=None, provider_details=None, provider_name=None, provider_type=None, user_pool_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, attribute_mapping=None, idp_identifiers=None, provider_details=None, provider_name=None, provider_type=None, user_pool_id=None):
         """
         Provides a Cognito User Identity Provider resource.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] attribute_mapping: The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
         :param pulumi.Input[list] idp_identifiers: The list of identity providers.
         :param pulumi.Input[dict] provider_details: The map of identity details, such as access token
@@ -46,17 +45,11 @@ class IdentityProvider(pulumi.CustomResource):
         :param pulumi.Input[str] provider_type: The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
         :param pulumi.Input[str] user_pool_id: The user pool id
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -65,27 +58,27 @@ class IdentityProvider(pulumi.CustomResource):
 
         __props__['idp_identifiers'] = idp_identifiers
 
-        if provider_details is None:
+        if not provider_details:
             raise TypeError('Missing required property provider_details')
         __props__['provider_details'] = provider_details
 
-        if provider_name is None:
+        if not provider_name:
             raise TypeError('Missing required property provider_name')
         __props__['provider_name'] = provider_name
 
-        if provider_type is None:
+        if not provider_type:
             raise TypeError('Missing required property provider_type')
         __props__['provider_type'] = provider_type
 
-        if user_pool_id is None:
+        if not user_pool_id:
             raise TypeError('Missing required property user_pool_id')
         __props__['user_pool_id'] = user_pool_id
 
         super(IdentityProvider, __self__).__init__(
             'aws:cognito/identityProvider:IdentityProvider',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

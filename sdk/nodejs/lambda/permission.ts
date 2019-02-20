@@ -31,6 +31,7 @@ import {Function} from "./function";
  *   ]
  * }
  * `,
+ *     name: "iam_for_lambda",
  * });
  * const testLambda = new aws.lambda.Function("test_lambda", {
  *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
@@ -43,6 +44,7 @@ import {Function} from "./function";
  *     description: "a sample description",
  *     functionName: testLambda.functionName,
  *     functionVersion: "$LATEST",
+ *     name: "testalias",
  * });
  * const allowCloudwatch = new aws.lambda.Permission("allow_cloudwatch", {
  *     action: "lambda:InvokeFunction",
@@ -75,8 +77,11 @@ import {Function} from "./function";
  *   ]
  * }
  * `,
+ *     name: "iam_for_lambda_with_sns",
  * });
- * const defaultTopic = new aws.sns.Topic("default", {});
+ * const defaultTopic = new aws.sns.Topic("default", {
+ *     name: "call-lambda-maybe",
+ * });
  * const func = new aws.lambda.Function("func", {
  *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
  *     name: "lambda_called_from_sns",
@@ -106,6 +111,7 @@ import {Function} from "./function";
  * 
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
+ *     name: "MyDemoAPI",
  * });
  * const lambdaPermission = new aws.lambda.Permission("lambda_permission", {
  *     action: "lambda:InvokeFunction",

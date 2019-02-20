@@ -14,7 +14,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const queue = new aws.sqs.Queue("q", {});
+ * const queue = new aws.sqs.Queue("q", {
+ *     name: "examplequeue",
+ * });
  * const test = new aws.sqs.QueuePolicy("test", {
  *     policy: pulumi.all([queue.arn, queue.arn]).apply(([queueArn, queueArn1]) => `{
  *   "Version": "2012-10-17",

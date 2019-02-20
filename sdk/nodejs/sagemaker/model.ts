@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * 
  * const model = new aws.sagemaker.Model("m", {
  *     executionRoleArn: aws_iam_role_foo.arn,
+ *     name: "my-model",
  *     primaryContainer: {
  *         image: "174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1",
  *     },

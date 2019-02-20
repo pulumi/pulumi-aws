@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  * 
  * const defaultParameterGroup = new aws.rds.ParameterGroup("default", {
  *     family: "mysql5.6",
+ *     name: "rds-pg",
  *     parameters: [
  *         {
  *             name: "character_set_server",

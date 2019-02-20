@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -37,7 +36,7 @@ class Repository(pulumi.CustomResource):
     """
     The name for the repository. This needs to be less than 100 characters.
     """
-    def __init__(__self__, resource_name, opts=None, default_branch=None, description=None, repository_name=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, default_branch=None, description=None, repository_name=None):
         """
         Provides a CodeCommit Repository Resource.
         
@@ -45,23 +44,17 @@ class Repository(pulumi.CustomResource):
         in all regions - available regions are listed
         [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region).
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] default_branch: The default branch of the repository. The branch specified here needs to exist.
         :param pulumi.Input[str] description: The description of the repository. This needs to be less than 1000 characters
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -70,7 +63,7 @@ class Repository(pulumi.CustomResource):
 
         __props__['description'] = description
 
-        if repository_name is None:
+        if not repository_name:
             raise TypeError('Missing required property repository_name')
         __props__['repository_name'] = repository_name
 
@@ -81,9 +74,9 @@ class Repository(pulumi.CustomResource):
 
         super(Repository, __self__).__init__(
             'aws:codecommit/repository:Repository',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

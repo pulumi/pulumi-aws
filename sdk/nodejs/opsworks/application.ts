@@ -33,6 +33,7 @@ import * as utilities from "../utilities";
  *         secure: false,
  *         value: "value",
  *     }],
+ *     name: "foobar application",
  *     railsEnv: "staging",
  *     shortName: "foobar",
  *     sslConfigurations: [{

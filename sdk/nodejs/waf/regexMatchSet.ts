@@ -14,12 +14,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const exampleRegexPatternSet = new aws.waf.RegexPatternSet("example", {
+ *     name: "example",
  *     regexPatternStrings: [
  *         "one",
  *         "two",
  *     ],
  * });
  * const exampleRegexMatchSet = new aws.waf.RegexMatchSet("example", {
+ *     name: "example",
  *     regexMatchTuples: [{
  *         fieldToMatch: {
  *             data: "User-Agent",

@@ -50,6 +50,7 @@ import * as utilities from "../utilities";
  *     ],
  * }));
  * const examplePolicy = new aws.iam.Policy("example", {
+ *     name: "example_policy",
  *     path: "/",
  *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
  * });

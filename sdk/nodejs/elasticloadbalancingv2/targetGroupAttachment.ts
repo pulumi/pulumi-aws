@@ -32,6 +32,7 @@ import * as utilities from "../utilities";
  * 
  * const testFunction = new aws.lambda.Function("test", {});
  * const testTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("test", {
+ *     name: "test",
  *     targetType: "lambda",
  * });
  * const withLb = new aws.lambda.Permission("with_lb", {

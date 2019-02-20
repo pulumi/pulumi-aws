@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const foo = new aws.inspector.AssessmentTemplate("foo", {
  *     duration: 3600,
+ *     name: "bar template",
  *     rulesPackageArns: [
  *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
  *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",

@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -53,12 +52,12 @@ class Job(pulumi.CustomResource):
     """
     The job timeout in minutes. The default is 2880 minutes (48 hours).
     """
-    def __init__(__self__, resource_name, opts=None, allocated_capacity=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, max_retries=None, name=None, role_arn=None, security_configuration=None, timeout=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, allocated_capacity=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, max_retries=None, name=None, role_arn=None, security_configuration=None, timeout=None):
         """
         Provides a Glue Job resource.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[int] allocated_capacity: The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
         :param pulumi.Input[dict] command: The command of the job. Defined below.
         :param pulumi.Input[list] connections: The list of connections used for this job.
@@ -71,24 +70,18 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration to be associated with the job. 
         :param pulumi.Input[int] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours).
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['allocated_capacity'] = allocated_capacity
 
-        if command is None:
+        if not command:
             raise TypeError('Missing required property command')
         __props__['command'] = command
 
@@ -104,7 +97,7 @@ class Job(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        if role_arn is None:
+        if not role_arn:
             raise TypeError('Missing required property role_arn')
         __props__['role_arn'] = role_arn
 
@@ -114,9 +107,9 @@ class Job(pulumi.CustomResource):
 
         super(Job, __self__).__init__(
             'aws:glue/job:Job',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

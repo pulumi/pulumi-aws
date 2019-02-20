@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -37,12 +36,12 @@ class EventDestination(pulumi.CustomResource):
     """
     Send the events to an SNS Topic destination
     """
-    def __init__(__self__, resource_name, opts=None, cloudwatch_destinations=None, configuration_set_name=None, enabled=None, kinesis_destination=None, matching_types=None, name=None, sns_destination=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, cloudwatch_destinations=None, configuration_set_name=None, enabled=None, kinesis_destination=None, matching_types=None, name=None, sns_destination=None):
         """
         Provides an SES event destination
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] cloudwatch_destinations: CloudWatch destination for the events
         :param pulumi.Input[str] configuration_set_name: The name of the configuration set
         :param pulumi.Input[bool] enabled: If true, the event destination will be enabled
@@ -51,24 +50,18 @@ class EventDestination(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the event destination
         :param pulumi.Input[dict] sns_destination: Send the events to an SNS Topic destination
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['cloudwatch_destinations'] = cloudwatch_destinations
 
-        if configuration_set_name is None:
+        if not configuration_set_name:
             raise TypeError('Missing required property configuration_set_name')
         __props__['configuration_set_name'] = configuration_set_name
 
@@ -76,7 +69,7 @@ class EventDestination(pulumi.CustomResource):
 
         __props__['kinesis_destination'] = kinesis_destination
 
-        if matching_types is None:
+        if not matching_types:
             raise TypeError('Missing required property matching_types')
         __props__['matching_types'] = matching_types
 
@@ -86,9 +79,9 @@ class EventDestination(pulumi.CustomResource):
 
         super(EventDestination, __self__).__init__(
             'aws:ses/eventDestination:EventDestination',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

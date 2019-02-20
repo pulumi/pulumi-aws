@@ -15,7 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const foo = new aws.ecs.Cluster("foo", {});
+ * const foo = new aws.ecs.Cluster("foo", {
+ *     name: "foo",
+ * });
  * const mongoTaskDefinition = new aws.ecs.TaskDefinition("mongo", {
  *     containerDefinitions: `[
  *   {
@@ -41,6 +43,7 @@ import * as utilities from "../utilities";
  * const mongoService = new aws.ecs.Service("mongo", {
  *     cluster: foo.id,
  *     desiredCount: 2,
+ *     name: "mongo",
  *     taskDefinition: pulumi.all([mongoTaskDefinition.family, mongoTaskDefinition.revision, mongoEcsTaskDefinition]).apply(([family, revision, mongoEcsTaskDefinition]) => `${family}:${(() => {
  *         throw "tf2pulumi error: NYI: call to max";
  *         return (() => { throw "NYI: call to max"; })();

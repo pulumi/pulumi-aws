@@ -20,12 +20,14 @@ import * as utilities from "../utilities";
  * const window = new aws.ssm.MaintenanceWindow("window", {
  *     cutoff: 1,
  *     duration: 3,
+ *     name: "maintenance-window-%s",
  *     schedule: "cron(0 16 ? * TUE *)",
  * });
  * const task = new aws.ssm.MaintenanceWindowTask("task", {
  *     description: "This is a maintenance window task",
  *     maxConcurrency: "2",
  *     maxErrors: "1",
+ *     name: "maintenance-window-task",
  *     priority: 1,
  *     serviceRoleArn: "arn:aws:iam::187416307283:role/service-role/AWS_Events_Invoke_Run_Command_112316643",
  *     targets: [{

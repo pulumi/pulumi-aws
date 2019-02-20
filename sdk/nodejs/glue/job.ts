@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *     command: {
  *         scriptLocation: aws_s3_bucket_example.bucket.apply(bucket => `s3://${bucket}/example.py`),
  *     },
+ *     name: "example",
  *     roleArn: aws_iam_role_example.arn,
  * });
  * ```
@@ -36,6 +37,7 @@ import * as utilities from "../utilities";
  *     defaultArguments: {
  *         "--job-language": "scala",
  *     },
+ *     name: "example",
  *     roleArn: aws_iam_role_example.arn,
  * });
  * ```

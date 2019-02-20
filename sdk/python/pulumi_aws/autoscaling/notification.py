@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -22,51 +21,45 @@ class Notification(pulumi.CustomResource):
     """
     The Topic ARN for notifications to be sent through
     """
-    def __init__(__self__, resource_name, opts=None, group_names=None, notifications=None, topic_arn=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, group_names=None, notifications=None, topic_arn=None):
         """
         Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
         the `notifications` map to a [Notification Configuration][2] inside Amazon Web
         Services, and are applied to each AutoScaling Group you supply.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] group_names: A list of AutoScaling Group Names
         :param pulumi.Input[list] notifications: A list of Notification Types that trigger
                notifications. Acceptable values are documented [in the AWS documentation here][1]
         :param pulumi.Input[str] topic_arn: The Topic ARN for notifications to be sent through
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if group_names is None:
+        if not group_names:
             raise TypeError('Missing required property group_names')
         __props__['group_names'] = group_names
 
-        if notifications is None:
+        if not notifications:
             raise TypeError('Missing required property notifications')
         __props__['notifications'] = notifications
 
-        if topic_arn is None:
+        if not topic_arn:
             raise TypeError('Missing required property topic_arn')
         __props__['topic_arn'] = topic_arn
 
         super(Notification, __self__).__init__(
             'aws:autoscaling/notification:Notification',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

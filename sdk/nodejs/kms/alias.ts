@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * 
  * const key = new aws.kms.Key("a", {});
  * const alias = new aws.kms.Alias("a", {
+ *     name: "alias/my-key-alias",
  *     targetKeyId: key.keyId,
  * });
  * ```

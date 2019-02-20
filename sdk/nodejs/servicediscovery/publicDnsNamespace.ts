@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.servicediscovery.PublicDnsNamespace("example", {
  *     description: "example",
+ *     name: "hoge.example.com",
  * });
  * ```
  */

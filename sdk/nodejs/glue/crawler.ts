@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *     dynamodbTargets: [{
  *         path: "table-name",
  *     }],
+ *     name: "example",
  *     role: aws_iam_role_example.arn,
  * });
  * ```
@@ -36,6 +37,7 @@ import * as utilities from "../utilities";
  *         connectionName: aws_glue_connection_example.name,
  *         path: "database-name/%",
  *     }],
+ *     name: "example",
  *     role: aws_iam_role_example.arn,
  * });
  * ```
@@ -48,6 +50,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.glue.Crawler("example", {
  *     databaseName: aws_glue_catalog_database_example.name,
+ *     name: "example",
  *     role: aws_iam_role_example.arn,
  *     s3Targets: [{
  *         path: aws_s3_bucket_example.bucket.apply(bucket => `s3://${bucket}`),

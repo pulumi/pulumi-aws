@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  * });
  * const example_entire_bucket = new aws.s3.BucketMetric("example-entire-bucket", {
  *     bucket: example.bucket,
+ *     name: "EntireBucket",
  * });
  * ```
  * 
@@ -41,6 +42,7 @@ import * as utilities from "../utilities";
  *             priority: "high",
  *         },
  *     },
+ *     name: "ImportantBlueDocuments",
  * });
  * ```
  */

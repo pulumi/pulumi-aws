@@ -17,10 +17,12 @@ import {RestApi} from "./restApi";
  * 
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
+ *     name: "MyDemoAPI",
  * });
  * const myDemoModel = new aws.apigateway.Model("MyDemoModel", {
  *     contentType: "application/json",
  *     description: "a JSON schema",
+ *     name: "user",
  *     restApi: myDemoAPI.id,
  *     schema: `{
  *   "type": "object"

@@ -18,6 +18,7 @@ import {RestApi} from "./restApi";
  * 
  * const testRestApi = new aws.apigateway.RestApi("test", {
  *     description: "This is my API for demonstration purposes",
+ *     name: "MyDemoAPI",
  * });
  * const testResource = new aws.apigateway.Resource("test", {
  *     parentId: testRestApi.rootResourceId,

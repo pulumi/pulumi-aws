@@ -33,6 +33,7 @@ import * as utilities from "../utilities";
  *     vpcId: fooVpc.id,
  * });
  * const fooSubnetGroup = new aws.redshift.SubnetGroup("foo", {
+ *     name: "foo",
  *     subnetIds: [
  *         fooSubnet.id,
  *         bar.id,

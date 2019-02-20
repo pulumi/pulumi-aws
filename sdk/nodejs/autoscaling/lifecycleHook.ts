@@ -28,6 +28,7 @@ import * as utilities from "../utilities";
  * const foobarGroup = new aws.autoscaling.Group("foobar", {
  *     availabilityZones: ["us-west-2a"],
  *     healthCheckType: "EC2",
+ *     name: "terraform-test-foobar5",
  *     tags: [{
  *         key: "Foo",
  *         propagateAtLaunch: true,
@@ -40,6 +41,7 @@ import * as utilities from "../utilities";
  *     defaultResult: "CONTINUE",
  *     heartbeatTimeout: 2000,
  *     lifecycleTransition: "autoscaling:EC2_INSTANCE_LAUNCHING",
+ *     name: "foobar",
  *     notificationMetadata: `{
  *   "foo": "bar"
  * }

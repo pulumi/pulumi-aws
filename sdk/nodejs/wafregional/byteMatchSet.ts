@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
  *         targetString: "badrefer1",
  *         textTransformation: "NONE",
  *     }],
+ *     name: "tf_waf_byte_match_set",
  * });
  * ```
  */

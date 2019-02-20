@@ -20,7 +20,9 @@ import * as utilities from "../utilities";
  *     preferredBackupWindow: "07:00-09:00",
  *     skipFinalSnapshot: true,
  * });
- * const defaultTopic = new aws.sns.Topic("default", {});
+ * const defaultTopic = new aws.sns.Topic("default", {
+ *     name: "neptune-events",
+ * });
  * const example = new aws.neptune.ClusterInstance("example", {
  *     applyImmediately: true,
  *     clusterIdentifier: defaultCluster.id,
@@ -42,6 +44,7 @@ import * as utilities from "../utilities";
  *         "configuration change",
  *         "read replica",
  *     ],
+ *     name: "neptune-event-sub",
  *     snsTopicArn: defaultTopic.arn,
  *     sourceIds: [example.id],
  *     sourceType: "db-instance",

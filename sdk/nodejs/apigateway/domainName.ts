@@ -48,6 +48,7 @@ import * as utilities from "../utilities";
  *         name: exampleDomainName.cloudfrontDomainName,
  *         zoneId: exampleDomainName.cloudfrontZoneId,
  *     }],
+ *     name: exampleDomainName.domainName,
  *     type: "A",
  *     zoneId: aws_route53_zone_example.id,
  * });
@@ -75,6 +76,7 @@ import * as utilities from "../utilities";
  *         name: exampleDomainName.cloudfrontDomainName,
  *         zoneId: exampleDomainName.cloudfrontZoneId,
  *     }],
+ *     name: exampleDomainName.domainName,
  *     type: "A",
  *     zoneId: aws_route53_zone_example.id, // See aws_route53_zone for how to create this
  * });
@@ -101,6 +103,7 @@ import * as utilities from "../utilities";
  *         name: exampleDomainName.regionalDomainName,
  *         zoneId: exampleDomainName.regionalZoneId,
  *     }],
+ *     name: exampleDomainName.domainName,
  *     type: "A",
  *     zoneId: aws_route53_zone_example.id,
  * });
@@ -131,6 +134,7 @@ import * as utilities from "../utilities";
  *         name: exampleDomainName.regionalDomainName,
  *         zoneId: exampleDomainName.regionalZoneId,
  *     }],
+ *     name: exampleDomainName.domainName,
  *     type: "A",
  *     zoneId: aws_route53_zone_example.id,
  * });

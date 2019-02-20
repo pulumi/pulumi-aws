@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -37,12 +36,12 @@ class Task(pulumi.CustomResource):
     """
     Key-value pairs of resource tags to assign to the DataSync Task.
     """
-    def __init__(__self__, resource_name, opts=None, cloudwatch_log_group_arn=None, destination_location_arn=None, name=None, options=None, source_location_arn=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, cloudwatch_log_group_arn=None, destination_location_arn=None, name=None, options=None, source_location_arn=None, tags=None):
         """
         Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this Terraform resource.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         :param pulumi.Input[str] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
         :param pulumi.Input[str] name: Name of the DataSync Task.
@@ -50,24 +49,18 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
         :param pulumi.Input[dict] tags: Key-value pairs of resource tags to assign to the DataSync Task.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['cloudwatch_log_group_arn'] = cloudwatch_log_group_arn
 
-        if destination_location_arn is None:
+        if not destination_location_arn:
             raise TypeError('Missing required property destination_location_arn')
         __props__['destination_location_arn'] = destination_location_arn
 
@@ -75,7 +68,7 @@ class Task(pulumi.CustomResource):
 
         __props__['options'] = options
 
-        if source_location_arn is None:
+        if not source_location_arn:
             raise TypeError('Missing required property source_location_arn')
         __props__['source_location_arn'] = source_location_arn
 
@@ -85,9 +78,9 @@ class Task(pulumi.CustomResource):
 
         super(Task, __self__).__init__(
             'aws:datasync/task:Task',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

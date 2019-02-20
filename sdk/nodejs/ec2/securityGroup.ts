@@ -39,6 +39,7 @@ import * as utilities from "../utilities";
  *         protocol: "-1",
  *         toPort: 0,
  *     }],
+ *     name: "allow_all",
  *     vpcId: aws_vpc_main.id,
  * });
  * ```
@@ -57,6 +58,7 @@ import * as utilities from "../utilities";
  *         protocol: "tcp",
  *         toPort: 65535,
  *     }],
+ *     name: "allow_all",
  *     tags: {
  *         Name: "allow_all",
  *     },

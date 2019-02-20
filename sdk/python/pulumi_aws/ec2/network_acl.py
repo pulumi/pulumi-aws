@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -38,7 +37,7 @@ class NetworkAcl(pulumi.CustomResource):
     """
     The ID of the associated VPC.
     """
-    def __init__(__self__, resource_name, opts=None, egress=None, ingress=None, subnet_id=None, subnet_ids=None, tags=None, vpc_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, egress=None, ingress=None, subnet_id=None, subnet_ids=None, tags=None, vpc_id=None):
         """
         Provides an network ACL resource. You might set up network ACLs with rules similar
         to your security groups in order to add an additional layer of security to your VPC.
@@ -49,8 +48,8 @@ class NetworkAcl(pulumi.CustomResource):
         in conjunction with any Network ACL Rule resources. Doing so will cause
         a conflict of rule settings and will overwrite rules.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] egress: Specifies an egress rule. Parameters defined below.
         :param pulumi.Input[list] ingress: Specifies an ingress rule. Parameters defined below.
         :param pulumi.Input[str] subnet_id: The ID of the associated Subnet. This
@@ -59,17 +58,11 @@ class NetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the associated VPC.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -84,7 +77,7 @@ class NetworkAcl(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
-        if vpc_id is None:
+        if not vpc_id:
             raise TypeError('Missing required property vpc_id')
         __props__['vpc_id'] = vpc_id
 
@@ -92,9 +85,9 @@ class NetworkAcl(pulumi.CustomResource):
 
         super(NetworkAcl, __self__).__init__(
             'aws:ec2/networkAcl:NetworkAcl',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

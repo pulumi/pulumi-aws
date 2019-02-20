@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
  *     }
  *   }
  * `,
+ *     name: "test_role",
  * });
  * const testAttach = new aws.iam.RolePolicyAttachment("test_attach", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM",
@@ -31,6 +32,7 @@ import * as utilities from "../utilities";
  * const foo = new aws.ssm.Activation("foo", {
  *     description: "Test",
  *     iamRole: testRole.id,
+ *     name: "test_ssm_activation",
  *     registrationLimit: 5,
  * }, {dependsOn: [testAttach]});
  * ```

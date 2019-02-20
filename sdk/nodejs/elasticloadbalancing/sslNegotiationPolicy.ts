@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
  *         lbProtocol: "https",
  *         sslCertificateId: "arn:aws:iam::123456789012:server-certificate/certName",
  *     }],
+ *     name: "test-lb",
  * });
  * const foo = new aws.elasticloadbalancing.SslNegotiationPolicy("foo", {
  *     attributes: [
@@ -56,6 +57,7 @@ import * as utilities from "../utilities";
  *     ],
  *     lbPort: 443,
  *     loadBalancer: lb.id,
+ *     name: "foo-policy",
  * });
  * ```
  */

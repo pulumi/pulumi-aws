@@ -16,10 +16,12 @@ import {PolicyDocument} from "./documents";
  * import * as aws from "@pulumi/aws";
  * 
  * const myDevelopers = new aws.iam.Group("my_developers", {
+ *     name: "developers",
  *     path: "/users/",
  * });
  * const myDeveloperPolicy = new aws.iam.GroupPolicy("my_developer_policy", {
  *     group: myDevelopers.id,
+ *     name: "my_developer_policy",
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [

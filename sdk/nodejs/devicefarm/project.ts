@@ -19,7 +19,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const awesomeDevices = new aws.devicefarm.Project("awesome_devices", {});
+ * const awesomeDevices = new aws.devicefarm.Project("awesome_devices", {
+ *     name: "my-device-farm",
+ * });
  * ```
  */
 export class Project extends pulumi.CustomResource {

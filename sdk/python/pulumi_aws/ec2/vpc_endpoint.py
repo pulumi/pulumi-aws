@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -66,7 +65,7 @@ class VpcEndpoint(pulumi.CustomResource):
     """
     The ID of the VPC in which the endpoint will be used.
     """
-    def __init__(__self__, resource_name, opts=None, auto_accept=None, policy=None, private_dns_enabled=None, route_table_ids=None, security_group_ids=None, service_name=None, subnet_ids=None, vpc_endpoint_type=None, vpc_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, auto_accept=None, policy=None, private_dns_enabled=None, route_table_ids=None, security_group_ids=None, service_name=None, subnet_ids=None, vpc_endpoint_type=None, vpc_id=None):
         """
         Provides a VPC Endpoint resource.
         
@@ -77,8 +76,8 @@ class VpcEndpoint(pulumi.CustomResource):
         Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
         Doing so will cause a conflict of associations and will overwrite the association.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
         :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. Applicable for endpoints of type `Gateway`. Defaults to full access. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
         :param pulumi.Input[bool] private_dns_enabled: Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
@@ -90,17 +89,11 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] vpc_endpoint_type: The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
         :param pulumi.Input[str] vpc_id: The ID of the VPC in which the endpoint will be used.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -115,7 +108,7 @@ class VpcEndpoint(pulumi.CustomResource):
 
         __props__['security_group_ids'] = security_group_ids
 
-        if service_name is None:
+        if not service_name:
             raise TypeError('Missing required property service_name')
         __props__['service_name'] = service_name
 
@@ -123,7 +116,7 @@ class VpcEndpoint(pulumi.CustomResource):
 
         __props__['vpc_endpoint_type'] = vpc_endpoint_type
 
-        if vpc_id is None:
+        if not vpc_id:
             raise TypeError('Missing required property vpc_id')
         __props__['vpc_id'] = vpc_id
 
@@ -135,9 +128,9 @@ class VpcEndpoint(pulumi.CustomResource):
 
         super(VpcEndpoint, __self__).__init__(
             'aws:ec2/vpcEndpoint:VpcEndpoint',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

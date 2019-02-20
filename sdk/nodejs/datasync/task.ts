@@ -17,6 +17,7 @@ import {ARN} from "../index";
  * 
  * const example = new aws.datasync.Task("example", {
  *     destinationLocationArn: aws_datasync_location_s3_destination.arn,
+ *     name: "example",
  *     options: {
  *         bytesPerSecond: -1,
  *     },

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const sizeConstraintSet = new aws.wafregional.SizeConstraintSet("size_constraint_set", {
+ *     name: "tfsize_constraints",
  *     sizeConstraints: [{
  *         comparisonOperator: "EQ",
  *         fieldToMatch: {

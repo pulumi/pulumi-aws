@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -33,12 +32,12 @@ class LogSubscriptionFilter(pulumi.CustomResource):
     """
     The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws_lambda_permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
     """
-    def __init__(__self__, resource_name, opts=None, destination_arn=None, distribution=None, filter_pattern=None, log_group=None, name=None, role_arn=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, destination_arn=None, distribution=None, filter_pattern=None, log_group=None, name=None, role_arn=None):
         """
         Provides a CloudWatch Logs subscription filter resource.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] destination_arn: The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
         :param pulumi.Input[str] distribution: The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
         :param pulumi.Input[str] filter_pattern: A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
@@ -46,32 +45,26 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         :param pulumi.Input[str] name: A name for the subscription filter
         :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws_lambda_permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if destination_arn is None:
+        if not destination_arn:
             raise TypeError('Missing required property destination_arn')
         __props__['destination_arn'] = destination_arn
 
         __props__['distribution'] = distribution
 
-        if filter_pattern is None:
+        if not filter_pattern:
             raise TypeError('Missing required property filter_pattern')
         __props__['filter_pattern'] = filter_pattern
 
-        if log_group is None:
+        if not log_group:
             raise TypeError('Missing required property log_group')
         __props__['log_group'] = log_group
 
@@ -81,9 +74,9 @@ class LogSubscriptionFilter(pulumi.CustomResource):
 
         super(LogSubscriptionFilter, __self__).__init__(
             'aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.directconnect.Gateway("example", {
  *     amazonSideAsn: "64512",
+ *     name: "tf-dxg-example",
  * });
  * ```
  */

@@ -30,10 +30,12 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const testStream = new aws.kinesis.Stream("test_stream", {
+ *     name: "pinpoint-kinesis-test",
  *     shardCount: 1,
  * });
  * const app = new aws.pinpoint.App("app", {});
  * const testRolePolicy = new aws.iam.RolePolicy("test_role_policy", {
+ *     name: "test_policy",
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": {

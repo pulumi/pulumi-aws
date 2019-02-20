@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -61,7 +60,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
     """
     The size of the volume in bytes.
     """
-    def __init__(__self__, resource_name, opts=None, gateway_arn=None, network_interface_id=None, snapshot_id=None, source_volume_arn=None, target_name=None, volume_size_in_bytes=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, gateway_arn=None, network_interface_id=None, snapshot_id=None, source_volume_arn=None, target_name=None, volume_size_in_bytes=None):
         """
         Manages an AWS Storage Gateway cached iSCSI volume.
         
@@ -73,8 +72,8 @@ class CachesIscsiVolume(pulumi.CustomResource):
         
         > **NOTE:** These examples are referencing the [`aws_storagegateway_cache`](https://www.terraform.io/docs/providers/aws/r/storagegateway_cache.html) resource `gateway_arn` attribute to ensure Terraform properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `depends_on = ["aws_storagegateway_cache.example"]`) to ensure proper ordering.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
         :param pulumi.Input[str] network_interface_id: The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         :param pulumi.Input[str] snapshot_id: The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
@@ -82,26 +81,20 @@ class CachesIscsiVolume(pulumi.CustomResource):
         :param pulumi.Input[str] target_name: The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         :param pulumi.Input[int] volume_size_in_bytes: The size of the volume in bytes.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if gateway_arn is None:
+        if not gateway_arn:
             raise TypeError('Missing required property gateway_arn')
         __props__['gateway_arn'] = gateway_arn
 
-        if network_interface_id is None:
+        if not network_interface_id:
             raise TypeError('Missing required property network_interface_id')
         __props__['network_interface_id'] = network_interface_id
 
@@ -109,11 +102,11 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
         __props__['source_volume_arn'] = source_volume_arn
 
-        if target_name is None:
+        if not target_name:
             raise TypeError('Missing required property target_name')
         __props__['target_name'] = target_name
 
-        if volume_size_in_bytes is None:
+        if not volume_size_in_bytes:
             raise TypeError('Missing required property volume_size_in_bytes')
         __props__['volume_size_in_bytes'] = volume_size_in_bytes
 
@@ -127,9 +120,9 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
         super(CachesIscsiVolume, __self__).__init__(
             'aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

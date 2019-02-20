@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "dynamodb",
  * });
  * const dynamodbScheduledAction = new aws.appautoscaling.ScheduledAction("dynamodb", {
+ *     name: "dynamodb",
  *     resourceId: dynamodbTarget.resourceId,
  *     scalableDimension: dynamodbTarget.scalableDimension,
  *     scalableTargetAction: {
@@ -50,6 +51,7 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "ecs",
  * });
  * const ecsScheduledAction = new aws.appautoscaling.ScheduledAction("ecs", {
+ *     name: "ecs",
  *     resourceId: ecsTarget.resourceId,
  *     scalableDimension: ecsTarget.scalableDimension,
  *     scalableTargetAction: {

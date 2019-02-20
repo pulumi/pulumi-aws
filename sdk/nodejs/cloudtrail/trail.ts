@@ -57,6 +57,7 @@ import * as utilities from "../utilities";
  * });
  * const foobar = new aws.cloudtrail.Trail("foobar", {
  *     includeGlobalServiceEvents: false,
+ *     name: "tf-trail-foobar",
  *     s3BucketName: foo.id,
  *     s3KeyPrefix: "prefix",
  * });

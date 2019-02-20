@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -85,12 +84,12 @@ class Integration(pulumi.CustomResource):
     For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
     e.g. `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`
     """
-    def __init__(__self__, resource_name, opts=None, cache_key_parameters=None, cache_namespace=None, connection_id=None, connection_type=None, content_handling=None, credentials=None, http_method=None, integration_http_method=None, passthrough_behavior=None, request_parameters=None, request_parameters_in_json=None, request_templates=None, resource_id=None, rest_api=None, timeout_milliseconds=None, type=None, uri=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, cache_key_parameters=None, cache_namespace=None, connection_id=None, connection_type=None, content_handling=None, credentials=None, http_method=None, integration_http_method=None, passthrough_behavior=None, request_parameters=None, request_parameters_in_json=None, request_templates=None, resource_id=None, rest_api=None, timeout_milliseconds=None, type=None, uri=None):
         """
         Provides an HTTP Method Integration for an API Gateway Integration.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] cache_key_parameters: A list of cache key parameters for the integration.
         :param pulumi.Input[str] cache_namespace: The integration's cache namespace.
         :param pulumi.Input[str] connection_id: The id of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
@@ -117,17 +116,11 @@ class Integration(pulumi.CustomResource):
                For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
                e.g. `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -144,7 +137,7 @@ class Integration(pulumi.CustomResource):
 
         __props__['credentials'] = credentials
 
-        if http_method is None:
+        if not http_method:
             raise TypeError('Missing required property http_method')
         __props__['http_method'] = http_method
 
@@ -158,17 +151,17 @@ class Integration(pulumi.CustomResource):
 
         __props__['request_templates'] = request_templates
 
-        if resource_id is None:
+        if not resource_id:
             raise TypeError('Missing required property resource_id')
         __props__['resource_id'] = resource_id
 
-        if rest_api is None:
+        if not rest_api:
             raise TypeError('Missing required property rest_api')
         __props__['rest_api'] = rest_api
 
         __props__['timeout_milliseconds'] = timeout_milliseconds
 
-        if type is None:
+        if not type:
             raise TypeError('Missing required property type')
         __props__['type'] = type
 
@@ -176,9 +169,9 @@ class Integration(pulumi.CustomResource):
 
         super(Integration, __self__).__init__(
             'aws:apigateway/integration:Integration',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

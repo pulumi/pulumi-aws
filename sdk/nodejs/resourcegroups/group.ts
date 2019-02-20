@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const test = new aws.resourcegroups.Group("test", {
+ *     name: "test-group",
  *     resourceQuery: {
  *         query: `{
  *   "ResourceTypeFilters": [

@@ -32,6 +32,7 @@ import * as utilities from "../utilities";
  *     vpcId: main.id,
  * });
  * const barDirectory = new aws.directoryservice.Directory("bar", {
+ *     name: "corp.notexample.com",
  *     password: "SuperSecretPassw0rd",
  *     size: "Small",
  *     tags: {
@@ -68,6 +69,7 @@ import * as utilities from "../utilities";
  * });
  * const barDirectory = new aws.directoryservice.Directory("bar", {
  *     edition: "Standard",
+ *     name: "corp.notexample.com",
  *     password: "SuperSecretPassw0rd",
  *     tags: {
  *         Project: "foo",
@@ -112,6 +114,7 @@ import * as utilities from "../utilities";
  *         ],
  *         vpcId: main.id,
  *     },
+ *     name: "corp.notexample.com",
  *     password: "SuperSecretPassw0rd",
  *     size: "Small",
  *     type: "ADConnector",

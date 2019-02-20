@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.codedeploy.Application("example", {
  *     computePlatform: "ECS",
+ *     name: "example",
  * });
  * ```
  * 
@@ -28,6 +29,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.codedeploy.Application("example", {
  *     computePlatform: "Lambda",
+ *     name: "example",
  * });
  * ```
  * 
@@ -39,6 +41,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.codedeploy.Application("example", {
  *     computePlatform: "Server",
+ *     name: "example",
  * });
  * ```
  */

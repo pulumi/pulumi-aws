@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -41,12 +40,12 @@ class Inventory(pulumi.CustomResource):
     """
     Contains the frequency for generating inventory results (documented below).
     """
-    def __init__(__self__, resource_name, opts=None, bucket=None, destination=None, enabled=None, filter=None, included_object_versions=None, name=None, optional_fields=None, schedule=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, bucket=None, destination=None, enabled=None, filter=None, included_object_versions=None, name=None, optional_fields=None, schedule=None):
         """
         Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] bucket: The S3 bucket configuration where inventory results are published (documented below).
         :param pulumi.Input[dict] destination: Destination bucket where inventory list files are written (documented below).
         :param pulumi.Input[bool] enabled: Specifies whether the inventory is enabled or disabled.
@@ -56,26 +55,20 @@ class Inventory(pulumi.CustomResource):
         :param pulumi.Input[list] optional_fields: Contains the optional fields that are included in the inventory results.
         :param pulumi.Input[dict] schedule: Contains the frequency for generating inventory results (documented below).
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if bucket is None:
+        if not bucket:
             raise TypeError('Missing required property bucket')
         __props__['bucket'] = bucket
 
-        if destination is None:
+        if not destination:
             raise TypeError('Missing required property destination')
         __props__['destination'] = destination
 
@@ -83,7 +76,7 @@ class Inventory(pulumi.CustomResource):
 
         __props__['filter'] = filter
 
-        if included_object_versions is None:
+        if not included_object_versions:
             raise TypeError('Missing required property included_object_versions')
         __props__['included_object_versions'] = included_object_versions
 
@@ -91,15 +84,15 @@ class Inventory(pulumi.CustomResource):
 
         __props__['optional_fields'] = optional_fields
 
-        if schedule is None:
+        if not schedule:
             raise TypeError('Missing required property schedule')
         __props__['schedule'] = schedule
 
         super(Inventory, __self__).__init__(
             'aws:s3/inventory:Inventory',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -50,7 +49,7 @@ class Policy(pulumi.CustomResource):
     """
     A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
     """
-    def __init__(__self__, resource_name, opts=None, adjustment_type=None, alarms=None, cooldown=None, metric_aggregation_type=None, min_adjustment_magnitude=None, name=None, policy_type=None, resource_id=None, scalable_dimension=None, service_namespace=None, step_adjustments=None, step_scaling_policy_configurations=None, target_tracking_scaling_policy_configuration=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, adjustment_type=None, alarms=None, cooldown=None, metric_aggregation_type=None, min_adjustment_magnitude=None, name=None, policy_type=None, resource_id=None, scalable_dimension=None, service_namespace=None, step_adjustments=None, step_scaling_policy_configurations=None, target_tracking_scaling_policy_configuration=None):
         """
         Provides an Application AutoScaling Policy resource.
         
@@ -78,8 +77,8 @@ class Policy(pulumi.CustomResource):
         * `predefined_metric_type` - (Required) The metric type.
         * `resource_label` - (Optional) Reserved for future use.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] adjustment_type: The scaling policy's adjustment type.
         :param pulumi.Input[list] alarms
         :param pulumi.Input[int] cooldown
@@ -94,17 +93,11 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[list] step_scaling_policy_configurations: Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
         :param pulumi.Input[dict] target_tracking_scaling_policy_configuration: A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -123,15 +116,15 @@ class Policy(pulumi.CustomResource):
 
         __props__['policy_type'] = policy_type
 
-        if resource_id is None:
+        if not resource_id:
             raise TypeError('Missing required property resource_id')
         __props__['resource_id'] = resource_id
 
-        if scalable_dimension is None:
+        if not scalable_dimension:
             raise TypeError('Missing required property scalable_dimension')
         __props__['scalable_dimension'] = scalable_dimension
 
-        if service_namespace is None:
+        if not service_namespace:
             raise TypeError('Missing required property service_namespace')
         __props__['service_namespace'] = service_namespace
 
@@ -145,9 +138,9 @@ class Policy(pulumi.CustomResource):
 
         super(Policy, __self__).__init__(
             'aws:appautoscaling/policy:Policy',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

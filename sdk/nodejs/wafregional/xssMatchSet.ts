@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const xssMatchSet = new aws.wafregional.XssMatchSet("xss_match_set", {
+ *     name: "xss_match_set",
  *     xssMatchTuples: [
  *         {
  *             fieldToMatch: {

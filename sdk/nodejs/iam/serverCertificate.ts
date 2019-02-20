@@ -30,6 +30,7 @@ import * as utilities from "../utilities";
  * 
  * const testCert = new aws.iam.ServerCertificate("test_cert", {
  *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf-8"),
+ *     name: "some_test_cert",
  *     privateKey: fs.readFileSync("test-key.pem", "utf-8"),
  * });
  * ```
@@ -45,6 +46,7 @@ import * as utilities from "../utilities";
  * [......] # cert contents
  * -----END CERTIFICATE-----
  * `,
+ *     name: "alt_test_cert",
  *     privateKey: `-----BEGIN RSA PRIVATE KEY-----
  * [......] # cert contents
  * -----END RSA PRIVATE KEY-----
@@ -81,6 +83,7 @@ import * as utilities from "../utilities";
  *         lbProtocol: "https",
  *         sslCertificateId: testCert.arn,
  *     }],
+ *     name: "terraform-asg-deployment-example",
  * });
  * ```
  */

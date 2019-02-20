@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -21,34 +20,28 @@ class RuleGroup(pulumi.CustomResource):
     """
     A friendly name of the rule group
     """
-    def __init__(__self__, resource_name, opts=None, activated_rules=None, metric_name=None, name=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, activated_rules=None, metric_name=None, name=None):
         """
         Provides a WAF Regional Rule Group Resource
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] activated_rules: A list of activated rules, see below
         :param pulumi.Input[str] metric_name: A friendly name for the metrics from the rule group
         :param pulumi.Input[str] name: A friendly name of the rule group
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['activated_rules'] = activated_rules
 
-        if metric_name is None:
+        if not metric_name:
             raise TypeError('Missing required property metric_name')
         __props__['metric_name'] = metric_name
 
@@ -56,9 +49,9 @@ class RuleGroup(pulumi.CustomResource):
 
         super(RuleGroup, __self__).__init__(
             'aws:wafregional/ruleGroup:RuleGroup',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

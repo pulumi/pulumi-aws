@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * import * as fs from "fs";
  * 
  * const defaultSamlProvider = new aws.iam.SamlProvider("default", {
+ *     name: "myprovider",
  *     samlMetadataDocument: fs.readFileSync("saml-metadata.xml", "utf-8"),
  * });
  * ```

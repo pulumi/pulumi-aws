@@ -21,11 +21,13 @@ import * as utilities from "../utilities";
  *         lbPort: 80,
  *         lbProtocol: "http",
  *     }],
+ *     name: "test-lb",
  * });
  * const foo = new aws.elasticloadbalancing.AppCookieStickinessPolicy("foo", {
  *     cookieName: "MyAppCookie",
  *     lbPort: 80,
  *     loadBalancer: lb.name,
+ *     name: "foo_policy",
  * });
  * ```
  */

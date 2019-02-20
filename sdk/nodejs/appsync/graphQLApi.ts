@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "API_KEY",
+ *     name: "example",
  * });
  * ```
  * 
@@ -28,6 +29,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "AMAZON_COGNITO_USER_POOLS",
+ *     name: "example",
  *     userPoolConfig: {
  *         awsRegion: aws_region_current.name.apply(name => name),
  *         defaultAction: "DENY",
@@ -44,6 +46,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "AWS_IAM",
+ *     name: "example",
  * });
  * ```
  * 
@@ -55,6 +58,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "OPENID_CONNECT",
+ *     name: "example",
  *     openidConnectConfig: {
  *         issuer: "https://example.com",
  *     },
@@ -81,6 +85,7 @@ import * as utilities from "../utilities";
  *     ]
  * }
  * `,
+ *     name: "example",
  * });
  * const exampleGraphQLApi = new aws.appsync.GraphQLApi("example", {
  *     logConfig: {

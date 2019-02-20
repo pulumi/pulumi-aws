@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -86,7 +85,7 @@ class Broker(pulumi.CustomResource):
     """
     The list of all ActiveMQ usernames for the specified broker. See below.
     """
-    def __init__(__self__, resource_name, opts=None, apply_immediately=None, auto_minor_version_upgrade=None, broker_name=None, configuration=None, deployment_mode=None, engine_type=None, engine_version=None, host_instance_type=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, tags=None, users=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, apply_immediately=None, auto_minor_version_upgrade=None, broker_name=None, configuration=None, deployment_mode=None, engine_type=None, engine_version=None, host_instance_type=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, tags=None, users=None):
         """
         Provides an MQ Broker Resource. This resources also manages users for the broker.
         
@@ -105,8 +104,8 @@ class Broker(pulumi.CustomResource):
         > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any broker modifications
                are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions.
@@ -124,17 +123,11 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[list] users: The list of all ActiveMQ usernames for the specified broker. See below.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -143,7 +136,7 @@ class Broker(pulumi.CustomResource):
 
         __props__['auto_minor_version_upgrade'] = auto_minor_version_upgrade
 
-        if broker_name is None:
+        if not broker_name:
             raise TypeError('Missing required property broker_name')
         __props__['broker_name'] = broker_name
 
@@ -151,15 +144,15 @@ class Broker(pulumi.CustomResource):
 
         __props__['deployment_mode'] = deployment_mode
 
-        if engine_type is None:
+        if not engine_type:
             raise TypeError('Missing required property engine_type')
         __props__['engine_type'] = engine_type
 
-        if engine_version is None:
+        if not engine_version:
             raise TypeError('Missing required property engine_version')
         __props__['engine_version'] = engine_version
 
-        if host_instance_type is None:
+        if not host_instance_type:
             raise TypeError('Missing required property host_instance_type')
         __props__['host_instance_type'] = host_instance_type
 
@@ -169,7 +162,7 @@ class Broker(pulumi.CustomResource):
 
         __props__['publicly_accessible'] = publicly_accessible
 
-        if security_groups is None:
+        if not security_groups:
             raise TypeError('Missing required property security_groups')
         __props__['security_groups'] = security_groups
 
@@ -177,7 +170,7 @@ class Broker(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
-        if users is None:
+        if not users:
             raise TypeError('Missing required property users')
         __props__['users'] = users
 
@@ -186,9 +179,9 @@ class Broker(pulumi.CustomResource):
 
         super(Broker, __self__).__init__(
             'aws:mq/broker:Broker',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

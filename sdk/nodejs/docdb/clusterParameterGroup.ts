@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  * const example = new aws.docdb.ClusterParameterGroup("example", {
  *     description: "docdb cluster parameter group",
  *     family: "docdb3.6",
+ *     name: "example",
  *     parameters: [{
  *         name: "tls",
  *         value: "enabled",

@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -21,7 +20,7 @@ class Attachment(pulumi.CustomResource):
     """
     The name of the ELB.
     """
-    def __init__(__self__, resource_name, opts=None, alb_target_group_arn=None, autoscaling_group_name=None, elb=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, alb_target_group_arn=None, autoscaling_group_name=None, elb=None):
         """
         Provides an AutoScaling Attachment resource.
         
@@ -32,30 +31,24 @@ class Attachment(pulumi.CustomResource):
         load balancers in conjunction with an ASG Attachment resource. Doing so will cause a
         conflict and will overwrite attachments.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] alb_target_group_arn: The ARN of an ALB Target Group.
         :param pulumi.Input[str] autoscaling_group_name: Name of ASG to associate with the ELB.
         :param pulumi.Input[str] elb: The name of the ELB.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['alb_target_group_arn'] = alb_target_group_arn
 
-        if autoscaling_group_name is None:
+        if not autoscaling_group_name:
             raise TypeError('Missing required property autoscaling_group_name')
         __props__['autoscaling_group_name'] = autoscaling_group_name
 
@@ -63,9 +56,9 @@ class Attachment(pulumi.CustomResource):
 
         super(Attachment, __self__).__init__(
             'aws:autoscaling/attachment:Attachment',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

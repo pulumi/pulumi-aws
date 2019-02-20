@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -69,14 +68,14 @@ class DeploymentGroup(pulumi.CustomResource):
     """
     Configuration block(s) of the triggers for the deployment group (documented below).
     """
-    def __init__(__self__, resource_name, opts=None, alarm_configuration=None, app_name=None, auto_rollback_configuration=None, autoscaling_groups=None, blue_green_deployment_config=None, deployment_config_name=None, deployment_group_name=None, deployment_style=None, ec2_tag_filters=None, ec2_tag_sets=None, ecs_service=None, load_balancer_info=None, on_premises_instance_tag_filters=None, service_role_arn=None, trigger_configurations=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, alarm_configuration=None, app_name=None, auto_rollback_configuration=None, autoscaling_groups=None, blue_green_deployment_config=None, deployment_config_name=None, deployment_group_name=None, deployment_style=None, ec2_tag_filters=None, ec2_tag_sets=None, ecs_service=None, load_balancer_info=None, on_premises_instance_tag_filters=None, service_role_arn=None, trigger_configurations=None):
         """
         Provides a CodeDeploy Deployment Group for a CodeDeploy Application
         
         > **NOTE on blue/green deployments:** When using `green_fleet_provisioning_option` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by terraform and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] alarm_configuration: Configuration block of alarms associated with the deployment group (documented below).
         :param pulumi.Input[str] app_name: The name of the application.
         :param pulumi.Input[dict] auto_rollback_configuration: Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
@@ -93,24 +92,18 @@ class DeploymentGroup(pulumi.CustomResource):
         :param pulumi.Input[str] service_role_arn: The service role ARN that allows deployments.
         :param pulumi.Input[list] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['alarm_configuration'] = alarm_configuration
 
-        if app_name is None:
+        if not app_name:
             raise TypeError('Missing required property app_name')
         __props__['app_name'] = app_name
 
@@ -122,7 +115,7 @@ class DeploymentGroup(pulumi.CustomResource):
 
         __props__['deployment_config_name'] = deployment_config_name
 
-        if deployment_group_name is None:
+        if not deployment_group_name:
             raise TypeError('Missing required property deployment_group_name')
         __props__['deployment_group_name'] = deployment_group_name
 
@@ -138,7 +131,7 @@ class DeploymentGroup(pulumi.CustomResource):
 
         __props__['on_premises_instance_tag_filters'] = on_premises_instance_tag_filters
 
-        if service_role_arn is None:
+        if not service_role_arn:
             raise TypeError('Missing required property service_role_arn')
         __props__['service_role_arn'] = service_role_arn
 
@@ -146,9 +139,9 @@ class DeploymentGroup(pulumi.CustomResource):
 
         super(DeploymentGroup, __self__).__init__(
             'aws:codedeploy/deploymentGroup:DeploymentGroup',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

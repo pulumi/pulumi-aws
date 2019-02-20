@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.backup.Vault("example", {
  *     kmsKeyArn: aws_kms_key_example.arn,
+ *     name: "example_backup_vault",
  * });
  * ```
  */

@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -43,14 +42,14 @@ class Rule(pulumi.CustomResource):
     Source specifies the rule owner, the rule identifier, and the notifications that cause
     the function to evaluate your AWS resources as documented below.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, input_parameters=None, maximum_execution_frequency=None, name=None, scope=None, source=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, description=None, input_parameters=None, maximum_execution_frequency=None, name=None, scope=None, source=None):
         """
         Provides an AWS Config Rule.
         
         > **Note:** Config Rule requires an existing [Configuration Recorder](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `depends_on` is recommended (as shown below) to avoid race conditions.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] description: Description of the rule
         :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
         :param pulumi.Input[str] maximum_execution_frequency: The frequency that you want AWS Config to run evaluations for a rule that
@@ -60,17 +59,11 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[dict] source: Source specifies the rule owner, the rule identifier, and the notifications that cause
                the function to evaluate your AWS resources as documented below.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -85,7 +78,7 @@ class Rule(pulumi.CustomResource):
 
         __props__['scope'] = scope
 
-        if source is None:
+        if not source:
             raise TypeError('Missing required property source')
         __props__['source'] = source
 
@@ -94,9 +87,9 @@ class Rule(pulumi.CustomResource):
 
         super(Rule, __self__).__init__(
             'aws:cfg/rule:Rule',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

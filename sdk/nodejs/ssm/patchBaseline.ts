@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  * 
  * const production = new aws.ssm.PatchBaseline("production", {
  *     approvedPatches: ["KB123456"],
+ *     name: "patch-baseline",
  * });
  * ```
  * 
@@ -85,6 +86,7 @@ import * as utilities from "../utilities";
  *             values: ["Low"],
  *         },
  *     ],
+ *     name: "patch-baseline",
  *     rejectedPatches: ["KB987654"],
  * });
  * ```

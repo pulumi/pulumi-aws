@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -48,15 +47,15 @@ class ApnsSandboxChannel(pulumi.CustomResource):
     """
     The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
     """
-    def __init__(__self__, resource_name, opts=None, application_id=None, bundle_id=None, certificate=None, default_authentication_method=None, enabled=None, private_key=None, team_id=None, token_key=None, token_key_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, application_id=None, bundle_id=None, certificate=None, default_authentication_method=None, enabled=None, private_key=None, team_id=None, token_key=None, token_key_id=None):
         """
         Provides a Pinpoint APNs Sandbox Channel resource.
         
         > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] application_id: The application ID.
         :param pulumi.Input[str] bundle_id: The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
         :param pulumi.Input[str] certificate: The pem encoded TLS Certificate from Apple.
@@ -70,22 +69,16 @@ class ApnsSandboxChannel(pulumi.CustomResource):
         :param pulumi.Input[str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key. 
         :param pulumi.Input[str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if application_id is None:
+        if not application_id:
             raise TypeError('Missing required property application_id')
         __props__['application_id'] = application_id
 
@@ -107,9 +100,9 @@ class ApnsSandboxChannel(pulumi.CustomResource):
 
         super(ApnsSandboxChannel, __self__).__init__(
             'aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

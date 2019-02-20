@@ -28,6 +28,7 @@ import * as utilities from "../utilities";
  *     enableDnsSupport: true,
  * });
  * const example = new aws.route53.Zone("example", {
+ *     name: "example.com",
  *     // NOTE: The aws_route53_zone vpc argument accepts multiple configuration
  *     //       blocks. The below usage of the single vpc configuration, the
  *     //       lifecycle configuration, and the aws_route53_zone_association

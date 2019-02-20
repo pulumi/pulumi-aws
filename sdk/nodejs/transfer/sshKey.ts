@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
  * 	]
  * }
  * `,
+ *     name: "tf-test-transfer-user-iam-role-%s",
  * });
  * const fooServer = new aws.transfer.Server("foo", {
  *     identityProviderType: "SERVICE_MANAGED",
@@ -34,6 +35,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const fooRolePolicy = new aws.iam.RolePolicy("foo", {
+ *     name: "tf-test-transfer-user-iam-policy-%s",
  *     policy: `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [

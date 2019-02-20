@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
  *     enableDeletionProtection: true,
  *     internal: false,
  *     loadBalancerType: "application",
+ *     name: "test-lb-tf",
  *     securityGroups: [aws_security_group_lb_sg.id],
  *     subnets: [aws_subnet_public.map(v => v.id)],
  *     tags: {
@@ -44,6 +45,7 @@ import * as utilities from "../utilities";
  *     enableDeletionProtection: true,
  *     internal: false,
  *     loadBalancerType: "network",
+ *     name: "test-lb-tf",
  *     subnets: [aws_subnet_public.map(v => v.id)],
  *     tags: {
  *         Environment: "production",
@@ -59,6 +61,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.elasticloadbalancingv2.LoadBalancer("example", {
  *     loadBalancerType: "network",
+ *     name: "example",
  *     subnetMappings: [
  *         {
  *             allocationId: aws_eip_example1.id,

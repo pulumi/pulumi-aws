@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *     bgpAsn: 65352,
  *     connectionId: "dxcon-zzzzzzzz",
  *     customerAddress: "175.45.176.1/30",
+ *     name: "vif-foo",
  *     routeFilterPrefixes: [
  *         "210.52.109.0/24",
  *         "175.45.176.0/22",

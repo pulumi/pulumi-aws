@@ -142,6 +142,7 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ *     name: "iam_emr_profile_role",
  * });
  * // IAM role for EMR Service
  * const iamEmrServiceRole = new aws.iam.Role("iam_emr_service_role", {
@@ -159,6 +160,7 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ *     name: "iam_emr_service_role",
  * });
  * const mainVpc = new aws.ec2.Vpc("main", {
  *     cidrBlock: "168.31.0.0/16",
@@ -168,6 +170,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const emrProfile = new aws.iam.InstanceProfile("emr_profile", {
+ *     name: "emr_profile",
  *     roles: [iamEmrProfileRole.name],
  * });
  * const mainSubnet = new aws.ec2.Subnet("main", {
@@ -191,6 +194,7 @@ import * as utilities from "../utilities";
  *         protocol: "-1",
  *         toPort: 0,
  *     }],
+ *     name: "allow_all",
  *     tags: {
  *         name: "emr_test",
  *     },
@@ -242,6 +246,7 @@ import * as utilities from "../utilities";
  *         subnetId: mainSubnet.id,
  *     },
  *     masterInstanceType: "m5.xlarge",
+ *     name: "emr-test-arn",
  *     releaseLabel: "emr-4.6.0",
  *     serviceRole: iamEmrServiceRole.arn,
  *     tags: {
@@ -252,6 +257,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const iamEmrProfilePolicy = new aws.iam.RolePolicy("iam_emr_profile_policy", {
+ *     name: "iam_emr_profile_policy",
  *     policy: `{
  *     "Version": "2012-10-17",
  *     "Statement": [{
@@ -287,6 +293,7 @@ import * as utilities from "../utilities";
  *     role: iamEmrProfileRole.id,
  * });
  * const iamEmrServicePolicy = new aws.iam.RolePolicy("iam_emr_service_policy", {
+ *     name: "iam_emr_service_policy",
  *     policy: `{
  *     "Version": "2012-10-17",
  *     "Statement": [{

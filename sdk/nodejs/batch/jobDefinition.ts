@@ -46,6 +46,7 @@ import * as utilities from "../utilities";
  *     ]
  * }
  * `,
+ *     name: "tf_test_batch_job_definition",
  *     type: "container",
  * });
  * ```

@@ -25,9 +25,13 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ *     name: "myrole",
  * });
- * const mytopic = new aws.sns.Topic("mytopic", {});
+ * const mytopic = new aws.sns.Topic("mytopic", {
+ *     name: "mytopic",
+ * });
  * const iamPolicyForLambda = new aws.iam.RolePolicy("iam_policy_for_lambda", {
+ *     name: "mypolicy",
  *     policy: mytopic.arn.apply(arn => `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -46,6 +50,7 @@ import * as utilities from "../utilities";
  * const rule = new aws.iot.TopicRule("rule", {
  *     description: "Example rule",
  *     enabled: true,
+ *     name: "MyRule",
  *     sns: {
  *         messageFormat: "RAW",
  *         roleArn: role.arn,

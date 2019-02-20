@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const filter = new aws.ses.ReceiptFilter("filter", {
  *     cidr: "10.10.10.10",
+ *     name: "block-spammer",
  *     policy: "Block",
  * });
  * ```

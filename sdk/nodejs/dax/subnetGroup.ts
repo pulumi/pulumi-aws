@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = new aws.dax.SubnetGroup("example", {
+ *     name: "example",
  *     subnetIds: [
  *         aws_subnet_example1.id,
  *         aws_subnet_example2.id,

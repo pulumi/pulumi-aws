@@ -32,6 +32,7 @@ import * as utilities from "../utilities";
  *     vpcId: fooVpc.id,
  * });
  * const bar = new aws.elasticache.SubnetGroup("bar", {
+ *     name: "tf-test-cache-subnet",
  *     subnetIds: [fooSubnet.id],
  * });
  * ```

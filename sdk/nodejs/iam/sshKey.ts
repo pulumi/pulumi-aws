@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const userUser = new aws.iam.User("user", {
+ *     name: "test-user",
  *     path: "/",
  * });
  * const userSshKey = new aws.iam.SshKey("user", {

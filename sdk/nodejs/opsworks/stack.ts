@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  *     defaultInstanceProfileArn: aws_iam_instance_profile_opsworks.arn,
+ *     name: "awesome-stack",
  *     region: "us-west-1",
  *     serviceRoleArn: aws_iam_role_opsworks.arn,
  *     tags: {

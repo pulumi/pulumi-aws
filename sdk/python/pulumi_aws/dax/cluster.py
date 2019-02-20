@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -99,12 +98,12 @@ class Cluster(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource
     """
-    def __init__(__self__, resource_name, opts=None, availability_zones=None, cluster_name=None, description=None, iam_role_arn=None, maintenance_window=None, node_type=None, notification_topic_arn=None, parameter_group_name=None, replication_factor=None, security_group_ids=None, server_side_encryption=None, subnet_group_name=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, availability_zones=None, cluster_name=None, description=None, iam_role_arn=None, maintenance_window=None, node_type=None, notification_topic_arn=None, parameter_group_name=None, replication_factor=None, security_group_ids=None, server_side_encryption=None, subnet_group_name=None, tags=None):
         """
         Provides a DAX Cluster resource.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] availability_zones: List of Availability Zones in which the
                nodes will be created
         :param pulumi.Input[str] cluster_name: Group identifier. DAX converts this name to
@@ -134,36 +133,30 @@ class Cluster(pulumi.CustomResource):
                cluster
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['availability_zones'] = availability_zones
 
-        if cluster_name is None:
+        if not cluster_name:
             raise TypeError('Missing required property cluster_name')
         __props__['cluster_name'] = cluster_name
 
         __props__['description'] = description
 
-        if iam_role_arn is None:
+        if not iam_role_arn:
             raise TypeError('Missing required property iam_role_arn')
         __props__['iam_role_arn'] = iam_role_arn
 
         __props__['maintenance_window'] = maintenance_window
 
-        if node_type is None:
+        if not node_type:
             raise TypeError('Missing required property node_type')
         __props__['node_type'] = node_type
 
@@ -171,7 +164,7 @@ class Cluster(pulumi.CustomResource):
 
         __props__['parameter_group_name'] = parameter_group_name
 
-        if replication_factor is None:
+        if not replication_factor:
             raise TypeError('Missing required property replication_factor')
         __props__['replication_factor'] = replication_factor
 
@@ -191,9 +184,9 @@ class Cluster(pulumi.CustomResource):
 
         super(Cluster, __self__).__init__(
             'aws:dax/cluster:Cluster',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

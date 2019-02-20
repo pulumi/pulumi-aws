@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -55,12 +54,12 @@ class Authorizer(pulumi.CustomResource):
     The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool.
     Defaults to `TOKEN`.
     """
-    def __init__(__self__, resource_name, opts=None, authorizer_credentials=None, authorizer_result_ttl_in_seconds=None, authorizer_uri=None, identity_source=None, identity_validation_expression=None, name=None, provider_arns=None, rest_api=None, type=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, authorizer_credentials=None, authorizer_result_ttl_in_seconds=None, authorizer_uri=None, identity_source=None, identity_validation_expression=None, name=None, provider_arns=None, rest_api=None, type=None):
         """
         Provides an API Gateway Authorizer.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] authorizer_credentials: The credentials required for the authorizer.
                To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
         :param pulumi.Input[int] authorizer_result_ttl_in_seconds: The TTL of cached authorizer results in seconds.
@@ -81,17 +80,11 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool.
                Defaults to `TOKEN`.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -110,7 +103,7 @@ class Authorizer(pulumi.CustomResource):
 
         __props__['provider_arns'] = provider_arns
 
-        if rest_api is None:
+        if not rest_api:
             raise TypeError('Missing required property rest_api')
         __props__['rest_api'] = rest_api
 
@@ -118,9 +111,9 @@ class Authorizer(pulumi.CustomResource):
 
         super(Authorizer, __self__).__init__(
             'aws:apigateway/authorizer:Authorizer',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

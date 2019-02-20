@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -45,12 +44,12 @@ class Parameter(pulumi.CustomResource):
     """
     The value of the parameter.
     """
-    def __init__(__self__, resource_name, opts=None, allowed_pattern=None, arn=None, description=None, key_id=None, name=None, overwrite=None, tags=None, type=None, value=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, allowed_pattern=None, arn=None, description=None, key_id=None, name=None, overwrite=None, tags=None, type=None, value=None):
         """
         Provides an SSM Parameter resource.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] allowed_pattern: A regular expression used to validate the parameter value.
         :param pulumi.Input[str] arn: The ARN of the parameter.
         :param pulumi.Input[str] description: The description of the parameter.
@@ -61,17 +60,11 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
         :param pulumi.Input[str] value: The value of the parameter.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -90,19 +83,19 @@ class Parameter(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
-        if type is None:
+        if not type:
             raise TypeError('Missing required property type')
         __props__['type'] = type
 
-        if value is None:
+        if not value:
             raise TypeError('Missing required property value')
         __props__['value'] = value
 
         super(Parameter, __self__).__init__(
             'aws:ssm/parameter:Parameter',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const exampleGraphQLApi = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "API_KEY",
+ *     name: "example",
  * });
  * const exampleApiKey = new aws.appsync.ApiKey("example", {
  *     apiId: exampleGraphQLApi.id,

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const sqlInjectionMatchSet = new aws.waf.SqlInjectionMatchSet("sql_injection_match_set", {
+ *     name: "tf-sql_injection_match_set",
  *     sqlInjectionMatchTuples: [{
  *         fieldToMatch: {
  *             type: "QUERY_STRING",

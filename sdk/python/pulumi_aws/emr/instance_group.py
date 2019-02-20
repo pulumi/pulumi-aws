@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -35,7 +34,7 @@ class InstanceGroup(pulumi.CustomResource):
     """
     running_instance_count: pulumi.Output[int]
     status: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, cluster_id=None, ebs_configs=None, ebs_optimized=None, instance_count=None, instance_type=None, name=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, cluster_id=None, ebs_configs=None, ebs_optimized=None, instance_count=None, instance_type=None, name=None):
         """
         Provides an Elastic MapReduce Cluster Instance Group configuration.
         See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
@@ -44,8 +43,8 @@ class InstanceGroup(pulumi.CustomResource):
         web interface. Instance Groups are destroyed when the EMR Cluster is destroyed.
         Terraform will resize any Instance Group to zero when destroying the resource.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[list] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
@@ -53,22 +52,16 @@ class InstanceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Human friendly name given to the instance group. Changing this forces a new resource to be created.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if cluster_id is None:
+        if not cluster_id:
             raise TypeError('Missing required property cluster_id')
         __props__['cluster_id'] = cluster_id
 
@@ -78,7 +71,7 @@ class InstanceGroup(pulumi.CustomResource):
 
         __props__['instance_count'] = instance_count
 
-        if instance_type is None:
+        if not instance_type:
             raise TypeError('Missing required property instance_type')
         __props__['instance_type'] = instance_type
 
@@ -89,9 +82,9 @@ class InstanceGroup(pulumi.CustomResource):
 
         super(InstanceGroup, __self__).__init__(
             'aws:emr/instanceGroup:InstanceGroup',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

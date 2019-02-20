@@ -44,6 +44,7 @@ import * as utilities from "../utilities";
  *         writeCapacity: 10,
  *     }],
  *     hashKey: "UserId",
+ *     name: "GameScores",
  *     rangeKey: "GameTitle",
  *     readCapacity: 20,
  *     tags: {

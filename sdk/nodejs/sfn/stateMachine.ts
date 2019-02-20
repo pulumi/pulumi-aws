@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
  *   }
  * }
  * `),
+ *     name: "my-state-machine",
  *     roleArn: aws_iam_role_iam_for_sfn.arn,
  * });
  * ```

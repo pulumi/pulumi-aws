@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const foo = new aws.inspector.AssessmentTarget("foo", {
+ *     name: "assessment target",
  *     resourceGroupArn: bar.arn,
  * });
  * ```

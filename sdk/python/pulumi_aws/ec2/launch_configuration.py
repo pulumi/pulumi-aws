@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -93,7 +92,7 @@ class LaunchConfiguration(pulumi.CustomResource):
     """
     The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
     """
-    def __init__(__self__, resource_name, opts=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, image_id=None, instance_type=None, key_name=None, name=None, name_prefix=None, placement_tenancy=None, root_block_device=None, security_groups=None, spot_price=None, user_data=None, user_data_base64=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, image_id=None, instance_type=None, key_name=None, name=None, name_prefix=None, placement_tenancy=None, root_block_device=None, security_groups=None, spot_price=None, user_data=None, user_data_base64=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None):
         """
         Provides a resource to create a new launch configuration, used for autoscaling groups.
         
@@ -152,8 +151,8 @@ class LaunchConfiguration(pulumi.CustomResource):
         configuration, resource recreation can be manually triggered by using the
         [`taint` command](https://www.terraform.io/docs/commands/taint.html).
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
         :param pulumi.Input[list] ebs_block_devices: Additional EBS block devices to attach to the
                instance.  See Block Devices below for details.
@@ -182,17 +181,11 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] vpc_classic_link_id: The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
         :param pulumi.Input[list] vpc_classic_link_security_groups: The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -209,11 +202,11 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         __props__['iam_instance_profile'] = iam_instance_profile
 
-        if image_id is None:
+        if not image_id:
             raise TypeError('Missing required property image_id')
         __props__['image_id'] = image_id
 
-        if instance_type is None:
+        if not instance_type:
             raise TypeError('Missing required property instance_type')
         __props__['instance_type'] = instance_type
 
@@ -241,9 +234,9 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         super(LaunchConfiguration, __self__).__init__(
             'aws:ec2/launchConfiguration:LaunchConfiguration',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

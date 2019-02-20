@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const exampleRule = new aws.waf.Rule("example", {
  *     metricName: "example",
+ *     name: "example",
  * });
  * const exampleRuleGroup = new aws.waf.RuleGroup("example", {
  *     activatedRules: [{
@@ -25,6 +26,7 @@ import * as utilities from "../utilities";
  *         ruleId: exampleRule.id,
  *     }],
  *     metricName: "example",
+ *     name: "example",
  * });
  * ```
  */

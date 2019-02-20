@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = new aws.eks.Cluster("example", {
+ *     name: "example",
  *     roleArn: aws_iam_role_example.arn,
  *     vpcConfig: {
  *         subnetIds: [

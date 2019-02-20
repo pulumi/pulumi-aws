@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * 
  * const exampleLicenseConfiguration = new aws.licensemanager.LicenseConfiguration("example", {
  *     licenseCountingType: "Instance",
+ *     name: "Example",
  * });
  * const exampleAmi = pulumi.output(aws.getAmi({
  *     filters: [

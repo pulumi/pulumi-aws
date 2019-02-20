@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -41,12 +40,12 @@ class Server(pulumi.CustomResource):
     """
     - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
     """
-    def __init__(__self__, resource_name, opts=None, force_destroy=None, identity_provider_type=None, invocation_role=None, logging_role=None, tags=None, url=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, force_destroy=None, identity_provider_type=None, invocation_role=None, logging_role=None, tags=None, url=None):
         """
         Provides a AWS Transfer Server resource.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
         :param pulumi.Input[str] identity_provider_type: The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
         :param pulumi.Input[str] invocation_role: Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
@@ -54,17 +53,11 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] url: - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -86,9 +79,9 @@ class Server(pulumi.CustomResource):
 
         super(Server, __self__).__init__(
             'aws:transfer/server:Server',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

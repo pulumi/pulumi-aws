@@ -3,7 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
-import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -43,7 +42,7 @@ class JobDefinition(pulumi.CustomResource):
     """
     The type of job definition.  Must be `container`
     """
-    def __init__(__self__, resource_name, opts=None, container_properties=None, name=None, parameters=None, retry_strategy=None, timeout=None, type=None, __name__=None, __opts__=None):
+    def __init__(__self__, __name__, __opts__=None, container_properties=None, name=None, parameters=None, retry_strategy=None, timeout=None, type=None):
         """
         Provides a Batch Job Definition resource.
         
@@ -59,8 +58,8 @@ class JobDefinition(pulumi.CustomResource):
         
         * `attempt_duration_seconds` - (Optional) The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
         
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param str __name__: The name of the resource.
+        :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] container_properties: A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
                provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
         :param pulumi.Input[str] name: Specifies the name of the job definition.
@@ -70,17 +69,11 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[dict] timeout: Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         :param pulumi.Input[str] type: The type of job definition.  Must be `container`
         """
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
-        if not resource_name:
+        if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
+        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -95,7 +88,7 @@ class JobDefinition(pulumi.CustomResource):
 
         __props__['timeout'] = timeout
 
-        if type is None:
+        if not type:
             raise TypeError('Missing required property type')
         __props__['type'] = type
 
@@ -104,9 +97,9 @@ class JobDefinition(pulumi.CustomResource):
 
         super(JobDefinition, __self__).__init__(
             'aws:batch/jobDefinition:JobDefinition',
-            resource_name,
+            __name__,
             __props__,
-            opts)
+            __opts__)
 
 
     def translate_output_property(self, prop):

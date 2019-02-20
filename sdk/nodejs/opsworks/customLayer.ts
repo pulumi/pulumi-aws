@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const custlayer = new aws.opsworks.CustomLayer("custlayer", {
+ *     name: "My Awesome Custom Layer",
  *     shortName: "awesome",
  *     stackId: aws_opsworks_stack_main.id,
  * });

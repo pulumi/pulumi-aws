@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const serviceb = new aws.appmesh.Route("serviceb", {
  *     meshName: "simpleapp",
+ *     name: "serviceB-route",
  *     spec: {
  *         httpRoute: {
  *             action: {

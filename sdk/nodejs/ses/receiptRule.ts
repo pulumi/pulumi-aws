@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *         headerValue: "Added by SES",
  *     }],
  *     enabled: true,
+ *     name: "store",
  *     recipients: ["karen@example.com"],
  *     ruleSetName: "default-rule-set",
  *     s3Actions: [{

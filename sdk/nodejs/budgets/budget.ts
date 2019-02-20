@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *     },
  *     limitAmount: "1200",
  *     limitUnit: "USD",
+ *     name: "budget-ec2-monthly",
  *     timePeriodEnd: "2087-06-15_00:00",
  *     timePeriodStart: "2017-07-01_00:00",
  *     timeUnit: "MONTHLY",
