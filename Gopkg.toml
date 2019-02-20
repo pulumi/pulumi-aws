@@ -3,7 +3,8 @@
   name = "github.com/pulumi/pulumi"
 
 [[constraint]]
-  branch = "master"
+  branch = "hausdorff/wip-list"
+  # branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
 
 [[constraint]]
