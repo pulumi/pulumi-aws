@@ -6,6 +6,7 @@
 
 - Updated to the v1.58.0 version of the AWS Terraform Provider.
 
+
 - Examples in the documentation comments for the Node.js SDK have improved formatting.
 
 - Support for the `deleteBeforeReplace` resource option and improved
