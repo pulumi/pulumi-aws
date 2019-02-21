@@ -89,6 +89,10 @@ class UserPool(pulumi.CustomResource):
     """
     A mapping of tags to assign to the User Pool.
     """
+    user_pool_add_ons: pulumi.Output[dict]
+    """
+    Configuration block for user pool add-ons to enable user pool advanced security mode features.
+    """
     username_attributes: pulumi.Output[list]
     """
     Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
@@ -97,7 +101,7 @@ class UserPool(pulumi.CustomResource):
     """
     The verification message templates configuration.
     """
-    def __init__(__self__, resource_name, opts=None, admin_create_user_config=None, alias_attributes=None, auto_verified_attributes=None, device_configuration=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, lambda_config=None, mfa_configuration=None, name=None, password_policy=None, schemas=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, tags=None, username_attributes=None, verification_message_template=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, admin_create_user_config=None, alias_attributes=None, auto_verified_attributes=None, device_configuration=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, lambda_config=None, mfa_configuration=None, name=None, password_policy=None, schemas=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, tags=None, user_pool_add_ons=None, username_attributes=None, verification_message_template=None, __name__=None, __opts__=None):
         """
         Provides a Cognito User Pool resource.
         
@@ -119,6 +123,7 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[dict] sms_configuration: The SMS Configuration.
         :param pulumi.Input[str] sms_verification_message: A string representing the SMS verification message.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the User Pool.
+        :param pulumi.Input[dict] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features.
         :param pulumi.Input[list] username_attributes: Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
         :param pulumi.Input[dict] verification_message_template: The verification message templates configuration.
         """
@@ -168,6 +173,8 @@ class UserPool(pulumi.CustomResource):
         __props__['sms_verification_message'] = sms_verification_message
 
         __props__['tags'] = tags
+
+        __props__['user_pool_add_ons'] = user_pool_add_ons
 
         __props__['username_attributes'] = username_attributes
 

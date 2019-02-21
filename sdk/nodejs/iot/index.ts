@@ -6,6 +6,7 @@ export * from "./certificate";
 export * from "./getEndpoint";
 export * from "./policy";
 export * from "./policyAttachment";
+export * from "./roleAlias";
 export * from "./thing";
 export * from "./thingPrincipalAttachment";
 export * from "./thingType";

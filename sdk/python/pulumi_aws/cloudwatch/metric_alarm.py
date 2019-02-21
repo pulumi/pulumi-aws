@@ -39,7 +39,7 @@ class MetricAlarm(pulumi.CustomResource):
     """
     dimensions: pulumi.Output[dict]
     """
-    The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+    The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
     """
     evaluate_low_sample_count_percentiles: pulumi.Output[str]
     """
@@ -64,12 +64,16 @@ class MetricAlarm(pulumi.CustomResource):
     """
     metric_name: pulumi.Output[str]
     """
-    The name for the alarm's associated metric.
+    The name for this metric.
     See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+    """
+    metric_queries: pulumi.Output[list]
+    """
+    Enables you to create an alarm based on a metric math expression. You may specify at most 20.
     """
     namespace: pulumi.Output[str]
     """
-    The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+    The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
     See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
     """
     ok_actions: pulumi.Output[list]
@@ -78,7 +82,7 @@ class MetricAlarm(pulumi.CustomResource):
     """
     period: pulumi.Output[int]
     """
-    The period in seconds over which the specified `statistic` is applied.
+    The period in seconds over which the specified `stat` is applied.
     """
     statistic: pulumi.Output[str]
     """
@@ -95,9 +99,9 @@ class MetricAlarm(pulumi.CustomResource):
     """
     unit: pulumi.Output[str]
     """
-    The unit for the alarm's associated metric.
+    The unit for this metric.
     """
-    def __init__(__self__, resource_name, opts=None, actions_enabled=None, alarm_actions=None, alarm_description=None, name=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentiles=None, evaluation_periods=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, namespace=None, ok_actions=None, period=None, statistic=None, threshold=None, treat_missing_data=None, unit=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, actions_enabled=None, alarm_actions=None, alarm_description=None, name=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentiles=None, evaluation_periods=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, metric_queries=None, namespace=None, ok_actions=None, period=None, statistic=None, threshold=None, treat_missing_data=None, unit=None, __name__=None, __opts__=None):
         """
         Provides a CloudWatch Metric Alarm resource.
         
@@ -109,7 +113,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[str] name: The descriptive name for the alarm. This name must be unique within the user's AWS account
         :param pulumi.Input[str] comparison_operator: The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`.
         :param pulumi.Input[int] datapoints_to_alarm: The number of datapoints that must be breaching to trigger the alarm.
-        :param pulumi.Input[dict] dimensions: The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+        :param pulumi.Input[dict] dimensions: The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[str] evaluate_low_sample_count_percentiles: Used only for alarms
                based on percentiles. If you specify `ignore`, the alarm state will not
                change during periods with too few data points to be statistically significant.
@@ -119,17 +123,18 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[int] evaluation_periods: The number of periods over which data is compared to the specified threshold.
         :param pulumi.Input[str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
         :param pulumi.Input[list] insufficient_data_actions: The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Number (ARN).
-        :param pulumi.Input[str] metric_name: The name for the alarm's associated metric.
+        :param pulumi.Input[str] metric_name: The name for this metric.
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[str] namespace: The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+        :param pulumi.Input[list] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
+        :param pulumi.Input[str] namespace: The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[list] ok_actions: The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Number (ARN).
-        :param pulumi.Input[int] period: The period in seconds over which the specified `statistic` is applied.
+        :param pulumi.Input[int] period: The period in seconds over which the specified `stat` is applied.
         :param pulumi.Input[str] statistic: The statistic to apply to the alarm's associated metric.
                Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         :param pulumi.Input[float] threshold: The value against which the specified statistic is compared.
         :param pulumi.Input[str] treat_missing_data: Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
-        :param pulumi.Input[str] unit: The unit for the alarm's associated metric.
+        :param pulumi.Input[str] unit: The unit for this metric.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -172,18 +177,14 @@ class MetricAlarm(pulumi.CustomResource):
 
         __props__['insufficient_data_actions'] = insufficient_data_actions
 
-        if metric_name is None:
-            raise TypeError('Missing required property metric_name')
         __props__['metric_name'] = metric_name
 
-        if namespace is None:
-            raise TypeError('Missing required property namespace')
+        __props__['metric_queries'] = metric_queries
+
         __props__['namespace'] = namespace
 
         __props__['ok_actions'] = ok_actions
 
-        if period is None:
-            raise TypeError('Missing required property period')
         __props__['period'] = period
 
         __props__['statistic'] = statistic

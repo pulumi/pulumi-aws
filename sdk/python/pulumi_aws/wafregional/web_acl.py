@@ -9,9 +9,17 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class WebAcl(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN) of the WAF Regional WebACL.
+    """
     default_action: pulumi.Output[dict]
     """
     The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
+    """
+    logging_configuration: pulumi.Output[dict]
+    """
+    Configuration block to enable WAF logging. Detailed below.
     """
     metric_name: pulumi.Output[str]
     """
@@ -23,40 +31,19 @@ class WebAcl(pulumi.CustomResource):
     """
     rules: pulumi.Output[list]
     """
-    The rules to associate with the web ACL and the settings for each rule.
+    Set of configuration blocks containing rules for the web ACL. Detailed below.
     """
-    def __init__(__self__, resource_name, opts=None, default_action=None, metric_name=None, name=None, rules=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, default_action=None, logging_configuration=None, metric_name=None, name=None, rules=None, __name__=None, __opts__=None):
         """
         Provides a WAF Regional Web ACL Resource for use with Application Load Balancer.
-        
-        ## Nested Fields
-        
-        ### `rule`
-        
-        See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_ActivatedRule.html) for all details and supported values.
-        
-        #### Arguments
-        
-        * `action` - (Required) The action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`.
-        * `override_action` - (Required) Override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`.
-        * `priority` - (Required) Specifies the order in which the rules in a WebACL are evaluated.
-          Rules with a lower value are evaluated before rules with a higher value.
-        * `rule_id` - (Required) ID of the associated WAF (Regional) rule (e.g. [`aws_wafregional_rule`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)). WAF (Global) rules cannot be used.
-        * `type` - (Optional) The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-        
-        ### `default_action` / `action`
-        
-        #### Arguments
-        
-        * `type` - (Required) Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule.
-          e.g. `ALLOW`, `BLOCK` or `COUNT`
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] default_action: The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
+        :param pulumi.Input[dict] logging_configuration: Configuration block to enable WAF logging. Detailed below.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
         :param pulumi.Input[str] name: The name or description of the web ACL.
-        :param pulumi.Input[list] rules: The rules to associate with the web ACL and the settings for each rule.
+        :param pulumi.Input[list] rules: Set of configuration blocks containing rules for the web ACL. Detailed below.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -77,6 +64,8 @@ class WebAcl(pulumi.CustomResource):
             raise TypeError('Missing required property default_action')
         __props__['default_action'] = default_action
 
+        __props__['logging_configuration'] = logging_configuration
+
         if metric_name is None:
             raise TypeError('Missing required property metric_name')
         __props__['metric_name'] = metric_name
@@ -84,6 +73,8 @@ class WebAcl(pulumi.CustomResource):
         __props__['name'] = name
 
         __props__['rules'] = rules
+
+        __props__['arn'] = None
 
         super(WebAcl, __self__).__init__(
             'aws:wafregional/webAcl:WebAcl',

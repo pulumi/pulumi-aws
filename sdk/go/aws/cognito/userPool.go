@@ -33,6 +33,7 @@ func NewUserPool(ctx *pulumi.Context,
 		inputs["smsConfiguration"] = nil
 		inputs["smsVerificationMessage"] = nil
 		inputs["tags"] = nil
+		inputs["userPoolAddOns"] = nil
 		inputs["usernameAttributes"] = nil
 		inputs["verificationMessageTemplate"] = nil
 	} else {
@@ -52,6 +53,7 @@ func NewUserPool(ctx *pulumi.Context,
 		inputs["smsConfiguration"] = args.SmsConfiguration
 		inputs["smsVerificationMessage"] = args.SmsVerificationMessage
 		inputs["tags"] = args.Tags
+		inputs["userPoolAddOns"] = args.UserPoolAddOns
 		inputs["usernameAttributes"] = args.UsernameAttributes
 		inputs["verificationMessageTemplate"] = args.VerificationMessageTemplate
 	}
@@ -92,6 +94,7 @@ func GetUserPool(ctx *pulumi.Context,
 		inputs["smsConfiguration"] = state.SmsConfiguration
 		inputs["smsVerificationMessage"] = state.SmsVerificationMessage
 		inputs["tags"] = state.Tags
+		inputs["userPoolAddOns"] = state.UserPoolAddOns
 		inputs["usernameAttributes"] = state.UsernameAttributes
 		inputs["verificationMessageTemplate"] = state.VerificationMessageTemplate
 	}
@@ -212,6 +215,11 @@ func (r *UserPool) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
+// Configuration block for user pool add-ons to enable user pool advanced security mode features.
+func (r *UserPool) UserPoolAddOns() *pulumi.Output {
+	return r.s.State["userPoolAddOns"]
+}
+
 // Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
 func (r *UserPool) UsernameAttributes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["usernameAttributes"])
@@ -264,6 +272,8 @@ type UserPoolState struct {
 	SmsVerificationMessage interface{}
 	// A mapping of tags to assign to the User Pool.
 	Tags interface{}
+	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
+	UserPoolAddOns interface{}
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
 	UsernameAttributes interface{}
 	// The verification message templates configuration.
@@ -304,6 +314,8 @@ type UserPoolArgs struct {
 	SmsVerificationMessage interface{}
 	// A mapping of tags to assign to the User Pool.
 	Tags interface{}
+	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
+	UserPoolAddOns interface{}
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
 	UsernameAttributes interface{}
 	// The verification message templates configuration.

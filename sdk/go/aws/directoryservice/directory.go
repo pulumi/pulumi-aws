@@ -144,7 +144,7 @@ func (r *Directory) Password() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["password"])
 }
 
-// The ID of the security group created by the directory (`SimpleAD` or `MicrosoftAD` only).
+// The ID of the security group created by the directory.
 func (r *Directory) SecurityGroupId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["securityGroupId"])
 }
@@ -194,7 +194,7 @@ type DirectoryState struct {
 	Name interface{}
 	// The password for the directory administrator or connector user.
 	Password interface{}
-	// The ID of the security group created by the directory (`SimpleAD` or `MicrosoftAD` only).
+	// The ID of the security group created by the directory.
 	SecurityGroupId interface{}
 	// The short name of the directory, such as `CORP`.
 	ShortName interface{}

@@ -6,6 +6,7 @@
 from .certificate import *
 from .policy import *
 from .policy_attachment import *
+from .role_alias import *
 from .thing import *
 from .thing_principal_attachment import *
 from .thing_type import *

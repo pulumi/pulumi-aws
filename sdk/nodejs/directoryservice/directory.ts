@@ -168,7 +168,7 @@ export class Directory extends pulumi.CustomResource {
      */
     public readonly password: pulumi.Output<string>;
     /**
-     * The ID of the security group created by the directory (`SimpleAD` or `MicrosoftAD` only).
+     * The ID of the security group created by the directory.
      */
     public /*out*/ readonly securityGroupId: pulumi.Output<string>;
     /**
@@ -285,7 +285,7 @@ export interface DirectoryState {
      */
     readonly password?: pulumi.Input<string>;
     /**
-     * The ID of the security group created by the directory (`SimpleAD` or `MicrosoftAD` only).
+     * The ID of the security group created by the directory.
      */
     readonly securityGroupId?: pulumi.Input<string>;
     /**

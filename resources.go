@@ -56,6 +56,7 @@ const (
 	codedeployMod        = "codedeploy"               // Code Deploy
 	codepipelineMod      = "codepipeline"             // Code Pipeline
 	cognitoMod           = "cognito"                  // Cognito
+	curMod               = "cur"                      // Cost and Usage Report
 	cfgMod               = "cfg"                      // Resource Config
 	datasyncMod          = "datasync"                 // DataSync
 	dlmMod               = "dlm"                      // Data Lifecycle Manager
@@ -574,6 +575,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_config_configuration_recorder":        {Tok: awsResource(cfgMod, "Recorder")},
 			"aws_config_configuration_recorder_status": {Tok: awsResource(cfgMod, "RecorderStatus")},
 			"aws_config_delivery_channel":              {Tok: awsResource(cfgMod, "DeliveryChannel")},
+			// Cost and Usage Report
+			"aws_cur_report_definition": {Tok: awsResource(curMod, "ReportDefinition")},
 			// DataSync
 			"aws_datasync_agent": {Tok: awsResource(datasyncMod, "Agent")},
 			"aws_datasync_location_efs": {
@@ -616,6 +619,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_directory_service_directory":             {Tok: awsResource(directoryserviceMod, "Directory")},
 			// Document DB
 			"aws_docdb_cluster":                 {Tok: awsResource(docdbMod, "Cluster")},
+			"aws_docdb_cluster_instance":        {Tok: awsResource(docdbMod, "ClusterInstance")},
 			"aws_docdb_cluster_parameter_group": {Tok: awsResource(docdbMod, "ClusterParameterGroup")},
 			"aws_docdb_cluster_snapshot":        {Tok: awsResource(docdbMod, "ClusterSnapshot")},
 			"aws_docdb_subnet_group":            {Tok: awsResource(docdbMod, "SubnetGroup")},
@@ -1215,7 +1219,8 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_iot_thing": {Tok: awsResource(iotMod, "Thing")},
+			"aws_iot_role_alias": {Tok: awsResource(iotMod, "RoleAlias")},
+			"aws_iot_thing":      {Tok: awsResource(iotMod, "Thing")},
 			"aws_iot_thing_principal_attachment": {
 				Tok: awsResource(iotMod, "ThingPrincipalAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1355,7 +1360,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_pinpoint_gcm_channel":               {Tok: awsResource(pinpointMod, "GcmChannel")},
 			"aws_pinpoint_sms_channel":               {Tok: awsResource(pinpointMod, "SmsChannel")},
 			// Resource Access Manager
-			"aws_ram_resource_share": {Tok: awsResource(ramMod, "ResourceShare")},
+			"aws_ram_resource_share":        {Tok: awsResource(ramMod, "ResourceShare")},
+			"aws_ram_principal_association": {Tok: awsResource(ramMod, "PrincipalAssociation")},
+			"aws_ram_resource_association":  {Tok: awsResource(ramMod, "ResourceAssociation")},
 			// Relational Database Service (RDS)
 			"aws_rds_cluster":          {Tok: awsResource(rdsMod, "Cluster")},
 			"aws_rds_cluster_endpoint": {Tok: awsResource(rdsMod, "ClusterEndpoint")},
@@ -1655,6 +1662,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_billing_service_account": {Tok: awsDataSource(awsMod, "getBillingServiceAccount")},
 			"aws_caller_identity":         {Tok: awsDataSource(awsMod, "getCallerIdentity")},
 			"aws_canonical_user_id":       {Tok: awsDataSource(awsMod, "getCanonicalUserId")},
+			"aws_cur_report_definition":   {Tok: awsDataSource(curMod, "getReportDefinition")},
 			"aws_eip":                     {Tok: awsDataSource(awsMod, "getElasticIp")},
 			"aws_ip_ranges":               {Tok: awsDataSource(awsMod, "getIpRanges")},
 			"aws_partition":               {Tok: awsDataSource(awsMod, "getPartition")},

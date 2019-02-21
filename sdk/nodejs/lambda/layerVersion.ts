@@ -11,6 +11,22 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** The attribute values for `arn` and `layer_arn` will be swapped in version 2.0.0 of the Terraform AWS Provider.
  * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const lambdaLayer = new aws.lambda.LayerVersion("lambda_layer", {
+ *     compatibleRuntimes: [
+ *         "nodejs8.10",
+ *         "nodejs6.10",
+ *     ],
+ *     filename: "lambda_layer_payload.zip",
+ *     layerName: "lambda_layer_name",
+ * });
+ * ```
+ * 
  * ## Specifying the Deployment Package
  * 
  * AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.
