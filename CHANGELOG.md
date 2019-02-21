@@ -2,6 +2,7 @@
 
 ## 0.16.8 (Released February 11th, 2019)
 
+
 ### Improvements
 
 - Updated to the v1.58.0 version of the AWS Terraform Provider.
