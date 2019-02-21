@@ -36,17 +36,8 @@ export class MysqlLayer extends pulumi.CustomResource {
         return new MysqlLayer(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<MysqlLayerResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:opsworks/mysqlLayer:MysqlLayer',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<MysqlLayerResult> {
+        return ctx.list({...args, type: 'aws:opsworks/mysqlLayer:MysqlLayer'});
     }
 
     /**

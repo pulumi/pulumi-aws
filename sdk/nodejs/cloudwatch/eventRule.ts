@@ -63,17 +63,8 @@ export class EventRule extends pulumi.CustomResource {
         return new EventRule(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<EventRuleResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:cloudwatch/eventRule:EventRule',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<EventRuleResult> {
+        return ctx.list({...args, type: 'aws:cloudwatch/eventRule:EventRule'});
     }
 
     /**

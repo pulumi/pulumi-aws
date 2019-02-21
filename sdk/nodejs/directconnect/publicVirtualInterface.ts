@@ -43,17 +43,8 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
         return new PublicVirtualInterface(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<PublicVirtualInterfaceResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:directconnect/publicVirtualInterface:PublicVirtualInterface',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<PublicVirtualInterfaceResult> {
+        return ctx.list({...args, type: 'aws:directconnect/publicVirtualInterface:PublicVirtualInterface'});
     }
 
     /**

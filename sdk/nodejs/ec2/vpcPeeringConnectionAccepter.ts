@@ -29,17 +29,8 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
         return new VpcPeeringConnectionAccepter(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<VpcPeeringConnectionAccepterResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<VpcPeeringConnectionAccepterResult> {
+        return ctx.list({...args, type: 'aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter'});
     }
 
     /**

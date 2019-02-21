@@ -51,17 +51,8 @@ export class ThreatIntelSet extends pulumi.CustomResource {
         return new ThreatIntelSet(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<ThreatIntelSetResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:guardduty/threatIntelSet:ThreatIntelSet',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<ThreatIntelSetResult> {
+        return ctx.list({...args, type: 'aws:guardduty/threatIntelSet:ThreatIntelSet'});
     }
 
     /**

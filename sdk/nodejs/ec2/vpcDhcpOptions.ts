@@ -67,17 +67,8 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
         return new VpcDhcpOptions(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<VpcDhcpOptionsResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:ec2/vpcDhcpOptions:VpcDhcpOptions',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<VpcDhcpOptionsResult> {
+        return ctx.list({...args, type: 'aws:ec2/vpcDhcpOptions:VpcDhcpOptions'});
     }
 
     /**

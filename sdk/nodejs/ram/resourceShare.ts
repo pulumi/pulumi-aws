@@ -37,17 +37,8 @@ export class ResourceShare extends pulumi.CustomResource {
         return new ResourceShare(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<ResourceShareResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:ram/resourceShare:ResourceShare',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<ResourceShareResult> {
+        return ctx.list({...args, type: 'aws:ram/resourceShare:ResourceShare'});
     }
 
     /**

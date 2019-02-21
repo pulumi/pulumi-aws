@@ -61,17 +61,8 @@ export class WebAcl extends pulumi.CustomResource {
         return new WebAcl(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<WebAclResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:waf/webAcl:WebAcl',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<WebAclResult> {
+        return ctx.list({...args, type: 'aws:waf/webAcl:WebAcl'});
     }
 
     /**

@@ -42,17 +42,8 @@ export class NamedQuery extends pulumi.CustomResource {
         return new NamedQuery(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<NamedQueryResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:athena/namedQuery:NamedQuery',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<NamedQueryResult> {
+        return ctx.list({...args, type: 'aws:athena/namedQuery:NamedQuery'});
     }
 
     /**

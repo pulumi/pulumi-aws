@@ -830,14 +830,14 @@
 
 [[projects]]
   branch = "hausdorff/wip-list"
-  digest = "1:01e3abcaaa4b65d14a87af3770e6fc3ea2a83705241724ef09861f0f5caea44f"
+  digest = "1:950854b73dfe6e65fdb32b094c43049f19ed4a1dab46016d7d4f2133dce62062"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen",
   ]
   pruneopts = ""
-  revision = "0bd641a1990c489991e5ebb51f258d42556b27e3"
+  revision = "2473914eed0283a2bf9b35a6c507a298b5445223"
 
 [[projects]]
   branch = "master"

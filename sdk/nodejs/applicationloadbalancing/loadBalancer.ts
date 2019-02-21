@@ -90,17 +90,8 @@ export class LoadBalancer extends pulumi.CustomResource {
         return new LoadBalancer(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<LoadBalancerResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:applicationloadbalancing/loadBalancer:LoadBalancer',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<LoadBalancerResult> {
+        return ctx.list({...args, type: 'aws:applicationloadbalancing/loadBalancer:LoadBalancer'});
     }
 
     /**

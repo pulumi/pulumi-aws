@@ -63,17 +63,8 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
         return new TargetGroupAttachment(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<TargetGroupAttachmentResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<TargetGroupAttachmentResult> {
+        return ctx.list({...args, type: 'aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment'});
     }
 
     /**

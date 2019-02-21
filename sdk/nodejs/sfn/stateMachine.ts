@@ -46,17 +46,8 @@ export class StateMachine extends pulumi.CustomResource {
         return new StateMachine(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<StateMachineResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:sfn/stateMachine:StateMachine',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<StateMachineResult> {
+        return ctx.list({...args, type: 'aws:sfn/stateMachine:StateMachine'});
     }
 
     /**

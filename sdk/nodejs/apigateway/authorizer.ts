@@ -98,17 +98,8 @@ export class Authorizer extends pulumi.CustomResource {
         return new Authorizer(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<AuthorizerResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:apigateway/authorizer:Authorizer',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<AuthorizerResult> {
+        return ctx.list({...args, type: 'aws:apigateway/authorizer:Authorizer'});
     }
 
     /**

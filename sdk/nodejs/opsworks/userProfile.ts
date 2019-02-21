@@ -34,17 +34,8 @@ export class UserProfile extends pulumi.CustomResource {
         return new UserProfile(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<UserProfileResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:opsworks/userProfile:UserProfile',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<UserProfileResult> {
+        return ctx.list({...args, type: 'aws:opsworks/userProfile:UserProfile'});
     }
 
     /**

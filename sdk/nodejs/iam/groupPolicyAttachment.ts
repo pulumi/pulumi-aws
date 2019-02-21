@@ -47,17 +47,8 @@ export class GroupPolicyAttachment extends pulumi.CustomResource {
         return new GroupPolicyAttachment(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<GroupPolicyAttachmentResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:iam/groupPolicyAttachment:GroupPolicyAttachment',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<GroupPolicyAttachmentResult> {
+        return ctx.list({...args, type: 'aws:iam/groupPolicyAttachment:GroupPolicyAttachment'});
     }
 
     /**

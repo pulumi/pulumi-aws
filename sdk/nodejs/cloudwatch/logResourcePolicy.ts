@@ -75,17 +75,8 @@ export class LogResourcePolicy extends pulumi.CustomResource {
         return new LogResourcePolicy(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<LogResourcePolicyResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:cloudwatch/logResourcePolicy:LogResourcePolicy',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<LogResourcePolicyResult> {
+        return ctx.list({...args, type: 'aws:cloudwatch/logResourcePolicy:LogResourcePolicy'});
     }
 
     /**

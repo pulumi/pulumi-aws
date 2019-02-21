@@ -56,17 +56,8 @@ export class InstanceProfile extends pulumi.CustomResource {
         return new InstanceProfile(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<InstanceProfileResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:iam/instanceProfile:InstanceProfile',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<InstanceProfileResult> {
+        return ctx.list({...args, type: 'aws:iam/instanceProfile:InstanceProfile'});
     }
 
     /**

@@ -33,17 +33,8 @@ export class Activity extends pulumi.CustomResource {
         return new Activity(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<ActivityResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:sfn/activity:Activity',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<ActivityResult> {
+        return ctx.list({...args, type: 'aws:sfn/activity:Activity'});
     }
 
     /**

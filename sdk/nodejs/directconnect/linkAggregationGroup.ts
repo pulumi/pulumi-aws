@@ -37,17 +37,8 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
         return new LinkAggregationGroup(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<LinkAggregationGroupResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:directconnect/linkAggregationGroup:LinkAggregationGroup',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<LinkAggregationGroupResult> {
+        return ctx.list({...args, type: 'aws:directconnect/linkAggregationGroup:LinkAggregationGroup'});
     }
 
     /**

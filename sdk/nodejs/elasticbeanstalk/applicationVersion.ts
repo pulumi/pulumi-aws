@@ -67,17 +67,8 @@ export class ApplicationVersion extends pulumi.CustomResource {
         return new ApplicationVersion(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<ApplicationVersionResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:elasticbeanstalk/applicationVersion:ApplicationVersion',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<ApplicationVersionResult> {
+        return ctx.list({...args, type: 'aws:elasticbeanstalk/applicationVersion:ApplicationVersion'});
     }
 
     /**

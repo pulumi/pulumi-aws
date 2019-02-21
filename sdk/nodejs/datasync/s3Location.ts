@@ -39,17 +39,8 @@ export class S3Location extends pulumi.CustomResource {
         return new S3Location(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<S3LocationResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:datasync/s3Location:S3Location',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<S3LocationResult> {
+        return ctx.list({...args, type: 'aws:datasync/s3Location:S3Location'});
     }
 
     /**

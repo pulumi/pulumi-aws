@@ -35,17 +35,8 @@ export class CustomLayer extends pulumi.CustomResource {
         return new CustomLayer(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<CustomLayerResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:opsworks/customLayer:CustomLayer',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<CustomLayerResult> {
+        return ctx.list({...args, type: 'aws:opsworks/customLayer:CustomLayer'});
     }
 
     /**

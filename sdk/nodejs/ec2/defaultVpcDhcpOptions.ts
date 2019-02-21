@@ -46,17 +46,8 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
         return new DefaultVpcDhcpOptions(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<DefaultVpcDhcpOptionsResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<DefaultVpcDhcpOptionsResult> {
+        return ctx.list({...args, type: 'aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions'});
     }
 
     public /*out*/ readonly domainName: pulumi.Output<string>;

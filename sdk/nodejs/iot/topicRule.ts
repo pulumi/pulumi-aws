@@ -76,17 +76,8 @@ export class TopicRule extends pulumi.CustomResource {
         return new TopicRule(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<TopicRuleResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:iot/topicRule:TopicRule',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<TopicRuleResult> {
+        return ctx.list({...args, type: 'aws:iot/topicRule:TopicRule'});
     }
 
     /**

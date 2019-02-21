@@ -102,17 +102,8 @@ export class BucketObject extends pulumi.CustomResource {
         return new BucketObject(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<BucketObjectResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:s3/bucketObject:BucketObject',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<BucketObjectResult> {
+        return ctx.list({...args, type: 'aws:s3/bucketObject:BucketObject'});
     }
 
     /**

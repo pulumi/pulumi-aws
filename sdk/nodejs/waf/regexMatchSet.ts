@@ -48,17 +48,8 @@ export class RegexMatchSet extends pulumi.CustomResource {
         return new RegexMatchSet(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<RegexMatchSetResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:waf/regexMatchSet:RegexMatchSet',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<RegexMatchSetResult> {
+        return ctx.list({...args, type: 'aws:waf/regexMatchSet:RegexMatchSet'});
     }
 
     /**

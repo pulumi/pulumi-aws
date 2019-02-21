@@ -77,17 +77,8 @@ export class EventSubscription extends pulumi.CustomResource {
         return new EventSubscription(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<EventSubscriptionResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:neptune/eventSubscription:EventSubscription',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<EventSubscriptionResult> {
+        return ctx.list({...args, type: 'aws:neptune/eventSubscription:EventSubscription'});
     }
 
     public /*out*/ readonly arn: pulumi.Output<string>;

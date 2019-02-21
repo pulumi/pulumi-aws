@@ -102,17 +102,8 @@ export class ServerCertificate extends pulumi.CustomResource {
         return new ServerCertificate(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<ServerCertificateResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:iam/serverCertificate:ServerCertificate',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<ServerCertificateResult> {
+        return ctx.list({...args, type: 'aws:iam/serverCertificate:ServerCertificate'});
     }
 
     /**

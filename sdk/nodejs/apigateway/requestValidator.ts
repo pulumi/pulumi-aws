@@ -38,17 +38,8 @@ export class RequestValidator extends pulumi.CustomResource {
         return new RequestValidator(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<RequestValidatorResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:apigateway/requestValidator:RequestValidator',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<RequestValidatorResult> {
+        return ctx.list({...args, type: 'aws:apigateway/requestValidator:RequestValidator'});
     }
 
     /**

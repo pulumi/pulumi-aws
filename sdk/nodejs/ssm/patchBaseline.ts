@@ -106,17 +106,8 @@ export class PatchBaseline extends pulumi.CustomResource {
         return new PatchBaseline(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<PatchBaselineResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:ssm/patchBaseline:PatchBaseline',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<PatchBaselineResult> {
+        return ctx.list({...args, type: 'aws:ssm/patchBaseline:PatchBaseline'});
     }
 
     /**

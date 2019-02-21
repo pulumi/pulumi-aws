@@ -23,17 +23,8 @@ export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource 
         return new HostedPublicVirtualInterfaceAccepter(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<HostedPublicVirtualInterfaceAccepterResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<HostedPublicVirtualInterfaceAccepterResult> {
+        return ctx.list({...args, type: 'aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter'});
     }
 
     /**

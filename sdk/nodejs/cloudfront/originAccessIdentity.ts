@@ -94,17 +94,8 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
         return new OriginAccessIdentity(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<OriginAccessIdentityResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:cloudfront/originAccessIdentity:OriginAccessIdentity',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<OriginAccessIdentityResult> {
+        return ctx.list({...args, type: 'aws:cloudfront/originAccessIdentity:OriginAccessIdentity'});
     }
 
     /**

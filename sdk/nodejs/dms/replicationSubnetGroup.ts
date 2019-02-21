@@ -39,17 +39,8 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
         return new ReplicationSubnetGroup(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<ReplicationSubnetGroupResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:dms/replicationSubnetGroup:ReplicationSubnetGroup',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<ReplicationSubnetGroupResult> {
+        return ctx.list({...args, type: 'aws:dms/replicationSubnetGroup:ReplicationSubnetGroup'});
     }
 
     public /*out*/ readonly replicationSubnetGroupArn: pulumi.Output<string>;

@@ -39,17 +39,8 @@ export class Hsm extends pulumi.CustomResource {
         return new Hsm(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<HsmResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:cloudhsmv2/hsm:Hsm',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<HsmResult> {
+        return ctx.list({...args, type: 'aws:cloudhsmv2/hsm:Hsm'});
     }
 
     /**

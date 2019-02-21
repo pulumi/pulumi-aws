@@ -43,17 +43,8 @@ export class LogMetricFilter extends pulumi.CustomResource {
         return new LogMetricFilter(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<LogMetricFilterResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:cloudwatch/logMetricFilter:LogMetricFilter',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<LogMetricFilterResult> {
+        return ctx.list({...args, type: 'aws:cloudwatch/logMetricFilter:LogMetricFilter'});
     }
 
     /**

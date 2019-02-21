@@ -55,17 +55,8 @@ export class UserPoolClient extends pulumi.CustomResource {
         return new UserPoolClient(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<UserPoolClientResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:cognito/userPoolClient:UserPoolClient',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<UserPoolClientResult> {
+        return ctx.list({...args, type: 'aws:cognito/userPoolClient:UserPoolClient'});
     }
 
     /**

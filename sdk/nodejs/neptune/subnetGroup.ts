@@ -40,17 +40,8 @@ export class SubnetGroup extends pulumi.CustomResource {
         return new SubnetGroup(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<SubnetGroupResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:neptune/subnetGroup:SubnetGroup',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<SubnetGroupResult> {
+        return ctx.list({...args, type: 'aws:neptune/subnetGroup:SubnetGroup'});
     }
 
     /**

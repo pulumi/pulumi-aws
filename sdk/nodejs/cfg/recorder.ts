@@ -53,17 +53,8 @@ export class Recorder extends pulumi.CustomResource {
         return new Recorder(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<RecorderResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:cfg/recorder:Recorder',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<RecorderResult> {
+        return ctx.list({...args, type: 'aws:cfg/recorder:Recorder'});
     }
 
     /**

@@ -74,17 +74,8 @@ export class VpnConnection extends pulumi.CustomResource {
         return new VpnConnection(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<VpnConnectionResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:ec2/vpnConnection:VpnConnection',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<VpnConnectionResult> {
+        return ctx.list({...args, type: 'aws:ec2/vpnConnection:VpnConnection'});
     }
 
     /**

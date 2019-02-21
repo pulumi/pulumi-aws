@@ -109,17 +109,8 @@ export class Eip extends pulumi.CustomResource {
         return new Eip(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<EipResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:ec2/eip:Eip',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<EipResult> {
+        return ctx.list({...args, type: 'aws:ec2/eip:Eip'});
     }
 
     public /*out*/ readonly allocationId: pulumi.Output<string>;

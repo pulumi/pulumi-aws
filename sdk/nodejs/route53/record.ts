@@ -103,17 +103,8 @@ export class Record extends pulumi.CustomResource {
         return new Record(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<RecordResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:route53/record:Record',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<RecordResult> {
+        return ctx.list({...args, type: 'aws:route53/record:Record'});
     }
 
     /**

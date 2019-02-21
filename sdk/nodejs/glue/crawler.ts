@@ -73,17 +73,8 @@ export class Crawler extends pulumi.CustomResource {
         return new Crawler(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<CrawlerResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:glue/crawler:Crawler',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<CrawlerResult> {
+        return ctx.list({...args, type: 'aws:glue/crawler:Crawler'});
     }
 
     /**

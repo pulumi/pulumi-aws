@@ -22,17 +22,8 @@ export class Build extends pulumi.CustomResource {
         return new Build(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<BuildResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:gamelift/build:Build',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<BuildResult> {
+        return ctx.list({...args, type: 'aws:gamelift/build:Build'});
     }
 
     /**

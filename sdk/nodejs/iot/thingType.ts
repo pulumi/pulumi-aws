@@ -33,17 +33,8 @@ export class ThingType extends pulumi.CustomResource {
         return new ThingType(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<ThingTypeResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:iot/thingType:ThingType',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<ThingTypeResult> {
+        return ctx.list({...args, type: 'aws:iot/thingType:ThingType'});
     }
 
     /**

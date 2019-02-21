@@ -50,17 +50,8 @@ export class ParameterGroup extends pulumi.CustomResource {
         return new ParameterGroup(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<ParameterGroupResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:dax/parameterGroup:ParameterGroup',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<ParameterGroupResult> {
+        return ctx.list({...args, type: 'aws:dax/parameterGroup:ParameterGroup'});
     }
 
     /**

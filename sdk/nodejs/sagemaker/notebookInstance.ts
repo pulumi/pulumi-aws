@@ -40,17 +40,8 @@ export class NotebookInstance extends pulumi.CustomResource {
         return new NotebookInstance(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<NotebookInstanceResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:sagemaker/notebookInstance:NotebookInstance',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<NotebookInstanceResult> {
+        return ctx.list({...args, type: 'aws:sagemaker/notebookInstance:NotebookInstance'});
     }
 
     /**

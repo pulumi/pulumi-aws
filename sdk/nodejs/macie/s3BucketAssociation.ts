@@ -39,17 +39,8 @@ export class S3BucketAssociation extends pulumi.CustomResource {
         return new S3BucketAssociation(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<S3BucketAssociationResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:macie/s3BucketAssociation:S3BucketAssociation',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<S3BucketAssociationResult> {
+        return ctx.list({...args, type: 'aws:macie/s3BucketAssociation:S3BucketAssociation'});
     }
 
     /**

@@ -67,17 +67,8 @@ export class TopicPolicy extends pulumi.CustomResource {
         return new TopicPolicy(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<TopicPolicyResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:sns/topicPolicy:TopicPolicy',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<TopicPolicyResult> {
+        return ctx.list({...args, type: 'aws:sns/topicPolicy:TopicPolicy'});
     }
 
     /**

@@ -113,17 +113,8 @@ export class ReplicationGroup extends pulumi.CustomResource {
         return new ReplicationGroup(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<ReplicationGroupResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:elasticache/replicationGroup:ReplicationGroup',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<ReplicationGroupResult> {
+        return ctx.list({...args, type: 'aws:elasticache/replicationGroup:ReplicationGroup'});
     }
 
     /**

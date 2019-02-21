@@ -24,17 +24,8 @@ export class GlobalTable extends pulumi.CustomResource {
         return new GlobalTable(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<GlobalTableResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:dynamodb/globalTable:GlobalTable',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<GlobalTableResult> {
+        return ctx.list({...args, type: 'aws:dynamodb/globalTable:GlobalTable'});
     }
 
     /**

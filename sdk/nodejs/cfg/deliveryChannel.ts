@@ -81,17 +81,8 @@ export class DeliveryChannel extends pulumi.CustomResource {
         return new DeliveryChannel(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<DeliveryChannelResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:cfg/deliveryChannel:DeliveryChannel',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<DeliveryChannelResult> {
+        return ctx.list({...args, type: 'aws:cfg/deliveryChannel:DeliveryChannel'});
     }
 
     /**

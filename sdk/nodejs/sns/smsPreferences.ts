@@ -31,17 +31,8 @@ export class SmsPreferences extends pulumi.CustomResource {
         return new SmsPreferences(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<SmsPreferencesResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:sns/smsPreferences:SmsPreferences',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<SmsPreferencesResult> {
+        return ctx.list({...args, type: 'aws:sns/smsPreferences:SmsPreferences'});
     }
 
     /**

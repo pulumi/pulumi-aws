@@ -74,17 +74,8 @@ export class Role extends pulumi.CustomResource {
         return new Role(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<RoleResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:iam/role:Role',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<RoleResult> {
+        return ctx.list({...args, type: 'aws:iam/role:Role'});
     }
 
     /**

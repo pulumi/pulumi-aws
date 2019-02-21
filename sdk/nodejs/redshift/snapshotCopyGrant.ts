@@ -42,17 +42,8 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
         return new SnapshotCopyGrant(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<SnapshotCopyGrantResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:redshift/snapshotCopyGrant:SnapshotCopyGrant',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<SnapshotCopyGrantResult> {
+        return ctx.list({...args, type: 'aws:redshift/snapshotCopyGrant:SnapshotCopyGrant'});
     }
 
     /**

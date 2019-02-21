@@ -65,17 +65,8 @@ export class Queue extends pulumi.CustomResource {
         return new Queue(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<QueueResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:sqs/queue:Queue',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<QueueResult> {
+        return ctx.list({...args, type: 'aws:sqs/queue:Queue'});
     }
 
     /**

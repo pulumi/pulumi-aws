@@ -40,17 +40,8 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
         return new LogSubscriptionFilter(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<LogSubscriptionFilterResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<LogSubscriptionFilterResult> {
+        return ctx.list({...args, type: 'aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter'});
     }
 
     /**

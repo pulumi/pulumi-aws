@@ -35,17 +35,8 @@ export class TopicSubscription extends pulumi.CustomResource {
         return new TopicSubscription(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<TopicSubscriptionResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:sns/topicSubscription:TopicSubscription',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<TopicSubscriptionResult> {
+        return ctx.list({...args, type: 'aws:sns/topicSubscription:TopicSubscription'});
     }
 
     /**

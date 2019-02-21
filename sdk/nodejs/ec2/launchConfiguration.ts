@@ -189,17 +189,8 @@ export class LaunchConfiguration extends pulumi.CustomResource {
         return new LaunchConfiguration(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<LaunchConfigurationResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:ec2/launchConfiguration:LaunchConfiguration',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<LaunchConfigurationResult> {
+        return ctx.list({...args, type: 'aws:ec2/launchConfiguration:LaunchConfiguration'});
     }
 
     /**

@@ -33,17 +33,8 @@ export class PhpAppLayer extends pulumi.CustomResource {
         return new PhpAppLayer(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<PhpAppLayerResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:opsworks/phpAppLayer:PhpAppLayer',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<PhpAppLayerResult> {
+        return ctx.list({...args, type: 'aws:opsworks/phpAppLayer:PhpAppLayer'});
     }
 
     /**

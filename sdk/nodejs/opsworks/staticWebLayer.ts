@@ -33,17 +33,8 @@ export class StaticWebLayer extends pulumi.CustomResource {
         return new StaticWebLayer(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<StaticWebLayerResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:opsworks/staticWebLayer:StaticWebLayer',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<StaticWebLayerResult> {
+        return ctx.list({...args, type: 'aws:opsworks/staticWebLayer:StaticWebLayer'});
     }
 
     /**

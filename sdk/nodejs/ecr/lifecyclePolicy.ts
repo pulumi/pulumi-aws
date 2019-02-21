@@ -92,17 +92,8 @@ export class LifecyclePolicy extends pulumi.CustomResource {
         return new LifecyclePolicy(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<LifecyclePolicyResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:ecr/lifecyclePolicy:LifecyclePolicy',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<LifecyclePolicyResult> {
+        return ctx.list({...args, type: 'aws:ecr/lifecyclePolicy:LifecyclePolicy'});
     }
 
     /**

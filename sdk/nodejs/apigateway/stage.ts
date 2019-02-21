@@ -72,17 +72,8 @@ export class Stage extends pulumi.CustomResource {
         return new Stage(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<StageResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:apigateway/stage:Stage',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<StageResult> {
+        return ctx.list({...args, type: 'aws:apigateway/stage:Stage'});
     }
 
     /**

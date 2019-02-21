@@ -114,17 +114,8 @@ export class GraphQLApi extends pulumi.CustomResource {
         return new GraphQLApi(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<GraphQLApiResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:appsync/graphQLApi:GraphQLApi',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<GraphQLApiResult> {
+        return ctx.list({...args, type: 'aws:appsync/graphQLApi:GraphQLApi'});
     }
 
     /**

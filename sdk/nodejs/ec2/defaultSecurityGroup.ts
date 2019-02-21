@@ -114,17 +114,8 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
         return new DefaultSecurityGroup(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<DefaultSecurityGroupResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:ec2/defaultSecurityGroup:DefaultSecurityGroup',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<DefaultSecurityGroupResult> {
+        return ctx.list({...args, type: 'aws:ec2/defaultSecurityGroup:DefaultSecurityGroup'});
     }
 
     public /*out*/ readonly arn: pulumi.Output<string>;

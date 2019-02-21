@@ -129,17 +129,8 @@ export class Pipeline extends pulumi.CustomResource {
         return new Pipeline(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<PipelineResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:codepipeline/pipeline:Pipeline',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<PipelineResult> {
+        return ctx.list({...args, type: 'aws:codepipeline/pipeline:Pipeline'});
     }
 
     /**

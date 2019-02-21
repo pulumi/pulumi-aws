@@ -34,17 +34,8 @@ export class SmsChannel extends pulumi.CustomResource {
         return new SmsChannel(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<SmsChannelResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:pinpoint/smsChannel:SmsChannel',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<SmsChannelResult> {
+        return ctx.list({...args, type: 'aws:pinpoint/smsChannel:SmsChannel'});
     }
 
     /**

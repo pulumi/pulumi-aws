@@ -61,17 +61,8 @@ export class BucketMetric extends pulumi.CustomResource {
         return new BucketMetric(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<BucketMetricResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:s3/bucketMetric:BucketMetric',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<BucketMetricResult> {
+        return ctx.list({...args, type: 'aws:s3/bucketMetric:BucketMetric'});
     }
 
     /**

@@ -137,17 +137,8 @@ export class CertificateValidation extends pulumi.CustomResource {
         return new CertificateValidation(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<CertificateValidationResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:acm/certificateValidation:CertificateValidation',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<CertificateValidationResult> {
+        return ctx.list({...args, type: 'aws:acm/certificateValidation:CertificateValidation'});
     }
 
     /**

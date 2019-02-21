@@ -36,17 +36,8 @@ export class UploadBuffer extends pulumi.CustomResource {
         return new UploadBuffer(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<UploadBufferResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:storagegateway/uploadBuffer:UploadBuffer',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<UploadBufferResult> {
+        return ctx.list({...args, type: 'aws:storagegateway/uploadBuffer:UploadBuffer'});
     }
 
     /**

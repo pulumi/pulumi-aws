@@ -73,17 +73,8 @@ export class TargetGroup extends pulumi.CustomResource {
         return new TargetGroup(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<TargetGroupResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:applicationloadbalancing/targetGroup:TargetGroup',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<TargetGroupResult> {
+        return ctx.list({...args, type: 'aws:applicationloadbalancing/targetGroup:TargetGroup'});
     }
 
     /**

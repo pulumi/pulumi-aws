@@ -42,17 +42,8 @@ export class DocumentationPart extends pulumi.CustomResource {
         return new DocumentationPart(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<DocumentationPartResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:apigateway/documentationPart:DocumentationPart',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<DocumentationPartResult> {
+        return ctx.list({...args, type: 'aws:apigateway/documentationPart:DocumentationPart'});
     }
 
     /**

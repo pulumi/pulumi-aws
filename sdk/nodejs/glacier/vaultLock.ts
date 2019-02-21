@@ -69,17 +69,8 @@ export class VaultLock extends pulumi.CustomResource {
         return new VaultLock(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<VaultLockResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:glacier/vaultLock:VaultLock',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<VaultLockResult> {
+        return ctx.list({...args, type: 'aws:glacier/vaultLock:VaultLock'});
     }
 
     /**

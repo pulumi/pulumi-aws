@@ -44,17 +44,8 @@ export class ReplicationTask extends pulumi.CustomResource {
         return new ReplicationTask(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<ReplicationTaskResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:dms/replicationTask:ReplicationTask',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<ReplicationTaskResult> {
+        return ctx.list({...args, type: 'aws:dms/replicationTask:ReplicationTask'});
     }
 
     /**

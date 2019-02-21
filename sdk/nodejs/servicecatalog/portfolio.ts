@@ -35,17 +35,8 @@ export class Portfolio extends pulumi.CustomResource {
         return new Portfolio(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<PortfolioResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:servicecatalog/portfolio:Portfolio',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<PortfolioResult> {
+        return ctx.list({...args, type: 'aws:servicecatalog/portfolio:Portfolio'});
     }
 
     public /*out*/ readonly arn: pulumi.Output<string>;

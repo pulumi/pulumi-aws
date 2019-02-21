@@ -39,17 +39,8 @@ export class NetworkInterface extends pulumi.CustomResource {
         return new NetworkInterface(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<NetworkInterfaceResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:ec2/networkInterface:NetworkInterface',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<NetworkInterfaceResult> {
+        return ctx.list({...args, type: 'aws:ec2/networkInterface:NetworkInterface'});
     }
 
     /**

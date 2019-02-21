@@ -41,17 +41,8 @@ export class Resource extends pulumi.CustomResource {
         return new Resource(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<ResourceResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:apigateway/resource:Resource',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<ResourceResult> {
+        return ctx.list({...args, type: 'aws:apigateway/resource:Resource'});
     }
 
     /**

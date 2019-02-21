@@ -44,17 +44,8 @@ export class Application extends pulumi.CustomResource {
         return new Application(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<ApplicationResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:elasticbeanstalk/application:Application',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<ApplicationResult> {
+        return ctx.list({...args, type: 'aws:elasticbeanstalk/application:Application'});
     }
 
     public readonly appversionLifecycle: pulumi.Output<{ deleteSourceFromS3?: boolean, maxAgeInDays?: number, maxCount?: number, serviceRole: string } | undefined>;

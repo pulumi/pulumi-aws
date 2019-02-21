@@ -87,17 +87,8 @@ export class Target extends pulumi.CustomResource {
         return new Target(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<TargetResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:appautoscaling/target:Target',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<TargetResult> {
+        return ctx.list({...args, type: 'aws:appautoscaling/target:Target'});
     }
 
     /**

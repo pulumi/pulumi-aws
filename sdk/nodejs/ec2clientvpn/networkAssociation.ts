@@ -35,17 +35,8 @@ export class NetworkAssociation extends pulumi.CustomResource {
         return new NetworkAssociation(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<NetworkAssociationResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:ec2clientvpn/networkAssociation:NetworkAssociation',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<NetworkAssociationResult> {
+        return ctx.list({...args, type: 'aws:ec2clientvpn/networkAssociation:NetworkAssociation'});
     }
 
     /**

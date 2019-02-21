@@ -47,17 +47,8 @@ export class Configuration extends pulumi.CustomResource {
         return new Configuration(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<ConfigurationResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:mq/configuration:Configuration',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<ConfigurationResult> {
+        return ctx.list({...args, type: 'aws:mq/configuration:Configuration'});
     }
 
     /**

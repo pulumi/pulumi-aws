@@ -38,17 +38,8 @@ export class ConditionalForwader extends pulumi.CustomResource {
         return new ConditionalForwader(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<ConditionalForwaderResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:directoryservice/conditionalForwader:ConditionalForwader',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<ConditionalForwaderResult> {
+        return ctx.list({...args, type: 'aws:directoryservice/conditionalForwader:ConditionalForwader'});
     }
 
     /**

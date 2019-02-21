@@ -35,17 +35,8 @@ export class ProductSubscription extends pulumi.CustomResource {
         return new ProductSubscription(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<ProductSubscriptionResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:securityhub/productSubscription:ProductSubscription',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<ProductSubscriptionResult> {
+        return ctx.list({...args, type: 'aws:securityhub/productSubscription:ProductSubscription'});
     }
 
     /**

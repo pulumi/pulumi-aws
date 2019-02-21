@@ -85,17 +85,8 @@ export class Preset extends pulumi.CustomResource {
         return new Preset(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<PresetResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:elastictranscoder/preset:Preset',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<PresetResult> {
+        return ctx.list({...args, type: 'aws:elastictranscoder/preset:Preset'});
     }
 
     public /*out*/ readonly arn: pulumi.Output<string>;

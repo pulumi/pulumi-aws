@@ -74,17 +74,8 @@ export class EmailChannel extends pulumi.CustomResource {
         return new EmailChannel(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<EmailChannelResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:pinpoint/emailChannel:EmailChannel',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<EmailChannelResult> {
+        return ctx.list({...args, type: 'aws:pinpoint/emailChannel:EmailChannel'});
     }
 
     /**

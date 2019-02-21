@@ -73,17 +73,8 @@ export class RolePolicyAttachment extends pulumi.CustomResource {
         return new RolePolicyAttachment(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<RolePolicyAttachmentResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:iam/rolePolicyAttachment:RolePolicyAttachment',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<RolePolicyAttachmentResult> {
+        return ctx.list({...args, type: 'aws:iam/rolePolicyAttachment:RolePolicyAttachment'});
     }
 
     /**

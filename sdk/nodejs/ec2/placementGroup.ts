@@ -37,17 +37,8 @@ export class PlacementGroup extends pulumi.CustomResource {
         return new PlacementGroup(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<PlacementGroupResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:ec2/placementGroup:PlacementGroup',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<PlacementGroupResult> {
+        return ctx.list({...args, type: 'aws:ec2/placementGroup:PlacementGroup'});
     }
 
     /**

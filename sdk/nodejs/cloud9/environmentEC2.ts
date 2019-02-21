@@ -34,17 +34,8 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
         return new EnvironmentEC2(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<EnvironmentEC2Result> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:cloud9/environmentEC2:EnvironmentEC2',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<EnvironmentEC2Result> {
+        return ctx.list({...args, type: 'aws:cloud9/environmentEC2:EnvironmentEC2'});
     }
 
     /**

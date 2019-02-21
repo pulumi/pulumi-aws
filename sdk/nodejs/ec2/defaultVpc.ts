@@ -46,17 +46,8 @@ export class DefaultVpc extends pulumi.CustomResource {
         return new DefaultVpc(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<DefaultVpcResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:ec2/defaultVpc:DefaultVpc',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<DefaultVpcResult> {
+        return ctx.list({...args, type: 'aws:ec2/defaultVpc:DefaultVpc'});
     }
 
     /**

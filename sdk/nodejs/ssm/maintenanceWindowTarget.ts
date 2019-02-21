@@ -44,17 +44,8 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
         return new MaintenanceWindowTarget(name, <any>state, { ...opts, id: id });
     }
 
-    public static list(): rxjs.Observable<MaintenanceWindowTargetResult> {
-        return rxjs.from(
-            pulumi.runtime
-                .invoke('pulumi:pulumi:readStackResourceOutputs', {
-                    stackName: pulumi.runtime.getStack(),
-                    type: 'aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget',
-                })
-                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
-        ).pipe(
-            operators.mergeAll(),
-        );
+    public static list(ctx: pulumi.query.ListContext, args?: pulumi.query.ListArgs): rxjs.Observable<MaintenanceWindowTargetResult> {
+        return ctx.list({...args, type: 'aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget'});
     }
 
     /**
