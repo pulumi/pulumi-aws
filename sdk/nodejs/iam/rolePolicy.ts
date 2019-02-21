@@ -89,8 +89,8 @@ export class RolePolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RolePolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RolePolicyArgs | RolePolicyState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<RolePolicyArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<RolePolicyArgs> | pulumi.InputObject<RolePolicyState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RolePolicyState = argsOrState as RolePolicyState | undefined;
@@ -123,20 +123,20 @@ export interface RolePolicyState {
      * The name of the role policy. If omitted, Terraform will
      * assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    readonly namePrefix?: string;
     /**
      * The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
-    readonly policy?: pulumi.Input<string | PolicyDocument>;
+    readonly policy?: string | PolicyDocument;
     /**
      * The IAM role to attach to the policy.
      */
-    readonly role?: pulumi.Input<string | Role>;
+    readonly role?: string | Role;
 }
 
 /**
@@ -147,18 +147,18 @@ export interface RolePolicyArgs {
      * The name of the role policy. If omitted, Terraform will
      * assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    readonly namePrefix?: string;
     /**
      * The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
-    readonly policy: pulumi.Input<string | PolicyDocument>;
+    readonly policy: string | PolicyDocument;
     /**
      * The IAM role to attach to the policy.
      */
-    readonly role: pulumi.Input<string | Role>;
+    readonly role: string | Role;
 }

@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from . import utilities, tables
 
-class GetCallerIdentityResult(object):
+class GetCallerIdentityResult:
     """
     A collection of values returned by getCallerIdentity.
     """
@@ -38,14 +38,14 @@ class GetCallerIdentityResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_caller_identity():
+async def get_caller_identity(opts=None):
     """
     Use this data source to get the access to the effective Account ID, User ID, and ARN in
     which Terraform is authorized.
     """
     __args__ = dict()
 
-    __ret__ = await pulumi.runtime.invoke('aws:index/getCallerIdentity:getCallerIdentity', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:index/getCallerIdentity:getCallerIdentity', __args__, opts=opts)
 
     return GetCallerIdentityResult(
         account_id=__ret__.get('accountId'),

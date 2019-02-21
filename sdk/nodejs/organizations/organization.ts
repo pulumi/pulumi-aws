@@ -67,8 +67,8 @@ export class Organization extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: OrganizationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: OrganizationArgs | OrganizationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<OrganizationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<OrganizationArgs> | pulumi.InputObject<OrganizationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: OrganizationState = argsOrState as OrganizationState | undefined;
@@ -98,27 +98,27 @@ export interface OrganizationState {
     /**
      * ARN of the organization
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
      */
-    readonly awsServiceAccessPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly awsServiceAccessPrincipals?: string[];
     /**
      * Specify "ALL" (default) or "CONSOLIDATED_BILLING".
      */
-    readonly featureSet?: pulumi.Input<string>;
+    readonly featureSet?: string;
     /**
      * ARN of the master account
      */
-    readonly masterAccountArn?: pulumi.Input<string>;
+    readonly masterAccountArn?: string;
     /**
      * Email address of the master account
      */
-    readonly masterAccountEmail?: pulumi.Input<string>;
+    readonly masterAccountEmail?: string;
     /**
      * Identifier of the master account
      */
-    readonly masterAccountId?: pulumi.Input<string>;
+    readonly masterAccountId?: string;
 }
 
 /**
@@ -128,9 +128,9 @@ export interface OrganizationArgs {
     /**
      * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
      */
-    readonly awsServiceAccessPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly awsServiceAccessPrincipals?: string[];
     /**
      * Specify "ALL" (default) or "CONSOLIDATED_BILLING".
      */
-    readonly featureSet?: pulumi.Input<string>;
+    readonly featureSet?: string;
 }

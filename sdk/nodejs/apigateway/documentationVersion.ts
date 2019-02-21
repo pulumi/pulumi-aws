@@ -61,8 +61,8 @@ export class DocumentationVersion extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DocumentationVersionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DocumentationVersionArgs | DocumentationVersionState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<DocumentationVersionArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<DocumentationVersionArgs> | pulumi.InputObject<DocumentationVersionState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DocumentationVersionState = argsOrState as DocumentationVersionState | undefined;
@@ -92,15 +92,15 @@ export interface DocumentationVersionState {
     /**
      * The description of the API documentation version.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The ID of the associated Rest API
      */
-    readonly restApiId?: pulumi.Input<string>;
+    readonly restApiId?: string;
     /**
      * The version identifier of the API documentation snapshot.
      */
-    readonly version?: pulumi.Input<string>;
+    readonly version?: string;
 }
 
 /**
@@ -110,13 +110,13 @@ export interface DocumentationVersionArgs {
     /**
      * The description of the API documentation version.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The ID of the associated Rest API
      */
-    readonly restApiId: pulumi.Input<string>;
+    readonly restApiId: string;
     /**
      * The version identifier of the API documentation snapshot.
      */
-    readonly version: pulumi.Input<string>;
+    readonly version: string;
 }

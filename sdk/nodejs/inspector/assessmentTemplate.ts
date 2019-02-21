@@ -66,8 +66,8 @@ export class AssessmentTemplate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AssessmentTemplateArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AssessmentTemplateArgs | AssessmentTemplateState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<AssessmentTemplateArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<AssessmentTemplateArgs> | pulumi.InputObject<AssessmentTemplateState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AssessmentTemplateState = argsOrState as AssessmentTemplateState | undefined;
@@ -104,23 +104,23 @@ export interface AssessmentTemplateState {
     /**
      * The template assessment ARN.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The duration of the inspector run.
      */
-    readonly duration?: pulumi.Input<number>;
+    readonly duration?: number;
     /**
      * The name of the assessment template.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The rules to be used during the run.
      */
-    readonly rulesPackageArns?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly rulesPackageArns?: string[];
     /**
      * The assessment target ARN to attach the template to.
      */
-    readonly targetArn?: pulumi.Input<string>;
+    readonly targetArn?: string;
 }
 
 /**
@@ -130,17 +130,17 @@ export interface AssessmentTemplateArgs {
     /**
      * The duration of the inspector run.
      */
-    readonly duration: pulumi.Input<number>;
+    readonly duration: number;
     /**
      * The name of the assessment template.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The rules to be used during the run.
      */
-    readonly rulesPackageArns: pulumi.Input<pulumi.Input<string>[]>;
+    readonly rulesPackageArns: string[];
     /**
      * The assessment target ARN to attach the template to.
      */
-    readonly targetArn: pulumi.Input<string>;
+    readonly targetArn: string;
 }

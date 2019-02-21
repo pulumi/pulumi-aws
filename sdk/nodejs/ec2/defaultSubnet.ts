@@ -80,8 +80,8 @@ export class DefaultSubnet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DefaultSubnetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DefaultSubnetArgs | DefaultSubnetState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<DefaultSubnetArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<DefaultSubnetArgs> | pulumi.InputObject<DefaultSubnetState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DefaultSubnetState = argsOrState as DefaultSubnetState | undefined;
@@ -121,52 +121,52 @@ export class DefaultSubnet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DefaultSubnet resources.
  */
 export interface DefaultSubnetState {
-    readonly arn?: pulumi.Input<string>;
-    readonly assignIpv6AddressOnCreation?: pulumi.Input<boolean>;
-    readonly availabilityZone?: pulumi.Input<string>;
-    readonly availabilityZoneId?: pulumi.Input<string>;
+    readonly arn?: string;
+    readonly assignIpv6AddressOnCreation?: boolean;
+    readonly availabilityZone?: string;
+    readonly availabilityZoneId?: string;
     /**
      * The CIDR block for the subnet.
      */
-    readonly cidrBlock?: pulumi.Input<string>;
+    readonly cidrBlock?: string;
     /**
      * The IPv6 CIDR block.
      */
-    readonly ipv6CidrBlock?: pulumi.Input<string>;
-    readonly ipv6CidrBlockAssociationId?: pulumi.Input<string>;
+    readonly ipv6CidrBlock?: string;
+    readonly ipv6CidrBlockAssociationId?: string;
     /**
      * Specify true to indicate
      * that instances launched into the subnet should be assigned
      * a public IP address.
      */
-    readonly mapPublicIpOnLaunch?: pulumi.Input<boolean>;
+    readonly mapPublicIpOnLaunch?: boolean;
     /**
      * The ID of the AWS account that owns the subnet.
      */
-    readonly ownerId?: pulumi.Input<string>;
+    readonly ownerId?: string;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * The VPC ID.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    readonly vpcId?: string;
 }
 
 /**
  * The set of arguments for constructing a DefaultSubnet resource.
  */
 export interface DefaultSubnetArgs {
-    readonly availabilityZone: pulumi.Input<string>;
+    readonly availabilityZone: string;
     /**
      * Specify true to indicate
      * that instances launched into the subnet should be assigned
      * a public IP address.
      */
-    readonly mapPublicIpOnLaunch?: pulumi.Input<boolean>;
+    readonly mapPublicIpOnLaunch?: boolean;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }

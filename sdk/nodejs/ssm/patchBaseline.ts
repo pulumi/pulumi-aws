@@ -142,8 +142,8 @@ export class PatchBaseline extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: PatchBaselineArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PatchBaselineArgs | PatchBaselineState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<PatchBaselineArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<PatchBaselineArgs> | pulumi.InputObject<PatchBaselineState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PatchBaselineState = argsOrState as PatchBaselineState | undefined;
@@ -177,35 +177,35 @@ export interface PatchBaselineState {
     /**
      * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
      */
-    readonly approvalRules?: pulumi.Input<pulumi.Input<{ approveAfterDays: pulumi.Input<number>, complianceLevel?: pulumi.Input<string>, enableNonSecurity?: pulumi.Input<boolean>, patchFilters: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]> }>[]>;
+    readonly approvalRules?: { approveAfterDays: number, complianceLevel?: string, enableNonSecurity?: boolean, patchFilters: { key: string, values: string[] }[] }[];
     /**
      * A list of explicitly approved patches for the baseline.
      */
-    readonly approvedPatches?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly approvedPatches?: string[];
     /**
      * Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
      */
-    readonly approvedPatchesComplianceLevel?: pulumi.Input<string>;
+    readonly approvedPatchesComplianceLevel?: string;
     /**
      * The description of the patch baseline.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
      */
-    readonly globalFilters?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly globalFilters?: { key: string, values: string[] }[];
     /**
      * The name of the patch baseline.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
      */
-    readonly operatingSystem?: pulumi.Input<string>;
+    readonly operatingSystem?: string;
     /**
      * A list of rejected patches.
      */
-    readonly rejectedPatches?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly rejectedPatches?: string[];
 }
 
 /**
@@ -215,33 +215,33 @@ export interface PatchBaselineArgs {
     /**
      * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
      */
-    readonly approvalRules?: pulumi.Input<pulumi.Input<{ approveAfterDays: pulumi.Input<number>, complianceLevel?: pulumi.Input<string>, enableNonSecurity?: pulumi.Input<boolean>, patchFilters: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]> }>[]>;
+    readonly approvalRules?: { approveAfterDays: number, complianceLevel?: string, enableNonSecurity?: boolean, patchFilters: { key: string, values: string[] }[] }[];
     /**
      * A list of explicitly approved patches for the baseline.
      */
-    readonly approvedPatches?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly approvedPatches?: string[];
     /**
      * Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
      */
-    readonly approvedPatchesComplianceLevel?: pulumi.Input<string>;
+    readonly approvedPatchesComplianceLevel?: string;
     /**
      * The description of the patch baseline.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
      */
-    readonly globalFilters?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly globalFilters?: { key: string, values: string[] }[];
     /**
      * The name of the patch baseline.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
      */
-    readonly operatingSystem?: pulumi.Input<string>;
+    readonly operatingSystem?: string;
     /**
      * A list of rejected patches.
      */
-    readonly rejectedPatches?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly rejectedPatches?: string[];
 }

@@ -63,8 +63,8 @@ export class DomainIdentity extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DomainIdentityArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DomainIdentityArgs | DomainIdentityState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<DomainIdentityArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<DomainIdentityArgs> | pulumi.InputObject<DomainIdentityState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DomainIdentityState = argsOrState as DomainIdentityState | undefined;
@@ -91,11 +91,11 @@ export interface DomainIdentityState {
     /**
      * The ARN of the domain identity.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The domain name to assign to SES
      */
-    readonly domain?: pulumi.Input<string>;
+    readonly domain?: string;
     /**
      * A code which when added to the domain as a TXT record
      * will signal to SES that the owner of the domain has authorised SES to act on
@@ -105,7 +105,7 @@ export interface DomainIdentityState {
      * more about verifying domains in Amazon SES in the [AWS SES
      * docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
      */
-    readonly verificationToken?: pulumi.Input<string>;
+    readonly verificationToken?: string;
 }
 
 /**
@@ -115,5 +115,5 @@ export interface DomainIdentityArgs {
     /**
      * The domain name to assign to SES
      */
-    readonly domain: pulumi.Input<string>;
+    readonly domain: string;
 }

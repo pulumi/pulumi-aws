@@ -68,8 +68,8 @@ export class JobQueue extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: JobQueueArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: JobQueueArgs | JobQueueState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<JobQueueArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<JobQueueArgs> | pulumi.InputObject<JobQueueState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: JobQueueState = argsOrState as JobQueueState | undefined;
@@ -106,27 +106,27 @@ export interface JobQueueState {
     /**
      * The Amazon Resource Name of the job queue.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * Specifies the set of compute environments
      * mapped to a job queue and their order.  The position of the compute environments
      * in the list will dictate the order. You can associate up to 3 compute environments
      * with a job queue.
      */
-    readonly computeEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly computeEnvironments?: string[];
     /**
      * Specifies the name of the job queue.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The priority of the job queue. Job queues with a higher priority
      * are evaluated first when associated with the same compute environment.
      */
-    readonly priority?: pulumi.Input<number>;
+    readonly priority?: number;
     /**
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: string;
 }
 
 /**
@@ -139,18 +139,18 @@ export interface JobQueueArgs {
      * in the list will dictate the order. You can associate up to 3 compute environments
      * with a job queue.
      */
-    readonly computeEnvironments: pulumi.Input<pulumi.Input<string>[]>;
+    readonly computeEnvironments: string[];
     /**
      * Specifies the name of the job queue.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The priority of the job queue. Job queues with a higher priority
      * are evaluated first when associated with the same compute environment.
      */
-    readonly priority: pulumi.Input<number>;
+    readonly priority: number;
     /**
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */
-    readonly state: pulumi.Input<string>;
+    readonly state: string;
 }

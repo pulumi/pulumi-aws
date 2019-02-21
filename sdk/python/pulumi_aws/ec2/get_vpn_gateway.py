@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetVpnGatewayResult(object):
+class GetVpnGatewayResult:
     """
     A collection of values returned by getVpnGateway.
     """
@@ -32,7 +32,7 @@ class GetVpnGatewayResult(object):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
 
-async def get_vpn_gateway(amazon_side_asn=None, attached_vpc_id=None, availability_zone=None, filters=None, id=None, state=None, tags=None):
+async def get_vpn_gateway(amazon_side_asn=None,attached_vpc_id=None,availability_zone=None,filters=None,id=None,state=None,tags=None,opts=None):
     """
     The VPN Gateway data source provides details about
     a specific VPN gateway.
@@ -46,7 +46,7 @@ async def get_vpn_gateway(amazon_side_asn=None, attached_vpc_id=None, availabili
     __args__['id'] = id
     __args__['state'] = state
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpnGateway:getVpnGateway', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpnGateway:getVpnGateway', __args__, opts=opts)
 
     return GetVpnGatewayResult(
         amazon_side_asn=__ret__.get('amazonSideAsn'),

@@ -61,8 +61,8 @@ export class RdsDbInstance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RdsDbInstanceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RdsDbInstanceArgs | RdsDbInstanceState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<RdsDbInstanceArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<RdsDbInstanceArgs> | pulumi.InputObject<RdsDbInstanceState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RdsDbInstanceState = argsOrState as RdsDbInstanceState | undefined;
@@ -100,19 +100,19 @@ export interface RdsDbInstanceState {
     /**
      * A db password
      */
-    readonly dbPassword?: pulumi.Input<string>;
+    readonly dbPassword?: string;
     /**
      * A db username
      */
-    readonly dbUser?: pulumi.Input<string>;
+    readonly dbUser?: string;
     /**
      * The db instance to register for this stack. Changing this will force a new resource.
      */
-    readonly rdsDbInstanceArn?: pulumi.Input<string>;
+    readonly rdsDbInstanceArn?: string;
     /**
      * The stack to register a db instance for. Changing this will force a new resource.
      */
-    readonly stackId?: pulumi.Input<string>;
+    readonly stackId?: string;
 }
 
 /**
@@ -122,17 +122,17 @@ export interface RdsDbInstanceArgs {
     /**
      * A db password
      */
-    readonly dbPassword: pulumi.Input<string>;
+    readonly dbPassword: string;
     /**
      * A db username
      */
-    readonly dbUser: pulumi.Input<string>;
+    readonly dbUser: string;
     /**
      * The db instance to register for this stack. Changing this will force a new resource.
      */
-    readonly rdsDbInstanceArn: pulumi.Input<string>;
+    readonly rdsDbInstanceArn: string;
     /**
      * The stack to register a db instance for. Changing this will force a new resource.
      */
-    readonly stackId: pulumi.Input<string>;
+    readonly stackId: string;
 }

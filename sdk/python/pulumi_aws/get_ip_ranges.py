@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from . import utilities, tables
 
-class GetIpRangesResult(object):
+class GetIpRangesResult:
     """
     A collection of values returned by getIpRanges.
     """
@@ -45,7 +45,7 @@ class GetIpRangesResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_ip_ranges(regions=None, services=None, url=None):
+async def get_ip_ranges(regions=None,services=None,url=None,opts=None):
     """
     Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention][1].
     """
@@ -54,7 +54,7 @@ async def get_ip_ranges(regions=None, services=None, url=None):
     __args__['regions'] = regions
     __args__['services'] = services
     __args__['url'] = url
-    __ret__ = await pulumi.runtime.invoke('aws:index/getIpRanges:getIpRanges', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:index/getIpRanges:getIpRanges', __args__, opts=opts)
 
     return GetIpRangesResult(
         cidr_blocks=__ret__.get('cidrBlocks'),

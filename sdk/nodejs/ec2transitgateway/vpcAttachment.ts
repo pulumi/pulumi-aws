@@ -77,8 +77,8 @@ export class VpcAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpcAttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpcAttachmentArgs | VpcAttachmentState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<VpcAttachmentArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<VpcAttachmentArgs> | pulumi.InputObject<VpcAttachmentState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VpcAttachmentState = argsOrState as VpcAttachmentState | undefined;
@@ -123,39 +123,39 @@ export interface VpcAttachmentState {
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
-    readonly dnsSupport?: pulumi.Input<string>;
+    readonly dnsSupport?: string;
     /**
      * Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
      */
-    readonly ipv6Support?: pulumi.Input<string>;
+    readonly ipv6Support?: string;
     /**
      * Identifiers of EC2 Subnets.
      */
-    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly subnetIds?: string[];
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tags?: {[key: string]: string};
     /**
      * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
      */
-    readonly transitGatewayDefaultRouteTableAssociation?: pulumi.Input<boolean>;
+    readonly transitGatewayDefaultRouteTableAssociation?: boolean;
     /**
      * Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
      */
-    readonly transitGatewayDefaultRouteTablePropagation?: pulumi.Input<boolean>;
+    readonly transitGatewayDefaultRouteTablePropagation?: boolean;
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    readonly transitGatewayId?: pulumi.Input<string>;
+    readonly transitGatewayId?: string;
     /**
      * Identifier of EC2 VPC.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    readonly vpcId?: string;
     /**
      * Identifier of the AWS account that owns the EC2 VPC.
      */
-    readonly vpcOwnerId?: pulumi.Input<string>;
+    readonly vpcOwnerId?: string;
 }
 
 /**
@@ -165,33 +165,33 @@ export interface VpcAttachmentArgs {
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
-    readonly dnsSupport?: pulumi.Input<string>;
+    readonly dnsSupport?: string;
     /**
      * Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
      */
-    readonly ipv6Support?: pulumi.Input<string>;
+    readonly ipv6Support?: string;
     /**
      * Identifiers of EC2 Subnets.
      */
-    readonly subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    readonly subnetIds: string[];
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tags?: {[key: string]: string};
     /**
      * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
      */
-    readonly transitGatewayDefaultRouteTableAssociation?: pulumi.Input<boolean>;
+    readonly transitGatewayDefaultRouteTableAssociation?: boolean;
     /**
      * Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
      */
-    readonly transitGatewayDefaultRouteTablePropagation?: pulumi.Input<boolean>;
+    readonly transitGatewayDefaultRouteTablePropagation?: boolean;
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    readonly transitGatewayId: pulumi.Input<string>;
+    readonly transitGatewayId: string;
     /**
      * Identifier of EC2 VPC.
      */
-    readonly vpcId: pulumi.Input<string>;
+    readonly vpcId: string;
 }

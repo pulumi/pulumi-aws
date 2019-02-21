@@ -61,8 +61,8 @@ export class Agent extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AgentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AgentArgs | AgentState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<AgentArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<AgentArgs> | pulumi.InputObject<AgentState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AgentState = argsOrState as AgentState | undefined;
@@ -90,23 +90,23 @@ export interface AgentState {
     /**
      * DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, Terraform will retrieve the `activation_key` as part of the resource creation.
      */
-    readonly activationKey?: pulumi.Input<string>;
+    readonly activationKey?: string;
     /**
      * Amazon Resource Name (ARN) of the DataSync Agent.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where Terraform is running.
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    readonly ipAddress?: string;
     /**
      * Name of the DataSync Agent.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Agent.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -116,17 +116,17 @@ export interface AgentArgs {
     /**
      * DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, Terraform will retrieve the `activation_key` as part of the resource creation.
      */
-    readonly activationKey?: pulumi.Input<string>;
+    readonly activationKey?: string;
     /**
      * DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where Terraform is running.
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    readonly ipAddress?: string;
     /**
      * Name of the DataSync Agent.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Agent.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tags?: {[key: string]: string};
 }

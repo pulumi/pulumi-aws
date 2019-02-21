@@ -80,8 +80,8 @@ export class SubnetGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SubnetGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SubnetGroupArgs | SubnetGroupState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<SubnetGroupArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<SubnetGroupArgs> | pulumi.InputObject<SubnetGroupState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SubnetGroupState = argsOrState as SubnetGroupState | undefined;
@@ -110,19 +110,19 @@ export interface SubnetGroupState {
     /**
      * The description of the Redshift Subnet group. Defaults to "Managed by Terraform".
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The name of the Redshift Subnet group.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * An array of VPC subnet IDs.
      */
-    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly subnetIds?: string[];
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -132,17 +132,17 @@ export interface SubnetGroupArgs {
     /**
      * The description of the Redshift Subnet group. Defaults to "Managed by Terraform".
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The name of the Redshift Subnet group.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * An array of VPC subnet IDs.
      */
-    readonly subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    readonly subnetIds: string[];
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }

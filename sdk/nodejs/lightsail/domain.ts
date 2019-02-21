@@ -53,8 +53,8 @@ export class Domain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DomainArgs | DomainState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<DomainArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<DomainArgs> | pulumi.InputObject<DomainState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DomainState = argsOrState as DomainState | undefined;
@@ -79,11 +79,11 @@ export interface DomainState {
     /**
      * The ARN of the Lightsail domain
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The name of the Lightsail domain to manage
      */
-    readonly domainName?: pulumi.Input<string>;
+    readonly domainName?: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface DomainArgs {
     /**
      * The name of the Lightsail domain to manage
      */
-    readonly domainName: pulumi.Input<string>;
+    readonly domainName: string;
 }

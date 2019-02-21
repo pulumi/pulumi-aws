@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from . import utilities, tables
 
-class GetPrefixListResult(object):
+class GetPrefixListResult:
     """
     A collection of values returned by getPrefixList.
     """
@@ -33,7 +33,7 @@ class GetPrefixListResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_prefix_list(name=None, prefix_list_id=None):
+async def get_prefix_list(name=None,prefix_list_id=None,opts=None):
     """
     `aws_prefix_list` provides details about a specific prefix list (PL)
     in the current region.
@@ -47,7 +47,7 @@ async def get_prefix_list(name=None, prefix_list_id=None):
 
     __args__['name'] = name
     __args__['prefixListId'] = prefix_list_id
-    __ret__ = await pulumi.runtime.invoke('aws:index/getPrefixList:getPrefixList', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:index/getPrefixList:getPrefixList', __args__, opts=opts)
 
     return GetPrefixListResult(
         cidr_blocks=__ret__.get('cidrBlocks'),

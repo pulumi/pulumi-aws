@@ -59,8 +59,8 @@ export class ApiKey extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApiKeyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApiKeyArgs | ApiKeyState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<ApiKeyArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ApiKeyArgs> | pulumi.InputObject<ApiKeyState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ApiKeyState = argsOrState as ApiKeyState | undefined;
@@ -89,19 +89,19 @@ export interface ApiKeyState {
     /**
      * The ID of the associated AppSync API
      */
-    readonly apiId?: pulumi.Input<string>;
+    readonly apiId?: string;
     /**
      * The API key description. Defaults to "Managed by Terraform".
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
      */
-    readonly expires?: pulumi.Input<string>;
+    readonly expires?: string;
     /**
      * The API key
      */
-    readonly key?: pulumi.Input<string>;
+    readonly key?: string;
 }
 
 /**
@@ -111,13 +111,13 @@ export interface ApiKeyArgs {
     /**
      * The ID of the associated AppSync API
      */
-    readonly apiId: pulumi.Input<string>;
+    readonly apiId: string;
     /**
      * The API key description. Defaults to "Managed by Terraform".
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
      */
-    readonly expires?: pulumi.Input<string>;
+    readonly expires?: string;
 }

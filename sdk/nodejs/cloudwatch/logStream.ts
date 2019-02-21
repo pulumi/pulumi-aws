@@ -52,8 +52,8 @@ export class LogStream extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LogStreamArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LogStreamArgs | LogStreamState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<LogStreamArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<LogStreamArgs> | pulumi.InputObject<LogStreamState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: LogStreamState = argsOrState as LogStreamState | undefined;
@@ -80,15 +80,15 @@ export interface LogStreamState {
     /**
      * The Amazon Resource Name (ARN) specifying the log stream.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The name of the log group under which the log stream is to be created.
      */
-    readonly logGroupName?: pulumi.Input<string>;
+    readonly logGroupName?: string;
     /**
      * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }
 
 /**
@@ -98,9 +98,9 @@ export interface LogStreamArgs {
     /**
      * The name of the log group under which the log stream is to be created.
      */
-    readonly logGroupName: pulumi.Input<string>;
+    readonly logGroupName: string;
     /**
      * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }

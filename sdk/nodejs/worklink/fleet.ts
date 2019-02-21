@@ -111,8 +111,8 @@ export class Fleet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: FleetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FleetArgs | FleetState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<FleetArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<FleetArgs> | pulumi.InputObject<FleetState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: FleetState = argsOrState as FleetState | undefined;
@@ -152,47 +152,47 @@ export interface FleetState {
     /**
      * The ARN of the created WorkLink Fleet.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The ARN of the Amazon Kinesis data stream that receives the audit events.
      */
-    readonly auditStreamArn?: pulumi.Input<string>;
+    readonly auditStreamArn?: string;
     /**
      * The identifier used by users to sign in to the Amazon WorkLink app.
      */
-    readonly companyCode?: pulumi.Input<string>;
+    readonly companyCode?: string;
     /**
      * The time that the fleet was created.
      */
-    readonly createdTime?: pulumi.Input<string>;
+    readonly createdTime?: string;
     /**
      * The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
      */
-    readonly deviceCaCertificate?: pulumi.Input<string>;
+    readonly deviceCaCertificate?: string;
     /**
      * The name of the fleet.
      */
-    readonly displayName?: pulumi.Input<string>;
+    readonly displayName?: string;
     /**
      * Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
      */
-    readonly identityProvider?: pulumi.Input<{ samlMetadata: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identityProvider?: { samlMetadata: string, type: string };
     /**
      * The time that the fleet was last updated.
      */
-    readonly lastUpdatedTime?: pulumi.Input<string>;
+    readonly lastUpdatedTime?: string;
     /**
      * A region-unique name for the AMI.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Provide this to allow manage the company network configuration for the fleet. Fields documented below.
      */
-    readonly network?: pulumi.Input<{ securityGroupIds: pulumi.Input<pulumi.Input<string>[]>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId: pulumi.Input<string> }>;
+    readonly network?: { securityGroupIds: string[], subnetIds: string[], vpcId: string };
     /**
      * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
      */
-    readonly optimizeForEndUserLocation?: pulumi.Input<boolean>;
+    readonly optimizeForEndUserLocation?: boolean;
 }
 
 /**
@@ -202,29 +202,29 @@ export interface FleetArgs {
     /**
      * The ARN of the Amazon Kinesis data stream that receives the audit events.
      */
-    readonly auditStreamArn?: pulumi.Input<string>;
+    readonly auditStreamArn?: string;
     /**
      * The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
      */
-    readonly deviceCaCertificate?: pulumi.Input<string>;
+    readonly deviceCaCertificate?: string;
     /**
      * The name of the fleet.
      */
-    readonly displayName?: pulumi.Input<string>;
+    readonly displayName?: string;
     /**
      * Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
      */
-    readonly identityProvider?: pulumi.Input<{ samlMetadata: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identityProvider?: { samlMetadata: string, type: string };
     /**
      * A region-unique name for the AMI.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Provide this to allow manage the company network configuration for the fleet. Fields documented below.
      */
-    readonly network?: pulumi.Input<{ securityGroupIds: pulumi.Input<pulumi.Input<string>[]>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId: pulumi.Input<string> }>;
+    readonly network?: { securityGroupIds: string[], subnetIds: string[], vpcId: string };
     /**
      * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
      */
-    readonly optimizeForEndUserLocation?: pulumi.Input<boolean>;
+    readonly optimizeForEndUserLocation?: boolean;
 }

@@ -61,8 +61,8 @@ export class CustomerGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CustomerGatewayArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CustomerGatewayArgs | CustomerGatewayState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<CustomerGatewayArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<CustomerGatewayArgs> | pulumi.InputObject<CustomerGatewayState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: CustomerGatewayState = argsOrState as CustomerGatewayState | undefined;
@@ -97,20 +97,20 @@ export interface CustomerGatewayState {
     /**
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
-    readonly bgpAsn?: pulumi.Input<number>;
+    readonly bgpAsn?: number;
     /**
      * The IP address of the gateway's Internet-routable external interface.
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    readonly ipAddress?: string;
     /**
      * Tags to apply to the gateway.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * The type of customer gateway. The only type AWS
      * supports at this time is "ipsec.1".
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: string;
 }
 
 /**
@@ -120,18 +120,18 @@ export interface CustomerGatewayArgs {
     /**
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
-    readonly bgpAsn: pulumi.Input<number>;
+    readonly bgpAsn: number;
     /**
      * The IP address of the gateway's Internet-routable external interface.
      */
-    readonly ipAddress: pulumi.Input<string>;
+    readonly ipAddress: string;
     /**
      * Tags to apply to the gateway.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * The type of customer gateway. The only type AWS
      * supports at this time is "ipsec.1".
      */
-    readonly type: pulumi.Input<string>;
+    readonly type: string;
 }

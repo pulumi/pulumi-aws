@@ -84,8 +84,8 @@ export class VolumeAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VolumeAttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VolumeAttachmentArgs | VolumeAttachmentState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<VolumeAttachmentArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<VolumeAttachmentArgs> | pulumi.InputObject<VolumeAttachmentState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VolumeAttachmentState = argsOrState as VolumeAttachmentState | undefined;
@@ -123,18 +123,18 @@ export interface VolumeAttachmentState {
      * The device name to expose to the instance (for
      * example, `/dev/sdh` or `xvdh`)
      */
-    readonly deviceName?: pulumi.Input<string>;
+    readonly deviceName?: string;
     /**
      * Set to `true` if you want to force the
      * volume to detach. Useful if previous attempts failed, but use this option only
      * as a last resort, as this can result in **data loss**. See
      * [Detaching an Amazon EBS Volume from an Instance][1] for more information.
      */
-    readonly forceDetach?: pulumi.Input<boolean>;
+    readonly forceDetach?: boolean;
     /**
      * ID of the Instance to attach to
      */
-    readonly instanceId?: pulumi.Input<string>;
+    readonly instanceId?: string;
     /**
      * Set this to true if you do not wish
      * to detach the volume from the instance to which it is attached at destroy
@@ -142,11 +142,11 @@ export interface VolumeAttachmentState {
      * useful when destroying an instance which has volumes created by some other
      * means attached.
      */
-    readonly skipDestroy?: pulumi.Input<boolean>;
+    readonly skipDestroy?: boolean;
     /**
      * ID of the Volume to be attached
      */
-    readonly volumeId?: pulumi.Input<string>;
+    readonly volumeId?: string;
 }
 
 /**
@@ -157,18 +157,18 @@ export interface VolumeAttachmentArgs {
      * The device name to expose to the instance (for
      * example, `/dev/sdh` or `xvdh`)
      */
-    readonly deviceName: pulumi.Input<string>;
+    readonly deviceName: string;
     /**
      * Set to `true` if you want to force the
      * volume to detach. Useful if previous attempts failed, but use this option only
      * as a last resort, as this can result in **data loss**. See
      * [Detaching an Amazon EBS Volume from an Instance][1] for more information.
      */
-    readonly forceDetach?: pulumi.Input<boolean>;
+    readonly forceDetach?: boolean;
     /**
      * ID of the Instance to attach to
      */
-    readonly instanceId: pulumi.Input<string>;
+    readonly instanceId: string;
     /**
      * Set this to true if you do not wish
      * to detach the volume from the instance to which it is attached at destroy
@@ -176,9 +176,9 @@ export interface VolumeAttachmentArgs {
      * useful when destroying an instance which has volumes created by some other
      * means attached.
      */
-    readonly skipDestroy?: pulumi.Input<boolean>;
+    readonly skipDestroy?: boolean;
     /**
      * ID of the Volume to be attached
      */
-    readonly volumeId: pulumi.Input<string>;
+    readonly volumeId: string;
 }

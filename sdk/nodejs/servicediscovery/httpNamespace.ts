@@ -49,8 +49,8 @@ export class HttpNamespace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: HttpNamespaceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: HttpNamespaceArgs | HttpNamespaceState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<HttpNamespaceArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<HttpNamespaceArgs> | pulumi.InputObject<HttpNamespaceState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: HttpNamespaceState = argsOrState as HttpNamespaceState | undefined;
@@ -74,15 +74,15 @@ export interface HttpNamespaceState {
     /**
      * The ARN that Amazon Route 53 assigns to the namespace when you create it.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The description that you specify for the namespace when you create it.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The name of the http namespace.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }
 
 /**
@@ -92,9 +92,9 @@ export interface HttpNamespaceArgs {
     /**
      * The description that you specify for the namespace when you create it.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The name of the http namespace.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }

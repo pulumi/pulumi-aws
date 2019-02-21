@@ -113,8 +113,8 @@ export class Subnet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SubnetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SubnetArgs | SubnetState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<SubnetArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<SubnetArgs> | pulumi.InputObject<SubnetState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SubnetState = argsOrState as SubnetState | undefined;
@@ -160,52 +160,52 @@ export interface SubnetState {
     /**
      * The ARN of the subnet.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * Specify true to indicate
      * that network interfaces created in the specified subnet should be
      * assigned an IPv6 address. Default is `false`
      */
-    readonly assignIpv6AddressOnCreation?: pulumi.Input<boolean>;
+    readonly assignIpv6AddressOnCreation?: boolean;
     /**
      * The AZ for the subnet.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    readonly availabilityZone?: string;
     /**
      * The AZ ID of the subnet.
      */
-    readonly availabilityZoneId?: pulumi.Input<string>;
+    readonly availabilityZoneId?: string;
     /**
      * The CIDR block for the subnet.
      */
-    readonly cidrBlock?: pulumi.Input<string>;
+    readonly cidrBlock?: string;
     /**
      * The IPv6 network range for the subnet,
      * in CIDR notation. The subnet size must use a /64 prefix length.
      */
-    readonly ipv6CidrBlock?: pulumi.Input<string>;
+    readonly ipv6CidrBlock?: string;
     /**
      * The association ID for the IPv6 CIDR block.
      */
-    readonly ipv6CidrBlockAssociationId?: pulumi.Input<string>;
+    readonly ipv6CidrBlockAssociationId?: string;
     /**
      * Specify true to indicate
      * that instances launched into the subnet should be assigned
      * a public IP address. Default is `false`.
      */
-    readonly mapPublicIpOnLaunch?: pulumi.Input<boolean>;
+    readonly mapPublicIpOnLaunch?: boolean;
     /**
      * The ID of the AWS account that owns the subnet.
      */
-    readonly ownerId?: pulumi.Input<string>;
+    readonly ownerId?: string;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * The VPC ID.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    readonly vpcId?: string;
 }
 
 /**
@@ -217,36 +217,36 @@ export interface SubnetArgs {
      * that network interfaces created in the specified subnet should be
      * assigned an IPv6 address. Default is `false`
      */
-    readonly assignIpv6AddressOnCreation?: pulumi.Input<boolean>;
+    readonly assignIpv6AddressOnCreation?: boolean;
     /**
      * The AZ for the subnet.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    readonly availabilityZone?: string;
     /**
      * The AZ ID of the subnet.
      */
-    readonly availabilityZoneId?: pulumi.Input<string>;
+    readonly availabilityZoneId?: string;
     /**
      * The CIDR block for the subnet.
      */
-    readonly cidrBlock: pulumi.Input<string>;
+    readonly cidrBlock: string;
     /**
      * The IPv6 network range for the subnet,
      * in CIDR notation. The subnet size must use a /64 prefix length.
      */
-    readonly ipv6CidrBlock?: pulumi.Input<string>;
+    readonly ipv6CidrBlock?: string;
     /**
      * Specify true to indicate
      * that instances launched into the subnet should be assigned
      * a public IP address. Default is `false`.
      */
-    readonly mapPublicIpOnLaunch?: pulumi.Input<boolean>;
+    readonly mapPublicIpOnLaunch?: boolean;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * The VPC ID.
      */
-    readonly vpcId: pulumi.Input<string>;
+    readonly vpcId: string;
 }

@@ -97,8 +97,8 @@ export class EventSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EventSubscriptionArgs | EventSubscriptionState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<EventSubscriptionArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<EventSubscriptionArgs> | pulumi.InputObject<EventSubscriptionState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: EventSubscriptionState = argsOrState as EventSubscriptionState | undefined;
@@ -136,40 +136,40 @@ export class EventSubscription extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventSubscription resources.
  */
 export interface EventSubscriptionState {
-    readonly customerAwsId?: pulumi.Input<string>;
+    readonly customerAwsId?: string;
     /**
      * A boolean flag to enable/disable the subscription. Defaults to true.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    readonly enabled?: boolean;
     /**
      * A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
      */
-    readonly eventCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly eventCategories?: string[];
     /**
      * The name of the Redshift event subscription.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`.
      */
-    readonly severity?: pulumi.Input<string>;
+    readonly severity?: string;
     /**
      * The ARN of the SNS topic to send events to.
      */
-    readonly snsTopicArn?: pulumi.Input<string>;
+    readonly snsTopicArn?: string;
     /**
      * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
      */
-    readonly sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly sourceIds?: string[];
     /**
      * The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
      */
-    readonly sourceType?: pulumi.Input<string>;
-    readonly status?: pulumi.Input<string>;
+    readonly sourceType?: string;
+    readonly status?: string;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -179,33 +179,33 @@ export interface EventSubscriptionArgs {
     /**
      * A boolean flag to enable/disable the subscription. Defaults to true.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    readonly enabled?: boolean;
     /**
      * A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
      */
-    readonly eventCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly eventCategories?: string[];
     /**
      * The name of the Redshift event subscription.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`.
      */
-    readonly severity?: pulumi.Input<string>;
+    readonly severity?: string;
     /**
      * The ARN of the SNS topic to send events to.
      */
-    readonly snsTopicArn: pulumi.Input<string>;
+    readonly snsTopicArn: string;
     /**
      * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
      */
-    readonly sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly sourceIds?: string[];
     /**
      * The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
      */
-    readonly sourceType?: pulumi.Input<string>;
+    readonly sourceType?: string;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }

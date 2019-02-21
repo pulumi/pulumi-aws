@@ -129,8 +129,8 @@ export class SecurityGroupRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SecurityGroupRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SecurityGroupRuleArgs | SecurityGroupRuleState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<SecurityGroupRuleArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<SecurityGroupRuleArgs> | pulumi.InputObject<SecurityGroupRuleState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SecurityGroupRuleState = argsOrState as SecurityGroupRuleState | undefined;
@@ -185,51 +185,51 @@ export interface SecurityGroupRuleState {
     /**
      * List of CIDR blocks. Cannot be specified with `source_security_group_id`.
      */
-    readonly cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly cidrBlocks?: string[];
     /**
      * Description of the rule.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The start port (or ICMP type number if protocol is "icmp").
      */
-    readonly fromPort?: pulumi.Input<number>;
+    readonly fromPort?: number;
     /**
      * List of IPv6 CIDR blocks.
      */
-    readonly ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly ipv6CidrBlocks?: string[];
     /**
      * List of prefix list IDs (for allowing access to VPC endpoints).
      * Only valid with `egress`.
      */
-    readonly prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly prefixListIds?: string[];
     /**
      * The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
      */
-    readonly protocol?: pulumi.Input<string>;
+    readonly protocol?: string;
     /**
      * The security group to apply this rule to.
      */
-    readonly securityGroupId?: pulumi.Input<string>;
+    readonly securityGroupId?: string;
     /**
      * If true, the security group itself will be added as
      * a source to this ingress rule.
      */
-    readonly self?: pulumi.Input<boolean>;
+    readonly self?: boolean;
     /**
      * The security group id to allow access to/from,
      * depending on the `type`. Cannot be specified with `cidr_blocks`.
      */
-    readonly sourceSecurityGroupId?: pulumi.Input<string>;
+    readonly sourceSecurityGroupId?: string;
     /**
      * The end port (or ICMP code if protocol is "icmp").
      */
-    readonly toPort?: pulumi.Input<number>;
+    readonly toPort?: number;
     /**
      * The type of rule being created. Valid options are `ingress` (inbound)
      * or `egress` (outbound).
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: string;
 }
 
 /**
@@ -239,49 +239,49 @@ export interface SecurityGroupRuleArgs {
     /**
      * List of CIDR blocks. Cannot be specified with `source_security_group_id`.
      */
-    readonly cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly cidrBlocks?: string[];
     /**
      * Description of the rule.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The start port (or ICMP type number if protocol is "icmp").
      */
-    readonly fromPort: pulumi.Input<number>;
+    readonly fromPort: number;
     /**
      * List of IPv6 CIDR blocks.
      */
-    readonly ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly ipv6CidrBlocks?: string[];
     /**
      * List of prefix list IDs (for allowing access to VPC endpoints).
      * Only valid with `egress`.
      */
-    readonly prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly prefixListIds?: string[];
     /**
      * The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
      */
-    readonly protocol: pulumi.Input<string>;
+    readonly protocol: string;
     /**
      * The security group to apply this rule to.
      */
-    readonly securityGroupId: pulumi.Input<string>;
+    readonly securityGroupId: string;
     /**
      * If true, the security group itself will be added as
      * a source to this ingress rule.
      */
-    readonly self?: pulumi.Input<boolean>;
+    readonly self?: boolean;
     /**
      * The security group id to allow access to/from,
      * depending on the `type`. Cannot be specified with `cidr_blocks`.
      */
-    readonly sourceSecurityGroupId?: pulumi.Input<string>;
+    readonly sourceSecurityGroupId?: string;
     /**
      * The end port (or ICMP code if protocol is "icmp").
      */
-    readonly toPort: pulumi.Input<number>;
+    readonly toPort: number;
     /**
      * The type of rule being created. Valid options are `ingress` (inbound)
      * or `egress` (outbound).
      */
-    readonly type: pulumi.Input<string>;
+    readonly type: string;
 }

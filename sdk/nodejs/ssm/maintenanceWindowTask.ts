@@ -108,8 +108,8 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MaintenanceWindowTaskArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MaintenanceWindowTaskArgs | MaintenanceWindowTaskState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<MaintenanceWindowTaskArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<MaintenanceWindowTaskArgs> | pulumi.InputObject<MaintenanceWindowTaskState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: MaintenanceWindowTaskState = argsOrState as MaintenanceWindowTaskState | undefined;
@@ -172,48 +172,48 @@ export interface MaintenanceWindowTaskState {
     /**
      * The description of the maintenance window task.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
      */
-    readonly loggingInfo?: pulumi.Input<{ s3BucketName: pulumi.Input<string>, s3BucketPrefix?: pulumi.Input<string>, s3Region: pulumi.Input<string> }>;
+    readonly loggingInfo?: { s3BucketName: string, s3BucketPrefix?: string, s3Region: string };
     /**
      * The maximum number of targets this task can be run for in parallel.
      */
-    readonly maxConcurrency?: pulumi.Input<string>;
+    readonly maxConcurrency?: string;
     /**
      * The maximum number of errors allowed before this task stops being scheduled.
      */
-    readonly maxErrors?: pulumi.Input<string>;
-    readonly name?: pulumi.Input<string>;
+    readonly maxErrors?: string;
+    readonly name?: string;
     /**
      * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
      */
-    readonly priority?: pulumi.Input<number>;
+    readonly priority?: number;
     /**
      * The role that should be assumed when executing the task.
      */
-    readonly serviceRoleArn?: pulumi.Input<string>;
+    readonly serviceRoleArn?: string;
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
-    readonly targets?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly targets?: { key: string, values: string[] }[];
     /**
      * The ARN of the task to execute.
      */
-    readonly taskArn?: pulumi.Input<string>;
+    readonly taskArn?: string;
     /**
      * A structure containing information about parameters required by the particular `task_arn`. Documented below.
      */
-    readonly taskParameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly taskParameters?: { name: string, values: string[] }[];
     /**
      * The type of task being registered. The only allowed value is `RUN_COMMAND`.
      */
-    readonly taskType?: pulumi.Input<string>;
+    readonly taskType?: string;
     /**
      * The Id of the maintenance window to register the task with.
      */
-    readonly windowId?: pulumi.Input<string>;
+    readonly windowId?: string;
 }
 
 /**
@@ -223,46 +223,46 @@ export interface MaintenanceWindowTaskArgs {
     /**
      * The description of the maintenance window task.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
      */
-    readonly loggingInfo?: pulumi.Input<{ s3BucketName: pulumi.Input<string>, s3BucketPrefix?: pulumi.Input<string>, s3Region: pulumi.Input<string> }>;
+    readonly loggingInfo?: { s3BucketName: string, s3BucketPrefix?: string, s3Region: string };
     /**
      * The maximum number of targets this task can be run for in parallel.
      */
-    readonly maxConcurrency: pulumi.Input<string>;
+    readonly maxConcurrency: string;
     /**
      * The maximum number of errors allowed before this task stops being scheduled.
      */
-    readonly maxErrors: pulumi.Input<string>;
-    readonly name?: pulumi.Input<string>;
+    readonly maxErrors: string;
+    readonly name?: string;
     /**
      * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
      */
-    readonly priority?: pulumi.Input<number>;
+    readonly priority?: number;
     /**
      * The role that should be assumed when executing the task.
      */
-    readonly serviceRoleArn: pulumi.Input<string>;
+    readonly serviceRoleArn: string;
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
-    readonly targets: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly targets: { key: string, values: string[] }[];
     /**
      * The ARN of the task to execute.
      */
-    readonly taskArn: pulumi.Input<string>;
+    readonly taskArn: string;
     /**
      * A structure containing information about parameters required by the particular `task_arn`. Documented below.
      */
-    readonly taskParameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly taskParameters?: { name: string, values: string[] }[];
     /**
      * The type of task being registered. The only allowed value is `RUN_COMMAND`.
      */
-    readonly taskType: pulumi.Input<string>;
+    readonly taskType: string;
     /**
      * The Id of the maintenance window to register the task with.
      */
-    readonly windowId: pulumi.Input<string>;
+    readonly windowId: string;
 }

@@ -65,8 +65,8 @@ export class Thing extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ThingArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ThingArgs | ThingState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<ThingArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ThingArgs> | pulumi.InputObject<ThingState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ThingState = argsOrState as ThingState | undefined;
@@ -96,27 +96,27 @@ export interface ThingState {
     /**
      * The ARN of the thing.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * Map of attributes of the thing.
      */
-    readonly attributes?: pulumi.Input<{[key: string]: any}>;
+    readonly attributes?: {[key: string]: any};
     /**
      * The default client ID.
      */
-    readonly defaultClientId?: pulumi.Input<string>;
+    readonly defaultClientId?: string;
     /**
      * The name of the thing.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The thing type name.
      */
-    readonly thingTypeName?: pulumi.Input<string>;
+    readonly thingTypeName?: string;
     /**
      * The current version of the thing record in the registry.
      */
-    readonly version?: pulumi.Input<number>;
+    readonly version?: number;
 }
 
 /**
@@ -126,13 +126,13 @@ export interface ThingArgs {
     /**
      * Map of attributes of the thing.
      */
-    readonly attributes?: pulumi.Input<{[key: string]: any}>;
+    readonly attributes?: {[key: string]: any};
     /**
      * The name of the thing.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The thing type name.
      */
-    readonly thingTypeName?: pulumi.Input<string>;
+    readonly thingTypeName?: string;
 }

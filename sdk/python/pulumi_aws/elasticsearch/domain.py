@@ -91,7 +91,6 @@ class Domain(pulumi.CustomResource):
                may be wrong and cause a perpetual diff, causing Terraform to want to recreate your Elasticsearch
                domain on every apply.
         :param pulumi.Input[dict] cluster_config: Cluster configuration of the domain, see below.
-        :param pulumi.Input[dict] cognito_options
         :param pulumi.Input[str] domain_name: Name of the domain.
         :param pulumi.Input[dict] ebs_options: EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
         :param pulumi.Input[str] elasticsearch_version: The version of Elasticsearch to deploy. Defaults to `1.5`

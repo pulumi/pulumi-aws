@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetSecretResult(object):
+class GetSecretResult:
     """
     A collection of values returned by getSecret.
     """
@@ -71,7 +71,7 @@ class GetSecretResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_secret(arn=None, name=None):
+async def get_secret(arn=None,name=None,opts=None):
     """
     Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`aws_secretsmanager_secret_version` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
     """
@@ -79,7 +79,7 @@ async def get_secret(arn=None, name=None):
 
     __args__['arn'] = arn
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:secretsmanager/getSecret:getSecret', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:secretsmanager/getSecret:getSecret', __args__, opts=opts)
 
     return GetSecretResult(
         arn=__ret__.get('arn'),

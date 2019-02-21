@@ -101,8 +101,8 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VpcDhcpOptionsArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpcDhcpOptionsArgs | VpcDhcpOptionsState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<VpcDhcpOptionsArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<VpcDhcpOptionsArgs> | pulumi.InputObject<VpcDhcpOptionsState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VpcDhcpOptionsState = argsOrState as VpcDhcpOptionsState | undefined;
@@ -134,31 +134,31 @@ export interface VpcDhcpOptionsState {
     /**
      * the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
      */
-    readonly domainName?: pulumi.Input<string>;
+    readonly domainName?: string;
     /**
      * List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
      */
-    readonly domainNameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly domainNameServers?: string[];
     /**
      * List of NETBIOS name servers.
      */
-    readonly netbiosNameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly netbiosNameServers?: string[];
     /**
      * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      */
-    readonly netbiosNodeType?: pulumi.Input<string>;
+    readonly netbiosNodeType?: string;
     /**
      * List of NTP servers to configure.
      */
-    readonly ntpServers?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly ntpServers?: string[];
     /**
      * The ID of the AWS account that owns the DHCP options set.
      */
-    readonly ownerId?: pulumi.Input<string>;
+    readonly ownerId?: string;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -168,25 +168,25 @@ export interface VpcDhcpOptionsArgs {
     /**
      * the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
      */
-    readonly domainName?: pulumi.Input<string>;
+    readonly domainName?: string;
     /**
      * List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
      */
-    readonly domainNameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly domainNameServers?: string[];
     /**
      * List of NETBIOS name servers.
      */
-    readonly netbiosNameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly netbiosNameServers?: string[];
     /**
      * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      */
-    readonly netbiosNodeType?: pulumi.Input<string>;
+    readonly netbiosNodeType?: string;
     /**
      * List of NTP servers to configure.
      */
-    readonly ntpServers?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly ntpServers?: string[];
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }

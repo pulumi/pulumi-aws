@@ -55,8 +55,8 @@ export class ClientCertificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ClientCertificateArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClientCertificateArgs | ClientCertificateState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<ClientCertificateArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ClientCertificateArgs> | pulumi.InputObject<ClientCertificateState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ClientCertificateState = argsOrState as ClientCertificateState | undefined;
@@ -82,19 +82,19 @@ export interface ClientCertificateState {
     /**
      * The date when the client certificate was created.
      */
-    readonly createdDate?: pulumi.Input<string>;
+    readonly createdDate?: string;
     /**
      * The description of the client certificate.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The date when the client certificate will expire.
      */
-    readonly expirationDate?: pulumi.Input<string>;
+    readonly expirationDate?: string;
     /**
      * The PEM-encoded public key of the client certificate.
      */
-    readonly pemEncodedCertificate?: pulumi.Input<string>;
+    readonly pemEncodedCertificate?: string;
 }
 
 /**
@@ -104,5 +104,5 @@ export interface ClientCertificateArgs {
     /**
      * The description of the client certificate.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
 }

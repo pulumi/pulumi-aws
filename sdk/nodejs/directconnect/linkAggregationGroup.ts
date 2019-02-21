@@ -70,8 +70,8 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LinkAggregationGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LinkAggregationGroupArgs | LinkAggregationGroupState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<LinkAggregationGroupArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<LinkAggregationGroupArgs> | pulumi.InputObject<LinkAggregationGroupState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: LinkAggregationGroupState = argsOrState as LinkAggregationGroupState | undefined;
@@ -109,31 +109,31 @@ export interface LinkAggregationGroupState {
     /**
      * The ARN of the LAG.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The bandwidth of the individual physical connections bundled by the LAG. Available values: 1Gbps, 10Gbps. Case sensitive.
      */
-    readonly connectionsBandwidth?: pulumi.Input<string>;
+    readonly connectionsBandwidth?: string;
     /**
      * A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
      */
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    readonly forceDestroy?: boolean;
     /**
      * The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      */
-    readonly location?: pulumi.Input<string>;
+    readonly location?: string;
     /**
      * The name of the LAG.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The number of physical connections initially provisioned and bundled by the LAG. Use `aws_dx_connection` and `aws_dx_connection_association` resources instead. Default connections will be removed as part of LAG creation automatically in future versions.
      */
-    readonly numberOfConnections?: pulumi.Input<number>;
+    readonly numberOfConnections?: number;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -143,25 +143,25 @@ export interface LinkAggregationGroupArgs {
     /**
      * The bandwidth of the individual physical connections bundled by the LAG. Available values: 1Gbps, 10Gbps. Case sensitive.
      */
-    readonly connectionsBandwidth: pulumi.Input<string>;
+    readonly connectionsBandwidth: string;
     /**
      * A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
      */
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    readonly forceDestroy?: boolean;
     /**
      * The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location: string;
     /**
      * The name of the LAG.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The number of physical connections initially provisioned and bundled by the LAG. Use `aws_dx_connection` and `aws_dx_connection_association` resources instead. Default connections will be removed as part of LAG creation automatically in future versions.
      */
-    readonly numberOfConnections?: pulumi.Input<number>;
+    readonly numberOfConnections?: number;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }

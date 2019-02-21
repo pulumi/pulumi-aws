@@ -68,8 +68,8 @@ export class Group extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<GroupArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<GroupArgs> | pulumi.InputObject<GroupState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: GroupState = argsOrState as GroupState | undefined;
@@ -98,19 +98,19 @@ export interface GroupState {
     /**
      * The ARN assigned by AWS for this resource group.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * A description of the resource group.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * A `resource_query` block. Resource queries are documented below.
      */
-    readonly resourceQuery?: pulumi.Input<{ query: pulumi.Input<string>, type?: pulumi.Input<string> }>;
+    readonly resourceQuery?: { query: string, type?: string };
 }
 
 /**
@@ -120,13 +120,13 @@ export interface GroupArgs {
     /**
      * A description of the resource group.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * A `resource_query` block. Resource queries are documented below.
      */
-    readonly resourceQuery: pulumi.Input<{ query: pulumi.Input<string>, type?: pulumi.Input<string> }>;
+    readonly resourceQuery: { query: string, type?: string };
 }

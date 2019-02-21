@@ -58,8 +58,8 @@ export class SecurityConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SecurityConfigurationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SecurityConfigurationArgs | SecurityConfigurationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<SecurityConfigurationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<SecurityConfigurationArgs> | pulumi.InputObject<SecurityConfigurationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SecurityConfigurationState = argsOrState as SecurityConfigurationState | undefined;
@@ -84,11 +84,11 @@ export interface SecurityConfigurationState {
     /**
      * Configuration block containing encryption configuration. Detailed below.
      */
-    readonly encryptionConfiguration?: pulumi.Input<{ cloudwatchEncryption: pulumi.Input<{ cloudwatchEncryptionMode?: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string> }>, jobBookmarksEncryption: pulumi.Input<{ jobBookmarksEncryptionMode?: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string> }>, s3Encryption: pulumi.Input<{ kmsKeyArn?: pulumi.Input<string>, s3EncryptionMode?: pulumi.Input<string> }> }>;
+    readonly encryptionConfiguration?: { cloudwatchEncryption: { cloudwatchEncryptionMode?: string, kmsKeyArn?: string }, jobBookmarksEncryption: { jobBookmarksEncryptionMode?: string, kmsKeyArn?: string }, s3Encryption: { kmsKeyArn?: string, s3EncryptionMode?: string } };
     /**
      * Name of the security configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }
 
 /**
@@ -98,9 +98,9 @@ export interface SecurityConfigurationArgs {
     /**
      * Configuration block containing encryption configuration. Detailed below.
      */
-    readonly encryptionConfiguration: pulumi.Input<{ cloudwatchEncryption: pulumi.Input<{ cloudwatchEncryptionMode?: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string> }>, jobBookmarksEncryption: pulumi.Input<{ jobBookmarksEncryptionMode?: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string> }>, s3Encryption: pulumi.Input<{ kmsKeyArn?: pulumi.Input<string>, s3EncryptionMode?: pulumi.Input<string> }> }>;
+    readonly encryptionConfiguration: { cloudwatchEncryption: { cloudwatchEncryptionMode?: string, kmsKeyArn?: string }, jobBookmarksEncryption: { jobBookmarksEncryptionMode?: string, kmsKeyArn?: string }, s3Encryption: { kmsKeyArn?: string, s3EncryptionMode?: string } };
     /**
      * Name of the security configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }

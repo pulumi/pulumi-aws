@@ -65,8 +65,8 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpnConnectionRouteArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpnConnectionRouteArgs | VpnConnectionRouteState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<VpnConnectionRouteArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<VpnConnectionRouteArgs> | pulumi.InputObject<VpnConnectionRouteState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VpnConnectionRouteState = argsOrState as VpnConnectionRouteState | undefined;
@@ -94,11 +94,11 @@ export interface VpnConnectionRouteState {
     /**
      * The CIDR block associated with the local subnet of the customer network.
      */
-    readonly destinationCidrBlock?: pulumi.Input<string>;
+    readonly destinationCidrBlock?: string;
     /**
      * The ID of the VPN connection.
      */
-    readonly vpnConnectionId?: pulumi.Input<string>;
+    readonly vpnConnectionId?: string;
 }
 
 /**
@@ -108,9 +108,9 @@ export interface VpnConnectionRouteArgs {
     /**
      * The CIDR block associated with the local subnet of the customer network.
      */
-    readonly destinationCidrBlock: pulumi.Input<string>;
+    readonly destinationCidrBlock: string;
     /**
      * The ID of the VPN connection.
      */
-    readonly vpnConnectionId: pulumi.Input<string>;
+    readonly vpnConnectionId: string;
 }

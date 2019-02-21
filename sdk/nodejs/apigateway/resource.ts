@@ -62,8 +62,8 @@ export class Resource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ResourceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ResourceArgs | ResourceState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<ResourceArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ResourceArgs> | pulumi.InputObject<ResourceState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ResourceState = argsOrState as ResourceState | undefined;
@@ -98,19 +98,19 @@ export interface ResourceState {
     /**
      * The ID of the parent API resource
      */
-    readonly parentId?: pulumi.Input<string>;
+    readonly parentId?: string;
     /**
      * The complete path for this API resource, including all parent paths.
      */
-    readonly path?: pulumi.Input<string>;
+    readonly path?: string;
     /**
      * The last path segment of this API resource.
      */
-    readonly pathPart?: pulumi.Input<string>;
+    readonly pathPart?: string;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi?: pulumi.Input<RestApi>;
+    readonly restApi?: RestApi;
 }
 
 /**
@@ -120,13 +120,13 @@ export interface ResourceArgs {
     /**
      * The ID of the parent API resource
      */
-    readonly parentId: pulumi.Input<string>;
+    readonly parentId: string;
     /**
      * The last path segment of this API resource.
      */
-    readonly pathPart: pulumi.Input<string>;
+    readonly pathPart: string;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: pulumi.Input<RestApi>;
+    readonly restApi: RestApi;
 }

@@ -71,8 +71,8 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EnvironmentEC2Args, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EnvironmentEC2Args | EnvironmentEC2State, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<EnvironmentEC2Args>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<EnvironmentEC2Args> | pulumi.InputObject<EnvironmentEC2State>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: EnvironmentEC2State = argsOrState as EnvironmentEC2State | undefined;
@@ -109,35 +109,35 @@ export interface EnvironmentEC2State {
     /**
      * The ARN of the environment.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The number of minutes until the running instance is shut down after the environment has last been used.
      */
-    readonly automaticStopTimeMinutes?: pulumi.Input<number>;
+    readonly automaticStopTimeMinutes?: number;
     /**
      * The description of the environment.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The type of instance to connect to the environment, e.g. `t2.micro`.
      */
-    readonly instanceType?: pulumi.Input<string>;
+    readonly instanceType?: string;
     /**
      * The name of the environment.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
      */
-    readonly ownerArn?: pulumi.Input<string>;
+    readonly ownerArn?: string;
     /**
      * The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    readonly subnetId?: string;
     /**
      * The type of the environment (e.g. `ssh` or `ec2`)
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: string;
 }
 
 /**
@@ -147,25 +147,25 @@ export interface EnvironmentEC2Args {
     /**
      * The number of minutes until the running instance is shut down after the environment has last been used.
      */
-    readonly automaticStopTimeMinutes?: pulumi.Input<number>;
+    readonly automaticStopTimeMinutes?: number;
     /**
      * The description of the environment.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The type of instance to connect to the environment, e.g. `t2.micro`.
      */
-    readonly instanceType: pulumi.Input<string>;
+    readonly instanceType: string;
     /**
      * The name of the environment.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
      */
-    readonly ownerArn?: pulumi.Input<string>;
+    readonly ownerArn?: string;
     /**
      * The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    readonly subnetId?: string;
 }

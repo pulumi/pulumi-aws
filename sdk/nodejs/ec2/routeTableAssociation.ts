@@ -48,8 +48,8 @@ export class RouteTableAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RouteTableAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RouteTableAssociationArgs | RouteTableAssociationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<RouteTableAssociationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<RouteTableAssociationArgs> | pulumi.InputObject<RouteTableAssociationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RouteTableAssociationState = argsOrState as RouteTableAssociationState | undefined;
@@ -77,11 +77,11 @@ export interface RouteTableAssociationState {
     /**
      * The ID of the routing table to associate with.
      */
-    readonly routeTableId?: pulumi.Input<string>;
+    readonly routeTableId?: string;
     /**
      * The subnet ID to create an association.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    readonly subnetId?: string;
 }
 
 /**
@@ -91,9 +91,9 @@ export interface RouteTableAssociationArgs {
     /**
      * The ID of the routing table to associate with.
      */
-    readonly routeTableId: pulumi.Input<string>;
+    readonly routeTableId: string;
     /**
      * The subnet ID to create an association.
      */
-    readonly subnetId: pulumi.Input<string>;
+    readonly subnetId: string;
 }

@@ -105,14 +105,9 @@ class JavaAppLayer(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.
         :param pulumi.Input[bool] auto_assign_public_ips: For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
         :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
-        :param pulumi.Input[list] custom_configure_recipes
-        :param pulumi.Input[list] custom_deploy_recipes
         :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[list] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
-        :param pulumi.Input[list] custom_setup_recipes
-        :param pulumi.Input[list] custom_shutdown_recipes
-        :param pulumi.Input[list] custom_undeploy_recipes
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
         :param pulumi.Input[list] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer

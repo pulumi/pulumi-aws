@@ -134,8 +134,8 @@ export class AmiCopy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AmiCopyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AmiCopyArgs | AmiCopyState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<AmiCopyArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<AmiCopyArgs> | pulumi.InputObject<AmiCopyState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AmiCopyState = argsOrState as AmiCopyState | undefined;
@@ -197,83 +197,83 @@ export interface AmiCopyState {
     /**
      * Machine architecture for created instances. Defaults to "x86_64".
      */
-    readonly architecture?: pulumi.Input<string>;
+    readonly architecture?: string;
     /**
      * A longer, human-readable description for the AMI.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName?: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
+    readonly ebsBlockDevices?: { deleteOnTermination?: boolean, deviceName?: string, encrypted?: boolean, iops?: number, snapshotId?: string, volumeSize?: number, volumeType?: string }[];
     /**
      * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
-    readonly enaSupport?: pulumi.Input<boolean>;
+    readonly enaSupport?: boolean;
     /**
      * Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
      */
-    readonly encrypted?: pulumi.Input<boolean>;
+    readonly encrypted?: boolean;
     /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }>[]>;
+    readonly ephemeralBlockDevices?: { deviceName?: string, virtualName?: string }[];
     /**
      * Path to an S3 object containing an image manifest, e.g. created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      */
-    readonly imageLocation?: pulumi.Input<string>;
+    readonly imageLocation?: string;
     /**
      * The id of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      */
-    readonly kernelId?: pulumi.Input<string>;
+    readonly kernelId?: string;
     /**
      * The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
-    readonly manageEbsSnapshots?: pulumi.Input<boolean>;
+    readonly kmsKeyId?: string;
+    readonly manageEbsSnapshots?: boolean;
     /**
      * A region-unique name for the AMI.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The id of an initrd image (ARI) that will be used when booting the
      * created instances.
      */
-    readonly ramdiskId?: pulumi.Input<string>;
+    readonly ramdiskId?: string;
     /**
      * The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      */
-    readonly rootDeviceName?: pulumi.Input<string>;
-    readonly rootSnapshotId?: pulumi.Input<string>;
+    readonly rootDeviceName?: string;
+    readonly rootSnapshotId?: string;
     /**
      * The id of the AMI to copy. This id must be valid in the region
      * given by `source_ami_region`.
      */
-    readonly sourceAmiId?: pulumi.Input<string>;
+    readonly sourceAmiId?: string;
     /**
      * The region from which the AMI will be copied. This may be the
      * same as the AWS provider region in order to create a copy within the same region.
      */
-    readonly sourceAmiRegion?: pulumi.Input<string>;
+    readonly sourceAmiRegion?: string;
     /**
      * When set to "simple" (the default), enables enhanced networking
      * for created instances. No other value is supported at this time.
      */
-    readonly sriovNetSupport?: pulumi.Input<string>;
+    readonly sriovNetSupport?: string;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
      * changes the set of further arguments that are required, as described below.
      */
-    readonly virtualizationType?: pulumi.Input<string>;
+    readonly virtualizationType?: string;
 }
 
 /**
@@ -283,41 +283,41 @@ export interface AmiCopyArgs {
     /**
      * A longer, human-readable description for the AMI.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName?: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
+    readonly ebsBlockDevices?: { deleteOnTermination?: boolean, deviceName?: string, encrypted?: boolean, iops?: number, snapshotId?: string, volumeSize?: number, volumeType?: string }[];
     /**
      * Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
      */
-    readonly encrypted?: pulumi.Input<boolean>;
+    readonly encrypted?: boolean;
     /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }>[]>;
+    readonly ephemeralBlockDevices?: { deviceName?: string, virtualName?: string }[];
     /**
      * The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    readonly kmsKeyId?: string;
     /**
      * A region-unique name for the AMI.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The id of the AMI to copy. This id must be valid in the region
      * given by `source_ami_region`.
      */
-    readonly sourceAmiId: pulumi.Input<string>;
+    readonly sourceAmiId: string;
     /**
      * The region from which the AMI will be copied. This may be the
      * same as the AWS provider region in order to create a copy within the same region.
      */
-    readonly sourceAmiRegion: pulumi.Input<string>;
+    readonly sourceAmiRegion: string;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }

@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetClusterResult(object):
+class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
@@ -95,7 +95,7 @@ class GetClusterResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_cluster(cluster_identifier=None, tags=None):
+async def get_cluster(cluster_identifier=None,tags=None,opts=None):
     """
     Provides information about a RDS cluster.
     """
@@ -103,7 +103,7 @@ async def get_cluster(cluster_identifier=None, tags=None):
 
     __args__['clusterIdentifier'] = cluster_identifier
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:rds/getCluster:getCluster', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:rds/getCluster:getCluster', __args__, opts=opts)
 
     return GetClusterResult(
         arn=__ret__.get('arn'),

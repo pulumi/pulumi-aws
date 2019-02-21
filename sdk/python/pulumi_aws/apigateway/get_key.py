@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetKeyResult(object):
+class GetKeyResult:
     """
     A collection of values returned by getKey.
     """
@@ -26,7 +26,7 @@ class GetKeyResult(object):
         Set to the value of the API Key.
         """
 
-async def get_key(id=None):
+async def get_key(id=None,opts=None):
     """
     Use this data source to get the name and value of a pre-existing API Key, for
     example to supply credentials for a dependency microservice.
@@ -34,7 +34,7 @@ async def get_key(id=None):
     __args__ = dict()
 
     __args__['id'] = id
-    __ret__ = await pulumi.runtime.invoke('aws:apigateway/getKey:getKey', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:apigateway/getKey:getKey', __args__, opts=opts)
 
     return GetKeyResult(
         name=__ret__.get('name'),

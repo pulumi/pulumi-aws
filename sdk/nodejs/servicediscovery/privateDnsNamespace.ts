@@ -63,8 +63,8 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PrivateDnsNamespaceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PrivateDnsNamespaceArgs | PrivateDnsNamespaceState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<PrivateDnsNamespaceArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<PrivateDnsNamespaceArgs> | pulumi.InputObject<PrivateDnsNamespaceState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PrivateDnsNamespaceState = argsOrState as PrivateDnsNamespaceState | undefined;
@@ -95,23 +95,23 @@ export interface PrivateDnsNamespaceState {
     /**
      * The ARN that Amazon Route 53 assigns to the namespace when you create it.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The description that you specify for the namespace when you create it.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
      */
-    readonly hostedZone?: pulumi.Input<string>;
+    readonly hostedZone?: string;
     /**
      * The name of the namespace.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The ID of VPC that you want to associate the namespace with.
      */
-    readonly vpc?: pulumi.Input<string>;
+    readonly vpc?: string;
 }
 
 /**
@@ -121,13 +121,13 @@ export interface PrivateDnsNamespaceArgs {
     /**
      * The description that you specify for the namespace when you create it.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The name of the namespace.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The ID of VPC that you want to associate the namespace with.
      */
-    readonly vpc: pulumi.Input<string>;
+    readonly vpc: string;
 }

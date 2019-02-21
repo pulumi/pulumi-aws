@@ -35,7 +35,6 @@ class ResourceServer(pulumi.CustomResource):
         :param pulumi.Input[str] identifier: An identifier for the resource server.
         :param pulumi.Input[str] name: A name for the resource server.
         :param pulumi.Input[list] scopes: A list of Authorization Scope.
-        :param pulumi.Input[str] user_pool_id
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

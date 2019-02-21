@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetRouteTablesResult(object):
+class GetRouteTablesResult:
     """
     A collection of values returned by getRouteTables.
     """
@@ -29,7 +29,7 @@ class GetRouteTablesResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_route_tables(filters=None, tags=None, vpc_id=None):
+async def get_route_tables(filters=None,tags=None,vpc_id=None,opts=None):
     """
     This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
     """
@@ -38,7 +38,7 @@ async def get_route_tables(filters=None, tags=None, vpc_id=None):
     __args__['filters'] = filters
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getRouteTables:getRouteTables', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getRouteTables:getRouteTables', __args__, opts=opts)
 
     return GetRouteTablesResult(
         ids=__ret__.get('ids'),

@@ -54,8 +54,8 @@ export class Detector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DetectorArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DetectorArgs | DetectorState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<DetectorArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<DetectorArgs> | pulumi.InputObject<DetectorState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DetectorState = argsOrState as DetectorState | undefined;
@@ -79,15 +79,15 @@ export interface DetectorState {
     /**
      * The AWS account ID of the GuardDuty detector
      */
-    readonly accountId?: pulumi.Input<string>;
+    readonly accountId?: string;
     /**
      * Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
      */
-    readonly enable?: pulumi.Input<boolean>;
+    readonly enable?: boolean;
     /**
      * Specifies the frequency of notifications sent for subsequent finding occurrences. Valid values: `FIFTEEN_MINUTES, ONE_HOUR, SIX_HOURS`. Default: `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
      */
-    readonly findingPublishingFrequency?: pulumi.Input<string>;
+    readonly findingPublishingFrequency?: string;
 }
 
 /**
@@ -97,9 +97,9 @@ export interface DetectorArgs {
     /**
      * Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
      */
-    readonly enable?: pulumi.Input<boolean>;
+    readonly enable?: boolean;
     /**
      * Specifies the frequency of notifications sent for subsequent finding occurrences. Valid values: `FIFTEEN_MINUTES, ONE_HOUR, SIX_HOURS`. Default: `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
      */
-    readonly findingPublishingFrequency?: pulumi.Input<string>;
+    readonly findingPublishingFrequency?: string;
 }

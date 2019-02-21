@@ -66,8 +66,8 @@ export class DomainPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DomainPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DomainPolicyArgs | DomainPolicyState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<DomainPolicyArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<DomainPolicyArgs> | pulumi.InputObject<DomainPolicyState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DomainPolicyState = argsOrState as DomainPolicyState | undefined;
@@ -95,11 +95,11 @@ export interface DomainPolicyState {
     /**
      * IAM policy document specifying the access policies for the domain
      */
-    readonly accessPolicies?: pulumi.Input<string>;
+    readonly accessPolicies?: string;
     /**
      * Name of the domain.
      */
-    readonly domainName?: pulumi.Input<string>;
+    readonly domainName?: string;
 }
 
 /**
@@ -109,9 +109,9 @@ export interface DomainPolicyArgs {
     /**
      * IAM policy document specifying the access policies for the domain
      */
-    readonly accessPolicies: pulumi.Input<string>;
+    readonly accessPolicies: string;
     /**
      * Name of the domain.
      */
-    readonly domainName: pulumi.Input<string>;
+    readonly domainName: string;
 }

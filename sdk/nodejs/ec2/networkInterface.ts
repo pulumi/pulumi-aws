@@ -79,8 +79,8 @@ export class NetworkInterface extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NetworkInterfaceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NetworkInterfaceArgs | NetworkInterfaceState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<NetworkInterfaceArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<NetworkInterfaceArgs> | pulumi.InputObject<NetworkInterfaceState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: NetworkInterfaceState = argsOrState as NetworkInterfaceState | undefined;
@@ -121,37 +121,37 @@ export interface NetworkInterfaceState {
     /**
      * Block to define the attachment of the ENI. Documented below.
      */
-    readonly attachments?: pulumi.Input<pulumi.Input<{ attachmentId?: pulumi.Input<string>, deviceIndex: pulumi.Input<number>, instance: pulumi.Input<string> }>[]>;
+    readonly attachments?: { attachmentId?: string, deviceIndex: number, instance: string }[];
     /**
      * A description for the network interface.
      */
-    readonly description?: pulumi.Input<string>;
-    readonly privateDnsName?: pulumi.Input<string>;
-    readonly privateIp?: pulumi.Input<string>;
+    readonly description?: string;
+    readonly privateDnsName?: string;
+    readonly privateIp?: string;
     /**
      * List of private IPs to assign to the ENI.
      */
-    readonly privateIps?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly privateIps?: string[];
     /**
      * Number of private IPs to assign to the ENI.
      */
-    readonly privateIpsCount?: pulumi.Input<number>;
+    readonly privateIpsCount?: number;
     /**
      * List of security group IDs to assign to the ENI.
      */
-    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly securityGroups?: string[];
     /**
      * Whether to enable source destination checking for the ENI. Default true.
      */
-    readonly sourceDestCheck?: pulumi.Input<boolean>;
+    readonly sourceDestCheck?: boolean;
     /**
      * Subnet ID to create the ENI in.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    readonly subnetId?: string;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -161,34 +161,34 @@ export interface NetworkInterfaceArgs {
     /**
      * Block to define the attachment of the ENI. Documented below.
      */
-    readonly attachments?: pulumi.Input<pulumi.Input<{ attachmentId?: pulumi.Input<string>, deviceIndex: pulumi.Input<number>, instance: pulumi.Input<string> }>[]>;
+    readonly attachments?: { attachmentId?: string, deviceIndex: number, instance: string }[];
     /**
      * A description for the network interface.
      */
-    readonly description?: pulumi.Input<string>;
-    readonly privateIp?: pulumi.Input<string>;
+    readonly description?: string;
+    readonly privateIp?: string;
     /**
      * List of private IPs to assign to the ENI.
      */
-    readonly privateIps?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly privateIps?: string[];
     /**
      * Number of private IPs to assign to the ENI.
      */
-    readonly privateIpsCount?: pulumi.Input<number>;
+    readonly privateIpsCount?: number;
     /**
      * List of security group IDs to assign to the ENI.
      */
-    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly securityGroups?: string[];
     /**
      * Whether to enable source destination checking for the ENI. Default true.
      */
-    readonly sourceDestCheck?: pulumi.Input<boolean>;
+    readonly sourceDestCheck?: boolean;
     /**
      * Subnet ID to create the ENI in.
      */
-    readonly subnetId: pulumi.Input<string>;
+    readonly subnetId: string;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }

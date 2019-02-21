@@ -94,8 +94,8 @@ export class MethodResponse extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MethodResponseArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MethodResponseArgs | MethodResponseState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<MethodResponseArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<MethodResponseArgs> | pulumi.InputObject<MethodResponseState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: MethodResponseState = argsOrState as MethodResponseState | undefined;
@@ -139,33 +139,33 @@ export interface MethodResponseState {
     /**
      * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      */
-    readonly httpMethod?: pulumi.Input<string>;
+    readonly httpMethod?: string;
     /**
      * The API resource ID
      */
-    readonly resourceId?: pulumi.Input<string>;
+    readonly resourceId?: string;
     /**
      * A map of the API models used for the response's content type
      */
-    readonly responseModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly responseModels?: {[key: string]: string};
     /**
      * A map of response parameters that can be sent to the caller.
      * For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
      * would define that the header `X-Some-Header` can be provided on the response.
      */
-    readonly responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    readonly responseParameters?: {[key: string]: boolean};
     /**
      * **Deprecated**, use `response_parameters` instead.
      */
-    readonly responseParametersInJson?: pulumi.Input<string>;
+    readonly responseParametersInJson?: string;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi?: pulumi.Input<RestApi>;
+    readonly restApi?: RestApi;
     /**
      * The HTTP status code
      */
-    readonly statusCode?: pulumi.Input<string>;
+    readonly statusCode?: string;
 }
 
 /**
@@ -175,31 +175,31 @@ export interface MethodResponseArgs {
     /**
      * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      */
-    readonly httpMethod: pulumi.Input<string>;
+    readonly httpMethod: string;
     /**
      * The API resource ID
      */
-    readonly resourceId: pulumi.Input<string>;
+    readonly resourceId: string;
     /**
      * A map of the API models used for the response's content type
      */
-    readonly responseModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly responseModels?: {[key: string]: string};
     /**
      * A map of response parameters that can be sent to the caller.
      * For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
      * would define that the header `X-Some-Header` can be provided on the response.
      */
-    readonly responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    readonly responseParameters?: {[key: string]: boolean};
     /**
      * **Deprecated**, use `response_parameters` instead.
      */
-    readonly responseParametersInJson?: pulumi.Input<string>;
+    readonly responseParametersInJson?: string;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: pulumi.Input<RestApi>;
+    readonly restApi: RestApi;
     /**
      * The HTTP status code
      */
-    readonly statusCode: pulumi.Input<string>;
+    readonly statusCode: string;
 }

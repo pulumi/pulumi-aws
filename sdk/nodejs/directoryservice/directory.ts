@@ -199,8 +199,8 @@ export class Directory extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DirectoryArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DirectoryArgs | DirectoryState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<DirectoryArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<DirectoryArgs> | pulumi.InputObject<DirectoryState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DirectoryState = argsOrState as DirectoryState | undefined;
@@ -251,63 +251,63 @@ export interface DirectoryState {
     /**
      * The access URL for the directory, such as `http://alias.awsapps.com`.
      */
-    readonly accessUrl?: pulumi.Input<string>;
+    readonly accessUrl?: string;
     /**
      * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
      */
-    readonly alias?: pulumi.Input<string>;
+    readonly alias?: string;
     /**
      * Connector related information about the directory. Fields documented below.
      */
-    readonly connectSettings?: pulumi.Input<{ customerDnsIps: pulumi.Input<pulumi.Input<string>[]>, customerUsername: pulumi.Input<string>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId: pulumi.Input<string> }>;
+    readonly connectSettings?: { customerDnsIps: string[], customerUsername: string, subnetIds: string[], vpcId: string };
     /**
      * A textual description for the directory.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * A list of IP addresses of the DNS servers for the directory or connector.
      */
-    readonly dnsIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly dnsIpAddresses?: string[];
     /**
      * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
      */
-    readonly edition?: pulumi.Input<string>;
+    readonly edition?: string;
     /**
      * Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
      */
-    readonly enableSso?: pulumi.Input<boolean>;
+    readonly enableSso?: boolean;
     /**
      * The fully qualified name for the directory, such as `corp.example.com`
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The password for the directory administrator or connector user.
      */
-    readonly password?: pulumi.Input<string>;
+    readonly password?: string;
     /**
      * The ID of the security group created by the directory.
      */
-    readonly securityGroupId?: pulumi.Input<string>;
+    readonly securityGroupId?: string;
     /**
      * The short name of the directory, such as `CORP`.
      */
-    readonly shortName?: pulumi.Input<string>;
+    readonly shortName?: string;
     /**
      * The size of the directory (`Small` or `Large` are accepted values).
      */
-    readonly size?: pulumi.Input<string>;
+    readonly size?: string;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: string;
     /**
      * VPC related information about the directory. Fields documented below.
      */
-    readonly vpcSettings?: pulumi.Input<{ subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId: pulumi.Input<string> }>;
+    readonly vpcSettings?: { subnetIds: string[], vpcId: string };
 }
 
 /**
@@ -317,49 +317,49 @@ export interface DirectoryArgs {
     /**
      * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
      */
-    readonly alias?: pulumi.Input<string>;
+    readonly alias?: string;
     /**
      * Connector related information about the directory. Fields documented below.
      */
-    readonly connectSettings?: pulumi.Input<{ customerDnsIps: pulumi.Input<pulumi.Input<string>[]>, customerUsername: pulumi.Input<string>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId: pulumi.Input<string> }>;
+    readonly connectSettings?: { customerDnsIps: string[], customerUsername: string, subnetIds: string[], vpcId: string };
     /**
      * A textual description for the directory.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
      */
-    readonly edition?: pulumi.Input<string>;
+    readonly edition?: string;
     /**
      * Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
      */
-    readonly enableSso?: pulumi.Input<boolean>;
+    readonly enableSso?: boolean;
     /**
      * The fully qualified name for the directory, such as `corp.example.com`
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The password for the directory administrator or connector user.
      */
-    readonly password: pulumi.Input<string>;
+    readonly password: string;
     /**
      * The short name of the directory, such as `CORP`.
      */
-    readonly shortName?: pulumi.Input<string>;
+    readonly shortName?: string;
     /**
      * The size of the directory (`Small` or `Large` are accepted values).
      */
-    readonly size?: pulumi.Input<string>;
+    readonly size?: string;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: string;
     /**
      * VPC related information about the directory. Fields documented below.
      */
-    readonly vpcSettings?: pulumi.Input<{ subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId: pulumi.Input<string> }>;
+    readonly vpcSettings?: { subnetIds: string[], vpcId: string };
 }

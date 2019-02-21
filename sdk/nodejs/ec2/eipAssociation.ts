@@ -90,8 +90,8 @@ export class EipAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: EipAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EipAssociationArgs | EipAssociationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<EipAssociationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<EipAssociationArgs> | pulumi.InputObject<EipAssociationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: EipAssociationState = argsOrState as EipAssociationState | undefined;
@@ -121,36 +121,36 @@ export interface EipAssociationState {
     /**
      * The allocation ID. This is required for EC2-VPC.
      */
-    readonly allocationId?: pulumi.Input<string>;
+    readonly allocationId?: string;
     /**
      * Whether to allow an Elastic IP to
      * be re-associated. Defaults to `true` in VPC.
      */
-    readonly allowReassociation?: pulumi.Input<boolean>;
+    readonly allowReassociation?: boolean;
     /**
      * The ID of the instance. This is required for
      * EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
      * network interface ID, but not both. The operation fails if you specify an
      * instance ID unless exactly one network interface is attached.
      */
-    readonly instanceId?: pulumi.Input<string>;
+    readonly instanceId?: string;
     /**
      * The ID of the network interface. If the
      * instance has more than one network interface, you must specify a network
      * interface ID.
      */
-    readonly networkInterfaceId?: pulumi.Input<string>;
+    readonly networkInterfaceId?: string;
     /**
      * The primary or secondary private IP address
      * to associate with the Elastic IP address. If no private IP address is
      * specified, the Elastic IP address is associated with the primary private IP
      * address.
      */
-    readonly privateIpAddress?: pulumi.Input<string>;
+    readonly privateIpAddress?: string;
     /**
      * The Elastic IP address. This is required for EC2-Classic.
      */
-    readonly publicIp?: pulumi.Input<string>;
+    readonly publicIp?: string;
 }
 
 /**
@@ -160,34 +160,34 @@ export interface EipAssociationArgs {
     /**
      * The allocation ID. This is required for EC2-VPC.
      */
-    readonly allocationId?: pulumi.Input<string>;
+    readonly allocationId?: string;
     /**
      * Whether to allow an Elastic IP to
      * be re-associated. Defaults to `true` in VPC.
      */
-    readonly allowReassociation?: pulumi.Input<boolean>;
+    readonly allowReassociation?: boolean;
     /**
      * The ID of the instance. This is required for
      * EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
      * network interface ID, but not both. The operation fails if you specify an
      * instance ID unless exactly one network interface is attached.
      */
-    readonly instanceId?: pulumi.Input<string>;
+    readonly instanceId?: string;
     /**
      * The ID of the network interface. If the
      * instance has more than one network interface, you must specify a network
      * interface ID.
      */
-    readonly networkInterfaceId?: pulumi.Input<string>;
+    readonly networkInterfaceId?: string;
     /**
      * The primary or secondary private IP address
      * to associate with the Elastic IP address. If no private IP address is
      * specified, the Elastic IP address is associated with the primary private IP
      * address.
      */
-    readonly privateIpAddress?: pulumi.Input<string>;
+    readonly privateIpAddress?: string;
     /**
      * The Elastic IP address. This is required for EC2-Classic.
      */
-    readonly publicIp?: pulumi.Input<string>;
+    readonly publicIp?: string;
 }

@@ -91,8 +91,8 @@ export class Fleet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FleetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FleetArgs | FleetState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<FleetArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<FleetArgs> | pulumi.InputObject<FleetState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: FleetState = argsOrState as FleetState | undefined;
@@ -140,48 +140,48 @@ export interface FleetState {
     /**
      * Fleet ARN.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * ID of the Gamelift Build to be deployed on the fleet.
      */
-    readonly buildId?: pulumi.Input<string>;
+    readonly buildId?: string;
     /**
      * Human-readable description of the fleet.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      */
-    readonly ec2InboundPermissions?: pulumi.Input<pulumi.Input<{ fromPort: pulumi.Input<number>, ipRange: pulumi.Input<string>, protocol: pulumi.Input<string>, toPort: pulumi.Input<number> }>[]>;
+    readonly ec2InboundPermissions?: { fromPort: number, ipRange: string, protocol: string, toPort: number }[];
     /**
      * Name of an EC2 instance type. e.g. `t2.micro`
      */
-    readonly ec2InstanceType?: pulumi.Input<string>;
-    readonly logPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly ec2InstanceType?: string;
+    readonly logPaths?: string[];
     /**
      * List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
      */
-    readonly metricGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly metricGroups?: string[];
     /**
      * The name of the fleet.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
      */
-    readonly newGameSessionProtectionPolicy?: pulumi.Input<string>;
+    readonly newGameSessionProtectionPolicy?: string;
     /**
      * Operating system of the fleet's computing resources.
      */
-    readonly operatingSystem?: pulumi.Input<string>;
+    readonly operatingSystem?: string;
     /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      */
-    readonly resourceCreationLimitPolicy?: pulumi.Input<{ newGameSessionsPerCreator?: pulumi.Input<number>, policyPeriodInMinutes?: pulumi.Input<number> }>;
+    readonly resourceCreationLimitPolicy?: { newGameSessionsPerCreator?: number, policyPeriodInMinutes?: number };
     /**
      * Instructions for launching server processes on each instance in the fleet. See below.
      */
-    readonly runtimeConfiguration?: pulumi.Input<{ gameSessionActivationTimeoutSeconds?: pulumi.Input<number>, maxConcurrentGameSessionActivations?: pulumi.Input<number>, serverProcesses?: pulumi.Input<pulumi.Input<{ concurrentExecutions: pulumi.Input<number>, launchPath: pulumi.Input<string>, parameters?: pulumi.Input<string> }>[]> }>;
+    readonly runtimeConfiguration?: { gameSessionActivationTimeoutSeconds?: number, maxConcurrentGameSessionActivations?: number, serverProcesses?: { concurrentExecutions: number, launchPath: string, parameters?: string }[] };
 }
 
 /**
@@ -191,37 +191,37 @@ export interface FleetArgs {
     /**
      * ID of the Gamelift Build to be deployed on the fleet.
      */
-    readonly buildId: pulumi.Input<string>;
+    readonly buildId: string;
     /**
      * Human-readable description of the fleet.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      */
-    readonly ec2InboundPermissions?: pulumi.Input<pulumi.Input<{ fromPort: pulumi.Input<number>, ipRange: pulumi.Input<string>, protocol: pulumi.Input<string>, toPort: pulumi.Input<number> }>[]>;
+    readonly ec2InboundPermissions?: { fromPort: number, ipRange: string, protocol: string, toPort: number }[];
     /**
      * Name of an EC2 instance type. e.g. `t2.micro`
      */
-    readonly ec2InstanceType: pulumi.Input<string>;
+    readonly ec2InstanceType: string;
     /**
      * List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
      */
-    readonly metricGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly metricGroups?: string[];
     /**
      * The name of the fleet.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
      */
-    readonly newGameSessionProtectionPolicy?: pulumi.Input<string>;
+    readonly newGameSessionProtectionPolicy?: string;
     /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      */
-    readonly resourceCreationLimitPolicy?: pulumi.Input<{ newGameSessionsPerCreator?: pulumi.Input<number>, policyPeriodInMinutes?: pulumi.Input<number> }>;
+    readonly resourceCreationLimitPolicy?: { newGameSessionsPerCreator?: number, policyPeriodInMinutes?: number };
     /**
      * Instructions for launching server processes on each instance in the fleet. See below.
      */
-    readonly runtimeConfiguration?: pulumi.Input<{ gameSessionActivationTimeoutSeconds?: pulumi.Input<number>, maxConcurrentGameSessionActivations?: pulumi.Input<number>, serverProcesses?: pulumi.Input<pulumi.Input<{ concurrentExecutions: pulumi.Input<number>, launchPath: pulumi.Input<string>, parameters?: pulumi.Input<string> }>[]> }>;
+    readonly runtimeConfiguration?: { gameSessionActivationTimeoutSeconds?: number, maxConcurrentGameSessionActivations?: number, serverProcesses?: { concurrentExecutions: number, launchPath: string, parameters?: string }[] };
 }

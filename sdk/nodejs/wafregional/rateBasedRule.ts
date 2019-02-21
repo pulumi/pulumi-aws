@@ -72,8 +72,8 @@ export class RateBasedRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RateBasedRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RateBasedRuleArgs | RateBasedRuleState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<RateBasedRuleArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<RateBasedRuleArgs> | pulumi.InputObject<RateBasedRuleState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RateBasedRuleState = argsOrState as RateBasedRuleState | undefined;
@@ -110,23 +110,23 @@ export interface RateBasedRuleState {
     /**
      * The name or description for the Amazon CloudWatch metric of this rule.
      */
-    readonly metricName?: pulumi.Input<string>;
+    readonly metricName?: string;
     /**
      * The name or description of the rule.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
      */
-    readonly predicates?: pulumi.Input<pulumi.Input<{ dataId: pulumi.Input<string>, negated: pulumi.Input<boolean>, type: pulumi.Input<string> }>[]>;
+    readonly predicates?: { dataId: string, negated: boolean, type: string }[];
     /**
      * Valid value is IP.
      */
-    readonly rateKey?: pulumi.Input<string>;
+    readonly rateKey?: string;
     /**
      * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
      */
-    readonly rateLimit?: pulumi.Input<number>;
+    readonly rateLimit?: number;
 }
 
 /**
@@ -136,21 +136,21 @@ export interface RateBasedRuleArgs {
     /**
      * The name or description for the Amazon CloudWatch metric of this rule.
      */
-    readonly metricName: pulumi.Input<string>;
+    readonly metricName: string;
     /**
      * The name or description of the rule.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
      */
-    readonly predicates?: pulumi.Input<pulumi.Input<{ dataId: pulumi.Input<string>, negated: pulumi.Input<boolean>, type: pulumi.Input<string> }>[]>;
+    readonly predicates?: { dataId: string, negated: boolean, type: string }[];
     /**
      * Valid value is IP.
      */
-    readonly rateKey: pulumi.Input<string>;
+    readonly rateKey: string;
     /**
      * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
      */
-    readonly rateLimit: pulumi.Input<number>;
+    readonly rateLimit: number;
 }

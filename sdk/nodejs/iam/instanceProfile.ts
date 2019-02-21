@@ -94,8 +94,8 @@ export class InstanceProfile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: InstanceProfileArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: InstanceProfileArgs | InstanceProfileState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<InstanceProfileArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<InstanceProfileArgs> | pulumi.InputObject<InstanceProfileState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: InstanceProfileState = argsOrState as InstanceProfileState | undefined;
@@ -129,37 +129,37 @@ export interface InstanceProfileState {
     /**
      * The ARN assigned by AWS to the instance profile.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The creation timestamp of the instance profile.
      */
-    readonly createDate?: pulumi.Input<string>;
+    readonly createDate?: string;
     /**
      * The profile's name. If omitted, Terraform will assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    readonly namePrefix?: string;
     /**
      * Path in which to create the profile.
      */
-    readonly path?: pulumi.Input<string>;
+    readonly path?: string;
     /**
      * The role name to include in the profile.
      */
-    readonly role?: pulumi.Input<Role>;
+    readonly role?: Role;
     /**
      * 
      * A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
      * WARNING: This is deprecated since [version 0.9.3 (April 12, 2017)](https://github.com/hashicorp/terraform/blob/master/CHANGELOG.md#093-april-12-2017), as >= 2 roles are not possible. See [issue #11575](https://github.com/hashicorp/terraform/issues/11575).
      */
-    readonly roles?: pulumi.Input<pulumi.Input<Role>[]>;
+    readonly roles?: Role[];
     /**
      * The [unique ID][1] assigned by AWS.
      */
-    readonly uniqueId?: pulumi.Input<string>;
+    readonly uniqueId?: string;
 }
 
 /**
@@ -169,23 +169,23 @@ export interface InstanceProfileArgs {
     /**
      * The profile's name. If omitted, Terraform will assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    readonly namePrefix?: string;
     /**
      * Path in which to create the profile.
      */
-    readonly path?: pulumi.Input<string>;
+    readonly path?: string;
     /**
      * The role name to include in the profile.
      */
-    readonly role?: pulumi.Input<Role>;
+    readonly role?: Role;
     /**
      * 
      * A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
      * WARNING: This is deprecated since [version 0.9.3 (April 12, 2017)](https://github.com/hashicorp/terraform/blob/master/CHANGELOG.md#093-april-12-2017), as >= 2 roles are not possible. See [issue #11575](https://github.com/hashicorp/terraform/issues/11575).
      */
-    readonly roles?: pulumi.Input<pulumi.Input<Role>[]>;
+    readonly roles?: Role[];
 }

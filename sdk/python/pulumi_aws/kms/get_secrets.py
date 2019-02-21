@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetSecretsResult(object):
+class GetSecretsResult:
     """
     A collection of values returned by getSecrets.
     """
@@ -26,7 +26,7 @@ class GetSecretsResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_secrets(secrets=None):
+async def get_secrets(secrets=None,opts=None):
     """
     Decrypt multiple secrets from data encrypted with the AWS KMS service.
     
@@ -35,7 +35,7 @@ async def get_secrets(secrets=None):
     __args__ = dict()
 
     __args__['secrets'] = secrets
-    __ret__ = await pulumi.runtime.invoke('aws:kms/getSecrets:getSecrets', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:kms/getSecrets:getSecrets', __args__, opts=opts)
 
     return GetSecretsResult(
         plaintext=__ret__.get('plaintext'),

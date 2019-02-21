@@ -89,8 +89,8 @@ export class Account extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AccountArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<AccountArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<AccountArgs> | pulumi.InputObject<AccountState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AccountState = argsOrState as AccountState | undefined;
@@ -114,11 +114,11 @@ export interface AccountState {
      * See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console).
      * Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
      */
-    readonly cloudwatchRoleArn?: pulumi.Input<string>;
+    readonly cloudwatchRoleArn?: string;
     /**
      * Account-Level throttle settings. See exported fields below.
      */
-    readonly throttleSettings?: pulumi.Input<{ burstLimit?: pulumi.Input<number>, rateLimit?: pulumi.Input<number> }>;
+    readonly throttleSettings?: { burstLimit?: number, rateLimit?: number };
 }
 
 /**
@@ -130,5 +130,5 @@ export interface AccountArgs {
      * See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console).
      * Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
      */
-    readonly cloudwatchRoleArn?: pulumi.Input<string>;
+    readonly cloudwatchRoleArn?: string;
 }

@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetVpcEndpointResult(object):
+class GetVpcEndpointResult:
     """
     A collection of values returned by getVpcEndpoint.
     """
@@ -86,7 +86,7 @@ class GetVpcEndpointResult(object):
             raise TypeError('Expected argument vpc_id to be a str')
         __self__.vpc_id = vpc_id
 
-async def get_vpc_endpoint(id=None, service_name=None, state=None, vpc_id=None):
+async def get_vpc_endpoint(id=None,service_name=None,state=None,vpc_id=None,opts=None):
     """
     The VPC Endpoint data source provides details about
     a specific VPC endpoint.
@@ -97,7 +97,7 @@ async def get_vpc_endpoint(id=None, service_name=None, state=None, vpc_id=None):
     __args__['serviceName'] = service_name
     __args__['state'] = state
     __args__['vpcId'] = vpc_id
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpcEndpoint:getVpcEndpoint', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpcEndpoint:getVpcEndpoint', __args__, opts=opts)
 
     return GetVpcEndpointResult(
         cidr_blocks=__ret__.get('cidrBlocks'),

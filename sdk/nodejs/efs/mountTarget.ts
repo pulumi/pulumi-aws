@@ -78,8 +78,8 @@ export class MountTarget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MountTargetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MountTargetArgs | MountTargetState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<MountTargetArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<MountTargetArgs> | pulumi.InputObject<MountTargetState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: MountTargetState = argsOrState as MountTargetState | undefined;
@@ -117,33 +117,33 @@ export interface MountTargetState {
     /**
      * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      */
-    readonly dnsName?: pulumi.Input<string>;
+    readonly dnsName?: string;
     /**
      * Amazon Resource Name of the file system.
      */
-    readonly fileSystemArn?: pulumi.Input<string>;
+    readonly fileSystemArn?: string;
     /**
      * The ID of the file system for which the mount target is intended.
      */
-    readonly fileSystemId?: pulumi.Input<string>;
+    readonly fileSystemId?: string;
     /**
      * The address (within the address range of the specified subnet) at
      * which the file system may be mounted via the mount target.
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    readonly ipAddress?: string;
     /**
      * The ID of the network interface that Amazon EFS created when it created the mount target.
      */
-    readonly networkInterfaceId?: pulumi.Input<string>;
+    readonly networkInterfaceId?: string;
     /**
      * A list of up to 5 VPC security group IDs (that must
      * be for the same VPC as subnet specified) in effect for the mount target.
      */
-    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly securityGroups?: string[];
     /**
      * The ID of the subnet to add the mount target in.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    readonly subnetId?: string;
 }
 
 /**
@@ -153,19 +153,19 @@ export interface MountTargetArgs {
     /**
      * The ID of the file system for which the mount target is intended.
      */
-    readonly fileSystemId: pulumi.Input<string>;
+    readonly fileSystemId: string;
     /**
      * The address (within the address range of the specified subnet) at
      * which the file system may be mounted via the mount target.
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    readonly ipAddress?: string;
     /**
      * A list of up to 5 VPC security group IDs (that must
      * be for the same VPC as subnet specified) in effect for the mount target.
      */
-    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly securityGroups?: string[];
     /**
      * The ID of the subnet to add the mount target in.
      */
-    readonly subnetId: pulumi.Input<string>;
+    readonly subnetId: string;
 }

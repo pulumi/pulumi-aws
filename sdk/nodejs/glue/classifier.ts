@@ -89,8 +89,8 @@ export class Classifier extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ClassifierArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClassifierArgs | ClassifierState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<ClassifierArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ClassifierArgs> | pulumi.InputObject<ClassifierState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ClassifierState = argsOrState as ClassifierState | undefined;
@@ -116,19 +116,19 @@ export interface ClassifierState {
     /**
      * A classifier that uses grok patterns. Defined below.
      */
-    readonly grokClassifier?: pulumi.Input<{ classification: pulumi.Input<string>, customPatterns?: pulumi.Input<string>, grokPattern: pulumi.Input<string> }>;
+    readonly grokClassifier?: { classification: string, customPatterns?: string, grokPattern: string };
     /**
      * A classifier for JSON content. Defined below.
      */
-    readonly jsonClassifier?: pulumi.Input<{ jsonPath: pulumi.Input<string> }>;
+    readonly jsonClassifier?: { jsonPath: string };
     /**
      * The name of the classifier.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * A classifier for XML content. Defined below.
      */
-    readonly xmlClassifier?: pulumi.Input<{ classification: pulumi.Input<string>, rowTag: pulumi.Input<string> }>;
+    readonly xmlClassifier?: { classification: string, rowTag: string };
 }
 
 /**
@@ -138,17 +138,17 @@ export interface ClassifierArgs {
     /**
      * A classifier that uses grok patterns. Defined below.
      */
-    readonly grokClassifier?: pulumi.Input<{ classification: pulumi.Input<string>, customPatterns?: pulumi.Input<string>, grokPattern: pulumi.Input<string> }>;
+    readonly grokClassifier?: { classification: string, customPatterns?: string, grokPattern: string };
     /**
      * A classifier for JSON content. Defined below.
      */
-    readonly jsonClassifier?: pulumi.Input<{ jsonPath: pulumi.Input<string> }>;
+    readonly jsonClassifier?: { jsonPath: string };
     /**
      * The name of the classifier.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * A classifier for XML content. Defined below.
      */
-    readonly xmlClassifier?: pulumi.Input<{ classification: pulumi.Input<string>, rowTag: pulumi.Input<string> }>;
+    readonly xmlClassifier?: { classification: string, rowTag: string };
 }

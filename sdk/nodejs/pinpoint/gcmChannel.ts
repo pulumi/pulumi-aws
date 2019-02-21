@@ -56,8 +56,8 @@ export class GcmChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GcmChannelArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GcmChannelArgs | GcmChannelState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<GcmChannelArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<GcmChannelArgs> | pulumi.InputObject<GcmChannelState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: GcmChannelState = argsOrState as GcmChannelState | undefined;
@@ -87,15 +87,15 @@ export interface GcmChannelState {
     /**
      * Platform credential API key from Google.
      */
-    readonly apiKey?: pulumi.Input<string>;
+    readonly apiKey?: string;
     /**
      * The application ID.
      */
-    readonly applicationId?: pulumi.Input<string>;
+    readonly applicationId?: string;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    readonly enabled?: boolean;
 }
 
 /**
@@ -105,13 +105,13 @@ export interface GcmChannelArgs {
     /**
      * Platform credential API key from Google.
      */
-    readonly apiKey: pulumi.Input<string>;
+    readonly apiKey: string;
     /**
      * The application ID.
      */
-    readonly applicationId: pulumi.Input<string>;
+    readonly applicationId: string;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    readonly enabled?: boolean;
 }

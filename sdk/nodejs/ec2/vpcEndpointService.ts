@@ -85,8 +85,8 @@ export class VpcEndpointService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpcEndpointServiceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpcEndpointServiceArgs | VpcEndpointServiceState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<VpcEndpointServiceArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<VpcEndpointServiceArgs> | pulumi.InputObject<VpcEndpointServiceState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VpcEndpointServiceState = argsOrState as VpcEndpointServiceState | undefined;
@@ -128,39 +128,39 @@ export interface VpcEndpointServiceState {
     /**
      * Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
      */
-    readonly acceptanceRequired?: pulumi.Input<boolean>;
+    readonly acceptanceRequired?: boolean;
     /**
      * The ARNs of one or more principals allowed to discover the endpoint service.
      */
-    readonly allowedPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly allowedPrincipals?: string[];
     /**
      * The Availability Zones in which the service is available.
      */
-    readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly availabilityZones?: string[];
     /**
      * The DNS names for the service.
      */
-    readonly baseEndpointDnsNames?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly baseEndpointDnsNames?: string[];
     /**
      * The ARNs of one or more Network Load Balancers for the endpoint service.
      */
-    readonly networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly networkLoadBalancerArns?: string[];
     /**
      * The private DNS name for the service.
      */
-    readonly privateDnsName?: pulumi.Input<string>;
+    readonly privateDnsName?: string;
     /**
      * The service name.
      */
-    readonly serviceName?: pulumi.Input<string>;
+    readonly serviceName?: string;
     /**
      * The service type, `Gateway` or `Interface`.
      */
-    readonly serviceType?: pulumi.Input<string>;
+    readonly serviceType?: string;
     /**
      * The state of the VPC endpoint service.
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: string;
 }
 
 /**
@@ -170,13 +170,13 @@ export interface VpcEndpointServiceArgs {
     /**
      * Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
      */
-    readonly acceptanceRequired: pulumi.Input<boolean>;
+    readonly acceptanceRequired: boolean;
     /**
      * The ARNs of one or more principals allowed to discover the endpoint service.
      */
-    readonly allowedPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly allowedPrincipals?: string[];
     /**
      * The ARNs of one or more Network Load Balancers for the endpoint service.
      */
-    readonly networkLoadBalancerArns: pulumi.Input<pulumi.Input<string>[]>;
+    readonly networkLoadBalancerArns: string[];
 }

@@ -65,8 +65,8 @@ export class RoleAlias extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RoleAliasArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RoleAliasArgs | RoleAliasState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<RoleAliasArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<RoleAliasArgs> | pulumi.InputObject<RoleAliasState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RoleAliasState = argsOrState as RoleAliasState | undefined;
@@ -96,15 +96,15 @@ export interface RoleAliasState {
     /**
      * The name of the role alias.
      */
-    readonly alias?: pulumi.Input<string>;
+    readonly alias?: string;
     /**
      * The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
      */
-    readonly credentialDuration?: pulumi.Input<number>;
+    readonly credentialDuration?: number;
     /**
      * The identity of the role to which the alias refers.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    readonly roleArn?: string;
 }
 
 /**
@@ -114,13 +114,13 @@ export interface RoleAliasArgs {
     /**
      * The name of the role alias.
      */
-    readonly alias: pulumi.Input<string>;
+    readonly alias: string;
     /**
      * The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
      */
-    readonly credentialDuration?: pulumi.Input<number>;
+    readonly credentialDuration?: number;
     /**
      * The identity of the role to which the alias refers.
      */
-    readonly roleArn: pulumi.Input<string>;
+    readonly roleArn: string;
 }

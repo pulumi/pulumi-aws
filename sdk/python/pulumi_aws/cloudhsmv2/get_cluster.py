@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetClusterResult(object):
+class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
@@ -53,7 +53,7 @@ class GetClusterResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_cluster(cluster_id=None, cluster_state=None):
+async def get_cluster(cluster_id=None,cluster_state=None,opts=None):
     """
     Use this data source to get information about a CloudHSM v2 cluster
     """
@@ -61,7 +61,7 @@ async def get_cluster(cluster_id=None, cluster_state=None):
 
     __args__['clusterId'] = cluster_id
     __args__['clusterState'] = cluster_state
-    __ret__ = await pulumi.runtime.invoke('aws:cloudhsmv2/getCluster:getCluster', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:cloudhsmv2/getCluster:getCluster', __args__, opts=opts)
 
     return GetClusterResult(
         cluster_certificates=__ret__.get('clusterCertificates'),

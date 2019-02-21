@@ -50,8 +50,8 @@ export class RegexPatternSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: RegexPatternSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RegexPatternSetArgs | RegexPatternSetState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<RegexPatternSetArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<RegexPatternSetArgs> | pulumi.InputObject<RegexPatternSetState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RegexPatternSetState = argsOrState as RegexPatternSetState | undefined;
@@ -73,11 +73,11 @@ export interface RegexPatternSetState {
     /**
      * The name or description of the Regex Pattern Set.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
      */
-    readonly regexPatternStrings?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly regexPatternStrings?: string[];
 }
 
 /**
@@ -87,9 +87,9 @@ export interface RegexPatternSetArgs {
     /**
      * The name or description of the Regex Pattern Set.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
      */
-    readonly regexPatternStrings?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly regexPatternStrings?: string[];
 }

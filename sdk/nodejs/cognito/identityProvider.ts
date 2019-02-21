@@ -77,8 +77,8 @@ export class IdentityProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IdentityProviderArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IdentityProviderArgs | IdentityProviderState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<IdentityProviderArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<IdentityProviderArgs> | pulumi.InputObject<IdentityProviderState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: IdentityProviderState = argsOrState as IdentityProviderState | undefined;
@@ -120,27 +120,27 @@ export interface IdentityProviderState {
     /**
      * The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
      */
-    readonly attributeMapping?: pulumi.Input<{[key: string]: any}>;
+    readonly attributeMapping?: {[key: string]: any};
     /**
      * The list of identity providers.
      */
-    readonly idpIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly idpIdentifiers?: string[];
     /**
      * The map of identity details, such as access token
      */
-    readonly providerDetails?: pulumi.Input<{[key: string]: any}>;
+    readonly providerDetails?: {[key: string]: any};
     /**
      * The provider name
      */
-    readonly providerName?: pulumi.Input<string>;
+    readonly providerName?: string;
     /**
      * The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
      */
-    readonly providerType?: pulumi.Input<string>;
+    readonly providerType?: string;
     /**
      * The user pool id
      */
-    readonly userPoolId?: pulumi.Input<string>;
+    readonly userPoolId?: string;
 }
 
 /**
@@ -150,25 +150,25 @@ export interface IdentityProviderArgs {
     /**
      * The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
      */
-    readonly attributeMapping?: pulumi.Input<{[key: string]: any}>;
+    readonly attributeMapping?: {[key: string]: any};
     /**
      * The list of identity providers.
      */
-    readonly idpIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly idpIdentifiers?: string[];
     /**
      * The map of identity details, such as access token
      */
-    readonly providerDetails: pulumi.Input<{[key: string]: any}>;
+    readonly providerDetails: {[key: string]: any};
     /**
      * The provider name
      */
-    readonly providerName: pulumi.Input<string>;
+    readonly providerName: string;
     /**
      * The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
      */
-    readonly providerType: pulumi.Input<string>;
+    readonly providerType: string;
     /**
      * The user pool id
      */
-    readonly userPoolId: pulumi.Input<string>;
+    readonly userPoolId: string;
 }

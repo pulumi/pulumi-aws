@@ -55,8 +55,8 @@ export class RouteTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RouteTableArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RouteTableArgs | RouteTableState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<RouteTableArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<RouteTableArgs> | pulumi.InputObject<RouteTableState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RouteTableState = argsOrState as RouteTableState | undefined;
@@ -85,19 +85,19 @@ export interface RouteTableState {
     /**
      * Boolean whether this is the default association route table for the EC2 Transit Gateway.
      */
-    readonly defaultAssociationRouteTable?: pulumi.Input<boolean>;
+    readonly defaultAssociationRouteTable?: boolean;
     /**
      * Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
      */
-    readonly defaultPropagationRouteTable?: pulumi.Input<boolean>;
+    readonly defaultPropagationRouteTable?: boolean;
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tags?: {[key: string]: string};
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    readonly transitGatewayId?: pulumi.Input<string>;
+    readonly transitGatewayId?: string;
 }
 
 /**
@@ -107,9 +107,9 @@ export interface RouteTableArgs {
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tags?: {[key: string]: string};
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    readonly transitGatewayId: pulumi.Input<string>;
+    readonly transitGatewayId: string;
 }

@@ -51,8 +51,8 @@ export class Project extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ProjectArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ProjectArgs | ProjectState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<ProjectArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ProjectArgs> | pulumi.InputObject<ProjectState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ProjectState = argsOrState as ProjectState | undefined;
@@ -74,11 +74,11 @@ export interface ProjectState {
     /**
      * The Amazon Resource Name of this project
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The name of the project
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }
 
 /**
@@ -88,5 +88,5 @@ export interface ProjectArgs {
     /**
      * The name of the project
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }

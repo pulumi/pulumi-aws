@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetParameterResult(object):
+class GetParameterResult:
     """
     A collection of values returned by getParameter.
     """
@@ -29,7 +29,7 @@ class GetParameterResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_parameter(name=None, with_decryption=None):
+async def get_parameter(name=None,with_decryption=None,opts=None):
     """
     Provides an SSM Parameter data source.
     """
@@ -37,7 +37,7 @@ async def get_parameter(name=None, with_decryption=None):
 
     __args__['name'] = name
     __args__['withDecryption'] = with_decryption
-    __ret__ = await pulumi.runtime.invoke('aws:ssm/getParameter:getParameter', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ssm/getParameter:getParameter', __args__, opts=opts)
 
     return GetParameterResult(
         arn=__ret__.get('arn'),

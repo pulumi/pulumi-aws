@@ -57,9 +57,7 @@ class Preset(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the preset (maximum 255 characters)
         :param pulumi.Input[str] name: The name of the preset. (maximum 40 characters)
         :param pulumi.Input[dict] thumbnails: Thumbnail parameters object (documented below)
-        :param pulumi.Input[str] type
         :param pulumi.Input[dict] video: Video parameters object (documented below)
-        :param pulumi.Input[dict] video_codec_options
         :param pulumi.Input[list] video_watermarks: Watermark parameters for the video parameters (documented below)
                * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
         """

@@ -112,8 +112,8 @@ export class WebAcl extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WebAclArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WebAclArgs | WebAclState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<WebAclArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<WebAclArgs> | pulumi.InputObject<WebAclState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: WebAclState = argsOrState as WebAclState | undefined;
@@ -146,27 +146,27 @@ export class WebAcl extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WebAcl resources.
  */
 export interface WebAclState {
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
      */
-    readonly defaultAction?: pulumi.Input<{ type: pulumi.Input<string> }>;
+    readonly defaultAction?: { type: string };
     /**
      * Configuration block to enable WAF logging. Detailed below.
      */
-    readonly loggingConfiguration?: pulumi.Input<{ logDestination: pulumi.Input<string>, redactedFields?: pulumi.Input<{ fieldToMatches: pulumi.Input<pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>[]> }> }>;
+    readonly loggingConfiguration?: { logDestination: string, redactedFields?: { fieldToMatches: { data?: string, type: string }[] } };
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
-    readonly metricName?: pulumi.Input<string>;
+    readonly metricName?: string;
     /**
      * The name or description of the web ACL.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<{ action?: pulumi.Input<{ type: pulumi.Input<string> }>, overrideAction?: pulumi.Input<{ type: pulumi.Input<string> }>, priority: pulumi.Input<number>, ruleId: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
+    readonly rules?: { action?: { type: string }, overrideAction?: { type: string }, priority: number, ruleId: string, type?: string }[];
 }
 
 /**
@@ -176,21 +176,21 @@ export interface WebAclArgs {
     /**
      * Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
      */
-    readonly defaultAction: pulumi.Input<{ type: pulumi.Input<string> }>;
+    readonly defaultAction: { type: string };
     /**
      * Configuration block to enable WAF logging. Detailed below.
      */
-    readonly loggingConfiguration?: pulumi.Input<{ logDestination: pulumi.Input<string>, redactedFields?: pulumi.Input<{ fieldToMatches: pulumi.Input<pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>[]> }> }>;
+    readonly loggingConfiguration?: { logDestination: string, redactedFields?: { fieldToMatches: { data?: string, type: string }[] } };
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
-    readonly metricName: pulumi.Input<string>;
+    readonly metricName: string;
     /**
      * The name or description of the web ACL.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<{ action?: pulumi.Input<{ type: pulumi.Input<string> }>, overrideAction?: pulumi.Input<{ type: pulumi.Input<string> }>, priority: pulumi.Input<number>, ruleId: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
+    readonly rules?: { action?: { type: string }, overrideAction?: { type: string }, priority: number, ruleId: string, type?: string }[];
 }

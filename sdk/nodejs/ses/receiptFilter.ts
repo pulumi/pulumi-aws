@@ -52,8 +52,8 @@ export class ReceiptFilter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ReceiptFilterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ReceiptFilterArgs | ReceiptFilterState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<ReceiptFilterArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ReceiptFilterArgs> | pulumi.InputObject<ReceiptFilterState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ReceiptFilterState = argsOrState as ReceiptFilterState | undefined;
@@ -83,15 +83,15 @@ export interface ReceiptFilterState {
     /**
      * The IP address or address range to filter, in CIDR notation
      */
-    readonly cidr?: pulumi.Input<string>;
+    readonly cidr?: string;
     /**
      * The name of the filter
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Block or Allow
      */
-    readonly policy?: pulumi.Input<string>;
+    readonly policy?: string;
 }
 
 /**
@@ -101,13 +101,13 @@ export interface ReceiptFilterArgs {
     /**
      * The IP address or address range to filter, in CIDR notation
      */
-    readonly cidr: pulumi.Input<string>;
+    readonly cidr: string;
     /**
      * The name of the filter
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Block or Allow
      */
-    readonly policy: pulumi.Input<string>;
+    readonly policy: string;
 }

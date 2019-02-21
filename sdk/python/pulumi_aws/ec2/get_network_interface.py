@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetNetworkInterfaceResult(object):
+class GetNetworkInterfaceResult:
     """
     A collection of values returned by getNetworkInterface.
     """
@@ -110,7 +110,7 @@ class GetNetworkInterfaceResult(object):
         The ID of the VPC.
         """
 
-async def get_network_interface(filters=None, id=None, tags=None):
+async def get_network_interface(filters=None,id=None,tags=None,opts=None):
     """
     Use this data source to get information about a Network Interface.
     """
@@ -119,7 +119,7 @@ async def get_network_interface(filters=None, id=None, tags=None):
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getNetworkInterface:getNetworkInterface', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getNetworkInterface:getNetworkInterface', __args__, opts=opts)
 
     return GetNetworkInterfaceResult(
         associations=__ret__.get('associations'),

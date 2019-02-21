@@ -276,8 +276,8 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LaunchConfigurationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LaunchConfigurationArgs | LaunchConfigurationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<LaunchConfigurationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<LaunchConfigurationArgs> | pulumi.InputObject<LaunchConfigurationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: LaunchConfigurationState = argsOrState as LaunchConfigurationState | undefined;
@@ -339,87 +339,87 @@ export interface LaunchConfigurationState {
     /**
      * Associate a public ip address with an instance in a VPC.
      */
-    readonly associatePublicIpAddress?: pulumi.Input<boolean>;
+    readonly associatePublicIpAddress?: boolean;
     /**
      * Additional EBS block devices to attach to the
      * instance.  See Block Devices below for details.
      */
-    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, noDevice?: pulumi.Input<boolean>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
+    readonly ebsBlockDevices?: { deleteOnTermination?: boolean, deviceName: string, encrypted?: boolean, iops?: number, noDevice?: boolean, snapshotId?: string, volumeSize?: number, volumeType?: string }[];
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      */
-    readonly ebsOptimized?: pulumi.Input<boolean>;
+    readonly ebsOptimized?: boolean;
     /**
      * Enables/disables detailed monitoring. This is enabled by default.
      */
-    readonly enableMonitoring?: pulumi.Input<boolean>;
+    readonly enableMonitoring?: boolean;
     /**
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, virtualName: pulumi.Input<string> }>[]>;
+    readonly ephemeralBlockDevices?: { deviceName: string, virtualName: string }[];
     /**
      * The name attribute of the IAM instance profile to associate
      * with launched instances.
      */
-    readonly iamInstanceProfile?: pulumi.Input<string | InstanceProfile>;
+    readonly iamInstanceProfile?: string | InstanceProfile;
     /**
      * The EC2 image ID to launch.
      */
-    readonly imageId?: pulumi.Input<string>;
+    readonly imageId?: string;
     /**
      * The size of instance to launch.
      */
-    readonly instanceType?: pulumi.Input<string>;
+    readonly instanceType?: string;
     /**
      * The key name that should be used for the instance.
      */
-    readonly keyName?: pulumi.Input<string>;
+    readonly keyName?: string;
     /**
      * The name of the launch configuration. If you leave
      * this blank, Terraform will auto-generate a unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    readonly namePrefix?: string;
     /**
      * The tenancy of the instance. Valid values are
      * `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
      * for more details
      */
-    readonly placementTenancy?: pulumi.Input<string>;
+    readonly placementTenancy?: string;
     /**
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
+    readonly rootBlockDevice?: { deleteOnTermination?: boolean, iops?: number, volumeSize?: number, volumeType?: string };
     /**
      * A list of associated security group IDS.
      */
-    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly securityGroups?: string[];
     /**
      * The maximum price to use for reserving spot instances.
      */
-    readonly spotPrice?: pulumi.Input<string>;
+    readonly spotPrice?: string;
     /**
      * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
      */
-    readonly userData?: pulumi.Input<string>;
+    readonly userData?: string;
     /**
      * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      */
-    readonly userDataBase64?: pulumi.Input<string>;
+    readonly userDataBase64?: string;
     /**
      * The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
      */
-    readonly vpcClassicLinkId?: pulumi.Input<string>;
+    readonly vpcClassicLinkId?: string;
     /**
      * The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
      */
-    readonly vpcClassicLinkSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly vpcClassicLinkSecurityGroups?: string[];
 }
 
 /**
@@ -429,85 +429,85 @@ export interface LaunchConfigurationArgs {
     /**
      * Associate a public ip address with an instance in a VPC.
      */
-    readonly associatePublicIpAddress?: pulumi.Input<boolean>;
+    readonly associatePublicIpAddress?: boolean;
     /**
      * Additional EBS block devices to attach to the
      * instance.  See Block Devices below for details.
      */
-    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, noDevice?: pulumi.Input<boolean>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
+    readonly ebsBlockDevices?: { deleteOnTermination?: boolean, deviceName: string, encrypted?: boolean, iops?: number, noDevice?: boolean, snapshotId?: string, volumeSize?: number, volumeType?: string }[];
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      */
-    readonly ebsOptimized?: pulumi.Input<boolean>;
+    readonly ebsOptimized?: boolean;
     /**
      * Enables/disables detailed monitoring. This is enabled by default.
      */
-    readonly enableMonitoring?: pulumi.Input<boolean>;
+    readonly enableMonitoring?: boolean;
     /**
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, virtualName: pulumi.Input<string> }>[]>;
+    readonly ephemeralBlockDevices?: { deviceName: string, virtualName: string }[];
     /**
      * The name attribute of the IAM instance profile to associate
      * with launched instances.
      */
-    readonly iamInstanceProfile?: pulumi.Input<string | InstanceProfile>;
+    readonly iamInstanceProfile?: string | InstanceProfile;
     /**
      * The EC2 image ID to launch.
      */
-    readonly imageId: pulumi.Input<string>;
+    readonly imageId: string;
     /**
      * The size of instance to launch.
      */
-    readonly instanceType: pulumi.Input<string>;
+    readonly instanceType: string;
     /**
      * The key name that should be used for the instance.
      */
-    readonly keyName?: pulumi.Input<string>;
+    readonly keyName?: string;
     /**
      * The name of the launch configuration. If you leave
      * this blank, Terraform will auto-generate a unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    readonly namePrefix?: string;
     /**
      * The tenancy of the instance. Valid values are
      * `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
      * for more details
      */
-    readonly placementTenancy?: pulumi.Input<string>;
+    readonly placementTenancy?: string;
     /**
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
+    readonly rootBlockDevice?: { deleteOnTermination?: boolean, iops?: number, volumeSize?: number, volumeType?: string };
     /**
      * A list of associated security group IDS.
      */
-    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly securityGroups?: string[];
     /**
      * The maximum price to use for reserving spot instances.
      */
-    readonly spotPrice?: pulumi.Input<string>;
+    readonly spotPrice?: string;
     /**
      * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
      */
-    readonly userData?: pulumi.Input<string>;
+    readonly userData?: string;
     /**
      * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      */
-    readonly userDataBase64?: pulumi.Input<string>;
+    readonly userDataBase64?: string;
     /**
      * The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
      */
-    readonly vpcClassicLinkId?: pulumi.Input<string>;
+    readonly vpcClassicLinkId?: string;
     /**
      * The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
      */
-    readonly vpcClassicLinkSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly vpcClassicLinkSecurityGroups?: string[];
 }

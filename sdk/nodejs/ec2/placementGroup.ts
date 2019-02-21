@@ -50,8 +50,8 @@ export class PlacementGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PlacementGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PlacementGroupArgs | PlacementGroupState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<PlacementGroupArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<PlacementGroupArgs> | pulumi.InputObject<PlacementGroupState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PlacementGroupState = argsOrState as PlacementGroupState | undefined;
@@ -76,11 +76,11 @@ export interface PlacementGroupState {
     /**
      * The name of the placement group.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The placement strategy.
      */
-    readonly strategy?: pulumi.Input<PlacementStrategy>;
+    readonly strategy?: PlacementStrategy;
 }
 
 /**
@@ -90,9 +90,9 @@ export interface PlacementGroupArgs {
     /**
      * The name of the placement group.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The placement strategy.
      */
-    readonly strategy: pulumi.Input<PlacementStrategy>;
+    readonly strategy: PlacementStrategy;
 }

@@ -77,8 +77,8 @@ export class NotebookInstance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NotebookInstanceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NotebookInstanceArgs | NotebookInstanceState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<NotebookInstanceArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<NotebookInstanceArgs> | pulumi.InputObject<NotebookInstanceState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: NotebookInstanceState = argsOrState as NotebookInstanceState | undefined;
@@ -118,35 +118,35 @@ export interface NotebookInstanceState {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The name of ML compute instance type.
      */
-    readonly instanceType?: pulumi.Input<string>;
+    readonly instanceType?: string;
     /**
      * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    readonly kmsKeyId?: string;
     /**
      * The name of the notebook instance (must be unique).
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    readonly roleArn?: string;
     /**
      * The associated security groups.
      */
-    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly securityGroups?: string[];
     /**
      * The VPC subnet ID.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    readonly subnetId?: string;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -156,29 +156,29 @@ export interface NotebookInstanceArgs {
     /**
      * The name of ML compute instance type.
      */
-    readonly instanceType: pulumi.Input<string>;
+    readonly instanceType: string;
     /**
      * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    readonly kmsKeyId?: string;
     /**
      * The name of the notebook instance (must be unique).
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
      */
-    readonly roleArn: pulumi.Input<string>;
+    readonly roleArn: string;
     /**
      * The associated security groups.
      */
-    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly securityGroups?: string[];
     /**
      * The VPC subnet ID.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    readonly subnetId?: string;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }

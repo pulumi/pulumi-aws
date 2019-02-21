@@ -79,8 +79,8 @@ export class NatGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NatGatewayArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NatGatewayArgs | NatGatewayState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<NatGatewayArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<NatGatewayArgs> | pulumi.InputObject<NatGatewayState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: NatGatewayState = argsOrState as NatGatewayState | undefined;
@@ -116,27 +116,27 @@ export interface NatGatewayState {
     /**
      * The Allocation ID of the Elastic IP address for the gateway.
      */
-    readonly allocationId?: pulumi.Input<string>;
+    readonly allocationId?: string;
     /**
      * The ENI ID of the network interface created by the NAT gateway.
      */
-    readonly networkInterfaceId?: pulumi.Input<string>;
+    readonly networkInterfaceId?: string;
     /**
      * The private IP address of the NAT Gateway.
      */
-    readonly privateIp?: pulumi.Input<string>;
+    readonly privateIp?: string;
     /**
      * The public IP address of the NAT Gateway.
      */
-    readonly publicIp?: pulumi.Input<string>;
+    readonly publicIp?: string;
     /**
      * The Subnet ID of the subnet in which to place the gateway.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    readonly subnetId?: string;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -146,13 +146,13 @@ export interface NatGatewayArgs {
     /**
      * The Allocation ID of the Elastic IP address for the gateway.
      */
-    readonly allocationId: pulumi.Input<string>;
+    readonly allocationId: string;
     /**
      * The Subnet ID of the subnet in which to place the gateway.
      */
-    readonly subnetId: pulumi.Input<string>;
+    readonly subnetId: string;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }

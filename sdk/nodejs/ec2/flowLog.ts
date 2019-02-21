@@ -129,8 +129,8 @@ export class FlowLog extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FlowLogArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FlowLogArgs | FlowLogState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<FlowLogArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<FlowLogArgs> | pulumi.InputObject<FlowLogState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: FlowLogState = argsOrState as FlowLogState | undefined;
@@ -167,35 +167,35 @@ export interface FlowLogState {
     /**
      * Elastic Network Interface ID to attach to
      */
-    readonly eniId?: pulumi.Input<string>;
+    readonly eniId?: string;
     /**
      * The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
      */
-    readonly iamRoleArn?: pulumi.Input<string>;
+    readonly iamRoleArn?: string;
     /**
      * The ARN of the logging destination.
      */
-    readonly logDestination?: pulumi.Input<string>;
+    readonly logDestination?: string;
     /**
      * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
      */
-    readonly logDestinationType?: pulumi.Input<string>;
+    readonly logDestinationType?: string;
     /**
      * *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
      */
-    readonly logGroupName?: pulumi.Input<string>;
+    readonly logGroupName?: string;
     /**
      * Subnet ID to attach to
      */
-    readonly subnetId?: pulumi.Input<string>;
+    readonly subnetId?: string;
     /**
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      */
-    readonly trafficType?: pulumi.Input<string>;
+    readonly trafficType?: string;
     /**
      * VPC ID to attach to
      */
-    readonly vpcId?: pulumi.Input<string>;
+    readonly vpcId?: string;
 }
 
 /**
@@ -205,33 +205,33 @@ export interface FlowLogArgs {
     /**
      * Elastic Network Interface ID to attach to
      */
-    readonly eniId?: pulumi.Input<string>;
+    readonly eniId?: string;
     /**
      * The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
      */
-    readonly iamRoleArn?: pulumi.Input<string>;
+    readonly iamRoleArn?: string;
     /**
      * The ARN of the logging destination.
      */
-    readonly logDestination?: pulumi.Input<string>;
+    readonly logDestination?: string;
     /**
      * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
      */
-    readonly logDestinationType?: pulumi.Input<string>;
+    readonly logDestinationType?: string;
     /**
      * *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
      */
-    readonly logGroupName?: pulumi.Input<string>;
+    readonly logGroupName?: string;
     /**
      * Subnet ID to attach to
      */
-    readonly subnetId?: pulumi.Input<string>;
+    readonly subnetId?: string;
     /**
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      */
-    readonly trafficType: pulumi.Input<string>;
+    readonly trafficType: string;
     /**
      * VPC ID to attach to
      */
-    readonly vpcId?: pulumi.Input<string>;
+    readonly vpcId?: string;
 }

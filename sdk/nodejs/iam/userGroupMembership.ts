@@ -64,8 +64,8 @@ export class UserGroupMembership extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: UserGroupMembershipArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: UserGroupMembershipArgs | UserGroupMembershipState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<UserGroupMembershipArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<UserGroupMembershipArgs> | pulumi.InputObject<UserGroupMembershipState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: UserGroupMembershipState = argsOrState as UserGroupMembershipState | undefined;
@@ -93,11 +93,11 @@ export interface UserGroupMembershipState {
     /**
      * A list of [IAM Groups][1] to add the user to
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly groups?: string[];
     /**
      * The name of the [IAM User][2] to add to groups
      */
-    readonly user?: pulumi.Input<string>;
+    readonly user?: string;
 }
 
 /**
@@ -107,9 +107,9 @@ export interface UserGroupMembershipArgs {
     /**
      * A list of [IAM Groups][1] to add the user to
      */
-    readonly groups: pulumi.Input<pulumi.Input<string>[]>;
+    readonly groups: string[];
     /**
      * The name of the [IAM User][2] to add to groups
      */
-    readonly user: pulumi.Input<string>;
+    readonly user: string;
 }

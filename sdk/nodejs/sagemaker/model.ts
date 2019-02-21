@@ -88,8 +88,8 @@ export class Model extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ModelArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ModelArgs | ModelState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<ModelArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ModelArgs> | pulumi.InputObject<ModelState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ModelState = argsOrState as ModelState | undefined;
@@ -126,35 +126,35 @@ export interface ModelState {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this model.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
      */
-    readonly containers?: pulumi.Input<pulumi.Input<{ containerHostname?: pulumi.Input<string>, environment?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, modelDataUrl?: pulumi.Input<string> }>[]>;
+    readonly containers?: { containerHostname?: string, environment?: {[key: string]: any}, image: string, modelDataUrl?: string }[];
     /**
      * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
      */
-    readonly enableNetworkIsolation?: pulumi.Input<boolean>;
+    readonly enableNetworkIsolation?: boolean;
     /**
      * A role that SageMaker can assume to access model artifacts and docker images for deployment.
      */
-    readonly executionRoleArn?: pulumi.Input<string>;
+    readonly executionRoleArn?: string;
     /**
      * The name of the model (must be unique). If omitted, Terraform will assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      */
-    readonly primaryContainer?: pulumi.Input<{ containerHostname?: pulumi.Input<string>, environment?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, modelDataUrl?: pulumi.Input<string> }>;
+    readonly primaryContainer?: { containerHostname?: string, environment?: {[key: string]: any}, image: string, modelDataUrl?: string };
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
      */
-    readonly vpcConfig?: pulumi.Input<{ securityGroupIds: pulumi.Input<pulumi.Input<string>[]>, subnets: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly vpcConfig?: { securityGroupIds: string[], subnets: string[] };
 }
 
 /**
@@ -164,29 +164,29 @@ export interface ModelArgs {
     /**
      * Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
      */
-    readonly containers?: pulumi.Input<pulumi.Input<{ containerHostname?: pulumi.Input<string>, environment?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, modelDataUrl?: pulumi.Input<string> }>[]>;
+    readonly containers?: { containerHostname?: string, environment?: {[key: string]: any}, image: string, modelDataUrl?: string }[];
     /**
      * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
      */
-    readonly enableNetworkIsolation?: pulumi.Input<boolean>;
+    readonly enableNetworkIsolation?: boolean;
     /**
      * A role that SageMaker can assume to access model artifacts and docker images for deployment.
      */
-    readonly executionRoleArn: pulumi.Input<string>;
+    readonly executionRoleArn: string;
     /**
      * The name of the model (must be unique). If omitted, Terraform will assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      */
-    readonly primaryContainer?: pulumi.Input<{ containerHostname?: pulumi.Input<string>, environment?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, modelDataUrl?: pulumi.Input<string> }>;
+    readonly primaryContainer?: { containerHostname?: string, environment?: {[key: string]: any}, image: string, modelDataUrl?: string };
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
      */
-    readonly vpcConfig?: pulumi.Input<{ securityGroupIds: pulumi.Input<pulumi.Input<string>[]>, subnets: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly vpcConfig?: { securityGroupIds: string[], subnets: string[] };
 }

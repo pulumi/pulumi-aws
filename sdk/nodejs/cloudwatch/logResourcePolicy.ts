@@ -89,8 +89,8 @@ export class LogResourcePolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LogResourcePolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LogResourcePolicyArgs | LogResourcePolicyState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<LogResourcePolicyArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<LogResourcePolicyArgs> | pulumi.InputObject<LogResourcePolicyState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: LogResourcePolicyState = argsOrState as LogResourcePolicyState | undefined;
@@ -118,11 +118,11 @@ export interface LogResourcePolicyState {
     /**
      * Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
      */
-    readonly policyDocument?: pulumi.Input<string>;
+    readonly policyDocument?: string;
     /**
      * Name of the resource policy.
      */
-    readonly policyName?: pulumi.Input<string>;
+    readonly policyName?: string;
 }
 
 /**
@@ -132,9 +132,9 @@ export interface LogResourcePolicyArgs {
     /**
      * Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
      */
-    readonly policyDocument: pulumi.Input<string>;
+    readonly policyDocument: string;
     /**
      * Name of the resource policy.
      */
-    readonly policyName: pulumi.Input<string>;
+    readonly policyName: string;
 }

@@ -76,8 +76,8 @@ export class ZoneAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ZoneAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ZoneAssociationArgs | ZoneAssociationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<ZoneAssociationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ZoneAssociationArgs> | pulumi.InputObject<ZoneAssociationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ZoneAssociationState = argsOrState as ZoneAssociationState | undefined;
@@ -107,15 +107,15 @@ export interface ZoneAssociationState {
     /**
      * The VPC to associate with the private hosted zone.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    readonly vpcId?: string;
     /**
      * The VPC's region. Defaults to the region of the AWS provider.
      */
-    readonly vpcRegion?: pulumi.Input<string>;
+    readonly vpcRegion?: string;
     /**
      * The private hosted zone to associate.
      */
-    readonly zoneId?: pulumi.Input<string>;
+    readonly zoneId?: string;
 }
 
 /**
@@ -125,13 +125,13 @@ export interface ZoneAssociationArgs {
     /**
      * The VPC to associate with the private hosted zone.
      */
-    readonly vpcId: pulumi.Input<string>;
+    readonly vpcId: string;
     /**
      * The VPC's region. Defaults to the region of the AWS provider.
      */
-    readonly vpcRegion?: pulumi.Input<string>;
+    readonly vpcRegion?: string;
     /**
      * The private hosted zone to associate.
      */
-    readonly zoneId: pulumi.Input<string>;
+    readonly zoneId: string;
 }

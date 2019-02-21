@@ -53,8 +53,8 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpcDhcpOptionsAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpcDhcpOptionsAssociationArgs | VpcDhcpOptionsAssociationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<VpcDhcpOptionsAssociationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<VpcDhcpOptionsAssociationArgs> | pulumi.InputObject<VpcDhcpOptionsAssociationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VpcDhcpOptionsAssociationState = argsOrState as VpcDhcpOptionsAssociationState | undefined;
@@ -82,11 +82,11 @@ export interface VpcDhcpOptionsAssociationState {
     /**
      * The ID of the DHCP Options Set to associate to the VPC.
      */
-    readonly dhcpOptionsId?: pulumi.Input<string>;
+    readonly dhcpOptionsId?: string;
     /**
      * The ID of the VPC to which we would like to associate a DHCP Options Set.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    readonly vpcId?: string;
 }
 
 /**
@@ -96,9 +96,9 @@ export interface VpcDhcpOptionsAssociationArgs {
     /**
      * The ID of the DHCP Options Set to associate to the VPC.
      */
-    readonly dhcpOptionsId: pulumi.Input<string>;
+    readonly dhcpOptionsId: string;
     /**
      * The ID of the VPC to which we would like to associate a DHCP Options Set.
      */
-    readonly vpcId: pulumi.Input<string>;
+    readonly vpcId: string;
 }

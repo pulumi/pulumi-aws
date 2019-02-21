@@ -56,8 +56,8 @@ export class Webhook extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WebhookArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WebhookArgs | WebhookState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<WebhookArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<WebhookArgs> | pulumi.InputObject<WebhookState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: WebhookState = argsOrState as WebhookState | undefined;
@@ -101,31 +101,31 @@ export interface WebhookState {
     /**
      * The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
      */
-    readonly authentication?: pulumi.Input<string>;
+    readonly authentication?: string;
     /**
      * An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
      */
-    readonly authenticationConfiguration?: pulumi.Input<{ allowedIpRange?: pulumi.Input<string>, secretToken?: pulumi.Input<string> }>;
+    readonly authenticationConfiguration?: { allowedIpRange?: string, secretToken?: string };
     /**
      * One or more `filter` blocks. Filter blocks are documented below.
      */
-    readonly filters?: pulumi.Input<pulumi.Input<{ jsonPath: pulumi.Input<string>, matchEquals: pulumi.Input<string> }>[]>;
+    readonly filters?: { jsonPath: string, matchEquals: string }[];
     /**
      * The name of the webhook.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
      */
-    readonly targetAction?: pulumi.Input<string>;
+    readonly targetAction?: string;
     /**
      * The name of the pipeline.
      */
-    readonly targetPipeline?: pulumi.Input<string>;
+    readonly targetPipeline?: string;
     /**
      * The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
      */
-    readonly url?: pulumi.Input<string>;
+    readonly url?: string;
 }
 
 /**
@@ -135,25 +135,25 @@ export interface WebhookArgs {
     /**
      * The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
      */
-    readonly authentication: pulumi.Input<string>;
+    readonly authentication: string;
     /**
      * An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
      */
-    readonly authenticationConfiguration?: pulumi.Input<{ allowedIpRange?: pulumi.Input<string>, secretToken?: pulumi.Input<string> }>;
+    readonly authenticationConfiguration?: { allowedIpRange?: string, secretToken?: string };
     /**
      * One or more `filter` blocks. Filter blocks are documented below.
      */
-    readonly filters: pulumi.Input<pulumi.Input<{ jsonPath: pulumi.Input<string>, matchEquals: pulumi.Input<string> }>[]>;
+    readonly filters: { jsonPath: string, matchEquals: string }[];
     /**
      * The name of the webhook.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
      */
-    readonly targetAction: pulumi.Input<string>;
+    readonly targetAction: string;
     /**
      * The name of the pipeline.
      */
-    readonly targetPipeline: pulumi.Input<string>;
+    readonly targetPipeline: string;
 }

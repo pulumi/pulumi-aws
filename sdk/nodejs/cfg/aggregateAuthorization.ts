@@ -52,8 +52,8 @@ export class AggregateAuthorization extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AggregateAuthorizationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AggregateAuthorizationArgs | AggregateAuthorizationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<AggregateAuthorizationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<AggregateAuthorizationArgs> | pulumi.InputObject<AggregateAuthorizationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AggregateAuthorizationState = argsOrState as AggregateAuthorizationState | undefined;
@@ -83,15 +83,15 @@ export interface AggregateAuthorizationState {
     /**
      * Account ID
      */
-    readonly accountId?: pulumi.Input<string>;
+    readonly accountId?: string;
     /**
      * The ARN of the authorization
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * Region
      */
-    readonly region?: pulumi.Input<string>;
+    readonly region?: string;
 }
 
 /**
@@ -101,9 +101,9 @@ export interface AggregateAuthorizationArgs {
     /**
      * Account ID
      */
-    readonly accountId: pulumi.Input<string>;
+    readonly accountId: string;
     /**
      * Region
      */
-    readonly region: pulumi.Input<string>;
+    readonly region: string;
 }

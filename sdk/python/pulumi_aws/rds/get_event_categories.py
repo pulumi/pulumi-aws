@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetEventCategoriesResult(object):
+class GetEventCategoriesResult:
     """
     A collection of values returned by getEventCategories.
     """
@@ -26,11 +26,11 @@ class GetEventCategoriesResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_event_categories(source_type=None):
+async def get_event_categories(source_type=None,opts=None):
     __args__ = dict()
 
     __args__['sourceType'] = source_type
-    __ret__ = await pulumi.runtime.invoke('aws:rds/getEventCategories:getEventCategories', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:rds/getEventCategories:getEventCategories', __args__, opts=opts)
 
     return GetEventCategoriesResult(
         event_categories=__ret__.get('eventCategories'),

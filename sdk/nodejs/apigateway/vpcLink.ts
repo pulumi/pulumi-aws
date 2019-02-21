@@ -59,8 +59,8 @@ export class VpcLink extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpcLinkArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpcLinkArgs | VpcLinkState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<VpcLinkArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<VpcLinkArgs> | pulumi.InputObject<VpcLinkState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VpcLinkState = argsOrState as VpcLinkState | undefined;
@@ -87,15 +87,15 @@ export interface VpcLinkState {
     /**
      * The description of the VPC link.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The name used to label and identify the VPC link.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      */
-    readonly targetArn?: pulumi.Input<string>;
+    readonly targetArn?: string;
 }
 
 /**
@@ -105,13 +105,13 @@ export interface VpcLinkArgs {
     /**
      * The description of the VPC link.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The name used to label and identify the VPC link.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      */
-    readonly targetArn: pulumi.Input<string>;
+    readonly targetArn: string;
 }

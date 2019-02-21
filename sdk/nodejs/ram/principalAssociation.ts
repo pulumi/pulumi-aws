@@ -68,8 +68,8 @@ export class PrincipalAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PrincipalAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PrincipalAssociationArgs | PrincipalAssociationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<PrincipalAssociationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<PrincipalAssociationArgs> | pulumi.InputObject<PrincipalAssociationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PrincipalAssociationState = argsOrState as PrincipalAssociationState | undefined;
@@ -97,11 +97,11 @@ export interface PrincipalAssociationState {
     /**
      * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ID, or an AWS Organizations Organization Unit ID.
      */
-    readonly principal?: pulumi.Input<string>;
+    readonly principal?: string;
     /**
      * The Amazon Resource Name (ARN) of the resource share.
      */
-    readonly resourceShareArn?: pulumi.Input<string>;
+    readonly resourceShareArn?: string;
 }
 
 /**
@@ -111,9 +111,9 @@ export interface PrincipalAssociationArgs {
     /**
      * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ID, or an AWS Organizations Organization Unit ID.
      */
-    readonly principal: pulumi.Input<string>;
+    readonly principal: string;
     /**
      * The Amazon Resource Name (ARN) of the resource share.
      */
-    readonly resourceShareArn: pulumi.Input<string>;
+    readonly resourceShareArn: string;
 }

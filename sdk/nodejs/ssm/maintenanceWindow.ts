@@ -77,8 +77,8 @@ export class MaintenanceWindow extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MaintenanceWindowArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MaintenanceWindowArgs | MaintenanceWindowState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<MaintenanceWindowArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<MaintenanceWindowArgs> | pulumi.InputObject<MaintenanceWindowState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: MaintenanceWindowState = argsOrState as MaintenanceWindowState | undefined;
@@ -123,39 +123,39 @@ export interface MaintenanceWindowState {
     /**
      * Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
      */
-    readonly allowUnassociatedTargets?: pulumi.Input<boolean>;
+    readonly allowUnassociatedTargets?: boolean;
     /**
      * The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
      */
-    readonly cutoff?: pulumi.Input<number>;
+    readonly cutoff?: number;
     /**
      * The duration of the Maintenance Window in hours.
      */
-    readonly duration?: pulumi.Input<number>;
+    readonly duration?: number;
     /**
      * Whether the maintenance window is enabled. Default: `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    readonly enabled?: boolean;
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
      */
-    readonly endDate?: pulumi.Input<string>;
+    readonly endDate?: string;
     /**
      * The name of the maintenance window.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
      */
-    readonly schedule?: pulumi.Input<string>;
+    readonly schedule?: string;
     /**
      * Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
      */
-    readonly scheduleTimezone?: pulumi.Input<string>;
+    readonly scheduleTimezone?: string;
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
      */
-    readonly startDate?: pulumi.Input<string>;
+    readonly startDate?: string;
 }
 
 /**
@@ -165,37 +165,37 @@ export interface MaintenanceWindowArgs {
     /**
      * Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
      */
-    readonly allowUnassociatedTargets?: pulumi.Input<boolean>;
+    readonly allowUnassociatedTargets?: boolean;
     /**
      * The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
      */
-    readonly cutoff: pulumi.Input<number>;
+    readonly cutoff: number;
     /**
      * The duration of the Maintenance Window in hours.
      */
-    readonly duration: pulumi.Input<number>;
+    readonly duration: number;
     /**
      * Whether the maintenance window is enabled. Default: `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    readonly enabled?: boolean;
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
      */
-    readonly endDate?: pulumi.Input<string>;
+    readonly endDate?: string;
     /**
      * The name of the maintenance window.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
      */
-    readonly schedule: pulumi.Input<string>;
+    readonly schedule: string;
     /**
      * Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
      */
-    readonly scheduleTimezone?: pulumi.Input<string>;
+    readonly scheduleTimezone?: string;
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
      */
-    readonly startDate?: pulumi.Input<string>;
+    readonly startDate?: string;
 }

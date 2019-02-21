@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetEndpointResult(object):
+class GetEndpointResult:
     """
     A collection of values returned by getEndpoint.
     """
@@ -31,14 +31,14 @@ class GetEndpointResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_endpoint(endpoint_type=None):
+async def get_endpoint(endpoint_type=None,opts=None):
     """
     Returns a unique endpoint specific to the AWS account making the call.
     """
     __args__ = dict()
 
     __args__['endpointType'] = endpoint_type
-    __ret__ = await pulumi.runtime.invoke('aws:iot/getEndpoint:getEndpoint', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:iot/getEndpoint:getEndpoint', __args__, opts=opts)
 
     return GetEndpointResult(
         endpoint_address=__ret__.get('endpointAddress'),

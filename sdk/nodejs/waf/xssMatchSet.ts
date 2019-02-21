@@ -60,8 +60,8 @@ export class XssMatchSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: XssMatchSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: XssMatchSetArgs | XssMatchSetState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<XssMatchSetArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<XssMatchSetArgs> | pulumi.InputObject<XssMatchSetState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: XssMatchSetState = argsOrState as XssMatchSetState | undefined;
@@ -83,11 +83,11 @@ export interface XssMatchSetState {
     /**
      * The name or description of the SizeConstraintSet.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      */
-    readonly xssMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, textTransformation: pulumi.Input<string> }>[]>;
+    readonly xssMatchTuples?: { fieldToMatch: { data?: string, type: string }, textTransformation: string }[];
 }
 
 /**
@@ -97,9 +97,9 @@ export interface XssMatchSetArgs {
     /**
      * The name or description of the SizeConstraintSet.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      */
-    readonly xssMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, textTransformation: pulumi.Input<string> }>[]>;
+    readonly xssMatchTuples?: { fieldToMatch: { data?: string, type: string }, textTransformation: string }[];
 }

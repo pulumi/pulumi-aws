@@ -18,24 +18,6 @@ class Provider(pulumi.ProviderResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_key
-        :param pulumi.Input[list] allowed_account_ids
-        :param pulumi.Input[dict] assume_role
-        :param pulumi.Input[list] endpoints
-        :param pulumi.Input[list] forbidden_account_ids
-        :param pulumi.Input[bool] insecure
-        :param pulumi.Input[int] max_retries
-        :param pulumi.Input[str] profile
-        :param pulumi.Input[str] region
-        :param pulumi.Input[bool] s3_force_path_style
-        :param pulumi.Input[str] secret_key
-        :param pulumi.Input[str] shared_credentials_file
-        :param pulumi.Input[bool] skip_credentials_validation
-        :param pulumi.Input[bool] skip_get_ec2_platforms
-        :param pulumi.Input[bool] skip_metadata_api_check
-        :param pulumi.Input[bool] skip_region_validation
-        :param pulumi.Input[bool] skip_requesting_account_id
-        :param pulumi.Input[str] token
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -319,8 +319,8 @@ export class Bucket extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: BucketArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BucketArgs | BucketState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<BucketArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<BucketArgs> | pulumi.InputObject<BucketState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: BucketState = argsOrState as BucketState | undefined;
@@ -384,99 +384,99 @@ export interface BucketState {
     /**
      * Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
      */
-    readonly accelerationStatus?: pulumi.Input<string>;
+    readonly accelerationStatus?: string;
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
      */
-    readonly acl?: pulumi.Input<string | CannedAcl>;
+    readonly acl?: string | CannedAcl;
     /**
      * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
      */
-    readonly bucket?: pulumi.Input<string>;
+    readonly bucket?: string;
     /**
      * The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
      */
-    readonly bucketDomainName?: pulumi.Input<string>;
+    readonly bucketDomainName?: string;
     /**
      * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
      */
-    readonly bucketPrefix?: pulumi.Input<string>;
+    readonly bucketPrefix?: string;
     /**
      * The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
      */
-    readonly bucketRegionalDomainName?: pulumi.Input<string>;
+    readonly bucketRegionalDomainName?: string;
     /**
      * A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
      */
-    readonly corsRules?: pulumi.Input<pulumi.Input<{ allowedHeaders?: pulumi.Input<pulumi.Input<string>[]>, allowedMethods: pulumi.Input<pulumi.Input<string>[]>, allowedOrigins: pulumi.Input<pulumi.Input<string>[]>, exposeHeaders?: pulumi.Input<pulumi.Input<string>[]>, maxAgeSeconds?: pulumi.Input<number> }>[]>;
+    readonly corsRules?: { allowedHeaders?: string[], allowedMethods: string[], allowedOrigins: string[], exposeHeaders?: string[], maxAgeSeconds?: number }[];
     /**
      * A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
      */
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    readonly forceDestroy?: boolean;
     /**
      * The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
      */
-    readonly hostedZoneId?: pulumi.Input<string>;
+    readonly hostedZoneId?: string;
     /**
      * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
      */
-    readonly lifecycleRules?: pulumi.Input<pulumi.Input<{ abortIncompleteMultipartUploadDays?: pulumi.Input<number>, enabled: pulumi.Input<boolean>, expiration?: pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, expiredObjectDeleteMarker?: pulumi.Input<boolean> }>, id?: pulumi.Input<string>, noncurrentVersionExpiration?: pulumi.Input<{ days?: pulumi.Input<number> }>, noncurrentVersionTransitions?: pulumi.Input<pulumi.Input<{ days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }>[]>, prefix?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}>, transitions?: pulumi.Input<pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }>[]> }>[]>;
+    readonly lifecycleRules?: { abortIncompleteMultipartUploadDays?: number, enabled: boolean, expiration?: { date?: string, days?: number, expiredObjectDeleteMarker?: boolean }, id?: string, noncurrentVersionExpiration?: { days?: number }, noncurrentVersionTransitions?: { days?: number, storageClass: string }[], prefix?: string, tags?: {[key: string]: any}, transitions?: { date?: string, days?: number, storageClass: string }[] }[];
     /**
      * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      */
-    readonly loggings?: pulumi.Input<pulumi.Input<{ targetBucket: pulumi.Input<string>, targetPrefix?: pulumi.Input<string> }>[]>;
+    readonly loggings?: { targetBucket: string, targetPrefix?: string }[];
     /**
      * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
      */
-    readonly objectLockConfiguration?: pulumi.Input<{ objectLockEnabled: pulumi.Input<string>, rule?: pulumi.Input<{ defaultRetention: pulumi.Input<{ days?: pulumi.Input<number>, mode: pulumi.Input<string>, years?: pulumi.Input<number> }> }> }>;
+    readonly objectLockConfiguration?: { objectLockEnabled: string, rule?: { defaultRetention: { days?: number, mode: string, years?: number } } };
     /**
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    readonly policy?: pulumi.Input<string>;
+    readonly policy?: string;
     /**
      * If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
      */
-    readonly region?: pulumi.Input<string>;
+    readonly region?: string;
     /**
      * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      */
-    readonly replicationConfiguration?: pulumi.Input<{ role: pulumi.Input<string>, rules: pulumi.Input<pulumi.Input<{ destination: pulumi.Input<{ accessControlTranslation?: pulumi.Input<{ owner: pulumi.Input<string> }>, accountId?: pulumi.Input<string>, bucket: pulumi.Input<string>, replicaKmsKeyId?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>, filter?: pulumi.Input<{ prefix?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }>, id?: pulumi.Input<string>, prefix?: pulumi.Input<string>, priority?: pulumi.Input<number>, sourceSelectionCriteria?: pulumi.Input<{ sseKmsEncryptedObjects?: pulumi.Input<{ enabled: pulumi.Input<boolean> }> }>, status: pulumi.Input<string> }>[]> }>;
+    readonly replicationConfiguration?: { role: string, rules: { destination: { accessControlTranslation?: { owner: string }, accountId?: string, bucket: string, replicaKmsKeyId?: string, storageClass?: string }, filter?: { prefix?: string, tags?: {[key: string]: any} }, id?: string, prefix?: string, priority?: number, sourceSelectionCriteria?: { sseKmsEncryptedObjects?: { enabled: boolean } }, status: string }[] };
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
      * the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html)
      * developer guide for more information.
      */
-    readonly requestPayer?: pulumi.Input<string>;
+    readonly requestPayer?: string;
     /**
      * A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
      */
-    readonly serverSideEncryptionConfiguration?: pulumi.Input<{ rule: pulumi.Input<{ applyServerSideEncryptionByDefault: pulumi.Input<{ kmsMasterKeyId?: pulumi.Input<string>, sseAlgorithm: pulumi.Input<string> }> }> }>;
+    readonly serverSideEncryptionConfiguration?: { rule: { applyServerSideEncryptionByDefault: { kmsMasterKeyId?: string, sseAlgorithm: string } } };
     /**
      * A mapping of tags that identifies subset of objects to which the rule applies.
      * The rule applies only to objects having all the tags in its tagset.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
      */
-    readonly versioning?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, mfaDelete?: pulumi.Input<boolean> }>;
+    readonly versioning?: { enabled?: boolean, mfaDelete?: boolean };
     /**
      * A website object (documented below).
      */
-    readonly website?: pulumi.Input<{ errorDocument?: pulumi.Input<string>, indexDocument?: pulumi.Input<string>, redirectAllRequestsTo?: pulumi.Input<string>, routingRules?: pulumi.Input<string> }>;
+    readonly website?: { errorDocument?: string, indexDocument?: string, redirectAllRequestsTo?: string, routingRules?: string };
     /**
      * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
      */
-    readonly websiteDomain?: pulumi.Input<string>;
+    readonly websiteDomain?: string;
     /**
      * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
      */
-    readonly websiteEndpoint?: pulumi.Input<string>;
+    readonly websiteEndpoint?: string;
 }
 
 /**
@@ -486,89 +486,89 @@ export interface BucketArgs {
     /**
      * Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
      */
-    readonly accelerationStatus?: pulumi.Input<string>;
+    readonly accelerationStatus?: string;
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
      */
-    readonly acl?: pulumi.Input<string | CannedAcl>;
+    readonly acl?: string | CannedAcl;
     /**
      * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
      */
-    readonly bucket?: pulumi.Input<string>;
+    readonly bucket?: string;
     /**
      * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
      */
-    readonly bucketPrefix?: pulumi.Input<string>;
+    readonly bucketPrefix?: string;
     /**
      * A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
      */
-    readonly corsRules?: pulumi.Input<pulumi.Input<{ allowedHeaders?: pulumi.Input<pulumi.Input<string>[]>, allowedMethods: pulumi.Input<pulumi.Input<string>[]>, allowedOrigins: pulumi.Input<pulumi.Input<string>[]>, exposeHeaders?: pulumi.Input<pulumi.Input<string>[]>, maxAgeSeconds?: pulumi.Input<number> }>[]>;
+    readonly corsRules?: { allowedHeaders?: string[], allowedMethods: string[], allowedOrigins: string[], exposeHeaders?: string[], maxAgeSeconds?: number }[];
     /**
      * A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
      */
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    readonly forceDestroy?: boolean;
     /**
      * The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
      */
-    readonly hostedZoneId?: pulumi.Input<string>;
+    readonly hostedZoneId?: string;
     /**
      * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
      */
-    readonly lifecycleRules?: pulumi.Input<pulumi.Input<{ abortIncompleteMultipartUploadDays?: pulumi.Input<number>, enabled: pulumi.Input<boolean>, expiration?: pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, expiredObjectDeleteMarker?: pulumi.Input<boolean> }>, id?: pulumi.Input<string>, noncurrentVersionExpiration?: pulumi.Input<{ days?: pulumi.Input<number> }>, noncurrentVersionTransitions?: pulumi.Input<pulumi.Input<{ days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }>[]>, prefix?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}>, transitions?: pulumi.Input<pulumi.Input<{ date?: pulumi.Input<string>, days?: pulumi.Input<number>, storageClass: pulumi.Input<string> }>[]> }>[]>;
+    readonly lifecycleRules?: { abortIncompleteMultipartUploadDays?: number, enabled: boolean, expiration?: { date?: string, days?: number, expiredObjectDeleteMarker?: boolean }, id?: string, noncurrentVersionExpiration?: { days?: number }, noncurrentVersionTransitions?: { days?: number, storageClass: string }[], prefix?: string, tags?: {[key: string]: any}, transitions?: { date?: string, days?: number, storageClass: string }[] }[];
     /**
      * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      */
-    readonly loggings?: pulumi.Input<pulumi.Input<{ targetBucket: pulumi.Input<string>, targetPrefix?: pulumi.Input<string> }>[]>;
+    readonly loggings?: { targetBucket: string, targetPrefix?: string }[];
     /**
      * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
      */
-    readonly objectLockConfiguration?: pulumi.Input<{ objectLockEnabled: pulumi.Input<string>, rule?: pulumi.Input<{ defaultRetention: pulumi.Input<{ days?: pulumi.Input<number>, mode: pulumi.Input<string>, years?: pulumi.Input<number> }> }> }>;
+    readonly objectLockConfiguration?: { objectLockEnabled: string, rule?: { defaultRetention: { days?: number, mode: string, years?: number } } };
     /**
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    readonly policy?: pulumi.Input<string>;
+    readonly policy?: string;
     /**
      * If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
      */
-    readonly region?: pulumi.Input<string>;
+    readonly region?: string;
     /**
      * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      */
-    readonly replicationConfiguration?: pulumi.Input<{ role: pulumi.Input<string>, rules: pulumi.Input<pulumi.Input<{ destination: pulumi.Input<{ accessControlTranslation?: pulumi.Input<{ owner: pulumi.Input<string> }>, accountId?: pulumi.Input<string>, bucket: pulumi.Input<string>, replicaKmsKeyId?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>, filter?: pulumi.Input<{ prefix?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }>, id?: pulumi.Input<string>, prefix?: pulumi.Input<string>, priority?: pulumi.Input<number>, sourceSelectionCriteria?: pulumi.Input<{ sseKmsEncryptedObjects?: pulumi.Input<{ enabled: pulumi.Input<boolean> }> }>, status: pulumi.Input<string> }>[]> }>;
+    readonly replicationConfiguration?: { role: string, rules: { destination: { accessControlTranslation?: { owner: string }, accountId?: string, bucket: string, replicaKmsKeyId?: string, storageClass?: string }, filter?: { prefix?: string, tags?: {[key: string]: any} }, id?: string, prefix?: string, priority?: number, sourceSelectionCriteria?: { sseKmsEncryptedObjects?: { enabled: boolean } }, status: string }[] };
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
      * the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html)
      * developer guide for more information.
      */
-    readonly requestPayer?: pulumi.Input<string>;
+    readonly requestPayer?: string;
     /**
      * A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
      */
-    readonly serverSideEncryptionConfiguration?: pulumi.Input<{ rule: pulumi.Input<{ applyServerSideEncryptionByDefault: pulumi.Input<{ kmsMasterKeyId?: pulumi.Input<string>, sseAlgorithm: pulumi.Input<string> }> }> }>;
+    readonly serverSideEncryptionConfiguration?: { rule: { applyServerSideEncryptionByDefault: { kmsMasterKeyId?: string, sseAlgorithm: string } } };
     /**
      * A mapping of tags that identifies subset of objects to which the rule applies.
      * The rule applies only to objects having all the tags in its tagset.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
      */
-    readonly versioning?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, mfaDelete?: pulumi.Input<boolean> }>;
+    readonly versioning?: { enabled?: boolean, mfaDelete?: boolean };
     /**
      * A website object (documented below).
      */
-    readonly website?: pulumi.Input<{ errorDocument?: pulumi.Input<string>, indexDocument?: pulumi.Input<string>, redirectAllRequestsTo?: pulumi.Input<string>, routingRules?: pulumi.Input<string> }>;
+    readonly website?: { errorDocument?: string, indexDocument?: string, redirectAllRequestsTo?: string, routingRules?: string };
     /**
      * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
      */
-    readonly websiteDomain?: pulumi.Input<string>;
+    readonly websiteDomain?: string;
     /**
      * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
      */
-    readonly websiteEndpoint?: pulumi.Input<string>;
+    readonly websiteEndpoint?: string;
 }

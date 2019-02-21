@@ -49,8 +49,8 @@ export class Container extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ContainerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ContainerArgs | ContainerState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<ContainerArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ContainerArgs> | pulumi.InputObject<ContainerState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ContainerState = argsOrState as ContainerState | undefined;
@@ -74,15 +74,15 @@ export interface ContainerState {
     /**
      * The ARN of the container.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The DNS endpoint of the container.
      */
-    readonly endpoint?: pulumi.Input<string>;
+    readonly endpoint?: string;
     /**
      * The name of the container. Must contain alphanumeric characters or underscores.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }
 
 /**
@@ -92,5 +92,5 @@ export interface ContainerArgs {
     /**
      * The name of the container. Must contain alphanumeric characters or underscores.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }

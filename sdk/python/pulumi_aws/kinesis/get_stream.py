@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetStreamResult(object):
+class GetStreamResult:
     """
     A collection of values returned by getStream.
     """
@@ -68,7 +68,7 @@ class GetStreamResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_stream(name=None):
+async def get_stream(name=None,opts=None):
     """
     Use this data source to get information about a Kinesis Stream for use in other
     resources.
@@ -78,7 +78,7 @@ async def get_stream(name=None):
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:kinesis/getStream:getStream', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:kinesis/getStream:getStream', __args__, opts=opts)
 
     return GetStreamResult(
         arn=__ret__.get('arn'),

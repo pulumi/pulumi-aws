@@ -43,7 +43,6 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the route.
         :param pulumi.Input[str] name: The name to use for the route.
         :param pulumi.Input[dict] spec: The route specification to apply.
-        :param pulumi.Input[str] virtual_router_name
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

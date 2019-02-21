@@ -66,8 +66,8 @@ export class DomainDkim extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DomainDkimArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DomainDkimArgs | DomainDkimState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<DomainDkimArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<DomainDkimArgs> | pulumi.InputObject<DomainDkimState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DomainDkimState = argsOrState as DomainDkimState | undefined;
@@ -97,11 +97,11 @@ export interface DomainDkimState {
      * Find out more about verifying domains in Amazon SES
      * in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html).
      */
-    readonly dkimTokens?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly dkimTokens?: string[];
     /**
      * Verified domain name to generate DKIM tokens for.
      */
-    readonly domain?: pulumi.Input<string>;
+    readonly domain?: string;
 }
 
 /**
@@ -111,5 +111,5 @@ export interface DomainDkimArgs {
     /**
      * Verified domain name to generate DKIM tokens for.
      */
-    readonly domain: pulumi.Input<string>;
+    readonly domain: string;
 }
