@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as rxjs from "rxjs";
+import * as operators from "rxjs/operators";
 
 /**
  * The "AMI copy" resource allows duplication of an Amazon Machine Image (AMI),
@@ -45,6 +47,19 @@ export class AmiCopy extends pulumi.CustomResource {
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AmiCopyState, opts?: pulumi.CustomResourceOptions): AmiCopy {
         return new AmiCopy(name, <any>state, { ...opts, id: id });
+    }
+
+    public static list(): rxjs.Observable<AmiCopyResult> {
+        return rxjs.from(
+            pulumi.runtime
+                .invoke('pulumi:pulumi:readStackResourceOutputs', {
+                    stackName: pulumi.runtime.getStack(),
+                    type: 'aws:ec2/amiCopy:AmiCopy',
+                })
+                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
+        ).pipe(
+            operators.mergeAll(),
+        );
     }
 
     /**

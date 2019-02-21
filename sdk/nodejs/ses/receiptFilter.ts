@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as rxjs from "rxjs";
+import * as operators from "rxjs/operators";
 
 /**
  * Provides an SES receipt filter resource
@@ -31,6 +33,19 @@ export class ReceiptFilter extends pulumi.CustomResource {
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ReceiptFilterState, opts?: pulumi.CustomResourceOptions): ReceiptFilter {
         return new ReceiptFilter(name, <any>state, { ...opts, id: id });
+    }
+
+    public static list(): rxjs.Observable<ReceiptFilterResult> {
+        return rxjs.from(
+            pulumi.runtime
+                .invoke('pulumi:pulumi:readStackResourceOutputs', {
+                    stackName: pulumi.runtime.getStack(),
+                    type: 'aws:ses/receiptFilter:ReceiptFilter',
+                })
+                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
+        ).pipe(
+            operators.mergeAll(),
+        );
     }
 
     /**

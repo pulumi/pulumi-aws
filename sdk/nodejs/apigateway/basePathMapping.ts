@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as rxjs from "rxjs";
+import * as operators from "rxjs/operators";
 
 import {RestApi} from "./restApi";
 
@@ -48,6 +50,19 @@ export class BasePathMapping extends pulumi.CustomResource {
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BasePathMappingState, opts?: pulumi.CustomResourceOptions): BasePathMapping {
         return new BasePathMapping(name, <any>state, { ...opts, id: id });
+    }
+
+    public static list(): rxjs.Observable<BasePathMappingResult> {
+        return rxjs.from(
+            pulumi.runtime
+                .invoke('pulumi:pulumi:readStackResourceOutputs', {
+                    stackName: pulumi.runtime.getStack(),
+                    type: 'aws:apigateway/basePathMapping:BasePathMapping',
+                })
+                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
+        ).pipe(
+            operators.mergeAll(),
+        );
     }
 
     /**

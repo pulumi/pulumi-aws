@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as rxjs from "rxjs";
+import * as operators from "rxjs/operators";
 
 /**
  * Provides a Route53 query logging configuration resource.
@@ -24,6 +26,19 @@ export class QueryLog extends pulumi.CustomResource {
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: QueryLogState, opts?: pulumi.CustomResourceOptions): QueryLog {
         return new QueryLog(name, <any>state, { ...opts, id: id });
+    }
+
+    public static list(): rxjs.Observable<QueryLogResult> {
+        return rxjs.from(
+            pulumi.runtime
+                .invoke('pulumi:pulumi:readStackResourceOutputs', {
+                    stackName: pulumi.runtime.getStack(),
+                    type: 'aws:route53/queryLog:QueryLog',
+                })
+                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
+        ).pipe(
+            operators.mergeAll(),
+        );
     }
 
     /**

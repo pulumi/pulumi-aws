@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as rxjs from "rxjs";
+import * as operators from "rxjs/operators";
 
 /**
  * Provides a Pinpoint APNs VoIP Sandbox Channel resource.
@@ -36,6 +38,19 @@ export class ApnsVoipSandboxChannel extends pulumi.CustomResource {
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ApnsVoipSandboxChannelState, opts?: pulumi.CustomResourceOptions): ApnsVoipSandboxChannel {
         return new ApnsVoipSandboxChannel(name, <any>state, { ...opts, id: id });
+    }
+
+    public static list(): rxjs.Observable<ApnsVoipSandboxChannelResult> {
+        return rxjs.from(
+            pulumi.runtime
+                .invoke('pulumi:pulumi:readStackResourceOutputs', {
+                    stackName: pulumi.runtime.getStack(),
+                    type: 'aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel',
+                })
+                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
+        ).pipe(
+            operators.mergeAll(),
+        );
     }
 
     /**

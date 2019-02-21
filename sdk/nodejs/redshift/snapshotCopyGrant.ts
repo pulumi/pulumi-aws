@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as rxjs from "rxjs";
+import * as operators from "rxjs/operators";
 
 /**
  * Creates a snapshot copy grant that allows AWS Redshift to encrypt copied snapshots with a customer master key from AWS KMS in a destination region.
@@ -38,6 +40,19 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SnapshotCopyGrantState, opts?: pulumi.CustomResourceOptions): SnapshotCopyGrant {
         return new SnapshotCopyGrant(name, <any>state, { ...opts, id: id });
+    }
+
+    public static list(): rxjs.Observable<SnapshotCopyGrantResult> {
+        return rxjs.from(
+            pulumi.runtime
+                .invoke('pulumi:pulumi:readStackResourceOutputs', {
+                    stackName: pulumi.runtime.getStack(),
+                    type: 'aws:redshift/snapshotCopyGrant:SnapshotCopyGrant',
+                })
+                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
+        ).pipe(
+            operators.mergeAll(),
+        );
     }
 
     /**

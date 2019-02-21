@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as rxjs from "rxjs";
+import * as operators from "rxjs/operators";
 
 /**
  * [IPv6 only] Creates an egress-only Internet gateway for your VPC.
@@ -36,6 +38,19 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EgressOnlyInternetGatewayState, opts?: pulumi.CustomResourceOptions): EgressOnlyInternetGateway {
         return new EgressOnlyInternetGateway(name, <any>state, { ...opts, id: id });
+    }
+
+    public static list(): rxjs.Observable<EgressOnlyInternetGatewayResult> {
+        return rxjs.from(
+            pulumi.runtime
+                .invoke('pulumi:pulumi:readStackResourceOutputs', {
+                    stackName: pulumi.runtime.getStack(),
+                    type: 'aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway',
+                })
+                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
+        ).pipe(
+            operators.mergeAll(),
+        );
     }
 
     /**

@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as rxjs from "rxjs";
+import * as operators from "rxjs/operators";
 
 /**
  * Allows you to set a policy of an SQS Queue
@@ -52,6 +54,19 @@ export class QueuePolicy extends pulumi.CustomResource {
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: QueuePolicyState, opts?: pulumi.CustomResourceOptions): QueuePolicy {
         return new QueuePolicy(name, <any>state, { ...opts, id: id });
+    }
+
+    public static list(): rxjs.Observable<QueuePolicyResult> {
+        return rxjs.from(
+            pulumi.runtime
+                .invoke('pulumi:pulumi:readStackResourceOutputs', {
+                    stackName: pulumi.runtime.getStack(),
+                    type: 'aws:sqs/queuePolicy:QueuePolicy',
+                })
+                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
+        ).pipe(
+            operators.mergeAll(),
+        );
     }
 
     /**

@@ -1847,6 +1847,7 @@ func Provider() tfbridge.ProviderInfo {
 				"builtin-modules":   "3.0.0",
 				"read-package-tree": "^5.2.1",
 				"resolve":           "^1.7.1",
+				"rxjs":              "6.4.0",
 			},
 			DevDependencies: map[string]string{
 				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.

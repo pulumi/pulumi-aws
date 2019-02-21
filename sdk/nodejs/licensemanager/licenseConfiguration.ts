@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as rxjs from "rxjs";
+import * as operators from "rxjs/operators";
 
 /**
  * Provides a License Manager license configuration resource.
@@ -51,6 +53,19 @@ export class LicenseConfiguration extends pulumi.CustomResource {
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LicenseConfigurationState, opts?: pulumi.CustomResourceOptions): LicenseConfiguration {
         return new LicenseConfiguration(name, <any>state, { ...opts, id: id });
+    }
+
+    public static list(): rxjs.Observable<LicenseConfigurationResult> {
+        return rxjs.from(
+            pulumi.runtime
+                .invoke('pulumi:pulumi:readStackResourceOutputs', {
+                    stackName: pulumi.runtime.getStack(),
+                    type: 'aws:licensemanager/licenseConfiguration:LicenseConfiguration',
+                })
+                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
+        ).pipe(
+            operators.mergeAll(),
+        );
     }
 
     /**

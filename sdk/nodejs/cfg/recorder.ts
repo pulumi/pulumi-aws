@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as rxjs from "rxjs";
+import * as operators from "rxjs/operators";
 
 /**
  * Provides an AWS Config Configuration Recorder. Please note that this resource **does not start** the created recorder automatically.
@@ -49,6 +51,19 @@ export class Recorder extends pulumi.CustomResource {
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RecorderState, opts?: pulumi.CustomResourceOptions): Recorder {
         return new Recorder(name, <any>state, { ...opts, id: id });
+    }
+
+    public static list(): rxjs.Observable<RecorderResult> {
+        return rxjs.from(
+            pulumi.runtime
+                .invoke('pulumi:pulumi:readStackResourceOutputs', {
+                    stackName: pulumi.runtime.getStack(),
+                    type: 'aws:cfg/recorder:Recorder',
+                })
+                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
+        ).pipe(
+            operators.mergeAll(),
+        );
     }
 
     /**

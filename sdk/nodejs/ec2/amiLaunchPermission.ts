@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as rxjs from "rxjs";
+import * as operators from "rxjs/operators";
 
 /**
  * Adds launch permission to Amazon Machine Image (AMI) from another AWS account.
@@ -30,6 +32,19 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AmiLaunchPermissionState, opts?: pulumi.CustomResourceOptions): AmiLaunchPermission {
         return new AmiLaunchPermission(name, <any>state, { ...opts, id: id });
+    }
+
+    public static list(): rxjs.Observable<AmiLaunchPermissionResult> {
+        return rxjs.from(
+            pulumi.runtime
+                .invoke('pulumi:pulumi:readStackResourceOutputs', {
+                    stackName: pulumi.runtime.getStack(),
+                    type: 'aws:ec2/amiLaunchPermission:AmiLaunchPermission',
+                })
+                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
+        ).pipe(
+            operators.mergeAll(),
+        );
     }
 
     /**

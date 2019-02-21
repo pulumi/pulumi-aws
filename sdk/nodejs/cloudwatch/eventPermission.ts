@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as rxjs from "rxjs";
+import * as operators from "rxjs/operators";
 
 /**
  * Provides a resource to create a CloudWatch Events permission to support cross-account events in the current account default event bus.
@@ -49,6 +51,19 @@ export class EventPermission extends pulumi.CustomResource {
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventPermissionState, opts?: pulumi.CustomResourceOptions): EventPermission {
         return new EventPermission(name, <any>state, { ...opts, id: id });
+    }
+
+    public static list(): rxjs.Observable<EventPermissionResult> {
+        return rxjs.from(
+            pulumi.runtime
+                .invoke('pulumi:pulumi:readStackResourceOutputs', {
+                    stackName: pulumi.runtime.getStack(),
+                    type: 'aws:cloudwatch/eventPermission:EventPermission',
+                })
+                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
+        ).pipe(
+            operators.mergeAll(),
+        );
     }
 
     /**

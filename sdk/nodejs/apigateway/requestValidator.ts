@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as rxjs from "rxjs";
+import * as operators from "rxjs/operators";
 
 import {RestApi} from "./restApi";
 
@@ -34,6 +36,19 @@ export class RequestValidator extends pulumi.CustomResource {
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RequestValidatorState, opts?: pulumi.CustomResourceOptions): RequestValidator {
         return new RequestValidator(name, <any>state, { ...opts, id: id });
+    }
+
+    public static list(): rxjs.Observable<RequestValidatorResult> {
+        return rxjs.from(
+            pulumi.runtime
+                .invoke('pulumi:pulumi:readStackResourceOutputs', {
+                    stackName: pulumi.runtime.getStack(),
+                    type: 'aws:apigateway/requestValidator:RequestValidator',
+                })
+                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
+        ).pipe(
+            operators.mergeAll(),
+        );
     }
 
     /**

@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as rxjs from "rxjs";
+import * as operators from "rxjs/operators";
 
 /**
  * Provides an OpsWorks RDS DB Instance resource.
@@ -35,6 +37,19 @@ export class RdsDbInstance extends pulumi.CustomResource {
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RdsDbInstanceState, opts?: pulumi.CustomResourceOptions): RdsDbInstance {
         return new RdsDbInstance(name, <any>state, { ...opts, id: id });
+    }
+
+    public static list(): rxjs.Observable<RdsDbInstanceResult> {
+        return rxjs.from(
+            pulumi.runtime
+                .invoke('pulumi:pulumi:readStackResourceOutputs', {
+                    stackName: pulumi.runtime.getStack(),
+                    type: 'aws:opsworks/rdsDbInstance:RdsDbInstance',
+                })
+                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
+        ).pipe(
+            operators.mergeAll(),
+        );
     }
 
     /**

@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as rxjs from "rxjs";
+import * as operators from "rxjs/operators";
 
 /**
  * Subscribes to a Security Hub product.
@@ -31,6 +33,19 @@ export class ProductSubscription extends pulumi.CustomResource {
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ProductSubscriptionState, opts?: pulumi.CustomResourceOptions): ProductSubscription {
         return new ProductSubscription(name, <any>state, { ...opts, id: id });
+    }
+
+    public static list(): rxjs.Observable<ProductSubscriptionResult> {
+        return rxjs.from(
+            pulumi.runtime
+                .invoke('pulumi:pulumi:readStackResourceOutputs', {
+                    stackName: pulumi.runtime.getStack(),
+                    type: 'aws:securityhub/productSubscription:ProductSubscription',
+                })
+                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
+        ).pipe(
+            operators.mergeAll(),
+        );
     }
 
     /**

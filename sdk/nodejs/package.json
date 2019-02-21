@@ -18,7 +18,8 @@
         "builtin-modules": "3.0.0",
         "mime": "^2.0.0",
         "read-package-tree": "^5.2.1",
-        "resolve": "^1.7.1"
+        "resolve": "^1.7.1",
+        "rxjs": "6.4.0"
     },
     "devDependencies": {
         "@types/mime": "^2.0.0",

@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as rxjs from "rxjs";
+import * as operators from "rxjs/operators";
 
 /**
  * Provides an ElastiCache Replication Group resource.
@@ -109,6 +111,19 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ReplicationGroupState, opts?: pulumi.CustomResourceOptions): ReplicationGroup {
         return new ReplicationGroup(name, <any>state, { ...opts, id: id });
+    }
+
+    public static list(): rxjs.Observable<ReplicationGroupResult> {
+        return rxjs.from(
+            pulumi.runtime
+                .invoke('pulumi:pulumi:readStackResourceOutputs', {
+                    stackName: pulumi.runtime.getStack(),
+                    type: 'aws:elasticache/replicationGroup:ReplicationGroup',
+                })
+                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
+        ).pipe(
+            operators.mergeAll(),
+        );
     }
 
     /**

@@ -3,6 +3,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as rxjs from "rxjs";
+import * as operators from "rxjs/operators";
 
 /**
  * Associates an S3 resource with Amazon Macie for monitoring and data classification.
@@ -35,6 +37,19 @@ export class S3BucketAssociation extends pulumi.CustomResource {
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: S3BucketAssociationState, opts?: pulumi.CustomResourceOptions): S3BucketAssociation {
         return new S3BucketAssociation(name, <any>state, { ...opts, id: id });
+    }
+
+    public static list(): rxjs.Observable<S3BucketAssociationResult> {
+        return rxjs.from(
+            pulumi.runtime
+                .invoke('pulumi:pulumi:readStackResourceOutputs', {
+                    stackName: pulumi.runtime.getStack(),
+                    type: 'aws:macie/s3BucketAssociation:S3BucketAssociation',
+                })
+                .then(o => Object.keys(o.outputs).map(k => o.outputs[k]))
+        ).pipe(
+            operators.mergeAll(),
+        );
     }
 
     /**
