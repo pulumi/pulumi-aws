@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * ### Regular Rule
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -43,27 +45,53 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * ## Nested Fields
+ * ### Group Rule
  * 
- * ### `rule`
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
  * 
- * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_ActivatedRule.html) for all details and supported values.
+ * const example = new aws.wafregional.WebAcl("example", {
+ *     defaultAction: {
+ *         type: "ALLOW",
+ *     },
+ *     metricName: "example",
+ *     rules: [{
+ *         overrideAction: {
+ *             type: "NONE",
+ *         },
+ *         priority: 1,
+ *         ruleId: aws_wafregional_rule_group_example.id,
+ *         type: "GROUP",
+ *     }],
+ * });
+ * ```
  * 
- * #### Arguments
+ * ### Logging
  * 
- * * `action` - (Required) The action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`.
- * * `override_action` - (Required) Override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`.
- * * `priority` - (Required) Specifies the order in which the rules in a WebACL are evaluated.
- *   Rules with a lower value are evaluated before rules with a higher value.
- * * `rule_id` - (Required) ID of the associated WAF (Regional) rule (e.g. [`aws_wafregional_rule`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)). WAF (Global) rules cannot be used.
- * * `type` - (Optional) The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+ * > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-`. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
  * 
- * ### `default_action` / `action`
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
  * 
- * #### Arguments
- * 
- * * `type` - (Required) Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule.
- *   e.g. `ALLOW`, `BLOCK` or `COUNT`
+ * const example = new aws.wafregional.WebAcl("example", {
+ *     loggingConfiguration: {
+ *         logDestination: aws_kinesis_firehose_delivery_stream_example.arn,
+ *         redactedFields: {
+ *             fieldToMatches: [
+ *                 {
+ *                     type: "URI",
+ *                 },
+ *                 {
+ *                     data: "referer",
+ *                     type: "HEADER",
+ *                 },
+ *             ],
+ *         },
+ *     },
+ * });
+ * ```
  */
 export class WebAcl extends pulumi.CustomResource {
     /**
@@ -79,9 +107,17 @@ export class WebAcl extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of the WAF Regional WebACL.
+     */
+    public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
      */
     public readonly defaultAction: pulumi.Output<{ type: string }>;
+    /**
+     * Configuration block to enable WAF logging. Detailed below.
+     */
+    public readonly loggingConfiguration: pulumi.Output<{ logDestination: string, redactedFields?: { fieldToMatches: { data?: string, type: string }[] } } | undefined>;
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
@@ -91,7 +127,7 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * The rules to associate with the web ACL and the settings for each rule.
+     * Set of configuration blocks containing rules for the web ACL. Detailed below.
      */
     public readonly rules: pulumi.Output<{ action?: { type: string }, overrideAction?: { type: string }, priority: number, ruleId: string, type?: string }[] | undefined>;
 
@@ -107,7 +143,9 @@ export class WebAcl extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: WebAclState = argsOrState as WebAclState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["defaultAction"] = state ? state.defaultAction : undefined;
+            inputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;
             inputs["metricName"] = state ? state.metricName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["rules"] = state ? state.rules : undefined;
@@ -120,9 +158,11 @@ export class WebAcl extends pulumi.CustomResource {
                 throw new Error("Missing required property 'metricName'");
             }
             inputs["defaultAction"] = args ? args.defaultAction : undefined;
+            inputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
             inputs["metricName"] = args ? args.metricName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["rules"] = args ? args.rules : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         super("aws:wafregional/webAcl:WebAcl", name, inputs, opts);
     }
@@ -133,9 +173,17 @@ export class WebAcl extends pulumi.CustomResource {
  */
 export interface WebAclState {
     /**
+     * Amazon Resource Name (ARN) of the WAF Regional WebACL.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
      */
     readonly defaultAction?: pulumi.Input<{ type: pulumi.Input<string> }>;
+    /**
+     * Configuration block to enable WAF logging. Detailed below.
+     */
+    readonly loggingConfiguration?: pulumi.Input<{ logDestination: pulumi.Input<string>, redactedFields?: pulumi.Input<{ fieldToMatches: pulumi.Input<pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>[]> }> }>;
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
@@ -145,7 +193,7 @@ export interface WebAclState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The rules to associate with the web ACL and the settings for each rule.
+     * Set of configuration blocks containing rules for the web ACL. Detailed below.
      */
     readonly rules?: pulumi.Input<pulumi.Input<{ action?: pulumi.Input<{ type: pulumi.Input<string> }>, overrideAction?: pulumi.Input<{ type: pulumi.Input<string> }>, priority: pulumi.Input<number>, ruleId: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
 }
@@ -159,6 +207,10 @@ export interface WebAclArgs {
      */
     readonly defaultAction: pulumi.Input<{ type: pulumi.Input<string> }>;
     /**
+     * Configuration block to enable WAF logging. Detailed below.
+     */
+    readonly loggingConfiguration?: pulumi.Input<{ logDestination: pulumi.Input<string>, redactedFields?: pulumi.Input<{ fieldToMatches: pulumi.Input<pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>[]> }> }>;
+    /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
     readonly metricName: pulumi.Input<string>;
@@ -167,7 +219,7 @@ export interface WebAclArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The rules to associate with the web ACL and the settings for each rule.
+     * Set of configuration blocks containing rules for the web ACL. Detailed below.
      */
     readonly rules?: pulumi.Input<pulumi.Input<{ action?: pulumi.Input<{ type: pulumi.Input<string> }>, overrideAction?: pulumi.Input<{ type: pulumi.Input<string> }>, priority: pulumi.Input<number>, ruleId: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
 }

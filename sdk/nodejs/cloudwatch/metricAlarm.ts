@@ -58,6 +58,56 @@ import {Topic} from "../sns/topic";
  * });
  * ```
  * 
+ * ## Example with an Expression
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
+ *     alarmDescription: "Request error rate has exceeded 10%",
+ *     name: "terraform-test-foobar%d",
+ *     comparisonOperator: "GreaterThanOrEqualToThreshold",
+ *     evaluationPeriods: 2,
+ *     insufficientDataActions: [],
+ *     metricQueries: [
+ *         {
+ *             expression: "m2/m1*100",
+ *             id: "e1",
+ *             label: "Error Rate",
+ *             returnData: true,
+ *         },
+ *         {
+ *             id: "m1",
+ *             metric: {
+ *                 dimensions: {
+ *                     LoadBalancer: "app/web",
+ *                 },
+ *                 metricName: "RequestCount",
+ *                 namespace: "AWS/ApplicationELB",
+ *                 period: 120,
+ *                 stat: "Sum",
+ *                 unit: "Count",
+ *             },
+ *         },
+ *         {
+ *             id: "m2",
+ *             metric: {
+ *                 dimensions: {
+ *                     LoadBalancer: "app/web",
+ *                 },
+ *                 metricName: "HTTPCode_ELB_5XX_Count",
+ *                 namespace: "AWS/ApplicationELB",
+ *                 period: 120,
+ *                 stat: "Sum",
+ *                 unit: "Count",
+ *             },
+ *         },
+ *     ],
+ *     threshold: 0.1,
+ * });
+ * ```
+ * 
  * > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
  * You must choose one or the other
  */
@@ -103,7 +153,7 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     public readonly datapointsToAlarm: pulumi.Output<number | undefined>;
     /**
-     * The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+     * The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
     public readonly dimensions: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -128,23 +178,27 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     public readonly insufficientDataActions: pulumi.Output<string[] | undefined>;
     /**
-     * The name for the alarm's associated metric.
+     * The name for this metric.
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    public readonly metricName: pulumi.Output<string>;
+    public readonly metricName: pulumi.Output<string | undefined>;
     /**
-     * The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+     * Enables you to create an alarm based on a metric math expression. You may specify at most 20.
+     */
+    public readonly metricQueries: pulumi.Output<{ expression?: string, id: string, label?: string, metric?: { dimensions?: {[key: string]: any}, metricName: string, namespace?: string, period: number, stat: string, unit?: string }, returnData?: boolean }[] | undefined>;
+    /**
+     * The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    public readonly namespace: pulumi.Output<string>;
+    public readonly namespace: pulumi.Output<string | undefined>;
     /**
      * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Number (ARN).
      */
     public readonly okActions: pulumi.Output<string[] | undefined>;
     /**
-     * The period in seconds over which the specified `statistic` is applied.
+     * The period in seconds over which the specified `stat` is applied.
      */
-    public readonly period: pulumi.Output<number>;
+    public readonly period: pulumi.Output<number | undefined>;
     /**
      * The statistic to apply to the alarm's associated metric.
      * Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
@@ -159,7 +213,7 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     public readonly treatMissingData: pulumi.Output<string | undefined>;
     /**
-     * The unit for the alarm's associated metric.
+     * The unit for this metric.
      */
     public readonly unit: pulumi.Output<string | undefined>;
 
@@ -188,6 +242,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             inputs["extendedStatistic"] = state ? state.extendedStatistic : undefined;
             inputs["insufficientDataActions"] = state ? state.insufficientDataActions : undefined;
             inputs["metricName"] = state ? state.metricName : undefined;
+            inputs["metricQueries"] = state ? state.metricQueries : undefined;
             inputs["namespace"] = state ? state.namespace : undefined;
             inputs["okActions"] = state ? state.okActions : undefined;
             inputs["period"] = state ? state.period : undefined;
@@ -202,15 +257,6 @@ export class MetricAlarm extends pulumi.CustomResource {
             }
             if (!args || args.evaluationPeriods === undefined) {
                 throw new Error("Missing required property 'evaluationPeriods'");
-            }
-            if (!args || args.metricName === undefined) {
-                throw new Error("Missing required property 'metricName'");
-            }
-            if (!args || args.namespace === undefined) {
-                throw new Error("Missing required property 'namespace'");
-            }
-            if (!args || args.period === undefined) {
-                throw new Error("Missing required property 'period'");
             }
             if (!args || args.threshold === undefined) {
                 throw new Error("Missing required property 'threshold'");
@@ -227,6 +273,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             inputs["extendedStatistic"] = args ? args.extendedStatistic : undefined;
             inputs["insufficientDataActions"] = args ? args.insufficientDataActions : undefined;
             inputs["metricName"] = args ? args.metricName : undefined;
+            inputs["metricQueries"] = args ? args.metricQueries : undefined;
             inputs["namespace"] = args ? args.namespace : undefined;
             inputs["okActions"] = args ? args.okActions : undefined;
             inputs["period"] = args ? args.period : undefined;
@@ -273,7 +320,7 @@ export interface MetricAlarmState {
      */
     readonly datapointsToAlarm?: pulumi.Input<number>;
     /**
-     * The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+     * The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
     readonly dimensions?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -298,12 +345,16 @@ export interface MetricAlarmState {
      */
     readonly insufficientDataActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
     /**
-     * The name for the alarm's associated metric.
+     * The name for this metric.
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
     readonly metricName?: pulumi.Input<string>;
     /**
-     * The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+     * Enables you to create an alarm based on a metric math expression. You may specify at most 20.
+     */
+    readonly metricQueries?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, id: pulumi.Input<string>, label?: pulumi.Input<string>, metric?: pulumi.Input<{ dimensions?: pulumi.Input<{[key: string]: any}>, metricName: pulumi.Input<string>, namespace?: pulumi.Input<string>, period: pulumi.Input<number>, stat: pulumi.Input<string>, unit?: pulumi.Input<string> }>, returnData?: pulumi.Input<boolean> }>[]>;
+    /**
+     * The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
     readonly namespace?: pulumi.Input<string>;
@@ -312,7 +363,7 @@ export interface MetricAlarmState {
      */
     readonly okActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
     /**
-     * The period in seconds over which the specified `statistic` is applied.
+     * The period in seconds over which the specified `stat` is applied.
      */
     readonly period?: pulumi.Input<number>;
     /**
@@ -329,7 +380,7 @@ export interface MetricAlarmState {
      */
     readonly treatMissingData?: pulumi.Input<string>;
     /**
-     * The unit for the alarm's associated metric.
+     * The unit for this metric.
      */
     readonly unit?: pulumi.Input<string>;
 }
@@ -363,7 +414,7 @@ export interface MetricAlarmArgs {
      */
     readonly datapointsToAlarm?: pulumi.Input<number>;
     /**
-     * The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+     * The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
     readonly dimensions?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -388,23 +439,27 @@ export interface MetricAlarmArgs {
      */
     readonly insufficientDataActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
     /**
-     * The name for the alarm's associated metric.
+     * The name for this metric.
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    readonly metricName: pulumi.Input<string>;
+    readonly metricName?: pulumi.Input<string>;
     /**
-     * The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+     * Enables you to create an alarm based on a metric math expression. You may specify at most 20.
+     */
+    readonly metricQueries?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, id: pulumi.Input<string>, label?: pulumi.Input<string>, metric?: pulumi.Input<{ dimensions?: pulumi.Input<{[key: string]: any}>, metricName: pulumi.Input<string>, namespace?: pulumi.Input<string>, period: pulumi.Input<number>, stat: pulumi.Input<string>, unit?: pulumi.Input<string> }>, returnData?: pulumi.Input<boolean> }>[]>;
+    /**
+     * The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    readonly namespace: pulumi.Input<string>;
+    readonly namespace?: pulumi.Input<string>;
     /**
      * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Number (ARN).
      */
     readonly okActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
     /**
-     * The period in seconds over which the specified `statistic` is applied.
+     * The period in seconds over which the specified `stat` is applied.
      */
-    readonly period: pulumi.Input<number>;
+    readonly period?: pulumi.Input<number>;
     /**
      * The statistic to apply to the alarm's associated metric.
      * Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
@@ -419,7 +474,7 @@ export interface MetricAlarmArgs {
      */
     readonly treatMissingData?: pulumi.Input<string>;
     /**
-     * The unit for the alarm's associated metric.
+     * The unit for this metric.
      */
     readonly unit?: pulumi.Input<string>;
 }

@@ -90,7 +90,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly billingMode: pulumi.Output<string | undefined>;
     /**
-     * Describe a GSO for the table;
+     * Describe a GSI for the table;
      * subject to the normal limits on the number of GSIs, projected
      * attributes, etc.
      */
@@ -123,7 +123,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly readCapacity: pulumi.Output<number | undefined>;
     /**
-     * Encrypt at rest options.
+     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
      */
     public readonly serverSideEncryption: pulumi.Output<{ enabled: boolean }>;
     /**
@@ -236,7 +236,7 @@ export interface TableState {
      */
     readonly billingMode?: pulumi.Input<string>;
     /**
-     * Describe a GSO for the table;
+     * Describe a GSI for the table;
      * subject to the normal limits on the number of GSIs, projected
      * attributes, etc.
      */
@@ -269,7 +269,7 @@ export interface TableState {
      */
     readonly readCapacity?: pulumi.Input<number>;
     /**
-     * Encrypt at rest options.
+     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
      */
     readonly serverSideEncryption?: pulumi.Input<{ enabled: pulumi.Input<boolean> }>;
     /**
@@ -318,7 +318,7 @@ export interface TableArgs {
      */
     readonly billingMode?: pulumi.Input<string>;
     /**
-     * Describe a GSO for the table;
+     * Describe a GSI for the table;
      * subject to the normal limits on the number of GSIs, projected
      * attributes, etc.
      */
@@ -351,7 +351,7 @@ export interface TableArgs {
      */
     readonly readCapacity?: pulumi.Input<number>;
     /**
-     * Encrypt at rest options.
+     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
      */
     readonly serverSideEncryption?: pulumi.Input<{ enabled: pulumi.Input<boolean> }>;
     /**

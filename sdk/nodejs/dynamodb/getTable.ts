@@ -44,9 +44,11 @@ export interface GetTableArgs {
 export interface GetTableResult {
     readonly arn: string;
     readonly attributes: { name: string, type: string }[];
+    readonly billingMode: string;
     readonly globalSecondaryIndexes: { hashKey: string, name: string, nonKeyAttributes: string[], projectionType: string, rangeKey: string, readCapacity: number, writeCapacity: number }[];
     readonly hashKey: string;
     readonly localSecondaryIndexes: { name: string, nonKeyAttributes: string[], projectionType: string, rangeKey: string }[];
+    readonly pointInTimeRecovery: { enabled: boolean };
     readonly rangeKey: string;
     readonly readCapacity: number;
     readonly serverSideEncryption: { enabled: boolean };

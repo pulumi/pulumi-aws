@@ -9,9 +9,14 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class WebAcl(pulumi.CustomResource):
+    arn: pulumi.Output[str]
     default_action: pulumi.Output[dict]
     """
-    The action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
+    Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
+    """
+    logging_configuration: pulumi.Output[dict]
+    """
+    Configuration block to enable WAF logging. Detailed below.
     """
     metric_name: pulumi.Output[str]
     """
@@ -23,18 +28,19 @@ class WebAcl(pulumi.CustomResource):
     """
     rules: pulumi.Output[list]
     """
-    The rules to associate with the web ACL and the settings for each rule.
+    Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
     """
-    def __init__(__self__, resource_name, opts=None, default_action=None, metric_name=None, name=None, rules=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, default_action=None, logging_configuration=None, metric_name=None, name=None, rules=None, __name__=None, __opts__=None):
         """
         Provides a WAF Web ACL Resource
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] default_action: The action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
+        :param pulumi.Input[dict] default_action: Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
+        :param pulumi.Input[dict] logging_configuration: Configuration block to enable WAF logging. Detailed below.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
         :param pulumi.Input[str] name: The name or description of the web ACL.
-        :param pulumi.Input[list] rules: The rules to associate with the web ACL and the settings for each rule.
+        :param pulumi.Input[list] rules: Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,6 +61,8 @@ class WebAcl(pulumi.CustomResource):
             raise TypeError('Missing required property default_action')
         __props__['default_action'] = default_action
 
+        __props__['logging_configuration'] = logging_configuration
+
         if metric_name is None:
             raise TypeError('Missing required property metric_name')
         __props__['metric_name'] = metric_name
@@ -62,6 +70,8 @@ class WebAcl(pulumi.CustomResource):
         __props__['name'] = name
 
         __props__['rules'] = rules
+
+        __props__['arn'] = None
 
         super(WebAcl, __self__).__init__(
             'aws:waf/webAcl:WebAcl',
