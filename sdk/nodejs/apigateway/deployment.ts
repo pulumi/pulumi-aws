@@ -103,8 +103,8 @@ export class Deployment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<DeploymentArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<DeploymentArgs> | pulumi.InputObject<DeploymentState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DeploymentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DeploymentArgs | DeploymentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DeploymentState = argsOrState as DeploymentState | undefined;
@@ -144,38 +144,38 @@ export interface DeploymentState {
     /**
      * The creation date of the deployment
      */
-    readonly createdDate?: string;
+    readonly createdDate?: pulumi.Input<string>;
     /**
      * The description of the deployment
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The execution ARN to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
-    readonly executionArn?: string;
+    readonly executionArn?: pulumi.Input<string>;
     /**
      * The URL to invoke the API pointing to the stage,
      * e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      */
-    readonly invokeUrl?: string;
+    readonly invokeUrl?: pulumi.Input<string>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi?: RestApi;
+    readonly restApi?: pulumi.Input<RestApi>;
     /**
      * The description of the stage
      */
-    readonly stageDescription?: string;
+    readonly stageDescription?: pulumi.Input<string>;
     /**
      * The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment. Use `""` to point at the default stage.
      */
-    readonly stageName?: string;
+    readonly stageName?: pulumi.Input<string>;
     /**
      * A map that defines variables for the stage
      */
-    readonly variables?: {[key: string]: string};
+    readonly variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -185,21 +185,21 @@ export interface DeploymentArgs {
     /**
      * The description of the deployment
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: RestApi;
+    readonly restApi: pulumi.Input<RestApi>;
     /**
      * The description of the stage
      */
-    readonly stageDescription?: string;
+    readonly stageDescription?: pulumi.Input<string>;
     /**
      * The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment. Use `""` to point at the default stage.
      */
-    readonly stageName: string;
+    readonly stageName: pulumi.Input<string>;
     /**
      * A map that defines variables for the stage
      */
-    readonly variables?: {[key: string]: string};
+    readonly variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

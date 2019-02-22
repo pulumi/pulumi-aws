@@ -50,8 +50,8 @@ export class ResourceGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ResourceGroupArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ResourceGroupArgs> | pulumi.InputObject<ResourceGroupState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ResourceGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ResourceGroupArgs | ResourceGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ResourceGroupState = argsOrState as ResourceGroupState | undefined;
@@ -76,11 +76,11 @@ export interface ResourceGroupState {
     /**
      * The resource group ARN.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The tags on your EC2 Instance.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -90,5 +90,5 @@ export interface ResourceGroupArgs {
     /**
      * The tags on your EC2 Instance.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: pulumi.Input<{[key: string]: any}>;
 }

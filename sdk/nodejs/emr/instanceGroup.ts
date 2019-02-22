@@ -72,8 +72,8 @@ export class InstanceGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<InstanceGroupArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<InstanceGroupArgs> | pulumi.InputObject<InstanceGroupState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: InstanceGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: InstanceGroupArgs | InstanceGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: InstanceGroupState = argsOrState as InstanceGroupState | undefined;
@@ -113,29 +113,29 @@ export interface InstanceGroupState {
     /**
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      */
-    readonly clusterId?: string;
+    readonly clusterId?: pulumi.Input<string>;
     /**
      * One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly ebsConfigs?: { iops?: number, size: number, type: string, volumesPerInstance?: number }[];
+    readonly ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>;
     /**
      * Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
      */
-    readonly ebsOptimized?: boolean;
+    readonly ebsOptimized?: pulumi.Input<boolean>;
     /**
      * Target number of instances for the instance group. Defaults to 0.
      */
-    readonly instanceCount?: number;
+    readonly instanceCount?: pulumi.Input<number>;
     /**
      * The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
      */
-    readonly instanceType?: string;
+    readonly instanceType?: pulumi.Input<string>;
     /**
      * Human friendly name given to the instance group. Changing this forces a new resource to be created.
      */
-    readonly name?: string;
-    readonly runningInstanceCount?: number;
-    readonly status?: string;
+    readonly name?: pulumi.Input<string>;
+    readonly runningInstanceCount?: pulumi.Input<number>;
+    readonly status?: pulumi.Input<string>;
 }
 
 /**
@@ -145,25 +145,25 @@ export interface InstanceGroupArgs {
     /**
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      */
-    readonly clusterId: string;
+    readonly clusterId: pulumi.Input<string>;
     /**
      * One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly ebsConfigs?: { iops?: number, size: number, type: string, volumesPerInstance?: number }[];
+    readonly ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>;
     /**
      * Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
      */
-    readonly ebsOptimized?: boolean;
+    readonly ebsOptimized?: pulumi.Input<boolean>;
     /**
      * Target number of instances for the instance group. Defaults to 0.
      */
-    readonly instanceCount?: number;
+    readonly instanceCount?: pulumi.Input<number>;
     /**
      * The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
      */
-    readonly instanceType: string;
+    readonly instanceType: pulumi.Input<string>;
     /**
      * Human friendly name given to the instance group. Changing this forces a new resource to be created.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
 }

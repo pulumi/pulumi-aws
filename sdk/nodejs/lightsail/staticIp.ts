@@ -55,8 +55,8 @@ export class StaticIp extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<StaticIpArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<StaticIpArgs> | pulumi.InputObject<StaticIpState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: StaticIpArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: StaticIpArgs | StaticIpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: StaticIpState = argsOrState as StaticIpState | undefined;
@@ -82,19 +82,19 @@ export interface StaticIpState {
     /**
      * The ARN of the Lightsail static IP
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The allocated static IP address
      */
-    readonly ipAddress?: string;
+    readonly ipAddress?: pulumi.Input<string>;
     /**
      * The name for the allocated static IP
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The support code.
      */
-    readonly supportCode?: string;
+    readonly supportCode?: pulumi.Input<string>;
 }
 
 /**
@@ -104,5 +104,5 @@ export interface StaticIpArgs {
     /**
      * The name for the allocated static IP
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
 }

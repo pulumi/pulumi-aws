@@ -59,8 +59,8 @@ export class Vault extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<VaultArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<VaultArgs> | pulumi.InputObject<VaultState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: VaultArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: VaultArgs | VaultState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VaultState = argsOrState as VaultState | undefined;
@@ -88,23 +88,23 @@ export interface VaultState {
     /**
      * The ARN of the vault.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The server-side encryption key that is used to protect your backups.
      */
-    readonly kmsKeyArn?: string;
+    readonly kmsKeyArn?: pulumi.Input<string>;
     /**
      * Name of the backup vault to create.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The number of recovery points that are stored in a backup vault.
      */
-    readonly recoveryPoints?: number;
+    readonly recoveryPoints?: pulumi.Input<number>;
     /**
      * Metadata that you can assign to help organize the resources that you create.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -114,13 +114,13 @@ export interface VaultArgs {
     /**
      * The server-side encryption key that is used to protect your backups.
      */
-    readonly kmsKeyArn?: string;
+    readonly kmsKeyArn?: pulumi.Input<string>;
     /**
      * Name of the backup vault to create.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Metadata that you can assign to help organize the resources that you create.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -76,8 +76,8 @@ export class ThreatIntelSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ThreatIntelSetArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ThreatIntelSetArgs> | pulumi.InputObject<ThreatIntelSetState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ThreatIntelSetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ThreatIntelSetArgs | ThreatIntelSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ThreatIntelSetState = argsOrState as ThreatIntelSetState | undefined;
@@ -117,23 +117,23 @@ export interface ThreatIntelSetState {
     /**
      * Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
      */
-    readonly activate?: boolean;
+    readonly activate?: pulumi.Input<boolean>;
     /**
      * The detector ID of the GuardDuty.
      */
-    readonly detectorId?: string;
+    readonly detectorId?: pulumi.Input<string>;
     /**
      * The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      */
-    readonly format?: string;
+    readonly format?: pulumi.Input<string>;
     /**
      * The URI of the file that contains the ThreatIntelSet.
      */
-    readonly location?: string;
+    readonly location?: pulumi.Input<string>;
     /**
      * The friendly name to identify the ThreatIntelSet.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
 }
 
 /**
@@ -143,21 +143,21 @@ export interface ThreatIntelSetArgs {
     /**
      * Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
      */
-    readonly activate: boolean;
+    readonly activate: pulumi.Input<boolean>;
     /**
      * The detector ID of the GuardDuty.
      */
-    readonly detectorId: string;
+    readonly detectorId: pulumi.Input<string>;
     /**
      * The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      */
-    readonly format: string;
+    readonly format: pulumi.Input<string>;
     /**
      * The URI of the file that contains the ThreatIntelSet.
      */
-    readonly location: string;
+    readonly location: pulumi.Input<string>;
     /**
      * The friendly name to identify the ThreatIntelSet.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
 }

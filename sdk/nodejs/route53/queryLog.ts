@@ -42,8 +42,8 @@ export class QueryLog extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<QueryLogArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<QueryLogArgs> | pulumi.InputObject<QueryLogState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: QueryLogArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: QueryLogArgs | QueryLogState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: QueryLogState = argsOrState as QueryLogState | undefined;
@@ -71,11 +71,11 @@ export interface QueryLogState {
     /**
      * CloudWatch log group ARN to send query logs.
      */
-    readonly cloudwatchLogGroupArn?: string;
+    readonly cloudwatchLogGroupArn?: pulumi.Input<string>;
     /**
      * Route53 hosted zone ID to enable query logs.
      */
-    readonly zoneId?: string;
+    readonly zoneId?: pulumi.Input<string>;
 }
 
 /**
@@ -85,9 +85,9 @@ export interface QueryLogArgs {
     /**
      * CloudWatch log group ARN to send query logs.
      */
-    readonly cloudwatchLogGroupArn: string;
+    readonly cloudwatchLogGroupArn: pulumi.Input<string>;
     /**
      * Route53 hosted zone ID to enable query logs.
      */
-    readonly zoneId: string;
+    readonly zoneId: pulumi.Input<string>;
 }

@@ -124,8 +124,8 @@ export class JavaAppLayer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<JavaAppLayerArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<JavaAppLayerArgs> | pulumi.InputObject<JavaAppLayerState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: JavaAppLayerArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: JavaAppLayerArgs | JavaAppLayerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: JavaAppLayerState = argsOrState as JavaAppLayerState | undefined;
@@ -196,88 +196,88 @@ export interface JavaAppLayerState {
     /**
      * Keyword for the application container to use. Defaults to "tomcat".
      */
-    readonly appServer?: string;
+    readonly appServer?: pulumi.Input<string>;
     /**
      * Version of the selected application container to use. Defaults to "7".
      */
-    readonly appServerVersion?: string;
+    readonly appServerVersion?: pulumi.Input<string>;
     /**
      * Whether to automatically assign an elastic IP address to the layer's instances.
      */
-    readonly autoAssignElasticIps?: boolean;
+    readonly autoAssignElasticIps?: pulumi.Input<boolean>;
     /**
      * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
      */
-    readonly autoAssignPublicIps?: boolean;
+    readonly autoAssignPublicIps?: pulumi.Input<boolean>;
     /**
      * Whether to enable auto-healing for the layer.
      */
-    readonly autoHealing?: boolean;
-    readonly customConfigureRecipes?: string[];
-    readonly customDeployRecipes?: string[];
+    readonly autoHealing?: pulumi.Input<boolean>;
+    readonly customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ARN of an IAM profile that will be used for the layer's instances.
      */
-    readonly customInstanceProfileArn?: string;
+    readonly customInstanceProfileArn?: pulumi.Input<string>;
     /**
      * Custom JSON attributes to apply to the layer.
      */
-    readonly customJson?: string;
+    readonly customJson?: pulumi.Input<string>;
     /**
      * Ids for a set of security groups to apply to the layer's instances.
      */
-    readonly customSecurityGroupIds?: string[];
-    readonly customSetupRecipes?: string[];
-    readonly customShutdownRecipes?: string[];
-    readonly customUndeployRecipes?: string[];
+    readonly customSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly customSetupRecipes?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly customShutdownRecipes?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly customUndeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether to enable Elastic Load Balancing connection draining.
      */
-    readonly drainElbOnShutdown?: boolean;
+    readonly drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
      * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    readonly ebsVolumes?: { iops?: number, mountPoint: string, numberOfDisks: number, raidLevel?: string, size: number, type?: string }[];
+    readonly ebsVolumes?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, mountPoint: pulumi.Input<string>, numberOfDisks: pulumi.Input<number>, raidLevel?: pulumi.Input<string>, size: pulumi.Input<number>, type?: pulumi.Input<string> }>[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
-    readonly elasticLoadBalancer?: string;
+    readonly elasticLoadBalancer?: pulumi.Input<string>;
     /**
      * Whether to install OS and package updates on each instance when it boots.
      */
-    readonly installUpdatesOnBoot?: boolean;
+    readonly installUpdatesOnBoot?: pulumi.Input<boolean>;
     /**
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
-    readonly instanceShutdownTimeout?: number;
+    readonly instanceShutdownTimeout?: pulumi.Input<number>;
     /**
      * Options to set for the JVM.
      */
-    readonly jvmOptions?: string;
+    readonly jvmOptions?: pulumi.Input<string>;
     /**
      * Keyword for the type of JVM to use. Defaults to `openjdk`.
      */
-    readonly jvmType?: string;
+    readonly jvmType?: pulumi.Input<string>;
     /**
      * Version of JVM to use. Defaults to "7".
      */
-    readonly jvmVersion?: string;
+    readonly jvmVersion?: pulumi.Input<string>;
     /**
      * A human-readable name for the layer.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The id of the stack the layer will belong to.
      */
-    readonly stackId?: string;
+    readonly stackId?: pulumi.Input<string>;
     /**
      * Names of a set of system packages to install on the layer's instances.
      */
-    readonly systemPackages?: string[];
+    readonly systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether to use EBS-optimized instances.
      */
-    readonly useEbsOptimizedInstances?: boolean;
+    readonly useEbsOptimizedInstances?: pulumi.Input<boolean>;
 }
 
 /**
@@ -287,86 +287,86 @@ export interface JavaAppLayerArgs {
     /**
      * Keyword for the application container to use. Defaults to "tomcat".
      */
-    readonly appServer?: string;
+    readonly appServer?: pulumi.Input<string>;
     /**
      * Version of the selected application container to use. Defaults to "7".
      */
-    readonly appServerVersion?: string;
+    readonly appServerVersion?: pulumi.Input<string>;
     /**
      * Whether to automatically assign an elastic IP address to the layer's instances.
      */
-    readonly autoAssignElasticIps?: boolean;
+    readonly autoAssignElasticIps?: pulumi.Input<boolean>;
     /**
      * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
      */
-    readonly autoAssignPublicIps?: boolean;
+    readonly autoAssignPublicIps?: pulumi.Input<boolean>;
     /**
      * Whether to enable auto-healing for the layer.
      */
-    readonly autoHealing?: boolean;
-    readonly customConfigureRecipes?: string[];
-    readonly customDeployRecipes?: string[];
+    readonly autoHealing?: pulumi.Input<boolean>;
+    readonly customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ARN of an IAM profile that will be used for the layer's instances.
      */
-    readonly customInstanceProfileArn?: string;
+    readonly customInstanceProfileArn?: pulumi.Input<string>;
     /**
      * Custom JSON attributes to apply to the layer.
      */
-    readonly customJson?: string;
+    readonly customJson?: pulumi.Input<string>;
     /**
      * Ids for a set of security groups to apply to the layer's instances.
      */
-    readonly customSecurityGroupIds?: string[];
-    readonly customSetupRecipes?: string[];
-    readonly customShutdownRecipes?: string[];
-    readonly customUndeployRecipes?: string[];
+    readonly customSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly customSetupRecipes?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly customShutdownRecipes?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly customUndeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether to enable Elastic Load Balancing connection draining.
      */
-    readonly drainElbOnShutdown?: boolean;
+    readonly drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
      * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    readonly ebsVolumes?: { iops?: number, mountPoint: string, numberOfDisks: number, raidLevel?: string, size: number, type?: string }[];
+    readonly ebsVolumes?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, mountPoint: pulumi.Input<string>, numberOfDisks: pulumi.Input<number>, raidLevel?: pulumi.Input<string>, size: pulumi.Input<number>, type?: pulumi.Input<string> }>[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
-    readonly elasticLoadBalancer?: string;
+    readonly elasticLoadBalancer?: pulumi.Input<string>;
     /**
      * Whether to install OS and package updates on each instance when it boots.
      */
-    readonly installUpdatesOnBoot?: boolean;
+    readonly installUpdatesOnBoot?: pulumi.Input<boolean>;
     /**
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
-    readonly instanceShutdownTimeout?: number;
+    readonly instanceShutdownTimeout?: pulumi.Input<number>;
     /**
      * Options to set for the JVM.
      */
-    readonly jvmOptions?: string;
+    readonly jvmOptions?: pulumi.Input<string>;
     /**
      * Keyword for the type of JVM to use. Defaults to `openjdk`.
      */
-    readonly jvmType?: string;
+    readonly jvmType?: pulumi.Input<string>;
     /**
      * Version of JVM to use. Defaults to "7".
      */
-    readonly jvmVersion?: string;
+    readonly jvmVersion?: pulumi.Input<string>;
     /**
      * A human-readable name for the layer.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The id of the stack the layer will belong to.
      */
-    readonly stackId: string;
+    readonly stackId: pulumi.Input<string>;
     /**
      * Names of a set of system packages to install on the layer's instances.
      */
-    readonly systemPackages?: string[];
+    readonly systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether to use EBS-optimized instances.
      */
-    readonly useEbsOptimizedInstances?: boolean;
+    readonly useEbsOptimizedInstances?: pulumi.Input<boolean>;
 }

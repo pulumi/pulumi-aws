@@ -63,8 +63,8 @@ export class Alias extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<AliasArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<AliasArgs> | pulumi.InputObject<AliasState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: AliasArgs | AliasState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AliasState = argsOrState as AliasState | undefined;
@@ -95,24 +95,24 @@ export interface AliasState {
     /**
      * The Amazon Resource Name (ARN) of the key alias.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Creates an unique alias beginning with the specified prefix.
      * The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
      */
-    readonly namePrefix?: string;
+    readonly namePrefix?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the target key identifier.
      */
-    readonly targetKeyArn?: string;
+    readonly targetKeyArn?: pulumi.Input<string>;
     /**
      * Identifier for the key for which the alias is for, can be either an ARN or key_id.
      */
-    readonly targetKeyId?: string;
+    readonly targetKeyId?: pulumi.Input<string>;
 }
 
 /**
@@ -122,14 +122,14 @@ export interface AliasArgs {
     /**
      * The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Creates an unique alias beginning with the specified prefix.
      * The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
      */
-    readonly namePrefix?: string;
+    readonly namePrefix?: pulumi.Input<string>;
     /**
      * Identifier for the key for which the alias is for, can be either an ARN or key_id.
      */
-    readonly targetKeyId: string;
+    readonly targetKeyId: pulumi.Input<string>;
 }

@@ -68,8 +68,8 @@ export class SshKey extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<SshKeyArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<SshKeyArgs> | pulumi.InputObject<SshKeyState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SshKeyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: SshKeyArgs | SshKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SshKeyState = argsOrState as SshKeyState | undefined;
@@ -108,27 +108,27 @@ export interface SshKeyState {
     /**
      * Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
      */
-    readonly encoding?: string;
+    readonly encoding?: pulumi.Input<string>;
     /**
      * The MD5 message digest of the SSH public key.
      */
-    readonly fingerprint?: string;
+    readonly fingerprint?: pulumi.Input<string>;
     /**
      * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
      */
-    readonly publicKey?: string;
+    readonly publicKey?: pulumi.Input<string>;
     /**
      * The unique identifier for the SSH public key.
      */
-    readonly sshPublicKeyId?: string;
+    readonly sshPublicKeyId?: pulumi.Input<string>;
     /**
      * The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
      */
-    readonly status?: string;
+    readonly status?: pulumi.Input<string>;
     /**
      * The name of the IAM user to associate the SSH public key with.
      */
-    readonly username?: string;
+    readonly username?: pulumi.Input<string>;
 }
 
 /**
@@ -138,17 +138,17 @@ export interface SshKeyArgs {
     /**
      * Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
      */
-    readonly encoding: string;
+    readonly encoding: pulumi.Input<string>;
     /**
      * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
      */
-    readonly publicKey: string;
+    readonly publicKey: pulumi.Input<string>;
     /**
      * The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
      */
-    readonly status?: string;
+    readonly status?: pulumi.Input<string>;
     /**
      * The name of the IAM user to associate the SSH public key with.
      */
-    readonly username: string;
+    readonly username: pulumi.Input<string>;
 }

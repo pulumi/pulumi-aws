@@ -87,8 +87,8 @@ export class Dashboard extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<DashboardArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<DashboardArgs> | pulumi.InputObject<DashboardState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DashboardArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DashboardArgs | DashboardState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DashboardState = argsOrState as DashboardState | undefined;
@@ -118,15 +118,15 @@ export interface DashboardState {
     /**
      * The Amazon Resource Name (ARN) of the dashboard.
      */
-    readonly dashboardArn?: string;
+    readonly dashboardArn?: pulumi.Input<string>;
     /**
      * The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
      */
-    readonly dashboardBody?: string;
+    readonly dashboardBody?: pulumi.Input<string>;
     /**
      * The name of the dashboard.
      */
-    readonly dashboardName?: string;
+    readonly dashboardName?: pulumi.Input<string>;
 }
 
 /**
@@ -136,9 +136,9 @@ export interface DashboardArgs {
     /**
      * The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
      */
-    readonly dashboardBody: string;
+    readonly dashboardBody: pulumi.Input<string>;
     /**
      * The name of the dashboard.
      */
-    readonly dashboardName: string;
+    readonly dashboardName: pulumi.Input<string>;
 }

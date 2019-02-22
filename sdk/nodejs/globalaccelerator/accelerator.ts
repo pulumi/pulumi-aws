@@ -65,8 +65,8 @@ export class Accelerator extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<AcceleratorArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<AcceleratorArgs> | pulumi.InputObject<AcceleratorState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AcceleratorArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: AcceleratorArgs | AcceleratorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AcceleratorState = argsOrState as AcceleratorState | undefined;
@@ -94,23 +94,23 @@ export interface AcceleratorState {
     /**
      * The attributes of the accelerator. Fields documented below.
      */
-    readonly attributes?: { flowLogsEnabled?: boolean, flowLogsS3Bucket?: string, flowLogsS3Prefix?: string };
+    readonly attributes?: pulumi.Input<{ flowLogsEnabled?: pulumi.Input<boolean>, flowLogsS3Bucket?: pulumi.Input<string>, flowLogsS3Prefix?: pulumi.Input<string> }>;
     /**
      * Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
      */
-    readonly enabled?: boolean;
+    readonly enabled?: pulumi.Input<boolean>;
     /**
      * The value for the address type must be `IPV4`.
      */
-    readonly ipAddressType?: string;
+    readonly ipAddressType?: pulumi.Input<string>;
     /**
      * IP address set associated with the accelerator.
      */
-    readonly ipSets?: { ipAddresses?: string[], ipFamily?: string }[];
+    readonly ipSets?: pulumi.Input<pulumi.Input<{ ipAddresses?: pulumi.Input<pulumi.Input<string>[]>, ipFamily?: pulumi.Input<string> }>[]>;
     /**
      * The name of the accelerator.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
 }
 
 /**
@@ -120,17 +120,17 @@ export interface AcceleratorArgs {
     /**
      * The attributes of the accelerator. Fields documented below.
      */
-    readonly attributes?: { flowLogsEnabled?: boolean, flowLogsS3Bucket?: string, flowLogsS3Prefix?: string };
+    readonly attributes?: pulumi.Input<{ flowLogsEnabled?: pulumi.Input<boolean>, flowLogsS3Bucket?: pulumi.Input<string>, flowLogsS3Prefix?: pulumi.Input<string> }>;
     /**
      * Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
      */
-    readonly enabled?: boolean;
+    readonly enabled?: pulumi.Input<boolean>;
     /**
      * The value for the address type must be `IPV4`.
      */
-    readonly ipAddressType?: string;
+    readonly ipAddressType?: pulumi.Input<string>;
     /**
      * The name of the accelerator.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
 }

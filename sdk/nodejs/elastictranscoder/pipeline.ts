@@ -89,8 +89,8 @@ export class Pipeline extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<PipelineArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<PipelineArgs> | pulumi.InputObject<PipelineState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: PipelineArgs | PipelineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PipelineState = argsOrState as PipelineState | undefined;
@@ -133,47 +133,47 @@ export class Pipeline extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Pipeline resources.
  */
 export interface PipelineState {
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
      */
-    readonly awsKmsKeyArn?: string;
+    readonly awsKmsKeyArn?: pulumi.Input<string>;
     /**
      * The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
      */
-    readonly contentConfig?: { bucket?: string, storageClass?: string };
+    readonly contentConfig?: pulumi.Input<{ bucket?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>;
     /**
      * The permissions for the `content_config` object. (documented below)
      */
-    readonly contentConfigPermissions?: { accesses?: string[], grantee?: string, granteeType?: string }[];
+    readonly contentConfigPermissions?: pulumi.Input<pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }>[]>;
     /**
      * The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
      */
-    readonly inputBucket?: string;
+    readonly inputBucket?: pulumi.Input<string>;
     /**
      * The name of the pipeline. Maximum 40 characters
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
      */
-    readonly notifications?: { completed?: string, error?: string, progressing?: string, warning?: string };
+    readonly notifications?: pulumi.Input<{ completed?: pulumi.Input<string>, error?: pulumi.Input<string>, progressing?: pulumi.Input<string>, warning?: pulumi.Input<string> }>;
     /**
      * The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
      */
-    readonly outputBucket?: string;
+    readonly outputBucket?: pulumi.Input<string>;
     /**
      * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      */
-    readonly role?: string;
+    readonly role?: pulumi.Input<string>;
     /**
      * The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
      */
-    readonly thumbnailConfig?: { bucket?: string, storageClass?: string };
+    readonly thumbnailConfig?: pulumi.Input<{ bucket?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>;
     /**
      * The permissions for the `thumbnail_config` object. (documented below)
      */
-    readonly thumbnailConfigPermissions?: { accesses?: string[], grantee?: string, granteeType?: string }[];
+    readonly thumbnailConfigPermissions?: pulumi.Input<pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -183,41 +183,41 @@ export interface PipelineArgs {
     /**
      * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
      */
-    readonly awsKmsKeyArn?: string;
+    readonly awsKmsKeyArn?: pulumi.Input<string>;
     /**
      * The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
      */
-    readonly contentConfig?: { bucket?: string, storageClass?: string };
+    readonly contentConfig?: pulumi.Input<{ bucket?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>;
     /**
      * The permissions for the `content_config` object. (documented below)
      */
-    readonly contentConfigPermissions?: { accesses?: string[], grantee?: string, granteeType?: string }[];
+    readonly contentConfigPermissions?: pulumi.Input<pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }>[]>;
     /**
      * The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
      */
-    readonly inputBucket: string;
+    readonly inputBucket: pulumi.Input<string>;
     /**
      * The name of the pipeline. Maximum 40 characters
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
      */
-    readonly notifications?: { completed?: string, error?: string, progressing?: string, warning?: string };
+    readonly notifications?: pulumi.Input<{ completed?: pulumi.Input<string>, error?: pulumi.Input<string>, progressing?: pulumi.Input<string>, warning?: pulumi.Input<string> }>;
     /**
      * The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
      */
-    readonly outputBucket?: string;
+    readonly outputBucket?: pulumi.Input<string>;
     /**
      * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      */
-    readonly role: string;
+    readonly role: pulumi.Input<string>;
     /**
      * The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
      */
-    readonly thumbnailConfig?: { bucket?: string, storageClass?: string };
+    readonly thumbnailConfig?: pulumi.Input<{ bucket?: pulumi.Input<string>, storageClass?: pulumi.Input<string> }>;
     /**
      * The permissions for the `thumbnail_config` object. (documented below)
      */
-    readonly thumbnailConfigPermissions?: { accesses?: string[], grantee?: string, granteeType?: string }[];
+    readonly thumbnailConfigPermissions?: pulumi.Input<pulumi.Input<{ accesses?: pulumi.Input<pulumi.Input<string>[]>, grantee?: pulumi.Input<string>, granteeType?: pulumi.Input<string> }>[]>;
 }

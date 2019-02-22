@@ -63,8 +63,8 @@ export class Permission extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<PermissionArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<PermissionArgs> | pulumi.InputObject<PermissionState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PermissionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: PermissionArgs | PermissionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PermissionState = argsOrState as PermissionState | undefined;
@@ -95,23 +95,23 @@ export interface PermissionState {
     /**
      * Whether the user is allowed to use SSH to communicate with the instance
      */
-    readonly allowSsh?: boolean;
+    readonly allowSsh?: pulumi.Input<boolean>;
     /**
      * Whether the user is allowed to use sudo to elevate privileges
      */
-    readonly allowSudo?: boolean;
+    readonly allowSudo?: pulumi.Input<boolean>;
     /**
      * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
      */
-    readonly level?: string;
+    readonly level?: pulumi.Input<string>;
     /**
      * The stack to set the permissions for
      */
-    readonly stackId?: string;
+    readonly stackId?: pulumi.Input<string>;
     /**
      * The user's IAM ARN to set permissions for
      */
-    readonly userArn?: string;
+    readonly userArn?: pulumi.Input<string>;
 }
 
 /**
@@ -121,21 +121,21 @@ export interface PermissionArgs {
     /**
      * Whether the user is allowed to use SSH to communicate with the instance
      */
-    readonly allowSsh?: boolean;
+    readonly allowSsh?: pulumi.Input<boolean>;
     /**
      * Whether the user is allowed to use sudo to elevate privileges
      */
-    readonly allowSudo?: boolean;
+    readonly allowSudo?: pulumi.Input<boolean>;
     /**
      * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
      */
-    readonly level?: string;
+    readonly level?: pulumi.Input<string>;
     /**
      * The stack to set the permissions for
      */
-    readonly stackId?: string;
+    readonly stackId?: pulumi.Input<string>;
     /**
      * The user's IAM ARN to set permissions for
      */
-    readonly userArn: string;
+    readonly userArn: pulumi.Input<string>;
 }

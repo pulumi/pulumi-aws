@@ -137,8 +137,8 @@ export class Stage extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<StageArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<StageArgs> | pulumi.InputObject<StageState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: StageArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: StageArgs | StageState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: StageState = argsOrState as StageState | undefined;
@@ -193,63 +193,63 @@ export interface StageState {
     /**
      * Enables access logs for the API stage. Detailed below.
      */
-    readonly accessLogSettings?: { destinationArn: string, format: string };
+    readonly accessLogSettings?: pulumi.Input<{ destinationArn: pulumi.Input<string>, format: pulumi.Input<string> }>;
     /**
      * Specifies whether a cache cluster is enabled for the stage
      */
-    readonly cacheClusterEnabled?: boolean;
+    readonly cacheClusterEnabled?: pulumi.Input<boolean>;
     /**
      * The size of the cache cluster for the stage, if enabled.
      * Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      */
-    readonly cacheClusterSize?: string;
+    readonly cacheClusterSize?: pulumi.Input<string>;
     /**
      * The identifier of a client certificate for the stage.
      */
-    readonly clientCertificateId?: string;
+    readonly clientCertificateId?: pulumi.Input<string>;
     /**
      * The ID of the deployment that the stage points to
      */
-    readonly deployment?: Deployment;
+    readonly deployment?: pulumi.Input<Deployment>;
     /**
      * The description of the stage
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The version of the associated API documentation
      */
-    readonly documentationVersion?: string;
+    readonly documentationVersion?: pulumi.Input<string>;
     /**
      * The execution ARN to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
-    readonly executionArn?: string;
+    readonly executionArn?: pulumi.Input<string>;
     /**
      * The URL to invoke the API pointing to the stage,
      * e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      */
-    readonly invokeUrl?: string;
+    readonly invokeUrl?: pulumi.Input<string>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi?: RestApi;
+    readonly restApi?: pulumi.Input<RestApi>;
     /**
      * The name of the stage
      */
-    readonly stageName?: string;
+    readonly stageName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * A map that defines the stage variables
      */
-    readonly variables?: {[key: string]: any};
+    readonly variables?: pulumi.Input<{[key: string]: any}>;
     /**
      * Whether active tracing with X-ray is enabled. Defaults to `false`.
      */
-    readonly xrayTracingEnabled?: boolean;
+    readonly xrayTracingEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -259,50 +259,50 @@ export interface StageArgs {
     /**
      * Enables access logs for the API stage. Detailed below.
      */
-    readonly accessLogSettings?: { destinationArn: string, format: string };
+    readonly accessLogSettings?: pulumi.Input<{ destinationArn: pulumi.Input<string>, format: pulumi.Input<string> }>;
     /**
      * Specifies whether a cache cluster is enabled for the stage
      */
-    readonly cacheClusterEnabled?: boolean;
+    readonly cacheClusterEnabled?: pulumi.Input<boolean>;
     /**
      * The size of the cache cluster for the stage, if enabled.
      * Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      */
-    readonly cacheClusterSize?: string;
+    readonly cacheClusterSize?: pulumi.Input<string>;
     /**
      * The identifier of a client certificate for the stage.
      */
-    readonly clientCertificateId?: string;
+    readonly clientCertificateId?: pulumi.Input<string>;
     /**
      * The ID of the deployment that the stage points to
      */
-    readonly deployment: Deployment;
+    readonly deployment: pulumi.Input<Deployment>;
     /**
      * The description of the stage
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The version of the associated API documentation
      */
-    readonly documentationVersion?: string;
+    readonly documentationVersion?: pulumi.Input<string>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: RestApi;
+    readonly restApi: pulumi.Input<RestApi>;
     /**
      * The name of the stage
      */
-    readonly stageName: string;
+    readonly stageName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * A map that defines the stage variables
      */
-    readonly variables?: {[key: string]: any};
+    readonly variables?: pulumi.Input<{[key: string]: any}>;
     /**
      * Whether active tracing with X-ray is enabled. Defaults to `false`.
      */
-    readonly xrayTracingEnabled?: boolean;
+    readonly xrayTracingEnabled?: pulumi.Input<boolean>;
 }

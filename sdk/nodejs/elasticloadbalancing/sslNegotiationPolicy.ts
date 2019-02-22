@@ -99,8 +99,8 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<SslNegotiationPolicyArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<SslNegotiationPolicyArgs> | pulumi.InputObject<SslNegotiationPolicyState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SslNegotiationPolicyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: SslNegotiationPolicyArgs | SslNegotiationPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SslNegotiationPolicyState = argsOrState as SslNegotiationPolicyState | undefined;
@@ -132,22 +132,22 @@ export interface SslNegotiationPolicyState {
     /**
      * An SSL Negotiation policy attribute. Each has two properties:
      */
-    readonly attributes?: { name: string, value: string }[];
+    readonly attributes?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * The load balancer port to which the policy
      * should be applied. This must be an active listener on the load
      * balancer.
      */
-    readonly lbPort?: number;
+    readonly lbPort?: pulumi.Input<number>;
     /**
      * The load balancer to which the policy
      * should be attached.
      */
-    readonly loadBalancer?: string;
+    readonly loadBalancer?: pulumi.Input<string>;
     /**
      * The name of the attribute
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
 }
 
 /**
@@ -157,20 +157,20 @@ export interface SslNegotiationPolicyArgs {
     /**
      * An SSL Negotiation policy attribute. Each has two properties:
      */
-    readonly attributes?: { name: string, value: string }[];
+    readonly attributes?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * The load balancer port to which the policy
      * should be applied. This must be an active listener on the load
      * balancer.
      */
-    readonly lbPort: number;
+    readonly lbPort: pulumi.Input<number>;
     /**
      * The load balancer to which the policy
      * should be attached.
      */
-    readonly loadBalancer: string;
+    readonly loadBalancer: pulumi.Input<string>;
     /**
      * The name of the attribute
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
 }

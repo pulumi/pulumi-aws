@@ -85,8 +85,8 @@ export class RepositoryPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<RepositoryPolicyArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<RepositoryPolicyArgs> | pulumi.InputObject<RepositoryPolicyState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RepositoryPolicyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: RepositoryPolicyArgs | RepositoryPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RepositoryPolicyState = argsOrState as RepositoryPolicyState | undefined;
@@ -116,15 +116,15 @@ export interface RepositoryPolicyState {
     /**
      * The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
-    readonly policy?: string;
+    readonly policy?: pulumi.Input<string>;
     /**
      * The registry ID where the repository was created.
      */
-    readonly registryId?: string;
+    readonly registryId?: pulumi.Input<string>;
     /**
      * Name of the repository to apply the policy.
      */
-    readonly repository?: string;
+    readonly repository?: pulumi.Input<string>;
 }
 
 /**
@@ -134,9 +134,9 @@ export interface RepositoryPolicyArgs {
     /**
      * The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
-    readonly policy: string;
+    readonly policy: pulumi.Input<string>;
     /**
      * Name of the repository to apply the policy.
      */
-    readonly repository: string;
+    readonly repository: pulumi.Input<string>;
 }

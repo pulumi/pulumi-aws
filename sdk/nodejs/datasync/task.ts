@@ -73,8 +73,8 @@ export class Task extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<TaskArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<TaskArgs> | pulumi.InputObject<TaskState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TaskArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: TaskArgs | TaskState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: TaskState = argsOrState as TaskState | undefined;
@@ -112,31 +112,31 @@ export interface TaskState {
     /**
      * Amazon Resource Name (ARN) of the DataSync Task.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      */
-    readonly cloudwatchLogGroupArn?: ARN;
+    readonly cloudwatchLogGroupArn?: pulumi.Input<ARN>;
     /**
      * Amazon Resource Name (ARN) of destination DataSync Location.
      */
-    readonly destinationLocationArn?: ARN;
+    readonly destinationLocationArn?: pulumi.Input<ARN>;
     /**
      * Name of the DataSync Task.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      */
-    readonly options?: { atime?: string, bytesPerSecond?: number, gid?: string, mtime?: string, posixPermissions?: string, preserveDeletedFiles?: string, preserveDevices?: string, uid?: string, verifyMode?: string };
+    readonly options?: pulumi.Input<{ atime?: pulumi.Input<string>, bytesPerSecond?: pulumi.Input<number>, gid?: pulumi.Input<string>, mtime?: pulumi.Input<string>, posixPermissions?: pulumi.Input<string>, preserveDeletedFiles?: pulumi.Input<string>, preserveDevices?: pulumi.Input<string>, uid?: pulumi.Input<string>, verifyMode?: pulumi.Input<string> }>;
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */
-    readonly sourceLocationArn?: ARN;
+    readonly sourceLocationArn?: pulumi.Input<ARN>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -146,25 +146,25 @@ export interface TaskArgs {
     /**
      * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      */
-    readonly cloudwatchLogGroupArn?: ARN;
+    readonly cloudwatchLogGroupArn?: pulumi.Input<ARN>;
     /**
      * Amazon Resource Name (ARN) of destination DataSync Location.
      */
-    readonly destinationLocationArn: ARN;
+    readonly destinationLocationArn: pulumi.Input<ARN>;
     /**
      * Name of the DataSync Task.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      */
-    readonly options?: { atime?: string, bytesPerSecond?: number, gid?: string, mtime?: string, posixPermissions?: string, preserveDeletedFiles?: string, preserveDevices?: string, uid?: string, verifyMode?: string };
+    readonly options?: pulumi.Input<{ atime?: pulumi.Input<string>, bytesPerSecond?: pulumi.Input<number>, gid?: pulumi.Input<string>, mtime?: pulumi.Input<string>, posixPermissions?: pulumi.Input<string>, preserveDeletedFiles?: pulumi.Input<string>, preserveDevices?: pulumi.Input<string>, uid?: pulumi.Input<string>, verifyMode?: pulumi.Input<string> }>;
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */
-    readonly sourceLocationArn: ARN;
+    readonly sourceLocationArn: pulumi.Input<ARN>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

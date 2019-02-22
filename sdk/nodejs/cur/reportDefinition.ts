@@ -89,8 +89,8 @@ export class ReportDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ReportDefinitionArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ReportDefinitionArgs> | pulumi.InputObject<ReportDefinitionState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ReportDefinitionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ReportDefinitionArgs | ReportDefinitionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ReportDefinitionState = argsOrState as ReportDefinitionState | undefined;
@@ -147,39 +147,39 @@ export interface ReportDefinitionState {
     /**
      * A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
      */
-    readonly additionalArtifacts?: string[];
+    readonly additionalArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of schema elements. Valid values are: RESOURCES.
      */
-    readonly additionalSchemaElements?: string[];
+    readonly additionalSchemaElements?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Compression format for report. Valid values are: GZIP, ZIP.
      */
-    readonly compression?: string;
+    readonly compression?: pulumi.Input<string>;
     /**
      * Format for report. Valid values are: textORcsv.
      */
-    readonly format?: string;
+    readonly format?: pulumi.Input<string>;
     /**
      * Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
      */
-    readonly reportName?: string;
+    readonly reportName?: pulumi.Input<string>;
     /**
      * Name of the existing S3 bucket to hold generated reports.
      */
-    readonly s3Bucket?: string;
+    readonly s3Bucket?: pulumi.Input<string>;
     /**
      * Report path prefix. Limited to 256 characters.
      */
-    readonly s3Prefix?: string;
+    readonly s3Prefix?: pulumi.Input<string>;
     /**
      * Region of the existing S3 bucket to hold generated reports.
      */
-    readonly s3Region?: string;
+    readonly s3Region?: pulumi.Input<string>;
     /**
      * The frequency on which report data are measured and displayed.  Valid values are: HOURLY, DAILY.
      */
-    readonly timeUnit?: string;
+    readonly timeUnit?: pulumi.Input<string>;
 }
 
 /**
@@ -189,37 +189,37 @@ export interface ReportDefinitionArgs {
     /**
      * A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
      */
-    readonly additionalArtifacts?: string[];
+    readonly additionalArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of schema elements. Valid values are: RESOURCES.
      */
-    readonly additionalSchemaElements: string[];
+    readonly additionalSchemaElements: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Compression format for report. Valid values are: GZIP, ZIP.
      */
-    readonly compression: string;
+    readonly compression: pulumi.Input<string>;
     /**
      * Format for report. Valid values are: textORcsv.
      */
-    readonly format: string;
+    readonly format: pulumi.Input<string>;
     /**
      * Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
      */
-    readonly reportName: string;
+    readonly reportName: pulumi.Input<string>;
     /**
      * Name of the existing S3 bucket to hold generated reports.
      */
-    readonly s3Bucket: string;
+    readonly s3Bucket: pulumi.Input<string>;
     /**
      * Report path prefix. Limited to 256 characters.
      */
-    readonly s3Prefix?: string;
+    readonly s3Prefix?: pulumi.Input<string>;
     /**
      * Region of the existing S3 bucket to hold generated reports.
      */
-    readonly s3Region: string;
+    readonly s3Region: pulumi.Input<string>;
     /**
      * The frequency on which report data are measured and displayed.  Valid values are: HOURLY, DAILY.
      */
-    readonly timeUnit: string;
+    readonly timeUnit: pulumi.Input<string>;
 }

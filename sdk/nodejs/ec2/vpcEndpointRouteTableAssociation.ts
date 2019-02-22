@@ -48,8 +48,8 @@ export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<VpcEndpointRouteTableAssociationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<VpcEndpointRouteTableAssociationArgs> | pulumi.InputObject<VpcEndpointRouteTableAssociationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VpcEndpointRouteTableAssociationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: VpcEndpointRouteTableAssociationArgs | VpcEndpointRouteTableAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VpcEndpointRouteTableAssociationState = argsOrState as VpcEndpointRouteTableAssociationState | undefined;
@@ -77,11 +77,11 @@ export interface VpcEndpointRouteTableAssociationState {
     /**
      * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
      */
-    readonly routeTableId?: string;
+    readonly routeTableId?: pulumi.Input<string>;
     /**
      * Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
      */
-    readonly vpcEndpointId?: string;
+    readonly vpcEndpointId?: pulumi.Input<string>;
 }
 
 /**
@@ -91,9 +91,9 @@ export interface VpcEndpointRouteTableAssociationArgs {
     /**
      * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
      */
-    readonly routeTableId: string;
+    readonly routeTableId: pulumi.Input<string>;
     /**
      * Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
      */
-    readonly vpcEndpointId: string;
+    readonly vpcEndpointId: pulumi.Input<string>;
 }

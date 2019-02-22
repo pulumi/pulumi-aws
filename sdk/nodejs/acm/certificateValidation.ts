@@ -147,8 +147,8 @@ export class CertificateValidation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<CertificateValidationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<CertificateValidationArgs> | pulumi.InputObject<CertificateValidationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: CertificateValidationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: CertificateValidationArgs | CertificateValidationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: CertificateValidationState = argsOrState as CertificateValidationState | undefined;
@@ -173,11 +173,11 @@ export interface CertificateValidationState {
     /**
      * The ARN of the certificate that is being validated.
      */
-    readonly certificateArn?: string;
+    readonly certificateArn?: pulumi.Input<string>;
     /**
      * List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
      */
-    readonly validationRecordFqdns?: string[];
+    readonly validationRecordFqdns?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -187,9 +187,9 @@ export interface CertificateValidationArgs {
     /**
      * The ARN of the certificate that is being validated.
      */
-    readonly certificateArn: string;
+    readonly certificateArn: pulumi.Input<string>;
     /**
      * List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
      */
-    readonly validationRecordFqdns?: string[];
+    readonly validationRecordFqdns?: pulumi.Input<pulumi.Input<string>[]>;
 }

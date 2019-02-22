@@ -68,8 +68,8 @@ export class QueuePolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<QueuePolicyArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<QueuePolicyArgs> | pulumi.InputObject<QueuePolicyState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: QueuePolicyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: QueuePolicyArgs | QueuePolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: QueuePolicyState = argsOrState as QueuePolicyState | undefined;
@@ -97,11 +97,11 @@ export interface QueuePolicyState {
     /**
      * The JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    readonly policy?: string;
+    readonly policy?: pulumi.Input<string>;
     /**
      * The URL of the SQS Queue to which to attach the policy
      */
-    readonly queueUrl?: string;
+    readonly queueUrl?: pulumi.Input<string>;
 }
 
 /**
@@ -111,9 +111,9 @@ export interface QueuePolicyArgs {
     /**
      * The JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    readonly policy: string;
+    readonly policy: pulumi.Input<string>;
     /**
      * The URL of the SQS Queue to which to attach the policy
      */
-    readonly queueUrl: string;
+    readonly queueUrl: pulumi.Input<string>;
 }

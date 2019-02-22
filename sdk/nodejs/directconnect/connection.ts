@@ -64,8 +64,8 @@ export class Connection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ConnectionArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ConnectionArgs> | pulumi.InputObject<ConnectionState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ConnectionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ConnectionArgs | ConnectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ConnectionState = argsOrState as ConnectionState | undefined;
@@ -101,27 +101,27 @@ export interface ConnectionState {
     /**
      * The ARN of the connection.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
      */
-    readonly bandwidth?: string;
+    readonly bandwidth?: pulumi.Input<string>;
     /**
      * Boolean value representing if jumbo frames have been enabled for this connection.
      */
-    readonly jumboFrameCapable?: boolean;
+    readonly jumboFrameCapable?: pulumi.Input<boolean>;
     /**
      * The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      */
-    readonly location?: string;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the connection.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -131,17 +131,17 @@ export interface ConnectionArgs {
     /**
      * The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
      */
-    readonly bandwidth: string;
+    readonly bandwidth: pulumi.Input<string>;
     /**
      * The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      */
-    readonly location: string;
+    readonly location: pulumi.Input<string>;
     /**
      * The name of the connection.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

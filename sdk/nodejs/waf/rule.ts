@@ -62,8 +62,8 @@ export class Rule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<RuleArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<RuleArgs> | pulumi.InputObject<RuleState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RuleArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: RuleArgs | RuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RuleState = argsOrState as RuleState | undefined;
@@ -90,15 +90,15 @@ export interface RuleState {
     /**
      * The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
      */
-    readonly metricName?: string;
+    readonly metricName?: pulumi.Input<string>;
     /**
      * The name or description of the rule.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
      */
-    readonly predicates?: { dataId: string, negated: boolean, type: string }[];
+    readonly predicates?: pulumi.Input<pulumi.Input<{ dataId: pulumi.Input<string>, negated: pulumi.Input<boolean>, type: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -108,13 +108,13 @@ export interface RuleArgs {
     /**
      * The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
      */
-    readonly metricName: string;
+    readonly metricName: pulumi.Input<string>;
     /**
      * The name or description of the rule.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
      */
-    readonly predicates?: { dataId: string, negated: boolean, type: string }[];
+    readonly predicates?: pulumi.Input<pulumi.Input<{ dataId: pulumi.Input<string>, negated: pulumi.Input<boolean>, type: pulumi.Input<string> }>[]>;
 }

@@ -38,8 +38,8 @@ export class Trigger extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<TriggerArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<TriggerArgs> | pulumi.InputObject<TriggerState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TriggerArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: TriggerArgs | TriggerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: TriggerState = argsOrState as TriggerState | undefined;
@@ -66,12 +66,12 @@ export class Trigger extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Trigger resources.
  */
 export interface TriggerState {
-    readonly configurationId?: string;
+    readonly configurationId?: pulumi.Input<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */
-    readonly repositoryName?: string;
-    readonly triggers?: { branches?: string[], customData?: string, destinationArn: string, events: string[], name: string }[];
+    readonly repositoryName?: pulumi.Input<string>;
+    readonly triggers?: pulumi.Input<pulumi.Input<{ branches?: pulumi.Input<pulumi.Input<string>[]>, customData?: pulumi.Input<string>, destinationArn: pulumi.Input<string>, events: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -81,6 +81,6 @@ export interface TriggerArgs {
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */
-    readonly repositoryName: string;
-    readonly triggers: { branches?: string[], customData?: string, destinationArn: string, events: string[], name: string }[];
+    readonly repositoryName: pulumi.Input<string>;
+    readonly triggers: pulumi.Input<pulumi.Input<{ branches?: pulumi.Input<pulumi.Input<string>[]>, customData?: pulumi.Input<string>, destinationArn: pulumi.Input<string>, events: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string> }>[]>;
 }

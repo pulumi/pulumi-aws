@@ -56,8 +56,8 @@ export class Channel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ChannelArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ChannelArgs> | pulumi.InputObject<ChannelState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ChannelArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ChannelArgs | ChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ChannelState = argsOrState as ChannelState | undefined;
@@ -86,19 +86,19 @@ export interface ChannelState {
     /**
      * The ARN of the channel
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * A unique identifier describing the channel
      */
-    readonly channelId?: string;
+    readonly channelId?: pulumi.Input<string>;
     /**
      * A description of the channel
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * A single item list of HLS ingest information
      */
-    readonly hlsIngests?: { ingestEndpoints?: { password?: string, url?: string, username?: string }[] }[];
+    readonly hlsIngests?: pulumi.Input<pulumi.Input<{ ingestEndpoints?: pulumi.Input<pulumi.Input<{ password?: pulumi.Input<string>, url?: pulumi.Input<string>, username?: pulumi.Input<string> }>[]> }>[]>;
 }
 
 /**
@@ -108,9 +108,9 @@ export interface ChannelArgs {
     /**
      * A unique identifier describing the channel
      */
-    readonly channelId: string;
+    readonly channelId: pulumi.Input<string>;
     /**
      * A description of the channel
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
 }

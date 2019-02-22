@@ -56,8 +56,8 @@ export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<VpcEndpointSubnetAssociationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<VpcEndpointSubnetAssociationArgs> | pulumi.InputObject<VpcEndpointSubnetAssociationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VpcEndpointSubnetAssociationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: VpcEndpointSubnetAssociationArgs | VpcEndpointSubnetAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VpcEndpointSubnetAssociationState = argsOrState as VpcEndpointSubnetAssociationState | undefined;
@@ -85,11 +85,11 @@ export interface VpcEndpointSubnetAssociationState {
     /**
      * The ID of the subnet to be associated with the VPC endpoint.
      */
-    readonly subnetId?: string;
+    readonly subnetId?: pulumi.Input<string>;
     /**
      * The ID of the VPC endpoint with which the subnet will be associated.
      */
-    readonly vpcEndpointId?: string;
+    readonly vpcEndpointId?: pulumi.Input<string>;
 }
 
 /**
@@ -99,9 +99,9 @@ export interface VpcEndpointSubnetAssociationArgs {
     /**
      * The ID of the subnet to be associated with the VPC endpoint.
      */
-    readonly subnetId: string;
+    readonly subnetId: pulumi.Input<string>;
     /**
      * The ID of the VPC endpoint with which the subnet will be associated.
      */
-    readonly vpcEndpointId: string;
+    readonly vpcEndpointId: pulumi.Input<string>;
 }

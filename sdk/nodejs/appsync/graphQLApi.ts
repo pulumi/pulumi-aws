@@ -143,8 +143,8 @@ export class GraphQLApi extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<GraphQLApiArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<GraphQLApiArgs> | pulumi.InputObject<GraphQLApiState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: GraphQLApiArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: GraphQLApiArgs | GraphQLApiState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: GraphQLApiState = argsOrState as GraphQLApiState | undefined;
@@ -179,31 +179,31 @@ export interface GraphQLApiState {
     /**
      * The ARN
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
      */
-    readonly authenticationType?: string;
+    readonly authenticationType?: pulumi.Input<string>;
     /**
      * Nested argument containing logging configuration. Defined below.
      */
-    readonly logConfig?: { cloudwatchLogsRoleArn: string, fieldLogLevel: string };
+    readonly logConfig?: pulumi.Input<{ cloudwatchLogsRoleArn: pulumi.Input<string>, fieldLogLevel: pulumi.Input<string> }>;
     /**
      * A user-supplied name for the GraphqlApi.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Nested argument containing OpenID Connect configuration. Defined below.
      */
-    readonly openidConnectConfig?: { authTtl?: number, clientId?: string, iatTtl?: number, issuer: string };
+    readonly openidConnectConfig?: pulumi.Input<{ authTtl?: pulumi.Input<number>, clientId?: pulumi.Input<string>, iatTtl?: pulumi.Input<number>, issuer: pulumi.Input<string> }>;
     /**
      * Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      */
-    readonly uris?: {[key: string]: string};
+    readonly uris?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Amazon Cognito User Pool configuration. Defined below.
      */
-    readonly userPoolConfig?: { appIdClientRegex?: string, awsRegion?: string, defaultAction: string, userPoolId: string };
+    readonly userPoolConfig?: pulumi.Input<{ appIdClientRegex?: pulumi.Input<string>, awsRegion?: pulumi.Input<string>, defaultAction: pulumi.Input<string>, userPoolId: pulumi.Input<string> }>;
 }
 
 /**
@@ -213,21 +213,21 @@ export interface GraphQLApiArgs {
     /**
      * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
      */
-    readonly authenticationType: string;
+    readonly authenticationType: pulumi.Input<string>;
     /**
      * Nested argument containing logging configuration. Defined below.
      */
-    readonly logConfig?: { cloudwatchLogsRoleArn: string, fieldLogLevel: string };
+    readonly logConfig?: pulumi.Input<{ cloudwatchLogsRoleArn: pulumi.Input<string>, fieldLogLevel: pulumi.Input<string> }>;
     /**
      * A user-supplied name for the GraphqlApi.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Nested argument containing OpenID Connect configuration. Defined below.
      */
-    readonly openidConnectConfig?: { authTtl?: number, clientId?: string, iatTtl?: number, issuer: string };
+    readonly openidConnectConfig?: pulumi.Input<{ authTtl?: pulumi.Input<number>, clientId?: pulumi.Input<string>, iatTtl?: pulumi.Input<number>, issuer: pulumi.Input<string> }>;
     /**
      * The Amazon Cognito User Pool configuration. Defined below.
      */
-    readonly userPoolConfig?: { appIdClientRegex?: string, awsRegion?: string, defaultAction: string, userPoolId: string };
+    readonly userPoolConfig?: pulumi.Input<{ appIdClientRegex?: pulumi.Input<string>, awsRegion?: pulumi.Input<string>, defaultAction: pulumi.Input<string>, userPoolId: pulumi.Input<string> }>;
 }

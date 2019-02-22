@@ -64,8 +64,8 @@ export class ContainerPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ContainerPolicyArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ContainerPolicyArgs> | pulumi.InputObject<ContainerPolicyState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ContainerPolicyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ContainerPolicyArgs | ContainerPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ContainerPolicyState = argsOrState as ContainerPolicyState | undefined;
@@ -93,11 +93,11 @@ export interface ContainerPolicyState {
     /**
      * The name of the container.
      */
-    readonly containerName?: string;
+    readonly containerName?: pulumi.Input<string>;
     /**
      * The contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    readonly policy?: string;
+    readonly policy?: pulumi.Input<string>;
 }
 
 /**
@@ -107,9 +107,9 @@ export interface ContainerPolicyArgs {
     /**
      * The name of the container.
      */
-    readonly containerName: string;
+    readonly containerName: pulumi.Input<string>;
     /**
      * The contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    readonly policy: string;
+    readonly policy: pulumi.Input<string>;
 }

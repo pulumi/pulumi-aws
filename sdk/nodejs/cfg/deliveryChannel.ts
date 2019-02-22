@@ -103,8 +103,8 @@ export class DeliveryChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<DeliveryChannelArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<DeliveryChannelArgs> | pulumi.InputObject<DeliveryChannelState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DeliveryChannelArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DeliveryChannelArgs | DeliveryChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DeliveryChannelState = argsOrState as DeliveryChannelState | undefined;
@@ -135,23 +135,23 @@ export interface DeliveryChannelState {
     /**
      * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The name of the S3 bucket used to store the configuration history.
      */
-    readonly s3BucketName?: string;
+    readonly s3BucketName?: pulumi.Input<string>;
     /**
      * The prefix for the specified S3 bucket.
      */
-    readonly s3KeyPrefix?: string;
+    readonly s3KeyPrefix?: pulumi.Input<string>;
     /**
      * Options for how AWS Config delivers configuration snapshots. See below
      */
-    readonly snapshotDeliveryProperties?: { deliveryFrequency?: string };
+    readonly snapshotDeliveryProperties?: pulumi.Input<{ deliveryFrequency?: pulumi.Input<string> }>;
     /**
      * The ARN of the SNS topic that AWS Config delivers notifications to.
      */
-    readonly snsTopicArn?: string;
+    readonly snsTopicArn?: pulumi.Input<string>;
 }
 
 /**
@@ -161,21 +161,21 @@ export interface DeliveryChannelArgs {
     /**
      * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The name of the S3 bucket used to store the configuration history.
      */
-    readonly s3BucketName: string;
+    readonly s3BucketName: pulumi.Input<string>;
     /**
      * The prefix for the specified S3 bucket.
      */
-    readonly s3KeyPrefix?: string;
+    readonly s3KeyPrefix?: pulumi.Input<string>;
     /**
      * Options for how AWS Config delivers configuration snapshots. See below
      */
-    readonly snapshotDeliveryProperties?: { deliveryFrequency?: string };
+    readonly snapshotDeliveryProperties?: pulumi.Input<{ deliveryFrequency?: pulumi.Input<string> }>;
     /**
      * The ARN of the SNS topic that AWS Config delivers notifications to.
      */
-    readonly snsTopicArn?: string;
+    readonly snsTopicArn?: pulumi.Input<string>;
 }

@@ -88,8 +88,8 @@ export class LicenseConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<LicenseConfigurationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<LicenseConfigurationArgs> | pulumi.InputObject<LicenseConfigurationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: LicenseConfigurationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: LicenseConfigurationArgs | LicenseConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: LicenseConfigurationState = argsOrState as LicenseConfigurationState | undefined;
@@ -124,31 +124,31 @@ export interface LicenseConfigurationState {
     /**
      * Description of the license configuration.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * Number of licenses managed by the license configuration.
      */
-    readonly licenseCount?: number;
+    readonly licenseCount?: pulumi.Input<number>;
     /**
      * Sets the number of available licenses as a hard limit.
      */
-    readonly licenseCountHardLimit?: boolean;
+    readonly licenseCountHardLimit?: pulumi.Input<boolean>;
     /**
      * Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
      */
-    readonly licenseCountingType?: string;
+    readonly licenseCountingType?: pulumi.Input<string>;
     /**
      * Array of configured License Manager rules.
      */
-    readonly licenseRules?: string[];
+    readonly licenseRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the license configuration.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -158,29 +158,29 @@ export interface LicenseConfigurationArgs {
     /**
      * Description of the license configuration.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * Number of licenses managed by the license configuration.
      */
-    readonly licenseCount?: number;
+    readonly licenseCount?: pulumi.Input<number>;
     /**
      * Sets the number of available licenses as a hard limit.
      */
-    readonly licenseCountHardLimit?: boolean;
+    readonly licenseCountHardLimit?: pulumi.Input<boolean>;
     /**
      * Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
      */
-    readonly licenseCountingType: string;
+    readonly licenseCountingType: pulumi.Input<string>;
     /**
      * Array of configured License Manager rules.
      */
-    readonly licenseRules?: string[];
+    readonly licenseRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the license configuration.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

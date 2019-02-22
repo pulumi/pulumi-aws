@@ -95,8 +95,8 @@ export class Connection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ConnectionArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ConnectionArgs> | pulumi.InputObject<ConnectionState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ConnectionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ConnectionArgs | ConnectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ConnectionState = argsOrState as ConnectionState | undefined;
@@ -131,31 +131,31 @@ export interface ConnectionState {
     /**
      * The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      */
-    readonly catalogId?: string;
+    readonly catalogId?: pulumi.Input<string>;
     /**
      * A map of key-value pairs used as parameters for this connection.
      */
-    readonly connectionProperties?: {[key: string]: any};
+    readonly connectionProperties?: pulumi.Input<{[key: string]: any}>;
     /**
      * The type of the connection. Defaults to `JBDC`.
      */
-    readonly connectionType?: string;
+    readonly connectionType?: pulumi.Input<string>;
     /**
      * Description of the connection.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * A list of criteria that can be used in selecting this connection.
      */
-    readonly matchCriterias?: string[];
+    readonly matchCriterias?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the connection.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
      */
-    readonly physicalConnectionRequirements?: { availabilityZone?: string, securityGroupIdLists?: string[], subnetId?: string };
+    readonly physicalConnectionRequirements?: pulumi.Input<{ availabilityZone?: pulumi.Input<string>, securityGroupIdLists?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string> }>;
 }
 
 /**
@@ -165,29 +165,29 @@ export interface ConnectionArgs {
     /**
      * The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      */
-    readonly catalogId?: string;
+    readonly catalogId?: pulumi.Input<string>;
     /**
      * A map of key-value pairs used as parameters for this connection.
      */
-    readonly connectionProperties: {[key: string]: any};
+    readonly connectionProperties: pulumi.Input<{[key: string]: any}>;
     /**
      * The type of the connection. Defaults to `JBDC`.
      */
-    readonly connectionType?: string;
+    readonly connectionType?: pulumi.Input<string>;
     /**
      * Description of the connection.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * A list of criteria that can be used in selecting this connection.
      */
-    readonly matchCriterias?: string[];
+    readonly matchCriterias?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the connection.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
      */
-    readonly physicalConnectionRequirements?: { availabilityZone?: string, securityGroupIdLists?: string[], subnetId?: string };
+    readonly physicalConnectionRequirements?: pulumi.Input<{ availabilityZone?: pulumi.Input<string>, securityGroupIdLists?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string> }>;
 }

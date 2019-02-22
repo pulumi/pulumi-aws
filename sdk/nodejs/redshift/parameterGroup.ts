@@ -69,8 +69,8 @@ export class ParameterGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ParameterGroupArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ParameterGroupArgs> | pulumi.InputObject<ParameterGroupState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ParameterGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ParameterGroupArgs | ParameterGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ParameterGroupState = argsOrState as ParameterGroupState | undefined;
@@ -99,19 +99,19 @@ export interface ParameterGroupState {
     /**
      * The description of the Redshift parameter group. Defaults to "Managed by Terraform".
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The family of the Redshift parameter group.
      */
-    readonly family?: string;
+    readonly family?: pulumi.Input<string>;
     /**
      * The name of the Redshift parameter.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A list of Redshift parameters to apply.
      */
-    readonly parameters?: { name: string, value: string }[];
+    readonly parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -121,17 +121,17 @@ export interface ParameterGroupArgs {
     /**
      * The description of the Redshift parameter group. Defaults to "Managed by Terraform".
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The family of the Redshift parameter group.
      */
-    readonly family: string;
+    readonly family: pulumi.Input<string>;
     /**
      * The name of the Redshift parameter.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A list of Redshift parameters to apply.
      */
-    readonly parameters?: { name: string, value: string }[];
+    readonly parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
 }

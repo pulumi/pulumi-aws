@@ -280,8 +280,8 @@ export class EventTarget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<EventTargetArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<EventTargetArgs> | pulumi.InputObject<EventTargetState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: EventTargetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: EventTargetArgs | EventTargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: EventTargetState = argsOrState as EventTargetState | undefined;
@@ -329,52 +329,52 @@ export interface EventTargetState {
     /**
      * The Amazon Resource Name (ARN) associated of the target.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
      */
-    readonly batchTarget?: { arraySize?: number, jobAttempts?: number, jobDefinition: string, jobName: string };
+    readonly batchTarget?: pulumi.Input<{ arraySize?: pulumi.Input<number>, jobAttempts?: pulumi.Input<number>, jobDefinition: pulumi.Input<string>, jobName: pulumi.Input<string> }>;
     /**
      * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
      */
-    readonly ecsTarget?: { group?: string, launchType?: string, networkConfiguration?: { assignPublicIp?: boolean, securityGroups?: string[], subnets: string[] }, platformVersion?: string, taskCount?: number, taskDefinitionArn: string };
+    readonly ecsTarget?: pulumi.Input<{ group?: pulumi.Input<string>, launchType?: pulumi.Input<string>, networkConfiguration?: pulumi.Input<{ assignPublicIp?: pulumi.Input<boolean>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, subnets: pulumi.Input<pulumi.Input<string>[]> }>, platformVersion?: pulumi.Input<string>, taskCount?: pulumi.Input<number>, taskDefinitionArn: pulumi.Input<string> }>;
     /**
      * Valid JSON text passed to the target.
      */
-    readonly input?: string;
+    readonly input?: pulumi.Input<string>;
     /**
      * The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
      * that is used for extracting part of the matched event when passing it to the target.
      */
-    readonly inputPath?: string;
+    readonly inputPath?: pulumi.Input<string>;
     /**
      * Parameters used when you are providing a custom input to a target based on certain event data.
      */
-    readonly inputTransformer?: { inputPaths?: {[key: string]: any}, inputTemplate: string };
+    readonly inputTransformer?: pulumi.Input<{ inputPaths?: pulumi.Input<{[key: string]: any}>, inputTemplate: pulumi.Input<string> }>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
      */
-    readonly kinesisTarget?: { partitionKeyPath?: string };
+    readonly kinesisTarget?: pulumi.Input<{ partitionKeyPath?: pulumi.Input<string> }>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
      */
-    readonly roleArn?: string;
+    readonly roleArn?: pulumi.Input<string>;
     /**
      * The name of the rule you want to add targets to.
      */
-    readonly rule?: string;
+    readonly rule?: pulumi.Input<string>;
     /**
      * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
      */
-    readonly runCommandTargets?: { key: string, values: string[] }[];
+    readonly runCommandTargets?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
      */
-    readonly sqsTarget?: { messageGroupId?: string };
+    readonly sqsTarget?: pulumi.Input<{ messageGroupId?: pulumi.Input<string> }>;
     /**
      * The unique target assignment ID.  If missing, will generate a random, unique id.
      */
-    readonly targetId?: string;
+    readonly targetId?: pulumi.Input<string>;
 }
 
 /**
@@ -384,50 +384,50 @@ export interface EventTargetArgs {
     /**
      * The Amazon Resource Name (ARN) associated of the target.
      */
-    readonly arn: string;
+    readonly arn: pulumi.Input<string>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
      */
-    readonly batchTarget?: { arraySize?: number, jobAttempts?: number, jobDefinition: string, jobName: string };
+    readonly batchTarget?: pulumi.Input<{ arraySize?: pulumi.Input<number>, jobAttempts?: pulumi.Input<number>, jobDefinition: pulumi.Input<string>, jobName: pulumi.Input<string> }>;
     /**
      * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
      */
-    readonly ecsTarget?: { group?: string, launchType?: string, networkConfiguration?: { assignPublicIp?: boolean, securityGroups?: string[], subnets: string[] }, platformVersion?: string, taskCount?: number, taskDefinitionArn: string };
+    readonly ecsTarget?: pulumi.Input<{ group?: pulumi.Input<string>, launchType?: pulumi.Input<string>, networkConfiguration?: pulumi.Input<{ assignPublicIp?: pulumi.Input<boolean>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, subnets: pulumi.Input<pulumi.Input<string>[]> }>, platformVersion?: pulumi.Input<string>, taskCount?: pulumi.Input<number>, taskDefinitionArn: pulumi.Input<string> }>;
     /**
      * Valid JSON text passed to the target.
      */
-    readonly input?: string;
+    readonly input?: pulumi.Input<string>;
     /**
      * The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
      * that is used for extracting part of the matched event when passing it to the target.
      */
-    readonly inputPath?: string;
+    readonly inputPath?: pulumi.Input<string>;
     /**
      * Parameters used when you are providing a custom input to a target based on certain event data.
      */
-    readonly inputTransformer?: { inputPaths?: {[key: string]: any}, inputTemplate: string };
+    readonly inputTransformer?: pulumi.Input<{ inputPaths?: pulumi.Input<{[key: string]: any}>, inputTemplate: pulumi.Input<string> }>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
      */
-    readonly kinesisTarget?: { partitionKeyPath?: string };
+    readonly kinesisTarget?: pulumi.Input<{ partitionKeyPath?: pulumi.Input<string> }>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
      */
-    readonly roleArn?: string;
+    readonly roleArn?: pulumi.Input<string>;
     /**
      * The name of the rule you want to add targets to.
      */
-    readonly rule: string;
+    readonly rule: pulumi.Input<string>;
     /**
      * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
      */
-    readonly runCommandTargets?: { key: string, values: string[] }[];
+    readonly runCommandTargets?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
      */
-    readonly sqsTarget?: { messageGroupId?: string };
+    readonly sqsTarget?: pulumi.Input<{ messageGroupId?: pulumi.Input<string> }>;
     /**
      * The unique target assignment ID.  If missing, will generate a random, unique id.
      */
-    readonly targetId?: string;
+    readonly targetId?: pulumi.Input<string>;
 }

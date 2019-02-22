@@ -152,8 +152,8 @@ export class Eip extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<EipArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<EipArgs> | pulumi.InputObject<EipState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: EipArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: EipArgs | EipState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: EipState = argsOrState as EipState | undefined;
@@ -190,43 +190,43 @@ export class Eip extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Eip resources.
  */
 export interface EipState {
-    readonly allocationId?: string;
+    readonly allocationId?: pulumi.Input<string>;
     /**
      * A user specified primary or secondary private IP address to
      * associate with the Elastic IP address. If no private IP address is specified,
      * the Elastic IP address is associated with the primary private IP address.
      */
-    readonly associateWithPrivateIp?: string;
-    readonly associationId?: string;
-    readonly domain?: string;
+    readonly associateWithPrivateIp?: pulumi.Input<string>;
+    readonly associationId?: pulumi.Input<string>;
+    readonly domain?: pulumi.Input<string>;
     /**
      * EC2 instance ID.
      */
-    readonly instance?: string;
+    readonly instance?: pulumi.Input<string>;
     /**
      * Network interface ID to associate with.
      */
-    readonly networkInterface?: string;
+    readonly networkInterface?: pulumi.Input<string>;
     /**
      * Contains the private IP address (if in VPC).
      */
-    readonly privateIp?: string;
+    readonly privateIp?: pulumi.Input<string>;
     /**
      * Contains the public IP address.
      */
-    readonly publicIp?: string;
+    readonly publicIp?: pulumi.Input<string>;
     /**
      * EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
      */
-    readonly publicIpv4Pool?: string;
+    readonly publicIpv4Pool?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Boolean if the EIP is in a VPC or not.
      */
-    readonly vpc?: boolean;
+    readonly vpc?: pulumi.Input<boolean>;
 }
 
 /**
@@ -238,25 +238,25 @@ export interface EipArgs {
      * associate with the Elastic IP address. If no private IP address is specified,
      * the Elastic IP address is associated with the primary private IP address.
      */
-    readonly associateWithPrivateIp?: string;
+    readonly associateWithPrivateIp?: pulumi.Input<string>;
     /**
      * EC2 instance ID.
      */
-    readonly instance?: string;
+    readonly instance?: pulumi.Input<string>;
     /**
      * Network interface ID to associate with.
      */
-    readonly networkInterface?: string;
+    readonly networkInterface?: pulumi.Input<string>;
     /**
      * EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
      */
-    readonly publicIpv4Pool?: string;
+    readonly publicIpv4Pool?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Boolean if the EIP is in a VPC or not.
      */
-    readonly vpc?: boolean;
+    readonly vpc?: pulumi.Input<boolean>;
 }

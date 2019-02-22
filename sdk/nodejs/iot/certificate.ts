@@ -55,8 +55,8 @@ export class Certificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<CertificateArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<CertificateArgs> | pulumi.InputObject<CertificateState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: CertificateState = argsOrState as CertificateState | undefined;
@@ -86,17 +86,17 @@ export interface CertificateState {
     /**
      * Boolean flag to indicate if the certificate should be active
      */
-    readonly active?: boolean;
+    readonly active?: pulumi.Input<boolean>;
     /**
      * The ARN of the created AWS IoT certificate
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The certificate signing request. Review the
      * [IoT API Reference Guide] (http://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
      * for more information on creating a certificate from a certificate signing request (CSR).
      */
-    readonly csr?: string;
+    readonly csr?: pulumi.Input<string>;
 }
 
 /**
@@ -106,11 +106,11 @@ export interface CertificateArgs {
     /**
      * Boolean flag to indicate if the certificate should be active
      */
-    readonly active: boolean;
+    readonly active: pulumi.Input<boolean>;
     /**
      * The certificate signing request. Review the
      * [IoT API Reference Guide] (http://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
      * for more information on creating a certificate from a certificate signing request (CSR).
      */
-    readonly csr: string;
+    readonly csr: pulumi.Input<string>;
 }

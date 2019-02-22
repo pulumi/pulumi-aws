@@ -112,8 +112,8 @@ export class Rule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<RuleArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<RuleArgs> | pulumi.InputObject<RuleState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RuleArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: RuleArgs | RuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RuleState = argsOrState as RuleState | undefined;
@@ -150,37 +150,37 @@ export interface RuleState {
     /**
      * The ARN of the config rule
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * Description of the rule
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      */
-    readonly inputParameters?: string;
+    readonly inputParameters?: pulumi.Input<string>;
     /**
      * The frequency that you want AWS Config to run evaluations for a rule that
      * is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
      */
-    readonly maximumExecutionFrequency?: string;
+    readonly maximumExecutionFrequency?: pulumi.Input<string>;
     /**
      * The name of the rule
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The ID of the config rule
      */
-    readonly ruleId?: string;
+    readonly ruleId?: pulumi.Input<string>;
     /**
      * Scope defines which resources can trigger an evaluation for the rule as documented below.
      */
-    readonly scope?: { complianceResourceId?: string, complianceResourceTypes?: string[], tagKey?: string, tagValue?: string };
+    readonly scope?: pulumi.Input<{ complianceResourceId?: pulumi.Input<string>, complianceResourceTypes?: pulumi.Input<pulumi.Input<string>[]>, tagKey?: pulumi.Input<string>, tagValue?: pulumi.Input<string> }>;
     /**
      * Source specifies the rule owner, the rule identifier, and the notifications that cause
      * the function to evaluate your AWS resources as documented below.
      */
-    readonly source?: { owner: string, sourceDetails?: { eventSource?: string, maximumExecutionFrequency?: string, messageType?: string }[], sourceIdentifier: string };
+    readonly source?: pulumi.Input<{ owner: pulumi.Input<string>, sourceDetails?: pulumi.Input<pulumi.Input<{ eventSource?: pulumi.Input<string>, maximumExecutionFrequency?: pulumi.Input<string>, messageType?: pulumi.Input<string> }>[]>, sourceIdentifier: pulumi.Input<string> }>;
 }
 
 /**
@@ -190,27 +190,27 @@ export interface RuleArgs {
     /**
      * Description of the rule
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      */
-    readonly inputParameters?: string;
+    readonly inputParameters?: pulumi.Input<string>;
     /**
      * The frequency that you want AWS Config to run evaluations for a rule that
      * is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
      */
-    readonly maximumExecutionFrequency?: string;
+    readonly maximumExecutionFrequency?: pulumi.Input<string>;
     /**
      * The name of the rule
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Scope defines which resources can trigger an evaluation for the rule as documented below.
      */
-    readonly scope?: { complianceResourceId?: string, complianceResourceTypes?: string[], tagKey?: string, tagValue?: string };
+    readonly scope?: pulumi.Input<{ complianceResourceId?: pulumi.Input<string>, complianceResourceTypes?: pulumi.Input<pulumi.Input<string>[]>, tagKey?: pulumi.Input<string>, tagValue?: pulumi.Input<string> }>;
     /**
      * Source specifies the rule owner, the rule identifier, and the notifications that cause
      * the function to evaluate your AWS resources as documented below.
      */
-    readonly source: { owner: string, sourceDetails?: { eventSource?: string, maximumExecutionFrequency?: string, messageType?: string }[], sourceIdentifier: string };
+    readonly source: pulumi.Input<{ owner: pulumi.Input<string>, sourceDetails?: pulumi.Input<pulumi.Input<{ eventSource?: pulumi.Input<string>, maximumExecutionFrequency?: pulumi.Input<string>, messageType?: pulumi.Input<string> }>[]>, sourceIdentifier: pulumi.Input<string> }>;
 }

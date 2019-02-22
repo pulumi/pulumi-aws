@@ -141,8 +141,8 @@ export class Document extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<DocumentArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<DocumentArgs> | pulumi.InputObject<DocumentState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DocumentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DocumentArgs | DocumentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DocumentState = argsOrState as DocumentState | undefined;
@@ -199,75 +199,75 @@ export class Document extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Document resources.
  */
 export interface DocumentState {
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The JSON or YAML content of the document.
      */
-    readonly content?: string;
+    readonly content?: pulumi.Input<string>;
     /**
      * The date the document was created.
      */
-    readonly createdDate?: string;
+    readonly createdDate?: pulumi.Input<string>;
     /**
      * The default version of the document.
      */
-    readonly defaultVersion?: string;
+    readonly defaultVersion?: pulumi.Input<string>;
     /**
      * The description of the document.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The format of the document. Valid document types include: `JSON` and `YAML`
      */
-    readonly documentFormat?: string;
+    readonly documentFormat?: pulumi.Input<string>;
     /**
      * The type of the document. Valid document types include: `Command`, `Policy`, `Automation` and `Session`
      */
-    readonly documentType?: string;
+    readonly documentType?: pulumi.Input<string>;
     /**
      * The sha1 or sha256 of the document content
      */
-    readonly hash?: string;
+    readonly hash?: pulumi.Input<string>;
     /**
      * "Sha1" "Sha256". The hashing algorithm used when hashing the content.
      */
-    readonly hashType?: string;
+    readonly hashType?: pulumi.Input<string>;
     /**
      * The latest version of the document.
      */
-    readonly latestVersion?: string;
+    readonly latestVersion?: pulumi.Input<string>;
     /**
      * The name of the document.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The AWS user account of the person who created the document.
      */
-    readonly owner?: string;
+    readonly owner?: pulumi.Input<string>;
     /**
      * The parameters that are available to this document.
      */
-    readonly parameters?: { defaultValue?: string, description?: string, name?: string, type?: string }[];
+    readonly parameters?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name?: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
     /**
      * Additional Permissions to attach to the document. See Permissions below for details.
      */
-    readonly permissions?: { accountIds: string, type: string };
+    readonly permissions?: pulumi.Input<{ accountIds: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
      */
-    readonly platformTypes?: string[];
+    readonly platformTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The schema version of the document.
      */
-    readonly schemaVersion?: string;
+    readonly schemaVersion?: pulumi.Input<string>;
     /**
      * "Creating", "Active" or "Deleting". The current status of the document.
      */
-    readonly status?: string;
+    readonly status?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the object.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -277,25 +277,25 @@ export interface DocumentArgs {
     /**
      * The JSON or YAML content of the document.
      */
-    readonly content: string;
+    readonly content: pulumi.Input<string>;
     /**
      * The format of the document. Valid document types include: `JSON` and `YAML`
      */
-    readonly documentFormat?: string;
+    readonly documentFormat?: pulumi.Input<string>;
     /**
      * The type of the document. Valid document types include: `Command`, `Policy`, `Automation` and `Session`
      */
-    readonly documentType: string;
+    readonly documentType: pulumi.Input<string>;
     /**
      * The name of the document.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Additional Permissions to attach to the document. See Permissions below for details.
      */
-    readonly permissions?: { accountIds: string, type: string };
+    readonly permissions?: pulumi.Input<{ accountIds: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * A mapping of tags to assign to the object.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

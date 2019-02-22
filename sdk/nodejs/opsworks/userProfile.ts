@@ -56,8 +56,8 @@ export class UserProfile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<UserProfileArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<UserProfileArgs> | pulumi.InputObject<UserProfileState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: UserProfileArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: UserProfileArgs | UserProfileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: UserProfileState = argsOrState as UserProfileState | undefined;
@@ -89,19 +89,19 @@ export interface UserProfileState {
     /**
      * Whether users can specify their own SSH public key through the My Settings page
      */
-    readonly allowSelfManagement?: boolean;
+    readonly allowSelfManagement?: pulumi.Input<boolean>;
     /**
      * The users public key
      */
-    readonly sshPublicKey?: string;
+    readonly sshPublicKey?: pulumi.Input<string>;
     /**
      * The ssh username, with witch this user wants to log in
      */
-    readonly sshUsername?: string;
+    readonly sshUsername?: pulumi.Input<string>;
     /**
      * The user's IAM ARN
      */
-    readonly userArn?: string;
+    readonly userArn?: pulumi.Input<string>;
 }
 
 /**
@@ -111,17 +111,17 @@ export interface UserProfileArgs {
     /**
      * Whether users can specify their own SSH public key through the My Settings page
      */
-    readonly allowSelfManagement?: boolean;
+    readonly allowSelfManagement?: pulumi.Input<boolean>;
     /**
      * The users public key
      */
-    readonly sshPublicKey?: string;
+    readonly sshPublicKey?: pulumi.Input<string>;
     /**
      * The ssh username, with witch this user wants to log in
      */
-    readonly sshUsername: string;
+    readonly sshUsername: pulumi.Input<string>;
     /**
      * The user's IAM ARN
      */
-    readonly userArn: string;
+    readonly userArn: pulumi.Input<string>;
 }

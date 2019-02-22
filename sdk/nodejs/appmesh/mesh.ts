@@ -53,8 +53,8 @@ export class Mesh extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<MeshArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<MeshArgs> | pulumi.InputObject<MeshState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: MeshArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: MeshArgs | MeshState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: MeshState = argsOrState as MeshState | undefined;
@@ -80,19 +80,19 @@ export interface MeshState {
     /**
      * The ARN of the service mesh.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The creation date of the service mesh.
      */
-    readonly createdDate?: string;
+    readonly createdDate?: pulumi.Input<string>;
     /**
      * The last update date of the service mesh.
      */
-    readonly lastUpdatedDate?: string;
+    readonly lastUpdatedDate?: pulumi.Input<string>;
     /**
      * The name to use for the service mesh.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
 }
 
 /**
@@ -102,5 +102,5 @@ export interface MeshArgs {
     /**
      * The name to use for the service mesh.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
 }

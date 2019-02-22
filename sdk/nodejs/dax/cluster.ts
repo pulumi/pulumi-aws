@@ -132,8 +132,8 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ClusterArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ClusterArgs> | pulumi.InputObject<ClusterState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ClusterState = argsOrState as ClusterState | undefined;
@@ -199,93 +199,93 @@ export interface ClusterState {
     /**
      * The ARN of the DAX cluster
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * List of Availability Zones in which the
      * nodes will be created
      */
-    readonly availabilityZones?: string[];
+    readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The DNS name of the DAX cluster without the port appended
      */
-    readonly clusterAddress?: string;
+    readonly clusterAddress?: pulumi.Input<string>;
     /**
      * Group identifier. DAX converts this name to
      * lowercase
      */
-    readonly clusterName?: string;
+    readonly clusterName?: pulumi.Input<string>;
     /**
      * The configuration endpoint for this DAX cluster,
      * consisting of a DNS name and a port number
      */
-    readonly configurationEndpoint?: string;
+    readonly configurationEndpoint?: pulumi.Input<string>;
     /**
      * Description for the cluster
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * A valid Amazon Resource Name (ARN) that identifies
      * an IAM role. At runtime, DAX will assume this role and use the role's
      * permissions to access DynamoDB on your behalf
      */
-    readonly iamRoleArn?: string;
+    readonly iamRoleArn?: pulumi.Input<string>;
     /**
      * Specifies the weekly time range for when
      * maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
      * (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
      * `sun:05:00-sun:09:00`
      */
-    readonly maintenanceWindow?: string;
+    readonly maintenanceWindow?: pulumi.Input<string>;
     /**
      * The compute and memory capacity of the nodes. See
      * [Nodes][1] for supported node types
      */
-    readonly nodeType?: string;
+    readonly nodeType?: pulumi.Input<string>;
     /**
      * List of node objects including `id`, `address`, `port` and
      * `availability_zone`. Referenceable e.g. as
      * `${aws_dax_cluster.test.nodes.0.address}`
      */
-    readonly nodes?: { address?: string, availabilityZone?: string, id?: string, port?: number }[];
+    readonly nodes?: pulumi.Input<pulumi.Input<{ address?: pulumi.Input<string>, availabilityZone?: pulumi.Input<string>, id?: pulumi.Input<string>, port?: pulumi.Input<number> }>[]>;
     /**
      * An Amazon Resource Name (ARN) of an
      * SNS topic to send DAX notifications to. Example:
      * `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      */
-    readonly notificationTopicArn?: string;
+    readonly notificationTopicArn?: pulumi.Input<string>;
     /**
      * Name of the parameter group to associate
      * with this DAX cluster
      */
-    readonly parameterGroupName?: string;
+    readonly parameterGroupName?: pulumi.Input<string>;
     /**
      * The port used by the configuration endpoint
      */
-    readonly port?: number;
+    readonly port?: pulumi.Input<number>;
     /**
      * The number of nodes in the DAX cluster. A
      * replication factor of 1 will create a single-node cluster, without any read
      * replicas
      */
-    readonly replicationFactor?: number;
+    readonly replicationFactor?: pulumi.Input<number>;
     /**
      * One or more VPC security groups associated
      * with the cluster
      */
-    readonly securityGroupIds?: string[];
+    readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Encrypt at rest options
      */
-    readonly serverSideEncryption?: { enabled?: boolean };
+    readonly serverSideEncryption?: pulumi.Input<{ enabled?: pulumi.Input<boolean> }>;
     /**
      * Name of the subnet group to be used for the
      * cluster
      */
-    readonly subnetGroupName?: string;
+    readonly subnetGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -296,67 +296,67 @@ export interface ClusterArgs {
      * List of Availability Zones in which the
      * nodes will be created
      */
-    readonly availabilityZones?: string[];
+    readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Group identifier. DAX converts this name to
      * lowercase
      */
-    readonly clusterName: string;
+    readonly clusterName: pulumi.Input<string>;
     /**
      * Description for the cluster
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * A valid Amazon Resource Name (ARN) that identifies
      * an IAM role. At runtime, DAX will assume this role and use the role's
      * permissions to access DynamoDB on your behalf
      */
-    readonly iamRoleArn: string;
+    readonly iamRoleArn: pulumi.Input<string>;
     /**
      * Specifies the weekly time range for when
      * maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
      * (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
      * `sun:05:00-sun:09:00`
      */
-    readonly maintenanceWindow?: string;
+    readonly maintenanceWindow?: pulumi.Input<string>;
     /**
      * The compute and memory capacity of the nodes. See
      * [Nodes][1] for supported node types
      */
-    readonly nodeType: string;
+    readonly nodeType: pulumi.Input<string>;
     /**
      * An Amazon Resource Name (ARN) of an
      * SNS topic to send DAX notifications to. Example:
      * `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      */
-    readonly notificationTopicArn?: string;
+    readonly notificationTopicArn?: pulumi.Input<string>;
     /**
      * Name of the parameter group to associate
      * with this DAX cluster
      */
-    readonly parameterGroupName?: string;
+    readonly parameterGroupName?: pulumi.Input<string>;
     /**
      * The number of nodes in the DAX cluster. A
      * replication factor of 1 will create a single-node cluster, without any read
      * replicas
      */
-    readonly replicationFactor: number;
+    readonly replicationFactor: pulumi.Input<number>;
     /**
      * One or more VPC security groups associated
      * with the cluster
      */
-    readonly securityGroupIds?: string[];
+    readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Encrypt at rest options
      */
-    readonly serverSideEncryption?: { enabled?: boolean };
+    readonly serverSideEncryption?: pulumi.Input<{ enabled?: pulumi.Input<boolean> }>;
     /**
      * Name of the subnet group to be used for the
      * cluster
      */
-    readonly subnetGroupName?: string;
+    readonly subnetGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

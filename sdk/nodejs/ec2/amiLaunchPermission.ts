@@ -48,8 +48,8 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<AmiLaunchPermissionArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<AmiLaunchPermissionArgs> | pulumi.InputObject<AmiLaunchPermissionState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AmiLaunchPermissionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: AmiLaunchPermissionArgs | AmiLaunchPermissionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AmiLaunchPermissionState = argsOrState as AmiLaunchPermissionState | undefined;
@@ -77,11 +77,11 @@ export interface AmiLaunchPermissionState {
     /**
      * An AWS Account ID to add launch permissions.
      */
-    readonly accountId?: string;
+    readonly accountId?: pulumi.Input<string>;
     /**
      * A region-unique name for the AMI.
      */
-    readonly imageId?: string;
+    readonly imageId?: pulumi.Input<string>;
 }
 
 /**
@@ -91,9 +91,9 @@ export interface AmiLaunchPermissionArgs {
     /**
      * An AWS Account ID to add launch permissions.
      */
-    readonly accountId: string;
+    readonly accountId: pulumi.Input<string>;
     /**
      * A region-unique name for the AMI.
      */
-    readonly imageId: string;
+    readonly imageId: pulumi.Input<string>;
 }

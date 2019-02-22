@@ -98,8 +98,8 @@ export class OptionGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<OptionGroupArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<OptionGroupArgs> | pulumi.InputObject<OptionGroupState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: OptionGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: OptionGroupArgs | OptionGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: OptionGroupState = argsOrState as OptionGroupState | undefined;
@@ -139,35 +139,35 @@ export interface OptionGroupState {
     /**
      * The ARN of the db option group.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * Specifies the name of the engine that this option group should be associated with.
      */
-    readonly engineName?: string;
+    readonly engineName?: pulumi.Input<string>;
     /**
      * Specifies the major version of the engine that this option group should be associated with.
      */
-    readonly majorEngineVersion?: string;
+    readonly majorEngineVersion?: pulumi.Input<string>;
     /**
      * The Name of the setting.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
      */
-    readonly namePrefix?: string;
+    readonly namePrefix?: pulumi.Input<string>;
     /**
      * A list of Options to apply.
      */
-    readonly options?: { dbSecurityGroupMemberships?: string[], optionName: string, optionSettings?: { name: string, value: string }[], port?: number, version?: string, vpcSecurityGroupMemberships?: string[] }[];
+    readonly options?: pulumi.Input<pulumi.Input<{ dbSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]>, optionName: pulumi.Input<string>, optionSettings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, port?: pulumi.Input<number>, version?: pulumi.Input<string>, vpcSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
      * The description of the option group. Defaults to "Managed by Terraform".
      */
-    readonly optionGroupDescription?: string;
+    readonly optionGroupDescription?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -177,29 +177,29 @@ export interface OptionGroupArgs {
     /**
      * Specifies the name of the engine that this option group should be associated with.
      */
-    readonly engineName: string;
+    readonly engineName: pulumi.Input<string>;
     /**
      * Specifies the major version of the engine that this option group should be associated with.
      */
-    readonly majorEngineVersion: string;
+    readonly majorEngineVersion: pulumi.Input<string>;
     /**
      * The Name of the setting.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
      */
-    readonly namePrefix?: string;
+    readonly namePrefix?: pulumi.Input<string>;
     /**
      * A list of Options to apply.
      */
-    readonly options?: { dbSecurityGroupMemberships?: string[], optionName: string, optionSettings?: { name: string, value: string }[], port?: number, version?: string, vpcSecurityGroupMemberships?: string[] }[];
+    readonly options?: pulumi.Input<pulumi.Input<{ dbSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]>, optionName: pulumi.Input<string>, optionSettings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, port?: pulumi.Input<number>, version?: pulumi.Input<string>, vpcSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
      * The description of the option group. Defaults to "Managed by Terraform".
      */
-    readonly optionGroupDescription?: string;
+    readonly optionGroupDescription?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

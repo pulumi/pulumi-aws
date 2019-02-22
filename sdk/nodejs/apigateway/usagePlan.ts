@@ -92,8 +92,8 @@ export class UsagePlan extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<UsagePlanArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<UsagePlanArgs> | pulumi.InputObject<UsagePlanState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: UsagePlanArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: UsagePlanArgs | UsagePlanState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: UsagePlanState = argsOrState as UsagePlanState | undefined;
@@ -123,27 +123,27 @@ export interface UsagePlanState {
     /**
      * The associated API stages of the usage plan.
      */
-    readonly apiStages?: { apiId: string, stage: string }[];
+    readonly apiStages?: pulumi.Input<pulumi.Input<{ apiId: pulumi.Input<string>, stage: pulumi.Input<string> }>[]>;
     /**
      * The description of a usage plan.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The name of the usage plan.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      */
-    readonly productCode?: string;
+    readonly productCode?: pulumi.Input<string>;
     /**
      * The quota settings of the usage plan.
      */
-    readonly quotaSettings?: { limit: number, offset?: number, period: string };
+    readonly quotaSettings?: pulumi.Input<{ limit: pulumi.Input<number>, offset?: pulumi.Input<number>, period: pulumi.Input<string> }>;
     /**
      * The throttling limits of the usage plan.
      */
-    readonly throttleSettings?: { burstLimit?: number, rateLimit?: number };
+    readonly throttleSettings?: pulumi.Input<{ burstLimit?: pulumi.Input<number>, rateLimit?: pulumi.Input<number> }>;
 }
 
 /**
@@ -153,25 +153,25 @@ export interface UsagePlanArgs {
     /**
      * The associated API stages of the usage plan.
      */
-    readonly apiStages?: { apiId: string, stage: string }[];
+    readonly apiStages?: pulumi.Input<pulumi.Input<{ apiId: pulumi.Input<string>, stage: pulumi.Input<string> }>[]>;
     /**
      * The description of a usage plan.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The name of the usage plan.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      */
-    readonly productCode?: string;
+    readonly productCode?: pulumi.Input<string>;
     /**
      * The quota settings of the usage plan.
      */
-    readonly quotaSettings?: { limit: number, offset?: number, period: string };
+    readonly quotaSettings?: pulumi.Input<{ limit: pulumi.Input<number>, offset?: pulumi.Input<number>, period: pulumi.Input<string> }>;
     /**
      * The throttling limits of the usage plan.
      */
-    readonly throttleSettings?: { burstLimit?: number, rateLimit?: number };
+    readonly throttleSettings?: pulumi.Input<{ burstLimit?: pulumi.Input<number>, rateLimit?: pulumi.Input<number> }>;
 }

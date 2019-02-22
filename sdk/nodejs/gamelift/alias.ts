@@ -59,8 +59,8 @@ export class Alias extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<AliasArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<AliasArgs> | pulumi.InputObject<AliasState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: AliasArgs | AliasState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AliasState = argsOrState as AliasState | undefined;
@@ -89,19 +89,19 @@ export interface AliasState {
     /**
      * Alias ARN.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * Description of the alias.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * Name of the alias.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Specifies the fleet and/or routing type to use for the alias.
      */
-    readonly routingStrategy?: { fleetId?: string, message?: string, type: string };
+    readonly routingStrategy?: pulumi.Input<{ fleetId?: pulumi.Input<string>, message?: pulumi.Input<string>, type: pulumi.Input<string> }>;
 }
 
 /**
@@ -111,13 +111,13 @@ export interface AliasArgs {
     /**
      * Description of the alias.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * Name of the alias.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Specifies the fleet and/or routing type to use for the alias.
      */
-    readonly routingStrategy: { fleetId?: string, message?: string, type: string };
+    readonly routingStrategy: pulumi.Input<{ fleetId?: pulumi.Input<string>, message?: pulumi.Input<string>, type: pulumi.Input<string> }>;
 }

@@ -286,8 +286,8 @@ export class BucketNotification extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<BucketNotificationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<BucketNotificationArgs> | pulumi.InputObject<BucketNotificationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: BucketNotificationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: BucketNotificationArgs | BucketNotificationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: BucketNotificationState = argsOrState as BucketNotificationState | undefined;
@@ -316,19 +316,19 @@ export interface BucketNotificationState {
     /**
      * The name of the bucket to put notification configuration.
      */
-    readonly bucket?: string;
+    readonly bucket?: pulumi.Input<string>;
     /**
      * Used to configure notifications to a Lambda Function (documented below).
      */
-    readonly lambdaFunctions?: { events: string[], filterPrefix?: string, filterSuffix?: string, id?: string, lambdaFunctionArn?: string }[];
+    readonly lambdaFunctions?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, lambdaFunctionArn?: pulumi.Input<string> }>[]>;
     /**
      * The notification configuration to SQS Queue (documented below).
      */
-    readonly queues?: { events: string[], filterPrefix?: string, filterSuffix?: string, id?: string, queueArn: string }[];
+    readonly queues?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, queueArn: pulumi.Input<string> }>[]>;
     /**
      * The notification configuration to SNS Topic (documented below).
      */
-    readonly topics?: { events: string[], filterPrefix?: string, filterSuffix?: string, id?: string, topicArn: string }[];
+    readonly topics?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, topicArn: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -338,17 +338,17 @@ export interface BucketNotificationArgs {
     /**
      * The name of the bucket to put notification configuration.
      */
-    readonly bucket: string;
+    readonly bucket: pulumi.Input<string>;
     /**
      * Used to configure notifications to a Lambda Function (documented below).
      */
-    readonly lambdaFunctions?: { events: string[], filterPrefix?: string, filterSuffix?: string, id?: string, lambdaFunctionArn?: string }[];
+    readonly lambdaFunctions?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, lambdaFunctionArn?: pulumi.Input<string> }>[]>;
     /**
      * The notification configuration to SQS Queue (documented below).
      */
-    readonly queues?: { events: string[], filterPrefix?: string, filterSuffix?: string, id?: string, queueArn: string }[];
+    readonly queues?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, queueArn: pulumi.Input<string> }>[]>;
     /**
      * The notification configuration to SNS Topic (documented below).
      */
-    readonly topics?: { events: string[], filterPrefix?: string, filterSuffix?: string, id?: string, topicArn: string }[];
+    readonly topics?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, filterPrefix?: pulumi.Input<string>, filterSuffix?: pulumi.Input<string>, id?: pulumi.Input<string>, topicArn: pulumi.Input<string> }>[]>;
 }

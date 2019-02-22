@@ -64,8 +64,8 @@ export class SecurityGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<SecurityGroupArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<SecurityGroupArgs> | pulumi.InputObject<SecurityGroupState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SecurityGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: SecurityGroupArgs | SecurityGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SecurityGroupState = argsOrState as SecurityGroupState | undefined;
@@ -96,23 +96,23 @@ export interface SecurityGroupState {
     /**
      * The arn of the DB security group.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The description of the DB security group. Defaults to "Managed by Terraform".
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * A list of ingress rules.
      */
-    readonly ingress?: { cidr?: string, securityGroupId?: string, securityGroupName?: string, securityGroupOwnerId?: string }[];
+    readonly ingress?: pulumi.Input<pulumi.Input<{ cidr?: pulumi.Input<string>, securityGroupId?: pulumi.Input<string>, securityGroupName?: pulumi.Input<string>, securityGroupOwnerId?: pulumi.Input<string> }>[]>;
     /**
      * The name of the DB security group.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -122,17 +122,17 @@ export interface SecurityGroupArgs {
     /**
      * The description of the DB security group. Defaults to "Managed by Terraform".
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * A list of ingress rules.
      */
-    readonly ingress: { cidr?: string, securityGroupId?: string, securityGroupName?: string, securityGroupOwnerId?: string }[];
+    readonly ingress: pulumi.Input<pulumi.Input<{ cidr?: pulumi.Input<string>, securityGroupId?: pulumi.Input<string>, securityGroupName?: pulumi.Input<string>, securityGroupOwnerId?: pulumi.Input<string> }>[]>;
     /**
      * The name of the DB security group.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

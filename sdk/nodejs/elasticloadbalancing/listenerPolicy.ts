@@ -84,8 +84,8 @@ export class ListenerPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ListenerPolicyArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ListenerPolicyArgs> | pulumi.InputObject<ListenerPolicyState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ListenerPolicyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ListenerPolicyArgs | ListenerPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ListenerPolicyState = argsOrState as ListenerPolicyState | undefined;
@@ -115,15 +115,15 @@ export interface ListenerPolicyState {
     /**
      * The load balancer to attach the policy to.
      */
-    readonly loadBalancerName?: string;
+    readonly loadBalancerName?: pulumi.Input<string>;
     /**
      * The load balancer listener port to apply the policy to.
      */
-    readonly loadBalancerPort?: number;
+    readonly loadBalancerPort?: pulumi.Input<number>;
     /**
      * List of Policy Names to apply to the backend server.
      */
-    readonly policyNames?: string[];
+    readonly policyNames?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -133,13 +133,13 @@ export interface ListenerPolicyArgs {
     /**
      * The load balancer to attach the policy to.
      */
-    readonly loadBalancerName: string;
+    readonly loadBalancerName: pulumi.Input<string>;
     /**
      * The load balancer listener port to apply the policy to.
      */
-    readonly loadBalancerPort: number;
+    readonly loadBalancerPort: pulumi.Input<number>;
     /**
      * List of Policy Names to apply to the backend server.
      */
-    readonly policyNames?: string[];
+    readonly policyNames?: pulumi.Input<pulumi.Input<string>[]>;
 }

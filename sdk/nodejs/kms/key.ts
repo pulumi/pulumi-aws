@@ -79,8 +79,8 @@ export class Key extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<KeyArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<KeyArgs> | pulumi.InputObject<KeyState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: KeyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: KeyArgs | KeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: KeyState = argsOrState as KeyState | undefined;
@@ -116,42 +116,42 @@ export interface KeyState {
     /**
      * The Amazon Resource Name (ARN) of the key.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * Duration in days after which the key is deleted
      * after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
      */
-    readonly deletionWindowInDays?: number;
+    readonly deletionWindowInDays?: pulumi.Input<number>;
     /**
      * The description of the key as viewed in AWS console.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
      * is enabled. Defaults to false.
      */
-    readonly enableKeyRotation?: boolean;
+    readonly enableKeyRotation?: pulumi.Input<boolean>;
     /**
      * Specifies whether the key is enabled. Defaults to true.
      */
-    readonly isEnabled?: boolean;
+    readonly isEnabled?: pulumi.Input<boolean>;
     /**
      * The globally unique identifier for the key.
      */
-    readonly keyId?: string;
+    readonly keyId?: pulumi.Input<string>;
     /**
      * Specifies the intended use of the key.
      * Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
      */
-    readonly keyUsage?: string;
+    readonly keyUsage?: pulumi.Input<string>;
     /**
      * A valid policy JSON document. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    readonly policy?: string;
+    readonly policy?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the object.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -162,31 +162,31 @@ export interface KeyArgs {
      * Duration in days after which the key is deleted
      * after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
      */
-    readonly deletionWindowInDays?: number;
+    readonly deletionWindowInDays?: pulumi.Input<number>;
     /**
      * The description of the key as viewed in AWS console.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
      * is enabled. Defaults to false.
      */
-    readonly enableKeyRotation?: boolean;
+    readonly enableKeyRotation?: pulumi.Input<boolean>;
     /**
      * Specifies whether the key is enabled. Defaults to true.
      */
-    readonly isEnabled?: boolean;
+    readonly isEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the intended use of the key.
      * Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
      */
-    readonly keyUsage?: string;
+    readonly keyUsage?: pulumi.Input<string>;
     /**
      * A valid policy JSON document. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    readonly policy?: string;
+    readonly policy?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the object.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

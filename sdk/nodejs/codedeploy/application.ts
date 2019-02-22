@@ -72,8 +72,8 @@ export class Application extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<ApplicationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ApplicationArgs> | pulumi.InputObject<ApplicationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ApplicationState = argsOrState as ApplicationState | undefined;
@@ -97,12 +97,12 @@ export interface ApplicationState {
     /**
      * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
      */
-    readonly computePlatform?: string;
+    readonly computePlatform?: pulumi.Input<string>;
     /**
      * The name of the application.
      */
-    readonly name?: string;
-    readonly uniqueId?: string;
+    readonly name?: pulumi.Input<string>;
+    readonly uniqueId?: pulumi.Input<string>;
 }
 
 /**
@@ -112,10 +112,10 @@ export interface ApplicationArgs {
     /**
      * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
      */
-    readonly computePlatform?: string;
+    readonly computePlatform?: pulumi.Input<string>;
     /**
      * The name of the application.
      */
-    readonly name?: string;
-    readonly uniqueId?: string;
+    readonly name?: pulumi.Input<string>;
+    readonly uniqueId?: pulumi.Input<string>;
 }

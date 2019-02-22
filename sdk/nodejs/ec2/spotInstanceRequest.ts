@@ -282,8 +282,8 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<SpotInstanceRequestArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<SpotInstanceRequestArgs> | pulumi.InputObject<SpotInstanceRequestState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SpotInstanceRequestArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: SpotInstanceRequestArgs | SpotInstanceRequestState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SpotInstanceRequestState = argsOrState as SpotInstanceRequestState | undefined;
@@ -409,46 +409,46 @@ export interface SpotInstanceRequestState {
     /**
      * The AMI to use for the instance.
      */
-    readonly ami?: string;
-    readonly arn?: string;
+    readonly ami?: pulumi.Input<string>;
+    readonly arn?: pulumi.Input<string>;
     /**
      * Associate a public ip address with an instance in a VPC.  Boolean value.
      */
-    readonly associatePublicIpAddress?: boolean;
+    readonly associatePublicIpAddress?: pulumi.Input<boolean>;
     /**
      * The AZ to start the instance in.
      */
-    readonly availabilityZone?: string;
+    readonly availabilityZone?: pulumi.Input<string>;
     /**
      * The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
      * The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
      * Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
      */
-    readonly blockDurationMinutes?: number;
+    readonly blockDurationMinutes?: pulumi.Input<number>;
     /**
      * Sets the number of CPU cores for an instance. This option is 
      * only supported on creation of instance type that support CPU Options
      * [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      */
-    readonly cpuCoreCount?: number;
+    readonly cpuCoreCount?: pulumi.Input<number>;
     /**
      * If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      */
-    readonly cpuThreadsPerCore?: number;
+    readonly cpuThreadsPerCore?: pulumi.Input<number>;
     /**
      * Customize the credit specification of the instance. See Credit Specification below for more details.
      */
-    readonly creditSpecification?: { cpuCredits?: string };
+    readonly creditSpecification?: pulumi.Input<{ cpuCredits?: pulumi.Input<string> }>;
     /**
      * If true, enables [EC2 Instance
      * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
      */
-    readonly disableApiTermination?: boolean;
+    readonly disableApiTermination?: pulumi.Input<boolean>;
     /**
      * Additional EBS block devices to attach to the
      * instance.  See Block Devices below for details.
      */
-    readonly ebsBlockDevices?: { deleteOnTermination?: boolean, deviceName: string, encrypted?: boolean, iops?: number, snapshotId?: string, volumeId?: string, volumeSize?: number, volumeType?: string }[];
+    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      * Note that if this is not set on an instance type that is optimized by default then
@@ -456,105 +456,105 @@ export interface SpotInstanceRequestState {
      * there is no need to set this and there is no effect to disabling it.
      * See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      */
-    readonly ebsOptimized?: boolean;
+    readonly ebsOptimized?: pulumi.Input<boolean>;
     /**
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    readonly ephemeralBlockDevices?: { deviceName: string, noDevice?: boolean, virtualName?: string }[];
+    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, noDevice?: pulumi.Input<boolean>, virtualName?: pulumi.Input<string> }>[]>;
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
-    readonly getPasswordData?: boolean;
+    readonly getPasswordData?: pulumi.Input<boolean>;
     /**
      * The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
      */
-    readonly hostId?: string;
+    readonly hostId?: pulumi.Input<string>;
     /**
      * The IAM Instance Profile to
      * launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      * * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
-    readonly iamInstanceProfile?: string;
+    readonly iamInstanceProfile?: pulumi.Input<string>;
     /**
      * Shutdown behavior for the
      * instance. Amazon defaults this to `stop` for EBS-backed instances and
      * `terminate` for instance-store instances. Cannot be set on instance-store
      * instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
      */
-    readonly instanceInitiatedShutdownBehavior?: string;
+    readonly instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
     /**
      * Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
      */
-    readonly instanceInterruptionBehaviour?: string;
-    readonly instanceState?: string;
+    readonly instanceInterruptionBehaviour?: pulumi.Input<string>;
+    readonly instanceState?: pulumi.Input<string>;
     /**
      * The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
      */
-    readonly instanceType?: string;
-    readonly ipv6AddressCount?: number;
+    readonly instanceType?: pulumi.Input<string>;
+    readonly ipv6AddressCount?: pulumi.Input<number>;
     /**
      * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
      */
-    readonly ipv6Addresses?: string[];
+    readonly ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
      */
-    readonly keyName?: string;
+    readonly keyName?: pulumi.Input<string>;
     /**
      * A launch group is a group of spot instances that launch together and terminate together.
      * If left empty instances are launched and terminated individually.
      */
-    readonly launchGroup?: string;
+    readonly launchGroup?: pulumi.Input<string>;
     /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      */
-    readonly monitoring?: boolean;
+    readonly monitoring?: pulumi.Input<boolean>;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
-    readonly networkInterfaces?: { deleteOnTermination?: boolean, deviceIndex: number, networkInterfaceId: string }[];
-    readonly networkInterfaceId?: string;
-    readonly passwordData?: string;
+    readonly networkInterfaces?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceIndex: pulumi.Input<number>, networkInterfaceId: pulumi.Input<string> }>[]>;
+    readonly networkInterfaceId?: pulumi.Input<string>;
+    readonly passwordData?: pulumi.Input<string>;
     /**
      * The Placement Group to start the instance in.
      */
-    readonly placementGroup?: string;
-    readonly primaryNetworkInterfaceId?: string;
+    readonly placementGroup?: pulumi.Input<string>;
+    readonly primaryNetworkInterfaceId?: pulumi.Input<string>;
     /**
      * The private DNS name assigned to the instance. Can only be
      * used inside the Amazon EC2, and only available if you've enabled DNS hostnames
      * for your VPC
      */
-    readonly privateDns?: string;
+    readonly privateDns?: pulumi.Input<string>;
     /**
      * Private IP address to associate with the
      * instance in a VPC.
      */
-    readonly privateIp?: string;
+    readonly privateIp?: pulumi.Input<string>;
     /**
      * The public DNS name assigned to the instance. For EC2-VPC, this
      * is only available if you've enabled DNS hostnames for your VPC
      */
-    readonly publicDns?: string;
+    readonly publicDns?: pulumi.Input<string>;
     /**
      * The public IP address assigned to the instance, if applicable.
      */
-    readonly publicIp?: string;
+    readonly publicIp?: pulumi.Input<string>;
     /**
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    readonly rootBlockDevice?: { deleteOnTermination?: boolean, iops?: number, volumeId?: string, volumeSize?: number, volumeType?: string };
+    readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**
      * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
      */
-    readonly securityGroups?: string[];
+    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Controls if traffic is routed to the instance when
      * the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
      */
-    readonly sourceDestCheck?: boolean;
+    readonly sourceDestCheck?: pulumi.Input<boolean>;
     /**
      * The current [bid
      * status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
@@ -563,64 +563,64 @@ export interface SpotInstanceRequestState {
      * state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
      * of the Spot Instance Request.
      */
-    readonly spotBidStatus?: string;
+    readonly spotBidStatus?: pulumi.Input<string>;
     /**
      * The Instance ID (if any) that is currently fulfilling
      * the Spot Instance request.
      */
-    readonly spotInstanceId?: string;
+    readonly spotInstanceId?: pulumi.Input<string>;
     /**
      * The maximum price to request on the spot market.
      */
-    readonly spotPrice?: string;
-    readonly spotRequestState?: string;
+    readonly spotPrice?: pulumi.Input<string>;
+    readonly spotRequestState?: pulumi.Input<string>;
     /**
      * If set to `one-time`, after
      * the instance is terminated, the spot request will be closed.
      */
-    readonly spotType?: string;
+    readonly spotType?: pulumi.Input<string>;
     /**
      * The VPC Subnet ID to launch in.
      */
-    readonly subnetId?: string;
+    readonly subnetId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
      */
-    readonly tenancy?: string;
+    readonly tenancy?: pulumi.Input<string>;
     /**
      * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
      */
-    readonly userData?: string;
+    readonly userData?: pulumi.Input<string>;
     /**
      * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      */
-    readonly userDataBase64?: string;
+    readonly userDataBase64?: pulumi.Input<string>;
     /**
      * The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
      */
-    readonly validFrom?: string;
+    readonly validFrom?: pulumi.Input<string>;
     /**
      * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
      */
-    readonly validUntil?: string;
+    readonly validUntil?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the devices created by the instance at launch time.
      */
-    readonly volumeTags?: {[key: string]: any};
+    readonly volumeTags?: pulumi.Input<{[key: string]: any}>;
     /**
      * A list of security group IDs to associate with.
      */
-    readonly vpcSecurityGroupIds?: string[];
+    readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * If set, Terraform will
      * wait for the Spot Request to be fulfilled, and will throw an error if the
      * timeout of 10m is reached.
      */
-    readonly waitForFulfillment?: boolean;
+    readonly waitForFulfillment?: pulumi.Input<boolean>;
 }
 
 /**
@@ -630,45 +630,45 @@ export interface SpotInstanceRequestArgs {
     /**
      * The AMI to use for the instance.
      */
-    readonly ami: string;
+    readonly ami: pulumi.Input<string>;
     /**
      * Associate a public ip address with an instance in a VPC.  Boolean value.
      */
-    readonly associatePublicIpAddress?: boolean;
+    readonly associatePublicIpAddress?: pulumi.Input<boolean>;
     /**
      * The AZ to start the instance in.
      */
-    readonly availabilityZone?: string;
+    readonly availabilityZone?: pulumi.Input<string>;
     /**
      * The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
      * The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
      * Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
      */
-    readonly blockDurationMinutes?: number;
+    readonly blockDurationMinutes?: pulumi.Input<number>;
     /**
      * Sets the number of CPU cores for an instance. This option is 
      * only supported on creation of instance type that support CPU Options
      * [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      */
-    readonly cpuCoreCount?: number;
+    readonly cpuCoreCount?: pulumi.Input<number>;
     /**
      * If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      */
-    readonly cpuThreadsPerCore?: number;
+    readonly cpuThreadsPerCore?: pulumi.Input<number>;
     /**
      * Customize the credit specification of the instance. See Credit Specification below for more details.
      */
-    readonly creditSpecification?: { cpuCredits?: string };
+    readonly creditSpecification?: pulumi.Input<{ cpuCredits?: pulumi.Input<string> }>;
     /**
      * If true, enables [EC2 Instance
      * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
      */
-    readonly disableApiTermination?: boolean;
+    readonly disableApiTermination?: pulumi.Input<boolean>;
     /**
      * Additional EBS block devices to attach to the
      * instance.  See Block Devices below for details.
      */
-    readonly ebsBlockDevices?: { deleteOnTermination?: boolean, deviceName: string, encrypted?: boolean, iops?: number, snapshotId?: string, volumeId?: string, volumeSize?: number, volumeType?: string }[];
+    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      * Note that if this is not set on an instance type that is optimized by default then
@@ -676,135 +676,135 @@ export interface SpotInstanceRequestArgs {
      * there is no need to set this and there is no effect to disabling it.
      * See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      */
-    readonly ebsOptimized?: boolean;
+    readonly ebsOptimized?: pulumi.Input<boolean>;
     /**
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    readonly ephemeralBlockDevices?: { deviceName: string, noDevice?: boolean, virtualName?: string }[];
+    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<{ deviceName: pulumi.Input<string>, noDevice?: pulumi.Input<boolean>, virtualName?: pulumi.Input<string> }>[]>;
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
-    readonly getPasswordData?: boolean;
+    readonly getPasswordData?: pulumi.Input<boolean>;
     /**
      * The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
      */
-    readonly hostId?: string;
+    readonly hostId?: pulumi.Input<string>;
     /**
      * The IAM Instance Profile to
      * launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      * * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
-    readonly iamInstanceProfile?: string;
+    readonly iamInstanceProfile?: pulumi.Input<string>;
     /**
      * Shutdown behavior for the
      * instance. Amazon defaults this to `stop` for EBS-backed instances and
      * `terminate` for instance-store instances. Cannot be set on instance-store
      * instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
      */
-    readonly instanceInitiatedShutdownBehavior?: string;
+    readonly instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
     /**
      * Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
      */
-    readonly instanceInterruptionBehaviour?: string;
+    readonly instanceInterruptionBehaviour?: pulumi.Input<string>;
     /**
      * The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
      */
-    readonly instanceType: string;
-    readonly ipv6AddressCount?: number;
+    readonly instanceType: pulumi.Input<string>;
+    readonly ipv6AddressCount?: pulumi.Input<number>;
     /**
      * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
      */
-    readonly ipv6Addresses?: string[];
+    readonly ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
      */
-    readonly keyName?: string;
+    readonly keyName?: pulumi.Input<string>;
     /**
      * A launch group is a group of spot instances that launch together and terminate together.
      * If left empty instances are launched and terminated individually.
      */
-    readonly launchGroup?: string;
+    readonly launchGroup?: pulumi.Input<string>;
     /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      */
-    readonly monitoring?: boolean;
+    readonly monitoring?: pulumi.Input<boolean>;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
-    readonly networkInterfaces?: { deleteOnTermination?: boolean, deviceIndex: number, networkInterfaceId: string }[];
+    readonly networkInterfaces?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceIndex: pulumi.Input<number>, networkInterfaceId: pulumi.Input<string> }>[]>;
     /**
      * The Placement Group to start the instance in.
      */
-    readonly placementGroup?: string;
+    readonly placementGroup?: pulumi.Input<string>;
     /**
      * Private IP address to associate with the
      * instance in a VPC.
      */
-    readonly privateIp?: string;
+    readonly privateIp?: pulumi.Input<string>;
     /**
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    readonly rootBlockDevice?: { deleteOnTermination?: boolean, iops?: number, volumeId?: string, volumeSize?: number, volumeType?: string };
+    readonly rootBlockDevice?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>;
     /**
      * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
      */
-    readonly securityGroups?: string[];
+    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Controls if traffic is routed to the instance when
      * the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
      */
-    readonly sourceDestCheck?: boolean;
+    readonly sourceDestCheck?: pulumi.Input<boolean>;
     /**
      * The maximum price to request on the spot market.
      */
-    readonly spotPrice?: string;
+    readonly spotPrice?: pulumi.Input<string>;
     /**
      * If set to `one-time`, after
      * the instance is terminated, the spot request will be closed.
      */
-    readonly spotType?: string;
+    readonly spotType?: pulumi.Input<string>;
     /**
      * The VPC Subnet ID to launch in.
      */
-    readonly subnetId?: string;
+    readonly subnetId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
      */
-    readonly tenancy?: string;
+    readonly tenancy?: pulumi.Input<string>;
     /**
      * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
      */
-    readonly userData?: string;
+    readonly userData?: pulumi.Input<string>;
     /**
      * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      */
-    readonly userDataBase64?: string;
+    readonly userDataBase64?: pulumi.Input<string>;
     /**
      * The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
      */
-    readonly validFrom?: string;
+    readonly validFrom?: pulumi.Input<string>;
     /**
      * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
      */
-    readonly validUntil?: string;
+    readonly validUntil?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the devices created by the instance at launch time.
      */
-    readonly volumeTags?: {[key: string]: any};
+    readonly volumeTags?: pulumi.Input<{[key: string]: any}>;
     /**
      * A list of security group IDs to associate with.
      */
-    readonly vpcSecurityGroupIds?: string[];
+    readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * If set, Terraform will
      * wait for the Spot Request to be fulfilled, and will throw an error if the
      * timeout of 10m is reached.
      */
-    readonly waitForFulfillment?: boolean;
+    readonly waitForFulfillment?: pulumi.Input<boolean>;
 }

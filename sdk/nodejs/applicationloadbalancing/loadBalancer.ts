@@ -172,8 +172,8 @@ export class LoadBalancer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<LoadBalancerArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<LoadBalancerArgs> | pulumi.InputObject<LoadBalancerState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: LoadBalancerArgs | LoadBalancerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: LoadBalancerState = argsOrState as LoadBalancerState | undefined;
@@ -229,82 +229,82 @@ export interface LoadBalancerState {
     /**
      * An Access Logs block. Access Logs documented below. Only valid for Load Balancers of type `application`.
      */
-    readonly accessLogs?: { bucket: string, enabled?: boolean, prefix?: string };
+    readonly accessLogs?: pulumi.Input<{ bucket: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, prefix?: pulumi.Input<string> }>;
     /**
      * The ARN of the load balancer (matches `id`).
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The ARN suffix for use with CloudWatch Metrics.
      */
-    readonly arnSuffix?: string;
+    readonly arnSuffix?: pulumi.Input<string>;
     /**
      * The DNS name of the load balancer.
      */
-    readonly dnsName?: string;
+    readonly dnsName?: pulumi.Input<string>;
     /**
      * If true, cross-zone load balancing of the load balancer will be enabled.
      * This is a `network` load balancer feature. Defaults to `false`.
      */
-    readonly enableCrossZoneLoadBalancing?: boolean;
+    readonly enableCrossZoneLoadBalancing?: pulumi.Input<boolean>;
     /**
      * If true, deletion of the load balancer will be disabled via
      * the AWS API. This will prevent Terraform from deleting the load balancer. Defaults to `false`.
      */
-    readonly enableDeletionProtection?: boolean;
+    readonly enableDeletionProtection?: pulumi.Input<boolean>;
     /**
      * Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      */
-    readonly enableHttp2?: boolean;
+    readonly enableHttp2?: pulumi.Input<boolean>;
     /**
      * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      */
-    readonly idleTimeout?: number;
+    readonly idleTimeout?: pulumi.Input<number>;
     /**
      * If true, the LB will be internal.
      */
-    readonly internal?: boolean;
+    readonly internal?: pulumi.Input<boolean>;
     /**
      * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
      */
-    readonly ipAddressType?: string;
+    readonly ipAddressType?: pulumi.Input<string>;
     /**
      * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
      */
-    readonly loadBalancerType?: string;
+    readonly loadBalancerType?: pulumi.Input<string>;
     /**
      * The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
      * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
      * Terraform will autogenerate a name beginning with `tf-lb`.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: string;
+    readonly namePrefix?: pulumi.Input<string>;
     /**
      * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
      */
-    readonly securityGroups?: string[];
+    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A subnet mapping block as documented below.
      */
-    readonly subnetMappings?: { allocationId?: string, subnetId: string }[];
+    readonly subnetMappings?: pulumi.Input<pulumi.Input<{ allocationId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>[]>;
     /**
      * A list of subnet IDs to attach to the LB. Subnets
      * cannot be updated for Load Balancers of type `network`. Changing this value
      * for load balancers of type `network` will force a recreation of the resource.
      */
-    readonly subnets?: string[];
+    readonly subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
-    readonly vpcId?: string;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly vpcId?: pulumi.Input<string>;
     /**
      * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
      */
-    readonly zoneId?: string;
+    readonly zoneId?: pulumi.Input<string>;
 }
 
 /**
@@ -314,63 +314,63 @@ export interface LoadBalancerArgs {
     /**
      * An Access Logs block. Access Logs documented below. Only valid for Load Balancers of type `application`.
      */
-    readonly accessLogs?: { bucket: string, enabled?: boolean, prefix?: string };
+    readonly accessLogs?: pulumi.Input<{ bucket: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, prefix?: pulumi.Input<string> }>;
     /**
      * If true, cross-zone load balancing of the load balancer will be enabled.
      * This is a `network` load balancer feature. Defaults to `false`.
      */
-    readonly enableCrossZoneLoadBalancing?: boolean;
+    readonly enableCrossZoneLoadBalancing?: pulumi.Input<boolean>;
     /**
      * If true, deletion of the load balancer will be disabled via
      * the AWS API. This will prevent Terraform from deleting the load balancer. Defaults to `false`.
      */
-    readonly enableDeletionProtection?: boolean;
+    readonly enableDeletionProtection?: pulumi.Input<boolean>;
     /**
      * Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      */
-    readonly enableHttp2?: boolean;
+    readonly enableHttp2?: pulumi.Input<boolean>;
     /**
      * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      */
-    readonly idleTimeout?: number;
+    readonly idleTimeout?: pulumi.Input<number>;
     /**
      * If true, the LB will be internal.
      */
-    readonly internal?: boolean;
+    readonly internal?: pulumi.Input<boolean>;
     /**
      * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
      */
-    readonly ipAddressType?: string;
+    readonly ipAddressType?: pulumi.Input<string>;
     /**
      * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
      */
-    readonly loadBalancerType?: string;
+    readonly loadBalancerType?: pulumi.Input<string>;
     /**
      * The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
      * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
      * Terraform will autogenerate a name beginning with `tf-lb`.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: string;
+    readonly namePrefix?: pulumi.Input<string>;
     /**
      * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
      */
-    readonly securityGroups?: string[];
+    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A subnet mapping block as documented below.
      */
-    readonly subnetMappings?: { allocationId?: string, subnetId: string }[];
+    readonly subnetMappings?: pulumi.Input<pulumi.Input<{ allocationId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>[]>;
     /**
      * A list of subnet IDs to attach to the LB. Subnets
      * cannot be updated for Load Balancers of type `network`. Changing this value
      * for load balancers of type `network` will force a recreation of the resource.
      */
-    readonly subnets?: string[];
+    readonly subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

@@ -54,8 +54,8 @@ export class ResourceShare extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<ResourceShareArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ResourceShareArgs> | pulumi.InputObject<ResourceShareState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ResourceShareArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ResourceShareArgs | ResourceShareState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ResourceShareState = argsOrState as ResourceShareState | undefined;
@@ -79,15 +79,15 @@ export interface ResourceShareState {
     /**
      * Indicates whether principals outside your organization can be associated with a resource share.
      */
-    readonly allowExternalPrincipals?: boolean;
+    readonly allowExternalPrincipals?: pulumi.Input<boolean>;
     /**
      * The name of the resource share.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource share.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -97,13 +97,13 @@ export interface ResourceShareArgs {
     /**
      * Indicates whether principals outside your organization can be associated with a resource share.
      */
-    readonly allowExternalPrincipals?: boolean;
+    readonly allowExternalPrincipals?: pulumi.Input<boolean>;
     /**
      * The name of the resource share.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource share.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

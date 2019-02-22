@@ -129,8 +129,8 @@ export class DataSource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<DataSourceArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<DataSourceArgs> | pulumi.InputObject<DataSourceState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DataSourceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DataSourceArgs | DataSourceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DataSourceState = argsOrState as DataSourceState | undefined;
@@ -174,43 +174,43 @@ export interface DataSourceState {
     /**
      * The API ID for the GraphQL API for the DataSource.
      */
-    readonly apiId?: string;
+    readonly apiId?: pulumi.Input<string>;
     /**
      * The ARN
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * A description of the DataSource.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * DynamoDB settings. See below
      */
-    readonly dynamodbConfig?: { region?: string, tableName: string, useCallerCredentials?: boolean };
+    readonly dynamodbConfig?: pulumi.Input<{ region?: pulumi.Input<string>, tableName: pulumi.Input<string>, useCallerCredentials?: pulumi.Input<boolean> }>;
     /**
      * Amazon Elasticsearch settings. See below
      */
-    readonly elasticsearchConfig?: { endpoint: string, region?: string };
+    readonly elasticsearchConfig?: pulumi.Input<{ endpoint: pulumi.Input<string>, region?: pulumi.Input<string> }>;
     /**
      * HTTP settings. See below
      */
-    readonly httpConfig?: { endpoint: string };
+    readonly httpConfig?: pulumi.Input<{ endpoint: pulumi.Input<string> }>;
     /**
      * AWS Lambda settings. See below
      */
-    readonly lambdaConfig?: { functionArn: string };
+    readonly lambdaConfig?: pulumi.Input<{ functionArn: pulumi.Input<string> }>;
     /**
      * A user-supplied name for the DataSource.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The IAM service role ARN for the data source.
      */
-    readonly serviceRoleArn?: string;
+    readonly serviceRoleArn?: pulumi.Input<string>;
     /**
      * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
      */
-    readonly type?: string;
+    readonly type?: pulumi.Input<string>;
 }
 
 /**
@@ -220,37 +220,37 @@ export interface DataSourceArgs {
     /**
      * The API ID for the GraphQL API for the DataSource.
      */
-    readonly apiId: string;
+    readonly apiId: pulumi.Input<string>;
     /**
      * A description of the DataSource.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * DynamoDB settings. See below
      */
-    readonly dynamodbConfig?: { region?: string, tableName: string, useCallerCredentials?: boolean };
+    readonly dynamodbConfig?: pulumi.Input<{ region?: pulumi.Input<string>, tableName: pulumi.Input<string>, useCallerCredentials?: pulumi.Input<boolean> }>;
     /**
      * Amazon Elasticsearch settings. See below
      */
-    readonly elasticsearchConfig?: { endpoint: string, region?: string };
+    readonly elasticsearchConfig?: pulumi.Input<{ endpoint: pulumi.Input<string>, region?: pulumi.Input<string> }>;
     /**
      * HTTP settings. See below
      */
-    readonly httpConfig?: { endpoint: string };
+    readonly httpConfig?: pulumi.Input<{ endpoint: pulumi.Input<string> }>;
     /**
      * AWS Lambda settings. See below
      */
-    readonly lambdaConfig?: { functionArn: string };
+    readonly lambdaConfig?: pulumi.Input<{ functionArn: pulumi.Input<string> }>;
     /**
      * A user-supplied name for the DataSource.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The IAM service role ARN for the data source.
      */
-    readonly serviceRoleArn?: string;
+    readonly serviceRoleArn?: pulumi.Input<string>;
     /**
      * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
      */
-    readonly type: string;
+    readonly type: pulumi.Input<string>;
 }

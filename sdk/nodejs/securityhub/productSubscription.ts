@@ -49,8 +49,8 @@ export class ProductSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ProductSubscriptionArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ProductSubscriptionArgs> | pulumi.InputObject<ProductSubscriptionState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ProductSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ProductSubscriptionArgs | ProductSubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ProductSubscriptionState = argsOrState as ProductSubscriptionState | undefined;
@@ -75,11 +75,11 @@ export interface ProductSubscriptionState {
     /**
      * The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The ARN of the product that generates findings that you want to import into Security Hub - see below.
      */
-    readonly productArn?: string;
+    readonly productArn?: pulumi.Input<string>;
 }
 
 /**
@@ -89,5 +89,5 @@ export interface ProductSubscriptionArgs {
     /**
      * The ARN of the product that generates findings that you want to import into Security Hub - see below.
      */
-    readonly productArn: string;
+    readonly productArn: pulumi.Input<string>;
 }

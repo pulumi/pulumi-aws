@@ -59,8 +59,8 @@ export class RequestValidator extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<RequestValidatorArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<RequestValidatorArgs> | pulumi.InputObject<RequestValidatorState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RequestValidatorArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: RequestValidatorArgs | RequestValidatorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RequestValidatorState = argsOrState as RequestValidatorState | undefined;
@@ -89,19 +89,19 @@ export interface RequestValidatorState {
     /**
      * The name of the request validator
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The ID of the associated Rest API
      */
-    readonly restApi?: RestApi;
+    readonly restApi?: pulumi.Input<RestApi>;
     /**
      * Boolean whether to validate request body. Defaults to `false`.
      */
-    readonly validateRequestBody?: boolean;
+    readonly validateRequestBody?: pulumi.Input<boolean>;
     /**
      * Boolean whether to validate request parameters. Defaults to `false`.
      */
-    readonly validateRequestParameters?: boolean;
+    readonly validateRequestParameters?: pulumi.Input<boolean>;
 }
 
 /**
@@ -111,17 +111,17 @@ export interface RequestValidatorArgs {
     /**
      * The name of the request validator
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The ID of the associated Rest API
      */
-    readonly restApi: RestApi;
+    readonly restApi: pulumi.Input<RestApi>;
     /**
      * Boolean whether to validate request body. Defaults to `false`.
      */
-    readonly validateRequestBody?: boolean;
+    readonly validateRequestBody?: pulumi.Input<boolean>;
     /**
      * Boolean whether to validate request parameters. Defaults to `false`.
      */
-    readonly validateRequestParameters?: boolean;
+    readonly validateRequestParameters?: pulumi.Input<boolean>;
 }

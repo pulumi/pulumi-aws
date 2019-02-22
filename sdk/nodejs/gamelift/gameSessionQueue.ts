@@ -72,8 +72,8 @@ export class GameSessionQueue extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<GameSessionQueueArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<GameSessionQueueArgs> | pulumi.InputObject<GameSessionQueueState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: GameSessionQueueArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: GameSessionQueueArgs | GameSessionQueueState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: GameSessionQueueState = argsOrState as GameSessionQueueState | undefined;
@@ -101,23 +101,23 @@ export interface GameSessionQueueState {
     /**
      * Game Session Queue ARN.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * List of fleet/alias ARNs used by session queue for placing game sessions.
      */
-    readonly destinations?: string[];
+    readonly destinations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the session queue.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * One or more policies used to choose fleet based on player latency. See below.
      */
-    readonly playerLatencyPolicies?: { maximumIndividualPlayerLatencyMilliseconds: number, policyDurationSeconds?: number }[];
+    readonly playerLatencyPolicies?: pulumi.Input<pulumi.Input<{ maximumIndividualPlayerLatencyMilliseconds: pulumi.Input<number>, policyDurationSeconds?: pulumi.Input<number> }>[]>;
     /**
      * Maximum time a game session request can remain in the queue.
      */
-    readonly timeoutInSeconds?: number;
+    readonly timeoutInSeconds?: pulumi.Input<number>;
 }
 
 /**
@@ -127,17 +127,17 @@ export interface GameSessionQueueArgs {
     /**
      * List of fleet/alias ARNs used by session queue for placing game sessions.
      */
-    readonly destinations?: string[];
+    readonly destinations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the session queue.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * One or more policies used to choose fleet based on player latency. See below.
      */
-    readonly playerLatencyPolicies?: { maximumIndividualPlayerLatencyMilliseconds: number, policyDurationSeconds?: number }[];
+    readonly playerLatencyPolicies?: pulumi.Input<pulumi.Input<{ maximumIndividualPlayerLatencyMilliseconds: pulumi.Input<number>, policyDurationSeconds?: pulumi.Input<number> }>[]>;
     /**
      * Maximum time a game session request can remain in the queue.
      */
-    readonly timeoutInSeconds?: number;
+    readonly timeoutInSeconds?: pulumi.Input<number>;
 }

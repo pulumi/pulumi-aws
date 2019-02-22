@@ -85,8 +85,8 @@ export class Stream extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<StreamArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<StreamArgs> | pulumi.InputObject<StreamState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: StreamArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: StreamArgs | StreamState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: StreamState = argsOrState as StreamState | undefined;
@@ -123,38 +123,38 @@ export interface StreamState {
     /**
      * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
      */
-    readonly encryptionType?: string;
+    readonly encryptionType?: pulumi.Input<string>;
     /**
      * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias aws/kinesis.
      */
-    readonly kmsKeyId?: string;
+    readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * A name to identify the stream. This is unique to the
      * AWS account and region the Stream is created in.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
      */
-    readonly retentionPeriod?: number;
+    readonly retentionPeriod?: pulumi.Input<number>;
     /**
      * The number of shards that the stream will use.
      * Amazon has guidlines for specifying the Stream size that should be referenced
      * when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
      */
-    readonly shardCount?: number;
+    readonly shardCount?: pulumi.Input<number>;
     /**
      * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
      */
-    readonly shardLevelMetrics?: string[];
+    readonly shardLevelMetrics?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -164,36 +164,36 @@ export interface StreamArgs {
     /**
      * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
      */
-    readonly encryptionType?: string;
+    readonly encryptionType?: pulumi.Input<string>;
     /**
      * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias aws/kinesis.
      */
-    readonly kmsKeyId?: string;
+    readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * A name to identify the stream. This is unique to the
      * AWS account and region the Stream is created in.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
      */
-    readonly retentionPeriod?: number;
+    readonly retentionPeriod?: pulumi.Input<number>;
     /**
      * The number of shards that the stream will use.
      * Amazon has guidlines for specifying the Stream size that should be referenced
      * when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
      */
-    readonly shardCount: number;
+    readonly shardCount: pulumi.Input<number>;
     /**
      * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
      */
-    readonly shardLevelMetrics?: string[];
+    readonly shardLevelMetrics?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

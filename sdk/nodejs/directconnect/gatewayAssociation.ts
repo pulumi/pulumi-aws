@@ -57,8 +57,8 @@ export class GatewayAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<GatewayAssociationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<GatewayAssociationArgs> | pulumi.InputObject<GatewayAssociationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: GatewayAssociationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: GatewayAssociationArgs | GatewayAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: GatewayAssociationState = argsOrState as GatewayAssociationState | undefined;
@@ -86,11 +86,11 @@ export interface GatewayAssociationState {
     /**
      * The ID of the Direct Connect Gateway.
      */
-    readonly dxGatewayId?: string;
+    readonly dxGatewayId?: pulumi.Input<string>;
     /**
      * The ID of the VGW with which to associate the gateway.
      */
-    readonly vpnGatewayId?: string;
+    readonly vpnGatewayId?: pulumi.Input<string>;
 }
 
 /**
@@ -100,9 +100,9 @@ export interface GatewayAssociationArgs {
     /**
      * The ID of the Direct Connect Gateway.
      */
-    readonly dxGatewayId: string;
+    readonly dxGatewayId: pulumi.Input<string>;
     /**
      * The ID of the VGW with which to associate the gateway.
      */
-    readonly vpnGatewayId: string;
+    readonly vpnGatewayId: pulumi.Input<string>;
 }

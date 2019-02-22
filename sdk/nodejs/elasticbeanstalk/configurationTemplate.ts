@@ -81,8 +81,8 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ConfigurationTemplateArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ConfigurationTemplateArgs> | pulumi.InputObject<ConfigurationTemplateState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ConfigurationTemplateArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ConfigurationTemplateArgs | ConfigurationTemplateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ConfigurationTemplateState = argsOrState as ConfigurationTemplateState | undefined;
@@ -115,30 +115,30 @@ export interface ConfigurationTemplateState {
     /**
      * name of the application to associate with this configuration template
      */
-    readonly application?: string;
+    readonly application?: pulumi.Input<string>;
     /**
      * Short description of the Template
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The ID of the environment used with this configuration template
      */
-    readonly environmentId?: string;
+    readonly environmentId?: pulumi.Input<string>;
     /**
      * A unique name for this Template.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    readonly settings?: { name: string, namespace: string, resource?: string, value: string }[];
+    readonly settings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * A solution stack to base your Template
      * off of. Example stacks can be found in the [Amazon API documentation][1]
      */
-    readonly solutionStackName?: string;
+    readonly solutionStackName?: pulumi.Input<string>;
 }
 
 /**
@@ -148,28 +148,28 @@ export interface ConfigurationTemplateArgs {
     /**
      * name of the application to associate with this configuration template
      */
-    readonly application: string;
+    readonly application: pulumi.Input<string>;
     /**
      * Short description of the Template
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The ID of the environment used with this configuration template
      */
-    readonly environmentId?: string;
+    readonly environmentId?: pulumi.Input<string>;
     /**
      * A unique name for this Template.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    readonly settings?: { name: string, namespace: string, resource?: string, value: string }[];
+    readonly settings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * A solution stack to base your Template
      * off of. Example stacks can be found in the [Amazon API documentation][1]
      */
-    readonly solutionStackName?: string;
+    readonly solutionStackName?: pulumi.Input<string>;
 }

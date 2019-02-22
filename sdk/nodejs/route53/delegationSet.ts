@@ -55,8 +55,8 @@ export class DelegationSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<DelegationSetArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<DelegationSetArgs> | pulumi.InputObject<DelegationSetState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: DelegationSetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DelegationSetArgs | DelegationSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DelegationSetState = argsOrState as DelegationSetState | undefined;
@@ -79,12 +79,12 @@ export interface DelegationSetState {
      * A list of authoritative name servers for the hosted zone
      * (effectively a list of NS records).
      */
-    readonly nameServers?: string[];
+    readonly nameServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * This is a reference name used in Caller Reference
      * (helpful for identifying single delegation set amongst others)
      */
-    readonly referenceName?: string;
+    readonly referenceName?: pulumi.Input<string>;
 }
 
 /**
@@ -95,5 +95,5 @@ export interface DelegationSetArgs {
      * This is a reference name used in Caller Reference
      * (helpful for identifying single delegation set amongst others)
      */
-    readonly referenceName?: string;
+    readonly referenceName?: pulumi.Input<string>;
 }

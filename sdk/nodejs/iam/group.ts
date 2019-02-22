@@ -55,8 +55,8 @@ export class Group extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<GroupArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<GroupArgs> | pulumi.InputObject<GroupState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: GroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: GroupState = argsOrState as GroupState | undefined;
@@ -82,19 +82,19 @@ export interface GroupState {
     /**
      * The ARN assigned by AWS for this group.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Path in which to create the group.
      */
-    readonly path?: string;
+    readonly path?: pulumi.Input<string>;
     /**
      * The [unique ID][1] assigned by AWS.
      */
-    readonly uniqueId?: string;
+    readonly uniqueId?: pulumi.Input<string>;
 }
 
 /**
@@ -104,9 +104,9 @@ export interface GroupArgs {
     /**
      * The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Path in which to create the group.
      */
-    readonly path?: string;
+    readonly path?: pulumi.Input<string>;
 }

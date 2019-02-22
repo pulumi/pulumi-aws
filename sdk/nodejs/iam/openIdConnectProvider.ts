@@ -57,8 +57,8 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<OpenIdConnectProviderArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<OpenIdConnectProviderArgs> | pulumi.InputObject<OpenIdConnectProviderState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: OpenIdConnectProviderArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: OpenIdConnectProviderArgs | OpenIdConnectProviderState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: OpenIdConnectProviderState = argsOrState as OpenIdConnectProviderState | undefined;
@@ -93,19 +93,19 @@ export interface OpenIdConnectProviderState {
     /**
      * The ARN assigned by AWS for this provider.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
      */
-    readonly clientIdLists?: string[];
+    readonly clientIdLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
      */
-    readonly thumbprintLists?: string[];
+    readonly thumbprintLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The URL of the identity provider. Corresponds to the _iss_ claim.
      */
-    readonly url?: string;
+    readonly url?: pulumi.Input<string>;
 }
 
 /**
@@ -115,13 +115,13 @@ export interface OpenIdConnectProviderArgs {
     /**
      * A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
      */
-    readonly clientIdLists: string[];
+    readonly clientIdLists: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
      */
-    readonly thumbprintLists: string[];
+    readonly thumbprintLists: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The URL of the identity provider. Corresponds to the _iss_ claim.
      */
-    readonly url: string;
+    readonly url: pulumi.Input<string>;
 }

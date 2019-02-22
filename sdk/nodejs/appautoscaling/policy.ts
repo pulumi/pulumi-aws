@@ -196,8 +196,8 @@ export class Policy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<PolicyArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<PolicyArgs> | pulumi.InputObject<PolicyState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PolicyState = argsOrState as PolicyState | undefined;
@@ -252,44 +252,44 @@ export interface PolicyState {
     /**
      * The scaling policy's adjustment type.
      */
-    readonly adjustmentType?: string;
-    readonly alarms?: string[];
+    readonly adjustmentType?: pulumi.Input<string>;
+    readonly alarms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ARN assigned by AWS to the scaling policy.
      */
-    readonly arn?: string;
-    readonly cooldown?: number;
-    readonly metricAggregationType?: string;
-    readonly minAdjustmentMagnitude?: number;
+    readonly arn?: pulumi.Input<string>;
+    readonly cooldown?: pulumi.Input<number>;
+    readonly metricAggregationType?: pulumi.Input<string>;
+    readonly minAdjustmentMagnitude?: pulumi.Input<number>;
     /**
      * The name of the policy.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * For DynamoDB, only `TargetTrackingScaling` is supported. For Amazon ECS, Spot Fleet, and Amazon RDS, both `StepScaling` and `TargetTrackingScaling` are supported. For any other service, only `StepScaling` is supported. Defaults to `StepScaling`.
      */
-    readonly policyType?: string;
+    readonly policyType?: pulumi.Input<string>;
     /**
      * The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    readonly resourceId?: string;
+    readonly resourceId?: pulumi.Input<string>;
     /**
      * The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    readonly scalableDimension?: string;
+    readonly scalableDimension?: pulumi.Input<string>;
     /**
      * The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    readonly serviceNamespace?: string;
-    readonly stepAdjustments?: { metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[];
+    readonly serviceNamespace?: pulumi.Input<string>;
+    readonly stepAdjustments?: pulumi.Input<pulumi.Input<{ metricIntervalLowerBound?: pulumi.Input<string>, metricIntervalUpperBound?: pulumi.Input<string>, scalingAdjustment: pulumi.Input<number> }>[]>;
     /**
      * Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
      */
-    readonly stepScalingPolicyConfigurations?: { adjustmentType?: string, cooldown?: number, metricAggregationType?: string, minAdjustmentMagnitude?: number, stepAdjustments?: { metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[] }[];
+    readonly stepScalingPolicyConfigurations?: pulumi.Input<pulumi.Input<{ adjustmentType?: pulumi.Input<string>, cooldown?: pulumi.Input<number>, metricAggregationType?: pulumi.Input<string>, minAdjustmentMagnitude?: pulumi.Input<number>, stepAdjustments?: pulumi.Input<pulumi.Input<{ metricIntervalLowerBound?: pulumi.Input<string>, metricIntervalUpperBound?: pulumi.Input<string>, scalingAdjustment: pulumi.Input<number> }>[]> }>[]>;
     /**
      * A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
      */
-    readonly targetTrackingScalingPolicyConfiguration?: { customizedMetricSpecification?: { dimensions?: { name: string, value: string }[], metricName: string, namespace: string, statistic: string, unit?: string }, disableScaleIn?: boolean, predefinedMetricSpecification?: { predefinedMetricType: string, resourceLabel?: string }, scaleInCooldown?: number, scaleOutCooldown?: number, targetValue: number };
+    readonly targetTrackingScalingPolicyConfiguration?: pulumi.Input<{ customizedMetricSpecification?: pulumi.Input<{ dimensions?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, metricName: pulumi.Input<string>, namespace: pulumi.Input<string>, statistic: pulumi.Input<string>, unit?: pulumi.Input<string> }>, disableScaleIn?: pulumi.Input<boolean>, predefinedMetricSpecification?: pulumi.Input<{ predefinedMetricType: pulumi.Input<string>, resourceLabel?: pulumi.Input<string> }>, scaleInCooldown?: pulumi.Input<number>, scaleOutCooldown?: pulumi.Input<number>, targetValue: pulumi.Input<number> }>;
 }
 
 /**
@@ -299,38 +299,38 @@ export interface PolicyArgs {
     /**
      * The scaling policy's adjustment type.
      */
-    readonly adjustmentType?: string;
-    readonly alarms?: string[];
-    readonly cooldown?: number;
-    readonly metricAggregationType?: string;
-    readonly minAdjustmentMagnitude?: number;
+    readonly adjustmentType?: pulumi.Input<string>;
+    readonly alarms?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly cooldown?: pulumi.Input<number>;
+    readonly metricAggregationType?: pulumi.Input<string>;
+    readonly minAdjustmentMagnitude?: pulumi.Input<number>;
     /**
      * The name of the policy.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * For DynamoDB, only `TargetTrackingScaling` is supported. For Amazon ECS, Spot Fleet, and Amazon RDS, both `StepScaling` and `TargetTrackingScaling` are supported. For any other service, only `StepScaling` is supported. Defaults to `StepScaling`.
      */
-    readonly policyType?: string;
+    readonly policyType?: pulumi.Input<string>;
     /**
      * The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    readonly resourceId: string;
+    readonly resourceId: pulumi.Input<string>;
     /**
      * The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    readonly scalableDimension: string;
+    readonly scalableDimension: pulumi.Input<string>;
     /**
      * The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    readonly serviceNamespace: string;
-    readonly stepAdjustments?: { metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[];
+    readonly serviceNamespace: pulumi.Input<string>;
+    readonly stepAdjustments?: pulumi.Input<pulumi.Input<{ metricIntervalLowerBound?: pulumi.Input<string>, metricIntervalUpperBound?: pulumi.Input<string>, scalingAdjustment: pulumi.Input<number> }>[]>;
     /**
      * Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
      */
-    readonly stepScalingPolicyConfigurations?: { adjustmentType?: string, cooldown?: number, metricAggregationType?: string, minAdjustmentMagnitude?: number, stepAdjustments?: { metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[] }[];
+    readonly stepScalingPolicyConfigurations?: pulumi.Input<pulumi.Input<{ adjustmentType?: pulumi.Input<string>, cooldown?: pulumi.Input<number>, metricAggregationType?: pulumi.Input<string>, minAdjustmentMagnitude?: pulumi.Input<number>, stepAdjustments?: pulumi.Input<pulumi.Input<{ metricIntervalLowerBound?: pulumi.Input<string>, metricIntervalUpperBound?: pulumi.Input<string>, scalingAdjustment: pulumi.Input<number> }>[]> }>[]>;
     /**
      * A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
      */
-    readonly targetTrackingScalingPolicyConfiguration?: { customizedMetricSpecification?: { dimensions?: { name: string, value: string }[], metricName: string, namespace: string, statistic: string, unit?: string }, disableScaleIn?: boolean, predefinedMetricSpecification?: { predefinedMetricType: string, resourceLabel?: string }, scaleInCooldown?: number, scaleOutCooldown?: number, targetValue: number };
+    readonly targetTrackingScalingPolicyConfiguration?: pulumi.Input<{ customizedMetricSpecification?: pulumi.Input<{ dimensions?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, metricName: pulumi.Input<string>, namespace: pulumi.Input<string>, statistic: pulumi.Input<string>, unit?: pulumi.Input<string> }>, disableScaleIn?: pulumi.Input<boolean>, predefinedMetricSpecification?: pulumi.Input<{ predefinedMetricType: pulumi.Input<string>, resourceLabel?: pulumi.Input<string> }>, scaleInCooldown?: pulumi.Input<number>, scaleOutCooldown?: pulumi.Input<number>, targetValue: pulumi.Input<number> }>;
 }

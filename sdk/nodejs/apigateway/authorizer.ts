@@ -144,8 +144,8 @@ export class Authorizer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<AuthorizerArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<AuthorizerArgs> | pulumi.InputObject<AuthorizerState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AuthorizerArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: AuthorizerArgs | AuthorizerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AuthorizerState = argsOrState as AuthorizerState | undefined;
@@ -185,48 +185,48 @@ export interface AuthorizerState {
      * The credentials required for the authorizer.
      * To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
      */
-    readonly authorizerCredentials?: string;
+    readonly authorizerCredentials?: pulumi.Input<string>;
     /**
      * The TTL of cached authorizer results in seconds.
      * Defaults to `300`.
      */
-    readonly authorizerResultTtlInSeconds?: number;
+    readonly authorizerResultTtlInSeconds?: pulumi.Input<number>;
     /**
      * The authorizer's Uniform Resource Identifier (URI).
      * This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
      * e.g. `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
      */
-    readonly authorizerUri?: string;
+    readonly authorizerUri?: pulumi.Input<string>;
     /**
      * The source of the identity in an incoming request.
      * Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g. `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
      */
-    readonly identitySource?: string;
+    readonly identitySource?: pulumi.Input<string>;
     /**
      * A validation expression for the incoming identity.
      * For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched
      * against this expression, and will proceed if the token matches. If the token doesn't match,
      * the client receives a 401 Unauthorized response.
      */
-    readonly identityValidationExpression?: string;
+    readonly identityValidationExpression?: pulumi.Input<string>;
     /**
      * The name of the authorizer
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A list of the Amazon Cognito user pool ARNs.
      * Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
      */
-    readonly providerArns?: string[];
+    readonly providerArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi?: RestApi;
+    readonly restApi?: pulumi.Input<RestApi>;
     /**
      * The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool.
      * Defaults to `TOKEN`.
      */
-    readonly type?: string;
+    readonly type?: pulumi.Input<string>;
 }
 
 /**
@@ -237,46 +237,46 @@ export interface AuthorizerArgs {
      * The credentials required for the authorizer.
      * To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
      */
-    readonly authorizerCredentials?: string;
+    readonly authorizerCredentials?: pulumi.Input<string>;
     /**
      * The TTL of cached authorizer results in seconds.
      * Defaults to `300`.
      */
-    readonly authorizerResultTtlInSeconds?: number;
+    readonly authorizerResultTtlInSeconds?: pulumi.Input<number>;
     /**
      * The authorizer's Uniform Resource Identifier (URI).
      * This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
      * e.g. `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
      */
-    readonly authorizerUri?: string;
+    readonly authorizerUri?: pulumi.Input<string>;
     /**
      * The source of the identity in an incoming request.
      * Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g. `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
      */
-    readonly identitySource?: string;
+    readonly identitySource?: pulumi.Input<string>;
     /**
      * A validation expression for the incoming identity.
      * For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched
      * against this expression, and will proceed if the token matches. If the token doesn't match,
      * the client receives a 401 Unauthorized response.
      */
-    readonly identityValidationExpression?: string;
+    readonly identityValidationExpression?: pulumi.Input<string>;
     /**
      * The name of the authorizer
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A list of the Amazon Cognito user pool ARNs.
      * Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
      */
-    readonly providerArns?: string[];
+    readonly providerArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: RestApi;
+    readonly restApi: pulumi.Input<RestApi>;
     /**
      * The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool.
      * Defaults to `TOKEN`.
      */
-    readonly type?: string;
+    readonly type?: pulumi.Input<string>;
 }

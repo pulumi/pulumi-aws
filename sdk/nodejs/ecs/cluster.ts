@@ -49,8 +49,8 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<ClusterArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ClusterArgs> | pulumi.InputObject<ClusterState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ClusterArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ClusterState = argsOrState as ClusterState | undefined;
@@ -74,15 +74,15 @@ export interface ClusterState {
     /**
      * The Amazon Resource Name (ARN) that identifies the cluster
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -92,9 +92,9 @@ export interface ClusterArgs {
     /**
      * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

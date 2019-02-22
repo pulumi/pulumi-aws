@@ -314,8 +314,8 @@ export class Distribution extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<DistributionArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<DistributionArgs> | pulumi.InputObject<DistributionState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DistributionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DistributionArgs | DistributionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DistributionState = argsOrState as DistributionState | undefined;
@@ -404,139 +404,139 @@ export interface DistributionState {
      * each trusted signer, if the distribution is set up to serve private content
      * with signed URLs.
      */
-    readonly activeTrustedSigners?: {[key: string]: any};
+    readonly activeTrustedSigners?: pulumi.Input<{[key: string]: any}>;
     /**
      * Extra CNAMEs (alternate domain names), if any, for
      * this distribution.
      */
-    readonly aliases?: string[];
+    readonly aliases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * **Deprecated**, use `ordered_cache_behavior` instead.
      */
-    readonly cacheBehaviors?: { allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl?: number, fieldLevelEncryptionId?: string, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }, headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }, lambdaFunctionAssociations?: { eventType: string, includeBody?: boolean, lambdaArn: string }[], maxTtl?: number, minTtl?: number, pathPattern: string, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string }[];
+    readonly cacheBehaviors?: pulumi.Input<pulumi.Input<{ allowedMethods: pulumi.Input<pulumi.Input<string>[]>, cachedMethods: pulumi.Input<pulumi.Input<string>[]>, compress?: pulumi.Input<boolean>, defaultTtl?: pulumi.Input<number>, fieldLevelEncryptionId?: pulumi.Input<string>, forwardedValues: pulumi.Input<{ cookies: pulumi.Input<{ forward: pulumi.Input<string>, whitelistedNames?: pulumi.Input<pulumi.Input<string>[]> }>, headers?: pulumi.Input<pulumi.Input<string>[]>, queryString: pulumi.Input<boolean>, queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]> }>, lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<{ eventType: pulumi.Input<string>, includeBody?: pulumi.Input<boolean>, lambdaArn: pulumi.Input<string> }>[]>, maxTtl?: pulumi.Input<number>, minTtl?: pulumi.Input<number>, pathPattern: pulumi.Input<string>, smoothStreaming?: pulumi.Input<boolean>, targetOriginId: pulumi.Input<string>, trustedSigners?: pulumi.Input<pulumi.Input<string>[]>, viewerProtocolPolicy: pulumi.Input<string> }>[]>;
     /**
      * Internal value used by CloudFront to allow future
      * updates to the distribution configuration.
      */
-    readonly callerReference?: string;
+    readonly callerReference?: pulumi.Input<string>;
     /**
      * Any comments you want to include about the
      * distribution.
      */
-    readonly comment?: string;
+    readonly comment?: pulumi.Input<string>;
     /**
      * One or more custom error response elements (multiples allowed).
      */
-    readonly customErrorResponses?: { errorCachingMinTtl?: number, errorCode: number, responseCode?: number, responsePagePath?: string }[];
+    readonly customErrorResponses?: pulumi.Input<pulumi.Input<{ errorCachingMinTtl?: pulumi.Input<number>, errorCode: pulumi.Input<number>, responseCode?: pulumi.Input<number>, responsePagePath?: pulumi.Input<string> }>[]>;
     /**
      * The default cache behavior for this distribution (maximum
      * one).
      */
-    readonly defaultCacheBehavior?: { allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl?: number, fieldLevelEncryptionId?: string, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }, headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }, lambdaFunctionAssociations?: { eventType: string, includeBody?: boolean, lambdaArn: string }[], maxTtl?: number, minTtl?: number, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string };
+    readonly defaultCacheBehavior?: pulumi.Input<{ allowedMethods: pulumi.Input<pulumi.Input<string>[]>, cachedMethods: pulumi.Input<pulumi.Input<string>[]>, compress?: pulumi.Input<boolean>, defaultTtl?: pulumi.Input<number>, fieldLevelEncryptionId?: pulumi.Input<string>, forwardedValues: pulumi.Input<{ cookies: pulumi.Input<{ forward: pulumi.Input<string>, whitelistedNames?: pulumi.Input<pulumi.Input<string>[]> }>, headers?: pulumi.Input<pulumi.Input<string>[]>, queryString: pulumi.Input<boolean>, queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]> }>, lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<{ eventType: pulumi.Input<string>, includeBody?: pulumi.Input<boolean>, lambdaArn: pulumi.Input<string> }>[]>, maxTtl?: pulumi.Input<number>, minTtl?: pulumi.Input<number>, smoothStreaming?: pulumi.Input<boolean>, targetOriginId: pulumi.Input<string>, trustedSigners?: pulumi.Input<pulumi.Input<string>[]>, viewerProtocolPolicy: pulumi.Input<string> }>;
     /**
      * The object that you want CloudFront to
      * return (for example, index.html) when an end user requests the root URL.
      */
-    readonly defaultRootObject?: string;
+    readonly defaultRootObject?: pulumi.Input<string>;
     /**
      * The DNS domain name of either the S3 bucket, or
      * web site of your custom origin.
      */
-    readonly domainName?: string;
+    readonly domainName?: pulumi.Input<string>;
     /**
      * Whether the distribution is enabled to accept end
      * user requests for content.
      */
-    readonly enabled?: boolean;
+    readonly enabled?: pulumi.Input<boolean>;
     /**
      * The current version of the distribution's information. For example:
      * `E2QWRUHAPOMQZL`.
      */
-    readonly etag?: string;
+    readonly etag?: pulumi.Input<string>;
     /**
      * The CloudFront Route 53 zone ID that can be used to
      * route an [Alias Resource Record Set][7] to. This attribute is simply an
      * alias for the zone ID `Z2FDTNDATAQYW2`.
      */
-    readonly hostedZoneId?: string;
+    readonly hostedZoneId?: pulumi.Input<string>;
     /**
      * The maximum HTTP version to support on the
      * distribution. Allowed values are `http1.1` and `http2`. The default is
      * `http2`.
      */
-    readonly httpVersion?: string;
+    readonly httpVersion?: pulumi.Input<string>;
     /**
      * The number of invalidation batches
      * currently in progress.
      */
-    readonly inProgressValidationBatches?: number;
+    readonly inProgressValidationBatches?: pulumi.Input<number>;
     /**
      * Whether the IPv6 is enabled for the distribution.
      */
-    readonly isIpv6Enabled?: boolean;
+    readonly isIpv6Enabled?: pulumi.Input<boolean>;
     /**
      * The date and time the distribution was last modified.
      */
-    readonly lastModifiedTime?: string;
+    readonly lastModifiedTime?: pulumi.Input<string>;
     /**
      * The logging
      * configuration that controls how logs are written
      * to your distribution (maximum one).
      */
-    readonly loggingConfig?: { bucket: string, includeCookies?: boolean, prefix?: string };
+    readonly loggingConfig?: pulumi.Input<{ bucket: pulumi.Input<string>, includeCookies?: pulumi.Input<boolean>, prefix?: pulumi.Input<string> }>;
     /**
      * An ordered list of cache behaviors
      * resource for this distribution. List from top to bottom
      * +    in order of precedence. The topmost cache behavior will have precedence 0.
      */
-    readonly orderedCacheBehaviors?: { allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl?: number, fieldLevelEncryptionId?: string, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }, headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }, lambdaFunctionAssociations?: { eventType: string, includeBody?: boolean, lambdaArn: string }[], maxTtl?: number, minTtl?: number, pathPattern: string, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string }[];
+    readonly orderedCacheBehaviors?: pulumi.Input<pulumi.Input<{ allowedMethods: pulumi.Input<pulumi.Input<string>[]>, cachedMethods: pulumi.Input<pulumi.Input<string>[]>, compress?: pulumi.Input<boolean>, defaultTtl?: pulumi.Input<number>, fieldLevelEncryptionId?: pulumi.Input<string>, forwardedValues: pulumi.Input<{ cookies: pulumi.Input<{ forward: pulumi.Input<string>, whitelistedNames?: pulumi.Input<pulumi.Input<string>[]> }>, headers?: pulumi.Input<pulumi.Input<string>[]>, queryString: pulumi.Input<boolean>, queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]> }>, lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<{ eventType: pulumi.Input<string>, includeBody?: pulumi.Input<boolean>, lambdaArn: pulumi.Input<string> }>[]>, maxTtl?: pulumi.Input<number>, minTtl?: pulumi.Input<number>, pathPattern: pulumi.Input<string>, smoothStreaming?: pulumi.Input<boolean>, targetOriginId: pulumi.Input<string>, trustedSigners?: pulumi.Input<pulumi.Input<string>[]>, viewerProtocolPolicy: pulumi.Input<string> }>[]>;
     /**
      * One or more origins for this
      * distribution (multiples allowed).
      */
-    readonly origins?: { customHeaders?: { name: string, value: string }[], customOriginConfig?: { httpPort: number, httpsPort: number, originKeepaliveTimeout?: number, originProtocolPolicy: string, originReadTimeout?: number, originSslProtocols: string[] }, domainName: string, originId: string, originPath?: string, s3OriginConfig?: { originAccessIdentity: string } }[];
+    readonly origins?: pulumi.Input<pulumi.Input<{ customHeaders?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, customOriginConfig?: pulumi.Input<{ httpPort: pulumi.Input<number>, httpsPort: pulumi.Input<number>, originKeepaliveTimeout?: pulumi.Input<number>, originProtocolPolicy: pulumi.Input<string>, originReadTimeout?: pulumi.Input<number>, originSslProtocols: pulumi.Input<pulumi.Input<string>[]> }>, domainName: pulumi.Input<string>, originId: pulumi.Input<string>, originPath?: pulumi.Input<string>, s3OriginConfig?: pulumi.Input<{ originAccessIdentity: pulumi.Input<string> }> }>[]>;
     /**
      * The price class for this distribution. One of
      * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
      */
-    readonly priceClass?: string;
+    readonly priceClass?: pulumi.Input<string>;
     /**
      * The restriction
      * configuration for this distribution (maximum one).
      */
-    readonly restrictions?: { geoRestriction: { locations?: string[], restrictionType: string } };
+    readonly restrictions?: pulumi.Input<{ geoRestriction: pulumi.Input<{ locations?: pulumi.Input<pulumi.Input<string>[]>, restrictionType: pulumi.Input<string> }> }>;
     /**
      * Disables the distribution instead of
      * deleting it when destroying the resource through Terraform. If this is set,
      * the distribution needs to be deleted manually afterwards. Default: `false`.
      */
-    readonly retainOnDelete?: boolean;
+    readonly retainOnDelete?: pulumi.Input<boolean>;
     /**
      * The current status of the distribution. `Deployed` if the
      * distribution's information is fully propagated throughout the Amazon
      * CloudFront system.
      */
-    readonly status?: string;
+    readonly status?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The SSL
      * configuration for this distribution (maximum
      * one).
      */
-    readonly viewerCertificate?: { acmCertificateArn?: string, cloudfrontDefaultCertificate?: boolean, iamCertificateId?: string, minimumProtocolVersion?: string, sslSupportMethod?: string };
+    readonly viewerCertificate?: pulumi.Input<{ acmCertificateArn?: pulumi.Input<string>, cloudfrontDefaultCertificate?: pulumi.Input<boolean>, iamCertificateId?: pulumi.Input<string>, minimumProtocolVersion?: pulumi.Input<string>, sslSupportMethod?: pulumi.Input<string> }>;
     /**
      * If you're using AWS WAF to filter CloudFront
      * requests, the Id of the AWS WAF web ACL that is associated with the
      * distribution.
      */
-    readonly webAclId?: string;
+    readonly webAclId?: pulumi.Input<string>;
 }
 
 /**
@@ -547,92 +547,92 @@ export interface DistributionArgs {
      * Extra CNAMEs (alternate domain names), if any, for
      * this distribution.
      */
-    readonly aliases?: string[];
+    readonly aliases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * **Deprecated**, use `ordered_cache_behavior` instead.
      */
-    readonly cacheBehaviors?: { allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl?: number, fieldLevelEncryptionId?: string, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }, headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }, lambdaFunctionAssociations?: { eventType: string, includeBody?: boolean, lambdaArn: string }[], maxTtl?: number, minTtl?: number, pathPattern: string, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string }[];
+    readonly cacheBehaviors?: pulumi.Input<pulumi.Input<{ allowedMethods: pulumi.Input<pulumi.Input<string>[]>, cachedMethods: pulumi.Input<pulumi.Input<string>[]>, compress?: pulumi.Input<boolean>, defaultTtl?: pulumi.Input<number>, fieldLevelEncryptionId?: pulumi.Input<string>, forwardedValues: pulumi.Input<{ cookies: pulumi.Input<{ forward: pulumi.Input<string>, whitelistedNames?: pulumi.Input<pulumi.Input<string>[]> }>, headers?: pulumi.Input<pulumi.Input<string>[]>, queryString: pulumi.Input<boolean>, queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]> }>, lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<{ eventType: pulumi.Input<string>, includeBody?: pulumi.Input<boolean>, lambdaArn: pulumi.Input<string> }>[]>, maxTtl?: pulumi.Input<number>, minTtl?: pulumi.Input<number>, pathPattern: pulumi.Input<string>, smoothStreaming?: pulumi.Input<boolean>, targetOriginId: pulumi.Input<string>, trustedSigners?: pulumi.Input<pulumi.Input<string>[]>, viewerProtocolPolicy: pulumi.Input<string> }>[]>;
     /**
      * Any comments you want to include about the
      * distribution.
      */
-    readonly comment?: string;
+    readonly comment?: pulumi.Input<string>;
     /**
      * One or more custom error response elements (multiples allowed).
      */
-    readonly customErrorResponses?: { errorCachingMinTtl?: number, errorCode: number, responseCode?: number, responsePagePath?: string }[];
+    readonly customErrorResponses?: pulumi.Input<pulumi.Input<{ errorCachingMinTtl?: pulumi.Input<number>, errorCode: pulumi.Input<number>, responseCode?: pulumi.Input<number>, responsePagePath?: pulumi.Input<string> }>[]>;
     /**
      * The default cache behavior for this distribution (maximum
      * one).
      */
-    readonly defaultCacheBehavior: { allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl?: number, fieldLevelEncryptionId?: string, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }, headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }, lambdaFunctionAssociations?: { eventType: string, includeBody?: boolean, lambdaArn: string }[], maxTtl?: number, minTtl?: number, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string };
+    readonly defaultCacheBehavior: pulumi.Input<{ allowedMethods: pulumi.Input<pulumi.Input<string>[]>, cachedMethods: pulumi.Input<pulumi.Input<string>[]>, compress?: pulumi.Input<boolean>, defaultTtl?: pulumi.Input<number>, fieldLevelEncryptionId?: pulumi.Input<string>, forwardedValues: pulumi.Input<{ cookies: pulumi.Input<{ forward: pulumi.Input<string>, whitelistedNames?: pulumi.Input<pulumi.Input<string>[]> }>, headers?: pulumi.Input<pulumi.Input<string>[]>, queryString: pulumi.Input<boolean>, queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]> }>, lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<{ eventType: pulumi.Input<string>, includeBody?: pulumi.Input<boolean>, lambdaArn: pulumi.Input<string> }>[]>, maxTtl?: pulumi.Input<number>, minTtl?: pulumi.Input<number>, smoothStreaming?: pulumi.Input<boolean>, targetOriginId: pulumi.Input<string>, trustedSigners?: pulumi.Input<pulumi.Input<string>[]>, viewerProtocolPolicy: pulumi.Input<string> }>;
     /**
      * The object that you want CloudFront to
      * return (for example, index.html) when an end user requests the root URL.
      */
-    readonly defaultRootObject?: string;
+    readonly defaultRootObject?: pulumi.Input<string>;
     /**
      * Whether the distribution is enabled to accept end
      * user requests for content.
      */
-    readonly enabled: boolean;
+    readonly enabled: pulumi.Input<boolean>;
     /**
      * The maximum HTTP version to support on the
      * distribution. Allowed values are `http1.1` and `http2`. The default is
      * `http2`.
      */
-    readonly httpVersion?: string;
+    readonly httpVersion?: pulumi.Input<string>;
     /**
      * Whether the IPv6 is enabled for the distribution.
      */
-    readonly isIpv6Enabled?: boolean;
+    readonly isIpv6Enabled?: pulumi.Input<boolean>;
     /**
      * The logging
      * configuration that controls how logs are written
      * to your distribution (maximum one).
      */
-    readonly loggingConfig?: { bucket: string, includeCookies?: boolean, prefix?: string };
+    readonly loggingConfig?: pulumi.Input<{ bucket: pulumi.Input<string>, includeCookies?: pulumi.Input<boolean>, prefix?: pulumi.Input<string> }>;
     /**
      * An ordered list of cache behaviors
      * resource for this distribution. List from top to bottom
      * +    in order of precedence. The topmost cache behavior will have precedence 0.
      */
-    readonly orderedCacheBehaviors?: { allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl?: number, fieldLevelEncryptionId?: string, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }, headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }, lambdaFunctionAssociations?: { eventType: string, includeBody?: boolean, lambdaArn: string }[], maxTtl?: number, minTtl?: number, pathPattern: string, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string }[];
+    readonly orderedCacheBehaviors?: pulumi.Input<pulumi.Input<{ allowedMethods: pulumi.Input<pulumi.Input<string>[]>, cachedMethods: pulumi.Input<pulumi.Input<string>[]>, compress?: pulumi.Input<boolean>, defaultTtl?: pulumi.Input<number>, fieldLevelEncryptionId?: pulumi.Input<string>, forwardedValues: pulumi.Input<{ cookies: pulumi.Input<{ forward: pulumi.Input<string>, whitelistedNames?: pulumi.Input<pulumi.Input<string>[]> }>, headers?: pulumi.Input<pulumi.Input<string>[]>, queryString: pulumi.Input<boolean>, queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]> }>, lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<{ eventType: pulumi.Input<string>, includeBody?: pulumi.Input<boolean>, lambdaArn: pulumi.Input<string> }>[]>, maxTtl?: pulumi.Input<number>, minTtl?: pulumi.Input<number>, pathPattern: pulumi.Input<string>, smoothStreaming?: pulumi.Input<boolean>, targetOriginId: pulumi.Input<string>, trustedSigners?: pulumi.Input<pulumi.Input<string>[]>, viewerProtocolPolicy: pulumi.Input<string> }>[]>;
     /**
      * One or more origins for this
      * distribution (multiples allowed).
      */
-    readonly origins: { customHeaders?: { name: string, value: string }[], customOriginConfig?: { httpPort: number, httpsPort: number, originKeepaliveTimeout?: number, originProtocolPolicy: string, originReadTimeout?: number, originSslProtocols: string[] }, domainName: string, originId: string, originPath?: string, s3OriginConfig?: { originAccessIdentity: string } }[];
+    readonly origins: pulumi.Input<pulumi.Input<{ customHeaders?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, customOriginConfig?: pulumi.Input<{ httpPort: pulumi.Input<number>, httpsPort: pulumi.Input<number>, originKeepaliveTimeout?: pulumi.Input<number>, originProtocolPolicy: pulumi.Input<string>, originReadTimeout?: pulumi.Input<number>, originSslProtocols: pulumi.Input<pulumi.Input<string>[]> }>, domainName: pulumi.Input<string>, originId: pulumi.Input<string>, originPath?: pulumi.Input<string>, s3OriginConfig?: pulumi.Input<{ originAccessIdentity: pulumi.Input<string> }> }>[]>;
     /**
      * The price class for this distribution. One of
      * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
      */
-    readonly priceClass?: string;
+    readonly priceClass?: pulumi.Input<string>;
     /**
      * The restriction
      * configuration for this distribution (maximum one).
      */
-    readonly restrictions: { geoRestriction: { locations?: string[], restrictionType: string } };
+    readonly restrictions: pulumi.Input<{ geoRestriction: pulumi.Input<{ locations?: pulumi.Input<pulumi.Input<string>[]>, restrictionType: pulumi.Input<string> }> }>;
     /**
      * Disables the distribution instead of
      * deleting it when destroying the resource through Terraform. If this is set,
      * the distribution needs to be deleted manually afterwards. Default: `false`.
      */
-    readonly retainOnDelete?: boolean;
+    readonly retainOnDelete?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The SSL
      * configuration for this distribution (maximum
      * one).
      */
-    readonly viewerCertificate: { acmCertificateArn?: string, cloudfrontDefaultCertificate?: boolean, iamCertificateId?: string, minimumProtocolVersion?: string, sslSupportMethod?: string };
+    readonly viewerCertificate: pulumi.Input<{ acmCertificateArn?: pulumi.Input<string>, cloudfrontDefaultCertificate?: pulumi.Input<boolean>, iamCertificateId?: pulumi.Input<string>, minimumProtocolVersion?: pulumi.Input<string>, sslSupportMethod?: pulumi.Input<string> }>;
     /**
      * If you're using AWS WAF to filter CloudFront
      * requests, the Id of the AWS WAF web ACL that is associated with the
      * distribution.
      */
-    readonly webAclId?: string;
+    readonly webAclId?: pulumi.Input<string>;
 }

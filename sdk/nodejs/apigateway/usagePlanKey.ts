@@ -69,8 +69,8 @@ export class UsagePlanKey extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<UsagePlanKeyArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<UsagePlanKeyArgs> | pulumi.InputObject<UsagePlanKeyState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: UsagePlanKeyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: UsagePlanKeyArgs | UsagePlanKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: UsagePlanKeyState = argsOrState as UsagePlanKeyState | undefined;
@@ -107,23 +107,23 @@ export interface UsagePlanKeyState {
     /**
      * The identifier of the API key resource.
      */
-    readonly keyId?: string;
+    readonly keyId?: pulumi.Input<string>;
     /**
      * The type of the API key resource. Currently, the valid key type is API_KEY.
      */
-    readonly keyType?: string;
+    readonly keyType?: pulumi.Input<string>;
     /**
      * The name of a usage plan key.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The Id of the usage plan resource representing to associate the key to.
      */
-    readonly usagePlanId?: string;
+    readonly usagePlanId?: pulumi.Input<string>;
     /**
      * The value of a usage plan key.
      */
-    readonly value?: string;
+    readonly value?: pulumi.Input<string>;
 }
 
 /**
@@ -133,13 +133,13 @@ export interface UsagePlanKeyArgs {
     /**
      * The identifier of the API key resource.
      */
-    readonly keyId: string;
+    readonly keyId: pulumi.Input<string>;
     /**
      * The type of the API key resource. Currently, the valid key type is API_KEY.
      */
-    readonly keyType: string;
+    readonly keyType: pulumi.Input<string>;
     /**
      * The Id of the usage plan resource representing to associate the key to.
      */
-    readonly usagePlanId: string;
+    readonly usagePlanId: pulumi.Input<string>;
 }

@@ -77,8 +77,8 @@ export class BucketMetric extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<BucketMetricArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<BucketMetricArgs> | pulumi.InputObject<BucketMetricState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: BucketMetricArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: BucketMetricArgs | BucketMetricState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: BucketMetricState = argsOrState as BucketMetricState | undefined;
@@ -105,15 +105,15 @@ export interface BucketMetricState {
     /**
      * The name of the bucket to put metric configuration.
      */
-    readonly bucket?: string;
+    readonly bucket?: pulumi.Input<string>;
     /**
      * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      */
-    readonly filter?: { prefix?: string, tags?: {[key: string]: any} };
+    readonly filter?: pulumi.Input<{ prefix?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }>;
     /**
      * Unique identifier of the metrics configuration for the bucket.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
 }
 
 /**
@@ -123,13 +123,13 @@ export interface BucketMetricArgs {
     /**
      * The name of the bucket to put metric configuration.
      */
-    readonly bucket: string;
+    readonly bucket: pulumi.Input<string>;
     /**
      * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      */
-    readonly filter?: { prefix?: string, tags?: {[key: string]: any} };
+    readonly filter?: pulumi.Input<{ prefix?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }>;
     /**
      * Unique identifier of the metrics configuration for the bucket.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
 }

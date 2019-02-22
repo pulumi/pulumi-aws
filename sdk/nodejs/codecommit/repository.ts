@@ -72,8 +72,8 @@ export class Repository extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<RepositoryArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<RepositoryArgs> | pulumi.InputObject<RepositoryState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RepositoryArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: RepositoryArgs | RepositoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RepositoryState = argsOrState as RepositoryState | undefined;
@@ -108,31 +108,31 @@ export interface RepositoryState {
     /**
      * The ARN of the repository
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The URL to use for cloning the repository over HTTPS.
      */
-    readonly cloneUrlHttp?: string;
+    readonly cloneUrlHttp?: pulumi.Input<string>;
     /**
      * The URL to use for cloning the repository over SSH.
      */
-    readonly cloneUrlSsh?: string;
+    readonly cloneUrlSsh?: pulumi.Input<string>;
     /**
      * The default branch of the repository. The branch specified here needs to exist.
      */
-    readonly defaultBranch?: string;
+    readonly defaultBranch?: pulumi.Input<string>;
     /**
      * The description of the repository. This needs to be less than 1000 characters
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The ID of the repository
      */
-    readonly repositoryId?: string;
+    readonly repositoryId?: pulumi.Input<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */
-    readonly repositoryName?: string;
+    readonly repositoryName?: pulumi.Input<string>;
 }
 
 /**
@@ -142,13 +142,13 @@ export interface RepositoryArgs {
     /**
      * The default branch of the repository. The branch specified here needs to exist.
      */
-    readonly defaultBranch?: string;
+    readonly defaultBranch?: pulumi.Input<string>;
     /**
      * The description of the repository. This needs to be less than 1000 characters
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */
-    readonly repositoryName: string;
+    readonly repositoryName: pulumi.Input<string>;
 }

@@ -150,8 +150,8 @@ export class VpcEndpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<VpcEndpointArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<VpcEndpointArgs> | pulumi.InputObject<VpcEndpointState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VpcEndpointArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: VpcEndpointArgs | VpcEndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VpcEndpointState = argsOrState as VpcEndpointState | undefined;
@@ -203,60 +203,60 @@ export interface VpcEndpointState {
     /**
      * Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
      */
-    readonly autoAccept?: boolean;
+    readonly autoAccept?: pulumi.Input<boolean>;
     /**
      * The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
      */
-    readonly cidrBlocks?: string[];
+    readonly cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      */
-    readonly dnsEntries?: { dnsName?: string, hostedZoneId?: string }[];
+    readonly dnsEntries?: pulumi.Input<pulumi.Input<{ dnsName?: pulumi.Input<string>, hostedZoneId?: pulumi.Input<string> }>[]>;
     /**
      * One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      */
-    readonly networkInterfaceIds?: string[];
+    readonly networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A policy to attach to the endpoint that controls access to the service. Applicable for endpoints of type `Gateway`. Defaults to full access. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    readonly policy?: string;
+    readonly policy?: pulumi.Input<string>;
     /**
      * The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
      */
-    readonly prefixListId?: string;
+    readonly prefixListId?: pulumi.Input<string>;
     /**
      * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
      * Defaults to `false`.
      */
-    readonly privateDnsEnabled?: boolean;
+    readonly privateDnsEnabled?: pulumi.Input<boolean>;
     /**
      * One or more route table IDs. Applicable for endpoints of type `Gateway`.
      */
-    readonly routeTableIds?: string[];
+    readonly routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
      */
-    readonly securityGroupIds?: string[];
+    readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The service name, in the form `com.amazonaws.region.service` for AWS services.
      */
-    readonly serviceName?: string;
+    readonly serviceName?: pulumi.Input<string>;
     /**
      * The state of the VPC endpoint.
      */
-    readonly state?: string;
+    readonly state?: pulumi.Input<string>;
     /**
      * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
      */
-    readonly subnetIds?: string[];
+    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
      */
-    readonly vpcEndpointType?: string;
+    readonly vpcEndpointType?: pulumi.Input<string>;
     /**
      * The ID of the VPC in which the endpoint will be used.
      */
-    readonly vpcId?: string;
+    readonly vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -266,38 +266,38 @@ export interface VpcEndpointArgs {
     /**
      * Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
      */
-    readonly autoAccept?: boolean;
+    readonly autoAccept?: pulumi.Input<boolean>;
     /**
      * A policy to attach to the endpoint that controls access to the service. Applicable for endpoints of type `Gateway`. Defaults to full access. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    readonly policy?: string;
+    readonly policy?: pulumi.Input<string>;
     /**
      * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
      * Defaults to `false`.
      */
-    readonly privateDnsEnabled?: boolean;
+    readonly privateDnsEnabled?: pulumi.Input<boolean>;
     /**
      * One or more route table IDs. Applicable for endpoints of type `Gateway`.
      */
-    readonly routeTableIds?: string[];
+    readonly routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
      */
-    readonly securityGroupIds?: string[];
+    readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The service name, in the form `com.amazonaws.region.service` for AWS services.
      */
-    readonly serviceName: string;
+    readonly serviceName: pulumi.Input<string>;
     /**
      * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
      */
-    readonly subnetIds?: string[];
+    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
      */
-    readonly vpcEndpointType?: string;
+    readonly vpcEndpointType?: pulumi.Input<string>;
     /**
      * The ID of the VPC in which the endpoint will be used.
      */
-    readonly vpcId: string;
+    readonly vpcId: pulumi.Input<string>;
 }

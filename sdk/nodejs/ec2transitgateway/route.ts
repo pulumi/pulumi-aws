@@ -53,8 +53,8 @@ export class Route extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<RouteArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<RouteArgs> | pulumi.InputObject<RouteState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RouteState = argsOrState as RouteState | undefined;
@@ -87,15 +87,15 @@ export interface RouteState {
     /**
      * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
      */
-    readonly destinationCidrBlock?: string;
+    readonly destinationCidrBlock?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */
-    readonly transitGatewayAttachmentId?: string;
+    readonly transitGatewayAttachmentId?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      */
-    readonly transitGatewayRouteTableId?: string;
+    readonly transitGatewayRouteTableId?: pulumi.Input<string>;
 }
 
 /**
@@ -105,13 +105,13 @@ export interface RouteArgs {
     /**
      * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
      */
-    readonly destinationCidrBlock: string;
+    readonly destinationCidrBlock: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */
-    readonly transitGatewayAttachmentId: string;
+    readonly transitGatewayAttachmentId: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      */
-    readonly transitGatewayRouteTableId: string;
+    readonly transitGatewayRouteTableId: pulumi.Input<string>;
 }

@@ -84,8 +84,8 @@ export class Route extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<RouteArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<RouteArgs> | pulumi.InputObject<RouteState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RouteState = argsOrState as RouteState | undefined;
@@ -126,28 +126,28 @@ export interface RouteState {
     /**
      * The ARN of the route.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The creation date of the route.
      */
-    readonly createdDate?: string;
+    readonly createdDate?: pulumi.Input<string>;
     /**
      * The last update date of the route.
      */
-    readonly lastUpdatedDate?: string;
+    readonly lastUpdatedDate?: pulumi.Input<string>;
     /**
      * The name of the service mesh in which to create the route.
      */
-    readonly meshName?: string;
+    readonly meshName?: pulumi.Input<string>;
     /**
      * The name to use for the route.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The route specification to apply.
      */
-    readonly spec?: { httpRoute?: { action: { weightedTargets: { virtualNode: string, weight: number }[] }, match: { prefix: string } } };
-    readonly virtualRouterName?: string;
+    readonly spec?: pulumi.Input<{ httpRoute?: pulumi.Input<{ action: pulumi.Input<{ weightedTargets: pulumi.Input<pulumi.Input<{ virtualNode: pulumi.Input<string>, weight: pulumi.Input<number> }>[]> }>, match: pulumi.Input<{ prefix: pulumi.Input<string> }> }> }>;
+    readonly virtualRouterName?: pulumi.Input<string>;
 }
 
 /**
@@ -157,14 +157,14 @@ export interface RouteArgs {
     /**
      * The name of the service mesh in which to create the route.
      */
-    readonly meshName: string;
+    readonly meshName: pulumi.Input<string>;
     /**
      * The name to use for the route.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The route specification to apply.
      */
-    readonly spec: { httpRoute?: { action: { weightedTargets: { virtualNode: string, weight: number }[] }, match: { prefix: string } } };
-    readonly virtualRouterName: string;
+    readonly spec: pulumi.Input<{ httpRoute?: pulumi.Input<{ action: pulumi.Input<{ weightedTargets: pulumi.Input<pulumi.Input<{ virtualNode: pulumi.Input<string>, weight: pulumi.Input<number> }>[]> }>, match: pulumi.Input<{ prefix: pulumi.Input<string> }> }> }>;
+    readonly virtualRouterName: pulumi.Input<string>;
 }

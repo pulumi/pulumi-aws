@@ -186,8 +186,8 @@ export class BucketObject extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<BucketObjectArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<BucketObjectArgs> | pulumi.InputObject<BucketObjectState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: BucketObjectArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: BucketObjectArgs | BucketObjectState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: BucketObjectState = argsOrState as BucketObjectState | undefined;
@@ -244,81 +244,81 @@ export interface BucketObjectState {
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
      */
-    readonly acl?: string;
+    readonly acl?: pulumi.Input<string>;
     /**
      * The name of the bucket to put the file in.
      */
-    readonly bucket?: string | Bucket;
+    readonly bucket?: pulumi.Input<string | Bucket>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
-    readonly cacheControl?: string;
+    readonly cacheControl?: pulumi.Input<string>;
     /**
      * Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
      */
-    readonly content?: string;
+    readonly content?: pulumi.Input<string>;
     /**
      * Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
      */
-    readonly contentBase64?: string;
+    readonly contentBase64?: pulumi.Input<string>;
     /**
      * Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
-    readonly contentDisposition?: string;
+    readonly contentDisposition?: pulumi.Input<string>;
     /**
      * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      */
-    readonly contentEncoding?: string;
+    readonly contentEncoding?: pulumi.Input<string>;
     /**
      * The language the content is in e.g. en-US or en-GB.
      */
-    readonly contentLanguage?: string;
+    readonly contentLanguage?: pulumi.Input<string>;
     /**
      * A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
      */
-    readonly contentType?: string;
+    readonly contentType?: pulumi.Input<string>;
     /**
      * Used to trigger updates. The only meaningful value is `${md5(file("path/to/file"))}`.
      * This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
      */
-    readonly etag?: string;
+    readonly etag?: pulumi.Input<string>;
     /**
      * The name of the object once it is in the bucket.
      */
-    readonly key?: string;
+    readonly key?: pulumi.Input<string>;
     /**
      * Specifies the AWS KMS Key ARN to use for object encryption.
      * This value is a fully qualified **ARN** of the KMS Key. If using `aws_kms_key`,
      * use the exported `arn` attribute:
      * `kms_key_id = "${aws_kms_key.foo.arn}"`
      */
-    readonly kmsKeyId?: string;
+    readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */
-    readonly serverSideEncryption?: string;
+    readonly serverSideEncryption?: pulumi.Input<string>;
     /**
      * The path to a file that will be read and uploaded as raw bytes for the object content.
      */
-    readonly source?: pulumi.asset.Asset;
+    readonly source?: pulumi.Input<pulumi.asset.Asset>;
     /**
      * Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
      * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
      */
-    readonly storageClass?: string;
+    readonly storageClass?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the object.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * A unique version ID value for the object, if bucket versioning
      * is enabled.
      */
-    readonly versionId?: string;
+    readonly versionId?: pulumi.Input<string>;
     /**
      * Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      */
-    readonly websiteRedirect?: string;
+    readonly websiteRedirect?: pulumi.Input<string>;
 }
 
 /**
@@ -328,74 +328,74 @@ export interface BucketObjectArgs {
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
      */
-    readonly acl?: string;
+    readonly acl?: pulumi.Input<string>;
     /**
      * The name of the bucket to put the file in.
      */
-    readonly bucket: string | Bucket;
+    readonly bucket: pulumi.Input<string | Bucket>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
-    readonly cacheControl?: string;
+    readonly cacheControl?: pulumi.Input<string>;
     /**
      * Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
      */
-    readonly content?: string;
+    readonly content?: pulumi.Input<string>;
     /**
      * Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
      */
-    readonly contentBase64?: string;
+    readonly contentBase64?: pulumi.Input<string>;
     /**
      * Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
-    readonly contentDisposition?: string;
+    readonly contentDisposition?: pulumi.Input<string>;
     /**
      * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      */
-    readonly contentEncoding?: string;
+    readonly contentEncoding?: pulumi.Input<string>;
     /**
      * The language the content is in e.g. en-US or en-GB.
      */
-    readonly contentLanguage?: string;
+    readonly contentLanguage?: pulumi.Input<string>;
     /**
      * A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
      */
-    readonly contentType?: string;
+    readonly contentType?: pulumi.Input<string>;
     /**
      * Used to trigger updates. The only meaningful value is `${md5(file("path/to/file"))}`.
      * This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
      */
-    readonly etag?: string;
+    readonly etag?: pulumi.Input<string>;
     /**
      * The name of the object once it is in the bucket.
      */
-    readonly key?: string;
+    readonly key?: pulumi.Input<string>;
     /**
      * Specifies the AWS KMS Key ARN to use for object encryption.
      * This value is a fully qualified **ARN** of the KMS Key. If using `aws_kms_key`,
      * use the exported `arn` attribute:
      * `kms_key_id = "${aws_kms_key.foo.arn}"`
      */
-    readonly kmsKeyId?: string;
+    readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */
-    readonly serverSideEncryption?: string;
+    readonly serverSideEncryption?: pulumi.Input<string>;
     /**
      * The path to a file that will be read and uploaded as raw bytes for the object content.
      */
-    readonly source?: pulumi.asset.Asset;
+    readonly source?: pulumi.Input<pulumi.asset.Asset>;
     /**
      * Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
      * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
      */
-    readonly storageClass?: string;
+    readonly storageClass?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the object.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      */
-    readonly websiteRedirect?: string;
+    readonly websiteRedirect?: pulumi.Input<string>;
 }

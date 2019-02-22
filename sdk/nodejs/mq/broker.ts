@@ -143,8 +143,8 @@ export class Broker extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<BrokerArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<BrokerArgs> | pulumi.InputObject<BrokerState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: BrokerArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: BrokerArgs | BrokerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: BrokerState = argsOrState as BrokerState | undefined;
@@ -215,39 +215,39 @@ export interface BrokerState {
      * Specifies whether any broker modifications
      * are applied immediately, or during the next maintenance window. Default is `false`.
      */
-    readonly applyImmediately?: boolean;
+    readonly applyImmediately?: pulumi.Input<boolean>;
     /**
      * The ARN of the broker.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions.
      */
-    readonly autoMinorVersionUpgrade?: boolean;
+    readonly autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
      * The name of the broker.
      */
-    readonly brokerName?: string;
+    readonly brokerName?: pulumi.Input<string>;
     /**
      * Configuration of the broker. See below.
      */
-    readonly configuration?: { id?: string, revision?: number };
+    readonly configuration?: pulumi.Input<{ id?: pulumi.Input<string>, revision?: pulumi.Input<number> }>;
     /**
      * The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
      */
-    readonly deploymentMode?: string;
+    readonly deploymentMode?: pulumi.Input<string>;
     /**
      * The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
      */
-    readonly engineType?: string;
+    readonly engineType?: pulumi.Input<string>;
     /**
      * The version of the broker engine. Currently, Amazon MQ supports only `5.15.0` or `5.15.6`.
      */
-    readonly engineVersion?: string;
+    readonly engineVersion?: pulumi.Input<string>;
     /**
      * The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
      */
-    readonly hostInstanceType?: string;
+    readonly hostInstanceType?: pulumi.Input<string>;
     /**
      * A list of information about allocated brokers (both active & standby).
      * * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
@@ -259,35 +259,35 @@ export interface BrokerState {
      * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
      * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
      */
-    readonly instances?: { consoleUrl?: string, endpoints?: string[], ipAddress?: string }[];
+    readonly instances?: pulumi.Input<pulumi.Input<{ consoleUrl?: pulumi.Input<string>, endpoints?: pulumi.Input<pulumi.Input<string>[]>, ipAddress?: pulumi.Input<string> }>[]>;
     /**
      * Logging configuration of the broker. See below.
      */
-    readonly logs?: { audit?: boolean, general?: boolean };
+    readonly logs?: pulumi.Input<{ audit?: pulumi.Input<boolean>, general?: pulumi.Input<boolean> }>;
     /**
      * Maintenance window start time. See below.
      */
-    readonly maintenanceWindowStartTime?: { dayOfWeek: string, timeOfDay: string, timeZone: string };
+    readonly maintenanceWindowStartTime?: pulumi.Input<{ dayOfWeek: pulumi.Input<string>, timeOfDay: pulumi.Input<string>, timeZone: pulumi.Input<string> }>;
     /**
      * Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
      */
-    readonly publiclyAccessible?: boolean;
+    readonly publiclyAccessible?: pulumi.Input<boolean>;
     /**
      * The list of security group IDs assigned to the broker.
      */
-    readonly securityGroups?: string[];
+    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
      */
-    readonly subnetIds?: string[];
+    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The list of all ActiveMQ usernames for the specified broker. See below.
      */
-    readonly users?: { consoleAccess?: boolean, groups?: string[], password: string, username: string }[];
+    readonly users?: pulumi.Input<pulumi.Input<{ consoleAccess?: pulumi.Input<boolean>, groups?: pulumi.Input<pulumi.Input<string>[]>, password: pulumi.Input<string>, username: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -298,61 +298,61 @@ export interface BrokerArgs {
      * Specifies whether any broker modifications
      * are applied immediately, or during the next maintenance window. Default is `false`.
      */
-    readonly applyImmediately?: boolean;
+    readonly applyImmediately?: pulumi.Input<boolean>;
     /**
      * Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions.
      */
-    readonly autoMinorVersionUpgrade?: boolean;
+    readonly autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
      * The name of the broker.
      */
-    readonly brokerName: string;
+    readonly brokerName: pulumi.Input<string>;
     /**
      * Configuration of the broker. See below.
      */
-    readonly configuration?: { id?: string, revision?: number };
+    readonly configuration?: pulumi.Input<{ id?: pulumi.Input<string>, revision?: pulumi.Input<number> }>;
     /**
      * The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
      */
-    readonly deploymentMode?: string;
+    readonly deploymentMode?: pulumi.Input<string>;
     /**
      * The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
      */
-    readonly engineType: string;
+    readonly engineType: pulumi.Input<string>;
     /**
      * The version of the broker engine. Currently, Amazon MQ supports only `5.15.0` or `5.15.6`.
      */
-    readonly engineVersion: string;
+    readonly engineVersion: pulumi.Input<string>;
     /**
      * The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
      */
-    readonly hostInstanceType: string;
+    readonly hostInstanceType: pulumi.Input<string>;
     /**
      * Logging configuration of the broker. See below.
      */
-    readonly logs?: { audit?: boolean, general?: boolean };
+    readonly logs?: pulumi.Input<{ audit?: pulumi.Input<boolean>, general?: pulumi.Input<boolean> }>;
     /**
      * Maintenance window start time. See below.
      */
-    readonly maintenanceWindowStartTime?: { dayOfWeek: string, timeOfDay: string, timeZone: string };
+    readonly maintenanceWindowStartTime?: pulumi.Input<{ dayOfWeek: pulumi.Input<string>, timeOfDay: pulumi.Input<string>, timeZone: pulumi.Input<string> }>;
     /**
      * Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
      */
-    readonly publiclyAccessible?: boolean;
+    readonly publiclyAccessible?: pulumi.Input<boolean>;
     /**
      * The list of security group IDs assigned to the broker.
      */
-    readonly securityGroups: string[];
+    readonly securityGroups: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
      */
-    readonly subnetIds?: string[];
+    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The list of all ActiveMQ usernames for the specified broker. See below.
      */
-    readonly users: { consoleAccess?: boolean, groups?: string[], password: string, username: string }[];
+    readonly users: pulumi.Input<pulumi.Input<{ consoleAccess?: pulumi.Input<boolean>, groups?: pulumi.Input<pulumi.Input<string>[]>, password: pulumi.Input<string>, username: pulumi.Input<string> }>[]>;
 }

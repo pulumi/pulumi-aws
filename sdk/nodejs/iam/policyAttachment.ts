@@ -78,8 +78,8 @@ export class PolicyAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<PolicyAttachmentArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<PolicyAttachmentArgs> | pulumi.InputObject<PolicyAttachmentState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: PolicyAttachmentArgs | PolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PolicyAttachmentState = argsOrState as PolicyAttachmentState | undefined;
@@ -110,23 +110,23 @@ export interface PolicyAttachmentState {
     /**
      * The group(s) the policy should be applied to
      */
-    readonly groups?: Group[];
+    readonly groups?: pulumi.Input<pulumi.Input<Group>[]>;
     /**
      * The name of the attachment. This cannot be an empty string.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The ARN of the policy you want to apply
      */
-    readonly policyArn?: ARN;
+    readonly policyArn?: pulumi.Input<ARN>;
     /**
      * The role(s) the policy should be applied to
      */
-    readonly roles?: Role[];
+    readonly roles?: pulumi.Input<pulumi.Input<Role>[]>;
     /**
      * The user(s) the policy should be applied to
      */
-    readonly users?: User[];
+    readonly users?: pulumi.Input<pulumi.Input<User>[]>;
 }
 
 /**
@@ -136,21 +136,21 @@ export interface PolicyAttachmentArgs {
     /**
      * The group(s) the policy should be applied to
      */
-    readonly groups?: Group[];
+    readonly groups?: pulumi.Input<pulumi.Input<Group>[]>;
     /**
      * The name of the attachment. This cannot be an empty string.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The ARN of the policy you want to apply
      */
-    readonly policyArn: ARN;
+    readonly policyArn: pulumi.Input<ARN>;
     /**
      * The role(s) the policy should be applied to
      */
-    readonly roles?: Role[];
+    readonly roles?: pulumi.Input<pulumi.Input<Role>[]>;
     /**
      * The user(s) the policy should be applied to
      */
-    readonly users?: User[];
+    readonly users?: pulumi.Input<pulumi.Input<User>[]>;
 }

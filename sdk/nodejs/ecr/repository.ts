@@ -61,8 +61,8 @@ export class Repository extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<RepositoryArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<RepositoryArgs> | pulumi.InputObject<RepositoryState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: RepositoryArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: RepositoryArgs | RepositoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RepositoryState = argsOrState as RepositoryState | undefined;
@@ -90,23 +90,23 @@ export interface RepositoryState {
     /**
      * Full ARN of the repository.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * Name of the repository.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The registry ID where the repository was created.
      */
-    readonly registryId?: string;
+    readonly registryId?: pulumi.Input<string>;
     /**
      * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
      */
-    readonly repositoryUrl?: string;
+    readonly repositoryUrl?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -116,9 +116,9 @@ export interface RepositoryArgs {
     /**
      * Name of the repository.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

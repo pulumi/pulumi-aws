@@ -61,8 +61,8 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<NetworkInterfaceAttachmentArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<NetworkInterfaceAttachmentArgs> | pulumi.InputObject<NetworkInterfaceAttachmentState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: NetworkInterfaceAttachmentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: NetworkInterfaceAttachmentArgs | NetworkInterfaceAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: NetworkInterfaceAttachmentState = argsOrState as NetworkInterfaceAttachmentState | undefined;
@@ -99,23 +99,23 @@ export interface NetworkInterfaceAttachmentState {
     /**
      * The ENI Attachment ID.
      */
-    readonly attachmentId?: string;
+    readonly attachmentId?: pulumi.Input<string>;
     /**
      * Network interface index (int).
      */
-    readonly deviceIndex?: number;
+    readonly deviceIndex?: pulumi.Input<number>;
     /**
      * Instance ID to attach.
      */
-    readonly instanceId?: string;
+    readonly instanceId?: pulumi.Input<string>;
     /**
      * ENI ID to attach.
      */
-    readonly networkInterfaceId?: string;
+    readonly networkInterfaceId?: pulumi.Input<string>;
     /**
      * The status of the Network Interface Attachment.
      */
-    readonly status?: string;
+    readonly status?: pulumi.Input<string>;
 }
 
 /**
@@ -125,13 +125,13 @@ export interface NetworkInterfaceAttachmentArgs {
     /**
      * Network interface index (int).
      */
-    readonly deviceIndex: number;
+    readonly deviceIndex: pulumi.Input<number>;
     /**
      * Instance ID to attach.
      */
-    readonly instanceId: string;
+    readonly instanceId: pulumi.Input<string>;
     /**
      * ENI ID to attach.
      */
-    readonly networkInterfaceId: string;
+    readonly networkInterfaceId: pulumi.Input<string>;
 }

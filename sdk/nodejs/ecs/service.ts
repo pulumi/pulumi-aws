@@ -210,8 +210,8 @@ export class Service extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ServiceArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ServiceArgs> | pulumi.InputObject<ServiceState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ServiceState = argsOrState as ServiceState | undefined;
@@ -276,93 +276,93 @@ export interface ServiceState {
     /**
      * ARN of an ECS cluster
      */
-    readonly cluster?: string;
+    readonly cluster?: pulumi.Input<string>;
     /**
      * Configuration block containing deployment controller configuration. Defined below.
      */
-    readonly deploymentController?: { type?: string };
+    readonly deploymentController?: pulumi.Input<{ type?: pulumi.Input<string> }>;
     /**
      * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */
-    readonly deploymentMaximumPercent?: number;
+    readonly deploymentMaximumPercent?: pulumi.Input<number>;
     /**
      * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
      */
-    readonly deploymentMinimumHealthyPercent?: number;
+    readonly deploymentMinimumHealthyPercent?: pulumi.Input<number>;
     /**
      * The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
      */
-    readonly desiredCount?: number;
+    readonly desiredCount?: pulumi.Input<number>;
     /**
      * Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
      */
-    readonly enableEcsManagedTags?: boolean;
+    readonly enableEcsManagedTags?: pulumi.Input<boolean>;
     /**
      * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
      */
-    readonly healthCheckGracePeriodSeconds?: number;
+    readonly healthCheckGracePeriodSeconds?: pulumi.Input<number>;
     /**
      * ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
      */
-    readonly iamRole?: string;
+    readonly iamRole?: pulumi.Input<string>;
     /**
      * The launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
      */
-    readonly launchType?: string;
+    readonly launchType?: pulumi.Input<string>;
     /**
      * A load balancer block. Load balancers documented below.
      */
-    readonly loadBalancers?: { containerName: string, containerPort: number, elbName?: string, targetGroupArn?: string }[];
+    readonly loadBalancers?: pulumi.Input<pulumi.Input<{ containerName: pulumi.Input<string>, containerPort: pulumi.Input<number>, elbName?: pulumi.Input<string>, targetGroupArn?: pulumi.Input<string> }>[]>;
     /**
      * The name of the service (up to 255 letters, numbers, hyphens, and underscores)
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes.
      */
-    readonly networkConfiguration?: { assignPublicIp?: boolean, securityGroups?: string[], subnets: string[] };
+    readonly networkConfiguration?: pulumi.Input<{ assignPublicIp?: pulumi.Input<boolean>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, subnets: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
      * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
      */
-    readonly orderedPlacementStrategies?: { field?: string, type: string }[];
+    readonly orderedPlacementStrategies?: pulumi.Input<pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * rules that are taken into consideration during task placement. Maximum number of
      * `placement_constraints` is `10`. Defined below.
      */
-    readonly placementConstraints?: { expression?: string, type: string }[];
+    readonly placementConstraints?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * **Deprecated**, use `ordered_placement_strategy` instead.
      */
-    readonly placementStrategies?: { field?: string, type: string }[];
+    readonly placementStrategies?: pulumi.Input<pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */
-    readonly platformVersion?: string;
+    readonly platformVersion?: pulumi.Input<string>;
     /**
      * Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
      */
-    readonly propagateTags?: string;
+    readonly propagateTags?: pulumi.Input<string>;
     /**
      * The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
      */
-    readonly schedulingStrategy?: string;
+    readonly schedulingStrategy?: pulumi.Input<string>;
     /**
      * The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
      */
-    readonly serviceRegistries?: { containerName?: string, containerPort?: number, port?: number, registryArn: string };
+    readonly serviceRegistries?: pulumi.Input<{ containerName?: pulumi.Input<string>, containerPort?: pulumi.Input<number>, port?: pulumi.Input<number>, registryArn: pulumi.Input<string> }>;
     /**
      * Key-value mapping of resource tags
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
      */
-    readonly taskDefinition?: string;
+    readonly taskDefinition?: pulumi.Input<string>;
     /**
      * If `true`, Terraform will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      * =======
      */
-    readonly waitForSteadyState?: boolean;
+    readonly waitForSteadyState?: pulumi.Input<boolean>;
 }
 
 /**
@@ -372,91 +372,91 @@ export interface ServiceArgs {
     /**
      * ARN of an ECS cluster
      */
-    readonly cluster?: string;
+    readonly cluster?: pulumi.Input<string>;
     /**
      * Configuration block containing deployment controller configuration. Defined below.
      */
-    readonly deploymentController?: { type?: string };
+    readonly deploymentController?: pulumi.Input<{ type?: pulumi.Input<string> }>;
     /**
      * The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */
-    readonly deploymentMaximumPercent?: number;
+    readonly deploymentMaximumPercent?: pulumi.Input<number>;
     /**
      * The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
      */
-    readonly deploymentMinimumHealthyPercent?: number;
+    readonly deploymentMinimumHealthyPercent?: pulumi.Input<number>;
     /**
      * The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
      */
-    readonly desiredCount?: number;
+    readonly desiredCount?: pulumi.Input<number>;
     /**
      * Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
      */
-    readonly enableEcsManagedTags?: boolean;
+    readonly enableEcsManagedTags?: pulumi.Input<boolean>;
     /**
      * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
      */
-    readonly healthCheckGracePeriodSeconds?: number;
+    readonly healthCheckGracePeriodSeconds?: pulumi.Input<number>;
     /**
      * ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
      */
-    readonly iamRole?: string;
+    readonly iamRole?: pulumi.Input<string>;
     /**
      * The launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
      */
-    readonly launchType?: string;
+    readonly launchType?: pulumi.Input<string>;
     /**
      * A load balancer block. Load balancers documented below.
      */
-    readonly loadBalancers?: { containerName: string, containerPort: number, elbName?: string, targetGroupArn?: string }[];
+    readonly loadBalancers?: pulumi.Input<pulumi.Input<{ containerName: pulumi.Input<string>, containerPort: pulumi.Input<number>, elbName?: pulumi.Input<string>, targetGroupArn?: pulumi.Input<string> }>[]>;
     /**
      * The name of the service (up to 255 letters, numbers, hyphens, and underscores)
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes.
      */
-    readonly networkConfiguration?: { assignPublicIp?: boolean, securityGroups?: string[], subnets: string[] };
+    readonly networkConfiguration?: pulumi.Input<{ assignPublicIp?: pulumi.Input<boolean>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, subnets: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
      * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
      */
-    readonly orderedPlacementStrategies?: { field?: string, type: string }[];
+    readonly orderedPlacementStrategies?: pulumi.Input<pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * rules that are taken into consideration during task placement. Maximum number of
      * `placement_constraints` is `10`. Defined below.
      */
-    readonly placementConstraints?: { expression?: string, type: string }[];
+    readonly placementConstraints?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * **Deprecated**, use `ordered_placement_strategy` instead.
      */
-    readonly placementStrategies?: { field?: string, type: string }[];
+    readonly placementStrategies?: pulumi.Input<pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */
-    readonly platformVersion?: string;
+    readonly platformVersion?: pulumi.Input<string>;
     /**
      * Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
      */
-    readonly propagateTags?: string;
+    readonly propagateTags?: pulumi.Input<string>;
     /**
      * The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
      */
-    readonly schedulingStrategy?: string;
+    readonly schedulingStrategy?: pulumi.Input<string>;
     /**
      * The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
      */
-    readonly serviceRegistries?: { containerName?: string, containerPort?: number, port?: number, registryArn: string };
+    readonly serviceRegistries?: pulumi.Input<{ containerName?: pulumi.Input<string>, containerPort?: pulumi.Input<number>, port?: pulumi.Input<number>, registryArn: pulumi.Input<string> }>;
     /**
      * Key-value mapping of resource tags
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
      */
-    readonly taskDefinition: string;
+    readonly taskDefinition: pulumi.Input<string>;
     /**
      * If `true`, Terraform will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      * =======
      */
-    readonly waitForSteadyState?: boolean;
+    readonly waitForSteadyState?: pulumi.Input<boolean>;
 }

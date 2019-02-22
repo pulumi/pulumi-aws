@@ -100,8 +100,8 @@ export class RestApi extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<RestApiArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<RestApiArgs> | pulumi.InputObject<RestApiState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: RestApiArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: RestApiArgs | RestApiState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RestApiState = argsOrState as RestApiState | undefined;
@@ -141,49 +141,49 @@ export interface RestApiState {
     /**
      * The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
      */
-    readonly apiKeySource?: string;
+    readonly apiKeySource?: pulumi.Input<string>;
     /**
      * The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
      */
-    readonly binaryMediaTypes?: string[];
+    readonly binaryMediaTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
      */
-    readonly body?: string;
+    readonly body?: pulumi.Input<string>;
     /**
      * The creation date of the REST API
      */
-    readonly createdDate?: string;
+    readonly createdDate?: pulumi.Input<string>;
     /**
      * The description of the REST API
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * Nested argument defining API endpoint configuration including endpoint type. Defined below.
      */
-    readonly endpointConfiguration?: { types: string };
+    readonly endpointConfiguration?: pulumi.Input<{ types: pulumi.Input<string> }>;
     /**
      * The execution ARN part to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      */
-    readonly executionArn?: string;
+    readonly executionArn?: pulumi.Input<string>;
     /**
      * Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
      */
-    readonly minimumCompressionSize?: number;
+    readonly minimumCompressionSize?: pulumi.Input<number>;
     /**
      * The name of the REST API
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
-    readonly policy?: string;
+    readonly policy?: pulumi.Input<string>;
     /**
      * The resource ID of the REST API's root
      */
-    readonly rootResourceId?: string;
+    readonly rootResourceId?: pulumi.Input<string>;
 }
 
 /**
@@ -193,33 +193,33 @@ export interface RestApiArgs {
     /**
      * The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
      */
-    readonly apiKeySource?: string;
+    readonly apiKeySource?: pulumi.Input<string>;
     /**
      * The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
      */
-    readonly binaryMediaTypes?: string[];
+    readonly binaryMediaTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
      */
-    readonly body?: string;
+    readonly body?: pulumi.Input<string>;
     /**
      * The description of the REST API
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * Nested argument defining API endpoint configuration including endpoint type. Defined below.
      */
-    readonly endpointConfiguration?: { types: string };
+    readonly endpointConfiguration?: pulumi.Input<{ types: pulumi.Input<string> }>;
     /**
      * Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
      */
-    readonly minimumCompressionSize?: number;
+    readonly minimumCompressionSize?: pulumi.Input<number>;
     /**
      * The name of the REST API
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
-    readonly policy?: string;
+    readonly policy?: pulumi.Input<string>;
 }

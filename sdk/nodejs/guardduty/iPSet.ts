@@ -76,8 +76,8 @@ export class IPSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<IPSetArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<IPSetArgs> | pulumi.InputObject<IPSetState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: IPSetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: IPSetArgs | IPSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: IPSetState = argsOrState as IPSetState | undefined;
@@ -117,23 +117,23 @@ export interface IPSetState {
     /**
      * Specifies whether GuardDuty is to start using the uploaded IPSet.
      */
-    readonly activate?: boolean;
+    readonly activate?: pulumi.Input<boolean>;
     /**
      * The detector ID of the GuardDuty.
      */
-    readonly detectorId?: string;
+    readonly detectorId?: pulumi.Input<string>;
     /**
      * The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      */
-    readonly format?: string;
+    readonly format?: pulumi.Input<string>;
     /**
      * The URI of the file that contains the IPSet.
      */
-    readonly location?: string;
+    readonly location?: pulumi.Input<string>;
     /**
      * The friendly name to identify the IPSet.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
 }
 
 /**
@@ -143,21 +143,21 @@ export interface IPSetArgs {
     /**
      * Specifies whether GuardDuty is to start using the uploaded IPSet.
      */
-    readonly activate: boolean;
+    readonly activate: pulumi.Input<boolean>;
     /**
      * The detector ID of the GuardDuty.
      */
-    readonly detectorId: string;
+    readonly detectorId: pulumi.Input<string>;
     /**
      * The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      */
-    readonly format: string;
+    readonly format: pulumi.Input<string>;
     /**
      * The URI of the file that contains the IPSet.
      */
-    readonly location: string;
+    readonly location: pulumi.Input<string>;
     /**
      * The friendly name to identify the IPSet.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
 }

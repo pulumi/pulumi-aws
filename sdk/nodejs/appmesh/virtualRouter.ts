@@ -66,8 +66,8 @@ export class VirtualRouter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<VirtualRouterArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<VirtualRouterArgs> | pulumi.InputObject<VirtualRouterState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VirtualRouterArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: VirtualRouterArgs | VirtualRouterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VirtualRouterState = argsOrState as VirtualRouterState | undefined;
@@ -103,27 +103,27 @@ export interface VirtualRouterState {
     /**
      * The ARN of the virtual router.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The creation date of the virtual router.
      */
-    readonly createdDate?: string;
+    readonly createdDate?: pulumi.Input<string>;
     /**
      * The last update date of the virtual router.
      */
-    readonly lastUpdatedDate?: string;
+    readonly lastUpdatedDate?: pulumi.Input<string>;
     /**
      * The name of the service mesh in which to create the virtual router.
      */
-    readonly meshName?: string;
+    readonly meshName?: pulumi.Input<string>;
     /**
      * The name to use for the virtual router.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The virtual router specification to apply.
      */
-    readonly spec?: { serviceNames: string[] };
+    readonly spec?: pulumi.Input<{ serviceNames: pulumi.Input<pulumi.Input<string>[]> }>;
 }
 
 /**
@@ -133,13 +133,13 @@ export interface VirtualRouterArgs {
     /**
      * The name of the service mesh in which to create the virtual router.
      */
-    readonly meshName: string;
+    readonly meshName: pulumi.Input<string>;
     /**
      * The name to use for the virtual router.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The virtual router specification to apply.
      */
-    readonly spec: { serviceNames: string[] };
+    readonly spec: pulumi.Input<{ serviceNames: pulumi.Input<pulumi.Input<string>[]> }>;
 }

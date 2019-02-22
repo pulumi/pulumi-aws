@@ -71,8 +71,8 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<DefaultVpcDhcpOptionsArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<DefaultVpcDhcpOptionsArgs> | pulumi.InputObject<DefaultVpcDhcpOptionsState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: DefaultVpcDhcpOptionsArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DefaultVpcDhcpOptionsArgs | DefaultVpcDhcpOptionsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DefaultVpcDhcpOptionsState = argsOrState as DefaultVpcDhcpOptionsState | undefined;
@@ -101,25 +101,25 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DefaultVpcDhcpOptions resources.
  */
 export interface DefaultVpcDhcpOptionsState {
-    readonly domainName?: string;
-    readonly domainNameServers?: string;
+    readonly domainName?: pulumi.Input<string>;
+    readonly domainNameServers?: pulumi.Input<string>;
     /**
      * List of NETBIOS name servers.
      */
-    readonly netbiosNameServers?: string[];
+    readonly netbiosNameServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      */
-    readonly netbiosNodeType?: string;
-    readonly ntpServers?: string;
+    readonly netbiosNodeType?: pulumi.Input<string>;
+    readonly ntpServers?: pulumi.Input<string>;
     /**
      * The ID of the AWS account that owns the DHCP options set.
      */
-    readonly ownerId?: string;
+    readonly ownerId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -129,13 +129,13 @@ export interface DefaultVpcDhcpOptionsArgs {
     /**
      * List of NETBIOS name servers.
      */
-    readonly netbiosNameServers?: string[];
+    readonly netbiosNameServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      */
-    readonly netbiosNodeType?: string;
+    readonly netbiosNodeType?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

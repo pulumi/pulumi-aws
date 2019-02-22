@@ -61,8 +61,8 @@ export class RuleGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<RuleGroupArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<RuleGroupArgs> | pulumi.InputObject<RuleGroupState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RuleGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: RuleGroupArgs | RuleGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RuleGroupState = argsOrState as RuleGroupState | undefined;
@@ -89,15 +89,15 @@ export interface RuleGroupState {
     /**
      * A list of activated rules, see below
      */
-    readonly activatedRules?: { action: { type: string }, priority: number, ruleId: string, type?: string }[];
+    readonly activatedRules?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<{ type: pulumi.Input<string> }>, priority: pulumi.Input<number>, ruleId: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
     /**
      * A friendly name for the metrics from the rule group
      */
-    readonly metricName?: string;
+    readonly metricName?: pulumi.Input<string>;
     /**
      * A friendly name of the rule group
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
 }
 
 /**
@@ -107,13 +107,13 @@ export interface RuleGroupArgs {
     /**
      * A list of activated rules, see below
      */
-    readonly activatedRules?: { action: { type: string }, priority: number, ruleId: string, type?: string }[];
+    readonly activatedRules?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<{ type: pulumi.Input<string> }>, priority: pulumi.Input<number>, ruleId: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
     /**
      * A friendly name for the metrics from the rule group
      */
-    readonly metricName: string;
+    readonly metricName: pulumi.Input<string>;
     /**
      * A friendly name of the rule group
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
 }

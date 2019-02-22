@@ -98,8 +98,8 @@ export class MethodSettings extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<MethodSettingsArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<MethodSettingsArgs> | pulumi.InputObject<MethodSettingsState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: MethodSettingsArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: MethodSettingsArgs | MethodSettingsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: MethodSettingsState = argsOrState as MethodSettingsState | undefined;
@@ -137,19 +137,19 @@ export interface MethodSettingsState {
     /**
      * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage.
      */
-    readonly methodPath?: string;
+    readonly methodPath?: pulumi.Input<string>;
     /**
      * The ID of the REST API
      */
-    readonly restApi?: RestApi;
+    readonly restApi?: pulumi.Input<RestApi>;
     /**
      * The settings block, see below.
      */
-    readonly settings?: { cacheDataEncrypted?: boolean, cacheTtlInSeconds?: number, cachingEnabled?: boolean, dataTraceEnabled?: boolean, loggingLevel?: string, metricsEnabled?: boolean, requireAuthorizationForCacheControl?: boolean, throttlingBurstLimit?: number, throttlingRateLimit?: number, unauthorizedCacheControlHeaderStrategy?: string };
+    readonly settings?: pulumi.Input<{ cacheDataEncrypted?: pulumi.Input<boolean>, cacheTtlInSeconds?: pulumi.Input<number>, cachingEnabled?: pulumi.Input<boolean>, dataTraceEnabled?: pulumi.Input<boolean>, loggingLevel?: pulumi.Input<string>, metricsEnabled?: pulumi.Input<boolean>, requireAuthorizationForCacheControl?: pulumi.Input<boolean>, throttlingBurstLimit?: pulumi.Input<number>, throttlingRateLimit?: pulumi.Input<number>, unauthorizedCacheControlHeaderStrategy?: pulumi.Input<string> }>;
     /**
      * The name of the stage
      */
-    readonly stageName?: string;
+    readonly stageName?: pulumi.Input<string>;
 }
 
 /**
@@ -159,17 +159,17 @@ export interface MethodSettingsArgs {
     /**
      * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage.
      */
-    readonly methodPath: string;
+    readonly methodPath: pulumi.Input<string>;
     /**
      * The ID of the REST API
      */
-    readonly restApi: RestApi;
+    readonly restApi: pulumi.Input<RestApi>;
     /**
      * The settings block, see below.
      */
-    readonly settings: { cacheDataEncrypted?: boolean, cacheTtlInSeconds?: number, cachingEnabled?: boolean, dataTraceEnabled?: boolean, loggingLevel?: string, metricsEnabled?: boolean, requireAuthorizationForCacheControl?: boolean, throttlingBurstLimit?: number, throttlingRateLimit?: number, unauthorizedCacheControlHeaderStrategy?: string };
+    readonly settings: pulumi.Input<{ cacheDataEncrypted?: pulumi.Input<boolean>, cacheTtlInSeconds?: pulumi.Input<number>, cachingEnabled?: pulumi.Input<boolean>, dataTraceEnabled?: pulumi.Input<boolean>, loggingLevel?: pulumi.Input<string>, metricsEnabled?: pulumi.Input<boolean>, requireAuthorizationForCacheControl?: pulumi.Input<boolean>, throttlingBurstLimit?: pulumi.Input<number>, throttlingRateLimit?: pulumi.Input<number>, unauthorizedCacheControlHeaderStrategy?: pulumi.Input<string> }>;
     /**
      * The name of the stage
      */
-    readonly stageName: string;
+    readonly stageName: pulumi.Input<string>;
 }

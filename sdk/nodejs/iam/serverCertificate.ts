@@ -141,8 +141,8 @@ export class ServerCertificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ServerCertificateArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ServerCertificateArgs> | pulumi.InputObject<ServerCertificateState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ServerCertificateArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ServerCertificateArgs | ServerCertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ServerCertificateState = argsOrState as ServerCertificateState | undefined;
@@ -180,39 +180,39 @@ export interface ServerCertificateState {
     /**
      * The Amazon Resource Name (ARN) specifying the server certificate.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The contents of the public key certificate in
      * PEM-encoded format.
      */
-    readonly certificateBody?: string;
+    readonly certificateBody?: pulumi.Input<string>;
     /**
      * The contents of the certificate chain.
      * This is typically a concatenation of the PEM-encoded public key certificates
      * of the chain.
      */
-    readonly certificateChain?: string;
+    readonly certificateChain?: pulumi.Input<string>;
     /**
      * The name of the Server Certificate. Do not include the
      * path in this value. If omitted, Terraform will assign a random, unique name.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: string;
+    readonly namePrefix?: pulumi.Input<string>;
     /**
      * The IAM path for the server certificate.  If it is not
      * included, it defaults to a slash (/). If this certificate is for use with
      * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
      * See [IAM Identifiers][1] for more details on IAM Paths.
      */
-    readonly path?: string;
+    readonly path?: pulumi.Input<string>;
     /**
      * The contents of the private key in PEM-encoded format.
      */
-    readonly privateKey?: string;
+    readonly privateKey?: pulumi.Input<string>;
 }
 
 /**
@@ -222,37 +222,37 @@ export interface ServerCertificateArgs {
     /**
      * The Amazon Resource Name (ARN) specifying the server certificate.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The contents of the public key certificate in
      * PEM-encoded format.
      */
-    readonly certificateBody: string;
+    readonly certificateBody: pulumi.Input<string>;
     /**
      * The contents of the certificate chain.
      * This is typically a concatenation of the PEM-encoded public key certificates
      * of the chain.
      */
-    readonly certificateChain?: string;
+    readonly certificateChain?: pulumi.Input<string>;
     /**
      * The name of the Server Certificate. Do not include the
      * path in this value. If omitted, Terraform will assign a random, unique name.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: string;
+    readonly namePrefix?: pulumi.Input<string>;
     /**
      * The IAM path for the server certificate.  If it is not
      * included, it defaults to a slash (/). If this certificate is for use with
      * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
      * See [IAM Identifiers][1] for more details on IAM Paths.
      */
-    readonly path?: string;
+    readonly path?: pulumi.Input<string>;
     /**
      * The contents of the private key in PEM-encoded format.
      */
-    readonly privateKey: string;
+    readonly privateKey: pulumi.Input<string>;
 }

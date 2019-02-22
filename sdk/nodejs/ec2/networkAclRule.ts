@@ -101,8 +101,8 @@ export class NetworkAclRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<NetworkAclRuleArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<NetworkAclRuleArgs> | pulumi.InputObject<NetworkAclRuleState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: NetworkAclRuleArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: NetworkAclRuleArgs | NetworkAclRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: NetworkAclRuleState = argsOrState as NetworkAclRuleState | undefined;
@@ -154,47 +154,47 @@ export interface NetworkAclRuleState {
     /**
      * The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
      */
-    readonly cidrBlock?: string;
+    readonly cidrBlock?: pulumi.Input<string>;
     /**
      * Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
      */
-    readonly egress?: boolean;
+    readonly egress?: pulumi.Input<boolean>;
     /**
      * The from port to match.
      */
-    readonly fromPort?: number;
+    readonly fromPort?: pulumi.Input<number>;
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
      */
-    readonly icmpCode?: string;
+    readonly icmpCode?: pulumi.Input<string>;
     /**
      * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
      */
-    readonly icmpType?: string;
+    readonly icmpType?: pulumi.Input<string>;
     /**
      * The IPv6 CIDR block to allow or deny.
      */
-    readonly ipv6CidrBlock?: string;
+    readonly ipv6CidrBlock?: pulumi.Input<string>;
     /**
      * The ID of the network ACL.
      */
-    readonly networkAclId?: string;
+    readonly networkAclId?: pulumi.Input<string>;
     /**
      * The protocol. A value of -1 means all protocols.
      */
-    readonly protocol?: string;
+    readonly protocol?: pulumi.Input<string>;
     /**
      * Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
      */
-    readonly ruleAction?: string;
+    readonly ruleAction?: pulumi.Input<string>;
     /**
      * The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
      */
-    readonly ruleNumber?: number;
+    readonly ruleNumber?: pulumi.Input<number>;
     /**
      * The to port to match.
      */
-    readonly toPort?: number;
+    readonly toPort?: pulumi.Input<number>;
 }
 
 /**
@@ -204,45 +204,45 @@ export interface NetworkAclRuleArgs {
     /**
      * The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
      */
-    readonly cidrBlock?: string;
+    readonly cidrBlock?: pulumi.Input<string>;
     /**
      * Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
      */
-    readonly egress?: boolean;
+    readonly egress?: pulumi.Input<boolean>;
     /**
      * The from port to match.
      */
-    readonly fromPort?: number;
+    readonly fromPort?: pulumi.Input<number>;
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
      */
-    readonly icmpCode?: string;
+    readonly icmpCode?: pulumi.Input<string>;
     /**
      * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
      */
-    readonly icmpType?: string;
+    readonly icmpType?: pulumi.Input<string>;
     /**
      * The IPv6 CIDR block to allow or deny.
      */
-    readonly ipv6CidrBlock?: string;
+    readonly ipv6CidrBlock?: pulumi.Input<string>;
     /**
      * The ID of the network ACL.
      */
-    readonly networkAclId: string;
+    readonly networkAclId: pulumi.Input<string>;
     /**
      * The protocol. A value of -1 means all protocols.
      */
-    readonly protocol: string;
+    readonly protocol: pulumi.Input<string>;
     /**
      * Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
      */
-    readonly ruleAction: string;
+    readonly ruleAction: pulumi.Input<string>;
     /**
      * The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
      */
-    readonly ruleNumber: number;
+    readonly ruleNumber: pulumi.Input<number>;
     /**
      * The to port to match.
      */
-    readonly toPort?: number;
+    readonly toPort?: pulumi.Input<number>;
 }

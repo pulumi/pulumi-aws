@@ -62,8 +62,8 @@ export class BaiduChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<BaiduChannelArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<BaiduChannelArgs> | pulumi.InputObject<BaiduChannelState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: BaiduChannelArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: BaiduChannelArgs | BaiduChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: BaiduChannelState = argsOrState as BaiduChannelState | undefined;
@@ -98,19 +98,19 @@ export interface BaiduChannelState {
     /**
      * Platform credential API key from Baidu.
      */
-    readonly apiKey?: string;
+    readonly apiKey?: pulumi.Input<string>;
     /**
      * The application ID.
      */
-    readonly applicationId?: string;
+    readonly applicationId?: pulumi.Input<string>;
     /**
      * Specifies whether to enable the channel. Defaults to `true`.
      */
-    readonly enabled?: boolean;
+    readonly enabled?: pulumi.Input<boolean>;
     /**
      * Platform credential Secret key from Baidu.
      */
-    readonly secretKey?: string;
+    readonly secretKey?: pulumi.Input<string>;
 }
 
 /**
@@ -120,17 +120,17 @@ export interface BaiduChannelArgs {
     /**
      * Platform credential API key from Baidu.
      */
-    readonly apiKey: string;
+    readonly apiKey: pulumi.Input<string>;
     /**
      * The application ID.
      */
-    readonly applicationId: string;
+    readonly applicationId: pulumi.Input<string>;
     /**
      * Specifies whether to enable the channel. Defaults to `true`.
      */
-    readonly enabled?: boolean;
+    readonly enabled?: pulumi.Input<boolean>;
     /**
      * Platform credential Secret key from Baidu.
      */
-    readonly secretKey: string;
+    readonly secretKey: pulumi.Input<string>;
 }

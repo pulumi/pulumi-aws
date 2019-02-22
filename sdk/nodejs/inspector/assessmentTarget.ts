@@ -57,8 +57,8 @@ export class AssessmentTarget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<AssessmentTargetArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<AssessmentTargetArgs> | pulumi.InputObject<AssessmentTargetState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AssessmentTargetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: AssessmentTargetArgs | AssessmentTargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AssessmentTargetState = argsOrState as AssessmentTargetState | undefined;
@@ -82,15 +82,15 @@ export interface AssessmentTargetState {
     /**
      * The target assessment ARN.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The name of the assessment target.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
      */
-    readonly resourceGroupArn?: string;
+    readonly resourceGroupArn?: pulumi.Input<string>;
 }
 
 /**
@@ -100,9 +100,9 @@ export interface AssessmentTargetArgs {
     /**
      * The name of the assessment target.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
      */
-    readonly resourceGroupArn?: string;
+    readonly resourceGroupArn?: pulumi.Input<string>;
 }

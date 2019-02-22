@@ -87,8 +87,8 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<VpcEndpointConnectionNotificationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<VpcEndpointConnectionNotificationArgs> | pulumi.InputObject<VpcEndpointConnectionNotificationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VpcEndpointConnectionNotificationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: VpcEndpointConnectionNotificationArgs | VpcEndpointConnectionNotificationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VpcEndpointConnectionNotificationState = argsOrState as VpcEndpointConnectionNotificationState | undefined;
@@ -124,27 +124,27 @@ export interface VpcEndpointConnectionNotificationState {
     /**
      * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
      */
-    readonly connectionEvents?: string[];
+    readonly connectionEvents?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ARN of the SNS topic for the notifications.
      */
-    readonly connectionNotificationArn?: string;
+    readonly connectionNotificationArn?: pulumi.Input<string>;
     /**
      * The type of notification.
      */
-    readonly notificationType?: string;
+    readonly notificationType?: pulumi.Input<string>;
     /**
      * The state of the notification.
      */
-    readonly state?: string;
+    readonly state?: pulumi.Input<string>;
     /**
      * The ID of the VPC Endpoint to receive notifications for.
      */
-    readonly vpcEndpointId?: string;
+    readonly vpcEndpointId?: pulumi.Input<string>;
     /**
      * The ID of the VPC Endpoint Service to receive notifications for.
      */
-    readonly vpcEndpointServiceId?: string;
+    readonly vpcEndpointServiceId?: pulumi.Input<string>;
 }
 
 /**
@@ -154,17 +154,17 @@ export interface VpcEndpointConnectionNotificationArgs {
     /**
      * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
      */
-    readonly connectionEvents: string[];
+    readonly connectionEvents: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ARN of the SNS topic for the notifications.
      */
-    readonly connectionNotificationArn: string;
+    readonly connectionNotificationArn: pulumi.Input<string>;
     /**
      * The ID of the VPC Endpoint to receive notifications for.
      */
-    readonly vpcEndpointId?: string;
+    readonly vpcEndpointId?: pulumi.Input<string>;
     /**
      * The ID of the VPC Endpoint Service to receive notifications for.
      */
-    readonly vpcEndpointServiceId?: string;
+    readonly vpcEndpointServiceId?: pulumi.Input<string>;
 }

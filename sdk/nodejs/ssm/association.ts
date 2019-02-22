@@ -75,8 +75,8 @@ export class Association extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<AssociationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<AssociationArgs> | pulumi.InputObject<AssociationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AssociationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: AssociationArgs | AssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AssociationState = argsOrState as AssociationState | undefined;
@@ -109,39 +109,39 @@ export class Association extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Association resources.
  */
 export interface AssociationState {
-    readonly associationId?: string;
+    readonly associationId?: pulumi.Input<string>;
     /**
      * The descriptive name for the association.
      */
-    readonly associationName?: string;
+    readonly associationName?: pulumi.Input<string>;
     /**
      * The document version you want to associate with the target(s). Can be a specific version or the default version.
      */
-    readonly documentVersion?: string;
+    readonly documentVersion?: pulumi.Input<string>;
     /**
      * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
      */
-    readonly instanceId?: string;
+    readonly instanceId?: pulumi.Input<string>;
     /**
      * The name of the SSM document to apply.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * An output location block. Output Location is documented below.
      */
-    readonly outputLocation?: { s3BucketName: string, s3KeyPrefix?: string };
+    readonly outputLocation?: pulumi.Input<{ s3BucketName: pulumi.Input<string>, s3KeyPrefix?: pulumi.Input<string> }>;
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
-    readonly parameters?: {[key: string]: any};
+    readonly parameters?: pulumi.Input<{[key: string]: any}>;
     /**
      * A cron expression when the association will be applied to the target(s).
      */
-    readonly scheduleExpression?: string;
+    readonly scheduleExpression?: pulumi.Input<string>;
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
-    readonly targets?: { key: string, values: string[] }[];
+    readonly targets?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
 }
 
 /**
@@ -151,33 +151,33 @@ export interface AssociationArgs {
     /**
      * The descriptive name for the association.
      */
-    readonly associationName?: string;
+    readonly associationName?: pulumi.Input<string>;
     /**
      * The document version you want to associate with the target(s). Can be a specific version or the default version.
      */
-    readonly documentVersion?: string;
+    readonly documentVersion?: pulumi.Input<string>;
     /**
      * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
      */
-    readonly instanceId?: string;
+    readonly instanceId?: pulumi.Input<string>;
     /**
      * The name of the SSM document to apply.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * An output location block. Output Location is documented below.
      */
-    readonly outputLocation?: { s3BucketName: string, s3KeyPrefix?: string };
+    readonly outputLocation?: pulumi.Input<{ s3BucketName: pulumi.Input<string>, s3KeyPrefix?: pulumi.Input<string> }>;
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
-    readonly parameters?: {[key: string]: any};
+    readonly parameters?: pulumi.Input<{[key: string]: any}>;
     /**
      * A cron expression when the association will be applied to the target(s).
      */
-    readonly scheduleExpression?: string;
+    readonly scheduleExpression?: pulumi.Input<string>;
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
-    readonly targets?: { key: string, values: string[] }[];
+    readonly targets?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
 }

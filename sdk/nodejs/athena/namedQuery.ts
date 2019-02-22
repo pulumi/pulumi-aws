@@ -62,8 +62,8 @@ export class NamedQuery extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<NamedQueryArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<NamedQueryArgs> | pulumi.InputObject<NamedQueryState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: NamedQueryArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: NamedQueryArgs | NamedQueryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: NamedQueryState = argsOrState as NamedQueryState | undefined;
@@ -95,19 +95,19 @@ export interface NamedQueryState {
     /**
      * The database to which the query belongs.
      */
-    readonly database?: string;
+    readonly database?: pulumi.Input<string>;
     /**
      * A brief explanation of the query. Maximum length of 1024.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The plain language name for the query. Maximum length of 128.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The text of the query itself. In other words, all query statements. Maximum length of 262144.
      */
-    readonly query?: string;
+    readonly query?: pulumi.Input<string>;
 }
 
 /**
@@ -117,17 +117,17 @@ export interface NamedQueryArgs {
     /**
      * The database to which the query belongs.
      */
-    readonly database: string;
+    readonly database: pulumi.Input<string>;
     /**
      * A brief explanation of the query. Maximum length of 1024.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The plain language name for the query. Maximum length of 128.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The text of the query itself. In other words, all query statements. Maximum length of 262144.
      */
-    readonly query: string;
+    readonly query: pulumi.Input<string>;
 }

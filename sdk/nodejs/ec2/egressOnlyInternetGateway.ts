@@ -50,8 +50,8 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<EgressOnlyInternetGatewayArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<EgressOnlyInternetGatewayArgs> | pulumi.InputObject<EgressOnlyInternetGatewayState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: EgressOnlyInternetGatewayArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: EgressOnlyInternetGatewayArgs | EgressOnlyInternetGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: EgressOnlyInternetGatewayState = argsOrState as EgressOnlyInternetGatewayState | undefined;
@@ -74,7 +74,7 @@ export interface EgressOnlyInternetGatewayState {
     /**
      * The VPC ID to create in.
      */
-    readonly vpcId?: string;
+    readonly vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -84,5 +84,5 @@ export interface EgressOnlyInternetGatewayArgs {
     /**
      * The VPC ID to create in.
      */
-    readonly vpcId: string;
+    readonly vpcId: pulumi.Input<string>;
 }

@@ -68,8 +68,8 @@ export class Response extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ResponseArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ResponseArgs> | pulumi.InputObject<ResponseState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ResponseArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ResponseArgs | ResponseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ResponseState = argsOrState as ResponseState | undefined;
@@ -103,23 +103,23 @@ export interface ResponseState {
     /**
      * A map specifying the templates used to transform the response body.
      */
-    readonly responseParameters?: {[key: string]: string};
+    readonly responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
      */
-    readonly responseTemplates?: {[key: string]: string};
+    readonly responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The response type of the associated GatewayResponse.
      */
-    readonly responseType?: string;
+    readonly responseType?: pulumi.Input<string>;
     /**
      * The string identifier of the associated REST API.
      */
-    readonly restApiId?: string;
+    readonly restApiId?: pulumi.Input<string>;
     /**
      * The HTTP status code of the Gateway Response.
      */
-    readonly statusCode?: string;
+    readonly statusCode?: pulumi.Input<string>;
 }
 
 /**
@@ -129,21 +129,21 @@ export interface ResponseArgs {
     /**
      * A map specifying the templates used to transform the response body.
      */
-    readonly responseParameters?: {[key: string]: string};
+    readonly responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
      */
-    readonly responseTemplates?: {[key: string]: string};
+    readonly responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The response type of the associated GatewayResponse.
      */
-    readonly responseType: string;
+    readonly responseType: pulumi.Input<string>;
     /**
      * The string identifier of the associated REST API.
      */
-    readonly restApiId: string;
+    readonly restApiId: pulumi.Input<string>;
     /**
      * The HTTP status code of the Gateway Response.
      */
-    readonly statusCode?: string;
+    readonly statusCode?: pulumi.Input<string>;
 }

@@ -54,8 +54,8 @@ export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<VpcIpv4CidrBlockAssociationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<VpcIpv4CidrBlockAssociationArgs> | pulumi.InputObject<VpcIpv4CidrBlockAssociationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VpcIpv4CidrBlockAssociationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: VpcIpv4CidrBlockAssociationArgs | VpcIpv4CidrBlockAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VpcIpv4CidrBlockAssociationState = argsOrState as VpcIpv4CidrBlockAssociationState | undefined;
@@ -83,11 +83,11 @@ export interface VpcIpv4CidrBlockAssociationState {
     /**
      * The additional IPv4 CIDR block to associate with the VPC.
      */
-    readonly cidrBlock?: string;
+    readonly cidrBlock?: pulumi.Input<string>;
     /**
      * The ID of the VPC to make the association with.
      */
-    readonly vpcId?: string;
+    readonly vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -97,9 +97,9 @@ export interface VpcIpv4CidrBlockAssociationArgs {
     /**
      * The additional IPv4 CIDR block to associate with the VPC.
      */
-    readonly cidrBlock: string;
+    readonly cidrBlock: pulumi.Input<string>;
     /**
      * The ID of the VPC to make the association with.
      */
-    readonly vpcId: string;
+    readonly vpcId: pulumi.Input<string>;
 }

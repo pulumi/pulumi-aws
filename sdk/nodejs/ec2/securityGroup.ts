@@ -151,8 +151,8 @@ export class SecurityGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<SecurityGroupArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<SecurityGroupArgs> | pulumi.InputObject<SecurityGroupState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: SecurityGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: SecurityGroupArgs | SecurityGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SecurityGroupState = argsOrState as SecurityGroupState | undefined;
@@ -190,38 +190,38 @@ export interface SecurityGroupState {
     /**
      * The ARN of the security group
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The security group description. Defaults to
      * "Managed by Terraform". Cannot be "". __NOTE__: This field maps to the AWS
      * `GroupDescription` attribute, for which there is no Update API. If you'd like
      * to classify your security groups in a way that can be updated, use `tags`.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * Can be specified multiple times for each
      * egress rule. Each egress block supports fields documented below.
      */
-    readonly egress?: { cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[];
+    readonly egress?: pulumi.Input<pulumi.Input<{ cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, description?: pulumi.Input<string>, fromPort: pulumi.Input<number>, ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, prefixListIds?: pulumi.Input<pulumi.Input<string>[]>, protocol: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, self?: pulumi.Input<boolean>, toPort: pulumi.Input<number> }>[]>;
     /**
      * Can be specified multiple times for each
      * ingress rule. Each ingress block supports fields documented below.
      */
-    readonly ingress?: { cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[];
+    readonly ingress?: pulumi.Input<pulumi.Input<{ cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, description?: pulumi.Input<string>, fromPort: pulumi.Input<number>, ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, prefixListIds?: pulumi.Input<pulumi.Input<string>[]>, protocol: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, self?: pulumi.Input<boolean>, toPort: pulumi.Input<number> }>[]>;
     /**
      * The name of the security group. If omitted, Terraform will
      * assign a random, unique name
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: string;
+    readonly namePrefix?: pulumi.Input<string>;
     /**
      * The owner ID.
      */
-    readonly ownerId?: string;
+    readonly ownerId?: pulumi.Input<string>;
     /**
      * Instruct Terraform to revoke all of the
      * Security Groups attached ingress and egress rules before deleting the rule
@@ -231,15 +231,15 @@ export interface SecurityGroupState {
      * the security groups from being destroyed without removing the dependency first.
      * Default `false`
      */
-    readonly revokeRulesOnDelete?: boolean;
+    readonly revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The VPC ID.
      */
-    readonly vpcId?: string;
+    readonly vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -252,27 +252,27 @@ export interface SecurityGroupArgs {
      * `GroupDescription` attribute, for which there is no Update API. If you'd like
      * to classify your security groups in a way that can be updated, use `tags`.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * Can be specified multiple times for each
      * egress rule. Each egress block supports fields documented below.
      */
-    readonly egress?: { cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[];
+    readonly egress?: pulumi.Input<pulumi.Input<{ cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, description?: pulumi.Input<string>, fromPort: pulumi.Input<number>, ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, prefixListIds?: pulumi.Input<pulumi.Input<string>[]>, protocol: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, self?: pulumi.Input<boolean>, toPort: pulumi.Input<number> }>[]>;
     /**
      * Can be specified multiple times for each
      * ingress rule. Each ingress block supports fields documented below.
      */
-    readonly ingress?: { cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[];
+    readonly ingress?: pulumi.Input<pulumi.Input<{ cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, description?: pulumi.Input<string>, fromPort: pulumi.Input<number>, ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, prefixListIds?: pulumi.Input<pulumi.Input<string>[]>, protocol: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, self?: pulumi.Input<boolean>, toPort: pulumi.Input<number> }>[]>;
     /**
      * The name of the security group. If omitted, Terraform will
      * assign a random, unique name
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: string;
+    readonly namePrefix?: pulumi.Input<string>;
     /**
      * Instruct Terraform to revoke all of the
      * Security Groups attached ingress and egress rules before deleting the rule
@@ -282,13 +282,13 @@ export interface SecurityGroupArgs {
      * the security groups from being destroyed without removing the dependency first.
      * Default `false`
      */
-    readonly revokeRulesOnDelete?: boolean;
+    readonly revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The VPC ID.
      */
-    readonly vpcId?: string;
+    readonly vpcId?: pulumi.Input<string>;
 }

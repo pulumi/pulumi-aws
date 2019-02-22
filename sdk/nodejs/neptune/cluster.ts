@@ -168,8 +168,8 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<ClusterArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ClusterArgs> | pulumi.InputObject<ClusterState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ClusterArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ClusterState = argsOrState as ClusterState | undefined;
@@ -243,115 +243,115 @@ export interface ClusterState {
     /**
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
-    readonly applyImmediately?: boolean;
+    readonly applyImmediately?: pulumi.Input<boolean>;
     /**
      * The Neptune Cluster Amazon Resource Name (ARN)
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
      */
-    readonly availabilityZones?: string[];
+    readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The days to retain backups for. Default `1`
      */
-    readonly backupRetentionPeriod?: number;
+    readonly backupRetentionPeriod?: pulumi.Input<number>;
     /**
      * The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
      */
-    readonly clusterIdentifier?: string;
+    readonly clusterIdentifier?: pulumi.Input<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      */
-    readonly clusterIdentifierPrefix?: string;
+    readonly clusterIdentifierPrefix?: pulumi.Input<string>;
     /**
      * List of Neptune Instances that are a part of this cluster
      */
-    readonly clusterMembers?: string[];
+    readonly clusterMembers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Neptune Cluster Resource ID
      */
-    readonly clusterResourceId?: string;
+    readonly clusterResourceId?: pulumi.Input<string>;
     /**
      * The DNS address of the Neptune instance
      */
-    readonly endpoint?: string;
+    readonly endpoint?: pulumi.Input<string>;
     /**
      * The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
      */
-    readonly engine?: string;
+    readonly engine?: pulumi.Input<string>;
     /**
      * The database engine version.
      */
-    readonly engineVersion?: string;
+    readonly engineVersion?: pulumi.Input<string>;
     /**
      * The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
      */
-    readonly finalSnapshotIdentifier?: string;
+    readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
      * The Route53 Hosted Zone ID of the endpoint
      */
-    readonly hostedZoneId?: string;
+    readonly hostedZoneId?: pulumi.Input<string>;
     /**
      * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      */
-    readonly iamDatabaseAuthenticationEnabled?: boolean;
+    readonly iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * A List of ARNs for the IAM roles to associate to the Neptune Cluster.
      */
-    readonly iamRoles?: string[];
+    readonly iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
      */
-    readonly kmsKeyArn?: string;
+    readonly kmsKeyArn?: pulumi.Input<string>;
     /**
      * A cluster parameter group to associate with the cluster.
      */
-    readonly neptuneClusterParameterGroupName?: string;
+    readonly neptuneClusterParameterGroupName?: pulumi.Input<string>;
     /**
      * A Neptune subnet group to associate with this Neptune instance.
      */
-    readonly neptuneSubnetGroupName?: string;
+    readonly neptuneSubnetGroupName?: pulumi.Input<string>;
     /**
      * The port on which the Neptune accepts connections. Default is `8182`.
      */
-    readonly port?: number;
+    readonly port?: pulumi.Input<number>;
     /**
      * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
      */
-    readonly preferredBackupWindow?: string;
+    readonly preferredBackupWindow?: pulumi.Input<string>;
     /**
      * The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
      */
-    readonly preferredMaintenanceWindow?: string;
+    readonly preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
      * A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
      */
-    readonly readerEndpoint?: string;
+    readonly readerEndpoint?: pulumi.Input<string>;
     /**
      * ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
      */
-    readonly replicationSourceIdentifier?: string;
+    readonly replicationSourceIdentifier?: pulumi.Input<string>;
     /**
      * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      */
-    readonly skipFinalSnapshot?: boolean;
+    readonly skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
      * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
      */
-    readonly snapshotIdentifier?: string;
+    readonly snapshotIdentifier?: pulumi.Input<string>;
     /**
      * Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
      */
-    readonly storageEncrypted?: boolean;
+    readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the Neptune cluster.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * List of VPC security groups to associate with the Cluster
      */
-    readonly vpcSecurityGroupIds?: string[];
+    readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -361,89 +361,89 @@ export interface ClusterArgs {
     /**
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
-    readonly applyImmediately?: boolean;
+    readonly applyImmediately?: pulumi.Input<boolean>;
     /**
      * A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
      */
-    readonly availabilityZones?: string[];
+    readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The days to retain backups for. Default `1`
      */
-    readonly backupRetentionPeriod?: number;
+    readonly backupRetentionPeriod?: pulumi.Input<number>;
     /**
      * The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
      */
-    readonly clusterIdentifier?: string;
+    readonly clusterIdentifier?: pulumi.Input<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      */
-    readonly clusterIdentifierPrefix?: string;
+    readonly clusterIdentifierPrefix?: pulumi.Input<string>;
     /**
      * The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
      */
-    readonly engine?: string;
+    readonly engine?: pulumi.Input<string>;
     /**
      * The database engine version.
      */
-    readonly engineVersion?: string;
+    readonly engineVersion?: pulumi.Input<string>;
     /**
      * The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
      */
-    readonly finalSnapshotIdentifier?: string;
+    readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
      * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      */
-    readonly iamDatabaseAuthenticationEnabled?: boolean;
+    readonly iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * A List of ARNs for the IAM roles to associate to the Neptune Cluster.
      */
-    readonly iamRoles?: string[];
+    readonly iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
      */
-    readonly kmsKeyArn?: string;
+    readonly kmsKeyArn?: pulumi.Input<string>;
     /**
      * A cluster parameter group to associate with the cluster.
      */
-    readonly neptuneClusterParameterGroupName?: string;
+    readonly neptuneClusterParameterGroupName?: pulumi.Input<string>;
     /**
      * A Neptune subnet group to associate with this Neptune instance.
      */
-    readonly neptuneSubnetGroupName?: string;
+    readonly neptuneSubnetGroupName?: pulumi.Input<string>;
     /**
      * The port on which the Neptune accepts connections. Default is `8182`.
      */
-    readonly port?: number;
+    readonly port?: pulumi.Input<number>;
     /**
      * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
      */
-    readonly preferredBackupWindow?: string;
+    readonly preferredBackupWindow?: pulumi.Input<string>;
     /**
      * The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
      */
-    readonly preferredMaintenanceWindow?: string;
+    readonly preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
      * ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
      */
-    readonly replicationSourceIdentifier?: string;
+    readonly replicationSourceIdentifier?: pulumi.Input<string>;
     /**
      * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      */
-    readonly skipFinalSnapshot?: boolean;
+    readonly skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
      * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
      */
-    readonly snapshotIdentifier?: string;
+    readonly snapshotIdentifier?: pulumi.Input<string>;
     /**
      * Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
      */
-    readonly storageEncrypted?: boolean;
+    readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the Neptune cluster.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * List of VPC security groups to associate with the Cluster
      */
-    readonly vpcSecurityGroupIds?: string[];
+    readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

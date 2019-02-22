@@ -41,8 +41,8 @@ export class ConfgurationSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<ConfgurationSetArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ConfgurationSetArgs> | pulumi.InputObject<ConfgurationSetState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ConfgurationSetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ConfgurationSetArgs | ConfgurationSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ConfgurationSetState = argsOrState as ConfgurationSetState | undefined;
@@ -62,7 +62,7 @@ export interface ConfgurationSetState {
     /**
      * The name of the configuration set
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
 }
 
 /**
@@ -72,5 +72,5 @@ export interface ConfgurationSetArgs {
     /**
      * The name of the configuration set
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
 }

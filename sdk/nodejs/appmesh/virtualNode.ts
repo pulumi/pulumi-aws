@@ -112,8 +112,8 @@ export class VirtualNode extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<VirtualNodeArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<VirtualNodeArgs> | pulumi.InputObject<VirtualNodeState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VirtualNodeArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: VirtualNodeArgs | VirtualNodeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VirtualNodeState = argsOrState as VirtualNodeState | undefined;
@@ -149,27 +149,27 @@ export interface VirtualNodeState {
     /**
      * The ARN of the virtual node.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The creation date of the virtual node.
      */
-    readonly createdDate?: string;
+    readonly createdDate?: pulumi.Input<string>;
     /**
      * The last update date of the virtual node.
      */
-    readonly lastUpdatedDate?: string;
+    readonly lastUpdatedDate?: pulumi.Input<string>;
     /**
      * The name of the service mesh in which to create the virtual node.
      */
-    readonly meshName?: string;
+    readonly meshName?: pulumi.Input<string>;
     /**
      * The name to use for the virtual node.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The virtual node specification to apply.
      */
-    readonly spec?: { backends?: string[], listener?: { healthCheck?: { healthyThreshold: number, intervalMillis: number, path?: string, port?: number, protocol: string, timeoutMillis: number, unhealthyThreshold: number }, portMapping: { port: number, protocol: string } }, serviceDiscovery?: { dns: { serviceName: string } } };
+    readonly spec?: pulumi.Input<{ backends?: pulumi.Input<pulumi.Input<string>[]>, listener?: pulumi.Input<{ healthCheck?: pulumi.Input<{ healthyThreshold: pulumi.Input<number>, intervalMillis: pulumi.Input<number>, path?: pulumi.Input<string>, port?: pulumi.Input<number>, protocol: pulumi.Input<string>, timeoutMillis: pulumi.Input<number>, unhealthyThreshold: pulumi.Input<number> }>, portMapping: pulumi.Input<{ port: pulumi.Input<number>, protocol: pulumi.Input<string> }> }>, serviceDiscovery?: pulumi.Input<{ dns: pulumi.Input<{ serviceName: pulumi.Input<string> }> }> }>;
 }
 
 /**
@@ -179,13 +179,13 @@ export interface VirtualNodeArgs {
     /**
      * The name of the service mesh in which to create the virtual node.
      */
-    readonly meshName: string;
+    readonly meshName: pulumi.Input<string>;
     /**
      * The name to use for the virtual node.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The virtual node specification to apply.
      */
-    readonly spec: { backends?: string[], listener?: { healthCheck?: { healthyThreshold: number, intervalMillis: number, path?: string, port?: number, protocol: string, timeoutMillis: number, unhealthyThreshold: number }, portMapping: { port: number, protocol: string } }, serviceDiscovery?: { dns: { serviceName: string } } };
+    readonly spec: pulumi.Input<{ backends?: pulumi.Input<pulumi.Input<string>[]>, listener?: pulumi.Input<{ healthCheck?: pulumi.Input<{ healthyThreshold: pulumi.Input<number>, intervalMillis: pulumi.Input<number>, path?: pulumi.Input<string>, port?: pulumi.Input<number>, protocol: pulumi.Input<string>, timeoutMillis: pulumi.Input<number>, unhealthyThreshold: pulumi.Input<number> }>, portMapping: pulumi.Input<{ port: pulumi.Input<number>, protocol: pulumi.Input<string> }> }>, serviceDiscovery?: pulumi.Input<{ dns: pulumi.Input<{ serviceName: pulumi.Input<string> }> }> }>;
 }

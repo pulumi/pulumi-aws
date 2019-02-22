@@ -158,8 +158,8 @@ export class ClusterInstance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ClusterInstanceArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ClusterInstanceArgs> | pulumi.InputObject<ClusterInstanceState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ClusterInstanceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ClusterInstanceArgs | ClusterInstanceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ClusterInstanceState = argsOrState as ClusterInstanceState | undefined;
@@ -231,101 +231,101 @@ export interface ClusterInstanceState {
     /**
      * The hostname of the instance. See also `endpoint` and `port`.
      */
-    readonly address?: string;
+    readonly address?: pulumi.Input<string>;
     /**
      * Specifies whether any instance modifications
      * are applied immediately, or during the next maintenance window. Default is`false`.
      */
-    readonly applyImmediately?: boolean;
+    readonly applyImmediately?: pulumi.Input<boolean>;
     /**
      * Amazon Resource Name (ARN) of neptune instance
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
      */
-    readonly autoMinorVersionUpgrade?: boolean;
+    readonly autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
      * The EC2 Availability Zone that the neptune instance is created in.
      */
-    readonly availabilityZone?: string;
+    readonly availabilityZone?: pulumi.Input<string>;
     /**
      * The identifier of the [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
      */
-    readonly clusterIdentifier?: string;
+    readonly clusterIdentifier?: pulumi.Input<string>;
     /**
      * The region-unique, immutable identifier for the neptune instance.
      */
-    readonly dbiResourceId?: string;
+    readonly dbiResourceId?: pulumi.Input<string>;
     /**
      * The connection endpoint in `address:port` format.
      */
-    readonly endpoint?: string;
+    readonly endpoint?: pulumi.Input<string>;
     /**
      * The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
      */
-    readonly engine?: string;
+    readonly engine?: pulumi.Input<string>;
     /**
      * The neptune engine version.
      */
-    readonly engineVersion?: string;
+    readonly engineVersion?: pulumi.Input<string>;
     /**
      * The indentifier for the neptune instance, if omitted, Terraform will assign a random, unique identifier.
      */
-    readonly identifier?: string;
+    readonly identifier?: pulumi.Input<string>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
-    readonly identifierPrefix?: string;
+    readonly identifierPrefix?: pulumi.Input<string>;
     /**
      * The instance class to use.
      */
-    readonly instanceClass?: string;
+    readonly instanceClass?: pulumi.Input<string>;
     /**
      * The ARN for the KMS encryption key if one is set to the neptune cluster.
      */
-    readonly kmsKeyArn?: string;
+    readonly kmsKeyArn?: pulumi.Input<string>;
     /**
      * The name of the neptune parameter group to associate with this instance.
      */
-    readonly neptuneParameterGroupName?: string;
+    readonly neptuneParameterGroupName?: pulumi.Input<string>;
     /**
      * A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
      */
-    readonly neptuneSubnetGroupName?: string;
+    readonly neptuneSubnetGroupName?: pulumi.Input<string>;
     /**
      * The port on which the DB accepts connections. Defaults to `8182`.
      */
-    readonly port?: number;
+    readonly port?: pulumi.Input<number>;
     /**
      * The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
      */
-    readonly preferredBackupWindow?: string;
+    readonly preferredBackupWindow?: pulumi.Input<string>;
     /**
      * The window to perform maintenance in.
      * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
      */
-    readonly preferredMaintenanceWindow?: string;
+    readonly preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
      */
-    readonly promotionTier?: number;
+    readonly promotionTier?: pulumi.Input<number>;
     /**
      * Bool to control if instance is publicly accessible. Default is `false`.
      */
-    readonly publiclyAccessible?: boolean;
+    readonly publiclyAccessible?: pulumi.Input<boolean>;
     /**
      * Specifies whether the neptune cluster is encrypted.
      */
-    readonly storageEncrypted?: boolean;
+    readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the instance.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      */
-    readonly writer?: boolean;
+    readonly writer?: pulumi.Input<boolean>;
 }
 
 /**
@@ -336,70 +336,70 @@ export interface ClusterInstanceArgs {
      * Specifies whether any instance modifications
      * are applied immediately, or during the next maintenance window. Default is`false`.
      */
-    readonly applyImmediately?: boolean;
+    readonly applyImmediately?: pulumi.Input<boolean>;
     /**
      * Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
      */
-    readonly autoMinorVersionUpgrade?: boolean;
+    readonly autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
      * The EC2 Availability Zone that the neptune instance is created in.
      */
-    readonly availabilityZone?: string;
+    readonly availabilityZone?: pulumi.Input<string>;
     /**
      * The identifier of the [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
      */
-    readonly clusterIdentifier: string;
+    readonly clusterIdentifier: pulumi.Input<string>;
     /**
      * The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
      */
-    readonly engine?: string;
+    readonly engine?: pulumi.Input<string>;
     /**
      * The neptune engine version.
      */
-    readonly engineVersion?: string;
+    readonly engineVersion?: pulumi.Input<string>;
     /**
      * The indentifier for the neptune instance, if omitted, Terraform will assign a random, unique identifier.
      */
-    readonly identifier?: string;
+    readonly identifier?: pulumi.Input<string>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
-    readonly identifierPrefix?: string;
+    readonly identifierPrefix?: pulumi.Input<string>;
     /**
      * The instance class to use.
      */
-    readonly instanceClass: string;
+    readonly instanceClass: pulumi.Input<string>;
     /**
      * The name of the neptune parameter group to associate with this instance.
      */
-    readonly neptuneParameterGroupName?: string;
+    readonly neptuneParameterGroupName?: pulumi.Input<string>;
     /**
      * A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
      */
-    readonly neptuneSubnetGroupName?: string;
+    readonly neptuneSubnetGroupName?: pulumi.Input<string>;
     /**
      * The port on which the DB accepts connections. Defaults to `8182`.
      */
-    readonly port?: number;
+    readonly port?: pulumi.Input<number>;
     /**
      * The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
      */
-    readonly preferredBackupWindow?: string;
+    readonly preferredBackupWindow?: pulumi.Input<string>;
     /**
      * The window to perform maintenance in.
      * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
      */
-    readonly preferredMaintenanceWindow?: string;
+    readonly preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
      */
-    readonly promotionTier?: number;
+    readonly promotionTier?: pulumi.Input<number>;
     /**
      * Bool to control if instance is publicly accessible. Default is `false`.
      */
-    readonly publiclyAccessible?: boolean;
+    readonly publiclyAccessible?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the instance.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

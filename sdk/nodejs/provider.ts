@@ -21,7 +21,7 @@ export class Provider extends pulumi.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<ProviderArgs>, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
         {
             inputs["accessKey"] = args ? args.accessKey : undefined;
@@ -55,64 +55,64 @@ export interface ProviderArgs {
      * The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS
      * console.
      */
-    readonly accessKey?: string;
-    readonly allowedAccountIds?: string[];
-    readonly assumeRole?: { externalId?: string, policy?: string, roleArn?: string, sessionName?: string };
-    readonly endpoints?: { acm?: string, apigateway?: string, autoscaling?: string, cloudformation?: string, cloudwatch?: string, cloudwatchevents?: string, cloudwatchlogs?: string, devicefarm?: string, dynamodb?: string, ec2?: string, ecr?: string, ecs?: string, efs?: string, elb?: string, es?: string, iam?: string, kinesis?: string, kinesisAnalytics?: string, kms?: string, lambda?: string, r53?: string, rds?: string, s3?: string, s3control?: string, sns?: string, sqs?: string, ssm?: string, sts?: string }[];
-    readonly forbiddenAccountIds?: string[];
+    readonly accessKey?: pulumi.Input<string>;
+    readonly allowedAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly assumeRole?: pulumi.Input<{ externalId?: pulumi.Input<string>, policy?: pulumi.Input<string>, roleArn?: pulumi.Input<string>, sessionName?: pulumi.Input<string> }>;
+    readonly endpoints?: pulumi.Input<pulumi.Input<{ acm?: pulumi.Input<string>, apigateway?: pulumi.Input<string>, autoscaling?: pulumi.Input<string>, cloudformation?: pulumi.Input<string>, cloudwatch?: pulumi.Input<string>, cloudwatchevents?: pulumi.Input<string>, cloudwatchlogs?: pulumi.Input<string>, devicefarm?: pulumi.Input<string>, dynamodb?: pulumi.Input<string>, ec2?: pulumi.Input<string>, ecr?: pulumi.Input<string>, ecs?: pulumi.Input<string>, efs?: pulumi.Input<string>, elb?: pulumi.Input<string>, es?: pulumi.Input<string>, iam?: pulumi.Input<string>, kinesis?: pulumi.Input<string>, kinesisAnalytics?: pulumi.Input<string>, kms?: pulumi.Input<string>, lambda?: pulumi.Input<string>, r53?: pulumi.Input<string>, rds?: pulumi.Input<string>, s3?: pulumi.Input<string>, s3control?: pulumi.Input<string>, sns?: pulumi.Input<string>, sqs?: pulumi.Input<string>, ssm?: pulumi.Input<string>, sts?: pulumi.Input<string> }>[]>;
+    readonly forbiddenAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
      */
-    readonly insecure?: boolean;
+    readonly insecure?: pulumi.Input<boolean>;
     /**
      * The maximum number of times an AWS API request is being executed. If the API request still fails, an error is
      * thrown.
      */
-    readonly maxRetries?: number;
+    readonly maxRetries?: pulumi.Input<number>;
     /**
      * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
      */
-    readonly profile?: string;
+    readonly profile?: pulumi.Input<string>;
     /**
      * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
      */
-    readonly region?: Region;
+    readonly region?: pulumi.Input<Region>;
     /**
      * Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
      * default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).
      * Specific to the Amazon S3 service.
      */
-    readonly s3ForcePathStyle?: boolean;
+    readonly s3ForcePathStyle?: pulumi.Input<boolean>;
     /**
      * The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS
      * console.
      */
-    readonly secretKey?: string;
+    readonly secretKey?: pulumi.Input<string>;
     /**
      * The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
      */
-    readonly sharedCredentialsFile?: string;
+    readonly sharedCredentialsFile?: pulumi.Input<string>;
     /**
      * Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
      * available/implemented.
      */
-    readonly skipCredentialsValidation?: boolean;
+    readonly skipCredentialsValidation?: pulumi.Input<boolean>;
     /**
      * Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
      */
-    readonly skipGetEc2Platforms?: boolean;
-    readonly skipMetadataApiCheck?: boolean;
+    readonly skipGetEc2Platforms?: pulumi.Input<boolean>;
+    readonly skipMetadataApiCheck?: pulumi.Input<boolean>;
     /**
      * Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that
      * are not public (yet).
      */
-    readonly skipRegionValidation?: boolean;
+    readonly skipRegionValidation?: pulumi.Input<boolean>;
     /**
      * Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
      */
-    readonly skipRequestingAccountId?: boolean;
+    readonly skipRequestingAccountId?: pulumi.Input<boolean>;
     /**
      * session token. A session token is only required if you are using temporary security credentials.
      */
-    readonly token?: string;
+    readonly token?: pulumi.Input<string>;
 }

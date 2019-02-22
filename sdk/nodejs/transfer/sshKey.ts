@@ -98,8 +98,8 @@ export class SshKey extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<SshKeyArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<SshKeyArgs> | pulumi.InputObject<SshKeyState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SshKeyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: SshKeyArgs | SshKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SshKeyState = argsOrState as SshKeyState | undefined;
@@ -132,15 +132,15 @@ export interface SshKeyState {
     /**
      * The public key portion of an SSH key pair.
      */
-    readonly body?: string;
+    readonly body?: pulumi.Input<string>;
     /**
      * The Server ID of the Transfer Server (e.g. `s-12345678`)
      */
-    readonly serverId?: string;
+    readonly serverId?: pulumi.Input<string>;
     /**
      * The name of the user account that is assigned to one or more servers.
      */
-    readonly userName?: string;
+    readonly userName?: pulumi.Input<string>;
 }
 
 /**
@@ -150,13 +150,13 @@ export interface SshKeyArgs {
     /**
      * The public key portion of an SSH key pair.
      */
-    readonly body: string;
+    readonly body: pulumi.Input<string>;
     /**
      * The Server ID of the Transfer Server (e.g. `s-12345678`)
      */
-    readonly serverId: string;
+    readonly serverId: pulumi.Input<string>;
     /**
      * The name of the user account that is assigned to one or more servers.
      */
-    readonly userName: string;
+    readonly userName: pulumi.Input<string>;
 }

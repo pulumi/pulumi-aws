@@ -123,8 +123,8 @@ export class Stack extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<StackArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<StackArgs> | pulumi.InputObject<StackState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: StackArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: StackArgs | StackState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: StackState = argsOrState as StackState | undefined;
@@ -171,63 +171,63 @@ export interface StackState {
      * A list of capabilities.
      * Valid values: `CAPABILITY_IAM` or `CAPABILITY_NAMED_IAM`
      */
-    readonly capabilities?: string[];
+    readonly capabilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Set to true to disable rollback of the stack if stack creation failed.
      * Conflicts with `on_failure`.
      */
-    readonly disableRollback?: boolean;
+    readonly disableRollback?: pulumi.Input<boolean>;
     /**
      * The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
      */
-    readonly iamRoleArn?: string;
+    readonly iamRoleArn?: pulumi.Input<string>;
     /**
      * Stack name.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A list of SNS topic ARNs to publish stack related events.
      */
-    readonly notificationArns?: string[];
+    readonly notificationArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Action to be taken if stack creation fails. This must be
      * one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
      */
-    readonly onFailure?: string;
+    readonly onFailure?: pulumi.Input<string>;
     /**
      * A map of outputs from the stack.
      */
-    readonly outputs?: {[key: string]: any};
+    readonly outputs?: pulumi.Input<{[key: string]: any}>;
     /**
      * A map of Parameter structures that specify input parameters for the stack.
      */
-    readonly parameters?: {[key: string]: any};
+    readonly parameters?: pulumi.Input<{[key: string]: any}>;
     /**
      * Structure containing the stack policy body.
      * Conflicts w/ `policy_url`.
      */
-    readonly policyBody?: string;
+    readonly policyBody?: pulumi.Input<string>;
     /**
      * Location of a file containing the stack policy.
      * Conflicts w/ `policy_body`.
      */
-    readonly policyUrl?: string;
+    readonly policyUrl?: pulumi.Input<string>;
     /**
      * A list of tags to associate with this stack.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Structure containing the template body (max size: 51,200 bytes).
      */
-    readonly templateBody?: string;
+    readonly templateBody?: pulumi.Input<string>;
     /**
      * Location of a file containing the template body (max size: 460,800 bytes).
      */
-    readonly templateUrl?: string;
+    readonly templateUrl?: pulumi.Input<string>;
     /**
      * The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
      */
-    readonly timeoutInMinutes?: number;
+    readonly timeoutInMinutes?: pulumi.Input<number>;
 }
 
 /**
@@ -238,57 +238,57 @@ export interface StackArgs {
      * A list of capabilities.
      * Valid values: `CAPABILITY_IAM` or `CAPABILITY_NAMED_IAM`
      */
-    readonly capabilities?: string[];
+    readonly capabilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Set to true to disable rollback of the stack if stack creation failed.
      * Conflicts with `on_failure`.
      */
-    readonly disableRollback?: boolean;
+    readonly disableRollback?: pulumi.Input<boolean>;
     /**
      * The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
      */
-    readonly iamRoleArn?: string;
+    readonly iamRoleArn?: pulumi.Input<string>;
     /**
      * Stack name.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A list of SNS topic ARNs to publish stack related events.
      */
-    readonly notificationArns?: string[];
+    readonly notificationArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Action to be taken if stack creation fails. This must be
      * one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
      */
-    readonly onFailure?: string;
+    readonly onFailure?: pulumi.Input<string>;
     /**
      * A map of Parameter structures that specify input parameters for the stack.
      */
-    readonly parameters?: {[key: string]: any};
+    readonly parameters?: pulumi.Input<{[key: string]: any}>;
     /**
      * Structure containing the stack policy body.
      * Conflicts w/ `policy_url`.
      */
-    readonly policyBody?: string;
+    readonly policyBody?: pulumi.Input<string>;
     /**
      * Location of a file containing the stack policy.
      * Conflicts w/ `policy_body`.
      */
-    readonly policyUrl?: string;
+    readonly policyUrl?: pulumi.Input<string>;
     /**
      * A list of tags to associate with this stack.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Structure containing the template body (max size: 51,200 bytes).
      */
-    readonly templateBody?: string;
+    readonly templateBody?: pulumi.Input<string>;
     /**
      * Location of a file containing the template body (max size: 460,800 bytes).
      */
-    readonly templateUrl?: string;
+    readonly templateUrl?: pulumi.Input<string>;
     /**
      * The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
      */
-    readonly timeoutInMinutes?: number;
+    readonly timeoutInMinutes?: pulumi.Input<number>;
 }

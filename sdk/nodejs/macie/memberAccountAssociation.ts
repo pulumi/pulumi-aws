@@ -45,8 +45,8 @@ export class MemberAccountAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<MemberAccountAssociationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<MemberAccountAssociationArgs> | pulumi.InputObject<MemberAccountAssociationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: MemberAccountAssociationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: MemberAccountAssociationArgs | MemberAccountAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: MemberAccountAssociationState = argsOrState as MemberAccountAssociationState | undefined;
@@ -69,7 +69,7 @@ export interface MemberAccountAssociationState {
     /**
      * The ID of the AWS account that you want to associate with Amazon Macie as a member account.
      */
-    readonly memberAccountId?: string;
+    readonly memberAccountId?: pulumi.Input<string>;
 }
 
 /**
@@ -79,5 +79,5 @@ export interface MemberAccountAssociationArgs {
     /**
      * The ID of the AWS account that you want to associate with Amazon Macie as a member account.
      */
-    readonly memberAccountId: string;
+    readonly memberAccountId: pulumi.Input<string>;
 }

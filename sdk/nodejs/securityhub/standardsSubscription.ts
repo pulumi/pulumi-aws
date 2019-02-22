@@ -44,8 +44,8 @@ export class StandardsSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<StandardsSubscriptionArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<StandardsSubscriptionArgs> | pulumi.InputObject<StandardsSubscriptionState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: StandardsSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: StandardsSubscriptionArgs | StandardsSubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: StandardsSubscriptionState = argsOrState as StandardsSubscriptionState | undefined;
@@ -68,7 +68,7 @@ export interface StandardsSubscriptionState {
     /**
      * The ARN of a standard - see below.
      */
-    readonly standardsArn?: string;
+    readonly standardsArn?: pulumi.Input<string>;
 }
 
 /**
@@ -78,5 +78,5 @@ export interface StandardsSubscriptionArgs {
     /**
      * The ARN of a standard - see below.
      */
-    readonly standardsArn: string;
+    readonly standardsArn: pulumi.Input<string>;
 }

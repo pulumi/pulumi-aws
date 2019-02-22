@@ -103,8 +103,8 @@ export class PlatformApplication extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<PlatformApplicationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<PlatformApplicationArgs> | pulumi.InputObject<PlatformApplicationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PlatformApplicationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: PlatformApplicationArgs | PlatformApplicationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PlatformApplicationState = argsOrState as PlatformApplicationState | undefined;
@@ -152,51 +152,51 @@ export interface PlatformApplicationState {
     /**
      * The ARN of the SNS platform application
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
      */
-    readonly eventDeliveryFailureTopicArn?: string;
+    readonly eventDeliveryFailureTopicArn?: pulumi.Input<string>;
     /**
      * SNS Topic triggered when a new platform endpoint is added to your platform application.
      */
-    readonly eventEndpointCreatedTopicArn?: string;
+    readonly eventEndpointCreatedTopicArn?: pulumi.Input<string>;
     /**
      * SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
      */
-    readonly eventEndpointDeletedTopicArn?: string;
+    readonly eventEndpointDeletedTopicArn?: pulumi.Input<string>;
     /**
      * SNS Topic triggered when an existing platform endpoint is changed from your platform application.
      */
-    readonly eventEndpointUpdatedTopicArn?: string;
+    readonly eventEndpointUpdatedTopicArn?: pulumi.Input<string>;
     /**
      * The IAM role permitted to receive failure feedback for this application.
      */
-    readonly failureFeedbackRoleArn?: string;
+    readonly failureFeedbackRoleArn?: pulumi.Input<string>;
     /**
      * The friendly name for the SNS platform application
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The platform that the app is registered with. See [Platform][1] for supported platforms.
      */
-    readonly platform?: string;
+    readonly platform?: pulumi.Input<string>;
     /**
      * Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
-    readonly platformCredential?: string;
+    readonly platformCredential?: pulumi.Input<string>;
     /**
      * Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
-    readonly platformPrincipal?: string;
+    readonly platformPrincipal?: pulumi.Input<string>;
     /**
      * The IAM role permitted to receive success feedback for this application.
      */
-    readonly successFeedbackRoleArn?: string;
+    readonly successFeedbackRoleArn?: pulumi.Input<string>;
     /**
      * The percentage of success to sample (0-100)
      */
-    readonly successFeedbackSampleRate?: string;
+    readonly successFeedbackSampleRate?: pulumi.Input<string>;
 }
 
 /**
@@ -206,45 +206,45 @@ export interface PlatformApplicationArgs {
     /**
      * SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
      */
-    readonly eventDeliveryFailureTopicArn?: string;
+    readonly eventDeliveryFailureTopicArn?: pulumi.Input<string>;
     /**
      * SNS Topic triggered when a new platform endpoint is added to your platform application.
      */
-    readonly eventEndpointCreatedTopicArn?: string;
+    readonly eventEndpointCreatedTopicArn?: pulumi.Input<string>;
     /**
      * SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
      */
-    readonly eventEndpointDeletedTopicArn?: string;
+    readonly eventEndpointDeletedTopicArn?: pulumi.Input<string>;
     /**
      * SNS Topic triggered when an existing platform endpoint is changed from your platform application.
      */
-    readonly eventEndpointUpdatedTopicArn?: string;
+    readonly eventEndpointUpdatedTopicArn?: pulumi.Input<string>;
     /**
      * The IAM role permitted to receive failure feedback for this application.
      */
-    readonly failureFeedbackRoleArn?: string;
+    readonly failureFeedbackRoleArn?: pulumi.Input<string>;
     /**
      * The friendly name for the SNS platform application
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The platform that the app is registered with. See [Platform][1] for supported platforms.
      */
-    readonly platform: string;
+    readonly platform: pulumi.Input<string>;
     /**
      * Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
-    readonly platformCredential: string;
+    readonly platformCredential: pulumi.Input<string>;
     /**
      * Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
-    readonly platformPrincipal?: string;
+    readonly platformPrincipal?: pulumi.Input<string>;
     /**
      * The IAM role permitted to receive success feedback for this application.
      */
-    readonly successFeedbackRoleArn?: string;
+    readonly successFeedbackRoleArn?: pulumi.Input<string>;
     /**
      * The percentage of success to sample (0-100)
      */
-    readonly successFeedbackSampleRate?: string;
+    readonly successFeedbackSampleRate?: pulumi.Input<string>;
 }

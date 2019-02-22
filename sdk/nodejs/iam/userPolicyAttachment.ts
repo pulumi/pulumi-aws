@@ -58,8 +58,8 @@ export class UserPolicyAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<UserPolicyAttachmentArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<UserPolicyAttachmentArgs> | pulumi.InputObject<UserPolicyAttachmentState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: UserPolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: UserPolicyAttachmentArgs | UserPolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: UserPolicyAttachmentState = argsOrState as UserPolicyAttachmentState | undefined;
@@ -87,11 +87,11 @@ export interface UserPolicyAttachmentState {
     /**
      * The ARN of the policy you want to apply
      */
-    readonly policyArn?: ARN;
+    readonly policyArn?: pulumi.Input<ARN>;
     /**
      * The user the policy should be applied to
      */
-    readonly user?: User;
+    readonly user?: pulumi.Input<User>;
 }
 
 /**
@@ -101,9 +101,9 @@ export interface UserPolicyAttachmentArgs {
     /**
      * The ARN of the policy you want to apply
      */
-    readonly policyArn: ARN;
+    readonly policyArn: pulumi.Input<ARN>;
     /**
      * The user the policy should be applied to
      */
-    readonly user: User;
+    readonly user: pulumi.Input<User>;
 }

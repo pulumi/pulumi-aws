@@ -58,8 +58,8 @@ export class Template extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<TemplateArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<TemplateArgs> | pulumi.InputObject<TemplateState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: TemplateArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: TemplateArgs | TemplateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: TemplateState = argsOrState as TemplateState | undefined;
@@ -85,19 +85,19 @@ export interface TemplateState {
     /**
      * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
      */
-    readonly html?: string;
+    readonly html?: pulumi.Input<string>;
     /**
      * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The subject line of the email.
      */
-    readonly subject?: string;
+    readonly subject?: pulumi.Input<string>;
     /**
      * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
      */
-    readonly text?: string;
+    readonly text?: pulumi.Input<string>;
 }
 
 /**
@@ -107,17 +107,17 @@ export interface TemplateArgs {
     /**
      * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
      */
-    readonly html?: string;
+    readonly html?: pulumi.Input<string>;
     /**
      * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The subject line of the email.
      */
-    readonly subject?: string;
+    readonly subject?: pulumi.Input<string>;
     /**
      * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
      */
-    readonly text?: string;
+    readonly text?: pulumi.Input<string>;
 }

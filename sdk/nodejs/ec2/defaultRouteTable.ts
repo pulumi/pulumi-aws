@@ -94,8 +94,8 @@ export class DefaultRouteTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<DefaultRouteTableArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<DefaultRouteTableArgs> | pulumi.InputObject<DefaultRouteTableState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DefaultRouteTableArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DefaultRouteTableArgs | DefaultRouteTableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DefaultRouteTableState = argsOrState as DefaultRouteTableState | undefined;
@@ -128,24 +128,24 @@ export interface DefaultRouteTableState {
     /**
      * The ID of the Default Routing Table.
      */
-    readonly defaultRouteTableId?: string;
+    readonly defaultRouteTableId?: pulumi.Input<string>;
     /**
      * The ID of the AWS account that owns the route table
      */
-    readonly ownerId?: string;
+    readonly ownerId?: pulumi.Input<string>;
     /**
      * A list of virtual gateways for propagation.
      */
-    readonly propagatingVgws?: string[];
+    readonly propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of route objects. Their keys are documented below.
      */
-    readonly routes?: { cidrBlock?: string, egressOnlyGatewayId?: string, gatewayId?: string, instanceId?: string, ipv6CidrBlock?: string, natGatewayId?: string, networkInterfaceId?: string, transitGatewayId?: string, vpcPeeringConnectionId?: string }[];
+    readonly routes?: pulumi.Input<pulumi.Input<{ cidrBlock?: pulumi.Input<string>, egressOnlyGatewayId?: pulumi.Input<string>, gatewayId?: pulumi.Input<string>, instanceId?: pulumi.Input<string>, ipv6CidrBlock?: pulumi.Input<string>, natGatewayId?: pulumi.Input<string>, networkInterfaceId?: pulumi.Input<string>, transitGatewayId?: pulumi.Input<string>, vpcPeeringConnectionId?: pulumi.Input<string> }>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
-    readonly vpcId?: string;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -155,17 +155,17 @@ export interface DefaultRouteTableArgs {
     /**
      * The ID of the Default Routing Table.
      */
-    readonly defaultRouteTableId: string;
+    readonly defaultRouteTableId: pulumi.Input<string>;
     /**
      * A list of virtual gateways for propagation.
      */
-    readonly propagatingVgws?: string[];
+    readonly propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of route objects. Their keys are documented below.
      */
-    readonly routes?: { cidrBlock?: string, egressOnlyGatewayId?: string, gatewayId?: string, instanceId?: string, ipv6CidrBlock?: string, natGatewayId?: string, networkInterfaceId?: string, transitGatewayId?: string, vpcPeeringConnectionId?: string }[];
+    readonly routes?: pulumi.Input<pulumi.Input<{ cidrBlock?: pulumi.Input<string>, egressOnlyGatewayId?: pulumi.Input<string>, gatewayId?: pulumi.Input<string>, instanceId?: pulumi.Input<string>, ipv6CidrBlock?: pulumi.Input<string>, natGatewayId?: pulumi.Input<string>, networkInterfaceId?: pulumi.Input<string>, transitGatewayId?: pulumi.Input<string>, vpcPeeringConnectionId?: pulumi.Input<string> }>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

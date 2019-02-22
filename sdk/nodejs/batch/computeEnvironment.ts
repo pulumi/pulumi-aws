@@ -142,8 +142,8 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ComputeEnvironmentArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ComputeEnvironmentArgs> | pulumi.InputObject<ComputeEnvironmentState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ComputeEnvironmentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ComputeEnvironmentArgs | ComputeEnvironmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ComputeEnvironmentState = argsOrState as ComputeEnvironmentState | undefined;
@@ -190,40 +190,40 @@ export interface ComputeEnvironmentState {
     /**
      * The Amazon Resource Name (ARN) of the compute environment.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
      */
-    readonly computeEnvironmentName?: string;
+    readonly computeEnvironmentName?: pulumi.Input<string>;
     /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
-    readonly computeResources?: { bidPercentage?: number, desiredVcpus?: number, ec2KeyPair?: string, imageId?: string, instanceRole: string, instanceTypes: string[], maxVcpus: number, minVcpus: number, securityGroupIds: string[], spotIamFleetRole?: string, subnets: string[], tags?: {[key: string]: any}, type: string };
-    readonly eccClusterArn?: string;
+    readonly computeResources?: pulumi.Input<{ bidPercentage?: pulumi.Input<number>, desiredVcpus?: pulumi.Input<number>, ec2KeyPair?: pulumi.Input<string>, imageId?: pulumi.Input<string>, instanceRole: pulumi.Input<string>, instanceTypes: pulumi.Input<pulumi.Input<string>[]>, maxVcpus: pulumi.Input<number>, minVcpus: pulumi.Input<number>, securityGroupIds: pulumi.Input<pulumi.Input<string>[]>, spotIamFleetRole?: pulumi.Input<string>, subnets: pulumi.Input<pulumi.Input<string>[]>, tags?: pulumi.Input<{[key: string]: any}>, type: pulumi.Input<string> }>;
+    readonly eccClusterArn?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
      */
-    readonly ecsClusterArn?: string;
+    readonly ecsClusterArn?: pulumi.Input<string>;
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
-    readonly serviceRole?: string;
+    readonly serviceRole?: pulumi.Input<string>;
     /**
      * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
-    readonly state?: string;
+    readonly state?: pulumi.Input<string>;
     /**
      * The current status of the compute environment (for example, CREATING or VALID).
      */
-    readonly status?: string;
+    readonly status?: pulumi.Input<string>;
     /**
      * A short, human-readable string to provide additional details about the current status of the compute environment.
      */
-    readonly statusReason?: string;
+    readonly statusReason?: pulumi.Input<string>;
     /**
      * The type of compute environment. Valid items are `EC2` or `SPOT`.
      */
-    readonly type?: string;
+    readonly type?: pulumi.Input<string>;
 }
 
 /**
@@ -233,21 +233,21 @@ export interface ComputeEnvironmentArgs {
     /**
      * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
      */
-    readonly computeEnvironmentName: string;
+    readonly computeEnvironmentName: pulumi.Input<string>;
     /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
-    readonly computeResources?: { bidPercentage?: number, desiredVcpus?: number, ec2KeyPair?: string, imageId?: string, instanceRole: string, instanceTypes: string[], maxVcpus: number, minVcpus: number, securityGroupIds: string[], spotIamFleetRole?: string, subnets: string[], tags?: {[key: string]: any}, type: string };
+    readonly computeResources?: pulumi.Input<{ bidPercentage?: pulumi.Input<number>, desiredVcpus?: pulumi.Input<number>, ec2KeyPair?: pulumi.Input<string>, imageId?: pulumi.Input<string>, instanceRole: pulumi.Input<string>, instanceTypes: pulumi.Input<pulumi.Input<string>[]>, maxVcpus: pulumi.Input<number>, minVcpus: pulumi.Input<number>, securityGroupIds: pulumi.Input<pulumi.Input<string>[]>, spotIamFleetRole?: pulumi.Input<string>, subnets: pulumi.Input<pulumi.Input<string>[]>, tags?: pulumi.Input<{[key: string]: any}>, type: pulumi.Input<string> }>;
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
-    readonly serviceRole: string;
+    readonly serviceRole: pulumi.Input<string>;
     /**
      * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
-    readonly state?: string;
+    readonly state?: pulumi.Input<string>;
     /**
      * The type of compute environment. Valid items are `EC2` or `SPOT`.
      */
-    readonly type: string;
+    readonly type: pulumi.Input<string>;
 }

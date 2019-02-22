@@ -56,8 +56,8 @@ export class ConditionalForwader extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ConditionalForwaderArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ConditionalForwaderArgs> | pulumi.InputObject<ConditionalForwaderState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ConditionalForwaderArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ConditionalForwaderArgs | ConditionalForwaderState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ConditionalForwaderState = argsOrState as ConditionalForwaderState | undefined;
@@ -90,15 +90,15 @@ export interface ConditionalForwaderState {
     /**
      * The id of directory.
      */
-    readonly directoryId?: string;
+    readonly directoryId?: pulumi.Input<string>;
     /**
      * A list of forwarder IP addresses.
      */
-    readonly dnsIps?: string[];
+    readonly dnsIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The fully qualified domain name of the remote domain for which forwarders will be used.
      */
-    readonly remoteDomainName?: string;
+    readonly remoteDomainName?: pulumi.Input<string>;
 }
 
 /**
@@ -108,13 +108,13 @@ export interface ConditionalForwaderArgs {
     /**
      * The id of directory.
      */
-    readonly directoryId: string;
+    readonly directoryId: pulumi.Input<string>;
     /**
      * A list of forwarder IP addresses.
      */
-    readonly dnsIps: string[];
+    readonly dnsIps: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The fully qualified domain name of the remote domain for which forwarders will be used.
      */
-    readonly remoteDomainName: string;
+    readonly remoteDomainName: pulumi.Input<string>;
 }

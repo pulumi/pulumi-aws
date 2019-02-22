@@ -60,8 +60,8 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<SnapshotCopyGrantArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<SnapshotCopyGrantArgs> | pulumi.InputObject<SnapshotCopyGrantState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SnapshotCopyGrantArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: SnapshotCopyGrantArgs | SnapshotCopyGrantState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SnapshotCopyGrantState = argsOrState as SnapshotCopyGrantState | undefined;
@@ -88,15 +88,15 @@ export interface SnapshotCopyGrantState {
     /**
      * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
      */
-    readonly kmsKeyId?: string;
+    readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * A friendly name for identifying the grant.
      */
-    readonly snapshotCopyGrantName?: string;
+    readonly snapshotCopyGrantName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -106,13 +106,13 @@ export interface SnapshotCopyGrantArgs {
     /**
      * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
      */
-    readonly kmsKeyId?: string;
+    readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * A friendly name for identifying the grant.
      */
-    readonly snapshotCopyGrantName: string;
+    readonly snapshotCopyGrantName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

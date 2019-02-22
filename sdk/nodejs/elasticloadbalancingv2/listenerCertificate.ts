@@ -55,8 +55,8 @@ export class ListenerCertificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ListenerCertificateArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ListenerCertificateArgs> | pulumi.InputObject<ListenerCertificateState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ListenerCertificateArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ListenerCertificateArgs | ListenerCertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ListenerCertificateState = argsOrState as ListenerCertificateState | undefined;
@@ -84,11 +84,11 @@ export interface ListenerCertificateState {
     /**
      * The ARN of the certificate to attach to the listener.
      */
-    readonly certificateArn?: string;
+    readonly certificateArn?: pulumi.Input<string>;
     /**
      * The ARN of the listener to which to attach the certificate.
      */
-    readonly listenerArn?: string;
+    readonly listenerArn?: pulumi.Input<string>;
 }
 
 /**
@@ -98,9 +98,9 @@ export interface ListenerCertificateArgs {
     /**
      * The ARN of the certificate to attach to the listener.
      */
-    readonly certificateArn: string;
+    readonly certificateArn: pulumi.Input<string>;
     /**
      * The ARN of the listener to which to attach the certificate.
      */
-    readonly listenerArn: string;
+    readonly listenerArn: pulumi.Input<string>;
 }

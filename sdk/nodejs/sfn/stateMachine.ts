@@ -75,8 +75,8 @@ export class StateMachine extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<StateMachineArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<StateMachineArgs> | pulumi.InputObject<StateMachineState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: StateMachineArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: StateMachineArgs | StateMachineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: StateMachineState = argsOrState as StateMachineState | undefined;
@@ -112,27 +112,27 @@ export interface StateMachineState {
     /**
      * The date the state machine was created.
      */
-    readonly creationDate?: string;
+    readonly creationDate?: pulumi.Input<string>;
     /**
      * The Amazon States Language definition of the state machine.
      */
-    readonly definition?: string;
+    readonly definition?: pulumi.Input<string>;
     /**
      * The name of the state machine.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
-    readonly roleArn?: string;
+    readonly roleArn?: pulumi.Input<string>;
     /**
      * The current status of the state machine. Either "ACTIVE" or "DELETING".
      */
-    readonly status?: string;
+    readonly status?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -142,17 +142,17 @@ export interface StateMachineArgs {
     /**
      * The Amazon States Language definition of the state machine.
      */
-    readonly definition: string;
+    readonly definition: pulumi.Input<string>;
     /**
      * The name of the state machine.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
-    readonly roleArn: string;
+    readonly roleArn: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

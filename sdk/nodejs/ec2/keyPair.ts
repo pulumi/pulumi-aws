@@ -64,8 +64,8 @@ export class KeyPair extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<KeyPairArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<KeyPairArgs> | pulumi.InputObject<KeyPairState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: KeyPairArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: KeyPairArgs | KeyPairState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: KeyPairState = argsOrState as KeyPairState | undefined;
@@ -94,19 +94,19 @@ export interface KeyPairState {
     /**
      * The MD5 public key fingerprint as specified in section 4 of RFC 4716.
      */
-    readonly fingerprint?: string;
+    readonly fingerprint?: pulumi.Input<string>;
     /**
      * The name for the key pair.
      */
-    readonly keyName?: string;
+    readonly keyName?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
      */
-    readonly keyNamePrefix?: string;
+    readonly keyNamePrefix?: pulumi.Input<string>;
     /**
      * The public key material.
      */
-    readonly publicKey?: string;
+    readonly publicKey?: pulumi.Input<string>;
 }
 
 /**
@@ -116,13 +116,13 @@ export interface KeyPairArgs {
     /**
      * The name for the key pair.
      */
-    readonly keyName?: string;
+    readonly keyName?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
      */
-    readonly keyNamePrefix?: string;
+    readonly keyNamePrefix?: pulumi.Input<string>;
     /**
      * The public key material.
      */
-    readonly publicKey: string;
+    readonly publicKey: pulumi.Input<string>;
 }

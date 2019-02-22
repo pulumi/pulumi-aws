@@ -85,8 +85,8 @@ export class Snapshot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<SnapshotArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<SnapshotArgs> | pulumi.InputObject<SnapshotState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SnapshotArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: SnapshotArgs | SnapshotState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SnapshotState = argsOrState as SnapshotState | undefined;
@@ -125,39 +125,39 @@ export interface SnapshotState {
     /**
      * The data encryption key identifier for the snapshot.
      */
-    readonly dataEncryptionKeyId?: string;
+    readonly dataEncryptionKeyId?: pulumi.Input<string>;
     /**
      * A description of what the snapshot is.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * Whether the snapshot is encrypted.
      */
-    readonly encrypted?: boolean;
+    readonly encrypted?: pulumi.Input<boolean>;
     /**
      * The ARN for the KMS encryption key.
      */
-    readonly kmsKeyId?: string;
+    readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      */
-    readonly ownerAlias?: string;
+    readonly ownerAlias?: pulumi.Input<string>;
     /**
      * The AWS account ID of the EBS snapshot owner.
      */
-    readonly ownerId?: string;
+    readonly ownerId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the snapshot
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The Volume ID of which to make a snapshot.
      */
-    readonly volumeId?: string;
+    readonly volumeId?: pulumi.Input<string>;
     /**
      * The size of the drive in GiBs.
      */
-    readonly volumeSize?: number;
+    readonly volumeSize?: pulumi.Input<number>;
 }
 
 /**
@@ -167,13 +167,13 @@ export interface SnapshotArgs {
     /**
      * A description of what the snapshot is.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the snapshot
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The Volume ID of which to make a snapshot.
      */
-    readonly volumeId: string;
+    readonly volumeId: pulumi.Input<string>;
 }

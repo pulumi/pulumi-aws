@@ -128,8 +128,8 @@ export class Vpc extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<VpcArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<VpcArgs> | pulumi.InputObject<VpcState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VpcArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: VpcArgs | VpcState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VpcState = argsOrState as VpcState | undefined;
@@ -184,75 +184,75 @@ export interface VpcState {
     /**
      * Amazon Resource Name (ARN) of VPC
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * Requests an Amazon-provided IPv6 CIDR
      * block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
      * the size of the CIDR block. Default is `false`.
      */
-    readonly assignGeneratedIpv6CidrBlock?: boolean;
+    readonly assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
     /**
      * The CIDR block for the VPC.
      */
-    readonly cidrBlock?: string;
+    readonly cidrBlock?: pulumi.Input<string>;
     /**
      * The ID of the network ACL created by default on VPC creation
      */
-    readonly defaultNetworkAclId?: string;
+    readonly defaultNetworkAclId?: pulumi.Input<string>;
     /**
      * The ID of the route table created by default on VPC creation
      */
-    readonly defaultRouteTableId?: string;
+    readonly defaultRouteTableId?: pulumi.Input<string>;
     /**
      * The ID of the security group created by default on VPC creation
      */
-    readonly defaultSecurityGroupId?: string;
-    readonly dhcpOptionsId?: string;
+    readonly defaultSecurityGroupId?: pulumi.Input<string>;
+    readonly dhcpOptionsId?: pulumi.Input<string>;
     /**
      * A boolean flag to enable/disable ClassicLink
      * for the VPC. Only valid in regions and accounts that support EC2 Classic.
      * See the [ClassicLink documentation][1] for more information. Defaults false.
      */
-    readonly enableClassiclink?: boolean;
+    readonly enableClassiclink?: pulumi.Input<boolean>;
     /**
      * A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
      * Only valid in regions and accounts that support EC2 Classic.
      */
-    readonly enableClassiclinkDnsSupport?: boolean;
+    readonly enableClassiclinkDnsSupport?: pulumi.Input<boolean>;
     /**
      * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
      */
-    readonly enableDnsHostnames?: boolean;
+    readonly enableDnsHostnames?: pulumi.Input<boolean>;
     /**
      * A boolean flag to enable/disable DNS support in the VPC. Defaults true.
      */
-    readonly enableDnsSupport?: boolean;
+    readonly enableDnsSupport?: pulumi.Input<boolean>;
     /**
      * A tenancy option for instances launched into the VPC
      */
-    readonly instanceTenancy?: string;
+    readonly instanceTenancy?: pulumi.Input<string>;
     /**
      * The association ID for the IPv6 CIDR block.
      */
-    readonly ipv6AssociationId?: string;
+    readonly ipv6AssociationId?: pulumi.Input<string>;
     /**
      * The IPv6 CIDR block.
      */
-    readonly ipv6CidrBlock?: string;
+    readonly ipv6CidrBlock?: pulumi.Input<string>;
     /**
      * The ID of the main route table associated with
      * this VPC. Note that you can change a VPC's main route table by using an
      * [`aws_main_route_table_association`](https://www.terraform.io/docs/providers/aws/r/main_route_table_assoc.html).
      */
-    readonly mainRouteTableId?: string;
+    readonly mainRouteTableId?: pulumi.Input<string>;
     /**
      * The ID of the AWS account that owns the VPC.
      */
-    readonly ownerId?: string;
+    readonly ownerId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -264,36 +264,36 @@ export interface VpcArgs {
      * block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
      * the size of the CIDR block. Default is `false`.
      */
-    readonly assignGeneratedIpv6CidrBlock?: boolean;
+    readonly assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
     /**
      * The CIDR block for the VPC.
      */
-    readonly cidrBlock: string;
+    readonly cidrBlock: pulumi.Input<string>;
     /**
      * A boolean flag to enable/disable ClassicLink
      * for the VPC. Only valid in regions and accounts that support EC2 Classic.
      * See the [ClassicLink documentation][1] for more information. Defaults false.
      */
-    readonly enableClassiclink?: boolean;
+    readonly enableClassiclink?: pulumi.Input<boolean>;
     /**
      * A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
      * Only valid in regions and accounts that support EC2 Classic.
      */
-    readonly enableClassiclinkDnsSupport?: boolean;
+    readonly enableClassiclinkDnsSupport?: pulumi.Input<boolean>;
     /**
      * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
      */
-    readonly enableDnsHostnames?: boolean;
+    readonly enableDnsHostnames?: pulumi.Input<boolean>;
     /**
      * A boolean flag to enable/disable DNS support in the VPC. Defaults true.
      */
-    readonly enableDnsSupport?: boolean;
+    readonly enableDnsSupport?: pulumi.Input<boolean>;
     /**
      * A tenancy option for instances launched into the VPC
      */
-    readonly instanceTenancy?: string;
+    readonly instanceTenancy?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

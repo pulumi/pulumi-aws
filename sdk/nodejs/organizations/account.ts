@@ -66,8 +66,8 @@ export class Account extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<AccountArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<AccountArgs> | pulumi.InputObject<AccountState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AccountState = argsOrState as AccountState | undefined;
@@ -104,26 +104,26 @@ export interface AccountState {
     /**
      * The ARN for this account.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
      */
-    readonly email?: string;
+    readonly email?: pulumi.Input<string>;
     /**
      * If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
      */
-    readonly iamUserAccessToBilling?: string;
-    readonly joinedMethod?: string;
-    readonly joinedTimestamp?: string;
+    readonly iamUserAccessToBilling?: pulumi.Input<string>;
+    readonly joinedMethod?: pulumi.Input<string>;
+    readonly joinedTimestamp?: pulumi.Input<string>;
     /**
      * A friendly name for the member account.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account.
      */
-    readonly roleName?: string;
-    readonly status?: string;
+    readonly roleName?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<string>;
 }
 
 /**
@@ -133,17 +133,17 @@ export interface AccountArgs {
     /**
      * The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
      */
-    readonly email: string;
+    readonly email: pulumi.Input<string>;
     /**
      * If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
      */
-    readonly iamUserAccessToBilling?: string;
+    readonly iamUserAccessToBilling?: pulumi.Input<string>;
     /**
      * A friendly name for the member account.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account.
      */
-    readonly roleName?: string;
+    readonly roleName?: pulumi.Input<string>;
 }

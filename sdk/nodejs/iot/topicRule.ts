@@ -112,8 +112,8 @@ export class TopicRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<TopicRuleArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<TopicRuleArgs> | pulumi.InputObject<TopicRuleState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TopicRuleArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: TopicRuleArgs | TopicRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: TopicRuleState = argsOrState as TopicRuleState | undefined;
@@ -174,73 +174,73 @@ export interface TopicRuleState {
     /**
      * The ARN of the topic rule
      */
-    readonly arn?: string;
-    readonly cloudwatchAlarm?: { alarmName: string, roleArn: string, stateReason: string, stateValue: string };
-    readonly cloudwatchMetric?: { metricName: string, metricNamespace: string, metricTimestamp?: string, metricUnit: string, metricValue: string, roleArn: string };
+    readonly arn?: pulumi.Input<string>;
+    readonly cloudwatchAlarm?: pulumi.Input<{ alarmName: pulumi.Input<string>, roleArn: pulumi.Input<string>, stateReason: pulumi.Input<string>, stateValue: pulumi.Input<string> }>;
+    readonly cloudwatchMetric?: pulumi.Input<{ metricName: pulumi.Input<string>, metricNamespace: pulumi.Input<string>, metricTimestamp?: pulumi.Input<string>, metricUnit: pulumi.Input<string>, metricValue: pulumi.Input<string>, roleArn: pulumi.Input<string> }>;
     /**
      * The description of the rule.
      */
-    readonly description?: string;
-    readonly dynamodb?: { hashKeyField: string, hashKeyType?: string, hashKeyValue: string, payloadField?: string, rangeKeyField?: string, rangeKeyType?: string, rangeKeyValue?: string, roleArn: string, tableName: string };
-    readonly elasticsearch?: { endpoint: string, id: string, index: string, roleArn: string, type: string };
+    readonly description?: pulumi.Input<string>;
+    readonly dynamodb?: pulumi.Input<{ hashKeyField: pulumi.Input<string>, hashKeyType?: pulumi.Input<string>, hashKeyValue: pulumi.Input<string>, payloadField?: pulumi.Input<string>, rangeKeyField?: pulumi.Input<string>, rangeKeyType?: pulumi.Input<string>, rangeKeyValue?: pulumi.Input<string>, roleArn: pulumi.Input<string>, tableName: pulumi.Input<string> }>;
+    readonly elasticsearch?: pulumi.Input<{ endpoint: pulumi.Input<string>, id: pulumi.Input<string>, index: pulumi.Input<string>, roleArn: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * Specifies whether the rule is enabled.
      */
-    readonly enabled?: boolean;
-    readonly firehose?: { deliveryStreamName: string, roleArn: string, separator?: string };
-    readonly kinesis?: { partitionKey?: string, roleArn: string, streamName: string };
-    readonly lambda?: { functionArn: string };
+    readonly enabled?: pulumi.Input<boolean>;
+    readonly firehose?: pulumi.Input<{ deliveryStreamName: pulumi.Input<string>, roleArn: pulumi.Input<string>, separator?: pulumi.Input<string> }>;
+    readonly kinesis?: pulumi.Input<{ partitionKey?: pulumi.Input<string>, roleArn: pulumi.Input<string>, streamName: pulumi.Input<string> }>;
+    readonly lambda?: pulumi.Input<{ functionArn: pulumi.Input<string> }>;
     /**
      * The name of the rule.
      */
-    readonly name?: string;
-    readonly republish?: { roleArn: string, topic: string };
-    readonly s3?: { bucketName: string, key: string, roleArn: string };
-    readonly sns?: { messageFormat?: string, roleArn: string, targetArn: string };
+    readonly name?: pulumi.Input<string>;
+    readonly republish?: pulumi.Input<{ roleArn: pulumi.Input<string>, topic: pulumi.Input<string> }>;
+    readonly s3?: pulumi.Input<{ bucketName: pulumi.Input<string>, key: pulumi.Input<string>, roleArn: pulumi.Input<string> }>;
+    readonly sns?: pulumi.Input<{ messageFormat?: pulumi.Input<string>, roleArn: pulumi.Input<string>, targetArn: pulumi.Input<string> }>;
     /**
      * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
      */
-    readonly sql?: string;
+    readonly sql?: pulumi.Input<string>;
     /**
      * The version of the SQL rules engine to use when evaluating the rule.
      */
-    readonly sqlVersion?: string;
-    readonly sqs?: { queueUrl: string, roleArn: string, useBase64: boolean };
+    readonly sqlVersion?: pulumi.Input<string>;
+    readonly sqs?: pulumi.Input<{ queueUrl: pulumi.Input<string>, roleArn: pulumi.Input<string>, useBase64: pulumi.Input<boolean> }>;
 }
 
 /**
  * The set of arguments for constructing a TopicRule resource.
  */
 export interface TopicRuleArgs {
-    readonly cloudwatchAlarm?: { alarmName: string, roleArn: string, stateReason: string, stateValue: string };
-    readonly cloudwatchMetric?: { metricName: string, metricNamespace: string, metricTimestamp?: string, metricUnit: string, metricValue: string, roleArn: string };
+    readonly cloudwatchAlarm?: pulumi.Input<{ alarmName: pulumi.Input<string>, roleArn: pulumi.Input<string>, stateReason: pulumi.Input<string>, stateValue: pulumi.Input<string> }>;
+    readonly cloudwatchMetric?: pulumi.Input<{ metricName: pulumi.Input<string>, metricNamespace: pulumi.Input<string>, metricTimestamp?: pulumi.Input<string>, metricUnit: pulumi.Input<string>, metricValue: pulumi.Input<string>, roleArn: pulumi.Input<string> }>;
     /**
      * The description of the rule.
      */
-    readonly description?: string;
-    readonly dynamodb?: { hashKeyField: string, hashKeyType?: string, hashKeyValue: string, payloadField?: string, rangeKeyField?: string, rangeKeyType?: string, rangeKeyValue?: string, roleArn: string, tableName: string };
-    readonly elasticsearch?: { endpoint: string, id: string, index: string, roleArn: string, type: string };
+    readonly description?: pulumi.Input<string>;
+    readonly dynamodb?: pulumi.Input<{ hashKeyField: pulumi.Input<string>, hashKeyType?: pulumi.Input<string>, hashKeyValue: pulumi.Input<string>, payloadField?: pulumi.Input<string>, rangeKeyField?: pulumi.Input<string>, rangeKeyType?: pulumi.Input<string>, rangeKeyValue?: pulumi.Input<string>, roleArn: pulumi.Input<string>, tableName: pulumi.Input<string> }>;
+    readonly elasticsearch?: pulumi.Input<{ endpoint: pulumi.Input<string>, id: pulumi.Input<string>, index: pulumi.Input<string>, roleArn: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * Specifies whether the rule is enabled.
      */
-    readonly enabled: boolean;
-    readonly firehose?: { deliveryStreamName: string, roleArn: string, separator?: string };
-    readonly kinesis?: { partitionKey?: string, roleArn: string, streamName: string };
-    readonly lambda?: { functionArn: string };
+    readonly enabled: pulumi.Input<boolean>;
+    readonly firehose?: pulumi.Input<{ deliveryStreamName: pulumi.Input<string>, roleArn: pulumi.Input<string>, separator?: pulumi.Input<string> }>;
+    readonly kinesis?: pulumi.Input<{ partitionKey?: pulumi.Input<string>, roleArn: pulumi.Input<string>, streamName: pulumi.Input<string> }>;
+    readonly lambda?: pulumi.Input<{ functionArn: pulumi.Input<string> }>;
     /**
      * The name of the rule.
      */
-    readonly name?: string;
-    readonly republish?: { roleArn: string, topic: string };
-    readonly s3?: { bucketName: string, key: string, roleArn: string };
-    readonly sns?: { messageFormat?: string, roleArn: string, targetArn: string };
+    readonly name?: pulumi.Input<string>;
+    readonly republish?: pulumi.Input<{ roleArn: pulumi.Input<string>, topic: pulumi.Input<string> }>;
+    readonly s3?: pulumi.Input<{ bucketName: pulumi.Input<string>, key: pulumi.Input<string>, roleArn: pulumi.Input<string> }>;
+    readonly sns?: pulumi.Input<{ messageFormat?: pulumi.Input<string>, roleArn: pulumi.Input<string>, targetArn: pulumi.Input<string> }>;
     /**
      * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
      */
-    readonly sql: string;
+    readonly sql: pulumi.Input<string>;
     /**
      * The version of the SQL rules engine to use when evaluating the rule.
      */
-    readonly sqlVersion: string;
-    readonly sqs?: { queueUrl: string, roleArn: string, useBase64: boolean };
+    readonly sqlVersion: pulumi.Input<string>;
+    readonly sqs?: pulumi.Input<{ queueUrl: pulumi.Input<string>, roleArn: pulumi.Input<string>, useBase64: pulumi.Input<boolean> }>;
 }

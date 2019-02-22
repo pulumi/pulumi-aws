@@ -193,8 +193,8 @@ export class Environment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<EnvironmentArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<EnvironmentArgs> | pulumi.InputObject<EnvironmentState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: EnvironmentArgs | EnvironmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: EnvironmentState = argsOrState as EnvironmentState | undefined;
@@ -261,104 +261,104 @@ export interface EnvironmentState {
      * are a combination of default settings and their overrides from `setting` in
      * the configuration.
      */
-    readonly allSettings?: { name: string, namespace: string, resource?: string, value: string }[];
+    readonly allSettings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * Name of the application that contains the version
      * to be deployed
      */
-    readonly application?: Application;
-    readonly arn?: string;
+    readonly application?: pulumi.Input<Application>;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The autoscaling groups used by this environment.
      */
-    readonly autoscalingGroups?: string[];
+    readonly autoscalingGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Fully qualified DNS name for the Environment.
      */
-    readonly cname?: string;
+    readonly cname?: pulumi.Input<string>;
     /**
      * Prefix to use for the fully qualified DNS name of
      * the Environment.
      */
-    readonly cnamePrefix?: string;
+    readonly cnamePrefix?: pulumi.Input<string>;
     /**
      * Short description of the Environment
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * Instances used by this environment.
      */
-    readonly instances?: string[];
+    readonly instances?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Launch configurations in use by this environment.
      */
-    readonly launchConfigurations?: string[];
+    readonly launchConfigurations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Elastic load balancers in use by this environment.
      */
-    readonly loadBalancers?: string[];
+    readonly loadBalancers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A unique name for this Environment. This name is used
      * in the application URL
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The [ARN][2] of the Elastic Beanstalk [Platform][3]
      * to use in deployment
      */
-    readonly platformArn?: string;
+    readonly platformArn?: pulumi.Input<string>;
     /**
      * The time between polling the AWS API to
      * check if changes have been applied. Use this to adjust the rate of API calls
      * for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
      * use the default behavior, which is an exponential backoff
      */
-    readonly pollInterval?: string;
+    readonly pollInterval?: pulumi.Input<string>;
     /**
      * SQS queues in use by this environment.
      */
-    readonly queues?: string[];
+    readonly queues?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    readonly settings?: { name: string, namespace: string, resource?: string, value: string }[];
+    readonly settings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * A solution stack to base your environment
      * off of. Example stacks can be found in the [Amazon API documentation][1]
      */
-    readonly solutionStackName?: string;
+    readonly solutionStackName?: pulumi.Input<string>;
     /**
      * A set of tags to apply to the Environment.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment
      */
-    readonly templateName?: string;
+    readonly templateName?: pulumi.Input<string>;
     /**
      * Elastic Beanstalk Environment tier. Valid values are `Worker`
      * or `WebServer`. If tier is left blank `WebServer` will be used.
      */
-    readonly tier?: string;
+    readonly tier?: pulumi.Input<string>;
     /**
      * Autoscaling triggers in use by this environment.
      */
-    readonly triggers?: string[];
+    readonly triggers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Elastic Beanstalk Application Version
      * to use in deployment.
      */
-    readonly version?: ApplicationVersion;
+    readonly version?: pulumi.Input<ApplicationVersion>;
     /**
      * The maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that Terraform should
      * wait for an Elastic Beanstalk Environment to be in a ready state before timing
      * out.
      */
-    readonly waitForReadyTimeout?: string;
+    readonly waitForReadyTimeout?: pulumi.Input<string>;
 }
 
 /**
@@ -369,68 +369,68 @@ export interface EnvironmentArgs {
      * Name of the application that contains the version
      * to be deployed
      */
-    readonly application: Application;
+    readonly application: pulumi.Input<Application>;
     /**
      * Prefix to use for the fully qualified DNS name of
      * the Environment.
      */
-    readonly cnamePrefix?: string;
+    readonly cnamePrefix?: pulumi.Input<string>;
     /**
      * Short description of the Environment
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * A unique name for this Environment. This name is used
      * in the application URL
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The [ARN][2] of the Elastic Beanstalk [Platform][3]
      * to use in deployment
      */
-    readonly platformArn?: string;
+    readonly platformArn?: pulumi.Input<string>;
     /**
      * The time between polling the AWS API to
      * check if changes have been applied. Use this to adjust the rate of API calls
      * for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
      * use the default behavior, which is an exponential backoff
      */
-    readonly pollInterval?: string;
+    readonly pollInterval?: pulumi.Input<string>;
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    readonly settings?: { name: string, namespace: string, resource?: string, value: string }[];
+    readonly settings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, namespace: pulumi.Input<string>, resource?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * A solution stack to base your environment
      * off of. Example stacks can be found in the [Amazon API documentation][1]
      */
-    readonly solutionStackName?: string;
+    readonly solutionStackName?: pulumi.Input<string>;
     /**
      * A set of tags to apply to the Environment.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment
      */
-    readonly templateName?: string;
+    readonly templateName?: pulumi.Input<string>;
     /**
      * Elastic Beanstalk Environment tier. Valid values are `Worker`
      * or `WebServer`. If tier is left blank `WebServer` will be used.
      */
-    readonly tier?: string;
+    readonly tier?: pulumi.Input<string>;
     /**
      * The name of the Elastic Beanstalk Application Version
      * to use in deployment.
      */
-    readonly version?: ApplicationVersion;
+    readonly version?: pulumi.Input<ApplicationVersion>;
     /**
      * The maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that Terraform should
      * wait for an Elastic Beanstalk Environment to be in a ready state before timing
      * out.
      */
-    readonly waitForReadyTimeout?: string;
+    readonly waitForReadyTimeout?: pulumi.Input<string>;
 }

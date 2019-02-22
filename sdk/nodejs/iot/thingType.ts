@@ -50,8 +50,8 @@ export class ThingType extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<ThingTypeArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ThingTypeArgs> | pulumi.InputObject<ThingTypeState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ThingTypeArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ThingTypeArgs | ThingTypeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ThingTypeState = argsOrState as ThingTypeState | undefined;
@@ -77,16 +77,16 @@ export interface ThingTypeState {
     /**
      * The ARN of the created AWS IoT Thing Type.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * Whether the thing type is deprecated. If true, no new things could be associated with this type.
      */
-    readonly deprecated?: boolean;
+    readonly deprecated?: pulumi.Input<boolean>;
     /**
      * The name of the thing type.
      */
-    readonly name?: string;
-    readonly properties?: { description?: string, searchableAttributes?: string[] };
+    readonly name?: pulumi.Input<string>;
+    readonly properties?: pulumi.Input<{ description?: pulumi.Input<string>, searchableAttributes?: pulumi.Input<pulumi.Input<string>[]> }>;
 }
 
 /**
@@ -96,10 +96,10 @@ export interface ThingTypeArgs {
     /**
      * Whether the thing type is deprecated. If true, no new things could be associated with this type.
      */
-    readonly deprecated?: boolean;
+    readonly deprecated?: pulumi.Input<boolean>;
     /**
      * The name of the thing type.
      */
-    readonly name?: string;
-    readonly properties?: { description?: string, searchableAttributes?: string[] };
+    readonly name?: pulumi.Input<string>;
+    readonly properties?: pulumi.Input<{ description?: pulumi.Input<string>, searchableAttributes?: pulumi.Input<pulumi.Input<string>[]> }>;
 }

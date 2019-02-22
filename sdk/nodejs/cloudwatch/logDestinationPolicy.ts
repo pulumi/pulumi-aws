@@ -63,8 +63,8 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<LogDestinationPolicyArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<LogDestinationPolicyArgs> | pulumi.InputObject<LogDestinationPolicyState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: LogDestinationPolicyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: LogDestinationPolicyArgs | LogDestinationPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: LogDestinationPolicyState = argsOrState as LogDestinationPolicyState | undefined;
@@ -92,11 +92,11 @@ export interface LogDestinationPolicyState {
     /**
      * The policy document. This is a JSON formatted string.
      */
-    readonly accessPolicy?: string;
+    readonly accessPolicy?: pulumi.Input<string>;
     /**
      * A name for the subscription filter
      */
-    readonly destinationName?: string;
+    readonly destinationName?: pulumi.Input<string>;
 }
 
 /**
@@ -106,9 +106,9 @@ export interface LogDestinationPolicyArgs {
     /**
      * The policy document. This is a JSON formatted string.
      */
-    readonly accessPolicy: string;
+    readonly accessPolicy: pulumi.Input<string>;
     /**
      * A name for the subscription filter
      */
-    readonly destinationName: string;
+    readonly destinationName: pulumi.Input<string>;
 }

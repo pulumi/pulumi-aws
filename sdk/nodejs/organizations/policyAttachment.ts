@@ -74,8 +74,8 @@ export class PolicyAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<PolicyAttachmentArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<PolicyAttachmentArgs> | pulumi.InputObject<PolicyAttachmentState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: PolicyAttachmentArgs | PolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PolicyAttachmentState = argsOrState as PolicyAttachmentState | undefined;
@@ -103,11 +103,11 @@ export interface PolicyAttachmentState {
     /**
      * The unique identifier (ID) of the policy that you want to attach to the target.
      */
-    readonly policyId?: string;
+    readonly policyId?: pulumi.Input<string>;
     /**
      * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
      */
-    readonly targetId?: string;
+    readonly targetId?: pulumi.Input<string>;
 }
 
 /**
@@ -117,9 +117,9 @@ export interface PolicyAttachmentArgs {
     /**
      * The unique identifier (ID) of the policy that you want to attach to the target.
      */
-    readonly policyId: string;
+    readonly policyId: pulumi.Input<string>;
     /**
      * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
      */
-    readonly targetId: string;
+    readonly targetId: pulumi.Input<string>;
 }

@@ -44,8 +44,8 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<LoadBalancerPolicyArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<LoadBalancerPolicyArgs> | pulumi.InputObject<LoadBalancerPolicyState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: LoadBalancerPolicyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: LoadBalancerPolicyArgs | LoadBalancerPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: LoadBalancerPolicyState = argsOrState as LoadBalancerPolicyState | undefined;
@@ -80,19 +80,19 @@ export interface LoadBalancerPolicyState {
     /**
      * The load balancer on which the policy is defined.
      */
-    readonly loadBalancerName?: string;
+    readonly loadBalancerName?: pulumi.Input<string>;
     /**
      * Policy attribute to apply to the policy.
      */
-    readonly policyAttributes?: { name?: string, value?: string }[];
+    readonly policyAttributes?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
     /**
      * The name of the load balancer policy.
      */
-    readonly policyName?: string;
+    readonly policyName?: pulumi.Input<string>;
     /**
      * The policy type.
      */
-    readonly policyTypeName?: string;
+    readonly policyTypeName?: pulumi.Input<string>;
 }
 
 /**
@@ -102,17 +102,17 @@ export interface LoadBalancerPolicyArgs {
     /**
      * The load balancer on which the policy is defined.
      */
-    readonly loadBalancerName: string;
+    readonly loadBalancerName: pulumi.Input<string>;
     /**
      * Policy attribute to apply to the policy.
      */
-    readonly policyAttributes?: { name?: string, value?: string }[];
+    readonly policyAttributes?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
     /**
      * The name of the load balancer policy.
      */
-    readonly policyName: string;
+    readonly policyName: pulumi.Input<string>;
     /**
      * The policy type.
      */
-    readonly policyTypeName: string;
+    readonly policyTypeName: pulumi.Input<string>;
 }

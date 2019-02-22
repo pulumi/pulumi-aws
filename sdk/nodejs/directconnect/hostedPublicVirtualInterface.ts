@@ -93,8 +93,8 @@ export class HostedPublicVirtualInterface extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<HostedPublicVirtualInterfaceArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<HostedPublicVirtualInterfaceArgs> | pulumi.InputObject<HostedPublicVirtualInterfaceState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: HostedPublicVirtualInterfaceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: HostedPublicVirtualInterfaceArgs | HostedPublicVirtualInterfaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: HostedPublicVirtualInterfaceState = argsOrState as HostedPublicVirtualInterfaceState | undefined;
@@ -152,47 +152,47 @@ export interface HostedPublicVirtualInterfaceState {
     /**
      * The address family for the BGP peer. `ipv4 ` or `ipv6`.
      */
-    readonly addressFamily?: string;
+    readonly addressFamily?: pulumi.Input<string>;
     /**
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      */
-    readonly amazonAddress?: string;
+    readonly amazonAddress?: pulumi.Input<string>;
     /**
      * The ARN of the virtual interface.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      */
-    readonly bgpAsn?: number;
+    readonly bgpAsn?: pulumi.Input<number>;
     /**
      * The authentication key for BGP configuration.
      */
-    readonly bgpAuthKey?: string;
+    readonly bgpAuthKey?: pulumi.Input<string>;
     /**
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      */
-    readonly connectionId?: string;
+    readonly connectionId?: pulumi.Input<string>;
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      */
-    readonly customerAddress?: string;
+    readonly customerAddress?: pulumi.Input<string>;
     /**
      * The name for the virtual interface.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The AWS account that will own the new virtual interface.
      */
-    readonly ownerAccountId?: string;
+    readonly ownerAccountId?: pulumi.Input<string>;
     /**
      * A list of routes to be advertised to the AWS network in this region.
      */
-    readonly routeFilterPrefixes?: string[];
+    readonly routeFilterPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The VLAN ID.
      */
-    readonly vlan?: number;
+    readonly vlan?: pulumi.Input<number>;
 }
 
 /**
@@ -202,41 +202,41 @@ export interface HostedPublicVirtualInterfaceArgs {
     /**
      * The address family for the BGP peer. `ipv4 ` or `ipv6`.
      */
-    readonly addressFamily: string;
+    readonly addressFamily: pulumi.Input<string>;
     /**
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      */
-    readonly amazonAddress?: string;
+    readonly amazonAddress?: pulumi.Input<string>;
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      */
-    readonly bgpAsn: number;
+    readonly bgpAsn: pulumi.Input<number>;
     /**
      * The authentication key for BGP configuration.
      */
-    readonly bgpAuthKey?: string;
+    readonly bgpAuthKey?: pulumi.Input<string>;
     /**
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      */
-    readonly connectionId: string;
+    readonly connectionId: pulumi.Input<string>;
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      */
-    readonly customerAddress?: string;
+    readonly customerAddress?: pulumi.Input<string>;
     /**
      * The name for the virtual interface.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The AWS account that will own the new virtual interface.
      */
-    readonly ownerAccountId: string;
+    readonly ownerAccountId: pulumi.Input<string>;
     /**
      * A list of routes to be advertised to the AWS network in this region.
      */
-    readonly routeFilterPrefixes: string[];
+    readonly routeFilterPrefixes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The VLAN ID.
      */
-    readonly vlan: number;
+    readonly vlan: pulumi.Input<number>;
 }

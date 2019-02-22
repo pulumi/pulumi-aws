@@ -54,8 +54,8 @@ export class SizeConstraintSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<SizeConstraintSetArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<SizeConstraintSetArgs> | pulumi.InputObject<SizeConstraintSetState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: SizeConstraintSetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: SizeConstraintSetArgs | SizeConstraintSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SizeConstraintSetState = argsOrState as SizeConstraintSetState | undefined;
@@ -77,11 +77,11 @@ export interface SizeConstraintSetState {
     /**
      * The name or description of the Size Constraint Set.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Specifies the parts of web requests that you want to inspect the size of.
      */
-    readonly sizeConstraints?: { comparisonOperator: string, fieldToMatch: { data?: string, type: string }, size: number, textTransformation: string }[];
+    readonly sizeConstraints?: pulumi.Input<pulumi.Input<{ comparisonOperator: pulumi.Input<string>, fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, size: pulumi.Input<number>, textTransformation: pulumi.Input<string> }>[]>;
 }
 
 /**
@@ -91,9 +91,9 @@ export interface SizeConstraintSetArgs {
     /**
      * The name or description of the Size Constraint Set.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Specifies the parts of web requests that you want to inspect the size of.
      */
-    readonly sizeConstraints?: { comparisonOperator: string, fieldToMatch: { data?: string, type: string }, size: number, textTransformation: string }[];
+    readonly sizeConstraints?: pulumi.Input<pulumi.Input<{ comparisonOperator: pulumi.Input<string>, fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, size: pulumi.Input<number>, textTransformation: pulumi.Input<string> }>[]>;
 }

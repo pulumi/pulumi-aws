@@ -51,8 +51,8 @@ export class PatchGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<PatchGroupArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<PatchGroupArgs> | pulumi.InputObject<PatchGroupState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PatchGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: PatchGroupArgs | PatchGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PatchGroupState = argsOrState as PatchGroupState | undefined;
@@ -80,11 +80,11 @@ export interface PatchGroupState {
     /**
      * The ID of the patch baseline to register the patch group with.
      */
-    readonly baselineId?: string;
+    readonly baselineId?: pulumi.Input<string>;
     /**
      * The name of the patch group that should be registered with the patch baseline.
      */
-    readonly patchGroup?: string;
+    readonly patchGroup?: pulumi.Input<string>;
 }
 
 /**
@@ -94,9 +94,9 @@ export interface PatchGroupArgs {
     /**
      * The ID of the patch baseline to register the patch group with.
      */
-    readonly baselineId: string;
+    readonly baselineId: pulumi.Input<string>;
     /**
      * The name of the patch group that should be registered with the patch baseline.
      */
-    readonly patchGroup: string;
+    readonly patchGroup: pulumi.Input<string>;
 }

@@ -52,8 +52,8 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<VpnGatewayRoutePropagationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<VpnGatewayRoutePropagationArgs> | pulumi.InputObject<VpnGatewayRoutePropagationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VpnGatewayRoutePropagationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: VpnGatewayRoutePropagationArgs | VpnGatewayRoutePropagationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VpnGatewayRoutePropagationState = argsOrState as VpnGatewayRoutePropagationState | undefined;
@@ -81,11 +81,11 @@ export interface VpnGatewayRoutePropagationState {
     /**
      * The id of the `aws_route_table` to propagate routes into.
      */
-    readonly routeTableId?: string;
+    readonly routeTableId?: pulumi.Input<string>;
     /**
      * The id of the `aws_vpn_gateway` to propagate routes from.
      */
-    readonly vpnGatewayId?: string;
+    readonly vpnGatewayId?: pulumi.Input<string>;
 }
 
 /**
@@ -95,9 +95,9 @@ export interface VpnGatewayRoutePropagationArgs {
     /**
      * The id of the `aws_route_table` to propagate routes into.
      */
-    readonly routeTableId: string;
+    readonly routeTableId: pulumi.Input<string>;
     /**
      * The id of the `aws_vpn_gateway` to propagate routes from.
      */
-    readonly vpnGatewayId: string;
+    readonly vpnGatewayId: pulumi.Input<string>;
 }

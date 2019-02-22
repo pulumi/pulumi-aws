@@ -120,8 +120,8 @@ export class LifecyclePolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<LifecyclePolicyArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<LifecyclePolicyArgs> | pulumi.InputObject<LifecyclePolicyState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: LifecyclePolicyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: LifecyclePolicyArgs | LifecyclePolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: LifecyclePolicyState = argsOrState as LifecyclePolicyState | undefined;
@@ -156,19 +156,19 @@ export interface LifecyclePolicyState {
     /**
      * A description for the DLM lifecycle policy.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The ARN of an IAM role that is able to be assumed by the DLM service.
      */
-    readonly executionRoleArn?: string;
+    readonly executionRoleArn?: pulumi.Input<string>;
     /**
      * See the `policy_details` configuration block. Max of 1.
      */
-    readonly policyDetails?: { resourceTypes: string[], schedules: { copyTags?: boolean, createRule: { interval: number, intervalUnit?: string, times?: string }, name: string, retainRule: { count: number }, tagsToAdd?: {[key: string]: any} }[], targetTags: {[key: string]: any} };
+    readonly policyDetails?: pulumi.Input<{ resourceTypes: pulumi.Input<pulumi.Input<string>[]>, schedules: pulumi.Input<pulumi.Input<{ copyTags?: pulumi.Input<boolean>, createRule: pulumi.Input<{ interval: pulumi.Input<number>, intervalUnit?: pulumi.Input<string>, times?: pulumi.Input<string> }>, name: pulumi.Input<string>, retainRule: pulumi.Input<{ count: pulumi.Input<number> }>, tagsToAdd?: pulumi.Input<{[key: string]: any}> }>[]>, targetTags: pulumi.Input<{[key: string]: any}> }>;
     /**
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */
-    readonly state?: string;
+    readonly state?: pulumi.Input<string>;
 }
 
 /**
@@ -178,17 +178,17 @@ export interface LifecyclePolicyArgs {
     /**
      * A description for the DLM lifecycle policy.
      */
-    readonly description: string;
+    readonly description: pulumi.Input<string>;
     /**
      * The ARN of an IAM role that is able to be assumed by the DLM service.
      */
-    readonly executionRoleArn: string;
+    readonly executionRoleArn: pulumi.Input<string>;
     /**
      * See the `policy_details` configuration block. Max of 1.
      */
-    readonly policyDetails: { resourceTypes: string[], schedules: { copyTags?: boolean, createRule: { interval: number, intervalUnit?: string, times?: string }, name: string, retainRule: { count: number }, tagsToAdd?: {[key: string]: any} }[], targetTags: {[key: string]: any} };
+    readonly policyDetails: pulumi.Input<{ resourceTypes: pulumi.Input<pulumi.Input<string>[]>, schedules: pulumi.Input<pulumi.Input<{ copyTags?: pulumi.Input<boolean>, createRule: pulumi.Input<{ interval: pulumi.Input<number>, intervalUnit?: pulumi.Input<string>, times?: pulumi.Input<string> }>, name: pulumi.Input<string>, retainRule: pulumi.Input<{ count: pulumi.Input<number> }>, tagsToAdd?: pulumi.Input<{[key: string]: any}> }>[]>, targetTags: pulumi.Input<{[key: string]: any}> }>;
     /**
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */
-    readonly state?: string;
+    readonly state?: pulumi.Input<string>;
 }

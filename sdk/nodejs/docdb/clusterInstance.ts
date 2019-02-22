@@ -155,8 +155,8 @@ export class ClusterInstance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ClusterInstanceArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ClusterInstanceArgs> | pulumi.InputObject<ClusterInstanceState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ClusterInstanceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ClusterInstanceArgs | ClusterInstanceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ClusterInstanceState = argsOrState as ClusterInstanceState | undefined;
@@ -225,51 +225,51 @@ export interface ClusterInstanceState {
      * Specifies whether any database modifications
      * are applied immediately, or during the next maintenance window. Default is`false`.
      */
-    readonly applyImmediately?: boolean;
+    readonly applyImmediately?: pulumi.Input<boolean>;
     /**
      * Amazon Resource Name (ARN) of cluster instance
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
      */
-    readonly autoMinorVersionUpgrade?: boolean;
+    readonly autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
      * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonDocDB/latest/APIReference/API_CreateDBInstance.html) about the details.
      */
-    readonly availabilityZone?: string;
+    readonly availabilityZone?: pulumi.Input<string>;
     /**
      * The identifier of the [`aws_docdb_cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
      */
-    readonly clusterIdentifier?: string;
+    readonly clusterIdentifier?: pulumi.Input<string>;
     /**
      * The DB subnet group to associate with this DB instance.
      */
-    readonly dbSubnetGroupName?: string;
+    readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
      * The region-unique, immutable identifier for the DB instance.
      */
-    readonly dbiResourceId?: string;
+    readonly dbiResourceId?: pulumi.Input<string>;
     /**
      * The DNS address for this instance. May not be writable
      */
-    readonly endpoint?: string;
+    readonly endpoint?: pulumi.Input<string>;
     /**
      * The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      */
-    readonly engine?: string;
+    readonly engine?: pulumi.Input<string>;
     /**
      * The database engine version
      */
-    readonly engineVersion?: string;
+    readonly engineVersion?: pulumi.Input<string>;
     /**
      * The indentifier for the DocDB instance, if omitted, Terraform will assign a random, unique identifier.
      */
-    readonly identifier?: string;
+    readonly identifier?: pulumi.Input<string>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
      */
-    readonly identifierPrefix?: string;
+    readonly identifierPrefix?: pulumi.Input<string>;
     /**
      * The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances][2]. DocDB currently
      * supports the below instance classes. Please see [AWS Documentation][4] for complete details.
@@ -280,41 +280,41 @@ export interface ClusterInstanceState {
      * - db.r4.8xlarge
      * - db.r4.16xlarge
      */
-    readonly instanceClass?: string;
+    readonly instanceClass?: pulumi.Input<string>;
     /**
      * The ARN for the KMS encryption key if one is set to the cluster.
      */
-    readonly kmsKeyId?: string;
+    readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * The database port
      */
-    readonly port?: number;
+    readonly port?: pulumi.Input<number>;
     /**
      * The daily time range during which automated backups are created if automated backups are enabled.
      */
-    readonly preferredBackupWindow?: string;
+    readonly preferredBackupWindow?: pulumi.Input<string>;
     /**
      * The window to perform maintenance in.
      * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
      */
-    readonly preferredMaintenanceWindow?: string;
+    readonly preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
      */
-    readonly promotionTier?: number;
-    readonly publiclyAccessible?: boolean;
+    readonly promotionTier?: pulumi.Input<number>;
+    readonly publiclyAccessible?: pulumi.Input<boolean>;
     /**
      * Specifies whether the DB cluster is encrypted.
      */
-    readonly storageEncrypted?: boolean;
+    readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the instance.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      */
-    readonly writer?: boolean;
+    readonly writer?: pulumi.Input<boolean>;
 }
 
 /**
@@ -325,31 +325,31 @@ export interface ClusterInstanceArgs {
      * Specifies whether any database modifications
      * are applied immediately, or during the next maintenance window. Default is`false`.
      */
-    readonly applyImmediately?: boolean;
+    readonly applyImmediately?: pulumi.Input<boolean>;
     /**
      * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
      */
-    readonly autoMinorVersionUpgrade?: boolean;
+    readonly autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
      * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonDocDB/latest/APIReference/API_CreateDBInstance.html) about the details.
      */
-    readonly availabilityZone?: string;
+    readonly availabilityZone?: pulumi.Input<string>;
     /**
      * The identifier of the [`aws_docdb_cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
      */
-    readonly clusterIdentifier: string;
+    readonly clusterIdentifier: pulumi.Input<string>;
     /**
      * The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      */
-    readonly engine?: string;
+    readonly engine?: pulumi.Input<string>;
     /**
      * The indentifier for the DocDB instance, if omitted, Terraform will assign a random, unique identifier.
      */
-    readonly identifier?: string;
+    readonly identifier?: pulumi.Input<string>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
      */
-    readonly identifierPrefix?: string;
+    readonly identifierPrefix?: pulumi.Input<string>;
     /**
      * The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances][2]. DocDB currently
      * supports the below instance classes. Please see [AWS Documentation][4] for complete details.
@@ -360,18 +360,18 @@ export interface ClusterInstanceArgs {
      * - db.r4.8xlarge
      * - db.r4.16xlarge
      */
-    readonly instanceClass: string;
+    readonly instanceClass: pulumi.Input<string>;
     /**
      * The window to perform maintenance in.
      * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
      */
-    readonly preferredMaintenanceWindow?: string;
+    readonly preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
      */
-    readonly promotionTier?: number;
+    readonly promotionTier?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the instance.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

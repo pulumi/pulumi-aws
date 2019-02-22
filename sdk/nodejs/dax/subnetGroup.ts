@@ -58,8 +58,8 @@ export class SubnetGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<SubnetGroupArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<SubnetGroupArgs> | pulumi.InputObject<SubnetGroupState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SubnetGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: SubnetGroupArgs | SubnetGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SubnetGroupState = argsOrState as SubnetGroupState | undefined;
@@ -88,19 +88,19 @@ export interface SubnetGroupState {
     /**
      * A description of the subnet group.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The name of the subnet group.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A list of VPC subnet IDs for the subnet group.
      */
-    readonly subnetIds?: string[];
+    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * VPC ID of the subnet group.
      */
-    readonly vpcId?: string;
+    readonly vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -110,13 +110,13 @@ export interface SubnetGroupArgs {
     /**
      * A description of the subnet group.
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The name of the subnet group.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * A list of VPC subnet IDs for the subnet group.
      */
-    readonly subnetIds: string[];
+    readonly subnetIds: pulumi.Input<pulumi.Input<string>[]>;
 }

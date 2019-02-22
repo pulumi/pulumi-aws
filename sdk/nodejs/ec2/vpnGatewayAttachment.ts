@@ -65,8 +65,8 @@ export class VpnGatewayAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<VpnGatewayAttachmentArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<VpnGatewayAttachmentArgs> | pulumi.InputObject<VpnGatewayAttachmentState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VpnGatewayAttachmentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: VpnGatewayAttachmentArgs | VpnGatewayAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VpnGatewayAttachmentState = argsOrState as VpnGatewayAttachmentState | undefined;
@@ -94,11 +94,11 @@ export interface VpnGatewayAttachmentState {
     /**
      * The ID of the VPC.
      */
-    readonly vpcId?: string;
+    readonly vpcId?: pulumi.Input<string>;
     /**
      * The ID of the Virtual Private Gateway.
      */
-    readonly vpnGatewayId?: string;
+    readonly vpnGatewayId?: pulumi.Input<string>;
 }
 
 /**
@@ -108,9 +108,9 @@ export interface VpnGatewayAttachmentArgs {
     /**
      * The ID of the VPC.
      */
-    readonly vpcId: string;
+    readonly vpcId: pulumi.Input<string>;
     /**
      * The ID of the Virtual Private Gateway.
      */
-    readonly vpnGatewayId: string;
+    readonly vpnGatewayId: pulumi.Input<string>;
 }

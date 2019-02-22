@@ -171,8 +171,8 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<ClusterArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ClusterArgs> | pulumi.InputObject<ClusterState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ClusterArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ClusterState = argsOrState as ClusterState | undefined;
@@ -248,116 +248,116 @@ export interface ClusterState {
      * are applied immediately, or during the next maintenance window. Default is
      * `false`.
      */
-    readonly applyImmediately?: boolean;
+    readonly applyImmediately?: pulumi.Input<boolean>;
     /**
      * Amazon Resource Name (ARN) of cluster
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * A list of EC2 Availability Zones that
      * instances in the DB cluster can be created in.
      */
-    readonly availabilityZones?: string[];
+    readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The days to retain backups for. Default `1`
      */
-    readonly backupRetentionPeriod?: number;
+    readonly backupRetentionPeriod?: pulumi.Input<number>;
     /**
      * The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
      */
-    readonly clusterIdentifier?: string;
+    readonly clusterIdentifier?: pulumi.Input<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
      */
-    readonly clusterIdentifierPrefix?: string;
+    readonly clusterIdentifierPrefix?: pulumi.Input<string>;
     /**
      * List of DocDB Instances that are a part of this cluster
      */
-    readonly clusterMembers?: string[];
+    readonly clusterMembers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The DocDB Cluster Resource ID
      */
-    readonly clusterResourceId?: string;
-    readonly dbClusterParameterGroupName?: string;
+    readonly clusterResourceId?: pulumi.Input<string>;
+    readonly dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
      * A DB subnet group to associate with this DB instance.* `db_cluster_parameter_group_name` - (Optional) A cluster parameter group to associate with the cluster.
      */
-    readonly dbSubnetGroupName?: string;
+    readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`.
      */
-    readonly enabledCloudwatchLogsExports?: string[];
+    readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The DNS address of the DocDB instance
      */
-    readonly endpoint?: string;
+    readonly endpoint?: pulumi.Input<string>;
     /**
      * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
      */
-    readonly engine?: string;
+    readonly engine?: pulumi.Input<string>;
     /**
      * The database engine version. Updating this argument results in an outage.
      */
-    readonly engineVersion?: string;
+    readonly engineVersion?: pulumi.Input<string>;
     /**
      * The name of your final DB snapshot
      * when this DB cluster is deleted. If omitted, no final snapshot will be
      * made.
      */
-    readonly finalSnapshotIdentifier?: string;
+    readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
      * The Route53 Hosted Zone ID of the endpoint
      */
-    readonly hostedZoneId?: string;
+    readonly hostedZoneId?: pulumi.Input<string>;
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      */
-    readonly kmsKeyId?: string;
+    readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * Password for the master DB user. Note that this may
      * show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
      */
-    readonly masterPassword?: string;
+    readonly masterPassword?: pulumi.Input<string>;
     /**
      * Username for the master DB user. 
      */
-    readonly masterUsername?: string;
+    readonly masterUsername?: pulumi.Input<string>;
     /**
      * The port on which the DB accepts connections
      */
-    readonly port?: number;
+    readonly port?: pulumi.Input<number>;
     /**
      * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
      * Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
      */
-    readonly preferredBackupWindow?: string;
-    readonly preferredMaintenanceWindow?: string;
+    readonly preferredBackupWindow?: pulumi.Input<string>;
+    readonly preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
      * A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
      */
-    readonly readerEndpoint?: string;
+    readonly readerEndpoint?: pulumi.Input<string>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      */
-    readonly skipFinalSnapshot?: boolean;
+    readonly skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
      * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
      */
-    readonly snapshotIdentifier?: string;
+    readonly snapshotIdentifier?: pulumi.Input<string>;
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false`.
      */
-    readonly storageEncrypted?: boolean;
+    readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the DB cluster.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * List of VPC security groups to associate
      * with the Cluster
      */
-    readonly vpcSecurityGroupIds?: string[];
+    readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -369,94 +369,94 @@ export interface ClusterArgs {
      * are applied immediately, or during the next maintenance window. Default is
      * `false`.
      */
-    readonly applyImmediately?: boolean;
+    readonly applyImmediately?: pulumi.Input<boolean>;
     /**
      * A list of EC2 Availability Zones that
      * instances in the DB cluster can be created in.
      */
-    readonly availabilityZones?: string[];
+    readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The days to retain backups for. Default `1`
      */
-    readonly backupRetentionPeriod?: number;
+    readonly backupRetentionPeriod?: pulumi.Input<number>;
     /**
      * The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
      */
-    readonly clusterIdentifier?: string;
+    readonly clusterIdentifier?: pulumi.Input<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
      */
-    readonly clusterIdentifierPrefix?: string;
+    readonly clusterIdentifierPrefix?: pulumi.Input<string>;
     /**
      * List of DocDB Instances that are a part of this cluster
      */
-    readonly clusterMembers?: string[];
-    readonly dbClusterParameterGroupName?: string;
+    readonly clusterMembers?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
      * A DB subnet group to associate with this DB instance.* `db_cluster_parameter_group_name` - (Optional) A cluster parameter group to associate with the cluster.
      */
-    readonly dbSubnetGroupName?: string;
+    readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`.
      */
-    readonly enabledCloudwatchLogsExports?: string[];
+    readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
      */
-    readonly engine?: string;
+    readonly engine?: pulumi.Input<string>;
     /**
      * The database engine version. Updating this argument results in an outage.
      */
-    readonly engineVersion?: string;
+    readonly engineVersion?: pulumi.Input<string>;
     /**
      * The name of your final DB snapshot
      * when this DB cluster is deleted. If omitted, no final snapshot will be
      * made.
      */
-    readonly finalSnapshotIdentifier?: string;
+    readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      */
-    readonly kmsKeyId?: string;
+    readonly kmsKeyId?: pulumi.Input<string>;
     /**
      * Password for the master DB user. Note that this may
      * show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
      */
-    readonly masterPassword?: string;
+    readonly masterPassword?: pulumi.Input<string>;
     /**
      * Username for the master DB user. 
      */
-    readonly masterUsername?: string;
+    readonly masterUsername?: pulumi.Input<string>;
     /**
      * The port on which the DB accepts connections
      */
-    readonly port?: number;
+    readonly port?: pulumi.Input<number>;
     /**
      * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
      * Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
      */
-    readonly preferredBackupWindow?: string;
-    readonly preferredMaintenanceWindow?: string;
+    readonly preferredBackupWindow?: pulumi.Input<string>;
+    readonly preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      */
-    readonly skipFinalSnapshot?: boolean;
+    readonly skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
      * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
      */
-    readonly snapshotIdentifier?: string;
+    readonly snapshotIdentifier?: pulumi.Input<string>;
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false`.
      */
-    readonly storageEncrypted?: boolean;
+    readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the DB cluster.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * List of VPC security groups to associate
      * with the Cluster
      */
-    readonly vpcSecurityGroupIds?: string[];
+    readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -58,8 +58,8 @@ export class Portfolio extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<PortfolioArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<PortfolioArgs> | pulumi.InputObject<PortfolioState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: PortfolioArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: PortfolioArgs | PortfolioState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PortfolioState = argsOrState as PortfolioState | undefined;
@@ -86,24 +86,24 @@ export class Portfolio extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Portfolio resources.
  */
 export interface PortfolioState {
-    readonly arn?: string;
-    readonly createdTime?: string;
+    readonly arn?: pulumi.Input<string>;
+    readonly createdTime?: pulumi.Input<string>;
     /**
      * Description of the portfolio
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The name of the portfolio.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Name of the person or organization who owns the portfolio.
      */
-    readonly providerName?: string;
+    readonly providerName?: pulumi.Input<string>;
     /**
      * Tags to apply to the connection.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -113,17 +113,17 @@ export interface PortfolioArgs {
     /**
      * Description of the portfolio
      */
-    readonly description?: string;
+    readonly description?: pulumi.Input<string>;
     /**
      * The name of the portfolio.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * Name of the person or organization who owns the portfolio.
      */
-    readonly providerName?: string;
+    readonly providerName?: pulumi.Input<string>;
     /**
      * Tags to apply to the connection.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

@@ -79,8 +79,8 @@ export class TopicPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<TopicPolicyArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<TopicPolicyArgs> | pulumi.InputObject<TopicPolicyState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TopicPolicyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: TopicPolicyArgs | TopicPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: TopicPolicyState = argsOrState as TopicPolicyState | undefined;
@@ -108,11 +108,11 @@ export interface TopicPolicyState {
     /**
      * The ARN of the SNS topic
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    readonly policy?: string;
+    readonly policy?: pulumi.Input<string>;
 }
 
 /**
@@ -122,9 +122,9 @@ export interface TopicPolicyArgs {
     /**
      * The ARN of the SNS topic
      */
-    readonly arn: string;
+    readonly arn: pulumi.Input<string>;
     /**
      * The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    readonly policy: string;
+    readonly policy: pulumi.Input<string>;
 }

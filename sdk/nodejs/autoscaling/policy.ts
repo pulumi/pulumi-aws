@@ -105,8 +105,8 @@ export class Policy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<PolicyArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<PolicyArgs> | pulumi.InputObject<PolicyState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PolicyState = argsOrState as PolicyState | undefined;
@@ -153,51 +153,51 @@ export interface PolicyState {
     /**
      * Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
      */
-    readonly adjustmentType?: string;
+    readonly adjustmentType?: pulumi.Input<string>;
     /**
      * The ARN assigned by AWS to the scaling policy.
      */
-    readonly arn?: string;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The name of the autoscaling group.
      */
-    readonly autoscalingGroupName?: string;
+    readonly autoscalingGroupName?: pulumi.Input<string>;
     /**
      * The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      */
-    readonly cooldown?: number;
+    readonly cooldown?: pulumi.Input<number>;
     /**
      * The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
      */
-    readonly estimatedInstanceWarmup?: number;
+    readonly estimatedInstanceWarmup?: pulumi.Input<number>;
     /**
      * The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
      */
-    readonly metricAggregationType?: string;
-    readonly minAdjustmentMagnitude?: number;
+    readonly metricAggregationType?: pulumi.Input<string>;
+    readonly minAdjustmentMagnitude?: pulumi.Input<number>;
     /**
      * Use `min_adjustment_magnitude` instead.
      */
-    readonly minAdjustmentStep?: number;
+    readonly minAdjustmentStep?: pulumi.Input<number>;
     /**
      * The name of the dimension.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
      */
-    readonly policyType?: string;
+    readonly policyType?: pulumi.Input<string>;
     /**
      * The number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
      * up. A negative value scales down.
      */
-    readonly scalingAdjustment?: number;
-    readonly stepAdjustments?: { metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[];
+    readonly scalingAdjustment?: pulumi.Input<number>;
+    readonly stepAdjustments?: pulumi.Input<pulumi.Input<{ metricIntervalLowerBound?: pulumi.Input<string>, metricIntervalUpperBound?: pulumi.Input<string>, scalingAdjustment: pulumi.Input<number> }>[]>;
     /**
      * A target tracking policy. These have the following structure:
      */
-    readonly targetTrackingConfiguration?: { customizedMetricSpecification?: { metricDimensions?: { name: string, value: string }[], metricName: string, namespace: string, statistic: string, unit?: string }, disableScaleIn?: boolean, predefinedMetricSpecification?: { predefinedMetricType: string, resourceLabel?: string }, targetValue: number };
+    readonly targetTrackingConfiguration?: pulumi.Input<{ customizedMetricSpecification?: pulumi.Input<{ metricDimensions?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, metricName: pulumi.Input<string>, namespace: pulumi.Input<string>, statistic: pulumi.Input<string>, unit?: pulumi.Input<string> }>, disableScaleIn?: pulumi.Input<boolean>, predefinedMetricSpecification?: pulumi.Input<{ predefinedMetricType: pulumi.Input<string>, resourceLabel?: pulumi.Input<string> }>, targetValue: pulumi.Input<number> }>;
 }
 
 /**
@@ -207,45 +207,45 @@ export interface PolicyArgs {
     /**
      * Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
      */
-    readonly adjustmentType?: string;
+    readonly adjustmentType?: pulumi.Input<string>;
     /**
      * The name of the autoscaling group.
      */
-    readonly autoscalingGroupName: string;
+    readonly autoscalingGroupName: pulumi.Input<string>;
     /**
      * The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      */
-    readonly cooldown?: number;
+    readonly cooldown?: pulumi.Input<number>;
     /**
      * The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
      */
-    readonly estimatedInstanceWarmup?: number;
+    readonly estimatedInstanceWarmup?: pulumi.Input<number>;
     /**
      * The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
      */
-    readonly metricAggregationType?: string;
-    readonly minAdjustmentMagnitude?: number;
+    readonly metricAggregationType?: pulumi.Input<string>;
+    readonly minAdjustmentMagnitude?: pulumi.Input<number>;
     /**
      * Use `min_adjustment_magnitude` instead.
      */
-    readonly minAdjustmentStep?: number;
+    readonly minAdjustmentStep?: pulumi.Input<number>;
     /**
      * The name of the dimension.
      */
-    readonly name?: string;
+    readonly name?: pulumi.Input<string>;
     /**
      * The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
      */
-    readonly policyType?: string;
+    readonly policyType?: pulumi.Input<string>;
     /**
      * The number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
      * up. A negative value scales down.
      */
-    readonly scalingAdjustment?: number;
-    readonly stepAdjustments?: { metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[];
+    readonly scalingAdjustment?: pulumi.Input<number>;
+    readonly stepAdjustments?: pulumi.Input<pulumi.Input<{ metricIntervalLowerBound?: pulumi.Input<string>, metricIntervalUpperBound?: pulumi.Input<string>, scalingAdjustment: pulumi.Input<number> }>[]>;
     /**
      * A target tracking policy. These have the following structure:
      */
-    readonly targetTrackingConfiguration?: { customizedMetricSpecification?: { metricDimensions?: { name: string, value: string }[], metricName: string, namespace: string, statistic: string, unit?: string }, disableScaleIn?: boolean, predefinedMetricSpecification?: { predefinedMetricType: string, resourceLabel?: string }, targetValue: number };
+    readonly targetTrackingConfiguration?: pulumi.Input<{ customizedMetricSpecification?: pulumi.Input<{ metricDimensions?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, metricName: pulumi.Input<string>, namespace: pulumi.Input<string>, statistic: pulumi.Input<string>, unit?: pulumi.Input<string> }>, disableScaleIn?: pulumi.Input<boolean>, predefinedMetricSpecification?: pulumi.Input<{ predefinedMetricType: pulumi.Input<string>, resourceLabel?: pulumi.Input<string> }>, targetValue: pulumi.Input<number> }>;
 }

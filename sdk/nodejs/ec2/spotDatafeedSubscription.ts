@@ -54,8 +54,8 @@ export class SpotDatafeedSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<SpotDatafeedSubscriptionArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<SpotDatafeedSubscriptionArgs> | pulumi.InputObject<SpotDatafeedSubscriptionState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SpotDatafeedSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: SpotDatafeedSubscriptionArgs | SpotDatafeedSubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SpotDatafeedSubscriptionState = argsOrState as SpotDatafeedSubscriptionState | undefined;
@@ -80,11 +80,11 @@ export interface SpotDatafeedSubscriptionState {
     /**
      * The Amazon S3 bucket in which to store the Spot instance data feed.
      */
-    readonly bucket?: string;
+    readonly bucket?: pulumi.Input<string>;
     /**
      * Path of folder inside bucket to place spot pricing data.
      */
-    readonly prefix?: string;
+    readonly prefix?: pulumi.Input<string>;
 }
 
 /**
@@ -94,9 +94,9 @@ export interface SpotDatafeedSubscriptionArgs {
     /**
      * The Amazon S3 bucket in which to store the Spot instance data feed.
      */
-    readonly bucket: string;
+    readonly bucket: pulumi.Input<string>;
     /**
      * Path of folder inside bucket to place spot pricing data.
      */
-    readonly prefix?: string;
+    readonly prefix?: pulumi.Input<string>;
 }
