@@ -44,7 +44,7 @@ export class UserGroupMembership extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserGroupMembershipState, opts?: pulumi.CustomResourceOptions): UserGroupMembership {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<UserGroupMembershipState>, opts?: pulumi.CustomResourceOptions): UserGroupMembership {
         return new UserGroupMembership(name, <any>state, { ...opts, id: id });
     }
 
@@ -64,8 +64,8 @@ export class UserGroupMembership extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<UserGroupMembershipArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<UserGroupMembershipArgs> | pulumi.InputObject<UserGroupMembershipState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<UserGroupMembershipArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<UserGroupMembershipArgs> | pulumi.WrappedObject<UserGroupMembershipState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: UserGroupMembershipState = argsOrState as UserGroupMembershipState | undefined;

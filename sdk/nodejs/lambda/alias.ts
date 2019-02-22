@@ -37,7 +37,7 @@ export class Alias extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AliasState, opts?: pulumi.CustomResourceOptions): Alias {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<AliasState>, opts?: pulumi.CustomResourceOptions): Alias {
         return new Alias(name, <any>state, { ...opts, id: id });
     }
 
@@ -77,8 +77,8 @@ export class Alias extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<AliasArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<AliasArgs> | pulumi.InputObject<AliasState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<AliasArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<AliasArgs> | pulumi.WrappedObject<AliasState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AliasState = argsOrState as AliasState | undefined;

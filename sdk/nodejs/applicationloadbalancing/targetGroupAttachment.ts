@@ -56,7 +56,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TargetGroupAttachmentState, opts?: pulumi.CustomResourceOptions): TargetGroupAttachment {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<TargetGroupAttachmentState>, opts?: pulumi.CustomResourceOptions): TargetGroupAttachment {
         return new TargetGroupAttachment(name, <any>state, { ...opts, id: id });
     }
 
@@ -84,8 +84,8 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<TargetGroupAttachmentArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<TargetGroupAttachmentArgs> | pulumi.InputObject<TargetGroupAttachmentState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<TargetGroupAttachmentArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<TargetGroupAttachmentArgs> | pulumi.WrappedObject<TargetGroupAttachmentState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: TargetGroupAttachmentState = argsOrState as TargetGroupAttachmentState | undefined;

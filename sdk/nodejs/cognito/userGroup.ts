@@ -55,7 +55,7 @@ export class UserGroup extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserGroupState, opts?: pulumi.CustomResourceOptions): UserGroup {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<UserGroupState>, opts?: pulumi.CustomResourceOptions): UserGroup {
         return new UserGroup(name, <any>state, { ...opts, id: id });
     }
 
@@ -87,8 +87,8 @@ export class UserGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<UserGroupArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<UserGroupArgs> | pulumi.InputObject<UserGroupState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<UserGroupArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<UserGroupArgs> | pulumi.WrappedObject<UserGroupState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: UserGroupState = argsOrState as UserGroupState | undefined;

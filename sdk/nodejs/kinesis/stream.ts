@@ -38,7 +38,7 @@ export class Stream extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: StreamState, opts?: pulumi.CustomResourceOptions): Stream {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<StreamState>, opts?: pulumi.CustomResourceOptions): Stream {
         return new Stream(name, <any>state, { ...opts, id: id });
     }
 
@@ -85,8 +85,8 @@ export class Stream extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<StreamArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<StreamArgs> | pulumi.InputObject<StreamState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<StreamArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<StreamArgs> | pulumi.WrappedObject<StreamState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: StreamState = argsOrState as StreamState | undefined;

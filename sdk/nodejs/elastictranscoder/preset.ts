@@ -78,7 +78,7 @@ export class Preset extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PresetState, opts?: pulumi.CustomResourceOptions): Preset {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<PresetState>, opts?: pulumi.CustomResourceOptions): Preset {
         return new Preset(name, <any>state, { ...opts, id: id });
     }
 
@@ -126,8 +126,8 @@ export class Preset extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<PresetArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<PresetArgs> | pulumi.InputObject<PresetState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<PresetArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<PresetArgs> | pulumi.WrappedObject<PresetState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PresetState = argsOrState as PresetState | undefined;

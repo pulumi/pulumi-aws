@@ -52,7 +52,7 @@ export class ZoneAssociation extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ZoneAssociationState, opts?: pulumi.CustomResourceOptions): ZoneAssociation {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<ZoneAssociationState>, opts?: pulumi.CustomResourceOptions): ZoneAssociation {
         return new ZoneAssociation(name, <any>state, { ...opts, id: id });
     }
 
@@ -76,8 +76,8 @@ export class ZoneAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ZoneAssociationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ZoneAssociationArgs> | pulumi.InputObject<ZoneAssociationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<ZoneAssociationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<ZoneAssociationArgs> | pulumi.WrappedObject<ZoneAssociationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ZoneAssociationState = argsOrState as ZoneAssociationState | undefined;

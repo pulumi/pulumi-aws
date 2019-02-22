@@ -45,7 +45,7 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpnConnectionRouteState, opts?: pulumi.CustomResourceOptions): VpnConnectionRoute {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<VpnConnectionRouteState>, opts?: pulumi.CustomResourceOptions): VpnConnectionRoute {
         return new VpnConnectionRoute(name, <any>state, { ...opts, id: id });
     }
 
@@ -65,8 +65,8 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<VpnConnectionRouteArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<VpnConnectionRouteArgs> | pulumi.InputObject<VpnConnectionRouteState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<VpnConnectionRouteArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<VpnConnectionRouteArgs> | pulumi.WrappedObject<VpnConnectionRouteState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VpnConnectionRouteState = argsOrState as VpnConnectionRouteState | undefined;

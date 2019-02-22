@@ -37,7 +37,7 @@ export class RuleGroup extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RuleGroupState, opts?: pulumi.CustomResourceOptions): RuleGroup {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<RuleGroupState>, opts?: pulumi.CustomResourceOptions): RuleGroup {
         return new RuleGroup(name, <any>state, { ...opts, id: id });
     }
 
@@ -61,8 +61,8 @@ export class RuleGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<RuleGroupArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<RuleGroupArgs> | pulumi.InputObject<RuleGroupState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<RuleGroupArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<RuleGroupArgs> | pulumi.WrappedObject<RuleGroupState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RuleGroupState = argsOrState as RuleGroupState | undefined;

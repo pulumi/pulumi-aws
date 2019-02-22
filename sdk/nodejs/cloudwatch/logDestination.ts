@@ -28,7 +28,7 @@ export class LogDestination extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LogDestinationState, opts?: pulumi.CustomResourceOptions): LogDestination {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<LogDestinationState>, opts?: pulumi.CustomResourceOptions): LogDestination {
         return new LogDestination(name, <any>state, { ...opts, id: id });
     }
 
@@ -56,8 +56,8 @@ export class LogDestination extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<LogDestinationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<LogDestinationArgs> | pulumi.InputObject<LogDestinationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<LogDestinationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<LogDestinationArgs> | pulumi.WrappedObject<LogDestinationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: LogDestinationState = argsOrState as LogDestinationState | undefined;

@@ -33,7 +33,7 @@ export class S3Location extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: S3LocationState, opts?: pulumi.CustomResourceOptions): S3Location {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<S3LocationState>, opts?: pulumi.CustomResourceOptions): S3Location {
         return new S3Location(name, <any>state, { ...opts, id: id });
     }
 
@@ -66,8 +66,8 @@ export class S3Location extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<S3LocationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<S3LocationArgs> | pulumi.InputObject<S3LocationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<S3LocationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<S3LocationArgs> | pulumi.WrappedObject<S3LocationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: S3LocationState = argsOrState as S3LocationState | undefined;

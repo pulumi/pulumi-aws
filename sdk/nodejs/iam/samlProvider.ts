@@ -28,7 +28,7 @@ export class SamlProvider extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SamlProviderState, opts?: pulumi.CustomResourceOptions): SamlProvider {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<SamlProviderState>, opts?: pulumi.CustomResourceOptions): SamlProvider {
         return new SamlProvider(name, <any>state, { ...opts, id: id });
     }
 
@@ -56,8 +56,8 @@ export class SamlProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<SamlProviderArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<SamlProviderArgs> | pulumi.InputObject<SamlProviderState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<SamlProviderArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<SamlProviderArgs> | pulumi.WrappedObject<SamlProviderState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SamlProviderState = argsOrState as SamlProviderState | undefined;

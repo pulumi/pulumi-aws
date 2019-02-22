@@ -78,7 +78,7 @@ export class WebAclAssociation extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: WebAclAssociationState, opts?: pulumi.CustomResourceOptions): WebAclAssociation {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<WebAclAssociationState>, opts?: pulumi.CustomResourceOptions): WebAclAssociation {
         return new WebAclAssociation(name, <any>state, { ...opts, id: id });
     }
 
@@ -98,8 +98,8 @@ export class WebAclAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<WebAclAssociationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<WebAclAssociationArgs> | pulumi.InputObject<WebAclAssociationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<WebAclAssociationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<WebAclAssociationArgs> | pulumi.WrappedObject<WebAclAssociationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: WebAclAssociationState = argsOrState as WebAclAssociationState | undefined;

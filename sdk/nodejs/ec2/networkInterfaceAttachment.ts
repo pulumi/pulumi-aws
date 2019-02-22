@@ -29,7 +29,7 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NetworkInterfaceAttachmentState, opts?: pulumi.CustomResourceOptions): NetworkInterfaceAttachment {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<NetworkInterfaceAttachmentState>, opts?: pulumi.CustomResourceOptions): NetworkInterfaceAttachment {
         return new NetworkInterfaceAttachment(name, <any>state, { ...opts, id: id });
     }
 
@@ -61,8 +61,8 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<NetworkInterfaceAttachmentArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<NetworkInterfaceAttachmentArgs> | pulumi.InputObject<NetworkInterfaceAttachmentState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<NetworkInterfaceAttachmentArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<NetworkInterfaceAttachmentArgs> | pulumi.WrappedObject<NetworkInterfaceAttachmentState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: NetworkInterfaceAttachmentState = argsOrState as NetworkInterfaceAttachmentState | undefined;

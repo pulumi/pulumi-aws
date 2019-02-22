@@ -37,7 +37,7 @@ export class DocumentationVersion extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DocumentationVersionState, opts?: pulumi.CustomResourceOptions): DocumentationVersion {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<DocumentationVersionState>, opts?: pulumi.CustomResourceOptions): DocumentationVersion {
         return new DocumentationVersion(name, <any>state, { ...opts, id: id });
     }
 
@@ -61,8 +61,8 @@ export class DocumentationVersion extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<DocumentationVersionArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<DocumentationVersionArgs> | pulumi.InputObject<DocumentationVersionState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<DocumentationVersionArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<DocumentationVersionArgs> | pulumi.WrappedObject<DocumentationVersionState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DocumentationVersionState = argsOrState as DocumentationVersionState | undefined;

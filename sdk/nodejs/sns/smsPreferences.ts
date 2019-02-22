@@ -25,7 +25,7 @@ export class SmsPreferences extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SmsPreferencesState, opts?: pulumi.CustomResourceOptions): SmsPreferences {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<SmsPreferencesState>, opts?: pulumi.CustomResourceOptions): SmsPreferences {
         return new SmsPreferences(name, <any>state, { ...opts, id: id });
     }
 
@@ -61,8 +61,8 @@ export class SmsPreferences extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<SmsPreferencesArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<SmsPreferencesArgs> | pulumi.InputObject<SmsPreferencesState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.WrappedObject<SmsPreferencesArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<SmsPreferencesArgs> | pulumi.WrappedObject<SmsPreferencesState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SmsPreferencesState = argsOrState as SmsPreferencesState | undefined;

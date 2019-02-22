@@ -66,7 +66,7 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ConfigurationAggregatorState, opts?: pulumi.CustomResourceOptions): ConfigurationAggregator {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<ConfigurationAggregatorState>, opts?: pulumi.CustomResourceOptions): ConfigurationAggregator {
         return new ConfigurationAggregator(name, <any>state, { ...opts, id: id });
     }
 
@@ -94,8 +94,8 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<ConfigurationAggregatorArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ConfigurationAggregatorArgs> | pulumi.InputObject<ConfigurationAggregatorState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.WrappedObject<ConfigurationAggregatorArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<ConfigurationAggregatorArgs> | pulumi.WrappedObject<ConfigurationAggregatorState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ConfigurationAggregatorState = argsOrState as ConfigurationAggregatorState | undefined;

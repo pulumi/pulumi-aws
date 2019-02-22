@@ -29,7 +29,7 @@ export class Thing extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ThingState, opts?: pulumi.CustomResourceOptions): Thing {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<ThingState>, opts?: pulumi.CustomResourceOptions): Thing {
         return new Thing(name, <any>state, { ...opts, id: id });
     }
 
@@ -65,8 +65,8 @@ export class Thing extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<ThingArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ThingArgs> | pulumi.InputObject<ThingState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.WrappedObject<ThingArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<ThingArgs> | pulumi.WrappedObject<ThingState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ThingState = argsOrState as ThingState | undefined;

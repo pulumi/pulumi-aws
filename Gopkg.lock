@@ -637,12 +637,12 @@
   revision = "82544ec86140b7027a07890b09c2f03fca97228a"
 
 [[projects]]
-  digest = "1:0f79867e9aac8a4e20bc1b0956d81f340da9ade9bcc00a4bfb1ebd738c152f7a"
+  digest = "1:85fdd2ce48a3fd1ddc4671b972f50a47dcf2eebb24813e90b28a8a1fcf65ee5a"
   name = "github.com/mattn/go-colorable"
   packages = ["."]
   pruneopts = ""
-  revision = "efa589957cd060542a26d2dd7832fd6a6c6c3ade"
-  version = "v0.1.0"
+  revision = "3a70a971f94a22f2fa562ffcc7a0eb45f5daf045"
+  version = "v0.1.1"
 
 [[projects]]
   digest = "1:3140e04675a6a91d2a20ea9d10bdadf6072085502e6def6768361260aee4b967"
@@ -780,7 +780,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:75a43f0388c170e50a70f97e08023e3d2d0d36cff0a943428685cf6ba497d71e"
+  digest = "1:f7426a952fbe99a95b8c0d582aa6fc638f77c291d3aa7274787f23e747e820bd"
   name = "github.com/pulumi/pulumi"
   packages = [
     "pkg/apitype",
@@ -827,18 +827,18 @@
     "sdk/proto/go",
   ]
   pruneopts = ""
-  revision = "b6a9814e673c589968dd0a264f31aef9fc24cd6b"
+  revision = "93c9464125178f9ee96dfb6078177dbbb7f170cd"
 
 [[projects]]
   branch = "features/pojo"
-  digest = "1:70d81696654accbf5fb7de71d2a87806c6c32e5691e1091d6c618e9b54bdbb7f"
+  digest = "1:49190d6094b54f3befc133178466be003562e7436fc9e5ec5a0f9265532bbee2"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen",
   ]
   pruneopts = ""
-  revision = "d3463aa66312275daa8545ce63bf6c27d78e6dd4"
+  revision = "cf8bddfc86f2a86f6554f3dd1c6b467c8272e17f"
 
 [[projects]]
   branch = "master"
@@ -969,12 +969,12 @@
   version = "v0.5.4"
 
 [[projects]]
-  digest = "1:afc0b8068986a01e2d8f449917829753a54f6bd4d1265c2b4ad9cba75560020f"
+  digest = "1:172f94a6b3644a8f9e6b5e5b7fc9fe1e42d424f52a0300b2e7ab1e57db73f85d"
   name = "github.com/xanzy/ssh-agent"
   packages = ["."]
   pruneopts = ""
-  revision = "640f0ab560aeb89d523bb6ac322b1244d5c3796c"
-  version = "v0.2.0"
+  revision = "6a3e2ff9e7c564f36873c2e36413f634534f1c44"
+  version = "v0.2.1"
 
 [[projects]]
   digest = "1:7a191bb780a26bed90cc17063a3f1028803e8538448ee1ba10388f2f54089df4"

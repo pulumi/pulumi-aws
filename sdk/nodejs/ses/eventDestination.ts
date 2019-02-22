@@ -78,7 +78,7 @@ export class EventDestination extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventDestinationState, opts?: pulumi.CustomResourceOptions): EventDestination {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<EventDestinationState>, opts?: pulumi.CustomResourceOptions): EventDestination {
         return new EventDestination(name, <any>state, { ...opts, id: id });
     }
 
@@ -118,8 +118,8 @@ export class EventDestination extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<EventDestinationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<EventDestinationArgs> | pulumi.InputObject<EventDestinationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<EventDestinationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<EventDestinationArgs> | pulumi.WrappedObject<EventDestinationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: EventDestinationState = argsOrState as EventDestinationState | undefined;

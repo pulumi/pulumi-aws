@@ -55,7 +55,7 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PeeringConnectionOptionsState, opts?: pulumi.CustomResourceOptions): PeeringConnectionOptions {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<PeeringConnectionOptionsState>, opts?: pulumi.CustomResourceOptions): PeeringConnectionOptions {
         return new PeeringConnectionOptions(name, <any>state, { ...opts, id: id });
     }
 
@@ -83,8 +83,8 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<PeeringConnectionOptionsArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<PeeringConnectionOptionsArgs> | pulumi.InputObject<PeeringConnectionOptionsState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<PeeringConnectionOptionsArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<PeeringConnectionOptionsArgs> | pulumi.WrappedObject<PeeringConnectionOptionsState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PeeringConnectionOptionsState = argsOrState as PeeringConnectionOptionsState | undefined;

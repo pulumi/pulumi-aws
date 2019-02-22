@@ -33,7 +33,7 @@ export class S3BucketAssociation extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: S3BucketAssociationState, opts?: pulumi.CustomResourceOptions): S3BucketAssociation {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<S3BucketAssociationState>, opts?: pulumi.CustomResourceOptions): S3BucketAssociation {
         return new S3BucketAssociation(name, <any>state, { ...opts, id: id });
     }
 
@@ -61,8 +61,8 @@ export class S3BucketAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<S3BucketAssociationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<S3BucketAssociationArgs> | pulumi.InputObject<S3BucketAssociationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<S3BucketAssociationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<S3BucketAssociationArgs> | pulumi.WrappedObject<S3BucketAssociationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: S3BucketAssociationState = argsOrState as S3BucketAssociationState | undefined;

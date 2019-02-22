@@ -40,7 +40,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ClusterParameterGroupState, opts?: pulumi.CustomResourceOptions): ClusterParameterGroup {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<ClusterParameterGroupState>, opts?: pulumi.CustomResourceOptions): ClusterParameterGroup {
         return new ClusterParameterGroup(name, <any>state, { ...opts, id: id });
     }
 
@@ -80,8 +80,8 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ClusterParameterGroupArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ClusterParameterGroupArgs> | pulumi.InputObject<ClusterParameterGroupState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<ClusterParameterGroupArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<ClusterParameterGroupArgs> | pulumi.WrappedObject<ClusterParameterGroupState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ClusterParameterGroupState = argsOrState as ClusterParameterGroupState | undefined;

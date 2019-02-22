@@ -44,7 +44,7 @@ export class ContainerPolicy extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ContainerPolicyState, opts?: pulumi.CustomResourceOptions): ContainerPolicy {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<ContainerPolicyState>, opts?: pulumi.CustomResourceOptions): ContainerPolicy {
         return new ContainerPolicy(name, <any>state, { ...opts, id: id });
     }
 
@@ -64,8 +64,8 @@ export class ContainerPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ContainerPolicyArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ContainerPolicyArgs> | pulumi.InputObject<ContainerPolicyState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<ContainerPolicyArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<ContainerPolicyArgs> | pulumi.WrappedObject<ContainerPolicyState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ContainerPolicyState = argsOrState as ContainerPolicyState | undefined;

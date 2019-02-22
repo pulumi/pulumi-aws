@@ -35,7 +35,7 @@ export class VpcLink extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpcLinkState, opts?: pulumi.CustomResourceOptions): VpcLink {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<VpcLinkState>, opts?: pulumi.CustomResourceOptions): VpcLink {
         return new VpcLink(name, <any>state, { ...opts, id: id });
     }
 
@@ -59,8 +59,8 @@ export class VpcLink extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<VpcLinkArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<VpcLinkArgs> | pulumi.InputObject<VpcLinkState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<VpcLinkArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<VpcLinkArgs> | pulumi.WrappedObject<VpcLinkState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VpcLinkState = argsOrState as VpcLinkState | undefined;

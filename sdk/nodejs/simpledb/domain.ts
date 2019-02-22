@@ -25,7 +25,7 @@ export class Domain extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DomainState, opts?: pulumi.CustomResourceOptions): Domain {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<DomainState>, opts?: pulumi.CustomResourceOptions): Domain {
         return new Domain(name, <any>state, { ...opts, id: id });
     }
 
@@ -41,8 +41,8 @@ export class Domain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<DomainArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<DomainArgs> | pulumi.InputObject<DomainState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.WrappedObject<DomainArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<DomainArgs> | pulumi.WrappedObject<DomainState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DomainState = argsOrState as DomainState | undefined;

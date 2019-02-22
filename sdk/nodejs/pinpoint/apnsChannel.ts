@@ -34,7 +34,7 @@ export class ApnsChannel extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ApnsChannelState, opts?: pulumi.CustomResourceOptions): ApnsChannel {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<ApnsChannelState>, opts?: pulumi.CustomResourceOptions): ApnsChannel {
         return new ApnsChannel(name, <any>state, { ...opts, id: id });
     }
 
@@ -85,8 +85,8 @@ export class ApnsChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ApnsChannelArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ApnsChannelArgs> | pulumi.InputObject<ApnsChannelState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<ApnsChannelArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<ApnsChannelArgs> | pulumi.WrappedObject<ApnsChannelState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ApnsChannelState = argsOrState as ApnsChannelState | undefined;

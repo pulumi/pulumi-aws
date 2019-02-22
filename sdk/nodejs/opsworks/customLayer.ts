@@ -28,7 +28,7 @@ export class CustomLayer extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CustomLayerState, opts?: pulumi.CustomResourceOptions): CustomLayer {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<CustomLayerState>, opts?: pulumi.CustomResourceOptions): CustomLayer {
         return new CustomLayer(name, <any>state, { ...opts, id: id });
     }
 
@@ -109,8 +109,8 @@ export class CustomLayer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<CustomLayerArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<CustomLayerArgs> | pulumi.InputObject<CustomLayerState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<CustomLayerArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<CustomLayerArgs> | pulumi.WrappedObject<CustomLayerState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: CustomLayerState = argsOrState as CustomLayerState | undefined;

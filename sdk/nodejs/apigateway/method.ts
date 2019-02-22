@@ -75,7 +75,7 @@ export class Method extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MethodState, opts?: pulumi.CustomResourceOptions): Method {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<MethodState>, opts?: pulumi.CustomResourceOptions): Method {
         return new Method(name, <any>state, { ...opts, id: id });
     }
 
@@ -138,8 +138,8 @@ export class Method extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<MethodArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<MethodArgs> | pulumi.InputObject<MethodState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<MethodArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<MethodArgs> | pulumi.WrappedObject<MethodState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: MethodState = argsOrState as MethodState | undefined;

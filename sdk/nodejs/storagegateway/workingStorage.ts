@@ -30,7 +30,7 @@ export class WorkingStorage extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: WorkingStorageState, opts?: pulumi.CustomResourceOptions): WorkingStorage {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<WorkingStorageState>, opts?: pulumi.CustomResourceOptions): WorkingStorage {
         return new WorkingStorage(name, <any>state, { ...opts, id: id });
     }
 
@@ -50,8 +50,8 @@ export class WorkingStorage extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<WorkingStorageArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<WorkingStorageArgs> | pulumi.InputObject<WorkingStorageState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<WorkingStorageArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<WorkingStorageArgs> | pulumi.WrappedObject<WorkingStorageState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: WorkingStorageState = argsOrState as WorkingStorageState | undefined;

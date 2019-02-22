@@ -35,7 +35,7 @@ export class ListenerCertificate extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ListenerCertificateState, opts?: pulumi.CustomResourceOptions): ListenerCertificate {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<ListenerCertificateState>, opts?: pulumi.CustomResourceOptions): ListenerCertificate {
         return new ListenerCertificate(name, <any>state, { ...opts, id: id });
     }
 
@@ -55,8 +55,8 @@ export class ListenerCertificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ListenerCertificateArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ListenerCertificateArgs> | pulumi.InputObject<ListenerCertificateState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<ListenerCertificateArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<ListenerCertificateArgs> | pulumi.WrappedObject<ListenerCertificateState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ListenerCertificateState = argsOrState as ListenerCertificateState | undefined;

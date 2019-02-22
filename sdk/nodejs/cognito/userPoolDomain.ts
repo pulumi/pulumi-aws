@@ -42,7 +42,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserPoolDomainState, opts?: pulumi.CustomResourceOptions): UserPoolDomain {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<UserPoolDomainState>, opts?: pulumi.CustomResourceOptions): UserPoolDomain {
         return new UserPoolDomain(name, <any>state, { ...opts, id: id });
     }
 
@@ -82,8 +82,8 @@ export class UserPoolDomain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<UserPoolDomainArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<UserPoolDomainArgs> | pulumi.InputObject<UserPoolDomainState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<UserPoolDomainArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<UserPoolDomainArgs> | pulumi.WrappedObject<UserPoolDomainState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: UserPoolDomainState = argsOrState as UserPoolDomainState | undefined;

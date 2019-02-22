@@ -67,7 +67,7 @@ export class EmailChannel extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EmailChannelState, opts?: pulumi.CustomResourceOptions): EmailChannel {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<EmailChannelState>, opts?: pulumi.CustomResourceOptions): EmailChannel {
         return new EmailChannel(name, <any>state, { ...opts, id: id });
     }
 
@@ -103,8 +103,8 @@ export class EmailChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<EmailChannelArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<EmailChannelArgs> | pulumi.InputObject<EmailChannelState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<EmailChannelArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<EmailChannelArgs> | pulumi.WrappedObject<EmailChannelState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: EmailChannelState = argsOrState as EmailChannelState | undefined;

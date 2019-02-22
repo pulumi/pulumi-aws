@@ -71,7 +71,7 @@ export class JobDefinition extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: JobDefinitionState, opts?: pulumi.CustomResourceOptions): JobDefinition {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<JobDefinitionState>, opts?: pulumi.CustomResourceOptions): JobDefinition {
         return new JobDefinition(name, <any>state, { ...opts, id: id });
     }
 
@@ -117,8 +117,8 @@ export class JobDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<JobDefinitionArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<JobDefinitionArgs> | pulumi.InputObject<JobDefinitionState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<JobDefinitionArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<JobDefinitionArgs> | pulumi.WrappedObject<JobDefinitionState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: JobDefinitionState = argsOrState as JobDefinitionState | undefined;

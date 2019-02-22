@@ -33,7 +33,7 @@ export class RdsDbInstance extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RdsDbInstanceState, opts?: pulumi.CustomResourceOptions): RdsDbInstance {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<RdsDbInstanceState>, opts?: pulumi.CustomResourceOptions): RdsDbInstance {
         return new RdsDbInstance(name, <any>state, { ...opts, id: id });
     }
 
@@ -61,8 +61,8 @@ export class RdsDbInstance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<RdsDbInstanceArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<RdsDbInstanceArgs> | pulumi.InputObject<RdsDbInstanceState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<RdsDbInstanceArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<RdsDbInstanceArgs> | pulumi.WrappedObject<RdsDbInstanceState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RdsDbInstanceState = argsOrState as RdsDbInstanceState | undefined;

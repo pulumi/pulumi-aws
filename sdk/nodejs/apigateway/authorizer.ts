@@ -86,7 +86,7 @@ export class Authorizer extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AuthorizerState, opts?: pulumi.CustomResourceOptions): Authorizer {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<AuthorizerState>, opts?: pulumi.CustomResourceOptions): Authorizer {
         return new Authorizer(name, <any>state, { ...opts, id: id });
     }
 
@@ -144,8 +144,8 @@ export class Authorizer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<AuthorizerArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<AuthorizerArgs> | pulumi.InputObject<AuthorizerState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<AuthorizerArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<AuthorizerArgs> | pulumi.WrappedObject<AuthorizerState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AuthorizerState = argsOrState as AuthorizerState | undefined;

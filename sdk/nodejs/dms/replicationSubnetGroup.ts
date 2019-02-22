@@ -33,7 +33,7 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ReplicationSubnetGroupState, opts?: pulumi.CustomResourceOptions): ReplicationSubnetGroup {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<ReplicationSubnetGroupState>, opts?: pulumi.CustomResourceOptions): ReplicationSubnetGroup {
         return new ReplicationSubnetGroup(name, <any>state, { ...opts, id: id });
     }
 
@@ -66,8 +66,8 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ReplicationSubnetGroupArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ReplicationSubnetGroupArgs> | pulumi.InputObject<ReplicationSubnetGroupState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<ReplicationSubnetGroupArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<ReplicationSubnetGroupArgs> | pulumi.WrappedObject<ReplicationSubnetGroupState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ReplicationSubnetGroupState = argsOrState as ReplicationSubnetGroupState | undefined;

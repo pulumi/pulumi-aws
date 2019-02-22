@@ -37,7 +37,7 @@ export class ConnectionAssociation extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ConnectionAssociationState, opts?: pulumi.CustomResourceOptions): ConnectionAssociation {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<ConnectionAssociationState>, opts?: pulumi.CustomResourceOptions): ConnectionAssociation {
         return new ConnectionAssociation(name, <any>state, { ...opts, id: id });
     }
 
@@ -57,8 +57,8 @@ export class ConnectionAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ConnectionAssociationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ConnectionAssociationArgs> | pulumi.InputObject<ConnectionAssociationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<ConnectionAssociationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<ConnectionAssociationArgs> | pulumi.WrappedObject<ConnectionAssociationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ConnectionAssociationState = argsOrState as ConnectionAssociationState | undefined;

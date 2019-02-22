@@ -30,7 +30,7 @@ export class PlacementGroup extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PlacementGroupState, opts?: pulumi.CustomResourceOptions): PlacementGroup {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<PlacementGroupState>, opts?: pulumi.CustomResourceOptions): PlacementGroup {
         return new PlacementGroup(name, <any>state, { ...opts, id: id });
     }
 
@@ -50,8 +50,8 @@ export class PlacementGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<PlacementGroupArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<PlacementGroupArgs> | pulumi.InputObject<PlacementGroupState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<PlacementGroupArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<PlacementGroupArgs> | pulumi.WrappedObject<PlacementGroupState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PlacementGroupState = argsOrState as PlacementGroupState | undefined;

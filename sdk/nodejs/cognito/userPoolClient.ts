@@ -43,7 +43,7 @@ export class UserPoolClient extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserPoolClientState, opts?: pulumi.CustomResourceOptions): UserPoolClient {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<UserPoolClientState>, opts?: pulumi.CustomResourceOptions): UserPoolClient {
         return new UserPoolClient(name, <any>state, { ...opts, id: id });
     }
 
@@ -115,8 +115,8 @@ export class UserPoolClient extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<UserPoolClientArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<UserPoolClientArgs> | pulumi.InputObject<UserPoolClientState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<UserPoolClientArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<UserPoolClientArgs> | pulumi.WrappedObject<UserPoolClientState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: UserPoolClientState = argsOrState as UserPoolClientState | undefined;

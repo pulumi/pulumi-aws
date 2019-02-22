@@ -27,7 +27,7 @@ export class StaticWebLayer extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: StaticWebLayerState, opts?: pulumi.CustomResourceOptions): StaticWebLayer {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<StaticWebLayerState>, opts?: pulumi.CustomResourceOptions): StaticWebLayer {
         return new StaticWebLayer(name, <any>state, { ...opts, id: id });
     }
 
@@ -101,8 +101,8 @@ export class StaticWebLayer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<StaticWebLayerArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<StaticWebLayerArgs> | pulumi.InputObject<StaticWebLayerState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<StaticWebLayerArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<StaticWebLayerArgs> | pulumi.WrappedObject<StaticWebLayerState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: StaticWebLayerState = argsOrState as StaticWebLayerState | undefined;

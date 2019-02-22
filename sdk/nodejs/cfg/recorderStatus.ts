@@ -77,7 +77,7 @@ export class RecorderStatus extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RecorderStatusState, opts?: pulumi.CustomResourceOptions): RecorderStatus {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<RecorderStatusState>, opts?: pulumi.CustomResourceOptions): RecorderStatus {
         return new RecorderStatus(name, <any>state, { ...opts, id: id });
     }
 
@@ -97,8 +97,8 @@ export class RecorderStatus extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<RecorderStatusArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<RecorderStatusArgs> | pulumi.InputObject<RecorderStatusState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<RecorderStatusArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<RecorderStatusArgs> | pulumi.WrappedObject<RecorderStatusState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RecorderStatusState = argsOrState as RecorderStatusState | undefined;

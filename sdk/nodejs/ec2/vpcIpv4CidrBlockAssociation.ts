@@ -34,7 +34,7 @@ export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpcIpv4CidrBlockAssociationState, opts?: pulumi.CustomResourceOptions): VpcIpv4CidrBlockAssociation {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<VpcIpv4CidrBlockAssociationState>, opts?: pulumi.CustomResourceOptions): VpcIpv4CidrBlockAssociation {
         return new VpcIpv4CidrBlockAssociation(name, <any>state, { ...opts, id: id });
     }
 
@@ -54,8 +54,8 @@ export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<VpcIpv4CidrBlockAssociationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<VpcIpv4CidrBlockAssociationArgs> | pulumi.InputObject<VpcIpv4CidrBlockAssociationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<VpcIpv4CidrBlockAssociationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<VpcIpv4CidrBlockAssociationArgs> | pulumi.WrappedObject<VpcIpv4CidrBlockAssociationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VpcIpv4CidrBlockAssociationState = argsOrState as VpcIpv4CidrBlockAssociationState | undefined;

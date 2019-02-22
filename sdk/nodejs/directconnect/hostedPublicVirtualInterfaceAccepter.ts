@@ -17,7 +17,7 @@ export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource 
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: HostedPublicVirtualInterfaceAccepterState, opts?: pulumi.CustomResourceOptions): HostedPublicVirtualInterfaceAccepter {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<HostedPublicVirtualInterfaceAccepterState>, opts?: pulumi.CustomResourceOptions): HostedPublicVirtualInterfaceAccepter {
         return new HostedPublicVirtualInterfaceAccepter(name, <any>state, { ...opts, id: id });
     }
 
@@ -41,8 +41,8 @@ export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<HostedPublicVirtualInterfaceAccepterArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<HostedPublicVirtualInterfaceAccepterArgs> | pulumi.InputObject<HostedPublicVirtualInterfaceAccepterState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<HostedPublicVirtualInterfaceAccepterArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<HostedPublicVirtualInterfaceAccepterArgs> | pulumi.WrappedObject<HostedPublicVirtualInterfaceAccepterState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: HostedPublicVirtualInterfaceAccepterState = argsOrState as HostedPublicVirtualInterfaceAccepterState | undefined;

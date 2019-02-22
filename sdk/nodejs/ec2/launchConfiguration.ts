@@ -180,7 +180,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LaunchConfigurationState, opts?: pulumi.CustomResourceOptions): LaunchConfiguration {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<LaunchConfigurationState>, opts?: pulumi.CustomResourceOptions): LaunchConfiguration {
         return new LaunchConfiguration(name, <any>state, { ...opts, id: id });
     }
 
@@ -276,8 +276,8 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<LaunchConfigurationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<LaunchConfigurationArgs> | pulumi.InputObject<LaunchConfigurationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<LaunchConfigurationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<LaunchConfigurationArgs> | pulumi.WrappedObject<LaunchConfigurationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: LaunchConfigurationState = argsOrState as LaunchConfigurationState | undefined;

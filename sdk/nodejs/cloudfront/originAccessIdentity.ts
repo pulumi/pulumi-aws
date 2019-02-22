@@ -88,7 +88,7 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: OriginAccessIdentityState, opts?: pulumi.CustomResourceOptions): OriginAccessIdentity {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<OriginAccessIdentityState>, opts?: pulumi.CustomResourceOptions): OriginAccessIdentity {
         return new OriginAccessIdentity(name, <any>state, { ...opts, id: id });
     }
 
@@ -131,8 +131,8 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<OriginAccessIdentityArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<OriginAccessIdentityArgs> | pulumi.InputObject<OriginAccessIdentityState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.WrappedObject<OriginAccessIdentityArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<OriginAccessIdentityArgs> | pulumi.WrappedObject<OriginAccessIdentityState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: OriginAccessIdentityState = argsOrState as OriginAccessIdentityState | undefined;

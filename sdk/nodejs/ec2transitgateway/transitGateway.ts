@@ -29,7 +29,7 @@ export class TransitGateway extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TransitGatewayState, opts?: pulumi.CustomResourceOptions): TransitGateway {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<TransitGatewayState>, opts?: pulumi.CustomResourceOptions): TransitGateway {
         return new TransitGateway(name, <any>state, { ...opts, id: id });
     }
 
@@ -89,8 +89,8 @@ export class TransitGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<TransitGatewayArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<TransitGatewayArgs> | pulumi.InputObject<TransitGatewayState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.WrappedObject<TransitGatewayArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<TransitGatewayArgs> | pulumi.WrappedObject<TransitGatewayState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: TransitGatewayState = argsOrState as TransitGatewayState | undefined;

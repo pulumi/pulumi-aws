@@ -40,7 +40,7 @@ export class ReceiptRule extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ReceiptRuleState, opts?: pulumi.CustomResourceOptions): ReceiptRule {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<ReceiptRuleState>, opts?: pulumi.CustomResourceOptions): ReceiptRule {
         return new ReceiptRule(name, <any>state, { ...opts, id: id });
     }
 
@@ -108,8 +108,8 @@ export class ReceiptRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ReceiptRuleArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ReceiptRuleArgs> | pulumi.InputObject<ReceiptRuleState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<ReceiptRuleArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<ReceiptRuleArgs> | pulumi.WrappedObject<ReceiptRuleState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ReceiptRuleState = argsOrState as ReceiptRuleState | undefined;

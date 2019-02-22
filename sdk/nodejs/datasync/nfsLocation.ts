@@ -33,7 +33,7 @@ export class NfsLocation extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NfsLocationState, opts?: pulumi.CustomResourceOptions): NfsLocation {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<NfsLocationState>, opts?: pulumi.CustomResourceOptions): NfsLocation {
         return new NfsLocation(name, <any>state, { ...opts, id: id });
     }
 
@@ -66,8 +66,8 @@ export class NfsLocation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<NfsLocationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<NfsLocationArgs> | pulumi.InputObject<NfsLocationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<NfsLocationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<NfsLocationArgs> | pulumi.WrappedObject<NfsLocationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: NfsLocationState = argsOrState as NfsLocationState | undefined;

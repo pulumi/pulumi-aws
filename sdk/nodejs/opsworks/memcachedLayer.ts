@@ -27,7 +27,7 @@ export class MemcachedLayer extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MemcachedLayerState, opts?: pulumi.CustomResourceOptions): MemcachedLayer {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<MemcachedLayerState>, opts?: pulumi.CustomResourceOptions): MemcachedLayer {
         return new MemcachedLayer(name, <any>state, { ...opts, id: id });
     }
 
@@ -108,8 +108,8 @@ export class MemcachedLayer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<MemcachedLayerArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<MemcachedLayerArgs> | pulumi.InputObject<MemcachedLayerState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<MemcachedLayerArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<MemcachedLayerArgs> | pulumi.WrappedObject<MemcachedLayerState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: MemcachedLayerState = argsOrState as MemcachedLayerState | undefined;

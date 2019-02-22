@@ -98,7 +98,7 @@ export class PatchBaseline extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PatchBaselineState, opts?: pulumi.CustomResourceOptions): PatchBaseline {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<PatchBaselineState>, opts?: pulumi.CustomResourceOptions): PatchBaseline {
         return new PatchBaseline(name, <any>state, { ...opts, id: id });
     }
 
@@ -142,8 +142,8 @@ export class PatchBaseline extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<PatchBaselineArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<PatchBaselineArgs> | pulumi.InputObject<PatchBaselineState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.WrappedObject<PatchBaselineArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<PatchBaselineArgs> | pulumi.WrappedObject<PatchBaselineState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PatchBaselineState = argsOrState as PatchBaselineState | undefined;

@@ -27,7 +27,7 @@ export class RailsAppLayer extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RailsAppLayerState, opts?: pulumi.CustomResourceOptions): RailsAppLayer {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<RailsAppLayerState>, opts?: pulumi.CustomResourceOptions): RailsAppLayer {
         return new RailsAppLayer(name, <any>state, { ...opts, id: id });
     }
 
@@ -128,8 +128,8 @@ export class RailsAppLayer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<RailsAppLayerArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<RailsAppLayerArgs> | pulumi.InputObject<RailsAppLayerState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<RailsAppLayerArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<RailsAppLayerArgs> | pulumi.WrappedObject<RailsAppLayerState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RailsAppLayerState = argsOrState as RailsAppLayerState | undefined;

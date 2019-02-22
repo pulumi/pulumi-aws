@@ -32,7 +32,7 @@ export class AccountPublicAccessBlock extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AccountPublicAccessBlockState, opts?: pulumi.CustomResourceOptions): AccountPublicAccessBlock {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<AccountPublicAccessBlockState>, opts?: pulumi.CustomResourceOptions): AccountPublicAccessBlock {
         return new AccountPublicAccessBlock(name, <any>state, { ...opts, id: id });
     }
 
@@ -69,8 +69,8 @@ export class AccountPublicAccessBlock extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<AccountPublicAccessBlockArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<AccountPublicAccessBlockArgs> | pulumi.InputObject<AccountPublicAccessBlockState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.WrappedObject<AccountPublicAccessBlockArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<AccountPublicAccessBlockArgs> | pulumi.WrappedObject<AccountPublicAccessBlockState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AccountPublicAccessBlockState = argsOrState as AccountPublicAccessBlockState | undefined;

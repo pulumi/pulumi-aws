@@ -29,7 +29,7 @@ export class PublicKey extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PublicKeyState, opts?: pulumi.CustomResourceOptions): PublicKey {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<PublicKeyState>, opts?: pulumi.CustomResourceOptions): PublicKey {
         return new PublicKey(name, <any>state, { ...opts, id: id });
     }
 
@@ -65,8 +65,8 @@ export class PublicKey extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<PublicKeyArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<PublicKeyArgs> | pulumi.InputObject<PublicKeyState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<PublicKeyArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<PublicKeyArgs> | pulumi.WrappedObject<PublicKeyState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PublicKeyState = argsOrState as PublicKeyState | undefined;

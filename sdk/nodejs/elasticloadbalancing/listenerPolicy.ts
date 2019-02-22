@@ -60,7 +60,7 @@ export class ListenerPolicy extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ListenerPolicyState, opts?: pulumi.CustomResourceOptions): ListenerPolicy {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<ListenerPolicyState>, opts?: pulumi.CustomResourceOptions): ListenerPolicy {
         return new ListenerPolicy(name, <any>state, { ...opts, id: id });
     }
 
@@ -84,8 +84,8 @@ export class ListenerPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ListenerPolicyArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ListenerPolicyArgs> | pulumi.InputObject<ListenerPolicyState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<ListenerPolicyArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<ListenerPolicyArgs> | pulumi.WrappedObject<ListenerPolicyState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ListenerPolicyState = argsOrState as ListenerPolicyState | undefined;

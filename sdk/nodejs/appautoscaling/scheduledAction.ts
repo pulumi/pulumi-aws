@@ -70,7 +70,7 @@ export class ScheduledAction extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ScheduledActionState, opts?: pulumi.CustomResourceOptions): ScheduledAction {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<ScheduledActionState>, opts?: pulumi.CustomResourceOptions): ScheduledAction {
         return new ScheduledAction(name, <any>state, { ...opts, id: id });
     }
 
@@ -118,8 +118,8 @@ export class ScheduledAction extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ScheduledActionArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ScheduledActionArgs> | pulumi.InputObject<ScheduledActionState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<ScheduledActionArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<ScheduledActionArgs> | pulumi.WrappedObject<ScheduledActionState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ScheduledActionState = argsOrState as ScheduledActionState | undefined;

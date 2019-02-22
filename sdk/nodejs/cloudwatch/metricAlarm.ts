@@ -120,7 +120,7 @@ export class MetricAlarm extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MetricAlarmState, opts?: pulumi.CustomResourceOptions): MetricAlarm {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<MetricAlarmState>, opts?: pulumi.CustomResourceOptions): MetricAlarm {
         return new MetricAlarm(name, <any>state, { ...opts, id: id });
     }
 
@@ -224,8 +224,8 @@ export class MetricAlarm extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<MetricAlarmArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<MetricAlarmArgs> | pulumi.InputObject<MetricAlarmState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<MetricAlarmArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<MetricAlarmArgs> | pulumi.WrappedObject<MetricAlarmState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: MetricAlarmState = argsOrState as MetricAlarmState | undefined;

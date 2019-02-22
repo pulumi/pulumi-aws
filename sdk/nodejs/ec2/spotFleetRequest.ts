@@ -17,7 +17,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SpotFleetRequestState, opts?: pulumi.CustomResourceOptions): SpotFleetRequest {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<SpotFleetRequestState>, opts?: pulumi.CustomResourceOptions): SpotFleetRequest {
         return new SpotFleetRequest(name, <any>state, { ...opts, id: id });
     }
 
@@ -119,8 +119,8 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<SpotFleetRequestArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<SpotFleetRequestArgs> | pulumi.InputObject<SpotFleetRequestState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<SpotFleetRequestArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<SpotFleetRequestArgs> | pulumi.WrappedObject<SpotFleetRequestState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SpotFleetRequestState = argsOrState as SpotFleetRequestState | undefined;

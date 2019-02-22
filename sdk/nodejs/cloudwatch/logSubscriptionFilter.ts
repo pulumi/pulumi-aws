@@ -33,7 +33,7 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LogSubscriptionFilterState, opts?: pulumi.CustomResourceOptions): LogSubscriptionFilter {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<LogSubscriptionFilterState>, opts?: pulumi.CustomResourceOptions): LogSubscriptionFilter {
         return new LogSubscriptionFilter(name, <any>state, { ...opts, id: id });
     }
 
@@ -69,8 +69,8 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<LogSubscriptionFilterArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<LogSubscriptionFilterArgs> | pulumi.InputObject<LogSubscriptionFilterState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<LogSubscriptionFilterArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<LogSubscriptionFilterArgs> | pulumi.WrappedObject<LogSubscriptionFilterState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: LogSubscriptionFilterState = argsOrState as LogSubscriptionFilterState | undefined;

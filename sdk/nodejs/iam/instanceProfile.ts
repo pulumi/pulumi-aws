@@ -48,7 +48,7 @@ export class InstanceProfile extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: InstanceProfileState, opts?: pulumi.CustomResourceOptions): InstanceProfile {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<InstanceProfileState>, opts?: pulumi.CustomResourceOptions): InstanceProfile {
         return new InstanceProfile(name, <any>state, { ...opts, id: id });
     }
 
@@ -94,8 +94,8 @@ export class InstanceProfile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<InstanceProfileArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<InstanceProfileArgs> | pulumi.InputObject<InstanceProfileState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.WrappedObject<InstanceProfileArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<InstanceProfileArgs> | pulumi.WrappedObject<InstanceProfileState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: InstanceProfileState = argsOrState as InstanceProfileState | undefined;

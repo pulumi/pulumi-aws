@@ -32,7 +32,7 @@ export class GcmChannel extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: GcmChannelState, opts?: pulumi.CustomResourceOptions): GcmChannel {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<GcmChannelState>, opts?: pulumi.CustomResourceOptions): GcmChannel {
         return new GcmChannel(name, <any>state, { ...opts, id: id });
     }
 
@@ -56,8 +56,8 @@ export class GcmChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<GcmChannelArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<GcmChannelArgs> | pulumi.InputObject<GcmChannelState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<GcmChannelArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<GcmChannelArgs> | pulumi.WrappedObject<GcmChannelState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: GcmChannelState = argsOrState as GcmChannelState | undefined;

@@ -76,7 +76,7 @@ export class VirtualNode extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VirtualNodeState, opts?: pulumi.CustomResourceOptions): VirtualNode {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<VirtualNodeState>, opts?: pulumi.CustomResourceOptions): VirtualNode {
         return new VirtualNode(name, <any>state, { ...opts, id: id });
     }
 
@@ -112,8 +112,8 @@ export class VirtualNode extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<VirtualNodeArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<VirtualNodeArgs> | pulumi.InputObject<VirtualNodeState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<VirtualNodeArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<VirtualNodeArgs> | pulumi.WrappedObject<VirtualNodeState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VirtualNodeState = argsOrState as VirtualNodeState | undefined;

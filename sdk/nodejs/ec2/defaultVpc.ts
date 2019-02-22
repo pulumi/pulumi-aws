@@ -40,7 +40,7 @@ export class DefaultVpc extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DefaultVpcState, opts?: pulumi.CustomResourceOptions): DefaultVpc {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<DefaultVpcState>, opts?: pulumi.CustomResourceOptions): DefaultVpc {
         return new DefaultVpc(name, <any>state, { ...opts, id: id });
     }
 
@@ -119,8 +119,8 @@ export class DefaultVpc extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<DefaultVpcArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<DefaultVpcArgs> | pulumi.InputObject<DefaultVpcState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.WrappedObject<DefaultVpcArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<DefaultVpcArgs> | pulumi.WrappedObject<DefaultVpcState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: DefaultVpcState = argsOrState as DefaultVpcState | undefined;

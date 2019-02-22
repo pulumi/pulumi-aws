@@ -50,7 +50,7 @@ export class SmbFileShare extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SmbFileShareState, opts?: pulumi.CustomResourceOptions): SmbFileShare {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<SmbFileShareState>, opts?: pulumi.CustomResourceOptions): SmbFileShare {
         return new SmbFileShare(name, <any>state, { ...opts, id: id });
     }
 
@@ -122,8 +122,8 @@ export class SmbFileShare extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<SmbFileShareArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<SmbFileShareArgs> | pulumi.InputObject<SmbFileShareState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<SmbFileShareArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<SmbFileShareArgs> | pulumi.WrappedObject<SmbFileShareState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SmbFileShareState = argsOrState as SmbFileShareState | undefined;

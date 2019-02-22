@@ -33,7 +33,7 @@ export class Accelerator extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AcceleratorState, opts?: pulumi.CustomResourceOptions): Accelerator {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<AcceleratorState>, opts?: pulumi.CustomResourceOptions): Accelerator {
         return new Accelerator(name, <any>state, { ...opts, id: id });
     }
 
@@ -65,8 +65,8 @@ export class Accelerator extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<AcceleratorArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<AcceleratorArgs> | pulumi.InputObject<AcceleratorState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.WrappedObject<AcceleratorArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<AcceleratorArgs> | pulumi.WrappedObject<AcceleratorState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AcceleratorState = argsOrState as AcceleratorState | undefined;

@@ -58,7 +58,7 @@ export class LifecycleHook extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LifecycleHookState, opts?: pulumi.CustomResourceOptions): LifecycleHook {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<LifecycleHookState>, opts?: pulumi.CustomResourceOptions): LifecycleHook {
         return new LifecycleHook(name, <any>state, { ...opts, id: id });
     }
 
@@ -102,8 +102,8 @@ export class LifecycleHook extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<LifecycleHookArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<LifecycleHookArgs> | pulumi.InputObject<LifecycleHookState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<LifecycleHookArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<LifecycleHookArgs> | pulumi.WrappedObject<LifecycleHookState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: LifecycleHookState = argsOrState as LifecycleHookState | undefined;

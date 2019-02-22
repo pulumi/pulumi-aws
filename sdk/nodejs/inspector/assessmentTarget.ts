@@ -33,7 +33,7 @@ export class AssessmentTarget extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AssessmentTargetState, opts?: pulumi.CustomResourceOptions): AssessmentTarget {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<AssessmentTargetState>, opts?: pulumi.CustomResourceOptions): AssessmentTarget {
         return new AssessmentTarget(name, <any>state, { ...opts, id: id });
     }
 
@@ -57,8 +57,8 @@ export class AssessmentTarget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<AssessmentTargetArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<AssessmentTargetArgs> | pulumi.InputObject<AssessmentTargetState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.WrappedObject<AssessmentTargetArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<AssessmentTargetArgs> | pulumi.WrappedObject<AssessmentTargetState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AssessmentTargetState = argsOrState as AssessmentTargetState | undefined;

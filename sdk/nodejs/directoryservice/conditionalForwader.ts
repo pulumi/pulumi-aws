@@ -32,7 +32,7 @@ export class ConditionalForwader extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ConditionalForwaderState, opts?: pulumi.CustomResourceOptions): ConditionalForwader {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<ConditionalForwaderState>, opts?: pulumi.CustomResourceOptions): ConditionalForwader {
         return new ConditionalForwader(name, <any>state, { ...opts, id: id });
     }
 
@@ -56,8 +56,8 @@ export class ConditionalForwader extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ConditionalForwaderArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ConditionalForwaderArgs> | pulumi.InputObject<ConditionalForwaderState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<ConditionalForwaderArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<ConditionalForwaderArgs> | pulumi.WrappedObject<ConditionalForwaderState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ConditionalForwaderState = argsOrState as ConditionalForwaderState | undefined;

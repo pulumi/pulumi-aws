@@ -50,7 +50,7 @@ export class IdentityPool extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: IdentityPoolState, opts?: pulumi.CustomResourceOptions): IdentityPool {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<IdentityPoolState>, opts?: pulumi.CustomResourceOptions): IdentityPool {
         return new IdentityPool(name, <any>state, { ...opts, id: id });
     }
 
@@ -95,8 +95,8 @@ export class IdentityPool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<IdentityPoolArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<IdentityPoolArgs> | pulumi.InputObject<IdentityPoolState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<IdentityPoolArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<IdentityPoolArgs> | pulumi.WrappedObject<IdentityPoolState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: IdentityPoolState = argsOrState as IdentityPoolState | undefined;

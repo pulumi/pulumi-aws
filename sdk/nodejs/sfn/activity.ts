@@ -25,7 +25,7 @@ export class Activity extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ActivityState, opts?: pulumi.CustomResourceOptions): Activity {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<ActivityState>, opts?: pulumi.CustomResourceOptions): Activity {
         return new Activity(name, <any>state, { ...opts, id: id });
     }
 
@@ -49,8 +49,8 @@ export class Activity extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<ActivityArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ActivityArgs> | pulumi.InputObject<ActivityState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.WrappedObject<ActivityArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<ActivityArgs> | pulumi.WrappedObject<ActivityState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ActivityState = argsOrState as ActivityState | undefined;

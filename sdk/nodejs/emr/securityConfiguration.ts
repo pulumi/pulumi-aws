@@ -42,7 +42,7 @@ export class SecurityConfiguration extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SecurityConfigurationState, opts?: pulumi.CustomResourceOptions): SecurityConfiguration {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<SecurityConfigurationState>, opts?: pulumi.CustomResourceOptions): SecurityConfiguration {
         return new SecurityConfiguration(name, <any>state, { ...opts, id: id });
     }
 
@@ -71,8 +71,8 @@ export class SecurityConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<SecurityConfigurationArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<SecurityConfigurationArgs> | pulumi.InputObject<SecurityConfigurationState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<SecurityConfigurationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<SecurityConfigurationArgs> | pulumi.WrappedObject<SecurityConfigurationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SecurityConfigurationState = argsOrState as SecurityConfigurationState | undefined;

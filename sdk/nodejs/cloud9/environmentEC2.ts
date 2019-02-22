@@ -27,7 +27,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EnvironmentEC2State, opts?: pulumi.CustomResourceOptions): EnvironmentEC2 {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<EnvironmentEC2State>, opts?: pulumi.CustomResourceOptions): EnvironmentEC2 {
         return new EnvironmentEC2(name, <any>state, { ...opts, id: id });
     }
 
@@ -71,8 +71,8 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<EnvironmentEC2Args>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<EnvironmentEC2Args> | pulumi.InputObject<EnvironmentEC2State>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<EnvironmentEC2Args>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<EnvironmentEC2Args> | pulumi.WrappedObject<EnvironmentEC2State>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: EnvironmentEC2State = argsOrState as EnvironmentEC2State | undefined;

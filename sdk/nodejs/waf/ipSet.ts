@@ -36,7 +36,7 @@ export class IpSet extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: IpSetState, opts?: pulumi.CustomResourceOptions): IpSet {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<IpSetState>, opts?: pulumi.CustomResourceOptions): IpSet {
         return new IpSet(name, <any>state, { ...opts, id: id });
     }
 
@@ -60,8 +60,8 @@ export class IpSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<IpSetArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<IpSetArgs> | pulumi.InputObject<IpSetState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.WrappedObject<IpSetArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<IpSetArgs> | pulumi.WrappedObject<IpSetState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: IpSetState = argsOrState as IpSetState | undefined;

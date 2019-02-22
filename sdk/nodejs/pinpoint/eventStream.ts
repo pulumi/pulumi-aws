@@ -66,7 +66,7 @@ export class EventStream extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventStreamState, opts?: pulumi.CustomResourceOptions): EventStream {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<EventStreamState>, opts?: pulumi.CustomResourceOptions): EventStream {
         return new EventStream(name, <any>state, { ...opts, id: id });
     }
 
@@ -90,8 +90,8 @@ export class EventStream extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<EventStreamArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<EventStreamArgs> | pulumi.InputObject<EventStreamState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<EventStreamArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<EventStreamArgs> | pulumi.WrappedObject<EventStreamState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: EventStreamState = argsOrState as EventStreamState | undefined;

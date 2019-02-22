@@ -65,7 +65,7 @@ export class RolePolicyAttachment extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RolePolicyAttachmentState, opts?: pulumi.CustomResourceOptions): RolePolicyAttachment {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<RolePolicyAttachmentState>, opts?: pulumi.CustomResourceOptions): RolePolicyAttachment {
         return new RolePolicyAttachment(name, <any>state, { ...opts, id: id });
     }
 
@@ -85,8 +85,8 @@ export class RolePolicyAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<RolePolicyAttachmentArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<RolePolicyAttachmentArgs> | pulumi.InputObject<RolePolicyAttachmentState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<RolePolicyAttachmentArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<RolePolicyAttachmentArgs> | pulumi.WrappedObject<RolePolicyAttachmentState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RolePolicyAttachmentState = argsOrState as RolePolicyAttachmentState | undefined;

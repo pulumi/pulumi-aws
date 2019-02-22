@@ -44,7 +44,7 @@ export class ThreatIntelSet extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ThreatIntelSetState, opts?: pulumi.CustomResourceOptions): ThreatIntelSet {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<ThreatIntelSetState>, opts?: pulumi.CustomResourceOptions): ThreatIntelSet {
         return new ThreatIntelSet(name, <any>state, { ...opts, id: id });
     }
 
@@ -76,8 +76,8 @@ export class ThreatIntelSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<ThreatIntelSetArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<ThreatIntelSetArgs> | pulumi.InputObject<ThreatIntelSetState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<ThreatIntelSetArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<ThreatIntelSetArgs> | pulumi.WrappedObject<ThreatIntelSetState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ThreatIntelSetState = argsOrState as ThreatIntelSetState | undefined;

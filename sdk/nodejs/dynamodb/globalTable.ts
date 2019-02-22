@@ -18,7 +18,7 @@ export class GlobalTable extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: GlobalTableState, opts?: pulumi.CustomResourceOptions): GlobalTable {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<GlobalTableState>, opts?: pulumi.CustomResourceOptions): GlobalTable {
         return new GlobalTable(name, <any>state, { ...opts, id: id });
     }
 
@@ -42,8 +42,8 @@ export class GlobalTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<GlobalTableArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<GlobalTableArgs> | pulumi.InputObject<GlobalTableState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<GlobalTableArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<GlobalTableArgs> | pulumi.WrappedObject<GlobalTableState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: GlobalTableState = argsOrState as GlobalTableState | undefined;

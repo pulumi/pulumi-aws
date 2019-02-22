@@ -21,7 +21,7 @@ export class Provider extends pulumi.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<ProviderArgs>, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: pulumi.WrappedObject<ProviderArgs>, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
         {
             inputs["accessKey"] = args ? args.accessKey : undefined;

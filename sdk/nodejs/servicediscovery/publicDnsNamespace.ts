@@ -27,7 +27,7 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PublicDnsNamespaceState, opts?: pulumi.CustomResourceOptions): PublicDnsNamespace {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<PublicDnsNamespaceState>, opts?: pulumi.CustomResourceOptions): PublicDnsNamespace {
         return new PublicDnsNamespace(name, <any>state, { ...opts, id: id });
     }
 
@@ -55,8 +55,8 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: pulumi.InputObject<PublicDnsNamespaceArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<PublicDnsNamespaceArgs> | pulumi.InputObject<PublicDnsNamespaceState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.WrappedObject<PublicDnsNamespaceArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<PublicDnsNamespaceArgs> | pulumi.WrappedObject<PublicDnsNamespaceState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PublicDnsNamespaceState = argsOrState as PublicDnsNamespaceState | undefined;

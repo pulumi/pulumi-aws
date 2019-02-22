@@ -103,7 +103,7 @@ export class GraphQLApi extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: GraphQLApiState, opts?: pulumi.CustomResourceOptions): GraphQLApi {
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: pulumi.WrappedObject<GraphQLApiState>, opts?: pulumi.CustomResourceOptions): GraphQLApi {
         return new GraphQLApi(name, <any>state, { ...opts, id: id });
     }
 
@@ -143,8 +143,8 @@ export class GraphQLApi extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: pulumi.InputObject<GraphQLApiArgs>, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: pulumi.InputObject<GraphQLApiArgs> | pulumi.InputObject<GraphQLApiState>, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.WrappedObject<GraphQLApiArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.WrappedObject<GraphQLApiArgs> | pulumi.WrappedObject<GraphQLApiState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: GraphQLApiState = argsOrState as GraphQLApiState | undefined;
