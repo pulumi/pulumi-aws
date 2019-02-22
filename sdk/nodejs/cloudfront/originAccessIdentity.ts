@@ -131,8 +131,8 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: OriginAccessIdentityArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: OriginAccessIdentityArgs | OriginAccessIdentityState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<OriginAccessIdentityArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<OriginAccessIdentityArgs> | pulumi.InputObject<OriginAccessIdentityState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: OriginAccessIdentityState = argsOrState as OriginAccessIdentityState | undefined;
@@ -163,33 +163,33 @@ export interface OriginAccessIdentityState {
      * Internal value used by CloudFront to allow future
      * updates to the origin access identity.
      */
-    readonly callerReference?: pulumi.Input<string>;
+    readonly callerReference?: string;
     /**
      * A shortcut to the full path for the
      * origin access identity to use in CloudFront, see below.
      */
-    readonly cloudfrontAccessIdentityPath?: pulumi.Input<string>;
+    readonly cloudfrontAccessIdentityPath?: string;
     /**
      * An optional comment for the origin access identity.
      */
-    readonly comment?: pulumi.Input<string>;
+    readonly comment?: string;
     /**
      * The current version of the origin access identity's information.
      * For example: `E2QWRUHAPOMQZL`.
      */
-    readonly etag?: pulumi.Input<string>;
+    readonly etag?: string;
     /**
      * A pre-generated ARN for use in S3 bucket policies (see below).
      * Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
      * E2QWRUHAPOMQZL`.
      */
-    readonly iamArn?: pulumi.Input<string>;
+    readonly iamArn?: string;
     /**
      * The Amazon S3 canonical user ID for the origin
      * access identity, which you use when giving the origin access identity read
      * permission to an object in Amazon S3.
      */
-    readonly s3CanonicalUserId?: pulumi.Input<string>;
+    readonly s3CanonicalUserId?: string;
 }
 
 /**
@@ -199,5 +199,5 @@ export interface OriginAccessIdentityArgs {
     /**
      * An optional comment for the origin access identity.
      */
-    readonly comment?: pulumi.Input<string>;
+    readonly comment?: string;
 }

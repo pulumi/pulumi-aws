@@ -81,8 +81,8 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<ClusterArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ClusterArgs> | pulumi.InputObject<ClusterState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ClusterState = argsOrState as ClusterState | undefined;
@@ -124,36 +124,36 @@ export interface ClusterState {
     /**
      * The Amazon Resource Name (ARN) of the cluster.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * Nested attribute containing `certificate-authority-data` for your cluster.
      */
-    readonly certificateAuthority?: pulumi.Input<{ data?: pulumi.Input<string> }>;
-    readonly createdAt?: pulumi.Input<string>;
+    readonly certificateAuthority?: { data?: string };
+    readonly createdAt?: string;
     /**
      * The endpoint for your Kubernetes API server.
      */
-    readonly endpoint?: pulumi.Input<string>;
+    readonly endpoint?: string;
     /**
      * Name of the cluster.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The platform version for the cluster.
      */
-    readonly platformVersion?: pulumi.Input<string>;
+    readonly platformVersion?: string;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    readonly roleArn?: string;
     /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version is used.
      */
-    readonly version?: pulumi.Input<string>;
+    readonly version?: string;
     /**
      * Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
      */
-    readonly vpcConfig?: pulumi.Input<{ securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId?: pulumi.Input<string> }>;
+    readonly vpcConfig?: { securityGroupIds?: string[], subnetIds: string[], vpcId?: string };
 }
 
 /**
@@ -163,17 +163,17 @@ export interface ClusterArgs {
     /**
      * Name of the cluster.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */
-    readonly roleArn: pulumi.Input<string>;
+    readonly roleArn: string;
     /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version is used.
      */
-    readonly version?: pulumi.Input<string>;
+    readonly version?: string;
     /**
      * Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
      */
-    readonly vpcConfig: pulumi.Input<{ securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId?: pulumi.Input<string> }>;
+    readonly vpcConfig: { securityGroupIds?: string[], subnetIds: string[], vpcId?: string };
 }

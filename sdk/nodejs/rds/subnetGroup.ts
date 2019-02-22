@@ -69,8 +69,8 @@ export class SubnetGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SubnetGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SubnetGroupArgs | SubnetGroupState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<SubnetGroupArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<SubnetGroupArgs> | pulumi.InputObject<SubnetGroupState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SubnetGroupState = argsOrState as SubnetGroupState | undefined;
@@ -103,27 +103,27 @@ export interface SubnetGroupState {
     /**
      * The ARN of the db subnet group.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The description of the DB subnet group. Defaults to "Managed by Terraform".
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The name of the DB subnet group. If omitted, Terraform will assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    readonly namePrefix?: string;
     /**
      * A list of VPC subnet IDs.
      */
-    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly subnetIds?: string[];
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -133,21 +133,21 @@ export interface SubnetGroupArgs {
     /**
      * The description of the DB subnet group. Defaults to "Managed by Terraform".
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The name of the DB subnet group. If omitted, Terraform will assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    readonly namePrefix?: string;
     /**
      * A list of VPC subnet IDs.
      */
-    readonly subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    readonly subnetIds: string[];
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }

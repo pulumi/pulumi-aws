@@ -127,8 +127,8 @@ export class Role extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RoleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RoleArgs | RoleState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<RoleArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<RoleArgs> | pulumi.InputObject<RoleState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RoleState = argsOrState as RoleState | undefined;
@@ -173,52 +173,52 @@ export interface RoleState {
     /**
      * The Amazon Resource Name (ARN) specifying the role.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The policy that grants an entity permission to assume the role.
      */
-    readonly assumeRolePolicy?: pulumi.Input<string | PolicyDocument>;
+    readonly assumeRolePolicy?: string | PolicyDocument;
     /**
      * The creation date of the IAM role.
      */
-    readonly createDate?: pulumi.Input<string>;
+    readonly createDate?: string;
     /**
      * The description of the role.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
      */
-    readonly forceDetachPolicies?: pulumi.Input<boolean>;
+    readonly forceDetachPolicies?: boolean;
     /**
      * The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
      */
-    readonly maxSessionDuration?: pulumi.Input<number>;
+    readonly maxSessionDuration?: number;
     /**
      * The name of the role. If omitted, Terraform will assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    readonly namePrefix?: string;
     /**
      * The path to the role.
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
-    readonly path?: pulumi.Input<string>;
+    readonly path?: string;
     /**
      * The ARN of the policy that is used to set the permissions boundary for the role.
      */
-    readonly permissionsBoundary?: pulumi.Input<string>;
+    readonly permissionsBoundary?: string;
     /**
      * Key-value mapping of tags for the IAM role
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * The stable and unique string identifying the role.
      */
-    readonly uniqueId?: pulumi.Input<string>;
+    readonly uniqueId?: string;
 }
 
 /**
@@ -228,38 +228,38 @@ export interface RoleArgs {
     /**
      * The policy that grants an entity permission to assume the role.
      */
-    readonly assumeRolePolicy: pulumi.Input<string | PolicyDocument>;
+    readonly assumeRolePolicy: string | PolicyDocument;
     /**
      * The description of the role.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
      */
-    readonly forceDetachPolicies?: pulumi.Input<boolean>;
+    readonly forceDetachPolicies?: boolean;
     /**
      * The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
      */
-    readonly maxSessionDuration?: pulumi.Input<number>;
+    readonly maxSessionDuration?: number;
     /**
      * The name of the role. If omitted, Terraform will assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    readonly namePrefix?: string;
     /**
      * The path to the role.
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
-    readonly path?: pulumi.Input<string>;
+    readonly path?: string;
     /**
      * The ARN of the policy that is used to set the permissions boundary for the role.
      */
-    readonly permissionsBoundary?: pulumi.Input<string>;
+    readonly permissionsBoundary?: string;
     /**
      * Key-value mapping of tags for the IAM role
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }

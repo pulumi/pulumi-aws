@@ -72,8 +72,8 @@ export class MailFrom extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MailFromArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MailFromArgs | MailFromState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<MailFromArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<MailFromArgs> | pulumi.InputObject<MailFromState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: MailFromState = argsOrState as MailFromState | undefined;
@@ -103,15 +103,15 @@ export interface MailFromState {
     /**
      * The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
      */
-    readonly behaviorOnMxFailure?: pulumi.Input<string>;
+    readonly behaviorOnMxFailure?: string;
     /**
      * Verified domain name to generate DKIM tokens for.
      */
-    readonly domain?: pulumi.Input<string>;
+    readonly domain?: string;
     /**
      * Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
      */
-    readonly mailFromDomain?: pulumi.Input<string>;
+    readonly mailFromDomain?: string;
 }
 
 /**
@@ -121,13 +121,13 @@ export interface MailFromArgs {
     /**
      * The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
      */
-    readonly behaviorOnMxFailure?: pulumi.Input<string>;
+    readonly behaviorOnMxFailure?: string;
     /**
      * Verified domain name to generate DKIM tokens for.
      */
-    readonly domain: pulumi.Input<string>;
+    readonly domain: string;
     /**
      * Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
      */
-    readonly mailFromDomain: pulumi.Input<string>;
+    readonly mailFromDomain: string;
 }

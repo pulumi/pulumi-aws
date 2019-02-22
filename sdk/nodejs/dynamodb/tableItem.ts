@@ -77,8 +77,8 @@ export class TableItem extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TableItemArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TableItemArgs | TableItemState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<TableItemArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<TableItemArgs> | pulumi.InputObject<TableItemState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: TableItemState = argsOrState as TableItemState | undefined;
@@ -113,20 +113,20 @@ export interface TableItemState {
     /**
      * Hash key to use for lookups and identification of the item
      */
-    readonly hashKey?: pulumi.Input<string>;
+    readonly hashKey?: string;
     /**
      * JSON representation of a map of attribute name/value pairs, one for each attribute.
      * Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
      */
-    readonly item?: pulumi.Input<string>;
+    readonly item?: string;
     /**
      * Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
      */
-    readonly rangeKey?: pulumi.Input<string>;
+    readonly rangeKey?: string;
     /**
      * The name of the table to contain the item.
      */
-    readonly tableName?: pulumi.Input<string>;
+    readonly tableName?: string;
 }
 
 /**
@@ -136,18 +136,18 @@ export interface TableItemArgs {
     /**
      * Hash key to use for lookups and identification of the item
      */
-    readonly hashKey: pulumi.Input<string>;
+    readonly hashKey: string;
     /**
      * JSON representation of a map of attribute name/value pairs, one for each attribute.
      * Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
      */
-    readonly item: pulumi.Input<string>;
+    readonly item: string;
     /**
      * Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
      */
-    readonly rangeKey?: pulumi.Input<string>;
+    readonly rangeKey?: string;
     /**
      * The name of the table to contain the item.
      */
-    readonly tableName: pulumi.Input<string>;
+    readonly tableName: string;
 }

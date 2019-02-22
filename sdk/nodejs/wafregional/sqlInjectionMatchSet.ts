@@ -52,8 +52,8 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SqlInjectionMatchSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SqlInjectionMatchSetArgs | SqlInjectionMatchSetState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<SqlInjectionMatchSetArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<SqlInjectionMatchSetArgs> | pulumi.InputObject<SqlInjectionMatchSetState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SqlInjectionMatchSetState = argsOrState as SqlInjectionMatchSetState | undefined;
@@ -75,11 +75,11 @@ export interface SqlInjectionMatchSetState {
     /**
      * The name or description of the SizeConstraintSet.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
      */
-    readonly sqlInjectionMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, textTransformation: pulumi.Input<string> }>[]>;
+    readonly sqlInjectionMatchTuples?: { fieldToMatch: { data?: string, type: string }, textTransformation: string }[];
 }
 
 /**
@@ -89,9 +89,9 @@ export interface SqlInjectionMatchSetArgs {
     /**
      * The name or description of the SizeConstraintSet.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
      */
-    readonly sqlInjectionMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, textTransformation: pulumi.Input<string> }>[]>;
+    readonly sqlInjectionMatchTuples?: { fieldToMatch: { data?: string, type: string }, textTransformation: string }[];
 }

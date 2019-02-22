@@ -56,8 +56,8 @@ export class LogDestination extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LogDestinationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LogDestinationArgs | LogDestinationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<LogDestinationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<LogDestinationArgs> | pulumi.InputObject<LogDestinationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: LogDestinationState = argsOrState as LogDestinationState | undefined;
@@ -89,19 +89,19 @@ export interface LogDestinationState {
     /**
      * The Amazon Resource Name (ARN) specifying the log destination.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * A name for the log destination
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
      */
-    readonly roleArn?: pulumi.Input<string>;
+    readonly roleArn?: string;
     /**
      * The ARN of the target Amazon Kinesis stream or Amazon Lambda resource for the destination
      */
-    readonly targetArn?: pulumi.Input<string>;
+    readonly targetArn?: string;
 }
 
 /**
@@ -111,13 +111,13 @@ export interface LogDestinationArgs {
     /**
      * A name for the log destination
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
      */
-    readonly roleArn: pulumi.Input<string>;
+    readonly roleArn: string;
     /**
      * The ARN of the target Amazon Kinesis stream or Amazon Lambda resource for the destination
      */
-    readonly targetArn: pulumi.Input<string>;
+    readonly targetArn: string;
 }

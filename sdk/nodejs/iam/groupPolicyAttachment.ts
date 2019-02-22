@@ -58,8 +58,8 @@ export class GroupPolicyAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GroupPolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GroupPolicyAttachmentArgs | GroupPolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<GroupPolicyAttachmentArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<GroupPolicyAttachmentArgs> | pulumi.InputObject<GroupPolicyAttachmentState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: GroupPolicyAttachmentState = argsOrState as GroupPolicyAttachmentState | undefined;
@@ -87,11 +87,11 @@ export interface GroupPolicyAttachmentState {
     /**
      * The group the policy should be applied to
      */
-    readonly group?: pulumi.Input<Group>;
+    readonly group?: Group;
     /**
      * The ARN of the policy you want to apply
      */
-    readonly policyArn?: pulumi.Input<ARN>;
+    readonly policyArn?: ARN;
 }
 
 /**
@@ -101,9 +101,9 @@ export interface GroupPolicyAttachmentArgs {
     /**
      * The group the policy should be applied to
      */
-    readonly group: pulumi.Input<Group>;
+    readonly group: Group;
     /**
      * The ARN of the policy you want to apply
      */
-    readonly policyArn: pulumi.Input<ARN>;
+    readonly policyArn: ARN;
 }

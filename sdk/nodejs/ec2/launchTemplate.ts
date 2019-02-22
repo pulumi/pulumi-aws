@@ -153,8 +153,8 @@ export class LaunchTemplate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: LaunchTemplateArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LaunchTemplateArgs | LaunchTemplateState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<LaunchTemplateArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<LaunchTemplateArgs> | pulumi.InputObject<LaunchTemplateState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: LaunchTemplateState = argsOrState as LaunchTemplateState | undefined;
@@ -230,128 +230,128 @@ export interface LaunchTemplateState {
     /**
      * Amazon Resource Name (ARN) of the launch template.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
      * See Block Devices below for details.
      */
-    readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<{ deviceName?: pulumi.Input<string>, ebs?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<string>, encrypted?: pulumi.Input<string>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>, noDevice?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }>[]>;
+    readonly blockDeviceMappings?: { deviceName?: string, ebs?: { deleteOnTermination?: string, encrypted?: string, iops?: number, kmsKeyId?: string, snapshotId?: string, volumeSize?: number, volumeType?: string }, noDevice?: string, virtualName?: string }[];
     /**
      * Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
      */
-    readonly capacityReservationSpecification?: pulumi.Input<{ capacityReservationPreference?: pulumi.Input<string>, capacityReservationTarget?: pulumi.Input<{ capacityReservationId?: pulumi.Input<string> }> }>;
+    readonly capacityReservationSpecification?: { capacityReservationPreference?: string, capacityReservationTarget?: { capacityReservationId?: string } };
     /**
      * Customize the credit specification of the instance. See Credit
      * Specification below for more details.
      */
-    readonly creditSpecification?: pulumi.Input<{ cpuCredits?: pulumi.Input<string> }>;
+    readonly creditSpecification?: { cpuCredits?: string };
     /**
      * The default version of the launch template.
      */
-    readonly defaultVersion?: pulumi.Input<number>;
+    readonly defaultVersion?: number;
     /**
      * Description of the launch template.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * If `true`, enables [EC2 Instance
      * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
      */
-    readonly disableApiTermination?: pulumi.Input<boolean>;
+    readonly disableApiTermination?: boolean;
     /**
      * If `true`, the launched EC2 instance will be EBS-optimized.
      */
-    readonly ebsOptimized?: pulumi.Input<string>;
+    readonly ebsOptimized?: string;
     /**
      * The elastic GPU to attach to the instance. See Elastic GPU
      * below for more details.
      */
-    readonly elasticGpuSpecifications?: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string> }>[]>;
+    readonly elasticGpuSpecifications?: { type: string }[];
     /**
      * The IAM Instance Profile to launch the instance with. See Instance Profile
      * below for more details.
      */
-    readonly iamInstanceProfile?: pulumi.Input<{ arn?: pulumi.Input<string>, name?: pulumi.Input<string> }>;
+    readonly iamInstanceProfile?: { arn?: string, name?: string };
     /**
      * The AMI from which to launch the instance.
      */
-    readonly imageId?: pulumi.Input<string>;
+    readonly imageId?: string;
     /**
      * Shutdown behavior for the instance. Can be `stop` or `terminate`.
      * (Default: `stop`).
      */
-    readonly instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
+    readonly instanceInitiatedShutdownBehavior?: string;
     /**
      * The market (purchasing) option for the instance. See Market Options
      * below for details.
      */
-    readonly instanceMarketOptions?: pulumi.Input<{ marketType?: pulumi.Input<string>, spotOptions?: pulumi.Input<{ blockDurationMinutes?: pulumi.Input<number>, instanceInterruptionBehavior?: pulumi.Input<string>, maxPrice?: pulumi.Input<string>, spotInstanceType?: pulumi.Input<string>, validUntil?: pulumi.Input<string> }> }>;
+    readonly instanceMarketOptions?: { marketType?: string, spotOptions?: { blockDurationMinutes?: number, instanceInterruptionBehavior?: string, maxPrice?: string, spotInstanceType?: string, validUntil?: string } };
     /**
      * The type of the instance.
      */
-    readonly instanceType?: pulumi.Input<string>;
+    readonly instanceType?: string;
     /**
      * The kernel ID.
      */
-    readonly kernelId?: pulumi.Input<string>;
+    readonly kernelId?: string;
     /**
      * The key name to use for the instance.
      */
-    readonly keyName?: pulumi.Input<string>;
+    readonly keyName?: string;
     /**
      * The latest version of the launch template.
      */
-    readonly latestVersion?: pulumi.Input<number>;
+    readonly latestVersion?: number;
     /**
      * A list of license specifications to associate with. See License Specification below for more details.
      */
-    readonly licenseSpecifications?: pulumi.Input<pulumi.Input<{ licenseConfigurationArn: pulumi.Input<string> }>[]>;
+    readonly licenseSpecifications?: { licenseConfigurationArn: string }[];
     /**
      * The monitoring option for the instance. See Monitoring below for more details.
      */
-    readonly monitoring?: pulumi.Input<{ enabled?: pulumi.Input<boolean> }>;
+    readonly monitoring?: { enabled?: boolean };
     /**
      * The name of the launch template. If you leave this blank, Terraform will auto-generate a unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    readonly namePrefix?: string;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network
      * Interfaces below for more details.
      */
-    readonly networkInterfaces?: pulumi.Input<pulumi.Input<{ associatePublicIpAddress?: pulumi.Input<boolean>, deleteOnTermination?: pulumi.Input<boolean>, description?: pulumi.Input<string>, deviceIndex?: pulumi.Input<number>, ipv4AddressCount?: pulumi.Input<number>, ipv4Addresses?: pulumi.Input<pulumi.Input<string>[]>, ipv6AddressCount?: pulumi.Input<number>, ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>, networkInterfaceId?: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string> }>[]>;
+    readonly networkInterfaces?: { associatePublicIpAddress?: boolean, deleteOnTermination?: boolean, description?: string, deviceIndex?: number, ipv4AddressCount?: number, ipv4Addresses?: string[], ipv6AddressCount?: number, ipv6Addresses?: string[], networkInterfaceId?: string, privateIpAddress?: string, securityGroups?: string[], subnetId?: string }[];
     /**
      * The placement of the instance. See Placement below for more details.
      */
-    readonly placement?: pulumi.Input<{ affinity?: pulumi.Input<string>, availabilityZone?: pulumi.Input<string>, groupName?: pulumi.Input<string>, hostId?: pulumi.Input<string>, spreadDomain?: pulumi.Input<string>, tenancy?: pulumi.Input<string> }>;
+    readonly placement?: { affinity?: string, availabilityZone?: string, groupName?: string, hostId?: string, spreadDomain?: string, tenancy?: string };
     /**
      * The ID of the RAM disk.
      */
-    readonly ramDiskId?: pulumi.Input<string>;
+    readonly ramDiskId?: string;
     /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
      * `vpc_security_group_ids` instead.
      */
-    readonly securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly securityGroupNames?: string[];
     /**
      * The tags to apply to the resources during launch. See Tag Specifications below for more details.
      */
-    readonly tagSpecifications?: pulumi.Input<pulumi.Input<{ resourceType?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }>[]>;
+    readonly tagSpecifications?: { resourceType?: string, tags?: {[key: string]: any} }[];
     /**
      * A mapping of tags to assign to the launch template.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * The Base64-encoded user data to provide when launching the instance.
      */
-    readonly userData?: pulumi.Input<string>;
+    readonly userData?: string;
     /**
      * A list of security group IDs to associate with.
      */
-    readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly vpcSecurityGroupIds?: string[];
 }
 
 /**
@@ -362,113 +362,113 @@ export interface LaunchTemplateArgs {
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
      * See Block Devices below for details.
      */
-    readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<{ deviceName?: pulumi.Input<string>, ebs?: pulumi.Input<{ deleteOnTermination?: pulumi.Input<string>, encrypted?: pulumi.Input<string>, iops?: pulumi.Input<number>, kmsKeyId?: pulumi.Input<string>, snapshotId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>, noDevice?: pulumi.Input<string>, virtualName?: pulumi.Input<string> }>[]>;
+    readonly blockDeviceMappings?: { deviceName?: string, ebs?: { deleteOnTermination?: string, encrypted?: string, iops?: number, kmsKeyId?: string, snapshotId?: string, volumeSize?: number, volumeType?: string }, noDevice?: string, virtualName?: string }[];
     /**
      * Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
      */
-    readonly capacityReservationSpecification?: pulumi.Input<{ capacityReservationPreference?: pulumi.Input<string>, capacityReservationTarget?: pulumi.Input<{ capacityReservationId?: pulumi.Input<string> }> }>;
+    readonly capacityReservationSpecification?: { capacityReservationPreference?: string, capacityReservationTarget?: { capacityReservationId?: string } };
     /**
      * Customize the credit specification of the instance. See Credit
      * Specification below for more details.
      */
-    readonly creditSpecification?: pulumi.Input<{ cpuCredits?: pulumi.Input<string> }>;
+    readonly creditSpecification?: { cpuCredits?: string };
     /**
      * Description of the launch template.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * If `true`, enables [EC2 Instance
      * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
      */
-    readonly disableApiTermination?: pulumi.Input<boolean>;
+    readonly disableApiTermination?: boolean;
     /**
      * If `true`, the launched EC2 instance will be EBS-optimized.
      */
-    readonly ebsOptimized?: pulumi.Input<string>;
+    readonly ebsOptimized?: string;
     /**
      * The elastic GPU to attach to the instance. See Elastic GPU
      * below for more details.
      */
-    readonly elasticGpuSpecifications?: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string> }>[]>;
+    readonly elasticGpuSpecifications?: { type: string }[];
     /**
      * The IAM Instance Profile to launch the instance with. See Instance Profile
      * below for more details.
      */
-    readonly iamInstanceProfile?: pulumi.Input<{ arn?: pulumi.Input<string>, name?: pulumi.Input<string> }>;
+    readonly iamInstanceProfile?: { arn?: string, name?: string };
     /**
      * The AMI from which to launch the instance.
      */
-    readonly imageId?: pulumi.Input<string>;
+    readonly imageId?: string;
     /**
      * Shutdown behavior for the instance. Can be `stop` or `terminate`.
      * (Default: `stop`).
      */
-    readonly instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
+    readonly instanceInitiatedShutdownBehavior?: string;
     /**
      * The market (purchasing) option for the instance. See Market Options
      * below for details.
      */
-    readonly instanceMarketOptions?: pulumi.Input<{ marketType?: pulumi.Input<string>, spotOptions?: pulumi.Input<{ blockDurationMinutes?: pulumi.Input<number>, instanceInterruptionBehavior?: pulumi.Input<string>, maxPrice?: pulumi.Input<string>, spotInstanceType?: pulumi.Input<string>, validUntil?: pulumi.Input<string> }> }>;
+    readonly instanceMarketOptions?: { marketType?: string, spotOptions?: { blockDurationMinutes?: number, instanceInterruptionBehavior?: string, maxPrice?: string, spotInstanceType?: string, validUntil?: string } };
     /**
      * The type of the instance.
      */
-    readonly instanceType?: pulumi.Input<string>;
+    readonly instanceType?: string;
     /**
      * The kernel ID.
      */
-    readonly kernelId?: pulumi.Input<string>;
+    readonly kernelId?: string;
     /**
      * The key name to use for the instance.
      */
-    readonly keyName?: pulumi.Input<string>;
+    readonly keyName?: string;
     /**
      * A list of license specifications to associate with. See License Specification below for more details.
      */
-    readonly licenseSpecifications?: pulumi.Input<pulumi.Input<{ licenseConfigurationArn: pulumi.Input<string> }>[]>;
+    readonly licenseSpecifications?: { licenseConfigurationArn: string }[];
     /**
      * The monitoring option for the instance. See Monitoring below for more details.
      */
-    readonly monitoring?: pulumi.Input<{ enabled?: pulumi.Input<boolean> }>;
+    readonly monitoring?: { enabled?: boolean };
     /**
      * The name of the launch template. If you leave this blank, Terraform will auto-generate a unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    readonly namePrefix?: string;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network
      * Interfaces below for more details.
      */
-    readonly networkInterfaces?: pulumi.Input<pulumi.Input<{ associatePublicIpAddress?: pulumi.Input<boolean>, deleteOnTermination?: pulumi.Input<boolean>, description?: pulumi.Input<string>, deviceIndex?: pulumi.Input<number>, ipv4AddressCount?: pulumi.Input<number>, ipv4Addresses?: pulumi.Input<pulumi.Input<string>[]>, ipv6AddressCount?: pulumi.Input<number>, ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>, networkInterfaceId?: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string> }>[]>;
+    readonly networkInterfaces?: { associatePublicIpAddress?: boolean, deleteOnTermination?: boolean, description?: string, deviceIndex?: number, ipv4AddressCount?: number, ipv4Addresses?: string[], ipv6AddressCount?: number, ipv6Addresses?: string[], networkInterfaceId?: string, privateIpAddress?: string, securityGroups?: string[], subnetId?: string }[];
     /**
      * The placement of the instance. See Placement below for more details.
      */
-    readonly placement?: pulumi.Input<{ affinity?: pulumi.Input<string>, availabilityZone?: pulumi.Input<string>, groupName?: pulumi.Input<string>, hostId?: pulumi.Input<string>, spreadDomain?: pulumi.Input<string>, tenancy?: pulumi.Input<string> }>;
+    readonly placement?: { affinity?: string, availabilityZone?: string, groupName?: string, hostId?: string, spreadDomain?: string, tenancy?: string };
     /**
      * The ID of the RAM disk.
      */
-    readonly ramDiskId?: pulumi.Input<string>;
+    readonly ramDiskId?: string;
     /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
      * `vpc_security_group_ids` instead.
      */
-    readonly securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly securityGroupNames?: string[];
     /**
      * The tags to apply to the resources during launch. See Tag Specifications below for more details.
      */
-    readonly tagSpecifications?: pulumi.Input<pulumi.Input<{ resourceType?: pulumi.Input<string>, tags?: pulumi.Input<{[key: string]: any}> }>[]>;
+    readonly tagSpecifications?: { resourceType?: string, tags?: {[key: string]: any} }[];
     /**
      * A mapping of tags to assign to the launch template.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * The Base64-encoded user data to provide when launching the instance.
      */
-    readonly userData?: pulumi.Input<string>;
+    readonly userData?: string;
     /**
      * A list of security group IDs to associate with.
      */
-    readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly vpcSecurityGroupIds?: string[];
 }

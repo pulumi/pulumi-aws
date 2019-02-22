@@ -82,8 +82,8 @@ export class UserPoolDomain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: UserPoolDomainArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: UserPoolDomainArgs | UserPoolDomainState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<UserPoolDomainArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<UserPoolDomainArgs> | pulumi.InputObject<UserPoolDomainState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: UserPoolDomainState = argsOrState as UserPoolDomainState | undefined;
@@ -121,31 +121,31 @@ export interface UserPoolDomainState {
     /**
      * The AWS account ID for the user pool owner.
      */
-    readonly awsAccountId?: pulumi.Input<string>;
+    readonly awsAccountId?: string;
     /**
      * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
      */
-    readonly certificateArn?: pulumi.Input<string>;
+    readonly certificateArn?: string;
     /**
      * The ARN of the CloudFront distribution.
      */
-    readonly cloudfrontDistributionArn?: pulumi.Input<string>;
+    readonly cloudfrontDistributionArn?: string;
     /**
      * The domain string.
      */
-    readonly domain?: pulumi.Input<string>;
+    readonly domain?: string;
     /**
      * The S3 bucket where the static files for this domain are stored.
      */
-    readonly s3Bucket?: pulumi.Input<string>;
+    readonly s3Bucket?: string;
     /**
      * The user pool ID.
      */
-    readonly userPoolId?: pulumi.Input<string>;
+    readonly userPoolId?: string;
     /**
      * The app version.
      */
-    readonly version?: pulumi.Input<string>;
+    readonly version?: string;
 }
 
 /**
@@ -155,13 +155,13 @@ export interface UserPoolDomainArgs {
     /**
      * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
      */
-    readonly certificateArn?: pulumi.Input<string>;
+    readonly certificateArn?: string;
     /**
      * The domain string.
      */
-    readonly domain: pulumi.Input<string>;
+    readonly domain: string;
     /**
      * The user pool ID.
      */
-    readonly userPoolId: pulumi.Input<string>;
+    readonly userPoolId: string;
 }

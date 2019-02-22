@@ -57,8 +57,8 @@ export class ConnectionAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConnectionAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ConnectionAssociationArgs | ConnectionAssociationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<ConnectionAssociationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ConnectionAssociationArgs> | pulumi.InputObject<ConnectionAssociationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ConnectionAssociationState = argsOrState as ConnectionAssociationState | undefined;
@@ -86,11 +86,11 @@ export interface ConnectionAssociationState {
     /**
      * The ID of the connection.
      */
-    readonly connectionId?: pulumi.Input<string>;
+    readonly connectionId?: string;
     /**
      * The ID of the LAG with which to associate the connection.
      */
-    readonly lagId?: pulumi.Input<string>;
+    readonly lagId?: string;
 }
 
 /**
@@ -100,9 +100,9 @@ export interface ConnectionAssociationArgs {
     /**
      * The ID of the connection.
      */
-    readonly connectionId: pulumi.Input<string>;
+    readonly connectionId: string;
     /**
      * The ID of the LAG with which to associate the connection.
      */
-    readonly lagId: pulumi.Input<string>;
+    readonly lagId: string;
 }

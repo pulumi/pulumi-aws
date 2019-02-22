@@ -50,8 +50,8 @@ export class Cache extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CacheArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CacheArgs | CacheState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<CacheArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<CacheArgs> | pulumi.InputObject<CacheState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: CacheState = argsOrState as CacheState | undefined;
@@ -79,11 +79,11 @@ export interface CacheState {
     /**
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      */
-    readonly diskId?: pulumi.Input<string>;
+    readonly diskId?: string;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
-    readonly gatewayArn?: pulumi.Input<string>;
+    readonly gatewayArn?: string;
 }
 
 /**
@@ -93,9 +93,9 @@ export interface CacheArgs {
     /**
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      */
-    readonly diskId: pulumi.Input<string>;
+    readonly diskId: string;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
-    readonly gatewayArn: pulumi.Input<string>;
+    readonly gatewayArn: string;
 }

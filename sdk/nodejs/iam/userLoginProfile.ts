@@ -76,8 +76,8 @@ export class UserLoginProfile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: UserLoginProfileArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: UserLoginProfileArgs | UserLoginProfileState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<UserLoginProfileArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<UserLoginProfileArgs> | pulumi.InputObject<UserLoginProfileState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: UserLoginProfileState = argsOrState as UserLoginProfileState | undefined;
@@ -113,31 +113,31 @@ export interface UserLoginProfileState {
     /**
      * The encrypted password, base64 encoded.
      */
-    readonly encryptedPassword?: pulumi.Input<string>;
+    readonly encryptedPassword?: string;
     /**
      * The fingerprint of the PGP key used to encrypt
      * the password
      */
-    readonly keyFingerprint?: pulumi.Input<string>;
+    readonly keyFingerprint?: string;
     /**
      * The length of the generated
      * password.
      */
-    readonly passwordLength?: pulumi.Input<number>;
+    readonly passwordLength?: number;
     /**
      * Whether the
      * user should be forced to reset the generated password on first login.
      */
-    readonly passwordResetRequired?: pulumi.Input<boolean>;
+    readonly passwordResetRequired?: boolean;
     /**
      * Either a base-64 encoded PGP public key, or a
      * keybase username in the form `keybase:username`.
      */
-    readonly pgpKey?: pulumi.Input<string>;
+    readonly pgpKey?: string;
     /**
      * The IAM user's name.
      */
-    readonly user?: pulumi.Input<string>;
+    readonly user?: string;
 }
 
 /**
@@ -148,19 +148,19 @@ export interface UserLoginProfileArgs {
      * The length of the generated
      * password.
      */
-    readonly passwordLength?: pulumi.Input<number>;
+    readonly passwordLength?: number;
     /**
      * Whether the
      * user should be forced to reset the generated password on first login.
      */
-    readonly passwordResetRequired?: pulumi.Input<boolean>;
+    readonly passwordResetRequired?: boolean;
     /**
      * Either a base-64 encoded PGP public key, or a
      * keybase username in the form `keybase:username`.
      */
-    readonly pgpKey: pulumi.Input<string>;
+    readonly pgpKey: string;
     /**
      * The IAM user's name.
      */
-    readonly user: pulumi.Input<string>;
+    readonly user: string;
 }

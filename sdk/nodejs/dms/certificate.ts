@@ -60,8 +60,8 @@ export class Certificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<CertificateArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<CertificateArgs> | pulumi.InputObject<CertificateState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: CertificateState = argsOrState as CertificateState | undefined;
@@ -90,19 +90,19 @@ export interface CertificateState {
     /**
      * The Amazon Resource Name (ARN) for the certificate.
      */
-    readonly certificateArn?: pulumi.Input<string>;
+    readonly certificateArn?: string;
     /**
      * The certificate identifier.
      */
-    readonly certificateId?: pulumi.Input<string>;
+    readonly certificateId?: string;
     /**
      * The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
      */
-    readonly certificatePem?: pulumi.Input<string>;
+    readonly certificatePem?: string;
     /**
      * The contents of the Oracle Wallet certificate for use with SSL. Either `certificate_pem` or `certificate_wallet` must be set.
      */
-    readonly certificateWallet?: pulumi.Input<string>;
+    readonly certificateWallet?: string;
 }
 
 /**
@@ -112,13 +112,13 @@ export interface CertificateArgs {
     /**
      * The certificate identifier.
      */
-    readonly certificateId: pulumi.Input<string>;
+    readonly certificateId: string;
     /**
      * The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
      */
-    readonly certificatePem?: pulumi.Input<string>;
+    readonly certificatePem?: string;
     /**
      * The contents of the Oracle Wallet certificate for use with SSL. Either `certificate_pem` or `certificate_wallet` must be set.
      */
-    readonly certificateWallet?: pulumi.Input<string>;
+    readonly certificateWallet?: string;
 }

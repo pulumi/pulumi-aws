@@ -105,8 +105,8 @@ export class Job extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: JobArgs | JobState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<JobArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<JobArgs> | pulumi.InputObject<JobState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: JobState = argsOrState as JobState | undefined;
@@ -152,47 +152,47 @@ export interface JobState {
     /**
      * The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
      */
-    readonly allocatedCapacity?: pulumi.Input<number>;
+    readonly allocatedCapacity?: number;
     /**
      * The command of the job. Defined below.
      */
-    readonly command?: pulumi.Input<{ name?: pulumi.Input<string>, scriptLocation: pulumi.Input<string> }>;
+    readonly command?: { name?: string, scriptLocation: string };
     /**
      * The list of connections used for this job.
      */
-    readonly connections?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly connections?: string[];
     /**
      * The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
      */
-    readonly defaultArguments?: pulumi.Input<{[key: string]: any}>;
+    readonly defaultArguments?: {[key: string]: any};
     /**
      * Description of the job.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * Execution property of the job. Defined below.
      */
-    readonly executionProperty?: pulumi.Input<{ maxConcurrentRuns?: pulumi.Input<number> }>;
+    readonly executionProperty?: { maxConcurrentRuns?: number };
     /**
      * The maximum number of times to retry this job if it fails.
      */
-    readonly maxRetries?: pulumi.Input<number>;
+    readonly maxRetries?: number;
     /**
      * The name of the job command. Defaults to `glueetl`
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The ARN of the IAM role associated with this job.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    readonly roleArn?: string;
     /**
      * The name of the Security Configuration to be associated with the job. 
      */
-    readonly securityConfiguration?: pulumi.Input<string>;
+    readonly securityConfiguration?: string;
     /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
      */
-    readonly timeout?: pulumi.Input<number>;
+    readonly timeout?: number;
 }
 
 /**
@@ -202,45 +202,45 @@ export interface JobArgs {
     /**
      * The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
      */
-    readonly allocatedCapacity?: pulumi.Input<number>;
+    readonly allocatedCapacity?: number;
     /**
      * The command of the job. Defined below.
      */
-    readonly command: pulumi.Input<{ name?: pulumi.Input<string>, scriptLocation: pulumi.Input<string> }>;
+    readonly command: { name?: string, scriptLocation: string };
     /**
      * The list of connections used for this job.
      */
-    readonly connections?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly connections?: string[];
     /**
      * The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
      */
-    readonly defaultArguments?: pulumi.Input<{[key: string]: any}>;
+    readonly defaultArguments?: {[key: string]: any};
     /**
      * Description of the job.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * Execution property of the job. Defined below.
      */
-    readonly executionProperty?: pulumi.Input<{ maxConcurrentRuns?: pulumi.Input<number> }>;
+    readonly executionProperty?: { maxConcurrentRuns?: number };
     /**
      * The maximum number of times to retry this job if it fails.
      */
-    readonly maxRetries?: pulumi.Input<number>;
+    readonly maxRetries?: number;
     /**
      * The name of the job command. Defaults to `glueetl`
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The ARN of the IAM role associated with this job.
      */
-    readonly roleArn: pulumi.Input<string>;
+    readonly roleArn: string;
     /**
      * The name of the Security Configuration to be associated with the job. 
      */
-    readonly securityConfiguration?: pulumi.Input<string>;
+    readonly securityConfiguration?: string;
     /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
      */
-    readonly timeout?: pulumi.Input<number>;
+    readonly timeout?: number;
 }

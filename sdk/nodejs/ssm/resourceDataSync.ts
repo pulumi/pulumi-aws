@@ -96,8 +96,8 @@ export class ResourceDataSync extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ResourceDataSyncArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ResourceDataSyncArgs | ResourceDataSyncState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<ResourceDataSyncArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ResourceDataSyncArgs> | pulumi.InputObject<ResourceDataSyncState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ResourceDataSyncState = argsOrState as ResourceDataSyncState | undefined;
@@ -122,11 +122,11 @@ export interface ResourceDataSyncState {
     /**
      * Name for the configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Amazon S3 configuration details for the sync.
      */
-    readonly s3Destination?: pulumi.Input<{ bucketName: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string>, prefix?: pulumi.Input<string>, region: pulumi.Input<string>, syncFormat?: pulumi.Input<string> }>;
+    readonly s3Destination?: { bucketName: string, kmsKeyArn?: string, prefix?: string, region: string, syncFormat?: string };
 }
 
 /**
@@ -136,9 +136,9 @@ export interface ResourceDataSyncArgs {
     /**
      * Name for the configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Amazon S3 configuration details for the sync.
      */
-    readonly s3Destination: pulumi.Input<{ bucketName: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string>, prefix?: pulumi.Input<string>, region: pulumi.Input<string>, syncFormat?: pulumi.Input<string> }>;
+    readonly s3Destination: { bucketName: string, kmsKeyArn?: string, prefix?: string, region: string, syncFormat?: string };
 }

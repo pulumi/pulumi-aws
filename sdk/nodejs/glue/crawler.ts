@@ -128,8 +128,8 @@ export class Crawler extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CrawlerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CrawlerArgs | CrawlerState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<CrawlerArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<CrawlerArgs> | pulumi.InputObject<CrawlerState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: CrawlerState = argsOrState as CrawlerState | undefined;
@@ -179,55 +179,55 @@ export interface CrawlerState {
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
      */
-    readonly classifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly classifiers?: string[];
     /**
      * JSON string of configuration information.
      */
-    readonly configuration?: pulumi.Input<string>;
+    readonly configuration?: string;
     /**
      * Glue database where results are written.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    readonly databaseName?: string;
     /**
      * Description of the crawler.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * List of nested DynamoDB target arguments. See below.
      */
-    readonly dynamodbTargets?: pulumi.Input<pulumi.Input<{ path: pulumi.Input<string> }>[]>;
+    readonly dynamodbTargets?: { path: string }[];
     /**
      * List of nested JBDC target arguments. See below.
      */
-    readonly jdbcTargets?: pulumi.Input<pulumi.Input<{ connectionName: pulumi.Input<string>, exclusions?: pulumi.Input<pulumi.Input<string>[]>, path: pulumi.Input<string> }>[]>;
+    readonly jdbcTargets?: { connectionName: string, exclusions?: string[], path: string }[];
     /**
      * Name of the crawler.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */
-    readonly role?: pulumi.Input<string>;
+    readonly role?: string;
     /**
      * List nested Amazon S3 target arguments. See below.
      */
-    readonly s3Targets?: pulumi.Input<pulumi.Input<{ exclusions?: pulumi.Input<pulumi.Input<string>[]>, path: pulumi.Input<string> }>[]>;
+    readonly s3Targets?: { exclusions?: string[], path: string }[];
     /**
      * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      */
-    readonly schedule?: pulumi.Input<string>;
+    readonly schedule?: string;
     /**
      * Policy for the crawler's update and deletion behavior.
      */
-    readonly schemaChangePolicy?: pulumi.Input<{ deleteBehavior?: pulumi.Input<string>, updateBehavior?: pulumi.Input<string> }>;
+    readonly schemaChangePolicy?: { deleteBehavior?: string, updateBehavior?: string };
     /**
      * The name of Security Configuration to be used by the crawler
      */
-    readonly securityConfiguration?: pulumi.Input<string>;
+    readonly securityConfiguration?: string;
     /**
      * The table prefix used for catalog tables that are created.
      */
-    readonly tablePrefix?: pulumi.Input<string>;
+    readonly tablePrefix?: string;
 }
 
 /**
@@ -237,53 +237,53 @@ export interface CrawlerArgs {
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
      */
-    readonly classifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly classifiers?: string[];
     /**
      * JSON string of configuration information.
      */
-    readonly configuration?: pulumi.Input<string>;
+    readonly configuration?: string;
     /**
      * Glue database where results are written.
      */
-    readonly databaseName: pulumi.Input<string>;
+    readonly databaseName: string;
     /**
      * Description of the crawler.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * List of nested DynamoDB target arguments. See below.
      */
-    readonly dynamodbTargets?: pulumi.Input<pulumi.Input<{ path: pulumi.Input<string> }>[]>;
+    readonly dynamodbTargets?: { path: string }[];
     /**
      * List of nested JBDC target arguments. See below.
      */
-    readonly jdbcTargets?: pulumi.Input<pulumi.Input<{ connectionName: pulumi.Input<string>, exclusions?: pulumi.Input<pulumi.Input<string>[]>, path: pulumi.Input<string> }>[]>;
+    readonly jdbcTargets?: { connectionName: string, exclusions?: string[], path: string }[];
     /**
      * Name of the crawler.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */
-    readonly role: pulumi.Input<string>;
+    readonly role: string;
     /**
      * List nested Amazon S3 target arguments. See below.
      */
-    readonly s3Targets?: pulumi.Input<pulumi.Input<{ exclusions?: pulumi.Input<pulumi.Input<string>[]>, path: pulumi.Input<string> }>[]>;
+    readonly s3Targets?: { exclusions?: string[], path: string }[];
     /**
      * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      */
-    readonly schedule?: pulumi.Input<string>;
+    readonly schedule?: string;
     /**
      * Policy for the crawler's update and deletion behavior.
      */
-    readonly schemaChangePolicy?: pulumi.Input<{ deleteBehavior?: pulumi.Input<string>, updateBehavior?: pulumi.Input<string> }>;
+    readonly schemaChangePolicy?: { deleteBehavior?: string, updateBehavior?: string };
     /**
      * The name of Security Configuration to be used by the crawler
      */
-    readonly securityConfiguration?: pulumi.Input<string>;
+    readonly securityConfiguration?: string;
     /**
      * The table prefix used for catalog tables that are created.
      */
-    readonly tablePrefix?: pulumi.Input<string>;
+    readonly tablePrefix?: string;
 }

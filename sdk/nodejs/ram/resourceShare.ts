@@ -54,8 +54,8 @@ export class ResourceShare extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ResourceShareArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ResourceShareArgs | ResourceShareState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<ResourceShareArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ResourceShareArgs> | pulumi.InputObject<ResourceShareState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ResourceShareState = argsOrState as ResourceShareState | undefined;
@@ -79,15 +79,15 @@ export interface ResourceShareState {
     /**
      * Indicates whether principals outside your organization can be associated with a resource share.
      */
-    readonly allowExternalPrincipals?: pulumi.Input<boolean>;
+    readonly allowExternalPrincipals?: boolean;
     /**
      * The name of the resource share.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * A mapping of tags to assign to the resource share.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -97,13 +97,13 @@ export interface ResourceShareArgs {
     /**
      * Indicates whether principals outside your organization can be associated with a resource share.
      */
-    readonly allowExternalPrincipals?: pulumi.Input<boolean>;
+    readonly allowExternalPrincipals?: boolean;
     /**
      * The name of the resource share.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * A mapping of tags to assign to the resource share.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }

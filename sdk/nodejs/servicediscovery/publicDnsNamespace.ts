@@ -55,8 +55,8 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: PublicDnsNamespaceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PublicDnsNamespaceArgs | PublicDnsNamespaceState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<PublicDnsNamespaceArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<PublicDnsNamespaceArgs> | pulumi.InputObject<PublicDnsNamespaceState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PublicDnsNamespaceState = argsOrState as PublicDnsNamespaceState | undefined;
@@ -82,19 +82,19 @@ export interface PublicDnsNamespaceState {
     /**
      * The ARN that Amazon Route 53 assigns to the namespace when you create it.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The description that you specify for the namespace when you create it.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
      */
-    readonly hostedZone?: pulumi.Input<string>;
+    readonly hostedZone?: string;
     /**
      * The name of the namespace.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }
 
 /**
@@ -104,9 +104,9 @@ export interface PublicDnsNamespaceArgs {
     /**
      * The description that you specify for the namespace when you create it.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The name of the namespace.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }

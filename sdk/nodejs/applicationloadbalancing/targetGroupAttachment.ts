@@ -84,8 +84,8 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TargetGroupAttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TargetGroupAttachmentArgs | TargetGroupAttachmentState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<TargetGroupAttachmentArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<TargetGroupAttachmentArgs> | pulumi.InputObject<TargetGroupAttachmentState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: TargetGroupAttachmentState = argsOrState as TargetGroupAttachmentState | undefined;
@@ -117,19 +117,19 @@ export interface TargetGroupAttachmentState {
     /**
      * The Availability Zone where the IP address of the target is to be registered.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    readonly availabilityZone?: string;
     /**
      * The port on which targets receive traffic.
      */
-    readonly port?: pulumi.Input<number>;
+    readonly port?: number;
     /**
      * The ARN of the target group with which to register targets
      */
-    readonly targetGroupArn?: pulumi.Input<string>;
+    readonly targetGroupArn?: string;
     /**
      * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
      */
-    readonly targetId?: pulumi.Input<string>;
+    readonly targetId?: string;
 }
 
 /**
@@ -139,17 +139,17 @@ export interface TargetGroupAttachmentArgs {
     /**
      * The Availability Zone where the IP address of the target is to be registered.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    readonly availabilityZone?: string;
     /**
      * The port on which targets receive traffic.
      */
-    readonly port?: pulumi.Input<number>;
+    readonly port?: number;
     /**
      * The ARN of the target group with which to register targets
      */
-    readonly targetGroupArn: pulumi.Input<string>;
+    readonly targetGroupArn: string;
     /**
      * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
      */
-    readonly targetId: pulumi.Input<string>;
+    readonly targetId: string;
 }

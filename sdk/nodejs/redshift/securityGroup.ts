@@ -53,8 +53,8 @@ export class SecurityGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SecurityGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SecurityGroupArgs | SecurityGroupState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<SecurityGroupArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<SecurityGroupArgs> | pulumi.InputObject<SecurityGroupState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SecurityGroupState = argsOrState as SecurityGroupState | undefined;
@@ -81,15 +81,15 @@ export interface SecurityGroupState {
     /**
      * The description of the Redshift security group. Defaults to "Managed by Terraform".
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * A list of ingress rules.
      */
-    readonly ingress?: pulumi.Input<pulumi.Input<{ cidr?: pulumi.Input<string>, securityGroupName?: pulumi.Input<string>, securityGroupOwnerId?: pulumi.Input<string> }>[]>;
+    readonly ingress?: { cidr?: string, securityGroupName?: string, securityGroupOwnerId?: string }[];
     /**
      * The name of the Redshift security group.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }
 
 /**
@@ -99,13 +99,13 @@ export interface SecurityGroupArgs {
     /**
      * The description of the Redshift security group. Defaults to "Managed by Terraform".
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * A list of ingress rules.
      */
-    readonly ingress: pulumi.Input<pulumi.Input<{ cidr?: pulumi.Input<string>, securityGroupName?: pulumi.Input<string>, securityGroupOwnerId?: pulumi.Input<string> }>[]>;
+    readonly ingress: { cidr?: string, securityGroupName?: string, securityGroupOwnerId?: string }[];
     /**
      * The name of the Redshift security group.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }

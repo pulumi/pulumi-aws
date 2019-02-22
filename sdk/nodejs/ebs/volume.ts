@@ -81,8 +81,8 @@ export class Volume extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VolumeArgs | VolumeState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<VolumeArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<VolumeArgs> | pulumi.InputObject<VolumeState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VolumeState = argsOrState as VolumeState | undefined;
@@ -121,39 +121,39 @@ export interface VolumeState {
     /**
      * The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The AZ where the EBS volume will exist.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    readonly availabilityZone?: string;
     /**
      * If true, the disk will be encrypted.
      */
-    readonly encrypted?: pulumi.Input<boolean>;
+    readonly encrypted?: boolean;
     /**
      * The amount of IOPS to provision for the disk.
      */
-    readonly iops?: pulumi.Input<number>;
+    readonly iops?: number;
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    readonly kmsKeyId?: string;
     /**
      * The size of the drive in GiBs.
      */
-    readonly size?: pulumi.Input<number>;
+    readonly size?: number;
     /**
      * A snapshot to base the EBS volume off of.
      */
-    readonly snapshotId?: pulumi.Input<string>;
+    readonly snapshotId?: string;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: string;
 }
 
 /**
@@ -163,33 +163,33 @@ export interface VolumeArgs {
     /**
      * The AZ where the EBS volume will exist.
      */
-    readonly availabilityZone: pulumi.Input<string>;
+    readonly availabilityZone: string;
     /**
      * If true, the disk will be encrypted.
      */
-    readonly encrypted?: pulumi.Input<boolean>;
+    readonly encrypted?: boolean;
     /**
      * The amount of IOPS to provision for the disk.
      */
-    readonly iops?: pulumi.Input<number>;
+    readonly iops?: number;
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    readonly kmsKeyId?: string;
     /**
      * The size of the drive in GiBs.
      */
-    readonly size?: pulumi.Input<number>;
+    readonly size?: number;
     /**
      * A snapshot to base the EBS volume off of.
      */
-    readonly snapshotId?: pulumi.Input<string>;
+    readonly snapshotId?: string;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: string;
 }

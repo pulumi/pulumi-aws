@@ -58,8 +58,8 @@ export class Application extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<ApplicationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ApplicationArgs> | pulumi.InputObject<ApplicationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ApplicationState = argsOrState as ApplicationState | undefined;
@@ -80,28 +80,28 @@ export class Application extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Application resources.
  */
 export interface ApplicationState {
-    readonly appversionLifecycle?: pulumi.Input<{ deleteSourceFromS3?: pulumi.Input<boolean>, maxAgeInDays?: pulumi.Input<number>, maxCount?: pulumi.Input<number>, serviceRole: pulumi.Input<string> }>;
+    readonly appversionLifecycle?: { deleteSourceFromS3?: boolean, maxAgeInDays?: number, maxCount?: number, serviceRole: string };
     /**
      * Short description of the application
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The name of the application, must be unique within your account
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }
 
 /**
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
-    readonly appversionLifecycle?: pulumi.Input<{ deleteSourceFromS3?: pulumi.Input<boolean>, maxAgeInDays?: pulumi.Input<number>, maxCount?: pulumi.Input<number>, serviceRole: pulumi.Input<string> }>;
+    readonly appversionLifecycle?: { deleteSourceFromS3?: boolean, maxAgeInDays?: number, maxCount?: number, serviceRole: string };
     /**
      * Short description of the application
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The name of the application, must be unique within your account
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }

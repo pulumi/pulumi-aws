@@ -67,8 +67,8 @@ export class Policy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<PolicyArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<PolicyArgs> | pulumi.InputObject<PolicyState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PolicyState = argsOrState as PolicyState | undefined;
@@ -99,23 +99,23 @@ export interface PolicyState {
     /**
      * Amazon Resource Name (ARN) of the policy.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The policy content to add to the new policy. For example, if you create a [service control policy (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles. For more information about the SCP syntax, see the [Service Control Policy Syntax documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html).
      */
-    readonly content?: pulumi.Input<string>;
+    readonly content?: string;
     /**
      * A description to assign to the policy.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The friendly name to assign to the policy.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The type of policy to create. Currently, the only valid value is `SERVICE_CONTROL_POLICY` (SCP).
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: string;
 }
 
 /**
@@ -125,17 +125,17 @@ export interface PolicyArgs {
     /**
      * The policy content to add to the new policy. For example, if you create a [service control policy (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles. For more information about the SCP syntax, see the [Service Control Policy Syntax documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html).
      */
-    readonly content: pulumi.Input<string>;
+    readonly content: string;
     /**
      * A description to assign to the policy.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The friendly name to assign to the policy.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The type of policy to create. Currently, the only valid value is `SERVICE_CONTROL_POLICY` (SCP).
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: string;
 }

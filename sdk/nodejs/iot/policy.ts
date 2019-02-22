@@ -67,8 +67,8 @@ export class Policy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<PolicyArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<PolicyArgs> | pulumi.InputObject<PolicyState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PolicyState = argsOrState as PolicyState | undefined;
@@ -97,19 +97,19 @@ export interface PolicyState {
     /**
      * The ARN assigned by AWS to this policy.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The default version of this policy.
      */
-    readonly defaultVersionId?: pulumi.Input<string>;
+    readonly defaultVersionId?: string;
     /**
      * The name of the policy.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    readonly policy?: pulumi.Input<string>;
+    readonly policy?: string;
 }
 
 /**
@@ -119,9 +119,9 @@ export interface PolicyArgs {
     /**
      * The name of the policy.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    readonly policy: pulumi.Input<string>;
+    readonly policy: string;
 }

@@ -174,8 +174,8 @@ export class Instance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: InstanceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: InstanceArgs | InstanceState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<InstanceArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<InstanceArgs> | pulumi.InputObject<InstanceState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: InstanceState = argsOrState as InstanceState | undefined;
@@ -237,42 +237,42 @@ export interface InstanceState {
      * * `key_pair_name`
      * * `user_data`
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The Availability Zone in which to create your
      * instance (see list below)
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    readonly availabilityZone?: string;
     /**
      * The ID for a virtual private server image
      * (see list below)
      */
-    readonly blueprintId?: pulumi.Input<string>;
+    readonly blueprintId?: string;
     /**
      * The bundle of specification information (see list below)
      */
-    readonly bundleId?: pulumi.Input<string>;
-    readonly cpuCount?: pulumi.Input<number>;
-    readonly createdAt?: pulumi.Input<string>;
-    readonly ipv6Address?: pulumi.Input<string>;
-    readonly isStaticIp?: pulumi.Input<boolean>;
+    readonly bundleId?: string;
+    readonly cpuCount?: number;
+    readonly createdAt?: string;
+    readonly ipv6Address?: string;
+    readonly isStaticIp?: boolean;
     /**
      * The name of your key pair. Created in the
      * Lightsail console (cannot use `aws_key_pair` at this time)
      */
-    readonly keyPairName?: pulumi.Input<string>;
+    readonly keyPairName?: string;
     /**
      * The name of the Lightsail Instance
      */
-    readonly name?: pulumi.Input<string>;
-    readonly privateIpAddress?: pulumi.Input<string>;
-    readonly publicIpAddress?: pulumi.Input<string>;
-    readonly ramSize?: pulumi.Input<number>;
+    readonly name?: string;
+    readonly privateIpAddress?: string;
+    readonly publicIpAddress?: string;
+    readonly ramSize?: number;
     /**
      * launch script to configure server with additional user data
      */
-    readonly userData?: pulumi.Input<string>;
-    readonly username?: pulumi.Input<string>;
+    readonly userData?: string;
+    readonly username?: string;
 }
 
 /**
@@ -283,27 +283,27 @@ export interface InstanceArgs {
      * The Availability Zone in which to create your
      * instance (see list below)
      */
-    readonly availabilityZone: pulumi.Input<string>;
+    readonly availabilityZone: string;
     /**
      * The ID for a virtual private server image
      * (see list below)
      */
-    readonly blueprintId: pulumi.Input<string>;
+    readonly blueprintId: string;
     /**
      * The bundle of specification information (see list below)
      */
-    readonly bundleId: pulumi.Input<string>;
+    readonly bundleId: string;
     /**
      * The name of your key pair. Created in the
      * Lightsail console (cannot use `aws_key_pair` at this time)
      */
-    readonly keyPairName?: pulumi.Input<string>;
+    readonly keyPairName?: string;
     /**
      * The name of the Lightsail Instance
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * launch script to configure server with additional user data
      */
-    readonly userData?: pulumi.Input<string>;
+    readonly userData?: string;
 }

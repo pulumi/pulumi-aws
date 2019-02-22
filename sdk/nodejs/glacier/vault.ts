@@ -92,8 +92,8 @@ export class Vault extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VaultArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VaultArgs | VaultState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<VaultArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<VaultArgs> | pulumi.InputObject<VaultState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VaultState = argsOrState as VaultState | undefined;
@@ -124,27 +124,27 @@ export interface VaultState {
      * The policy document. This is a JSON formatted string.
      * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
      */
-    readonly accessPolicy?: pulumi.Input<string>;
+    readonly accessPolicy?: string;
     /**
      * The ARN of the vault.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The URI of the vault that was created.
      */
-    readonly location?: pulumi.Input<string>;
+    readonly location?: string;
     /**
      * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The notifications for the Vault. Fields documented below.
      */
-    readonly notifications?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, snsTopic: pulumi.Input<string> }>[]>;
+    readonly notifications?: { events: string[], snsTopic: string }[];
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -155,17 +155,17 @@ export interface VaultArgs {
      * The policy document. This is a JSON formatted string.
      * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
      */
-    readonly accessPolicy?: pulumi.Input<string>;
+    readonly accessPolicy?: string;
     /**
      * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The notifications for the Vault. Fields documented below.
      */
-    readonly notifications?: pulumi.Input<pulumi.Input<{ events: pulumi.Input<pulumi.Input<string>[]>, snsTopic: pulumi.Input<string> }>[]>;
+    readonly notifications?: { events: string[], snsTopic: string }[];
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }

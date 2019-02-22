@@ -61,8 +61,8 @@ export class RegexMatchSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: RegexMatchSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RegexMatchSetArgs | RegexMatchSetState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<RegexMatchSetArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<RegexMatchSetArgs> | pulumi.InputObject<RegexMatchSetState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RegexMatchSetState = argsOrState as RegexMatchSetState | undefined;
@@ -84,12 +84,12 @@ export interface RegexMatchSetState {
     /**
      * The name or description of the Regex Match Set.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The regular expression pattern that you want AWS WAF to search for in web requests,
      * the location in requests that you want AWS WAF to search, and other settings. See below.
      */
-    readonly regexMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, regexPatternSetId: pulumi.Input<string>, textTransformation: pulumi.Input<string> }>[]>;
+    readonly regexMatchTuples?: { fieldToMatch: { data?: string, type: string }, regexPatternSetId: string, textTransformation: string }[];
 }
 
 /**
@@ -99,10 +99,10 @@ export interface RegexMatchSetArgs {
     /**
      * The name or description of the Regex Match Set.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The regular expression pattern that you want AWS WAF to search for in web requests,
      * the location in requests that you want AWS WAF to search, and other settings. See below.
      */
-    readonly regexMatchTuples?: pulumi.Input<pulumi.Input<{ fieldToMatch: pulumi.Input<{ data?: pulumi.Input<string>, type: pulumi.Input<string> }>, regexPatternSetId: pulumi.Input<string>, textTransformation: pulumi.Input<string> }>[]>;
+    readonly regexMatchTuples?: { fieldToMatch: { data?: string, type: string }, regexPatternSetId: string, textTransformation: string }[];
 }

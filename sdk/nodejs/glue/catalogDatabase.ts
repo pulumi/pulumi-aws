@@ -57,8 +57,8 @@ export class CatalogDatabase extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: CatalogDatabaseArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CatalogDatabaseArgs | CatalogDatabaseState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<CatalogDatabaseArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<CatalogDatabaseArgs> | pulumi.InputObject<CatalogDatabaseState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: CatalogDatabaseState = argsOrState as CatalogDatabaseState | undefined;
@@ -86,23 +86,23 @@ export interface CatalogDatabaseState {
     /**
      * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      */
-    readonly catalogId?: pulumi.Input<string>;
+    readonly catalogId?: string;
     /**
      * Description of the database.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The location of the database (for example, an HDFS path).
      */
-    readonly locationUri?: pulumi.Input<string>;
+    readonly locationUri?: string;
     /**
      * The name of the database.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * A list of key-value pairs that define parameters and properties of the database.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly parameters?: {[key: string]: string};
 }
 
 /**
@@ -112,21 +112,21 @@ export interface CatalogDatabaseArgs {
     /**
      * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      */
-    readonly catalogId?: pulumi.Input<string>;
+    readonly catalogId?: string;
     /**
      * Description of the database.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The location of the database (for example, an HDFS path).
      */
-    readonly locationUri?: pulumi.Input<string>;
+    readonly locationUri?: string;
     /**
      * The name of the database.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * A list of key-value pairs that define parameters and properties of the database.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly parameters?: {[key: string]: string};
 }

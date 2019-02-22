@@ -61,8 +61,8 @@ export class GlobalCluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GlobalClusterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GlobalClusterArgs | GlobalClusterState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<GlobalClusterArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<GlobalClusterArgs> | pulumi.InputObject<GlobalClusterState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: GlobalClusterState = argsOrState as GlobalClusterState | undefined;
@@ -99,32 +99,32 @@ export interface GlobalClusterState {
     /**
      * RDS Global Cluster Amazon Resource Name (ARN)
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * Name for an automatically created database on cluster creation.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    readonly databaseName?: string;
     /**
      * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
-    readonly deletionProtection?: pulumi.Input<boolean>;
+    readonly deletionProtection?: boolean;
     /**
      * Name of the database engine to be used for this DB cluster. Valid values: `aurora`. Defaults to `aurora`.
      */
-    readonly engine?: pulumi.Input<string>;
+    readonly engine?: string;
     /**
      * Engine version of the Aurora global database.
      */
-    readonly engineVersion?: pulumi.Input<string>;
-    readonly globalClusterIdentifier?: pulumi.Input<string>;
+    readonly engineVersion?: string;
+    readonly globalClusterIdentifier?: string;
     /**
      * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
      */
-    readonly globalClusterResourceId?: pulumi.Input<string>;
+    readonly globalClusterResourceId?: string;
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false`.
      */
-    readonly storageEncrypted?: pulumi.Input<boolean>;
+    readonly storageEncrypted?: boolean;
 }
 
 /**
@@ -134,22 +134,22 @@ export interface GlobalClusterArgs {
     /**
      * Name for an automatically created database on cluster creation.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    readonly databaseName?: string;
     /**
      * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
-    readonly deletionProtection?: pulumi.Input<boolean>;
+    readonly deletionProtection?: boolean;
     /**
      * Name of the database engine to be used for this DB cluster. Valid values: `aurora`. Defaults to `aurora`.
      */
-    readonly engine?: pulumi.Input<string>;
+    readonly engine?: string;
     /**
      * Engine version of the Aurora global database.
      */
-    readonly engineVersion?: pulumi.Input<string>;
-    readonly globalClusterIdentifier: pulumi.Input<string>;
+    readonly engineVersion?: string;
+    readonly globalClusterIdentifier: string;
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false`.
      */
-    readonly storageEncrypted?: pulumi.Input<boolean>;
+    readonly storageEncrypted?: boolean;
 }

@@ -64,8 +64,8 @@ export class SmsChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SmsChannelArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SmsChannelArgs | SmsChannelState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<SmsChannelArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<SmsChannelArgs> | pulumi.InputObject<SmsChannelState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SmsChannelState = argsOrState as SmsChannelState | undefined;
@@ -98,27 +98,27 @@ export interface SmsChannelState {
     /**
      * The application ID.
      */
-    readonly applicationId?: pulumi.Input<string>;
+    readonly applicationId?: string;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    readonly enabled?: boolean;
     /**
      * Promotional messages per second that can be sent.
      */
-    readonly promotionalMessagesPerSecond?: pulumi.Input<number>;
+    readonly promotionalMessagesPerSecond?: number;
     /**
      * Sender identifier of your messages.
      */
-    readonly senderId?: pulumi.Input<string>;
+    readonly senderId?: string;
     /**
      * The Short Code registered with the phone provider.
      */
-    readonly shortCode?: pulumi.Input<string>;
+    readonly shortCode?: string;
     /**
      * Transactional messages per second that can be sent.
      */
-    readonly transactionalMessagesPerSecond?: pulumi.Input<number>;
+    readonly transactionalMessagesPerSecond?: number;
 }
 
 /**
@@ -128,17 +128,17 @@ export interface SmsChannelArgs {
     /**
      * The application ID.
      */
-    readonly applicationId: pulumi.Input<string>;
+    readonly applicationId: string;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    readonly enabled?: boolean;
     /**
      * Sender identifier of your messages.
      */
-    readonly senderId?: pulumi.Input<string>;
+    readonly senderId?: string;
     /**
      * The Short Code registered with the phone provider.
      */
-    readonly shortCode?: pulumi.Input<string>;
+    readonly shortCode?: string;
 }

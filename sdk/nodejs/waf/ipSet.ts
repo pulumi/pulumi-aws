@@ -60,8 +60,8 @@ export class IpSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: IpSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IpSetArgs | IpSetState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<IpSetArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<IpSetArgs> | pulumi.InputObject<IpSetState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: IpSetState = argsOrState as IpSetState | undefined;
@@ -85,15 +85,15 @@ export interface IpSetState {
     /**
      * The ARN of the WAF IPSet.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
      */
-    readonly ipSetDescriptors?: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly ipSetDescriptors?: { type: string, value: string }[];
     /**
      * The name or description of the IPSet.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }
 
 /**
@@ -103,9 +103,9 @@ export interface IpSetArgs {
     /**
      * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
      */
-    readonly ipSetDescriptors?: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly ipSetDescriptors?: { type: string, value: string }[];
     /**
      * The name or description of the IPSet.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }

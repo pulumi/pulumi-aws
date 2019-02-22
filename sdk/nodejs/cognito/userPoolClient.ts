@@ -115,8 +115,8 @@ export class UserPoolClient extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: UserPoolClientArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: UserPoolClientArgs | UserPoolClientState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<UserPoolClientArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<UserPoolClientArgs> | pulumi.InputObject<UserPoolClientState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: UserPoolClientState = argsOrState as UserPoolClientState | undefined;
@@ -167,63 +167,63 @@ export interface UserPoolClientState {
     /**
      * List of allowed OAuth flows (code, implicit, client_credentials).
      */
-    readonly allowedOauthFlows?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly allowedOauthFlows?: string[];
     /**
      * Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
      */
-    readonly allowedOauthFlowsUserPoolClient?: pulumi.Input<boolean>;
+    readonly allowedOauthFlowsUserPoolClient?: boolean;
     /**
      * List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
      */
-    readonly allowedOauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly allowedOauthScopes?: string[];
     /**
      * List of allowed callback URLs for the identity providers.
      */
-    readonly callbackUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly callbackUrls?: string[];
     /**
      * The client secret of the user pool client.
      */
-    readonly clientSecret?: pulumi.Input<string>;
+    readonly clientSecret?: string;
     /**
      * The default redirect URI. Must be in the list of callback URLs.
      */
-    readonly defaultRedirectUri?: pulumi.Input<string>;
+    readonly defaultRedirectUri?: string;
     /**
      * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH).
      */
-    readonly explicitAuthFlows?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly explicitAuthFlows?: string[];
     /**
      * Should an application secret be generated. AWS JavaScript SDK requires this to be false.
      */
-    readonly generateSecret?: pulumi.Input<boolean>;
+    readonly generateSecret?: boolean;
     /**
      * List of allowed logout URLs for the identity providers.
      */
-    readonly logoutUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly logoutUrls?: string[];
     /**
      * The name of the application client.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * List of user pool attributes the application client can read from.
      */
-    readonly readAttributes?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly readAttributes?: string[];
     /**
      * The time limit in days refresh tokens are valid for.
      */
-    readonly refreshTokenValidity?: pulumi.Input<number>;
+    readonly refreshTokenValidity?: number;
     /**
      * List of provider names for the identity providers that are supported on this client.
      */
-    readonly supportedIdentityProviders?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly supportedIdentityProviders?: string[];
     /**
      * The user pool the client belongs to.
      */
-    readonly userPoolId?: pulumi.Input<string>;
+    readonly userPoolId?: string;
     /**
      * List of user pool attributes the application client can write to.
      */
-    readonly writeAttributes?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly writeAttributes?: string[];
 }
 
 /**
@@ -233,57 +233,57 @@ export interface UserPoolClientArgs {
     /**
      * List of allowed OAuth flows (code, implicit, client_credentials).
      */
-    readonly allowedOauthFlows?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly allowedOauthFlows?: string[];
     /**
      * Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
      */
-    readonly allowedOauthFlowsUserPoolClient?: pulumi.Input<boolean>;
+    readonly allowedOauthFlowsUserPoolClient?: boolean;
     /**
      * List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
      */
-    readonly allowedOauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly allowedOauthScopes?: string[];
     /**
      * List of allowed callback URLs for the identity providers.
      */
-    readonly callbackUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly callbackUrls?: string[];
     /**
      * The default redirect URI. Must be in the list of callback URLs.
      */
-    readonly defaultRedirectUri?: pulumi.Input<string>;
+    readonly defaultRedirectUri?: string;
     /**
      * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH).
      */
-    readonly explicitAuthFlows?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly explicitAuthFlows?: string[];
     /**
      * Should an application secret be generated. AWS JavaScript SDK requires this to be false.
      */
-    readonly generateSecret?: pulumi.Input<boolean>;
+    readonly generateSecret?: boolean;
     /**
      * List of allowed logout URLs for the identity providers.
      */
-    readonly logoutUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly logoutUrls?: string[];
     /**
      * The name of the application client.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * List of user pool attributes the application client can read from.
      */
-    readonly readAttributes?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly readAttributes?: string[];
     /**
      * The time limit in days refresh tokens are valid for.
      */
-    readonly refreshTokenValidity?: pulumi.Input<number>;
+    readonly refreshTokenValidity?: number;
     /**
      * List of provider names for the identity providers that are supported on this client.
      */
-    readonly supportedIdentityProviders?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly supportedIdentityProviders?: string[];
     /**
      * The user pool the client belongs to.
      */
-    readonly userPoolId: pulumi.Input<string>;
+    readonly userPoolId: string;
     /**
      * List of user pool attributes the application client can write to.
      */
-    readonly writeAttributes?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly writeAttributes?: string[];
 }

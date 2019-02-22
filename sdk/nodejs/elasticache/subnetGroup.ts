@@ -69,8 +69,8 @@ export class SubnetGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SubnetGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SubnetGroupArgs | SubnetGroupState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<SubnetGroupArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<SubnetGroupArgs> | pulumi.InputObject<SubnetGroupState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SubnetGroupState = argsOrState as SubnetGroupState | undefined;
@@ -97,15 +97,15 @@ export interface SubnetGroupState {
     /**
      * Description for the cache subnet group. Defaults to "Managed by Terraform".
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * Name for the cache subnet group. Elasticache converts this name to lowercase.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * List of VPC Subnet IDs for the cache subnet group
      */
-    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly subnetIds?: string[];
 }
 
 /**
@@ -115,13 +115,13 @@ export interface SubnetGroupArgs {
     /**
      * Description for the cache subnet group. Defaults to "Managed by Terraform".
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * Name for the cache subnet group. Elasticache converts this name to lowercase.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * List of VPC Subnet IDs for the cache subnet group
      */
-    readonly subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    readonly subnetIds: string[];
 }

@@ -94,8 +94,8 @@ export class ClusterSnapshot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ClusterSnapshotArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClusterSnapshotArgs | ClusterSnapshotState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<ClusterSnapshotArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ClusterSnapshotArgs> | pulumi.InputObject<ClusterSnapshotState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ClusterSnapshotState = argsOrState as ClusterSnapshotState | undefined;
@@ -149,57 +149,57 @@ export interface ClusterSnapshotState {
     /**
      * Specifies the allocated storage size in gigabytes (GB).
      */
-    readonly allocatedStorage?: pulumi.Input<number>;
+    readonly allocatedStorage?: number;
     /**
      * List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
      */
-    readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly availabilityZones?: string[];
     /**
      * The DB Cluster Identifier from which to take the snapshot.
      */
-    readonly dbClusterIdentifier?: pulumi.Input<string>;
+    readonly dbClusterIdentifier?: string;
     /**
      * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
      */
-    readonly dbClusterSnapshotArn?: pulumi.Input<string>;
+    readonly dbClusterSnapshotArn?: string;
     /**
      * The Identifier for the snapshot.
      */
-    readonly dbClusterSnapshotIdentifier?: pulumi.Input<string>;
+    readonly dbClusterSnapshotIdentifier?: string;
     /**
      * Specifies the name of the database engine.
      */
-    readonly engine?: pulumi.Input<string>;
+    readonly engine?: string;
     /**
      * Version of the database engine for this DB cluster snapshot.
      */
-    readonly engineVersion?: pulumi.Input<string>;
+    readonly engineVersion?: string;
     /**
      * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    readonly kmsKeyId?: string;
     /**
      * License model information for the restored DB cluster.
      */
-    readonly licenseModel?: pulumi.Input<string>;
+    readonly licenseModel?: string;
     /**
      * Port that the DB cluster was listening on at the time of the snapshot.
      */
-    readonly port?: pulumi.Input<number>;
-    readonly snapshotType?: pulumi.Input<string>;
-    readonly sourceDbClusterSnapshotArn?: pulumi.Input<string>;
+    readonly port?: number;
+    readonly snapshotType?: string;
+    readonly sourceDbClusterSnapshotArn?: string;
     /**
      * The status of this DB Cluster Snapshot.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: string;
     /**
      * Specifies whether the DB cluster snapshot is encrypted.
      */
-    readonly storageEncrypted?: pulumi.Input<boolean>;
+    readonly storageEncrypted?: boolean;
     /**
      * The VPC ID associated with the DB cluster snapshot.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    readonly vpcId?: string;
 }
 
 /**
@@ -209,9 +209,9 @@ export interface ClusterSnapshotArgs {
     /**
      * The DB Cluster Identifier from which to take the snapshot.
      */
-    readonly dbClusterIdentifier: pulumi.Input<string>;
+    readonly dbClusterIdentifier: string;
     /**
      * The Identifier for the snapshot.
      */
-    readonly dbClusterSnapshotIdentifier: pulumi.Input<string>;
+    readonly dbClusterSnapshotIdentifier: string;
 }

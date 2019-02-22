@@ -73,8 +73,8 @@ export class Hsm extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: HsmArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: HsmArgs | HsmState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<HsmArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<HsmArgs> | pulumi.InputObject<HsmState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: HsmState = argsOrState as HsmState | undefined;
@@ -109,31 +109,31 @@ export interface HsmState {
     /**
      * The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    readonly availabilityZone?: string;
     /**
      * The ID of Cloud HSM v2 cluster to which HSM will be added.
      */
-    readonly clusterId?: pulumi.Input<string>;
+    readonly clusterId?: string;
     /**
      * The id of the ENI interface allocated for HSM module.
      */
-    readonly hsmEniId?: pulumi.Input<string>;
+    readonly hsmEniId?: string;
     /**
      * The id of the HSM module.
      */
-    readonly hsmId?: pulumi.Input<string>;
+    readonly hsmId?: string;
     /**
      * The state of the HSM module.
      */
-    readonly hsmState?: pulumi.Input<string>;
+    readonly hsmState?: string;
     /**
      * The IP address of HSM module. Must be within the CIDR of selected subnet.
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    readonly ipAddress?: string;
     /**
      * The ID of subnet in which HSM module will be located.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    readonly subnetId?: string;
 }
 
 /**
@@ -143,17 +143,17 @@ export interface HsmArgs {
     /**
      * The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    readonly availabilityZone?: string;
     /**
      * The ID of Cloud HSM v2 cluster to which HSM will be added.
      */
-    readonly clusterId: pulumi.Input<string>;
+    readonly clusterId: string;
     /**
      * The IP address of HSM module. Must be within the CIDR of selected subnet.
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    readonly ipAddress?: string;
     /**
      * The ID of subnet in which HSM module will be located.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    readonly subnetId?: string;
 }

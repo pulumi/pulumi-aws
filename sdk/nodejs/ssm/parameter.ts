@@ -108,8 +108,8 @@ export class Parameter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ParameterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ParameterArgs | ParameterState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<ParameterArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ParameterArgs> | pulumi.InputObject<ParameterState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ParameterState = argsOrState as ParameterState | undefined;
@@ -151,39 +151,39 @@ export interface ParameterState {
     /**
      * A regular expression used to validate the parameter value.
      */
-    readonly allowedPattern?: pulumi.Input<string>;
+    readonly allowedPattern?: string;
     /**
      * The ARN of the parameter.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The description of the parameter.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The KMS key id or arn for encrypting a SecureString.
      */
-    readonly keyId?: pulumi.Input<string>;
+    readonly keyId?: string;
     /**
      * The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by terraform to avoid overwrite of existing resource and will default to `true` otherwise (terraform lifecycle rules should then be used to manage the update behavior).
      */
-    readonly overwrite?: pulumi.Input<boolean>;
+    readonly overwrite?: boolean;
     /**
      * A mapping of tags to assign to the object.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: string;
     /**
      * The value of the parameter.
      */
-    readonly value?: pulumi.Input<string>;
+    readonly value?: string;
 }
 
 /**
@@ -193,37 +193,37 @@ export interface ParameterArgs {
     /**
      * A regular expression used to validate the parameter value.
      */
-    readonly allowedPattern?: pulumi.Input<string>;
+    readonly allowedPattern?: string;
     /**
      * The ARN of the parameter.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * The description of the parameter.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The KMS key id or arn for encrypting a SecureString.
      */
-    readonly keyId?: pulumi.Input<string>;
+    readonly keyId?: string;
     /**
      * The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by terraform to avoid overwrite of existing resource and will default to `true` otherwise (terraform lifecycle rules should then be used to manage the update behavior).
      */
-    readonly overwrite?: pulumi.Input<boolean>;
+    readonly overwrite?: boolean;
     /**
      * A mapping of tags to assign to the object.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      */
-    readonly type: pulumi.Input<string>;
+    readonly type: string;
     /**
      * The value of the parameter.
      */
-    readonly value: pulumi.Input<string>;
+    readonly value: string;
 }

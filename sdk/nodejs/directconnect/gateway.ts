@@ -47,8 +47,8 @@ export class Gateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GatewayArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GatewayArgs | GatewayState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<GatewayArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<GatewayArgs> | pulumi.InputObject<GatewayState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: GatewayState = argsOrState as GatewayState | undefined;
@@ -73,11 +73,11 @@ export interface GatewayState {
     /**
      * The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
      */
-    readonly amazonSideAsn?: pulumi.Input<string>;
+    readonly amazonSideAsn?: string;
     /**
      * The name of the connection.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }
 
 /**
@@ -87,9 +87,9 @@ export interface GatewayArgs {
     /**
      * The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
      */
-    readonly amazonSideAsn: pulumi.Input<string>;
+    readonly amazonSideAsn: string;
     /**
      * The name of the connection.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }

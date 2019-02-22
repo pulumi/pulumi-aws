@@ -45,8 +45,8 @@ export class AccountAlias extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AccountAliasArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AccountAliasArgs | AccountAliasState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<AccountAliasArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<AccountAliasArgs> | pulumi.InputObject<AccountAliasState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AccountAliasState = argsOrState as AccountAliasState | undefined;
@@ -69,7 +69,7 @@ export interface AccountAliasState {
     /**
      * The account alias
      */
-    readonly accountAlias?: pulumi.Input<string>;
+    readonly accountAlias?: string;
 }
 
 /**
@@ -79,5 +79,5 @@ export interface AccountAliasArgs {
     /**
      * The account alias
      */
-    readonly accountAlias: pulumi.Input<string>;
+    readonly accountAlias: string;
 }

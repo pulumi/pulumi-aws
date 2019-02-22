@@ -87,8 +87,8 @@ export class UserGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: UserGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: UserGroupArgs | UserGroupState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<UserGroupArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<UserGroupArgs> | pulumi.InputObject<UserGroupState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: UserGroupState = argsOrState as UserGroupState | undefined;
@@ -119,23 +119,23 @@ export interface UserGroupState {
     /**
      * The description of the user group.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The name of the user group.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The precedence of the user group.
      */
-    readonly precedence?: pulumi.Input<number>;
+    readonly precedence?: number;
     /**
      * The ARN of the IAM role to be associated with the user group.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    readonly roleArn?: string;
     /**
      * The user pool ID.
      */
-    readonly userPoolId?: pulumi.Input<string>;
+    readonly userPoolId?: string;
 }
 
 /**
@@ -145,21 +145,21 @@ export interface UserGroupArgs {
     /**
      * The description of the user group.
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The name of the user group.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * The precedence of the user group.
      */
-    readonly precedence?: pulumi.Input<number>;
+    readonly precedence?: number;
     /**
      * The ARN of the IAM role to be associated with the user group.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    readonly roleArn?: string;
     /**
      * The user pool ID.
      */
-    readonly userPoolId: pulumi.Input<string>;
+    readonly userPoolId: string;
 }

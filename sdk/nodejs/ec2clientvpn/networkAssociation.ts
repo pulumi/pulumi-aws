@@ -61,8 +61,8 @@ export class NetworkAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NetworkAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NetworkAssociationArgs | NetworkAssociationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<NetworkAssociationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<NetworkAssociationArgs> | pulumi.InputObject<NetworkAssociationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: NetworkAssociationState = argsOrState as NetworkAssociationState | undefined;
@@ -96,23 +96,23 @@ export interface NetworkAssociationState {
     /**
      * The ID of the Client VPN endpoint.
      */
-    readonly clientVpnEndpointId?: pulumi.Input<string>;
+    readonly clientVpnEndpointId?: string;
     /**
      * The IDs of the security groups applied to the target network association.
      */
-    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly securityGroups?: string[];
     /**
      * The current state of the target network association.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: string;
     /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    readonly subnetId?: string;
     /**
      * The ID of the VPC in which the target network (subnet) is located. 
      */
-    readonly vpcId?: pulumi.Input<string>;
+    readonly vpcId?: string;
 }
 
 /**
@@ -122,9 +122,9 @@ export interface NetworkAssociationArgs {
     /**
      * The ID of the Client VPN endpoint.
      */
-    readonly clientVpnEndpointId: pulumi.Input<string>;
+    readonly clientVpnEndpointId: string;
     /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      */
-    readonly subnetId: pulumi.Input<string>;
+    readonly subnetId: string;
 }

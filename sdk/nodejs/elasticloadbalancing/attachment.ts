@@ -56,8 +56,8 @@ export class Attachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AttachmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AttachmentArgs | AttachmentState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<AttachmentArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<AttachmentArgs> | pulumi.InputObject<AttachmentState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AttachmentState = argsOrState as AttachmentState | undefined;
@@ -85,11 +85,11 @@ export interface AttachmentState {
     /**
      * The name of the ELB.
      */
-    readonly elb?: pulumi.Input<string>;
+    readonly elb?: string;
     /**
      * Instance ID to place in the ELB pool.
      */
-    readonly instance?: pulumi.Input<string>;
+    readonly instance?: string;
 }
 
 /**
@@ -99,9 +99,9 @@ export interface AttachmentArgs {
     /**
      * The name of the ELB.
      */
-    readonly elb: pulumi.Input<string>;
+    readonly elb: string;
     /**
      * Instance ID to place in the ELB pool.
      */
-    readonly instance: pulumi.Input<string>;
+    readonly instance: string;
 }

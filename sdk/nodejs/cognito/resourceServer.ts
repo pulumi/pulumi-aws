@@ -77,8 +77,8 @@ export class ResourceServer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ResourceServerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ResourceServerArgs | ResourceServerState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<ResourceServerArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ResourceServerArgs> | pulumi.InputObject<ResourceServerState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ResourceServerState = argsOrState as ResourceServerState | undefined;
@@ -112,20 +112,20 @@ export interface ResourceServerState {
     /**
      * An identifier for the resource server.
      */
-    readonly identifier?: pulumi.Input<string>;
+    readonly identifier?: string;
     /**
      * A name for the resource server.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * A list of Authorization Scope.
      */
-    readonly scopes?: pulumi.Input<pulumi.Input<{ scopeDescription: pulumi.Input<string>, scopeName: pulumi.Input<string> }>[]>;
+    readonly scopes?: { scopeDescription: string, scopeName: string }[];
     /**
      * A list of all scopes configured for this resource server in the format identifier/scope_name.
      */
-    readonly scopeIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly userPoolId?: pulumi.Input<string>;
+    readonly scopeIdentifiers?: string[];
+    readonly userPoolId?: string;
 }
 
 /**
@@ -135,14 +135,14 @@ export interface ResourceServerArgs {
     /**
      * An identifier for the resource server.
      */
-    readonly identifier: pulumi.Input<string>;
+    readonly identifier: string;
     /**
      * A name for the resource server.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * A list of Authorization Scope.
      */
-    readonly scopes?: pulumi.Input<pulumi.Input<{ scopeDescription: pulumi.Input<string>, scopeName: pulumi.Input<string> }>[]>;
-    readonly userPoolId: pulumi.Input<string>;
+    readonly scopes?: { scopeDescription: string, scopeName: string }[];
+    readonly userPoolId: string;
 }

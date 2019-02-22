@@ -50,8 +50,8 @@ export class ResourceAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ResourceAssociationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ResourceAssociationArgs | ResourceAssociationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<ResourceAssociationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ResourceAssociationArgs> | pulumi.InputObject<ResourceAssociationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ResourceAssociationState = argsOrState as ResourceAssociationState | undefined;
@@ -79,11 +79,11 @@ export interface ResourceAssociationState {
     /**
      * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
      */
-    readonly resourceArn?: pulumi.Input<string>;
+    readonly resourceArn?: string;
     /**
      * Amazon Resource Name (ARN) of the RAM Resource Share.
      */
-    readonly resourceShareArn?: pulumi.Input<string>;
+    readonly resourceShareArn?: string;
 }
 
 /**
@@ -93,9 +93,9 @@ export interface ResourceAssociationArgs {
     /**
      * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
      */
-    readonly resourceArn: pulumi.Input<string>;
+    readonly resourceArn: string;
     /**
      * Amazon Resource Name (ARN) of the RAM Resource Share.
      */
-    readonly resourceShareArn: pulumi.Input<string>;
+    readonly resourceShareArn: string;
 }

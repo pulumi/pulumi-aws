@@ -49,8 +49,8 @@ export class Activity extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ActivityArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ActivityArgs | ActivityState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<ActivityArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ActivityArgs> | pulumi.InputObject<ActivityState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ActivityState = argsOrState as ActivityState | undefined;
@@ -74,15 +74,15 @@ export interface ActivityState {
     /**
      * The date the activity was created.
      */
-    readonly creationDate?: pulumi.Input<string>;
+    readonly creationDate?: string;
     /**
      * The name of the activity to create.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Key-value mapping of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -92,9 +92,9 @@ export interface ActivityArgs {
     /**
      * The name of the activity to create.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Key-value mapping of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }

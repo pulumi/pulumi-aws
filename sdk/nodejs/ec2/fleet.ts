@@ -88,8 +88,8 @@ export class Fleet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FleetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FleetArgs | FleetState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<FleetArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<FleetArgs> | pulumi.InputObject<FleetState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: FleetState = argsOrState as FleetState | undefined;
@@ -133,43 +133,43 @@ export interface FleetState {
     /**
      * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
      */
-    readonly excessCapacityTerminationPolicy?: pulumi.Input<string>;
+    readonly excessCapacityTerminationPolicy?: string;
     /**
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      */
-    readonly launchTemplateConfig?: pulumi.Input<{ launchTemplateSpecification: pulumi.Input<{ launchTemplateId?: pulumi.Input<string>, launchTemplateName?: pulumi.Input<string>, version: pulumi.Input<string> }>, overrides?: pulumi.Input<pulumi.Input<{ availabilityZone?: pulumi.Input<string>, instanceType?: pulumi.Input<string>, maxPrice?: pulumi.Input<string>, priority?: pulumi.Input<number>, subnetId?: pulumi.Input<string>, weightedCapacity?: pulumi.Input<number> }>[]> }>;
+    readonly launchTemplateConfig?: { launchTemplateSpecification: { launchTemplateId?: string, launchTemplateName?: string, version: string }, overrides?: { availabilityZone?: string, instanceType?: string, maxPrice?: string, priority?: number, subnetId?: string, weightedCapacity?: number }[] };
     /**
      * Nested argument containing On-Demand configurations. Defined below.
      */
-    readonly onDemandOptions?: pulumi.Input<{ allocationStrategy?: pulumi.Input<string> }>;
+    readonly onDemandOptions?: { allocationStrategy?: string };
     /**
      * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
      */
-    readonly replaceUnhealthyInstances?: pulumi.Input<boolean>;
+    readonly replaceUnhealthyInstances?: boolean;
     /**
      * Nested argument containing Spot configurations. Defined below.
      */
-    readonly spotOptions?: pulumi.Input<{ allocationStrategy?: pulumi.Input<string>, instanceInterruptionBehavior?: pulumi.Input<string>, instancePoolsToUseCount?: pulumi.Input<number> }>;
+    readonly spotOptions?: { allocationStrategy?: string, instanceInterruptionBehavior?: string, instancePoolsToUseCount?: number };
     /**
      * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tags?: {[key: string]: string};
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */
-    readonly targetCapacitySpecification?: pulumi.Input<{ defaultTargetCapacityType: pulumi.Input<string>, onDemandTargetCapacity?: pulumi.Input<number>, spotTargetCapacity?: pulumi.Input<number>, totalTargetCapacity: pulumi.Input<number> }>;
+    readonly targetCapacitySpecification?: { defaultTargetCapacityType: string, onDemandTargetCapacity?: number, spotTargetCapacity?: number, totalTargetCapacity: number };
     /**
      * Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
      */
-    readonly terminateInstances?: pulumi.Input<boolean>;
+    readonly terminateInstances?: boolean;
     /**
      * Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
      */
-    readonly terminateInstancesWithExpiration?: pulumi.Input<boolean>;
+    readonly terminateInstancesWithExpiration?: boolean;
     /**
      * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: string;
 }
 
 /**
@@ -179,41 +179,41 @@ export interface FleetArgs {
     /**
      * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
      */
-    readonly excessCapacityTerminationPolicy?: pulumi.Input<string>;
+    readonly excessCapacityTerminationPolicy?: string;
     /**
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      */
-    readonly launchTemplateConfig: pulumi.Input<{ launchTemplateSpecification: pulumi.Input<{ launchTemplateId?: pulumi.Input<string>, launchTemplateName?: pulumi.Input<string>, version: pulumi.Input<string> }>, overrides?: pulumi.Input<pulumi.Input<{ availabilityZone?: pulumi.Input<string>, instanceType?: pulumi.Input<string>, maxPrice?: pulumi.Input<string>, priority?: pulumi.Input<number>, subnetId?: pulumi.Input<string>, weightedCapacity?: pulumi.Input<number> }>[]> }>;
+    readonly launchTemplateConfig: { launchTemplateSpecification: { launchTemplateId?: string, launchTemplateName?: string, version: string }, overrides?: { availabilityZone?: string, instanceType?: string, maxPrice?: string, priority?: number, subnetId?: string, weightedCapacity?: number }[] };
     /**
      * Nested argument containing On-Demand configurations. Defined below.
      */
-    readonly onDemandOptions?: pulumi.Input<{ allocationStrategy?: pulumi.Input<string> }>;
+    readonly onDemandOptions?: { allocationStrategy?: string };
     /**
      * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
      */
-    readonly replaceUnhealthyInstances?: pulumi.Input<boolean>;
+    readonly replaceUnhealthyInstances?: boolean;
     /**
      * Nested argument containing Spot configurations. Defined below.
      */
-    readonly spotOptions?: pulumi.Input<{ allocationStrategy?: pulumi.Input<string>, instanceInterruptionBehavior?: pulumi.Input<string>, instancePoolsToUseCount?: pulumi.Input<number> }>;
+    readonly spotOptions?: { allocationStrategy?: string, instanceInterruptionBehavior?: string, instancePoolsToUseCount?: number };
     /**
      * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tags?: {[key: string]: string};
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */
-    readonly targetCapacitySpecification: pulumi.Input<{ defaultTargetCapacityType: pulumi.Input<string>, onDemandTargetCapacity?: pulumi.Input<number>, spotTargetCapacity?: pulumi.Input<number>, totalTargetCapacity: pulumi.Input<number> }>;
+    readonly targetCapacitySpecification: { defaultTargetCapacityType: string, onDemandTargetCapacity?: number, spotTargetCapacity?: number, totalTargetCapacity: number };
     /**
      * Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
      */
-    readonly terminateInstances?: pulumi.Input<boolean>;
+    readonly terminateInstances?: boolean;
     /**
      * Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
      */
-    readonly terminateInstancesWithExpiration?: pulumi.Input<boolean>;
+    readonly terminateInstancesWithExpiration?: boolean;
     /**
      * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: string;
 }

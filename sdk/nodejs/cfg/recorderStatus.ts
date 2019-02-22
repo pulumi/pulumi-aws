@@ -97,8 +97,8 @@ export class RecorderStatus extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RecorderStatusArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RecorderStatusArgs | RecorderStatusState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<RecorderStatusArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<RecorderStatusArgs> | pulumi.InputObject<RecorderStatusState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RecorderStatusState = argsOrState as RecorderStatusState | undefined;
@@ -123,11 +123,11 @@ export interface RecorderStatusState {
     /**
      * Whether the configuration recorder should be enabled or disabled.
      */
-    readonly isEnabled?: pulumi.Input<boolean>;
+    readonly isEnabled?: boolean;
     /**
      * The name of the recorder
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }
 
 /**
@@ -137,9 +137,9 @@ export interface RecorderStatusArgs {
     /**
      * Whether the configuration recorder should be enabled or disabled.
      */
-    readonly isEnabled: pulumi.Input<boolean>;
+    readonly isEnabled: boolean;
     /**
      * The name of the recorder
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
 }

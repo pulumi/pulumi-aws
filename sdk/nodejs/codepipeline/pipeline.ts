@@ -150,8 +150,8 @@ export class Pipeline extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PipelineArgs | PipelineState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<PipelineArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<PipelineArgs> | pulumi.InputObject<PipelineState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PipelineState = argsOrState as PipelineState | undefined;
@@ -188,21 +188,21 @@ export interface PipelineState {
     /**
      * The codepipeline ARN.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * An artifact_store block. Artifact stores are documented below.
      * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
-    readonly artifactStore?: pulumi.Input<{ encryptionKey?: pulumi.Input<{ id: pulumi.Input<string>, type: pulumi.Input<string> }>, location: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly artifactStore?: { encryptionKey?: { id: string, type: string }, location: string, type: string };
     /**
      * The name of the pipeline.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
-    readonly roleArn?: pulumi.Input<string>;
-    readonly stages?: pulumi.Input<pulumi.Input<{ actions: pulumi.Input<pulumi.Input<{ category: pulumi.Input<string>, configuration?: pulumi.Input<{[key: string]: any}>, inputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, outputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, owner: pulumi.Input<string>, provider: pulumi.Input<string>, roleArn?: pulumi.Input<string>, runOrder?: pulumi.Input<number>, version: pulumi.Input<string> }>[]>, name: pulumi.Input<string> }>[]>;
+    readonly roleArn?: string;
+    readonly stages?: { actions: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder?: number, version: string }[], name: string }[];
 }
 
 /**
@@ -213,14 +213,14 @@ export interface PipelineArgs {
      * An artifact_store block. Artifact stores are documented below.
      * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
-    readonly artifactStore: pulumi.Input<{ encryptionKey?: pulumi.Input<{ id: pulumi.Input<string>, type: pulumi.Input<string> }>, location: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly artifactStore: { encryptionKey?: { id: string, type: string }, location: string, type: string };
     /**
      * The name of the pipeline.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
-    readonly roleArn: pulumi.Input<string>;
-    readonly stages: pulumi.Input<pulumi.Input<{ actions: pulumi.Input<pulumi.Input<{ category: pulumi.Input<string>, configuration?: pulumi.Input<{[key: string]: any}>, inputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, outputArtifacts?: pulumi.Input<pulumi.Input<string>[]>, owner: pulumi.Input<string>, provider: pulumi.Input<string>, roleArn?: pulumi.Input<string>, runOrder?: pulumi.Input<number>, version: pulumi.Input<string> }>[]>, name: pulumi.Input<string> }>[]>;
+    readonly roleArn: string;
+    readonly stages: { actions: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder?: number, version: string }[], name: string }[];
 }

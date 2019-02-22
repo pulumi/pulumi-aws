@@ -67,8 +67,8 @@ export class ParameterGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ParameterGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ParameterGroupArgs | ParameterGroupState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<ParameterGroupArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<ParameterGroupArgs> | pulumi.InputObject<ParameterGroupState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: ParameterGroupState = argsOrState as ParameterGroupState | undefined;
@@ -97,19 +97,19 @@ export interface ParameterGroupState {
     /**
      * The description of the ElastiCache parameter group. Defaults to "Managed by Terraform".
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The family of the ElastiCache parameter group.
      */
-    readonly family?: pulumi.Input<string>;
+    readonly family?: string;
     /**
      * The name of the ElastiCache parameter.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * A list of ElastiCache parameters to apply.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly parameters?: { name: string, value: string }[];
 }
 
 /**
@@ -119,17 +119,17 @@ export interface ParameterGroupArgs {
     /**
      * The description of the ElastiCache parameter group. Defaults to "Managed by Terraform".
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The family of the ElastiCache parameter group.
      */
-    readonly family: pulumi.Input<string>;
+    readonly family: string;
     /**
      * The name of the ElastiCache parameter.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * A list of ElastiCache parameters to apply.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly parameters?: { name: string, value: string }[];
 }

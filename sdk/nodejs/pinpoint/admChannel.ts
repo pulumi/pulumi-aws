@@ -63,8 +63,8 @@ export class AdmChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AdmChannelArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AdmChannelArgs | AdmChannelState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<AdmChannelArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<AdmChannelArgs> | pulumi.InputObject<AdmChannelState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AdmChannelState = argsOrState as AdmChannelState | undefined;
@@ -99,19 +99,19 @@ export interface AdmChannelState {
     /**
      * The application ID.
      */
-    readonly applicationId?: pulumi.Input<string>;
+    readonly applicationId?: string;
     /**
      * Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
      */
-    readonly clientId?: pulumi.Input<string>;
+    readonly clientId?: string;
     /**
      * Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
      */
-    readonly clientSecret?: pulumi.Input<string>;
+    readonly clientSecret?: string;
     /**
      * Specifies whether to enable the channel. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    readonly enabled?: boolean;
 }
 
 /**
@@ -121,17 +121,17 @@ export interface AdmChannelArgs {
     /**
      * The application ID.
      */
-    readonly applicationId: pulumi.Input<string>;
+    readonly applicationId: string;
     /**
      * Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
      */
-    readonly clientId: pulumi.Input<string>;
+    readonly clientId: string;
     /**
      * Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
      */
-    readonly clientSecret: pulumi.Input<string>;
+    readonly clientSecret: string;
     /**
      * Specifies whether to enable the channel. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    readonly enabled?: boolean;
 }

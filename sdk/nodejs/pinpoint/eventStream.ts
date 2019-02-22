@@ -90,8 +90,8 @@ export class EventStream extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EventStreamArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EventStreamArgs | EventStreamState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<EventStreamArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<EventStreamArgs> | pulumi.InputObject<EventStreamState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: EventStreamState = argsOrState as EventStreamState | undefined;
@@ -124,15 +124,15 @@ export interface EventStreamState {
     /**
      * The application ID.
      */
-    readonly applicationId?: pulumi.Input<string>;
+    readonly applicationId?: string;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      */
-    readonly destinationStreamArn?: pulumi.Input<string>;
+    readonly destinationStreamArn?: string;
     /**
      * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    readonly roleArn?: string;
 }
 
 /**
@@ -142,13 +142,13 @@ export interface EventStreamArgs {
     /**
      * The application ID.
      */
-    readonly applicationId: pulumi.Input<string>;
+    readonly applicationId: string;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      */
-    readonly destinationStreamArn: pulumi.Input<string>;
+    readonly destinationStreamArn: string;
     /**
      * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
      */
-    readonly roleArn: pulumi.Input<string>;
+    readonly roleArn: string;
 }

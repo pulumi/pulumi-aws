@@ -117,8 +117,8 @@ export class JobDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: JobDefinitionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: JobDefinitionArgs | JobDefinitionState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<JobDefinitionArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<JobDefinitionArgs> | pulumi.InputObject<JobDefinitionState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: JobDefinitionState = argsOrState as JobDefinitionState | undefined;
@@ -155,37 +155,37 @@ export interface JobDefinitionState {
     /**
      * The Amazon Resource Name of the job definition.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
      * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
      */
-    readonly containerProperties?: pulumi.Input<string>;
+    readonly containerProperties?: string;
     /**
      * Specifies the name of the job definition.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Specifies the parameter substitution placeholders to set in the job definition.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly parameters?: {[key: string]: string};
     /**
      * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
      * Maximum number of `retry_strategy` is `1`.  Defined below.
      */
-    readonly retryStrategy?: pulumi.Input<{ attempts?: pulumi.Input<number> }>;
+    readonly retryStrategy?: { attempts?: number };
     /**
      * The revision of the job definition.
      */
-    readonly revision?: pulumi.Input<number>;
+    readonly revision?: number;
     /**
      * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      */
-    readonly timeout?: pulumi.Input<{ attemptDurationSeconds?: pulumi.Input<number> }>;
+    readonly timeout?: { attemptDurationSeconds?: number };
     /**
      * The type of job definition.  Must be `container`
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: string;
 }
 
 /**
@@ -196,26 +196,26 @@ export interface JobDefinitionArgs {
      * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
      * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
      */
-    readonly containerProperties?: pulumi.Input<string>;
+    readonly containerProperties?: string;
     /**
      * Specifies the name of the job definition.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Specifies the parameter substitution placeholders to set in the job definition.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly parameters?: {[key: string]: string};
     /**
      * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
      * Maximum number of `retry_strategy` is `1`.  Defined below.
      */
-    readonly retryStrategy?: pulumi.Input<{ attempts?: pulumi.Input<number> }>;
+    readonly retryStrategy?: { attempts?: number };
     /**
      * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      */
-    readonly timeout?: pulumi.Input<{ attemptDurationSeconds?: pulumi.Input<number> }>;
+    readonly timeout?: { attemptDurationSeconds?: number };
     /**
      * The type of job definition.  Must be `container`
      */
-    readonly type: pulumi.Input<string>;
+    readonly type: string;
 }

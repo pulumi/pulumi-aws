@@ -126,8 +126,8 @@ export class Preset extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PresetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PresetArgs | PresetState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<PresetArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<PresetArgs> | pulumi.InputObject<PresetState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PresetState = argsOrState as PresetState | undefined;
@@ -167,42 +167,42 @@ export class Preset extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Preset resources.
  */
 export interface PresetState {
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * Audio parameters object (documented below).
      */
-    readonly audio?: pulumi.Input<{ audioPackingMode?: pulumi.Input<string>, bitRate?: pulumi.Input<string>, channels?: pulumi.Input<string>, codec?: pulumi.Input<string>, sampleRate?: pulumi.Input<string> }>;
+    readonly audio?: { audioPackingMode?: string, bitRate?: string, channels?: string, codec?: string, sampleRate?: string };
     /**
      * Codec options for the audio parameters (documented below)
      */
-    readonly audioCodecOptions?: pulumi.Input<{ bitDepth?: pulumi.Input<string>, bitOrder?: pulumi.Input<string>, profile?: pulumi.Input<string>, signed?: pulumi.Input<string> }>;
+    readonly audioCodecOptions?: { bitDepth?: string, bitOrder?: string, profile?: string, signed?: string };
     /**
      * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
      */
-    readonly container?: pulumi.Input<string>;
+    readonly container?: string;
     /**
      * A description of the preset (maximum 255 characters)
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The name of the preset. (maximum 40 characters)
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Thumbnail parameters object (documented below)
      */
-    readonly thumbnails?: pulumi.Input<{ aspectRatio?: pulumi.Input<string>, format?: pulumi.Input<string>, interval?: pulumi.Input<string>, maxHeight?: pulumi.Input<string>, maxWidth?: pulumi.Input<string>, paddingPolicy?: pulumi.Input<string>, resolution?: pulumi.Input<string>, sizingPolicy?: pulumi.Input<string> }>;
-    readonly type?: pulumi.Input<string>;
+    readonly thumbnails?: { aspectRatio?: string, format?: string, interval?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string };
+    readonly type?: string;
     /**
      * Video parameters object (documented below)
      */
-    readonly video?: pulumi.Input<{ aspectRatio?: pulumi.Input<string>, bitRate?: pulumi.Input<string>, codec?: pulumi.Input<string>, displayAspectRatio?: pulumi.Input<string>, fixedGop?: pulumi.Input<string>, frameRate?: pulumi.Input<string>, keyframesMaxDist?: pulumi.Input<string>, maxFrameRate?: pulumi.Input<string>, maxHeight?: pulumi.Input<string>, maxWidth?: pulumi.Input<string>, paddingPolicy?: pulumi.Input<string>, resolution?: pulumi.Input<string>, sizingPolicy?: pulumi.Input<string> }>;
-    readonly videoCodecOptions?: pulumi.Input<{[key: string]: any}>;
+    readonly video?: { aspectRatio?: string, bitRate?: string, codec?: string, displayAspectRatio?: string, fixedGop?: string, frameRate?: string, keyframesMaxDist?: string, maxFrameRate?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string };
+    readonly videoCodecOptions?: {[key: string]: any};
     /**
      * Watermark parameters for the video parameters (documented below)
      * * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
      */
-    readonly videoWatermarks?: pulumi.Input<pulumi.Input<{ horizontalAlign?: pulumi.Input<string>, horizontalOffset?: pulumi.Input<string>, id?: pulumi.Input<string>, maxHeight?: pulumi.Input<string>, maxWidth?: pulumi.Input<string>, opacity?: pulumi.Input<string>, sizingPolicy?: pulumi.Input<string>, target?: pulumi.Input<string>, verticalAlign?: pulumi.Input<string>, verticalOffset?: pulumi.Input<string> }>[]>;
+    readonly videoWatermarks?: { horizontalAlign?: string, horizontalOffset?: string, id?: string, maxHeight?: string, maxWidth?: string, opacity?: string, sizingPolicy?: string, target?: string, verticalAlign?: string, verticalOffset?: string }[];
 }
 
 /**
@@ -212,36 +212,36 @@ export interface PresetArgs {
     /**
      * Audio parameters object (documented below).
      */
-    readonly audio?: pulumi.Input<{ audioPackingMode?: pulumi.Input<string>, bitRate?: pulumi.Input<string>, channels?: pulumi.Input<string>, codec?: pulumi.Input<string>, sampleRate?: pulumi.Input<string> }>;
+    readonly audio?: { audioPackingMode?: string, bitRate?: string, channels?: string, codec?: string, sampleRate?: string };
     /**
      * Codec options for the audio parameters (documented below)
      */
-    readonly audioCodecOptions?: pulumi.Input<{ bitDepth?: pulumi.Input<string>, bitOrder?: pulumi.Input<string>, profile?: pulumi.Input<string>, signed?: pulumi.Input<string> }>;
+    readonly audioCodecOptions?: { bitDepth?: string, bitOrder?: string, profile?: string, signed?: string };
     /**
      * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
      */
-    readonly container: pulumi.Input<string>;
+    readonly container: string;
     /**
      * A description of the preset (maximum 255 characters)
      */
-    readonly description?: pulumi.Input<string>;
+    readonly description?: string;
     /**
      * The name of the preset. (maximum 40 characters)
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Thumbnail parameters object (documented below)
      */
-    readonly thumbnails?: pulumi.Input<{ aspectRatio?: pulumi.Input<string>, format?: pulumi.Input<string>, interval?: pulumi.Input<string>, maxHeight?: pulumi.Input<string>, maxWidth?: pulumi.Input<string>, paddingPolicy?: pulumi.Input<string>, resolution?: pulumi.Input<string>, sizingPolicy?: pulumi.Input<string> }>;
-    readonly type?: pulumi.Input<string>;
+    readonly thumbnails?: { aspectRatio?: string, format?: string, interval?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string };
+    readonly type?: string;
     /**
      * Video parameters object (documented below)
      */
-    readonly video?: pulumi.Input<{ aspectRatio?: pulumi.Input<string>, bitRate?: pulumi.Input<string>, codec?: pulumi.Input<string>, displayAspectRatio?: pulumi.Input<string>, fixedGop?: pulumi.Input<string>, frameRate?: pulumi.Input<string>, keyframesMaxDist?: pulumi.Input<string>, maxFrameRate?: pulumi.Input<string>, maxHeight?: pulumi.Input<string>, maxWidth?: pulumi.Input<string>, paddingPolicy?: pulumi.Input<string>, resolution?: pulumi.Input<string>, sizingPolicy?: pulumi.Input<string> }>;
-    readonly videoCodecOptions?: pulumi.Input<{[key: string]: any}>;
+    readonly video?: { aspectRatio?: string, bitRate?: string, codec?: string, displayAspectRatio?: string, fixedGop?: string, frameRate?: string, keyframesMaxDist?: string, maxFrameRate?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string };
+    readonly videoCodecOptions?: {[key: string]: any};
     /**
      * Watermark parameters for the video parameters (documented below)
      * * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
      */
-    readonly videoWatermarks?: pulumi.Input<pulumi.Input<{ horizontalAlign?: pulumi.Input<string>, horizontalOffset?: pulumi.Input<string>, id?: pulumi.Input<string>, maxHeight?: pulumi.Input<string>, maxWidth?: pulumi.Input<string>, opacity?: pulumi.Input<string>, sizingPolicy?: pulumi.Input<string>, target?: pulumi.Input<string>, verticalAlign?: pulumi.Input<string>, verticalOffset?: pulumi.Input<string> }>[]>;
+    readonly videoWatermarks?: { horizontalAlign?: string, horizontalOffset?: string, id?: string, maxHeight?: string, maxWidth?: string, opacity?: string, sizingPolicy?: string, target?: string, verticalAlign?: string, verticalOffset?: string }[];
 }

@@ -70,8 +70,8 @@ export class Notification extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NotificationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NotificationArgs | NotificationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<NotificationArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<NotificationArgs> | pulumi.InputObject<NotificationState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: NotificationState = argsOrState as NotificationState | undefined;
@@ -104,16 +104,16 @@ export interface NotificationState {
     /**
      * A list of AutoScaling Group Names
      */
-    readonly groupNames?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly groupNames?: string[];
     /**
      * A list of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here][1]
      */
-    readonly notifications?: pulumi.Input<pulumi.Input<NotificationType>[]>;
+    readonly notifications?: NotificationType[];
     /**
      * The Topic ARN for notifications to be sent through
      */
-    readonly topicArn?: pulumi.Input<string>;
+    readonly topicArn?: string;
 }
 
 /**
@@ -123,14 +123,14 @@ export interface NotificationArgs {
     /**
      * A list of AutoScaling Group Names
      */
-    readonly groupNames: pulumi.Input<pulumi.Input<string>[]>;
+    readonly groupNames: string[];
     /**
      * A list of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here][1]
      */
-    readonly notifications: pulumi.Input<pulumi.Input<NotificationType>[]>;
+    readonly notifications: NotificationType[];
     /**
      * The Topic ARN for notifications to be sent through
      */
-    readonly topicArn: pulumi.Input<string>;
+    readonly topicArn: string;
 }

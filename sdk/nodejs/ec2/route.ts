@@ -78,8 +78,8 @@ export class Route extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<RouteArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<RouteArgs> | pulumi.InputObject<RouteState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RouteState = argsOrState as RouteState | undefined;
@@ -128,47 +128,47 @@ export interface RouteState {
     /**
      * The destination CIDR block.
      */
-    readonly destinationCidrBlock?: pulumi.Input<string>;
+    readonly destinationCidrBlock?: string;
     /**
      * The destination IPv6 CIDR block.
      */
-    readonly destinationIpv6CidrBlock?: pulumi.Input<string>;
-    readonly destinationPrefixListId?: pulumi.Input<string>;
+    readonly destinationIpv6CidrBlock?: string;
+    readonly destinationPrefixListId?: string;
     /**
      * Identifier of a VPC Egress Only Internet Gateway.
      */
-    readonly egressOnlyGatewayId?: pulumi.Input<string>;
+    readonly egressOnlyGatewayId?: string;
     /**
      * Identifier of a VPC internet gateway or a virtual private gateway.
      */
-    readonly gatewayId?: pulumi.Input<string>;
+    readonly gatewayId?: string;
     /**
      * Identifier of an EC2 instance.
      */
-    readonly instanceId?: pulumi.Input<string>;
-    readonly instanceOwnerId?: pulumi.Input<string>;
+    readonly instanceId?: string;
+    readonly instanceOwnerId?: string;
     /**
      * Identifier of a VPC NAT gateway.
      */
-    readonly natGatewayId?: pulumi.Input<string>;
+    readonly natGatewayId?: string;
     /**
      * Identifier of an EC2 network interface.
      */
-    readonly networkInterfaceId?: pulumi.Input<string>;
-    readonly origin?: pulumi.Input<string>;
+    readonly networkInterfaceId?: string;
+    readonly origin?: string;
     /**
      * The ID of the routing table.
      */
-    readonly routeTableId?: pulumi.Input<string>;
-    readonly state?: pulumi.Input<string>;
+    readonly routeTableId?: string;
+    readonly state?: string;
     /**
      * Identifier of an EC2 Transit Gateway.
      */
-    readonly transitGatewayId?: pulumi.Input<string>;
+    readonly transitGatewayId?: string;
     /**
      * Identifier of a VPC peering connection.
      */
-    readonly vpcPeeringConnectionId?: pulumi.Input<string>;
+    readonly vpcPeeringConnectionId?: string;
 }
 
 /**
@@ -178,41 +178,41 @@ export interface RouteArgs {
     /**
      * The destination CIDR block.
      */
-    readonly destinationCidrBlock?: pulumi.Input<string>;
+    readonly destinationCidrBlock?: string;
     /**
      * The destination IPv6 CIDR block.
      */
-    readonly destinationIpv6CidrBlock?: pulumi.Input<string>;
+    readonly destinationIpv6CidrBlock?: string;
     /**
      * Identifier of a VPC Egress Only Internet Gateway.
      */
-    readonly egressOnlyGatewayId?: pulumi.Input<string>;
+    readonly egressOnlyGatewayId?: string;
     /**
      * Identifier of a VPC internet gateway or a virtual private gateway.
      */
-    readonly gatewayId?: pulumi.Input<string>;
+    readonly gatewayId?: string;
     /**
      * Identifier of an EC2 instance.
      */
-    readonly instanceId?: pulumi.Input<string>;
+    readonly instanceId?: string;
     /**
      * Identifier of a VPC NAT gateway.
      */
-    readonly natGatewayId?: pulumi.Input<string>;
+    readonly natGatewayId?: string;
     /**
      * Identifier of an EC2 network interface.
      */
-    readonly networkInterfaceId?: pulumi.Input<string>;
+    readonly networkInterfaceId?: string;
     /**
      * The ID of the routing table.
      */
-    readonly routeTableId: pulumi.Input<string>;
+    readonly routeTableId: string;
     /**
      * Identifier of an EC2 Transit Gateway.
      */
-    readonly transitGatewayId?: pulumi.Input<string>;
+    readonly transitGatewayId?: string;
     /**
      * Identifier of a VPC peering connection.
      */
-    readonly vpcPeeringConnectionId?: pulumi.Input<string>;
+    readonly vpcPeeringConnectionId?: string;
 }

@@ -91,8 +91,8 @@ export class User extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: UserArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: pulumi.InputObject<UserArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<UserArgs> | pulumi.InputObject<UserState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: UserState = argsOrState as UserState | undefined;
@@ -124,33 +124,33 @@ export interface UserState {
     /**
      * The ARN assigned by AWS for this user.
      */
-    readonly arn?: pulumi.Input<string>;
+    readonly arn?: string;
     /**
      * When destroying this user, destroy even if it
      * has non-Terraform-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
      * a user with non-Terraform-managed access keys and login profile will fail to be destroyed.
      */
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    readonly forceDestroy?: boolean;
     /**
      * The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Path in which to create the user.
      */
-    readonly path?: pulumi.Input<string>;
+    readonly path?: string;
     /**
      * The ARN of the policy that is used to set the permissions boundary for the user.
      */
-    readonly permissionsBoundary?: pulumi.Input<string>;
+    readonly permissionsBoundary?: string;
     /**
      * Key-value mapping of tags for the IAM user
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
     /**
      * The [unique ID][1] assigned by AWS.
      */
-    readonly uniqueId?: pulumi.Input<string>;
+    readonly uniqueId?: string;
 }
 
 /**
@@ -162,21 +162,21 @@ export interface UserArgs {
      * has non-Terraform-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
      * a user with non-Terraform-managed access keys and login profile will fail to be destroyed.
      */
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    readonly forceDestroy?: boolean;
     /**
      * The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name?: string;
     /**
      * Path in which to create the user.
      */
-    readonly path?: pulumi.Input<string>;
+    readonly path?: string;
     /**
      * The ARN of the policy that is used to set the permissions boundary for the user.
      */
-    readonly permissionsBoundary?: pulumi.Input<string>;
+    readonly permissionsBoundary?: string;
     /**
      * Key-value mapping of tags for the IAM user
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: {[key: string]: any};
 }

@@ -67,8 +67,8 @@ export class Webhook extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WebhookArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WebhookArgs | WebhookState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: pulumi.InputObject<WebhookArgs>, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: pulumi.InputObject<WebhookArgs> | pulumi.InputObject<WebhookState>, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: WebhookState = argsOrState as WebhookState | undefined;
@@ -99,23 +99,23 @@ export interface WebhookState {
     /**
      * A regular expression used to determine which branches get built. Default is all branches are built.
      */
-    readonly branchFilter?: pulumi.Input<string>;
+    readonly branchFilter?: string;
     /**
      * The CodeBuild endpoint where webhook events are sent.
      */
-    readonly payloadUrl?: pulumi.Input<string>;
+    readonly payloadUrl?: string;
     /**
      * The name of the build project.
      */
-    readonly projectName?: pulumi.Input<string>;
+    readonly projectName?: string;
     /**
      * The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
      */
-    readonly secret?: pulumi.Input<string>;
+    readonly secret?: string;
     /**
      * The URL to the webhook.
      */
-    readonly url?: pulumi.Input<string>;
+    readonly url?: string;
 }
 
 /**
@@ -125,9 +125,9 @@ export interface WebhookArgs {
     /**
      * A regular expression used to determine which branches get built. Default is all branches are built.
      */
-    readonly branchFilter?: pulumi.Input<string>;
+    readonly branchFilter?: string;
     /**
      * The name of the build project.
      */
-    readonly projectName: pulumi.Input<string>;
+    readonly projectName: string;
 }
