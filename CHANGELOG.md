@@ -1,5 +1,9 @@
 ## 0.16.10 (Unreleased)
 
+### Improvements
+
+- Updated to the v1.60.0 version of the AWS Terraform Provider.
+
 ## 0.16.9 (Released February 21st, 2019)
 
 ### Improvements
