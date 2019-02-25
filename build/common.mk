@@ -104,7 +104,7 @@ endif
 PULUMI_BIN          := $(PULUMI_ROOT)/bin
 PULUMI_NODE_MODULES := $(PULUMI_ROOT)/node_modules
 
-.PHONY: default all ensure only_build only_test build lint install test_fast test_all core
+.PHONY: default all ensure only_build only_test build lint install test_all core
 
 # ensure that `default` is the target that is run when no arguments are passed to make
 default::
@@ -193,7 +193,7 @@ install::
 	@mkdir -p $(PULUMI_BIN)
 	@mkdir -p $(PULUMI_NODE_MODULES)
 
-test_all:: test_fast
+test_all::
 	$(call STEP_MESSAGE)
 
 ifneq ($(NODE_MODULE_NAME),)

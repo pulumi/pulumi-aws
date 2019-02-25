@@ -110,14 +110,9 @@ func TestExamples(t *testing.T) {
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-go")}),
 	}
 
-	// Run the short or long tests depending on the config.  Note that we only run long tests on
-	// travis after already running short tests.  So no need to actually run both at the same time
-	// ever.
-	var tests []integration.ProgramTestOptions
-	if testing.Short() {
-		tests = shortTests
-	} else {
-		tests = longTests
+	tests := shortTests
+	if !testing.Short() {
+		tests = append(tests, longTests...)
 	}
 
 	for _, ex := range tests {
