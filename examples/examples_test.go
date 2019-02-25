@@ -38,7 +38,7 @@ func TestExamples(t *testing.T) {
 		},
 	})
 
-	tests := []integration.ProgramTestOptions{
+	shortTests := []integration.ProgramTestOptions{
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "express")}),
 		// TODO[pulumi/pulumi#1900]: This should be the default value, every test we have causes some sort of
@@ -110,9 +110,7 @@ func TestExamples(t *testing.T) {
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-go")}),
 	}
 
-	// Run the short or long tests depending on the config.  Note that we only run long tests on
-	// travis after already running short tests.  So no need to actually run both at the same time
-	// ever.
+	tests := shortTests
 	if !testing.Short() {
 		tests = append(tests, longTests...)
 	}

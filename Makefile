@@ -59,9 +59,11 @@ install::
 		yarn link
 	cd ${PACKDIR}/python/bin && $(PIP) install --user -e .
 
+test_fast::
+	PATH=$(PULUMI_BIN):$(PATH) go test -short -v -count=1 -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples ./tests/...
+
 test_all::
-	PATH=$(PULUMI_BIN):$(PATH) go test -v -count=1 -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
-	PATH=$(PULUMI_BIN):$(PATH) go test -v -count=1 -cover -timeout 1h -parallel ${TESTPARALLELISM} ./tests/...
+	PATH=$(PULUMI_BIN):$(PATH) go test -v -count=1 -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples ./test/...
 
 .PHONY: publish_tgz
 publish_tgz:
