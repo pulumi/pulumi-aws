@@ -193,7 +193,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: The name of the first database to be created when the cluster is created.
                If you do not provide a name, Amazon Redshift will create a default database called `dev`.
         :param pulumi.Input[str] elastic_ip: The Elastic IP (EIP) address for the cluster.
-        :param pulumi.Input[bool] enable_logging
         :param pulumi.Input[bool] encrypted: If true , the data in the cluster is encrypted at rest.
         :param pulumi.Input[str] endpoint: The connection endpoint
         :param pulumi.Input[bool] enhanced_vpc_routing: If true , enhanced VPC routing is enabled.

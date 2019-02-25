@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetSecurityGroupsResult(object):
+class GetSecurityGroupsResult:
     """
     A collection of values returned by getSecurityGroups.
     """
@@ -36,7 +36,7 @@ class GetSecurityGroupsResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_security_groups(filters=None, tags=None):
+async def get_security_groups(filters=None,tags=None,opts=None):
     """
     Use this data source to get IDs and VPC membership of Security Groups that are created
     outside of Terraform.
@@ -45,7 +45,7 @@ async def get_security_groups(filters=None, tags=None):
 
     __args__['filters'] = filters
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getSecurityGroups:getSecurityGroups', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getSecurityGroups:getSecurityGroups', __args__, opts=opts)
 
     return GetSecurityGroupsResult(
         ids=__ret__.get('ids'),

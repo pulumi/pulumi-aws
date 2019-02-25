@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetVpcsResult(object):
+class GetVpcsResult:
     """
     A collection of values returned by getVpcs.
     """
@@ -29,7 +29,7 @@ class GetVpcsResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_vpcs(filters=None, tags=None):
+async def get_vpcs(filters=None,tags=None,opts=None):
     """
     This resource can be useful for getting back a list of VPC Ids for a region.
     
@@ -39,7 +39,7 @@ async def get_vpcs(filters=None, tags=None):
 
     __args__['filters'] = filters
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpcs:getVpcs', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpcs:getVpcs', __args__, opts=opts)
 
     return GetVpcsResult(
         ids=__ret__.get('ids'),

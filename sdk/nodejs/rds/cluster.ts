@@ -187,13 +187,16 @@ export class Cluster extends pulumi.CustomResource {
      * made.
      */
     public readonly finalSnapshotIdentifier: pulumi.Output<string | undefined>;
+    /**
+     * The global cluster identifier specified on [`aws_rds_global_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+     */
     public readonly globalClusterIdentifier: pulumi.Output<string | undefined>;
     /**
      * The Route53 Hosted Zone ID of the endpoint
      */
     public /*out*/ readonly hostedZoneId: pulumi.Output<string>;
     /**
-     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation][6] for availability and limitations.
+     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
      */
     public readonly iamDatabaseAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -449,13 +452,16 @@ export interface ClusterState {
      * made.
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
+    /**
+     * The global cluster identifier specified on [`aws_rds_global_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+     */
     readonly globalClusterIdentifier?: pulumi.Input<string>;
     /**
      * The Route53 Hosted Zone ID of the endpoint
      */
     readonly hostedZoneId?: pulumi.Input<string>;
     /**
-     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation][6] for availability and limitations.
+     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
      */
     readonly iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
@@ -603,9 +609,12 @@ export interface ClusterArgs {
      * made.
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
+    /**
+     * The global cluster identifier specified on [`aws_rds_global_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+     */
     readonly globalClusterIdentifier?: pulumi.Input<string>;
     /**
-     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation][6] for availability and limitations.
+     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
      */
     readonly iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
     /**

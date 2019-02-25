@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetInstanceProfileResult(object):
+class GetInstanceProfileResult:
     """
     A collection of values returned by getInstanceProfile.
     """
@@ -57,7 +57,7 @@ class GetInstanceProfileResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_instance_profile(name=None):
+async def get_instance_profile(name=None,opts=None):
     """
     This data source can be used to fetch information about a specific
     IAM instance profile. By using this data source, you can reference IAM
@@ -66,7 +66,7 @@ async def get_instance_profile(name=None):
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:iam/getInstanceProfile:getInstanceProfile', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:iam/getInstanceProfile:getInstanceProfile', __args__, opts=opts)
 
     return GetInstanceProfileResult(
         arn=__ret__.get('arn'),

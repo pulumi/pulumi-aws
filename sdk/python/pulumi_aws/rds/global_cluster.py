@@ -52,7 +52,6 @@ class GlobalCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[str] engine: Name of the database engine to be used for this DB cluster. Valid values: `aurora`. Defaults to `aurora`.
         :param pulumi.Input[str] engine_version: Engine version of the Aurora global database.
-        :param pulumi.Input[str] global_cluster_identifier
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.
         """
         if __name__ is not None:

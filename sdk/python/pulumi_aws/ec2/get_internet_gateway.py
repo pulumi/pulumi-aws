@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetInternetGatewayResult(object):
+class GetInternetGatewayResult:
     """
     A collection of values returned by getInternetGateway.
     """
@@ -35,7 +35,7 @@ class GetInternetGatewayResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_internet_gateway(filters=None, internet_gateway_id=None, tags=None):
+async def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,opts=None):
     """
     `aws_internet_gateway` provides details about a specific Internet Gateway.
     """
@@ -44,7 +44,7 @@ async def get_internet_gateway(filters=None, internet_gateway_id=None, tags=None
     __args__['filters'] = filters
     __args__['internetGatewayId'] = internet_gateway_id
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getInternetGateway:getInternetGateway', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getInternetGateway:getInternetGateway', __args__, opts=opts)
 
     return GetInternetGatewayResult(
         attachments=__ret__.get('attachments'),

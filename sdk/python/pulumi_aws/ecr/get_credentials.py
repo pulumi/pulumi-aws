@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetCredentialsResult(object):
+class GetCredentialsResult:
     """
     A collection of values returned by getCredentials.
     """
@@ -29,11 +29,11 @@ class GetCredentialsResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_credentials(registry_id=None):
+async def get_credentials(registry_id=None,opts=None):
     __args__ = dict()
 
     __args__['registryId'] = registry_id
-    __ret__ = await pulumi.runtime.invoke('aws:ecr/getCredentials:getCredentials', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ecr/getCredentials:getCredentials', __args__, opts=opts)
 
     return GetCredentialsResult(
         authorization_token=__ret__.get('authorizationToken'),

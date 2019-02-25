@@ -133,7 +133,7 @@ func (r *UserPoolClient) ExplicitAuthFlows() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["explicitAuthFlows"])
 }
 
-// Should an application secret be generated. AWS JavaScript SDK requires this to be false.
+// Should an application secret be generated.
 func (r *UserPoolClient) GenerateSecret() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["generateSecret"])
 }
@@ -189,7 +189,7 @@ type UserPoolClientState struct {
 	DefaultRedirectUri interface{}
 	// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH).
 	ExplicitAuthFlows interface{}
-	// Should an application secret be generated. AWS JavaScript SDK requires this to be false.
+	// Should an application secret be generated.
 	GenerateSecret interface{}
 	// List of allowed logout URLs for the identity providers.
 	LogoutUrls interface{}
@@ -221,7 +221,7 @@ type UserPoolClientArgs struct {
 	DefaultRedirectUri interface{}
 	// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH).
 	ExplicitAuthFlows interface{}
-	// Should an application secret be generated. AWS JavaScript SDK requires this to be false.
+	// Should an application secret be generated.
 	GenerateSecret interface{}
 	// List of allowed logout URLs for the identity providers.
 	LogoutUrls interface{}

@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetCipherTextResult(object):
+class GetCipherTextResult:
     """
     A collection of values returned by getCipherText.
     """
@@ -26,7 +26,7 @@ class GetCipherTextResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_cipher_text(context=None, key_id=None, plaintext=None):
+async def get_cipher_text(context=None,key_id=None,plaintext=None,opts=None):
     """
     The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
     by using an AWS KMS customer master key.
@@ -39,7 +39,7 @@ async def get_cipher_text(context=None, key_id=None, plaintext=None):
     __args__['context'] = context
     __args__['keyId'] = key_id
     __args__['plaintext'] = plaintext
-    __ret__ = await pulumi.runtime.invoke('aws:kms/getCipherText:getCipherText', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:kms/getCipherText:getCipherText', __args__, opts=opts)
 
     return GetCipherTextResult(
         ciphertext_blob=__ret__.get('ciphertextBlob'),

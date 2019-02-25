@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetSubnetIdsResult(object):
+class GetSubnetIdsResult:
     """
     A collection of values returned by getSubnetIds.
     """
@@ -29,7 +29,7 @@ class GetSubnetIdsResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_subnet_ids(filters=None, tags=None, vpc_id=None):
+async def get_subnet_ids(filters=None,tags=None,vpc_id=None,opts=None):
     """
     `aws_subnet_ids` provides a list of ids for a vpc_id
     
@@ -40,7 +40,7 @@ async def get_subnet_ids(filters=None, tags=None, vpc_id=None):
     __args__['filters'] = filters
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getSubnetIds:getSubnetIds', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getSubnetIds:getSubnetIds', __args__, opts=opts)
 
     return GetSubnetIdsResult(
         ids=__ret__.get('ids'),

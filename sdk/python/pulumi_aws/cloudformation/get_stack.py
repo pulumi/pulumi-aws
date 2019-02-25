@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetStackResult(object):
+class GetStackResult:
     """
     A collection of values returned by getStack.
     """
@@ -80,7 +80,7 @@ class GetStackResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_stack(name=None):
+async def get_stack(name=None,opts=None):
     """
     The CloudFormation Stack data source allows access to stack
     outputs and other useful data including the template body.
@@ -88,7 +88,7 @@ async def get_stack(name=None):
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:cloudformation/getStack:getStack', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:cloudformation/getStack:getStack', __args__, opts=opts)
 
     return GetStackResult(
         capabilities=__ret__.get('capabilities'),

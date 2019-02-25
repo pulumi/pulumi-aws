@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetRepositoryResult(object):
+class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
@@ -44,7 +44,7 @@ class GetRepositoryResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_repository(name=None, tags=None):
+async def get_repository(name=None,tags=None,opts=None):
     """
     The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
     """
@@ -52,7 +52,7 @@ async def get_repository(name=None, tags=None):
 
     __args__['name'] = name
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:ecr/getRepository:getRepository', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ecr/getRepository:getRepository', __args__, opts=opts)
 
     return GetRepositoryResult(
         arn=__ret__.get('arn'),

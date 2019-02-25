@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetRulesPackagesResult(object):
+class GetRulesPackagesResult:
     """
     A collection of values returned by getRulesPackages.
     """
@@ -26,7 +26,7 @@ class GetRulesPackagesResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_rules_packages():
+async def get_rules_packages(opts=None):
     """
     The AWS Inspector Rules Packages data source allows access to the list of AWS
     Inspector Rules Packages which can be used by AWS Inspector within the region
@@ -34,7 +34,7 @@ async def get_rules_packages():
     """
     __args__ = dict()
 
-    __ret__ = await pulumi.runtime.invoke('aws:inspector/getRulesPackages:getRulesPackages', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:inspector/getRulesPackages:getRulesPackages', __args__, opts=opts)
 
     return GetRulesPackagesResult(
         arns=__ret__.get('arns'),

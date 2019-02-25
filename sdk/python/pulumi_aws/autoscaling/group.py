@@ -279,7 +279,6 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[list] target_group_arns: A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
         :param pulumi.Input[list] termination_policies: A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `Default`.
         :param pulumi.Input[list] vpc_zone_identifiers: A list of subnet IDs to launch resources in.
-        :param pulumi.Input[str] wait_for_capacity_timeout
         :param pulumi.Input[int] wait_for_elb_capacity: Setting this will cause Terraform to wait
                for exactly this number of healthy instances in all attached load balancers
                on both create and update operations. (Takes precedence over

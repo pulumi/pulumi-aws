@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetGroupResult(object):
+class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
@@ -38,7 +38,7 @@ class GetGroupResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_group(group_name=None):
+async def get_group(group_name=None,opts=None):
     """
     This data source can be used to fetch information about a specific
     IAM group. By using this data source, you can reference IAM group
@@ -47,7 +47,7 @@ async def get_group(group_name=None):
     __args__ = dict()
 
     __args__['groupName'] = group_name
-    __ret__ = await pulumi.runtime.invoke('aws:iam/getGroup:getGroup', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:iam/getGroup:getGroup', __args__, opts=opts)
 
     return GetGroupResult(
         arn=__ret__.get('arn'),

@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetVpcResult(object):
+class GetVpcResult:
     """
     A collection of values returned by getVpc.
     """
@@ -90,7 +90,7 @@ class GetVpcResult(object):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
 
-async def get_vpc(cidr_block=None, default=None, dhcp_options_id=None, filters=None, id=None, state=None, tags=None):
+async def get_vpc(cidr_block=None,default=None,dhcp_options_id=None,filters=None,id=None,state=None,tags=None,opts=None):
     """
     `aws_vpc` provides details about a specific VPC.
     
@@ -107,7 +107,7 @@ async def get_vpc(cidr_block=None, default=None, dhcp_options_id=None, filters=N
     __args__['id'] = id
     __args__['state'] = state
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpc:getVpc', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpc:getVpc', __args__, opts=opts)
 
     return GetVpcResult(
         arn=__ret__.get('arn'),

@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetDocumentResult(object):
+class GetDocumentResult:
     """
     A collection of values returned by getDocument.
     """
@@ -38,7 +38,7 @@ class GetDocumentResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_document(document_format=None, document_version=None, name=None):
+async def get_document(document_format=None,document_version=None,name=None,opts=None):
     """
     Gets the contents of the specified Systems Manager document.
     """
@@ -47,7 +47,7 @@ async def get_document(document_format=None, document_version=None, name=None):
     __args__['documentFormat'] = document_format
     __args__['documentVersion'] = document_version
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:ssm/getDocument:getDocument', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ssm/getDocument:getDocument', __args__, opts=opts)
 
     return GetDocumentResult(
         arn=__ret__.get('arn'),

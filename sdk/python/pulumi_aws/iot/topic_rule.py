@@ -50,22 +50,11 @@ class TopicRule(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] cloudwatch_alarm
-        :param pulumi.Input[dict] cloudwatch_metric
         :param pulumi.Input[str] description: The description of the rule.
-        :param pulumi.Input[dict] dynamodb
-        :param pulumi.Input[dict] elasticsearch
         :param pulumi.Input[bool] enabled: Specifies whether the rule is enabled.
-        :param pulumi.Input[dict] firehose
-        :param pulumi.Input[dict] kinesis
-        :param pulumi.Input[dict] lambda_
         :param pulumi.Input[str] name: The name of the rule.
-        :param pulumi.Input[dict] republish
-        :param pulumi.Input[dict] s3
-        :param pulumi.Input[dict] sns
         :param pulumi.Input[str] sql: The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
         :param pulumi.Input[str] sql_version: The version of the SQL rules engine to use when evaluating the rule.
-        :param pulumi.Input[dict] sqs
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

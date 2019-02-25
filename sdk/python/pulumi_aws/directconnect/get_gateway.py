@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetGatewayResult(object):
+class GetGatewayResult:
     """
     A collection of values returned by getGateway.
     """
@@ -26,14 +26,14 @@ class GetGatewayResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_gateway(name=None):
+async def get_gateway(name=None,opts=None):
     """
     Retrieve information about a Direct Connect Gateway.
     """
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:directconnect/getGateway:getGateway', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:directconnect/getGateway:getGateway', __args__, opts=opts)
 
     return GetGatewayResult(
         amazon_side_asn=__ret__.get('amazonSideAsn'),

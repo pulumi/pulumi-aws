@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetSecurityGroupResult(object):
+class GetSecurityGroupResult:
     """
     A collection of values returned by getSecurityGroup.
     """
@@ -38,7 +38,7 @@ class GetSecurityGroupResult(object):
             raise TypeError('Expected argument vpc_id to be a str')
         __self__.vpc_id = vpc_id
 
-async def get_security_group(filters=None, id=None, name=None, tags=None, vpc_id=None):
+async def get_security_group(filters=None,id=None,name=None,tags=None,vpc_id=None,opts=None):
     """
     `aws_security_group` provides details about a specific Security Group.
     
@@ -53,7 +53,7 @@ async def get_security_group(filters=None, id=None, name=None, tags=None, vpc_id
     __args__['name'] = name
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getSecurityGroup:getSecurityGroup', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getSecurityGroup:getSecurityGroup', __args__, opts=opts)
 
     return GetSecurityGroupResult(
         arn=__ret__.get('arn'),

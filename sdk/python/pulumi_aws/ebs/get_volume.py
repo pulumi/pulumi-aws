@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetVolumeResult(object):
+class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
@@ -80,7 +80,7 @@ class GetVolumeResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_volume(filters=None, most_recent=None, tags=None):
+async def get_volume(filters=None,most_recent=None,tags=None,opts=None):
     """
     Use this data source to get information about an EBS volume for use in other
     resources.
@@ -90,7 +90,7 @@ async def get_volume(filters=None, most_recent=None, tags=None):
     __args__['filters'] = filters
     __args__['mostRecent'] = most_recent
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:ebs/getVolume:getVolume', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ebs/getVolume:getVolume', __args__, opts=opts)
 
     return GetVolumeResult(
         arn=__ret__.get('arn'),

@@ -41,7 +41,7 @@ func LookupListener(ctx *pulumi.Context, args *GetListenerArgs) (*GetListenerRes
 type GetListenerArgs struct {
 	// The arn of the listener. Required if `load_balancer_arn` and `port` is not set.
 	Arn interface{}
-	// The arn of the load balander. Required if `arn` is not set.
+	// The arn of the load balancer. Required if `arn` is not set.
 	LoadBalancerArn interface{}
 	// The port of the listener. Required if `arn` is not set.
 	Port interface{}

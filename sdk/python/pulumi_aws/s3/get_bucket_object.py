@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetBucketObjectResult(object):
+class GetBucketObjectResult:
     """
     A collection of values returned by getBucketObject.
     """
@@ -128,7 +128,7 @@ class GetBucketObjectResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_bucket_object(bucket=None, key=None, range=None, tags=None, version_id=None):
+async def get_bucket_object(bucket=None,key=None,range=None,tags=None,version_id=None,opts=None):
     """
     The S3 object data source allows access to the metadata and
     _optionally_ (see below) content of an object stored inside S3 bucket.
@@ -142,7 +142,7 @@ async def get_bucket_object(bucket=None, key=None, range=None, tags=None, versio
     __args__['range'] = range
     __args__['tags'] = tags
     __args__['versionId'] = version_id
-    __ret__ = await pulumi.runtime.invoke('aws:s3/getBucketObject:getBucketObject', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:s3/getBucketObject:getBucketObject', __args__, opts=opts)
 
     return GetBucketObjectResult(
         body=__ret__.get('body'),

@@ -76,7 +76,7 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly explicitAuthFlows: pulumi.Output<string[] | undefined>;
     /**
-     * Should an application secret be generated. AWS JavaScript SDK requires this to be false.
+     * Should an application secret be generated.
      */
     public readonly generateSecret: pulumi.Output<boolean | undefined>;
     /**
@@ -193,7 +193,7 @@ export interface UserPoolClientState {
      */
     readonly explicitAuthFlows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Should an application secret be generated. AWS JavaScript SDK requires this to be false.
+     * Should an application secret be generated.
      */
     readonly generateSecret?: pulumi.Input<boolean>;
     /**
@@ -255,7 +255,7 @@ export interface UserPoolClientArgs {
      */
     readonly explicitAuthFlows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Should an application secret be generated. AWS JavaScript SDK requires this to be false.
+     * Should an application secret be generated.
      */
     readonly generateSecret?: pulumi.Input<boolean>;
     /**

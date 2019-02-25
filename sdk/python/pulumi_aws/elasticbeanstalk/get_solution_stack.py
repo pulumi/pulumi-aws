@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetSolutionStackResult(object):
+class GetSolutionStackResult:
     """
     A collection of values returned by getSolutionStack.
     """
@@ -26,7 +26,7 @@ class GetSolutionStackResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_solution_stack(most_recent=None, name_regex=None):
+async def get_solution_stack(most_recent=None,name_regex=None,opts=None):
     """
     Use this data source to get the name of a elastic beanstalk solution stack.
     """
@@ -34,7 +34,7 @@ async def get_solution_stack(most_recent=None, name_regex=None):
 
     __args__['mostRecent'] = most_recent
     __args__['nameRegex'] = name_regex
-    __ret__ = await pulumi.runtime.invoke('aws:elasticbeanstalk/getSolutionStack:getSolutionStack', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:elasticbeanstalk/getSolutionStack:getSolutionStack', __args__, opts=opts)
 
     return GetSolutionStackResult(
         name=__ret__.get('name'),

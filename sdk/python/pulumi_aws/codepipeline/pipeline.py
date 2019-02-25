@@ -39,7 +39,6 @@ class Pipeline(pulumi.CustomResource):
                * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-        :param pulumi.Input[list] stages
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetMountTargetResult(object):
+class GetMountTargetResult:
     """
     A collection of values returned by getMountTarget.
     """
@@ -62,14 +62,14 @@ class GetMountTargetResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_mount_target(mount_target_id=None):
+async def get_mount_target(mount_target_id=None,opts=None):
     """
     Provides information about an Elastic File System Mount Target (EFS).
     """
     __args__ = dict()
 
     __args__['mountTargetId'] = mount_target_id
-    __ret__ = await pulumi.runtime.invoke('aws:efs/getMountTarget:getMountTarget', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:efs/getMountTarget:getMountTarget', __args__, opts=opts)
 
     return GetMountTargetResult(
         dns_name=__ret__.get('dnsName'),

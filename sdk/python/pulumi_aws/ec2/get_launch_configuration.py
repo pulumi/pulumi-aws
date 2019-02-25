@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetLaunchConfigurationResult(object):
+class GetLaunchConfigurationResult:
     """
     A collection of values returned by getLaunchConfiguration.
     """
@@ -116,14 +116,14 @@ class GetLaunchConfigurationResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_launch_configuration(name=None):
+async def get_launch_configuration(name=None,opts=None):
     """
     Provides information about a Launch Configuration.
     """
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getLaunchConfiguration:getLaunchConfiguration', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getLaunchConfiguration:getLaunchConfiguration', __args__, opts=opts)
 
     return GetLaunchConfigurationResult(
         associate_public_ip_address=__ret__.get('associatePublicIpAddress'),

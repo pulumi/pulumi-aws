@@ -51,7 +51,6 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] attachments: Block to define the attachment of the ENI. Documented below.
         :param pulumi.Input[str] description: A description for the network interface.
-        :param pulumi.Input[str] private_ip
         :param pulumi.Input[list] private_ips: List of private IPs to assign to the ENI.
         :param pulumi.Input[int] private_ips_count: Number of private IPs to assign to the ENI.
         :param pulumi.Input[list] security_groups: List of security group IDs to assign to the ENI.

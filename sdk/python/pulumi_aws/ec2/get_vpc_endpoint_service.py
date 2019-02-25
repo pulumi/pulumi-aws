@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetVpcEndpointServiceResult(object):
+class GetVpcEndpointServiceResult:
     """
     A collection of values returned by getVpcEndpointService.
     """
@@ -65,7 +65,7 @@ class GetVpcEndpointServiceResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_vpc_endpoint_service(service=None, service_name=None):
+async def get_vpc_endpoint_service(service=None,service_name=None,opts=None):
     """
     The VPC Endpoint Service data source details about a specific service that
     can be specified when creating a VPC endpoint within the region configured in the provider.
@@ -74,7 +74,7 @@ async def get_vpc_endpoint_service(service=None, service_name=None):
 
     __args__['service'] = service
     __args__['serviceName'] = service_name
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpcEndpointService:getVpcEndpointService', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpcEndpointService:getVpcEndpointService', __args__, opts=opts)
 
     return GetVpcEndpointServiceResult(
         acceptance_required=__ret__.get('acceptanceRequired'),
