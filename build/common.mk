@@ -236,6 +236,8 @@ $(SUB_PROJECTS:%=%_only_build):
 	@$(MAKE) -C ./$(@:%_only_build=%) only_build
 $(SUB_PROJECTS:%=%_only_test):
 	@$(MAKE) -C ./$(@:%_only_test=%) only_test
+$(SUB_PROJECTS:%=%_only_test_fast):
+	@$(MAKE) -C ./$(@:%_only_test_fast=%) only_test_fast
 endif
 
 # As a convinece, we provide a format target that folks can build to
