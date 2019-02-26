@@ -212,6 +212,7 @@ endif
 
 only_build:: build install
 only_test:: lint test_all
+only_test_fast:: lint test_fast
 
 # Generate targets for each sub project. This project's default and
 # all targets will depend on the sub project's targets, and the
