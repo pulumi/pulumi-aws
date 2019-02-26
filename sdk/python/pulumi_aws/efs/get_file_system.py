@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetFileSystemResult(object):
+class GetFileSystemResult:
     """
     A collection of values returned by getFileSystem.
     """
@@ -62,7 +62,7 @@ class GetFileSystemResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_file_system(creation_token=None, file_system_id=None, tags=None):
+async def get_file_system(creation_token=None,file_system_id=None,tags=None,opts=None):
     """
     Provides information about an Elastic File System (EFS).
     """
@@ -71,7 +71,7 @@ async def get_file_system(creation_token=None, file_system_id=None, tags=None):
     __args__['creationToken'] = creation_token
     __args__['fileSystemId'] = file_system_id
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:efs/getFileSystem:getFileSystem', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:efs/getFileSystem:getFileSystem', __args__, opts=opts)
 
     return GetFileSystemResult(
         arn=__ret__.get('arn'),

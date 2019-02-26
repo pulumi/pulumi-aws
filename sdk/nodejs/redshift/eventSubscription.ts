@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         "security",
  *     ],
  *     severity: "INFO",
- *     snsTopic: defaultTopic.arn,
+ *     snsTopicArn: defaultTopic.arn,
  *     sourceIds: [defaultCluster.id],
  *     sourceType: "cluster",
  *     tags: {

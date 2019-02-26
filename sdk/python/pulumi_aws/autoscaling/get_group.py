@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetGroupResult(object):
+class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
@@ -116,14 +116,14 @@ class GetGroupResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_group(name=None):
+async def get_group(name=None,opts=None):
     """
     Use this data source to get information on an existing autoscaling group.
     """
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:autoscaling/getGroup:getGroup', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:autoscaling/getGroup:getGroup', __args__, opts=opts)
 
     return GetGroupResult(
         arn=__ret__.get('arn'),

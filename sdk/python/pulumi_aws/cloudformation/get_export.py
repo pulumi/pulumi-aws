@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetExportResult(object):
+class GetExportResult:
     """
     A collection of values returned by getExport.
     """
@@ -32,7 +32,7 @@ class GetExportResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_export(name=None):
+async def get_export(name=None,opts=None):
     """
     The CloudFormation Export data source allows access to stack
     exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
@@ -42,7 +42,7 @@ async def get_export(name=None):
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:cloudformation/getExport:getExport', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:cloudformation/getExport:getExport', __args__, opts=opts)
 
     return GetExportResult(
         exporting_stack_id=__ret__.get('exportingStackId'),

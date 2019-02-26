@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetTopicResult(object):
+class GetTopicResult:
     """
     A collection of values returned by getTopic.
     """
@@ -26,7 +26,7 @@ class GetTopicResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_topic(name=None):
+async def get_topic(name=None,opts=None):
     """
     Use this data source to get the ARN of a topic in AWS Simple Notification
     Service (SNS). By using this data source, you can reference SNS topics
@@ -35,7 +35,7 @@ async def get_topic(name=None):
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:sns/getTopic:getTopic', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:sns/getTopic:getTopic', __args__, opts=opts)
 
     return GetTopicResult(
         arn=__ret__.get('arn'),

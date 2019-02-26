@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetBundleResult(object):
+class GetBundleResult:
     """
     A collection of values returned by getBundle.
     """
@@ -56,14 +56,14 @@ class GetBundleResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_bundle(bundle_id=None):
+async def get_bundle(bundle_id=None,opts=None):
     """
     Use this data source to get information about a Workspaces Bundle.
     """
     __args__ = dict()
 
     __args__['bundleId'] = bundle_id
-    __ret__ = await pulumi.runtime.invoke('aws:workspaces/getBundle:getBundle', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:workspaces/getBundle:getBundle', __args__, opts=opts)
 
     return GetBundleResult(
         compute_types=__ret__.get('computeTypes'),

@@ -71,7 +71,7 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:b4dd9ed9eabe3c73796010798cab7632f73ee46695f1bdb71a07a8dce71a1ac3"
+  digest = "1:b01aa0bd979140874af971f73c87339f5624e60eaf0163f3824e77736ee827a1"
   name = "github.com/aws/aws-sdk-go"
   packages = [
     "aws",
@@ -213,6 +213,7 @@
     "service/servicediscovery",
     "service/ses",
     "service/sfn",
+    "service/shield",
     "service/simpledb",
     "service/sns",
     "service/sqs",
@@ -227,8 +228,8 @@
     "service/workspaces",
   ]
   pruneopts = ""
-  revision = "503020bbd95ec9f25b061a83aa62567bc43e6d96"
-  version = "v1.16.32"
+  revision = "33f1087245887dc9a8090de089808120b299bbec"
+  version = "v1.17.0"
 
 [[projects]]
   digest = "1:b5f28f7eda54d2695765c778c951a2ace52c06afb7da1f7e0c7485baa5b02100"
@@ -331,12 +332,12 @@
   revision = "16278e9db8130ac7ec405dc174cfb94344f16325"
 
 [[projects]]
-  digest = "1:ac02823572830fb544c7a94152465ca7833aaf1f186aeb4445ce9d34aacfcc4a"
+  digest = "1:a4724325f1d3bd4127dac415e980c7c28f2e08f4d0ba2513e7de9980906604ef"
   name = "github.com/gofrs/flock"
   packages = ["."]
   pruneopts = ""
-  revision = "7f43ea2e6a643ad441fc12d0ecc0d3388b300c53"
-  version = "v0.7.0"
+  revision = "392e7fae8f1b0bdbd67dad7237d23f618feb6dbb"
+  version = "v0.7.1"
 
 [[projects]]
   digest = "1:527e1e468c5586ef2645d143e9f5fbd50b4fe5abc8b1e25d9f1c416d22d24895"
@@ -637,12 +638,12 @@
   revision = "82544ec86140b7027a07890b09c2f03fca97228a"
 
 [[projects]]
-  digest = "1:0f79867e9aac8a4e20bc1b0956d81f340da9ade9bcc00a4bfb1ebd738c152f7a"
+  digest = "1:85fdd2ce48a3fd1ddc4671b972f50a47dcf2eebb24813e90b28a8a1fcf65ee5a"
   name = "github.com/mattn/go-colorable"
   packages = ["."]
   pruneopts = ""
-  revision = "efa589957cd060542a26d2dd7832fd6a6c6c3ade"
-  version = "v0.1.0"
+  revision = "3a70a971f94a22f2fa562ffcc7a0eb45f5daf045"
+  version = "v0.1.1"
 
 [[projects]]
   digest = "1:3140e04675a6a91d2a20ea9d10bdadf6072085502e6def6768361260aee4b967"
@@ -780,7 +781,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:75a43f0388c170e50a70f97e08023e3d2d0d36cff0a943428685cf6ba497d71e"
+  digest = "1:a5c1db8e6afc5cde270f521b18880ead4b9320643fa39dddff189f57de481653"
   name = "github.com/pulumi/pulumi"
   packages = [
     "pkg/apitype",
@@ -827,18 +828,18 @@
     "sdk/proto/go",
   ]
   pruneopts = ""
-  revision = "b6a9814e673c589968dd0a264f31aef9fc24cd6b"
+  revision = "dfdcba2ea719fd1400bf1d43669f49f788df46fa"
 
 [[projects]]
   branch = "master"
-  digest = "1:b4514ceee7c3249a5a6bd7c7b17058c33c055a451c15128b84325e5fc3df4349"
+  digest = "1:a058a558a8e844483a8b7a29d95c2c7227210c04753e9f7771f65f63ca7d03a2"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen",
   ]
   pruneopts = ""
-  revision = "13fc8ad0d1dcc1d73aa294c71a447de579fb4a63"
+  revision = "caafea5a213d2c9e7e73418a73ceb03c81b3059e"
 
 [[projects]]
   branch = "master"
@@ -911,11 +912,11 @@
 
 [[projects]]
   branch = "pulumi-master"
-  digest = "1:bbb7d27a4bb412729e8b4972b6275b1e14e3d0ffe4e0725757c614cd1282a1c4"
+  digest = "1:a37930798441fd7d1705edda431e2e49a31a4c274650855422658fb1b745a9b3"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
   pruneopts = ""
-  revision = "dc5e212432f161bc8d6390b5d05c9ac28288e1ca"
+  revision = "949a57056e1b8e56b1baa2e465f363a44d1aa788"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -969,12 +970,12 @@
   version = "v0.5.4"
 
 [[projects]]
-  digest = "1:afc0b8068986a01e2d8f449917829753a54f6bd4d1265c2b4ad9cba75560020f"
+  digest = "1:172f94a6b3644a8f9e6b5e5b7fc9fe1e42d424f52a0300b2e7ab1e57db73f85d"
   name = "github.com/xanzy/ssh-agent"
   packages = ["."]
   pruneopts = ""
-  revision = "640f0ab560aeb89d523bb6ac322b1244d5c3796c"
-  version = "v0.2.0"
+  revision = "6a3e2ff9e7c564f36873c2e36413f634534f1c44"
+  version = "v0.2.1"
 
 [[projects]]
   digest = "1:7a191bb780a26bed90cc17063a3f1028803e8538448ee1ba10388f2f54089df4"

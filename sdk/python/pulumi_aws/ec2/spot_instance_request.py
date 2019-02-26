@@ -284,7 +284,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
                instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input[str] instance_interruption_behaviour: Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
         :param pulumi.Input[str] instance_type: The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-        :param pulumi.Input[int] ipv6_address_count
         :param pulumi.Input[list] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         :param pulumi.Input[str] key_name: The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
         :param pulumi.Input[str] launch_group: A launch group is a group of spot instances that launch together and terminate together.

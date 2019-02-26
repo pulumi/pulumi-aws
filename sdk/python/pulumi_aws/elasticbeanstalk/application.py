@@ -29,7 +29,6 @@ class Application(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] appversion_lifecycle
         :param pulumi.Input[str] description: Short description of the application
         :param pulumi.Input[str] name: The name of the application, must be unique within your account
         """

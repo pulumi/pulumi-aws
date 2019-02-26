@@ -39,7 +39,7 @@ class UserPoolClient(pulumi.CustomResource):
     """
     generate_secret: pulumi.Output[bool]
     """
-    Should an application secret be generated. AWS JavaScript SDK requires this to be false.
+    Should an application secret be generated.
     """
     logout_urls: pulumi.Output[list]
     """
@@ -81,7 +81,7 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[list] callback_urls: List of allowed callback URLs for the identity providers.
         :param pulumi.Input[str] default_redirect_uri: The default redirect URI. Must be in the list of callback URLs.
         :param pulumi.Input[list] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH).
-        :param pulumi.Input[bool] generate_secret: Should an application secret be generated. AWS JavaScript SDK requires this to be false.
+        :param pulumi.Input[bool] generate_secret: Should an application secret be generated.
         :param pulumi.Input[list] logout_urls: List of allowed logout URLs for the identity providers.
         :param pulumi.Input[str] name: The name of the application client.
         :param pulumi.Input[list] read_attributes: List of user pool attributes the application client can read from.

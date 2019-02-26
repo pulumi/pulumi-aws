@@ -109,7 +109,6 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_gateway_configuration: The configuration information for the VPN connection's customer gateway (in the native XML format).
         :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway.
-        :param pulumi.Input[list] routes
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
         :param pulumi.Input[dict] tags: Tags to apply to the connection.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
@@ -118,7 +117,6 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] tunnel2_inside_cidr: The CIDR block of the second IP addresses for the first VPN tunnel.
         :param pulumi.Input[str] tunnel2_preshared_key: The preshared key of the second VPN tunnel.
         :param pulumi.Input[str] type: The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
-        :param pulumi.Input[list] vgw_telemetries
         :param pulumi.Input[str] vpn_gateway_id: The ID of the Virtual Private Gateway.
         """
         if __name__ is not None:

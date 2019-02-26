@@ -62,8 +62,6 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the Stream
         :param pulumi.Input[str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
-        :param pulumi.Input[str] destination_id
-        :param pulumi.Input[dict] elasticsearch_configuration
         :param pulumi.Input[dict] extended_s3_configuration: Enhanced configuration options for the s3 destination. More details are given below.
         :param pulumi.Input[dict] kinesis_source_configuration: Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
         :param pulumi.Input[str] name: A name to identify the stream. This is unique to the
@@ -73,7 +71,6 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                `s3_configuration` block. More details are given below.
         :param pulumi.Input[dict] s3_configuration: Configuration options for the s3 destination (or the intermediate bucket if the destination
                is redshift). More details are given below.
-        :param pulumi.Input[dict] splunk_configuration
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.
         """

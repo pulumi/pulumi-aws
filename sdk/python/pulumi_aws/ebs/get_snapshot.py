@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetSnapshotResult(object):
+class GetSnapshotResult:
     """
     A collection of values returned by getSnapshot.
     """
@@ -86,7 +86,7 @@ class GetSnapshotResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_snapshot(filters=None, most_recent=None, owners=None, restorable_by_user_ids=None, snapshot_ids=None, tags=None):
+async def get_snapshot(filters=None,most_recent=None,owners=None,restorable_by_user_ids=None,snapshot_ids=None,tags=None,opts=None):
     """
     Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
     """
@@ -98,7 +98,7 @@ async def get_snapshot(filters=None, most_recent=None, owners=None, restorable_b
     __args__['restorableByUserIds'] = restorable_by_user_ids
     __args__['snapshotIds'] = snapshot_ids
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:ebs/getSnapshot:getSnapshot', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ebs/getSnapshot:getSnapshot', __args__, opts=opts)
 
     return GetSnapshotResult(
         data_encryption_key_id=__ret__.get('dataEncryptionKeyId'),

@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetClusterAuthResult(object):
+class GetClusterAuthResult:
     """
     A collection of values returned by getClusterAuth.
     """
@@ -26,7 +26,7 @@ class GetClusterAuthResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_cluster_auth(name=None):
+async def get_cluster_auth(name=None,opts=None):
     """
     Get an authentication token to communicate with an EKS cluster.
     
@@ -38,7 +38,7 @@ async def get_cluster_auth(name=None):
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:eks/getClusterAuth:getClusterAuth', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:eks/getClusterAuth:getClusterAuth', __args__, opts=opts)
 
     return GetClusterAuthResult(
         token=__ret__.get('token'),

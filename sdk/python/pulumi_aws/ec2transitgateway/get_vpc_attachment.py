@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetVpcAttachmentResult(object):
+class GetVpcAttachmentResult:
     """
     A collection of values returned by getVpcAttachment.
     """
@@ -56,7 +56,7 @@ class GetVpcAttachmentResult(object):
         Identifier of the AWS account that owns the EC2 VPC.
         """
 
-async def get_vpc_attachment(filters=None, id=None, tags=None):
+async def get_vpc_attachment(filters=None,id=None,tags=None,opts=None):
     """
     Get information on an EC2 Transit Gateway VPC Attachment.
     """
@@ -65,7 +65,7 @@ async def get_vpc_attachment(filters=None, id=None, tags=None):
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:ec2transitgateway/getVpcAttachment:getVpcAttachment', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2transitgateway/getVpcAttachment:getVpcAttachment', __args__, opts=opts)
 
     return GetVpcAttachmentResult(
         dns_support=__ret__.get('dnsSupport'),

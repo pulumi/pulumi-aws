@@ -19,25 +19,6 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
  * 
- * ## Example Usage
- * 
- * Basic usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const allowAll = new aws.ec2.SecurityGroupRule("allow_all", {
- *     cidrBlocks: ["0.0.0.0/0"],
- *     fromPort: 0,
- *     prefixListIds: ["pl-12c4e678"],
- *     protocol: "tcp",
- *     securityGroupId: "sg-123456",
- *     toPort: 65535,
- *     type: "ingress",
- * });
- * ```
- * 
  * ## Usage with prefix list IDs
  * 
  * Prefix list IDs are manged by AWS internally. Prefix list IDs

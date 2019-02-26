@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetReportDefinitionResult(object):
+class GetReportDefinitionResult:
     """
     A collection of values returned by getReportDefinition.
     """
@@ -68,7 +68,7 @@ class GetReportDefinitionResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_report_definition(report_name=None):
+async def get_report_definition(report_name=None,opts=None):
     """
     Use this data source to get information on an AWS Cost and Usage Report Definition.
     
@@ -79,7 +79,7 @@ async def get_report_definition(report_name=None):
     __args__ = dict()
 
     __args__['reportName'] = report_name
-    __ret__ = await pulumi.runtime.invoke('aws:cur/getReportDefinition:getReportDefinition', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:cur/getReportDefinition:getReportDefinition', __args__, opts=opts)
 
     return GetReportDefinitionResult(
         additional_artifacts=__ret__.get('additionalArtifacts'),

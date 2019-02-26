@@ -16,53 +16,6 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
  * 
- * ## Example Usage
- * 
- * Basic usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const allowAll = new aws.ec2.SecurityGroup("allow_all", {
- *     description: "Allow all inbound traffic",
- *     egress: [{
- *         cidrBlocks: ["0.0.0.0/0"],
- *         fromPort: 0,
- *         prefixListIds: ["pl-12c4e678"],
- *         protocol: "-1",
- *         toPort: 0,
- *     }],
- *     ingress: [{
- *         cidrBlocks: ["0.0.0.0/0"],
- *         fromPort: 0,
- *         protocol: "-1",
- *         toPort: 0,
- *     }],
- *     vpcId: aws_vpc_main.id,
- * });
- * ```
- * 
- * Basic usage with tags:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const allowAll = new aws.ec2.SecurityGroup("allow_all", {
- *     description: "Allow all inbound traffic",
- *     ingress: [{
- *         cidrBlocks: ["0.0.0.0/0"],
- *         fromPort: 0,
- *         protocol: "tcp",
- *         toPort: 65535,
- *     }],
- *     tags: {
- *         Name: "allow_all",
- *     },
- * });
- * ```
- * 
  * ## Usage with prefix list IDs
  * 
  * Prefix list IDs are managed by AWS internally. Prefix list IDs

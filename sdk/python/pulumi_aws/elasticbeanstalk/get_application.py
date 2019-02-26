@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetApplicationResult(object):
+class GetApplicationResult:
     """
     A collection of values returned by getApplication.
     """
@@ -35,14 +35,14 @@ class GetApplicationResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_application(name=None):
+async def get_application(name=None,opts=None):
     """
     Retrieve information about an Elastic Beanstalk Application.
     """
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:elasticbeanstalk/getApplication:getApplication', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:elasticbeanstalk/getApplication:getApplication', __args__, opts=opts)
 
     return GetApplicationResult(
         appversion_lifecycle=__ret__.get('appversionLifecycle'),

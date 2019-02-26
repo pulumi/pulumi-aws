@@ -150,7 +150,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
         :param pulumi.Input[list] cluster_members: List of DocDB Instances that are a part of this cluster
-        :param pulumi.Input[str] db_cluster_parameter_group_name
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance.* `db_cluster_parameter_group_name` - (Optional) A cluster parameter group to associate with the cluster.
         :param pulumi.Input[list] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported.
                The following log types are supported: `audit`.
@@ -166,7 +165,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[int] port: The port on which the DB accepts connections
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
                Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
-        :param pulumi.Input[str] preferred_maintenance_window
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.

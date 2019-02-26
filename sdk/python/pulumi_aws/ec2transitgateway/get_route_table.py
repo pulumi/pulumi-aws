@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetRouteTableResult(object):
+class GetRouteTableResult:
     """
     A collection of values returned by getRouteTable.
     """
@@ -38,7 +38,7 @@ class GetRouteTableResult(object):
         EC2 Transit Gateway identifier
         """
 
-async def get_route_table(filters=None, id=None, tags=None):
+async def get_route_table(filters=None,id=None,tags=None,opts=None):
     """
     Get information on an EC2 Transit Gateway Route Table.
     """
@@ -47,7 +47,7 @@ async def get_route_table(filters=None, id=None, tags=None):
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:ec2transitgateway/getRouteTable:getRouteTable', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2transitgateway/getRouteTable:getRouteTable', __args__, opts=opts)
 
     return GetRouteTableResult(
         default_association_route_table=__ret__.get('defaultAssociationRouteTable'),

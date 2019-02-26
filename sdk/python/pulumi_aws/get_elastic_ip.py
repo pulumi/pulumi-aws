@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from . import utilities, tables
 
-class GetElasticIpResult(object):
+class GetElasticIpResult:
     """
     A collection of values returned by getElasticIp.
     """
@@ -74,7 +74,7 @@ class GetElasticIpResult(object):
         Key-value map of tags associated with Elastic IP.
         """
 
-async def get_elastic_ip(filters=None, id=None, public_ip=None, tags=None):
+async def get_elastic_ip(filters=None,id=None,public_ip=None,tags=None,opts=None):
     """
     `aws_eip` provides details about a specific Elastic IP.
     """
@@ -84,7 +84,7 @@ async def get_elastic_ip(filters=None, id=None, public_ip=None, tags=None):
     __args__['id'] = id
     __args__['publicIp'] = public_ip
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:index/getElasticIp:getElasticIp', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:index/getElasticIp:getElasticIp', __args__, opts=opts)
 
     return GetElasticIpResult(
         association_id=__ret__.get('associationId'),

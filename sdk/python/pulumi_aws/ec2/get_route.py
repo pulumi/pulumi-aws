@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetRouteResult(object):
+class GetRouteResult:
     """
     A collection of values returned by getRoute.
     """
@@ -47,7 +47,7 @@ class GetRouteResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_route(destination_cidr_block=None, destination_ipv6_cidr_block=None, egress_only_gateway_id=None, gateway_id=None, instance_id=None, nat_gateway_id=None, network_interface_id=None, route_table_id=None, transit_gateway_id=None, vpc_peering_connection_id=None):
+async def get_route(destination_cidr_block=None,destination_ipv6_cidr_block=None,egress_only_gateway_id=None,gateway_id=None,instance_id=None,nat_gateway_id=None,network_interface_id=None,route_table_id=None,transit_gateway_id=None,vpc_peering_connection_id=None,opts=None):
     """
     `aws_route` provides details about a specific Route.
     
@@ -67,7 +67,7 @@ async def get_route(destination_cidr_block=None, destination_ipv6_cidr_block=Non
     __args__['routeTableId'] = route_table_id
     __args__['transitGatewayId'] = transit_gateway_id
     __args__['vpcPeeringConnectionId'] = vpc_peering_connection_id
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getRoute:getRoute', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getRoute:getRoute', __args__, opts=opts)
 
     return GetRouteResult(
         destination_cidr_block=__ret__.get('destinationCidrBlock'),

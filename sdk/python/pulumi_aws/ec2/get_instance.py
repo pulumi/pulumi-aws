@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetInstanceResult(object):
+class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
@@ -203,7 +203,7 @@ class GetInstanceResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_instance(filters=None, get_password_data=None, instance_id=None, instance_tags=None, tags=None):
+async def get_instance(filters=None,get_password_data=None,instance_id=None,instance_tags=None,tags=None,opts=None):
     """
     Use this data source to get the ID of an Amazon EC2 Instance for use in other
     resources.
@@ -215,7 +215,7 @@ async def get_instance(filters=None, get_password_data=None, instance_id=None, i
     __args__['instanceId'] = instance_id
     __args__['instanceTags'] = instance_tags
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getInstance:getInstance', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getInstance:getInstance', __args__, opts=opts)
 
     return GetInstanceResult(
         ami=__ret__.get('ami'),

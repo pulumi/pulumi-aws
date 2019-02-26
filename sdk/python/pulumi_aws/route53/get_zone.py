@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetZoneResult(object):
+class GetZoneResult:
     """
     A collection of values returned by getZone.
     """
@@ -56,7 +56,7 @@ class GetZoneResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_zone(caller_reference=None, comment=None, name=None, private_zone=None, resource_record_set_count=None, tags=None, vpc_id=None, zone_id=None):
+async def get_zone(caller_reference=None,comment=None,name=None,private_zone=None,resource_record_set_count=None,tags=None,vpc_id=None,zone_id=None,opts=None):
     """
     `aws_route53_zone` provides details about a specific Route 53 Hosted Zone.
     
@@ -72,7 +72,7 @@ async def get_zone(caller_reference=None, comment=None, name=None, private_zone=
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
     __args__['zoneId'] = zone_id
-    __ret__ = await pulumi.runtime.invoke('aws:route53/getZone:getZone', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:route53/getZone:getZone', __args__, opts=opts)
 
     return GetZoneResult(
         caller_reference=__ret__.get('callerReference'),

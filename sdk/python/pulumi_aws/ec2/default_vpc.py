@@ -94,7 +94,6 @@ class DefaultVpc(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_classiclink: A boolean flag to enable/disable ClassicLink
                for the VPC. Only valid in regions and accounts that support EC2 Classic.
                See the [ClassicLink documentation][1] for more information. Defaults false.
-        :param pulumi.Input[bool] enable_classiclink_dns_support
         :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
         :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults true.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.

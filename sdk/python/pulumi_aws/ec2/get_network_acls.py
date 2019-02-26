@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetNetworkAclsResult(object):
+class GetNetworkAclsResult:
     """
     A collection of values returned by getNetworkAcls.
     """
@@ -29,13 +29,13 @@ class GetNetworkAclsResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_network_acls(filters=None, tags=None, vpc_id=None):
+async def get_network_acls(filters=None,tags=None,vpc_id=None,opts=None):
     __args__ = dict()
 
     __args__['filters'] = filters
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getNetworkAcls:getNetworkAcls', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2/getNetworkAcls:getNetworkAcls', __args__, opts=opts)
 
     return GetNetworkAclsResult(
         ids=__ret__.get('ids'),

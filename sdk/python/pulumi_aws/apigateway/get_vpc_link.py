@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetVpcLinkResult(object):
+class GetVpcLinkResult:
     """
     A collection of values returned by getVpcLink.
     """
@@ -20,7 +20,7 @@ class GetVpcLinkResult(object):
         Set to the ID of the found API Gateway VPC Link.
         """
 
-async def get_vpc_link(name=None):
+async def get_vpc_link(name=None,opts=None):
     """
     Use this data source to get the id of a VPC Link in
     API Gateway. To fetch the VPC Link you must provide a name to match against. 
@@ -30,7 +30,7 @@ async def get_vpc_link(name=None):
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:apigateway/getVpcLink:getVpcLink', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:apigateway/getVpcLink:getVpcLink', __args__, opts=opts)
 
     return GetVpcLinkResult(
         id=__ret__.get('id'))

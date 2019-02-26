@@ -281,6 +281,7 @@ func (r *Cluster) FinalSnapshotIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["finalSnapshotIdentifier"])
 }
 
+// The global cluster identifier specified on [`aws_rds_global_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
 func (r *Cluster) GlobalClusterIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["globalClusterIdentifier"])
 }
@@ -290,7 +291,7 @@ func (r *Cluster) HostedZoneId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["hostedZoneId"])
 }
 
-// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation][6] for availability and limitations.
+// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
 func (r *Cluster) IamDatabaseAuthenticationEnabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["iamDatabaseAuthenticationEnabled"])
 }
@@ -429,10 +430,11 @@ type ClusterState struct {
 	// when this DB cluster is deleted. If omitted, no final snapshot will be
 	// made.
 	FinalSnapshotIdentifier interface{}
+	// The global cluster identifier specified on [`aws_rds_global_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
 	GlobalClusterIdentifier interface{}
 	// The Route53 Hosted Zone ID of the endpoint
 	HostedZoneId interface{}
-	// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation][6] for availability and limitations.
+	// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
 	IamDatabaseAuthenticationEnabled interface{}
 	// A List of ARNs for the IAM roles to associate to the RDS Cluster.
 	IamRoles interface{}
@@ -513,8 +515,9 @@ type ClusterArgs struct {
 	// when this DB cluster is deleted. If omitted, no final snapshot will be
 	// made.
 	FinalSnapshotIdentifier interface{}
+	// The global cluster identifier specified on [`aws_rds_global_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
 	GlobalClusterIdentifier interface{}
-	// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation][6] for availability and limitations.
+	// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
 	IamDatabaseAuthenticationEnabled interface{}
 	// A List of ARNs for the IAM roles to associate to the RDS Cluster.
 	IamRoles interface{}

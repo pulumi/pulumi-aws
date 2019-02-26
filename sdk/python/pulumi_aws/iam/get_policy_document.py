@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetPolicyDocumentResult(object):
+class GetPolicyDocumentResult:
     """
     A collection of values returned by getPolicyDocument.
     """
@@ -26,7 +26,7 @@ class GetPolicyDocumentResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_policy_document(override_json=None, policy_id=None, source_json=None, statements=None, version=None):
+async def get_policy_document(override_json=None,policy_id=None,source_json=None,statements=None,version=None,opts=None):
     """
     Generates an IAM policy document in JSON format.
     
@@ -66,7 +66,7 @@ async def get_policy_document(override_json=None, policy_id=None, source_json=No
     __args__['sourceJson'] = source_json
     __args__['statements'] = statements
     __args__['version'] = version
-    __ret__ = await pulumi.runtime.invoke('aws:iam/getPolicyDocument:getPolicyDocument', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:iam/getPolicyDocument:getPolicyDocument', __args__, opts=opts)
 
     return GetPolicyDocumentResult(
         json=__ret__.get('json'),

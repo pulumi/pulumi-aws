@@ -59,8 +59,6 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
                * `source_snapshot_id` The ARN for the snapshot to be copied.
                * `source_region` The region of the source snapshot.
-        :param pulumi.Input[str] source_region
-        :param pulumi.Input[str] source_snapshot_id
         :param pulumi.Input[dict] tags: A mapping of tags for the snapshot.
         """
         if __name__ is not None:

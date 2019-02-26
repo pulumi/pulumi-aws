@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetTransitGatewayResult(object):
+class GetTransitGatewayResult:
     """
     A collection of values returned by getTransitGateway.
     """
@@ -86,7 +86,7 @@ class GetTransitGatewayResult(object):
         Whether VPN Equal Cost Multipath Protocol support is enabled.
         """
 
-async def get_transit_gateway(filters=None, id=None, tags=None):
+async def get_transit_gateway(filters=None,id=None,tags=None,opts=None):
     """
     Get information on an EC2 Transit Gateway.
     """
@@ -95,7 +95,7 @@ async def get_transit_gateway(filters=None, id=None, tags=None):
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:ec2transitgateway/getTransitGateway:getTransitGateway', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:ec2transitgateway/getTransitGateway:getTransitGateway', __args__, opts=opts)
 
     return GetTransitGatewayResult(
         amazon_side_asn=__ret__.get('amazonSideAsn'),

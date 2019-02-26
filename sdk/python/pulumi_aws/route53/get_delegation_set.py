@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetDelegationSetResult(object):
+class GetDelegationSetResult:
     """
     A collection of values returned by getDelegationSet.
     """
@@ -20,7 +20,7 @@ class GetDelegationSetResult(object):
             raise TypeError('Expected argument name_servers to be a list')
         __self__.name_servers = name_servers
 
-async def get_delegation_set(id=None):
+async def get_delegation_set(id=None,opts=None):
     """
     `aws_route53_delegation_set` provides details about a specific Route 53 Delegation Set.
     
@@ -29,7 +29,7 @@ async def get_delegation_set(id=None):
     __args__ = dict()
 
     __args__['id'] = id
-    __ret__ = await pulumi.runtime.invoke('aws:route53/getDelegationSet:getDelegationSet', __args__)
+    __ret__ = await pulumi.runtime.invoke('aws:route53/getDelegationSet:getDelegationSet', __args__, opts=opts)
 
     return GetDelegationSetResult(
         caller_reference=__ret__.get('callerReference'),
