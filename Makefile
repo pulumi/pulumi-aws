@@ -60,10 +60,12 @@ install::
 	cd ${PACKDIR}/python/bin && $(PIP) install --user -e .
 
 test_fast::
-	PATH=$(PULUMI_BIN):$(PATH) go test -short -v -count=1 -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples ./tests/...
+	$(GO_TEST_FAST) ./examples
+	$(GO_TEST_FAST) ./tests/...
 
 test_all::
-	PATH=$(PULUMI_BIN):$(PATH) go test -v -count=1 -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples ./test/...
+	$(GO_TEST) ./examples
+	$(GO_TEST) ./tests/...
 
 .PHONY: publish_tgz
 publish_tgz:
