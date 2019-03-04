@@ -28,9 +28,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const test = pulumi.output(aws.ssm.getDocument({
+ * const test = aws_ssm_document_test.name.apply(name => aws.ssm.getDocument({
  *     documentFormat: "JSON",
- *     name: aws_ssm_document_test.name,
+ *     name: name,
  * }));
  * ```
  */

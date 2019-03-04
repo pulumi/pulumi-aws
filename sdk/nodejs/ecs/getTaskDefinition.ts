@@ -35,8 +35,8 @@ import * as utilities from "../utilities";
  *     family: "mongodb",
  * });
  * // Simply specify the family to find the latest ACTIVE revision in that family.
- * const mongoEcsTaskDefinition = pulumi.output(aws.ecs.getTaskDefinition({
- *     taskDefinition: mongoTaskDefinition.family,
+ * const mongoEcsTaskDefinition = mongoTaskDefinition.family.apply(family => aws.ecs.getTaskDefinition({
+ *     taskDefinition: family,
  * }));
  * const mongoService = new aws.ecs.Service("mongo", {
  *     cluster: foo.id,

@@ -22,10 +22,10 @@ import * as utilities from "../utilities";
  * }));
  * const exampleSubnet: Output<aws.ec2.GETSUBNETResult>[] = [];
  * for (let i = 0; i < exampleSubnetIds.apply(exampleSubnetIds => exampleSubnetIds.ids.length); i++) {
- *     exampleSubnet.push(pulumi.output(aws.ec2.getSubnet({
- *         id: exampleSubnetIds.apply(exampleSubnetIds => exampleSubnetIds.ids[i]),
- *     })));
- * }
+ *     exampleSubnet.push(aws.ec2.getSubnet);
+ * %!(EXTRA string=exampleSubnetIds.apply(exampleSubnetIds => aws.ec2.getSubnet({
+ *         id: exampleSubnetIds.ids[i],
+ *     })))}
  * 
  * export const subnetCidrBlocks = pulumi.all(exampleSubnet).apply(exampleSubnet => exampleSubnet.map(v => v.cidrBlock));
  * ```

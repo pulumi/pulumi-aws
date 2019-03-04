@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = pulumi.output(aws.glue.getScript({
+ * const example = pulumi.all([aws_glue_catalog_database_source.name, aws_glue_catalog_table_source.name, aws_glue_catalog_database_destination.name, aws_glue_catalog_table_destination.name, aws_glue_catalog_database_destination.name, aws_glue_catalog_table_destination.name]).apply(([aws_glue_catalog_database_sourceName, aws_glue_catalog_table_sourceName, aws_glue_catalog_database_destinationName, aws_glue_catalog_table_destinationName, aws_glue_catalog_database_destinationName1, aws_glue_catalog_table_destinationName1]) => aws.glue.getScript({
  *     dagEdges: [
  *         {
  *             source: "datasource0",
@@ -39,11 +39,11 @@ import * as utilities from "../utilities";
  *             args: [
  *                 {
  *                     name: "database",
- *                     value: aws_glue_catalog_database_source.name.apply(name => `"${name}"`),
+ *                     value: `"${aws_glue_catalog_database_sourceName}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: aws_glue_catalog_table_source.name.apply(name => `"${name}"`),
+ *                     value: `"${aws_glue_catalog_table_sourceName}"`,
  *                 },
  *             ],
  *             id: "datasource0",
@@ -73,11 +73,11 @@ import * as utilities from "../utilities";
  *                 },
  *                 {
  *                     name: "database",
- *                     value: aws_glue_catalog_database_destination.name.apply(name => `"${name}"`),
+ *                     value: `"${aws_glue_catalog_database_destinationName}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: aws_glue_catalog_table_destination.name.apply(name => `"${name}"`),
+ *                     value: `"${aws_glue_catalog_table_destinationName}"`,
  *                 },
  *             ],
  *             id: "resolvechoice3",
@@ -87,11 +87,11 @@ import * as utilities from "../utilities";
  *             args: [
  *                 {
  *                     name: "database",
- *                     value: aws_glue_catalog_database_destination.name.apply(name => `"${name}"`),
+ *                     value: `"${aws_glue_catalog_database_destinationName1}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: aws_glue_catalog_table_destination.name.apply(name => `"${name}"`),
+ *                     value: `"${aws_glue_catalog_table_destinationName1}"`,
  *                 },
  *             ],
  *             id: "datasink4",
@@ -110,7 +110,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = pulumi.output(aws.glue.getScript({
+ * const example = pulumi.all([aws_glue_catalog_database_source.name, aws_glue_catalog_table_source.name, aws_glue_catalog_database_destination.name, aws_glue_catalog_table_destination.name, aws_glue_catalog_database_destination.name, aws_glue_catalog_table_destination.name]).apply(([aws_glue_catalog_database_sourceName, aws_glue_catalog_table_sourceName, aws_glue_catalog_database_destinationName, aws_glue_catalog_table_destinationName, aws_glue_catalog_database_destinationName1, aws_glue_catalog_table_destinationName1]) => aws.glue.getScript({
  *     dagEdges: [
  *         {
  *             source: "datasource0",
@@ -134,11 +134,11 @@ import * as utilities from "../utilities";
  *             args: [
  *                 {
  *                     name: "database",
- *                     value: aws_glue_catalog_database_source.name.apply(name => `"${name}"`),
+ *                     value: `"${aws_glue_catalog_database_sourceName}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: aws_glue_catalog_table_source.name.apply(name => `"${name}"`),
+ *                     value: `"${aws_glue_catalog_table_sourceName}"`,
  *                 },
  *             ],
  *             id: "datasource0",
@@ -168,11 +168,11 @@ import * as utilities from "../utilities";
  *                 },
  *                 {
  *                     name: "database",
- *                     value: aws_glue_catalog_database_destination.name.apply(name => `"${name}"`),
+ *                     value: `"${aws_glue_catalog_database_destinationName}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: aws_glue_catalog_table_destination.name.apply(name => `"${name}"`),
+ *                     value: `"${aws_glue_catalog_table_destinationName}"`,
  *                 },
  *             ],
  *             id: "resolvechoice3",
@@ -182,11 +182,11 @@ import * as utilities from "../utilities";
  *             args: [
  *                 {
  *                     name: "database",
- *                     value: aws_glue_catalog_database_destination.name.apply(name => `"${name}"`),
+ *                     value: `"${aws_glue_catalog_database_destinationName1}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: aws_glue_catalog_table_destination.name.apply(name => `"${name}"`),
+ *                     value: `"${aws_glue_catalog_table_destinationName1}"`,
  *                 },
  *             ],
  *             id: "datasink4",

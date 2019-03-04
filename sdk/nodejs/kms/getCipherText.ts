@@ -21,8 +21,8 @@ import * as utilities from "../utilities";
  *     description: "oauth config",
  *     isEnabled: true,
  * });
- * const oauth = pulumi.output(aws.kms.getCipherText({
- *     keyId: oauthConfig.keyId,
+ * const oauth = oauthConfig.keyId.apply(keyId => aws.kms.getCipherText({
+ *     keyId: keyId,
  *     plaintext: `{
  *   "client_id": "e587dbae22222f55da22",
  *   "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"

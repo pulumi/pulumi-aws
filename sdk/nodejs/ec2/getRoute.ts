@@ -23,12 +23,12 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const subnetId = config.require("subnetId");
  * 
- * const route = pulumi.output(aws.ec2.getRoute({
+ * const route = aws_route_table_selected.id.apply(id => aws.ec2.getRoute({
  *     destinationCidrBlock: "10.0.1.0/24",
- *     routeTableId: aws_route_table_selected.id,
+ *     routeTableId: id,
  * }));
- * const interfaceNetworkInterface = pulumi.output(aws.ec2.getNetworkInterface({
- *     networkInterfaceId: route.apply(route => route.networkInterfaceId),
+ * const interfaceNetworkInterface = route.apply(route => aws.ec2.getNetworkInterface({
+ *     networkInterfaceId: route.networkInterfaceId,
  * }));
  * const selected = pulumi.output(aws.ec2.getRouteTable({
  *     subnetId: subnetId,

@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     rule: console.name,
  *     targetId: "SendToSNS",
  * });
- * const snsTopicPolicy = pulumi.output(aws.iam.getPolicyDocument({
+ * const snsTopicPolicy = awsLogins.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["SNS:Publish"],
  *         effect: "Allow",
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *             identifiers: ["events.amazonaws.com"],
  *             type: "Service",
  *         }],
- *         resources: [awsLogins.arn],
+ *         resources: [arn],
  *     }],
  * }));
  * const defaultTopicPolicy = new aws.sns.TopicPolicy("default", {

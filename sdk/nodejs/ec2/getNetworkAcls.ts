@@ -42,10 +42,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = pulumi.output(aws.ec2.getNetworkAcls({
+ * const example = aws_subnet_test.id.apply(id => aws.ec2.getNetworkAcls({
  *     filters: [{
  *         name: "association.subnet-id",
- *         values: [aws_subnet_test.id],
+ *         values: [id],
  *     }],
  *     vpcId: var_vpc_id,
  * }));

@@ -28,8 +28,8 @@ import * as utilities from "../utilities";
  * const listener = pulumi.output(aws.elasticloadbalancingv2.getListener({
  *     arn: listenerArn,
  * }));
- * const selected443 = pulumi.output(aws.elasticloadbalancingv2.getListener({
- *     loadBalancerArn: selected.apply(selected => selected.arn),
+ * const selected443 = selected.apply(selected => aws.elasticloadbalancingv2.getListener({
+ *     loadBalancerArn: selected.arn,
  *     port: 443,
  * }));
  * ```

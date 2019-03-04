@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const subnetId = config.require("subnetId");
  * 
- * const defaultNatGateway = pulumi.output(aws.ec2.getNatGateway({
- *     subnetId: aws_subnet_public.id,
+ * const defaultNatGateway = aws_subnet_public.id.apply(id => aws.ec2.getNatGateway({
+ *     subnetId: id,
  * }));
  * ```
  * 
@@ -27,8 +27,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const defaultNatGateway = pulumi.output(aws.ec2.getNatGateway({
- *     subnetId: aws_subnet_public.id,
+ * const defaultNatGateway = aws_subnet_public.id.apply(id => aws.ec2.getNatGateway({
+ *     subnetId: id,
  *     tags: {
  *         Name: "gw NAT",
  *     },

@@ -48,23 +48,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const s3Policy = pulumi.output(aws.iam.getPolicyDocument({
+ * const s3Policy = pulumi.all([aws_cloudfront_origin_access_identity_origin_access_identity.iamArn, aws_s3_bucket_example.arn, aws_cloudfront_origin_access_identity_origin_access_identity.iamArn, aws_s3_bucket_example.arn]).apply(([aws_cloudfront_origin_access_identity_origin_access_identityIamArn, aws_s3_bucket_exampleArn, aws_cloudfront_origin_access_identity_origin_access_identityIamArn1, aws_s3_bucket_exampleArn1]) => aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             actions: ["s3:GetObject"],
  *             principals: [{
- *                 identifiers: [aws_cloudfront_origin_access_identity_origin_access_identity.iamArn],
+ *                 identifiers: [aws_cloudfront_origin_access_identity_origin_access_identityIamArn],
  *                 type: "AWS",
  *             }],
- *             resources: [aws_s3_bucket_example.arn.apply(arn => `${arn}/*`)],
+ *             resources: [`${aws_s3_bucket_exampleArn}/*`],
  *         },
  *         {
  *             actions: ["s3:ListBucket"],
  *             principals: [{
- *                 identifiers: [aws_cloudfront_origin_access_identity_origin_access_identity.iamArn],
+ *                 identifiers: [aws_cloudfront_origin_access_identity_origin_access_identityIamArn1],
  *                 type: "AWS",
  *             }],
- *             resources: [aws_s3_bucket_example.arn],
+ *             resources: [aws_s3_bucket_exampleArn1],
  *         },
  *     ],
  * }));
