@@ -40,10 +40,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const exampleNetworkInterfaces = pulumi.output(aws.ec2.getNetworkInterfaces({
+ * const exampleNetworkInterfaces = aws_subnet_test.id.apply(id => aws.ec2.getNetworkInterfaces({
  *     filters: [{
  *         name: "subnet-id",
- *         values: [aws_subnet_test.id],
+ *         values: [id],
  *     }],
  * }));
  * 

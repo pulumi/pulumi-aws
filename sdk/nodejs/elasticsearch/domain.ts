@@ -118,11 +118,11 @@ import * as utilities from "../utilities";
  *         Name: vpc,
  *     },
  * }));
- * const selectedSubnetIds = pulumi.output(aws.ec2.getSubnetIds({
+ * const selectedSubnetIds = selectedVpc.apply(selectedVpc => aws.ec2.getSubnetIds({
  *     tags: {
  *         Tier: "private",
  *     },
- *     vpcId: selectedVpc.apply(selectedVpc => selectedVpc.id),
+ *     vpcId: selectedVpc.id,
  * }));
  * const esDomain = new aws.elasticsearch.Domain("es", {
  *     accessPolicies: pulumi.all([currentRegion, currentCallerIdentity]).apply(([currentRegion, currentCallerIdentity]) => `{

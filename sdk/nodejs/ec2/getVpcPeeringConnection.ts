@@ -19,9 +19,9 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_foo.id,
  * });
  * // Declare the data source
- * const pc = pulumi.output(aws.ec2.getVpcPeeringConnection({
+ * const pc = aws_vpc_foo.id.apply(id => aws.ec2.getVpcPeeringConnection({
  *     peerCidrBlock: "10.0.1.0/22",
- *     vpcId: aws_vpc_foo.id,
+ *     vpcId: id,
  * }));
  * // Create a route
  * const route = new aws.ec2.Route("r", {

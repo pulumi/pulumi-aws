@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * const exampleBucket = new aws.s3.Bucket("example", {
  *     bucket: "example",
  * });
- * const acmpcaBucketAccess = pulumi.output(aws.iam.getPolicyDocument({
+ * const acmpcaBucketAccess = pulumi.all([exampleBucket.arn, exampleBucket.arn]).apply(([exampleBucketArn, exampleBucketArn1]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
  *             "s3:GetBucketAcl",
@@ -50,8 +50,8 @@ import * as utilities from "../utilities";
  *             type: "Service",
  *         }],
  *         resources: [
- *             exampleBucket.arn,
- *             exampleBucket.arn.apply(arn => `${arn}/*`),
+ *             exampleBucketArn,
+ *             `${exampleBucketArn1}/*`,
  *         ],
  *     }],
  * }));

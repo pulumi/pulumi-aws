@@ -26,8 +26,8 @@ import * as utilities from "../utilities";
  *     password: "bar",
  *     username: "foo",
  * });
- * const latestProdSnapshot = pulumi.output(aws.rds.getSnapshot({
- *     dbInstanceIdentifier: prod.id,
+ * const latestProdSnapshot = prod.id.apply(id => aws.rds.getSnapshot({
+ *     dbInstanceIdentifier: id,
  *     mostRecent: true,
  * }));
  * // Use the latest production snapshot to create a dev instance.

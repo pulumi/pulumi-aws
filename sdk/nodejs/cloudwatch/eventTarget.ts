@@ -101,7 +101,7 @@ import * as utilities from "../utilities";
  *     }],
  *     targetId: "StopInstance",
  * });
- * const ssmLifecyclePolicyDocument = pulumi.output(aws.iam.getPolicyDocument({
+ * const ssmLifecyclePolicyDocument = stopInstance.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             actions: ["ssm:SendCommand"],
@@ -116,7 +116,7 @@ import * as utilities from "../utilities";
  *         {
  *             actions: ["ssm:SendCommand"],
  *             effect: "Allow",
- *             resources: [stopInstance.arn],
+ *             resources: [arn],
  *         },
  *     ],
  * }));

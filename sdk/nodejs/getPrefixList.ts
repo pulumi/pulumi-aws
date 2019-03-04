@@ -26,8 +26,8 @@ import * as utilities from "./utilities";
  *     serviceName: "com.amazonaws.us-west-2.s3",
  *     vpcId: aws_vpc_foo.id,
  * });
- * const privateS3PrefixList = pulumi.output(aws.getPrefixList({
- *     prefixListId: privateS3VpcEndpoint.prefixListId,
+ * const privateS3PrefixList = privateS3VpcEndpoint.prefixListId.apply(prefixListId => aws.getPrefixList({
+ *     prefixListId: prefixListId,
  * }));
  * const privateS3NetworkAclRule = new aws.ec2.NetworkAclRule("private_s3", {
  *     cidrBlock: privateS3PrefixList.apply(privateS3PrefixList => privateS3PrefixList.cidrBlocks[0]),

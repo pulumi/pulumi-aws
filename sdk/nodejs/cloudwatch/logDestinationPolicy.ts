@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     roleArn: aws_iam_role_iam_for_cloudwatch.arn,
  *     targetArn: aws_kinesis_stream_kinesis_for_cloudwatch.arn,
  * });
- * const testDestinationPolicyPolicyDocument = pulumi.output(aws.iam.getPolicyDocument({
+ * const testDestinationPolicyPolicyDocument = testDestination.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["logs:PutSubscriptionFilter"],
  *         effect: "Allow",
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *             identifiers: ["123456789012"],
  *             type: "AWS",
  *         }],
- *         resources: [testDestination.arn],
+ *         resources: [arn],
  *     }],
  * }));
  * const testDestinationPolicyLogDestinationPolicy = new aws.cloudwatch.LogDestinationPolicy("test_destination_policy", {
