@@ -8,7 +8,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "defeature-seventeenv"
+        "@pulumi/pulumi": "feature-seventeen"
     },
     "devDependencies": {
         "@types/aws-sdk": "^2.7.0",
