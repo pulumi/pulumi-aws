@@ -8,7 +8,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "feature-seventeen",
+        "@pulumi/pulumi": "^v.17.0",
         "express": "^4.16.3",
         "aws-serverless-express": "^3.3.5"
     },
