@@ -8,8 +8,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "dev",
-        "@pulumi/aws": "dev"
+        "@pulumi/pulumi": "^v0.17.0"
     },
     "devDependencies": {
         "@types/aws-sdk": "^2.7.0",
