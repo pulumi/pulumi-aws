@@ -1,4 +1,10 @@
-## 0.17.1 (Unreleased)
+## 0.17.2 (Unreleased)
+
+## 0.17.1 (Released March 6, 2019)
+
+## Improvements
+
+- Fix an issue where the Python `pulumi_aws` package was depending on an older `pulumi` package.
 
 ## 0.17.0 (Released March 5, 2019)
 
