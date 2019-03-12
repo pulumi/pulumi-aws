@@ -32,7 +32,6 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const bucket = new aws.s3.Bucket("b", {
- *     bucket: "example-awsconfig",
  *     forceDestroy: true,
  * });
  * const fooRecorder = new aws.cfg.Recorder("foo", {

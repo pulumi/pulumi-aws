@@ -26,7 +26,6 @@ import * as utilities from "../utilities";
  * const sns = new aws.cloudwatch.EventTarget("sns", {
  *     arn: awsLogins.arn,
  *     rule: console.name,
- *     targetId: "SendToSNS",
  * });
  * const snsTopicPolicy = awsLogins.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [{

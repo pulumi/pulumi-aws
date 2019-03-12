@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const foo = new aws.s3.Bucket("foo", {
- *     bucket: "tf-test-trail",
  *     forceDestroy: true,
  *     policy: `{
  *     "Version": "2012-10-17",

@@ -39,7 +39,6 @@ import * as utilities from "../utilities";
  *     function: testFunction.arn,
  *     principal: "elasticloadbalancing.amazonaws.com",
  *     sourceArn: testTargetGroup.arn,
- *     statementId: "AllowExecutionFromlb",
  * });
  * const testTargetGroupAttachment = new aws.elasticloadbalancingv2.TargetGroupAttachment("test", {
  *     targetGroupArn: testTargetGroup.arn,

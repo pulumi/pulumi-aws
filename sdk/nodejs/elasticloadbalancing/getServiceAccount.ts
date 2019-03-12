@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * const main = pulumi.output(aws.elasticloadbalancing.getServiceAccount({}));
  * const elbLogs = new aws.s3.Bucket("elb_logs", {
  *     acl: "private",
- *     bucket: "my-elb-tf-test-bucket",
  *     policy: main.apply(main => `{
  *   "Id": "Policy",
  *   "Version": "2012-10-17",

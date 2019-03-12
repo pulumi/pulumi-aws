@@ -34,9 +34,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const exampleBucket = new aws.s3.Bucket("example", {
- *     bucket: "example",
- * });
+ * const exampleBucket = new aws.s3.Bucket("example", {});
  * const acmpcaBucketAccess = pulumi.all([exampleBucket.arn, exampleBucket.arn]).apply(([exampleBucketArn, exampleBucketArn1]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [

@@ -45,7 +45,6 @@ import * as utilities from "../utilities";
  *     key: "hello-world.zip",
  * }));
  * const testLambda = new aws.lambda.Function("test_lambda", {
- *     name: "lambda_function_name",
  *     handler: "exports.test",
  *     role: aws_iam_role_iam_for_lambda.arn, // (not shown)
  *     s3Bucket: lambda.apply(lambda => lambda.bucket),

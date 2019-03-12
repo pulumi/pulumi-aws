@@ -30,7 +30,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleBucket = new aws.s3.Bucket("example", {
  *     acl: "private",
- *     bucket: "example",
  * });
  * const exampleProject = new aws.codebuild.Project("example", {
  *     artifacts: {

@@ -6,6 +6,79 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a load balancer policy, which can be attached to an ELB listener or backend server.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ * 
+ * const wu_tang = new aws.elasticloadbalancing.LoadBalancer("wu-tang", {
+ *     availabilityZones: ["us-east-1a"],
+ *     listeners: [{
+ *         instancePort: 443,
+ *         instanceProtocol: "http",
+ *         lbPort: 443,
+ *         lbProtocol: "https",
+ *         sslCertificateId: "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
+ *     }],
+ *     tags: {
+ *         Name: "wu-tang",
+ *     },
+ * });
+ * const wu_tang_root_ca_backend_auth_policy = new aws.elasticloadbalancing.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", {
+ *     loadBalancerName: wu_tang.name,
+ *     policyAttributes: [{
+ *         name: "PublicKeyPolicyName",
+ *         value: aws_load_balancer_policy_wu_tang_root_ca_pubkey_policy.policyName,
+ *     }],
+ *     policyName: "wu-tang-root-ca-backend-auth-policy",
+ *     policyTypeName: "BackendServerAuthenticationPolicyType",
+ * });
+ * const wu_tang_backend_auth_policies_443 = new aws.elasticloadbalancing.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443", {
+ *     instancePort: 443,
+ *     loadBalancerName: wu_tang.name,
+ *     policyNames: [wu_tang_root_ca_backend_auth_policy.policyName],
+ * });
+ * const wu_tang_ssl = new aws.elasticloadbalancing.LoadBalancerPolicy("wu-tang-ssl", {
+ *     loadBalancerName: wu_tang.name,
+ *     policyAttributes: [
+ *         {
+ *             name: "ECDHE-ECDSA-AES128-GCM-SHA256",
+ *             value: "true",
+ *         },
+ *         {
+ *             name: "Protocol-TLSv1.2",
+ *             value: "true",
+ *         },
+ *     ],
+ *     policyName: "wu-tang-ssl",
+ *     policyTypeName: "SSLNegotiationPolicyType",
+ * });
+ * const wu_tang_listener_policies_443 = new aws.elasticloadbalancing.ListenerPolicy("wu-tang-listener-policies-443", {
+ *     loadBalancerName: wu_tang.name,
+ *     loadBalancerPort: 443,
+ *     policyNames: [wu_tang_ssl.policyName],
+ * });
+ * const wu_tang_ca_pubkey_policy = new aws.elasticloadbalancing.LoadBalancerPolicy("wu-tang-ca-pubkey-policy", {
+ *     loadBalancerName: wu_tang.name,
+ *     policyAttributes: [{
+ *         name: "PublicKey",
+ *         value: fs.readFileSync("wu-tang-pubkey", "utf-8"),
+ *     }],
+ *     policyName: "wu-tang-ca-pubkey-policy",
+ *     policyTypeName: "PublicKeyPolicyType",
+ * });
+ * ```
+ * 
+ * Where the file `pubkey` in the current directory contains only the _public key_ of the certificate.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * ```
+ * 
+ * This example shows how to enable backend authentication for an ELB as well as customize the TLS settings.
  */
 export class LoadBalancerPolicy extends pulumi.CustomResource {
     /**
