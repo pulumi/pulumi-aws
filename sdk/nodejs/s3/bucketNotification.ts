@@ -15,9 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const bucket = new aws.s3.Bucket("bucket", {
- *     bucket: "your_bucket_name",
- * });
+ * const bucket = new aws.s3.Bucket("bucket", {});
  * const topic = new aws.sns.Topic("topic", {
  *     policy: bucket.arn.apply(arn => `{
  *     "Version":"2012-10-17",
@@ -49,9 +47,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const bucket = new aws.s3.Bucket("bucket", {
- *     bucket: "your_bucket_name",
- * });
+ * const bucket = new aws.s3.Bucket("bucket", {});
  * const queue = new aws.sqs.Queue("queue", {
  *     policy: bucket.arn.apply(arn => `{
  *   "Version": "2012-10-17",
@@ -100,12 +96,9 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const bucket = new aws.s3.Bucket("bucket", {
- *     bucket: "your_bucket_name",
- * });
+ * const bucket = new aws.s3.Bucket("bucket", {});
  * const func = new aws.lambda.Function("func", {
  *     code: new pulumi.asset.FileArchive("your-function.zip"),
- *     name: "example_lambda_name",
  *     handler: "exports.example",
  *     role: iamForLambda.arn,
  *     runtime: "go1.x",
@@ -115,7 +108,6 @@ import * as utilities from "../utilities";
  *     function: func.arn,
  *     principal: "s3.amazonaws.com",
  *     sourceArn: bucket.arn,
- *     statementId: "AllowExecutionFromS3Bucket",
  * });
  * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
  *     bucket: bucket.id,
@@ -149,19 +141,15 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const bucket = new aws.s3.Bucket("bucket", {
- *     bucket: "your_bucket_name",
- * });
+ * const bucket = new aws.s3.Bucket("bucket", {});
  * const func1 = new aws.lambda.Function("func1", {
  *     code: new pulumi.asset.FileArchive("your-function1.zip"),
- *     name: "example_lambda_name1",
  *     handler: "exports.example",
  *     role: iamForLambda.arn,
  *     runtime: "go1.x",
  * });
  * const func2 = new aws.lambda.Function("func2", {
  *     code: new pulumi.asset.FileArchive("your-function2.zip"),
- *     name: "example_lambda_name2",
  *     handler: "exports.example",
  *     role: iamForLambda.arn,
  * });
@@ -170,14 +158,12 @@ import * as utilities from "../utilities";
  *     function: func1.arn,
  *     principal: "s3.amazonaws.com",
  *     sourceArn: bucket.arn,
- *     statementId: "AllowExecutionFromS3Bucket1",
  * });
  * const allowBucket2 = new aws.lambda.Permission("allow_bucket2", {
  *     action: "lambda:InvokeFunction",
  *     function: func2.arn,
  *     principal: "s3.amazonaws.com",
  *     sourceArn: bucket.arn,
- *     statementId: "AllowExecutionFromS3Bucket2",
  * });
  * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
  *     bucket: bucket.id,
@@ -204,9 +190,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const bucket = new aws.s3.Bucket("bucket", {
- *     bucket: "your_bucket_name",
- * });
+ * const bucket = new aws.s3.Bucket("bucket", {});
  * const queue = new aws.sqs.Queue("queue", {
  *     policy: bucket.arn.apply(arn => `{
  *   "Version": "2012-10-17",

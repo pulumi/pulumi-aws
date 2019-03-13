@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const foo = new aws.efs.FileSystem("foo", {
- *     creationToken: "my-product",
  *     tags: {
  *         Name: "MyProduct",
  *     },

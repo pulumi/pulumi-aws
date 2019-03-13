@@ -17,9 +17,7 @@ import {PolicyDocument} from "../iam/documents";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const bucket = new aws.s3.Bucket("b", {
- *     bucket: "my_tf_test_bucket",
- * });
+ * const bucket = new aws.s3.Bucket("b", {});
  * const bucketPolicy = new aws.s3.BucketPolicy("b", {
  *     bucket: bucket.id,
  *     policy: `{

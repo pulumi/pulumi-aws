@@ -43,7 +43,6 @@ import {ARN} from "../index";
  *         },
  *     },
  *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
- *     name: "lambda_function_name",
  *     handler: "exports.test",
  *     role: iamForLambda.arn,
  *     runtime: "nodejs8.10",

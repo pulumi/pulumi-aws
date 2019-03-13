@@ -94,7 +94,6 @@ import {RestApi} from "./restApi";
  * });
  * const lambda = new aws.lambda.Function("lambda", {
  *     code: new pulumi.asset.FileArchive("lambda.zip"),
- *     name: "mylambda",
  *     handler: "lambda.lambda_handler",
  *     role: role.arn,
  *     runtime: "python2.7",
@@ -113,7 +112,6 @@ import {RestApi} from "./restApi";
  *     function: lambda.arn,
  *     principal: "apigateway.amazonaws.com",
  *     sourceArn: pulumi.all([api.id, method.httpMethod, resource.path]).apply(([id, httpMethod, path]) => `arn:aws:execute-api:${myregion}:${accountId}:${id}/*&#47;${httpMethod}/${path}`),
- *     statementId: "AllowExecutionFromAPIGateway",
  * });
  * ```
  * 

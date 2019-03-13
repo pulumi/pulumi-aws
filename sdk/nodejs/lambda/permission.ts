@@ -34,7 +34,6 @@ import {Function} from "./function";
  * });
  * const testLambda = new aws.lambda.Function("test_lambda", {
  *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
- *     name: "lambda_function_name",
  *     handler: "exports.handler",
  *     role: iamForLambda.arn,
  *     runtime: "nodejs6.10",
@@ -50,7 +49,6 @@ import {Function} from "./function";
  *     principal: "events.amazonaws.com",
  *     qualifier: testAlias.name,
  *     sourceArn: "arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
- *     statementId: "AllowExecutionFromCloudWatch",
  * });
  * ```
  * 
@@ -79,7 +77,6 @@ import {Function} from "./function";
  * const defaultTopic = new aws.sns.Topic("default", {});
  * const func = new aws.lambda.Function("func", {
  *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
- *     name: "lambda_called_from_sns",
  *     handler: "exports.handler",
  *     role: defaultRole.arn,
  *     runtime: "python2.7",
@@ -89,7 +86,6 @@ import {Function} from "./function";
  *     function: func.functionName,
  *     principal: "sns.amazonaws.com",
  *     sourceArn: defaultTopic.arn,
- *     statementId: "AllowExecutionFromSNS",
  * });
  * const lambda = new aws.sns.TopicSubscription("lambda", {
  *     endpoint: func.arn,
@@ -112,7 +108,6 @@ import {Function} from "./function";
  *     function: "MyDemoFunction",
  *     principal: "apigateway.amazonaws.com",
  *     sourceArn: myDemoAPI.executionArn.apply(executionArn => `${executionArn}/*&#47;*&#47;*`),
- *     statementId: "AllowMyDemoAPIInvoke",
  * });
  * ```
  */

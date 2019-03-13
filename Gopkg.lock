@@ -21,12 +21,12 @@
   source = "https://github.com/ijc25/Gotty"
 
 [[projects]]
-  digest = "1:9a3c631555e0351fdc4e696577bb63afd90c399d782a8462dba9d100d7021db3"
+  digest = "1:b73fe282e350b3ef2c71d8ff08e929e0b9670b1bb5b7fde1d3c1b4cd6e6dc8b1"
   name = "github.com/Sirupsen/logrus"
   packages = ["."]
   pruneopts = ""
-  revision = "e1e72e9de974bd926e5c56f83753fba2df402ce5"
-  version = "v1.3.0"
+  revision = "dae0fa8d5b0c810a8ab733fbd5510c7cae84eca4"
+  version = "v1.4.0"
 
 [[projects]]
   digest = "1:61c24bdb660a326b420d5422c4fd124041b4aac88e212c6ac75f3a57b0b9cada"
@@ -358,7 +358,7 @@
   revision = "23def4e6c14b4da8ac2ed8007337bc5eb5007998"
 
 [[projects]]
-  digest = "1:3dd078fda7500c341bc26cfbc6c6a34614f295a2457149fc1045cab767cbcf18"
+  digest = "1:d3d38150b6d77b2aad42a9e105170538b6563518993d43df78a1add6e31cce62"
   name = "github.com/golang/protobuf"
   packages = [
     "proto",
@@ -371,8 +371,8 @@
     "ptypes/timestamp",
   ]
   pruneopts = ""
-  revision = "aa810b61a9c79d51363740d207bb46cf8e620ed5"
-  version = "v1.2.0"
+  revision = "c823c79ea1570fb5ff454033735a8e68575d1d0f"
+  version = "v1.3.0"
 
 [[projects]]
   digest = "1:2a5888946cdbc8aa360fd43301f9fc7869d663f60d5eedae7d4e6e5e4f06f2bf"
@@ -506,7 +506,7 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:688cb240e2fa4eb81cbf93471eef796868d580218f7ac48383321451630de281"
+  digest = "1:7c74cc77924c9cbd3e124ecb4ae598f2bde6be830c2ef4474f02aba160b14d63"
   name = "github.com/hashicorp/terraform"
   packages = [
     "config",
@@ -540,8 +540,8 @@
     "version",
   ]
   pruneopts = ""
-  revision = "ac4fff416318bf0915a0ab80e062a99ef3724334"
-  version = "v0.11.11"
+  revision = "d48069534832fdb09919a5fe46500755540cbf0a"
+  version = "v0.11.13"
 
 [[projects]]
   digest = "1:d18bd2106eed6a53efcd3f4dc9faa9492488f51b94e6fd80eae92abda0ec0202"
@@ -620,12 +620,12 @@
   revision = "93f5b35093ba15e0f86e412cc5c767d5c10c15fd"
 
 [[projects]]
-  digest = "1:6a874e3ddfb9db2b42bd8c85b6875407c702fa868eed20634ff489bc896ccfd3"
+  digest = "1:0f51cee70b0d254dbc93c22666ea2abf211af81c1701a96d04e2284b408621db"
   name = "github.com/konsorten/go-windows-terminal-sequences"
   packages = ["."]
   pruneopts = ""
-  revision = "5c8c8bd35d3832f5d134ae1e1e375b69a4d25242"
-  version = "v1.0.1"
+  revision = "f55edac94c9bbba5d6182a4be46d86a2c9b5b50e"
+  version = "v1.0.2"
 
 [[projects]]
   digest = "1:68a6e186197511a29f6447792f1d947d5be6894d9606748598131a94d5e6aa98"
@@ -781,7 +781,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:a5c1db8e6afc5cde270f521b18880ead4b9320643fa39dddff189f57de481653"
+  digest = "1:78e17c4c52074544a82b36ca26efae8080126ce126e2fda1de8d0a9ad21798fe"
   name = "github.com/pulumi/pulumi"
   packages = [
     "pkg/apitype",
@@ -828,18 +828,18 @@
     "sdk/proto/go",
   ]
   pruneopts = ""
-  revision = "dfdcba2ea719fd1400bf1d43669f49f788df46fa"
+  revision = "9e48fe3126a2ceab07be8d8edac00c452504b258"
 
 [[projects]]
   branch = "master"
-  digest = "1:a058a558a8e844483a8b7a29d95c2c7227210c04753e9f7771f65f63ca7d03a2"
+  digest = "1:ecabe8ffdbc5ae1572bf70a3ae16dc100bb1cef038faba9f1374cf792df3ea5d"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen",
   ]
   pruneopts = ""
-  revision = "caafea5a213d2c9e7e73418a73ceb03c81b3059e"
+  revision = "c9dff1e9e36e782314825e04152619579148aa90"
 
 [[projects]]
   branch = "master"

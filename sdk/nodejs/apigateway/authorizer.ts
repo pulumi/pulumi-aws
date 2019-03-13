@@ -52,7 +52,6 @@ import {RestApi} from "./restApi";
  * });
  * const authorizer = new aws.lambda.Function("authorizer", {
  *     code: new pulumi.asset.FileArchive("lambda-function.zip"),
- *     name: "api_gateway_authorizer",
  *     handler: "exports.example",
  *     role: lambda.arn,
  * });

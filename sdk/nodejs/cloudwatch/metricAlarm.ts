@@ -17,7 +17,6 @@ import {Topic} from "../sns/topic";
  * 
  * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
  *     alarmDescription: "This metric monitors ec2 cpu utilization",
- *     name: "terraform-test-foobar5",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
  *     evaluationPeriods: 2,
  *     insufficientDataActions: [],
@@ -44,7 +43,6 @@ import {Topic} from "../sns/topic";
  * const batMetricAlarm = new aws.cloudwatch.MetricAlarm("bat", {
  *     alarmActions: [batPolicy.arn],
  *     alarmDescription: "This metric monitors ec2 cpu utilization",
- *     name: "terraform-test-foobar5",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
  *     dimensions: {
  *         AutoScalingGroupName: aws_autoscaling_group_bar.name,
@@ -66,7 +64,6 @@ import {Topic} from "../sns/topic";
  * 
  * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
  *     alarmDescription: "Request error rate has exceeded 10%",
- *     name: "terraform-test-foobar%d",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
  *     evaluationPeriods: 2,
  *     insufficientDataActions: [],

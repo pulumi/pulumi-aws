@@ -51,11 +51,9 @@ import * as utilities from "../utilities";
  * });
  * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "private",
- *     bucket: "tf-test-bucket",
  * });
  * const lambdaProcessor = new aws.lambda.Function("lambda_processor", {
  *     code: new pulumi.asset.FileArchive("lambda.zip"),
- *     name: "firehose_lambda_processor",
  *     handler: "exports.handler",
  *     role: lambdaIam.arn,
  *     runtime: "nodejs8.10",
@@ -103,7 +101,6 @@ import * as utilities from "../utilities";
  * });
  * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "private",
- *     bucket: "tf-test-bucket",
  * });
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
  *     destination: "s3",
@@ -163,9 +160,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const testCluster = new aws.elasticsearch.Domain("test_cluster", {
- *     domainName: "firehose-es-test",
- * });
+ * const testCluster = new aws.elasticsearch.Domain("test_cluster", {});
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
  *     destination: "elasticsearch",
  *     elasticsearchConfiguration: {

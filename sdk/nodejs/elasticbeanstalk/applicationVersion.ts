@@ -34,9 +34,7 @@ import {Application} from "./application";
  * const defaultApplication = new aws.elasticbeanstalk.Application("default", {
  *     description: "tf-test-desc",
  * });
- * const defaultBucket = new aws.s3.Bucket("default", {
- *     bucket: "tftest.applicationversion.bucket",
- * });
+ * const defaultBucket = new aws.s3.Bucket("default", {});
  * const defaultBucketObject = new aws.s3.BucketObject("default", {
  *     bucket: defaultBucket.id,
  *     key: "beanstalk/go-v1.zip",

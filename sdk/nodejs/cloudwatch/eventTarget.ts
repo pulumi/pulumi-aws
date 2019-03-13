@@ -44,7 +44,6 @@ import * as utilities from "../utilities";
  *             values: ["i-162058cd308bffec2"],
  *         },
  *     ],
- *     targetId: "Yada",
  * });
  * ```
  * 
@@ -99,7 +98,6 @@ import * as utilities from "../utilities";
  *         key: "tag:Terminate",
  *         values: ["midnight"],
  *     }],
- *     targetId: "StopInstance",
  * });
  * const ssmLifecyclePolicyDocument = stopInstance.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [
@@ -144,7 +142,6 @@ import * as utilities from "../utilities";
  *         key: "tag:Terminate",
  *         values: ["midnight"],
  *     }],
- *     targetId: "StopInstance",
  * });
  * ```
  * 
@@ -187,7 +184,6 @@ import * as utilities from "../utilities";
  * `,
  *     roleArn: ecsEvents.arn,
  *     rule: aws_cloudwatch_event_rule_every_hour.name,
- *     targetId: "run-scheduled-task-every-hour",
  * });
  * const ecsEventsRunTaskWithAnyRole = new aws.iam.RolePolicy("ecs_events_run_task_with_any_role", {
  *     policy: aws_ecs_task_definition_task_name.arn.apply(arn => `{

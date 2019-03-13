@@ -30,6 +30,65 @@ import * as utilities from "../utilities";
  * For more information about Network ACLs, see the AWS Documentation on
  * [Network ACLs][aws-network-acls].
  * 
+ * ## Basic Example Usage, with default rules
+ * 
+ * The following config gives the Default Network ACL the same rules that AWS
+ * includes, but pulls the resource under management by Terraform. This means that
+ * any ACL rules added or changed will be detected as drift.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const mainvpc = new aws.ec2.Vpc("mainvpc", {
+ *     cidrBlock: "10.1.0.0/16",
+ * });
+ * const defaultDefaultNetworkAcl = new aws.ec2.DefaultNetworkAcl("default", {
+ *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
+ *     egress: [{
+ *         action: "allow",
+ *         cidrBlock: "0.0.0.0/0",
+ *         fromPort: 0,
+ *         protocol: "-1",
+ *         ruleNo: 100,
+ *         toPort: 0,
+ *     }],
+ *     ingress: [{
+ *         action: "allow",
+ *         cidrBlock: "", // set a CIDR block here
+ *         fromPort: 0,
+ *         protocol: "-1",
+ *         ruleNo: 100,
+ *         toPort: 0,
+ *     }],
+ * });
+ * ```
+ * 
+ * ## Example config to deny all Egress traffic, allowing Ingress
+ * 
+ * The following denies all Egress traffic by omitting any `egress` rules, while
+ * including the default `ingress` rule to allow all traffic.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const mainvpc = new aws.ec2.Vpc("mainvpc", {
+ *     cidrBlock: "10.1.0.0/16",
+ * });
+ * const defaultDefaultNetworkAcl = new aws.ec2.DefaultNetworkAcl("default", {
+ *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
+ *     ingress: [{
+ *         action: "allow",
+ *         cidrBlock: "", // set a CIDR block here
+ *         fromPort: 0,
+ *         protocol: "-1",
+ *         ruleNo: 100,
+ *         toPort: 0,
+ *     }],
+ * });
+ * ```
+ * 
  * ## Example config to deny all traffic to any Subnet in the Default Network ACL:
  * 
  * This config denies all traffic in the Default ACL. This can be useful if you
