@@ -13,18 +13,13 @@ class Cluster(pulumi.CustomResource):
     """
     If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
     """
-    automated_snapshot_retention_period: pulumi.Output[int]
+    automated_snapshot_retention_period: pulumi.Output[float]
     """
     The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
     """
     availability_zone: pulumi.Output[str]
     """
     The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
-    """
-    bucket_name: pulumi.Output[str]
-    """
-    The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
-    For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
     """
     cluster_identifier: pulumi.Output[str]
     """
@@ -73,7 +68,6 @@ class Cluster(pulumi.CustomResource):
     """
     The Elastic IP (EIP) address for the cluster.
     """
-    enable_logging: pulumi.Output[bool]
     encrypted: pulumi.Output[bool]
     """
     If true , the data in the cluster is encrypted at rest.
@@ -116,7 +110,7 @@ class Cluster(pulumi.CustomResource):
     """
     The node type to be provisioned for the cluster.
     """
-    number_of_nodes: pulumi.Output[int]
+    number_of_nodes: pulumi.Output[float]
     """
     The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
     """
@@ -124,7 +118,7 @@ class Cluster(pulumi.CustomResource):
     """
     The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
     """
-    port: pulumi.Output[int]
+    port: pulumi.Output[float]
     """
     The port number on which the cluster accepts incoming connections.
     The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
@@ -137,10 +131,6 @@ class Cluster(pulumi.CustomResource):
     publicly_accessible: pulumi.Output[bool]
     """
     If true, the cluster can be accessed from a public network. Default is `true`.
-    """
-    s3_key_prefix: pulumi.Output[str]
-    """
-    The prefix applied to the log file names.
     """
     skip_final_snapshot: pulumi.Output[bool]
     """
@@ -166,7 +156,7 @@ class Cluster(pulumi.CustomResource):
     """
     A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
     """
-    def __init__(__self__, resource_name, opts=None, allow_version_upgrade=None, automated_snapshot_retention_period=None, availability_zone=None, bucket_name=None, cluster_identifier=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_security_groups=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, elastic_ip=None, enable_logging=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, final_snapshot_identifier=None, iam_roles=None, kms_key_id=None, logging=None, master_password=None, master_username=None, node_type=None, number_of_nodes=None, owner_account=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, s3_key_prefix=None, skip_final_snapshot=None, snapshot_cluster_identifier=None, snapshot_copy=None, snapshot_identifier=None, tags=None, vpc_security_group_ids=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allow_version_upgrade=None, automated_snapshot_retention_period=None, availability_zone=None, cluster_identifier=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_security_groups=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, elastic_ip=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, final_snapshot_identifier=None, iam_roles=None, kms_key_id=None, logging=None, master_password=None, master_username=None, node_type=None, number_of_nodes=None, owner_account=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, skip_final_snapshot=None, snapshot_cluster_identifier=None, snapshot_copy=None, snapshot_identifier=None, tags=None, vpc_security_group_ids=None, __name__=None, __opts__=None):
         """
         Provides a Redshift Cluster Resource.
         
@@ -176,10 +166,8 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
-        :param pulumi.Input[int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
+        :param pulumi.Input[float] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
-        :param pulumi.Input[str] bucket_name: The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
-               For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
         :param pulumi.Input[str] cluster_identifier: The Cluster Identifier. Must be a lower case
                string.
         :param pulumi.Input[str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
@@ -205,14 +193,13 @@ class Cluster(pulumi.CustomResource):
                contain at least one uppercase letter, one lowercase letter, and one number.
         :param pulumi.Input[str] master_username: Username for the master DB user.
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.
-        :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
+        :param pulumi.Input[float] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
         :param pulumi.Input[str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
-        :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections.
+        :param pulumi.Input[float] port: The port number on which the cluster accepts incoming connections.
                The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default port is 5439.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `true`.
-        :param pulumi.Input[str] s3_key_prefix: The prefix applied to the log file names.
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
         :param pulumi.Input[str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
         :param pulumi.Input[dict] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
@@ -241,8 +228,6 @@ class Cluster(pulumi.CustomResource):
 
         __props__['availability_zone'] = availability_zone
 
-        __props__['bucket_name'] = bucket_name
-
         if cluster_identifier is None:
             raise TypeError('Missing required property cluster_identifier')
         __props__['cluster_identifier'] = cluster_identifier
@@ -264,8 +249,6 @@ class Cluster(pulumi.CustomResource):
         __props__['database_name'] = database_name
 
         __props__['elastic_ip'] = elastic_ip
-
-        __props__['enable_logging'] = enable_logging
 
         __props__['encrypted'] = encrypted
 
@@ -298,8 +281,6 @@ class Cluster(pulumi.CustomResource):
         __props__['preferred_maintenance_window'] = preferred_maintenance_window
 
         __props__['publicly_accessible'] = publicly_accessible
-
-        __props__['s3_key_prefix'] = s3_key_prefix
 
         __props__['skip_final_snapshot'] = skip_final_snapshot
 

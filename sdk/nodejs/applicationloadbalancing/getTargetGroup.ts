@@ -61,6 +61,7 @@ export interface GetTargetGroupResult {
     readonly arnSuffix: string;
     readonly deregistrationDelay: number;
     readonly healthCheck: { healthyThreshold: number, interval: number, matcher: string, path: string, port: string, protocol: string, timeout: number, unhealthyThreshold: number };
+    readonly lambdaMultiValueHeadersEnabled: boolean;
     readonly name: string;
     readonly port: number;
     readonly protocol: string;

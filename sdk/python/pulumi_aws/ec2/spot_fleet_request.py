@@ -40,7 +40,7 @@ class SpotFleetRequest(pulumi.CustomResource):
     instance stops or terminates when it is interrupted. Default is
     `terminate`.
     """
-    instance_pools_to_use_count: pulumi.Output[int]
+    instance_pools_to_use_count: pulumi.Output[float]
     """
     
     The number of Spot pools across which to allocate your target Spot capacity.
@@ -70,7 +70,7 @@ class SpotFleetRequest(pulumi.CustomResource):
     """
     The state of the Spot fleet request.
     """
-    target_capacity: pulumi.Output[int]
+    target_capacity: pulumi.Output[float]
     """
     The number of units to request. You can choose to set the
     target capacity in terms of instances or a performance characteristic that is
@@ -121,7 +121,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[str] instance_interruption_behaviour: Indicates whether a Spot
                instance stops or terminates when it is interrupted. Default is
                `terminate`.
-        :param pulumi.Input[int] instance_pools_to_use_count: 
+        :param pulumi.Input[float] instance_pools_to_use_count: 
                The number of Spot pools across which to allocate your target Spot capacity.
                Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
                the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -132,7 +132,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[list] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
         :param pulumi.Input[bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         :param pulumi.Input[str] spot_price: The maximum bid price per unit hour.
-        :param pulumi.Input[int] target_capacity: The number of units to request. You can choose to set the
+        :param pulumi.Input[float] target_capacity: The number of units to request. You can choose to set the
                target capacity in terms of instances or a performance characteristic that is
                important to your application workload, such as vCPUs, memory, or I/O.
         :param pulumi.Input[list] target_group_arns: A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.

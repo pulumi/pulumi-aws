@@ -5,7 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Registers a custom domain name for use with AWS API Gateway.
+ * Registers a custom domain name for use with AWS API Gateway. Additional information about this functionality
+ * can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
  * 
  * This resource just establishes ownership of and the TLS settings for
  * a particular domain name. An API can be attached to a particular path
@@ -23,12 +24,12 @@ import * as utilities from "../utilities";
  * given domain name which is an alias (either Route53 alias or traditional CNAME) to the regional domain name exported in
  * the `regional_domain_name` attribute.
  * 
+ * > **Note:** API Gateway requires the use of AWS Certificate Manager (ACM) certificates instead of Identity and Access Management (IAM) certificates in regions that support ACM. Regions that support ACM can be found in the [Regions and Endpoints Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#acm_region). To import an existing private key and certificate into ACM or request an ACM certificate, see the [`aws_acm_certificate` resource](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html).
+ * 
  * > **Note:** All arguments including the private key will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  * 
  * ## Example Usage
- * 
- * > For information about regions that support AWS Certificate Manager (ACM), see the [Regions and Endpoints Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#acm_region).
  * 
  * ### Edge Optimized (ACM Certificate)
  * 
@@ -53,7 +54,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * ### Edge Optimized (Uploaded Certificate)
+ * ### Edge Optimized (IAM Certificate)
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -106,7 +107,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * ### Regional (Uploaded Certificate)
+ * ### Regional (IAM Certificate)
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

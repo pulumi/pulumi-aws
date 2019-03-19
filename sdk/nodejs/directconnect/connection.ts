@@ -37,9 +37,17 @@ export class Connection extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
+     * The Direct Connect endpoint on which the physical connection terminates.
+     */
+    public /*out*/ readonly awsDevice: pulumi.Output<string>;
+    /**
      * The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
      */
     public readonly bandwidth: pulumi.Output<string>;
+    /**
+     * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+     */
+    public /*out*/ readonly hasLogicalRedundancy: pulumi.Output<string>;
     /**
      * Boolean value representing if jumbo frames have been enabled for this connection.
      */
@@ -70,7 +78,9 @@ export class Connection extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: ConnectionState = argsOrState as ConnectionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["awsDevice"] = state ? state.awsDevice : undefined;
             inputs["bandwidth"] = state ? state.bandwidth : undefined;
+            inputs["hasLogicalRedundancy"] = state ? state.hasLogicalRedundancy : undefined;
             inputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -88,6 +98,8 @@ export class Connection extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["awsDevice"] = undefined /*out*/;
+            inputs["hasLogicalRedundancy"] = undefined /*out*/;
             inputs["jumboFrameCapable"] = undefined /*out*/;
         }
         super("aws:directconnect/connection:Connection", name, inputs, opts);
@@ -103,9 +115,17 @@ export interface ConnectionState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
+     * The Direct Connect endpoint on which the physical connection terminates.
+     */
+    readonly awsDevice?: pulumi.Input<string>;
+    /**
      * The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
      */
     readonly bandwidth?: pulumi.Input<string>;
+    /**
+     * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+     */
+    readonly hasLogicalRedundancy?: pulumi.Input<string>;
     /**
      * Boolean value representing if jumbo frames have been enabled for this connection.
      */

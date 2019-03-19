@@ -34,7 +34,7 @@ class Cluster(pulumi.CustomResource):
     """
     A JSON string for supplying list of configurations for the EMR cluster.
     """
-    core_instance_count: pulumi.Output[int]
+    core_instance_count: pulumi.Output[float]
     """
     Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `instance_groups` is set. Default `1`
     """
@@ -46,7 +46,7 @@ class Cluster(pulumi.CustomResource):
     """
     A custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
     """
-    ebs_root_volume_size: pulumi.Output[int]
+    ebs_root_volume_size: pulumi.Output[float]
     """
     Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
     """
@@ -210,10 +210,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[list] bootstrap_actions: List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
         :param pulumi.Input[str] configurations: List of configurations supplied for the EMR cluster you are creating
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations for the EMR cluster.
-        :param pulumi.Input[int] core_instance_count: Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `instance_groups` is set. Default `1`
+        :param pulumi.Input[float] core_instance_count: Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `instance_groups` is set. Default `1`
         :param pulumi.Input[str] core_instance_type: The EC2 instance type of the slave nodes. Cannot be specified if `instance_groups` is set
         :param pulumi.Input[str] custom_ami_id: A custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
-        :param pulumi.Input[int] ebs_root_volume_size: Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
+        :param pulumi.Input[float] ebs_root_volume_size: Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
         :param pulumi.Input[dict] ec2_attributes: Attributes for the EC2 instances running the job flow. Defined below
         :param pulumi.Input[list] instance_groups: A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Defined below
         :param pulumi.Input[bool] keep_job_flow_alive_when_no_steps: Switch on/off run cluster with no steps or when all steps are complete (default is on)

@@ -12,8 +12,6 @@ import (
 // 
 // For information about Lambda Layers and how to use them, see [AWS Lambda Layers][1]
 // 
-// > **NOTE:** The attribute values for `arn` and `layer_arn` will be swapped in version 2.0.0 of the Terraform AWS Provider.
-// 
 // ## Specifying the Deployment Package
 // 
 // AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.
@@ -107,7 +105,7 @@ func (r *LayerVersion) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The Amazon Resource Name (ARN) identifying your Lambda Layer.
+// The Amazon Resource Name (ARN) of the Lambda Layer with version.
 func (r *LayerVersion) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
@@ -132,7 +130,7 @@ func (r *LayerVersion) Filename() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["filename"])
 }
 
-// The Amazon Resource Name (ARN) identifying your specific Lambda Layer version.
+// The Amazon Resource Name (ARN) of the Lambda Layer without version.
 func (r *LayerVersion) LayerArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["layerArn"])
 }
@@ -179,7 +177,7 @@ func (r *LayerVersion) Version() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering LayerVersion resources.
 type LayerVersionState struct {
-	// The Amazon Resource Name (ARN) identifying your Lambda Layer.
+	// The Amazon Resource Name (ARN) of the Lambda Layer with version.
 	Arn interface{}
 	// A list of [Runtimes][2] this layer is compatible with. Up to 5 runtimes can be specified.
 	CompatibleRuntimes interface{}
@@ -189,7 +187,7 @@ type LayerVersionState struct {
 	Description interface{}
 	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
 	Filename interface{}
-	// The Amazon Resource Name (ARN) identifying your specific Lambda Layer version.
+	// The Amazon Resource Name (ARN) of the Lambda Layer without version.
 	LayerArn interface{}
 	// A unique name for your Lambda Layer
 	LayerName interface{}

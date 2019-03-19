@@ -55,10 +55,6 @@ class Integration(pulumi.CustomResource):
     A map of request query string parameters and headers that should be passed to the backend responder.
     For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
     """
-    request_parameters_in_json: pulumi.Output[str]
-    """
-    **Deprecated**, use `request_parameters` instead.
-    """
     request_templates: pulumi.Output[dict]
     """
     A map of the integration's request templates.
@@ -71,7 +67,7 @@ class Integration(pulumi.CustomResource):
     """
     The ID of the associated REST API.
     """
-    timeout_milliseconds: pulumi.Output[int]
+    timeout_milliseconds: pulumi.Output[float]
     """
     Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
     """
@@ -85,7 +81,7 @@ class Integration(pulumi.CustomResource):
     For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
     e.g. `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`
     """
-    def __init__(__self__, resource_name, opts=None, cache_key_parameters=None, cache_namespace=None, connection_id=None, connection_type=None, content_handling=None, credentials=None, http_method=None, integration_http_method=None, passthrough_behavior=None, request_parameters=None, request_parameters_in_json=None, request_templates=None, resource_id=None, rest_api=None, timeout_milliseconds=None, type=None, uri=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cache_key_parameters=None, cache_namespace=None, connection_id=None, connection_type=None, content_handling=None, credentials=None, http_method=None, integration_http_method=None, passthrough_behavior=None, request_parameters=None, request_templates=None, resource_id=None, rest_api=None, timeout_milliseconds=None, type=None, uri=None, __name__=None, __opts__=None):
         """
         Provides an HTTP Method Integration for an API Gateway Integration.
         
@@ -107,11 +103,10 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] passthrough_behavior: The integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
         :param pulumi.Input[dict] request_parameters: A map of request query string parameters and headers that should be passed to the backend responder.
                For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
-        :param pulumi.Input[str] request_parameters_in_json: **Deprecated**, use `request_parameters` instead.
         :param pulumi.Input[dict] request_templates: A map of the integration's request templates.
         :param pulumi.Input[str] resource_id: The API resource ID.
         :param pulumi.Input[str] rest_api: The ID of the associated REST API.
-        :param pulumi.Input[int] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+        :param pulumi.Input[float] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
         :param pulumi.Input[str] type: The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         :param pulumi.Input[str] uri: The input's URI (HTTP, AWS). **Required** if `type` is `HTTP` or `AWS`.
                For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
@@ -153,8 +148,6 @@ class Integration(pulumi.CustomResource):
         __props__['passthrough_behavior'] = passthrough_behavior
 
         __props__['request_parameters'] = request_parameters
-
-        __props__['request_parameters_in_json'] = request_parameters_in_json
 
         __props__['request_templates'] = request_templates
 

@@ -33,7 +33,6 @@ func NewPolicy(ctx *pulumi.Context,
 		inputs["estimatedInstanceWarmup"] = nil
 		inputs["metricAggregationType"] = nil
 		inputs["minAdjustmentMagnitude"] = nil
-		inputs["minAdjustmentStep"] = nil
 		inputs["name"] = nil
 		inputs["policyType"] = nil
 		inputs["scalingAdjustment"] = nil
@@ -46,7 +45,6 @@ func NewPolicy(ctx *pulumi.Context,
 		inputs["estimatedInstanceWarmup"] = args.EstimatedInstanceWarmup
 		inputs["metricAggregationType"] = args.MetricAggregationType
 		inputs["minAdjustmentMagnitude"] = args.MinAdjustmentMagnitude
-		inputs["minAdjustmentStep"] = args.MinAdjustmentStep
 		inputs["name"] = args.Name
 		inputs["policyType"] = args.PolicyType
 		inputs["scalingAdjustment"] = args.ScalingAdjustment
@@ -74,7 +72,6 @@ func GetPolicy(ctx *pulumi.Context,
 		inputs["estimatedInstanceWarmup"] = state.EstimatedInstanceWarmup
 		inputs["metricAggregationType"] = state.MetricAggregationType
 		inputs["minAdjustmentMagnitude"] = state.MinAdjustmentMagnitude
-		inputs["minAdjustmentStep"] = state.MinAdjustmentStep
 		inputs["name"] = state.Name
 		inputs["policyType"] = state.PolicyType
 		inputs["scalingAdjustment"] = state.ScalingAdjustment
@@ -132,11 +129,6 @@ func (r *Policy) MinAdjustmentMagnitude() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["minAdjustmentMagnitude"])
 }
 
-// Use `min_adjustment_magnitude` instead.
-func (r *Policy) MinAdjustmentStep() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["minAdjustmentStep"])
-}
-
 // The name of the dimension.
 func (r *Policy) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -178,8 +170,6 @@ type PolicyState struct {
 	// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
 	MetricAggregationType interface{}
 	MinAdjustmentMagnitude interface{}
-	// Use `min_adjustment_magnitude` instead.
-	MinAdjustmentStep interface{}
 	// The name of the dimension.
 	Name interface{}
 	// The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
@@ -206,8 +196,6 @@ type PolicyArgs struct {
 	// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
 	MetricAggregationType interface{}
 	MinAdjustmentMagnitude interface{}
-	// Use `min_adjustment_magnitude` instead.
-	MinAdjustmentStep interface{}
 	// The name of the dimension.
 	Name interface{}
 	// The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."

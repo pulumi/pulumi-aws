@@ -40,7 +40,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     """
     s3_configuration: pulumi.Output[dict]
     """
-    Configuration options for the s3 destination (or the intermediate bucket if the destination
+    Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
     is redshift). More details are given below.
     """
     splunk_configuration: pulumi.Output[dict]
@@ -69,7 +69,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param pulumi.Input[dict] redshift_configuration: Configuration options if redshift is the destination.
                Using `redshift_configuration` requires the user to also specify a
                `s3_configuration` block. More details are given below.
-        :param pulumi.Input[dict] s3_configuration: Configuration options for the s3 destination (or the intermediate bucket if the destination
+        :param pulumi.Input[dict] s3_configuration: Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
                is redshift). More details are given below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.

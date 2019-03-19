@@ -41,6 +41,8 @@ func NewBgpPeer(ctx *pulumi.Context,
 		inputs["customerAddress"] = args.CustomerAddress
 		inputs["virtualInterfaceId"] = args.VirtualInterfaceId
 	}
+	inputs["awsDevice"] = nil
+	inputs["bgpPeerId"] = nil
 	inputs["bgpStatus"] = nil
 	s, err := ctx.RegisterResource("aws:directconnect/bgpPeer:BgpPeer", name, true, inputs, opts...)
 	if err != nil {
@@ -57,8 +59,10 @@ func GetBgpPeer(ctx *pulumi.Context,
 	if state != nil {
 		inputs["addressFamily"] = state.AddressFamily
 		inputs["amazonAddress"] = state.AmazonAddress
+		inputs["awsDevice"] = state.AwsDevice
 		inputs["bgpAsn"] = state.BgpAsn
 		inputs["bgpAuthKey"] = state.BgpAuthKey
+		inputs["bgpPeerId"] = state.BgpPeerId
 		inputs["bgpStatus"] = state.BgpStatus
 		inputs["customerAddress"] = state.CustomerAddress
 		inputs["virtualInterfaceId"] = state.VirtualInterfaceId
@@ -91,6 +95,11 @@ func (r *BgpPeer) AmazonAddress() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["amazonAddress"])
 }
 
+// The Direct Connect endpoint on which the BGP peer terminates.
+func (r *BgpPeer) AwsDevice() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["awsDevice"])
+}
+
 // The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 func (r *BgpPeer) BgpAsn() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["bgpAsn"])
@@ -99,6 +108,11 @@ func (r *BgpPeer) BgpAsn() *pulumi.IntOutput {
 // The authentication key for BGP configuration.
 func (r *BgpPeer) BgpAuthKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["bgpAuthKey"])
+}
+
+// The ID of the BGP peer.
+func (r *BgpPeer) BgpPeerId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["bgpPeerId"])
 }
 
 // The Up/Down state of the BGP peer.
@@ -124,10 +138,14 @@ type BgpPeerState struct {
 	// The IPv4 CIDR address to use to send traffic to Amazon.
 	// Required for IPv4 BGP peers on public virtual interfaces.
 	AmazonAddress interface{}
+	// The Direct Connect endpoint on which the BGP peer terminates.
+	AwsDevice interface{}
 	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 	BgpAsn interface{}
 	// The authentication key for BGP configuration.
 	BgpAuthKey interface{}
+	// The ID of the BGP peer.
+	BgpPeerId interface{}
 	// The Up/Down state of the BGP peer.
 	BgpStatus interface{}
 	// The IPv4 CIDR destination address to which Amazon should send traffic.

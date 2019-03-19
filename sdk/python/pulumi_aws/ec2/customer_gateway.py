@@ -9,7 +9,7 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class CustomerGateway(pulumi.CustomResource):
-    bgp_asn: pulumi.Output[int]
+    bgp_asn: pulumi.Output[float]
     """
     The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
     """
@@ -32,7 +32,7 @@ class CustomerGateway(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        :param pulumi.Input[float] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         :param pulumi.Input[str] ip_address: The IP address of the gateway's Internet-routable external interface.
         :param pulumi.Input[dict] tags: Tags to apply to the gateway.
         :param pulumi.Input[str] type: The type of customer gateway. The only type AWS

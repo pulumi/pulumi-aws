@@ -133,7 +133,7 @@ func (r *FirehoseDeliveryStream) RedshiftConfiguration() *pulumi.Output {
 	return r.s.State["redshiftConfiguration"]
 }
 
-// Configuration options for the s3 destination (or the intermediate bucket if the destination
+// Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
 // is redshift). More details are given below.
 func (r *FirehoseDeliveryStream) S3Configuration() *pulumi.Output {
 	return r.s.State["s3Configuration"]
@@ -172,7 +172,7 @@ type FirehoseDeliveryStreamState struct {
 	// Using `redshift_configuration` requires the user to also specify a
 	// `s3_configuration` block. More details are given below.
 	RedshiftConfiguration interface{}
-	// Configuration options for the s3 destination (or the intermediate bucket if the destination
+	// Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
 	// is redshift). More details are given below.
 	S3Configuration interface{}
 	SplunkConfiguration interface{}
@@ -201,7 +201,7 @@ type FirehoseDeliveryStreamArgs struct {
 	// Using `redshift_configuration` requires the user to also specify a
 	// `s3_configuration` block. More details are given below.
 	RedshiftConfiguration interface{}
-	// Configuration options for the s3 destination (or the intermediate bucket if the destination
+	// Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
 	// is redshift). More details are given below.
 	S3Configuration interface{}
 	SplunkConfiguration interface{}

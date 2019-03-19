@@ -19,6 +19,7 @@ import (
 	"strings"
 	"unicode"
 
+	"github.com/hashicorp/aws-sdk-go-base"
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/hashicorp/terraform/terraform"
 	homedir "github.com/mitchellh/go-homedir"
@@ -173,7 +174,7 @@ func stringValue(vars resource.PropertyMap, prop resource.PropertyKey) string {
 // configuration subset of `github.com/terraform-providers/terraform-provider-aws/aws.providerConfigure`.  We do this
 // before passing control to the TF provider to ensure we can report actionable errors.
 func preConfigureCallback(vars resource.PropertyMap, c *terraform.ResourceConfig) error {
-	config := &aws.Config{
+	config := &awsbase.Config{
 		AccessKey: stringValue(vars, "accessKey"),
 		SecretKey: stringValue(vars, "secretKey"),
 		Profile:   stringValue(vars, "profile"),
@@ -190,7 +191,7 @@ func preConfigureCallback(vars resource.PropertyMap, c *terraform.ResourceConfig
 	// TODO[pulumi/pulumi-terraform#48] We should also be setting `config.AssumeRole*` here, but we are currently
 	// blocked on not being able to read out list-valued provider config.
 
-	creds, err := aws.GetCredentials(config)
+	creds, err := awsbase.GetCredentials(config)
 	if err != nil {
 		return errors.New("unable to discover AWS AccessKeyID and/or SecretAccessKey " +
 			"- see https://pulumi.io/install/aws.html for details on configuration")
@@ -1054,6 +1055,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_glacier_vault_lock": {Tok: awsResource(glacierMod, "VaultLock")},
 			// Global Accelerator
 			"aws_globalaccelerator_accelerator": {Tok: awsResource(globalacceleratorMod, "Accelerator")},
+			"aws_globalaccelerator_listener":    {Tok: awsResource(globalacceleratorMod, "Listener")},
 			// Glue
 			"aws_glue_catalog_database":       {Tok: awsResource(glueMod, "CatalogDatabase")},
 			"aws_glue_catalog_table":          {Tok: awsResource(glueMod, "CatalogTable")},
@@ -1064,10 +1066,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_glue_security_configuration": {Tok: awsResource(glueMod, "SecurityConfiguration")},
 			"aws_glue_trigger":                {Tok: awsResource(glueMod, "Trigger")},
 			// GuardDuty
-			"aws_guardduty_detector":       {Tok: awsResource(guarddutyMod, "Detector")},
-			"aws_guardduty_ipset":          {Tok: awsResource(guarddutyMod, "IPSet")},
-			"aws_guardduty_member":         {Tok: awsResource(guarddutyMod, "Member")},
-			"aws_guardduty_threatintelset": {Tok: awsResource(guarddutyMod, "ThreatIntelSet")},
+			"aws_guardduty_detector":        {Tok: awsResource(guarddutyMod, "Detector")},
+			"aws_guardduty_invite_accepter": {Tok: awsResource(guarddutyMod, "InviteAccepter")},
+			"aws_guardduty_ipset":           {Tok: awsResource(guarddutyMod, "IPSet")},
+			"aws_guardduty_member":          {Tok: awsResource(guarddutyMod, "Member")},
+			"aws_guardduty_threatintelset":  {Tok: awsResource(guarddutyMod, "ThreatIntelSet")},
 			// Identity and Access Management (IAM)
 			"aws_iam_access_key":              {Tok: awsResource(iamMod, "AccessKey")},
 			"aws_iam_account_alias":           {Tok: awsResource(iamMod, "AccountAlias")},
@@ -1455,10 +1458,13 @@ func Provider() tfbridge.ProviderInfo {
 			// Resource Groups
 			"aws_resourcegroups_group": {Tok: awsResource(resourcegroupsMod, "Group")},
 			// Route53
-			"aws_route53_delegation_set":   {Tok: awsResource(route53Mod, "DelegationSet")},
-			"aws_route53_record":           {Tok: awsResource(route53Mod, "Record")},
-			"aws_route53_query_log":        {Tok: awsResource(route53Mod, "QueryLog")},
-			"aws_route53_zone_association": {Tok: awsResource(route53Mod, "ZoneAssociation")},
+			"aws_route53_delegation_set":            {Tok: awsResource(route53Mod, "DelegationSet")},
+			"aws_route53_record":                    {Tok: awsResource(route53Mod, "Record")},
+			"aws_route53_resolver_endpoint":         {Tok: awsResource(route53Mod, "ResolverEndpoint")},
+			"aws_route53_resolver_rule":             {Tok: awsResource(route53Mod, "ResolverRule")},
+			"aws_route53_resolver_rule_association": {Tok: awsResource(route53Mod, "ResolverRuleAssociation")},
+			"aws_route53_query_log":                 {Tok: awsResource(route53Mod, "QueryLog")},
+			"aws_route53_zone_association":          {Tok: awsResource(route53Mod, "ZoneAssociation")},
 			"aws_route53_zone": {
 				Tok: awsResource(route53Mod, "Zone"),
 				Fields: map[string]*tfbridge.SchemaInfo{

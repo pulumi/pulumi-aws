@@ -28,8 +28,8 @@ class GetLoadBalancerResult:
         if enable_deletion_protection and not isinstance(enable_deletion_protection, bool):
             raise TypeError('Expected argument enable_deletion_protection to be a bool')
         __self__.enable_deletion_protection = enable_deletion_protection
-        if idle_timeout and not isinstance(idle_timeout, int):
-            raise TypeError('Expected argument idle_timeout to be a int')
+        if idle_timeout and not isinstance(idle_timeout, float):
+            raise TypeError('Expected argument idle_timeout to be a float')
         __self__.idle_timeout = idle_timeout
         if internal and not isinstance(internal, bool):
             raise TypeError('Expected argument internal to be a bool')

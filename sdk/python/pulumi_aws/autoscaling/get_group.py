@@ -25,17 +25,17 @@ class GetGroupResult:
         """
         One or more Availability Zones for the group.
         """
-        if default_cooldown and not isinstance(default_cooldown, int):
-            raise TypeError('Expected argument default_cooldown to be a int')
+        if default_cooldown and not isinstance(default_cooldown, float):
+            raise TypeError('Expected argument default_cooldown to be a float')
         __self__.default_cooldown = default_cooldown
-        if desired_capacity and not isinstance(desired_capacity, int):
-            raise TypeError('Expected argument desired_capacity to be a int')
+        if desired_capacity and not isinstance(desired_capacity, float):
+            raise TypeError('Expected argument desired_capacity to be a float')
         __self__.desired_capacity = desired_capacity
         """
         The desired size of the group.
         """
-        if health_check_grace_period and not isinstance(health_check_grace_period, int):
-            raise TypeError('Expected argument health_check_grace_period to be a int')
+        if health_check_grace_period and not isinstance(health_check_grace_period, float):
+            raise TypeError('Expected argument health_check_grace_period to be a float')
         __self__.health_check_grace_period = health_check_grace_period
         """
         The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
@@ -58,14 +58,14 @@ class GetGroupResult:
         """
         One or more load balancers associated with the group.
         """
-        if max_size and not isinstance(max_size, int):
-            raise TypeError('Expected argument max_size to be a int')
+        if max_size and not isinstance(max_size, float):
+            raise TypeError('Expected argument max_size to be a float')
         __self__.max_size = max_size
         """
         The maximum size of the group.
         """
-        if min_size and not isinstance(min_size, int):
-            raise TypeError('Expected argument min_size to be a int')
+        if min_size and not isinstance(min_size, float):
+            raise TypeError('Expected argument min_size to be a float')
         __self__.min_size = min_size
         """
         The minimum size of the group.

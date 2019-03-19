@@ -39,11 +39,11 @@ class UserPool(pulumi.CustomResource):
     """
     email_verification_message: pulumi.Output[str]
     """
-    A string representing the email verification message. Must contain the `{####}` placeholder. **NOTE:** - If `email_verification_message` and `verification_message_template.email_message` are specified and the values are different, either one is prioritized and updated.
+    A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
     """
     email_verification_subject: pulumi.Output[str]
     """
-    A string representing the email verification subject. **NOTE:** - If `email_verification_subject` and `verification_message_template.email_subject` are specified and the values are different, either one is prioritized and updated.
+    A string representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
     """
     endpoint: pulumi.Output[str]
     """
@@ -83,7 +83,7 @@ class UserPool(pulumi.CustomResource):
     """
     sms_verification_message: pulumi.Output[str]
     """
-    A string representing the SMS verification message.
+    A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
     """
     tags: pulumi.Output[dict]
     """
@@ -112,8 +112,8 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[list] auto_verified_attributes: The attributes to be auto-verified. Possible values: email, phone_number.
         :param pulumi.Input[dict] device_configuration: The configuration for the user pool's device tracking.
         :param pulumi.Input[dict] email_configuration: The Email Configuration.
-        :param pulumi.Input[str] email_verification_message: A string representing the email verification message. Must contain the `{####}` placeholder. **NOTE:** - If `email_verification_message` and `verification_message_template.email_message` are specified and the values are different, either one is prioritized and updated.
-        :param pulumi.Input[str] email_verification_subject: A string representing the email verification subject. **NOTE:** - If `email_verification_subject` and `verification_message_template.email_subject` are specified and the values are different, either one is prioritized and updated.
+        :param pulumi.Input[str] email_verification_message: A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
+        :param pulumi.Input[str] email_verification_subject: A string representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
         :param pulumi.Input[dict] lambda_config: A container for the AWS Lambda triggers associated with the user pool.
         :param pulumi.Input[str] mfa_configuration: Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
         :param pulumi.Input[str] name: The name of the attribute.
@@ -121,7 +121,7 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[list] schemas: A container with the schema attributes of a user pool. Maximum of 50 attributes.
         :param pulumi.Input[str] sms_authentication_message: A string representing the SMS authentication message.
         :param pulumi.Input[dict] sms_configuration: The SMS Configuration.
-        :param pulumi.Input[str] sms_verification_message: A string representing the SMS verification message.
+        :param pulumi.Input[str] sms_verification_message: A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the User Pool.
         :param pulumi.Input[dict] user_pool_add_ons: Configuration block for user pool add-ons to enable user pool advanced security mode features.
         :param pulumi.Input[list] username_attributes: Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.

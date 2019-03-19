@@ -30,7 +30,6 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["allowVersionUpgrade"] = nil
 		inputs["automatedSnapshotRetentionPeriod"] = nil
 		inputs["availabilityZone"] = nil
-		inputs["bucketName"] = nil
 		inputs["clusterIdentifier"] = nil
 		inputs["clusterParameterGroupName"] = nil
 		inputs["clusterPublicKey"] = nil
@@ -41,7 +40,6 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["clusterVersion"] = nil
 		inputs["databaseName"] = nil
 		inputs["elasticIp"] = nil
-		inputs["enableLogging"] = nil
 		inputs["encrypted"] = nil
 		inputs["endpoint"] = nil
 		inputs["enhancedVpcRouting"] = nil
@@ -57,7 +55,6 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["port"] = nil
 		inputs["preferredMaintenanceWindow"] = nil
 		inputs["publiclyAccessible"] = nil
-		inputs["s3KeyPrefix"] = nil
 		inputs["skipFinalSnapshot"] = nil
 		inputs["snapshotClusterIdentifier"] = nil
 		inputs["snapshotCopy"] = nil
@@ -68,7 +65,6 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["allowVersionUpgrade"] = args.AllowVersionUpgrade
 		inputs["automatedSnapshotRetentionPeriod"] = args.AutomatedSnapshotRetentionPeriod
 		inputs["availabilityZone"] = args.AvailabilityZone
-		inputs["bucketName"] = args.BucketName
 		inputs["clusterIdentifier"] = args.ClusterIdentifier
 		inputs["clusterParameterGroupName"] = args.ClusterParameterGroupName
 		inputs["clusterPublicKey"] = args.ClusterPublicKey
@@ -79,7 +75,6 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["clusterVersion"] = args.ClusterVersion
 		inputs["databaseName"] = args.DatabaseName
 		inputs["elasticIp"] = args.ElasticIp
-		inputs["enableLogging"] = args.EnableLogging
 		inputs["encrypted"] = args.Encrypted
 		inputs["endpoint"] = args.Endpoint
 		inputs["enhancedVpcRouting"] = args.EnhancedVpcRouting
@@ -95,7 +90,6 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["port"] = args.Port
 		inputs["preferredMaintenanceWindow"] = args.PreferredMaintenanceWindow
 		inputs["publiclyAccessible"] = args.PubliclyAccessible
-		inputs["s3KeyPrefix"] = args.S3KeyPrefix
 		inputs["skipFinalSnapshot"] = args.SkipFinalSnapshot
 		inputs["snapshotClusterIdentifier"] = args.SnapshotClusterIdentifier
 		inputs["snapshotCopy"] = args.SnapshotCopy
@@ -120,7 +114,6 @@ func GetCluster(ctx *pulumi.Context,
 		inputs["allowVersionUpgrade"] = state.AllowVersionUpgrade
 		inputs["automatedSnapshotRetentionPeriod"] = state.AutomatedSnapshotRetentionPeriod
 		inputs["availabilityZone"] = state.AvailabilityZone
-		inputs["bucketName"] = state.BucketName
 		inputs["clusterIdentifier"] = state.ClusterIdentifier
 		inputs["clusterParameterGroupName"] = state.ClusterParameterGroupName
 		inputs["clusterPublicKey"] = state.ClusterPublicKey
@@ -132,7 +125,6 @@ func GetCluster(ctx *pulumi.Context,
 		inputs["databaseName"] = state.DatabaseName
 		inputs["dnsName"] = state.DnsName
 		inputs["elasticIp"] = state.ElasticIp
-		inputs["enableLogging"] = state.EnableLogging
 		inputs["encrypted"] = state.Encrypted
 		inputs["endpoint"] = state.Endpoint
 		inputs["enhancedVpcRouting"] = state.EnhancedVpcRouting
@@ -148,7 +140,6 @@ func GetCluster(ctx *pulumi.Context,
 		inputs["port"] = state.Port
 		inputs["preferredMaintenanceWindow"] = state.PreferredMaintenanceWindow
 		inputs["publiclyAccessible"] = state.PubliclyAccessible
-		inputs["s3KeyPrefix"] = state.S3KeyPrefix
 		inputs["skipFinalSnapshot"] = state.SkipFinalSnapshot
 		inputs["snapshotClusterIdentifier"] = state.SnapshotClusterIdentifier
 		inputs["snapshotCopy"] = state.SnapshotCopy
@@ -186,12 +177,6 @@ func (r *Cluster) AutomatedSnapshotRetentionPeriod() *pulumi.IntOutput {
 // The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
 func (r *Cluster) AvailabilityZone() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
-}
-
-// The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
-// For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-func (r *Cluster) BucketName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["bucketName"])
 }
 
 // The Cluster Identifier. Must be a lower case
@@ -250,10 +235,6 @@ func (r *Cluster) DnsName() *pulumi.StringOutput {
 // The Elastic IP (EIP) address for the cluster.
 func (r *Cluster) ElasticIp() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["elasticIp"])
-}
-
-func (r *Cluster) EnableLogging() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableLogging"])
 }
 
 // If true , the data in the cluster is encrypted at rest.
@@ -335,11 +316,6 @@ func (r *Cluster) PubliclyAccessible() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["publiclyAccessible"])
 }
 
-// The prefix applied to the log file names.
-func (r *Cluster) S3KeyPrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["s3KeyPrefix"])
-}
-
 // Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
 func (r *Cluster) SkipFinalSnapshot() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["skipFinalSnapshot"])
@@ -378,9 +354,6 @@ type ClusterState struct {
 	AutomatedSnapshotRetentionPeriod interface{}
 	// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
 	AvailabilityZone interface{}
-	// The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
-	// For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-	BucketName interface{}
 	// The Cluster Identifier. Must be a lower case
 	// string.
 	ClusterIdentifier interface{}
@@ -406,7 +379,6 @@ type ClusterState struct {
 	DnsName interface{}
 	// The Elastic IP (EIP) address for the cluster.
 	ElasticIp interface{}
-	EnableLogging interface{}
 	// If true , the data in the cluster is encrypted at rest.
 	Encrypted interface{}
 	// The connection endpoint
@@ -441,8 +413,6 @@ type ClusterState struct {
 	PreferredMaintenanceWindow interface{}
 	// If true, the cluster can be accessed from a public network. Default is `true`.
 	PubliclyAccessible interface{}
-	// The prefix applied to the log file names.
-	S3KeyPrefix interface{}
 	// Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
 	SkipFinalSnapshot interface{}
 	// The name of the cluster the source snapshot was created from.
@@ -465,9 +435,6 @@ type ClusterArgs struct {
 	AutomatedSnapshotRetentionPeriod interface{}
 	// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
 	AvailabilityZone interface{}
-	// The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
-	// For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-	BucketName interface{}
 	// The Cluster Identifier. Must be a lower case
 	// string.
 	ClusterIdentifier interface{}
@@ -491,7 +458,6 @@ type ClusterArgs struct {
 	DatabaseName interface{}
 	// The Elastic IP (EIP) address for the cluster.
 	ElasticIp interface{}
-	EnableLogging interface{}
 	// If true , the data in the cluster is encrypted at rest.
 	Encrypted interface{}
 	// The connection endpoint
@@ -526,8 +492,6 @@ type ClusterArgs struct {
 	PreferredMaintenanceWindow interface{}
 	// If true, the cluster can be accessed from a public network. Default is `true`.
 	PubliclyAccessible interface{}
-	// The prefix applied to the log file names.
-	S3KeyPrefix interface{}
 	// Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
 	SkipFinalSnapshot interface{}
 	// The name of the cluster the source snapshot was created from.

@@ -73,8 +73,8 @@ class GetSnapshotResult:
         """
         The volume ID (e.g. vol-59fcb34e).
         """
-        if volume_size and not isinstance(volume_size, int):
-            raise TypeError('Expected argument volume_size to be a int')
+        if volume_size and not isinstance(volume_size, float):
+            raise TypeError('Expected argument volume_size to be a float')
         __self__.volume_size = volume_size
         """
         The size of the drive in GiBs.

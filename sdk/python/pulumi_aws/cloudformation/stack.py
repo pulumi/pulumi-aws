@@ -66,7 +66,7 @@ class Stack(pulumi.CustomResource):
     """
     Location of a file containing the template body (max size: 460,800 bytes).
     """
-    timeout_in_minutes: pulumi.Output[int]
+    timeout_in_minutes: pulumi.Output[float]
     """
     The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
     """
@@ -93,7 +93,7 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A list of tags to associate with this stack.
         :param pulumi.Input[str] template_body: Structure containing the template body (max size: 51,200 bytes).
         :param pulumi.Input[str] template_url: Location of a file containing the template body (max size: 460,800 bytes).
-        :param pulumi.Input[int] timeout_in_minutes: The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
+        :param pulumi.Input[float] timeout_in_minutes: The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

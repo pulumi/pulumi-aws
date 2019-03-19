@@ -19,8 +19,8 @@ class GetServiceResult:
         """
         The ARN of the ECS Service
         """
-        if desired_count and not isinstance(desired_count, int):
-            raise TypeError('Expected argument desired_count to be a int')
+        if desired_count and not isinstance(desired_count, float):
+            raise TypeError('Expected argument desired_count to be a float')
         __self__.desired_count = desired_count
         """
         The number of tasks for the ECS Service

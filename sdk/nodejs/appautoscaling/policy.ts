@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *     resourceId: "service/clusterName/serviceName",
  *     scalableDimension: "ecs:service:DesiredCount",
  *     serviceNamespace: "ecs",
- *     stepScalingPolicyConfigurations: [{
+ *     stepScalingPolicyConfiguration: {
  *         adjustmentType: "ChangeInCapacity",
  *         cooldown: 60,
  *         metricAggregationType: "Maximum",
@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *             metricIntervalUpperBound: "0",
  *             scalingAdjustment: -1,
  *         }],
- *     }],
+ *     },
  * }, {dependsOn: [ecsTarget]});
  * ```
  * 
@@ -147,18 +147,11 @@ export class Policy extends pulumi.CustomResource {
         return new Policy(name, <any>state, { ...opts, id: id });
     }
 
-    /**
-     * The scaling policy's adjustment type.
-     */
-    public readonly adjustmentType: pulumi.Output<string | undefined>;
     public readonly alarms: pulumi.Output<string[] | undefined>;
     /**
      * The ARN assigned by AWS to the scaling policy.
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
-    public readonly cooldown: pulumi.Output<number | undefined>;
-    public readonly metricAggregationType: pulumi.Output<string | undefined>;
-    public readonly minAdjustmentMagnitude: pulumi.Output<number | undefined>;
     /**
      * The name of the policy.
      */
@@ -179,11 +172,10 @@ export class Policy extends pulumi.CustomResource {
      * The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
     public readonly serviceNamespace: pulumi.Output<string>;
-    public readonly stepAdjustments: pulumi.Output<{ metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[] | undefined>;
     /**
      * Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
      */
-    public readonly stepScalingPolicyConfigurations: pulumi.Output<{ adjustmentType?: string, cooldown?: number, metricAggregationType?: string, minAdjustmentMagnitude?: number, stepAdjustments?: { metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[] }[] | undefined>;
+    public readonly stepScalingPolicyConfiguration: pulumi.Output<{ adjustmentType?: string, cooldown?: number, metricAggregationType?: string, minAdjustmentMagnitude?: number, stepAdjustments?: { metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[] } | undefined>;
     /**
      * A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
      */
@@ -201,19 +193,14 @@ export class Policy extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PolicyState = argsOrState as PolicyState | undefined;
-            inputs["adjustmentType"] = state ? state.adjustmentType : undefined;
             inputs["alarms"] = state ? state.alarms : undefined;
             inputs["arn"] = state ? state.arn : undefined;
-            inputs["cooldown"] = state ? state.cooldown : undefined;
-            inputs["metricAggregationType"] = state ? state.metricAggregationType : undefined;
-            inputs["minAdjustmentMagnitude"] = state ? state.minAdjustmentMagnitude : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["policyType"] = state ? state.policyType : undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;
             inputs["scalableDimension"] = state ? state.scalableDimension : undefined;
             inputs["serviceNamespace"] = state ? state.serviceNamespace : undefined;
-            inputs["stepAdjustments"] = state ? state.stepAdjustments : undefined;
-            inputs["stepScalingPolicyConfigurations"] = state ? state.stepScalingPolicyConfigurations : undefined;
+            inputs["stepScalingPolicyConfiguration"] = state ? state.stepScalingPolicyConfiguration : undefined;
             inputs["targetTrackingScalingPolicyConfiguration"] = state ? state.targetTrackingScalingPolicyConfiguration : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
@@ -226,18 +213,13 @@ export class Policy extends pulumi.CustomResource {
             if (!args || args.serviceNamespace === undefined) {
                 throw new Error("Missing required property 'serviceNamespace'");
             }
-            inputs["adjustmentType"] = args ? args.adjustmentType : undefined;
             inputs["alarms"] = args ? args.alarms : undefined;
-            inputs["cooldown"] = args ? args.cooldown : undefined;
-            inputs["metricAggregationType"] = args ? args.metricAggregationType : undefined;
-            inputs["minAdjustmentMagnitude"] = args ? args.minAdjustmentMagnitude : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["scalableDimension"] = args ? args.scalableDimension : undefined;
             inputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
-            inputs["stepAdjustments"] = args ? args.stepAdjustments : undefined;
-            inputs["stepScalingPolicyConfigurations"] = args ? args.stepScalingPolicyConfigurations : undefined;
+            inputs["stepScalingPolicyConfiguration"] = args ? args.stepScalingPolicyConfiguration : undefined;
             inputs["targetTrackingScalingPolicyConfiguration"] = args ? args.targetTrackingScalingPolicyConfiguration : undefined;
             inputs["arn"] = undefined /*out*/;
         }
@@ -249,18 +231,11 @@ export class Policy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Policy resources.
  */
 export interface PolicyState {
-    /**
-     * The scaling policy's adjustment type.
-     */
-    readonly adjustmentType?: pulumi.Input<string>;
     readonly alarms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ARN assigned by AWS to the scaling policy.
      */
     readonly arn?: pulumi.Input<string>;
-    readonly cooldown?: pulumi.Input<number>;
-    readonly metricAggregationType?: pulumi.Input<string>;
-    readonly minAdjustmentMagnitude?: pulumi.Input<number>;
     /**
      * The name of the policy.
      */
@@ -281,11 +256,10 @@ export interface PolicyState {
      * The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
     readonly serviceNamespace?: pulumi.Input<string>;
-    readonly stepAdjustments?: pulumi.Input<pulumi.Input<{ metricIntervalLowerBound?: pulumi.Input<string>, metricIntervalUpperBound?: pulumi.Input<string>, scalingAdjustment: pulumi.Input<number> }>[]>;
     /**
      * Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
      */
-    readonly stepScalingPolicyConfigurations?: pulumi.Input<pulumi.Input<{ adjustmentType?: pulumi.Input<string>, cooldown?: pulumi.Input<number>, metricAggregationType?: pulumi.Input<string>, minAdjustmentMagnitude?: pulumi.Input<number>, stepAdjustments?: pulumi.Input<pulumi.Input<{ metricIntervalLowerBound?: pulumi.Input<string>, metricIntervalUpperBound?: pulumi.Input<string>, scalingAdjustment: pulumi.Input<number> }>[]> }>[]>;
+    readonly stepScalingPolicyConfiguration?: pulumi.Input<{ adjustmentType?: pulumi.Input<string>, cooldown?: pulumi.Input<number>, metricAggregationType?: pulumi.Input<string>, minAdjustmentMagnitude?: pulumi.Input<number>, stepAdjustments?: pulumi.Input<pulumi.Input<{ metricIntervalLowerBound?: pulumi.Input<string>, metricIntervalUpperBound?: pulumi.Input<string>, scalingAdjustment: pulumi.Input<number> }>[]> }>;
     /**
      * A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
      */
@@ -296,14 +270,7 @@ export interface PolicyState {
  * The set of arguments for constructing a Policy resource.
  */
 export interface PolicyArgs {
-    /**
-     * The scaling policy's adjustment type.
-     */
-    readonly adjustmentType?: pulumi.Input<string>;
     readonly alarms?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly cooldown?: pulumi.Input<number>;
-    readonly metricAggregationType?: pulumi.Input<string>;
-    readonly minAdjustmentMagnitude?: pulumi.Input<number>;
     /**
      * The name of the policy.
      */
@@ -324,11 +291,10 @@ export interface PolicyArgs {
      * The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
     readonly serviceNamespace: pulumi.Input<string>;
-    readonly stepAdjustments?: pulumi.Input<pulumi.Input<{ metricIntervalLowerBound?: pulumi.Input<string>, metricIntervalUpperBound?: pulumi.Input<string>, scalingAdjustment: pulumi.Input<number> }>[]>;
     /**
      * Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
      */
-    readonly stepScalingPolicyConfigurations?: pulumi.Input<pulumi.Input<{ adjustmentType?: pulumi.Input<string>, cooldown?: pulumi.Input<number>, metricAggregationType?: pulumi.Input<string>, minAdjustmentMagnitude?: pulumi.Input<number>, stepAdjustments?: pulumi.Input<pulumi.Input<{ metricIntervalLowerBound?: pulumi.Input<string>, metricIntervalUpperBound?: pulumi.Input<string>, scalingAdjustment: pulumi.Input<number> }>[]> }>[]>;
+    readonly stepScalingPolicyConfiguration?: pulumi.Input<{ adjustmentType?: pulumi.Input<string>, cooldown?: pulumi.Input<number>, metricAggregationType?: pulumi.Input<string>, minAdjustmentMagnitude?: pulumi.Input<number>, stepAdjustments?: pulumi.Input<pulumi.Input<{ metricIntervalLowerBound?: pulumi.Input<string>, metricIntervalUpperBound?: pulumi.Input<string>, scalingAdjustment: pulumi.Input<number> }>[]> }>;
     /**
      * A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
      */

@@ -8,24 +8,26 @@ import * as utilities from "./utilities";
  * Use this data source to get the ID of a registered AMI for use in other
  * resources.
  * 
- * > **NOTE:** The `owners` argument will be **required** in the next major version.
- * 
  * ## Example Usage
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const natAmi = pulumi.output(aws.getAmi({
+ * const example = pulumi.output(aws.getAmi({
  *     executableUsers: ["self"],
  *     filters: [
  *         {
- *             name: "owner-alias",
- *             values: ["amazon"],
+ *             name: "name",
+ *             values: ["myami-*"],
  *         },
  *         {
- *             name: "name",
- *             values: ["amzn-ami-vpc-nat*"],
+ *             name: "root-device-type",
+ *             values: ["ebs"],
+ *         },
+ *         {
+ *             name: "virtualization-type",
+ *             values: ["hvm"],
  *         },
  *     ],
  *     mostRecent: true,
@@ -34,8 +36,7 @@ import * as utilities from "./utilities";
  * }));
  * ```
  */
-export function getAmi(args?: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiResult> {
-    args = args || {};
+export function getAmi(args: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiResult> {
     return pulumi.runtime.invoke("aws:index/getAmi:getAmi", {
         "executableUsers": args.executableUsers,
         "filters": args.filters,
@@ -75,10 +76,9 @@ export interface GetAmiArgs {
      */
     readonly nameRegex?: string;
     /**
-     * Limit search to specific AMI owners. Valid items are the numeric
-     * account ID, `amazon`, or `self`.
+     * List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
      */
-    readonly owners?: string[];
+    readonly owners: string[];
     readonly tags?: {[key: string]: any};
 }
 

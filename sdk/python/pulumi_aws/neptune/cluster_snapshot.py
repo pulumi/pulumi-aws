@@ -9,7 +9,7 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class ClusterSnapshot(pulumi.CustomResource):
-    allocated_storage: pulumi.Output[int]
+    allocated_storage: pulumi.Output[float]
     """
     Specifies the allocated storage size in gigabytes (GB).
     """
@@ -45,7 +45,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     """
     License model information for the restored DB cluster.
     """
-    port: pulumi.Output[int]
+    port: pulumi.Output[float]
     """
     Port that the DB cluster was listening on at the time of the snapshot.
     """

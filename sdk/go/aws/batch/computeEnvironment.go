@@ -46,7 +46,6 @@ func NewComputeEnvironment(ctx *pulumi.Context,
 		inputs["type"] = args.Type
 	}
 	inputs["arn"] = nil
-	inputs["eccClusterArn"] = nil
 	inputs["ecsClusterArn"] = nil
 	inputs["status"] = nil
 	inputs["statusReason"] = nil
@@ -66,7 +65,6 @@ func GetComputeEnvironment(ctx *pulumi.Context,
 		inputs["arn"] = state.Arn
 		inputs["computeEnvironmentName"] = state.ComputeEnvironmentName
 		inputs["computeResources"] = state.ComputeResources
-		inputs["eccClusterArn"] = state.EccClusterArn
 		inputs["ecsClusterArn"] = state.EcsClusterArn
 		inputs["serviceRole"] = state.ServiceRole
 		inputs["state"] = state.State
@@ -104,10 +102,6 @@ func (r *ComputeEnvironment) ComputeEnvironmentName() *pulumi.StringOutput {
 // Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
 func (r *ComputeEnvironment) ComputeResources() *pulumi.Output {
 	return r.s.State["computeResources"]
-}
-
-func (r *ComputeEnvironment) EccClusterArn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eccClusterArn"])
 }
 
 // The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
@@ -148,7 +142,6 @@ type ComputeEnvironmentState struct {
 	ComputeEnvironmentName interface{}
 	// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
 	ComputeResources interface{}
-	EccClusterArn interface{}
 	// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
 	EcsClusterArn interface{}
 	// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.

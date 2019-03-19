@@ -69,6 +69,10 @@ export class Crawler extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the crawler 
+     */
+    public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
      */
     public readonly classifiers: pulumi.Output<string[] | undefined>;
@@ -133,6 +137,7 @@ export class Crawler extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: CrawlerState = argsOrState as CrawlerState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["classifiers"] = state ? state.classifiers : undefined;
             inputs["configuration"] = state ? state.configuration : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
@@ -167,6 +172,7 @@ export class Crawler extends pulumi.CustomResource {
             inputs["schemaChangePolicy"] = args ? args.schemaChangePolicy : undefined;
             inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
             inputs["tablePrefix"] = args ? args.tablePrefix : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         super("aws:glue/crawler:Crawler", name, inputs, opts);
     }
@@ -176,6 +182,10 @@ export class Crawler extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Crawler resources.
  */
 export interface CrawlerState {
+    /**
+     * The ARN of the crawler 
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
      */

@@ -21,11 +21,11 @@ class Policy(pulumi.CustomResource):
     """
     The name of the autoscaling group.
     """
-    cooldown: pulumi.Output[int]
+    cooldown: pulumi.Output[float]
     """
     The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
     """
-    estimated_instance_warmup: pulumi.Output[int]
+    estimated_instance_warmup: pulumi.Output[float]
     """
     The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
     """
@@ -33,11 +33,7 @@ class Policy(pulumi.CustomResource):
     """
     The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
     """
-    min_adjustment_magnitude: pulumi.Output[int]
-    min_adjustment_step: pulumi.Output[int]
-    """
-    Use `min_adjustment_magnitude` instead.
-    """
+    min_adjustment_magnitude: pulumi.Output[float]
     name: pulumi.Output[str]
     """
     The name of the dimension.
@@ -46,7 +42,7 @@ class Policy(pulumi.CustomResource):
     """
     The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
     """
-    scaling_adjustment: pulumi.Output[int]
+    scaling_adjustment: pulumi.Output[float]
     """
     The number of members by which to
     scale, when the adjustment bounds are breached. A positive value scales
@@ -57,7 +53,7 @@ class Policy(pulumi.CustomResource):
     """
     A target tracking policy. These have the following structure:
     """
-    def __init__(__self__, resource_name, opts=None, adjustment_type=None, autoscaling_group_name=None, cooldown=None, estimated_instance_warmup=None, metric_aggregation_type=None, min_adjustment_magnitude=None, min_adjustment_step=None, name=None, policy_type=None, scaling_adjustment=None, step_adjustments=None, target_tracking_configuration=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, adjustment_type=None, autoscaling_group_name=None, cooldown=None, estimated_instance_warmup=None, metric_aggregation_type=None, min_adjustment_magnitude=None, name=None, policy_type=None, scaling_adjustment=None, step_adjustments=None, target_tracking_configuration=None, __name__=None, __opts__=None):
         """
         Provides an AutoScaling Scaling Policy resource.
         
@@ -71,13 +67,12 @@ class Policy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] adjustment_type: Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         :param pulumi.Input[str] autoscaling_group_name: The name of the autoscaling group.
-        :param pulumi.Input[int] cooldown: The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
-        :param pulumi.Input[int] estimated_instance_warmup: The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
+        :param pulumi.Input[float] cooldown: The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+        :param pulumi.Input[float] estimated_instance_warmup: The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         :param pulumi.Input[str] metric_aggregation_type: The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
-        :param pulumi.Input[int] min_adjustment_step: Use `min_adjustment_magnitude` instead.
         :param pulumi.Input[str] name: The name of the dimension.
         :param pulumi.Input[str] policy_type: The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
-        :param pulumi.Input[int] scaling_adjustment: The number of members by which to
+        :param pulumi.Input[float] scaling_adjustment: The number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
         :param pulumi.Input[dict] target_tracking_configuration: A target tracking policy. These have the following structure:
@@ -110,8 +105,6 @@ class Policy(pulumi.CustomResource):
         __props__['metric_aggregation_type'] = metric_aggregation_type
 
         __props__['min_adjustment_magnitude'] = min_adjustment_magnitude
-
-        __props__['min_adjustment_step'] = min_adjustment_step
 
         __props__['name'] = name
 

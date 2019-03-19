@@ -17,7 +17,7 @@ class SmsChannel(pulumi.CustomResource):
     """
     Whether the channel is enabled or disabled. Defaults to `true`.
     """
-    promotional_messages_per_second: pulumi.Output[int]
+    promotional_messages_per_second: pulumi.Output[float]
     """
     Promotional messages per second that can be sent.
     """
@@ -29,7 +29,7 @@ class SmsChannel(pulumi.CustomResource):
     """
     The Short Code registered with the phone provider.
     """
-    transactional_messages_per_second: pulumi.Output[int]
+    transactional_messages_per_second: pulumi.Output[float]
     """
     Transactional messages per second that can be sent.
     """

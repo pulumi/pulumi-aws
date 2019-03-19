@@ -34,8 +34,8 @@ class GetZoneResult:
         """
         The list of DNS name servers for the Hosted Zone.
         """
-        if resource_record_set_count and not isinstance(resource_record_set_count, int):
-            raise TypeError('Expected argument resource_record_set_count to be a int')
+        if resource_record_set_count and not isinstance(resource_record_set_count, float):
+            raise TypeError('Expected argument resource_record_set_count to be a float')
         __self__.resource_record_set_count = resource_record_set_count
         """
         the number of Record Set in the Hosted Zone

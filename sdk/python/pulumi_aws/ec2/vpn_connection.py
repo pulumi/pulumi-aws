@@ -38,7 +38,7 @@ class VpnConnection(pulumi.CustomResource):
     """
     The bgp asn number of the first VPN tunnel.
     """
-    tunnel1_bgp_holdtime: pulumi.Output[int]
+    tunnel1_bgp_holdtime: pulumi.Output[float]
     """
     The bgp holdtime of the first VPN tunnel.
     """
@@ -66,7 +66,7 @@ class VpnConnection(pulumi.CustomResource):
     """
     The bgp asn number of the second VPN tunnel.
     """
-    tunnel2_bgp_holdtime: pulumi.Output[int]
+    tunnel2_bgp_holdtime: pulumi.Output[float]
     """
     The bgp holdtime of the second VPN tunnel.
     """
@@ -95,7 +95,7 @@ class VpnConnection(pulumi.CustomResource):
     """
     The ID of the Virtual Private Gateway.
     """
-    def __init__(__self__, resource_name, opts=None, customer_gateway_configuration=None, customer_gateway_id=None, routes=None, static_routes_only=None, tags=None, transit_gateway_id=None, tunnel1_inside_cidr=None, tunnel1_preshared_key=None, tunnel2_inside_cidr=None, tunnel2_preshared_key=None, type=None, vgw_telemetries=None, vpn_gateway_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, customer_gateway_id=None, static_routes_only=None, tags=None, transit_gateway_id=None, tunnel1_inside_cidr=None, tunnel1_preshared_key=None, tunnel2_inside_cidr=None, tunnel2_preshared_key=None, type=None, vpn_gateway_id=None, __name__=None, __opts__=None):
         """
         Manages an EC2 VPN connection. These objects can be connected to customer gateways, and allow you to establish tunnels between your network and Amazon.
         
@@ -107,7 +107,6 @@ class VpnConnection(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] customer_gateway_configuration: The configuration information for the VPN connection's customer gateway (in the native XML format).
         :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
         :param pulumi.Input[dict] tags: Tags to apply to the connection.
@@ -134,13 +133,9 @@ class VpnConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['customer_gateway_configuration'] = customer_gateway_configuration
-
         if customer_gateway_id is None:
             raise TypeError('Missing required property customer_gateway_id')
         __props__['customer_gateway_id'] = customer_gateway_id
-
-        __props__['routes'] = routes
 
         __props__['static_routes_only'] = static_routes_only
 
@@ -160,10 +155,10 @@ class VpnConnection(pulumi.CustomResource):
             raise TypeError('Missing required property type')
         __props__['type'] = type
 
-        __props__['vgw_telemetries'] = vgw_telemetries
-
         __props__['vpn_gateway_id'] = vpn_gateway_id
 
+        __props__['customer_gateway_configuration'] = None
+        __props__['routes'] = None
         __props__['tunnel1_address'] = None
         __props__['tunnel1_bgp_asn'] = None
         __props__['tunnel1_bgp_holdtime'] = None
@@ -174,6 +169,7 @@ class VpnConnection(pulumi.CustomResource):
         __props__['tunnel2_bgp_holdtime'] = None
         __props__['tunnel2_cgw_inside_address'] = None
         __props__['tunnel2_vgw_inside_address'] = None
+        __props__['vgw_telemetries'] = None
 
         super(VpnConnection, __self__).__init__(
             'aws:ec2/vpnConnection:VpnConnection',

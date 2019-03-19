@@ -106,7 +106,7 @@ func (r *NetworkInterface) PrivateIps() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["privateIps"])
 }
 
-// Number of private IPs to assign to the ENI.
+// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
 func (r *NetworkInterface) PrivateIpsCount() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["privateIpsCount"])
 }
@@ -141,7 +141,7 @@ type NetworkInterfaceState struct {
 	PrivateIp interface{}
 	// List of private IPs to assign to the ENI.
 	PrivateIps interface{}
-	// Number of private IPs to assign to the ENI.
+	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
 	PrivateIpsCount interface{}
 	// List of security group IDs to assign to the ENI.
 	SecurityGroups interface{}
@@ -162,7 +162,7 @@ type NetworkInterfaceArgs struct {
 	PrivateIp interface{}
 	// List of private IPs to assign to the ENI.
 	PrivateIps interface{}
-	// Number of private IPs to assign to the ENI.
+	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
 	PrivateIpsCount interface{}
 	// List of security group IDs to assign to the ENI.
 	SecurityGroups interface{}

@@ -14,7 +14,6 @@ import {RestApi} from "./restApi";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
  * 
  * const demoRestApi = new aws.apigateway.RestApi("demo", {});
  * const invocationRole = new aws.iam.Role("invocation_role", {

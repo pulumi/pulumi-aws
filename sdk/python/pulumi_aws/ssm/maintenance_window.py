@@ -13,11 +13,11 @@ class MaintenanceWindow(pulumi.CustomResource):
     """
     Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
     """
-    cutoff: pulumi.Output[int]
+    cutoff: pulumi.Output[float]
     """
     The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
     """
-    duration: pulumi.Output[int]
+    duration: pulumi.Output[float]
     """
     The duration of the Maintenance Window in hours.
     """
@@ -52,8 +52,8 @@ class MaintenanceWindow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_unassociated_targets: Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
-        :param pulumi.Input[int] cutoff: The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
-        :param pulumi.Input[int] duration: The duration of the Maintenance Window in hours.
+        :param pulumi.Input[float] cutoff: The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
+        :param pulumi.Input[float] duration: The duration of the Maintenance Window in hours.
         :param pulumi.Input[bool] enabled: Whether the maintenance window is enabled. Default: `true`.
         :param pulumi.Input[str] end_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
         :param pulumi.Input[str] name: The name of the maintenance window.

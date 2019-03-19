@@ -129,7 +129,6 @@ func NewSpotInstanceRequest(ctx *pulumi.Context,
 	}
 	inputs["arn"] = nil
 	inputs["instanceState"] = nil
-	inputs["networkInterfaceId"] = nil
 	inputs["passwordData"] = nil
 	inputs["primaryNetworkInterfaceId"] = nil
 	inputs["privateDns"] = nil
@@ -176,7 +175,6 @@ func GetSpotInstanceRequest(ctx *pulumi.Context,
 		inputs["launchGroup"] = state.LaunchGroup
 		inputs["monitoring"] = state.Monitoring
 		inputs["networkInterfaces"] = state.NetworkInterfaces
-		inputs["networkInterfaceId"] = state.NetworkInterfaceId
 		inputs["passwordData"] = state.PasswordData
 		inputs["placementGroup"] = state.PlacementGroup
 		inputs["primaryNetworkInterfaceId"] = state.PrimaryNetworkInterfaceId
@@ -246,7 +244,7 @@ func (r *SpotInstanceRequest) BlockDurationMinutes() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["blockDurationMinutes"])
 }
 
-// Sets the number of CPU cores for an instance. This option is 
+// Sets the number of CPU cores for an instance. This option is
 // only supported on creation of instance type that support CPU Options
 // [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 func (r *SpotInstanceRequest) CpuCoreCount() *pulumi.IntOutput {
@@ -270,7 +268,7 @@ func (r *SpotInstanceRequest) DisableApiTermination() *pulumi.BoolOutput {
 }
 
 // Additional EBS block devices to attach to the
-// instance.  See Block Devices below for details.
+// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
 func (r *SpotInstanceRequest) EbsBlockDevices() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
 }
@@ -357,10 +355,6 @@ func (r *SpotInstanceRequest) Monitoring() *pulumi.BoolOutput {
 // Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 func (r *SpotInstanceRequest) NetworkInterfaces() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["networkInterfaces"])
-}
-
-func (r *SpotInstanceRequest) NetworkInterfaceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkInterfaceId"])
 }
 
 func (r *SpotInstanceRequest) PasswordData() *pulumi.StringOutput {
@@ -513,7 +507,7 @@ type SpotInstanceRequestState struct {
 	// The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
 	// Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
 	BlockDurationMinutes interface{}
-	// Sets the number of CPU cores for an instance. This option is 
+	// Sets the number of CPU cores for an instance. This option is
 	// only supported on creation of instance type that support CPU Options
 	// [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount interface{}
@@ -525,7 +519,7 @@ type SpotInstanceRequestState struct {
 	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
 	DisableApiTermination interface{}
 	// Additional EBS block devices to attach to the
-	// instance.  See Block Devices below for details.
+	// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
 	EbsBlockDevices interface{}
 	// If true, the launched EC2 instance will be EBS-optimized.
 	// Note that if this is not set on an instance type that is optimized by default then
@@ -566,7 +560,6 @@ type SpotInstanceRequestState struct {
 	Monitoring interface{}
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces interface{}
-	NetworkInterfaceId interface{}
 	PasswordData interface{}
 	// The Placement Group to start the instance in.
 	PlacementGroup interface{}
@@ -643,7 +636,7 @@ type SpotInstanceRequestArgs struct {
 	// The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
 	// Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
 	BlockDurationMinutes interface{}
-	// Sets the number of CPU cores for an instance. This option is 
+	// Sets the number of CPU cores for an instance. This option is
 	// only supported on creation of instance type that support CPU Options
 	// [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount interface{}
@@ -655,7 +648,7 @@ type SpotInstanceRequestArgs struct {
 	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
 	DisableApiTermination interface{}
 	// Additional EBS block devices to attach to the
-	// instance.  See Block Devices below for details.
+	// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
 	EbsBlockDevices interface{}
 	// If true, the launched EC2 instance will be EBS-optimized.
 	// Note that if this is not set on an instance type that is optimized by default then

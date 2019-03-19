@@ -93,7 +93,6 @@ func NewInstance(ctx *pulumi.Context,
 	}
 	inputs["arn"] = nil
 	inputs["instanceState"] = nil
-	inputs["networkInterfaceId"] = nil
 	inputs["passwordData"] = nil
 	inputs["primaryNetworkInterfaceId"] = nil
 	inputs["privateDns"] = nil
@@ -134,7 +133,6 @@ func GetInstance(ctx *pulumi.Context,
 		inputs["keyName"] = state.KeyName
 		inputs["monitoring"] = state.Monitoring
 		inputs["networkInterfaces"] = state.NetworkInterfaces
-		inputs["networkInterfaceId"] = state.NetworkInterfaceId
 		inputs["passwordData"] = state.PasswordData
 		inputs["placementGroup"] = state.PlacementGroup
 		inputs["primaryNetworkInterfaceId"] = state.PrimaryNetworkInterfaceId
@@ -190,7 +188,7 @@ func (r *Instance) AvailabilityZone() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["availabilityZone"])
 }
 
-// Sets the number of CPU cores for an instance. This option is 
+// Sets the number of CPU cores for an instance. This option is
 // only supported on creation of instance type that support CPU Options
 // [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 func (r *Instance) CpuCoreCount() *pulumi.IntOutput {
@@ -214,7 +212,7 @@ func (r *Instance) DisableApiTermination() *pulumi.BoolOutput {
 }
 
 // Additional EBS block devices to attach to the
-// instance.  See Block Devices below for details.
+// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
 func (r *Instance) EbsBlockDevices() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
 }
@@ -290,11 +288,6 @@ func (r *Instance) Monitoring() *pulumi.BoolOutput {
 // Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 func (r *Instance) NetworkInterfaces() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["networkInterfaces"])
-}
-
-// The ID of the network interface that was created with the instance.
-func (r *Instance) NetworkInterfaceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkInterfaceId"])
 }
 
 // Base-64 encoded encrypted password data for the instance.
@@ -402,7 +395,7 @@ type InstanceState struct {
 	AssociatePublicIpAddress interface{}
 	// The AZ to start the instance in.
 	AvailabilityZone interface{}
-	// Sets the number of CPU cores for an instance. This option is 
+	// Sets the number of CPU cores for an instance. This option is
 	// only supported on creation of instance type that support CPU Options
 	// [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount interface{}
@@ -414,7 +407,7 @@ type InstanceState struct {
 	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
 	DisableApiTermination interface{}
 	// Additional EBS block devices to attach to the
-	// instance.  See Block Devices below for details.
+	// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
 	EbsBlockDevices interface{}
 	// If true, the launched EC2 instance will be EBS-optimized.
 	// Note that if this is not set on an instance type that is optimized by default then
@@ -450,8 +443,6 @@ type InstanceState struct {
 	Monitoring interface{}
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces interface{}
-	// The ID of the network interface that was created with the instance.
-	NetworkInterfaceId interface{}
 	// Base-64 encoded encrypted password data for the instance.
 	// Useful for getting the administrator password for instances running Microsoft Windows.
 	// This attribute is only exported if `get_password_data` is true.
@@ -506,7 +497,7 @@ type InstanceArgs struct {
 	AssociatePublicIpAddress interface{}
 	// The AZ to start the instance in.
 	AvailabilityZone interface{}
-	// Sets the number of CPU cores for an instance. This option is 
+	// Sets the number of CPU cores for an instance. This option is
 	// only supported on creation of instance type that support CPU Options
 	// [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CpuCoreCount interface{}
@@ -518,7 +509,7 @@ type InstanceArgs struct {
 	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
 	DisableApiTermination interface{}
 	// Additional EBS block devices to attach to the
-	// instance.  See Block Devices below for details.
+	// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
 	EbsBlockDevices interface{}
 	// If true, the launched EC2 instance will be EBS-optimized.
 	// Note that if this is not set on an instance type that is optimized by default then

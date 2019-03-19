@@ -15,7 +15,7 @@ class Zone(pulumi.CustomResource):
     """
     delegation_set_id: pulumi.Output[str]
     """
-    The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` and `vpc_id` as delegation sets can only be used for public zones.
+    The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
     """
     force_destroy: pulumi.Output[bool]
     """
@@ -36,34 +36,24 @@ class Zone(pulumi.CustomResource):
     """
     vpcs: pulumi.Output[list]
     """
-    Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with `delegation_set_id`, `vpc_id`, and `vpc_region` in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
-    """
-    vpc_id: pulumi.Output[str]
-    """
-    ID of the VPC to associate.
-    """
-    vpc_region: pulumi.Output[str]
-    """
-    Region of the VPC to associate. Defaults to AWS provider region.
+    Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
     """
     zone_id: pulumi.Output[str]
     """
     The Hosted Zone ID. This can be referenced by zone records.
     """
-    def __init__(__self__, resource_name, opts=None, comment=None, delegation_set_id=None, force_destroy=None, name=None, tags=None, vpcs=None, vpc_id=None, vpc_region=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, comment=None, delegation_set_id=None, force_destroy=None, name=None, tags=None, vpcs=None, __name__=None, __opts__=None):
         """
         Manages a Route53 Hosted Zone.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: A comment for the hosted zone. Defaults to 'Managed by Terraform'.
-        :param pulumi.Input[str] delegation_set_id: The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` and `vpc_id` as delegation sets can only be used for public zones.
+        :param pulumi.Input[str] delegation_set_id: The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
         :param pulumi.Input[bool] force_destroy: Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone.
         :param pulumi.Input[str] name: This is the name of the hosted zone.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the zone.
-        :param pulumi.Input[list] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with `delegation_set_id`, `vpc_id`, and `vpc_region` in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
-        :param pulumi.Input[str] vpc_id: ID of the VPC to associate.
-        :param pulumi.Input[str] vpc_region: Region of the VPC to associate. Defaults to AWS provider region.
+        :param pulumi.Input[list] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -93,10 +83,6 @@ class Zone(pulumi.CustomResource):
         __props__['tags'] = tags
 
         __props__['vpcs'] = vpcs
-
-        __props__['vpc_id'] = vpc_id
-
-        __props__['vpc_region'] = vpc_region
 
         __props__['name_servers'] = None
         __props__['zone_id'] = None

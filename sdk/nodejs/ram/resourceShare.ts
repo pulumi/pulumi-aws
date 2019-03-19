@@ -39,6 +39,10 @@ export class ResourceShare extends pulumi.CustomResource {
      */
     public readonly allowExternalPrincipals: pulumi.Output<boolean | undefined>;
     /**
+     * The Amazon Resource Name (ARN) of the resource share.
+     */
+    public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * The name of the resource share.
      */
     public readonly name: pulumi.Output<string>;
@@ -60,6 +64,7 @@ export class ResourceShare extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: ResourceShareState = argsOrState as ResourceShareState | undefined;
             inputs["allowExternalPrincipals"] = state ? state.allowExternalPrincipals : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -67,6 +72,7 @@ export class ResourceShare extends pulumi.CustomResource {
             inputs["allowExternalPrincipals"] = args ? args.allowExternalPrincipals : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         super("aws:ram/resourceShare:ResourceShare", name, inputs, opts);
     }
@@ -80,6 +86,10 @@ export interface ResourceShareState {
      * Indicates whether principals outside your organization can be associated with a resource share.
      */
     readonly allowExternalPrincipals?: pulumi.Input<boolean>;
+    /**
+     * The Amazon Resource Name (ARN) of the resource share.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The name of the resource share.
      */

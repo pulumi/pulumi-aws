@@ -21,6 +21,7 @@ func NewTargetGroup(ctx *pulumi.Context,
 	if args == nil {
 		inputs["deregistrationDelay"] = nil
 		inputs["healthCheck"] = nil
+		inputs["lambdaMultiValueHeadersEnabled"] = nil
 		inputs["name"] = nil
 		inputs["namePrefix"] = nil
 		inputs["port"] = nil
@@ -34,6 +35,7 @@ func NewTargetGroup(ctx *pulumi.Context,
 	} else {
 		inputs["deregistrationDelay"] = args.DeregistrationDelay
 		inputs["healthCheck"] = args.HealthCheck
+		inputs["lambdaMultiValueHeadersEnabled"] = args.LambdaMultiValueHeadersEnabled
 		inputs["name"] = args.Name
 		inputs["namePrefix"] = args.NamePrefix
 		inputs["port"] = args.Port
@@ -64,6 +66,7 @@ func GetTargetGroup(ctx *pulumi.Context,
 		inputs["arnSuffix"] = state.ArnSuffix
 		inputs["deregistrationDelay"] = state.DeregistrationDelay
 		inputs["healthCheck"] = state.HealthCheck
+		inputs["lambdaMultiValueHeadersEnabled"] = state.LambdaMultiValueHeadersEnabled
 		inputs["name"] = state.Name
 		inputs["namePrefix"] = state.NamePrefix
 		inputs["port"] = state.Port
@@ -110,6 +113,11 @@ func (r *TargetGroup) DeregistrationDelay() *pulumi.IntOutput {
 // A Health Check block. Health Check blocks are documented below.
 func (r *TargetGroup) HealthCheck() *pulumi.Output {
 	return r.s.State["healthCheck"]
+}
+
+// Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+func (r *TargetGroup) LambdaMultiValueHeadersEnabled() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["lambdaMultiValueHeadersEnabled"])
 }
 
 // The name of the target group. If omitted, Terraform will assign a random, unique name.
@@ -177,6 +185,8 @@ type TargetGroupState struct {
 	DeregistrationDelay interface{}
 	// A Health Check block. Health Check blocks are documented below.
 	HealthCheck interface{}
+	// Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+	LambdaMultiValueHeadersEnabled interface{}
 	// The name of the target group. If omitted, Terraform will assign a random, unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
@@ -210,6 +220,8 @@ type TargetGroupArgs struct {
 	DeregistrationDelay interface{}
 	// A Health Check block. Health Check blocks are documented below.
 	HealthCheck interface{}
+	// Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+	LambdaMultiValueHeadersEnabled interface{}
 	// The name of the target group. If omitted, Terraform will assign a random, unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.

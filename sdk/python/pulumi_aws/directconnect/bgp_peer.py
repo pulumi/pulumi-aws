@@ -18,13 +18,21 @@ class BgpPeer(pulumi.CustomResource):
     The IPv4 CIDR address to use to send traffic to Amazon.
     Required for IPv4 BGP peers on public virtual interfaces.
     """
-    bgp_asn: pulumi.Output[int]
+    aws_device: pulumi.Output[str]
+    """
+    The Direct Connect endpoint on which the BGP peer terminates.
+    """
+    bgp_asn: pulumi.Output[float]
     """
     The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
     """
     bgp_auth_key: pulumi.Output[str]
     """
     The authentication key for BGP configuration.
+    """
+    bgp_peer_id: pulumi.Output[str]
+    """
+    The ID of the BGP peer.
     """
     bgp_status: pulumi.Output[str]
     """
@@ -48,7 +56,7 @@ class BgpPeer(pulumi.CustomResource):
         :param pulumi.Input[str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
         :param pulumi.Input[str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon.
                Required for IPv4 BGP peers on public virtual interfaces.
-        :param pulumi.Input[int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        :param pulumi.Input[float] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         :param pulumi.Input[str] bgp_auth_key: The authentication key for BGP configuration.
         :param pulumi.Input[str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic.
                Required for IPv4 BGP peers on public virtual interfaces.
@@ -87,6 +95,8 @@ class BgpPeer(pulumi.CustomResource):
             raise TypeError('Missing required property virtual_interface_id')
         __props__['virtual_interface_id'] = virtual_interface_id
 
+        __props__['aws_device'] = None
+        __props__['bgp_peer_id'] = None
         __props__['bgp_status'] = None
 
         super(BgpPeer, __self__).__init__(

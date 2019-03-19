@@ -24,11 +24,7 @@ class IntegrationResponse(pulumi.CustomResource):
     response_parameters: pulumi.Output[dict]
     """
     A map of response parameters that can be read from the backend response.
-    For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`,
-    """
-    response_parameters_in_json: pulumi.Output[str]
-    """
-    **Deprecated**, use `response_parameters` instead.
+    For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
     """
     response_templates: pulumi.Output[dict]
     """
@@ -49,7 +45,7 @@ class IntegrationResponse(pulumi.CustomResource):
     """
     The HTTP status code
     """
-    def __init__(__self__, resource_name, opts=None, content_handling=None, http_method=None, resource_id=None, response_parameters=None, response_parameters_in_json=None, response_templates=None, rest_api=None, selection_pattern=None, status_code=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, content_handling=None, http_method=None, resource_id=None, response_parameters=None, response_templates=None, rest_api=None, selection_pattern=None, status_code=None, __name__=None, __opts__=None):
         """
         Provides an HTTP Method Integration Response for an API Gateway Resource.
         
@@ -62,8 +58,7 @@ class IntegrationResponse(pulumi.CustomResource):
         :param pulumi.Input[str] http_method: The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[str] resource_id: The API resource ID
         :param pulumi.Input[dict] response_parameters: A map of response parameters that can be read from the backend response.
-               For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`,
-        :param pulumi.Input[str] response_parameters_in_json: **Deprecated**, use `response_parameters` instead.
+               For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
         :param pulumi.Input[dict] response_templates: A map specifying the templates used to transform the integration response body
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] selection_pattern: Specifies the regular expression pattern used to choose
@@ -98,8 +93,6 @@ class IntegrationResponse(pulumi.CustomResource):
         __props__['resource_id'] = resource_id
 
         __props__['response_parameters'] = response_parameters
-
-        __props__['response_parameters_in_json'] = response_parameters_in_json
 
         __props__['response_templates'] = response_templates
 

@@ -12,7 +12,7 @@ class GetBucketResult:
     """
     A collection of values returned by getBucket.
     """
-    def __init__(__self__, arn=None, bucket_domain_name=None, hosted_zone_id=None, region=None, website_domain=None, website_endpoint=None, id=None):
+    def __init__(__self__, arn=None, bucket_domain_name=None, bucket_regional_domain_name=None, hosted_zone_id=None, region=None, website_domain=None, website_endpoint=None, id=None):
         if arn and not isinstance(arn, str):
             raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
@@ -24,6 +24,12 @@ class GetBucketResult:
         __self__.bucket_domain_name = bucket_domain_name
         """
         The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
+        """
+        if bucket_regional_domain_name and not isinstance(bucket_regional_domain_name, str):
+            raise TypeError('Expected argument bucket_regional_domain_name to be a str')
+        __self__.bucket_regional_domain_name = bucket_regional_domain_name
+        """
+        The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
         """
         if hosted_zone_id and not isinstance(hosted_zone_id, str):
             raise TypeError('Expected argument hosted_zone_id to be a str')
@@ -71,6 +77,7 @@ async def get_bucket(bucket=None,opts=None):
     return GetBucketResult(
         arn=__ret__.get('arn'),
         bucket_domain_name=__ret__.get('bucketDomainName'),
+        bucket_regional_domain_name=__ret__.get('bucketRegionalDomainName'),
         hosted_zone_id=__ret__.get('hostedZoneId'),
         region=__ret__.get('region'),
         website_domain=__ret__.get('websiteDomain'),

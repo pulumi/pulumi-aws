@@ -137,7 +137,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly enableEcsManagedTags: pulumi.Output<boolean | undefined>;
     /**
-     * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
+     * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
      */
     public readonly healthCheckGracePeriodSeconds: pulumi.Output<number | undefined>;
     /**
@@ -169,10 +169,6 @@ export class Service extends pulumi.CustomResource {
      * `placement_constraints` is `10`. Defined below.
      */
     public readonly placementConstraints: pulumi.Output<{ expression?: string, type: string }[] | undefined>;
-    /**
-     * **Deprecated**, use `ordered_placement_strategy` instead.
-     */
-    public readonly placementStrategies: pulumi.Output<{ field?: string, type: string }[] | undefined>;
     /**
      * The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */
@@ -229,7 +225,6 @@ export class Service extends pulumi.CustomResource {
             inputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
             inputs["orderedPlacementStrategies"] = state ? state.orderedPlacementStrategies : undefined;
             inputs["placementConstraints"] = state ? state.placementConstraints : undefined;
-            inputs["placementStrategies"] = state ? state.placementStrategies : undefined;
             inputs["platformVersion"] = state ? state.platformVersion : undefined;
             inputs["propagateTags"] = state ? state.propagateTags : undefined;
             inputs["schedulingStrategy"] = state ? state.schedulingStrategy : undefined;
@@ -256,7 +251,6 @@ export class Service extends pulumi.CustomResource {
             inputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
             inputs["orderedPlacementStrategies"] = args ? args.orderedPlacementStrategies : undefined;
             inputs["placementConstraints"] = args ? args.placementConstraints : undefined;
-            inputs["placementStrategies"] = args ? args.placementStrategies : undefined;
             inputs["platformVersion"] = args ? args.platformVersion : undefined;
             inputs["propagateTags"] = args ? args.propagateTags : undefined;
             inputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
@@ -298,7 +292,7 @@ export interface ServiceState {
      */
     readonly enableEcsManagedTags?: pulumi.Input<boolean>;
     /**
-     * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
+     * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
      */
     readonly healthCheckGracePeriodSeconds?: pulumi.Input<number>;
     /**
@@ -330,10 +324,6 @@ export interface ServiceState {
      * `placement_constraints` is `10`. Defined below.
      */
     readonly placementConstraints?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
-    /**
-     * **Deprecated**, use `ordered_placement_strategy` instead.
-     */
-    readonly placementStrategies?: pulumi.Input<pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */
@@ -394,7 +384,7 @@ export interface ServiceArgs {
      */
     readonly enableEcsManagedTags?: pulumi.Input<boolean>;
     /**
-     * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
+     * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
      */
     readonly healthCheckGracePeriodSeconds?: pulumi.Input<number>;
     /**
@@ -426,10 +416,6 @@ export interface ServiceArgs {
      * `placement_constraints` is `10`. Defined below.
      */
     readonly placementConstraints?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
-    /**
-     * **Deprecated**, use `ordered_placement_strategy` instead.
-     */
-    readonly placementStrategies?: pulumi.Input<pulumi.Input<{ field?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */

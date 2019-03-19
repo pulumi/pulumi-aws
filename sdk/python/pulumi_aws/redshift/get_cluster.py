@@ -19,8 +19,8 @@ class GetClusterResult:
         """
         Whether major version upgrades can be applied during maintenance period
         """
-        if automated_snapshot_retention_period and not isinstance(automated_snapshot_retention_period, int):
-            raise TypeError('Expected argument automated_snapshot_retention_period to be a int')
+        if automated_snapshot_retention_period and not isinstance(automated_snapshot_retention_period, float):
+            raise TypeError('Expected argument automated_snapshot_retention_period to be a float')
         __self__.automated_snapshot_retention_period = automated_snapshot_retention_period
         """
         The backup retention period
@@ -136,14 +136,14 @@ class GetClusterResult:
         """
         The cluster node type
         """
-        if number_of_nodes and not isinstance(number_of_nodes, int):
-            raise TypeError('Expected argument number_of_nodes to be a int')
+        if number_of_nodes and not isinstance(number_of_nodes, float):
+            raise TypeError('Expected argument number_of_nodes to be a float')
         __self__.number_of_nodes = number_of_nodes
         """
         The number of nodes in the cluster
         """
-        if port and not isinstance(port, int):
-            raise TypeError('Expected argument port to be a int')
+        if port and not isinstance(port, float):
+            raise TypeError('Expected argument port to be a float')
         __self__.port = port
         """
         The port the cluster responds on

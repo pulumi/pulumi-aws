@@ -25,6 +25,7 @@ func NewResourceShare(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["tags"] = args.Tags
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:ram/resourceShare:ResourceShare", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -39,6 +40,7 @@ func GetResourceShare(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["allowExternalPrincipals"] = state.AllowExternalPrincipals
+		inputs["arn"] = state.Arn
 		inputs["name"] = state.Name
 		inputs["tags"] = state.Tags
 	}
@@ -64,6 +66,11 @@ func (r *ResourceShare) AllowExternalPrincipals() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["allowExternalPrincipals"])
 }
 
+// The Amazon Resource Name (ARN) of the resource share.
+func (r *ResourceShare) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
+}
+
 // The name of the resource share.
 func (r *ResourceShare) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -78,6 +85,8 @@ func (r *ResourceShare) Tags() *pulumi.MapOutput {
 type ResourceShareState struct {
 	// Indicates whether principals outside your organization can be associated with a resource share.
 	AllowExternalPrincipals interface{}
+	// The Amazon Resource Name (ARN) of the resource share.
+	Arn interface{}
 	// The name of the resource share.
 	Name interface{}
 	// A mapping of tags to assign to the resource share.

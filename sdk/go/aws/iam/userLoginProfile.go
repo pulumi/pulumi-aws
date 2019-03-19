@@ -8,9 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides one-time creation of a IAM user login profile, and uses PGP to
-// encrypt the password for safe transport to the user. PGP keys can be
-// obtained from Keybase.
+// Manages an IAM User Login Profile with limited support for password creation during Terraform resource creation. Uses PGP to encrypt the password for safe transport to the user. PGP keys can be obtained from Keybase.
+// 
+// > To reset an IAM User login password via Terraform, you can use the [`terraform taint` command](https://www.terraform.io/docs/commands/taint.html) or change any of the arguments.
 type UserLoginProfile struct {
 	s *pulumi.ResourceState
 }
@@ -75,31 +75,27 @@ func (r *UserLoginProfile) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The encrypted password, base64 encoded.
+// The encrypted password, base64 encoded. Only available if password was handled on Terraform resource creation, not import.
 func (r *UserLoginProfile) EncryptedPassword() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["encryptedPassword"])
 }
 
-// The fingerprint of the PGP key used to encrypt
-// the password
+// The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on Terraform resource creation, not import.
 func (r *UserLoginProfile) KeyFingerprint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keyFingerprint"])
 }
 
-// The length of the generated
-// password.
+// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
 func (r *UserLoginProfile) PasswordLength() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["passwordLength"])
 }
 
-// Whether the
-// user should be forced to reset the generated password on first login.
+// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
 func (r *UserLoginProfile) PasswordResetRequired() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["passwordResetRequired"])
 }
 
-// Either a base-64 encoded PGP public key, or a
-// keybase username in the form `keybase:username`.
+// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
 func (r *UserLoginProfile) PgpKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["pgpKey"])
 }
@@ -111,19 +107,15 @@ func (r *UserLoginProfile) User() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering UserLoginProfile resources.
 type UserLoginProfileState struct {
-	// The encrypted password, base64 encoded.
+	// The encrypted password, base64 encoded. Only available if password was handled on Terraform resource creation, not import.
 	EncryptedPassword interface{}
-	// The fingerprint of the PGP key used to encrypt
-	// the password
+	// The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on Terraform resource creation, not import.
 	KeyFingerprint interface{}
-	// The length of the generated
-	// password.
+	// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
 	PasswordLength interface{}
-	// Whether the
-	// user should be forced to reset the generated password on first login.
+	// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
 	PasswordResetRequired interface{}
-	// Either a base-64 encoded PGP public key, or a
-	// keybase username in the form `keybase:username`.
+	// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
 	PgpKey interface{}
 	// The IAM user's name.
 	User interface{}
@@ -131,14 +123,11 @@ type UserLoginProfileState struct {
 
 // The set of arguments for constructing a UserLoginProfile resource.
 type UserLoginProfileArgs struct {
-	// The length of the generated
-	// password.
+	// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
 	PasswordLength interface{}
-	// Whether the
-	// user should be forced to reset the generated password on first login.
+	// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
 	PasswordResetRequired interface{}
-	// Either a base-64 encoded PGP public key, or a
-	// keybase username in the form `keybase:username`.
+	// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
 	PgpKey interface{}
 	// The IAM user's name.
 	User interface{}

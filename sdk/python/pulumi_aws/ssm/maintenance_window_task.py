@@ -26,7 +26,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     The maximum number of errors allowed before this task stops being scheduled.
     """
     name: pulumi.Output[str]
-    priority: pulumi.Output[int]
+    priority: pulumi.Output[float]
     """
     The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
     """
@@ -64,7 +64,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[dict] logging_info: A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
         :param pulumi.Input[str] max_concurrency: The maximum number of targets this task can be run for in parallel.
         :param pulumi.Input[str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
-        :param pulumi.Input[int] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+        :param pulumi.Input[float] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
         :param pulumi.Input[str] service_role_arn: The role that should be assumed when executing the task.
         :param pulumi.Input[list] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input[str] task_arn: The ARN of the task to execute.

@@ -26,11 +26,11 @@ class Stream(pulumi.CustomResource):
     A name to identify the stream. This is unique to the
     AWS account and region the Stream is created in.
     """
-    retention_period: pulumi.Output[int]
+    retention_period: pulumi.Output[float]
     """
     Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
     """
-    shard_count: pulumi.Output[int]
+    shard_count: pulumi.Output[float]
     """
     The number of shards that the stream will use.
     Amazon has guidlines for specifying the Stream size that should be referenced
@@ -58,8 +58,8 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias aws/kinesis.
         :param pulumi.Input[str] name: A name to identify the stream. This is unique to the
                AWS account and region the Stream is created in.
-        :param pulumi.Input[int] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
-        :param pulumi.Input[int] shard_count: The number of shards that the stream will use.
+        :param pulumi.Input[float] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
+        :param pulumi.Input[float] shard_count: The number of shards that the stream will use.
                Amazon has guidlines for specifying the Stream size that should be referenced
                when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
         :param pulumi.Input[list] shard_level_metrics: A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.

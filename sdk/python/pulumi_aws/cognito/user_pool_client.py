@@ -53,7 +53,7 @@ class UserPoolClient(pulumi.CustomResource):
     """
     List of user pool attributes the application client can read from.
     """
-    refresh_token_validity: pulumi.Output[int]
+    refresh_token_validity: pulumi.Output[float]
     """
     The time limit in days refresh tokens are valid for.
     """
@@ -85,7 +85,7 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[list] logout_urls: List of allowed logout URLs for the identity providers.
         :param pulumi.Input[str] name: The name of the application client.
         :param pulumi.Input[list] read_attributes: List of user pool attributes the application client can read from.
-        :param pulumi.Input[int] refresh_token_validity: The time limit in days refresh tokens are valid for.
+        :param pulumi.Input[float] refresh_token_validity: The time limit in days refresh tokens are valid for.
         :param pulumi.Input[list] supported_identity_providers: List of provider names for the identity providers that are supported on this client.
         :param pulumi.Input[str] user_pool_id: The user pool the client belongs to.
         :param pulumi.Input[list] write_attributes: List of user pool attributes the application client can write to.

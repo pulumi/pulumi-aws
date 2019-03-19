@@ -75,12 +75,12 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * The configuration information for the VPN connection's customer gateway (in the native XML format).
      */
-    public readonly customerGatewayConfiguration: pulumi.Output<string>;
+    public /*out*/ readonly customerGatewayConfiguration: pulumi.Output<string>;
     /**
      * The ID of the customer gateway.
      */
     public readonly customerGatewayId: pulumi.Output<string>;
-    public readonly routes: pulumi.Output<{ destinationCidrBlock: string, source: string, state: string }[]>;
+    public /*out*/ readonly routes: pulumi.Output<{ destinationCidrBlock: string, source: string, state: string }[]>;
     /**
      * Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
      */
@@ -153,7 +153,7 @@ export class VpnConnection extends pulumi.CustomResource {
      * The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
      */
     public readonly type: pulumi.Output<string>;
-    public readonly vgwTelemetries: pulumi.Output<{ acceptedRouteCount: number, lastStatusChange: string, outsideIpAddress: string, status: string, statusMessage: string }[]>;
+    public /*out*/ readonly vgwTelemetries: pulumi.Output<{ acceptedRouteCount: number, lastStatusChange: string, outsideIpAddress: string, status: string, statusMessage: string }[]>;
     /**
      * The ID of the Virtual Private Gateway.
      */
@@ -202,9 +202,7 @@ export class VpnConnection extends pulumi.CustomResource {
             if (!args || args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["customerGatewayConfiguration"] = args ? args.customerGatewayConfiguration : undefined;
             inputs["customerGatewayId"] = args ? args.customerGatewayId : undefined;
-            inputs["routes"] = args ? args.routes : undefined;
             inputs["staticRoutesOnly"] = args ? args.staticRoutesOnly : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
@@ -213,8 +211,9 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["tunnel2InsideCidr"] = args ? args.tunnel2InsideCidr : undefined;
             inputs["tunnel2PresharedKey"] = args ? args.tunnel2PresharedKey : undefined;
             inputs["type"] = args ? args.type : undefined;
-            inputs["vgwTelemetries"] = args ? args.vgwTelemetries : undefined;
             inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+            inputs["customerGatewayConfiguration"] = undefined /*out*/;
+            inputs["routes"] = undefined /*out*/;
             inputs["tunnel1Address"] = undefined /*out*/;
             inputs["tunnel1BgpAsn"] = undefined /*out*/;
             inputs["tunnel1BgpHoldtime"] = undefined /*out*/;
@@ -225,6 +224,7 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["tunnel2BgpHoldtime"] = undefined /*out*/;
             inputs["tunnel2CgwInsideAddress"] = undefined /*out*/;
             inputs["tunnel2VgwInsideAddress"] = undefined /*out*/;
+            inputs["vgwTelemetries"] = undefined /*out*/;
         }
         super("aws:ec2/vpnConnection:VpnConnection", name, inputs, opts);
     }
@@ -327,14 +327,9 @@ export interface VpnConnectionState {
  */
 export interface VpnConnectionArgs {
     /**
-     * The configuration information for the VPN connection's customer gateway (in the native XML format).
-     */
-    readonly customerGatewayConfiguration?: pulumi.Input<string>;
-    /**
      * The ID of the customer gateway.
      */
     readonly customerGatewayId: pulumi.Input<string>;
-    readonly routes?: pulumi.Input<pulumi.Input<{ destinationCidrBlock?: pulumi.Input<string>, source?: pulumi.Input<string>, state?: pulumi.Input<string> }>[]>;
     /**
      * Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
      */
@@ -367,7 +362,6 @@ export interface VpnConnectionArgs {
      * The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
      */
     readonly type: pulumi.Input<string>;
-    readonly vgwTelemetries?: pulumi.Input<pulumi.Input<{ acceptedRouteCount?: pulumi.Input<number>, lastStatusChange?: pulumi.Input<string>, outsideIpAddress?: pulumi.Input<string>, status?: pulumi.Input<string>, statusMessage?: pulumi.Input<string> }>[]>;
     /**
      * The ID of the Virtual Private Gateway.
      */

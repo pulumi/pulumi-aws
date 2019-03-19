@@ -11,27 +11,23 @@ from .. import utilities, tables
 class UserLoginProfile(pulumi.CustomResource):
     encrypted_password: pulumi.Output[str]
     """
-    The encrypted password, base64 encoded.
+    The encrypted password, base64 encoded. Only available if password was handled on Terraform resource creation, not import.
     """
     key_fingerprint: pulumi.Output[str]
     """
-    The fingerprint of the PGP key used to encrypt
-    the password
+    The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on Terraform resource creation, not import.
     """
-    password_length: pulumi.Output[int]
+    password_length: pulumi.Output[float]
     """
-    The length of the generated
-    password.
+    The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
     """
     password_reset_required: pulumi.Output[bool]
     """
-    Whether the
-    user should be forced to reset the generated password on first login.
+    Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
     """
     pgp_key: pulumi.Output[str]
     """
-    Either a base-64 encoded PGP public key, or a
-    keybase username in the form `keybase:username`.
+    Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
     """
     user: pulumi.Output[str]
     """
@@ -39,18 +35,15 @@ class UserLoginProfile(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, password_length=None, password_reset_required=None, pgp_key=None, user=None, __name__=None, __opts__=None):
         """
-        Provides one-time creation of a IAM user login profile, and uses PGP to
-        encrypt the password for safe transport to the user. PGP keys can be
-        obtained from Keybase.
+        Manages an IAM User Login Profile with limited support for password creation during Terraform resource creation. Uses PGP to encrypt the password for safe transport to the user. PGP keys can be obtained from Keybase.
+        
+        > To reset an IAM User login password via Terraform, you can use the [`terraform taint` command](https://www.terraform.io/docs/commands/taint.html) or change any of the arguments.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] password_length: The length of the generated
-               password.
-        :param pulumi.Input[bool] password_reset_required: Whether the
-               user should be forced to reset the generated password on first login.
-        :param pulumi.Input[str] pgp_key: Either a base-64 encoded PGP public key, or a
-               keybase username in the form `keybase:username`.
+        :param pulumi.Input[float] password_length: The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
+        :param pulumi.Input[bool] password_reset_required: Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
+        :param pulumi.Input[str] pgp_key: Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
         :param pulumi.Input[str] user: The IAM user's name.
         """
         if __name__ is not None:

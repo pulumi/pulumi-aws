@@ -35,6 +35,8 @@ func NewConnection(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
+	inputs["awsDevice"] = nil
+	inputs["hasLogicalRedundancy"] = nil
 	inputs["jumboFrameCapable"] = nil
 	s, err := ctx.RegisterResource("aws:directconnect/connection:Connection", name, true, inputs, opts...)
 	if err != nil {
@@ -50,7 +52,9 @@ func GetConnection(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["arn"] = state.Arn
+		inputs["awsDevice"] = state.AwsDevice
 		inputs["bandwidth"] = state.Bandwidth
+		inputs["hasLogicalRedundancy"] = state.HasLogicalRedundancy
 		inputs["jumboFrameCapable"] = state.JumboFrameCapable
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
@@ -78,9 +82,19 @@ func (r *Connection) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
+// The Direct Connect endpoint on which the physical connection terminates.
+func (r *Connection) AwsDevice() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["awsDevice"])
+}
+
 // The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
 func (r *Connection) Bandwidth() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["bandwidth"])
+}
+
+// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+func (r *Connection) HasLogicalRedundancy() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["hasLogicalRedundancy"])
 }
 
 // Boolean value representing if jumbo frames have been enabled for this connection.
@@ -107,8 +121,12 @@ func (r *Connection) Tags() *pulumi.MapOutput {
 type ConnectionState struct {
 	// The ARN of the connection.
 	Arn interface{}
+	// The Direct Connect endpoint on which the physical connection terminates.
+	AwsDevice interface{}
 	// The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
 	Bandwidth interface{}
+	// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+	HasLogicalRedundancy interface{}
 	// Boolean value representing if jumbo frames have been enabled for this connection.
 	JumboFrameCapable interface{}
 	// The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.

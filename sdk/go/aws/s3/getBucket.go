@@ -23,6 +23,7 @@ func LookupBucket(ctx *pulumi.Context, args *GetBucketArgs) (*GetBucketResult, e
 	return &GetBucketResult{
 		Arn: outputs["arn"],
 		BucketDomainName: outputs["bucketDomainName"],
+		BucketRegionalDomainName: outputs["bucketRegionalDomainName"],
 		HostedZoneId: outputs["hostedZoneId"],
 		Region: outputs["region"],
 		WebsiteDomain: outputs["websiteDomain"],
@@ -43,6 +44,8 @@ type GetBucketResult struct {
 	Arn interface{}
 	// The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
 	BucketDomainName interface{}
+	// The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
+	BucketRegionalDomainName interface{}
 	// The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
 	HostedZoneId interface{}
 	// The AWS region this bucket resides in.

@@ -21,7 +21,7 @@ class Vault(pulumi.CustomResource):
     """
     Name of the backup vault to create.
     """
-    recovery_points: pulumi.Output[int]
+    recovery_points: pulumi.Output[float]
     """
     The number of recovery points that are stored in a backup vault.
     """

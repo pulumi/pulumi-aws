@@ -221,7 +221,7 @@ func (r *Function) QualifiedArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["qualifiedArn"])
 }
 
-// The amount of reserved concurrent executions for this lambda function. Defaults to Unreserved Concurrency Limits. See [Managing Concurrency][9]
+// The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
 func (r *Function) ReservedConcurrentExecutions() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["reservedConcurrentExecutions"])
 }
@@ -316,7 +316,7 @@ type FunctionState struct {
 	// The Amazon Resource Name (ARN) identifying your Lambda Function Version
 	// (if versioning is enabled via `publish = true`).
 	QualifiedArn interface{}
-	// The amount of reserved concurrent executions for this lambda function. Defaults to Unreserved Concurrency Limits. See [Managing Concurrency][9]
+	// The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
 	ReservedConcurrentExecutions interface{}
 	// IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
 	Role interface{}
@@ -365,7 +365,7 @@ type FunctionArgs struct {
 	MemorySize interface{}
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 	Publish interface{}
-	// The amount of reserved concurrent executions for this lambda function. Defaults to Unreserved Concurrency Limits. See [Managing Concurrency][9]
+	// The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
 	ReservedConcurrentExecutions interface{}
 	// IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
 	Role interface{}

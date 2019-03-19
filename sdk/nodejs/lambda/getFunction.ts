@@ -25,6 +25,7 @@ export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions):
     return pulumi.runtime.invoke("aws:lambda/getFunction:getFunction", {
         "functionName": args.functionName,
         "qualifier": args.qualifier,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -37,9 +38,10 @@ export interface GetFunctionArgs {
      */
     readonly functionName: string;
     /**
-     * Qualifier of the lambda function. Defaults to `$LATEST`.
+     * Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
      */
     readonly qualifier?: string;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -47,7 +49,7 @@ export interface GetFunctionArgs {
  */
 export interface GetFunctionResult {
     /**
-     * The Amazon Resource Name (ARN) identifying your Lambda Function.
+     * Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualified_arn`.
      */
     readonly arn: string;
     /**
@@ -87,11 +89,11 @@ export interface GetFunctionResult {
      */
     readonly memorySize: number;
     /**
-     * The Amazon Resource Name (ARN) identifying your Lambda Function Version
+     * Qualified (`:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `arn`.
      */
     readonly qualifiedArn: string;
     /**
-     * The amount of reserved concurrent executions for this lambda function.
+     * The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
      */
     readonly reservedConcurrentExecutions: number;
     /**
@@ -110,6 +112,7 @@ export interface GetFunctionResult {
      * The size in bytes of the function .zip file.
      */
     readonly sourceCodeSize: number;
+    readonly tags: {[key: string]: any};
     /**
      * The function execution time at which Lambda should terminate the function.
      */

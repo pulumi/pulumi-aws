@@ -92,7 +92,7 @@ class ClusterInstance(pulumi.CustomResource):
     """
     The ARN for the KMS encryption key if one is set to the cluster.
     """
-    monitoring_interval: pulumi.Output[int]
+    monitoring_interval: pulumi.Output[float]
     """
     The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
     """
@@ -110,7 +110,7 @@ class ClusterInstance(pulumi.CustomResource):
     """
     The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
     """
-    port: pulumi.Output[int]
+    port: pulumi.Output[float]
     """
     The database port
     """
@@ -124,7 +124,7 @@ class ClusterInstance(pulumi.CustomResource):
     The window to perform maintenance in.
     Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
     """
-    promotion_tier: pulumi.Output[int]
+    promotion_tier: pulumi.Output[float]
     """
     Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
     """
@@ -196,7 +196,7 @@ class ClusterInstance(pulumi.CustomResource):
                - db.r4.4xlarge
                - db.r4.8xlarge
                - db.r4.16xlarge
-        :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+        :param pulumi.Input[float] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         :param pulumi.Input[str] monitoring_role_arn: The ARN for the IAM role that permits RDS to send
                enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
                what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
@@ -206,7 +206,7 @@ class ClusterInstance(pulumi.CustomResource):
                Eg: "04:00-09:00"
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+        :param pulumi.Input[float] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly accessible.
                Default `false`. See the documentation on [Creating DB Instances][6] for more
                details on controlling this property.

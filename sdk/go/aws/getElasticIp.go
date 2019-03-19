@@ -27,7 +27,9 @@ func LookupElasticIp(ctx *pulumi.Context, args *GetElasticIpArgs) (*GetElasticIp
 		InstanceId: outputs["instanceId"],
 		NetworkInterfaceId: outputs["networkInterfaceId"],
 		NetworkInterfaceOwnerId: outputs["networkInterfaceOwnerId"],
+		PrivateDns: outputs["privateDns"],
 		PrivateIp: outputs["privateIp"],
+		PublicDns: outputs["publicDns"],
 		PublicIp: outputs["publicIp"],
 		PublicIpv4Pool: outputs["publicIpv4Pool"],
 		Tags: outputs["tags"],
@@ -60,8 +62,12 @@ type GetElasticIpResult struct {
 	NetworkInterfaceId interface{}
 	// The ID of the AWS account that owns the network interface.
 	NetworkInterfaceOwnerId interface{}
+	// The Private DNS associated with the Elastic IP address.
+	PrivateDns interface{}
 	// The private IP address associated with the Elastic IP address.
 	PrivateIp interface{}
+	// Public DNS associated with the Elastic IP address.
+	PublicDns interface{}
 	// Public IP address of Elastic IP.
 	PublicIp interface{}
 	// The ID of an address pool.

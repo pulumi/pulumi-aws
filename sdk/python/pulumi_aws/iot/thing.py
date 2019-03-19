@@ -29,7 +29,7 @@ class Thing(pulumi.CustomResource):
     """
     The thing type name.
     """
-    version: pulumi.Output[int]
+    version: pulumi.Output[float]
     """
     The current version of the thing record in the registry.
     """

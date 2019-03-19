@@ -25,8 +25,8 @@ class GetListenerResult:
         if load_balancer_arn and not isinstance(load_balancer_arn, str):
             raise TypeError('Expected argument load_balancer_arn to be a str')
         __self__.load_balancer_arn = load_balancer_arn
-        if port and not isinstance(port, int):
-            raise TypeError('Expected argument port to be a int')
+        if port and not isinstance(port, float):
+            raise TypeError('Expected argument port to be a float')
         __self__.port = port
         if protocol and not isinstance(protocol, str):
             raise TypeError('Expected argument protocol to be a str')

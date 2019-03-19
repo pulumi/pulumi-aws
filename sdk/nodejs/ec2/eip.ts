@@ -125,9 +125,17 @@ export class Eip extends pulumi.CustomResource {
      */
     public readonly networkInterface: pulumi.Output<string>;
     /**
+     * The Private DNS associated with the Elastic IP address (if in VPC).
+     */
+    public /*out*/ readonly privateDns: pulumi.Output<string>;
+    /**
      * Contains the private IP address (if in VPC).
      */
     public /*out*/ readonly privateIp: pulumi.Output<string>;
+    /**
+     * Public DNS associated with the Elastic IP address.
+     */
+    public /*out*/ readonly publicDns: pulumi.Output<string>;
     /**
      * Contains the public IP address.
      */
@@ -163,7 +171,9 @@ export class Eip extends pulumi.CustomResource {
             inputs["domain"] = state ? state.domain : undefined;
             inputs["instance"] = state ? state.instance : undefined;
             inputs["networkInterface"] = state ? state.networkInterface : undefined;
+            inputs["privateDns"] = state ? state.privateDns : undefined;
             inputs["privateIp"] = state ? state.privateIp : undefined;
+            inputs["publicDns"] = state ? state.publicDns : undefined;
             inputs["publicIp"] = state ? state.publicIp : undefined;
             inputs["publicIpv4Pool"] = state ? state.publicIpv4Pool : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -179,7 +189,9 @@ export class Eip extends pulumi.CustomResource {
             inputs["allocationId"] = undefined /*out*/;
             inputs["associationId"] = undefined /*out*/;
             inputs["domain"] = undefined /*out*/;
+            inputs["privateDns"] = undefined /*out*/;
             inputs["privateIp"] = undefined /*out*/;
+            inputs["publicDns"] = undefined /*out*/;
             inputs["publicIp"] = undefined /*out*/;
         }
         super("aws:ec2/eip:Eip", name, inputs, opts);
@@ -208,9 +220,17 @@ export interface EipState {
      */
     readonly networkInterface?: pulumi.Input<string>;
     /**
+     * The Private DNS associated with the Elastic IP address (if in VPC).
+     */
+    readonly privateDns?: pulumi.Input<string>;
+    /**
      * Contains the private IP address (if in VPC).
      */
     readonly privateIp?: pulumi.Input<string>;
+    /**
+     * Public DNS associated with the Elastic IP address.
+     */
+    readonly publicDns?: pulumi.Input<string>;
     /**
      * Contains the public IP address.
      */

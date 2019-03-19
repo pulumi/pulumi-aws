@@ -98,7 +98,6 @@ func NewService(ctx *pulumi.Context,
 		inputs["networkConfiguration"] = nil
 		inputs["orderedPlacementStrategies"] = nil
 		inputs["placementConstraints"] = nil
-		inputs["placementStrategies"] = nil
 		inputs["platformVersion"] = nil
 		inputs["propagateTags"] = nil
 		inputs["schedulingStrategy"] = nil
@@ -121,7 +120,6 @@ func NewService(ctx *pulumi.Context,
 		inputs["networkConfiguration"] = args.NetworkConfiguration
 		inputs["orderedPlacementStrategies"] = args.OrderedPlacementStrategies
 		inputs["placementConstraints"] = args.PlacementConstraints
-		inputs["placementStrategies"] = args.PlacementStrategies
 		inputs["platformVersion"] = args.PlatformVersion
 		inputs["propagateTags"] = args.PropagateTags
 		inputs["schedulingStrategy"] = args.SchedulingStrategy
@@ -157,7 +155,6 @@ func GetService(ctx *pulumi.Context,
 		inputs["networkConfiguration"] = state.NetworkConfiguration
 		inputs["orderedPlacementStrategies"] = state.OrderedPlacementStrategies
 		inputs["placementConstraints"] = state.PlacementConstraints
-		inputs["placementStrategies"] = state.PlacementStrategies
 		inputs["platformVersion"] = state.PlatformVersion
 		inputs["propagateTags"] = state.PropagateTags
 		inputs["schedulingStrategy"] = state.SchedulingStrategy
@@ -213,7 +210,7 @@ func (r *Service) EnableEcsManagedTags() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enableEcsManagedTags"])
 }
 
-// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
+// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
 func (r *Service) HealthCheckGracePeriodSeconds() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["healthCheckGracePeriodSeconds"])
 }
@@ -252,11 +249,6 @@ func (r *Service) OrderedPlacementStrategies() *pulumi.ArrayOutput {
 // `placement_constraints` is `10`. Defined below.
 func (r *Service) PlacementConstraints() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["placementConstraints"])
-}
-
-// **Deprecated**, use `ordered_placement_strategy` instead.
-func (r *Service) PlacementStrategies() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["placementStrategies"])
 }
 
 // The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
@@ -309,7 +301,7 @@ type ServiceState struct {
 	DesiredCount interface{}
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags interface{}
-	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
+	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
 	HealthCheckGracePeriodSeconds interface{}
 	// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
 	IamRole interface{}
@@ -326,8 +318,6 @@ type ServiceState struct {
 	// rules that are taken into consideration during task placement. Maximum number of
 	// `placement_constraints` is `10`. Defined below.
 	PlacementConstraints interface{}
-	// **Deprecated**, use `ordered_placement_strategy` instead.
-	PlacementStrategies interface{}
 	// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion interface{}
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
@@ -359,7 +349,7 @@ type ServiceArgs struct {
 	DesiredCount interface{}
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags interface{}
-	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
+	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
 	HealthCheckGracePeriodSeconds interface{}
 	// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
 	IamRole interface{}
@@ -376,8 +366,6 @@ type ServiceArgs struct {
 	// rules that are taken into consideration during task placement. Maximum number of
 	// `placement_constraints` is `10`. Defined below.
 	PlacementConstraints interface{}
-	// **Deprecated**, use `ordered_placement_strategy` instead.
-	PlacementStrategies interface{}
 	// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion interface{}
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.

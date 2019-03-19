@@ -107,7 +107,7 @@ func (r *Record) Aliases() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["aliases"])
 }
 
-// Allow creation of this record in Terraform to overwrite an existing record, if any. This does not prevent other resources within Terraform or manual Route53 changes from overwriting this record. `true` by default.
+// Allow creation of this record in Terraform to overwrite an existing record, if any. This does not affect the ability to update the record in Terraform and does not prevent other resources within Terraform or manual Route 53 changes outside Terraform from overwriting this record. `false` by default. The next major version of the Terraform AWS Provider will always require importing existing Route 53 Records.
 func (r *Record) AllowOverwrite() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["allowOverwrite"])
 }
@@ -182,7 +182,7 @@ type RecordState struct {
 	// An alias block. Conflicts with `ttl` & `records`.
 	// Alias record documented below.
 	Aliases interface{}
-	// Allow creation of this record in Terraform to overwrite an existing record, if any. This does not prevent other resources within Terraform or manual Route53 changes from overwriting this record. `true` by default.
+	// Allow creation of this record in Terraform to overwrite an existing record, if any. This does not affect the ability to update the record in Terraform and does not prevent other resources within Terraform or manual Route 53 changes outside Terraform from overwriting this record. `false` by default. The next major version of the Terraform AWS Provider will always require importing existing Route 53 Records.
 	AllowOverwrite interface{}
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
 	FailoverRoutingPolicies interface{}
@@ -217,7 +217,7 @@ type RecordArgs struct {
 	// An alias block. Conflicts with `ttl` & `records`.
 	// Alias record documented below.
 	Aliases interface{}
-	// Allow creation of this record in Terraform to overwrite an existing record, if any. This does not prevent other resources within Terraform or manual Route53 changes from overwriting this record. `true` by default.
+	// Allow creation of this record in Terraform to overwrite an existing record, if any. This does not affect the ability to update the record in Terraform and does not prevent other resources within Terraform or manual Route 53 changes outside Terraform from overwriting this record. `false` by default. The next major version of the Terraform AWS Provider will always require importing existing Route 53 Records.
 	AllowOverwrite interface{}
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
 	FailoverRoutingPolicies interface{}

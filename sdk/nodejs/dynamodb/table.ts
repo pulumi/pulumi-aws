@@ -152,7 +152,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * Defines ttl, has two properties, and can only be specified once:
      */
-    public readonly ttl: pulumi.Output<{ attributeName: string, enabled: boolean } | undefined>;
+    public readonly ttl: pulumi.Output<{ attributeName: string, enabled?: boolean } | undefined>;
     /**
      * The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
      */
@@ -298,7 +298,7 @@ export interface TableState {
     /**
      * Defines ttl, has two properties, and can only be specified once:
      */
-    readonly ttl?: pulumi.Input<{ attributeName: pulumi.Input<string>, enabled: pulumi.Input<boolean> }>;
+    readonly ttl?: pulumi.Input<{ attributeName: pulumi.Input<string>, enabled?: pulumi.Input<boolean> }>;
     /**
      * The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
      */
@@ -369,7 +369,7 @@ export interface TableArgs {
     /**
      * Defines ttl, has two properties, and can only be specified once:
      */
-    readonly ttl?: pulumi.Input<{ attributeName: pulumi.Input<string>, enabled: pulumi.Input<boolean> }>;
+    readonly ttl?: pulumi.Input<{ attributeName: pulumi.Input<string>, enabled?: pulumi.Input<boolean> }>;
     /**
      * The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
      */

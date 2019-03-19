@@ -83,9 +83,12 @@ export class Cluster extends pulumi.CustomResource {
      * The DocDB Cluster Resource ID
      */
     public /*out*/ readonly clusterResourceId: pulumi.Output<string>;
+    /**
+     * A cluster parameter group to associate with the cluster.
+     */
     public readonly dbClusterParameterGroupName: pulumi.Output<string>;
     /**
-     * A DB subnet group to associate with this DB instance.* `db_cluster_parameter_group_name` - (Optional) A cluster parameter group to associate with the cluster.
+     * A DB subnet group to associate with this DB instance.
      */
     public readonly dbSubnetGroupName: pulumi.Output<string>;
     /**
@@ -278,9 +281,12 @@ export interface ClusterState {
      * The DocDB Cluster Resource ID
      */
     readonly clusterResourceId?: pulumi.Input<string>;
+    /**
+     * A cluster parameter group to associate with the cluster.
+     */
     readonly dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
-     * A DB subnet group to associate with this DB instance.* `db_cluster_parameter_group_name` - (Optional) A cluster parameter group to associate with the cluster.
+     * A DB subnet group to associate with this DB instance.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
@@ -391,9 +397,12 @@ export interface ClusterArgs {
      * List of DocDB Instances that are a part of this cluster
      */
     readonly clusterMembers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A cluster parameter group to associate with the cluster.
+     */
     readonly dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
-     * A DB subnet group to associate with this DB instance.* `db_cluster_parameter_group_name` - (Optional) A cluster parameter group to associate with the cluster.
+     * A DB subnet group to associate with this DB instance.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**

@@ -19,20 +19,20 @@ class GetClusterResult:
         """
         The ARN of the ECS Cluster
         """
-        if pending_tasks_count and not isinstance(pending_tasks_count, int):
-            raise TypeError('Expected argument pending_tasks_count to be a int')
+        if pending_tasks_count and not isinstance(pending_tasks_count, float):
+            raise TypeError('Expected argument pending_tasks_count to be a float')
         __self__.pending_tasks_count = pending_tasks_count
         """
         The number of pending tasks for the ECS Cluster
         """
-        if registered_container_instances_count and not isinstance(registered_container_instances_count, int):
-            raise TypeError('Expected argument registered_container_instances_count to be a int')
+        if registered_container_instances_count and not isinstance(registered_container_instances_count, float):
+            raise TypeError('Expected argument registered_container_instances_count to be a float')
         __self__.registered_container_instances_count = registered_container_instances_count
         """
         The number of registered container instances for the ECS Cluster
         """
-        if running_tasks_count and not isinstance(running_tasks_count, int):
-            raise TypeError('Expected argument running_tasks_count to be a int')
+        if running_tasks_count and not isinstance(running_tasks_count, float):
+            raise TypeError('Expected argument running_tasks_count to be a float')
         __self__.running_tasks_count = running_tasks_count
         """
         The number of running tasks for the ECS Cluster

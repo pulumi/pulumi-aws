@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.ram.ResourceAssociation("example", {
  *     resourceArn: aws_subnet_example.arn,
- *     resourceShareArn: aws_ram_resource_share_example.id,
+ *     resourceShareArn: aws_ram_resource_share_example.arn,
  * });
  * ```
  */

@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * });
  * const examplePrincipalAssociation = new aws.ram.PrincipalAssociation("example", {
  *     principal: "111111111111",
- *     resourceShareArn: exampleResourceShare.id,
+ *     resourceShareArn: exampleResourceShare.arn,
  * });
  * ```
  * 
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.ram.PrincipalAssociation("example", {
  *     principal: aws_organizations_organization_example.id,
- *     resourceShareArn: aws_ram_resource_share_example.id,
+ *     resourceShareArn: aws_ram_resource_share_example.arn,
  * });
  * ```
  */

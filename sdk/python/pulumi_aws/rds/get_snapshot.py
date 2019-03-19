@@ -13,8 +13,8 @@ class GetSnapshotResult:
     A collection of values returned by getSnapshot.
     """
     def __init__(__self__, allocated_storage=None, availability_zone=None, db_snapshot_arn=None, encrypted=None, engine=None, engine_version=None, iops=None, kms_key_id=None, license_model=None, option_group_name=None, port=None, snapshot_create_time=None, source_db_snapshot_identifier=None, source_region=None, status=None, storage_type=None, vpc_id=None, id=None):
-        if allocated_storage and not isinstance(allocated_storage, int):
-            raise TypeError('Expected argument allocated_storage to be a int')
+        if allocated_storage and not isinstance(allocated_storage, float):
+            raise TypeError('Expected argument allocated_storage to be a float')
         __self__.allocated_storage = allocated_storage
         """
         Specifies the allocated storage size in gigabytes (GB).
@@ -49,8 +49,8 @@ class GetSnapshotResult:
         """
         Specifies the version of the database engine.
         """
-        if iops and not isinstance(iops, int):
-            raise TypeError('Expected argument iops to be a int')
+        if iops and not isinstance(iops, float):
+            raise TypeError('Expected argument iops to be a float')
         __self__.iops = iops
         """
         Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
@@ -73,8 +73,8 @@ class GetSnapshotResult:
         """
         Provides the option group name for the DB snapshot.
         """
-        if port and not isinstance(port, int):
-            raise TypeError('Expected argument port to be a int')
+        if port and not isinstance(port, float):
+            raise TypeError('Expected argument port to be a float')
         __self__.port = port
         if snapshot_create_time and not isinstance(snapshot_create_time, str):
             raise TypeError('Expected argument snapshot_create_time to be a str')

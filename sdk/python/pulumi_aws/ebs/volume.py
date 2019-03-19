@@ -21,7 +21,7 @@ class Volume(pulumi.CustomResource):
     """
     If true, the disk will be encrypted.
     """
-    iops: pulumi.Output[int]
+    iops: pulumi.Output[float]
     """
     The amount of IOPS to provision for the disk.
     """
@@ -29,7 +29,7 @@ class Volume(pulumi.CustomResource):
     """
     The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
     """
-    size: pulumi.Output[int]
+    size: pulumi.Output[float]
     """
     The size of the drive in GiBs.
     """
@@ -53,9 +53,9 @@ class Volume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The AZ where the EBS volume will exist.
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
-        :param pulumi.Input[int] iops: The amount of IOPS to provision for the disk.
+        :param pulumi.Input[float] iops: The amount of IOPS to provision for the disk.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
-        :param pulumi.Input[int] size: The size of the drive in GiBs.
+        :param pulumi.Input[float] size: The size of the drive in GiBs.
         :param pulumi.Input[str] snapshot_id: A snapshot to base the EBS volume off of.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").

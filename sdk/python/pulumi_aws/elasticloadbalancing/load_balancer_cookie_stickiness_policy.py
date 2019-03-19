@@ -9,12 +9,12 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
-    cookie_expiration_period: pulumi.Output[int]
+    cookie_expiration_period: pulumi.Output[float]
     """
     The time period after which
     the session cookie should be considered stale, expressed in seconds.
     """
-    lb_port: pulumi.Output[int]
+    lb_port: pulumi.Output[float]
     """
     The load balancer port to which the policy
     should be applied. This must be an active listener on the load
@@ -35,9 +35,9 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] cookie_expiration_period: The time period after which
+        :param pulumi.Input[float] cookie_expiration_period: The time period after which
                the session cookie should be considered stale, expressed in seconds.
-        :param pulumi.Input[int] lb_port: The load balancer port to which the policy
+        :param pulumi.Input[float] lb_port: The load balancer port to which the policy
                should be applied. This must be an active listener on the load
                balancer.
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy

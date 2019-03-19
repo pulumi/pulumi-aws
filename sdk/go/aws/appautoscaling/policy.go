@@ -51,32 +51,22 @@ func NewPolicy(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
-		inputs["adjustmentType"] = nil
 		inputs["alarms"] = nil
-		inputs["cooldown"] = nil
-		inputs["metricAggregationType"] = nil
-		inputs["minAdjustmentMagnitude"] = nil
 		inputs["name"] = nil
 		inputs["policyType"] = nil
 		inputs["resourceId"] = nil
 		inputs["scalableDimension"] = nil
 		inputs["serviceNamespace"] = nil
-		inputs["stepAdjustments"] = nil
-		inputs["stepScalingPolicyConfigurations"] = nil
+		inputs["stepScalingPolicyConfiguration"] = nil
 		inputs["targetTrackingScalingPolicyConfiguration"] = nil
 	} else {
-		inputs["adjustmentType"] = args.AdjustmentType
 		inputs["alarms"] = args.Alarms
-		inputs["cooldown"] = args.Cooldown
-		inputs["metricAggregationType"] = args.MetricAggregationType
-		inputs["minAdjustmentMagnitude"] = args.MinAdjustmentMagnitude
 		inputs["name"] = args.Name
 		inputs["policyType"] = args.PolicyType
 		inputs["resourceId"] = args.ResourceId
 		inputs["scalableDimension"] = args.ScalableDimension
 		inputs["serviceNamespace"] = args.ServiceNamespace
-		inputs["stepAdjustments"] = args.StepAdjustments
-		inputs["stepScalingPolicyConfigurations"] = args.StepScalingPolicyConfigurations
+		inputs["stepScalingPolicyConfiguration"] = args.StepScalingPolicyConfiguration
 		inputs["targetTrackingScalingPolicyConfiguration"] = args.TargetTrackingScalingPolicyConfiguration
 	}
 	inputs["arn"] = nil
@@ -93,19 +83,14 @@ func GetPolicy(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *PolicyState, opts ...pulumi.ResourceOpt) (*Policy, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
-		inputs["adjustmentType"] = state.AdjustmentType
 		inputs["alarms"] = state.Alarms
 		inputs["arn"] = state.Arn
-		inputs["cooldown"] = state.Cooldown
-		inputs["metricAggregationType"] = state.MetricAggregationType
-		inputs["minAdjustmentMagnitude"] = state.MinAdjustmentMagnitude
 		inputs["name"] = state.Name
 		inputs["policyType"] = state.PolicyType
 		inputs["resourceId"] = state.ResourceId
 		inputs["scalableDimension"] = state.ScalableDimension
 		inputs["serviceNamespace"] = state.ServiceNamespace
-		inputs["stepAdjustments"] = state.StepAdjustments
-		inputs["stepScalingPolicyConfigurations"] = state.StepScalingPolicyConfigurations
+		inputs["stepScalingPolicyConfiguration"] = state.StepScalingPolicyConfiguration
 		inputs["targetTrackingScalingPolicyConfiguration"] = state.TargetTrackingScalingPolicyConfiguration
 	}
 	s, err := ctx.ReadResource("aws:appautoscaling/policy:Policy", name, id, inputs, opts...)
@@ -125,11 +110,6 @@ func (r *Policy) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The scaling policy's adjustment type.
-func (r *Policy) AdjustmentType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["adjustmentType"])
-}
-
 func (r *Policy) Alarms() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["alarms"])
 }
@@ -137,18 +117,6 @@ func (r *Policy) Alarms() *pulumi.ArrayOutput {
 // The ARN assigned by AWS to the scaling policy.
 func (r *Policy) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
-}
-
-func (r *Policy) Cooldown() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["cooldown"])
-}
-
-func (r *Policy) MetricAggregationType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["metricAggregationType"])
-}
-
-func (r *Policy) MinAdjustmentMagnitude() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["minAdjustmentMagnitude"])
 }
 
 // The name of the policy.
@@ -176,13 +144,9 @@ func (r *Policy) ServiceNamespace() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["serviceNamespace"])
 }
 
-func (r *Policy) StepAdjustments() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["stepAdjustments"])
-}
-
 // Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
-func (r *Policy) StepScalingPolicyConfigurations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["stepScalingPolicyConfigurations"])
+func (r *Policy) StepScalingPolicyConfiguration() *pulumi.Output {
+	return r.s.State["stepScalingPolicyConfiguration"]
 }
 
 // A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
@@ -192,14 +156,9 @@ func (r *Policy) TargetTrackingScalingPolicyConfiguration() *pulumi.Output {
 
 // Input properties used for looking up and filtering Policy resources.
 type PolicyState struct {
-	// The scaling policy's adjustment type.
-	AdjustmentType interface{}
 	Alarms interface{}
 	// The ARN assigned by AWS to the scaling policy.
 	Arn interface{}
-	Cooldown interface{}
-	MetricAggregationType interface{}
-	MinAdjustmentMagnitude interface{}
 	// The name of the policy.
 	Name interface{}
 	// For DynamoDB, only `TargetTrackingScaling` is supported. For Amazon ECS, Spot Fleet, and Amazon RDS, both `StepScaling` and `TargetTrackingScaling` are supported. For any other service, only `StepScaling` is supported. Defaults to `StepScaling`.
@@ -210,21 +169,15 @@ type PolicyState struct {
 	ScalableDimension interface{}
 	// The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ServiceNamespace interface{}
-	StepAdjustments interface{}
 	// Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
-	StepScalingPolicyConfigurations interface{}
+	StepScalingPolicyConfiguration interface{}
 	// A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
 	TargetTrackingScalingPolicyConfiguration interface{}
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	// The scaling policy's adjustment type.
-	AdjustmentType interface{}
 	Alarms interface{}
-	Cooldown interface{}
-	MetricAggregationType interface{}
-	MinAdjustmentMagnitude interface{}
 	// The name of the policy.
 	Name interface{}
 	// For DynamoDB, only `TargetTrackingScaling` is supported. For Amazon ECS, Spot Fleet, and Amazon RDS, both `StepScaling` and `TargetTrackingScaling` are supported. For any other service, only `StepScaling` is supported. Defaults to `StepScaling`.
@@ -235,9 +188,8 @@ type PolicyArgs struct {
 	ScalableDimension interface{}
 	// The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ServiceNamespace interface{}
-	StepAdjustments interface{}
 	// Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
-	StepScalingPolicyConfigurations interface{}
+	StepScalingPolicyConfiguration interface{}
 	// A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
 	TargetTrackingScalingPolicyConfiguration interface{}
 }

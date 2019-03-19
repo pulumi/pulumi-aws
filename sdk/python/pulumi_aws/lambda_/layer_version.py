@@ -11,7 +11,7 @@ from .. import utilities, tables
 class LayerVersion(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
-    The Amazon Resource Name (ARN) identifying your Lambda Layer.
+    The Amazon Resource Name (ARN) of the Lambda Layer with version.
     """
     compatible_runtimes: pulumi.Output[list]
     """
@@ -31,7 +31,7 @@ class LayerVersion(pulumi.CustomResource):
     """
     layer_arn: pulumi.Output[str]
     """
-    The Amazon Resource Name (ARN) identifying your specific Lambda Layer version.
+    The Amazon Resource Name (ARN) of the Lambda Layer without version.
     """
     layer_name: pulumi.Output[str]
     """
@@ -57,7 +57,7 @@ class LayerVersion(pulumi.CustomResource):
     """
     Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${base64sha256(file("file.zip"))}`, where "file.zip" is the local filename of the lambda layer source archive.
     """
-    source_code_size: pulumi.Output[int]
+    source_code_size: pulumi.Output[float]
     """
     The size in bytes of the function .zip file.
     """
@@ -70,8 +70,6 @@ class LayerVersion(pulumi.CustomResource):
         Provides a Lambda Layer Version resource. Lambda Layers allow you to reuse shared bits of code across multiple lambda functions.
         
         For information about Lambda Layers and how to use them, see [AWS Lambda Layers][1]
-        
-        > **NOTE:** The attribute values for `arn` and `layer_arn` will be swapped in version 2.0.0 of the Terraform AWS Provider.
         
         ## Specifying the Deployment Package
         

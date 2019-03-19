@@ -57,6 +57,7 @@ func NewPrivateVirtualInterface(ctx *pulumi.Context,
 		inputs["vpnGatewayId"] = args.VpnGatewayId
 	}
 	inputs["arn"] = nil
+	inputs["awsDevice"] = nil
 	inputs["jumboFrameCapable"] = nil
 	s, err := ctx.RegisterResource("aws:directconnect/privateVirtualInterface:PrivateVirtualInterface", name, true, inputs, opts...)
 	if err != nil {
@@ -74,6 +75,7 @@ func GetPrivateVirtualInterface(ctx *pulumi.Context,
 		inputs["addressFamily"] = state.AddressFamily
 		inputs["amazonAddress"] = state.AmazonAddress
 		inputs["arn"] = state.Arn
+		inputs["awsDevice"] = state.AwsDevice
 		inputs["bgpAsn"] = state.BgpAsn
 		inputs["bgpAuthKey"] = state.BgpAuthKey
 		inputs["connectionId"] = state.ConnectionId
@@ -116,6 +118,11 @@ func (r *PrivateVirtualInterface) AmazonAddress() *pulumi.StringOutput {
 // The ARN of the virtual interface.
 func (r *PrivateVirtualInterface) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
+}
+
+// The Direct Connect endpoint on which the virtual interface terminates.
+func (r *PrivateVirtualInterface) AwsDevice() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["awsDevice"])
 }
 
 // The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
@@ -182,6 +189,8 @@ type PrivateVirtualInterfaceState struct {
 	AmazonAddress interface{}
 	// The ARN of the virtual interface.
 	Arn interface{}
+	// The Direct Connect endpoint on which the virtual interface terminates.
+	AwsDevice interface{}
 	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 	BgpAsn interface{}
 	// The authentication key for BGP configuration.

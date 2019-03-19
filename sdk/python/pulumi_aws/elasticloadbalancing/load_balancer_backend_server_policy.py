@@ -9,7 +9,7 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
-    instance_port: pulumi.Output[int]
+    instance_port: pulumi.Output[float]
     """
     The instance port to apply the policy to.
     """
@@ -27,7 +27,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] instance_port: The instance port to apply the policy to.
+        :param pulumi.Input[float] instance_port: The instance port to apply the policy to.
         :param pulumi.Input[str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[list] policy_names: List of Policy Names to apply to the backend server.
         """

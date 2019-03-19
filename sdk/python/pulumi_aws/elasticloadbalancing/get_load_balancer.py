@@ -22,8 +22,8 @@ class GetLoadBalancerResult:
         if connection_draining and not isinstance(connection_draining, bool):
             raise TypeError('Expected argument connection_draining to be a bool')
         __self__.connection_draining = connection_draining
-        if connection_draining_timeout and not isinstance(connection_draining_timeout, int):
-            raise TypeError('Expected argument connection_draining_timeout to be a int')
+        if connection_draining_timeout and not isinstance(connection_draining_timeout, float):
+            raise TypeError('Expected argument connection_draining_timeout to be a float')
         __self__.connection_draining_timeout = connection_draining_timeout
         if cross_zone_load_balancing and not isinstance(cross_zone_load_balancing, bool):
             raise TypeError('Expected argument cross_zone_load_balancing to be a bool')
@@ -34,8 +34,8 @@ class GetLoadBalancerResult:
         if health_check and not isinstance(health_check, dict):
             raise TypeError('Expected argument health_check to be a dict')
         __self__.health_check = health_check
-        if idle_timeout and not isinstance(idle_timeout, int):
-            raise TypeError('Expected argument idle_timeout to be a int')
+        if idle_timeout and not isinstance(idle_timeout, float):
+            raise TypeError('Expected argument idle_timeout to be a float')
         __self__.idle_timeout = idle_timeout
         if instances and not isinstance(instances, list):
             raise TypeError('Expected argument instances to be a list')

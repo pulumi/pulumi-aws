@@ -13,9 +13,17 @@ class Connection(pulumi.CustomResource):
     """
     The ARN of the connection.
     """
+    aws_device: pulumi.Output[str]
+    """
+    The Direct Connect endpoint on which the physical connection terminates.
+    """
     bandwidth: pulumi.Output[str]
     """
     The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
+    """
+    has_logical_redundancy: pulumi.Output[str]
+    """
+    Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
     """
     jumbo_frame_capable: pulumi.Output[bool]
     """
@@ -72,6 +80,8 @@ class Connection(pulumi.CustomResource):
         __props__['tags'] = tags
 
         __props__['arn'] = None
+        __props__['aws_device'] = None
+        __props__['has_logical_redundancy'] = None
         __props__['jumbo_frame_capable'] = None
 
         super(Connection, __self__).__init__(

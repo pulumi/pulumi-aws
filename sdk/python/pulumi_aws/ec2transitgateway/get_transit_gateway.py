@@ -13,8 +13,8 @@ class GetTransitGatewayResult:
     A collection of values returned by getTransitGateway.
     """
     def __init__(__self__, amazon_side_asn=None, arn=None, association_default_route_table_id=None, auto_accept_shared_attachments=None, default_route_table_association=None, default_route_table_propagation=None, description=None, dns_support=None, owner_id=None, propagation_default_route_table_id=None, tags=None, vpn_ecmp_support=None):
-        if amazon_side_asn and not isinstance(amazon_side_asn, int):
-            raise TypeError('Expected argument amazon_side_asn to be a int')
+        if amazon_side_asn and not isinstance(amazon_side_asn, float):
+            raise TypeError('Expected argument amazon_side_asn to be a float')
         __self__.amazon_side_asn = amazon_side_asn
         """
         Private Autonomous System Number (ASN) for the Amazon side of a BGP session

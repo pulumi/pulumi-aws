@@ -24,10 +24,6 @@ class Distribution(pulumi.CustomResource):
     """
     The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
     """
-    cache_behaviors: pulumi.Output[list]
-    """
-    **Deprecated**, use `ordered_cache_behavior` instead.
-    """
     caller_reference: pulumi.Output[str]
     """
     Internal value used by CloudFront to allow future
@@ -79,7 +75,7 @@ class Distribution(pulumi.CustomResource):
     distribution. Allowed values are `http1.1` and `http2`. The default is
     `http2`.
     """
-    in_progress_validation_batches: pulumi.Output[int]
+    in_progress_validation_batches: pulumi.Output[float]
     """
     The number of invalidation batches
     currently in progress.
@@ -102,7 +98,7 @@ class Distribution(pulumi.CustomResource):
     """
     An ordered list of cache behaviors
     resource for this distribution. List from top to bottom
-    +    in order of precedence. The topmost cache behavior will have precedence 0.
+    in order of precedence. The topmost cache behavior will have precedence 0.
     """
     origins: pulumi.Output[list]
     """
@@ -147,7 +143,7 @@ class Distribution(pulumi.CustomResource):
     requests, the Id of the AWS WAF web ACL that is associated with the
     distribution.
     """
-    def __init__(__self__, resource_name, opts=None, aliases=None, cache_behaviors=None, comment=None, custom_error_responses=None, default_cache_behavior=None, default_root_object=None, enabled=None, http_version=None, is_ipv6_enabled=None, logging_config=None, ordered_cache_behaviors=None, origins=None, price_class=None, restrictions=None, retain_on_delete=None, tags=None, viewer_certificate=None, web_acl_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, aliases=None, comment=None, custom_error_responses=None, default_cache_behavior=None, default_root_object=None, enabled=None, http_version=None, is_ipv6_enabled=None, logging_config=None, ordered_cache_behaviors=None, origins=None, price_class=None, restrictions=None, retain_on_delete=None, tags=None, viewer_certificate=None, web_acl_id=None, __name__=None, __opts__=None):
         """
         Creates an Amazon CloudFront web distribution.
         
@@ -165,7 +161,6 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] aliases: Extra CNAMEs (alternate domain names), if any, for
                this distribution.
-        :param pulumi.Input[list] cache_behaviors: **Deprecated**, use `ordered_cache_behavior` instead.
         :param pulumi.Input[str] comment: Any comments you want to include about the
                distribution.
         :param pulumi.Input[list] custom_error_responses: One or more custom error response elements (multiples allowed).
@@ -184,7 +179,7 @@ class Distribution(pulumi.CustomResource):
                to your distribution (maximum one).
         :param pulumi.Input[list] ordered_cache_behaviors: An ordered list of cache behaviors
                resource for this distribution. List from top to bottom
-               +    in order of precedence. The topmost cache behavior will have precedence 0.
+               in order of precedence. The topmost cache behavior will have precedence 0.
         :param pulumi.Input[list] origins: One or more origins for this
                distribution (multiples allowed).
         :param pulumi.Input[str] price_class: The price class for this distribution. One of
@@ -218,8 +213,6 @@ class Distribution(pulumi.CustomResource):
         __props__ = dict()
 
         __props__['aliases'] = aliases
-
-        __props__['cache_behaviors'] = cache_behaviors
 
         __props__['comment'] = comment
 

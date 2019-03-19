@@ -27,7 +27,7 @@ class LaunchTemplate(pulumi.CustomResource):
     Customize the credit specification of the instance. See Credit
     Specification below for more details.
     """
-    default_version: pulumi.Output[int]
+    default_version: pulumi.Output[float]
     """
     The default version of the launch template.
     """
@@ -80,7 +80,7 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     The key name to use for the instance.
     """
-    latest_version: pulumi.Output[int]
+    latest_version: pulumi.Output[float]
     """
     The latest version of the launch template.
     """

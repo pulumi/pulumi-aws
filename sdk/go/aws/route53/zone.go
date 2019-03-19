@@ -23,8 +23,6 @@ func NewZone(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["tags"] = nil
 		inputs["vpcs"] = nil
-		inputs["vpcId"] = nil
-		inputs["vpcRegion"] = nil
 	} else {
 		inputs["comment"] = args.Comment
 		inputs["delegationSetId"] = args.DelegationSetId
@@ -32,8 +30,6 @@ func NewZone(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["tags"] = args.Tags
 		inputs["vpcs"] = args.Vpcs
-		inputs["vpcId"] = args.VpcId
-		inputs["vpcRegion"] = args.VpcRegion
 	}
 	inputs["nameServers"] = nil
 	inputs["zoneId"] = nil
@@ -57,8 +53,6 @@ func GetZone(ctx *pulumi.Context,
 		inputs["nameServers"] = state.NameServers
 		inputs["tags"] = state.Tags
 		inputs["vpcs"] = state.Vpcs
-		inputs["vpcId"] = state.VpcId
-		inputs["vpcRegion"] = state.VpcRegion
 		inputs["zoneId"] = state.ZoneId
 	}
 	s, err := ctx.ReadResource("aws:route53/zone:Zone", name, id, inputs, opts...)
@@ -83,7 +77,7 @@ func (r *Zone) Comment() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["comment"])
 }
 
-// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` and `vpc_id` as delegation sets can only be used for public zones.
+// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
 func (r *Zone) DelegationSetId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["delegationSetId"])
 }
@@ -109,19 +103,9 @@ func (r *Zone) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with `delegation_set_id`, `vpc_id`, and `vpc_region` in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
 func (r *Zone) Vpcs() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["vpcs"])
-}
-
-// ID of the VPC to associate.
-func (r *Zone) VpcId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcId"])
-}
-
-// Region of the VPC to associate. Defaults to AWS provider region.
-func (r *Zone) VpcRegion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpcRegion"])
 }
 
 // The Hosted Zone ID. This can be referenced by zone records.
@@ -133,7 +117,7 @@ func (r *Zone) ZoneId() *pulumi.StringOutput {
 type ZoneState struct {
 	// A comment for the hosted zone. Defaults to 'Managed by Terraform'.
 	Comment interface{}
-	// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` and `vpc_id` as delegation sets can only be used for public zones.
+	// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
 	DelegationSetId interface{}
 	// Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone.
 	ForceDestroy interface{}
@@ -144,12 +128,8 @@ type ZoneState struct {
 	NameServers interface{}
 	// A mapping of tags to assign to the zone.
 	Tags interface{}
-	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with `delegation_set_id`, `vpc_id`, and `vpc_region` in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
 	Vpcs interface{}
-	// ID of the VPC to associate.
-	VpcId interface{}
-	// Region of the VPC to associate. Defaults to AWS provider region.
-	VpcRegion interface{}
 	// The Hosted Zone ID. This can be referenced by zone records.
 	ZoneId interface{}
 }
@@ -158,7 +138,7 @@ type ZoneState struct {
 type ZoneArgs struct {
 	// A comment for the hosted zone. Defaults to 'Managed by Terraform'.
 	Comment interface{}
-	// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` and `vpc_id` as delegation sets can only be used for public zones.
+	// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
 	DelegationSetId interface{}
 	// Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone.
 	ForceDestroy interface{}
@@ -166,10 +146,6 @@ type ZoneArgs struct {
 	Name interface{}
 	// A mapping of tags to assign to the zone.
 	Tags interface{}
-	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with `delegation_set_id`, `vpc_id`, and `vpc_region` in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
 	Vpcs interface{}
-	// ID of the VPC to associate.
-	VpcId interface{}
-	// Region of the VPC to associate. Defaults to AWS provider region.
-	VpcRegion interface{}
 }

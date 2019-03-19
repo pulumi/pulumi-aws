@@ -75,10 +75,6 @@ export class MethodResponse extends pulumi.CustomResource {
      */
     public readonly responseParameters: pulumi.Output<{[key: string]: boolean} | undefined>;
     /**
-     * **Deprecated**, use `response_parameters` instead.
-     */
-    public readonly responseParametersInJson: pulumi.Output<string | undefined>;
-    /**
      * The ID of the associated REST API
      */
     public readonly restApi: pulumi.Output<RestApi>;
@@ -103,7 +99,6 @@ export class MethodResponse extends pulumi.CustomResource {
             inputs["resourceId"] = state ? state.resourceId : undefined;
             inputs["responseModels"] = state ? state.responseModels : undefined;
             inputs["responseParameters"] = state ? state.responseParameters : undefined;
-            inputs["responseParametersInJson"] = state ? state.responseParametersInJson : undefined;
             inputs["restApi"] = state ? state.restApi : undefined;
             inputs["statusCode"] = state ? state.statusCode : undefined;
         } else {
@@ -124,7 +119,6 @@ export class MethodResponse extends pulumi.CustomResource {
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["responseModels"] = args ? args.responseModels : undefined;
             inputs["responseParameters"] = args ? args.responseParameters : undefined;
-            inputs["responseParametersInJson"] = args ? args.responseParametersInJson : undefined;
             inputs["restApi"] = args ? args.restApi : undefined;
             inputs["statusCode"] = args ? args.statusCode : undefined;
         }
@@ -154,10 +148,6 @@ export interface MethodResponseState {
      * would define that the header `X-Some-Header` can be provided on the response.
      */
     readonly responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
-    /**
-     * **Deprecated**, use `response_parameters` instead.
-     */
-    readonly responseParametersInJson?: pulumi.Input<string>;
     /**
      * The ID of the associated REST API
      */
@@ -190,10 +180,6 @@ export interface MethodResponseArgs {
      * would define that the header `X-Some-Header` can be provided on the response.
      */
     readonly responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
-    /**
-     * **Deprecated**, use `response_parameters` instead.
-     */
-    readonly responseParametersInJson?: pulumi.Input<string>;
     /**
      * The ID of the associated REST API
      */

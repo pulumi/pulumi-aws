@@ -27,11 +27,11 @@ class VpcAttachment(pulumi.CustomResource):
     """
     transit_gateway_default_route_table_association: pulumi.Output[bool]
     """
-    Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
+    Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
     """
     transit_gateway_default_route_table_propagation: pulumi.Output[bool]
     """
-    Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
+    Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
     """
     transit_gateway_id: pulumi.Output[str]
     """
@@ -55,8 +55,8 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[list] subnet_ids: Identifiers of EC2 Subnets.
         :param pulumi.Input[dict] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment.
-        :param pulumi.Input[bool] transit_gateway_default_route_table_association: Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
-        :param pulumi.Input[bool] transit_gateway_default_route_table_propagation: Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
+        :param pulumi.Input[bool] transit_gateway_default_route_table_association: Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
+        :param pulumi.Input[bool] transit_gateway_default_route_table_propagation: Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         :param pulumi.Input[str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         :param pulumi.Input[str] vpc_id: Identifier of EC2 VPC.
         """

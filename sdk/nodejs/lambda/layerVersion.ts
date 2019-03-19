@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
  * 
  * For information about Lambda Layers and how to use them, see [AWS Lambda Layers][1]
  * 
- * > **NOTE:** The attribute values for `arn` and `layer_arn` will be swapped in version 2.0.0 of the Terraform AWS Provider.
- * 
  * ## Example Usage
  * 
  * ```typescript
@@ -53,7 +51,7 @@ export class LayerVersion extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) identifying your Lambda Layer.
+     * The Amazon Resource Name (ARN) of the Lambda Layer with version.
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -73,7 +71,7 @@ export class LayerVersion extends pulumi.CustomResource {
      */
     public readonly filename: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) identifying your specific Lambda Layer version.
+     * The Amazon Resource Name (ARN) of the Lambda Layer without version.
      */
     public /*out*/ readonly layerArn: pulumi.Output<string>;
     /**
@@ -164,7 +162,7 @@ export class LayerVersion extends pulumi.CustomResource {
  */
 export interface LayerVersionState {
     /**
-     * The Amazon Resource Name (ARN) identifying your Lambda Layer.
+     * The Amazon Resource Name (ARN) of the Lambda Layer with version.
      */
     readonly arn?: pulumi.Input<string>;
     /**
@@ -184,7 +182,7 @@ export interface LayerVersionState {
      */
     readonly filename?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) identifying your specific Lambda Layer version.
+     * The Amazon Resource Name (ARN) of the Lambda Layer without version.
      */
     readonly layerArn?: pulumi.Input<string>;
     /**

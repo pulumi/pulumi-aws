@@ -13,7 +13,7 @@ class EnvironmentEC2(pulumi.CustomResource):
     """
     The ARN of the environment.
     """
-    automatic_stop_time_minutes: pulumi.Output[int]
+    automatic_stop_time_minutes: pulumi.Output[float]
     """
     The number of minutes until the running instance is shut down after the environment has last been used.
     """
@@ -47,7 +47,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
+        :param pulumi.Input[float] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
         :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g. `t2.micro`.
         :param pulumi.Input[str] name: The name of the environment.

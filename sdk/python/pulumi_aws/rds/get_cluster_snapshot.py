@@ -13,8 +13,8 @@ class GetClusterSnapshotResult:
     A collection of values returned by getClusterSnapshot.
     """
     def __init__(__self__, allocated_storage=None, availability_zones=None, db_cluster_snapshot_arn=None, engine=None, engine_version=None, kms_key_id=None, license_model=None, port=None, snapshot_create_time=None, source_db_cluster_snapshot_arn=None, status=None, storage_encrypted=None, vpc_id=None, id=None):
-        if allocated_storage and not isinstance(allocated_storage, int):
-            raise TypeError('Expected argument allocated_storage to be a int')
+        if allocated_storage and not isinstance(allocated_storage, float):
+            raise TypeError('Expected argument allocated_storage to be a float')
         __self__.allocated_storage = allocated_storage
         """
         Specifies the allocated storage size in gigabytes (GB).
@@ -55,8 +55,8 @@ class GetClusterSnapshotResult:
         """
         License model information for the restored DB cluster.
         """
-        if port and not isinstance(port, int):
-            raise TypeError('Expected argument port to be a int')
+        if port and not isinstance(port, float):
+            raise TypeError('Expected argument port to be a float')
         __self__.port = port
         """
         Port that the DB cluster was listening on at the time of the snapshot.

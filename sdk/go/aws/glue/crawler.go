@@ -52,6 +52,7 @@ func NewCrawler(ctx *pulumi.Context,
 		inputs["securityConfiguration"] = args.SecurityConfiguration
 		inputs["tablePrefix"] = args.TablePrefix
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:glue/crawler:Crawler", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -65,6 +66,7 @@ func GetCrawler(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *CrawlerState, opts ...pulumi.ResourceOpt) (*Crawler, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["classifiers"] = state.Classifiers
 		inputs["configuration"] = state.Configuration
 		inputs["databaseName"] = state.DatabaseName
@@ -94,6 +96,11 @@ func (r *Crawler) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Crawler) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// The ARN of the crawler 
+func (r *Crawler) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
@@ -163,6 +170,8 @@ func (r *Crawler) TablePrefix() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Crawler resources.
 type CrawlerState struct {
+	// The ARN of the crawler 
+	Arn interface{}
 	// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
 	Classifiers interface{}
 	// JSON string of configuration information.

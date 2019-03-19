@@ -25,8 +25,8 @@ class GetStreamResult:
         """
         The list of shard ids in the CLOSED state. See [Shard State][2] for more.
         """
-        if creation_timestamp and not isinstance(creation_timestamp, int):
-            raise TypeError('Expected argument creation_timestamp to be a int')
+        if creation_timestamp and not isinstance(creation_timestamp, float):
+            raise TypeError('Expected argument creation_timestamp to be a float')
         __self__.creation_timestamp = creation_timestamp
         """
         The approximate UNIX timestamp that the stream was created.
@@ -37,8 +37,8 @@ class GetStreamResult:
         """
         The list of shard ids in the OPEN state. See [Shard State][2] for more.
         """
-        if retention_period and not isinstance(retention_period, int):
-            raise TypeError('Expected argument retention_period to be a int')
+        if retention_period and not isinstance(retention_period, float):
+            raise TypeError('Expected argument retention_period to be a float')
         __self__.retention_period = retention_period
         """
         Length of time (in hours) data records are accessible after they are added to the stream.

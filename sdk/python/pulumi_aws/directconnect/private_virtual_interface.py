@@ -21,7 +21,11 @@ class PrivateVirtualInterface(pulumi.CustomResource):
     """
     The ARN of the virtual interface.
     """
-    bgp_asn: pulumi.Output[int]
+    aws_device: pulumi.Output[str]
+    """
+    The Direct Connect endpoint on which the virtual interface terminates.
+    """
+    bgp_asn: pulumi.Output[float]
     """
     The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
     """
@@ -45,7 +49,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
     """
     Indicates whether jumbo frames (9001 MTU) are supported.
     """
-    mtu: pulumi.Output[int]
+    mtu: pulumi.Output[float]
     """
     The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
     The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
@@ -58,7 +62,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    vlan: pulumi.Output[int]
+    vlan: pulumi.Output[float]
     """
     The VLAN ID.
     """
@@ -74,16 +78,16 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
         :param pulumi.Input[str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-        :param pulumi.Input[int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        :param pulumi.Input[float] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         :param pulumi.Input[str] bgp_auth_key: The authentication key for BGP configuration.
         :param pulumi.Input[str] connection_id: The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         :param pulumi.Input[str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         :param pulumi.Input[str] dx_gateway_id: The ID of the Direct Connect gateway to which to connect the virtual interface.
-        :param pulumi.Input[int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
+        :param pulumi.Input[float] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
                The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
         :param pulumi.Input[str] name: The name for the virtual interface.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[int] vlan: The VLAN ID.
+        :param pulumi.Input[float] vlan: The VLAN ID.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway to which to connect the virtual interface.
         """
         if __name__ is not None:
@@ -134,6 +138,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         __props__['vpn_gateway_id'] = vpn_gateway_id
 
         __props__['arn'] = None
+        __props__['aws_device'] = None
         __props__['jumbo_frame_capable'] = None
 
         super(PrivateVirtualInterface, __self__).__init__(

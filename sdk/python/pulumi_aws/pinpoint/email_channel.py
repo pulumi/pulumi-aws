@@ -25,7 +25,7 @@ class EmailChannel(pulumi.CustomResource):
     """
     The ARN of an identity verified with SES.
     """
-    messages_per_second: pulumi.Output[int]
+    messages_per_second: pulumi.Output[float]
     """
     Messages per second that can be sent.
     """

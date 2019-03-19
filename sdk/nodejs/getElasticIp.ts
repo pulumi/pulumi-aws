@@ -119,9 +119,17 @@ export interface GetElasticIpResult {
      */
     readonly networkInterfaceOwnerId: string;
     /**
+     * The Private DNS associated with the Elastic IP address.
+     */
+    readonly privateDns: string;
+    /**
      * The private IP address associated with the Elastic IP address.
      */
     readonly privateIp: string;
+    /**
+     * Public DNS associated with the Elastic IP address.
+     */
+    readonly publicDns: string;
     /**
      * Public IP address of Elastic IP.
      */
