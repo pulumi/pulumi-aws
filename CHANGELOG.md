@@ -1,7 +1,12 @@
-## 0.17.2 (Unreleased)
+## 0.18.0 (Unreleased)
+
+### Important
+
+Version 0.18.0 of `pulumi-aws` is now based on v2.2.0 of the AWS Terraform Provider, which has a variety of breaking changes from the previous version.
 
 ### Improvement
 
+- Update to v2.2.0 of the AWS Terraform Provider.
 - Fix a bug where setting a property value back to the default results in no change
 
 ### 0.17.1 (Released March 6th, 2019)
