@@ -31,7 +31,7 @@ class JobDefinition(pulumi.CustomResource):
     Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
     Maximum number of `retry_strategy` is `1`.  Defined below.
     """
-    revision: pulumi.Output[int]
+    revision: pulumi.Output[float]
     """
     The revision of the job definition.
     """

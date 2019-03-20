@@ -50,7 +50,7 @@ class Table(pulumi.CustomResource):
     """
     The name of the range key; must be defined
     """
-    read_capacity: pulumi.Output[int]
+    read_capacity: pulumi.Output[float]
     """
     The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
     """
@@ -85,7 +85,7 @@ class Table(pulumi.CustomResource):
     """
     Defines ttl, has two properties, and can only be specified once:
     """
-    write_capacity: pulumi.Output[int]
+    write_capacity: pulumi.Output[float]
     """
     The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
     """
@@ -110,13 +110,13 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the index
         :param pulumi.Input[dict] point_in_time_recovery: Point-in-time recovery options.
         :param pulumi.Input[str] range_key: The name of the range key; must be defined
-        :param pulumi.Input[int] read_capacity: The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[float] read_capacity: The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
         :param pulumi.Input[dict] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
         :param pulumi.Input[bool] stream_enabled: Indicates whether Streams are to be enabled (true) or disabled (false).
         :param pulumi.Input[str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
         :param pulumi.Input[dict] tags: A map of tags to populate on the created table.
         :param pulumi.Input[dict] ttl: Defines ttl, has two properties, and can only be specified once:
-        :param pulumi.Input[int] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[float] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

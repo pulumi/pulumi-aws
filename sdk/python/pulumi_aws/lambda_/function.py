@@ -53,7 +53,7 @@ class Function(pulumi.CustomResource):
     """
     List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
     """
-    memory_size: pulumi.Output[int]
+    memory_size: pulumi.Output[float]
     """
     Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
     """
@@ -66,9 +66,9 @@ class Function(pulumi.CustomResource):
     The Amazon Resource Name (ARN) identifying your Lambda Function Version
     (if versioning is enabled via `publish = true`).
     """
-    reserved_concurrent_executions: pulumi.Output[int]
+    reserved_concurrent_executions: pulumi.Output[float]
     """
-    The amount of reserved concurrent executions for this lambda function. Defaults to Unreserved Concurrency Limits. See [Managing Concurrency][9]
+    The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
     """
     role: pulumi.Output[str]
     """
@@ -94,7 +94,7 @@ class Function(pulumi.CustomResource):
     """
     Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${base64sha256(file("file.zip"))}`, where "file.zip" is the local filename of the lambda function source archive.
     """
-    source_code_size: pulumi.Output[int]
+    source_code_size: pulumi.Output[float]
     """
     The size in bytes of the function .zip file.
     """
@@ -102,7 +102,7 @@ class Function(pulumi.CustomResource):
     """
     A mapping of tags to assign to the object.
     """
-    timeout: pulumi.Output[int]
+    timeout: pulumi.Output[float]
     """
     The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
     """
@@ -144,9 +144,9 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] handler: The function [entrypoint][3] in your code.
         :param pulumi.Input[str] kms_key_arn: The ARN for the KMS encryption key.
         :param pulumi.Input[list] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
-        :param pulumi.Input[int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
+        :param pulumi.Input[float] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
         :param pulumi.Input[bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
-        :param pulumi.Input[int] reserved_concurrent_executions: The amount of reserved concurrent executions for this lambda function. Defaults to Unreserved Concurrency Limits. See [Managing Concurrency][9]
+        :param pulumi.Input[float] reserved_concurrent_executions: The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
         :param pulumi.Input[str] role: IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
         :param pulumi.Input[str] runtime: See [Runtimes][6] for valid values.
         :param pulumi.Input[str] s3_bucket: The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
@@ -154,7 +154,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] s3_object_version: The object version containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${base64sha256(file("file.zip"))}`, where "file.zip" is the local filename of the lambda function source archive.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
-        :param pulumi.Input[int] timeout: The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
+        :param pulumi.Input[float] timeout: The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
         :param pulumi.Input[dict] vpc_config: Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
         """
         if __name__ is not None:

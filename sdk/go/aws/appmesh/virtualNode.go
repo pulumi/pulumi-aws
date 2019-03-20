@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an AWS App Mesh virtual node resource.
+// 
+// > **Note:** Backward incompatible API changes have been announced for AWS App Mesh which will affect this resource. Read more about the changes [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92).
 type VirtualNode struct {
 	s *pulumi.ResourceState
 }

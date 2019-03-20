@@ -7,8 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to get a list of AMI IDs matching the specified criteria.
  * 
- * > **NOTE:** The `owners` argument will be **required** in the next major version.
- * 
  * ## Example Usage
  * 
  * ```typescript
@@ -24,8 +22,7 @@ import * as utilities from "./utilities";
  * }));
  * ```
  */
-export function getAmiIds(args?: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> {
-    args = args || {};
+export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> {
     return pulumi.runtime.invoke("aws:index/getAmiIds:getAmiIds", {
         "executableUsers": args.executableUsers,
         "filters": args.filters,
@@ -59,10 +56,9 @@ export interface GetAmiIdsArgs {
      */
     readonly nameRegex?: string;
     /**
-     * Limit search to specific AMI owners. Valid items are
-     * the numeric account ID, `amazon`, or `self`.
+     * List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
      */
-    readonly owners?: string[];
+    readonly owners: string[];
     /**
      * Used to sort AMIs by creation time.
      */

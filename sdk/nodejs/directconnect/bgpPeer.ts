@@ -43,6 +43,10 @@ export class BgpPeer extends pulumi.CustomResource {
      */
     public readonly amazonAddress: pulumi.Output<string>;
     /**
+     * The Direct Connect endpoint on which the BGP peer terminates.
+     */
+    public /*out*/ readonly awsDevice: pulumi.Output<string>;
+    /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      */
     public readonly bgpAsn: pulumi.Output<number>;
@@ -50,6 +54,10 @@ export class BgpPeer extends pulumi.CustomResource {
      * The authentication key for BGP configuration.
      */
     public readonly bgpAuthKey: pulumi.Output<string>;
+    /**
+     * The ID of the BGP peer.
+     */
+    public /*out*/ readonly bgpPeerId: pulumi.Output<string>;
     /**
      * The Up/Down state of the BGP peer.
      */
@@ -78,8 +86,10 @@ export class BgpPeer extends pulumi.CustomResource {
             const state: BgpPeerState = argsOrState as BgpPeerState | undefined;
             inputs["addressFamily"] = state ? state.addressFamily : undefined;
             inputs["amazonAddress"] = state ? state.amazonAddress : undefined;
+            inputs["awsDevice"] = state ? state.awsDevice : undefined;
             inputs["bgpAsn"] = state ? state.bgpAsn : undefined;
             inputs["bgpAuthKey"] = state ? state.bgpAuthKey : undefined;
+            inputs["bgpPeerId"] = state ? state.bgpPeerId : undefined;
             inputs["bgpStatus"] = state ? state.bgpStatus : undefined;
             inputs["customerAddress"] = state ? state.customerAddress : undefined;
             inputs["virtualInterfaceId"] = state ? state.virtualInterfaceId : undefined;
@@ -100,6 +110,8 @@ export class BgpPeer extends pulumi.CustomResource {
             inputs["bgpAuthKey"] = args ? args.bgpAuthKey : undefined;
             inputs["customerAddress"] = args ? args.customerAddress : undefined;
             inputs["virtualInterfaceId"] = args ? args.virtualInterfaceId : undefined;
+            inputs["awsDevice"] = undefined /*out*/;
+            inputs["bgpPeerId"] = undefined /*out*/;
             inputs["bgpStatus"] = undefined /*out*/;
         }
         super("aws:directconnect/bgpPeer:BgpPeer", name, inputs, opts);
@@ -120,6 +132,10 @@ export interface BgpPeerState {
      */
     readonly amazonAddress?: pulumi.Input<string>;
     /**
+     * The Direct Connect endpoint on which the BGP peer terminates.
+     */
+    readonly awsDevice?: pulumi.Input<string>;
+    /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      */
     readonly bgpAsn?: pulumi.Input<number>;
@@ -127,6 +143,10 @@ export interface BgpPeerState {
      * The authentication key for BGP configuration.
      */
     readonly bgpAuthKey?: pulumi.Input<string>;
+    /**
+     * The ID of the BGP peer.
+     */
+    readonly bgpPeerId?: pulumi.Input<string>;
     /**
      * The Up/Down state of the BGP peer.
      */

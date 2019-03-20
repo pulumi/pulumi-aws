@@ -60,11 +60,11 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly emailConfiguration: pulumi.Output<{ replyToEmailAddress?: string, sourceArn?: string } | undefined>;
     /**
-     * A string representing the email verification message. Must contain the `{####}` placeholder. **NOTE:** - If `email_verification_message` and `verification_message_template.email_message` are specified and the values are different, either one is prioritized and updated.
+     * A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
      */
     public readonly emailVerificationMessage: pulumi.Output<string>;
     /**
-     * A string representing the email verification subject. **NOTE:** - If `email_verification_subject` and `verification_message_template.email_subject` are specified and the values are different, either one is prioritized and updated.
+     * A string representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
      */
     public readonly emailVerificationSubject: pulumi.Output<string>;
     /**
@@ -104,7 +104,7 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly smsConfiguration: pulumi.Output<{ externalId: string, snsCallerArn: string } | undefined>;
     /**
-     * A string representing the SMS verification message.
+     * A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
      */
     public readonly smsVerificationMessage: pulumi.Output<string | undefined>;
     /**
@@ -222,11 +222,11 @@ export interface UserPoolState {
      */
     readonly emailConfiguration?: pulumi.Input<{ replyToEmailAddress?: pulumi.Input<string>, sourceArn?: pulumi.Input<string> }>;
     /**
-     * A string representing the email verification message. Must contain the `{####}` placeholder. **NOTE:** - If `email_verification_message` and `verification_message_template.email_message` are specified and the values are different, either one is prioritized and updated.
+     * A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
      */
     readonly emailVerificationMessage?: pulumi.Input<string>;
     /**
-     * A string representing the email verification subject. **NOTE:** - If `email_verification_subject` and `verification_message_template.email_subject` are specified and the values are different, either one is prioritized and updated.
+     * A string representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
      */
     readonly emailVerificationSubject?: pulumi.Input<string>;
     /**
@@ -266,7 +266,7 @@ export interface UserPoolState {
      */
     readonly smsConfiguration?: pulumi.Input<{ externalId: pulumi.Input<string>, snsCallerArn: pulumi.Input<string> }>;
     /**
-     * A string representing the SMS verification message.
+     * A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
      */
     readonly smsVerificationMessage?: pulumi.Input<string>;
     /**
@@ -312,11 +312,11 @@ export interface UserPoolArgs {
      */
     readonly emailConfiguration?: pulumi.Input<{ replyToEmailAddress?: pulumi.Input<string>, sourceArn?: pulumi.Input<string> }>;
     /**
-     * A string representing the email verification message. Must contain the `{####}` placeholder. **NOTE:** - If `email_verification_message` and `verification_message_template.email_message` are specified and the values are different, either one is prioritized and updated.
+     * A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
      */
     readonly emailVerificationMessage?: pulumi.Input<string>;
     /**
-     * A string representing the email verification subject. **NOTE:** - If `email_verification_subject` and `verification_message_template.email_subject` are specified and the values are different, either one is prioritized and updated.
+     * A string representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
      */
     readonly emailVerificationSubject?: pulumi.Input<string>;
     /**
@@ -348,7 +348,7 @@ export interface UserPoolArgs {
      */
     readonly smsConfiguration?: pulumi.Input<{ externalId: pulumi.Input<string>, snsCallerArn: pulumi.Input<string> }>;
     /**
-     * A string representing the SMS verification message.
+     * A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
      */
     readonly smsVerificationMessage?: pulumi.Input<string>;
     /**

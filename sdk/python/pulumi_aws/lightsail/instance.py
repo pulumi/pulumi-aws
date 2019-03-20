@@ -32,7 +32,7 @@ class Instance(pulumi.CustomResource):
     """
     The bundle of specification information (see list below)
     """
-    cpu_count: pulumi.Output[int]
+    cpu_count: pulumi.Output[float]
     created_at: pulumi.Output[str]
     ipv6_address: pulumi.Output[str]
     is_static_ip: pulumi.Output[bool]
@@ -47,7 +47,7 @@ class Instance(pulumi.CustomResource):
     """
     private_ip_address: pulumi.Output[str]
     public_ip_address: pulumi.Output[str]
-    ram_size: pulumi.Output[int]
+    ram_size: pulumi.Output[float]
     user_data: pulumi.Output[str]
     """
     launch script to configure server with additional user data

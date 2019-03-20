@@ -21,7 +21,11 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
     """
     The ARN of the virtual interface.
     """
-    bgp_asn: pulumi.Output[int]
+    aws_device: pulumi.Output[str]
+    """
+    The Direct Connect endpoint on which the virtual interface terminates.
+    """
+    bgp_asn: pulumi.Output[float]
     """
     The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
     """
@@ -49,7 +53,7 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
     """
     A list of routes to be advertised to the AWS network in this region.
     """
-    vlan: pulumi.Output[int]
+    vlan: pulumi.Output[float]
     """
     The VLAN ID.
     """
@@ -62,14 +66,14 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
         :param pulumi.Input[str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-        :param pulumi.Input[int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        :param pulumi.Input[float] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         :param pulumi.Input[str] bgp_auth_key: The authentication key for BGP configuration.
         :param pulumi.Input[str] connection_id: The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         :param pulumi.Input[str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         :param pulumi.Input[str] name: The name for the virtual interface.
         :param pulumi.Input[str] owner_account_id: The AWS account that will own the new virtual interface.
         :param pulumi.Input[list] route_filter_prefixes: A list of routes to be advertised to the AWS network in this region.
-        :param pulumi.Input[int] vlan: The VLAN ID.
+        :param pulumi.Input[float] vlan: The VLAN ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,6 +123,7 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
         __props__['vlan'] = vlan
 
         __props__['arn'] = None
+        __props__['aws_device'] = None
 
         super(HostedPublicVirtualInterface, __self__).__init__(
             'aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface',

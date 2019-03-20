@@ -17,15 +17,15 @@ class Service(pulumi.CustomResource):
     """
     Configuration block containing deployment controller configuration. Defined below.
     """
-    deployment_maximum_percent: pulumi.Output[int]
+    deployment_maximum_percent: pulumi.Output[float]
     """
     The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
     """
-    deployment_minimum_healthy_percent: pulumi.Output[int]
+    deployment_minimum_healthy_percent: pulumi.Output[float]
     """
     The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
     """
-    desired_count: pulumi.Output[int]
+    desired_count: pulumi.Output[float]
     """
     The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
     """
@@ -33,9 +33,9 @@ class Service(pulumi.CustomResource):
     """
     Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
     """
-    health_check_grace_period_seconds: pulumi.Output[int]
+    health_check_grace_period_seconds: pulumi.Output[float]
     """
-    Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
+    Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
     """
     iam_role: pulumi.Output[str]
     """
@@ -66,10 +66,6 @@ class Service(pulumi.CustomResource):
     rules that are taken into consideration during task placement. Maximum number of
     `placement_constraints` is `10`. Defined below.
     """
-    placement_strategies: pulumi.Output[list]
-    """
-    **Deprecated**, use `ordered_placement_strategy` instead.
-    """
     platform_version: pulumi.Output[str]
     """
     The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
@@ -99,7 +95,7 @@ class Service(pulumi.CustomResource):
     If `true`, Terraform will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
     =======
     """
-    def __init__(__self__, resource_name, opts=None, cluster=None, deployment_controller=None, deployment_maximum_percent=None, deployment_minimum_healthy_percent=None, desired_count=None, enable_ecs_managed_tags=None, health_check_grace_period_seconds=None, iam_role=None, launch_type=None, load_balancers=None, name=None, network_configuration=None, ordered_placement_strategies=None, placement_constraints=None, placement_strategies=None, platform_version=None, propagate_tags=None, scheduling_strategy=None, service_registries=None, tags=None, task_definition=None, wait_for_steady_state=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cluster=None, deployment_controller=None, deployment_maximum_percent=None, deployment_minimum_healthy_percent=None, desired_count=None, enable_ecs_managed_tags=None, health_check_grace_period_seconds=None, iam_role=None, launch_type=None, load_balancers=None, name=None, network_configuration=None, ordered_placement_strategies=None, placement_constraints=None, platform_version=None, propagate_tags=None, scheduling_strategy=None, service_registries=None, tags=None, task_definition=None, wait_for_steady_state=None, __name__=None, __opts__=None):
         """
         > **Note:** To prevent a race condition during service deletion, make sure to set `depends_on` to the related `aws_iam_role_policy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
         
@@ -170,11 +166,11 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster: ARN of an ECS cluster
         :param pulumi.Input[dict] deployment_controller: Configuration block containing deployment controller configuration. Defined below.
-        :param pulumi.Input[int] deployment_maximum_percent: The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
-        :param pulumi.Input[int] deployment_minimum_healthy_percent: The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
-        :param pulumi.Input[int] desired_count: The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
+        :param pulumi.Input[float] deployment_maximum_percent: The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
+        :param pulumi.Input[float] deployment_minimum_healthy_percent: The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
+        :param pulumi.Input[float] desired_count: The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
         :param pulumi.Input[bool] enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
-        :param pulumi.Input[int] health_check_grace_period_seconds: Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 7200. Only valid for services configured to use load balancers.
+        :param pulumi.Input[float] health_check_grace_period_seconds: Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         :param pulumi.Input[str] iam_role: ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
         :param pulumi.Input[str] launch_type: The launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
         :param pulumi.Input[list] load_balancers: A load balancer block. Load balancers documented below.
@@ -183,7 +179,6 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[list] ordered_placement_strategies: Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
         :param pulumi.Input[list] placement_constraints: rules that are taken into consideration during task placement. Maximum number of
                `placement_constraints` is `10`. Defined below.
-        :param pulumi.Input[list] placement_strategies: **Deprecated**, use `ordered_placement_strategy` instead.
         :param pulumi.Input[str] platform_version: The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         :param pulumi.Input[str] propagate_tags: Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
         :param pulumi.Input[str] scheduling_strategy: The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
@@ -235,8 +230,6 @@ class Service(pulumi.CustomResource):
         __props__['ordered_placement_strategies'] = ordered_placement_strategies
 
         __props__['placement_constraints'] = placement_constraints
-
-        __props__['placement_strategies'] = placement_strategies
 
         __props__['platform_version'] = platform_version
 

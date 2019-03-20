@@ -24,15 +24,15 @@ class AccountPasswordPolicy(pulumi.CustomResource):
     Whether users are prevented from setting a new password after their password has expired
     (i.e. require administrator reset)
     """
-    max_password_age: pulumi.Output[int]
+    max_password_age: pulumi.Output[float]
     """
     The number of days that an user password is valid.
     """
-    minimum_password_length: pulumi.Output[int]
+    minimum_password_length: pulumi.Output[float]
     """
     Minimum length to require for user passwords.
     """
-    password_reuse_prevention: pulumi.Output[int]
+    password_reuse_prevention: pulumi.Output[float]
     """
     The number of previous passwords that users are prevented from reusing.
     """
@@ -65,9 +65,9 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_users_to_change_password: Whether to allow users to change their own password
         :param pulumi.Input[bool] hard_expiry: Whether users are prevented from setting a new password after their password has expired
                (i.e. require administrator reset)
-        :param pulumi.Input[int] max_password_age: The number of days that an user password is valid.
-        :param pulumi.Input[int] minimum_password_length: Minimum length to require for user passwords.
-        :param pulumi.Input[int] password_reuse_prevention: The number of previous passwords that users are prevented from reusing.
+        :param pulumi.Input[float] max_password_age: The number of days that an user password is valid.
+        :param pulumi.Input[float] minimum_password_length: Minimum length to require for user passwords.
+        :param pulumi.Input[float] password_reuse_prevention: The number of previous passwords that users are prevented from reusing.
         :param pulumi.Input[bool] require_lowercase_characters: Whether to require lowercase characters for user passwords.
         :param pulumi.Input[bool] require_numbers: Whether to require numbers for user passwords.
         :param pulumi.Input[bool] require_symbols: Whether to require symbols for user passwords.

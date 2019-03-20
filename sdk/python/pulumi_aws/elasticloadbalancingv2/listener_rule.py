@@ -25,7 +25,7 @@ class ListenerRule(pulumi.CustomResource):
     """
     The ARN of the listener to which to attach the rule.
     """
-    priority: pulumi.Output[int]
+    priority: pulumi.Output[float]
     """
     The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
     """
@@ -40,7 +40,7 @@ class ListenerRule(pulumi.CustomResource):
         :param pulumi.Input[list] actions: An Action block. Action blocks are documented below.
         :param pulumi.Input[list] conditions: A Condition block. Condition blocks are documented below.
         :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the rule.
-        :param pulumi.Input[int] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
+        :param pulumi.Input[float] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

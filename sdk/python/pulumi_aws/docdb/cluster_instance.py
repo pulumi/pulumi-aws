@@ -73,7 +73,7 @@ class ClusterInstance(pulumi.CustomResource):
     """
     The ARN for the KMS encryption key if one is set to the cluster.
     """
-    port: pulumi.Output[int]
+    port: pulumi.Output[float]
     """
     The database port
     """
@@ -86,7 +86,7 @@ class ClusterInstance(pulumi.CustomResource):
     The window to perform maintenance in.
     Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
     """
-    promotion_tier: pulumi.Output[int]
+    promotion_tier: pulumi.Output[float]
     """
     Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
     """
@@ -134,7 +134,7 @@ class ClusterInstance(pulumi.CustomResource):
                - db.r4.16xlarge
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+        :param pulumi.Input[float] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the instance.
         """
         if __name__ is not None:

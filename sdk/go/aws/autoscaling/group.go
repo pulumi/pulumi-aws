@@ -299,8 +299,8 @@ func (r *Group) MetricsGranularity() *pulumi.StringOutput {
 }
 
 // Setting this causes Terraform to wait for
-// this number of instances to show up healthy in the ELB only on creation.
-// Updates will not wait on ELB instance number changes.
+// this number of instances from this autoscaling group to show up healthy in the
+// ELB only on creation. Updates will not wait on ELB instance number changes.
 // (See also Waiting for Capacity below.)
 func (r *Group) MinElbCapacity() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["minElbCapacity"])
@@ -366,7 +366,7 @@ func (r *Group) TargetGroupArns() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["targetGroupArns"])
 }
 
-// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `Default`.
+// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
 func (r *Group) TerminationPolicies() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["terminationPolicies"])
 }
@@ -381,9 +381,9 @@ func (r *Group) WaitForCapacityTimeout() *pulumi.StringOutput {
 }
 
 // Setting this will cause Terraform to wait
-// for exactly this number of healthy instances in all attached load balancers
-// on both create and update operations. (Takes precedence over
-// `min_elb_capacity` behavior.)
+// for exactly this number of healthy instances from this autoscaling group in
+// all attached load balancers on both create and update operations. (Takes
+// precedence over `min_elb_capacity` behavior.)
 // (See also Waiting for Capacity below.)
 func (r *Group) WaitForElbCapacity() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["waitForElbCapacity"])
@@ -438,8 +438,8 @@ type GroupState struct {
 	// The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
 	MetricsGranularity interface{}
 	// Setting this causes Terraform to wait for
-	// this number of instances to show up healthy in the ELB only on creation.
-	// Updates will not wait on ELB instance number changes.
+	// this number of instances from this autoscaling group to show up healthy in the
+	// ELB only on creation. Updates will not wait on ELB instance number changes.
 	// (See also Waiting for Capacity below.)
 	MinElbCapacity interface{}
 	// The minimum size of the auto scale group.
@@ -469,15 +469,15 @@ type GroupState struct {
 	TagsCollection interface{}
 	// A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
 	TargetGroupArns interface{}
-	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `Default`.
+	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
 	TerminationPolicies interface{}
 	// A list of subnet IDs to launch resources in.
 	VpcZoneIdentifiers interface{}
 	WaitForCapacityTimeout interface{}
 	// Setting this will cause Terraform to wait
-	// for exactly this number of healthy instances in all attached load balancers
-	// on both create and update operations. (Takes precedence over
-	// `min_elb_capacity` behavior.)
+	// for exactly this number of healthy instances from this autoscaling group in
+	// all attached load balancers on both create and update operations. (Takes
+	// precedence over `min_elb_capacity` behavior.)
 	// (See also Waiting for Capacity below.)
 	WaitForElbCapacity interface{}
 }
@@ -529,8 +529,8 @@ type GroupArgs struct {
 	// The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
 	MetricsGranularity interface{}
 	// Setting this causes Terraform to wait for
-	// this number of instances to show up healthy in the ELB only on creation.
-	// Updates will not wait on ELB instance number changes.
+	// this number of instances from this autoscaling group to show up healthy in the
+	// ELB only on creation. Updates will not wait on ELB instance number changes.
 	// (See also Waiting for Capacity below.)
 	MinElbCapacity interface{}
 	// The minimum size of the auto scale group.
@@ -560,15 +560,15 @@ type GroupArgs struct {
 	TagsCollection interface{}
 	// A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
 	TargetGroupArns interface{}
-	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `Default`.
+	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
 	TerminationPolicies interface{}
 	// A list of subnet IDs to launch resources in.
 	VpcZoneIdentifiers interface{}
 	WaitForCapacityTimeout interface{}
 	// Setting this will cause Terraform to wait
-	// for exactly this number of healthy instances in all attached load balancers
-	// on both create and update operations. (Takes precedence over
-	// `min_elb_capacity` behavior.)
+	// for exactly this number of healthy instances from this autoscaling group in
+	// all attached load balancers on both create and update operations. (Takes
+	// precedence over `min_elb_capacity` behavior.)
 	// (See also Waiting for Capacity below.)
 	WaitForElbCapacity interface{}
 }

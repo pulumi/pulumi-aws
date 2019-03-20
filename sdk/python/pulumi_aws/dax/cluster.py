@@ -71,11 +71,11 @@ class Cluster(pulumi.CustomResource):
     Name of the parameter group to associate
     with this DAX cluster
     """
-    port: pulumi.Output[int]
+    port: pulumi.Output[float]
     """
     The port used by the configuration endpoint
     """
-    replication_factor: pulumi.Output[int]
+    replication_factor: pulumi.Output[float]
     """
     The number of nodes in the DAX cluster. A
     replication factor of 1 will create a single-node cluster, without any read
@@ -124,7 +124,7 @@ class Cluster(pulumi.CustomResource):
                `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[str] parameter_group_name: Name of the parameter group to associate
                with this DAX cluster
-        :param pulumi.Input[int] replication_factor: The number of nodes in the DAX cluster. A
+        :param pulumi.Input[float] replication_factor: The number of nodes in the DAX cluster. A
                replication factor of 1 will create a single-node cluster, without any read
                replicas
         :param pulumi.Input[list] security_group_ids: One or more VPC security groups associated

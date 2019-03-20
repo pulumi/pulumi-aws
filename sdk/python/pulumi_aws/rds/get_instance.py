@@ -19,8 +19,8 @@ class GetInstanceResult:
         """
         The hostname of the RDS instance. See also `endpoint` and `port`.
         """
-        if allocated_storage and not isinstance(allocated_storage, int):
-            raise TypeError('Expected argument allocated_storage to be a int')
+        if allocated_storage and not isinstance(allocated_storage, float):
+            raise TypeError('Expected argument allocated_storage to be a float')
         __self__.allocated_storage = allocated_storage
         """
         Specifies the allocated storage size specified in gigabytes.
@@ -37,8 +37,8 @@ class GetInstanceResult:
         """
         Specifies the name of the Availability Zone the DB instance is located in.
         """
-        if backup_retention_period and not isinstance(backup_retention_period, int):
-            raise TypeError('Expected argument backup_retention_period to be a int')
+        if backup_retention_period and not isinstance(backup_retention_period, float):
+            raise TypeError('Expected argument backup_retention_period to be a float')
         __self__.backup_retention_period = backup_retention_period
         """
         Specifies the number of days for which automatic DB snapshots are retained.
@@ -67,8 +67,8 @@ class GetInstanceResult:
         """
         Contains the name of the compute and memory capacity class of the DB instance.
         """
-        if db_instance_port and not isinstance(db_instance_port, int):
-            raise TypeError('Expected argument db_instance_port to be a int')
+        if db_instance_port and not isinstance(db_instance_port, float):
+            raise TypeError('Expected argument db_instance_port to be a float')
         __self__.db_instance_port = db_instance_port
         """
         Specifies the port that the DB instance listens on.
@@ -127,8 +127,8 @@ class GetInstanceResult:
         """
         The canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
         """
-        if iops and not isinstance(iops, int):
-            raise TypeError('Expected argument iops to be a int')
+        if iops and not isinstance(iops, float):
+            raise TypeError('Expected argument iops to be a float')
         __self__.iops = iops
         """
         Specifies the Provisioned IOPS (I/O operations per second) value.
@@ -151,8 +151,8 @@ class GetInstanceResult:
         """
         Contains the master username for the DB instance.
         """
-        if monitoring_interval and not isinstance(monitoring_interval, int):
-            raise TypeError('Expected argument monitoring_interval to be a int')
+        if monitoring_interval and not isinstance(monitoring_interval, float):
+            raise TypeError('Expected argument monitoring_interval to be a float')
         __self__.monitoring_interval = monitoring_interval
         """
         The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
@@ -175,8 +175,8 @@ class GetInstanceResult:
         """
         Provides the list of option group memberships for this DB instance.
         """
-        if port and not isinstance(port, int):
-            raise TypeError('Expected argument port to be a int')
+        if port and not isinstance(port, float):
+            raise TypeError('Expected argument port to be a float')
         __self__.port = port
         """
         The database port.

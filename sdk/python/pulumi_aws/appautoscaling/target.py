@@ -9,11 +9,11 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class Target(pulumi.CustomResource):
-    max_capacity: pulumi.Output[int]
+    max_capacity: pulumi.Output[float]
     """
     The max capacity of the scalable target.
     """
-    min_capacity: pulumi.Output[int]
+    min_capacity: pulumi.Output[float]
     """
     The min capacity of the scalable target.
     """
@@ -40,8 +40,8 @@ class Target(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] max_capacity: The max capacity of the scalable target.
-        :param pulumi.Input[int] min_capacity: The min capacity of the scalable target.
+        :param pulumi.Input[float] max_capacity: The max capacity of the scalable target.
+        :param pulumi.Input[float] min_capacity: The min capacity of the scalable target.
         :param pulumi.Input[str] resource_id: The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that allows Application
                AutoScaling to modify your scalable target on your behalf.

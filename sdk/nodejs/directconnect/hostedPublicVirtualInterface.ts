@@ -54,6 +54,10 @@ export class HostedPublicVirtualInterface extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
+     * The Direct Connect endpoint on which the virtual interface terminates.
+     */
+    public /*out*/ readonly awsDevice: pulumi.Output<string>;
+    /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      */
     public readonly bgpAsn: pulumi.Output<number>;
@@ -101,6 +105,7 @@ export class HostedPublicVirtualInterface extends pulumi.CustomResource {
             inputs["addressFamily"] = state ? state.addressFamily : undefined;
             inputs["amazonAddress"] = state ? state.amazonAddress : undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["awsDevice"] = state ? state.awsDevice : undefined;
             inputs["bgpAsn"] = state ? state.bgpAsn : undefined;
             inputs["bgpAuthKey"] = state ? state.bgpAuthKey : undefined;
             inputs["connectionId"] = state ? state.connectionId : undefined;
@@ -140,6 +145,7 @@ export class HostedPublicVirtualInterface extends pulumi.CustomResource {
             inputs["routeFilterPrefixes"] = args ? args.routeFilterPrefixes : undefined;
             inputs["vlan"] = args ? args.vlan : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["awsDevice"] = undefined /*out*/;
         }
         super("aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface", name, inputs, opts);
     }
@@ -161,6 +167,10 @@ export interface HostedPublicVirtualInterfaceState {
      * The ARN of the virtual interface.
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The Direct Connect endpoint on which the virtual interface terminates.
+     */
+    readonly awsDevice?: pulumi.Input<string>;
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      */

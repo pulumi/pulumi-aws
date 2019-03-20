@@ -21,7 +21,7 @@ class Cluster(pulumi.CustomResource):
     """
     A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
     """
-    backup_retention_period: pulumi.Output[int]
+    backup_retention_period: pulumi.Output[float]
     """
     The days to retain backups for. Default `1`
     """
@@ -81,7 +81,7 @@ class Cluster(pulumi.CustomResource):
     """
     A Neptune subnet group to associate with this Neptune instance.
     """
-    port: pulumi.Output[int]
+    port: pulumi.Output[float]
     """
     The port on which the Neptune accepts connections. Default is `8182`.
     """
@@ -137,7 +137,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[list] availability_zones: A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
-        :param pulumi.Input[int] backup_retention_period: The days to retain backups for. Default `1`
+        :param pulumi.Input[float] backup_retention_period: The days to retain backups for. Default `1`
         :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
@@ -148,7 +148,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_arn: The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
         :param pulumi.Input[str] neptune_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
         :param pulumi.Input[str] neptune_subnet_group_name: A Neptune subnet group to associate with this Neptune instance.
-        :param pulumi.Input[int] port: The port on which the Neptune accepts connections. Default is `8182`.
+        :param pulumi.Input[float] port: The port on which the Neptune accepts connections. Default is `8182`.
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
         :param pulumi.Input[str] replication_source_identifier: ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.

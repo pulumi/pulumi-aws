@@ -17,7 +17,7 @@ class SecurityGroupRule(pulumi.CustomResource):
     """
     Description of the rule.
     """
-    from_port: pulumi.Output[int]
+    from_port: pulumi.Output[float]
     """
     The start port (or ICMP type number if protocol is "icmp").
     """
@@ -48,7 +48,7 @@ class SecurityGroupRule(pulumi.CustomResource):
     The security group id to allow access to/from,
     depending on the `type`. Cannot be specified with `cidr_blocks`.
     """
-    to_port: pulumi.Output[int]
+    to_port: pulumi.Output[float]
     """
     The end port (or ICMP code if protocol is "icmp").
     """
@@ -77,7 +77,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id`.
         :param pulumi.Input[str] description: Description of the rule.
-        :param pulumi.Input[int] from_port: The start port (or ICMP type number if protocol is "icmp").
+        :param pulumi.Input[float] from_port: The start port (or ICMP type number if protocol is "icmp").
         :param pulumi.Input[list] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
         :param pulumi.Input[list] prefix_list_ids: List of prefix list IDs (for allowing access to VPC endpoints).
                Only valid with `egress`.
@@ -87,7 +87,7 @@ class SecurityGroupRule(pulumi.CustomResource):
                a source to this ingress rule.
         :param pulumi.Input[str] source_security_group_id: The security group id to allow access to/from,
                depending on the `type`. Cannot be specified with `cidr_blocks`.
-        :param pulumi.Input[int] to_port: The end port (or ICMP code if protocol is "icmp").
+        :param pulumi.Input[float] to_port: The end port (or ICMP code if protocol is "icmp").
         :param pulumi.Input[str] type: The type of rule being created. Valid options are `ingress` (inbound)
                or `egress` (outbound).
         """

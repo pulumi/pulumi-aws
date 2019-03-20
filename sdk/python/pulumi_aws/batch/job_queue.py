@@ -24,7 +24,7 @@ class JobQueue(pulumi.CustomResource):
     """
     Specifies the name of the job queue.
     """
-    priority: pulumi.Output[int]
+    priority: pulumi.Output[float]
     """
     The priority of the job queue. Job queues with a higher priority
     are evaluated first when associated with the same compute environment.
@@ -44,7 +44,7 @@ class JobQueue(pulumi.CustomResource):
                in the list will dictate the order. You can associate up to 3 compute environments
                with a job queue.
         :param pulumi.Input[str] name: Specifies the name of the job queue.
-        :param pulumi.Input[int] priority: The priority of the job queue. Job queues with a higher priority
+        :param pulumi.Input[float] priority: The priority of the job queue. Job queues with a higher priority
                are evaluated first when associated with the same compute environment.
         :param pulumi.Input[str] state: The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
         """

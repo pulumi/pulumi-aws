@@ -24,11 +24,11 @@ class Cluster(pulumi.CustomResource):
     A list of EC2 Availability Zones that
     instances in the DB cluster can be created in
     """
-    backtrack_window: pulumi.Output[int]
+    backtrack_window: pulumi.Output[float]
     """
     The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
     """
-    backup_retention_period: pulumi.Output[int]
+    backup_retention_period: pulumi.Output[float]
     """
     The days to retain backups for. Default `1`
     """
@@ -120,7 +120,7 @@ class Cluster(pulumi.CustomResource):
     """
     Username for the master DB user. Please refer to the [RDS Naming Constraints][5]
     """
-    port: pulumi.Output[int]
+    port: pulumi.Output[float]
     """
     The port on which the DB accepts connections
     """
@@ -201,8 +201,8 @@ class Cluster(pulumi.CustomResource):
                `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         :param pulumi.Input[list] availability_zones: A list of EC2 Availability Zones that
                instances in the DB cluster can be created in
-        :param pulumi.Input[int] backtrack_window: The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
-        :param pulumi.Input[int] backup_retention_period: The days to retain backups for. Default `1`
+        :param pulumi.Input[float] backtrack_window: The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
+        :param pulumi.Input[float] backup_retention_period: The days to retain backups for. Default `1`
         :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[list] cluster_members: List of RDS Instances that are a part of this cluster
@@ -225,7 +225,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may
                show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints][5]
         :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints][5]
-        :param pulumi.Input[int] port: The port on which the DB accepts connections
+        :param pulumi.Input[float] port: The port on which the DB accepts connections
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
                Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30

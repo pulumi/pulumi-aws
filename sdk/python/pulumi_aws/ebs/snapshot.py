@@ -41,7 +41,7 @@ class Snapshot(pulumi.CustomResource):
     """
     The Volume ID of which to make a snapshot.
     """
-    volume_size: pulumi.Output[int]
+    volume_size: pulumi.Output[float]
     """
     The size of the drive in GiBs.
     """

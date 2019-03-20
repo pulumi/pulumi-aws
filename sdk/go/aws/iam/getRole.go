@@ -14,7 +14,6 @@ func LookupRole(ctx *pulumi.Context, args *GetRoleArgs) (*GetRoleResult, error) 
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
-		inputs["roleName"] = args.RoleName
 	}
 	outputs, err := ctx.Invoke("aws:iam/getRole:getRole", inputs)
 	if err != nil {
@@ -23,13 +22,11 @@ func LookupRole(ctx *pulumi.Context, args *GetRoleArgs) (*GetRoleResult, error) 
 	return &GetRoleResult{
 		Arn: outputs["arn"],
 		AssumeRolePolicy: outputs["assumeRolePolicy"],
-		AssumeRolePolicyDocument: outputs["assumeRolePolicyDocument"],
 		CreateDate: outputs["createDate"],
 		Description: outputs["description"],
 		MaxSessionDuration: outputs["maxSessionDuration"],
 		Path: outputs["path"],
 		PermissionsBoundary: outputs["permissionsBoundary"],
-		RoleId: outputs["roleId"],
 		UniqueId: outputs["uniqueId"],
 		Id: outputs["id"],
 	}, nil
@@ -39,7 +36,6 @@ func LookupRole(ctx *pulumi.Context, args *GetRoleArgs) (*GetRoleResult, error) 
 type GetRoleArgs struct {
 	// The friendly IAM role name to match.
 	Name interface{}
-	RoleName interface{}
 }
 
 // A collection of values returned by getRole.
@@ -48,15 +44,16 @@ type GetRoleResult struct {
 	Arn interface{}
 	// The policy document associated with the role.
 	AssumeRolePolicy interface{}
-	AssumeRolePolicyDocument interface{}
+	// Creation date of the role in RFC 3339 format.
 	CreateDate interface{}
+	// Description for the role.
 	Description interface{}
+	// Maximum session duration.
 	MaxSessionDuration interface{}
 	// The path to the role.
 	Path interface{}
 	// The ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary interface{}
-	RoleId interface{}
 	// The stable and unique string identifying the role.
 	UniqueId interface{}
 	// id is the provider-assigned unique ID for this managed resource.

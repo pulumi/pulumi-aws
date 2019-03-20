@@ -13,7 +13,7 @@ class Instance(pulumi.CustomResource):
     """
     The hostname of the RDS instance. See also `endpoint` and `port`.
     """
-    allocated_storage: pulumi.Output[int]
+    allocated_storage: pulumi.Output[float]
     """
     (Required unless a `snapshot_identifier` or
     `replicate_source_db` is provided) The allocated storage in gibibytes.
@@ -46,7 +46,7 @@ class Instance(pulumi.CustomResource):
     """
     The AZ for the RDS instance.
     """
-    backup_retention_period: pulumi.Output[int]
+    backup_retention_period: pulumi.Output[float]
     """
     The days to retain backups for. Must be
     between `0` and `35`. When creating a Read Replica the value must be greater than `0`. [See Read Replica][1].
@@ -151,7 +151,7 @@ class Instance(pulumi.CustomResource):
     """
     The instance type of the RDS instance.
     """
-    iops: pulumi.Output[int]
+    iops: pulumi.Output[float]
     """
     The amount of provisioned IOPS. Setting this implies a
     storage_type of "io1".
@@ -174,7 +174,7 @@ class Instance(pulumi.CustomResource):
     docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
     for more information.
     """
-    monitoring_interval: pulumi.Output[int]
+    monitoring_interval: pulumi.Output[float]
     """
     The interval, in seconds, between points
     when Enhanced Monitoring metrics are collected for the DB instance. To disable
@@ -212,7 +212,7 @@ class Instance(pulumi.CustomResource):
     is provided) Password for the master DB user. Note that this may show up in
     logs, and it will be stored in the state file.
     """
-    port: pulumi.Output[int]
+    port: pulumi.Output[float]
     """
     The port on which the DB accepts connections.
     """
@@ -331,7 +331,7 @@ class Instance(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] allocated_storage: (Required unless a `snapshot_identifier` or
+        :param pulumi.Input[float] allocated_storage: (Required unless a `snapshot_identifier` or
                `replicate_source_db` is provided) The allocated storage in gibibytes.
         :param pulumi.Input[bool] allow_major_version_upgrade: Indicates that major version
                upgrades are allowed. Changing this parameter does not result in an outage and
@@ -345,7 +345,7 @@ class Instance(pulumi.CustomResource):
                will be applied automatically to the DB instance during the maintenance window.
                Defaults to true.
         :param pulumi.Input[str] availability_zone: The AZ for the RDS instance.
-        :param pulumi.Input[int] backup_retention_period: The days to retain backups for. Must be
+        :param pulumi.Input[float] backup_retention_period: The days to retain backups for. Must be
                between `0` and `35`. When creating a Read Replica the value must be greater than `0`. [See Read Replica][1].
         :param pulumi.Input[str] backup_window: The daily time range (in UTC) during which
                automated backups are created if they are enabled. Example: "09:46-10:16". Must
@@ -388,7 +388,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] identifier_prefix: Creates a unique
                identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance type of the RDS instance.
-        :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
+        :param pulumi.Input[float] iops: The amount of provisioned IOPS. Setting this implies a
                storage_type of "io1".
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
                encrypted replica, set this to the destination KMS ARN.
@@ -399,7 +399,7 @@ class Instance(pulumi.CustomResource):
                Maintenance Window
                docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
                for more information.
-        :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points
+        :param pulumi.Input[float] monitoring_interval: The interval, in seconds, between points
                when Enhanced Monitoring metrics are collected for the DB instance. To disable
                collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid
                Values: 0, 1, 5, 10, 15, 30, 60.
@@ -416,7 +416,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] password: (Required unless a `snapshot_identifier` or `replicate_source_db`
                is provided) Password for the master DB user. Note that this may show up in
                logs, and it will be stored in the state file.
-        :param pulumi.Input[int] port: The port on which the DB accepts connections.
+        :param pulumi.Input[float] port: The port on which the DB accepts connections.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly
                accessible. Default is `false`.
         :param pulumi.Input[str] replicate_source_db: Specifies that this resource is a Replicate

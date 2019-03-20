@@ -44,7 +44,7 @@ class SnapshotCopy(pulumi.CustomResource):
     A mapping of tags for the snapshot.
     """
     volume_id: pulumi.Output[str]
-    volume_size: pulumi.Output[int]
+    volume_size: pulumi.Output[float]
     """
     The size of the drive in GiBs.
     """

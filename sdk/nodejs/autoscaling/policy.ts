@@ -75,10 +75,6 @@ export class Policy extends pulumi.CustomResource {
     public readonly metricAggregationType: pulumi.Output<string>;
     public readonly minAdjustmentMagnitude: pulumi.Output<number | undefined>;
     /**
-     * Use `min_adjustment_magnitude` instead.
-     */
-    public readonly minAdjustmentStep: pulumi.Output<number | undefined>;
-    /**
      * The name of the dimension.
      */
     public readonly name: pulumi.Output<string>;
@@ -117,7 +113,6 @@ export class Policy extends pulumi.CustomResource {
             inputs["estimatedInstanceWarmup"] = state ? state.estimatedInstanceWarmup : undefined;
             inputs["metricAggregationType"] = state ? state.metricAggregationType : undefined;
             inputs["minAdjustmentMagnitude"] = state ? state.minAdjustmentMagnitude : undefined;
-            inputs["minAdjustmentStep"] = state ? state.minAdjustmentStep : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["policyType"] = state ? state.policyType : undefined;
             inputs["scalingAdjustment"] = state ? state.scalingAdjustment : undefined;
@@ -134,7 +129,6 @@ export class Policy extends pulumi.CustomResource {
             inputs["estimatedInstanceWarmup"] = args ? args.estimatedInstanceWarmup : undefined;
             inputs["metricAggregationType"] = args ? args.metricAggregationType : undefined;
             inputs["minAdjustmentMagnitude"] = args ? args.minAdjustmentMagnitude : undefined;
-            inputs["minAdjustmentStep"] = args ? args.minAdjustmentStep : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
             inputs["scalingAdjustment"] = args ? args.scalingAdjustment : undefined;
@@ -175,10 +169,6 @@ export interface PolicyState {
      */
     readonly metricAggregationType?: pulumi.Input<string>;
     readonly minAdjustmentMagnitude?: pulumi.Input<number>;
-    /**
-     * Use `min_adjustment_magnitude` instead.
-     */
-    readonly minAdjustmentStep?: pulumi.Input<number>;
     /**
      * The name of the dimension.
      */
@@ -225,10 +215,6 @@ export interface PolicyArgs {
      */
     readonly metricAggregationType?: pulumi.Input<string>;
     readonly minAdjustmentMagnitude?: pulumi.Input<number>;
-    /**
-     * Use `min_adjustment_magnitude` instead.
-     */
-    readonly minAdjustmentStep?: pulumi.Input<number>;
     /**
      * The name of the dimension.
      */

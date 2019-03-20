@@ -196,7 +196,7 @@ export class Trail extends pulumi.CustomResource {
      */
     public readonly s3BucketName: pulumi.Output<string>;
     /**
-     * Specifies the S3 key prefix that precedes
+     * Specifies the S3 key prefix that follows
      * the name of the bucket you have designated for log file delivery.
      */
     public readonly s3KeyPrefix: pulumi.Output<string | undefined>;
@@ -327,7 +327,7 @@ export interface TrailState {
      */
     readonly s3BucketName?: pulumi.Input<string>;
     /**
-     * Specifies the S3 key prefix that precedes
+     * Specifies the S3 key prefix that follows
      * the name of the bucket you have designated for log file delivery.
      */
     readonly s3KeyPrefix?: pulumi.Input<string>;
@@ -397,7 +397,7 @@ export interface TrailArgs {
      */
     readonly s3BucketName: pulumi.Input<string>;
     /**
-     * Specifies the S3 key prefix that precedes
+     * Specifies the S3 key prefix that follows
      * the name of the bucket you have designated for log file delivery.
      */
     readonly s3KeyPrefix?: pulumi.Input<string>;

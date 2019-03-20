@@ -37,7 +37,6 @@ func NewIntegrationResponse(ctx *pulumi.Context,
 		inputs["httpMethod"] = nil
 		inputs["resourceId"] = nil
 		inputs["responseParameters"] = nil
-		inputs["responseParametersInJson"] = nil
 		inputs["responseTemplates"] = nil
 		inputs["restApi"] = nil
 		inputs["selectionPattern"] = nil
@@ -47,7 +46,6 @@ func NewIntegrationResponse(ctx *pulumi.Context,
 		inputs["httpMethod"] = args.HttpMethod
 		inputs["resourceId"] = args.ResourceId
 		inputs["responseParameters"] = args.ResponseParameters
-		inputs["responseParametersInJson"] = args.ResponseParametersInJson
 		inputs["responseTemplates"] = args.ResponseTemplates
 		inputs["restApi"] = args.RestApi
 		inputs["selectionPattern"] = args.SelectionPattern
@@ -70,7 +68,6 @@ func GetIntegrationResponse(ctx *pulumi.Context,
 		inputs["httpMethod"] = state.HttpMethod
 		inputs["resourceId"] = state.ResourceId
 		inputs["responseParameters"] = state.ResponseParameters
-		inputs["responseParametersInJson"] = state.ResponseParametersInJson
 		inputs["responseTemplates"] = state.ResponseTemplates
 		inputs["restApi"] = state.RestApi
 		inputs["selectionPattern"] = state.SelectionPattern
@@ -109,14 +106,9 @@ func (r *IntegrationResponse) ResourceId() *pulumi.StringOutput {
 }
 
 // A map of response parameters that can be read from the backend response.
-// For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`,
+// For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
 func (r *IntegrationResponse) ResponseParameters() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["responseParameters"])
-}
-
-// **Deprecated**, use `response_parameters` instead.
-func (r *IntegrationResponse) ResponseParametersInJson() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["responseParametersInJson"])
 }
 
 // A map specifying the templates used to transform the integration response body
@@ -151,10 +143,8 @@ type IntegrationResponseState struct {
 	// The API resource ID
 	ResourceId interface{}
 	// A map of response parameters that can be read from the backend response.
-	// For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`,
+	// For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
 	ResponseParameters interface{}
-	// **Deprecated**, use `response_parameters` instead.
-	ResponseParametersInJson interface{}
 	// A map specifying the templates used to transform the integration response body
 	ResponseTemplates interface{}
 	// The ID of the associated REST API
@@ -177,10 +167,8 @@ type IntegrationResponseArgs struct {
 	// The API resource ID
 	ResourceId interface{}
 	// A map of response parameters that can be read from the backend response.
-	// For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`,
+	// For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
 	ResponseParameters interface{}
-	// **Deprecated**, use `response_parameters` instead.
-	ResponseParametersInJson interface{}
 	// A map specifying the templates used to transform the integration response body
 	ResponseTemplates interface{}
 	// The ID of the associated REST API

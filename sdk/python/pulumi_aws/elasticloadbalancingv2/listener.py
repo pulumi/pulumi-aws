@@ -25,7 +25,7 @@ class Listener(pulumi.CustomResource):
     """
     The ARN of the load balancer.
     """
-    port: pulumi.Output[int]
+    port: pulumi.Output[float]
     """
     The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
     """
@@ -48,7 +48,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_arn: The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
         :param pulumi.Input[dict] default_action: An Action block. Action blocks are documented below.
         :param pulumi.Input[str] load_balancer_arn: The ARN of the load balancer.
-        :param pulumi.Input[int] port: The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+        :param pulumi.Input[float] port: The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         :param pulumi.Input[str] protocol: The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         :param pulumi.Input[str] ssl_policy: The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
         """

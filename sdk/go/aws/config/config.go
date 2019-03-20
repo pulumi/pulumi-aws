@@ -21,12 +21,6 @@ func GetAssumeRole(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:assumeRole")
 }
 
-// Use this to override the default endpoint URL constructed from the `region`. It's typically used to connect to
-// dynamodb-local.
-func GetDynamodbEndpoint(ctx *pulumi.Context) string {
-	return config.Get(ctx, "aws:dynamodbEndpoint")
-}
-
 func GetEndpoints(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:endpoints")
 }
@@ -38,12 +32,6 @@ func GetForbiddenAccountIds(ctx *pulumi.Context) string {
 // Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
 func GetInsecure(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "aws:insecure")
-}
-
-// Use this to override the default endpoint URL constructed from the `region`. It's typically used to connect to
-// kinesalite.
-func GetKinesisEndpoint(ctx *pulumi.Context) string {
-	return config.Get(ctx, "aws:kinesisEndpoint")
 }
 
 // The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.

@@ -175,7 +175,7 @@ func (r *Trail) S3BucketName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["s3BucketName"])
 }
 
-// Specifies the S3 key prefix that precedes
+// Specifies the S3 key prefix that follows
 // the name of the bucket you have designated for log file delivery.
 func (r *Trail) S3KeyPrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["s3KeyPrefix"])
@@ -226,7 +226,7 @@ type TrailState struct {
 	Name interface{}
 	// Specifies the name of the S3 bucket designated for publishing log files.
 	S3BucketName interface{}
-	// Specifies the S3 key prefix that precedes
+	// Specifies the S3 key prefix that follows
 	// the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix interface{}
 	// Specifies the name of the Amazon SNS topic
@@ -266,7 +266,7 @@ type TrailArgs struct {
 	Name interface{}
 	// Specifies the name of the S3 bucket designated for publishing log files.
 	S3BucketName interface{}
-	// Specifies the S3 key prefix that precedes
+	// Specifies the S3 key prefix that follows
 	// the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix interface{}
 	// Specifies the name of the Amazon SNS topic

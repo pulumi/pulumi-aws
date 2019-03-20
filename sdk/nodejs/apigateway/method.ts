@@ -107,17 +107,9 @@ export class Method extends pulumi.CustomResource {
     public readonly requestModels: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of request query string parameters and headers that should be passed to the integration.
-     * For example:
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     * would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
+     * For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
      */
     public readonly requestParameters: pulumi.Output<{[key: string]: boolean} | undefined>;
-    /**
-     * **Deprecated**, use `request_parameters` instead.
-     */
-    public readonly requestParametersInJson: pulumi.Output<string | undefined>;
     /**
      * The ID of a `aws_api_gateway_request_validator`
      */
@@ -150,7 +142,6 @@ export class Method extends pulumi.CustomResource {
             inputs["httpMethod"] = state ? state.httpMethod : undefined;
             inputs["requestModels"] = state ? state.requestModels : undefined;
             inputs["requestParameters"] = state ? state.requestParameters : undefined;
-            inputs["requestParametersInJson"] = state ? state.requestParametersInJson : undefined;
             inputs["requestValidatorId"] = state ? state.requestValidatorId : undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;
             inputs["restApi"] = state ? state.restApi : undefined;
@@ -175,7 +166,6 @@ export class Method extends pulumi.CustomResource {
             inputs["httpMethod"] = args ? args.httpMethod : undefined;
             inputs["requestModels"] = args ? args.requestModels : undefined;
             inputs["requestParameters"] = args ? args.requestParameters : undefined;
-            inputs["requestParametersInJson"] = args ? args.requestParametersInJson : undefined;
             inputs["requestValidatorId"] = args ? args.requestValidatorId : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["restApi"] = args ? args.restApi : undefined;
@@ -216,17 +206,9 @@ export interface MethodState {
     readonly requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of request query string parameters and headers that should be passed to the integration.
-     * For example:
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     * would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
+     * For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
      */
     readonly requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
-    /**
-     * **Deprecated**, use `request_parameters` instead.
-     */
-    readonly requestParametersInJson?: pulumi.Input<string>;
     /**
      * The ID of a `aws_api_gateway_request_validator`
      */
@@ -273,17 +255,9 @@ export interface MethodArgs {
     readonly requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of request query string parameters and headers that should be passed to the integration.
-     * For example:
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     * would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
+     * For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
      */
     readonly requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
-    /**
-     * **Deprecated**, use `request_parameters` instead.
-     */
-    readonly requestParametersInJson?: pulumi.Input<string>;
     /**
      * The ID of a `aws_api_gateway_request_validator`
      */

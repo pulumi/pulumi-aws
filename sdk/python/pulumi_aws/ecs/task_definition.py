@@ -58,7 +58,7 @@ class TaskDefinition(pulumi.CustomResource):
     """
     A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
     """
-    revision: pulumi.Output[int]
+    revision: pulumi.Output[float]
     """
     The revision of the task in a particular family.
     """

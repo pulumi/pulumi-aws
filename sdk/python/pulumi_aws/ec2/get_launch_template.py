@@ -32,8 +32,8 @@ class GetLaunchTemplateResult:
         Customize the credit specification of the instance. See Credit
         Specification below for more details.
         """
-        if default_version and not isinstance(default_version, int):
-            raise TypeError('Expected argument default_version to be a int')
+        if default_version and not isinstance(default_version, float):
+            raise TypeError('Expected argument default_version to be a float')
         __self__.default_version = default_version
         """
         The default version of the launch template.
@@ -109,8 +109,8 @@ class GetLaunchTemplateResult:
         """
         The key name to use for the instance.
         """
-        if latest_version and not isinstance(latest_version, int):
-            raise TypeError('Expected argument latest_version to be a int')
+        if latest_version and not isinstance(latest_version, float):
+            raise TypeError('Expected argument latest_version to be a float')
         __self__.latest_version = latest_version
         """
         The latest version of the launch template.

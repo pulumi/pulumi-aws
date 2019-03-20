@@ -28,8 +28,8 @@ class GetJobQueueResult:
         * `compute_environment_order.#.order` - The order of the compute environment.
         * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
         """
-        if priority and not isinstance(priority, int):
-            raise TypeError('Expected argument priority to be a int')
+        if priority and not isinstance(priority, float):
+            raise TypeError('Expected argument priority to be a float')
         __self__.priority = priority
         """
         The priority of the job queue. Job queues with a higher priority are evaluated first when

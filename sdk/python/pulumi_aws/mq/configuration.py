@@ -31,7 +31,7 @@ class Configuration(pulumi.CustomResource):
     """
     The version of the broker engine.
     """
-    latest_revision: pulumi.Output[int]
+    latest_revision: pulumi.Output[float]
     """
     The latest revision of the configuration.
     """

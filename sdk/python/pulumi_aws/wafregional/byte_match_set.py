@@ -9,10 +9,6 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class ByteMatchSet(pulumi.CustomResource):
-    byte_match_tuple: pulumi.Output[list]
-    """
-    **Deprecated**, use `byte_match_tuples` instead.
-    """
     byte_match_tuples: pulumi.Output[list]
     """
     Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
@@ -21,13 +17,12 @@ class ByteMatchSet(pulumi.CustomResource):
     """
     The name or description of the ByteMatchSet.
     """
-    def __init__(__self__, resource_name, opts=None, byte_match_tuple=None, byte_match_tuples=None, name=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, byte_match_tuples=None, name=None, __name__=None, __opts__=None):
         """
         Provides a WAF Regional Byte Match Set Resource for use with Application Load Balancer.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] byte_match_tuple: **Deprecated**, use `byte_match_tuples` instead.
         :param pulumi.Input[list] byte_match_tuples: Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
         :param pulumi.Input[str] name: The name or description of the ByteMatchSet.
         """
@@ -45,8 +40,6 @@ class ByteMatchSet(pulumi.CustomResource):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
-
-        __props__['byte_match_tuple'] = byte_match_tuple
 
         __props__['byte_match_tuples'] = byte_match_tuples
 

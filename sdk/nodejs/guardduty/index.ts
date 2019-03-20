@@ -4,5 +4,6 @@
 // Export members:
 export * from "./detector";
 export * from "./iPSet";
+export * from "./inviteAccepter";
 export * from "./member";
 export * from "./threatIntelSet";

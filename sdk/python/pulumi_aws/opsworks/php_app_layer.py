@@ -54,7 +54,7 @@ class PhpAppLayer(pulumi.CustomResource):
     """
     Whether to install OS and package updates on each instance when it boots.
     """
-    instance_shutdown_timeout: pulumi.Output[int]
+    instance_shutdown_timeout: pulumi.Output[float]
     """
     The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
     """
@@ -90,7 +90,7 @@ class PhpAppLayer(pulumi.CustomResource):
         :param pulumi.Input[list] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
-        :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+        :param pulumi.Input[float] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
         :param pulumi.Input[list] system_packages: Names of a set of system packages to install on the layer's instances.

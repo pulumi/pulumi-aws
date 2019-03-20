@@ -66,7 +66,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly roleArn: pulumi.Output<string>;
     /**
-     * Desired Kubernetes master version. If you do not specify a value, the latest available version is used.
+     * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */
     public readonly version: pulumi.Output<string>;
     /**
@@ -147,7 +147,7 @@ export interface ClusterState {
      */
     readonly roleArn?: pulumi.Input<string>;
     /**
-     * Desired Kubernetes master version. If you do not specify a value, the latest available version is used.
+     * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */
     readonly version?: pulumi.Input<string>;
     /**
@@ -169,7 +169,7 @@ export interface ClusterArgs {
      */
     readonly roleArn: pulumi.Input<string>;
     /**
-     * Desired Kubernetes master version. If you do not specify a value, the latest available version is used.
+     * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */
     readonly version?: pulumi.Input<string>;
     /**

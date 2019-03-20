@@ -20,11 +20,9 @@ import * as utilities from "../utilities";
  * }));
  * ```
  */
-export function getRole(args?: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
-    args = args || {};
+export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
     return pulumi.runtime.invoke("aws:iam/getRole:getRole", {
         "name": args.name,
-        "roleName": args.roleName,
     }, opts);
 }
 
@@ -35,8 +33,7 @@ export interface GetRoleArgs {
     /**
      * The friendly IAM role name to match.
      */
-    readonly name?: string;
-    readonly roleName?: string;
+    readonly name: string;
 }
 
 /**
@@ -51,9 +48,17 @@ export interface GetRoleResult {
      * The policy document associated with the role.
      */
     readonly assumeRolePolicy: string;
-    readonly assumeRolePolicyDocument: string;
+    /**
+     * Creation date of the role in RFC 3339 format.
+     */
     readonly createDate: string;
+    /**
+     * Description for the role.
+     */
     readonly description: string;
+    /**
+     * Maximum session duration.
+     */
     readonly maxSessionDuration: number;
     /**
      * The path to the role.
@@ -63,7 +68,6 @@ export interface GetRoleResult {
      * The ARN of the policy that is used to set the permissions boundary for the role.
      */
     readonly permissionsBoundary: string;
-    readonly roleId: string;
     /**
      * The stable and unique string identifying the role.
      */

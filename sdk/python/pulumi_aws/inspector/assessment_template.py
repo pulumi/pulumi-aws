@@ -13,7 +13,7 @@ class AssessmentTemplate(pulumi.CustomResource):
     """
     The template assessment ARN.
     """
-    duration: pulumi.Output[int]
+    duration: pulumi.Output[float]
     """
     The duration of the inspector run.
     """
@@ -35,7 +35,7 @@ class AssessmentTemplate(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] duration: The duration of the inspector run.
+        :param pulumi.Input[float] duration: The duration of the inspector run.
         :param pulumi.Input[str] name: The name of the assessment template.
         :param pulumi.Input[list] rules_package_arns: The rules to be used during the run.
         :param pulumi.Input[str] target_arn: The assessment target ARN to attach the template to.

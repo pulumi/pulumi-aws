@@ -19,8 +19,8 @@ class GetLogGroupResult:
         """
         The ARN of the Cloudwatch log group
         """
-        if creation_time and not isinstance(creation_time, int):
-            raise TypeError('Expected argument creation_time to be a int')
+        if creation_time and not isinstance(creation_time, float):
+            raise TypeError('Expected argument creation_time to be a float')
         __self__.creation_time = creation_time
         """
         The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.

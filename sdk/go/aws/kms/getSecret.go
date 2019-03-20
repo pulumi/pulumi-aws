@@ -7,20 +7,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// !> **WARNING:** This data source is deprecated and will be removed in the next major version. You can migrate existing configurations to the [`aws_kms_secrets` data source](https://www.terraform.io/docs/providers/aws/d/kms_secrets.html) following instructions available in the [Version 2 Upgrade Guide](https://www.terraform.io/docs/providers/aws/guides/version-2-upgrade.html#data-source-aws_kms_secret).
-// 
-// The KMS secret data source allows you to use data encrypted with the AWS KMS
-// service within your resource definitions.
-// 
-// > **NOTE**: Using this data provider will allow you to conceal secret data within your
-// resource definitions but does not take care of protecting that data in the
-// logging output, plan output or state output.
-// 
-// Please take care to secure your secret data outside of resource definitions.
+// !> **WARNING:** This data source was removed in version 2.0.0 of the Terraform AWS Provider. You can migrate existing configurations to the [`aws_kms_secrets` data source](https://www.terraform.io/docs/providers/aws/d/kms_secrets.html) following instructions available in the [Version 2 Upgrade Guide](https://www.terraform.io/docs/providers/aws/guides/version-2-upgrade.html#data-source-aws_kms_secret).
 func LookupSecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
-		inputs["__hasDynamicAttributes"] = args.__hasDynamicAttributes
 		inputs["secrets"] = args.Secrets
 	}
 	outputs, err := ctx.Invoke("aws:kms/getSecret:getSecret", inputs)
@@ -34,9 +24,6 @@ func LookupSecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, e
 
 // A collection of arguments for invoking getSecret.
 type GetSecretArgs struct {
-	__hasDynamicAttributes interface{}
-	// One or more encrypted payload definitions from the KMS
-	// service.  See the Secret Definitions below.
 	Secrets interface{}
 }
 

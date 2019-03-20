@@ -29,7 +29,7 @@ class CapacityReservation(pulumi.CustomResource):
     """
     Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
     """
-    instance_count: pulumi.Output[int]
+    instance_count: pulumi.Output[float]
     """
     The number of instances for which to reserve capacity.
     """
@@ -64,7 +64,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[str] end_date: The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         :param pulumi.Input[str] end_date_type: Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
         :param pulumi.Input[bool] ephemeral_storage: Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
-        :param pulumi.Input[int] instance_count: The number of instances for which to reserve capacity.
+        :param pulumi.Input[float] instance_count: The number of instances for which to reserve capacity.
         :param pulumi.Input[str] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
         :param pulumi.Input[str] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         :param pulumi.Input[str] instance_type: The instance type for which to reserve capacity.

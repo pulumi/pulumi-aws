@@ -38,12 +38,7 @@ class Method(pulumi.CustomResource):
     request_parameters: pulumi.Output[dict]
     """
     A map of request query string parameters and headers that should be passed to the integration.
-    For example:
-    would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
-    """
-    request_parameters_in_json: pulumi.Output[str]
-    """
-    **Deprecated**, use `request_parameters` instead.
+    For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
     """
     request_validator_id: pulumi.Output[str]
     """
@@ -57,7 +52,7 @@ class Method(pulumi.CustomResource):
     """
     The ID of the associated REST API
     """
-    def __init__(__self__, resource_name, opts=None, api_key_required=None, authorization=None, authorization_scopes=None, authorizer_id=None, http_method=None, request_models=None, request_parameters=None, request_parameters_in_json=None, request_validator_id=None, resource_id=None, rest_api=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_key_required=None, authorization=None, authorization_scopes=None, authorizer_id=None, http_method=None, request_models=None, request_parameters=None, request_validator_id=None, resource_id=None, rest_api=None, __name__=None, __opts__=None):
         """
         Provides a HTTP Method for an API Gateway Resource.
         
@@ -72,9 +67,7 @@ class Method(pulumi.CustomResource):
                where key is the content type (e.g. `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `aws_api_gateway_model`'s `name`.
         :param pulumi.Input[dict] request_parameters: A map of request query string parameters and headers that should be passed to the integration.
-               For example:
-               would define that the header `X-Some-Header` and the query string `some-query-param` must be provided on the request, or
-        :param pulumi.Input[str] request_parameters_in_json: **Deprecated**, use `request_parameters` instead.
+               For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
         :param pulumi.Input[str] request_validator_id: The ID of a `aws_api_gateway_request_validator`
         :param pulumi.Input[str] resource_id: The API resource ID
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
@@ -111,8 +104,6 @@ class Method(pulumi.CustomResource):
         __props__['request_models'] = request_models
 
         __props__['request_parameters'] = request_parameters
-
-        __props__['request_parameters_in_json'] = request_parameters_in_json
 
         __props__['request_validator_id'] = request_validator_id
 

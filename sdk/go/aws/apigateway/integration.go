@@ -40,7 +40,6 @@ func NewIntegration(ctx *pulumi.Context,
 		inputs["integrationHttpMethod"] = nil
 		inputs["passthroughBehavior"] = nil
 		inputs["requestParameters"] = nil
-		inputs["requestParametersInJson"] = nil
 		inputs["requestTemplates"] = nil
 		inputs["resourceId"] = nil
 		inputs["restApi"] = nil
@@ -58,7 +57,6 @@ func NewIntegration(ctx *pulumi.Context,
 		inputs["integrationHttpMethod"] = args.IntegrationHttpMethod
 		inputs["passthroughBehavior"] = args.PassthroughBehavior
 		inputs["requestParameters"] = args.RequestParameters
-		inputs["requestParametersInJson"] = args.RequestParametersInJson
 		inputs["requestTemplates"] = args.RequestTemplates
 		inputs["resourceId"] = args.ResourceId
 		inputs["restApi"] = args.RestApi
@@ -89,7 +87,6 @@ func GetIntegration(ctx *pulumi.Context,
 		inputs["integrationHttpMethod"] = state.IntegrationHttpMethod
 		inputs["passthroughBehavior"] = state.PassthroughBehavior
 		inputs["requestParameters"] = state.RequestParameters
-		inputs["requestParametersInJson"] = state.RequestParametersInJson
 		inputs["requestTemplates"] = state.RequestTemplates
 		inputs["resourceId"] = state.ResourceId
 		inputs["restApi"] = state.RestApi
@@ -170,11 +167,6 @@ func (r *Integration) RequestParameters() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["requestParameters"])
 }
 
-// **Deprecated**, use `request_parameters` instead.
-func (r *Integration) RequestParametersInJson() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["requestParametersInJson"])
-}
-
 // A map of the integration's request templates.
 func (r *Integration) RequestTemplates() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["requestTemplates"])
@@ -235,8 +227,6 @@ type IntegrationState struct {
 	// A map of request query string parameters and headers that should be passed to the backend responder.
 	// For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
 	RequestParameters interface{}
-	// **Deprecated**, use `request_parameters` instead.
-	RequestParametersInJson interface{}
 	// A map of the integration's request templates.
 	RequestTemplates interface{}
 	// The API resource ID.
@@ -281,8 +271,6 @@ type IntegrationArgs struct {
 	// A map of request query string parameters and headers that should be passed to the backend responder.
 	// For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
 	RequestParameters interface{}
-	// **Deprecated**, use `request_parameters` instead.
-	RequestParametersInJson interface{}
 	// A map of the integration's request templates.
 	RequestTemplates interface{}
 	// The API resource ID.

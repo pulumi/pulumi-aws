@@ -31,8 +31,8 @@ class GetIpRangesResult:
         """
         The lexically ordered list of IPv6 CIDR blocks.
         """
-        if sync_token and not isinstance(sync_token, int):
-            raise TypeError('Expected argument sync_token to be a int')
+        if sync_token and not isinstance(sync_token, float):
+            raise TypeError('Expected argument sync_token to be a float')
         __self__.sync_token = sync_token
         """
         The publication time of the IP ranges, in Unix epoch time format

@@ -34,7 +34,6 @@ func NewMethodResponse(ctx *pulumi.Context,
 		inputs["resourceId"] = nil
 		inputs["responseModels"] = nil
 		inputs["responseParameters"] = nil
-		inputs["responseParametersInJson"] = nil
 		inputs["restApi"] = nil
 		inputs["statusCode"] = nil
 	} else {
@@ -42,7 +41,6 @@ func NewMethodResponse(ctx *pulumi.Context,
 		inputs["resourceId"] = args.ResourceId
 		inputs["responseModels"] = args.ResponseModels
 		inputs["responseParameters"] = args.ResponseParameters
-		inputs["responseParametersInJson"] = args.ResponseParametersInJson
 		inputs["restApi"] = args.RestApi
 		inputs["statusCode"] = args.StatusCode
 	}
@@ -63,7 +61,6 @@ func GetMethodResponse(ctx *pulumi.Context,
 		inputs["resourceId"] = state.ResourceId
 		inputs["responseModels"] = state.ResponseModels
 		inputs["responseParameters"] = state.ResponseParameters
-		inputs["responseParametersInJson"] = state.ResponseParametersInJson
 		inputs["restApi"] = state.RestApi
 		inputs["statusCode"] = state.StatusCode
 	}
@@ -106,11 +103,6 @@ func (r *MethodResponse) ResponseParameters() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["responseParameters"])
 }
 
-// **Deprecated**, use `response_parameters` instead.
-func (r *MethodResponse) ResponseParametersInJson() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["responseParametersInJson"])
-}
-
 // The ID of the associated REST API
 func (r *MethodResponse) RestApi() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["restApi"])
@@ -133,8 +125,6 @@ type MethodResponseState struct {
 	// For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
 	// would define that the header `X-Some-Header` can be provided on the response.
 	ResponseParameters interface{}
-	// **Deprecated**, use `response_parameters` instead.
-	ResponseParametersInJson interface{}
 	// The ID of the associated REST API
 	RestApi interface{}
 	// The HTTP status code
@@ -153,8 +143,6 @@ type MethodResponseArgs struct {
 	// For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
 	// would define that the header `X-Some-Header` can be provided on the response.
 	ResponseParameters interface{}
-	// **Deprecated**, use `response_parameters` instead.
-	ResponseParametersInJson interface{}
 	// The ID of the associated REST API
 	RestApi interface{}
 	// The HTTP status code

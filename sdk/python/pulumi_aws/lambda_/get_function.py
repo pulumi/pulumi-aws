@@ -12,12 +12,12 @@ class GetFunctionResult:
     """
     A collection of values returned by getFunction.
     """
-    def __init__(__self__, arn=None, dead_letter_config=None, description=None, environment=None, handler=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, reserved_concurrent_executions=None, role=None, runtime=None, source_code_hash=None, source_code_size=None, timeout=None, tracing_config=None, version=None, vpc_config=None, id=None):
+    def __init__(__self__, arn=None, dead_letter_config=None, description=None, environment=None, handler=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, reserved_concurrent_executions=None, role=None, runtime=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None, id=None):
         if arn and not isinstance(arn, str):
             raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         """
-        The Amazon Resource Name (ARN) identifying your Lambda Function.
+        Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualified_arn`.
         """
         if dead_letter_config and not isinstance(dead_letter_config, dict):
             raise TypeError('Expected argument dead_letter_config to be a dict')
@@ -67,8 +67,8 @@ class GetFunctionResult:
         """
         A list of Lambda Layer ARNs attached to your Lambda Function.
         """
-        if memory_size and not isinstance(memory_size, int):
-            raise TypeError('Expected argument memory_size to be a int')
+        if memory_size and not isinstance(memory_size, float):
+            raise TypeError('Expected argument memory_size to be a float')
         __self__.memory_size = memory_size
         """
         Amount of memory in MB your Lambda Function can use at runtime.
@@ -77,13 +77,13 @@ class GetFunctionResult:
             raise TypeError('Expected argument qualified_arn to be a str')
         __self__.qualified_arn = qualified_arn
         """
-        The Amazon Resource Name (ARN) identifying your Lambda Function Version
+        Qualified (`:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `arn`.
         """
-        if reserved_concurrent_executions and not isinstance(reserved_concurrent_executions, int):
-            raise TypeError('Expected argument reserved_concurrent_executions to be a int')
+        if reserved_concurrent_executions and not isinstance(reserved_concurrent_executions, float):
+            raise TypeError('Expected argument reserved_concurrent_executions to be a float')
         __self__.reserved_concurrent_executions = reserved_concurrent_executions
         """
-        The amount of reserved concurrent executions for this lambda function.
+        The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
         """
         if role and not isinstance(role, str):
             raise TypeError('Expected argument role to be a str')
@@ -103,14 +103,17 @@ class GetFunctionResult:
         """
         Base64-encoded representation of raw SHA-256 sum of the zip file.
         """
-        if source_code_size and not isinstance(source_code_size, int):
-            raise TypeError('Expected argument source_code_size to be a int')
+        if source_code_size and not isinstance(source_code_size, float):
+            raise TypeError('Expected argument source_code_size to be a float')
         __self__.source_code_size = source_code_size
         """
         The size in bytes of the function .zip file.
         """
-        if timeout and not isinstance(timeout, int):
-            raise TypeError('Expected argument timeout to be a int')
+        if tags and not isinstance(tags, dict):
+            raise TypeError('Expected argument tags to be a dict')
+        __self__.tags = tags
+        if timeout and not isinstance(timeout, float):
+            raise TypeError('Expected argument timeout to be a float')
         __self__.timeout = timeout
         """
         The function execution time at which Lambda should terminate the function.
@@ -140,7 +143,7 @@ class GetFunctionResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_function(function_name=None,qualifier=None,opts=None):
+async def get_function(function_name=None,qualifier=None,tags=None,opts=None):
     """
     Provides information about a Lambda Function.
     """
@@ -148,6 +151,7 @@ async def get_function(function_name=None,qualifier=None,opts=None):
 
     __args__['functionName'] = function_name
     __args__['qualifier'] = qualifier
+    __args__['tags'] = tags
     __ret__ = await pulumi.runtime.invoke('aws:lambda/getFunction:getFunction', __args__, opts=opts)
 
     return GetFunctionResult(
@@ -167,6 +171,7 @@ async def get_function(function_name=None,qualifier=None,opts=None):
         runtime=__ret__.get('runtime'),
         source_code_hash=__ret__.get('sourceCodeHash'),
         source_code_size=__ret__.get('sourceCodeSize'),
+        tags=__ret__.get('tags'),
         timeout=__ret__.get('timeout'),
         tracing_config=__ret__.get('tracingConfig'),
         version=__ret__.get('version'),

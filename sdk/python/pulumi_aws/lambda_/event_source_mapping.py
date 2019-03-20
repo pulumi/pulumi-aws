@@ -9,7 +9,7 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class EventSourceMapping(pulumi.CustomResource):
-    batch_size: pulumi.Output[int]
+    batch_size: pulumi.Output[float]
     """
     The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
     """
@@ -66,7 +66,7 @@ class EventSourceMapping(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
+        :param pulumi.Input[float] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
         :param pulumi.Input[str] event_source_arn: The event source ARN - can either be a Kinesis or DynamoDB stream.
         :param pulumi.Input[str] function_name: The name or the ARN of the Lambda function that will be subscribing to events.

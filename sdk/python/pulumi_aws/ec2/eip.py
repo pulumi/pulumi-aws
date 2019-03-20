@@ -26,9 +26,17 @@ class Eip(pulumi.CustomResource):
     """
     Network interface ID to associate with.
     """
+    private_dns: pulumi.Output[str]
+    """
+    The Private DNS associated with the Elastic IP address (if in VPC).
+    """
     private_ip: pulumi.Output[str]
     """
     Contains the private IP address (if in VPC).
+    """
+    public_dns: pulumi.Output[str]
+    """
+    Public DNS associated with the Elastic IP address.
     """
     public_ip: pulumi.Output[str]
     """
@@ -95,7 +103,9 @@ class Eip(pulumi.CustomResource):
         __props__['allocation_id'] = None
         __props__['association_id'] = None
         __props__['domain'] = None
+        __props__['private_dns'] = None
         __props__['private_ip'] = None
+        __props__['public_dns'] = None
         __props__['public_ip'] = None
 
         super(Eip, __self__).__init__(

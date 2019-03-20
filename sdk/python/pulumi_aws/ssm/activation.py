@@ -33,11 +33,11 @@ class Activation(pulumi.CustomResource):
     """
     The default name of the registered managed instance.
     """
-    registration_count: pulumi.Output[int]
+    registration_count: pulumi.Output[float]
     """
     The number of managed instances that are currently registered using this activation.
     """
-    registration_limit: pulumi.Output[int]
+    registration_limit: pulumi.Output[float]
     """
     The maximum number of managed instances you want to register. The default value is 1 instance.
     """
@@ -51,7 +51,7 @@ class Activation(pulumi.CustomResource):
         :param pulumi.Input[str] expiration_date: A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time.
         :param pulumi.Input[str] iam_role: The IAM Role to attach to the managed instance.
         :param pulumi.Input[str] name: The default name of the registered managed instance.
-        :param pulumi.Input[int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
+        :param pulumi.Input[float] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
