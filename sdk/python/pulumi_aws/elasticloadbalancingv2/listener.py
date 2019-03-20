@@ -17,7 +17,7 @@ class Listener(pulumi.CustomResource):
     """
     The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
     """
-    default_action: pulumi.Output[dict]
+    default_actions: pulumi.Output[list]
     """
     An Action block. Action blocks are documented below.
     """
@@ -37,7 +37,7 @@ class Listener(pulumi.CustomResource):
     """
     The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
     """
-    def __init__(__self__, resource_name, opts=None, certificate_arn=None, default_action=None, load_balancer_arn=None, port=None, protocol=None, ssl_policy=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, certificate_arn=None, default_actions=None, load_balancer_arn=None, port=None, protocol=None, ssl_policy=None, __name__=None, __opts__=None):
         """
         Provides a Load Balancer Listener resource.
         
@@ -46,7 +46,7 @@ class Listener(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_arn: The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
-        :param pulumi.Input[dict] default_action: An Action block. Action blocks are documented below.
+        :param pulumi.Input[list] default_actions: An Action block. Action blocks are documented below.
         :param pulumi.Input[str] load_balancer_arn: The ARN of the load balancer.
         :param pulumi.Input[float] port: The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         :param pulumi.Input[str] protocol: The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
@@ -69,9 +69,9 @@ class Listener(pulumi.CustomResource):
 
         __props__['certificate_arn'] = certificate_arn
 
-        if default_action is None:
-            raise TypeError('Missing required property default_action')
-        __props__['default_action'] = default_action
+        if default_actions is None:
+            raise TypeError('Missing required property default_actions')
+        __props__['default_actions'] = default_actions
 
         if load_balancer_arn is None:
             raise TypeError('Missing required property load_balancer_arn')
