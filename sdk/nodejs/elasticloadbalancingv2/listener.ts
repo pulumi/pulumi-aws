@@ -21,10 +21,10 @@ import * as utilities from "../utilities";
  * const frontEndTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("front_end", {});
  * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {
  *     certificateArn: "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
- *     defaultAction: {
+ *     defaultActions: [{
  *         targetGroupArn: frontEndTargetGroup.arn,
  *         type: "forward",
- *     },
+ *     }],
  *     loadBalancerArn: frontEndLoadBalancer.arn,
  *     port: 443,
  *     protocol: "HTTPS",
@@ -40,14 +40,14 @@ import * as utilities from "../utilities";
  * 
  * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
  * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {
- *     defaultAction: {
+ *     defaultActions: [{
  *         redirect: {
  *             port: "443",
  *             protocol: "HTTPS",
  *             statusCode: "HTTP_301",
  *         },
  *         type: "redirect",
- *     },
+ *     }],
  *     loadBalancerArn: frontEndLoadBalancer.arn,
  *     port: 80,
  *     protocol: "HTTP",
@@ -62,14 +62,14 @@ import * as utilities from "../utilities";
  * 
  * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
  * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {
- *     defaultAction: {
+ *     defaultActions: [{
  *         fixedResponse: {
  *             contentType: "text/plain",
  *             messageBody: "Fixed response content",
  *             statusCode: "200",
  *         },
  *         type: "fixed-response",
- *     },
+ *     }],
  *     loadBalancerArn: frontEndLoadBalancer.arn,
  *     port: 80,
  *     protocol: "HTTP",
@@ -88,23 +88,20 @@ import * as utilities from "../utilities";
  * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
  * const frontEndTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("front_end", {});
  * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {
- *     defaultAction: pulumi.all([pool.arn, client.id, domain.domain, frontEndTargetGroup.arn]).apply(([poolArn, id, domain, frontEndTargetGroupArn]) => (() => {
- *         throw "tf2pulumi error: aws_lb_listener.front_end.default_action: expected at most one item in list, got 2";
- *         return [
- *             {
- *                 authenticateCognito: {
- *                     userPoolArn: poolArn,
- *                     userPoolClientId: id,
- *                     userPoolDomain: domain,
- *                 },
- *                 type: "authenticate-cognito",
+ *     defaultActions: [
+ *         {
+ *             authenticateCognito: {
+ *                 userPoolArn: pool.arn,
+ *                 userPoolClientId: client.id,
+ *                 userPoolDomain: domain.domain,
  *             },
- *             {
- *                 targetGroupArn: frontEndTargetGroupArn,
- *                 type: "forward",
- *             },
- *         ];
- *     })()),
+ *             type: "authenticate-cognito",
+ *         },
+ *         {
+ *             targetGroupArn: frontEndTargetGroup.arn,
+ *             type: "forward",
+ *         },
+ *     ],
  *     loadBalancerArn: frontEndLoadBalancer.arn,
  *     port: 80,
  *     protocol: "HTTP",
@@ -120,26 +117,23 @@ import * as utilities from "../utilities";
  * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
  * const frontEndTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("front_end", {});
  * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {
- *     defaultAction: frontEndTargetGroup.arn.apply(arn => (() => {
- *         throw "tf2pulumi error: aws_lb_listener.front_end.default_action: expected at most one item in list, got 2";
- *         return [
- *             {
- *                 authenticateOidc: {
- *                     authorizationEndpoint: "https://example.com/authorization_endpoint",
- *                     clientId: "client_id",
- *                     clientSecret: "client_secret",
- *                     issuer: "https://example.com",
- *                     tokenEndpoint: "https://example.com/token_endpoint",
- *                     userInfoEndpoint: "https://example.com/user_info_endpoint",
- *                 },
- *                 type: "authenticate-oidc",
+ *     defaultActions: [
+ *         {
+ *             authenticateOidc: {
+ *                 authorizationEndpoint: "https://example.com/authorization_endpoint",
+ *                 clientId: "client_id",
+ *                 clientSecret: "client_secret",
+ *                 issuer: "https://example.com",
+ *                 tokenEndpoint: "https://example.com/token_endpoint",
+ *                 userInfoEndpoint: "https://example.com/user_info_endpoint",
  *             },
- *             {
- *                 targetGroupArn: arn,
- *                 type: "forward",
- *             },
- *         ];
- *     })()),
+ *             type: "authenticate-oidc",
+ *         },
+ *         {
+ *             targetGroupArn: frontEndTargetGroup.arn,
+ *             type: "forward",
+ *         },
+ *     ],
  *     loadBalancerArn: frontEndLoadBalancer.arn,
  *     port: 80,
  *     protocol: "HTTP",
@@ -170,7 +164,7 @@ export class Listener extends pulumi.CustomResource {
     /**
      * An Action block. Action blocks are documented below.
      */
-    public readonly defaultAction: pulumi.Output<{ authenticateCognito?: { authenticationRequestExtraParams?: {[key: string]: any}, onUnauthenticatedRequest: string, scope: string, sessionCookieName: string, sessionTimeout: number, userPoolArn: string, userPoolClientId: string, userPoolDomain: string }, authenticateOidc?: { authenticationRequestExtraParams?: {[key: string]: any}, authorizationEndpoint: string, clientId: string, clientSecret: string, issuer: string, onUnauthenticatedRequest: string, scope: string, sessionCookieName: string, sessionTimeout: number, tokenEndpoint: string, userInfoEndpoint: string }, fixedResponse?: { contentType: string, messageBody?: string, statusCode: string }, order: number, redirect?: { host?: string, path?: string, port?: string, protocol?: string, query?: string, statusCode: string }, targetGroupArn?: string, type: string }>;
+    public readonly defaultActions: pulumi.Output<{ authenticateCognito?: { authenticationRequestExtraParams?: {[key: string]: any}, onUnauthenticatedRequest: string, scope: string, sessionCookieName: string, sessionTimeout: number, userPoolArn: string, userPoolClientId: string, userPoolDomain: string }, authenticateOidc?: { authenticationRequestExtraParams?: {[key: string]: any}, authorizationEndpoint: string, clientId: string, clientSecret: string, issuer: string, onUnauthenticatedRequest: string, scope: string, sessionCookieName: string, sessionTimeout: number, tokenEndpoint: string, userInfoEndpoint: string }, fixedResponse?: { contentType: string, messageBody?: string, statusCode: string }, order: number, redirect?: { host?: string, path?: string, port?: string, protocol?: string, query?: string, statusCode: string }, targetGroupArn?: string, type: string }[]>;
     /**
      * The ARN of the load balancer.
      */
@@ -202,15 +196,15 @@ export class Listener extends pulumi.CustomResource {
             const state: ListenerState = argsOrState as ListenerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["certificateArn"] = state ? state.certificateArn : undefined;
-            inputs["defaultAction"] = state ? state.defaultAction : undefined;
+            inputs["defaultActions"] = state ? state.defaultActions : undefined;
             inputs["loadBalancerArn"] = state ? state.loadBalancerArn : undefined;
             inputs["port"] = state ? state.port : undefined;
             inputs["protocol"] = state ? state.protocol : undefined;
             inputs["sslPolicy"] = state ? state.sslPolicy : undefined;
         } else {
             const args = argsOrState as ListenerArgs | undefined;
-            if (!args || args.defaultAction === undefined) {
-                throw new Error("Missing required property 'defaultAction'");
+            if (!args || args.defaultActions === undefined) {
+                throw new Error("Missing required property 'defaultActions'");
             }
             if (!args || args.loadBalancerArn === undefined) {
                 throw new Error("Missing required property 'loadBalancerArn'");
@@ -219,7 +213,7 @@ export class Listener extends pulumi.CustomResource {
                 throw new Error("Missing required property 'port'");
             }
             inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["defaultAction"] = args ? args.defaultAction : undefined;
+            inputs["defaultActions"] = args ? args.defaultActions : undefined;
             inputs["loadBalancerArn"] = args ? args.loadBalancerArn : undefined;
             inputs["port"] = args ? args.port : undefined;
             inputs["protocol"] = args ? args.protocol : undefined;
@@ -245,7 +239,7 @@ export interface ListenerState {
     /**
      * An Action block. Action blocks are documented below.
      */
-    readonly defaultAction?: pulumi.Input<{ authenticateCognito?: pulumi.Input<{ authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>, onUnauthenticatedRequest?: pulumi.Input<string>, scope?: pulumi.Input<string>, sessionCookieName?: pulumi.Input<string>, sessionTimeout?: pulumi.Input<number>, userPoolArn: pulumi.Input<string>, userPoolClientId: pulumi.Input<string>, userPoolDomain: pulumi.Input<string> }>, authenticateOidc?: pulumi.Input<{ authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>, authorizationEndpoint: pulumi.Input<string>, clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, issuer: pulumi.Input<string>, onUnauthenticatedRequest?: pulumi.Input<string>, scope?: pulumi.Input<string>, sessionCookieName?: pulumi.Input<string>, sessionTimeout?: pulumi.Input<number>, tokenEndpoint: pulumi.Input<string>, userInfoEndpoint: pulumi.Input<string> }>, fixedResponse?: pulumi.Input<{ contentType: pulumi.Input<string>, messageBody?: pulumi.Input<string>, statusCode?: pulumi.Input<string> }>, order?: pulumi.Input<number>, redirect?: pulumi.Input<{ host?: pulumi.Input<string>, path?: pulumi.Input<string>, port?: pulumi.Input<string>, protocol?: pulumi.Input<string>, query?: pulumi.Input<string>, statusCode: pulumi.Input<string> }>, targetGroupArn?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly defaultActions?: pulumi.Input<pulumi.Input<{ authenticateCognito?: pulumi.Input<{ authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>, onUnauthenticatedRequest?: pulumi.Input<string>, scope?: pulumi.Input<string>, sessionCookieName?: pulumi.Input<string>, sessionTimeout?: pulumi.Input<number>, userPoolArn: pulumi.Input<string>, userPoolClientId: pulumi.Input<string>, userPoolDomain: pulumi.Input<string> }>, authenticateOidc?: pulumi.Input<{ authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>, authorizationEndpoint: pulumi.Input<string>, clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, issuer: pulumi.Input<string>, onUnauthenticatedRequest?: pulumi.Input<string>, scope?: pulumi.Input<string>, sessionCookieName?: pulumi.Input<string>, sessionTimeout?: pulumi.Input<number>, tokenEndpoint: pulumi.Input<string>, userInfoEndpoint: pulumi.Input<string> }>, fixedResponse?: pulumi.Input<{ contentType: pulumi.Input<string>, messageBody?: pulumi.Input<string>, statusCode?: pulumi.Input<string> }>, order?: pulumi.Input<number>, redirect?: pulumi.Input<{ host?: pulumi.Input<string>, path?: pulumi.Input<string>, port?: pulumi.Input<string>, protocol?: pulumi.Input<string>, query?: pulumi.Input<string>, statusCode: pulumi.Input<string> }>, targetGroupArn?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * The ARN of the load balancer.
      */
@@ -275,7 +269,7 @@ export interface ListenerArgs {
     /**
      * An Action block. Action blocks are documented below.
      */
-    readonly defaultAction: pulumi.Input<{ authenticateCognito?: pulumi.Input<{ authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>, onUnauthenticatedRequest?: pulumi.Input<string>, scope?: pulumi.Input<string>, sessionCookieName?: pulumi.Input<string>, sessionTimeout?: pulumi.Input<number>, userPoolArn: pulumi.Input<string>, userPoolClientId: pulumi.Input<string>, userPoolDomain: pulumi.Input<string> }>, authenticateOidc?: pulumi.Input<{ authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>, authorizationEndpoint: pulumi.Input<string>, clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, issuer: pulumi.Input<string>, onUnauthenticatedRequest?: pulumi.Input<string>, scope?: pulumi.Input<string>, sessionCookieName?: pulumi.Input<string>, sessionTimeout?: pulumi.Input<number>, tokenEndpoint: pulumi.Input<string>, userInfoEndpoint: pulumi.Input<string> }>, fixedResponse?: pulumi.Input<{ contentType: pulumi.Input<string>, messageBody?: pulumi.Input<string>, statusCode?: pulumi.Input<string> }>, order?: pulumi.Input<number>, redirect?: pulumi.Input<{ host?: pulumi.Input<string>, path?: pulumi.Input<string>, port?: pulumi.Input<string>, protocol?: pulumi.Input<string>, query?: pulumi.Input<string>, statusCode: pulumi.Input<string> }>, targetGroupArn?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly defaultActions: pulumi.Input<pulumi.Input<{ authenticateCognito?: pulumi.Input<{ authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>, onUnauthenticatedRequest?: pulumi.Input<string>, scope?: pulumi.Input<string>, sessionCookieName?: pulumi.Input<string>, sessionTimeout?: pulumi.Input<number>, userPoolArn: pulumi.Input<string>, userPoolClientId: pulumi.Input<string>, userPoolDomain: pulumi.Input<string> }>, authenticateOidc?: pulumi.Input<{ authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>, authorizationEndpoint: pulumi.Input<string>, clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, issuer: pulumi.Input<string>, onUnauthenticatedRequest?: pulumi.Input<string>, scope?: pulumi.Input<string>, sessionCookieName?: pulumi.Input<string>, sessionTimeout?: pulumi.Input<number>, tokenEndpoint: pulumi.Input<string>, userInfoEndpoint: pulumi.Input<string> }>, fixedResponse?: pulumi.Input<{ contentType: pulumi.Input<string>, messageBody?: pulumi.Input<string>, statusCode?: pulumi.Input<string> }>, order?: pulumi.Input<number>, redirect?: pulumi.Input<{ host?: pulumi.Input<string>, path?: pulumi.Input<string>, port?: pulumi.Input<string>, protocol?: pulumi.Input<string>, query?: pulumi.Input<string>, statusCode: pulumi.Input<string> }>, targetGroupArn?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * The ARN of the load balancer.
      */

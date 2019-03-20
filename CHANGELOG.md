@@ -2,11 +2,14 @@
 
 ### Important
 
-Version 0.18.0 of `pulumi-aws` is now based on v2.2.0 of the AWS Terraform Provider, which has a variety of breaking changes from the previous version.
+- Version 0.18.0 of `pulumi-aws` is now based on v2.2.0 of the AWS Terraform Provider, which has a variety of breaking changes from the previous version.
+
+- The `defaultAction` property on `aws.elasticloadbalancingv2.Listener` and `aws.applicationloadbalancing.Listener` is now named `defaultActions` and is an array of actions.
 
 ### Improvement
 
 - Update to v2.2.0 of the AWS Terraform Provider.
+
 - Fix a bug where setting a property value back to the default results in no change
 
 ### 0.17.1 (Released March 6th, 2019)
