@@ -6,6 +6,8 @@
 
 - The `defaultAction` property on `aws.elasticloadbalancingv2.Listener` and `aws.applicationloadbalancing.Listener` is now named `defaultActions` and is an array of actions.
 
+- The output types of aws.iam.InstanceProfile::role[s] and aws.iam.RolePolicyAttachment::role is now `string` instead of `Role`, and represent the ID of the role.
+
 ### Improvement
 
 - Update to v2.2.0 of the AWS Terraform Provider.

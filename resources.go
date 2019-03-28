@@ -1084,9 +1084,15 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_instance_profile": {
 				Tok: awsResource(iamMod, "InstanceProfile"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"role": {Type: awsResource(iamMod, "Role")},
+					"role": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(iamMod+"/role", "Role")},
+					},
 					"roles": {
-						Elem: &tfbridge.SchemaInfo{Type: awsResource(iamMod, "Role")},
+						Elem: &tfbridge.SchemaInfo{
+							Type:     "string",
+							AltTypes: []tokens.Type{awsType(iamMod+"/role", "Role")},
+						},
 					},
 				},
 			},
@@ -1116,7 +1122,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_role_policy_attachment": {
 				Tok: awsResource(iamMod, "RolePolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"role": {Type: awsType(iamMod+"/role", "Role")},
+					"role": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(iamMod+"/role", "Role")},
+					},
 					"policy_arn": {
 						Name: "policyArn",
 						Type: awsType(awsMod, "ARN"),
