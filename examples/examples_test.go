@@ -50,20 +50,6 @@ func TestExamples(t *testing.T) {
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "stream"), ExpectRefreshChanges: true}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "table"), ExpectRefreshChanges: true}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "topic"), ExpectRefreshChanges: true}),
-		baseJS.With(integration.ProgramTestOptions{
-			Dir: path.Join(cwd, "api"),
-			ExtraRuntimeValidation: validateAPITest(func(body string) {
-				assert.Equal(t, "Hello, world!", body)
-			}),
-			EditDirs: []integration.EditDir{{
-				Dir:      "./api/step2",
-				Additive: true,
-				ExtraRuntimeValidation: validateAPITest(func(body string) {
-					assert.Equal(t, "<h1>Hello world!</h1>", body)
-				}),
-			}},
-			ExpectRefreshChanges: true,
-		}),
 	}
 
 	longTests := []integration.ProgramTestOptions{
