@@ -1,4 +1,6 @@
-## 0.18.0 (Unreleased)
+## 0.18.1 (Unreleased)
+
+## 0.18.0 (Released March 28th, 2019)
 
 ### Important
 
