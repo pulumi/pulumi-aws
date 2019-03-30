@@ -11,7 +11,7 @@ PROVIDER        := pulumi-resource-${PACK}
 VERSION         := $(shell scripts/get-version)
 PYPI_VERSION    := $(shell scripts/get-py-version)
 
-TESTPARALLELISM := 10
+TESTPARALLELISM := 20
 
 # NOTE: Since the plugin is published using the nodejs style semver version
 # We set the PLUGIN_VERSION to be the same as the version we use when building
@@ -61,11 +61,9 @@ install::
 
 test_fast::
 	$(GO_TEST_FAST) ./examples
-	$(GO_TEST_FAST) ./tests/...
 
 test_all::
 	$(GO_TEST) ./examples
-	$(GO_TEST) ./tests/...
 
 .PHONY: publish_tgz
 publish_tgz:
