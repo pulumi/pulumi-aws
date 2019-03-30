@@ -21,7 +21,7 @@ class InstanceGroup(pulumi.CustomResource):
     """
     Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
     """
-    instance_count: pulumi.Output[int]
+    instance_count: pulumi.Output[float]
     """
     Target number of instances for the instance group. Defaults to 0.
     """
@@ -33,7 +33,7 @@ class InstanceGroup(pulumi.CustomResource):
     """
     Human friendly name given to the instance group. Changing this forces a new resource to be created.
     """
-    running_instance_count: pulumi.Output[int]
+    running_instance_count: pulumi.Output[float]
     status: pulumi.Output[str]
     def __init__(__self__, resource_name, opts=None, cluster_id=None, ebs_configs=None, ebs_optimized=None, instance_count=None, instance_type=None, name=None, __name__=None, __opts__=None):
         """
@@ -49,7 +49,7 @@ class InstanceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[list] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] instance_count: Target number of instances for the instance group. Defaults to 0.
+        :param pulumi.Input[float] instance_count: Target number of instances for the instance group. Defaults to 0.
         :param pulumi.Input[str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Human friendly name given to the instance group. Changing this forces a new resource to be created.
         """

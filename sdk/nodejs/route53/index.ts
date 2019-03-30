@@ -8,5 +8,8 @@ export * from "./getZone";
 export * from "./healthCheck";
 export * from "./queryLog";
 export * from "./record";
+export * from "./resolverEndpoint";
+export * from "./resolverRule";
+export * from "./resolverRuleAssociation";
 export * from "./zone";
 export * from "./zoneAssociation";

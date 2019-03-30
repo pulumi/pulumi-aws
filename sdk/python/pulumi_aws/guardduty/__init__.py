@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .detector import *
+from .invite_accepter import *
 from .ip_set import *
 from .member import *
 from .threat_intel_set import *

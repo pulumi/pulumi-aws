@@ -25,7 +25,7 @@ class RateBasedRule(pulumi.CustomResource):
     """
     Valid value is IP.
     """
-    rate_limit: pulumi.Output[int]
+    rate_limit: pulumi.Output[float]
     """
     The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
     """
@@ -39,7 +39,7 @@ class RateBasedRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name or description of the rule.
         :param pulumi.Input[list] predicates: One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
         :param pulumi.Input[str] rate_key: Valid value is IP.
-        :param pulumi.Input[int] rate_limit: The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
+        :param pulumi.Input[float] rate_limit: The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

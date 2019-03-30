@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *     engine: "mysql",
  *     engineVersion: "5.6.17",
  *     instanceClass: "db.t2.micro",
+ *     name: "mydb",
  *     parameterGroupName: "default.mysql5.6",
  *     password: "bar",
  *     username: "foo",

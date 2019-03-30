@@ -9,7 +9,7 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class ReplicationInstance(pulumi.CustomResource):
-    allocated_storage: pulumi.Output[int]
+    allocated_storage: pulumi.Output[float]
     """
     The amount of storage (in gigabytes) to be initially allocated for the replication instance.
     """
@@ -83,7 +83,7 @@ class ReplicationInstance(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the replication instance.
+        :param pulumi.Input[float] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the replication instance.
         :param pulumi.Input[bool] apply_immediately: Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the replication instance will be created in.

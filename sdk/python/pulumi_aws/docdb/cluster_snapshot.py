@@ -37,7 +37,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     """
     If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
     """
-    port: pulumi.Output[int]
+    port: pulumi.Output[float]
     """
     Port that the DocDB cluster was listening on at the time of the snapshot.
     """

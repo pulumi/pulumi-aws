@@ -9,8 +9,6 @@ import (
 
 // Use this data source to get the ID of a registered AMI for use in other
 // resources.
-// 
-// > **NOTE:** The `owners` argument will be **required** in the next major version.
 func LookupAmi(ctx *pulumi.Context, args *GetAmiArgs) (*GetAmiResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
@@ -72,8 +70,7 @@ type GetAmiArgs struct {
 	// impact if the result is large. It is recommended to combine this with other
 	// options to narrow down the list AWS returns.
 	NameRegex interface{}
-	// Limit search to specific AMI owners. Valid items are the numeric
-	// account ID, `amazon`, or `self`.
+	// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
 	Owners interface{}
 	Tags interface{}
 }

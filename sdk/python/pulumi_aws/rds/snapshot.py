@@ -9,7 +9,7 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class Snapshot(pulumi.CustomResource):
-    allocated_storage: pulumi.Output[int]
+    allocated_storage: pulumi.Output[float]
     """
     Specifies the allocated storage size in gigabytes (GB).
     """
@@ -41,7 +41,7 @@ class Snapshot(pulumi.CustomResource):
     """
     Specifies the version of the database engine.
     """
-    iops: pulumi.Output[int]
+    iops: pulumi.Output[float]
     """
     Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
     """
@@ -57,7 +57,7 @@ class Snapshot(pulumi.CustomResource):
     """
     Provides the option group name for the DB snapshot.
     """
-    port: pulumi.Output[int]
+    port: pulumi.Output[float]
     snapshot_type: pulumi.Output[str]
     source_db_snapshot_identifier: pulumi.Output[str]
     """

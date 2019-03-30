@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = new aws.elasticache.Cluster("example", {
- *     clusterId: "cluster-example",
  *     engine: "memcached",
  *     nodeType: "cache.m4.large",
  *     numCacheNodes: 2,
@@ -41,7 +40,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = new aws.elasticache.Cluster("example", {
- *     clusterId: "cluster-example",
  *     engine: "redis",
  *     engineVersion: "3.2.10",
  *     nodeType: "cache.m4.large",
@@ -60,7 +58,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const replica = new aws.elasticache.Cluster("replica", {
- *     clusterId: "cluster-example",
  *     replicationGroupId: aws_elasticache_replication_group_example.id,
  * });
  * ```
@@ -89,10 +86,6 @@ export class Cluster extends pulumi.CustomResource {
      * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
      */
     public readonly availabilityZone: pulumi.Output<string>;
-    /**
-     * Use `preferred_availability_zones` instead unless you want to create cache nodes in single-az, then use `availability_zone`. Set of Availability Zones in which the cache nodes will be created.
-     */
-    public readonly availabilityZones: pulumi.Output<string[] | undefined>;
     /**
      * Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`
      */
@@ -225,7 +218,6 @@ export class Cluster extends pulumi.CustomResource {
             const state: ClusterState = argsOrState as ClusterState | undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             inputs["azMode"] = state ? state.azMode : undefined;
             inputs["cacheNodes"] = state ? state.cacheNodes : undefined;
             inputs["clusterAddress"] = state ? state.clusterAddress : undefined;
@@ -253,7 +245,6 @@ export class Cluster extends pulumi.CustomResource {
             const args = argsOrState as ClusterArgs | undefined;
             inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             inputs["azMode"] = args ? args.azMode : undefined;
             inputs["clusterId"] = args ? args.clusterId : undefined;
             inputs["engine"] = args ? args.engine : undefined;
@@ -297,10 +288,6 @@ export interface ClusterState {
      * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
      */
     readonly availabilityZone?: pulumi.Input<string>;
-    /**
-     * Use `preferred_availability_zones` instead unless you want to create cache nodes in single-az, then use `availability_zone`. Set of Availability Zones in which the cache nodes will be created.
-     */
-    readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`
      */
@@ -435,10 +422,6 @@ export interface ClusterArgs {
      * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
      */
     readonly availabilityZone?: pulumi.Input<string>;
-    /**
-     * Use `preferred_availability_zones` instead unless you want to create cache nodes in single-az, then use `availability_zone`. Set of Availability Zones in which the cache nodes will be created.
-     */
-    readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`
      */

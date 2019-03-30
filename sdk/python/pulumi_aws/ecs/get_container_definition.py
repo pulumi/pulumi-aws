@@ -13,8 +13,8 @@ class GetContainerDefinitionResult:
     A collection of values returned by getContainerDefinition.
     """
     def __init__(__self__, cpu=None, disable_networking=None, docker_labels=None, environment=None, image=None, image_digest=None, memory=None, memory_reservation=None, id=None):
-        if cpu and not isinstance(cpu, int):
-            raise TypeError('Expected argument cpu to be a int')
+        if cpu and not isinstance(cpu, float):
+            raise TypeError('Expected argument cpu to be a float')
         __self__.cpu = cpu
         """
         The CPU limit for this container definition
@@ -49,14 +49,14 @@ class GetContainerDefinitionResult:
         """
         The digest of the docker image in use
         """
-        if memory and not isinstance(memory, int):
-            raise TypeError('Expected argument memory to be a int')
+        if memory and not isinstance(memory, float):
+            raise TypeError('Expected argument memory to be a float')
         __self__.memory = memory
         """
         The memory limit for this container definition
         """
-        if memory_reservation and not isinstance(memory_reservation, int):
-            raise TypeError('Expected argument memory_reservation to be a int')
+        if memory_reservation and not isinstance(memory_reservation, float):
+            raise TypeError('Expected argument memory_reservation to be a float')
         __self__.memory_reservation = memory_reservation
         """
         The soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit

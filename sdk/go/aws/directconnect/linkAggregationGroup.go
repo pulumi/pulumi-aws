@@ -8,7 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides a Direct Connect LAG.
+// Provides a Direct Connect LAG. Connections can be added to the LAG via the [`aws_dx_connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) and [`aws_dx_connection_association`](https://www.terraform.io/docs/providers/aws/r/dx_connection_association.html) resources.
+// 
+// > *NOTE:* When creating a LAG, Direct Connect requires creating a Connection. Terraform will remove this unmanaged connection during resource creation.
 type LinkAggregationGroup struct {
 	s *pulumi.ResourceState
 }
@@ -28,17 +30,17 @@ func NewLinkAggregationGroup(ctx *pulumi.Context,
 		inputs["forceDestroy"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
-		inputs["numberOfConnections"] = nil
 		inputs["tags"] = nil
 	} else {
 		inputs["connectionsBandwidth"] = args.ConnectionsBandwidth
 		inputs["forceDestroy"] = args.ForceDestroy
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
-		inputs["numberOfConnections"] = args.NumberOfConnections
 		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
+	inputs["hasLogicalRedundancy"] = nil
+	inputs["jumboFrameCapable"] = nil
 	s, err := ctx.RegisterResource("aws:directconnect/linkAggregationGroup:LinkAggregationGroup", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -55,9 +57,10 @@ func GetLinkAggregationGroup(ctx *pulumi.Context,
 		inputs["arn"] = state.Arn
 		inputs["connectionsBandwidth"] = state.ConnectionsBandwidth
 		inputs["forceDestroy"] = state.ForceDestroy
+		inputs["hasLogicalRedundancy"] = state.HasLogicalRedundancy
+		inputs["jumboFrameCapable"] = state.JumboFrameCapable
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
-		inputs["numberOfConnections"] = state.NumberOfConnections
 		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:directconnect/linkAggregationGroup:LinkAggregationGroup", name, id, inputs, opts...)
@@ -78,6 +81,7 @@ func (r *LinkAggregationGroup) ID() *pulumi.IDOutput {
 }
 
 // The ARN of the LAG.
+// * `jumbo_frame_capable` -Indicates whether jumbo frames (9001 MTU) are supported.
 func (r *LinkAggregationGroup) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
@@ -92,6 +96,15 @@ func (r *LinkAggregationGroup) ForceDestroy() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["forceDestroy"])
 }
 
+// Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
+func (r *LinkAggregationGroup) HasLogicalRedundancy() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["hasLogicalRedundancy"])
+}
+
+func (r *LinkAggregationGroup) JumboFrameCapable() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["jumboFrameCapable"])
+}
+
 // The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
 func (r *LinkAggregationGroup) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
@@ -102,11 +115,6 @@ func (r *LinkAggregationGroup) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The number of physical connections initially provisioned and bundled by the LAG. Use `aws_dx_connection` and `aws_dx_connection_association` resources instead. Default connections will be removed as part of LAG creation automatically in future versions.
-func (r *LinkAggregationGroup) NumberOfConnections() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["numberOfConnections"])
-}
-
 // A mapping of tags to assign to the resource.
 func (r *LinkAggregationGroup) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
@@ -115,17 +123,19 @@ func (r *LinkAggregationGroup) Tags() *pulumi.MapOutput {
 // Input properties used for looking up and filtering LinkAggregationGroup resources.
 type LinkAggregationGroupState struct {
 	// The ARN of the LAG.
+	// * `jumbo_frame_capable` -Indicates whether jumbo frames (9001 MTU) are supported.
 	Arn interface{}
 	// The bandwidth of the individual physical connections bundled by the LAG. Available values: 1Gbps, 10Gbps. Case sensitive.
 	ConnectionsBandwidth interface{}
 	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
 	ForceDestroy interface{}
+	// Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
+	HasLogicalRedundancy interface{}
+	JumboFrameCapable interface{}
 	// The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
 	Location interface{}
 	// The name of the LAG.
 	Name interface{}
-	// The number of physical connections initially provisioned and bundled by the LAG. Use `aws_dx_connection` and `aws_dx_connection_association` resources instead. Default connections will be removed as part of LAG creation automatically in future versions.
-	NumberOfConnections interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }
@@ -140,8 +150,6 @@ type LinkAggregationGroupArgs struct {
 	Location interface{}
 	// The name of the LAG.
 	Name interface{}
-	// The number of physical connections initially provisioned and bundled by the LAG. Use `aws_dx_connection` and `aws_dx_connection_association` resources instead. Default connections will be removed as part of LAG creation automatically in future versions.
-	NumberOfConnections interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

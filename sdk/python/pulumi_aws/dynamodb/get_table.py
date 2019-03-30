@@ -37,8 +37,8 @@ class GetTableResult:
         if range_key and not isinstance(range_key, str):
             raise TypeError('Expected argument range_key to be a str')
         __self__.range_key = range_key
-        if read_capacity and not isinstance(read_capacity, int):
-            raise TypeError('Expected argument read_capacity to be a int')
+        if read_capacity and not isinstance(read_capacity, float):
+            raise TypeError('Expected argument read_capacity to be a float')
         __self__.read_capacity = read_capacity
         if server_side_encryption and not isinstance(server_side_encryption, dict):
             raise TypeError('Expected argument server_side_encryption to be a dict')
@@ -61,8 +61,8 @@ class GetTableResult:
         if ttl and not isinstance(ttl, dict):
             raise TypeError('Expected argument ttl to be a dict')
         __self__.ttl = ttl
-        if write_capacity and not isinstance(write_capacity, int):
-            raise TypeError('Expected argument write_capacity to be a int')
+        if write_capacity and not isinstance(write_capacity, float):
+            raise TypeError('Expected argument write_capacity to be a float')
         __self__.write_capacity = write_capacity
         if id and not isinstance(id, str):
             raise TypeError('Expected argument id to be a str')

@@ -15,12 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const inventory = new aws.s3.Bucket("inventory", {
- *     bucket: "my-tf-inventory-bucket",
- * });
- * const testBucket = new aws.s3.Bucket("test", {
- *     bucket: "my-tf-test-bucket",
- * });
+ * const inventory = new aws.s3.Bucket("inventory", {});
+ * const testBucket = new aws.s3.Bucket("test", {});
  * const testInventory = new aws.s3.Inventory("test", {
  *     bucket: testBucket.id,
  *     destination: {
@@ -42,12 +38,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const inventory = new aws.s3.Bucket("inventory", {
- *     bucket: "my-tf-inventory-bucket",
- * });
- * const test = new aws.s3.Bucket("test", {
- *     bucket: "my-tf-test-bucket",
- * });
+ * const inventory = new aws.s3.Bucket("inventory", {});
+ * const test = new aws.s3.Bucket("test", {});
  * const test_prefix = new aws.s3.Inventory("test-prefix", {
  *     bucket: test.id,
  *     destination: {

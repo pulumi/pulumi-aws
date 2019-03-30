@@ -13,6 +13,10 @@ class ResourceShare(pulumi.CustomResource):
     """
     Indicates whether principals outside your organization can be associated with a resource share.
     """
+    arn: pulumi.Output[str]
+    """
+    The Amazon Resource Name (ARN) of the resource share.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource share.
@@ -51,6 +55,8 @@ class ResourceShare(pulumi.CustomResource):
         __props__['name'] = name
 
         __props__['tags'] = tags
+
+        __props__['arn'] = None
 
         super(ResourceShare, __self__).__init__(
             'aws:ram/resourceShare:ResourceShare',

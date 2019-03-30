@@ -88,13 +88,9 @@ export class IntegrationResponse extends pulumi.CustomResource {
     public readonly resourceId: pulumi.Output<string>;
     /**
      * A map of response parameters that can be read from the backend response.
-     * For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`,
+     * For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
      */
     public readonly responseParameters: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * **Deprecated**, use `response_parameters` instead.
-     */
-    public readonly responseParametersInJson: pulumi.Output<string | undefined>;
     /**
      * A map specifying the templates used to transform the integration response body
      */
@@ -131,7 +127,6 @@ export class IntegrationResponse extends pulumi.CustomResource {
             inputs["httpMethod"] = state ? state.httpMethod : undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;
             inputs["responseParameters"] = state ? state.responseParameters : undefined;
-            inputs["responseParametersInJson"] = state ? state.responseParametersInJson : undefined;
             inputs["responseTemplates"] = state ? state.responseTemplates : undefined;
             inputs["restApi"] = state ? state.restApi : undefined;
             inputs["selectionPattern"] = state ? state.selectionPattern : undefined;
@@ -154,7 +149,6 @@ export class IntegrationResponse extends pulumi.CustomResource {
             inputs["httpMethod"] = args ? args.httpMethod : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["responseParameters"] = args ? args.responseParameters : undefined;
-            inputs["responseParametersInJson"] = args ? args.responseParametersInJson : undefined;
             inputs["responseTemplates"] = args ? args.responseTemplates : undefined;
             inputs["restApi"] = args ? args.restApi : undefined;
             inputs["selectionPattern"] = args ? args.selectionPattern : undefined;
@@ -182,13 +176,9 @@ export interface IntegrationResponseState {
     readonly resourceId?: pulumi.Input<string>;
     /**
      * A map of response parameters that can be read from the backend response.
-     * For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`,
+     * For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
      */
     readonly responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * **Deprecated**, use `response_parameters` instead.
-     */
-    readonly responseParametersInJson?: pulumi.Input<string>;
     /**
      * A map specifying the templates used to transform the integration response body
      */
@@ -228,13 +218,9 @@ export interface IntegrationResponseArgs {
     readonly resourceId: pulumi.Input<string>;
     /**
      * A map of response parameters that can be read from the backend response.
-     * For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`,
+     * For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
      */
     readonly responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * **Deprecated**, use `response_parameters` instead.
-     */
-    readonly responseParametersInJson?: pulumi.Input<string>;
     /**
      * A map specifying the templates used to transform the integration response body
      */

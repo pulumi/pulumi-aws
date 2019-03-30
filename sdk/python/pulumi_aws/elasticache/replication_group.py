@@ -69,7 +69,7 @@ class ReplicationGroup(pulumi.CustomResource):
     SNS topic to send ElastiCache notifications to. Example:
     `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
     """
-    number_cache_clusters: pulumi.Output[int]
+    number_cache_clusters: pulumi.Output[float]
     """
     The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
     """
@@ -77,7 +77,7 @@ class ReplicationGroup(pulumi.CustomResource):
     """
     The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
     """
-    port: pulumi.Output[int]
+    port: pulumi.Output[float]
     """
     The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
     """
@@ -111,7 +111,7 @@ class ReplicationGroup(pulumi.CustomResource):
     """
     The name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
     """
-    snapshot_retention_limit: pulumi.Output[int]
+    snapshot_retention_limit: pulumi.Output[float]
     """
     The number of days for which ElastiCache will
     retain automatic cache cluster snapshots before deleting them. For example, if you set
@@ -168,9 +168,9 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an
                SNS topic to send ElastiCache notifications to. Example:
                `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-        :param pulumi.Input[int] number_cache_clusters: The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
+        :param pulumi.Input[float] number_cache_clusters: The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
-        :param pulumi.Input[int] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
+        :param pulumi.Input[float] port: The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
         :param pulumi.Input[str] replication_group_description: A user-created description for the replication group.
         :param pulumi.Input[str] replication_group_id: The replication group identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[list] security_group_ids: One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
@@ -179,7 +179,7 @@ class ReplicationGroup(pulumi.CustomResource):
                Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
                Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
         :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
-        :param pulumi.Input[int] snapshot_retention_limit: The number of days for which ElastiCache will
+        :param pulumi.Input[float] snapshot_retention_limit: The number of days for which ElastiCache will
                retain automatic cache cluster snapshots before deleting them. For example, if you set
                SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
                before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.

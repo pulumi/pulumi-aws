@@ -73,8 +73,8 @@ class GetClusterResult:
         An Amazon Resource Name (ARN) of an
         SNS topic that ElastiCache notifications get sent to.
         """
-        if num_cache_nodes and not isinstance(num_cache_nodes, int):
-            raise TypeError('Expected argument num_cache_nodes to be a int')
+        if num_cache_nodes and not isinstance(num_cache_nodes, float):
+            raise TypeError('Expected argument num_cache_nodes to be a float')
         __self__.num_cache_nodes = num_cache_nodes
         """
         The number of cache nodes that the cache cluster has.
@@ -85,8 +85,8 @@ class GetClusterResult:
         """
         Name of the parameter group associated with this cache cluster.
         """
-        if port and not isinstance(port, int):
-            raise TypeError('Expected argument port to be a int')
+        if port and not isinstance(port, float):
+            raise TypeError('Expected argument port to be a float')
         __self__.port = port
         """
         The port number on which each of the cache nodes will
@@ -110,8 +110,8 @@ class GetClusterResult:
         """
         List of security group names associated with this cache cluster.
         """
-        if snapshot_retention_limit and not isinstance(snapshot_retention_limit, int):
-            raise TypeError('Expected argument snapshot_retention_limit to be a int')
+        if snapshot_retention_limit and not isinstance(snapshot_retention_limit, float):
+            raise TypeError('Expected argument snapshot_retention_limit to be a float')
         __self__.snapshot_retention_limit = snapshot_retention_limit
         """
         The number of days for which ElastiCache will

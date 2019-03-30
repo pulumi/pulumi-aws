@@ -43,8 +43,8 @@ class GetBucketObjectResult:
         """
         The language the content is in.
         """
-        if content_length and not isinstance(content_length, int):
-            raise TypeError('Expected argument content_length to be a int')
+        if content_length and not isinstance(content_length, float):
+            raise TypeError('Expected argument content_length to be a float')
         __self__.content_length = content_length
         """
         Size of the body in bytes.

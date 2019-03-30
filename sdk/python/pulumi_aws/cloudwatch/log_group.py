@@ -27,7 +27,7 @@ class LogGroup(pulumi.CustomResource):
     """
     Creates a unique name beginning with the specified prefix. Conflicts with `name`.
     """
-    retention_in_days: pulumi.Output[int]
+    retention_in_days: pulumi.Output[float]
     """
     Specifies the number of days
     you want to retain log events in the specified log group.
@@ -47,7 +47,7 @@ class LogGroup(pulumi.CustomResource):
                permissions for the CMK whenever the encrypted data is requested.
         :param pulumi.Input[str] name: The name of the log group. If omitted, Terraform will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[int] retention_in_days: Specifies the number of days
+        :param pulumi.Input[float] retention_in_days: Specifies the number of days
                you want to retain log events in the specified log group.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """

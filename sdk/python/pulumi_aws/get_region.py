@@ -12,14 +12,7 @@ class GetRegionResult:
     """
     A collection of values returned by getRegion.
     """
-    def __init__(__self__, current=None, description=None, endpoint=None, name=None, id=None):
-        if current and not isinstance(current, bool):
-            raise TypeError('Expected argument current to be a bool')
-        __self__.current = current
-        """
-        `true` if the selected region is the one configured on the
-        provider, or `false` otherwise.
-        """
+    def __init__(__self__, description=None, endpoint=None, name=None, id=None):
         if description and not isinstance(description, str):
             raise TypeError('Expected argument description to be a str')
         __self__.description = description
@@ -45,7 +38,7 @@ class GetRegionResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_region(current=None,endpoint=None,name=None,opts=None):
+async def get_region(endpoint=None,name=None,opts=None):
     """
     `aws_region` provides details about a specific AWS region.
     
@@ -56,13 +49,11 @@ async def get_region(current=None,endpoint=None,name=None,opts=None):
     """
     __args__ = dict()
 
-    __args__['current'] = current
     __args__['endpoint'] = endpoint
     __args__['name'] = name
     __ret__ = await pulumi.runtime.invoke('aws:index/getRegion:getRegion', __args__, opts=opts)
 
     return GetRegionResult(
-        current=__ret__.get('current'),
         description=__ret__.get('description'),
         endpoint=__ret__.get('endpoint'),
         name=__ret__.get('name'),

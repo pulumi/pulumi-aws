@@ -82,7 +82,7 @@ export class Zone extends pulumi.CustomResource {
      */
     public readonly comment: pulumi.Output<string>;
     /**
-     * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` and `vpc_id` as delegation sets can only be used for public zones.
+     * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
      */
     public readonly delegationSetId: pulumi.Output<string | undefined>;
     /**
@@ -103,17 +103,9 @@ export class Zone extends pulumi.CustomResource {
      */
     public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
-     * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with `delegation_set_id`, `vpc_id`, and `vpc_region` in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+     * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
      */
-    public readonly vpcs: pulumi.Output<{ vpcId: string, vpcRegion: string }[]>;
-    /**
-     * ID of the VPC to associate.
-     */
-    public readonly vpcId: pulumi.Output<string>;
-    /**
-     * Region of the VPC to associate. Defaults to AWS provider region.
-     */
-    public readonly vpcRegion: pulumi.Output<string>;
+    public readonly vpcs: pulumi.Output<{ vpcId: string, vpcRegion: string }[] | undefined>;
     /**
      * The Hosted Zone ID. This can be referenced by zone records.
      */
@@ -138,8 +130,6 @@ export class Zone extends pulumi.CustomResource {
             inputs["nameServers"] = state ? state.nameServers : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vpcs"] = state ? state.vpcs : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
-            inputs["vpcRegion"] = state ? state.vpcRegion : undefined;
             inputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
             const args = argsOrState as ZoneArgs | undefined;
@@ -149,8 +139,6 @@ export class Zone extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcs"] = args ? args.vpcs : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["vpcRegion"] = args ? args.vpcRegion : undefined;
             inputs["nameServers"] = undefined /*out*/;
             inputs["zoneId"] = undefined /*out*/;
         }
@@ -167,7 +155,7 @@ export interface ZoneState {
      */
     readonly comment?: pulumi.Input<string>;
     /**
-     * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` and `vpc_id` as delegation sets can only be used for public zones.
+     * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
      */
     readonly delegationSetId?: pulumi.Input<string>;
     /**
@@ -188,17 +176,9 @@ export interface ZoneState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with `delegation_set_id`, `vpc_id`, and `vpc_region` in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+     * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
      */
     readonly vpcs?: pulumi.Input<pulumi.Input<{ vpcId: pulumi.Input<string>, vpcRegion?: pulumi.Input<string> }>[]>;
-    /**
-     * ID of the VPC to associate.
-     */
-    readonly vpcId?: pulumi.Input<string>;
-    /**
-     * Region of the VPC to associate. Defaults to AWS provider region.
-     */
-    readonly vpcRegion?: pulumi.Input<string>;
     /**
      * The Hosted Zone ID. This can be referenced by zone records.
      */
@@ -214,7 +194,7 @@ export interface ZoneArgs {
      */
     readonly comment?: pulumi.Input<string>;
     /**
-     * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` and `vpc_id` as delegation sets can only be used for public zones.
+     * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
      */
     readonly delegationSetId?: pulumi.Input<string>;
     /**
@@ -230,15 +210,7 @@ export interface ZoneArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with `delegation_set_id`, `vpc_id`, and `vpc_region` in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+     * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
      */
     readonly vpcs?: pulumi.Input<pulumi.Input<{ vpcId: pulumi.Input<string>, vpcRegion?: pulumi.Input<string> }>[]>;
-    /**
-     * ID of the VPC to associate.
-     */
-    readonly vpcId?: pulumi.Input<string>;
-    /**
-     * Region of the VPC to associate. Defaults to AWS provider region.
-     */
-    readonly vpcRegion?: pulumi.Input<string>;
 }

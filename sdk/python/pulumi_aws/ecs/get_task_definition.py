@@ -25,8 +25,8 @@ class GetTaskDefinitionResult:
         """
         The Docker networking mode to use for the containers in this task.
         """
-        if revision and not isinstance(revision, int):
-            raise TypeError('Expected argument revision to be a int')
+        if revision and not isinstance(revision, float):
+            raise TypeError('Expected argument revision to be a float')
         __self__.revision = revision
         """
         The revision of this task definition

@@ -115,6 +115,260 @@ import * as utilities from "../utilities";
  * * `jar` - (Required) Path to a JAR file run during the step.
  * * `main_class` - (Optional) Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
  * * `properties` - (Optional) Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+ * 
+ * ## Example bootable config
+ * 
+ * **NOTE:** This configuration demonstrates a minimal configuration needed to
+ * boot an example EMR Cluster. It is not meant to display best practices. Please
+ * use at your own risk.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * // IAM Role for EC2 Instance Profile
+ * const iamEmrProfileRole = new aws.iam.Role("iam_emr_profile_role", {
+ *     assumeRolePolicy: `{
+ *   "Version": "2008-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "ec2.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   ]
+ * }
+ * `,
+ * });
+ * // IAM role for EMR Service
+ * const iamEmrServiceRole = new aws.iam.Role("iam_emr_service_role", {
+ *     assumeRolePolicy: `{
+ *   "Version": "2008-10-17",
+ *   "Statement": [
+ *     {
+ *       "Sid": "",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "elasticmapreduce.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   ]
+ * }
+ * `,
+ * });
+ * const mainVpc = new aws.ec2.Vpc("main", {
+ *     cidrBlock: "168.31.0.0/16",
+ *     enableDnsHostnames: true,
+ *     tags: {
+ *         name: "emr_test",
+ *     },
+ * });
+ * const emrProfile = new aws.iam.InstanceProfile("emr_profile", {
+ *     roles: [iamEmrProfileRole.name],
+ * });
+ * const mainSubnet = new aws.ec2.Subnet("main", {
+ *     cidrBlock: "168.31.0.0/20",
+ *     tags: {
+ *         name: "emr_test",
+ *     },
+ *     vpcId: mainVpc.id,
+ * });
+ * const cluster = new aws.emr.Cluster("cluster", {
+ *     applications: ["Spark"],
+ *     bootstrapActions: [{
+ *         args: [
+ *             "instance.isMaster=true",
+ *             "echo running on master node",
+ *         ],
+ *         name: "runif",
+ *         path: "s3://elasticmapreduce/bootstrap-actions/run-if",
+ *     }],
+ *     configurationsJson: `  [
+ *     {
+ *       "Classification": "hadoop-env",
+ *       "Configurations": [
+ *         {
+ *           "Classification": "export",
+ *           "Properties": {
+ *             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+ *           }
+ *         }
+ *       ],
+ *       "Properties": {}
+ *     },
+ *     {
+ *       "Classification": "spark-env",
+ *       "Configurations": [
+ *         {
+ *           "Classification": "export",
+ *           "Properties": {
+ *             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+ *           }
+ *         }
+ *       ],
+ *       "Properties": {}
+ *     }
+ *   ]
+ * `,
+ *     coreInstanceCount: 1,
+ *     coreInstanceType: "m5.xlarge",
+ *     ec2Attributes: {
+ *         emrManagedMasterSecurityGroup: aws_security_group_allow_all.id,
+ *         emrManagedSlaveSecurityGroup: aws_security_group_allow_all.id,
+ *         instanceProfile: emrProfile.arn,
+ *         subnetId: mainSubnet.id,
+ *     },
+ *     masterInstanceType: "m5.xlarge",
+ *     releaseLabel: "emr-4.6.0",
+ *     serviceRole: iamEmrServiceRole.arn,
+ *     tags: {
+ *         dns_zone: "env_zone",
+ *         env: "env",
+ *         name: "name-env",
+ *         role: "rolename",
+ *     },
+ * });
+ * const iamEmrProfilePolicy = new aws.iam.RolePolicy("iam_emr_profile_policy", {
+ *     policy: `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [{
+ *         "Effect": "Allow",
+ *         "Resource": "*",
+ *         "Action": [
+ *             "cloudwatch:*",
+ *             "dynamodb:*",
+ *             "ec2:Describe*",
+ *             "elasticmapreduce:Describe*",
+ *             "elasticmapreduce:ListBootstrapActions",
+ *             "elasticmapreduce:ListClusters",
+ *             "elasticmapreduce:ListInstanceGroups",
+ *             "elasticmapreduce:ListInstances",
+ *             "elasticmapreduce:ListSteps",
+ *             "kinesis:CreateStream",
+ *             "kinesis:DeleteStream",
+ *             "kinesis:DescribeStream",
+ *             "kinesis:GetRecords",
+ *             "kinesis:GetShardIterator",
+ *             "kinesis:MergeShards",
+ *             "kinesis:PutRecord",
+ *             "kinesis:SplitShard",
+ *             "rds:Describe*",
+ *             "s3:*",
+ *             "sdb:*",
+ *             "sns:*",
+ *             "sqs:*"
+ *         ]
+ *     }]
+ * }
+ * `,
+ *     role: iamEmrProfileRole.id,
+ * });
+ * const iamEmrServicePolicy = new aws.iam.RolePolicy("iam_emr_service_policy", {
+ *     policy: `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [{
+ *         "Effect": "Allow",
+ *         "Resource": "*",
+ *         "Action": [
+ *             "ec2:AuthorizeSecurityGroupEgress",
+ *             "ec2:AuthorizeSecurityGroupIngress",
+ *             "ec2:CancelSpotInstanceRequests",
+ *             "ec2:CreateNetworkInterface",
+ *             "ec2:CreateSecurityGroup",
+ *             "ec2:CreateTags",
+ *             "ec2:DeleteNetworkInterface",
+ *             "ec2:DeleteSecurityGroup",
+ *             "ec2:DeleteTags",
+ *             "ec2:DescribeAvailabilityZones",
+ *             "ec2:DescribeAccountAttributes",
+ *             "ec2:DescribeDhcpOptions",
+ *             "ec2:DescribeInstanceStatus",
+ *             "ec2:DescribeInstances",
+ *             "ec2:DescribeKeyPairs",
+ *             "ec2:DescribeNetworkAcls",
+ *             "ec2:DescribeNetworkInterfaces",
+ *             "ec2:DescribePrefixLists",
+ *             "ec2:DescribeRouteTables",
+ *             "ec2:DescribeSecurityGroups",
+ *             "ec2:DescribeSpotInstanceRequests",
+ *             "ec2:DescribeSpotPriceHistory",
+ *             "ec2:DescribeSubnets",
+ *             "ec2:DescribeVpcAttribute",
+ *             "ec2:DescribeVpcEndpoints",
+ *             "ec2:DescribeVpcEndpointServices",
+ *             "ec2:DescribeVpcs",
+ *             "ec2:DetachNetworkInterface",
+ *             "ec2:ModifyImageAttribute",
+ *             "ec2:ModifyInstanceAttribute",
+ *             "ec2:RequestSpotInstances",
+ *             "ec2:RevokeSecurityGroupEgress",
+ *             "ec2:RunInstances",
+ *             "ec2:TerminateInstances",
+ *             "ec2:DeleteVolume",
+ *             "ec2:DescribeVolumeStatus",
+ *             "ec2:DescribeVolumes",
+ *             "ec2:DetachVolume",
+ *             "iam:GetRole",
+ *             "iam:GetRolePolicy",
+ *             "iam:ListInstanceProfiles",
+ *             "iam:ListRolePolicies",
+ *             "iam:PassRole",
+ *             "s3:CreateBucket",
+ *             "s3:Get*",
+ *             "s3:List*",
+ *             "sdb:BatchPutAttributes",
+ *             "sdb:Select",
+ *             "sqs:CreateQueue",
+ *             "sqs:Delete*",
+ *             "sqs:GetQueue*",
+ *             "sqs:PurgeQueue",
+ *             "sqs:ReceiveMessage"
+ *         ]
+ *     }]
+ * }
+ * `,
+ *     role: iamEmrServiceRole.id,
+ * });
+ * const gw = new aws.ec2.InternetGateway("gw", {
+ *     vpcId: mainVpc.id,
+ * });
+ * const routeTable = new aws.ec2.RouteTable("r", {
+ *     routes: [{
+ *         cidrBlock: "0.0.0.0/0",
+ *         gatewayId: gw.id,
+ *     }],
+ *     vpcId: mainVpc.id,
+ * });
+ * const mainRouteTableAssociation = new aws.ec2.MainRouteTableAssociation("a", {
+ *     routeTableId: routeTable.id,
+ *     vpcId: mainVpc.id,
+ * });
+ * const allowAccess = new aws.ec2.SecurityGroup("allow_access", {
+ *     description: "Allow inbound traffic",
+ *     egress: [{
+ *         cidrBlocks: ["0.0.0.0/0"],
+ *         fromPort: 0,
+ *         protocol: "-1",
+ *         toPort: 0,
+ *     }],
+ *     ingress: [{
+ *         // we do not recommend opening your cluster to 0.0.0.0/0
+ *         cidrBlocks: "", // add your IP address here
+ *         // these ports should be locked down
+ *         fromPort: 0,
+ *         protocol: "-1",
+ *         toPort: 0,
+ *     }],
+ *     tags: {
+ *         name: "emr_test",
+ *     },
+ *     vpcId: mainVpc.id,
+ * }, {dependsOn: [mainSubnet]});
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

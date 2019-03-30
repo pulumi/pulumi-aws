@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the 
+ * Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
  * [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
  * 
  * ## Example Usage
@@ -76,6 +76,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly status: pulumi.Output<string>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */
     public readonly transportProtocol: pulumi.Output<string | undefined>;
@@ -100,6 +104,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["dnsServers"] = state ? state.dnsServers : undefined;
             inputs["serverCertificateArn"] = state ? state.serverCertificateArn : undefined;
             inputs["status"] = state ? state.status : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["transportProtocol"] = state ? state.transportProtocol : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
@@ -121,6 +126,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["dnsServers"] = args ? args.dnsServers : undefined;
             inputs["serverCertificateArn"] = args ? args.serverCertificateArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["transportProtocol"] = args ? args.transportProtocol : undefined;
             inputs["dnsName"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
@@ -166,6 +172,10 @@ export interface EndpointState {
      */
     readonly status?: pulumi.Input<string>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */
     readonly transportProtocol?: pulumi.Input<string>;
@@ -199,6 +209,10 @@ export interface EndpointArgs {
      * The ARN of the ACM server certificate.
      */
     readonly serverCertificateArn: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */

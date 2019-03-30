@@ -17,7 +17,7 @@ class UserGroup(pulumi.CustomResource):
     """
     The name of the user group.
     """
-    precedence: pulumi.Output[int]
+    precedence: pulumi.Output[float]
     """
     The precedence of the user group.
     """
@@ -37,7 +37,7 @@ class UserGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the user group.
         :param pulumi.Input[str] name: The name of the user group.
-        :param pulumi.Input[int] precedence: The precedence of the user group.
+        :param pulumi.Input[float] precedence: The precedence of the user group.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be associated with the user group.
         :param pulumi.Input[str] user_pool_id: The user pool ID.
         """

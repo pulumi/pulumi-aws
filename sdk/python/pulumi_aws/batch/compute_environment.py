@@ -21,7 +21,6 @@ class ComputeEnvironment(pulumi.CustomResource):
     """
     Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
     """
-    ecc_cluster_arn: pulumi.Output[str]
     ecs_cluster_arn: pulumi.Output[str]
     """
     The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
@@ -96,7 +95,6 @@ class ComputeEnvironment(pulumi.CustomResource):
         __props__['type'] = type
 
         __props__['arn'] = None
-        __props__['ecc_cluster_arn'] = None
         __props__['ecs_cluster_arn'] = None
         __props__['status'] = None
         __props__['status_reason'] = None

@@ -38,7 +38,9 @@ func NewEip(ctx *pulumi.Context,
 	inputs["allocationId"] = nil
 	inputs["associationId"] = nil
 	inputs["domain"] = nil
+	inputs["privateDns"] = nil
 	inputs["privateIp"] = nil
+	inputs["publicDns"] = nil
 	inputs["publicIp"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/eip:Eip", name, true, inputs, opts...)
 	if err != nil {
@@ -59,7 +61,9 @@ func GetEip(ctx *pulumi.Context,
 		inputs["domain"] = state.Domain
 		inputs["instance"] = state.Instance
 		inputs["networkInterface"] = state.NetworkInterface
+		inputs["privateDns"] = state.PrivateDns
 		inputs["privateIp"] = state.PrivateIp
+		inputs["publicDns"] = state.PublicDns
 		inputs["publicIp"] = state.PublicIp
 		inputs["publicIpv4Pool"] = state.PublicIpv4Pool
 		inputs["tags"] = state.Tags
@@ -111,9 +115,19 @@ func (r *Eip) NetworkInterface() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["networkInterface"])
 }
 
+// The Private DNS associated with the Elastic IP address (if in VPC).
+func (r *Eip) PrivateDns() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["privateDns"])
+}
+
 // Contains the private IP address (if in VPC).
 func (r *Eip) PrivateIp() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["privateIp"])
+}
+
+// Public DNS associated with the Elastic IP address.
+func (r *Eip) PublicDns() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["publicDns"])
 }
 
 // Contains the public IP address.
@@ -149,8 +163,12 @@ type EipState struct {
 	Instance interface{}
 	// Network interface ID to associate with.
 	NetworkInterface interface{}
+	// The Private DNS associated with the Elastic IP address (if in VPC).
+	PrivateDns interface{}
 	// Contains the private IP address (if in VPC).
 	PrivateIp interface{}
+	// Public DNS associated with the Elastic IP address.
+	PublicDns interface{}
 	// Contains the public IP address.
 	PublicIp interface{}
 	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.

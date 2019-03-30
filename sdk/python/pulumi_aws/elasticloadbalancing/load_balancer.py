@@ -25,7 +25,7 @@ class LoadBalancer(pulumi.CustomResource):
     """
     Boolean to enable connection draining. Default: `false`
     """
-    connection_draining_timeout: pulumi.Output[int]
+    connection_draining_timeout: pulumi.Output[float]
     """
     The time in seconds to allow for connections to drain. Default: `300`
     """
@@ -41,7 +41,7 @@ class LoadBalancer(pulumi.CustomResource):
     """
     A health_check block. Health Check documented below.
     """
-    idle_timeout: pulumi.Output[int]
+    idle_timeout: pulumi.Output[float]
     """
     The time in seconds that the connection is allowed to be idle. Default: `60`
     """
@@ -121,10 +121,10 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[dict] access_logs: An Access Logs block. Access Logs documented below.
         :param pulumi.Input[list] availability_zones: The AZ's to serve traffic in.
         :param pulumi.Input[bool] connection_draining: Boolean to enable connection draining. Default: `false`
-        :param pulumi.Input[int] connection_draining_timeout: The time in seconds to allow for connections to drain. Default: `300`
+        :param pulumi.Input[float] connection_draining_timeout: The time in seconds to allow for connections to drain. Default: `300`
         :param pulumi.Input[bool] cross_zone_load_balancing: Enable cross-zone load balancing. Default: `true`
         :param pulumi.Input[dict] health_check: A health_check block. Health Check documented below.
-        :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Default: `60`
+        :param pulumi.Input[float] idle_timeout: The time in seconds that the connection is allowed to be idle. Default: `60`
         :param pulumi.Input[list] instances: A list of instance ids to place in the ELB pool.
         :param pulumi.Input[bool] internal: If true, ELB will be an internal ELB.
         :param pulumi.Input[list] listeners: A list of listener blocks. Listeners documented below.

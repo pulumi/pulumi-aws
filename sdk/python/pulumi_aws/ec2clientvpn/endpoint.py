@@ -41,13 +41,17 @@ class Endpoint(pulumi.CustomResource):
     """
     The current state of the Client VPN endpoint.
     """
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
     transport_protocol: pulumi.Output[str]
     """
     The transport protocol to be used by the VPN session. Default value is `udp`.
     """
-    def __init__(__self__, resource_name, opts=None, authentication_options=None, client_cidr_block=None, connection_log_options=None, description=None, dns_servers=None, server_certificate_arn=None, transport_protocol=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authentication_options=None, client_cidr_block=None, connection_log_options=None, description=None, dns_servers=None, server_certificate_arn=None, tags=None, transport_protocol=None, __name__=None, __opts__=None):
         """
-        Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the 
+        Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
         [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
         
         :param str resource_name: The name of the resource.
@@ -58,6 +62,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] description: Name of the repository.
         :param pulumi.Input[list] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
         :param pulumi.Input[str] server_certificate_arn: The ARN of the ACM server certificate.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] transport_protocol: The transport protocol to be used by the VPN session. Default value is `udp`.
         """
         if __name__ is not None:
@@ -94,6 +99,8 @@ class Endpoint(pulumi.CustomResource):
         if server_certificate_arn is None:
             raise TypeError('Missing required property server_certificate_arn')
         __props__['server_certificate_arn'] = server_certificate_arn
+
+        __props__['tags'] = tags
 
         __props__['transport_protocol'] = transport_protocol
 

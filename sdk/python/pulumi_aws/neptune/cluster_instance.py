@@ -74,7 +74,7 @@ class ClusterInstance(pulumi.CustomResource):
     """
     A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
     """
-    port: pulumi.Output[int]
+    port: pulumi.Output[float]
     """
     The port on which the DB accepts connections. Defaults to `8182`.
     """
@@ -87,7 +87,7 @@ class ClusterInstance(pulumi.CustomResource):
     The window to perform maintenance in.
     Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
     """
-    promotion_tier: pulumi.Output[int]
+    promotion_tier: pulumi.Output[float]
     """
     Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
     """
@@ -128,11 +128,11 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] instance_class: The instance class to use.
         :param pulumi.Input[str] neptune_parameter_group_name: The name of the neptune parameter group to associate with this instance.
         :param pulumi.Input[str] neptune_subnet_group_name: A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
-        :param pulumi.Input[int] port: The port on which the DB accepts connections. Defaults to `8182`.
+        :param pulumi.Input[float] port: The port on which the DB accepts connections. Defaults to `8182`.
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+        :param pulumi.Input[float] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly accessible. Default is `false`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the instance.
         """

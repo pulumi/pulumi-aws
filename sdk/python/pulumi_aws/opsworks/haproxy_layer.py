@@ -62,7 +62,7 @@ class HaproxyLayer(pulumi.CustomResource):
     """
     Whether to install OS and package updates on each instance when it boots.
     """
-    instance_shutdown_timeout: pulumi.Output[int]
+    instance_shutdown_timeout: pulumi.Output[float]
     """
     The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
     """
@@ -116,7 +116,7 @@ class HaproxyLayer(pulumi.CustomResource):
         :param pulumi.Input[str] healthcheck_method: HTTP method to use for instance healthchecks. Defaults to "OPTIONS".
         :param pulumi.Input[str] healthcheck_url: URL path to use for instance healthchecks. Defaults to "/".
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
-        :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+        :param pulumi.Input[float] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
         :param pulumi.Input[bool] stats_enabled: Whether to enable HAProxy stats.

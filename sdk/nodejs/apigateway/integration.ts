@@ -94,7 +94,6 @@ import {RestApi} from "./restApi";
  * });
  * const lambda = new aws.lambda.Function("lambda", {
  *     code: new pulumi.asset.FileArchive("lambda.zip"),
- *     name: "mylambda",
  *     handler: "lambda.lambda_handler",
  *     role: role.arn,
  *     runtime: "python2.7",
@@ -113,7 +112,6 @@ import {RestApi} from "./restApi";
  *     function: lambda.arn,
  *     principal: "apigateway.amazonaws.com",
  *     sourceArn: pulumi.all([api.id, method.httpMethod, resource.path]).apply(([id, httpMethod, path]) => `arn:aws:execute-api:${myregion}:${accountId}:${id}/*&#47;${httpMethod}/${path}`),
- *     statementId: "AllowExecutionFromAPIGateway",
  * });
  * ```
  * 
@@ -233,10 +231,6 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly requestParameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * **Deprecated**, use `request_parameters` instead.
-     */
-    public readonly requestParametersInJson: pulumi.Output<string | undefined>;
-    /**
      * A map of the integration's request templates.
      */
     public readonly requestTemplates: pulumi.Output<{[key: string]: string} | undefined>;
@@ -285,7 +279,6 @@ export class Integration extends pulumi.CustomResource {
             inputs["integrationHttpMethod"] = state ? state.integrationHttpMethod : undefined;
             inputs["passthroughBehavior"] = state ? state.passthroughBehavior : undefined;
             inputs["requestParameters"] = state ? state.requestParameters : undefined;
-            inputs["requestParametersInJson"] = state ? state.requestParametersInJson : undefined;
             inputs["requestTemplates"] = state ? state.requestTemplates : undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;
             inputs["restApi"] = state ? state.restApi : undefined;
@@ -316,7 +309,6 @@ export class Integration extends pulumi.CustomResource {
             inputs["integrationHttpMethod"] = args ? args.integrationHttpMethod : undefined;
             inputs["passthroughBehavior"] = args ? args.passthroughBehavior : undefined;
             inputs["requestParameters"] = args ? args.requestParameters : undefined;
-            inputs["requestParametersInJson"] = args ? args.requestParametersInJson : undefined;
             inputs["requestTemplates"] = args ? args.requestTemplates : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["restApi"] = args ? args.restApi : undefined;
@@ -378,10 +370,6 @@ export interface IntegrationState {
      * For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
      */
     readonly requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * **Deprecated**, use `request_parameters` instead.
-     */
-    readonly requestParametersInJson?: pulumi.Input<string>;
     /**
      * A map of the integration's request templates.
      */
@@ -460,10 +448,6 @@ export interface IntegrationArgs {
      * For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
      */
     readonly requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * **Deprecated**, use `request_parameters` instead.
-     */
-    readonly requestParametersInJson?: pulumi.Input<string>;
     /**
      * A map of the integration's request templates.
      */

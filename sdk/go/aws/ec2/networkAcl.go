@@ -30,14 +30,12 @@ func NewNetworkAcl(ctx *pulumi.Context,
 	if args == nil {
 		inputs["egress"] = nil
 		inputs["ingress"] = nil
-		inputs["subnetId"] = nil
 		inputs["subnetIds"] = nil
 		inputs["tags"] = nil
 		inputs["vpcId"] = nil
 	} else {
 		inputs["egress"] = args.Egress
 		inputs["ingress"] = args.Ingress
-		inputs["subnetId"] = args.SubnetId
 		inputs["subnetIds"] = args.SubnetIds
 		inputs["tags"] = args.Tags
 		inputs["vpcId"] = args.VpcId
@@ -59,7 +57,6 @@ func GetNetworkAcl(ctx *pulumi.Context,
 		inputs["egress"] = state.Egress
 		inputs["ingress"] = state.Ingress
 		inputs["ownerId"] = state.OwnerId
-		inputs["subnetId"] = state.SubnetId
 		inputs["subnetIds"] = state.SubnetIds
 		inputs["tags"] = state.Tags
 		inputs["vpcId"] = state.VpcId
@@ -96,12 +93,6 @@ func (r *NetworkAcl) OwnerId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ownerId"])
 }
 
-// The ID of the associated Subnet. This
-// attribute is deprecated, please use the `subnet_ids` attribute instead
-func (r *NetworkAcl) SubnetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subnetId"])
-}
-
 // A list of Subnet IDs to apply the ACL to
 func (r *NetworkAcl) SubnetIds() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["subnetIds"])
@@ -125,9 +116,6 @@ type NetworkAclState struct {
 	Ingress interface{}
 	// The ID of the AWS account that owns the network ACL.
 	OwnerId interface{}
-	// The ID of the associated Subnet. This
-	// attribute is deprecated, please use the `subnet_ids` attribute instead
-	SubnetId interface{}
 	// A list of Subnet IDs to apply the ACL to
 	SubnetIds interface{}
 	// A mapping of tags to assign to the resource.
@@ -142,9 +130,6 @@ type NetworkAclArgs struct {
 	Egress interface{}
 	// Specifies an ingress rule. Parameters defined below.
 	Ingress interface{}
-	// The ID of the associated Subnet. This
-	// attribute is deprecated, please use the `subnet_ids` attribute instead
-	SubnetId interface{}
 	// A list of Subnet IDs to apply the ACL to
 	SubnetIds interface{}
 	// A mapping of tags to assign to the resource.

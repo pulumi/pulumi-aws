@@ -27,10 +27,6 @@ class MethodResponse(pulumi.CustomResource):
     For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
     would define that the header `X-Some-Header` can be provided on the response.
     """
-    response_parameters_in_json: pulumi.Output[str]
-    """
-    **Deprecated**, use `response_parameters` instead.
-    """
     rest_api: pulumi.Output[str]
     """
     The ID of the associated REST API
@@ -39,7 +35,7 @@ class MethodResponse(pulumi.CustomResource):
     """
     The HTTP status code
     """
-    def __init__(__self__, resource_name, opts=None, http_method=None, resource_id=None, response_models=None, response_parameters=None, response_parameters_in_json=None, rest_api=None, status_code=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, http_method=None, resource_id=None, response_models=None, response_parameters=None, rest_api=None, status_code=None, __name__=None, __opts__=None):
         """
         Provides an HTTP Method Response for an API Gateway Resource.
         
@@ -51,7 +47,6 @@ class MethodResponse(pulumi.CustomResource):
         :param pulumi.Input[dict] response_parameters: A map of response parameters that can be sent to the caller.
                For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
                would define that the header `X-Some-Header` can be provided on the response.
-        :param pulumi.Input[str] response_parameters_in_json: **Deprecated**, use `response_parameters` instead.
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] status_code: The HTTP status code
         """
@@ -81,8 +76,6 @@ class MethodResponse(pulumi.CustomResource):
         __props__['response_models'] = response_models
 
         __props__['response_parameters'] = response_parameters
-
-        __props__['response_parameters_in_json'] = response_parameters_in_json
 
         if rest_api is None:
             raise TypeError('Missing required property rest_api')

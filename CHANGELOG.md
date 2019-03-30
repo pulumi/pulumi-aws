@@ -1,6 +1,35 @@
-## 0.17.1 (Unreleased)
+## 0.18.2 (Unreleased)
 
-## 0.17.0 (Released March 5, 2019)
+### Important
+
+- The deprecated api `aws.apigateway.x.API` has been removed.  Its replacement is in the
+  `@pulumi/awsx` package with the name `awsx.apigateway.API`.
+
+## 0.18.1 (Released March 29th, 2019)
+
+## 0.18.0 (Released March 28th, 2019)
+
+### Important
+
+- Version 0.18.0 of `pulumi-aws` is now based on v2.2.0 of the AWS Terraform Provider, which has a variety of breaking changes from the previous version.
+
+- The `defaultAction` property on `aws.elasticloadbalancingv2.Listener` and `aws.applicationloadbalancing.Listener` is now named `defaultActions` and is an array of actions.
+
+- The output types of aws.iam.InstanceProfile::role[s] and aws.iam.RolePolicyAttachment::role is now `string` instead of `Role`, and represent the ID of the role.
+
+### Improvement
+
+- Update to v2.2.0 of the AWS Terraform Provider.
+
+- Fix a bug where setting a property value back to the default results in no change
+
+### 0.17.1 (Released March 6th, 2019)
+
+### Improvements
+
+- Fix an issue where the Python `pulumi_aws` package was depending on an older `pulumi` package.
+
+## 0.17.0 (Released March 5th, 2019)
 
 ### Important
 

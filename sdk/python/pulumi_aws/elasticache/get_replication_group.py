@@ -43,14 +43,14 @@ class GetReplicationGroupResult:
         """
         The cluster node type.
         """
-        if number_cache_clusters and not isinstance(number_cache_clusters, int):
-            raise TypeError('Expected argument number_cache_clusters to be a int')
+        if number_cache_clusters and not isinstance(number_cache_clusters, float):
+            raise TypeError('Expected argument number_cache_clusters to be a float')
         __self__.number_cache_clusters = number_cache_clusters
         """
         The number of cache clusters that the replication group has.
         """
-        if port and not isinstance(port, int):
-            raise TypeError('Expected argument port to be a int')
+        if port and not isinstance(port, float):
+            raise TypeError('Expected argument port to be a float')
         __self__.port = port
         """
         The port number on which the configuration endpoint will accept connections.
@@ -67,8 +67,8 @@ class GetReplicationGroupResult:
         """
         The description of the replication group.
         """
-        if snapshot_retention_limit and not isinstance(snapshot_retention_limit, int):
-            raise TypeError('Expected argument snapshot_retention_limit to be a int')
+        if snapshot_retention_limit and not isinstance(snapshot_retention_limit, float):
+            raise TypeError('Expected argument snapshot_retention_limit to be a float')
         __self__.snapshot_retention_limit = snapshot_retention_limit
         """
         The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.

@@ -33,6 +33,7 @@ import * as utilities from "../utilities";
  *     engine: "mysql",
  *     engineVersion: "5.7.16",
  *     instanceClass: "db.t2.micro",
+ *     name: "mydb",
  *     parameterGroupName: "default.mysql5.7",
  *     password: var_database_master_password,
  *     storageType: "gp2",

@@ -25,7 +25,7 @@ class Project(pulumi.CustomResource):
     """
     The URL of the build badge when `badge_enabled` is enabled.
     """
-    build_timeout: pulumi.Output[int]
+    build_timeout: pulumi.Output[float]
     """
     How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
     """
@@ -81,7 +81,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] artifacts: Information about the project's build output artifacts. Artifact blocks are documented below.
         :param pulumi.Input[bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
-        :param pulumi.Input[int] build_timeout: How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+        :param pulumi.Input[float] build_timeout: How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
         :param pulumi.Input[dict] cache: Information about the cache storage for the project. Cache blocks are documented below.
         :param pulumi.Input[str] description: A short description of the project.
         :param pulumi.Input[str] encryption_key: The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.

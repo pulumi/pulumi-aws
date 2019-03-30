@@ -27,7 +27,6 @@ import * as utilities from "./utilities";
 export function getRegion(args?: GetRegionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegionResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:index/getRegion:getRegion", {
-        "current": args.current,
         "endpoint": args.endpoint,
         "name": args.name,
     }, opts);
@@ -37,7 +36,6 @@ export function getRegion(args?: GetRegionArgs, opts?: pulumi.InvokeOptions): Pr
  * A collection of arguments for invoking getRegion.
  */
 export interface GetRegionArgs {
-    readonly current?: boolean;
     /**
      * The EC2 endpoint of the region to select.
      */
@@ -52,11 +50,6 @@ export interface GetRegionArgs {
  * A collection of values returned by getRegion.
  */
 export interface GetRegionResult {
-    /**
-     * `true` if the selected region is the one configured on the
-     * provider, or `false` otherwise.
-     */
-    readonly current: boolean;
     /**
      * The region's description in this format: "Location (Region name)".
      */

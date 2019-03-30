@@ -55,7 +55,7 @@ class AnalyticsApplication(pulumi.CustomResource):
     """
     The Status of the application.
     """
-    version: pulumi.Output[int]
+    version: pulumi.Output[float]
     """
     The Version of the application.
     """

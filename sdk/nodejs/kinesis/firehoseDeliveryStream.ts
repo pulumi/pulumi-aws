@@ -51,11 +51,9 @@ import * as utilities from "../utilities";
  * });
  * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "private",
- *     bucket: "tf-test-bucket",
  * });
  * const lambdaProcessor = new aws.lambda.Function("lambda_processor", {
  *     code: new pulumi.asset.FileArchive("lambda.zip"),
- *     name: "firehose_lambda_processor",
  *     handler: "exports.handler",
  *     role: lambdaIam.arn,
  *     runtime: "nodejs8.10",
@@ -103,7 +101,6 @@ import * as utilities from "../utilities";
  * });
  * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "private",
- *     bucket: "tf-test-bucket",
  * });
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
  *     destination: "s3",
@@ -163,9 +160,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const testCluster = new aws.elasticsearch.Domain("test_cluster", {
- *     domainName: "firehose-es-test",
- * });
+ * const testCluster = new aws.elasticsearch.Domain("test_cluster", {});
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
  *     destination: "elasticsearch",
  *     elasticsearchConfiguration: {
@@ -263,7 +258,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      */
     public readonly redshiftConfiguration: pulumi.Output<{ cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, clusterJdbcurl: string, copyOptions?: string, dataTableColumns?: string, dataTableName: string, password: string, processingConfiguration?: { enabled?: boolean, processors?: { parameters?: { parameterName: string, parameterValue: string }[], type: string }[] }, retryDuration?: number, roleArn: string, s3BackupConfiguration?: { bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, compressionFormat?: string, kmsKeyArn?: string, prefix?: string, roleArn: string }, s3BackupMode?: string, username: string } | undefined>;
     /**
-     * Configuration options for the s3 destination (or the intermediate bucket if the destination
+     * Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
      * is redshift). More details are given below.
      */
     public readonly s3Configuration: pulumi.Output<{ bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, compressionFormat?: string, kmsKeyArn?: string, prefix?: string, roleArn: string } | undefined>;
@@ -357,7 +352,7 @@ export interface FirehoseDeliveryStreamState {
      */
     readonly redshiftConfiguration?: pulumi.Input<{ cloudwatchLoggingOptions?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, logGroupName?: pulumi.Input<string>, logStreamName?: pulumi.Input<string> }>, clusterJdbcurl: pulumi.Input<string>, copyOptions?: pulumi.Input<string>, dataTableColumns?: pulumi.Input<string>, dataTableName: pulumi.Input<string>, password: pulumi.Input<string>, processingConfiguration?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, processors?: pulumi.Input<pulumi.Input<{ parameters?: pulumi.Input<pulumi.Input<{ parameterName: pulumi.Input<string>, parameterValue: pulumi.Input<string> }>[]>, type: pulumi.Input<string> }>[]> }>, retryDuration?: pulumi.Input<number>, roleArn: pulumi.Input<string>, s3BackupConfiguration?: pulumi.Input<{ bucketArn: pulumi.Input<string>, bufferInterval?: pulumi.Input<number>, bufferSize?: pulumi.Input<number>, cloudwatchLoggingOptions?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, logGroupName?: pulumi.Input<string>, logStreamName?: pulumi.Input<string> }>, compressionFormat?: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string>, prefix?: pulumi.Input<string>, roleArn: pulumi.Input<string> }>, s3BackupMode?: pulumi.Input<string>, username: pulumi.Input<string> }>;
     /**
-     * Configuration options for the s3 destination (or the intermediate bucket if the destination
+     * Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
      * is redshift). More details are given below.
      */
     readonly s3Configuration?: pulumi.Input<{ bucketArn: pulumi.Input<string>, bufferInterval?: pulumi.Input<number>, bufferSize?: pulumi.Input<number>, cloudwatchLoggingOptions?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, logGroupName?: pulumi.Input<string>, logStreamName?: pulumi.Input<string> }>, compressionFormat?: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string>, prefix?: pulumi.Input<string>, roleArn: pulumi.Input<string> }>;
@@ -406,7 +401,7 @@ export interface FirehoseDeliveryStreamArgs {
      */
     readonly redshiftConfiguration?: pulumi.Input<{ cloudwatchLoggingOptions?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, logGroupName?: pulumi.Input<string>, logStreamName?: pulumi.Input<string> }>, clusterJdbcurl: pulumi.Input<string>, copyOptions?: pulumi.Input<string>, dataTableColumns?: pulumi.Input<string>, dataTableName: pulumi.Input<string>, password: pulumi.Input<string>, processingConfiguration?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, processors?: pulumi.Input<pulumi.Input<{ parameters?: pulumi.Input<pulumi.Input<{ parameterName: pulumi.Input<string>, parameterValue: pulumi.Input<string> }>[]>, type: pulumi.Input<string> }>[]> }>, retryDuration?: pulumi.Input<number>, roleArn: pulumi.Input<string>, s3BackupConfiguration?: pulumi.Input<{ bucketArn: pulumi.Input<string>, bufferInterval?: pulumi.Input<number>, bufferSize?: pulumi.Input<number>, cloudwatchLoggingOptions?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, logGroupName?: pulumi.Input<string>, logStreamName?: pulumi.Input<string> }>, compressionFormat?: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string>, prefix?: pulumi.Input<string>, roleArn: pulumi.Input<string> }>, s3BackupMode?: pulumi.Input<string>, username: pulumi.Input<string> }>;
     /**
-     * Configuration options for the s3 destination (or the intermediate bucket if the destination
+     * Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
      * is redshift). More details are given below.
      */
     readonly s3Configuration?: pulumi.Input<{ bucketArn: pulumi.Input<string>, bufferInterval?: pulumi.Input<number>, bufferSize?: pulumi.Input<number>, cloudwatchLoggingOptions?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, logGroupName?: pulumi.Input<string>, logStreamName?: pulumi.Input<string> }>, compressionFormat?: pulumi.Input<string>, kmsKeyArn?: pulumi.Input<string>, prefix?: pulumi.Input<string>, roleArn: pulumi.Input<string> }>;

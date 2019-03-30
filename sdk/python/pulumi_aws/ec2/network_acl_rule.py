@@ -17,7 +17,7 @@ class NetworkAclRule(pulumi.CustomResource):
     """
     Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
     """
-    from_port: pulumi.Output[int]
+    from_port: pulumi.Output[float]
     """
     The from port to match.
     """
@@ -45,11 +45,11 @@ class NetworkAclRule(pulumi.CustomResource):
     """
     Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
     """
-    rule_number: pulumi.Output[int]
+    rule_number: pulumi.Output[float]
     """
     The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
     """
-    to_port: pulumi.Output[int]
+    to_port: pulumi.Output[float]
     """
     The to port to match.
     """
@@ -67,15 +67,15 @@ class NetworkAclRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr_block: The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
         :param pulumi.Input[bool] egress: Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-        :param pulumi.Input[int] from_port: The from port to match.
+        :param pulumi.Input[float] from_port: The from port to match.
         :param pulumi.Input[str] icmp_code: ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
         :param pulumi.Input[str] icmp_type: ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block to allow or deny.
         :param pulumi.Input[str] network_acl_id: The ID of the network ACL.
         :param pulumi.Input[str] protocol: The protocol. A value of -1 means all protocols.
         :param pulumi.Input[str] rule_action: Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-        :param pulumi.Input[int] rule_number: The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-        :param pulumi.Input[int] to_port: The to port to match.
+        :param pulumi.Input[float] rule_number: The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
+        :param pulumi.Input[float] to_port: The to port to match.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

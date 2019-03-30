@@ -25,7 +25,7 @@ class GameSessionQueue(pulumi.CustomResource):
     """
     One or more policies used to choose fleet based on player latency. See below.
     """
-    timeout_in_seconds: pulumi.Output[int]
+    timeout_in_seconds: pulumi.Output[float]
     """
     Maximum time a game session request can remain in the queue.
     """
@@ -38,7 +38,7 @@ class GameSessionQueue(pulumi.CustomResource):
         :param pulumi.Input[list] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
         :param pulumi.Input[str] name: Name of the session queue.
         :param pulumi.Input[list] player_latency_policies: One or more policies used to choose fleet based on player latency. See below.
-        :param pulumi.Input[int] timeout_in_seconds: Maximum time a game session request can remain in the queue.
+        :param pulumi.Input[float] timeout_in_seconds: Maximum time a game session request can remain in the queue.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

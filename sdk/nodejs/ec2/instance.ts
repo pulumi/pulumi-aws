@@ -70,7 +70,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly availabilityZone: pulumi.Output<string>;
     /**
-     * Sets the number of CPU cores for an instance. This option is 
+     * Sets the number of CPU cores for an instance. This option is
      * only supported on creation of instance type that support CPU Options
      * [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      */
@@ -90,7 +90,7 @@ export class Instance extends pulumi.CustomResource {
     public readonly disableApiTermination: pulumi.Output<boolean | undefined>;
     /**
      * Additional EBS block devices to attach to the
-     * instance.  See Block Devices below for details.
+     * instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
      */
     public readonly ebsBlockDevices: pulumi.Output<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeId: string, volumeSize: number, volumeType: string }[]>;
     /**
@@ -149,10 +149,6 @@ export class Instance extends pulumi.CustomResource {
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
     public readonly networkInterfaces: pulumi.Output<{ deleteOnTermination?: boolean, deviceIndex: number, networkInterfaceId: string }[]>;
-    /**
-     * The ID of the network interface that was created with the instance.
-     */
-    public /*out*/ readonly networkInterfaceId: pulumi.Output<string>;
     /**
      * Base-64 encoded encrypted password data for the instance.
      * Useful for getting the administrator password for instances running Microsoft Windows.
@@ -266,7 +262,6 @@ export class Instance extends pulumi.CustomResource {
             inputs["keyName"] = state ? state.keyName : undefined;
             inputs["monitoring"] = state ? state.monitoring : undefined;
             inputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
-            inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             inputs["passwordData"] = state ? state.passwordData : undefined;
             inputs["placementGroup"] = state ? state.placementGroup : undefined;
             inputs["primaryNetworkInterfaceId"] = state ? state.primaryNetworkInterfaceId : undefined;
@@ -326,7 +321,6 @@ export class Instance extends pulumi.CustomResource {
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["instanceState"] = undefined /*out*/;
-            inputs["networkInterfaceId"] = undefined /*out*/;
             inputs["passwordData"] = undefined /*out*/;
             inputs["primaryNetworkInterfaceId"] = undefined /*out*/;
             inputs["privateDns"] = undefined /*out*/;
@@ -358,7 +352,7 @@ export interface InstanceState {
      */
     readonly availabilityZone?: pulumi.Input<string>;
     /**
-     * Sets the number of CPU cores for an instance. This option is 
+     * Sets the number of CPU cores for an instance. This option is
      * only supported on creation of instance type that support CPU Options
      * [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      */
@@ -378,7 +372,7 @@ export interface InstanceState {
     readonly disableApiTermination?: pulumi.Input<boolean>;
     /**
      * Additional EBS block devices to attach to the
-     * instance.  See Block Devices below for details.
+     * instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
      */
     readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
     /**
@@ -437,10 +431,6 @@ export interface InstanceState {
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
     readonly networkInterfaces?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceIndex: pulumi.Input<number>, networkInterfaceId: pulumi.Input<string> }>[]>;
-    /**
-     * The ID of the network interface that was created with the instance.
-     */
-    readonly networkInterfaceId?: pulumi.Input<string>;
     /**
      * Base-64 encoded encrypted password data for the instance.
      * Useful for getting the administrator password for instances running Microsoft Windows.
@@ -538,7 +528,7 @@ export interface InstanceArgs {
      */
     readonly availabilityZone?: pulumi.Input<string>;
     /**
-     * Sets the number of CPU cores for an instance. This option is 
+     * Sets the number of CPU cores for an instance. This option is
      * only supported on creation of instance type that support CPU Options
      * [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      */
@@ -558,7 +548,7 @@ export interface InstanceArgs {
     readonly disableApiTermination?: pulumi.Input<boolean>;
     /**
      * Additional EBS block devices to attach to the
-     * instance.  See Block Devices below for details.
+     * instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
      */
     readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
     /**

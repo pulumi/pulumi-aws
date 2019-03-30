@@ -16,7 +16,6 @@ import * as utilities from "./utilities";
  * const main = pulumi.output(aws.getBillingServiceAccount({}));
  * const billingLogs = new aws.s3.Bucket("billing_logs", {
  *     acl: "private",
- *     bucket: "my-billing-tf-test-bucket",
  *     policy: pulumi.all([main, main]).apply(([main, main1]) => `{
  *   "Id": "Policy",
  *   "Version": "2012-10-17",

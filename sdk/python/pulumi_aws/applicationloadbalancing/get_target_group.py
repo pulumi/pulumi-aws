@@ -12,30 +12,33 @@ class GetTargetGroupResult:
     """
     A collection of values returned by getTargetGroup.
     """
-    def __init__(__self__, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, name=None, port=None, protocol=None, slow_start=None, stickiness=None, tags=None, vpc_id=None, id=None):
+    def __init__(__self__, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, lambda_multi_value_headers_enabled=None, name=None, port=None, protocol=None, slow_start=None, stickiness=None, tags=None, vpc_id=None, id=None):
         if arn and not isinstance(arn, str):
             raise TypeError('Expected argument arn to be a str')
         __self__.arn = arn
         if arn_suffix and not isinstance(arn_suffix, str):
             raise TypeError('Expected argument arn_suffix to be a str')
         __self__.arn_suffix = arn_suffix
-        if deregistration_delay and not isinstance(deregistration_delay, int):
-            raise TypeError('Expected argument deregistration_delay to be a int')
+        if deregistration_delay and not isinstance(deregistration_delay, float):
+            raise TypeError('Expected argument deregistration_delay to be a float')
         __self__.deregistration_delay = deregistration_delay
         if health_check and not isinstance(health_check, dict):
             raise TypeError('Expected argument health_check to be a dict')
         __self__.health_check = health_check
+        if lambda_multi_value_headers_enabled and not isinstance(lambda_multi_value_headers_enabled, bool):
+            raise TypeError('Expected argument lambda_multi_value_headers_enabled to be a bool')
+        __self__.lambda_multi_value_headers_enabled = lambda_multi_value_headers_enabled
         if name and not isinstance(name, str):
             raise TypeError('Expected argument name to be a str')
         __self__.name = name
-        if port and not isinstance(port, int):
-            raise TypeError('Expected argument port to be a int')
+        if port and not isinstance(port, float):
+            raise TypeError('Expected argument port to be a float')
         __self__.port = port
         if protocol and not isinstance(protocol, str):
             raise TypeError('Expected argument protocol to be a str')
         __self__.protocol = protocol
-        if slow_start and not isinstance(slow_start, int):
-            raise TypeError('Expected argument slow_start to be a int')
+        if slow_start and not isinstance(slow_start, float):
+            raise TypeError('Expected argument slow_start to be a float')
         __self__.slow_start = slow_start
         if stickiness and not isinstance(stickiness, dict):
             raise TypeError('Expected argument stickiness to be a dict')
@@ -75,6 +78,7 @@ async def get_target_group(arn=None,name=None,tags=None,opts=None):
         arn_suffix=__ret__.get('arnSuffix'),
         deregistration_delay=__ret__.get('deregistrationDelay'),
         health_check=__ret__.get('healthCheck'),
+        lambda_multi_value_headers_enabled=__ret__.get('lambdaMultiValueHeadersEnabled'),
         name=__ret__.get('name'),
         port=__ret__.get('port'),
         protocol=__ret__.get('protocol'),

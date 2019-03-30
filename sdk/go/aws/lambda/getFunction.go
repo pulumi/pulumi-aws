@@ -13,6 +13,7 @@ func LookupFunction(ctx *pulumi.Context, args *GetFunctionArgs) (*GetFunctionRes
 	if args != nil {
 		inputs["functionName"] = args.FunctionName
 		inputs["qualifier"] = args.Qualifier
+		inputs["tags"] = args.Tags
 	}
 	outputs, err := ctx.Invoke("aws:lambda/getFunction:getFunction", inputs)
 	if err != nil {
@@ -35,6 +36,7 @@ func LookupFunction(ctx *pulumi.Context, args *GetFunctionArgs) (*GetFunctionRes
 		Runtime: outputs["runtime"],
 		SourceCodeHash: outputs["sourceCodeHash"],
 		SourceCodeSize: outputs["sourceCodeSize"],
+		Tags: outputs["tags"],
 		Timeout: outputs["timeout"],
 		TracingConfig: outputs["tracingConfig"],
 		Version: outputs["version"],
@@ -47,13 +49,14 @@ func LookupFunction(ctx *pulumi.Context, args *GetFunctionArgs) (*GetFunctionRes
 type GetFunctionArgs struct {
 	// Name of the lambda function.
 	FunctionName interface{}
-	// Qualifier of the lambda function. Defaults to `$LATEST`.
+	// Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
 	Qualifier interface{}
+	Tags interface{}
 }
 
 // A collection of values returned by getFunction.
 type GetFunctionResult struct {
-	// The Amazon Resource Name (ARN) identifying your Lambda Function.
+	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualified_arn`.
 	Arn interface{}
 	// Configure the function's *dead letter queue*.
 	DeadLetterConfig interface{}
@@ -73,9 +76,9 @@ type GetFunctionResult struct {
 	Layers interface{}
 	// Amount of memory in MB your Lambda Function can use at runtime.
 	MemorySize interface{}
-	// The Amazon Resource Name (ARN) identifying your Lambda Function Version
+	// Qualified (`:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `arn`.
 	QualifiedArn interface{}
-	// The amount of reserved concurrent executions for this lambda function.
+	// The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
 	ReservedConcurrentExecutions interface{}
 	// IAM role attached to the Lambda Function.
 	Role interface{}
@@ -85,6 +88,7 @@ type GetFunctionResult struct {
 	SourceCodeHash interface{}
 	// The size in bytes of the function .zip file.
 	SourceCodeSize interface{}
+	Tags interface{}
 	// The function execution time at which Lambda should terminate the function.
 	Timeout interface{}
 	// Tracing settings of the function.

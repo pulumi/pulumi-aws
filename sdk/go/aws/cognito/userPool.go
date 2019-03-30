@@ -150,12 +150,12 @@ func (r *UserPool) EmailConfiguration() *pulumi.Output {
 	return r.s.State["emailConfiguration"]
 }
 
-// A string representing the email verification message. Must contain the `{####}` placeholder. **NOTE:** - If `email_verification_message` and `verification_message_template.email_message` are specified and the values are different, either one is prioritized and updated.
+// A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
 func (r *UserPool) EmailVerificationMessage() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["emailVerificationMessage"])
 }
 
-// A string representing the email verification subject. **NOTE:** - If `email_verification_subject` and `verification_message_template.email_subject` are specified and the values are different, either one is prioritized and updated.
+// A string representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
 func (r *UserPool) EmailVerificationSubject() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["emailVerificationSubject"])
 }
@@ -205,7 +205,7 @@ func (r *UserPool) SmsConfiguration() *pulumi.Output {
 	return r.s.State["smsConfiguration"]
 }
 
-// A string representing the SMS verification message.
+// A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
 func (r *UserPool) SmsVerificationMessage() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["smsVerificationMessage"])
 }
@@ -246,9 +246,9 @@ type UserPoolState struct {
 	DeviceConfiguration interface{}
 	// The Email Configuration.
 	EmailConfiguration interface{}
-	// A string representing the email verification message. Must contain the `{####}` placeholder. **NOTE:** - If `email_verification_message` and `verification_message_template.email_message` are specified and the values are different, either one is prioritized and updated.
+	// A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
 	EmailVerificationMessage interface{}
-	// A string representing the email verification subject. **NOTE:** - If `email_verification_subject` and `verification_message_template.email_subject` are specified and the values are different, either one is prioritized and updated.
+	// A string representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
 	EmailVerificationSubject interface{}
 	// The endpoint name of the user pool. Example format: cognito-idp.REGION.amazonaws.com/xxxx_yyyyy
 	Endpoint interface{}
@@ -268,7 +268,7 @@ type UserPoolState struct {
 	SmsAuthenticationMessage interface{}
 	// The SMS Configuration.
 	SmsConfiguration interface{}
-	// A string representing the SMS verification message.
+	// A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
 	SmsVerificationMessage interface{}
 	// A mapping of tags to assign to the User Pool.
 	Tags interface{}
@@ -292,9 +292,9 @@ type UserPoolArgs struct {
 	DeviceConfiguration interface{}
 	// The Email Configuration.
 	EmailConfiguration interface{}
-	// A string representing the email verification message. Must contain the `{####}` placeholder. **NOTE:** - If `email_verification_message` and `verification_message_template.email_message` are specified and the values are different, either one is prioritized and updated.
+	// A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
 	EmailVerificationMessage interface{}
-	// A string representing the email verification subject. **NOTE:** - If `email_verification_subject` and `verification_message_template.email_subject` are specified and the values are different, either one is prioritized and updated.
+	// A string representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
 	EmailVerificationSubject interface{}
 	// A container for the AWS Lambda triggers associated with the user pool.
 	LambdaConfig interface{}
@@ -310,7 +310,7 @@ type UserPoolArgs struct {
 	SmsAuthenticationMessage interface{}
 	// The SMS Configuration.
 	SmsConfiguration interface{}
-	// A string representing the SMS verification message.
+	// A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
 	SmsVerificationMessage interface{}
 	// A mapping of tags to assign to the User Pool.
 	Tags interface{}

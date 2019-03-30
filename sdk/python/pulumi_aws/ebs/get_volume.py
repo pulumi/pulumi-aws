@@ -31,8 +31,8 @@ class GetVolumeResult:
         """
         Whether the disk is encrypted.
         """
-        if iops and not isinstance(iops, int):
-            raise TypeError('Expected argument iops to be a int')
+        if iops and not isinstance(iops, float):
+            raise TypeError('Expected argument iops to be a float')
         __self__.iops = iops
         """
         The amount of IOPS for the disk.
@@ -43,8 +43,8 @@ class GetVolumeResult:
         """
         The ARN for the KMS encryption key.
         """
-        if size and not isinstance(size, int):
-            raise TypeError('Expected argument size to be a int')
+        if size and not isinstance(size, float):
+            raise TypeError('Expected argument size to be a float')
         __self__.size = size
         """
         The size of the drive in GiBs.

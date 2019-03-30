@@ -21,7 +21,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
     """
     The Amazon Resource Name (ARN) of the gateway.
     """
-    lun_number: pulumi.Output[int]
+    lun_number: pulumi.Output[float]
     """
     Logical disk number.
     """
@@ -29,7 +29,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
     """
     The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
     """
-    network_interface_port: pulumi.Output[int]
+    network_interface_port: pulumi.Output[float]
     """
     The port used to communicate with iSCSI targets.
     """
@@ -57,7 +57,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
     """
     Volume ID, e.g. `vol-12345678`.
     """
-    volume_size_in_bytes: pulumi.Output[int]
+    volume_size_in_bytes: pulumi.Output[float]
     """
     The size of the volume in bytes.
     """
@@ -80,7 +80,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_id: The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
         :param pulumi.Input[str] source_volume_arn: The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         :param pulumi.Input[str] target_name: The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
-        :param pulumi.Input[int] volume_size_in_bytes: The size of the volume in bytes.
+        :param pulumi.Input[float] volume_size_in_bytes: The size of the volume in bytes.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

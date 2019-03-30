@@ -317,8 +317,8 @@ export class Group extends pulumi.CustomResource {
     public readonly metricsGranularity: pulumi.Output<string | undefined>;
     /**
      * Setting this causes Terraform to wait for
-     * this number of instances to show up healthy in the ELB only on creation.
-     * Updates will not wait on ELB instance number changes.
+     * this number of instances from this autoscaling group to show up healthy in the
+     * ELB only on creation. Updates will not wait on ELB instance number changes.
      * (See also Waiting for Capacity below.)
      */
     public readonly minElbCapacity: pulumi.Output<number | undefined>;
@@ -372,7 +372,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly targetGroupArns: pulumi.Output<string[]>;
     /**
-     * A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `Default`.
+     * A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
      */
     public readonly terminationPolicies: pulumi.Output<string[] | undefined>;
     /**
@@ -382,9 +382,9 @@ export class Group extends pulumi.CustomResource {
     public readonly waitForCapacityTimeout: pulumi.Output<string | undefined>;
     /**
      * Setting this will cause Terraform to wait
-     * for exactly this number of healthy instances in all attached load balancers
-     * on both create and update operations. (Takes precedence over
-     * `min_elb_capacity` behavior.)
+     * for exactly this number of healthy instances from this autoscaling group in
+     * all attached load balancers on both create and update operations. (Takes
+     * precedence over `min_elb_capacity` behavior.)
      * (See also Waiting for Capacity below.)
      */
     public readonly waitForElbCapacity: pulumi.Output<number | undefined>;
@@ -554,8 +554,8 @@ export interface GroupState {
     readonly metricsGranularity?: pulumi.Input<string | MetricsGranularity>;
     /**
      * Setting this causes Terraform to wait for
-     * this number of instances to show up healthy in the ELB only on creation.
-     * Updates will not wait on ELB instance number changes.
+     * this number of instances from this autoscaling group to show up healthy in the
+     * ELB only on creation. Updates will not wait on ELB instance number changes.
      * (See also Waiting for Capacity below.)
      */
     readonly minElbCapacity?: pulumi.Input<number>;
@@ -609,7 +609,7 @@ export interface GroupState {
      */
     readonly targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `Default`.
+     * A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
      */
     readonly terminationPolicies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -619,9 +619,9 @@ export interface GroupState {
     readonly waitForCapacityTimeout?: pulumi.Input<string>;
     /**
      * Setting this will cause Terraform to wait
-     * for exactly this number of healthy instances in all attached load balancers
-     * on both create and update operations. (Takes precedence over
-     * `min_elb_capacity` behavior.)
+     * for exactly this number of healthy instances from this autoscaling group in
+     * all attached load balancers on both create and update operations. (Takes
+     * precedence over `min_elb_capacity` behavior.)
      * (See also Waiting for Capacity below.)
      */
     readonly waitForElbCapacity?: pulumi.Input<number>;
@@ -703,8 +703,8 @@ export interface GroupArgs {
     readonly metricsGranularity?: pulumi.Input<string | MetricsGranularity>;
     /**
      * Setting this causes Terraform to wait for
-     * this number of instances to show up healthy in the ELB only on creation.
-     * Updates will not wait on ELB instance number changes.
+     * this number of instances from this autoscaling group to show up healthy in the
+     * ELB only on creation. Updates will not wait on ELB instance number changes.
      * (See also Waiting for Capacity below.)
      */
     readonly minElbCapacity?: pulumi.Input<number>;
@@ -758,7 +758,7 @@ export interface GroupArgs {
      */
     readonly targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `Default`.
+     * A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
      */
     readonly terminationPolicies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -768,9 +768,9 @@ export interface GroupArgs {
     readonly waitForCapacityTimeout?: pulumi.Input<string>;
     /**
      * Setting this will cause Terraform to wait
-     * for exactly this number of healthy instances in all attached load balancers
-     * on both create and update operations. (Takes precedence over
-     * `min_elb_capacity` behavior.)
+     * for exactly this number of healthy instances from this autoscaling group in
+     * all attached load balancers on both create and update operations. (Takes
+     * precedence over `min_elb_capacity` behavior.)
      * (See also Waiting for Capacity below.)
      */
     readonly waitForElbCapacity?: pulumi.Input<number>;

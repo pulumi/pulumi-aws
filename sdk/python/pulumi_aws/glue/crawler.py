@@ -9,6 +9,10 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class Crawler(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The ARN of the crawler 
+    """
     classifiers: pulumi.Output[list]
     """
     List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
@@ -125,6 +129,8 @@ class Crawler(pulumi.CustomResource):
         __props__['security_configuration'] = security_configuration
 
         __props__['table_prefix'] = table_prefix
+
+        __props__['arn'] = None
 
         super(Crawler, __self__).__init__(
             'aws:glue/crawler:Crawler',

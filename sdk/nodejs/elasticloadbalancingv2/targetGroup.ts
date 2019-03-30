@@ -85,6 +85,10 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly healthCheck: pulumi.Output<{ healthyThreshold?: number, interval?: number, matcher: string, path: string, port?: string, protocol?: string, timeout: number, unhealthyThreshold?: number }>;
     /**
+     * Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+     */
+    public readonly lambdaMultiValueHeadersEnabled: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the target group. If omitted, Terraform will assign a random, unique name.
      */
     public readonly name: pulumi.Output<string>;
@@ -146,6 +150,7 @@ export class TargetGroup extends pulumi.CustomResource {
             inputs["arnSuffix"] = state ? state.arnSuffix : undefined;
             inputs["deregistrationDelay"] = state ? state.deregistrationDelay : undefined;
             inputs["healthCheck"] = state ? state.healthCheck : undefined;
+            inputs["lambdaMultiValueHeadersEnabled"] = state ? state.lambdaMultiValueHeadersEnabled : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
             inputs["port"] = state ? state.port : undefined;
@@ -160,6 +165,7 @@ export class TargetGroup extends pulumi.CustomResource {
             const args = argsOrState as TargetGroupArgs | undefined;
             inputs["deregistrationDelay"] = args ? args.deregistrationDelay : undefined;
             inputs["healthCheck"] = args ? args.healthCheck : undefined;
+            inputs["lambdaMultiValueHeadersEnabled"] = args ? args.lambdaMultiValueHeadersEnabled : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["port"] = args ? args.port : undefined;
@@ -197,6 +203,10 @@ export interface TargetGroupState {
      * A Health Check block. Health Check blocks are documented below.
      */
     readonly healthCheck?: pulumi.Input<{ healthyThreshold?: pulumi.Input<number>, interval?: pulumi.Input<number>, matcher?: pulumi.Input<string>, path?: pulumi.Input<string>, port?: pulumi.Input<string>, protocol?: pulumi.Input<string>, timeout?: pulumi.Input<number>, unhealthyThreshold?: pulumi.Input<number> }>;
+    /**
+     * Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+     */
+    readonly lambdaMultiValueHeadersEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the target group. If omitted, Terraform will assign a random, unique name.
      */
@@ -256,6 +266,10 @@ export interface TargetGroupArgs {
      * A Health Check block. Health Check blocks are documented below.
      */
     readonly healthCheck?: pulumi.Input<{ healthyThreshold?: pulumi.Input<number>, interval?: pulumi.Input<number>, matcher?: pulumi.Input<string>, path?: pulumi.Input<string>, port?: pulumi.Input<string>, protocol?: pulumi.Input<string>, timeout?: pulumi.Input<number>, unhealthyThreshold?: pulumi.Input<number> }>;
+    /**
+     * Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+     */
+    readonly lambdaMultiValueHeadersEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the target group. If omitted, Terraform will assign a random, unique name.
      */

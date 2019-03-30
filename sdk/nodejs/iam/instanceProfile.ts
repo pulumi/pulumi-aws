@@ -75,13 +75,13 @@ export class InstanceProfile extends pulumi.CustomResource {
     /**
      * The role name to include in the profile.
      */
-    public readonly role: pulumi.Output<Role>;
+    public readonly role: pulumi.Output<string>;
     /**
      * 
      * A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
      * WARNING: This is deprecated since [version 0.9.3 (April 12, 2017)](https://github.com/hashicorp/terraform/blob/master/CHANGELOG.md#093-april-12-2017), as >= 2 roles are not possible. See [issue #11575](https://github.com/hashicorp/terraform/issues/11575).
      */
-    public readonly roles: pulumi.Output<Role[]>;
+    public readonly roles: pulumi.Output<string[]>;
     /**
      * The [unique ID][1] assigned by AWS.
      */
@@ -149,13 +149,13 @@ export interface InstanceProfileState {
     /**
      * The role name to include in the profile.
      */
-    readonly role?: pulumi.Input<Role>;
+    readonly role?: pulumi.Input<string | Role>;
     /**
      * 
      * A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
      * WARNING: This is deprecated since [version 0.9.3 (April 12, 2017)](https://github.com/hashicorp/terraform/blob/master/CHANGELOG.md#093-april-12-2017), as >= 2 roles are not possible. See [issue #11575](https://github.com/hashicorp/terraform/issues/11575).
      */
-    readonly roles?: pulumi.Input<pulumi.Input<Role>[]>;
+    readonly roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
     /**
      * The [unique ID][1] assigned by AWS.
      */
@@ -181,11 +181,11 @@ export interface InstanceProfileArgs {
     /**
      * The role name to include in the profile.
      */
-    readonly role?: pulumi.Input<Role>;
+    readonly role?: pulumi.Input<string | Role>;
     /**
      * 
      * A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
      * WARNING: This is deprecated since [version 0.9.3 (April 12, 2017)](https://github.com/hashicorp/terraform/blob/master/CHANGELOG.md#093-april-12-2017), as >= 2 roles are not possible. See [issue #11575](https://github.com/hashicorp/terraform/issues/11575).
      */
-    readonly roles?: pulumi.Input<pulumi.Input<Role>[]>;
+    readonly roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
 }

@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the 
+// Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
 // [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
 type Endpoint struct {
 	s *pulumi.ResourceState
@@ -37,6 +37,7 @@ func NewEndpoint(ctx *pulumi.Context,
 		inputs["description"] = nil
 		inputs["dnsServers"] = nil
 		inputs["serverCertificateArn"] = nil
+		inputs["tags"] = nil
 		inputs["transportProtocol"] = nil
 	} else {
 		inputs["authenticationOptions"] = args.AuthenticationOptions
@@ -45,6 +46,7 @@ func NewEndpoint(ctx *pulumi.Context,
 		inputs["description"] = args.Description
 		inputs["dnsServers"] = args.DnsServers
 		inputs["serverCertificateArn"] = args.ServerCertificateArn
+		inputs["tags"] = args.Tags
 		inputs["transportProtocol"] = args.TransportProtocol
 	}
 	inputs["dnsName"] = nil
@@ -70,6 +72,7 @@ func GetEndpoint(ctx *pulumi.Context,
 		inputs["dnsServers"] = state.DnsServers
 		inputs["serverCertificateArn"] = state.ServerCertificateArn
 		inputs["status"] = state.Status
+		inputs["tags"] = state.Tags
 		inputs["transportProtocol"] = state.TransportProtocol
 	}
 	s, err := ctx.ReadResource("aws:ec2clientvpn/endpoint:Endpoint", name, id, inputs, opts...)
@@ -129,6 +132,11 @@ func (r *Endpoint) Status() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["status"])
 }
 
+// A mapping of tags to assign to the resource.
+func (r *Endpoint) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // The transport protocol to be used by the VPN session. Default value is `udp`.
 func (r *Endpoint) TransportProtocol() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["transportProtocol"])
@@ -152,6 +160,8 @@ type EndpointState struct {
 	ServerCertificateArn interface{}
 	// The current state of the Client VPN endpoint.
 	Status interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol interface{}
 }
@@ -170,6 +180,8 @@ type EndpointArgs struct {
 	DnsServers interface{}
 	// The ARN of the ACM server certificate.
 	ServerCertificateArn interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol interface{}
 }

@@ -109,7 +109,6 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
     public readonly computeResources: pulumi.Output<{ bidPercentage?: number, desiredVcpus?: number, ec2KeyPair?: string, imageId?: string, instanceRole: string, instanceTypes: string[], maxVcpus: number, minVcpus: number, securityGroupIds: string[], spotIamFleetRole?: string, subnets: string[], tags?: {[key: string]: any}, type: string } | undefined>;
-    public /*out*/ readonly eccClusterArn: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
      */
@@ -150,7 +149,6 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["computeEnvironmentName"] = state ? state.computeEnvironmentName : undefined;
             inputs["computeResources"] = state ? state.computeResources : undefined;
-            inputs["eccClusterArn"] = state ? state.eccClusterArn : undefined;
             inputs["ecsClusterArn"] = state ? state.ecsClusterArn : undefined;
             inputs["serviceRole"] = state ? state.serviceRole : undefined;
             inputs["state"] = state ? state.state : undefined;
@@ -174,7 +172,6 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             inputs["state"] = args ? args.state : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
-            inputs["eccClusterArn"] = undefined /*out*/;
             inputs["ecsClusterArn"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["statusReason"] = undefined /*out*/;
@@ -199,7 +196,6 @@ export interface ComputeEnvironmentState {
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
     readonly computeResources?: pulumi.Input<{ bidPercentage?: pulumi.Input<number>, desiredVcpus?: pulumi.Input<number>, ec2KeyPair?: pulumi.Input<string>, imageId?: pulumi.Input<string>, instanceRole: pulumi.Input<string>, instanceTypes: pulumi.Input<pulumi.Input<string>[]>, maxVcpus: pulumi.Input<number>, minVcpus: pulumi.Input<number>, securityGroupIds: pulumi.Input<pulumi.Input<string>[]>, spotIamFleetRole?: pulumi.Input<string>, subnets: pulumi.Input<pulumi.Input<string>[]>, tags?: pulumi.Input<{[key: string]: any}>, type: pulumi.Input<string> }>;
-    readonly eccClusterArn?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
      */

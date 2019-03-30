@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
  *     engine: "mysql",
  *     engineVersion: "5.6.17",
  *     instanceClass: "db.t2.micro",
+ *     name: "mydb",
  *     parameterGroupName: "default.mysql5.6",
  *     password: "bar",
  *     username: "foo",
@@ -33,6 +34,7 @@ import * as utilities from "../utilities";
  * // Use the latest production snapshot to create a dev instance.
  * const dev = new aws.rds.Instance("dev", {
  *     instanceClass: "db.t2.micro",
+ *     name: "mydbdev",
  *     snapshotIdentifier: latestProdSnapshot.apply(latestProdSnapshot => latestProdSnapshot.id),
  * });
  * ```

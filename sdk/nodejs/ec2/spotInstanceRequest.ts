@@ -79,7 +79,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly blockDurationMinutes: pulumi.Output<number | undefined>;
     /**
-     * Sets the number of CPU cores for an instance. This option is 
+     * Sets the number of CPU cores for an instance. This option is
      * only supported on creation of instance type that support CPU Options
      * [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      */
@@ -99,7 +99,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     public readonly disableApiTermination: pulumi.Output<boolean | undefined>;
     /**
      * Additional EBS block devices to attach to the
-     * instance.  See Block Devices below for details.
+     * instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
      */
     public readonly ebsBlockDevices: pulumi.Output<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeId: string, volumeSize: number, volumeType: string }[]>;
     /**
@@ -167,7 +167,6 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
     public readonly networkInterfaces: pulumi.Output<{ deleteOnTermination?: boolean, deviceIndex: number, networkInterfaceId: string }[]>;
-    public /*out*/ readonly networkInterfaceId: pulumi.Output<string>;
     public /*out*/ readonly passwordData: pulumi.Output<string>;
     /**
      * The Placement Group to start the instance in.
@@ -312,7 +311,6 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["launchGroup"] = state ? state.launchGroup : undefined;
             inputs["monitoring"] = state ? state.monitoring : undefined;
             inputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
-            inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             inputs["passwordData"] = state ? state.passwordData : undefined;
             inputs["placementGroup"] = state ? state.placementGroup : undefined;
             inputs["primaryNetworkInterfaceId"] = state ? state.primaryNetworkInterfaceId : undefined;
@@ -388,7 +386,6 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["waitForFulfillment"] = args ? args.waitForFulfillment : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["instanceState"] = undefined /*out*/;
-            inputs["networkInterfaceId"] = undefined /*out*/;
             inputs["passwordData"] = undefined /*out*/;
             inputs["primaryNetworkInterfaceId"] = undefined /*out*/;
             inputs["privateDns"] = undefined /*out*/;
@@ -426,7 +423,7 @@ export interface SpotInstanceRequestState {
      */
     readonly blockDurationMinutes?: pulumi.Input<number>;
     /**
-     * Sets the number of CPU cores for an instance. This option is 
+     * Sets the number of CPU cores for an instance. This option is
      * only supported on creation of instance type that support CPU Options
      * [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      */
@@ -446,7 +443,7 @@ export interface SpotInstanceRequestState {
     readonly disableApiTermination?: pulumi.Input<boolean>;
     /**
      * Additional EBS block devices to attach to the
-     * instance.  See Block Devices below for details.
+     * instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
      */
     readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
     /**
@@ -514,7 +511,6 @@ export interface SpotInstanceRequestState {
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
     readonly networkInterfaces?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceIndex: pulumi.Input<number>, networkInterfaceId: pulumi.Input<string> }>[]>;
-    readonly networkInterfaceId?: pulumi.Input<string>;
     readonly passwordData?: pulumi.Input<string>;
     /**
      * The Placement Group to start the instance in.
@@ -646,7 +642,7 @@ export interface SpotInstanceRequestArgs {
      */
     readonly blockDurationMinutes?: pulumi.Input<number>;
     /**
-     * Sets the number of CPU cores for an instance. This option is 
+     * Sets the number of CPU cores for an instance. This option is
      * only supported on creation of instance type that support CPU Options
      * [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      */
@@ -666,7 +662,7 @@ export interface SpotInstanceRequestArgs {
     readonly disableApiTermination?: pulumi.Input<boolean>;
     /**
      * Additional EBS block devices to attach to the
-     * instance.  See Block Devices below for details.
+     * instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
      */
     readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<{ deleteOnTermination?: pulumi.Input<boolean>, deviceName: pulumi.Input<string>, encrypted?: pulumi.Input<boolean>, iops?: pulumi.Input<number>, snapshotId?: pulumi.Input<string>, volumeId?: pulumi.Input<string>, volumeSize?: pulumi.Input<number>, volumeType?: pulumi.Input<string> }>[]>;
     /**

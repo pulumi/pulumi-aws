@@ -67,8 +67,8 @@ class GetStackResult:
         """
         Structure containing the template body.
         """
-        if timeout_in_minutes and not isinstance(timeout_in_minutes, int):
-            raise TypeError('Expected argument timeout_in_minutes to be a int')
+        if timeout_in_minutes and not isinstance(timeout_in_minutes, float):
+            raise TypeError('Expected argument timeout_in_minutes to be a float')
         __self__.timeout_in_minutes = timeout_in_minutes
         """
         The amount of time that can pass before the stack status becomes `CREATE_FAILED`

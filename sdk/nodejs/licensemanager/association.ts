@@ -19,17 +19,12 @@ import * as utilities from "../utilities";
  *     licenseCountingType: "Instance",
  * });
  * const exampleAmi = pulumi.output(aws.getAmi({
- *     filters: [
- *         {
- *             name: "owner-alias",
- *             values: ["amazon"],
- *         },
- *         {
- *             name: "name",
- *             values: ["amzn-ami-vpc-nat*"],
- *         },
- *     ],
+ *     filters: [{
+ *         name: "name",
+ *         values: ["amzn-ami-vpc-nat*"],
+ *     }],
  *     mostRecent: true,
+ *     owners: ["amazon"],
  * }));
  * const exampleInstance = new aws.ec2.Instance("example", {
  *     ami: exampleAmi.apply(exampleAmi => exampleAmi.id),

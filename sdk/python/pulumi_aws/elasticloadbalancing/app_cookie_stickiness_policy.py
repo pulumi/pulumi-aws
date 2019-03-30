@@ -13,7 +13,7 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
     """
     The application cookie whose lifetime the ELB's cookie should follow.
     """
-    lb_port: pulumi.Output[int]
+    lb_port: pulumi.Output[float]
     """
     The load balancer port to which the policy
     should be applied. This must be an active listener on the load
@@ -35,7 +35,7 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cookie_name: The application cookie whose lifetime the ELB's cookie should follow.
-        :param pulumi.Input[int] lb_port: The load balancer port to which the policy
+        :param pulumi.Input[float] lb_port: The load balancer port to which the policy
                should be applied. This must be an active listener on the load
                balancer.
         :param pulumi.Input[str] load_balancer: The name of load balancer to which the policy

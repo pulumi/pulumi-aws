@@ -12,7 +12,7 @@ class GetElasticIpResult:
     """
     A collection of values returned by getElasticIp.
     """
-    def __init__(__self__, association_id=None, domain=None, id=None, instance_id=None, network_interface_id=None, network_interface_owner_id=None, private_ip=None, public_ip=None, public_ipv4_pool=None, tags=None):
+    def __init__(__self__, association_id=None, domain=None, id=None, instance_id=None, network_interface_id=None, network_interface_owner_id=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, public_ipv4_pool=None, tags=None):
         if association_id and not isinstance(association_id, str):
             raise TypeError('Expected argument association_id to be a str')
         __self__.association_id = association_id
@@ -49,11 +49,23 @@ class GetElasticIpResult:
         """
         The ID of the AWS account that owns the network interface.
         """
+        if private_dns and not isinstance(private_dns, str):
+            raise TypeError('Expected argument private_dns to be a str')
+        __self__.private_dns = private_dns
+        """
+        The Private DNS associated with the Elastic IP address.
+        """
         if private_ip and not isinstance(private_ip, str):
             raise TypeError('Expected argument private_ip to be a str')
         __self__.private_ip = private_ip
         """
         The private IP address associated with the Elastic IP address.
+        """
+        if public_dns and not isinstance(public_dns, str):
+            raise TypeError('Expected argument public_dns to be a str')
+        __self__.public_dns = public_dns
+        """
+        Public DNS associated with the Elastic IP address.
         """
         if public_ip and not isinstance(public_ip, str):
             raise TypeError('Expected argument public_ip to be a str')
@@ -93,7 +105,9 @@ async def get_elastic_ip(filters=None,id=None,public_ip=None,tags=None,opts=None
         instance_id=__ret__.get('instanceId'),
         network_interface_id=__ret__.get('networkInterfaceId'),
         network_interface_owner_id=__ret__.get('networkInterfaceOwnerId'),
+        private_dns=__ret__.get('privateDns'),
         private_ip=__ret__.get('privateIp'),
+        public_dns=__ret__.get('publicDns'),
         public_ip=__ret__.get('publicIp'),
         public_ipv4_pool=__ret__.get('publicIpv4Pool'),
         tags=__ret__.get('tags'))

@@ -52,11 +52,6 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly availabilityZone: pulumi.Output<string>;
     /**
-     * The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
-     * For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-     */
-    public readonly bucketName: pulumi.Output<string>;
-    /**
      * The Cluster Identifier. Must be a lower case
      * string.
      */
@@ -103,7 +98,6 @@ export class Cluster extends pulumi.CustomResource {
      * The Elastic IP (EIP) address for the cluster.
      */
     public readonly elasticIp: pulumi.Output<string | undefined>;
-    public readonly enableLogging: pulumi.Output<boolean>;
     /**
      * If true , the data in the cluster is encrypted at rest.
      */
@@ -169,10 +163,6 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly publiclyAccessible: pulumi.Output<boolean | undefined>;
     /**
-     * The prefix applied to the log file names.
-     */
-    public readonly s3KeyPrefix: pulumi.Output<string>;
-    /**
      * Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
      */
     public readonly skipFinalSnapshot: pulumi.Output<boolean | undefined>;
@@ -212,7 +202,6 @@ export class Cluster extends pulumi.CustomResource {
             inputs["allowVersionUpgrade"] = state ? state.allowVersionUpgrade : undefined;
             inputs["automatedSnapshotRetentionPeriod"] = state ? state.automatedSnapshotRetentionPeriod : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["bucketName"] = state ? state.bucketName : undefined;
             inputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
             inputs["clusterParameterGroupName"] = state ? state.clusterParameterGroupName : undefined;
             inputs["clusterPublicKey"] = state ? state.clusterPublicKey : undefined;
@@ -224,7 +213,6 @@ export class Cluster extends pulumi.CustomResource {
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["dnsName"] = state ? state.dnsName : undefined;
             inputs["elasticIp"] = state ? state.elasticIp : undefined;
-            inputs["enableLogging"] = state ? state.enableLogging : undefined;
             inputs["encrypted"] = state ? state.encrypted : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["enhancedVpcRouting"] = state ? state.enhancedVpcRouting : undefined;
@@ -240,7 +228,6 @@ export class Cluster extends pulumi.CustomResource {
             inputs["port"] = state ? state.port : undefined;
             inputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
             inputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
-            inputs["s3KeyPrefix"] = state ? state.s3KeyPrefix : undefined;
             inputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
             inputs["snapshotClusterIdentifier"] = state ? state.snapshotClusterIdentifier : undefined;
             inputs["snapshotCopy"] = state ? state.snapshotCopy : undefined;
@@ -258,7 +245,6 @@ export class Cluster extends pulumi.CustomResource {
             inputs["allowVersionUpgrade"] = args ? args.allowVersionUpgrade : undefined;
             inputs["automatedSnapshotRetentionPeriod"] = args ? args.automatedSnapshotRetentionPeriod : undefined;
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["bucketName"] = args ? args.bucketName : undefined;
             inputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             inputs["clusterParameterGroupName"] = args ? args.clusterParameterGroupName : undefined;
             inputs["clusterPublicKey"] = args ? args.clusterPublicKey : undefined;
@@ -269,7 +255,6 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterVersion"] = args ? args.clusterVersion : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["elasticIp"] = args ? args.elasticIp : undefined;
-            inputs["enableLogging"] = args ? args.enableLogging : undefined;
             inputs["encrypted"] = args ? args.encrypted : undefined;
             inputs["endpoint"] = args ? args.endpoint : undefined;
             inputs["enhancedVpcRouting"] = args ? args.enhancedVpcRouting : undefined;
@@ -285,7 +270,6 @@ export class Cluster extends pulumi.CustomResource {
             inputs["port"] = args ? args.port : undefined;
             inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
-            inputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
             inputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
             inputs["snapshotClusterIdentifier"] = args ? args.snapshotClusterIdentifier : undefined;
             inputs["snapshotCopy"] = args ? args.snapshotCopy : undefined;
@@ -314,11 +298,6 @@ export interface ClusterState {
      * The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
      */
     readonly availabilityZone?: pulumi.Input<string>;
-    /**
-     * The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
-     * For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-     */
-    readonly bucketName?: pulumi.Input<string>;
     /**
      * The Cluster Identifier. Must be a lower case
      * string.
@@ -366,7 +345,6 @@ export interface ClusterState {
      * The Elastic IP (EIP) address for the cluster.
      */
     readonly elasticIp?: pulumi.Input<string>;
-    readonly enableLogging?: pulumi.Input<boolean>;
     /**
      * If true , the data in the cluster is encrypted at rest.
      */
@@ -432,10 +410,6 @@ export interface ClusterState {
      */
     readonly publiclyAccessible?: pulumi.Input<boolean>;
     /**
-     * The prefix applied to the log file names.
-     */
-    readonly s3KeyPrefix?: pulumi.Input<string>;
-    /**
      * Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
      */
     readonly skipFinalSnapshot?: pulumi.Input<boolean>;
@@ -477,11 +451,6 @@ export interface ClusterArgs {
      * The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
      */
     readonly availabilityZone?: pulumi.Input<string>;
-    /**
-     * The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
-     * For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-     */
-    readonly bucketName?: pulumi.Input<string>;
     /**
      * The Cluster Identifier. Must be a lower case
      * string.
@@ -525,7 +494,6 @@ export interface ClusterArgs {
      * The Elastic IP (EIP) address for the cluster.
      */
     readonly elasticIp?: pulumi.Input<string>;
-    readonly enableLogging?: pulumi.Input<boolean>;
     /**
      * If true , the data in the cluster is encrypted at rest.
      */
@@ -590,10 +558,6 @@ export interface ClusterArgs {
      * If true, the cluster can be accessed from a public network. Default is `true`.
      */
     readonly publiclyAccessible?: pulumi.Input<boolean>;
-    /**
-     * The prefix applied to the log file names.
-     */
-    readonly s3KeyPrefix?: pulumi.Input<string>;
     /**
      * Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
      */

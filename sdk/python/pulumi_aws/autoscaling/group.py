@@ -17,11 +17,11 @@ class Group(pulumi.CustomResource):
     """
     A list of one or more availability zones for the group. This parameter should not be specified when using `vpc_zone_identifier`.
     """
-    default_cooldown: pulumi.Output[int]
+    default_cooldown: pulumi.Output[float]
     """
     The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
     """
-    desired_capacity: pulumi.Output[int]
+    desired_capacity: pulumi.Output[float]
     """
     The number of Amazon EC2 instances that
     should be running in the group. (See also Waiting for
@@ -44,7 +44,7 @@ class Group(pulumi.CustomResource):
     drains all the instances before deleting the group.  This bypasses that
     behavior and potentially leaves resources dangling.
     """
-    health_check_grace_period: pulumi.Output[int]
+    health_check_grace_period: pulumi.Output[float]
     """
     Time (in seconds) after instance comes into service before checking health.
     """
@@ -75,7 +75,7 @@ class Group(pulumi.CustomResource):
     A list of elastic load balancer names to add to the autoscaling
     group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
     """
-    max_size: pulumi.Output[int]
+    max_size: pulumi.Output[float]
     """
     The maximum size of the auto scale group.
     """
@@ -83,14 +83,14 @@ class Group(pulumi.CustomResource):
     """
     The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
     """
-    min_elb_capacity: pulumi.Output[int]
+    min_elb_capacity: pulumi.Output[float]
     """
     Setting this causes Terraform to wait for
-    this number of instances to show up healthy in the ELB only on creation.
-    Updates will not wait on ELB instance number changes.
+    this number of instances from this autoscaling group to show up healthy in the
+    ELB only on creation. Updates will not wait on ELB instance number changes.
     (See also Waiting for Capacity below.)
     """
-    min_size: pulumi.Output[int]
+    min_size: pulumi.Output[float]
     """
     The minimum size of the auto scale group.
     (See also Waiting for Capacity below.)
@@ -141,19 +141,19 @@ class Group(pulumi.CustomResource):
     """
     termination_policies: pulumi.Output[list]
     """
-    A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `Default`.
+    A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
     """
     vpc_zone_identifiers: pulumi.Output[list]
     """
     A list of subnet IDs to launch resources in.
     """
     wait_for_capacity_timeout: pulumi.Output[str]
-    wait_for_elb_capacity: pulumi.Output[int]
+    wait_for_elb_capacity: pulumi.Output[float]
     """
     Setting this will cause Terraform to wait
-    for exactly this number of healthy instances in all attached load balancers
-    on both create and update operations. (Takes precedence over
-    `min_elb_capacity` behavior.)
+    for exactly this number of healthy instances from this autoscaling group in
+    all attached load balancers on both create and update operations. (Takes
+    precedence over `min_elb_capacity` behavior.)
     (See also Waiting for Capacity below.)
     """
     def __init__(__self__, resource_name, opts=None, availability_zones=None, default_cooldown=None, desired_capacity=None, enabled_metrics=None, force_delete=None, health_check_grace_period=None, health_check_type=None, initial_lifecycle_hooks=None, launch_configuration=None, launch_template=None, load_balancers=None, max_size=None, metrics_granularity=None, min_elb_capacity=None, min_size=None, mixed_instances_policy=None, name=None, name_prefix=None, placement_group=None, protect_from_scale_in=None, service_linked_role_arn=None, suspended_processes=None, tags=None, tags_collection=None, target_group_arns=None, termination_policies=None, vpc_zone_identifiers=None, wait_for_capacity_timeout=None, wait_for_elb_capacity=None, __name__=None, __opts__=None):
@@ -227,8 +227,8 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] availability_zones: A list of one or more availability zones for the group. This parameter should not be specified when using `vpc_zone_identifier`.
-        :param pulumi.Input[int] default_cooldown: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
-        :param pulumi.Input[int] desired_capacity: The number of Amazon EC2 instances that
+        :param pulumi.Input[float] default_cooldown: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+        :param pulumi.Input[float] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
                Capacity below.)
         :param pulumi.Input[list] enabled_metrics: A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
@@ -242,7 +242,7 @@ class Group(pulumi.CustomResource):
                even if it's in the process of scaling a resource. Normally, Terraform
                drains all the instances before deleting the group.  This bypasses that
                behavior and potentially leaves resources dangling.
-        :param pulumi.Input[int] health_check_grace_period: Time (in seconds) after instance comes into service before checking health.
+        :param pulumi.Input[float] health_check_grace_period: Time (in seconds) after instance comes into service before checking health.
         :param pulumi.Input[str] health_check_type: "EC2" or "ELB". Controls how health checking is done.
         :param pulumi.Input[list] initial_lifecycle_hooks: One or more
                [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
@@ -255,13 +255,13 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[dict] launch_template: Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
         :param pulumi.Input[list] load_balancers: A list of elastic load balancer names to add to the autoscaling
                group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
-        :param pulumi.Input[int] max_size: The maximum size of the auto scale group.
+        :param pulumi.Input[float] max_size: The maximum size of the auto scale group.
         :param pulumi.Input[str] metrics_granularity: The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
-        :param pulumi.Input[int] min_elb_capacity: Setting this causes Terraform to wait for
-               this number of instances to show up healthy in the ELB only on creation.
-               Updates will not wait on ELB instance number changes.
+        :param pulumi.Input[float] min_elb_capacity: Setting this causes Terraform to wait for
+               this number of instances from this autoscaling group to show up healthy in the
+               ELB only on creation. Updates will not wait on ELB instance number changes.
                (See also Waiting for Capacity below.)
-        :param pulumi.Input[int] min_size: The minimum size of the auto scale group.
+        :param pulumi.Input[float] min_size: The minimum size of the auto scale group.
                (See also Waiting for Capacity below.)
         :param pulumi.Input[dict] mixed_instances_policy: Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
         :param pulumi.Input[str] name: The name of the auto scaling group. By default generated by Terraform.
@@ -277,12 +277,12 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[list] tags: A list of tag blocks. Tags documented below.
         :param pulumi.Input[list] tags_collection: A list of tag blocks (maps). Tags documented below.
         :param pulumi.Input[list] target_group_arns: A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
-        :param pulumi.Input[list] termination_policies: A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `Default`.
+        :param pulumi.Input[list] termination_policies: A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
         :param pulumi.Input[list] vpc_zone_identifiers: A list of subnet IDs to launch resources in.
-        :param pulumi.Input[int] wait_for_elb_capacity: Setting this will cause Terraform to wait
-               for exactly this number of healthy instances in all attached load balancers
-               on both create and update operations. (Takes precedence over
-               `min_elb_capacity` behavior.)
+        :param pulumi.Input[float] wait_for_elb_capacity: Setting this will cause Terraform to wait
+               for exactly this number of healthy instances from this autoscaling group in
+               all attached load balancers on both create and update operations. (Takes
+               precedence over `min_elb_capacity` behavior.)
                (See also Waiting for Capacity below.)
         """
         if __name__ is not None:

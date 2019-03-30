@@ -19,8 +19,8 @@ class GetClusterResult:
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError('Expected argument availability_zones to be a list')
         __self__.availability_zones = availability_zones
-        if backup_retention_period and not isinstance(backup_retention_period, int):
-            raise TypeError('Expected argument backup_retention_period to be a int')
+        if backup_retention_period and not isinstance(backup_retention_period, float):
+            raise TypeError('Expected argument backup_retention_period to be a float')
         __self__.backup_retention_period = backup_retention_period
         if cluster_members and not isinstance(cluster_members, list):
             raise TypeError('Expected argument cluster_members to be a list')
@@ -64,8 +64,8 @@ class GetClusterResult:
         if master_username and not isinstance(master_username, str):
             raise TypeError('Expected argument master_username to be a str')
         __self__.master_username = master_username
-        if port and not isinstance(port, int):
-            raise TypeError('Expected argument port to be a int')
+        if port and not isinstance(port, float):
+            raise TypeError('Expected argument port to be a float')
         __self__.port = port
         if preferred_backup_window and not isinstance(preferred_backup_window, str):
             raise TypeError('Expected argument preferred_backup_window to be a str')

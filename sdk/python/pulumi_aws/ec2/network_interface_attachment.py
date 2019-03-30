@@ -13,7 +13,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
     """
     The ENI Attachment ID.
     """
-    device_index: pulumi.Output[int]
+    device_index: pulumi.Output[float]
     """
     Network interface index (int).
     """
@@ -35,7 +35,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] device_index: Network interface index (int).
+        :param pulumi.Input[float] device_index: Network interface index (int).
         :param pulumi.Input[str] instance_id: Instance ID to attach.
         :param pulumi.Input[str] network_interface_id: ENI ID to attach.
         """

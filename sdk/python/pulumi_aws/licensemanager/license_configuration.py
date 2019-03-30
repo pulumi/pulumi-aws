@@ -13,7 +13,7 @@ class LicenseConfiguration(pulumi.CustomResource):
     """
     Description of the license configuration.
     """
-    license_count: pulumi.Output[int]
+    license_count: pulumi.Output[float]
     """
     Number of licenses managed by the license configuration.
     """
@@ -58,7 +58,7 @@ class LicenseConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the license configuration.
-        :param pulumi.Input[int] license_count: Number of licenses managed by the license configuration.
+        :param pulumi.Input[float] license_count: Number of licenses managed by the license configuration.
         :param pulumi.Input[bool] license_count_hard_limit: Sets the number of available licenses as a hard limit.
         :param pulumi.Input[str] license_counting_type: Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
         :param pulumi.Input[list] license_rules: Array of configured License Manager rules.

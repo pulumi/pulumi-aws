@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  *     clusterConfig: {
  *         instanceType: "r4.large.elasticsearch",
  *     },
- *     domainName: "example",
  *     elasticsearchVersion: "1.5",
  *     snapshotOptions: {
  *         automatedSnapshotStartHour: 23,
@@ -59,7 +58,6 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `),
- *     domainName: domain,
  * });
  * ```
  * 
@@ -143,7 +141,6 @@ import * as utilities from "../utilities";
  *     clusterConfig: {
  *         instanceType: "m4.large.elasticsearch",
  *     },
- *     domainName: domain,
  *     elasticsearchVersion: "6.3",
  *     snapshotOptions: {
  *         automatedSnapshotStartHour: 23,

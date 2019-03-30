@@ -127,7 +127,7 @@ func (r *MetricAlarm) ActionsEnabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["actionsEnabled"])
 }
 
-// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Number (ARN).
+// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 func (r *MetricAlarm) AlarmActions() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["alarmActions"])
 }
@@ -182,7 +182,7 @@ func (r *MetricAlarm) ExtendedStatistic() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["extendedStatistic"])
 }
 
-// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Number (ARN).
+// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 func (r *MetricAlarm) InsufficientDataActions() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["insufficientDataActions"])
 }
@@ -204,7 +204,7 @@ func (r *MetricAlarm) Namespace() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namespace"])
 }
 
-// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Number (ARN).
+// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 func (r *MetricAlarm) OkActions() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["okActions"])
 }
@@ -239,7 +239,7 @@ func (r *MetricAlarm) Unit() *pulumi.StringOutput {
 type MetricAlarmState struct {
 	// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
 	ActionsEnabled interface{}
-	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Number (ARN).
+	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	AlarmActions interface{}
 	// The description for the alarm.
 	AlarmDescription interface{}
@@ -264,7 +264,7 @@ type MetricAlarmState struct {
 	EvaluationPeriods interface{}
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic interface{}
-	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Number (ARN).
+	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	InsufficientDataActions interface{}
 	// The name for this metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -274,7 +274,7 @@ type MetricAlarmState struct {
 	// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Namespace interface{}
-	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Number (ARN).
+	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions interface{}
 	// The period in seconds over which the specified `stat` is applied.
 	Period interface{}
@@ -293,7 +293,7 @@ type MetricAlarmState struct {
 type MetricAlarmArgs struct {
 	// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
 	ActionsEnabled interface{}
-	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Number (ARN).
+	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	AlarmActions interface{}
 	// The description for the alarm.
 	AlarmDescription interface{}
@@ -316,7 +316,7 @@ type MetricAlarmArgs struct {
 	EvaluationPeriods interface{}
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic interface{}
-	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Number (ARN).
+	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	InsufficientDataActions interface{}
 	// The name for this metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -326,7 +326,7 @@ type MetricAlarmArgs struct {
 	// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Namespace interface{}
-	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Number (ARN).
+	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions interface{}
 	// The period in seconds over which the specified `stat` is applied.
 	Period interface{}

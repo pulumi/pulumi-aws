@@ -19,6 +19,7 @@ import (
 	"strings"
 	"unicode"
 
+	"github.com/hashicorp/aws-sdk-go-base"
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/hashicorp/terraform/terraform"
 	homedir "github.com/mitchellh/go-homedir"
@@ -173,7 +174,7 @@ func stringValue(vars resource.PropertyMap, prop resource.PropertyKey) string {
 // configuration subset of `github.com/terraform-providers/terraform-provider-aws/aws.providerConfigure`.  We do this
 // before passing control to the TF provider to ensure we can report actionable errors.
 func preConfigureCallback(vars resource.PropertyMap, c *terraform.ResourceConfig) error {
-	config := &aws.Config{
+	config := &awsbase.Config{
 		AccessKey: stringValue(vars, "accessKey"),
 		SecretKey: stringValue(vars, "secretKey"),
 		Profile:   stringValue(vars, "profile"),
@@ -190,7 +191,7 @@ func preConfigureCallback(vars resource.PropertyMap, c *terraform.ResourceConfig
 	// TODO[pulumi/pulumi-terraform#48] We should also be setting `config.AssumeRole*` here, but we are currently
 	// blocked on not being able to read out list-valued provider config.
 
-	creds, err := aws.GetCredentials(config)
+	creds, err := awsbase.GetCredentials(config)
 	if err != nil {
 		return errors.New("unable to discover AWS AccessKeyID and/or SecretAccessKey " +
 			"- see https://pulumi.io/install/aws.html for details on configuration")
@@ -961,15 +962,6 @@ func Provider() tfbridge.ProviderInfo {
 				Docs: &tfbridge.DocInfo{
 					Source: "lb_listener.html.markdown",
 				},
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// Force this to be projected as a singleton for backward compatibility and to continue to match
-					// `aws_lb_listener`.  Both of these are wrong though, and the MaxItemsOne overrride should be
-					// removed.  This will be a breaking change, so leaving as is for now.
-					"default_action": {
-						Name:        "defaultAction",
-						MaxItemsOne: boolRef(true),
-					},
-				},
 			},
 			"aws_alb_listener_certificate": {
 				Tok: awsResource(albMod, "ListenerCertificate"),
@@ -996,18 +988,8 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Load Balancing (Application and Network)
-			"aws_lb": {Tok: awsResource(elbv2Mod, "LoadBalancer")},
-			"aws_lb_listener": {
-				Tok: awsResource(elbv2Mod, "Listener"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// This is wrong, but leaving as is for now for backward compatibility.  When a breaking change is
-					// acceptable we should remove this and project this property as `default_actions`.
-					"default_action": {
-						Name:        "defaultAction",
-						MaxItemsOne: boolRef(true),
-					},
-				},
-			},
+			"aws_lb":                         {Tok: awsResource(elbv2Mod, "LoadBalancer")},
+			"aws_lb_listener":                {Tok: awsResource(elbv2Mod, "Listener")},
 			"aws_lb_listener_certificate":    {Tok: awsResource(elbv2Mod, "ListenerCertificate")},
 			"aws_lb_listener_rule":           {Tok: awsResource(elbv2Mod, "ListenerRule")},
 			"aws_lb_target_group":            {Tok: awsResource(elbv2Mod, "TargetGroup")},
@@ -1054,6 +1036,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_glacier_vault_lock": {Tok: awsResource(glacierMod, "VaultLock")},
 			// Global Accelerator
 			"aws_globalaccelerator_accelerator": {Tok: awsResource(globalacceleratorMod, "Accelerator")},
+			"aws_globalaccelerator_listener":    {Tok: awsResource(globalacceleratorMod, "Listener")},
 			// Glue
 			"aws_glue_catalog_database":       {Tok: awsResource(glueMod, "CatalogDatabase")},
 			"aws_glue_catalog_table":          {Tok: awsResource(glueMod, "CatalogTable")},
@@ -1064,10 +1047,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_glue_security_configuration": {Tok: awsResource(glueMod, "SecurityConfiguration")},
 			"aws_glue_trigger":                {Tok: awsResource(glueMod, "Trigger")},
 			// GuardDuty
-			"aws_guardduty_detector":       {Tok: awsResource(guarddutyMod, "Detector")},
-			"aws_guardduty_ipset":          {Tok: awsResource(guarddutyMod, "IPSet")},
-			"aws_guardduty_member":         {Tok: awsResource(guarddutyMod, "Member")},
-			"aws_guardduty_threatintelset": {Tok: awsResource(guarddutyMod, "ThreatIntelSet")},
+			"aws_guardduty_detector":        {Tok: awsResource(guarddutyMod, "Detector")},
+			"aws_guardduty_invite_accepter": {Tok: awsResource(guarddutyMod, "InviteAccepter")},
+			"aws_guardduty_ipset":           {Tok: awsResource(guarddutyMod, "IPSet")},
+			"aws_guardduty_member":          {Tok: awsResource(guarddutyMod, "Member")},
+			"aws_guardduty_threatintelset":  {Tok: awsResource(guarddutyMod, "ThreatIntelSet")},
 			// Identity and Access Management (IAM)
 			"aws_iam_access_key":              {Tok: awsResource(iamMod, "AccessKey")},
 			"aws_iam_account_alias":           {Tok: awsResource(iamMod, "AccountAlias")},
@@ -1100,9 +1084,15 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_instance_profile": {
 				Tok: awsResource(iamMod, "InstanceProfile"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"role": {Type: awsResource(iamMod, "Role")},
+					"role": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(iamMod+"/role", "Role")},
+					},
 					"roles": {
-						Elem: &tfbridge.SchemaInfo{Type: awsResource(iamMod, "Role")},
+						Elem: &tfbridge.SchemaInfo{
+							Type:     "string",
+							AltTypes: []tokens.Type{awsType(iamMod+"/role", "Role")},
+						},
 					},
 				},
 			},
@@ -1132,7 +1122,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_role_policy_attachment": {
 				Tok: awsResource(iamMod, "RolePolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"role": {Type: awsType(iamMod+"/role", "Role")},
+					"role": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(iamMod+"/role", "Role")},
+					},
 					"policy_arn": {
 						Name: "policyArn",
 						Type: awsType(awsMod, "ARN"),
@@ -1455,10 +1448,13 @@ func Provider() tfbridge.ProviderInfo {
 			// Resource Groups
 			"aws_resourcegroups_group": {Tok: awsResource(resourcegroupsMod, "Group")},
 			// Route53
-			"aws_route53_delegation_set":   {Tok: awsResource(route53Mod, "DelegationSet")},
-			"aws_route53_record":           {Tok: awsResource(route53Mod, "Record")},
-			"aws_route53_query_log":        {Tok: awsResource(route53Mod, "QueryLog")},
-			"aws_route53_zone_association": {Tok: awsResource(route53Mod, "ZoneAssociation")},
+			"aws_route53_delegation_set":            {Tok: awsResource(route53Mod, "DelegationSet")},
+			"aws_route53_record":                    {Tok: awsResource(route53Mod, "Record")},
+			"aws_route53_resolver_endpoint":         {Tok: awsResource(route53Mod, "ResolverEndpoint")},
+			"aws_route53_resolver_rule":             {Tok: awsResource(route53Mod, "ResolverRule")},
+			"aws_route53_resolver_rule_association": {Tok: awsResource(route53Mod, "ResolverRuleAssociation")},
+			"aws_route53_query_log":                 {Tok: awsResource(route53Mod, "QueryLog")},
+			"aws_route53_zone_association":          {Tok: awsResource(route53Mod, "ZoneAssociation")},
 			"aws_route53_zone": {
 				Tok: awsResource(route53Mod, "Zone"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1874,11 +1870,6 @@ func Provider() tfbridge.ProviderInfo {
 							"notificationType.ts", // NotificationType union type and constants
 						},
 					},
-					"apigateway": {
-						DestFiles: []string{
-							"x.ts",
-						},
-					},
 					"cloudwatch": {
 						DestFiles: []string{
 							"cloudwatchMixins.ts",
@@ -1954,7 +1945,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=0.16.14,<0.17.0",
+				"pulumi": ">=0.17.1,<0.18.0",
 			},
 		},
 	}

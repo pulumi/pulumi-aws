@@ -183,11 +183,12 @@ func (r *Cluster) ClusterResourceId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterResourceId"])
 }
 
+// A cluster parameter group to associate with the cluster.
 func (r *Cluster) DbClusterParameterGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dbClusterParameterGroupName"])
 }
 
-// A DB subnet group to associate with this DB instance.* `db_cluster_parameter_group_name` - (Optional) A cluster parameter group to associate with the cluster.
+// A DB subnet group to associate with this DB instance.
 func (r *Cluster) DbSubnetGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dbSubnetGroupName"])
 }
@@ -308,8 +309,9 @@ type ClusterState struct {
 	ClusterMembers interface{}
 	// The DocDB Cluster Resource ID
 	ClusterResourceId interface{}
+	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName interface{}
-	// A DB subnet group to associate with this DB instance.* `db_cluster_parameter_group_name` - (Optional) A cluster parameter group to associate with the cluster.
+	// A DB subnet group to associate with this DB instance.
 	DbSubnetGroupName interface{}
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`.
@@ -371,8 +373,9 @@ type ClusterArgs struct {
 	ClusterIdentifierPrefix interface{}
 	// List of DocDB Instances that are a part of this cluster
 	ClusterMembers interface{}
+	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName interface{}
-	// A DB subnet group to associate with this DB instance.* `db_cluster_parameter_group_name` - (Optional) A cluster parameter group to associate with the cluster.
+	// A DB subnet group to associate with this DB instance.
 	DbSubnetGroupName interface{}
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`.

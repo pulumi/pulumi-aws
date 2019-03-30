@@ -43,7 +43,6 @@ import {ARN} from "../index";
  *         },
  *     },
  *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
- *     name: "lambda_function_name",
  *     handler: "exports.test",
  *     role: iamForLambda.arn,
  *     runtime: "nodejs8.10",
@@ -52,7 +51,7 @@ import {ARN} from "../index";
  * 
  * ### Lambda Layers
  * 
- * > **NOTE:** The `aws_lambda_layer_version` attribute values for `arn` and `layer_arn` will be swapped in version 2.0.0 of the Terraform AWS Provider. For version 1.x, use `layer_arn` references. For version 2.x, use `arn` references.
+ * > **NOTE:** The `aws_lambda_layer_version` attribute values for `arn` and `layer_arn` were swapped in version 2.0.0 of the Terraform AWS Provider. For version 1.x, use `layer_arn` references. For version 2.x, use `arn` references.
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -61,7 +60,7 @@ import {ARN} from "../index";
  * const exampleLayerVersion = new aws.lambda.LayerVersion("example", {});
  * const exampleFunction = new aws.lambda.Function("example", {
  *     // ... other configuration ...
- *     layers: [exampleLayerVersion.layerArn],
+ *     layers: [exampleLayerVersion.arn],
  * });
  * ```
  * 
@@ -187,7 +186,7 @@ export class Function extends pulumi.CustomResource {
      */
     public /*out*/ readonly qualifiedArn: pulumi.Output<string>;
     /**
-     * The amount of reserved concurrent executions for this lambda function. Defaults to Unreserved Concurrency Limits. See [Managing Concurrency][9]
+     * The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
      */
     public readonly reservedConcurrentExecutions: pulumi.Output<number | undefined>;
     /**
@@ -380,7 +379,7 @@ export interface FunctionState {
      */
     readonly qualifiedArn?: pulumi.Input<string>;
     /**
-     * The amount of reserved concurrent executions for this lambda function. Defaults to Unreserved Concurrency Limits. See [Managing Concurrency][9]
+     * The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
      */
     readonly reservedConcurrentExecutions?: pulumi.Input<number>;
     /**
@@ -475,7 +474,7 @@ export interface FunctionArgs {
      */
     readonly publish?: pulumi.Input<boolean>;
     /**
-     * The amount of reserved concurrent executions for this lambda function. Defaults to Unreserved Concurrency Limits. See [Managing Concurrency][9]
+     * The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
      */
     readonly reservedConcurrentExecutions?: pulumi.Input<number>;
     /**

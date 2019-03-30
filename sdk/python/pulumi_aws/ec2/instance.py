@@ -25,13 +25,13 @@ class Instance(pulumi.CustomResource):
     """
     The AZ to start the instance in.
     """
-    cpu_core_count: pulumi.Output[int]
+    cpu_core_count: pulumi.Output[float]
     """
-    Sets the number of CPU cores for an instance. This option is 
+    Sets the number of CPU cores for an instance. This option is
     only supported on creation of instance type that support CPU Options
     [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
     """
-    cpu_threads_per_core: pulumi.Output[int]
+    cpu_threads_per_core: pulumi.Output[float]
     """
     If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
     """
@@ -47,7 +47,7 @@ class Instance(pulumi.CustomResource):
     ebs_block_devices: pulumi.Output[list]
     """
     Additional EBS block devices to attach to the
-    instance.  See Block Devices below for details.
+    instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
     """
     ebs_optimized: pulumi.Output[bool]
     """
@@ -88,7 +88,7 @@ class Instance(pulumi.CustomResource):
     """
     The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
     """
-    ipv6_address_count: pulumi.Output[int]
+    ipv6_address_count: pulumi.Output[float]
     ipv6_addresses: pulumi.Output[list]
     """
     Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
@@ -104,10 +104,6 @@ class Instance(pulumi.CustomResource):
     network_interfaces: pulumi.Output[list]
     """
     Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
-    """
-    network_interface_id: pulumi.Output[str]
-    """
-    The ID of the network interface that was created with the instance.
     """
     password_data: pulumi.Output[str]
     """
@@ -197,15 +193,15 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] ami: The AMI to use for the instance.
         :param pulumi.Input[bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.  Boolean value.
         :param pulumi.Input[str] availability_zone: The AZ to start the instance in.
-        :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is 
+        :param pulumi.Input[float] cpu_core_count: Sets the number of CPU cores for an instance. This option is
                only supported on creation of instance type that support CPU Options
                [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-        :param pulumi.Input[int] cpu_threads_per_core: If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+        :param pulumi.Input[float] cpu_threads_per_core: If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         :param pulumi.Input[dict] credit_specification: Customize the credit specification of the instance. See Credit Specification below for more details.
         :param pulumi.Input[bool] disable_api_termination: If true, enables [EC2 Instance
                Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
         :param pulumi.Input[list] ebs_block_devices: Additional EBS block devices to attach to the
-               instance.  See Block Devices below for details.
+               instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
                Note that if this is not set on an instance type that is optimized by default then
                this will show as disabled but if the instance type is optimized by default then
@@ -328,7 +324,6 @@ class Instance(pulumi.CustomResource):
 
         __props__['arn'] = None
         __props__['instance_state'] = None
-        __props__['network_interface_id'] = None
         __props__['password_data'] = None
         __props__['primary_network_interface_id'] = None
         __props__['private_dns'] = None

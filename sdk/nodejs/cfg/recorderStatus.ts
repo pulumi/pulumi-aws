@@ -31,9 +31,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const bucket = new aws.s3.Bucket("b", {
- *     bucket: "awsconfig-example",
- * });
+ * const bucket = new aws.s3.Bucket("b", {});
  * const fooRecorder = new aws.cfg.Recorder("foo", {
  *     roleArn: role.arn,
  * });

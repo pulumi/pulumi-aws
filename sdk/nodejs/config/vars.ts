@@ -14,22 +14,12 @@ let __config = new pulumi.Config("aws");
 export let accessKey: string | undefined = __config.get("accessKey");
 export let allowedAccountIds: string[] | undefined = __config.getObject<string[]>("allowedAccountIds");
 export let assumeRole: { externalId?: string, policy?: string, roleArn?: string, sessionName?: string } | undefined = __config.getObject<{ externalId?: string, policy?: string, roleArn?: string, sessionName?: string }>("assumeRole");
-/**
- * Use this to override the default endpoint URL constructed from the `region`. It's typically used to connect to
- * dynamodb-local.
- */
-export let dynamodbEndpoint: string | undefined = __config.get("dynamodbEndpoint");
 export let endpoints: { acm?: string, apigateway?: string, autoscaling?: string, cloudformation?: string, cloudwatch?: string, cloudwatchevents?: string, cloudwatchlogs?: string, devicefarm?: string, dynamodb?: string, ec2?: string, ecr?: string, ecs?: string, efs?: string, elb?: string, es?: string, iam?: string, kinesis?: string, kinesisAnalytics?: string, kms?: string, lambda?: string, r53?: string, rds?: string, s3?: string, s3control?: string, sns?: string, sqs?: string, ssm?: string, sts?: string }[] | undefined = __config.getObject<{ acm?: string, apigateway?: string, autoscaling?: string, cloudformation?: string, cloudwatch?: string, cloudwatchevents?: string, cloudwatchlogs?: string, devicefarm?: string, dynamodb?: string, ec2?: string, ecr?: string, ecs?: string, efs?: string, elb?: string, es?: string, iam?: string, kinesis?: string, kinesisAnalytics?: string, kms?: string, lambda?: string, r53?: string, rds?: string, s3?: string, s3control?: string, sns?: string, sqs?: string, ssm?: string, sts?: string }[]>("endpoints");
 export let forbiddenAccountIds: string[] | undefined = __config.getObject<string[]>("forbiddenAccountIds");
 /**
  * Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
  */
 export let insecure: boolean | undefined = __config.getObject<boolean>("insecure");
-/**
- * Use this to override the default endpoint URL constructed from the `region`. It's typically used to connect to
- * kinesalite.
- */
-export let kinesisEndpoint: string | undefined = __config.get("kinesisEndpoint");
 /**
  * The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
  */

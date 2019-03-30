@@ -9,7 +9,7 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class Job(pulumi.CustomResource):
-    allocated_capacity: pulumi.Output[int]
+    allocated_capacity: pulumi.Output[float]
     """
     The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
     """
@@ -33,7 +33,7 @@ class Job(pulumi.CustomResource):
     """
     Execution property of the job. Defined below.
     """
-    max_retries: pulumi.Output[int]
+    max_retries: pulumi.Output[float]
     """
     The maximum number of times to retry this job if it fails.
     """
@@ -49,7 +49,7 @@ class Job(pulumi.CustomResource):
     """
     The name of the Security Configuration to be associated with the job. 
     """
-    timeout: pulumi.Output[int]
+    timeout: pulumi.Output[float]
     """
     The job timeout in minutes. The default is 2880 minutes (48 hours).
     """
@@ -59,17 +59,17 @@ class Job(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] allocated_capacity: The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+        :param pulumi.Input[float] allocated_capacity: The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
         :param pulumi.Input[dict] command: The command of the job. Defined below.
         :param pulumi.Input[list] connections: The list of connections used for this job.
         :param pulumi.Input[dict] default_arguments: The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         :param pulumi.Input[str] description: Description of the job.
         :param pulumi.Input[dict] execution_property: Execution property of the job. Defined below.
-        :param pulumi.Input[int] max_retries: The maximum number of times to retry this job if it fails.
+        :param pulumi.Input[float] max_retries: The maximum number of times to retry this job if it fails.
         :param pulumi.Input[str] name: The name of the job command. Defaults to `glueetl`
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration to be associated with the job. 
-        :param pulumi.Input[int] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours).
+        :param pulumi.Input[float] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

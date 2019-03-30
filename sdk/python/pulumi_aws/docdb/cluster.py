@@ -24,7 +24,7 @@ class Cluster(pulumi.CustomResource):
     A list of EC2 Availability Zones that
     instances in the DB cluster can be created in.
     """
-    backup_retention_period: pulumi.Output[int]
+    backup_retention_period: pulumi.Output[float]
     """
     The days to retain backups for. Default `1`
     """
@@ -45,9 +45,12 @@ class Cluster(pulumi.CustomResource):
     The DocDB Cluster Resource ID
     """
     db_cluster_parameter_group_name: pulumi.Output[str]
+    """
+    A cluster parameter group to associate with the cluster.
+    """
     db_subnet_group_name: pulumi.Output[str]
     """
-    A DB subnet group to associate with this DB instance.* `db_cluster_parameter_group_name` - (Optional) A cluster parameter group to associate with the cluster.
+    A DB subnet group to associate with this DB instance.
     """
     enabled_cloudwatch_logs_exports: pulumi.Output[list]
     """
@@ -89,7 +92,7 @@ class Cluster(pulumi.CustomResource):
     """
     Username for the master DB user. 
     """
-    port: pulumi.Output[int]
+    port: pulumi.Output[float]
     """
     The port on which the DB accepts connections
     """
@@ -146,11 +149,12 @@ class Cluster(pulumi.CustomResource):
                `false`.
         :param pulumi.Input[list] availability_zones: A list of EC2 Availability Zones that
                instances in the DB cluster can be created in.
-        :param pulumi.Input[int] backup_retention_period: The days to retain backups for. Default `1`
+        :param pulumi.Input[float] backup_retention_period: The days to retain backups for. Default `1`
         :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
         :param pulumi.Input[list] cluster_members: List of DocDB Instances that are a part of this cluster
-        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance.* `db_cluster_parameter_group_name` - (Optional) A cluster parameter group to associate with the cluster.
+        :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
+        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance.
         :param pulumi.Input[list] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported.
                The following log types are supported: `audit`.
         :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
@@ -162,7 +166,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may
                show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
         :param pulumi.Input[str] master_username: Username for the master DB user. 
-        :param pulumi.Input[int] port: The port on which the DB accepts connections
+        :param pulumi.Input[float] port: The port on which the DB accepts connections
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
                Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.

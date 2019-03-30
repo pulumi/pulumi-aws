@@ -13,7 +13,7 @@ class Key(pulumi.CustomResource):
     """
     The Amazon Resource Name (ARN) of the key.
     """
-    deletion_window_in_days: pulumi.Output[int]
+    deletion_window_in_days: pulumi.Output[float]
     """
     Duration in days after which the key is deleted
     after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
@@ -54,7 +54,7 @@ class Key(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] deletion_window_in_days: Duration in days after which the key is deleted
+        :param pulumi.Input[float] deletion_window_in_days: Duration in days after which the key is deleted
                after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
         :param pulumi.Input[str] description: The description of the key as viewed in AWS console.
         :param pulumi.Input[bool] enable_key_rotation: Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)

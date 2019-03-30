@@ -30,9 +30,7 @@ func NewVpnConnection(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
-		inputs["customerGatewayConfiguration"] = nil
 		inputs["customerGatewayId"] = nil
-		inputs["routes"] = nil
 		inputs["staticRoutesOnly"] = nil
 		inputs["tags"] = nil
 		inputs["transitGatewayId"] = nil
@@ -41,12 +39,9 @@ func NewVpnConnection(ctx *pulumi.Context,
 		inputs["tunnel2InsideCidr"] = nil
 		inputs["tunnel2PresharedKey"] = nil
 		inputs["type"] = nil
-		inputs["vgwTelemetries"] = nil
 		inputs["vpnGatewayId"] = nil
 	} else {
-		inputs["customerGatewayConfiguration"] = args.CustomerGatewayConfiguration
 		inputs["customerGatewayId"] = args.CustomerGatewayId
-		inputs["routes"] = args.Routes
 		inputs["staticRoutesOnly"] = args.StaticRoutesOnly
 		inputs["tags"] = args.Tags
 		inputs["transitGatewayId"] = args.TransitGatewayId
@@ -55,9 +50,10 @@ func NewVpnConnection(ctx *pulumi.Context,
 		inputs["tunnel2InsideCidr"] = args.Tunnel2InsideCidr
 		inputs["tunnel2PresharedKey"] = args.Tunnel2PresharedKey
 		inputs["type"] = args.Type
-		inputs["vgwTelemetries"] = args.VgwTelemetries
 		inputs["vpnGatewayId"] = args.VpnGatewayId
 	}
+	inputs["customerGatewayConfiguration"] = nil
+	inputs["routes"] = nil
 	inputs["tunnel1Address"] = nil
 	inputs["tunnel1BgpAsn"] = nil
 	inputs["tunnel1BgpHoldtime"] = nil
@@ -68,6 +64,7 @@ func NewVpnConnection(ctx *pulumi.Context,
 	inputs["tunnel2BgpHoldtime"] = nil
 	inputs["tunnel2CgwInsideAddress"] = nil
 	inputs["tunnel2VgwInsideAddress"] = nil
+	inputs["vgwTelemetries"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/vpnConnection:VpnConnection", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -285,11 +282,8 @@ type VpnConnectionState struct {
 
 // The set of arguments for constructing a VpnConnection resource.
 type VpnConnectionArgs struct {
-	// The configuration information for the VPN connection's customer gateway (in the native XML format).
-	CustomerGatewayConfiguration interface{}
 	// The ID of the customer gateway.
 	CustomerGatewayId interface{}
-	Routes interface{}
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly interface{}
 	// Tags to apply to the connection.
@@ -306,7 +300,6 @@ type VpnConnectionArgs struct {
 	Tunnel2PresharedKey interface{}
 	// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
 	Type interface{}
-	VgwTelemetries interface{}
 	// The ID of the Virtual Private Gateway.
 	VpnGatewayId interface{}
 }

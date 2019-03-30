@@ -44,7 +44,6 @@ func NewDistribution(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["aliases"] = nil
-		inputs["cacheBehaviors"] = nil
 		inputs["comment"] = nil
 		inputs["customErrorResponses"] = nil
 		inputs["defaultCacheBehavior"] = nil
@@ -63,7 +62,6 @@ func NewDistribution(ctx *pulumi.Context,
 		inputs["webAclId"] = nil
 	} else {
 		inputs["aliases"] = args.Aliases
-		inputs["cacheBehaviors"] = args.CacheBehaviors
 		inputs["comment"] = args.Comment
 		inputs["customErrorResponses"] = args.CustomErrorResponses
 		inputs["defaultCacheBehavior"] = args.DefaultCacheBehavior
@@ -106,7 +104,6 @@ func GetDistribution(ctx *pulumi.Context,
 		inputs["activeTrustedSigners"] = state.ActiveTrustedSigners
 		inputs["aliases"] = state.Aliases
 		inputs["arn"] = state.Arn
-		inputs["cacheBehaviors"] = state.CacheBehaviors
 		inputs["callerReference"] = state.CallerReference
 		inputs["comment"] = state.Comment
 		inputs["customErrorResponses"] = state.CustomErrorResponses
@@ -164,11 +161,6 @@ func (r *Distribution) Aliases() *pulumi.ArrayOutput {
 // The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
 func (r *Distribution) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// **Deprecated**, use `ordered_cache_behavior` instead.
-func (r *Distribution) CacheBehaviors() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["cacheBehaviors"])
 }
 
 // Internal value used by CloudFront to allow future
@@ -257,7 +249,7 @@ func (r *Distribution) LoggingConfig() *pulumi.Output {
 
 // An ordered list of cache behaviors
 // resource for this distribution. List from top to bottom
-// +    in order of precedence. The topmost cache behavior will have precedence 0.
+// in order of precedence. The topmost cache behavior will have precedence 0.
 func (r *Distribution) OrderedCacheBehaviors() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["orderedCacheBehaviors"])
 }
@@ -324,8 +316,6 @@ type DistributionState struct {
 	Aliases interface{}
 	// The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
 	Arn interface{}
-	// **Deprecated**, use `ordered_cache_behavior` instead.
-	CacheBehaviors interface{}
 	// Internal value used by CloudFront to allow future
 	// updates to the distribution configuration.
 	CallerReference interface{}
@@ -370,7 +360,7 @@ type DistributionState struct {
 	LoggingConfig interface{}
 	// An ordered list of cache behaviors
 	// resource for this distribution. List from top to bottom
-	// +    in order of precedence. The topmost cache behavior will have precedence 0.
+	// in order of precedence. The topmost cache behavior will have precedence 0.
 	OrderedCacheBehaviors interface{}
 	// One or more origins for this
 	// distribution (multiples allowed).
@@ -406,8 +396,6 @@ type DistributionArgs struct {
 	// Extra CNAMEs (alternate domain names), if any, for
 	// this distribution.
 	Aliases interface{}
-	// **Deprecated**, use `ordered_cache_behavior` instead.
-	CacheBehaviors interface{}
 	// Any comments you want to include about the
 	// distribution.
 	Comment interface{}
@@ -434,7 +422,7 @@ type DistributionArgs struct {
 	LoggingConfig interface{}
 	// An ordered list of cache behaviors
 	// resource for this distribution. List from top to bottom
-	// +    in order of precedence. The topmost cache behavior will have precedence 0.
+	// in order of precedence. The topmost cache behavior will have precedence 0.
 	OrderedCacheBehaviors interface{}
 	// One or more origins for this
 	// distribution (multiples allowed).

@@ -19,12 +19,6 @@ allowed_account_ids = __config__.get('allowedAccountIds')
 
 assume_role = __config__.get('assumeRole')
 
-dynamodb_endpoint = __config__.get('dynamodbEndpoint')
-"""
-Use this to override the default endpoint URL constructed from the `region`. It's typically used to connect to
-dynamodb-local.
-"""
-
 endpoints = __config__.get('endpoints')
 
 forbidden_account_ids = __config__.get('forbiddenAccountIds')
@@ -32,12 +26,6 @@ forbidden_account_ids = __config__.get('forbiddenAccountIds')
 insecure = __config__.get('insecure')
 """
 Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
-"""
-
-kinesis_endpoint = __config__.get('kinesisEndpoint')
-"""
-Use this to override the default endpoint URL constructed from the `region`. It's typically used to connect to
-kinesalite.
 """
 
 max_retries = __config__.get('maxRetries')

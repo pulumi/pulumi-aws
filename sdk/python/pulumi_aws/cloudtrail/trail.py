@@ -69,7 +69,7 @@ class Trail(pulumi.CustomResource):
     """
     s3_key_prefix: pulumi.Output[str]
     """
-    Specifies the S3 key prefix that precedes
+    Specifies the S3 key prefix that follows
     the name of the bucket you have designated for log file delivery.
     """
     sns_topic_name: pulumi.Output[str]
@@ -108,7 +108,7 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         :param pulumi.Input[str] name: Specifies the name of the trail.
         :param pulumi.Input[str] s3_bucket_name: Specifies the name of the S3 bucket designated for publishing log files.
-        :param pulumi.Input[str] s3_key_prefix: Specifies the S3 key prefix that precedes
+        :param pulumi.Input[str] s3_key_prefix: Specifies the S3 key prefix that follows
                the name of the bucket you have designated for log file delivery.
         :param pulumi.Input[str] sns_topic_name: Specifies the name of the Amazon SNS topic
                defined for notification of log file delivery.

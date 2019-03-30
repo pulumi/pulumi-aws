@@ -32,7 +32,6 @@ import * as utilities from "../utilities";
  * });
  * const fooBucket = new aws.s3.Bucket("foo", {
  *     acl: "private",
- *     bucket: "test-bucket",
  * });
  * const s3kmskey = pulumi.output(aws.kms.getAlias({
  *     name: "alias/myKmsKey",

@@ -30,6 +30,7 @@ func LookupTargetGroup(ctx *pulumi.Context, args *GetTargetGroupArgs) (*GetTarge
 		ArnSuffix: outputs["arnSuffix"],
 		DeregistrationDelay: outputs["deregistrationDelay"],
 		HealthCheck: outputs["healthCheck"],
+		LambdaMultiValueHeadersEnabled: outputs["lambdaMultiValueHeadersEnabled"],
 		Name: outputs["name"],
 		Port: outputs["port"],
 		Protocol: outputs["protocol"],
@@ -56,6 +57,7 @@ type GetTargetGroupResult struct {
 	ArnSuffix interface{}
 	DeregistrationDelay interface{}
 	HealthCheck interface{}
+	LambdaMultiValueHeadersEnabled interface{}
 	Name interface{}
 	Port interface{}
 	Protocol interface{}

@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Direct Connect LAG.
+ * Provides a Direct Connect LAG. Connections can be added to the LAG via the [`aws_dx_connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) and [`aws_dx_connection_association`](https://www.terraform.io/docs/providers/aws/r/dx_connection_association.html) resources.
+ * 
+ * > *NOTE:* When creating a LAG, Direct Connect requires creating a Connection. Terraform will remove this unmanaged connection during resource creation.
  * 
  * ## Example Usage
  * 
@@ -17,7 +19,6 @@ import * as utilities from "../utilities";
  *     connectionsBandwidth: "1Gbps",
  *     forceDestroy: true,
  *     location: "EqDC2",
- *     numberOfConnections: 2,
  * });
  * ```
  */
@@ -36,6 +37,7 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
 
     /**
      * The ARN of the LAG.
+     * * `jumbo_frame_capable` -Indicates whether jumbo frames (9001 MTU) are supported.
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -47,6 +49,11 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
      */
     public readonly forceDestroy: pulumi.Output<boolean | undefined>;
     /**
+     * Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
+     */
+    public /*out*/ readonly hasLogicalRedundancy: pulumi.Output<string>;
+    public /*out*/ readonly jumboFrameCapable: pulumi.Output<boolean>;
+    /**
      * The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      */
     public readonly location: pulumi.Output<string>;
@@ -54,10 +61,6 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
      * The name of the LAG.
      */
     public readonly name: pulumi.Output<string>;
-    /**
-     * The number of physical connections initially provisioned and bundled by the LAG. Use `aws_dx_connection` and `aws_dx_connection_association` resources instead. Default connections will be removed as part of LAG creation automatically in future versions.
-     */
-    public readonly numberOfConnections: pulumi.Output<number>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -78,9 +81,10 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["connectionsBandwidth"] = state ? state.connectionsBandwidth : undefined;
             inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
+            inputs["hasLogicalRedundancy"] = state ? state.hasLogicalRedundancy : undefined;
+            inputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
-            inputs["numberOfConnections"] = state ? state.numberOfConnections : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as LinkAggregationGroupArgs | undefined;
@@ -94,9 +98,10 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
             inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["numberOfConnections"] = args ? args.numberOfConnections : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["hasLogicalRedundancy"] = undefined /*out*/;
+            inputs["jumboFrameCapable"] = undefined /*out*/;
         }
         super("aws:directconnect/linkAggregationGroup:LinkAggregationGroup", name, inputs, opts);
     }
@@ -108,6 +113,7 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
 export interface LinkAggregationGroupState {
     /**
      * The ARN of the LAG.
+     * * `jumbo_frame_capable` -Indicates whether jumbo frames (9001 MTU) are supported.
      */
     readonly arn?: pulumi.Input<string>;
     /**
@@ -119,6 +125,11 @@ export interface LinkAggregationGroupState {
      */
     readonly forceDestroy?: pulumi.Input<boolean>;
     /**
+     * Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
+     */
+    readonly hasLogicalRedundancy?: pulumi.Input<string>;
+    readonly jumboFrameCapable?: pulumi.Input<boolean>;
+    /**
      * The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      */
     readonly location?: pulumi.Input<string>;
@@ -126,10 +137,6 @@ export interface LinkAggregationGroupState {
      * The name of the LAG.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * The number of physical connections initially provisioned and bundled by the LAG. Use `aws_dx_connection` and `aws_dx_connection_association` resources instead. Default connections will be removed as part of LAG creation automatically in future versions.
-     */
-    readonly numberOfConnections?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -156,10 +163,6 @@ export interface LinkAggregationGroupArgs {
      * The name of the LAG.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * The number of physical connections initially provisioned and bundled by the LAG. Use `aws_dx_connection` and `aws_dx_connection_association` resources instead. Default connections will be removed as part of LAG creation automatically in future versions.
-     */
-    readonly numberOfConnections?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the resource.
      */

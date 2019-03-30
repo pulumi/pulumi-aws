@@ -28,7 +28,6 @@ import * as utilities from "../utilities";
  * const s3OriginId = "myS3Origin";
  * const bucket = new aws.s3.Bucket("b", {
  *     acl: "private",
- *     bucket: "mybucket",
  *     tags: {
  *         Name: "My bucket",
  *     },
@@ -184,10 +183,6 @@ export class Distribution extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * **Deprecated**, use `ordered_cache_behavior` instead.
-     */
-    public readonly cacheBehaviors: pulumi.Output<{ allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl?: number, fieldLevelEncryptionId?: string, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }, headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }, lambdaFunctionAssociations?: { eventType: string, includeBody?: boolean, lambdaArn: string }[], maxTtl?: number, minTtl?: number, pathPattern: string, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string }[] | undefined>;
-    /**
      * Internal value used by CloudFront to allow future
      * updates to the distribution configuration.
      */
@@ -260,7 +255,7 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * An ordered list of cache behaviors
      * resource for this distribution. List from top to bottom
-     * +    in order of precedence. The topmost cache behavior will have precedence 0.
+     * in order of precedence. The topmost cache behavior will have precedence 0.
      */
     public readonly orderedCacheBehaviors: pulumi.Output<{ allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl?: number, fieldLevelEncryptionId?: string, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }, headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }, lambdaFunctionAssociations?: { eventType: string, includeBody?: boolean, lambdaArn: string }[], maxTtl?: number, minTtl?: number, pathPattern: string, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string }[] | undefined>;
     /**
@@ -322,7 +317,6 @@ export class Distribution extends pulumi.CustomResource {
             inputs["activeTrustedSigners"] = state ? state.activeTrustedSigners : undefined;
             inputs["aliases"] = state ? state.aliases : undefined;
             inputs["arn"] = state ? state.arn : undefined;
-            inputs["cacheBehaviors"] = state ? state.cacheBehaviors : undefined;
             inputs["callerReference"] = state ? state.callerReference : undefined;
             inputs["comment"] = state ? state.comment : undefined;
             inputs["customErrorResponses"] = state ? state.customErrorResponses : undefined;
@@ -364,7 +358,6 @@ export class Distribution extends pulumi.CustomResource {
                 throw new Error("Missing required property 'viewerCertificate'");
             }
             inputs["aliases"] = args ? args.aliases : undefined;
-            inputs["cacheBehaviors"] = args ? args.cacheBehaviors : undefined;
             inputs["comment"] = args ? args.comment : undefined;
             inputs["customErrorResponses"] = args ? args.customErrorResponses : undefined;
             inputs["defaultCacheBehavior"] = args ? args.defaultCacheBehavior : undefined;
@@ -414,10 +407,6 @@ export interface DistributionState {
      * The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
      */
     readonly arn?: pulumi.Input<string>;
-    /**
-     * **Deprecated**, use `ordered_cache_behavior` instead.
-     */
-    readonly cacheBehaviors?: pulumi.Input<pulumi.Input<{ allowedMethods: pulumi.Input<pulumi.Input<string>[]>, cachedMethods: pulumi.Input<pulumi.Input<string>[]>, compress?: pulumi.Input<boolean>, defaultTtl?: pulumi.Input<number>, fieldLevelEncryptionId?: pulumi.Input<string>, forwardedValues: pulumi.Input<{ cookies: pulumi.Input<{ forward: pulumi.Input<string>, whitelistedNames?: pulumi.Input<pulumi.Input<string>[]> }>, headers?: pulumi.Input<pulumi.Input<string>[]>, queryString: pulumi.Input<boolean>, queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]> }>, lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<{ eventType: pulumi.Input<string>, includeBody?: pulumi.Input<boolean>, lambdaArn: pulumi.Input<string> }>[]>, maxTtl?: pulumi.Input<number>, minTtl?: pulumi.Input<number>, pathPattern: pulumi.Input<string>, smoothStreaming?: pulumi.Input<boolean>, targetOriginId: pulumi.Input<string>, trustedSigners?: pulumi.Input<pulumi.Input<string>[]>, viewerProtocolPolicy: pulumi.Input<string> }>[]>;
     /**
      * Internal value used by CloudFront to allow future
      * updates to the distribution configuration.
@@ -491,7 +480,7 @@ export interface DistributionState {
     /**
      * An ordered list of cache behaviors
      * resource for this distribution. List from top to bottom
-     * +    in order of precedence. The topmost cache behavior will have precedence 0.
+     * in order of precedence. The topmost cache behavior will have precedence 0.
      */
     readonly orderedCacheBehaviors?: pulumi.Input<pulumi.Input<{ allowedMethods: pulumi.Input<pulumi.Input<string>[]>, cachedMethods: pulumi.Input<pulumi.Input<string>[]>, compress?: pulumi.Input<boolean>, defaultTtl?: pulumi.Input<number>, fieldLevelEncryptionId?: pulumi.Input<string>, forwardedValues: pulumi.Input<{ cookies: pulumi.Input<{ forward: pulumi.Input<string>, whitelistedNames?: pulumi.Input<pulumi.Input<string>[]> }>, headers?: pulumi.Input<pulumi.Input<string>[]>, queryString: pulumi.Input<boolean>, queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]> }>, lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<{ eventType: pulumi.Input<string>, includeBody?: pulumi.Input<boolean>, lambdaArn: pulumi.Input<string> }>[]>, maxTtl?: pulumi.Input<number>, minTtl?: pulumi.Input<number>, pathPattern: pulumi.Input<string>, smoothStreaming?: pulumi.Input<boolean>, targetOriginId: pulumi.Input<string>, trustedSigners?: pulumi.Input<pulumi.Input<string>[]>, viewerProtocolPolicy: pulumi.Input<string> }>[]>;
     /**
@@ -549,10 +538,6 @@ export interface DistributionArgs {
      */
     readonly aliases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * **Deprecated**, use `ordered_cache_behavior` instead.
-     */
-    readonly cacheBehaviors?: pulumi.Input<pulumi.Input<{ allowedMethods: pulumi.Input<pulumi.Input<string>[]>, cachedMethods: pulumi.Input<pulumi.Input<string>[]>, compress?: pulumi.Input<boolean>, defaultTtl?: pulumi.Input<number>, fieldLevelEncryptionId?: pulumi.Input<string>, forwardedValues: pulumi.Input<{ cookies: pulumi.Input<{ forward: pulumi.Input<string>, whitelistedNames?: pulumi.Input<pulumi.Input<string>[]> }>, headers?: pulumi.Input<pulumi.Input<string>[]>, queryString: pulumi.Input<boolean>, queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]> }>, lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<{ eventType: pulumi.Input<string>, includeBody?: pulumi.Input<boolean>, lambdaArn: pulumi.Input<string> }>[]>, maxTtl?: pulumi.Input<number>, minTtl?: pulumi.Input<number>, pathPattern: pulumi.Input<string>, smoothStreaming?: pulumi.Input<boolean>, targetOriginId: pulumi.Input<string>, trustedSigners?: pulumi.Input<pulumi.Input<string>[]>, viewerProtocolPolicy: pulumi.Input<string> }>[]>;
-    /**
      * Any comments you want to include about the
      * distribution.
      */
@@ -595,7 +580,7 @@ export interface DistributionArgs {
     /**
      * An ordered list of cache behaviors
      * resource for this distribution. List from top to bottom
-     * +    in order of precedence. The topmost cache behavior will have precedence 0.
+     * in order of precedence. The topmost cache behavior will have precedence 0.
      */
     readonly orderedCacheBehaviors?: pulumi.Input<pulumi.Input<{ allowedMethods: pulumi.Input<pulumi.Input<string>[]>, cachedMethods: pulumi.Input<pulumi.Input<string>[]>, compress?: pulumi.Input<boolean>, defaultTtl?: pulumi.Input<number>, fieldLevelEncryptionId?: pulumi.Input<string>, forwardedValues: pulumi.Input<{ cookies: pulumi.Input<{ forward: pulumi.Input<string>, whitelistedNames?: pulumi.Input<pulumi.Input<string>[]> }>, headers?: pulumi.Input<pulumi.Input<string>[]>, queryString: pulumi.Input<boolean>, queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]> }>, lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<{ eventType: pulumi.Input<string>, includeBody?: pulumi.Input<boolean>, lambdaArn: pulumi.Input<string> }>[]>, maxTtl?: pulumi.Input<number>, minTtl?: pulumi.Input<number>, pathPattern: pulumi.Input<string>, smoothStreaming?: pulumi.Input<boolean>, targetOriginId: pulumi.Input<string>, trustedSigners?: pulumi.Input<pulumi.Input<string>[]>, viewerProtocolPolicy: pulumi.Input<string> }>[]>;
     /**

@@ -41,7 +41,6 @@ import {Bucket} from "./bucket";
  * });
  * const examplebucket = new aws.s3.Bucket("examplebucket", {
  *     acl: "private",
- *     bucket: "examplebuckettftest",
  * });
  * const examplebucketObject = new aws.s3.BucketObject("examplebucket_object", {
  *     bucket: examplebucket.id,
@@ -59,7 +58,6 @@ import {Bucket} from "./bucket";
  * 
  * const examplebucket = new aws.s3.Bucket("examplebucket", {
  *     acl: "private",
- *     bucket: "examplebuckettftest",
  * });
  * const examplebucketObject = new aws.s3.BucketObject("examplebucket_object", {
  *     bucket: examplebucket.id,
@@ -77,7 +75,6 @@ import {Bucket} from "./bucket";
  * 
  * const examplebucket = new aws.s3.Bucket("examplebucket", {
  *     acl: "private",
- *     bucket: "examplebuckettftest",
  * });
  * const examplebucketObject = new aws.s3.BucketObject("examplebucket_object", {
  *     bucket: examplebucket.id,

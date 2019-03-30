@@ -70,11 +70,6 @@ export class NetworkAcl extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
-     * The ID of the associated Subnet. This
-     * attribute is deprecated, please use the `subnet_ids` attribute instead
-     */
-    public readonly subnetId: pulumi.Output<string | undefined>;
-    /**
      * A list of Subnet IDs to apply the ACL to
      */
     public readonly subnetIds: pulumi.Output<string[]>;
@@ -102,7 +97,6 @@ export class NetworkAcl extends pulumi.CustomResource {
             inputs["egress"] = state ? state.egress : undefined;
             inputs["ingress"] = state ? state.ingress : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
@@ -113,7 +107,6 @@ export class NetworkAcl extends pulumi.CustomResource {
             }
             inputs["egress"] = args ? args.egress : undefined;
             inputs["ingress"] = args ? args.ingress : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
@@ -140,11 +133,6 @@ export interface NetworkAclState {
      */
     readonly ownerId?: pulumi.Input<string>;
     /**
-     * The ID of the associated Subnet. This
-     * attribute is deprecated, please use the `subnet_ids` attribute instead
-     */
-    readonly subnetId?: pulumi.Input<string>;
-    /**
      * A list of Subnet IDs to apply the ACL to
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -170,11 +158,6 @@ export interface NetworkAclArgs {
      * Specifies an ingress rule. Parameters defined below.
      */
     readonly ingress?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, cidrBlock?: pulumi.Input<string>, fromPort: pulumi.Input<number>, icmpCode?: pulumi.Input<number>, icmpType?: pulumi.Input<number>, ipv6CidrBlock?: pulumi.Input<string>, protocol: pulumi.Input<string>, ruleNo: pulumi.Input<number>, toPort: pulumi.Input<number> }>[]>;
-    /**
-     * The ID of the associated Subnet. This
-     * attribute is deprecated, please use the `subnet_ids` attribute instead
-     */
-    readonly subnetId?: pulumi.Input<string>;
     /**
      * A list of Subnet IDs to apply the ACL to
      */

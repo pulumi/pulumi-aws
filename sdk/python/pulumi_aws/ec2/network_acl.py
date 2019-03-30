@@ -21,11 +21,6 @@ class NetworkAcl(pulumi.CustomResource):
     """
     The ID of the AWS account that owns the network ACL.
     """
-    subnet_id: pulumi.Output[str]
-    """
-    The ID of the associated Subnet. This
-    attribute is deprecated, please use the `subnet_ids` attribute instead
-    """
     subnet_ids: pulumi.Output[list]
     """
     A list of Subnet IDs to apply the ACL to
@@ -38,7 +33,7 @@ class NetworkAcl(pulumi.CustomResource):
     """
     The ID of the associated VPC.
     """
-    def __init__(__self__, resource_name, opts=None, egress=None, ingress=None, subnet_id=None, subnet_ids=None, tags=None, vpc_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, egress=None, ingress=None, subnet_ids=None, tags=None, vpc_id=None, __name__=None, __opts__=None):
         """
         Provides an network ACL resource. You might set up network ACLs with rules similar
         to your security groups in order to add an additional layer of security to your VPC.
@@ -53,8 +48,6 @@ class NetworkAcl(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] egress: Specifies an egress rule. Parameters defined below.
         :param pulumi.Input[list] ingress: Specifies an ingress rule. Parameters defined below.
-        :param pulumi.Input[str] subnet_id: The ID of the associated Subnet. This
-               attribute is deprecated, please use the `subnet_ids` attribute instead
         :param pulumi.Input[list] subnet_ids: A list of Subnet IDs to apply the ACL to
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the associated VPC.
@@ -77,8 +70,6 @@ class NetworkAcl(pulumi.CustomResource):
         __props__['egress'] = egress
 
         __props__['ingress'] = ingress
-
-        __props__['subnet_id'] = subnet_id
 
         __props__['subnet_ids'] = subnet_ids
 
