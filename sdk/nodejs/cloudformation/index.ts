@@ -5,3 +5,5 @@
 export * from "./getExport";
 export * from "./getStack";
 export * from "./stack";
+export * from "./stackSet";
+export * from "./stackSetInstance";

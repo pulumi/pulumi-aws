@@ -4,6 +4,8 @@
 
 # Export this package's modules as members:
 from .alias import *
+from .ciphertext import *
+from .external_key import *
 from .grant import *
 from .key import *
 from .get_alias import *
