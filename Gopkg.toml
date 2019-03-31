@@ -45,8 +45,26 @@
     gomod-overridden=true
 
 [[override]]
+  name = "github.com/BurntSushi/toml"
+  version = "=v0.3.1"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "github.com/ChrisTrenkamp/goxpath"
   revision = "4fe03583929022c9c96829401ffabc755e69782e"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/OpenPeeDeeP/depguard"
+  revision = "a69c782687b207067fa0e371408bb18f38e1355f"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/StackExchange/wmi"
+  revision = "5d049714c4a64225c3c79a7cf7d02f7fb5b96338"
   [override.metadata]
     gomod-overridden=true
 
@@ -118,7 +136,7 @@
 
 [[override]]
   name = "github.com/aws/aws-sdk-go"
-  version = "=v1.17.11"
+  version = "=v1.19.4"
   [override.metadata]
     gomod-overridden=true
 
@@ -173,6 +191,12 @@
 [[override]]
   name = "github.com/chzyer/test"
   revision = "bea8f082b6fd8382588bf6fdc6af9217078af151"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/client9/misspell"
+  version = "=v0.3.4"
   [override.metadata]
     gomod-overridden=true
 
@@ -237,14 +261,98 @@
     gomod-overridden=true
 
 [[override]]
+  name = "github.com/fatih/color"
+  version = "=v1.6.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/fsnotify/fsnotify"
+  version = "=v1.4.7"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "github.com/ghodss/yaml"
   version = "=v1.0.0"
   [override.metadata]
     gomod-overridden=true
 
 [[override]]
+  name = "github.com/go-critic/go-critic"
+  revision = "ee9bf5809ead3694215bb5705a2f6e3f89d5716b"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/go-lintpack/lintpack"
+  version = "=v0.5.2"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/go-ole/go-ole"
+  version = "=v1.2.1"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "github.com/go-test/deep"
   version = "=v1.0.1"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/go-toolsmith/astcast"
+  revision = "b7a89ed70af1429e7518626ab0aee535a84a6b20"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/go-toolsmith/astcopy"
+  revision = "79b422d080c469383ec3cf020d124b70d073956b"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/go-toolsmith/astequal"
+  revision = "dcb477bfacd6e00a13c6d63bfc73db28dd343160"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/go-toolsmith/astfmt"
+  revision = "8f8ee99c30864ae6d51ec6c8454d72a5072fe703"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/go-toolsmith/astp"
+  revision = "0af7e3c24f3087820a2e96679d064e6a56c624e2"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/go-toolsmith/pkgload"
+  revision = "5122569a890b9c326e395481c4060b6b5e51525b"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/go-toolsmith/strparse"
+  revision = "830b6daa1241714c12a9b9a4a56849fe2f93aedc"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/go-toolsmith/typep"
+  revision = "d63dc7650676b3b54b2e2f01057303e3bf9a09c5"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/gobwas/glob"
+  version = "=v0.2.3"
   [override.metadata]
     gomod-overridden=true
 
@@ -267,8 +375,122 @@
     gomod-overridden=true
 
 [[override]]
+  name = "github.com/golang/mock"
+  version = "=v1.1.1"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "github.com/golang/snappy"
   revision = "2e65f85255dbc3072edf28d6b5b8efc472979f5a"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/golangci/check"
+  revision = "cfe4005ccda277a820149d44d6ededc400cc99a2"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/golangci/dupl"
+  revision = "3e9179ac440a0386ac7cc9a085fc44397c6b9bbc"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/golangci/errcheck"
+  revision = "ef45e06d44b6e018d817c16c762d448990adc5e0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/golangci/go-misc"
+  revision = "927a3d87b613e9f6f0fb7ef8bb8de8b83c30a5a2"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/golangci/go-tools"
+  revision = "35a9f45a5db090b0227d692d823151104cd695fa"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/golangci/goconst"
+  revision = "041c5f2b40f3dd334a4a6ee6a3f84ca3fc70680a"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/golangci/gocyclo"
+  revision = "2becd97e67eef01fc0bf8d7b9ddfce97da10a423"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/golangci/gofmt"
+  revision = "0b8337e80d98f7eec18e4504a4557b34423fd039"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/golangci/golangci-lint"
+  version = "=v1.15.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/golangci/gosec"
+  revision = "8afd9cbb6cfb34a3b4d4d5711bafdc6640ae892f"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/golangci/govet"
+  revision = "44ddbe260190d79165f4150b828650780405d801"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/golangci/ineffassign"
+  revision = "2ee8f2867dde308c46d401d6d30f6c644094b167"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/golangci/lint-1"
+  revision = "4bf9709227d15e5f14c84a381e315a4695c4a372"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/golangci/maligned"
+  revision = "b1d89398deca2fd3f8578e5a9551e819bd01ca5f"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/golangci/misspell"
+  revision = "950f5d19e77066a2353d9a22e89f8f889d1d7012"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/golangci/prealloc"
+  revision = "215b22d4de21190b80ce05e7d8466677c1aa3223"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/golangci/revgrep"
+  revision = "d9c87f5ffaf08801898f780cf66e7026e2174097"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/golangci/unconvert"
+  revision = "28b1c447d1f4a810737ee6ab40ea6c1d0ceae4ad"
   [override.metadata]
     gomod-overridden=true
 
@@ -280,7 +502,7 @@
 
 [[override]]
   name = "github.com/google/go-cmp"
-  revision = "8ebdfab36c66d309e67b7799ac97db4e93f59358"
+  version = "=v0.2.0"
   [override.metadata]
     gomod-overridden=true
 
@@ -460,7 +682,7 @@
 
 [[override]]
   name = "github.com/hashicorp/hcl"
-  revision = "a4b07c25de5ff55ad3b8936cea69a79a3d95a855"
+  revision = "ef8a98b0bbce4a65b5aa4c368430a80ddc533168"
   [override.metadata]
     gomod-overridden=true
 
@@ -513,6 +735,18 @@
     gomod-overridden=true
 
 [[override]]
+  name = "github.com/hpcloud/tail"
+  version = "=v1.0.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/inconshreveable/mousetrap"
+  version = "=v1.0.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "github.com/jen20/awspolicyequivalence"
   version = "=v1.0.0"
   [override.metadata]
@@ -561,6 +795,30 @@
     gomod-overridden=true
 
 [[override]]
+  name = "github.com/kisielk/gotool"
+  version = "=v1.0.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/kr/pretty"
+  version = "=v0.1.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/kr/pty"
+  version = "=v1.1.1"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/kr/text"
+  version = "=v0.1.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "github.com/kubernetes-sigs/aws-iam-authenticator"
   revision = "82544ec86140b7027a07890b09c2f03fca97228a"
   [override.metadata]
@@ -573,8 +831,20 @@
     gomod-overridden=true
 
 [[override]]
+  name = "github.com/logrusorgru/aurora"
+  revision = "a7b3b318ed4e1ae5b80602b08627267303c68572"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "github.com/lusis/go-artifactory"
   revision = "7e4ce345df825841661d1b3ffbb1327083d4a22f"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/magiconair/properties"
+  version = "=v1.7.6"
   [override.metadata]
     gomod-overridden=true
 
@@ -598,7 +868,7 @@
 
 [[override]]
   name = "github.com/mattn/go-colorable"
-  revision = "9cbef7c35391cca05f15f8181dc0b18bc9736dbb"
+  version = "=v0.0.9"
   [override.metadata]
     gomod-overridden=true
 
@@ -611,6 +881,12 @@
 [[override]]
   name = "github.com/mattn/go-shellwords"
   version = "=v1.0.1"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/mattn/goveralls"
+  version = "=v0.0.2"
   [override.metadata]
     gomod-overridden=true
 
@@ -653,6 +929,12 @@
 [[override]]
   name = "github.com/mitchellh/go-linereader"
   revision = "07bab5fdd9580500aea6ada0e09df4aa28e68abd"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/mitchellh/go-ps"
+  revision = "4fdf99ab29366514c69ccccddab5dc58b8d84062"
   [override.metadata]
     gomod-overridden=true
 
@@ -711,6 +993,12 @@
     gomod-overridden=true
 
 [[override]]
+  name = "github.com/nbutton23/zxcvbn-go"
+  revision = "eafdab6b0663b4b528c35975c8b0e78be6e25261"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "github.com/nu7hatch/gouuid"
   revision = "179d4d0c4d8d407a32af483c2354df1d2c91e6c3"
   [override.metadata]
@@ -719,6 +1007,18 @@
 [[override]]
   name = "github.com/oklog/run"
   version = "=v1.0.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/onsi/ginkgo"
+  version = "=v1.6.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/onsi/gomega"
+  version = "=v1.4.2"
   [override.metadata]
     gomod-overridden=true
 
@@ -735,8 +1035,14 @@
     gomod-overridden=true
 
 [[override]]
+  name = "github.com/pelletier/go-toml"
+  version = "=v1.1.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "github.com/pkg/errors"
-  revision = "c605e284fe17294bda444b34710735b29d1a9d90"
+  version = "=v0.8.0"
   [override.metadata]
     gomod-overridden=true
 
@@ -783,6 +1089,12 @@
     gomod-overridden=true
 
 [[override]]
+  name = "github.com/rogpeppe/go-internal"
+  version = "=v1.1.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "github.com/ryanuber/columnize"
   revision = "0fbbb3f0e3fbdc5bae7c6cd5f6c1887ebfb76360"
   [override.metadata]
@@ -807,6 +1119,36 @@
     gomod-overridden=true
 
 [[override]]
+  name = "github.com/shirou/gopsutil"
+  revision = "c95755e4bcd7a62bb8bd33f3a597a7c7f35e2cf3"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/shirou/w32"
+  revision = "bb4de0191aa41b5507caa14b0650cdbddcd9280b"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/shurcooL/go"
+  revision = "9e1955d9fb6e1ee2345ba1f5e71669263e719e27"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/shurcooL/go-goon"
+  revision = "37c2f522c041b74919a9e5e3a6c5c47eb34730a5"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/sirupsen/logrus"
+  version = "=v1.0.5"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "github.com/smartystreets/assertions"
   revision = "b6c0e53d73045618965505ac26ff7864fe3ab2b2"
   [override.metadata]
@@ -826,13 +1168,37 @@
 
 [[override]]
   name = "github.com/spf13/afero"
-  version = "=v1.0.2"
+  version = "=v1.1.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/spf13/cast"
+  version = "=v1.2.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/spf13/cobra"
+  version = "=v0.0.2"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/spf13/jwalterweatherman"
+  revision = "7c0cea34c8ece3fbeb2b27ab9b59511d360fb394"
   [override.metadata]
     gomod-overridden=true
 
 [[override]]
   name = "github.com/spf13/pflag"
   version = "=v1.0.3"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/spf13/viper"
+  version = "=v1.0.2"
   [override.metadata]
     gomod-overridden=true
 
@@ -910,7 +1276,7 @@
 
 [[override]]
   name = "golang.org/x/crypto"
-  revision = "9de5f2eaf759b4c4550b3db39fed2e9e5f86f45c"
+  revision = "4ec37c66abab2c7e02ae775328b2ff001c3f025a"
   [override.metadata]
     gomod-overridden=true
 
@@ -951,6 +1317,12 @@
     gomod-overridden=true
 
 [[override]]
+  name = "golang.org/x/tools"
+  revision = "379209517ffe9b1ca12ec8db6abe90d4a6605675"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "google.golang.org/api"
   revision = "7a7376eff6a51c6a053fcf8e9e50bf01a20f2673"
   [override.metadata]
@@ -975,14 +1347,44 @@
     gomod-overridden=true
 
 [[override]]
+  name = "gopkg.in/airbrake/gobrake.v2"
+  version = "=v2.0.9"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "gopkg.in/check.v1"
-  revision = "20d25e2804050c1cd24a7eea1e7a6447dd0e74ec"
+  revision = "788fd78401277ebd861206a03c884797c6ec5541"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "gopkg.in/errgo.v2"
+  version = "=v2.1.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "gopkg.in/fsnotify.v1"
+  version = "=v1.4.7"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "gopkg.in/gemnasium/logrus-airbrake-hook.v2"
+  version = "=v2.1.2"
   [override.metadata]
     gomod-overridden=true
 
 [[override]]
   name = "gopkg.in/inf.v0"
   version = "=v0.9.1"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "gopkg.in/tomb.v1"
+  revision = "dd632973f1e7218eb1089048e0798ec9ae7dceb8"
   [override.metadata]
     gomod-overridden=true
 
@@ -1011,7 +1413,37 @@
     gomod-overridden=true
 
 [[override]]
+  name = "mvdan.cc/interfacer"
+  revision = "c20040233aedb03da82d460eca6130fcd91c629a"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "mvdan.cc/lint"
+  revision = "adc824a0674b99099789b6188a058d485eaf61c0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "mvdan.cc/unparam"
+  revision = "fbb59629db34a0f69275bc336cc8c3a4dd9fbe5d"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "sigs.k8s.io/yaml"
   version = "=v1.1.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "sourcegraph.com/sourcegraph/go-diff"
+  revision = "dee78e514455b3ccac71dd793489a6332b89cd1b"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "sourcegraph.com/sqs/pbtypes"
+  revision = "d3ebe8f20ae404b082e57662738480545bc2ad3d"
   [override.metadata]
     gomod-overridden=true
