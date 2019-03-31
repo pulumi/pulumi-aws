@@ -1,11 +1,6 @@
-## 0.18.2 (Unreleased)
+## 0.18.1 (Unreleased)
 
-### Important
-
-- The deprecated api `aws.apigateway.x.API` has been removed.  Its replacement is in the
-  `@pulumi/awsx` package with the name `awsx.apigateway.API`.
-
-## 0.18.1 (Released March 29th, 2019)
+- Update to v2.4.0 of the AWS Terraform Provider.
 
 ## 0.18.0 (Released March 28th, 2019)
 
@@ -16,6 +11,8 @@
 - The `defaultAction` property on `aws.elasticloadbalancingv2.Listener` and `aws.applicationloadbalancing.Listener` is now named `defaultActions` and is an array of actions.
 
 - The output types of aws.iam.InstanceProfile::role[s] and aws.iam.RolePolicyAttachment::role is now `string` instead of `Role`, and represent the ID of the role.
+
+- The deprecated api `aws.apigateway.x.API` has been removed.  Its replacement is in the `@pulumi/awsx` package with the name `awsx.apigateway.API`.
 
 ### Improvement
 
