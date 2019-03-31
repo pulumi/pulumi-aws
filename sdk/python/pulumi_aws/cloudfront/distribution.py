@@ -105,6 +105,11 @@ class Distribution(pulumi.CustomResource):
     One or more origins for this
     distribution (multiples allowed).
     """
+    origin_groups: pulumi.Output[list]
+    """
+    One or more origin_group for this
+    distribution (multiples allowed).
+    """
     price_class: pulumi.Output[str]
     """
     The price class for this distribution. One of
@@ -143,7 +148,7 @@ class Distribution(pulumi.CustomResource):
     requests, the Id of the AWS WAF web ACL that is associated with the
     distribution.
     """
-    def __init__(__self__, resource_name, opts=None, aliases=None, comment=None, custom_error_responses=None, default_cache_behavior=None, default_root_object=None, enabled=None, http_version=None, is_ipv6_enabled=None, logging_config=None, ordered_cache_behaviors=None, origins=None, price_class=None, restrictions=None, retain_on_delete=None, tags=None, viewer_certificate=None, web_acl_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, aliases=None, comment=None, custom_error_responses=None, default_cache_behavior=None, default_root_object=None, enabled=None, http_version=None, is_ipv6_enabled=None, logging_config=None, ordered_cache_behaviors=None, origins=None, origin_groups=None, price_class=None, restrictions=None, retain_on_delete=None, tags=None, viewer_certificate=None, web_acl_id=None, __name__=None, __opts__=None):
         """
         Creates an Amazon CloudFront web distribution.
         
@@ -181,6 +186,8 @@ class Distribution(pulumi.CustomResource):
                resource for this distribution. List from top to bottom
                in order of precedence. The topmost cache behavior will have precedence 0.
         :param pulumi.Input[list] origins: One or more origins for this
+               distribution (multiples allowed).
+        :param pulumi.Input[list] origin_groups: One or more origin_group for this
                distribution (multiples allowed).
         :param pulumi.Input[str] price_class: The price class for this distribution. One of
                `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
@@ -239,6 +246,8 @@ class Distribution(pulumi.CustomResource):
         if origins is None:
             raise TypeError('Missing required property origins')
         __props__['origins'] = origins
+
+        __props__['origin_groups'] = origin_groups
 
         __props__['price_class'] = price_class
 

@@ -22,16 +22,17 @@ func NewAccessKey(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["pgpKey"] = nil
+		inputs["status"] = nil
 		inputs["user"] = nil
 	} else {
 		inputs["pgpKey"] = args.PgpKey
+		inputs["status"] = args.Status
 		inputs["user"] = args.User
 	}
 	inputs["encryptedSecret"] = nil
 	inputs["keyFingerprint"] = nil
 	inputs["secret"] = nil
 	inputs["sesSmtpPassword"] = nil
-	inputs["status"] = nil
 	s, err := ctx.RegisterResource("aws:iam/accessKey:AccessKey", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -103,8 +104,8 @@ func (r *AccessKey) SesSmtpPassword() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sesSmtpPassword"])
 }
 
-// "Active" or "Inactive". Keys are initially active, but can be made
-// inactive by other means.
+// The access key status to apply. Defaults to `Active`.
+// Valid values are `Active` and `Inactive`.
 func (r *AccessKey) Status() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["status"])
 }
@@ -134,8 +135,8 @@ type AccessKeyState struct {
 	// password by applying [AWS's documented conversion
 	// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
 	SesSmtpPassword interface{}
-	// "Active" or "Inactive". Keys are initially active, but can be made
-	// inactive by other means.
+	// The access key status to apply. Defaults to `Active`.
+	// Valid values are `Active` and `Inactive`.
 	Status interface{}
 	// The IAM user to associate with this access key.
 	User interface{}
@@ -146,6 +147,9 @@ type AccessKeyArgs struct {
 	// Either a base-64 encoded PGP public key, or a
 	// keybase username in the form `keybase:some_person_that_exists`.
 	PgpKey interface{}
+	// The access key status to apply. Defaults to `Active`.
+	// Valid values are `Active` and `Inactive`.
+	Status interface{}
 	// The IAM user to associate with this access key.
 	User interface{}
 }

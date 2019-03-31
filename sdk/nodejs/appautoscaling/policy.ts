@@ -53,9 +53,9 @@ import * as utilities from "../utilities";
  * });
  * const ecsPolicy = new aws.appautoscaling.Policy("ecs_policy", {
  *     policyType: "StepScaling",
- *     resourceId: "service/clusterName/serviceName",
- *     scalableDimension: "ecs:service:DesiredCount",
- *     serviceNamespace: "ecs",
+ *     resourceId: ecsTarget.resourceId,
+ *     scalableDimension: ecsTarget.scalableDimension,
+ *     serviceNamespace: ecsTarget.serviceNamespace,
  *     stepScalingPolicyConfiguration: {
  *         adjustmentType: "ChangeInCapacity",
  *         cooldown: 60,
@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  *             scalingAdjustment: -1,
  *         }],
  *     },
- * }, {dependsOn: [ecsTarget]});
+ * });
  * ```
  * 
  * ### Preserve desired count when updating an autoscaled ECS Service

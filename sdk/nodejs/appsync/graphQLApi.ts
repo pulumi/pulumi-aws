@@ -47,6 +47,23 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
+ * ### With Schema
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "AWS_IAM",
+ *     schema: `schema {
+ * 	query: Query
+ * }
+ * type Query {
+ *   test: Int
+ * }
+ * `,
+ * });
+ * ```
+ * 
  * ### OpenID Connect Authentication
  * 
  * ```typescript
@@ -128,6 +145,10 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public readonly openidConnectConfig: pulumi.Output<{ authTtl?: number, clientId?: string, iatTtl?: number, issuer: string } | undefined>;
     /**
+     * The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration.
+     */
+    public readonly schema: pulumi.Output<string | undefined>;
+    /**
      * Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      */
     public /*out*/ readonly uris: pulumi.Output<{[key: string]: string}>;
@@ -153,6 +174,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             inputs["logConfig"] = state ? state.logConfig : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["openidConnectConfig"] = state ? state.openidConnectConfig : undefined;
+            inputs["schema"] = state ? state.schema : undefined;
             inputs["uris"] = state ? state.uris : undefined;
             inputs["userPoolConfig"] = state ? state.userPoolConfig : undefined;
         } else {
@@ -164,6 +186,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             inputs["logConfig"] = args ? args.logConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["openidConnectConfig"] = args ? args.openidConnectConfig : undefined;
+            inputs["schema"] = args ? args.schema : undefined;
             inputs["userPoolConfig"] = args ? args.userPoolConfig : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["uris"] = undefined /*out*/;
@@ -197,6 +220,10 @@ export interface GraphQLApiState {
      */
     readonly openidConnectConfig?: pulumi.Input<{ authTtl?: pulumi.Input<number>, clientId?: pulumi.Input<string>, iatTtl?: pulumi.Input<number>, issuer: pulumi.Input<string> }>;
     /**
+     * The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration.
+     */
+    readonly schema?: pulumi.Input<string>;
+    /**
      * Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      */
     readonly uris?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -226,6 +253,10 @@ export interface GraphQLApiArgs {
      * Nested argument containing OpenID Connect configuration. Defined below.
      */
     readonly openidConnectConfig?: pulumi.Input<{ authTtl?: pulumi.Input<number>, clientId?: pulumi.Input<string>, iatTtl?: pulumi.Input<number>, issuer: pulumi.Input<string> }>;
+    /**
+     * The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration.
+     */
+    readonly schema?: pulumi.Input<string>;
     /**
      * The Amazon Cognito User Pool configuration. Defined below.
      */

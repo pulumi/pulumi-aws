@@ -14,6 +14,7 @@ func LookupInstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceRes
 	if args != nil {
 		inputs["filters"] = args.Filters
 		inputs["getPasswordData"] = args.GetPasswordData
+		inputs["getUserData"] = args.GetUserData
 		inputs["instanceId"] = args.InstanceId
 		inputs["instanceTags"] = args.InstanceTags
 		inputs["tags"] = args.Tags
@@ -53,6 +54,7 @@ func LookupInstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceRes
 		Tags: outputs["tags"],
 		Tenancy: outputs["tenancy"],
 		UserData: outputs["userData"],
+		UserDataBase64: outputs["userDataBase64"],
 		VpcSecurityGroupIds: outputs["vpcSecurityGroupIds"],
 		Id: outputs["id"],
 	}, nil
@@ -66,6 +68,8 @@ type GetInstanceArgs struct {
 	Filters interface{}
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData interface{}
+	// Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
+	GetUserData interface{}
 	// Specify the exact Instance ID with which to populate the data source.
 	InstanceId interface{}
 	// A mapping of tags, each pair of which must
@@ -137,8 +141,10 @@ type GetInstanceResult struct {
 	Tags interface{}
 	// The tenancy of the instance: `dedicated`, `default`, `host`.
 	Tenancy interface{}
-	// The User Data supplied to the Instance.
+	// SHA-1 hash of User Data supplied to the Instance.
 	UserData interface{}
+	// Base64 encoded contents of User Data supplied to the Instance. Valid UTF-8 contents can be decoded with the [`base64decode` function](https://www.terraform.io/docs/configuration/functions/base64decode.html). This attribute is only exported if `get_user_data` is true.
+	UserDataBase64 interface{}
 	// The associated security groups in a non-default VPC.
 	VpcSecurityGroupIds interface{}
 	// id is the provider-assigned unique ID for this managed resource.

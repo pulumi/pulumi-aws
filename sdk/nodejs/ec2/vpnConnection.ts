@@ -90,6 +90,10 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
+     * When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID.
+     */
+    public /*out*/ readonly transitGatewayAttachmentId: pulumi.Output<string>;
+    /**
      * The ID of the EC2 Transit Gateway.
      */
     public readonly transitGatewayId: pulumi.Output<string | undefined>;
@@ -176,6 +180,7 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["routes"] = state ? state.routes : undefined;
             inputs["staticRoutesOnly"] = state ? state.staticRoutesOnly : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
             inputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
             inputs["tunnel1Address"] = state ? state.tunnel1Address : undefined;
             inputs["tunnel1BgpAsn"] = state ? state.tunnel1BgpAsn : undefined;
@@ -214,6 +219,7 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
             inputs["customerGatewayConfiguration"] = undefined /*out*/;
             inputs["routes"] = undefined /*out*/;
+            inputs["transitGatewayAttachmentId"] = undefined /*out*/;
             inputs["tunnel1Address"] = undefined /*out*/;
             inputs["tunnel1BgpAsn"] = undefined /*out*/;
             inputs["tunnel1BgpHoldtime"] = undefined /*out*/;
@@ -251,6 +257,10 @@ export interface VpnConnectionState {
      * Tags to apply to the connection.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID.
+     */
+    readonly transitGatewayAttachmentId?: pulumi.Input<string>;
     /**
      * The ID of the EC2 Transit Gateway.
      */

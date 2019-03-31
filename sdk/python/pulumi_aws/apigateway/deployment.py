@@ -38,7 +38,7 @@ class Deployment(pulumi.CustomResource):
     """
     stage_name: pulumi.Output[str]
     """
-    The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment. Use `""` to point at the default stage.
+    The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
     """
     variables: pulumi.Output[dict]
     """
@@ -56,7 +56,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the deployment
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] stage_description: The description of the stage
-        :param pulumi.Input[str] stage_name: The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment. Use `""` to point at the default stage.
+        :param pulumi.Input[str] stage_name: The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
         :param pulumi.Input[dict] variables: A map that defines variables for the stage
         """
         if __name__ is not None:
@@ -82,8 +82,6 @@ class Deployment(pulumi.CustomResource):
 
         __props__['stage_description'] = stage_description
 
-        if stage_name is None:
-            raise TypeError('Missing required property stage_name')
         __props__['stage_name'] = stage_name
 
         __props__['variables'] = variables
