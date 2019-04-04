@@ -27,7 +27,9 @@ class BucketNotification(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, bucket=None, lambda_functions=None, queues=None, topics=None, __name__=None, __opts__=None):
         """
-        Provides a S3 bucket notification resource.
+        Manages a S3 Bucket Notification Configuration. For additional information, see the [Configuring S3 Event Notifications section in the Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html).
+        
+        > **NOTE:** S3 Buckets only support a single notification configuration. Declaring multiple `aws_s3_bucket_notification` resources to the same S3 Bucket will cause a perpetual difference in configuration.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

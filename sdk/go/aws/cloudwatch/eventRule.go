@@ -24,6 +24,7 @@ func NewEventRule(ctx *pulumi.Context,
 		inputs["namePrefix"] = nil
 		inputs["roleArn"] = nil
 		inputs["scheduleExpression"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["description"] = args.Description
 		inputs["eventPattern"] = args.EventPattern
@@ -32,6 +33,7 @@ func NewEventRule(ctx *pulumi.Context,
 		inputs["namePrefix"] = args.NamePrefix
 		inputs["roleArn"] = args.RoleArn
 		inputs["scheduleExpression"] = args.ScheduleExpression
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:cloudwatch/eventRule:EventRule", name, true, inputs, opts...)
@@ -55,6 +57,7 @@ func GetEventRule(ctx *pulumi.Context,
 		inputs["namePrefix"] = state.NamePrefix
 		inputs["roleArn"] = state.RoleArn
 		inputs["scheduleExpression"] = state.ScheduleExpression
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:cloudwatch/eventRule:EventRule", name, id, inputs, opts...)
 	if err != nil {
@@ -116,6 +119,11 @@ func (r *EventRule) ScheduleExpression() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["scheduleExpression"])
 }
 
+// A mapping of tags to assign to the resource.
+func (r *EventRule) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering EventRule resources.
 type EventRuleState struct {
 	// The Amazon Resource Name (ARN) of the rule.
@@ -137,6 +145,8 @@ type EventRuleState struct {
 	// The scheduling expression.
 	// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
 	ScheduleExpression interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }
 
 // The set of arguments for constructing a EventRule resource.
@@ -158,4 +168,6 @@ type EventRuleArgs struct {
 	// The scheduling expression.
 	// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
 	ScheduleExpression interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }

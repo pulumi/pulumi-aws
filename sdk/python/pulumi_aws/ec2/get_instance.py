@@ -12,7 +12,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, host_id=None, iam_instance_profile=None, instance_state=None, instance_tags=None, instance_type=None, key_name=None, monitoring=None, network_interface_id=None, password_data=None, placement_group=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, vpc_security_group_ids=None, id=None):
+    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, host_id=None, iam_instance_profile=None, instance_state=None, instance_tags=None, instance_type=None, key_name=None, monitoring=None, network_interface_id=None, password_data=None, placement_group=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None, id=None):
         if ami and not isinstance(ami, str):
             raise TypeError('Expected argument ami to be a str')
         __self__.ami = ami
@@ -188,7 +188,13 @@ class GetInstanceResult:
             raise TypeError('Expected argument user_data to be a str')
         __self__.user_data = user_data
         """
-        The User Data supplied to the Instance.
+        SHA-1 hash of User Data supplied to the Instance.
+        """
+        if user_data_base64 and not isinstance(user_data_base64, str):
+            raise TypeError('Expected argument user_data_base64 to be a str')
+        __self__.user_data_base64 = user_data_base64
+        """
+        Base64 encoded contents of User Data supplied to the Instance. Valid UTF-8 contents can be decoded with the [`base64decode` function](https://www.terraform.io/docs/configuration/functions/base64decode.html). This attribute is only exported if `get_user_data` is true.
         """
         if vpc_security_group_ids and not isinstance(vpc_security_group_ids, list):
             raise TypeError('Expected argument vpc_security_group_ids to be a list')
@@ -203,7 +209,7 @@ class GetInstanceResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_instance(filters=None,get_password_data=None,instance_id=None,instance_tags=None,tags=None,opts=None):
+async def get_instance(filters=None,get_password_data=None,get_user_data=None,instance_id=None,instance_tags=None,tags=None,opts=None):
     """
     Use this data source to get the ID of an Amazon EC2 Instance for use in other
     resources.
@@ -212,6 +218,7 @@ async def get_instance(filters=None,get_password_data=None,instance_id=None,inst
 
     __args__['filters'] = filters
     __args__['getPasswordData'] = get_password_data
+    __args__['getUserData'] = get_user_data
     __args__['instanceId'] = instance_id
     __args__['instanceTags'] = instance_tags
     __args__['tags'] = tags
@@ -248,5 +255,6 @@ async def get_instance(filters=None,get_password_data=None,instance_id=None,inst
         tags=__ret__.get('tags'),
         tenancy=__ret__.get('tenancy'),
         user_data=__ret__.get('userData'),
+        user_data_base64=__ret__.get('userDataBase64'),
         vpc_security_group_ids=__ret__.get('vpcSecurityGroupIds'),
         id=__ret__.get('id'))

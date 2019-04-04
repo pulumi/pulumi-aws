@@ -3,5 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .endpoint_configuration import *
 from .model import *
 from .notebook_instance import *

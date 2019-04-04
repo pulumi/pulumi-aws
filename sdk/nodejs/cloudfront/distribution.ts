@@ -153,6 +153,55 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * 
+ * The following example below creates a Cloudfront distribution with an origin group for failover routing:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const s3Distribution = new aws.cloudfront.Distribution("s3_distribution", {
+ *     defaultCacheBehavior: {
+ *         // ... other configuration ...
+ *         targetOriginId: "groupS3",
+ *     },
+ *     origins: [
+ *         {
+ *             domainName: aws_s3_bucket_primary.bucketRegionalDomainName,
+ *             originId: "primaryS3",
+ *             s3OriginConfig: {
+ *                 originAccessIdentity: aws_cloudfront_origin_access_identity_default.cloudfrontAccessIdentityPath,
+ *             },
+ *         },
+ *         {
+ *             domainName: aws_s3_bucket_failover.bucketRegionalDomainName,
+ *             originId: "failoverS3",
+ *             s3OriginConfig: {
+ *                 originAccessIdentity: aws_cloudfront_origin_access_identity_default.cloudfrontAccessIdentityPath,
+ *             },
+ *         },
+ *     ],
+ *     originGroups: [{
+ *         failoverCriteria: {
+ *             statusCodes: [
+ *                 403,
+ *                 404,
+ *                 500,
+ *                 502,
+ *             ],
+ *         },
+ *         members: [
+ *             {
+ *                 originId: "primaryS3",
+ *             },
+ *             {
+ *                 originId: "failoverS3",
+ *             },
+ *         ],
+ *         originId: "groupS3",
+ *     }],
+ * });
+ * ```
  */
 export class Distribution extends pulumi.CustomResource {
     /**
@@ -264,6 +313,11 @@ export class Distribution extends pulumi.CustomResource {
      */
     public readonly origins: pulumi.Output<{ customHeaders?: { name: string, value: string }[], customOriginConfig?: { httpPort: number, httpsPort: number, originKeepaliveTimeout?: number, originProtocolPolicy: string, originReadTimeout?: number, originSslProtocols: string[] }, domainName: string, originId: string, originPath?: string, s3OriginConfig?: { originAccessIdentity: string } }[]>;
     /**
+     * One or more origin_group for this
+     * distribution (multiples allowed).
+     */
+    public readonly originGroups: pulumi.Output<{ failoverCriteria: { statusCodes: number[] }, members: { originId: string }[], originId: string }[] | undefined>;
+    /**
      * The price class for this distribution. One of
      * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
      */
@@ -333,6 +387,7 @@ export class Distribution extends pulumi.CustomResource {
             inputs["loggingConfig"] = state ? state.loggingConfig : undefined;
             inputs["orderedCacheBehaviors"] = state ? state.orderedCacheBehaviors : undefined;
             inputs["origins"] = state ? state.origins : undefined;
+            inputs["originGroups"] = state ? state.originGroups : undefined;
             inputs["priceClass"] = state ? state.priceClass : undefined;
             inputs["restrictions"] = state ? state.restrictions : undefined;
             inputs["retainOnDelete"] = state ? state.retainOnDelete : undefined;
@@ -368,6 +423,7 @@ export class Distribution extends pulumi.CustomResource {
             inputs["loggingConfig"] = args ? args.loggingConfig : undefined;
             inputs["orderedCacheBehaviors"] = args ? args.orderedCacheBehaviors : undefined;
             inputs["origins"] = args ? args.origins : undefined;
+            inputs["originGroups"] = args ? args.originGroups : undefined;
             inputs["priceClass"] = args ? args.priceClass : undefined;
             inputs["restrictions"] = args ? args.restrictions : undefined;
             inputs["retainOnDelete"] = args ? args.retainOnDelete : undefined;
@@ -489,6 +545,11 @@ export interface DistributionState {
      */
     readonly origins?: pulumi.Input<pulumi.Input<{ customHeaders?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, customOriginConfig?: pulumi.Input<{ httpPort: pulumi.Input<number>, httpsPort: pulumi.Input<number>, originKeepaliveTimeout?: pulumi.Input<number>, originProtocolPolicy: pulumi.Input<string>, originReadTimeout?: pulumi.Input<number>, originSslProtocols: pulumi.Input<pulumi.Input<string>[]> }>, domainName: pulumi.Input<string>, originId: pulumi.Input<string>, originPath?: pulumi.Input<string>, s3OriginConfig?: pulumi.Input<{ originAccessIdentity: pulumi.Input<string> }> }>[]>;
     /**
+     * One or more origin_group for this
+     * distribution (multiples allowed).
+     */
+    readonly originGroups?: pulumi.Input<pulumi.Input<{ failoverCriteria: pulumi.Input<{ statusCodes: pulumi.Input<pulumi.Input<number>[]> }>, members: pulumi.Input<pulumi.Input<{ originId: pulumi.Input<string> }>[]>, originId: pulumi.Input<string> }>[]>;
+    /**
      * The price class for this distribution. One of
      * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
      */
@@ -588,6 +649,11 @@ export interface DistributionArgs {
      * distribution (multiples allowed).
      */
     readonly origins: pulumi.Input<pulumi.Input<{ customHeaders?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, customOriginConfig?: pulumi.Input<{ httpPort: pulumi.Input<number>, httpsPort: pulumi.Input<number>, originKeepaliveTimeout?: pulumi.Input<number>, originProtocolPolicy: pulumi.Input<string>, originReadTimeout?: pulumi.Input<number>, originSslProtocols: pulumi.Input<pulumi.Input<string>[]> }>, domainName: pulumi.Input<string>, originId: pulumi.Input<string>, originPath?: pulumi.Input<string>, s3OriginConfig?: pulumi.Input<{ originAccessIdentity: pulumi.Input<string> }> }>[]>;
+    /**
+     * One or more origin_group for this
+     * distribution (multiples allowed).
+     */
+    readonly originGroups?: pulumi.Input<pulumi.Input<{ failoverCriteria: pulumi.Input<{ statusCodes: pulumi.Input<pulumi.Input<number>[]> }>, members: pulumi.Input<pulumi.Input<{ originId: pulumi.Input<string> }>[]>, originId: pulumi.Input<string> }>[]>;
     /**
      * The price class for this distribution. One of
      * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`

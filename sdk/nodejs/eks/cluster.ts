@@ -72,7 +72,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
      */
-    public readonly vpcConfig: pulumi.Output<{ securityGroupIds?: string[], subnetIds: string[], vpcId: string }>;
+    public readonly vpcConfig: pulumi.Output<{ endpointPrivateAccess?: boolean, endpointPublicAccess?: boolean, securityGroupIds?: string[], subnetIds: string[], vpcId: string }>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -153,7 +153,7 @@ export interface ClusterState {
     /**
      * Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
      */
-    readonly vpcConfig?: pulumi.Input<{ securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId?: pulumi.Input<string> }>;
+    readonly vpcConfig?: pulumi.Input<{ endpointPrivateAccess?: pulumi.Input<boolean>, endpointPublicAccess?: pulumi.Input<boolean>, securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId?: pulumi.Input<string> }>;
 }
 
 /**
@@ -175,5 +175,5 @@ export interface ClusterArgs {
     /**
      * Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
      */
-    readonly vpcConfig: pulumi.Input<{ securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId?: pulumi.Input<string> }>;
+    readonly vpcConfig: pulumi.Input<{ endpointPrivateAccess?: pulumi.Input<boolean>, endpointPublicAccess?: pulumi.Input<boolean>, securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId?: pulumi.Input<string> }>;
 }

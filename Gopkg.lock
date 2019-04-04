@@ -71,7 +71,7 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:0539df4eb32786b88a340bf997aa8f337d0ed9d2ceca46e7c86c5190192199e2"
+  digest = "1:f121436b92b95fb83080a3143b6b7c9a27e297c614cac830199fe512f5074b8d"
   name = "github.com/aws/aws-sdk-go"
   packages = [
     "aws",
@@ -228,8 +228,8 @@
     "service/workspaces",
   ]
   pruneopts = ""
-  revision = "754d07f5dfb0a42be29df8da4a5428a321377cb3"
-  version = "v1.17.11"
+  revision = "9000241da407010f1e20c6dcbf00d0cbc9255ff9"
+  version = "v1.19.4"
 
 [[projects]]
   digest = "1:b5f28f7eda54d2695765c778c951a2ace52c06afb7da1f7e0c7485baa5b02100"
@@ -261,14 +261,6 @@
   pruneopts = ""
   revision = "2ee87856327ba09384cabd113bc6b5d174e9ec0f"
   version = "v3.5.1"
-
-[[projects]]
-  branch = "master"
-  digest = "1:c46fd324e7902268373e1b337436a6377c196e2dbd7b35624c6256d29d494e78"
-  name = "github.com/codahale/hdrhistogram"
-  packages = ["."]
-  pruneopts = ""
-  revision = "3a0bb77429bd3a61596f5e8a3172445844342120"
 
 [[projects]]
   digest = "1:0deddd908b6b4b768cfc272c16ee61e7088a60f7fe2f06c547bd3d8e1f8b8e77"
@@ -463,7 +455,7 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:3987769d49296c4250c0e2311e62c3fe0ced8a46eca3f23eb3c242b53ec8ec27"
+  digest = "1:9b7c5846d70f425d7fe279595e32a20994c6075e87be03b5c367ed07280877c5"
   name = "github.com/hashicorp/hcl"
   packages = [
     ".",
@@ -477,7 +469,7 @@
     "json/token",
   ]
   pruneopts = ""
-  revision = "a4b07c25de5ff55ad3b8936cea69a79a3d95a855"
+  revision = "ef8a98b0bbce4a65b5aa4c368430a80ddc533168"
 
 [[projects]]
   digest = "1:df5a09df0ccaa0f07d68c7702c6fe2e06408d475ca903cb47ad1c98cabf16106"
@@ -646,11 +638,12 @@
   revision = "82544ec86140b7027a07890b09c2f03fca97228a"
 
 [[projects]]
-  digest = "1:2755ff6677034cafa49df5c037b51891c50601ac28d927c353b1d1e39bf58bfc"
+  digest = "1:9ea83adf8e96d6304f394d40436f2eb44c1dc3250d223b74088cc253a6cd0a1c"
   name = "github.com/mattn/go-colorable"
   packages = ["."]
   pruneopts = ""
-  revision = "9cbef7c35391cca05f15f8181dc0b18bc9736dbb"
+  revision = "167de6bfdfba052fa6b2d3664c8f5272e23c9072"
+  version = "v0.0.9"
 
 [[projects]]
   digest = "1:3140e04675a6a91d2a20ea9d10bdadf6072085502e6def6768361260aee4b967"
@@ -692,7 +685,6 @@
   version = "v1.0.0"
 
 [[projects]]
-  branch = "master"
   digest = "1:1dee6133ab829c8559a39031ad1e0e3538e4a7b34d3e0509d1fc247737e928c1"
   name = "github.com/mitchellh/go-ps"
   packages = ["."]
@@ -739,7 +731,7 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:78fb99d6011c2ae6c72f3293a83951311147b12b06a5ffa43abf750c4fab6ac5"
+  digest = "1:1fc4897d3cc482d070651563c16a51489296cd9150e6d53fb7ff4d59a24334bc"
   name = "github.com/opentracing/opentracing-go"
   packages = [
     ".",
@@ -747,8 +739,8 @@
     "log",
   ]
   pruneopts = ""
-  revision = "1949ddbfd147afd4d964a9f00b24eb291e0e7c38"
-  version = "v1.0.2"
+  revision = "659c90643e714681897ec2521c60567dd21da733"
+  version = "v1.1.0"
 
 [[projects]]
   digest = "1:049b5bee78dfdc9628ee0e557219c41f683e5b06c5a5f20eaba0105ccc586689"
@@ -759,11 +751,12 @@
   version = "v0.2.0"
 
 [[projects]]
-  digest = "1:3feb34391c5d3f22c7aea09e6c04caae198a9cd196d33e2af11e371296523e7e"
+  digest = "1:7365acd48986e205ccb8652cc746f09c8b7876030d53710ea6ef7d0bd0dcd7ca"
   name = "github.com/pkg/errors"
   packages = ["."]
   pruneopts = ""
-  revision = "c605e284fe17294bda444b34710735b29d1a9d90"
+  revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
+  version = "v0.8.0"
 
 [[projects]]
   digest = "1:256484dbbcd271f9ecebc6795b2df8cad4c458dd0f5fd82a8c2fa0c29f233411"
@@ -787,7 +780,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:cd655eb4e58c6a6113794ca3e284e6aa7b4ce2dc2f6ab444adb766732ab728f4"
+  digest = "1:607f17119db2da50eaed945c14544416ca24554d297e1418fc2e0b1e70439e32"
   name = "github.com/pulumi/pulumi"
   packages = [
     "pkg/apitype",
@@ -804,6 +797,7 @@
     "pkg/resource/config",
     "pkg/resource/deploy",
     "pkg/resource/deploy/providers",
+    "pkg/resource/edit",
     "pkg/resource/graph",
     "pkg/resource/plugin",
     "pkg/resource/provider",
@@ -834,18 +828,18 @@
     "sdk/proto/go",
   ]
   pruneopts = ""
-  revision = "0a4bf7b991f88c211848fba51c330dbe4d8184b9"
+  revision = "26b7bc7d261c219969fcccf85f7320a768e40ed5"
 
 [[projects]]
   branch = "master"
-  digest = "1:0013fa04c4fef0969d8de96303da07015e409fecdf54ae865bd2735165d44f1b"
+  digest = "1:9d7f831062a914be549d0a70aa21eb51fcac07ee23a1766f2a696697dbb425f1"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen",
   ]
   pruneopts = ""
-  revision = "ac9bdb2d464bc6d64b9a97fadbb8c6b57f2a4fb0"
+  revision = "38d2b5dbe280775e3c1cd6c9fe7837e7bb0956e9"
 
 [[projects]]
   branch = "master"
@@ -871,20 +865,20 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:ae3493c780092be9d576a1f746ab967293ec165e8473425631f06658b6212afc"
+  digest = "1:d0b38ba6da419a6d4380700218eeec8623841d44a856bb57369c172fbf692ab4"
   name = "github.com/spf13/cast"
   packages = ["."]
   pruneopts = ""
-  revision = "8c9545af88b134710ab1cd196795e7f2388358d7"
-  version = "v1.3.0"
+  revision = "8965335b8c7107321228e3e3702cab9832751bac"
+  version = "v1.2.0"
 
 [[projects]]
-  digest = "1:a1403cc8a94b8d7956ee5e9694badef0e7b051af289caad1cf668331e3ffa4f6"
+  digest = "1:74c32990510c9f188556aa17600313e867d1d06f5a9db244056a95d144ec34ce"
   name = "github.com/spf13/cobra"
   packages = ["."]
   pruneopts = ""
-  revision = "ef82de70bb3f60c65fb8eebacbb2d122ef517385"
-  version = "v0.0.3"
+  revision = "a1f051bc3eba734da4772d60e2d677f47cf93ef4"
+  version = "v0.0.2"
 
 [[projects]]
   digest = "1:cbaf13cdbfef0e4734ed8a7504f57fe893d471d62a35b982bf6fb3f036449a66"
@@ -917,11 +911,11 @@
 
 [[projects]]
   branch = "pulumi-master"
-  digest = "1:d4aa1866a51ea5aa912315b9adb0f00a607e8a5e4f72a6fb92cb86b49022cdfb"
+  digest = "1:189ccdc69b9ca328267be7cd1e4d25949ddbbbd0e331d0210792efcce8d3cf27"
   name = "github.com/terraform-providers/terraform-provider-aws"
   packages = ["aws"]
   pruneopts = ""
-  revision = "78ba8ad08e1ba41bbfb5aa7228852fe708130f13"
+  revision = "bc63e22b58e9d7be1d67dc95088cbfbe3cc080fa"
   source = "github.com/pulumi/terraform-provider-aws"
 
 [[projects]]
@@ -933,7 +927,7 @@
   revision = "d188e65d659ef53fcdb0691c12f1bba64928b649"
 
 [[projects]]
-  digest = "1:941ab4973b3218a9a6d02d31734f5c762239eb538c0d702fff62d4037af8ab0a"
+  digest = "1:92c0006b9a06518452bad6275babc396a0b9afcdfe870d5494fe67a2beb6c2be"
   name = "github.com/uber/jaeger-client-go"
   packages = [
     ".",
@@ -950,16 +944,16 @@
     "utils",
   ]
   pruneopts = ""
-  revision = "1a782e2da844727691fef1757c72eb190c2909f0"
-  version = "v2.15.0"
+  revision = "2f47546e3facd43297739439600bcf43f44cce5d"
+  version = "v2.16.0"
 
 [[projects]]
-  digest = "1:aa1598d34009b45ce74fdabdd25e4258d7923d1e1b418d4c98482e79607cb9b0"
+  digest = "1:2e2e1bf63381476d203354c0c3c4692d103e8d02ea2bfafe8e3f80a04c925b87"
   name = "github.com/uber/jaeger-lib"
   packages = ["metrics"]
   pruneopts = ""
-  revision = "ed3a127ec5fef7ae9ea95b01b542c47fbd999ce5"
-  version = "v1.5.0"
+  revision = "0e30338a695636fe5bcf7301e8030ce8dd2a8530"
+  version = "v2.0.0"
 
 [[projects]]
   digest = "1:ee723e6a1962a196eeba1b24f82af61a4f60f8821d7aa96d48e787f8337bcffc"
@@ -998,7 +992,7 @@
   revision = "49fa5e03c418f95f78684c91e155af06aa901a32"
 
 [[projects]]
-  digest = "1:6c3fbf62c65fa235f815ccc6977f6fd9917d783024c051096c73b483840c331f"
+  digest = "1:611a70e69144bea3f3af803347c60490c4b6d5c39bd85a1e8217d0398ab1fb89"
   name = "golang.org/x/crypto"
   packages = [
     "bcrypt",
@@ -1022,7 +1016,7 @@
     "ssh/terminal",
   ]
   pruneopts = ""
-  revision = "9de5f2eaf759b4c4550b3db39fed2e9e5f86f45c"
+  revision = "4ec37c66abab2c7e02ae775328b2ff001c3f025a"
 
 [[projects]]
   digest = "1:4f7cbb08d72e1163302e2d21415200a7bc281653f5f34eda8a15c0da11a337b0"

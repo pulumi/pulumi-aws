@@ -88,9 +88,9 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly stageDescription: pulumi.Output<string | undefined>;
     /**
-     * The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment. Use `""` to point at the default stage.
+     * The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
      */
-    public readonly stageName: pulumi.Output<string>;
+    public readonly stageName: pulumi.Output<string | undefined>;
     /**
      * A map that defines variables for the stage
      */
@@ -120,9 +120,6 @@ export class Deployment extends pulumi.CustomResource {
             const args = argsOrState as DeploymentArgs | undefined;
             if (!args || args.restApi === undefined) {
                 throw new Error("Missing required property 'restApi'");
-            }
-            if (!args || args.stageName === undefined) {
-                throw new Error("Missing required property 'stageName'");
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["restApi"] = args ? args.restApi : undefined;
@@ -169,7 +166,7 @@ export interface DeploymentState {
      */
     readonly stageDescription?: pulumi.Input<string>;
     /**
-     * The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment. Use `""` to point at the default stage.
+     * The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
      */
     readonly stageName?: pulumi.Input<string>;
     /**
@@ -195,9 +192,9 @@ export interface DeploymentArgs {
      */
     readonly stageDescription?: pulumi.Input<string>;
     /**
-     * The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment. Use `""` to point at the default stage.
+     * The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
      */
-    readonly stageName: pulumi.Input<string>;
+    readonly stageName?: pulumi.Input<string>;
     /**
      * A map that defines variables for the stage
      */

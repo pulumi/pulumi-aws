@@ -34,6 +34,7 @@ export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions)
     return pulumi.runtime.invoke("aws:ec2/getInstance:getInstance", {
         "filters": args.filters,
         "getPasswordData": args.getPasswordData,
+        "getUserData": args.getUserData,
         "instanceId": args.instanceId,
         "instanceTags": args.instanceTags,
         "tags": args.tags,
@@ -54,6 +55,10 @@ export interface GetInstanceArgs {
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
     readonly getPasswordData?: boolean;
+    /**
+     * Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
+     */
+    readonly getUserData?: boolean;
     /**
      * Specify the exact Instance ID with which to populate the data source.
      */
@@ -184,9 +189,13 @@ export interface GetInstanceResult {
      */
     readonly tenancy: string;
     /**
-     * The User Data supplied to the Instance.
+     * SHA-1 hash of User Data supplied to the Instance.
      */
     readonly userData: string;
+    /**
+     * Base64 encoded contents of User Data supplied to the Instance. Valid UTF-8 contents can be decoded with the [`base64decode` function](https://www.terraform.io/docs/configuration/functions/base64decode.html). This attribute is only exported if `get_user_data` is true.
+     */
+    readonly userDataBase64: string;
     /**
      * The associated security groups in a non-default VPC.
      */

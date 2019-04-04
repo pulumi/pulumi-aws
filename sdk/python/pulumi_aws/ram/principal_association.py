@@ -11,7 +11,7 @@ from .. import utilities, tables
 class PrincipalAssociation(pulumi.CustomResource):
     principal: pulumi.Output[str]
     """
-    The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ID, or an AWS Organizations Organization Unit ID.
+    The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
     """
     resource_share_arn: pulumi.Output[str]
     """
@@ -25,7 +25,7 @@ class PrincipalAssociation(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] principal: The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ID, or an AWS Organizations Organization Unit ID.
+        :param pulumi.Input[str] principal: The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         :param pulumi.Input[str] resource_share_arn: The Amazon Resource Name (ARN) of the resource share.
         """
         if __name__ is not None:

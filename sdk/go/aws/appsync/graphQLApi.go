@@ -25,12 +25,14 @@ func NewGraphQLApi(ctx *pulumi.Context,
 		inputs["logConfig"] = nil
 		inputs["name"] = nil
 		inputs["openidConnectConfig"] = nil
+		inputs["schema"] = nil
 		inputs["userPoolConfig"] = nil
 	} else {
 		inputs["authenticationType"] = args.AuthenticationType
 		inputs["logConfig"] = args.LogConfig
 		inputs["name"] = args.Name
 		inputs["openidConnectConfig"] = args.OpenidConnectConfig
+		inputs["schema"] = args.Schema
 		inputs["userPoolConfig"] = args.UserPoolConfig
 	}
 	inputs["arn"] = nil
@@ -53,6 +55,7 @@ func GetGraphQLApi(ctx *pulumi.Context,
 		inputs["logConfig"] = state.LogConfig
 		inputs["name"] = state.Name
 		inputs["openidConnectConfig"] = state.OpenidConnectConfig
+		inputs["schema"] = state.Schema
 		inputs["uris"] = state.Uris
 		inputs["userPoolConfig"] = state.UserPoolConfig
 	}
@@ -98,6 +101,11 @@ func (r *GraphQLApi) OpenidConnectConfig() *pulumi.Output {
 	return r.s.State["openidConnectConfig"]
 }
 
+// The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration.
+func (r *GraphQLApi) Schema() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["schema"])
+}
+
 // Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 func (r *GraphQLApi) Uris() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["uris"])
@@ -120,6 +128,8 @@ type GraphQLApiState struct {
 	Name interface{}
 	// Nested argument containing OpenID Connect configuration. Defined below.
 	OpenidConnectConfig interface{}
+	// The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration.
+	Schema interface{}
 	// Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 	Uris interface{}
 	// The Amazon Cognito User Pool configuration. Defined below.
@@ -136,6 +146,8 @@ type GraphQLApiArgs struct {
 	Name interface{}
 	// Nested argument containing OpenID Connect configuration. Defined below.
 	OpenidConnectConfig interface{}
+	// The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration.
+	Schema interface{}
 	// The Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig interface{}
 }

@@ -39,14 +39,14 @@ class AccessKey(pulumi.CustomResource):
     """
     status: pulumi.Output[str]
     """
-    "Active" or "Inactive". Keys are initially active, but can be made
-    inactive by other means.
+    The access key status to apply. Defaults to `Active`.
+    Valid values are `Active` and `Inactive`.
     """
     user: pulumi.Output[str]
     """
     The IAM user to associate with this access key.
     """
-    def __init__(__self__, resource_name, opts=None, pgp_key=None, user=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, pgp_key=None, status=None, user=None, __name__=None, __opts__=None):
         """
         Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
         
@@ -54,6 +54,8 @@ class AccessKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] pgp_key: Either a base-64 encoded PGP public key, or a
                keybase username in the form `keybase:some_person_that_exists`.
+        :param pulumi.Input[str] status: The access key status to apply. Defaults to `Active`.
+               Valid values are `Active` and `Inactive`.
         :param pulumi.Input[str] user: The IAM user to associate with this access key.
         """
         if __name__ is not None:
@@ -73,6 +75,8 @@ class AccessKey(pulumi.CustomResource):
 
         __props__['pgp_key'] = pgp_key
 
+        __props__['status'] = status
+
         if user is None:
             raise TypeError('Missing required property user')
         __props__['user'] = user
@@ -81,7 +85,6 @@ class AccessKey(pulumi.CustomResource):
         __props__['key_fingerprint'] = None
         __props__['secret'] = None
         __props__['ses_smtp_password'] = None
-        __props__['status'] = None
 
         super(AccessKey, __self__).__init__(
             'aws:iam/accessKey:AccessKey',

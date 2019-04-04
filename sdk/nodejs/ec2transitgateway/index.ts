@@ -5,6 +5,7 @@
 export * from "./getRouteTable";
 export * from "./getTransitGateway";
 export * from "./getVpcAttachment";
+export * from "./getVpnAttachment";
 export * from "./route";
 export * from "./routeTable";
 export * from "./routeTableAssociation";
