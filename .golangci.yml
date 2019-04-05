@@ -18,4 +18,4 @@ linters:
     - unconvert
     - varcheck
   disable:
-    - staticheck
+    - staticcheck
