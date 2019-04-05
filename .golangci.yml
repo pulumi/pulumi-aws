@@ -17,3 +17,5 @@ linters:
     - structcheck
     - unconvert
     - varcheck
+  disable:
+    - staticheck
