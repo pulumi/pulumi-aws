@@ -81,7 +81,7 @@ class DataSource(pulumi.CustomResource):
         __props__ = dict()
 
         if api_id is None:
-            raise TypeError('Missing required property api_id')
+            raise TypeError("Missing required property 'api_id'")
         __props__['api_id'] = api_id
 
         __props__['description'] = description
@@ -99,7 +99,7 @@ class DataSource(pulumi.CustomResource):
         __props__['service_role_arn'] = service_role_arn
 
         if type is None:
-            raise TypeError('Missing required property type')
+            raise TypeError("Missing required property 'type'")
         __props__['type'] = type
 
         __props__['arn'] = None

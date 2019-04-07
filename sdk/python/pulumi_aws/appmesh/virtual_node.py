@@ -70,13 +70,13 @@ class VirtualNode(pulumi.CustomResource):
         __props__ = dict()
 
         if mesh_name is None:
-            raise TypeError('Missing required property mesh_name')
+            raise TypeError("Missing required property 'mesh_name'")
         __props__['mesh_name'] = mesh_name
 
         __props__['name'] = name
 
         if spec is None:
-            raise TypeError('Missing required property spec')
+            raise TypeError("Missing required property 'spec'")
         __props__['spec'] = spec
 
         __props__['arn'] = None

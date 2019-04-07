@@ -43,6 +43,7 @@ export interface GetClusterResult {
      * The ARN of the ECS Cluster
      */
     readonly arn: string;
+    readonly clusterName: string;
     /**
      * The number of pending tasks for the ECS Cluster
      */

@@ -103,11 +103,11 @@ class PlatformApplication(pulumi.CustomResource):
         __props__['name'] = name
 
         if platform is None:
-            raise TypeError('Missing required property platform')
+            raise TypeError("Missing required property 'platform'")
         __props__['platform'] = platform
 
         if platform_credential is None:
-            raise TypeError('Missing required property platform_credential')
+            raise TypeError("Missing required property 'platform_credential'")
         __props__['platform_credential'] = platform_credential
 
         __props__['platform_principal'] = platform_principal

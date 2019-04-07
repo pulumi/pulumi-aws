@@ -39,7 +39,7 @@ class MemberAccountAssociation(pulumi.CustomResource):
         __props__ = dict()
 
         if member_account_id is None:
-            raise TypeError('Missing required property member_account_id')
+            raise TypeError("Missing required property 'member_account_id'")
         __props__['member_account_id'] = member_account_id
 
         super(MemberAccountAssociation, __self__).__init__(

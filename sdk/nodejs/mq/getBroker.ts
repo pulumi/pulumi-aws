@@ -65,6 +65,7 @@ export interface GetBrokerResult {
     readonly engineVersion: string;
     readonly hostInstanceType: string;
     readonly instances: { consoleUrl: string, endpoints: string[], ipAddress: string }[];
+    readonly logs?: { audit: boolean, general: boolean };
     readonly maintenanceWindowStartTime: { dayOfWeek: string, timeOfDay: string, timeZone: string };
     readonly publiclyAccessible: boolean;
     readonly securityGroups: string[];

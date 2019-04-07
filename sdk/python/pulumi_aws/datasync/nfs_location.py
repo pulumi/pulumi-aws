@@ -59,15 +59,15 @@ class NfsLocation(pulumi.CustomResource):
         __props__ = dict()
 
         if on_prem_config is None:
-            raise TypeError('Missing required property on_prem_config')
+            raise TypeError("Missing required property 'on_prem_config'")
         __props__['on_prem_config'] = on_prem_config
 
         if server_hostname is None:
-            raise TypeError('Missing required property server_hostname')
+            raise TypeError("Missing required property 'server_hostname'")
         __props__['server_hostname'] = server_hostname
 
         if subdirectory is None:
-            raise TypeError('Missing required property subdirectory')
+            raise TypeError("Missing required property 'subdirectory'")
         __props__['subdirectory'] = subdirectory
 
         __props__['tags'] = tags

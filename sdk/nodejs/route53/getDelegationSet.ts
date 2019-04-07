@@ -43,5 +43,6 @@ export interface GetDelegationSetArgs {
  */
 export interface GetDelegationSetResult {
     readonly callerReference: string;
+    readonly id: string;
     readonly nameServers: string[];
 }

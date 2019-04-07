@@ -105,7 +105,7 @@ class Crawler(pulumi.CustomResource):
         __props__['configuration'] = configuration
 
         if database_name is None:
-            raise TypeError('Missing required property database_name')
+            raise TypeError("Missing required property 'database_name'")
         __props__['database_name'] = database_name
 
         __props__['description'] = description
@@ -117,7 +117,7 @@ class Crawler(pulumi.CustomResource):
         __props__['name'] = name
 
         if role is None:
-            raise TypeError('Missing required property role')
+            raise TypeError("Missing required property 'role'")
         __props__['role'] = role
 
         __props__['s3_targets'] = s3_targets

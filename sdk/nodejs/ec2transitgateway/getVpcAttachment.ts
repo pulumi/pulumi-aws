@@ -66,6 +66,11 @@ export interface GetVpcAttachmentResult {
      * Whether DNS support is enabled.
      */
     readonly dnsSupport: string;
+    readonly filters?: { name: string, values: string[] }[];
+    /**
+     * EC2 Transit Gateway VPC Attachment identifier
+     */
+    readonly id?: string;
     /**
      * Whether IPv6 support is enabled.
      */

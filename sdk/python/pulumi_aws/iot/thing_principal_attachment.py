@@ -42,11 +42,11 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
         __props__ = dict()
 
         if principal is None:
-            raise TypeError('Missing required property principal')
+            raise TypeError("Missing required property 'principal'")
         __props__['principal'] = principal
 
         if thing is None:
-            raise TypeError('Missing required property thing')
+            raise TypeError("Missing required property 'thing'")
         __props__['thing'] = thing
 
         super(ThingPrincipalAttachment, __self__).__init__(

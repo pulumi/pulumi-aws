@@ -57,15 +57,15 @@ class S3Location(pulumi.CustomResource):
         __props__ = dict()
 
         if s3_bucket_arn is None:
-            raise TypeError('Missing required property s3_bucket_arn')
+            raise TypeError("Missing required property 's3_bucket_arn'")
         __props__['s3_bucket_arn'] = s3_bucket_arn
 
         if s3_config is None:
-            raise TypeError('Missing required property s3_config')
+            raise TypeError("Missing required property 's3_config'")
         __props__['s3_config'] = s3_config
 
         if subdirectory is None:
-            raise TypeError('Missing required property subdirectory')
+            raise TypeError("Missing required property 'subdirectory'")
         __props__['subdirectory'] = subdirectory
 
         __props__['tags'] = tags

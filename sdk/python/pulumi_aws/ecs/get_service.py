@@ -12,39 +12,45 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, arn=None, desired_count=None, launch_type=None, scheduling_strategy=None, task_definition=None, id=None):
+    def __init__(__self__, arn=None, cluster_arn=None, desired_count=None, launch_type=None, scheduling_strategy=None, service_name=None, task_definition=None, id=None):
         if arn and not isinstance(arn, str):
-            raise TypeError('Expected argument arn to be a str')
+            raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
         The ARN of the ECS Service
         """
+        if cluster_arn and not isinstance(cluster_arn, str):
+            raise TypeError("Expected argument 'cluster_arn' to be a str")
+        __self__.cluster_arn = cluster_arn
         if desired_count and not isinstance(desired_count, float):
-            raise TypeError('Expected argument desired_count to be a float')
+            raise TypeError("Expected argument 'desired_count' to be a float")
         __self__.desired_count = desired_count
         """
         The number of tasks for the ECS Service
         """
         if launch_type and not isinstance(launch_type, str):
-            raise TypeError('Expected argument launch_type to be a str')
+            raise TypeError("Expected argument 'launch_type' to be a str")
         __self__.launch_type = launch_type
         """
         The launch type for the ECS Service
         """
         if scheduling_strategy and not isinstance(scheduling_strategy, str):
-            raise TypeError('Expected argument scheduling_strategy to be a str')
+            raise TypeError("Expected argument 'scheduling_strategy' to be a str")
         __self__.scheduling_strategy = scheduling_strategy
         """
         The scheduling strategy for the ECS Service
         """
+        if service_name and not isinstance(service_name, str):
+            raise TypeError("Expected argument 'service_name' to be a str")
+        __self__.service_name = service_name
         if task_definition and not isinstance(task_definition, str):
-            raise TypeError('Expected argument task_definition to be a str')
+            raise TypeError("Expected argument 'task_definition' to be a str")
         __self__.task_definition = task_definition
         """
         The family for the latest ACTIVE revision
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -63,8 +69,10 @@ async def get_service(cluster_arn=None,service_name=None,opts=None):
 
     return GetServiceResult(
         arn=__ret__.get('arn'),
+        cluster_arn=__ret__.get('clusterArn'),
         desired_count=__ret__.get('desiredCount'),
         launch_type=__ret__.get('launchType'),
         scheduling_strategy=__ret__.get('schedulingStrategy'),
+        service_name=__ret__.get('serviceName'),
         task_definition=__ret__.get('taskDefinition'),
         id=__ret__.get('id'))

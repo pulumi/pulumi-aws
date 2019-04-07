@@ -42,11 +42,11 @@ class InviteAccepter(pulumi.CustomResource):
         __props__ = dict()
 
         if detector_id is None:
-            raise TypeError('Missing required property detector_id')
+            raise TypeError("Missing required property 'detector_id'")
         __props__['detector_id'] = detector_id
 
         if master_account_id is None:
-            raise TypeError('Missing required property master_account_id')
+            raise TypeError("Missing required property 'master_account_id'")
         __props__['master_account_id'] = master_account_id
 
         super(InviteAccepter, __self__).__init__(

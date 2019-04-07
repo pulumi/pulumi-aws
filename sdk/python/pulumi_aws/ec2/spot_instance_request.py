@@ -329,7 +329,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__ = dict()
 
         if ami is None:
-            raise TypeError('Missing required property ami')
+            raise TypeError("Missing required property 'ami'")
         __props__['ami'] = ami
 
         __props__['associate_public_ip_address'] = associate_public_ip_address
@@ -363,7 +363,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__['instance_interruption_behaviour'] = instance_interruption_behaviour
 
         if instance_type is None:
-            raise TypeError('Missing required property instance_type')
+            raise TypeError("Missing required property 'instance_type'")
         __props__['instance_type'] = instance_type
 
         __props__['ipv6_address_count'] = ipv6_address_count

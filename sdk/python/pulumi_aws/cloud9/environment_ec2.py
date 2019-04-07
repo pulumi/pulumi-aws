@@ -74,7 +74,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         __props__['description'] = description
 
         if instance_type is None:
-            raise TypeError('Missing required property instance_type')
+            raise TypeError("Missing required property 'instance_type'")
         __props__['instance_type'] = instance_type
 
         __props__['name'] = name

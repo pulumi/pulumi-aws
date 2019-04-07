@@ -43,11 +43,11 @@ class QueuePolicy(pulumi.CustomResource):
         __props__ = dict()
 
         if policy is None:
-            raise TypeError('Missing required property policy')
+            raise TypeError("Missing required property 'policy'")
         __props__['policy'] = policy
 
         if queue_url is None:
-            raise TypeError('Missing required property queue_url')
+            raise TypeError("Missing required property 'queue_url'")
         __props__['queue_url'] = queue_url
 
         super(QueuePolicy, __self__).__init__(

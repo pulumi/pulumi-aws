@@ -78,7 +78,7 @@ class AccessKey(pulumi.CustomResource):
         __props__['status'] = status
 
         if user is None:
-            raise TypeError('Missing required property user')
+            raise TypeError("Missing required property 'user'")
         __props__['user'] = user
 
         __props__['encrypted_secret'] = None

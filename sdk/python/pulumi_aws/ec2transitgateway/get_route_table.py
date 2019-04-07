@@ -12,27 +12,36 @@ class GetRouteTableResult:
     """
     A collection of values returned by getRouteTable.
     """
-    def __init__(__self__, default_association_route_table=None, default_propagation_route_table=None, tags=None, transit_gateway_id=None):
+    def __init__(__self__, default_association_route_table=None, default_propagation_route_table=None, filters=None, id=None, tags=None, transit_gateway_id=None):
         if default_association_route_table and not isinstance(default_association_route_table, bool):
-            raise TypeError('Expected argument default_association_route_table to be a bool')
+            raise TypeError("Expected argument 'default_association_route_table' to be a bool")
         __self__.default_association_route_table = default_association_route_table
         """
         Boolean whether this is the default association route table for the EC2 Transit Gateway
         """
         if default_propagation_route_table and not isinstance(default_propagation_route_table, bool):
-            raise TypeError('Expected argument default_propagation_route_table to be a bool')
+            raise TypeError("Expected argument 'default_propagation_route_table' to be a bool")
         __self__.default_propagation_route_table = default_propagation_route_table
         """
         Boolean whether this is the default propagation route table for the EC2 Transit Gateway
         """
+        if filters and not isinstance(filters, list):
+            raise TypeError("Expected argument 'filters' to be a list")
+        __self__.filters = filters
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        EC2 Transit Gateway Route Table identifier
+        """
         if tags and not isinstance(tags, dict):
-            raise TypeError('Expected argument tags to be a dict')
+            raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Key-value tags for the EC2 Transit Gateway Route Table
         """
         if transit_gateway_id and not isinstance(transit_gateway_id, str):
-            raise TypeError('Expected argument transit_gateway_id to be a str')
+            raise TypeError("Expected argument 'transit_gateway_id' to be a str")
         __self__.transit_gateway_id = transit_gateway_id
         """
         EC2 Transit Gateway identifier
@@ -52,5 +61,7 @@ async def get_route_table(filters=None,id=None,tags=None,opts=None):
     return GetRouteTableResult(
         default_association_route_table=__ret__.get('defaultAssociationRouteTable'),
         default_propagation_route_table=__ret__.get('defaultPropagationRouteTable'),
+        filters=__ret__.get('filters'),
+        id=__ret__.get('id'),
         tags=__ret__.get('tags'),
         transit_gateway_id=__ret__.get('transitGatewayId'))

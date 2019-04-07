@@ -51,6 +51,7 @@ export interface GetUserPoolsResult {
      * The list of cognito user pool ids.
      */
     readonly ids: string[];
+    readonly name: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

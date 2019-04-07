@@ -75,6 +75,10 @@ export interface GetReplicationGroupResult {
      */
     readonly replicationGroupDescription: string;
     /**
+     * The identifier for the replication group.
+     */
+    readonly replicationGroupId: string;
+    /**
      * The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
      */
     readonly snapshotRetentionLimit: number;

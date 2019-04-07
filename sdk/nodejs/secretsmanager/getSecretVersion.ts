@@ -72,6 +72,7 @@ export interface GetSecretVersionResult {
      * The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
      */
     readonly secretBinary: string;
+    readonly secretId: string;
     /**
      * The decrypted part of the protected secret information that was originally provided as a string.
      */
@@ -80,6 +81,7 @@ export interface GetSecretVersionResult {
      * The unique identifier of this version of the secret.
      */
     readonly versionId: string;
+    readonly versionStage?: string;
     readonly versionStages: string[];
     /**
      * id is the provider-assigned unique ID for this managed resource.

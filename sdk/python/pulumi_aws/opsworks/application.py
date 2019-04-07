@@ -147,11 +147,11 @@ class Application(pulumi.CustomResource):
         __props__['ssl_configurations'] = ssl_configurations
 
         if stack_id is None:
-            raise TypeError('Missing required property stack_id')
+            raise TypeError("Missing required property 'stack_id'")
         __props__['stack_id'] = stack_id
 
         if type is None:
-            raise TypeError('Missing required property type')
+            raise TypeError("Missing required property 'type'")
         __props__['type'] = type
 
         super(Application, __self__).__init__(

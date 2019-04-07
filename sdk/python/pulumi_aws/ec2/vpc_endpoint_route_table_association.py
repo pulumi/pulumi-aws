@@ -42,11 +42,11 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
         __props__ = dict()
 
         if route_table_id is None:
-            raise TypeError('Missing required property route_table_id')
+            raise TypeError("Missing required property 'route_table_id'")
         __props__['route_table_id'] = route_table_id
 
         if vpc_endpoint_id is None:
-            raise TypeError('Missing required property vpc_endpoint_id')
+            raise TypeError("Missing required property 'vpc_endpoint_id'")
         __props__['vpc_endpoint_id'] = vpc_endpoint_id
 
         super(VpcEndpointRouteTableAssociation, __self__).__init__(

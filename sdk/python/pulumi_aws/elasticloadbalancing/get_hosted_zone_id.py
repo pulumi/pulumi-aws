@@ -12,9 +12,12 @@ class GetHostedZoneIdResult:
     """
     A collection of values returned by getHostedZoneId.
     """
-    def __init__(__self__, id=None):
+    def __init__(__self__, region=None, id=None):
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        __self__.region = region
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -31,4 +34,5 @@ async def get_hosted_zone_id(region=None,opts=None):
     __ret__ = await pulumi.runtime.invoke('aws:elasticloadbalancing/getHostedZoneId:getHostedZoneId', __args__, opts=opts)
 
     return GetHostedZoneIdResult(
+        region=__ret__.get('region'),
         id=__ret__.get('id'))

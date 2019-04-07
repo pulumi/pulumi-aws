@@ -37,6 +37,7 @@ func LookupSubnet(ctx *pulumi.Context, args *GetSubnetArgs) (*GetSubnetResult, e
 		AvailabilityZoneId: outputs["availabilityZoneId"],
 		CidrBlock: outputs["cidrBlock"],
 		DefaultForAz: outputs["defaultForAz"],
+		Filters: outputs["filters"],
 		Id: outputs["id"],
 		Ipv6CidrBlock: outputs["ipv6CidrBlock"],
 		Ipv6CidrBlockAssociationId: outputs["ipv6CidrBlockAssociationId"],
@@ -84,6 +85,7 @@ type GetSubnetResult struct {
 	AvailabilityZoneId interface{}
 	CidrBlock interface{}
 	DefaultForAz interface{}
+	Filters interface{}
 	Id interface{}
 	Ipv6CidrBlock interface{}
 	Ipv6CidrBlockAssociationId interface{}

@@ -14,58 +14,58 @@ class GetSecretResult:
     """
     def __init__(__self__, arn=None, description=None, kms_key_id=None, name=None, policy=None, rotation_enabled=None, rotation_lambda_arn=None, rotation_rules=None, tags=None, id=None):
         if arn and not isinstance(arn, str):
-            raise TypeError('Expected argument arn to be a str')
+            raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
         The Amazon Resource Name (ARN) of the secret.
         """
         if description and not isinstance(description, str):
-            raise TypeError('Expected argument description to be a str')
+            raise TypeError("Expected argument 'description' to be a str")
         __self__.description = description
         """
         A description of the secret.
         """
         if kms_key_id and not isinstance(kms_key_id, str):
-            raise TypeError('Expected argument kms_key_id to be a str')
+            raise TypeError("Expected argument 'kms_key_id' to be a str")
         __self__.kms_key_id = kms_key_id
         """
         The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
         """
         if name and not isinstance(name, str):
-            raise TypeError('Expected argument name to be a str')
+            raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         if policy and not isinstance(policy, str):
-            raise TypeError('Expected argument policy to be a str')
+            raise TypeError("Expected argument 'policy' to be a str")
         __self__.policy = policy
         """
         The resource-based policy document that's attached to the secret.
         """
         if rotation_enabled and not isinstance(rotation_enabled, bool):
-            raise TypeError('Expected argument rotation_enabled to be a bool')
+            raise TypeError("Expected argument 'rotation_enabled' to be a bool")
         __self__.rotation_enabled = rotation_enabled
         """
         Whether rotation is enabled or not.
         """
         if rotation_lambda_arn and not isinstance(rotation_lambda_arn, str):
-            raise TypeError('Expected argument rotation_lambda_arn to be a str')
+            raise TypeError("Expected argument 'rotation_lambda_arn' to be a str")
         __self__.rotation_lambda_arn = rotation_lambda_arn
         """
         Rotation Lambda function Amazon Resource Name (ARN) if rotation is enabled.
         """
         if rotation_rules and not isinstance(rotation_rules, list):
-            raise TypeError('Expected argument rotation_rules to be a list')
+            raise TypeError("Expected argument 'rotation_rules' to be a list")
         __self__.rotation_rules = rotation_rules
         """
         Rotation rules if rotation is enabled.
         """
         if tags and not isinstance(tags, dict):
-            raise TypeError('Expected argument tags to be a dict')
+            raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Tags of the secret.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

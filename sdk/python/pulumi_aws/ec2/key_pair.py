@@ -63,7 +63,7 @@ class KeyPair(pulumi.CustomResource):
         __props__['key_name_prefix'] = key_name_prefix
 
         if public_key is None:
-            raise TypeError('Missing required property public_key')
+            raise TypeError("Missing required property 'public_key'")
         __props__['public_key'] = public_key
 
         __props__['fingerprint'] = None

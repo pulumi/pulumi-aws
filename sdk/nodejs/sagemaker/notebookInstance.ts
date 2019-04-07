@@ -50,6 +50,10 @@ export class NotebookInstance extends pulumi.CustomResource {
      */
     public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
+     * The name of a lifecycle configuration to associate with the notebook instance.
+     */
+    public readonly lifecycleConfigName: pulumi.Output<string | undefined>;
+    /**
      * The name of the notebook instance (must be unique).
      */
     public readonly name: pulumi.Output<string>;
@@ -85,6 +89,7 @@ export class NotebookInstance extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["instanceType"] = state ? state.instanceType : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            inputs["lifecycleConfigName"] = state ? state.lifecycleConfigName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
             inputs["securityGroups"] = state ? state.securityGroups : undefined;
@@ -100,6 +105,7 @@ export class NotebookInstance extends pulumi.CustomResource {
             }
             inputs["instanceType"] = args ? args.instanceType : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            inputs["lifecycleConfigName"] = args ? args.lifecycleConfigName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["securityGroups"] = args ? args.securityGroups : undefined;
@@ -127,6 +133,10 @@ export interface NotebookInstanceState {
      * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The name of a lifecycle configuration to associate with the notebook instance.
+     */
+    readonly lifecycleConfigName?: pulumi.Input<string>;
     /**
      * The name of the notebook instance (must be unique).
      */
@@ -161,6 +171,10 @@ export interface NotebookInstanceArgs {
      * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The name of a lifecycle configuration to associate with the notebook instance.
+     */
+    readonly lifecycleConfigName?: pulumi.Input<string>;
     /**
      * The name of the notebook instance (must be unique).
      */

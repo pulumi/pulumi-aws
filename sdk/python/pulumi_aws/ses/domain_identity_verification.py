@@ -47,7 +47,7 @@ class DomainIdentityVerification(pulumi.CustomResource):
         __props__ = dict()
 
         if domain is None:
-            raise TypeError('Missing required property domain')
+            raise TypeError("Missing required property 'domain'")
         __props__['domain'] = domain
 
         __props__['arn'] = None

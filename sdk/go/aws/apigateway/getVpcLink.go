@@ -22,6 +22,7 @@ func LookupVpcLink(ctx *pulumi.Context, args *GetVpcLinkArgs) (*GetVpcLinkResult
 	}
 	return &GetVpcLinkResult{
 		Id: outputs["id"],
+		Name: outputs["name"],
 	}, nil
 }
 
@@ -36,4 +37,5 @@ type GetVpcLinkArgs struct {
 type GetVpcLinkResult struct {
 	// Set to the ID of the found API Gateway VPC Link.
 	Id interface{}
+	Name interface{}
 }

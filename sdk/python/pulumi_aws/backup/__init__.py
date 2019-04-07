@@ -4,4 +4,5 @@
 
 # Export this package's modules as members:
 from .plan import *
+from .selection import *
 from .vault import *

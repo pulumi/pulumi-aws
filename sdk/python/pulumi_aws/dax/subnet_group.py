@@ -55,7 +55,7 @@ class SubnetGroup(pulumi.CustomResource):
         __props__['name'] = name
 
         if subnet_ids is None:
-            raise TypeError('Missing required property subnet_ids')
+            raise TypeError("Missing required property 'subnet_ids'")
         __props__['subnet_ids'] = subnet_ids
 
         __props__['vpc_id'] = None

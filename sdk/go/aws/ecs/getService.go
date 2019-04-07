@@ -21,9 +21,11 @@ func LookupService(ctx *pulumi.Context, args *GetServiceArgs) (*GetServiceResult
 	}
 	return &GetServiceResult{
 		Arn: outputs["arn"],
+		ClusterArn: outputs["clusterArn"],
 		DesiredCount: outputs["desiredCount"],
 		LaunchType: outputs["launchType"],
 		SchedulingStrategy: outputs["schedulingStrategy"],
+		ServiceName: outputs["serviceName"],
 		TaskDefinition: outputs["taskDefinition"],
 		Id: outputs["id"],
 	}, nil
@@ -41,12 +43,14 @@ type GetServiceArgs struct {
 type GetServiceResult struct {
 	// The ARN of the ECS Service
 	Arn interface{}
+	ClusterArn interface{}
 	// The number of tasks for the ECS Service
 	DesiredCount interface{}
 	// The launch type for the ECS Service
 	LaunchType interface{}
 	// The scheduling strategy for the ECS Service
 	SchedulingStrategy interface{}
+	ServiceName interface{}
 	// The family for the latest ACTIVE revision
 	TaskDefinition interface{}
 	// id is the provider-assigned unique ID for this managed resource.

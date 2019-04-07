@@ -75,11 +75,11 @@ class OptionGroup(pulumi.CustomResource):
         __props__ = dict()
 
         if engine_name is None:
-            raise TypeError('Missing required property engine_name')
+            raise TypeError("Missing required property 'engine_name'")
         __props__['engine_name'] = engine_name
 
         if major_engine_version is None:
-            raise TypeError('Missing required property major_engine_version')
+            raise TypeError("Missing required property 'major_engine_version'")
         __props__['major_engine_version'] = major_engine_version
 
         __props__['name'] = name

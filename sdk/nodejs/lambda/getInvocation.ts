@@ -59,6 +59,9 @@ export interface GetInvocationArgs {
  * A collection of values returned by getInvocation.
  */
 export interface GetInvocationResult {
+    readonly functionName: string;
+    readonly input: string;
+    readonly qualifier?: string;
     /**
      * A result of the lambda function invocation.
      */

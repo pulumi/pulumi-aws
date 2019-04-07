@@ -59,19 +59,19 @@ class IPSet(pulumi.CustomResource):
         __props__ = dict()
 
         if activate is None:
-            raise TypeError('Missing required property activate')
+            raise TypeError("Missing required property 'activate'")
         __props__['activate'] = activate
 
         if detector_id is None:
-            raise TypeError('Missing required property detector_id')
+            raise TypeError("Missing required property 'detector_id'")
         __props__['detector_id'] = detector_id
 
         if format is None:
-            raise TypeError('Missing required property format')
+            raise TypeError("Missing required property 'format'")
         __props__['format'] = format
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

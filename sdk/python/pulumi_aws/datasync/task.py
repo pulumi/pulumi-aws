@@ -68,7 +68,7 @@ class Task(pulumi.CustomResource):
         __props__['cloudwatch_log_group_arn'] = cloudwatch_log_group_arn
 
         if destination_location_arn is None:
-            raise TypeError('Missing required property destination_location_arn')
+            raise TypeError("Missing required property 'destination_location_arn'")
         __props__['destination_location_arn'] = destination_location_arn
 
         __props__['name'] = name
@@ -76,7 +76,7 @@ class Task(pulumi.CustomResource):
         __props__['options'] = options
 
         if source_location_arn is None:
-            raise TypeError('Missing required property source_location_arn')
+            raise TypeError("Missing required property 'source_location_arn'")
         __props__['source_location_arn'] = source_location_arn
 
         __props__['tags'] = tags

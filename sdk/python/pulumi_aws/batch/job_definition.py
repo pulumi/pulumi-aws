@@ -96,7 +96,7 @@ class JobDefinition(pulumi.CustomResource):
         __props__['timeout'] = timeout
 
         if type is None:
-            raise TypeError('Missing required property type')
+            raise TypeError("Missing required property 'type'")
         __props__['type'] = type
 
         __props__['arn'] = None

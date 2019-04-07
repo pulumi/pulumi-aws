@@ -92,7 +92,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         __props__['arn'] = arn
 
         if destination is None:
-            raise TypeError('Missing required property destination')
+            raise TypeError("Missing required property 'destination'")
         __props__['destination'] = destination
 
         __props__['destination_id'] = destination_id

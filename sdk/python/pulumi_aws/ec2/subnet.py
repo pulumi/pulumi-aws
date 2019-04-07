@@ -100,7 +100,7 @@ class Subnet(pulumi.CustomResource):
         __props__['availability_zone_id'] = availability_zone_id
 
         if cidr_block is None:
-            raise TypeError('Missing required property cidr_block')
+            raise TypeError("Missing required property 'cidr_block'")
         __props__['cidr_block'] = cidr_block
 
         __props__['ipv6_cidr_block'] = ipv6_cidr_block
@@ -110,7 +110,7 @@ class Subnet(pulumi.CustomResource):
         __props__['tags'] = tags
 
         if vpc_id is None:
-            raise TypeError('Missing required property vpc_id')
+            raise TypeError("Missing required property 'vpc_id'")
         __props__['vpc_id'] = vpc_id
 
         __props__['arn'] = None

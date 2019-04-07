@@ -38,6 +38,7 @@ export interface GetBundleArgs {
  * A collection of values returned by getBundle.
  */
 export interface GetBundleResult {
+    readonly bundleId: string;
     /**
      * The compute type. See supported fields below.
      */

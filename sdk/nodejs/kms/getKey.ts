@@ -57,6 +57,8 @@ export interface GetKeyResult {
     readonly description: string;
     readonly enabled: boolean;
     readonly expirationModel: string;
+    readonly grantTokens?: string[];
+    readonly keyId: string;
     readonly keyManager: string;
     readonly keyState: string;
     readonly keyUsage: string;

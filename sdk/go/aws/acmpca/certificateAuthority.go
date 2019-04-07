@@ -25,12 +25,14 @@ func NewCertificateAuthority(ctx *pulumi.Context,
 	if args == nil {
 		inputs["certificateAuthorityConfiguration"] = nil
 		inputs["enabled"] = nil
+		inputs["permanentDeletionTimeInDays"] = nil
 		inputs["revocationConfiguration"] = nil
 		inputs["tags"] = nil
 		inputs["type"] = nil
 	} else {
 		inputs["certificateAuthorityConfiguration"] = args.CertificateAuthorityConfiguration
 		inputs["enabled"] = args.Enabled
+		inputs["permanentDeletionTimeInDays"] = args.PermanentDeletionTimeInDays
 		inputs["revocationConfiguration"] = args.RevocationConfiguration
 		inputs["tags"] = args.Tags
 		inputs["type"] = args.Type
@@ -64,6 +66,7 @@ func GetCertificateAuthority(ctx *pulumi.Context,
 		inputs["enabled"] = state.Enabled
 		inputs["notAfter"] = state.NotAfter
 		inputs["notBefore"] = state.NotBefore
+		inputs["permanentDeletionTimeInDays"] = state.PermanentDeletionTimeInDays
 		inputs["revocationConfiguration"] = state.RevocationConfiguration
 		inputs["serial"] = state.Serial
 		inputs["status"] = state.Status
@@ -127,6 +130,11 @@ func (r *CertificateAuthority) NotBefore() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["notBefore"])
 }
 
+// The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+func (r *CertificateAuthority) PermanentDeletionTimeInDays() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["permanentDeletionTimeInDays"])
+}
+
 // Nested argument containing revocation configuration. Defined below.
 func (r *CertificateAuthority) RevocationConfiguration() *pulumi.Output {
 	return r.s.State["revocationConfiguration"]
@@ -170,6 +178,8 @@ type CertificateAuthorityState struct {
 	NotAfter interface{}
 	// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
 	NotBefore interface{}
+	// The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+	PermanentDeletionTimeInDays interface{}
 	// Nested argument containing revocation configuration. Defined below.
 	RevocationConfiguration interface{}
 	// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
@@ -188,6 +198,8 @@ type CertificateAuthorityArgs struct {
 	CertificateAuthorityConfiguration interface{}
 	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
 	Enabled interface{}
+	// The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+	PermanentDeletionTimeInDays interface{}
 	// Nested argument containing revocation configuration. Defined below.
 	RevocationConfiguration interface{}
 	// Specifies a key-value map of user-defined tags that are attached to the certificate authority.

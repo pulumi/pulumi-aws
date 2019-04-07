@@ -42,6 +42,7 @@ export interface GetRestApiArgs {
  * A collection of values returned by getRestApi.
  */
 export interface GetRestApiResult {
+    readonly name: string;
     /**
      * Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
      */

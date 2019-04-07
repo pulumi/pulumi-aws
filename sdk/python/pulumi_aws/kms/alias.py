@@ -63,7 +63,7 @@ class Alias(pulumi.CustomResource):
         __props__['name_prefix'] = name_prefix
 
         if target_key_id is None:
-            raise TypeError('Missing required property target_key_id')
+            raise TypeError("Missing required property 'target_key_id'")
         __props__['target_key_id'] = target_key_id
 
         __props__['arn'] = None

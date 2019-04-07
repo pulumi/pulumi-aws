@@ -58,6 +58,7 @@ export interface GetReportDefinitionResult {
      * Preferred compression format for report.
      */
     readonly format: string;
+    readonly reportName: string;
     /**
      * Name of customer S3 bucket.
      */

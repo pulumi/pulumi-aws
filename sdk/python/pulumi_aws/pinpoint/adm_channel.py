@@ -55,15 +55,15 @@ class AdmChannel(pulumi.CustomResource):
         __props__ = dict()
 
         if application_id is None:
-            raise TypeError('Missing required property application_id')
+            raise TypeError("Missing required property 'application_id'")
         __props__['application_id'] = application_id
 
         if client_id is None:
-            raise TypeError('Missing required property client_id')
+            raise TypeError("Missing required property 'client_id'")
         __props__['client_id'] = client_id
 
         if client_secret is None:
-            raise TypeError('Missing required property client_secret')
+            raise TypeError("Missing required property 'client_secret'")
         __props__['client_secret'] = client_secret
 
         __props__['enabled'] = enabled

@@ -42,11 +42,11 @@ class PolicyAttachment(pulumi.CustomResource):
         __props__ = dict()
 
         if policy is None:
-            raise TypeError('Missing required property policy')
+            raise TypeError("Missing required property 'policy'")
         __props__['policy'] = policy
 
         if target is None:
-            raise TypeError('Missing required property target')
+            raise TypeError("Missing required property 'target'")
         __props__['target'] = target
 
         super(PolicyAttachment, __self__).__init__(

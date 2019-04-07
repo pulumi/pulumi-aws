@@ -110,7 +110,7 @@ class Project(pulumi.CustomResource):
         __props__ = dict()
 
         if artifacts is None:
-            raise TypeError('Missing required property artifacts')
+            raise TypeError("Missing required property 'artifacts'")
         __props__['artifacts'] = artifacts
 
         __props__['badge_enabled'] = badge_enabled
@@ -124,7 +124,7 @@ class Project(pulumi.CustomResource):
         __props__['encryption_key'] = encryption_key
 
         if environment is None:
-            raise TypeError('Missing required property environment')
+            raise TypeError("Missing required property 'environment'")
         __props__['environment'] = environment
 
         __props__['name'] = name
@@ -134,11 +134,11 @@ class Project(pulumi.CustomResource):
         __props__['secondary_sources'] = secondary_sources
 
         if service_role is None:
-            raise TypeError('Missing required property service_role')
+            raise TypeError("Missing required property 'service_role'")
         __props__['service_role'] = service_role
 
         if source is None:
-            raise TypeError('Missing required property source')
+            raise TypeError("Missing required property 'source'")
         __props__['source'] = source
 
         __props__['tags'] = tags

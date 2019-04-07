@@ -87,7 +87,7 @@ class LicenseConfiguration(pulumi.CustomResource):
         __props__['license_count_hard_limit'] = license_count_hard_limit
 
         if license_counting_type is None:
-            raise TypeError('Missing required property license_counting_type')
+            raise TypeError("Missing required property 'license_counting_type'")
         __props__['license_counting_type'] = license_counting_type
 
         __props__['license_rules'] = license_rules

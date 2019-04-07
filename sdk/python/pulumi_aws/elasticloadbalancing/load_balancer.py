@@ -173,7 +173,7 @@ class LoadBalancer(pulumi.CustomResource):
         __props__['internal'] = internal
 
         if listeners is None:
-            raise TypeError('Missing required property listeners')
+            raise TypeError("Missing required property 'listeners'")
         __props__['listeners'] = listeners
 
         __props__['name'] = name

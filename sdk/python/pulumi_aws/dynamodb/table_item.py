@@ -57,17 +57,17 @@ class TableItem(pulumi.CustomResource):
         __props__ = dict()
 
         if hash_key is None:
-            raise TypeError('Missing required property hash_key')
+            raise TypeError("Missing required property 'hash_key'")
         __props__['hash_key'] = hash_key
 
         if item is None:
-            raise TypeError('Missing required property item')
+            raise TypeError("Missing required property 'item'")
         __props__['item'] = item
 
         __props__['range_key'] = range_key
 
         if table_name is None:
-            raise TypeError('Missing required property table_name')
+            raise TypeError("Missing required property 'table_name'")
         __props__['table_name'] = table_name
 
         super(TableItem, __self__).__init__(

@@ -3,4 +3,5 @@
 
 // Export members:
 export * from "./plan";
+export * from "./selection";
 export * from "./vault";

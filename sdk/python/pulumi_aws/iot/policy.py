@@ -52,7 +52,7 @@ class Policy(pulumi.CustomResource):
         __props__['name'] = name
 
         if policy is None:
-            raise TypeError('Missing required property policy')
+            raise TypeError("Missing required property 'policy'")
         __props__['policy'] = policy
 
         __props__['arn'] = None

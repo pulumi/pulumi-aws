@@ -461,8 +461,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_autoscaling_policy":   {Tok: awsResource(autoscalingMod, "Policy")},
 			"aws_autoscaling_schedule": {Tok: awsResource(autoscalingMod, "Schedule")},
 			// Backup
-			"aws_backup_plan":  {Tok: awsResource(backupMod, "Plan")},
-			"aws_backup_vault": {Tok: awsResource(backupMod, "Vault")},
+			"aws_backup_plan":      {Tok: awsResource(backupMod, "Plan")},
+			"aws_backup_selection": {Tok: awsResource(backupMod, "Selection")},
+			"aws_backup_vault":     {Tok: awsResource(backupMod, "Vault")},
 			// Batch
 			"aws_batch_compute_environment": {Tok: awsResource(batchMod, "ComputeEnvironment")},
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
@@ -1472,9 +1473,13 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_route53_health_check": {Tok: awsResource(route53Mod, "HealthCheck")},
 			// Sagemaker
+			"aws_sagemaker_endpoint":               {Tok: awsResource(sagemakerMod, "Endpoint")},
 			"aws_sagemaker_endpoint_configuration": {Tok: awsResource(sagemakerMod, "EndpointConfiguration")},
 			"aws_sagemaker_model":                  {Tok: awsResource(sagemakerMod, "Model")},
 			"aws_sagemaker_notebook_instance":      {Tok: awsResource(sagemakerMod, "NotebookInstance")},
+			"aws_sagemaker_notebook_instance_lifecycle_configuration": {
+				Tok: awsResource(sagemakerMod, "NotebookInstanceLifecycleConfiguration"),
+			},
 			// Secrets Manager
 			"aws_secretsmanager_secret":         {Tok: awsResource(secretsmanagerMod, "Secret")},
 			"aws_secretsmanager_secret_version": {Tok: awsResource(secretsmanagerMod, "SecretVersion")},

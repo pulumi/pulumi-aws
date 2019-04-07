@@ -54,7 +54,7 @@ class Certificate(pulumi.CustomResource):
         __props__ = dict()
 
         if certificate_id is None:
-            raise TypeError('Missing required property certificate_id')
+            raise TypeError("Missing required property 'certificate_id'")
         __props__['certificate_id'] = certificate_id
 
         __props__['certificate_pem'] = certificate_pem

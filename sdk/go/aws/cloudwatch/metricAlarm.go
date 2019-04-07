@@ -44,6 +44,7 @@ func NewMetricAlarm(ctx *pulumi.Context,
 		inputs["okActions"] = nil
 		inputs["period"] = nil
 		inputs["statistic"] = nil
+		inputs["tags"] = nil
 		inputs["threshold"] = nil
 		inputs["treatMissingData"] = nil
 		inputs["unit"] = nil
@@ -65,6 +66,7 @@ func NewMetricAlarm(ctx *pulumi.Context,
 		inputs["okActions"] = args.OkActions
 		inputs["period"] = args.Period
 		inputs["statistic"] = args.Statistic
+		inputs["tags"] = args.Tags
 		inputs["threshold"] = args.Threshold
 		inputs["treatMissingData"] = args.TreatMissingData
 		inputs["unit"] = args.Unit
@@ -101,6 +103,7 @@ func GetMetricAlarm(ctx *pulumi.Context,
 		inputs["okActions"] = state.OkActions
 		inputs["period"] = state.Period
 		inputs["statistic"] = state.Statistic
+		inputs["tags"] = state.Tags
 		inputs["threshold"] = state.Threshold
 		inputs["treatMissingData"] = state.TreatMissingData
 		inputs["unit"] = state.Unit
@@ -220,6 +223,11 @@ func (r *MetricAlarm) Statistic() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["statistic"])
 }
 
+// A mapping of tags to assign to the resource.
+func (r *MetricAlarm) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // The value against which the specified statistic is compared.
 func (r *MetricAlarm) Threshold() *pulumi.Float64Output {
 	return (*pulumi.Float64Output)(r.s.State["threshold"])
@@ -281,6 +289,8 @@ type MetricAlarmState struct {
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// The value against which the specified statistic is compared.
 	Threshold interface{}
 	// Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
@@ -333,6 +343,8 @@ type MetricAlarmArgs struct {
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// The value against which the specified statistic is compared.
 	Threshold interface{}
 	// Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.

@@ -20,6 +20,9 @@ func LookupScript(ctx *pulumi.Context, args *GetScriptArgs) (*GetScriptResult, e
 		return nil, err
 	}
 	return &GetScriptResult{
+		DagEdges: outputs["dagEdges"],
+		DagNodes: outputs["dagNodes"],
+		Language: outputs["language"],
 		PythonScript: outputs["pythonScript"],
 		ScalaCode: outputs["scalaCode"],
 		Id: outputs["id"],
@@ -38,6 +41,9 @@ type GetScriptArgs struct {
 
 // A collection of values returned by getScript.
 type GetScriptResult struct {
+	DagEdges interface{}
+	DagNodes interface{}
+	Language interface{}
 	// The Python script generated from the DAG when the `language` argument is set to `PYTHON`.
 	PythonScript interface{}
 	// The Scala code generated from the DAG when the `language` argument is set to `SCALA`.

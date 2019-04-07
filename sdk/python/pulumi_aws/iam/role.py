@@ -91,7 +91,7 @@ class Role(pulumi.CustomResource):
         __props__ = dict()
 
         if assume_role_policy is None:
-            raise TypeError('Missing required property assume_role_policy')
+            raise TypeError("Missing required property 'assume_role_policy'")
         __props__['assume_role_policy'] = assume_role_policy
 
         __props__['description'] = description

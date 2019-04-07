@@ -28,14 +28,19 @@ func LookupAmi(ctx *pulumi.Context, args *GetAmiArgs) (*GetAmiResult, error) {
 		BlockDeviceMappings: outputs["blockDeviceMappings"],
 		CreationDate: outputs["creationDate"],
 		Description: outputs["description"],
+		ExecutableUsers: outputs["executableUsers"],
+		Filters: outputs["filters"],
 		Hypervisor: outputs["hypervisor"],
 		ImageId: outputs["imageId"],
 		ImageLocation: outputs["imageLocation"],
 		ImageOwnerAlias: outputs["imageOwnerAlias"],
 		ImageType: outputs["imageType"],
 		KernelId: outputs["kernelId"],
+		MostRecent: outputs["mostRecent"],
 		Name: outputs["name"],
+		NameRegex: outputs["nameRegex"],
 		OwnerId: outputs["ownerId"],
+		Owners: outputs["owners"],
 		Platform: outputs["platform"],
 		ProductCodes: outputs["productCodes"],
 		Public: outputs["public"],
@@ -100,6 +105,8 @@ type GetAmiResult struct {
 	// The description of the AMI that was provided during image
 	// creation.
 	Description interface{}
+	ExecutableUsers interface{}
+	Filters interface{}
 	// The hypervisor type of the image.
 	Hypervisor interface{}
 	// The ID of the AMI. Should be the same as the resource `id`.
@@ -114,10 +121,13 @@ type GetAmiResult struct {
 	// The kernel associated with the image, if any. Only applicable
 	// for machine images.
 	KernelId interface{}
+	MostRecent interface{}
 	// The name of the AMI that was provided during image creation.
 	Name interface{}
+	NameRegex interface{}
 	// The AWS account ID of the image owner.
 	OwnerId interface{}
+	Owners interface{}
 	// The value is Windows for `Windows` AMIs; otherwise blank.
 	Platform interface{}
 	// Any product codes associated with the AMI.

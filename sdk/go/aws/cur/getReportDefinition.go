@@ -26,6 +26,7 @@ func LookupReportDefinition(ctx *pulumi.Context, args *GetReportDefinitionArgs) 
 		AdditionalSchemaElements: outputs["additionalSchemaElements"],
 		Compression: outputs["compression"],
 		Format: outputs["format"],
+		ReportName: outputs["reportName"],
 		S3Bucket: outputs["s3Bucket"],
 		S3Prefix: outputs["s3Prefix"],
 		S3Region: outputs["s3Region"],
@@ -50,6 +51,7 @@ type GetReportDefinitionResult struct {
 	Compression interface{}
 	// Preferred compression format for report.
 	Format interface{}
+	ReportName interface{}
 	// Name of customer S3 bucket.
 	S3Bucket interface{}
 	// Preferred report path prefix.

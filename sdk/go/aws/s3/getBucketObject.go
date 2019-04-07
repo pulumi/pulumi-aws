@@ -26,6 +26,7 @@ func LookupBucketObject(ctx *pulumi.Context, args *GetBucketObjectArgs) (*GetBuc
 	}
 	return &GetBucketObjectResult{
 		Body: outputs["body"],
+		Bucket: outputs["bucket"],
 		CacheControl: outputs["cacheControl"],
 		ContentDisposition: outputs["contentDisposition"],
 		ContentEncoding: outputs["contentEncoding"],
@@ -35,8 +36,10 @@ func LookupBucketObject(ctx *pulumi.Context, args *GetBucketObjectArgs) (*GetBuc
 		Etag: outputs["etag"],
 		Expiration: outputs["expiration"],
 		Expires: outputs["expires"],
+		Key: outputs["key"],
 		LastModified: outputs["lastModified"],
 		Metadata: outputs["metadata"],
+		Range: outputs["range"],
 		ServerSideEncryption: outputs["serverSideEncryption"],
 		SseKmsKeyId: outputs["sseKmsKeyId"],
 		StorageClass: outputs["storageClass"],
@@ -63,6 +66,7 @@ type GetBucketObjectArgs struct {
 type GetBucketObjectResult struct {
 	// Object data (see **limitations above** to understand cases in which this field is actually available)
 	Body interface{}
+	Bucket interface{}
 	// Specifies caching behavior along the request/reply chain.
 	CacheControl interface{}
 	// Specifies presentational information for the object.
@@ -81,10 +85,12 @@ type GetBucketObjectResult struct {
 	Expiration interface{}
 	// The date and time at which the object is no longer cacheable.
 	Expires interface{}
+	Key interface{}
 	// Last modified date of the object in RFC1123 format (e.g. `Mon, 02 Jan 2006 15:04:05 MST`)
 	LastModified interface{}
 	// A map of metadata stored with the object in S3
 	Metadata interface{}
+	Range interface{}
 	// If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
 	ServerSideEncryption interface{}
 	// If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.

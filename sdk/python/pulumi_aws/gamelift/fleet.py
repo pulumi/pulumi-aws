@@ -86,7 +86,7 @@ class Fleet(pulumi.CustomResource):
         __props__ = dict()
 
         if build_id is None:
-            raise TypeError('Missing required property build_id')
+            raise TypeError("Missing required property 'build_id'")
         __props__['build_id'] = build_id
 
         __props__['description'] = description
@@ -94,7 +94,7 @@ class Fleet(pulumi.CustomResource):
         __props__['ec2_inbound_permissions'] = ec2_inbound_permissions
 
         if ec2_instance_type is None:
-            raise TypeError('Missing required property ec2_instance_type')
+            raise TypeError("Missing required property 'ec2_instance_type'")
         __props__['ec2_instance_type'] = ec2_instance_type
 
         __props__['metric_groups'] = metric_groups

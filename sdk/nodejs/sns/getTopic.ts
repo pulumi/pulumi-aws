@@ -44,6 +44,7 @@ export interface GetTopicResult {
      * Set to the ARN of the found topic, suitable for referencing in other resources that support SNS topics.
      */
     readonly arn: string;
+    readonly name: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

@@ -22,7 +22,12 @@ func LookupAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs) (*GetAmiIdsResult, e
 		return nil, err
 	}
 	return &GetAmiIdsResult{
+		ExecutableUsers: outputs["executableUsers"],
+		Filters: outputs["filters"],
 		Ids: outputs["ids"],
+		NameRegex: outputs["nameRegex"],
+		Owners: outputs["owners"],
+		SortAscending: outputs["sortAscending"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -50,7 +55,12 @@ type GetAmiIdsArgs struct {
 
 // A collection of values returned by getAmiIds.
 type GetAmiIdsResult struct {
+	ExecutableUsers interface{}
+	Filters interface{}
 	Ids interface{}
+	NameRegex interface{}
+	Owners interface{}
+	SortAscending interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

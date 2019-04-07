@@ -22,7 +22,10 @@ func LookupDocument(ctx *pulumi.Context, args *GetDocumentArgs) (*GetDocumentRes
 	return &GetDocumentResult{
 		Arn: outputs["arn"],
 		Content: outputs["content"],
+		DocumentFormat: outputs["documentFormat"],
 		DocumentType: outputs["documentType"],
+		DocumentVersion: outputs["documentVersion"],
+		Name: outputs["name"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -43,8 +46,11 @@ type GetDocumentResult struct {
 	Arn interface{}
 	// The contents of the document.
 	Content interface{}
+	DocumentFormat interface{}
 	// The type of the document.
 	DocumentType interface{}
+	DocumentVersion interface{}
+	Name interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

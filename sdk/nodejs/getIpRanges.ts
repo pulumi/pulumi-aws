@@ -80,11 +80,14 @@ export interface GetIpRangesResult {
      * The lexically ordered list of IPv6 CIDR blocks.
      */
     readonly ipv6CidrBlocks: string[];
+    readonly regions?: string[];
+    readonly services: string[];
     /**
      * The publication time of the IP ranges, in Unix epoch time format
      * (e.g. `1470267965`).
      */
     readonly syncToken: number;
+    readonly url?: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

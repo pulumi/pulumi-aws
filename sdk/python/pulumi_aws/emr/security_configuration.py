@@ -53,7 +53,7 @@ class SecurityConfiguration(pulumi.CustomResource):
         __props__ = dict()
 
         if configuration is None:
-            raise TypeError('Missing required property configuration')
+            raise TypeError("Missing required property 'configuration'")
         __props__['configuration'] = configuration
 
         __props__['name'] = name

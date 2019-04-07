@@ -26,6 +26,7 @@ func NewNotebookInstance(ctx *pulumi.Context,
 	if args == nil {
 		inputs["instanceType"] = nil
 		inputs["kmsKeyId"] = nil
+		inputs["lifecycleConfigName"] = nil
 		inputs["name"] = nil
 		inputs["roleArn"] = nil
 		inputs["securityGroups"] = nil
@@ -34,6 +35,7 @@ func NewNotebookInstance(ctx *pulumi.Context,
 	} else {
 		inputs["instanceType"] = args.InstanceType
 		inputs["kmsKeyId"] = args.KmsKeyId
+		inputs["lifecycleConfigName"] = args.LifecycleConfigName
 		inputs["name"] = args.Name
 		inputs["roleArn"] = args.RoleArn
 		inputs["securityGroups"] = args.SecurityGroups
@@ -57,6 +59,7 @@ func GetNotebookInstance(ctx *pulumi.Context,
 		inputs["arn"] = state.Arn
 		inputs["instanceType"] = state.InstanceType
 		inputs["kmsKeyId"] = state.KmsKeyId
+		inputs["lifecycleConfigName"] = state.LifecycleConfigName
 		inputs["name"] = state.Name
 		inputs["roleArn"] = state.RoleArn
 		inputs["securityGroups"] = state.SecurityGroups
@@ -95,6 +98,11 @@ func (r *NotebookInstance) KmsKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
+// The name of a lifecycle configuration to associate with the notebook instance.
+func (r *NotebookInstance) LifecycleConfigName() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["lifecycleConfigName"])
+}
+
 // The name of the notebook instance (must be unique).
 func (r *NotebookInstance) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -128,6 +136,8 @@ type NotebookInstanceState struct {
 	InstanceType interface{}
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	KmsKeyId interface{}
+	// The name of a lifecycle configuration to associate with the notebook instance.
+	LifecycleConfigName interface{}
 	// The name of the notebook instance (must be unique).
 	Name interface{}
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
@@ -146,6 +156,8 @@ type NotebookInstanceArgs struct {
 	InstanceType interface{}
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	KmsKeyId interface{}
+	// The name of a lifecycle configuration to associate with the notebook instance.
+	LifecycleConfigName interface{}
 	// The name of the notebook instance (must be unique).
 	Name interface{}
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.

@@ -102,12 +102,14 @@ func (r *SecurityGroup) Description() *pulumi.StringOutput {
 
 // Can be specified multiple times for each
 // egress rule. Each egress block supports fields documented below.
+// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 func (r *SecurityGroup) Egress() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["egress"])
 }
 
 // Can be specified multiple times for each
 // ingress rule. Each ingress block supports fields documented below.
+// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 func (r *SecurityGroup) Ingress() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ingress"])
 }
@@ -161,9 +163,11 @@ type SecurityGroupState struct {
 	Description interface{}
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
+	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Egress interface{}
 	// Can be specified multiple times for each
 	// ingress rule. Each ingress block supports fields documented below.
+	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Ingress interface{}
 	// The name of the security group. If omitted, Terraform will
 	// assign a random, unique name
@@ -196,9 +200,11 @@ type SecurityGroupArgs struct {
 	Description interface{}
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
+	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Egress interface{}
 	// Can be specified multiple times for each
 	// ingress rule. Each ingress block supports fields documented below.
+	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Ingress interface{}
 	// The name of the security group. If omitted, Terraform will
 	// assign a random, unique name

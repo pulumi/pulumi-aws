@@ -113,7 +113,7 @@ class Stage(pulumi.CustomResource):
         __props__['client_certificate_id'] = client_certificate_id
 
         if deployment is None:
-            raise TypeError('Missing required property deployment')
+            raise TypeError("Missing required property 'deployment'")
         __props__['deployment'] = deployment
 
         __props__['description'] = description
@@ -121,11 +121,11 @@ class Stage(pulumi.CustomResource):
         __props__['documentation_version'] = documentation_version
 
         if rest_api is None:
-            raise TypeError('Missing required property rest_api')
+            raise TypeError("Missing required property 'rest_api'")
         __props__['rest_api'] = rest_api
 
         if stage_name is None:
-            raise TypeError('Missing required property stage_name')
+            raise TypeError("Missing required property 'stage_name'")
         __props__['stage_name'] = stage_name
 
         __props__['tags'] = tags

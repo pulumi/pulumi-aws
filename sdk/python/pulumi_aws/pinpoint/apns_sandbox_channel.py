@@ -86,7 +86,7 @@ class ApnsSandboxChannel(pulumi.CustomResource):
         __props__ = dict()
 
         if application_id is None:
-            raise TypeError('Missing required property application_id')
+            raise TypeError("Missing required property 'application_id'")
         __props__['application_id'] = application_id
 
         __props__['bundle_id'] = bundle_id

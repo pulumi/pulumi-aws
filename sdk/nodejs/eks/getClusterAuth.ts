@@ -32,6 +32,7 @@ export interface GetClusterAuthArgs {
  * A collection of values returned by getClusterAuth.
  */
 export interface GetClusterAuthResult {
+    readonly name: string;
     /**
      * The token to use to authenticate with the cluster.
      */

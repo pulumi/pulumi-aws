@@ -56,11 +56,11 @@ class EventPermission(pulumi.CustomResource):
         __props__['condition'] = condition
 
         if principal is None:
-            raise TypeError('Missing required property principal')
+            raise TypeError("Missing required property 'principal'")
         __props__['principal'] = principal
 
         if statement_id is None:
-            raise TypeError('Missing required property statement_id')
+            raise TypeError("Missing required property 'statement_id'")
         __props__['statement_id'] = statement_id
 
         super(EventPermission, __self__).__init__(

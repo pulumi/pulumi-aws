@@ -72,10 +72,13 @@ export interface GetDocumentResult {
      * The contents of the document.
      */
     readonly content: string;
+    readonly documentFormat?: string;
     /**
      * The type of the document.
      */
     readonly documentType: string;
+    readonly documentVersion?: string;
+    readonly name: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

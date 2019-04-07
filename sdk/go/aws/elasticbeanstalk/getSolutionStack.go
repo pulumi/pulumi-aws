@@ -19,7 +19,9 @@ func LookupSolutionStack(ctx *pulumi.Context, args *GetSolutionStackArgs) (*GetS
 		return nil, err
 	}
 	return &GetSolutionStackResult{
+		MostRecent: outputs["mostRecent"],
 		Name: outputs["name"],
+		NameRegex: outputs["nameRegex"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -37,8 +39,10 @@ type GetSolutionStackArgs struct {
 
 // A collection of values returned by getSolutionStack.
 type GetSolutionStackResult struct {
+	MostRecent interface{}
 	// The name of the solution stack.
 	Name interface{}
+	NameRegex interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

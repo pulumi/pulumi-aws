@@ -67,7 +67,7 @@ class Trigger(pulumi.CustomResource):
         __props__ = dict()
 
         if actions is None:
-            raise TypeError('Missing required property actions')
+            raise TypeError("Missing required property 'actions'")
         __props__['actions'] = actions
 
         __props__['description'] = description
@@ -81,7 +81,7 @@ class Trigger(pulumi.CustomResource):
         __props__['schedule'] = schedule
 
         if type is None:
-            raise TypeError('Missing required property type')
+            raise TypeError("Missing required property 'type'")
         __props__['type'] = type
 
         super(Trigger, __self__).__init__(

@@ -108,6 +108,9 @@ export interface GetInstanceResult {
      * The ephemeral block device mappings of the Instance.
      */
     readonly ephemeralBlockDevices: { deviceName: string, noDevice?: boolean, virtualName?: string }[];
+    readonly filters?: { name: string, values: string[] }[];
+    readonly getPasswordData?: boolean;
+    readonly getUserData?: boolean;
     /**
      * The Id of the dedicated host the instance will be assigned to.
      */
@@ -116,6 +119,7 @@ export interface GetInstanceResult {
      * The name of the instance profile associated with the Instance.
      */
     readonly iamInstanceProfile: string;
+    readonly instanceId?: string;
     readonly instanceState: string;
     readonly instanceTags: {[key: string]: any};
     /**

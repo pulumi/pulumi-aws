@@ -22,6 +22,9 @@ func LookupInvocation(ctx *pulumi.Context, args *GetInvocationArgs) (*GetInvocat
 		return nil, err
 	}
 	return &GetInvocationResult{
+		FunctionName: outputs["functionName"],
+		Input: outputs["input"],
+		Qualifier: outputs["qualifier"],
 		Result: outputs["result"],
 		ResultMap: outputs["resultMap"],
 		Id: outputs["id"],
@@ -41,6 +44,9 @@ type GetInvocationArgs struct {
 
 // A collection of values returned by getInvocation.
 type GetInvocationResult struct {
+	FunctionName interface{}
+	Input interface{}
+	Qualifier interface{}
 	// A result of the lambda function invocation.
 	Result interface{}
 	// This field is set only if result is a map of primitive types.

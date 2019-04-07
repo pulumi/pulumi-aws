@@ -47,7 +47,7 @@ class Domain(pulumi.CustomResource):
         __props__ = dict()
 
         if domain_name is None:
-            raise TypeError('Missing required property domain_name')
+            raise TypeError("Missing required property 'domain_name'")
         __props__['domain_name'] = domain_name
 
         __props__['arn'] = None

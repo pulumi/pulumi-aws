@@ -52,7 +52,7 @@ class RouteTable(pulumi.CustomResource):
         __props__['tags'] = tags
 
         if transit_gateway_id is None:
-            raise TypeError('Missing required property transit_gateway_id')
+            raise TypeError("Missing required property 'transit_gateway_id'")
         __props__['transit_gateway_id'] = transit_gateway_id
 
         __props__['default_association_route_table'] = None

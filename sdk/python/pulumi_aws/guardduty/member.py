@@ -68,17 +68,17 @@ class Member(pulumi.CustomResource):
         __props__ = dict()
 
         if account_id is None:
-            raise TypeError('Missing required property account_id')
+            raise TypeError("Missing required property 'account_id'")
         __props__['account_id'] = account_id
 
         if detector_id is None:
-            raise TypeError('Missing required property detector_id')
+            raise TypeError("Missing required property 'detector_id'")
         __props__['detector_id'] = detector_id
 
         __props__['disable_email_notification'] = disable_email_notification
 
         if email is None:
-            raise TypeError('Missing required property email')
+            raise TypeError("Missing required property 'email'")
         __props__['email'] = email
 
         __props__['invitation_message'] = invitation_message

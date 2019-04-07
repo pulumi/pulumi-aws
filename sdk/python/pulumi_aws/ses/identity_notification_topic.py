@@ -47,11 +47,11 @@ class IdentityNotificationTopic(pulumi.CustomResource):
         __props__ = dict()
 
         if identity is None:
-            raise TypeError('Missing required property identity')
+            raise TypeError("Missing required property 'identity'")
         __props__['identity'] = identity
 
         if notification_type is None:
-            raise TypeError('Missing required property notification_type')
+            raise TypeError("Missing required property 'notification_type'")
         __props__['notification_type'] = notification_type
 
         __props__['topic_arn'] = topic_arn

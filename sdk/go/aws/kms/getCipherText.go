@@ -27,6 +27,9 @@ func LookupCipherText(ctx *pulumi.Context, args *GetCipherTextArgs) (*GetCipherT
 	}
 	return &GetCipherTextResult{
 		CiphertextBlob: outputs["ciphertextBlob"],
+		Context: outputs["context"],
+		KeyId: outputs["keyId"],
+		Plaintext: outputs["plaintext"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -45,6 +48,9 @@ type GetCipherTextArgs struct {
 type GetCipherTextResult struct {
 	// Base64 encoded ciphertext
 	CiphertextBlob interface{}
+	Context interface{}
+	KeyId interface{}
+	Plaintext interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

@@ -22,8 +22,10 @@ func LookupSecretVersion(ctx *pulumi.Context, args *GetSecretVersionArgs) (*GetS
 	return &GetSecretVersionResult{
 		Arn: outputs["arn"],
 		SecretBinary: outputs["secretBinary"],
+		SecretId: outputs["secretId"],
 		SecretString: outputs["secretString"],
 		VersionId: outputs["versionId"],
+		VersionStage: outputs["versionStage"],
 		VersionStages: outputs["versionStages"],
 		Id: outputs["id"],
 	}, nil
@@ -45,10 +47,12 @@ type GetSecretVersionResult struct {
 	Arn interface{}
 	// The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
 	SecretBinary interface{}
+	SecretId interface{}
 	// The decrypted part of the protected secret information that was originally provided as a string.
 	SecretString interface{}
 	// The unique identifier of this version of the secret.
 	VersionId interface{}
+	VersionStage interface{}
 	VersionStages interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

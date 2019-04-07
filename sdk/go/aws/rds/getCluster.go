@@ -22,6 +22,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		Arn: outputs["arn"],
 		AvailabilityZones: outputs["availabilityZones"],
 		BackupRetentionPeriod: outputs["backupRetentionPeriod"],
+		ClusterIdentifier: outputs["clusterIdentifier"],
 		ClusterMembers: outputs["clusterMembers"],
 		ClusterResourceId: outputs["clusterResourceId"],
 		DatabaseName: outputs["databaseName"],
@@ -60,6 +61,7 @@ type GetClusterResult struct {
 	Arn interface{}
 	AvailabilityZones interface{}
 	BackupRetentionPeriod interface{}
+	ClusterIdentifier interface{}
 	ClusterMembers interface{}
 	ClusterResourceId interface{}
 	DatabaseName interface{}

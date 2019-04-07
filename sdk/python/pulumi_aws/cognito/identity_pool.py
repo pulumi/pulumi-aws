@@ -79,7 +79,7 @@ class IdentityPool(pulumi.CustomResource):
         __props__['developer_provider_name'] = developer_provider_name
 
         if identity_pool_name is None:
-            raise TypeError('Missing required property identity_pool_name')
+            raise TypeError("Missing required property 'identity_pool_name'")
         __props__['identity_pool_name'] = identity_pool_name
 
         __props__['openid_connect_provider_arns'] = openid_connect_provider_arns

@@ -75,6 +75,10 @@ export interface GetLaunchConfigurationResult {
      */
     readonly keyName: string;
     /**
+     * The Name of the launch configuration.
+     */
+    readonly name: string;
+    /**
      * The Tenancy of the instance.
      */
     readonly placementTenancy: string;

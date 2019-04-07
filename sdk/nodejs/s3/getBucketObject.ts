@@ -91,6 +91,7 @@ export interface GetBucketObjectResult {
      * Object data (see **limitations above** to understand cases in which this field is actually available)
      */
     readonly body: string;
+    readonly bucket: string;
     /**
      * Specifies caching behavior along the request/reply chain.
      */
@@ -127,6 +128,7 @@ export interface GetBucketObjectResult {
      * The date and time at which the object is no longer cacheable.
      */
     readonly expires: string;
+    readonly key: string;
     /**
      * Last modified date of the object in RFC1123 format (e.g. `Mon, 02 Jan 2006 15:04:05 MST`)
      */
@@ -135,6 +137,7 @@ export interface GetBucketObjectResult {
      * A map of metadata stored with the object in S3
      */
     readonly metadata: {[key: string]: any};
+    readonly range?: string;
     /**
      * If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
      */

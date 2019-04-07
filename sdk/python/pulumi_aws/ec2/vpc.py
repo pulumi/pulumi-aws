@@ -119,7 +119,7 @@ class Vpc(pulumi.CustomResource):
         __props__['assign_generated_ipv6_cidr_block'] = assign_generated_ipv6_cidr_block
 
         if cidr_block is None:
-            raise TypeError('Missing required property cidr_block')
+            raise TypeError("Missing required property 'cidr_block'")
         __props__['cidr_block'] = cidr_block
 
         __props__['enable_classiclink'] = enable_classiclink

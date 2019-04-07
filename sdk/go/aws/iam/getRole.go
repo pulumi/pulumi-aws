@@ -25,6 +25,7 @@ func LookupRole(ctx *pulumi.Context, args *GetRoleArgs) (*GetRoleResult, error) 
 		CreateDate: outputs["createDate"],
 		Description: outputs["description"],
 		MaxSessionDuration: outputs["maxSessionDuration"],
+		Name: outputs["name"],
 		Path: outputs["path"],
 		PermissionsBoundary: outputs["permissionsBoundary"],
 		UniqueId: outputs["uniqueId"],
@@ -50,6 +51,7 @@ type GetRoleResult struct {
 	Description interface{}
 	// Maximum session duration.
 	MaxSessionDuration interface{}
+	Name interface{}
 	// The path to the role.
 	Path interface{}
 	// The ARN of the policy that is used to set the permissions boundary for the role.

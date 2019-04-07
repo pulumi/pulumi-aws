@@ -28,16 +28,22 @@ func LookupSnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotRes
 	return &GetSnapshotResult{
 		AllocatedStorage: outputs["allocatedStorage"],
 		AvailabilityZone: outputs["availabilityZone"],
+		DbInstanceIdentifier: outputs["dbInstanceIdentifier"],
 		DbSnapshotArn: outputs["dbSnapshotArn"],
+		DbSnapshotIdentifier: outputs["dbSnapshotIdentifier"],
 		Encrypted: outputs["encrypted"],
 		Engine: outputs["engine"],
 		EngineVersion: outputs["engineVersion"],
+		IncludePublic: outputs["includePublic"],
+		IncludeShared: outputs["includeShared"],
 		Iops: outputs["iops"],
 		KmsKeyId: outputs["kmsKeyId"],
 		LicenseModel: outputs["licenseModel"],
+		MostRecent: outputs["mostRecent"],
 		OptionGroupName: outputs["optionGroupName"],
 		Port: outputs["port"],
 		SnapshotCreateTime: outputs["snapshotCreateTime"],
+		SnapshotType: outputs["snapshotType"],
 		SourceDbSnapshotIdentifier: outputs["sourceDbSnapshotIdentifier"],
 		SourceRegion: outputs["sourceRegion"],
 		Status: outputs["status"],
@@ -75,25 +81,31 @@ type GetSnapshotResult struct {
 	AllocatedStorage interface{}
 	// Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
 	AvailabilityZone interface{}
+	DbInstanceIdentifier interface{}
 	// The Amazon Resource Name (ARN) for the DB snapshot.
 	DbSnapshotArn interface{}
+	DbSnapshotIdentifier interface{}
 	// Specifies whether the DB snapshot is encrypted.
 	Encrypted interface{}
 	// Specifies the name of the database engine.
 	Engine interface{}
 	// Specifies the version of the database engine.
 	EngineVersion interface{}
+	IncludePublic interface{}
+	IncludeShared interface{}
 	// Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
 	Iops interface{}
 	// The ARN for the KMS encryption key.
 	KmsKeyId interface{}
 	// License model information for the restored DB instance.
 	LicenseModel interface{}
+	MostRecent interface{}
 	// Provides the option group name for the DB snapshot.
 	OptionGroupName interface{}
 	Port interface{}
 	// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
 	SnapshotCreateTime interface{}
+	SnapshotType interface{}
 	// The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
 	SourceDbSnapshotIdentifier interface{}
 	// The region that the DB snapshot was created in or copied from.

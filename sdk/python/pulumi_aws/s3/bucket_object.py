@@ -134,7 +134,7 @@ class BucketObject(pulumi.CustomResource):
         __props__['acl'] = acl
 
         if bucket is None:
-            raise TypeError('Missing required property bucket')
+            raise TypeError("Missing required property 'bucket'")
         __props__['bucket'] = bucket
 
         __props__['cache_control'] = cache_control

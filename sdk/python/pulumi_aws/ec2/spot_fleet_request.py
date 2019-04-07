@@ -166,7 +166,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         __props__['fleet_type'] = fleet_type
 
         if iam_fleet_role is None:
-            raise TypeError('Missing required property iam_fleet_role')
+            raise TypeError("Missing required property 'iam_fleet_role'")
         __props__['iam_fleet_role'] = iam_fleet_role
 
         __props__['instance_interruption_behaviour'] = instance_interruption_behaviour
@@ -174,7 +174,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         __props__['instance_pools_to_use_count'] = instance_pools_to_use_count
 
         if launch_specifications is None:
-            raise TypeError('Missing required property launch_specifications')
+            raise TypeError("Missing required property 'launch_specifications'")
         __props__['launch_specifications'] = launch_specifications
 
         __props__['load_balancers'] = load_balancers
@@ -184,7 +184,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         __props__['spot_price'] = spot_price
 
         if target_capacity is None:
-            raise TypeError('Missing required property target_capacity')
+            raise TypeError("Missing required property 'target_capacity'")
         __props__['target_capacity'] = target_capacity
 
         __props__['target_group_arns'] = target_group_arns

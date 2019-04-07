@@ -12,15 +12,21 @@ class GetSolutionStackResult:
     """
     A collection of values returned by getSolutionStack.
     """
-    def __init__(__self__, name=None, id=None):
+    def __init__(__self__, most_recent=None, name=None, name_regex=None, id=None):
+        if most_recent and not isinstance(most_recent, bool):
+            raise TypeError("Expected argument 'most_recent' to be a bool")
+        __self__.most_recent = most_recent
         if name and not isinstance(name, str):
-            raise TypeError('Expected argument name to be a str')
+            raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the solution stack.
         """
+        if name_regex and not isinstance(name_regex, str):
+            raise TypeError("Expected argument 'name_regex' to be a str")
+        __self__.name_regex = name_regex
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -37,5 +43,7 @@ async def get_solution_stack(most_recent=None,name_regex=None,opts=None):
     __ret__ = await pulumi.runtime.invoke('aws:elasticbeanstalk/getSolutionStack:getSolutionStack', __args__, opts=opts)
 
     return GetSolutionStackResult(
+        most_recent=__ret__.get('mostRecent'),
         name=__ret__.get('name'),
+        name_regex=__ret__.get('nameRegex'),
         id=__ret__.get('id'))

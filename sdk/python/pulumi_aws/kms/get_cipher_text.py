@@ -12,15 +12,24 @@ class GetCipherTextResult:
     """
     A collection of values returned by getCipherText.
     """
-    def __init__(__self__, ciphertext_blob=None, id=None):
+    def __init__(__self__, ciphertext_blob=None, context=None, key_id=None, plaintext=None, id=None):
         if ciphertext_blob and not isinstance(ciphertext_blob, str):
-            raise TypeError('Expected argument ciphertext_blob to be a str')
+            raise TypeError("Expected argument 'ciphertext_blob' to be a str")
         __self__.ciphertext_blob = ciphertext_blob
         """
         Base64 encoded ciphertext
         """
+        if context and not isinstance(context, dict):
+            raise TypeError("Expected argument 'context' to be a dict")
+        __self__.context = context
+        if key_id and not isinstance(key_id, str):
+            raise TypeError("Expected argument 'key_id' to be a str")
+        __self__.key_id = key_id
+        if plaintext and not isinstance(plaintext, str):
+            raise TypeError("Expected argument 'plaintext' to be a str")
+        __self__.plaintext = plaintext
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -45,4 +54,7 @@ async def get_cipher_text(context=None,key_id=None,plaintext=None,opts=None):
 
     return GetCipherTextResult(
         ciphertext_blob=__ret__.get('ciphertextBlob'),
+        context=__ret__.get('context'),
+        key_id=__ret__.get('keyId'),
+        plaintext=__ret__.get('plaintext'),
         id=__ret__.get('id'))

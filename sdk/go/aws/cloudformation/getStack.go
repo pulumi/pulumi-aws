@@ -23,6 +23,7 @@ func LookupStack(ctx *pulumi.Context, args *GetStackArgs) (*GetStackResult, erro
 		Description: outputs["description"],
 		DisableRollback: outputs["disableRollback"],
 		IamRoleArn: outputs["iamRoleArn"],
+		Name: outputs["name"],
 		NotificationArns: outputs["notificationArns"],
 		Outputs: outputs["outputs"],
 		Parameters: outputs["parameters"],
@@ -49,6 +50,7 @@ type GetStackResult struct {
 	DisableRollback interface{}
 	// The ARN of the IAM role used to create the stack.
 	IamRoleArn interface{}
+	Name interface{}
 	// A list of SNS topic ARNs to publish stack related events
 	NotificationArns interface{}
 	// A map of outputs from the stack.

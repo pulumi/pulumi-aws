@@ -12,15 +12,21 @@ class GetVpnAttachmentResult:
     """
     A collection of values returned by getVpnAttachment.
     """
-    def __init__(__self__, tags=None, id=None):
+    def __init__(__self__, tags=None, transit_gateway_id=None, vpn_connection_id=None, id=None):
         if tags and not isinstance(tags, dict):
-            raise TypeError('Expected argument tags to be a dict')
+            raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Key-value tags for the EC2 Transit Gateway VPN Attachment
         """
+        if transit_gateway_id and not isinstance(transit_gateway_id, str):
+            raise TypeError("Expected argument 'transit_gateway_id' to be a str")
+        __self__.transit_gateway_id = transit_gateway_id
+        if vpn_connection_id and not isinstance(vpn_connection_id, str):
+            raise TypeError("Expected argument 'vpn_connection_id' to be a str")
+        __self__.vpn_connection_id = vpn_connection_id
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -39,4 +45,6 @@ async def get_vpn_attachment(tags=None,transit_gateway_id=None,vpn_connection_id
 
     return GetVpnAttachmentResult(
         tags=__ret__.get('tags'),
+        transit_gateway_id=__ret__.get('transitGatewayId'),
+        vpn_connection_id=__ret__.get('vpnConnectionId'),
         id=__ret__.get('id'))

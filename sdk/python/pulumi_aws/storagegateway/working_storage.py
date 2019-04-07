@@ -44,11 +44,11 @@ class WorkingStorage(pulumi.CustomResource):
         __props__ = dict()
 
         if disk_id is None:
-            raise TypeError('Missing required property disk_id')
+            raise TypeError("Missing required property 'disk_id'")
         __props__['disk_id'] = disk_id
 
         if gateway_arn is None:
-            raise TypeError('Missing required property gateway_arn')
+            raise TypeError("Missing required property 'gateway_arn'")
         __props__['gateway_arn'] = gateway_arn
 
         super(WorkingStorage, __self__).__init__(

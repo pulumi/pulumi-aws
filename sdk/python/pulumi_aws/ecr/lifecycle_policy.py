@@ -50,11 +50,11 @@ class LifecyclePolicy(pulumi.CustomResource):
         __props__ = dict()
 
         if policy is None:
-            raise TypeError('Missing required property policy')
+            raise TypeError("Missing required property 'policy'")
         __props__['policy'] = policy
 
         if repository is None:
-            raise TypeError('Missing required property repository')
+            raise TypeError("Missing required property 'repository'")
         __props__['repository'] = repository
 
         __props__['registry_id'] = None

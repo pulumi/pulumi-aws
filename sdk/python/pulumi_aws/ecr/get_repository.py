@@ -12,33 +12,36 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, arn=None, registry_id=None, repository_url=None, tags=None, id=None):
+    def __init__(__self__, arn=None, name=None, registry_id=None, repository_url=None, tags=None, id=None):
         if arn and not isinstance(arn, str):
-            raise TypeError('Expected argument arn to be a str')
+            raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
         Full ARN of the repository.
         """
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        __self__.name = name
         if registry_id and not isinstance(registry_id, str):
-            raise TypeError('Expected argument registry_id to be a str')
+            raise TypeError("Expected argument 'registry_id' to be a str")
         __self__.registry_id = registry_id
         """
         The registry ID where the repository was created.
         """
         if repository_url and not isinstance(repository_url, str):
-            raise TypeError('Expected argument repository_url to be a str')
+            raise TypeError("Expected argument 'repository_url' to be a str")
         __self__.repository_url = repository_url
         """
         The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
         """
         if tags and not isinstance(tags, dict):
-            raise TypeError('Expected argument tags to be a dict')
+            raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         A mapping of tags assigned to the resource.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -56,6 +59,7 @@ async def get_repository(name=None,tags=None,opts=None):
 
     return GetRepositoryResult(
         arn=__ret__.get('arn'),
+        name=__ret__.get('name'),
         registry_id=__ret__.get('registryId'),
         repository_url=__ret__.get('repositoryUrl'),
         tags=__ret__.get('tags'),

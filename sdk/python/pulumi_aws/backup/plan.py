@@ -57,7 +57,7 @@ class Plan(pulumi.CustomResource):
         __props__['name'] = name
 
         if rules is None:
-            raise TypeError('Missing required property rules')
+            raise TypeError("Missing required property 'rules'")
         __props__['rules'] = rules
 
         __props__['tags'] = tags

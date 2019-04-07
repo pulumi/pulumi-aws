@@ -25,6 +25,7 @@ func LookupVpcEndpointService(ctx *pulumi.Context, args *GetVpcEndpointServiceAr
 		BaseEndpointDnsNames: outputs["baseEndpointDnsNames"],
 		Owner: outputs["owner"],
 		PrivateDnsName: outputs["privateDnsName"],
+		Service: outputs["service"],
 		ServiceName: outputs["serviceName"],
 		ServiceType: outputs["serviceType"],
 		VpcEndpointPolicySupported: outputs["vpcEndpointPolicySupported"],
@@ -52,6 +53,7 @@ type GetVpcEndpointServiceResult struct {
 	Owner interface{}
 	// The private DNS name for the service.
 	PrivateDnsName interface{}
+	Service interface{}
 	ServiceName interface{}
 	// The service type, `Gateway` or `Interface`.
 	ServiceType interface{}

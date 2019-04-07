@@ -14,13 +14,13 @@ class GetRulesPackagesResult:
     """
     def __init__(__self__, arns=None, id=None):
         if arns and not isinstance(arns, list):
-            raise TypeError('Expected argument arns to be a list')
+            raise TypeError("Expected argument 'arns' to be a list")
         __self__.arns = arns
         """
         A list of the AWS Inspector Rules Packages arns available in the AWS region.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

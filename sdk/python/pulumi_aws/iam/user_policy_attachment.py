@@ -44,11 +44,11 @@ class UserPolicyAttachment(pulumi.CustomResource):
         __props__ = dict()
 
         if policy_arn is None:
-            raise TypeError('Missing required property policy_arn')
+            raise TypeError("Missing required property 'policy_arn'")
         __props__['policy_arn'] = policy_arn
 
         if user is None:
-            raise TypeError('Missing required property user')
+            raise TypeError("Missing required property 'user'")
         __props__['user'] = user
 
         super(UserPolicyAttachment, __self__).__init__(

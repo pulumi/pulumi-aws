@@ -44,11 +44,11 @@ class PrincipalAssociation(pulumi.CustomResource):
         __props__ = dict()
 
         if principal is None:
-            raise TypeError('Missing required property principal')
+            raise TypeError("Missing required property 'principal'")
         __props__['principal'] = principal
 
         if resource_share_arn is None:
-            raise TypeError('Missing required property resource_share_arn')
+            raise TypeError("Missing required property 'resource_share_arn'")
         __props__['resource_share_arn'] = resource_share_arn
 
         super(PrincipalAssociation, __self__).__init__(

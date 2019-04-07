@@ -12,15 +12,30 @@ class GetPolicyDocumentResult:
     """
     A collection of values returned by getPolicyDocument.
     """
-    def __init__(__self__, json=None, id=None):
+    def __init__(__self__, json=None, override_json=None, policy_id=None, source_json=None, statements=None, version=None, id=None):
         if json and not isinstance(json, str):
-            raise TypeError('Expected argument json to be a str')
+            raise TypeError("Expected argument 'json' to be a str")
         __self__.json = json
         """
         The above arguments serialized as a standard JSON policy document.
         """
+        if override_json and not isinstance(override_json, str):
+            raise TypeError("Expected argument 'override_json' to be a str")
+        __self__.override_json = override_json
+        if policy_id and not isinstance(policy_id, str):
+            raise TypeError("Expected argument 'policy_id' to be a str")
+        __self__.policy_id = policy_id
+        if source_json and not isinstance(source_json, str):
+            raise TypeError("Expected argument 'source_json' to be a str")
+        __self__.source_json = source_json
+        if statements and not isinstance(statements, list):
+            raise TypeError("Expected argument 'statements' to be a list")
+        __self__.statements = statements
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        __self__.version = version
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -70,4 +85,9 @@ async def get_policy_document(override_json=None,policy_id=None,source_json=None
 
     return GetPolicyDocumentResult(
         json=__ret__.get('json'),
+        override_json=__ret__.get('overrideJson'),
+        policy_id=__ret__.get('policyId'),
+        source_json=__ret__.get('sourceJson'),
+        statements=__ret__.get('statements'),
+        version=__ret__.get('version'),
         id=__ret__.get('id'))

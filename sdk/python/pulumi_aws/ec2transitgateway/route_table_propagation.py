@@ -50,11 +50,11 @@ class RouteTablePropagation(pulumi.CustomResource):
         __props__ = dict()
 
         if transit_gateway_attachment_id is None:
-            raise TypeError('Missing required property transit_gateway_attachment_id')
+            raise TypeError("Missing required property 'transit_gateway_attachment_id'")
         __props__['transit_gateway_attachment_id'] = transit_gateway_attachment_id
 
         if transit_gateway_route_table_id is None:
-            raise TypeError('Missing required property transit_gateway_route_table_id')
+            raise TypeError("Missing required property 'transit_gateway_route_table_id'")
         __props__['transit_gateway_route_table_id'] = transit_gateway_route_table_id
 
         __props__['resource_id'] = None

@@ -99,10 +99,12 @@ export interface GetSnapshotResult {
      * Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      */
     readonly availabilityZone: string;
+    readonly dbInstanceIdentifier?: string;
     /**
      * The Amazon Resource Name (ARN) for the DB snapshot.
      */
     readonly dbSnapshotArn: string;
+    readonly dbSnapshotIdentifier?: string;
     /**
      * Specifies whether the DB snapshot is encrypted.
      */
@@ -115,6 +117,8 @@ export interface GetSnapshotResult {
      * Specifies the version of the database engine.
      */
     readonly engineVersion: string;
+    readonly includePublic?: boolean;
+    readonly includeShared?: boolean;
     /**
      * Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      */
@@ -127,6 +131,7 @@ export interface GetSnapshotResult {
      * License model information for the restored DB instance.
      */
     readonly licenseModel: string;
+    readonly mostRecent?: boolean;
     /**
      * Provides the option group name for the DB snapshot.
      */
@@ -136,6 +141,7 @@ export interface GetSnapshotResult {
      * Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
      */
     readonly snapshotCreateTime: string;
+    readonly snapshotType?: string;
     /**
      * The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
      */

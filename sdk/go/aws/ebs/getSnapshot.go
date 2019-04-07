@@ -26,10 +26,15 @@ func LookupSnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotRes
 		DataEncryptionKeyId: outputs["dataEncryptionKeyId"],
 		Description: outputs["description"],
 		Encrypted: outputs["encrypted"],
+		Filters: outputs["filters"],
 		KmsKeyId: outputs["kmsKeyId"],
+		MostRecent: outputs["mostRecent"],
 		OwnerAlias: outputs["ownerAlias"],
 		OwnerId: outputs["ownerId"],
+		Owners: outputs["owners"],
+		RestorableByUserIds: outputs["restorableByUserIds"],
 		SnapshotId: outputs["snapshotId"],
+		SnapshotIds: outputs["snapshotIds"],
 		State: outputs["state"],
 		Tags: outputs["tags"],
 		VolumeId: outputs["volumeId"],
@@ -63,14 +68,19 @@ type GetSnapshotResult struct {
 	Description interface{}
 	// Whether the snapshot is encrypted.
 	Encrypted interface{}
+	Filters interface{}
 	// The ARN for the KMS encryption key.
 	KmsKeyId interface{}
+	MostRecent interface{}
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias interface{}
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId interface{}
+	Owners interface{}
+	RestorableByUserIds interface{}
 	// The snapshot ID (e.g. snap-59fcb34e).
 	SnapshotId interface{}
+	SnapshotIds interface{}
 	// The snapshot state.
 	State interface{}
 	// A mapping of tags for the resource.

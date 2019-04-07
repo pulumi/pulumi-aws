@@ -91,7 +91,7 @@ class TopicSubscription(pulumi.CustomResource):
         __props__['delivery_policy'] = delivery_policy
 
         if endpoint is None:
-            raise TypeError('Missing required property endpoint')
+            raise TypeError("Missing required property 'endpoint'")
         __props__['endpoint'] = endpoint
 
         __props__['endpoint_auto_confirms'] = endpoint_auto_confirms
@@ -99,13 +99,13 @@ class TopicSubscription(pulumi.CustomResource):
         __props__['filter_policy'] = filter_policy
 
         if protocol is None:
-            raise TypeError('Missing required property protocol')
+            raise TypeError("Missing required property 'protocol'")
         __props__['protocol'] = protocol
 
         __props__['raw_message_delivery'] = raw_message_delivery
 
         if topic is None:
-            raise TypeError('Missing required property topic')
+            raise TypeError("Missing required property 'topic'")
         __props__['topic'] = topic
 
         __props__['arn'] = None

@@ -18,6 +18,7 @@ func LookupNetworkInterfaces(ctx *pulumi.Context, args *GetNetworkInterfacesArgs
 		return nil, err
 	}
 	return &GetNetworkInterfacesResult{
+		Filters: outputs["filters"],
 		Ids: outputs["ids"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
@@ -35,6 +36,7 @@ type GetNetworkInterfacesArgs struct {
 
 // A collection of values returned by getNetworkInterfaces.
 type GetNetworkInterfacesResult struct {
+	Filters interface{}
 	// A list of all the network interface ids found. This data source will fail if none are found.
 	Ids interface{}
 	Tags interface{}

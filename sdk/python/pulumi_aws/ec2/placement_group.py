@@ -45,7 +45,7 @@ class PlacementGroup(pulumi.CustomResource):
         __props__['name'] = name
 
         if strategy is None:
-            raise TypeError('Missing required property strategy')
+            raise TypeError("Missing required property 'strategy'")
         __props__['strategy'] = strategy
 
         super(PlacementGroup, __self__).__init__(

@@ -109,11 +109,11 @@ class Snapshot(pulumi.CustomResource):
         __props__ = dict()
 
         if db_instance_identifier is None:
-            raise TypeError('Missing required property db_instance_identifier')
+            raise TypeError("Missing required property 'db_instance_identifier'")
         __props__['db_instance_identifier'] = db_instance_identifier
 
         if db_snapshot_identifier is None:
-            raise TypeError('Missing required property db_snapshot_identifier')
+            raise TypeError("Missing required property 'db_snapshot_identifier'")
         __props__['db_snapshot_identifier'] = db_snapshot_identifier
 
         __props__['tags'] = tags

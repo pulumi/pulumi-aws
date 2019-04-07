@@ -36,6 +36,7 @@ func LookupLoadBalancer(ctx *pulumi.Context, args *GetLoadBalancerArgs) (*GetLoa
 		Instances: outputs["instances"],
 		Internal: outputs["internal"],
 		Listeners: outputs["listeners"],
+		Name: outputs["name"],
 		SecurityGroups: outputs["securityGroups"],
 		SourceSecurityGroup: outputs["sourceSecurityGroup"],
 		SourceSecurityGroupId: outputs["sourceSecurityGroupId"],
@@ -66,6 +67,7 @@ type GetLoadBalancerResult struct {
 	Instances interface{}
 	Internal interface{}
 	Listeners interface{}
+	Name interface{}
 	SecurityGroups interface{}
 	SourceSecurityGroup interface{}
 	SourceSecurityGroupId interface{}

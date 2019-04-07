@@ -56,6 +56,7 @@ export interface GetAvailabilityZonesResult {
      * A list of the Availability Zone names available to the account.
      */
     readonly names: string[];
+    readonly state?: string;
     /**
      * A list of the Availability Zone IDs available to the account.
      */

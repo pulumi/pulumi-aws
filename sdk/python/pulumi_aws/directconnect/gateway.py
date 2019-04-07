@@ -42,7 +42,7 @@ class Gateway(pulumi.CustomResource):
         __props__ = dict()
 
         if amazon_side_asn is None:
-            raise TypeError('Missing required property amazon_side_asn')
+            raise TypeError("Missing required property 'amazon_side_asn'")
         __props__['amazon_side_asn'] = amazon_side_asn
 
         __props__['name'] = name

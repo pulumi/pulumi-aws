@@ -79,10 +79,12 @@ export interface GetInstancesArgs {
  * A collection of values returned by getInstances.
  */
 export interface GetInstancesResult {
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * IDs of instances found through the filter
      */
     readonly ids: string[];
+    readonly instanceStateNames?: string[];
     readonly instanceTags: {[key: string]: any};
     /**
      * Private IP addresses of instances found through the filter

@@ -66,11 +66,13 @@ export interface GetRouteTablesArgs {
  * A collection of values returned by getRouteTables.
  */
 export interface GetRouteTablesResult {
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * A list of all the route table ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: any};
+    readonly vpcId?: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

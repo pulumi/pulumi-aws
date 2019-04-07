@@ -63,7 +63,7 @@ class Account(pulumi.CustomResource):
         __props__ = dict()
 
         if email is None:
-            raise TypeError('Missing required property email')
+            raise TypeError("Missing required property 'email'")
         __props__['email'] = email
 
         __props__['iam_user_access_to_billing'] = iam_user_access_to_billing

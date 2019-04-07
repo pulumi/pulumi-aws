@@ -86,10 +86,12 @@ export interface GetSnapshotResult {
      * Whether the snapshot is encrypted.
      */
     readonly encrypted: boolean;
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * The ARN for the KMS encryption key.
      */
     readonly kmsKeyId: string;
+    readonly mostRecent?: boolean;
     /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      */
@@ -98,10 +100,13 @@ export interface GetSnapshotResult {
      * The AWS account ID of the EBS snapshot owner.
      */
     readonly ownerId: string;
+    readonly owners?: string[];
+    readonly restorableByUserIds?: string[];
     /**
      * The snapshot ID (e.g. snap-59fcb34e).
      */
     readonly snapshotId: string;
+    readonly snapshotIds?: string[];
     /**
      * The snapshot state.
      */

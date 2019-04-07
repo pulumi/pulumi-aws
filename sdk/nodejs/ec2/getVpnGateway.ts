@@ -79,6 +79,7 @@ export interface GetVpnGatewayResult {
     readonly amazonSideAsn: string;
     readonly attachedVpcId: string;
     readonly availabilityZone: string;
+    readonly filters?: { name: string, values: string[] }[];
     readonly id: string;
     readonly state: string;
     readonly tags: {[key: string]: any};

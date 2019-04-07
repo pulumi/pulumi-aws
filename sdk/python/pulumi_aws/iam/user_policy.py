@@ -56,11 +56,11 @@ class UserPolicy(pulumi.CustomResource):
         __props__['name_prefix'] = name_prefix
 
         if policy is None:
-            raise TypeError('Missing required property policy')
+            raise TypeError("Missing required property 'policy'")
         __props__['policy'] = policy
 
         if user is None:
-            raise TypeError('Missing required property user')
+            raise TypeError("Missing required property 'user'")
         __props__['user'] = user
 
         super(UserPolicy, __self__).__init__(

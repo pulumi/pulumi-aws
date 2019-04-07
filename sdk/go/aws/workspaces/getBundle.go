@@ -18,6 +18,7 @@ func LookupBundle(ctx *pulumi.Context, args *GetBundleArgs) (*GetBundleResult, e
 		return nil, err
 	}
 	return &GetBundleResult{
+		BundleId: outputs["bundleId"],
 		ComputeTypes: outputs["computeTypes"],
 		Description: outputs["description"],
 		Name: outputs["name"],
@@ -36,6 +37,7 @@ type GetBundleArgs struct {
 
 // A collection of values returned by getBundle.
 type GetBundleResult struct {
+	BundleId interface{}
 	// The compute type. See supported fields below.
 	ComputeTypes interface{}
 	// The description of the bundle.

@@ -71,7 +71,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         __props__['block_public_policy'] = block_public_policy
 
         if bucket is None:
-            raise TypeError('Missing required property bucket')
+            raise TypeError("Missing required property 'bucket'")
         __props__['bucket'] = bucket
 
         __props__['ignore_public_acls'] = ignore_public_acls

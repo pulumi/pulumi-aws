@@ -76,17 +76,17 @@ class Configuration(pulumi.CustomResource):
         __props__ = dict()
 
         if data is None:
-            raise TypeError('Missing required property data')
+            raise TypeError("Missing required property 'data'")
         __props__['data'] = data
 
         __props__['description'] = description
 
         if engine_type is None:
-            raise TypeError('Missing required property engine_type')
+            raise TypeError("Missing required property 'engine_type'")
         __props__['engine_type'] = engine_type
 
         if engine_version is None:
-            raise TypeError('Missing required property engine_version')
+            raise TypeError("Missing required property 'engine_version'")
         __props__['engine_version'] = engine_version
 
         __props__['name'] = name

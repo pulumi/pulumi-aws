@@ -60,6 +60,7 @@ func NewDistribution(ctx *pulumi.Context,
 		inputs["retainOnDelete"] = nil
 		inputs["tags"] = nil
 		inputs["viewerCertificate"] = nil
+		inputs["waitForDeployment"] = nil
 		inputs["webAclId"] = nil
 	} else {
 		inputs["aliases"] = args.Aliases
@@ -79,6 +80,7 @@ func NewDistribution(ctx *pulumi.Context,
 		inputs["retainOnDelete"] = args.RetainOnDelete
 		inputs["tags"] = args.Tags
 		inputs["viewerCertificate"] = args.ViewerCertificate
+		inputs["waitForDeployment"] = args.WaitForDeployment
 		inputs["webAclId"] = args.WebAclId
 	}
 	inputs["activeTrustedSigners"] = nil
@@ -129,6 +131,7 @@ func GetDistribution(ctx *pulumi.Context,
 		inputs["status"] = state.Status
 		inputs["tags"] = state.Tags
 		inputs["viewerCertificate"] = state.ViewerCertificate
+		inputs["waitForDeployment"] = state.WaitForDeployment
 		inputs["webAclId"] = state.WebAclId
 	}
 	s, err := ctx.ReadResource("aws:cloudfront/distribution:Distribution", name, id, inputs, opts...)
@@ -307,6 +310,13 @@ func (r *Distribution) ViewerCertificate() *pulumi.Output {
 	return r.s.State["viewerCertificate"]
 }
 
+// If enabled, the resource will wait for
+// the distribution status to change from `InProgress` to `Deployed`. Setting
+// this to`false` will skip the process. Default: `true`.
+func (r *Distribution) WaitForDeployment() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["waitForDeployment"])
+}
+
 // If you're using AWS WAF to filter CloudFront
 // requests, the Id of the AWS WAF web ACL that is associated with the
 // distribution.
@@ -397,6 +407,10 @@ type DistributionState struct {
 	// configuration for this distribution (maximum
 	// one).
 	ViewerCertificate interface{}
+	// If enabled, the resource will wait for
+	// the distribution status to change from `InProgress` to `Deployed`. Setting
+	// this to`false` will skip the process. Default: `true`.
+	WaitForDeployment interface{}
 	// If you're using AWS WAF to filter CloudFront
 	// requests, the Id of the AWS WAF web ACL that is associated with the
 	// distribution.
@@ -458,6 +472,10 @@ type DistributionArgs struct {
 	// configuration for this distribution (maximum
 	// one).
 	ViewerCertificate interface{}
+	// If enabled, the resource will wait for
+	// the distribution status to change from `InProgress` to `Deployed`. Setting
+	// this to`false` will skip the process. Default: `true`.
+	WaitForDeployment interface{}
 	// If you're using AWS WAF to filter CloudFront
 	// requests, the Id of the AWS WAF web ACL that is associated with the
 	// distribution.

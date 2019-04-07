@@ -35,6 +35,7 @@ func LookupVpc(ctx *pulumi.Context, args *GetVpcArgs) (*GetVpcResult, error) {
 		DhcpOptionsId: outputs["dhcpOptionsId"],
 		EnableDnsHostnames: outputs["enableDnsHostnames"],
 		EnableDnsSupport: outputs["enableDnsSupport"],
+		Filters: outputs["filters"],
 		Id: outputs["id"],
 		InstanceTenancy: outputs["instanceTenancy"],
 		Ipv6AssociationId: outputs["ipv6AssociationId"],
@@ -80,6 +81,7 @@ type GetVpcResult struct {
 	EnableDnsHostnames interface{}
 	// Whether or not the VPC has DNS support
 	EnableDnsSupport interface{}
+	Filters interface{}
 	Id interface{}
 	// The allowed tenancy of instances launched into the
 	// selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.

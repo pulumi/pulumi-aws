@@ -12,18 +12,21 @@ class GetUserPoolsResult:
     """
     A collection of values returned by getUserPools.
     """
-    def __init__(__self__, arns=None, ids=None, id=None):
+    def __init__(__self__, arns=None, ids=None, name=None, id=None):
         if arns and not isinstance(arns, list):
-            raise TypeError('Expected argument arns to be a list')
+            raise TypeError("Expected argument 'arns' to be a list")
         __self__.arns = arns
         if ids and not isinstance(ids, list):
-            raise TypeError('Expected argument ids to be a list')
+            raise TypeError("Expected argument 'ids' to be a list")
         __self__.ids = ids
         """
         The list of cognito user pool ids.
         """
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        __self__.name = name
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -41,4 +44,5 @@ async def get_user_pools(name=None,opts=None):
     return GetUserPoolsResult(
         arns=__ret__.get('arns'),
         ids=__ret__.get('ids'),
+        name=__ret__.get('name'),
         id=__ret__.get('id'))

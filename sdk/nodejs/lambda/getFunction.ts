@@ -64,6 +64,7 @@ export interface GetFunctionResult {
      * The Lambda environment's configuration settings.
      */
     readonly environment: { variables: {[key: string]: string} };
+    readonly functionName: string;
     /**
      * The function entrypoint in your code.
      */
@@ -92,6 +93,7 @@ export interface GetFunctionResult {
      * Qualified (`:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `arn`.
      */
     readonly qualifiedArn: string;
+    readonly qualifier?: string;
     /**
      * The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
      */

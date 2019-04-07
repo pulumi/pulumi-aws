@@ -54,13 +54,13 @@ class GroupMembership(pulumi.CustomResource):
         __props__ = dict()
 
         if group is None:
-            raise TypeError('Missing required property group')
+            raise TypeError("Missing required property 'group'")
         __props__['group'] = group
 
         __props__['name'] = name
 
         if users is None:
-            raise TypeError('Missing required property users')
+            raise TypeError("Missing required property 'users'")
         __props__['users'] = users
 
         super(GroupMembership, __self__).__init__(

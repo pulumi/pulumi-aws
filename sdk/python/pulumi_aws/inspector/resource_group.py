@@ -41,7 +41,7 @@ class ResourceGroup(pulumi.CustomResource):
         __props__ = dict()
 
         if tags is None:
-            raise TypeError('Missing required property tags')
+            raise TypeError("Missing required property 'tags'")
         __props__['tags'] = tags
 
         __props__['arn'] = None

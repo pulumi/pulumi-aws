@@ -96,17 +96,17 @@ class Permission(pulumi.CustomResource):
         __props__ = dict()
 
         if action is None:
-            raise TypeError('Missing required property action')
+            raise TypeError("Missing required property 'action'")
         __props__['action'] = action
 
         __props__['event_source_token'] = event_source_token
 
         if function is None:
-            raise TypeError('Missing required property function')
+            raise TypeError("Missing required property 'function'")
         __props__['function'] = function
 
         if principal is None:
-            raise TypeError('Missing required property principal')
+            raise TypeError("Missing required property 'principal'")
         __props__['principal'] = principal
 
         __props__['qualifier'] = qualifier

@@ -14,25 +14,25 @@ class GetCallerIdentityResult:
     """
     def __init__(__self__, account_id=None, arn=None, user_id=None, id=None):
         if account_id and not isinstance(account_id, str):
-            raise TypeError('Expected argument account_id to be a str')
+            raise TypeError("Expected argument 'account_id' to be a str")
         __self__.account_id = account_id
         """
         The AWS Account ID number of the account that owns or contains the calling entity.
         """
         if arn and not isinstance(arn, str):
-            raise TypeError('Expected argument arn to be a str')
+            raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
         The AWS ARN associated with the calling entity.
         """
         if user_id and not isinstance(user_id, str):
-            raise TypeError('Expected argument user_id to be a str')
+            raise TypeError("Expected argument 'user_id' to be a str")
         __self__.user_id = user_id
         """
         The unique identifier of the calling entity.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

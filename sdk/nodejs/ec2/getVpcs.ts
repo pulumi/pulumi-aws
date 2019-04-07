@@ -70,6 +70,7 @@ export interface GetVpcsArgs {
  * A collection of values returned by getVpcs.
  */
 export interface GetVpcsResult {
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * A list of all the VPC Ids found. This data source will fail if none are found.
      */

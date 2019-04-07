@@ -42,6 +42,7 @@ export interface GetArnResult {
      * The [ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS account that owns the resource, without the hyphens.
      */
     readonly account: string;
+    readonly arn: string;
     /**
      * The partition that the resource is in.
      */

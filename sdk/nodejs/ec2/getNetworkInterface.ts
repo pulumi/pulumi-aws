@@ -59,6 +59,7 @@ export interface GetNetworkInterfaceResult {
      * Description of the network interface.
      */
     readonly description: string;
+    readonly filters?: { name: string, values: string[] }[];
     readonly id: string;
     /**
      * The type of interface.

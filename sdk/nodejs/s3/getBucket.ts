@@ -75,6 +75,7 @@ export interface GetBucketResult {
      * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
     readonly arn: string;
+    readonly bucket: string;
     /**
      * The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
      */

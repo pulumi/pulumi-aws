@@ -79,11 +79,11 @@ class ApplicationVersion(pulumi.CustomResource):
         __props__ = dict()
 
         if application is None:
-            raise TypeError('Missing required property application')
+            raise TypeError("Missing required property 'application'")
         __props__['application'] = application
 
         if bucket is None:
-            raise TypeError('Missing required property bucket')
+            raise TypeError("Missing required property 'bucket'")
         __props__['bucket'] = bucket
 
         __props__['description'] = description
@@ -91,7 +91,7 @@ class ApplicationVersion(pulumi.CustomResource):
         __props__['force_delete'] = force_delete
 
         if key is None:
-            raise TypeError('Missing required property key')
+            raise TypeError("Missing required property 'key'")
         __props__['key'] = key
 
         __props__['name'] = name

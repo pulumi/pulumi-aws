@@ -85,6 +85,9 @@ export class Resolver extends pulumi.CustomResource {
      * The ARN
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * The DataSource name.
+     */
     public readonly dataSource: pulumi.Output<string>;
     /**
      * The field name from the schema defined in the GraphQL API.
@@ -166,6 +169,9 @@ export interface ResolverState {
      * The ARN
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The DataSource name.
+     */
     readonly dataSource?: pulumi.Input<string>;
     /**
      * The field name from the schema defined in the GraphQL API.
@@ -193,6 +199,9 @@ export interface ResolverArgs {
      * The API ID for the GraphQL API.
      */
     readonly apiId: pulumi.Input<string>;
+    /**
+     * The DataSource name.
+     */
     readonly dataSource: pulumi.Input<string>;
     /**
      * The field name from the schema defined in the GraphQL API.

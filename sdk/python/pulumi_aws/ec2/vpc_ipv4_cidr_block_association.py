@@ -45,11 +45,11 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
         __props__ = dict()
 
         if cidr_block is None:
-            raise TypeError('Missing required property cidr_block')
+            raise TypeError("Missing required property 'cidr_block'")
         __props__['cidr_block'] = cidr_block
 
         if vpc_id is None:
-            raise TypeError('Missing required property vpc_id')
+            raise TypeError("Missing required property 'vpc_id'")
         __props__['vpc_id'] = vpc_id
 
         super(VpcIpv4CidrBlockAssociation, __self__).__init__(

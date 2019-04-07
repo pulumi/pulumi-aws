@@ -48,11 +48,11 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
         __props__ = dict()
 
         if subnet_id is None:
-            raise TypeError('Missing required property subnet_id')
+            raise TypeError("Missing required property 'subnet_id'")
         __props__['subnet_id'] = subnet_id
 
         if vpc_endpoint_id is None:
-            raise TypeError('Missing required property vpc_endpoint_id')
+            raise TypeError("Missing required property 'vpc_endpoint_id'")
         __props__['vpc_endpoint_id'] = vpc_endpoint_id
 
         super(VpcEndpointSubnetAssociation, __self__).__init__(

@@ -12,21 +12,24 @@ class GetAvailabilityZonesResult:
     """
     A collection of values returned by getAvailabilityZones.
     """
-    def __init__(__self__, names=None, zone_ids=None, id=None):
+    def __init__(__self__, names=None, state=None, zone_ids=None, id=None):
         if names and not isinstance(names, list):
-            raise TypeError('Expected argument names to be a list')
+            raise TypeError("Expected argument 'names' to be a list")
         __self__.names = names
         """
         A list of the Availability Zone names available to the account.
         """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
         if zone_ids and not isinstance(zone_ids, list):
-            raise TypeError('Expected argument zone_ids to be a list')
+            raise TypeError("Expected argument 'zone_ids' to be a list")
         __self__.zone_ids = zone_ids
         """
         A list of the Availability Zone IDs available to the account.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -48,5 +51,6 @@ async def get_availability_zones(state=None,opts=None):
 
     return GetAvailabilityZonesResult(
         names=__ret__.get('names'),
+        state=__ret__.get('state'),
         zone_ids=__ret__.get('zoneIds'),
         id=__ret__.get('id'))

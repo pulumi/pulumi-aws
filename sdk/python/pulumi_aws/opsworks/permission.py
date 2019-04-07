@@ -65,7 +65,7 @@ class Permission(pulumi.CustomResource):
         __props__['stack_id'] = stack_id
 
         if user_arn is None:
-            raise TypeError('Missing required property user_arn')
+            raise TypeError("Missing required property 'user_arn'")
         __props__['user_arn'] = user_arn
 
         super(Permission, __self__).__init__(

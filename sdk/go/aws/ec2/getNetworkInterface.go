@@ -24,6 +24,7 @@ func LookupNetworkInterface(ctx *pulumi.Context, args *GetNetworkInterfaceArgs) 
 		Attachments: outputs["attachments"],
 		AvailabilityZone: outputs["availabilityZone"],
 		Description: outputs["description"],
+		Filters: outputs["filters"],
 		Id: outputs["id"],
 		InterfaceType: outputs["interfaceType"],
 		Ipv6Addresses: outputs["ipv6Addresses"],
@@ -58,6 +59,7 @@ type GetNetworkInterfaceResult struct {
 	AvailabilityZone interface{}
 	// Description of the network interface.
 	Description interface{}
+	Filters interface{}
 	Id interface{}
 	// The type of interface.
 	InterfaceType interface{}

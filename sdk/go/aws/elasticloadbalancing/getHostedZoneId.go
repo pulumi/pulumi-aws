@@ -19,6 +19,7 @@ func LookupHostedZoneId(ctx *pulumi.Context, args *GetHostedZoneIdArgs) (*GetHos
 		return nil, err
 	}
 	return &GetHostedZoneIdResult{
+		Region: outputs["region"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -32,6 +33,7 @@ type GetHostedZoneIdArgs struct {
 
 // A collection of values returned by getHostedZoneId.
 type GetHostedZoneIdResult struct {
+	Region interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

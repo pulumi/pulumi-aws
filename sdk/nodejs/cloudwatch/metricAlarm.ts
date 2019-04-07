@@ -202,6 +202,10 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     public readonly statistic: pulumi.Output<string | undefined>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The value against which the specified statistic is compared.
      */
     public readonly threshold: pulumi.Output<number>;
@@ -244,6 +248,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             inputs["okActions"] = state ? state.okActions : undefined;
             inputs["period"] = state ? state.period : undefined;
             inputs["statistic"] = state ? state.statistic : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["threshold"] = state ? state.threshold : undefined;
             inputs["treatMissingData"] = state ? state.treatMissingData : undefined;
             inputs["unit"] = state ? state.unit : undefined;
@@ -275,6 +280,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             inputs["okActions"] = args ? args.okActions : undefined;
             inputs["period"] = args ? args.period : undefined;
             inputs["statistic"] = args ? args.statistic : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["threshold"] = args ? args.threshold : undefined;
             inputs["treatMissingData"] = args ? args.treatMissingData : undefined;
             inputs["unit"] = args ? args.unit : undefined;
@@ -369,6 +375,10 @@ export interface MetricAlarmState {
      */
     readonly statistic?: pulumi.Input<string>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The value against which the specified statistic is compared.
      */
     readonly threshold?: pulumi.Input<number>;
@@ -462,6 +472,10 @@ export interface MetricAlarmArgs {
      * Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
      */
     readonly statistic?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The value against which the specified statistic is compared.
      */

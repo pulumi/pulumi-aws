@@ -83,11 +83,11 @@ class SnapshotCopy(pulumi.CustomResource):
         __props__['kms_key_id'] = kms_key_id
 
         if source_region is None:
-            raise TypeError('Missing required property source_region')
+            raise TypeError("Missing required property 'source_region'")
         __props__['source_region'] = source_region
 
         if source_snapshot_id is None:
-            raise TypeError('Missing required property source_snapshot_id')
+            raise TypeError("Missing required property 'source_snapshot_id'")
         __props__['source_snapshot_id'] = source_snapshot_id
 
         __props__['tags'] = tags

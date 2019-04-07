@@ -12,57 +12,60 @@ class GetReportDefinitionResult:
     """
     A collection of values returned by getReportDefinition.
     """
-    def __init__(__self__, additional_artifacts=None, additional_schema_elements=None, compression=None, format=None, s3_bucket=None, s3_prefix=None, s3_region=None, time_unit=None, id=None):
+    def __init__(__self__, additional_artifacts=None, additional_schema_elements=None, compression=None, format=None, report_name=None, s3_bucket=None, s3_prefix=None, s3_region=None, time_unit=None, id=None):
         if additional_artifacts and not isinstance(additional_artifacts, list):
-            raise TypeError('Expected argument additional_artifacts to be a list')
+            raise TypeError("Expected argument 'additional_artifacts' to be a list")
         __self__.additional_artifacts = additional_artifacts
         """
         A list of additional artifacts.
         """
         if additional_schema_elements and not isinstance(additional_schema_elements, list):
-            raise TypeError('Expected argument additional_schema_elements to be a list')
+            raise TypeError("Expected argument 'additional_schema_elements' to be a list")
         __self__.additional_schema_elements = additional_schema_elements
         """
         A list of schema elements.
         """
         if compression and not isinstance(compression, str):
-            raise TypeError('Expected argument compression to be a str')
+            raise TypeError("Expected argument 'compression' to be a str")
         __self__.compression = compression
         """
         Preferred format for report.
         """
         if format and not isinstance(format, str):
-            raise TypeError('Expected argument format to be a str')
+            raise TypeError("Expected argument 'format' to be a str")
         __self__.format = format
         """
         Preferred compression format for report.
         """
+        if report_name and not isinstance(report_name, str):
+            raise TypeError("Expected argument 'report_name' to be a str")
+        __self__.report_name = report_name
         if s3_bucket and not isinstance(s3_bucket, str):
-            raise TypeError('Expected argument s3_bucket to be a str')
+            raise TypeError("Expected argument 's3_bucket' to be a str")
         __self__.s3_bucket = s3_bucket
         """
         Name of customer S3 bucket.
         """
         if s3_prefix and not isinstance(s3_prefix, str):
-            raise TypeError('Expected argument s3_prefix to be a str')
+            raise TypeError("Expected argument 's3_prefix' to be a str")
         __self__.s3_prefix = s3_prefix
         """
         Preferred report path prefix.
         """
         if s3_region and not isinstance(s3_region, str):
-            raise TypeError('Expected argument s3_region to be a str')
+            raise TypeError("Expected argument 's3_region' to be a str")
         __self__.s3_region = s3_region
         """
         Region of customer S3 bucket.
         """
         if time_unit and not isinstance(time_unit, str):
-            raise TypeError('Expected argument time_unit to be a str')
+            raise TypeError("Expected argument 'time_unit' to be a str")
         __self__.time_unit = time_unit
         """
         The frequency on which report data are measured and displayed.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -86,6 +89,7 @@ async def get_report_definition(report_name=None,opts=None):
         additional_schema_elements=__ret__.get('additionalSchemaElements'),
         compression=__ret__.get('compression'),
         format=__ret__.get('format'),
+        report_name=__ret__.get('reportName'),
         s3_bucket=__ret__.get('s3Bucket'),
         s3_prefix=__ret__.get('s3Prefix'),
         s3_region=__ret__.get('s3Region'),

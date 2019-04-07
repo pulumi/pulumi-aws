@@ -83,11 +83,13 @@ export interface GetNetworkAclsArgs {
  * A collection of values returned by getNetworkAcls.
  */
 export interface GetNetworkAclsResult {
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * A list of all the network ACL ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: any};
+    readonly vpcId?: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

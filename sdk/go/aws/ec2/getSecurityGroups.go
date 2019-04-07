@@ -20,6 +20,7 @@ func LookupSecurityGroups(ctx *pulumi.Context, args *GetSecurityGroupsArgs) (*Ge
 		return nil, err
 	}
 	return &GetSecurityGroupsResult{
+		Filters: outputs["filters"],
 		Ids: outputs["ids"],
 		Tags: outputs["tags"],
 		VpcIds: outputs["vpcIds"],
@@ -40,6 +41,7 @@ type GetSecurityGroupsArgs struct {
 
 // A collection of values returned by getSecurityGroups.
 type GetSecurityGroupsResult struct {
+	Filters interface{}
 	// IDs of the matches security groups.
 	Ids interface{}
 	Tags interface{}

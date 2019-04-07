@@ -83,6 +83,7 @@ export interface GetSecurityGroupResult {
      * The description of the security group.
      */
     readonly description: string;
+    readonly filters?: { name: string, values: string[] }[];
     readonly id: string;
     readonly name: string;
     readonly tags: {[key: string]: any};

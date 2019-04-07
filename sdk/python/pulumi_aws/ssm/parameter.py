@@ -91,11 +91,11 @@ class Parameter(pulumi.CustomResource):
         __props__['tags'] = tags
 
         if type is None:
-            raise TypeError('Missing required property type')
+            raise TypeError("Missing required property 'type'")
         __props__['type'] = type
 
         if value is None:
-            raise TypeError('Missing required property value')
+            raise TypeError("Missing required property 'value'")
         __props__['value'] = value
 
         super(Parameter, __self__).__init__(

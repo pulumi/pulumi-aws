@@ -39,7 +39,7 @@ class StandardsSubscription(pulumi.CustomResource):
         __props__ = dict()
 
         if standards_arn is None:
-            raise TypeError('Missing required property standards_arn')
+            raise TypeError("Missing required property 'standards_arn'")
         __props__['standards_arn'] = standards_arn
 
         super(StandardsSubscription, __self__).__init__(

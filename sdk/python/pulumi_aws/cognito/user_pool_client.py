@@ -130,7 +130,7 @@ class UserPoolClient(pulumi.CustomResource):
         __props__['supported_identity_providers'] = supported_identity_providers
 
         if user_pool_id is None:
-            raise TypeError('Missing required property user_pool_id')
+            raise TypeError("Missing required property 'user_pool_id'")
         __props__['user_pool_id'] = user_pool_id
 
         __props__['write_attributes'] = write_attributes
