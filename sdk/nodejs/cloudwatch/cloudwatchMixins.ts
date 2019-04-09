@@ -55,6 +55,10 @@ export function onSchedule(
  */
 export class Metric {
     /**
+     * Optional resource this is a metric for.  Used only for parenting purposes when making new alarms.
+     */
+    resource: pulumi.Resource | undefined;
+    /**
      * The name for this metric. See docs for
      * [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
@@ -87,7 +91,7 @@ export class Metric {
      * The statistic to apply to the alarm's associated metric. Either of the following is
      * supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`.
      *
-     * Defaults to [Average] if unspecified.
+     * Defaults to [Average] if [statistic] and [extendedStatistic] is unspecified.
      */
     statistic: pulumi.Output<MetricStatistic>;
     /**
@@ -108,6 +112,7 @@ export class Metric {
      * the parent of the alarm by default.
      */
     constructor(args: MetricArgs, resource?: pulumi.Resource) {
+        this.resource = resource;
         this.metricName = pulumi.output(args.metricName);
         this.dimensions = pulumi.output(args.dimensions);
         this.namespace = pulumi.output(args.namespace);
@@ -125,10 +130,57 @@ export class Metric {
                                        return "Average";
                                    }
 
+                                   if (statistic !== undefined && extendedStatistic !== undefined) {
+                                       throw new Error("Only provide one of [args.statistic] and [args.extendedStatistic]")
+                                   }
+
                                    return statistic;
                                });
         this.extendedStatistic = pulumi.output(args.extendedStatistic);
         this.unit = pulumi.output(args.unit);
+    }
+
+    public withDimensions(dimensions: pulumi.Input<Record<string, any>> | undefined) {
+        return new Metric({
+            ...this,
+            dimensions,
+        }, this.resource);
+    }
+
+    public withPeriod(period: pulumi.Input<number> | undefined) {
+        return new Metric({
+            ...this,
+            period,
+        }, this.resource);
+    }
+
+    public withUnit(period: pulumi.Input<number> | undefined) {
+        return new Metric({
+            ...this,
+            period,
+        }, this.resource);
+    }
+
+    public withStatistic(statistic: pulumi.Input<MetricStatistic> | undefined) {
+        // If they're supplying a statistic, then we want to clear out extendedStatistic.
+        return new Metric({
+            ...this,
+            statistic,
+            extendedStatistic: pulumi.output([statistic, this.extendedStatistic])
+                                     .apply(([statistic, extendedStatistic]) =>
+                                        statistic !== undefined ? undefined : extendedStatistic),
+        }, this.resource);
+    }
+
+    public withExtendedStatistic(extendedStatistic: pulumi.Input<number> | undefined) {
+        // If they're supplying an extendedStatistic, then we want to clear out statistic.
+        return new Metric({
+            ...this,
+            statistic: pulumi.output([this.statistic, extendedStatistic])
+                             .apply(([statistic, extendedStatistic]) =>
+                                extendedStatistic !== undefined ? undefined : statistic),
+            extendedStatistic,
+        }, this.resource);
     }
 }
 
