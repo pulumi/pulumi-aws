@@ -15,6 +15,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as eventRule from "./eventRuleMixins";
 
+import * as alarm from "./metricAlarm";
 import * as sns from "../sns";
 import * as utils from "../utils";
 
@@ -116,27 +117,10 @@ export class Metric {
         this.metricName = pulumi.output(args.metricName);
         this.dimensions = pulumi.output(args.dimensions);
         this.namespace = pulumi.output(args.namespace);
-        this.period = utils.ifUndefined(args.period, 60).apply(period => {
-            // valid values for period are 1, 5, 10, 30, or any multiple of 60
-            if (period !== 1 && period !== 5 && period !== 10 && period !== 30 && period % 60 !== 0) {
-                throw new Error("Valid values for [args.period] are 1, 5, 10, 30, or any multiple of 60");
-            }
-
-            return period;
-        });
+        this.period = utils.ifUndefined(args.period, 60).apply(validatePeriod);
         this.statistic = pulumi.all([args.statistic, args.extendedStatistic])
-                               .apply(([statistic, extendedStatistic]) => {
-                                   if (statistic === undefined && extendedStatistic === undefined) {
-                                       return "Average";
-                                   }
-
-                                   if (statistic !== undefined && extendedStatistic !== undefined) {
-                                       throw new Error("Only provide one of [args.statistic] and [args.extendedStatistic]")
-                                   }
-
-                                   return statistic;
-                               });
-        this.extendedStatistic = pulumi.output(args.extendedStatistic);
+                               .apply(([statistic, extendedStatistic]) => validateStatistics(statistic, extendedStatistic));
+        this.extendedStatistic = pulumi.output(args.extendedStatistic).apply(validateExtendedStatistic);
         this.unit = pulumi.output(args.unit);
     }
 
@@ -181,6 +165,128 @@ export class Metric {
                                 extendedStatistic !== undefined ? undefined : statistic),
             extendedStatistic,
         }, this.resource);
+    }
+
+    public createAlarm(name: string, args: AlarmArgs, opts: pulumi.CustomResourceOptions = {}) {
+        return new alarm.MetricAlarm(name, {
+            ...args,
+            actionsEnabled: utils.ifUndefined(args.actionsEnabled, true),
+            treatMissingData: utils.ifUndefined(args.treatMissingData, "missing"),
+            dimensions: this.dimensions,
+            extendedStatistic: this.extendedStatistic.apply(s => s === undefined ? undefined : `p${s}`),
+            metricName: this.metricName,
+            namespace: this.namespace,
+            period: this.period,
+            statistic: this.statistic,
+            unit: this.unit,
+        }, { parent: this.resource, ...opts });
+    }
+}
+
+export type AlarmComparisonOperator =
+    "GreaterThanOrEqualToThreshold" | "GreaterThanThreshold" |
+    "LessThanThreshold" | "LessThanOrEqualToThreshold";
+
+export interface AlarmArgs {
+    /**
+     * Indicates whether or not actions should be executed during any changes to the alarm's state.
+     * Defaults to `true`.
+     */
+    actionsEnabled?: pulumi.Input<boolean>;
+    /**
+     * The list of actions to execute when this alarm transitions into an ALARM state from any other
+     * state. Each action is specified as an Amazon Resource Name (ARN).
+     */
+    alarmActions?: pulumi.Input<pulumi.Input<string | sns.Topic>[]>;
+    /**
+     * The description for the alarm.
+     */
+    alarmDescription?: pulumi.Input<string>;
+    /**
+     * The descriptive name for the alarm. This name must be unique within the user's AWS account
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The arithmetic operation to use when comparing the specified Statistic and Threshold. The
+     * specified Statistic value is used as the first operand. Either of the following is supported:
+     * `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`,
+     * `LessThanOrEqualToThreshold`.
+     */
+    comparisonOperator: pulumi.Input<AlarmComparisonOperator>;
+    /**
+     * The number of datapoints that must be breaching to trigger the alarm.
+     */
+    datapointsToAlarm?: pulumi.Input<number>;
+    /**
+     * Used only for alarms based on percentiles. If you specify `ignore`, the alarm state will not
+     * change during periods with too few data points to be statistically significant. If you
+     * specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly
+     * change state no matter how many data points are available. The following values are
+     * supported: `ignore`, and `evaluate`.
+     */
+    evaluateLowSampleCountPercentiles?: pulumi.Input<"ignore" | "evaluate">;
+    /**
+     * The number of periods over which data is compared to the specified threshold.
+     */
+    evaluationPeriods: pulumi.Input<number>;
+    /**
+     * The percentile statistic for the metric associated with the alarm. Specify a value between
+     * p0.0 and p100.
+     */
+    extendedStatistic?: pulumi.Input<string>;
+    /**
+     * The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state
+     * from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     */
+    insufficientDataActions?: pulumi.Input<pulumi.Input<string | sns.Topic>[]>;
+    /**
+     * Enables you to create an alarm based on a metric math expression. You may specify at most 20.
+     */
+    metricQueries?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, id: pulumi.Input<string>, label?: pulumi.Input<string>, metric?: pulumi.Input<{ dimensions?: pulumi.Input<{[key: string]: any}>, metricName: pulumi.Input<string>, namespace?: pulumi.Input<string>, period: pulumi.Input<number>, stat: pulumi.Input<string>, unit?: pulumi.Input<string> }>, returnData?: pulumi.Input<boolean> }>[]>;
+    /**
+     * The list of actions to execute when this alarm transitions into an OK state from any other
+     * state. Each action is specified as an Amazon Resource Name (ARN).
+     */
+    okActions?: pulumi.Input<pulumi.Input<string | sns.Topic>[]>;
+    /**
+     * The value against which the specified statistic is compared.
+     */
+    threshold: pulumi.Input<number>;
+    /**
+     * Sets how this alarm is to handle missing data points. The following values are supported:
+     * `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
+     */
+    treatMissingData?: pulumi.Input<"missing" | "ignore" | "breaching" | "notBreaching">;
+}
+
+function validatePeriod(period: number) {
+    // valid values for period are 1, 5, 10, 30, or any multiple of 60
+    if (period !== 1 && period !== 5 && period !== 10 && period !== 30 && period % 60 !== 0) {
+        throw new Error("Valid values for [args.period] are 1, 5, 10, 30, or any multiple of 60");
+    }
+
+    return period;
+}
+
+function validateStatistics(statistic: MetricStatistic, extendedStatistic: number) {
+    if (statistic === undefined && extendedStatistic === undefined) {
+        return "Average";
+    }
+
+    if (statistic !== undefined && extendedStatistic !== undefined) {
+        throw new Error("Only provide one of [args.statistic] and [args.extendedStatistic]")
+    }
+
+    return statistic;
+}
+
+function validateExtendedStatistic(extendedStatistic: number) {
+    if (extendedStatistic !== undefined) {
+        if (extendedStatistic < 0 || extendedStatistic > 100) {
+                throw new Error("[args.extendedStatistic] must be between 0 and 100.")
+        }
+
+        return extendedStatistic;
     }
 }
 
