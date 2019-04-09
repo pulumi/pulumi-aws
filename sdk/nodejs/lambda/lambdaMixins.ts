@@ -117,13 +117,13 @@ export interface Context {
  *
  * [context] AWS Lambda uses this parameter to provide details of your Lambda function's execution.
  * For more information, see
- * https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html
+ * https://cloud.google.com/functions/docs/writing/background#function_parameters
  *
- * [callback] See https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-handler.html#nodejs-prog-model-handler-callback
- * for details.
+ * [callback] A callback to signal completion of the function's execution. Follows the "errback"
+ * convention, which interprets the first argument as an error.
  *
  * This function can be synchronous or asynchronous function, though async is only supported with an
- * AWS Lambda runtime of 8.10 or higher.  On those runtimes a Promise can be returned, 'callback'
+ * GCP Function of 8.10 or higher.  On those runtimes a Promise can be returned, 'callback'
  * parameter can be ignored, and AWS will appropriately handle things. For AWS lambda pre-8.10, a
  * synchronous function must be provided.  The synchronous function should return nothing, and
  * should instead invoke 'callback' when complete.
