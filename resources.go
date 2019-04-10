@@ -1880,6 +1880,11 @@ func Provider() tfbridge.ProviderInfo {
 							"acmpcaMixins.ts",
 						},
 					},
+					"apigateway": {
+						DestFiles: []string{
+							"apigatewayMixins.ts",
+						},
+					},
 					"autoscaling": {
 						DestFiles: []string{
 							"metrics.ts",          // Metric and MetricsGranularity union types and constants
