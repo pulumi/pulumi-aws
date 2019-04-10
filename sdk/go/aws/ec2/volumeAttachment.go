@@ -79,7 +79,7 @@ func (r *VolumeAttachment) ID() *pulumi.IDOutput {
 }
 
 // The device name to expose to the instance (for
-// example, `/dev/sdh` or `xvdh`)
+// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
 func (r *VolumeAttachment) DeviceName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["deviceName"])
 }
@@ -87,7 +87,7 @@ func (r *VolumeAttachment) DeviceName() *pulumi.StringOutput {
 // Set to `true` if you want to force the
 // volume to detach. Useful if previous attempts failed, but use this option only
 // as a last resort, as this can result in **data loss**. See
-// [Detaching an Amazon EBS Volume from an Instance][1] for more information.
+// [Detaching an Amazon EBS Volume from an Instance][3] for more information.
 func (r *VolumeAttachment) ForceDetach() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["forceDetach"])
 }
@@ -114,12 +114,12 @@ func (r *VolumeAttachment) VolumeId() *pulumi.StringOutput {
 // Input properties used for looking up and filtering VolumeAttachment resources.
 type VolumeAttachmentState struct {
 	// The device name to expose to the instance (for
-	// example, `/dev/sdh` or `xvdh`)
+	// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
 	DeviceName interface{}
 	// Set to `true` if you want to force the
 	// volume to detach. Useful if previous attempts failed, but use this option only
 	// as a last resort, as this can result in **data loss**. See
-	// [Detaching an Amazon EBS Volume from an Instance][1] for more information.
+	// [Detaching an Amazon EBS Volume from an Instance][3] for more information.
 	ForceDetach interface{}
 	// ID of the Instance to attach to
 	InstanceId interface{}
@@ -136,12 +136,12 @@ type VolumeAttachmentState struct {
 // The set of arguments for constructing a VolumeAttachment resource.
 type VolumeAttachmentArgs struct {
 	// The device name to expose to the instance (for
-	// example, `/dev/sdh` or `xvdh`)
+	// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
 	DeviceName interface{}
 	// Set to `true` if you want to force the
 	// volume to detach. Useful if previous attempts failed, but use this option only
 	// as a last resort, as this can result in **data loss**. See
-	// [Detaching an Amazon EBS Volume from an Instance][1] for more information.
+	// [Detaching an Amazon EBS Volume from an Instance][3] for more information.
 	ForceDetach interface{}
 	// ID of the Instance to attach to
 	InstanceId interface{}

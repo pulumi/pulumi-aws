@@ -48,6 +48,10 @@ export class Channel extends pulumi.CustomResource {
      * A single item list of HLS ingest information
      */
     public /*out*/ readonly hlsIngests: pulumi.Output<{ ingestEndpoints: { password: string, url: string, username: string }[] }[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -65,6 +69,7 @@ export class Channel extends pulumi.CustomResource {
             inputs["channelId"] = state ? state.channelId : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["hlsIngests"] = state ? state.hlsIngests : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ChannelArgs | undefined;
             if (!args || args.channelId === undefined) {
@@ -72,6 +77,7 @@ export class Channel extends pulumi.CustomResource {
             }
             inputs["channelId"] = args ? args.channelId : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["hlsIngests"] = undefined /*out*/;
         }
@@ -99,6 +105,10 @@ export interface ChannelState {
      * A single item list of HLS ingest information
      */
     readonly hlsIngests?: pulumi.Input<pulumi.Input<{ ingestEndpoints?: pulumi.Input<pulumi.Input<{ password?: pulumi.Input<string>, url?: pulumi.Input<string>, username?: pulumi.Input<string> }>[]> }>[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -113,4 +123,8 @@ export interface ChannelArgs {
      * A description of the channel
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

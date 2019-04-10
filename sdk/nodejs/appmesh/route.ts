@@ -14,17 +14,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const serviceb = new aws.appmesh.Route("serviceb", {
- *     meshName: "simpleapp",
+ *     meshName: aws_appmesh_mesh_simple.id,
  *     spec: {
  *         httpRoute: {
  *             action: {
  *                 weightedTargets: [
  *                     {
- *                         virtualNode: "serviceBv1",
+ *                         virtualNode: aws_appmesh_virtual_node_serviceb1.name,
  *                         weight: 90,
  *                     },
  *                     {
- *                         virtualNode: "serviceBv2",
+ *                         virtualNode: aws_appmesh_virtual_node_serviceb2.name,
  *                         weight: 10,
  *                     },
  *                 ],
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
- *     virtualRouterName: "serviceB",
+ *     virtualRouterName: aws_appmesh_virtual_router_serviceb.name,
  * });
  * ```
  */
@@ -75,6 +75,9 @@ export class Route extends pulumi.CustomResource {
      * The route specification to apply.
      */
     public readonly spec: pulumi.Output<{ httpRoute?: { action: { weightedTargets: { virtualNode: string, weight: number }[] }, match: { prefix: string } } }>;
+    /**
+     * The name of the virtual router in which to create the route.
+     */
     public readonly virtualRouterName: pulumi.Output<string>;
 
     /**
@@ -147,6 +150,9 @@ export interface RouteState {
      * The route specification to apply.
      */
     readonly spec?: pulumi.Input<{ httpRoute?: pulumi.Input<{ action: pulumi.Input<{ weightedTargets: pulumi.Input<pulumi.Input<{ virtualNode: pulumi.Input<string>, weight: pulumi.Input<number> }>[]> }>, match: pulumi.Input<{ prefix: pulumi.Input<string> }> }> }>;
+    /**
+     * The name of the virtual router in which to create the route.
+     */
     readonly virtualRouterName?: pulumi.Input<string>;
 }
 
@@ -166,5 +172,8 @@ export interface RouteArgs {
      * The route specification to apply.
      */
     readonly spec: pulumi.Input<{ httpRoute?: pulumi.Input<{ action: pulumi.Input<{ weightedTargets: pulumi.Input<pulumi.Input<{ virtualNode: pulumi.Input<string>, weight: pulumi.Input<number> }>[]> }>, match: pulumi.Input<{ prefix: pulumi.Input<string> }> }> }>;
+    /**
+     * The name of the virtual router in which to create the route.
+     */
     readonly virtualRouterName: pulumi.Input<string>;
 }

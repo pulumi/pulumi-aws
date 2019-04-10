@@ -23,9 +23,11 @@ func NewChannel(ctx *pulumi.Context,
 	if args == nil {
 		inputs["channelId"] = nil
 		inputs["description"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["channelId"] = args.ChannelId
 		inputs["description"] = args.Description
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	inputs["hlsIngests"] = nil
@@ -46,6 +48,7 @@ func GetChannel(ctx *pulumi.Context,
 		inputs["channelId"] = state.ChannelId
 		inputs["description"] = state.Description
 		inputs["hlsIngests"] = state.HlsIngests
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:mediapackage/channel:Channel", name, id, inputs, opts...)
 	if err != nil {
@@ -84,6 +87,11 @@ func (r *Channel) HlsIngests() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["hlsIngests"])
 }
 
+// A mapping of tags to assign to the resource.
+func (r *Channel) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering Channel resources.
 type ChannelState struct {
 	// The ARN of the channel
@@ -94,6 +102,8 @@ type ChannelState struct {
 	Description interface{}
 	// A single item list of HLS ingest information
 	HlsIngests interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }
 
 // The set of arguments for constructing a Channel resource.
@@ -102,4 +112,6 @@ type ChannelArgs struct {
 	ChannelId interface{}
 	// A description of the channel
 	Description interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }

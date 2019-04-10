@@ -4,5 +4,7 @@
 
 # Export this package's modules as members:
 from .stack import *
+from .stack_set import *
+from .stack_set_instance import *
 from .get_export import *
 from .get_stack import *

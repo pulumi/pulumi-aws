@@ -26,6 +26,10 @@ class VpnConnection(pulumi.CustomResource):
     """
     Tags to apply to the connection.
     """
+    transit_gateway_attachment_id: pulumi.Output[str]
+    """
+    When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID.
+    """
     transit_gateway_id: pulumi.Output[str]
     """
     The ID of the EC2 Transit Gateway.
@@ -159,6 +163,7 @@ class VpnConnection(pulumi.CustomResource):
 
         __props__['customer_gateway_configuration'] = None
         __props__['routes'] = None
+        __props__['transit_gateway_attachment_id'] = None
         __props__['tunnel1_address'] = None
         __props__['tunnel1_bgp_asn'] = None
         __props__['tunnel1_bgp_holdtime'] = None

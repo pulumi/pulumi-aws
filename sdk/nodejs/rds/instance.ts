@@ -84,7 +84,6 @@ export class Instance extends pulumi.CustomResource {
      * are applied immediately, or during the next maintenance window. Default is
      * `false`. See [Amazon RDS Documentation for more
      * information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
-     * for more information.
      */
     public readonly applyImmediately: pulumi.Output<boolean>;
     /**
@@ -508,7 +507,6 @@ export interface InstanceState {
      * are applied immediately, or during the next maintenance window. Default is
      * `false`. See [Amazon RDS Documentation for more
      * information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
-     * for more information.
      */
     readonly applyImmediately?: pulumi.Input<boolean>;
     /**
@@ -801,7 +799,6 @@ export interface InstanceArgs {
      * are applied immediately, or during the next maintenance window. Default is
      * `false`. See [Amazon RDS Documentation for more
      * information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
-     * for more information.
      */
     readonly applyImmediately?: pulumi.Input<boolean>;
     /**
