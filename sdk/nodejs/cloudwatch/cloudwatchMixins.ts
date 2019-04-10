@@ -171,6 +171,7 @@ export class Metric {
         return new alarm.MetricAlarm(name, {
             ...args,
             actionsEnabled: utils.ifUndefined(args.actionsEnabled, true),
+            comparisonOperator: utils.ifUndefined(args.comparisonOperator, "GreaterThanOrEqualToThreshold"),
             treatMissingData: utils.ifUndefined(args.treatMissingData, "missing"),
             dimensions: this.dimensions,
             extendedStatistic: this.extendedStatistic.apply(s => s === undefined ? undefined : `p${s}`),
@@ -211,8 +212,10 @@ export interface AlarmArgs {
      * specified Statistic value is used as the first operand. Either of the following is supported:
      * `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`,
      * `LessThanOrEqualToThreshold`.
+     *
+     * Defaults to [GreaterThanOrEqualToThreshold] if unspecified.
      */
-    comparisonOperator: pulumi.Input<AlarmComparisonOperator>;
+    comparisonOperator?: pulumi.Input<AlarmComparisonOperator>;
     /**
      * The number of datapoints that must be breaching to trigger the alarm.
      */
