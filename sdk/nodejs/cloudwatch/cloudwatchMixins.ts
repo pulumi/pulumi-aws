@@ -58,24 +58,24 @@ export class Metric {
     /**
      * Optional resource this is a metric for.  Used only for parenting purposes when making new alarms.
      */
-    resource: pulumi.Resource | undefined;
+    public readonly resource: pulumi.Resource | undefined;
     /**
      * The name for this metric. See docs for
      * [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    name: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * The dimensions for this metric.  For the list of available dimensions see the AWS documentation
      * [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    dimensions: pulumi.Output<Record<string, any> | undefined>;
+    public readonly dimensions: pulumi.Output<Record<string, any> | undefined>;
     /**
      * The namespace for this metric. See docs for the
      * [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for
      * [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    namespace: pulumi.Output<string>;
+    public readonly namespace: pulumi.Output<string>;
     /**
      * The period in seconds over which the specified [statistic] is applied.  Must be in multiples
      * of 60. Periods are defined in numbers of seconds, and valid values for period are 1, 5, 10,
@@ -87,25 +87,25 @@ export class Metric {
      * See https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html
      * for more details.
      */
-    period: pulumi.Output<number>;
+    public readonly period: pulumi.Output<number>;
     /**
      * The statistic to apply to the alarm's associated metric. Either of the following is
      * supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`.
      *
      * Defaults to [Average] if [statistic] and [extendedStatistic] is unspecified.
      */
-    statistic: pulumi.Output<MetricStatistic>;
+    public readonly statistic: pulumi.Output<MetricStatistic>;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between
      * [0.0] and [100].
      */
-    extendedStatistic: pulumi.Output<number | undefined>;
+    public readonly extendedStatistic: pulumi.Output<number | undefined>;
     /**
      * The unit for this metric.
      *
      * See https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html
      */
-    unit: pulumi.Output<MetricUnit | undefined>;
+    public readonly unit: pulumi.Output<MetricUnit | undefined>;
 
     /**
      * @param resource Optional resource this is a metric for.  This is only used for parenting
@@ -124,6 +124,20 @@ export class Metric {
         this.unit = pulumi.output(args.unit);
     }
 
+    public with(change: MetricChange | undefined) {
+        if (!change) {
+            return this;
+        }
+
+        let result: Metric = this;
+        result = hasOwnProperty(change, "dimensions") ? result.withDimensions(change.dimensions) : result;
+        result = hasOwnProperty(change, "period") ? result.withPeriod(change.period) : result;
+        result = hasOwnProperty(change, "statistic") ? result.withStatistic(change.statistic) : result;
+        result = hasOwnProperty(change, "extendedStatistic") ? result.withExtendedStatistic(change.extendedStatistic) : result;
+        result = hasOwnProperty(change, "unit") ? result.withUnit(change.unit) : result;
+        return result;
+    }
+
     public withDimensions(dimensions: pulumi.Input<Record<string, any>> | undefined) {
         return new Metric({
             ...this,
@@ -138,10 +152,10 @@ export class Metric {
         }, this.resource);
     }
 
-    public withUnit(period: pulumi.Input<number> | undefined) {
+    public withUnit(unit: pulumi.Input<MetricUnit> | undefined) {
         return new Metric({
             ...this,
-            period,
+            unit,
         }, this.resource);
     }
 
@@ -188,6 +202,10 @@ export class Metric {
     }
 }
 
+function hasOwnProperty<T>(obj: T, key: keyof T) {
+    return obj.hasOwnProperty(key);
+}
+
 function computeDescription(metric: Metric, args: AlarmArgs, comparisonOperator: pulumi.Output<AlarmComparisonOperator>): pulumi.Output<string> {
     return pulumi.all([metric, args, comparisonOperator])
                  .apply(([metric, args, comparisonOperator]) => {
@@ -198,6 +216,71 @@ function computeDescription(metric: Metric, args: AlarmArgs, comparisonOperator:
         const time = args.evaluationPeriods * metric.period;
         return `${metric.name} ${comparisonOperator} ${args.threshold} in the last ${time}s`;
     })
+}
+
+function validatePeriod(period: number) {
+    // valid values for period are 1, 5, 10, 30, or any multiple of 60
+    if (period !== 1 && period !== 5 && period !== 10 && period !== 30 && period % 60 !== 0) {
+        throw new Error("Valid values for [args.period] are 1, 5, 10, 30, or any multiple of 60");
+    }
+
+    return period;
+}
+
+function validateStatistics(statistic: MetricStatistic, extendedStatistic: number) {
+    if (statistic === undefined && extendedStatistic === undefined) {
+        return "Average";
+    }
+
+    if (statistic !== undefined && extendedStatistic !== undefined) {
+        throw new Error("Only provide one of [args.statistic] and [args.extendedStatistic]")
+    }
+
+    return statistic;
+}
+
+function validateExtendedStatistic(extendedStatistic: number) {
+    if (extendedStatistic !== undefined) {
+        if (extendedStatistic < 0 || extendedStatistic > 100) {
+                throw new Error("[args.extendedStatistic] must be between 0 and 100.")
+        }
+
+        return extendedStatistic;
+    }
+}
+
+export interface MetricChange {
+    /**
+     * The new dimension for this metric.  If this object is missing this property, then no change
+     * will be made.  However, if the property is there by set to [undefined] then the value will be
+     * cleared.
+     */
+    dimensions?: pulumi.Input<Record<string, any>>;
+    namespace?: pulumi.Input<string>;
+    /**
+     * The new period in seconds over which the specified `stat` is applied.  If this object is
+     * missing this property, then no change will be made.  However, if the property is there by set
+     * to [undefined] then the value will be set to the default.
+     */
+    period?: pulumi.Input<number>;
+    /**
+     * The new statistic to apply to the alarm's associated metric.  If this object is missing this
+     * property, then no change will be made.  However, if the property is there by set to
+     * [undefined] then the value will be set to the default.
+     */
+    statistic?: pulumi.Input<MetricStatistic>;
+    /**
+     * The new percentile statistic for the metric associated with the alarm.  If this object is
+     * missing this property, then no change will be made.  However, if the property is there by set
+     * to [undefined] then the value will be set to the default.
+     */
+    extendedStatistic?: pulumi.Input<number>;
+    /**
+     * The new unit for this metric.   If this object is missing this property, then no change will
+     * be made.  However, if the property is there by set to [undefined] then the value will be set
+     * to the default.
+     */
+    unit?: pulumi.Input<MetricUnit>;
 }
 
 export type AlarmComparisonOperator =
@@ -276,37 +359,6 @@ export interface AlarmArgs {
      * `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
      */
     treatMissingData?: pulumi.Input<"missing" | "ignore" | "breaching" | "notBreaching">;
-}
-
-function validatePeriod(period: number) {
-    // valid values for period are 1, 5, 10, 30, or any multiple of 60
-    if (period !== 1 && period !== 5 && period !== 10 && period !== 30 && period % 60 !== 0) {
-        throw new Error("Valid values for [args.period] are 1, 5, 10, 30, or any multiple of 60");
-    }
-
-    return period;
-}
-
-function validateStatistics(statistic: MetricStatistic, extendedStatistic: number) {
-    if (statistic === undefined && extendedStatistic === undefined) {
-        return "Average";
-    }
-
-    if (statistic !== undefined && extendedStatistic !== undefined) {
-        throw new Error("Only provide one of [args.statistic] and [args.extendedStatistic]")
-    }
-
-    return statistic;
-}
-
-function validateExtendedStatistic(extendedStatistic: number) {
-    if (extendedStatistic !== undefined) {
-        if (extendedStatistic < 0 || extendedStatistic > 100) {
-                throw new Error("[args.extendedStatistic] must be between 0 and 100.")
-        }
-
-        return extendedStatistic;
-    }
 }
 
 export interface MetricArgs {
