@@ -366,6 +366,7 @@ const lambdaRolePolicy = {
         },
     ],
 };
+
 // Mixin the Role we potentially create into the Function instances we return.
 
 declare module "./function" {
