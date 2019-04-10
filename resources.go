@@ -1875,25 +1875,10 @@ func Provider() tfbridge.ProviderInfo {
 					"utils.ts",  // Helpers,
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
-					"acmpca": {
-						DestFiles: []string{
-							"metrics.ts",
-						},
-					},
-					"apigateway": {
-						DestFiles: []string{
-							"metrics.ts",
-						},
-					},
 					"autoscaling": {
 						DestFiles: []string{
 							"metrics.ts",          // Metric and MetricsGranularity union types and constants
 							"notificationType.ts", // NotificationType union type and constants
-						},
-					},
-					"cloudfront": {
-						DestFiles: []string{
-							"metrics.ts",
 						},
 					},
 					"cloudwatch": {
@@ -1902,18 +1887,6 @@ func Provider() tfbridge.ProviderInfo {
 							"eventRuleMixins.ts",
 							"logGroupMixins.ts",
 							"metric.ts",
-							"eventMetrics.ts",
-							"logMetrics.ts",
-						},
-					},
-					"codebuild": {
-						DestFiles: []string{
-							"metrics.ts",
-						},
-					},
-					"cognito": {
-						DestFiles: []string{
-							"metrics.ts",
 						},
 					},
 					"config": {
@@ -1924,7 +1897,6 @@ func Provider() tfbridge.ProviderInfo {
 					"dynamodb": {
 						DestFiles: []string{
 							"dynamodbMixins.ts",
-							"metrics.ts",
 						},
 					},
 					"ec2": {
