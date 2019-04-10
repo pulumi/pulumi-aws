@@ -389,6 +389,15 @@ declare module "./function" {
          *
          * Note, individual metrics can easily be obtained without supplying the name using the
          * other [metricXXX] methods on [Function].
+         *
+         * You can use the following dimensions to refine the metrics returned for your Lambda
+         * functions:
+         *
+         * 1. "FunctionName". Filters the metric data by Lambda function.
+         * 2. "Resource". Filters the metric data by Lambda function resource, such as function
+         *    version or alias.
+         * 3. "ExecutedVersion". Filters the metric data by Lambda function versions. This only
+         *    applies to alias invocations.
          */
         metric(metricName: FunctionMetricName, change?: cloudwatch.MetricChange): cloudwatch.Metric;
 
