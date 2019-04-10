@@ -14,10 +14,6 @@ class Association(pulumi.CustomResource):
     """
     The descriptive name for the association.
     """
-    compliance_severity: pulumi.Output[str]
-    """
-    The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
-    """
     document_version: pulumi.Output[str]
     """
     The document version you want to associate with the target(s). Can be a specific version or the default version.
@@ -25,14 +21,6 @@ class Association(pulumi.CustomResource):
     instance_id: pulumi.Output[str]
     """
     The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
-    """
-    max_concurrency: pulumi.Output[str]
-    """
-    The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-    """
-    max_errors: pulumi.Output[str]
-    """
-    The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
     """
     name: pulumi.Output[str]
     """
@@ -54,18 +42,15 @@ class Association(pulumi.CustomResource):
     """
     A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
     """
-    def __init__(__self__, resource_name, opts=None, association_name=None, compliance_severity=None, document_version=None, instance_id=None, max_concurrency=None, max_errors=None, name=None, output_location=None, parameters=None, schedule_expression=None, targets=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, association_name=None, document_version=None, instance_id=None, name=None, output_location=None, parameters=None, schedule_expression=None, targets=None, __name__=None, __opts__=None):
         """
         Associates an SSM Document to an instance or EC2 tag.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] association_name: The descriptive name for the association.
-        :param pulumi.Input[str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         :param pulumi.Input[str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
         :param pulumi.Input[str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
-        :param pulumi.Input[str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-        :param pulumi.Input[str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
         :param pulumi.Input[str] name: The name of the SSM document to apply.
         :param pulumi.Input[dict] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[dict] parameters: A block of arbitrary string parameters to pass to the SSM document.
@@ -89,15 +74,9 @@ class Association(pulumi.CustomResource):
 
         __props__['association_name'] = association_name
 
-        __props__['compliance_severity'] = compliance_severity
-
         __props__['document_version'] = document_version
 
         __props__['instance_id'] = instance_id
-
-        __props__['max_concurrency'] = max_concurrency
-
-        __props__['max_errors'] = max_errors
 
         __props__['name'] = name
 

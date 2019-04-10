@@ -25,11 +25,7 @@ class Channel(pulumi.CustomResource):
     """
     A single item list of HLS ingest information
     """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, channel_id=None, description=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, channel_id=None, description=None, __name__=None, __opts__=None):
         """
         Provides an AWS Elemental MediaPackage Channel.
         
@@ -37,7 +33,6 @@ class Channel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] channel_id: A unique identifier describing the channel
         :param pulumi.Input[str] description: A description of the channel
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -59,8 +54,6 @@ class Channel(pulumi.CustomResource):
         __props__['channel_id'] = channel_id
 
         __props__['description'] = description
-
-        __props__['tags'] = tags
 
         __props__['arn'] = None
         __props__['hls_ingests'] = None

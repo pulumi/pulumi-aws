@@ -22,6 +22,9 @@ func NewDeployment(ctx *pulumi.Context,
 	if args == nil || args.RestApi == nil {
 		return nil, errors.New("missing required argument 'RestApi'")
 	}
+	if args == nil || args.StageName == nil {
+		return nil, errors.New("missing required argument 'StageName'")
+	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["description"] = nil
@@ -111,7 +114,7 @@ func (r *Deployment) StageDescription() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["stageDescription"])
 }
 
-// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
+// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment. Use `""` to point at the default stage.
 func (r *Deployment) StageName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["stageName"])
 }
@@ -138,7 +141,7 @@ type DeploymentState struct {
 	RestApi interface{}
 	// The description of the stage
 	StageDescription interface{}
-	// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
+	// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment. Use `""` to point at the default stage.
 	StageName interface{}
 	// A map that defines variables for the stage
 	Variables interface{}
@@ -152,7 +155,7 @@ type DeploymentArgs struct {
 	RestApi interface{}
 	// The description of the stage
 	StageDescription interface{}
-	// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
+	// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment. Use `""` to point at the default stage.
 	StageName interface{}
 	// A map that defines variables for the stage
 	Variables interface{}

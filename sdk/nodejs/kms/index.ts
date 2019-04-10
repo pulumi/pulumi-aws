@@ -3,8 +3,6 @@
 
 // Export members:
 export * from "./alias";
-export * from "./ciphertext";
-export * from "./externalKey";
 export * from "./getAlias";
 export * from "./getCipherText";
 export * from "./getKey";

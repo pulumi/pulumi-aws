@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = new aws.ram.PrincipalAssociation("example", {
- *     principal: aws_organizations_organization_example.arn,
+ *     principal: aws_organizations_organization_example.id,
  *     resourceShareArn: aws_ram_resource_share_example.arn,
  * });
  * ```
@@ -53,7 +53,7 @@ export class PrincipalAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+     * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ID, or an AWS Organizations Organization Unit ID.
      */
     public readonly principal: pulumi.Output<string>;
     /**
@@ -95,7 +95,7 @@ export class PrincipalAssociation extends pulumi.CustomResource {
  */
 export interface PrincipalAssociationState {
     /**
-     * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+     * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ID, or an AWS Organizations Organization Unit ID.
      */
     readonly principal?: pulumi.Input<string>;
     /**
@@ -109,7 +109,7 @@ export interface PrincipalAssociationState {
  */
 export interface PrincipalAssociationArgs {
     /**
-     * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+     * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ID, or an AWS Organizations Organization Unit ID.
      */
     readonly principal: pulumi.Input<string>;
     /**

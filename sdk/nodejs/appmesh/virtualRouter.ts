@@ -7,17 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS App Mesh virtual router resource.
  * 
- * ## Breaking Changes
- * 
- * Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92) and [here](https://github.com/awslabs/aws-app-mesh-examples/issues/94)), `aws_appmesh_virtual_router` resource definitions created with provider versions earlier than vX.Y.Z will need to be modified:
- * 
- * * Remove service `service_names` from the `spec` argument.
- * AWS has created a `aws_appmesh_virtual_service` resource for each of service names.
- * These resource can be imported using `terraform import`.
- * 
- * * Add a `listener` configuration block to the `spec` argument.
- * 
- * The Terraform state associated with existing resources will automatically be migrated.
+ * > **Note:** Backward incompatible API changes have been announced for AWS App Mesh which will affect this resource. Read more about the changes [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92).
  * 
  * ## Example Usage
  * 
@@ -26,14 +16,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const serviceb = new aws.appmesh.VirtualRouter("serviceb", {
- *     meshName: aws_appmesh_mesh_simple.id,
+ *     meshName: "simpleapp",
  *     spec: {
- *         listener: {
- *             portMapping: {
- *                 port: 8080,
- *                 protocol: "http",
- *             },
- *         },
+ *         serviceNames: ["serviceb.simpleapp.local"],
  *     },
  * });
  * ```
@@ -74,7 +59,7 @@ export class VirtualRouter extends pulumi.CustomResource {
     /**
      * The virtual router specification to apply.
      */
-    public readonly spec: pulumi.Output<{ listener: { portMapping: { port: number, protocol: string } } }>;
+    public readonly spec: pulumi.Output<{ serviceNames: string[] }>;
 
     /**
      * Create a VirtualRouter resource with the given unique name, arguments, and options.
@@ -140,7 +125,7 @@ export interface VirtualRouterState {
     /**
      * The virtual router specification to apply.
      */
-    readonly spec?: pulumi.Input<{ listener: pulumi.Input<{ portMapping: pulumi.Input<{ port: pulumi.Input<number>, protocol: pulumi.Input<string> }> }> }>;
+    readonly spec?: pulumi.Input<{ serviceNames: pulumi.Input<pulumi.Input<string>[]> }>;
 }
 
 /**
@@ -158,5 +143,5 @@ export interface VirtualRouterArgs {
     /**
      * The virtual router specification to apply.
      */
-    readonly spec: pulumi.Input<{ listener: pulumi.Input<{ portMapping: pulumi.Input<{ port: pulumi.Input<number>, protocol: pulumi.Input<string> }> }> }>;
+    readonly spec: pulumi.Input<{ serviceNames: pulumi.Input<pulumi.Input<string>[]> }>;
 }

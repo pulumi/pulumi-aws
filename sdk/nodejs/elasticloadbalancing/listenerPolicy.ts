@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Attaches a load balancer policy to an ELB Listener.
  * 
  * 
- * ## Example Usage for Custom Policy
+ * ## Example Usage
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -50,43 +50,6 @@ import * as utilities from "../utilities";
  * ```
  * 
  * This example shows how to customize the TLS settings of an HTTPS listener.
- * 
- * ## Example Usage for AWS Predefined Security Policy
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const wu_tang = new aws.elasticloadbalancing.LoadBalancer("wu-tang", {
- *     availabilityZones: ["us-east-1a"],
- *     listeners: [{
- *         instancePort: 443,
- *         instanceProtocol: "http",
- *         lbPort: 443,
- *         lbProtocol: "https",
- *         sslCertificateId: "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
- *     }],
- *     tags: {
- *         Name: "wu-tang",
- *     },
- * });
- * const wu_tang_ssl_tls_1_1 = new aws.elasticloadbalancing.LoadBalancerPolicy("wu-tang-ssl-tls-1-1", {
- *     loadBalancerName: wu_tang.name,
- *     policyAttributes: [{
- *         name: "Reference-Security-Policy",
- *         value: "ELBSecurityPolicy-TLS-1-1-2017-01",
- *     }],
- *     policyName: "wu-tang-ssl",
- *     policyTypeName: "SSLNegotiationPolicyType",
- * });
- * const wu_tang_listener_policies_443 = new aws.elasticloadbalancing.ListenerPolicy("wu-tang-listener-policies-443", {
- *     loadBalancerName: wu_tang.name,
- *     loadBalancerPort: 443,
- *     policyNames: [wu_tang_ssl_tls_1_1.policyName],
- * });
- * ```
- * 
- * This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
  */
 export class ListenerPolicy extends pulumi.CustomResource {
     /**

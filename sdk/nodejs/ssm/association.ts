@@ -40,10 +40,6 @@ export class Association extends pulumi.CustomResource {
      */
     public readonly associationName: pulumi.Output<string | undefined>;
     /**
-     * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
-     */
-    public readonly complianceSeverity: pulumi.Output<string | undefined>;
-    /**
      * The document version you want to associate with the target(s). Can be a specific version or the default version.
      */
     public readonly documentVersion: pulumi.Output<string>;
@@ -51,14 +47,6 @@ export class Association extends pulumi.CustomResource {
      * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
      */
     public readonly instanceId: pulumi.Output<string | undefined>;
-    /**
-     * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-     */
-    public readonly maxConcurrency: pulumi.Output<string | undefined>;
-    /**
-     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-     */
-    public readonly maxErrors: pulumi.Output<string | undefined>;
     /**
      * The name of the SSM document to apply.
      */
@@ -94,11 +82,8 @@ export class Association extends pulumi.CustomResource {
             const state: AssociationState = argsOrState as AssociationState | undefined;
             inputs["associationId"] = state ? state.associationId : undefined;
             inputs["associationName"] = state ? state.associationName : undefined;
-            inputs["complianceSeverity"] = state ? state.complianceSeverity : undefined;
             inputs["documentVersion"] = state ? state.documentVersion : undefined;
             inputs["instanceId"] = state ? state.instanceId : undefined;
-            inputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
-            inputs["maxErrors"] = state ? state.maxErrors : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["outputLocation"] = state ? state.outputLocation : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
@@ -107,11 +92,8 @@ export class Association extends pulumi.CustomResource {
         } else {
             const args = argsOrState as AssociationArgs | undefined;
             inputs["associationName"] = args ? args.associationName : undefined;
-            inputs["complianceSeverity"] = args ? args.complianceSeverity : undefined;
             inputs["documentVersion"] = args ? args.documentVersion : undefined;
             inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
-            inputs["maxErrors"] = args ? args.maxErrors : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["outputLocation"] = args ? args.outputLocation : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
@@ -133,10 +115,6 @@ export interface AssociationState {
      */
     readonly associationName?: pulumi.Input<string>;
     /**
-     * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
-     */
-    readonly complianceSeverity?: pulumi.Input<string>;
-    /**
      * The document version you want to associate with the target(s). Can be a specific version or the default version.
      */
     readonly documentVersion?: pulumi.Input<string>;
@@ -144,14 +122,6 @@ export interface AssociationState {
      * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
      */
     readonly instanceId?: pulumi.Input<string>;
-    /**
-     * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-     */
-    readonly maxConcurrency?: pulumi.Input<string>;
-    /**
-     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-     */
-    readonly maxErrors?: pulumi.Input<string>;
     /**
      * The name of the SSM document to apply.
      */
@@ -183,10 +153,6 @@ export interface AssociationArgs {
      */
     readonly associationName?: pulumi.Input<string>;
     /**
-     * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
-     */
-    readonly complianceSeverity?: pulumi.Input<string>;
-    /**
      * The document version you want to associate with the target(s). Can be a specific version or the default version.
      */
     readonly documentVersion?: pulumi.Input<string>;
@@ -194,14 +160,6 @@ export interface AssociationArgs {
      * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
      */
     readonly instanceId?: pulumi.Input<string>;
-    /**
-     * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-     */
-    readonly maxConcurrency?: pulumi.Input<string>;
-    /**
-     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-     */
-    readonly maxErrors?: pulumi.Input<string>;
     /**
      * The name of the SSM document to apply.
      */

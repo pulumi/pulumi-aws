@@ -7,16 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS App Mesh virtual node resource.
  * 
- * ## Breaking Changes
- * 
- * Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), `aws_appmesh_virtual_node` resource definitions created with provider versions earlier than vX.Y.Z will need to be modified:
- * 
- * * Rename the `service_name` attribute of the `dns` object to `hostname`.
- * 
- * * Replace the `backends` attribute of the `spec` object with one or more `backend` configuration blocks,
- * setting `virtual_service_name` to the name of the service.
- * 
- * The Terraform state associated with existing resources will automatically be migrated.
+ * > **Note:** Backward incompatible API changes have been announced for AWS App Mesh which will affect this resource. Read more about the changes [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92).
  * 
  * ## Example Usage
  * 
@@ -27,13 +18,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
- *     meshName: aws_appmesh_mesh_simple.id,
+ *     meshName: "simpleapp",
  *     spec: {
- *         backends: [{
- *             virtualService: {
- *                 virtualServiceName: "servicea.simpleapp.local",
- *             },
- *         }],
+ *         backends: ["servicea.simpleapp.local"],
  *         listener: {
  *             portMapping: {
  *                 port: 8080,
@@ -42,7 +29,7 @@ import * as utilities from "../utilities";
  *         },
  *         serviceDiscovery: {
  *             dns: {
- *                 hostname: "serviceb.simpleapp.local",
+ *                 serviceName: "serviceb.simpleapp.local",
  *             },
  *         },
  *     },
@@ -56,13 +43,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
- *     meshName: aws_appmesh_mesh_simple.id,
+ *     meshName: "simpleapp",
  *     spec: {
- *         backends: [{
- *             virtualService: {
- *                 virtualServiceName: "servicea.simpleapp.local",
- *             },
- *         }],
+ *         backends: ["servicea.simpleapp.local"],
  *         listener: {
  *             healthCheck: {
  *                 healthyThreshold: 2,
@@ -79,7 +62,7 @@ import * as utilities from "../utilities";
  *         },
  *         serviceDiscovery: {
  *             dns: {
- *                 hostname: "serviceb.simpleapp.local",
+ *                 serviceName: "serviceb.simpleapp.local",
  *             },
  *         },
  *     },
@@ -122,7 +105,7 @@ export class VirtualNode extends pulumi.CustomResource {
     /**
      * The virtual node specification to apply.
      */
-    public readonly spec: pulumi.Output<{ backends?: { virtualService?: { virtualServiceName: string } }[], listener?: { healthCheck?: { healthyThreshold: number, intervalMillis: number, path?: string, port: number, protocol: string, timeoutMillis: number, unhealthyThreshold: number }, portMapping: { port: number, protocol: string } }, serviceDiscovery?: { dns: { hostname: string } } }>;
+    public readonly spec: pulumi.Output<{ backends?: string[], listener?: { healthCheck?: { healthyThreshold: number, intervalMillis: number, path?: string, port: number, protocol: string, timeoutMillis: number, unhealthyThreshold: number }, portMapping: { port: number, protocol: string } }, serviceDiscovery?: { dns: { serviceName: string } } }>;
 
     /**
      * Create a VirtualNode resource with the given unique name, arguments, and options.
@@ -188,7 +171,7 @@ export interface VirtualNodeState {
     /**
      * The virtual node specification to apply.
      */
-    readonly spec?: pulumi.Input<{ backends?: pulumi.Input<pulumi.Input<{ virtualService?: pulumi.Input<{ virtualServiceName: pulumi.Input<string> }> }>[]>, listener?: pulumi.Input<{ healthCheck?: pulumi.Input<{ healthyThreshold: pulumi.Input<number>, intervalMillis: pulumi.Input<number>, path?: pulumi.Input<string>, port?: pulumi.Input<number>, protocol: pulumi.Input<string>, timeoutMillis: pulumi.Input<number>, unhealthyThreshold: pulumi.Input<number> }>, portMapping: pulumi.Input<{ port: pulumi.Input<number>, protocol: pulumi.Input<string> }> }>, serviceDiscovery?: pulumi.Input<{ dns: pulumi.Input<{ hostname: pulumi.Input<string> }> }> }>;
+    readonly spec?: pulumi.Input<{ backends?: pulumi.Input<pulumi.Input<string>[]>, listener?: pulumi.Input<{ healthCheck?: pulumi.Input<{ healthyThreshold: pulumi.Input<number>, intervalMillis: pulumi.Input<number>, path?: pulumi.Input<string>, port?: pulumi.Input<number>, protocol: pulumi.Input<string>, timeoutMillis: pulumi.Input<number>, unhealthyThreshold: pulumi.Input<number> }>, portMapping: pulumi.Input<{ port: pulumi.Input<number>, protocol: pulumi.Input<string> }> }>, serviceDiscovery?: pulumi.Input<{ dns: pulumi.Input<{ serviceName: pulumi.Input<string> }> }> }>;
 }
 
 /**
@@ -206,5 +189,5 @@ export interface VirtualNodeArgs {
     /**
      * The virtual node specification to apply.
      */
-    readonly spec: pulumi.Input<{ backends?: pulumi.Input<pulumi.Input<{ virtualService?: pulumi.Input<{ virtualServiceName: pulumi.Input<string> }> }>[]>, listener?: pulumi.Input<{ healthCheck?: pulumi.Input<{ healthyThreshold: pulumi.Input<number>, intervalMillis: pulumi.Input<number>, path?: pulumi.Input<string>, port?: pulumi.Input<number>, protocol: pulumi.Input<string>, timeoutMillis: pulumi.Input<number>, unhealthyThreshold: pulumi.Input<number> }>, portMapping: pulumi.Input<{ port: pulumi.Input<number>, protocol: pulumi.Input<string> }> }>, serviceDiscovery?: pulumi.Input<{ dns: pulumi.Input<{ hostname: pulumi.Input<string> }> }> }>;
+    readonly spec: pulumi.Input<{ backends?: pulumi.Input<pulumi.Input<string>[]>, listener?: pulumi.Input<{ healthCheck?: pulumi.Input<{ healthyThreshold: pulumi.Input<number>, intervalMillis: pulumi.Input<number>, path?: pulumi.Input<string>, port?: pulumi.Input<number>, protocol: pulumi.Input<string>, timeoutMillis: pulumi.Input<number>, unhealthyThreshold: pulumi.Input<number> }>, portMapping: pulumi.Input<{ port: pulumi.Input<number>, protocol: pulumi.Input<string> }> }>, serviceDiscovery?: pulumi.Input<{ dns: pulumi.Input<{ serviceName: pulumi.Input<string> }> }> }>;
 }

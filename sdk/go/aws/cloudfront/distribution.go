@@ -54,7 +54,6 @@ func NewDistribution(ctx *pulumi.Context,
 		inputs["loggingConfig"] = nil
 		inputs["orderedCacheBehaviors"] = nil
 		inputs["origins"] = nil
-		inputs["originGroups"] = nil
 		inputs["priceClass"] = nil
 		inputs["restrictions"] = nil
 		inputs["retainOnDelete"] = nil
@@ -73,7 +72,6 @@ func NewDistribution(ctx *pulumi.Context,
 		inputs["loggingConfig"] = args.LoggingConfig
 		inputs["orderedCacheBehaviors"] = args.OrderedCacheBehaviors
 		inputs["origins"] = args.Origins
-		inputs["originGroups"] = args.OriginGroups
 		inputs["priceClass"] = args.PriceClass
 		inputs["restrictions"] = args.Restrictions
 		inputs["retainOnDelete"] = args.RetainOnDelete
@@ -122,7 +120,6 @@ func GetDistribution(ctx *pulumi.Context,
 		inputs["loggingConfig"] = state.LoggingConfig
 		inputs["orderedCacheBehaviors"] = state.OrderedCacheBehaviors
 		inputs["origins"] = state.Origins
-		inputs["originGroups"] = state.OriginGroups
 		inputs["priceClass"] = state.PriceClass
 		inputs["restrictions"] = state.Restrictions
 		inputs["retainOnDelete"] = state.RetainOnDelete
@@ -263,12 +260,6 @@ func (r *Distribution) Origins() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["origins"])
 }
 
-// One or more origin_group for this
-// distribution (multiples allowed).
-func (r *Distribution) OriginGroups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["originGroups"])
-}
-
 // The price class for this distribution. One of
 // `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
 func (r *Distribution) PriceClass() *pulumi.StringOutput {
@@ -374,9 +365,6 @@ type DistributionState struct {
 	// One or more origins for this
 	// distribution (multiples allowed).
 	Origins interface{}
-	// One or more origin_group for this
-	// distribution (multiples allowed).
-	OriginGroups interface{}
 	// The price class for this distribution. One of
 	// `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
 	PriceClass interface{}
@@ -439,9 +427,6 @@ type DistributionArgs struct {
 	// One or more origins for this
 	// distribution (multiples allowed).
 	Origins interface{}
-	// One or more origin_group for this
-	// distribution (multiples allowed).
-	OriginGroups interface{}
 	// The price class for this distribution. One of
 	// `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
 	PriceClass interface{}

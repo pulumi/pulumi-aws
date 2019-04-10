@@ -92,10 +92,6 @@ export class EventRule extends pulumi.CustomResource {
      * For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
      */
     public readonly scheduleExpression: pulumi.Output<string | undefined>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a EventRule resource with the given unique name, arguments, and options.
@@ -117,7 +113,6 @@ export class EventRule extends pulumi.CustomResource {
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
             inputs["scheduleExpression"] = state ? state.scheduleExpression : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as EventRuleArgs | undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -127,7 +122,6 @@ export class EventRule extends pulumi.CustomResource {
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         super("aws:cloudwatch/eventRule:EventRule", name, inputs, opts);
@@ -173,10 +167,6 @@ export interface EventRuleState {
      * For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
      */
     readonly scheduleExpression?: pulumi.Input<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -214,8 +204,4 @@ export interface EventRuleArgs {
      * For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
      */
     readonly scheduleExpression?: pulumi.Input<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

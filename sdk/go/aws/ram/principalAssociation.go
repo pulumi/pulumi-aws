@@ -65,7 +65,7 @@ func (r *PrincipalAssociation) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ID, or an AWS Organizations Organization Unit ID.
 func (r *PrincipalAssociation) Principal() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["principal"])
 }
@@ -77,7 +77,7 @@ func (r *PrincipalAssociation) ResourceShareArn() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering PrincipalAssociation resources.
 type PrincipalAssociationState struct {
-	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ID, or an AWS Organizations Organization Unit ID.
 	Principal interface{}
 	// The Amazon Resource Name (ARN) of the resource share.
 	ResourceShareArn interface{}
@@ -85,7 +85,7 @@ type PrincipalAssociationState struct {
 
 // The set of arguments for constructing a PrincipalAssociation resource.
 type PrincipalAssociationArgs struct {
-	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ID, or an AWS Organizations Organization Unit ID.
 	Principal interface{}
 	// The Amazon Resource Name (ARN) of the resource share.
 	ResourceShareArn interface{}

@@ -12,4 +12,3 @@ from .vpc_attachment import *
 from .get_transit_gateway import *
 from .get_route_table import *
 from .get_vpc_attachment import *
-from .get_vpn_attachment import *

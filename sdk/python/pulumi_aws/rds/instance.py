@@ -30,6 +30,7 @@ class Instance(pulumi.CustomResource):
     are applied immediately, or during the next maintenance window. Default is
     `false`. See [Amazon RDS Documentation for more
     information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+    for more information.
     """
     arn: pulumi.Output[str]
     """
@@ -339,6 +340,7 @@ class Instance(pulumi.CustomResource):
                are applied immediately, or during the next maintenance window. Default is
                `false`. See [Amazon RDS Documentation for more
                information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+               for more information.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades
                will be applied automatically to the DB instance during the maintenance window.
                Defaults to true.

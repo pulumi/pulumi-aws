@@ -12,14 +12,14 @@ class VolumeAttachment(pulumi.CustomResource):
     device_name: pulumi.Output[str]
     """
     The device name to expose to the instance (for
-    example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
+    example, `/dev/sdh` or `xvdh`)
     """
     force_detach: pulumi.Output[bool]
     """
     Set to `true` if you want to force the
     volume to detach. Useful if previous attempts failed, but use this option only
     as a last resort, as this can result in **data loss**. See
-    [Detaching an Amazon EBS Volume from an Instance][3] for more information.
+    [Detaching an Amazon EBS Volume from an Instance][1] for more information.
     """
     instance_id: pulumi.Output[str]
     """
@@ -47,11 +47,11 @@ class VolumeAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: The device name to expose to the instance (for
-               example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
+               example, `/dev/sdh` or `xvdh`)
         :param pulumi.Input[bool] force_detach: Set to `true` if you want to force the
                volume to detach. Useful if previous attempts failed, but use this option only
                as a last resort, as this can result in **data loss**. See
-               [Detaching an Amazon EBS Volume from an Instance][3] for more information.
+               [Detaching an Amazon EBS Volume from an Instance][1] for more information.
         :param pulumi.Input[str] instance_id: ID of the Instance to attach to
         :param pulumi.Input[bool] skip_destroy: Set this to true if you do not wish
                to detach the volume from the instance to which it is attached at destroy

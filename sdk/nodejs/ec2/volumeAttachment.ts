@@ -50,14 +50,14 @@ export class VolumeAttachment extends pulumi.CustomResource {
 
     /**
      * The device name to expose to the instance (for
-     * example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
+     * example, `/dev/sdh` or `xvdh`)
      */
     public readonly deviceName: pulumi.Output<string>;
     /**
      * Set to `true` if you want to force the
      * volume to detach. Useful if previous attempts failed, but use this option only
      * as a last resort, as this can result in **data loss**. See
-     * [Detaching an Amazon EBS Volume from an Instance][3] for more information.
+     * [Detaching an Amazon EBS Volume from an Instance][1] for more information.
      */
     public readonly forceDetach: pulumi.Output<boolean | undefined>;
     /**
@@ -121,14 +121,14 @@ export class VolumeAttachment extends pulumi.CustomResource {
 export interface VolumeAttachmentState {
     /**
      * The device name to expose to the instance (for
-     * example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
+     * example, `/dev/sdh` or `xvdh`)
      */
     readonly deviceName?: pulumi.Input<string>;
     /**
      * Set to `true` if you want to force the
      * volume to detach. Useful if previous attempts failed, but use this option only
      * as a last resort, as this can result in **data loss**. See
-     * [Detaching an Amazon EBS Volume from an Instance][3] for more information.
+     * [Detaching an Amazon EBS Volume from an Instance][1] for more information.
      */
     readonly forceDetach?: pulumi.Input<boolean>;
     /**
@@ -155,14 +155,14 @@ export interface VolumeAttachmentState {
 export interface VolumeAttachmentArgs {
     /**
      * The device name to expose to the instance (for
-     * example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
+     * example, `/dev/sdh` or `xvdh`)
      */
     readonly deviceName: pulumi.Input<string>;
     /**
      * Set to `true` if you want to force the
      * volume to detach. Useful if previous attempts failed, but use this option only
      * as a last resort, as this can result in **data loss**. See
-     * [Detaching an Amazon EBS Volume from an Instance][3] for more information.
+     * [Detaching an Amazon EBS Volume from an Instance][1] for more information.
      */
     readonly forceDetach?: pulumi.Input<boolean>;
     /**

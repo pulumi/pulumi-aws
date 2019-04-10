@@ -15,7 +15,7 @@ class AnalyticsApplication(pulumi.CustomResource):
     """
     cloudwatch_logging_options: pulumi.Output[dict]
     """
-    The CloudWatch log stream options to monitor application errors.
+    The CloudWatch log stream options to monitor application errors. 
     See CloudWatch Logging Options below for more details.
     """
     code: pulumi.Output[str]
@@ -48,7 +48,7 @@ class AnalyticsApplication(pulumi.CustomResource):
     """
     reference_data_sources: pulumi.Output[dict]
     """
-    An S3 Reference Data Source for the application.
+    An S3 Reference Data Source for the application. 
     See Reference Data Sources below for more details.
     """
     status: pulumi.Output[str]
@@ -68,14 +68,14 @@ class AnalyticsApplication(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
+        :param pulumi.Input[dict] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors. 
                See CloudWatch Logging Options below for more details.
         :param pulumi.Input[str] code: SQL Code to transform input data, and generate output.
         :param pulumi.Input[str] description: Description of the application.
         :param pulumi.Input[dict] inputs: Input configuration of the application. See Inputs below for more details.
         :param pulumi.Input[str] name: Name of the Kinesis Analytics Application.
         :param pulumi.Input[list] outputs: Output destination configuration of the application. See Outputs below for more details.
-        :param pulumi.Input[dict] reference_data_sources: An S3 Reference Data Source for the application.
+        :param pulumi.Input[dict] reference_data_sources: An S3 Reference Data Source for the application. 
                See Reference Data Sources below for more details.
         """
         if __name__ is not None:

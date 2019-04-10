@@ -54,8 +54,7 @@ import * as utilities from "../utilities";
  *                 value: "SOME_VALUE2",
  *             },
  *         ],
- *         image: "aws/codebuild/standard:1.0",
- *         imagePullCredentialsType: "CODEBUILD",
+ *         image: "aws/codebuild/nodejs:6.3.1",
  *         type: "LINUX_CONTAINER",
  *     },
  *     serviceRole: exampleRole.arn,
@@ -172,7 +171,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Information about the project's build environment. Environment blocks are documented below.
      */
-    public readonly environment: pulumi.Output<{ certificate?: string, computeType: string, environmentVariables: { name: string, type?: string, value: string }[], image: string, imagePullCredentialsType?: string, privilegedMode?: boolean, type: string }>;
+    public readonly environment: pulumi.Output<{ certificate?: string, computeType: string, environmentVariables: { name: string, type?: string, value: string }[], image: string, privilegedMode?: boolean, type: string }>;
     /**
      * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
      */
@@ -304,7 +303,7 @@ export interface ProjectState {
     /**
      * Information about the project's build environment. Environment blocks are documented below.
      */
-    readonly environment?: pulumi.Input<{ certificate?: pulumi.Input<string>, computeType: pulumi.Input<string>, environmentVariables?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, image: pulumi.Input<string>, imagePullCredentialsType?: pulumi.Input<string>, privilegedMode?: pulumi.Input<boolean>, type: pulumi.Input<string> }>;
+    readonly environment?: pulumi.Input<{ certificate?: pulumi.Input<string>, computeType: pulumi.Input<string>, environmentVariables?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, image: pulumi.Input<string>, privilegedMode?: pulumi.Input<boolean>, type: pulumi.Input<string> }>;
     /**
      * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
      */
@@ -366,7 +365,7 @@ export interface ProjectArgs {
     /**
      * Information about the project's build environment. Environment blocks are documented below.
      */
-    readonly environment: pulumi.Input<{ certificate?: pulumi.Input<string>, computeType: pulumi.Input<string>, environmentVariables?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, image: pulumi.Input<string>, imagePullCredentialsType?: pulumi.Input<string>, privilegedMode?: pulumi.Input<boolean>, type: pulumi.Input<string> }>;
+    readonly environment: pulumi.Input<{ certificate?: pulumi.Input<string>, computeType: pulumi.Input<string>, environmentVariables?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, image: pulumi.Input<string>, privilegedMode?: pulumi.Input<boolean>, type: pulumi.Input<string> }>;
     /**
      * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
      */

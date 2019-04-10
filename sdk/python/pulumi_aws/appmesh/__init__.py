@@ -7,4 +7,3 @@ from .mesh import *
 from .route import *
 from .virtual_node import *
 from .virtual_router import *
-from .virtual_service import *

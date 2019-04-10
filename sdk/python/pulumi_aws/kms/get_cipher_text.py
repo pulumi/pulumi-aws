@@ -29,9 +29,7 @@ class GetCipherTextResult:
 async def get_cipher_text(context=None,key_id=None,plaintext=None,opts=None):
     """
     The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
-    by using an AWS KMS customer master key. The value returned by this data source
-    changes every apply. For a stable ciphertext value, see the [`aws_kms_ciphertext`
-    resource](https://www.terraform.io/docs/providers/aws/r/kms_ciphertext.html).
+    by using an AWS KMS customer master key.
     
     > **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
     [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).

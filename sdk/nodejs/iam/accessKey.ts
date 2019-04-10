@@ -82,10 +82,10 @@ export class AccessKey extends pulumi.CustomResource {
      */
     public /*out*/ readonly sesSmtpPassword: pulumi.Output<string>;
     /**
-     * The access key status to apply. Defaults to `Active`.
-     * Valid values are `Active` and `Inactive`.
+     * "Active" or "Inactive". Keys are initially active, but can be made
+     * inactive by other means.
      */
-    public readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The IAM user to associate with this access key.
      */
@@ -116,12 +116,12 @@ export class AccessKey extends pulumi.CustomResource {
                 throw new Error("Missing required property 'user'");
             }
             inputs["pgpKey"] = args ? args.pgpKey : undefined;
-            inputs["status"] = args ? args.status : undefined;
             inputs["user"] = args ? args.user : undefined;
             inputs["encryptedSecret"] = undefined /*out*/;
             inputs["keyFingerprint"] = undefined /*out*/;
             inputs["secret"] = undefined /*out*/;
             inputs["sesSmtpPassword"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
         }
         super("aws:iam/accessKey:AccessKey", name, inputs, opts);
     }
@@ -160,8 +160,8 @@ export interface AccessKeyState {
      */
     readonly sesSmtpPassword?: pulumi.Input<string>;
     /**
-     * The access key status to apply. Defaults to `Active`.
-     * Valid values are `Active` and `Inactive`.
+     * "Active" or "Inactive". Keys are initially active, but can be made
+     * inactive by other means.
      */
     readonly status?: pulumi.Input<string>;
     /**
@@ -179,11 +179,6 @@ export interface AccessKeyArgs {
      * keybase username in the form `keybase:some_person_that_exists`.
      */
     readonly pgpKey?: pulumi.Input<string>;
-    /**
-     * The access key status to apply. Defaults to `Active`.
-     * Valid values are `Active` and `Inactive`.
-     */
-    readonly status?: pulumi.Input<string>;
     /**
      * The IAM user to associate with this access key.
      */

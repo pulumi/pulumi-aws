@@ -11,11 +11,9 @@ from .. import utilities, tables
 class Account(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, __name__=None, __opts__=None):
         """
+        > **Note:** Destroying this resource will disable Security Hub for this AWS account.
+        
         Enables Security Hub for this AWS account.
-        
-        > **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
-        
-        > **NOTE:** This AWS service is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between Terraform AWS Provider releases.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

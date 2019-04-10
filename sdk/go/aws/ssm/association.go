@@ -18,11 +18,8 @@ func NewAssociation(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["associationName"] = nil
-		inputs["complianceSeverity"] = nil
 		inputs["documentVersion"] = nil
 		inputs["instanceId"] = nil
-		inputs["maxConcurrency"] = nil
-		inputs["maxErrors"] = nil
 		inputs["name"] = nil
 		inputs["outputLocation"] = nil
 		inputs["parameters"] = nil
@@ -30,11 +27,8 @@ func NewAssociation(ctx *pulumi.Context,
 		inputs["targets"] = nil
 	} else {
 		inputs["associationName"] = args.AssociationName
-		inputs["complianceSeverity"] = args.ComplianceSeverity
 		inputs["documentVersion"] = args.DocumentVersion
 		inputs["instanceId"] = args.InstanceId
-		inputs["maxConcurrency"] = args.MaxConcurrency
-		inputs["maxErrors"] = args.MaxErrors
 		inputs["name"] = args.Name
 		inputs["outputLocation"] = args.OutputLocation
 		inputs["parameters"] = args.Parameters
@@ -57,11 +51,8 @@ func GetAssociation(ctx *pulumi.Context,
 	if state != nil {
 		inputs["associationId"] = state.AssociationId
 		inputs["associationName"] = state.AssociationName
-		inputs["complianceSeverity"] = state.ComplianceSeverity
 		inputs["documentVersion"] = state.DocumentVersion
 		inputs["instanceId"] = state.InstanceId
-		inputs["maxConcurrency"] = state.MaxConcurrency
-		inputs["maxErrors"] = state.MaxErrors
 		inputs["name"] = state.Name
 		inputs["outputLocation"] = state.OutputLocation
 		inputs["parameters"] = state.Parameters
@@ -94,11 +85,6 @@ func (r *Association) AssociationName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["associationName"])
 }
 
-// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
-func (r *Association) ComplianceSeverity() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["complianceSeverity"])
-}
-
 // The document version you want to associate with the target(s). Can be a specific version or the default version.
 func (r *Association) DocumentVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["documentVersion"])
@@ -107,16 +93,6 @@ func (r *Association) DocumentVersion() *pulumi.StringOutput {
 // The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
 func (r *Association) InstanceId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["instanceId"])
-}
-
-// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-func (r *Association) MaxConcurrency() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["maxConcurrency"])
-}
-
-// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-func (r *Association) MaxErrors() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["maxErrors"])
 }
 
 // The name of the SSM document to apply.
@@ -149,16 +125,10 @@ type AssociationState struct {
 	AssociationId interface{}
 	// The descriptive name for the association.
 	AssociationName interface{}
-	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
-	ComplianceSeverity interface{}
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
 	DocumentVersion interface{}
 	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
 	InstanceId interface{}
-	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-	MaxConcurrency interface{}
-	// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-	MaxErrors interface{}
 	// The name of the SSM document to apply.
 	Name interface{}
 	// An output location block. Output Location is documented below.
@@ -175,16 +145,10 @@ type AssociationState struct {
 type AssociationArgs struct {
 	// The descriptive name for the association.
 	AssociationName interface{}
-	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
-	ComplianceSeverity interface{}
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
 	DocumentVersion interface{}
 	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
 	InstanceId interface{}
-	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-	MaxConcurrency interface{}
-	// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-	MaxErrors interface{}
 	// The name of the SSM document to apply.
 	Name interface{}
 	// An output location block. Output Location is documented below.

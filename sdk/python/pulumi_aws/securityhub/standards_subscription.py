@@ -17,8 +17,6 @@ class StandardsSubscription(pulumi.CustomResource):
         """
         Subscribes to a Security Hub standard.
         
-        > **NOTE:** This AWS service is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between Terraform AWS Provider releases.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] standards_arn: The ARN of a standard - see below.

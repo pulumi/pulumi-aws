@@ -5,4 +5,3 @@
 export * from "./apiKey";
 export * from "./dataSource";
 export * from "./graphQLApi";
-export * from "./resolver";

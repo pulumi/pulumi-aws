@@ -54,7 +54,6 @@ func NewVpnConnection(ctx *pulumi.Context,
 	}
 	inputs["customerGatewayConfiguration"] = nil
 	inputs["routes"] = nil
-	inputs["transitGatewayAttachmentId"] = nil
 	inputs["tunnel1Address"] = nil
 	inputs["tunnel1BgpAsn"] = nil
 	inputs["tunnel1BgpHoldtime"] = nil
@@ -84,7 +83,6 @@ func GetVpnConnection(ctx *pulumi.Context,
 		inputs["routes"] = state.Routes
 		inputs["staticRoutesOnly"] = state.StaticRoutesOnly
 		inputs["tags"] = state.Tags
-		inputs["transitGatewayAttachmentId"] = state.TransitGatewayAttachmentId
 		inputs["transitGatewayId"] = state.TransitGatewayId
 		inputs["tunnel1Address"] = state.Tunnel1Address
 		inputs["tunnel1BgpAsn"] = state.Tunnel1BgpAsn
@@ -143,11 +141,6 @@ func (r *VpnConnection) StaticRoutesOnly() *pulumi.BoolOutput {
 // Tags to apply to the connection.
 func (r *VpnConnection) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID.
-func (r *VpnConnection) TransitGatewayAttachmentId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["transitGatewayAttachmentId"])
 }
 
 // The ID of the EC2 Transit Gateway.
@@ -250,8 +243,6 @@ type VpnConnectionState struct {
 	StaticRoutesOnly interface{}
 	// Tags to apply to the connection.
 	Tags interface{}
-	// When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID.
-	TransitGatewayAttachmentId interface{}
 	// The ID of the EC2 Transit Gateway.
 	TransitGatewayId interface{}
 	// The public IP address of the first VPN tunnel.

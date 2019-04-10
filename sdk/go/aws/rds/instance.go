@@ -252,6 +252,7 @@ func (r *Instance) AllowMajorVersionUpgrade() *pulumi.BoolOutput {
 // are applied immediately, or during the next maintenance window. Default is
 // `false`. See [Amazon RDS Documentation for more
 // information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+// for more information.
 func (r *Instance) ApplyImmediately() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["applyImmediately"])
 }
@@ -590,6 +591,7 @@ type InstanceState struct {
 	// are applied immediately, or during the next maintenance window. Default is
 	// `false`. See [Amazon RDS Documentation for more
 	// information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+	// for more information.
 	ApplyImmediately interface{}
 	// The ARN of the RDS instance.
 	Arn interface{}
@@ -778,6 +780,7 @@ type InstanceArgs struct {
 	// are applied immediately, or during the next maintenance window. Default is
 	// `false`. See [Amazon RDS Documentation for more
 	// information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+	// for more information.
 	ApplyImmediately interface{}
 	// Indicates that minor engine upgrades
 	// will be applied automatically to the DB instance during the maintenance window.

@@ -108,7 +108,6 @@ func (r *Route) Spec() *pulumi.Output {
 	return r.s.State["spec"]
 }
 
-// The name of the virtual router in which to create the route.
 func (r *Route) VirtualRouterName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["virtualRouterName"])
 }
@@ -127,7 +126,6 @@ type RouteState struct {
 	Name interface{}
 	// The route specification to apply.
 	Spec interface{}
-	// The name of the virtual router in which to create the route.
 	VirtualRouterName interface{}
 }
 
@@ -139,6 +137,5 @@ type RouteArgs struct {
 	Name interface{}
 	// The route specification to apply.
 	Spec interface{}
-	// The name of the virtual router in which to create the route.
 	VirtualRouterName interface{}
 }
