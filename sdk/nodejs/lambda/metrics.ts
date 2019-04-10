@@ -17,7 +17,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as cloudwatch from "../cloudwatch";
 
 export type LambdaMetricName =
-    "Invocations" | "Errors" | "DeadLetterErrors" | "Throttles" | "IteratorAge" |
+    "Invocations" | "Errors" | "DeadLetterErrors" | "Duration" | "Throttles" | "IteratorAge" |
     "ConcurrentExecutions" | "UnreservedConcurrentExecutions";
 
 /**
@@ -52,7 +52,7 @@ export function metric(metricName: LambdaMetricName, change: cloudwatch.MetricCh
  * value.
  */
 export function metricInvocations(change: cloudwatch.MetricChange) {
-    return metric("Invocations", change);
+    return metric("Invocations", { unit: "Count", ...change });
 }
 
 /**
@@ -70,7 +70,7 @@ export function metricInvocations(change: cloudwatch.MetricChange) {
  * limits (error code 429) or failures due to internal service errors (error code 500).
  */
 export function metricErrors(change?: cloudwatch.MetricChange) {
-    return metric("Errors", change);
+    return metric("Errors", { unit: "Count", ...change });
 }
 
 /**
@@ -83,7 +83,17 @@ export function metricErrors(change?: cloudwatch.MetricChange) {
  * * Timeouts
  */
 export function metricDeadLetterErrors(change?: cloudwatch.MetricChange) {
-    return metric("DeadLetterErrors", change);
+    return metric("DeadLetterErrors", { unit: "Count", ...change });
+}
+
+/**
+ * Measures the elapsed wall clock time from when the function code starts executing as a result of
+ * an invocation to when it stops executing. The maximum data point value possible is the function
+ * timeout configuration. The billed duration will be rounded up to the nearest 100 millisecond.
+ * Note that AWS Lambda only sends these metrics to CloudWatch if they have a nonzero value.
+ */
+export function metricDuration(change?: cloudwatch.MetricChange) {
+    return metric("Duration", { unit: "Milliseconds", ...change });
 }
 
 /**
@@ -92,7 +102,7 @@ export function metricDeadLetterErrors(change?: cloudwatch.MetricChange) {
  * a retry attempt that succeeds.
  */
 export function metricThrottles(change?: cloudwatch.MetricChange) {
-    return metric("Throttles", change);
+    return metric("Throttles", { unit: "Count", ...change });
 }
 
 /**
@@ -102,7 +112,7 @@ export function metricThrottles(change?: cloudwatch.MetricChange) {
  * batch was written to the stream.
  */
 export function metricIteratorAge(change?: cloudwatch.MetricChange) {
-    return metric("IteratorAge", change);
+    return metric("IteratorAge", { unit: "Milliseconds", ...change });
 }
 
 /**
@@ -112,7 +122,7 @@ export function metricIteratorAge(change?: cloudwatch.MetricChange) {
  * metric if aggregated across a time period.
  */
 export function metricConcurrentExecutions(change?: cloudwatch.MetricChange) {
-    return metric("ConcurrentExecutions", change);
+    return metric("ConcurrentExecutions", { unit: "Count", ...change });
 }
 
 /**
@@ -122,5 +132,5 @@ export function metricConcurrentExecutions(change?: cloudwatch.MetricChange) {
  * across a time period.
  */
 export function metricUnreservedConcurrentExecutions(change?: cloudwatch.MetricChange) {
-    return metric("UnreservedConcurrentExecutions", change);
+    return metric("UnreservedConcurrentExecutions", { unit: "Count", ...change });
 }
