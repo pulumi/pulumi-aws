@@ -1891,6 +1891,11 @@ func Provider() tfbridge.ProviderInfo {
 							"notificationType.ts", // NotificationType union type and constants
 						},
 					},
+					"cloudfront": {
+						DestFiles: []string{
+							"cloudfrontMixins.ts",
+						},
+					},
 					"cloudwatch": {
 						DestFiles: []string{
 							"cloudwatchMixins.ts",

@@ -58,8 +58,8 @@ export function metric(metricName: ApigatewayMetricName, change: cloudwatch.Metr
  * of the 4XXError errors divided by the total number of requests during the period. The denominator
  * corresponds to the Count metric (below).
  */
-export function metric4XXError(change: cloudwatch.MetricChange) {
-    return metric("4XXError", change);
+export function metric4XXError(change: cloudwatch.MetricChange = {}) {
+    return metric("4XXError", { unit: "Count", ...change });
 }
 
 /**
@@ -70,8 +70,8 @@ export function metric4XXError(change: cloudwatch.MetricChange) {
  * of the 5XXError errors divided by the total number of requests during the period. The denominator
  * corresponds to the Count metric (below).
  */
-export function metric5XXError(change?: cloudwatch.MetricChange) {
-    return metric("5XXError", change);
+export function metric5XXError(change: cloudwatch.MetricChange = {}) {
+    return metric("5XXError", { unit: "Count", ...change });
 }
 
 /**
@@ -82,8 +82,8 @@ export function metric5XXError(change?: cloudwatch.MetricChange) {
  * the cache hits divided by the total number of requests during the period. The denominator
  * corresponds to the Count metric (below).
  */
-export function metricCacheHitCount(change?: cloudwatch.MetricChange) {
-    return metric("CacheHitCount", change);
+export function metricCacheHitCount(change: cloudwatch.MetricChange = {}) {
+    return metric("CacheHitCount", { unit: "Count", ...change });
 }
 
 /**
@@ -94,8 +94,8 @@ export function metricCacheHitCount(change?: cloudwatch.MetricChange) {
  * of the cache hits divided by the total number of requests during the period. The denominator
  * corresponds to the Count metric (below).
  */
-export function metricCacheMissCount(change?: cloudwatch.MetricChange) {
-    return metric("CacheMissCount", change);
+export function metricCacheMissCount(change: cloudwatch.MetricChange = {}) {
+    return metric("CacheMissCount", { unit: "Count", ...change });
 }
 
 /**
@@ -103,22 +103,22 @@ export function metricCacheMissCount(change?: cloudwatch.MetricChange) {
  *
  * The SampleCount statistic represents this metric.
  */
-export function metricCount(change?: cloudwatch.MetricChange) {
-    return metric("Count", change);
+export function metricCount(change: cloudwatch.MetricChange = {}) {
+    return metric("Count", { unit: "Count", ...change });
 }
 
 /**
  * The time between when API Gateway relays a request to the back end and when it receives a
  * response from the back end.
  */
-export function metricIntegrationLatency(change?: cloudwatch.MetricChange) {
-    return metric("IntegrationLatency", change);
+export function metricIntegrationLatency(change: cloudwatch.MetricChange = {}) {
+    return metric("IntegrationLatency", { unit: "Milliseconds", ...change });
 }
 
 /**
  * The time between when API Gateway receives a request from a client and when it returns a response
  * to the client. The latency includes the integration latency and other API Gateway overhead.
  */
-export function metricLatency(change?: cloudwatch.MetricChange) {
-    return metric("Latency", change);
+export function metricLatency(change: cloudwatch.MetricChange = {}) {
+    return metric("Latency", { unit: "Milliseconds", ...change });
 }
