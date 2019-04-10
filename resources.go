@@ -1908,6 +1908,11 @@ func Provider() tfbridge.ProviderInfo {
 							"codebuildMixins.ts",
 						},
 					},
+					"cognito": {
+						DestFiles: []string{
+							"cognitoMixins.ts",
+						},
+					},
 					"config": {
 						DestFiles: []string{
 							"require.ts", // requireRegion helpers for validating proper config
