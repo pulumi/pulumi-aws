@@ -379,17 +379,17 @@ declare module "./function" {
     }
 }
 
-export type FunctionMetricName =
+export type LambdaMetricName =
     "Invocations" | "Errors" | "DeadLetterErrors" | "Throttles" | "IteratorAge" |
     "ConcurrentExecutions" | "UnreservedConcurrentExecutions";
 
 /**
- * Creates an AWS/Lambda metric for this [Function] with the requested [metricName]. See
+ * Creates an AWS/Lambda metric with the requested [metricName]. See
  * https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-metrics.html for list of all
  * metric-names.
  *
  * Note, individual metrics can easily be obtained without supplying the name using the other
- * [metricXXX] methods on [Function].
+ * [metricXXX] functions.
  *
  * You can use the following dimensions to refine the metrics returned for your Lambda functions:
  *
@@ -399,7 +399,7 @@ export type FunctionMetricName =
  * 3. "ExecutedVersion". Filters the metric data by Lambda function versions. This only applies to
  *    alias invocations.
  */
-export function metric(metricName: FunctionMetricName, change: cloudwatch.MetricChange = {}) {
+export function metric(metricName: LambdaMetricName, change: cloudwatch.MetricChange = {}) {
     return new cloudwatch.Metric({
         namespace: "AWS/Lambda",
         name: metricName,

@@ -1875,6 +1875,11 @@ func Provider() tfbridge.ProviderInfo {
 					"utils.ts",  // Helpers,
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
+					"acmpca": {
+						DestFiles: []string{
+							"acmpcaMixins.ts",
+						},
+					},
 					"autoscaling": {
 						DestFiles: []string{
 							"metrics.ts",          // Metric and MetricsGranularity union types and constants
