@@ -1903,6 +1903,11 @@ func Provider() tfbridge.ProviderInfo {
 							"logGroupMixins.ts",
 						},
 					},
+					"codebuild": {
+						DestFiles: []string{
+							"codebuildMixins.ts",
+						},
+					},
 					"config": {
 						DestFiles: []string{
 							"require.ts", // requireRegion helpers for validating proper config
