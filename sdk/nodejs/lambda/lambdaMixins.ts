@@ -15,6 +15,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 import * as arn from "../arn";
+import * as cloudwatch from "../cloudwatch";
 import * as iam from "../iam";
 import * as utils from "../utils";
 
@@ -370,9 +371,129 @@ const lambdaRolePolicy = {
 // Mixin the Role we potentially create into the Function instances we return.
 
 declare module "./function" {
+    export type FunctionMetricName =
+        "Invocations" | "Errors" | "DeadLetterErrors" | "Throttles" | "IteratorAge" |
+        "ConcurrentExecutions" | "UnreservedConcurrentExecutions";
+
     interface Function {
-        // Actual Role instance value for this Function.  Will only be set if this function
-        // was created from [createFunction]
+        /**
+         * Actual Role instance value for this Function.  Will only be set if this function was
+         * created from [createFunction]
+         */
         roleInstance?: iam.Role;
+
+        /**
+         * Creates an AWS/Lambda metric for this [Function] with the requested [metricName]. See
+         * https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-metrics.html for list
+         * of all metric-names.
+         *
+         * Note, individual metrics can easily be obtained without supplying the name using the
+         * other [metricXXX] methods on [Function].
+         */
+        metric(metricName: FunctionMetricName, change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+        /**
+         * Measures the number of times a function is invoked in response to an event or invocation
+         * API call. This replaces the deprecated RequestCount metric. This includes successful and
+         * failed invocations, but does not include throttled attempts. This equals the billed
+         * requests for the function. Note that AWS Lambda only sends these metrics to CloudWatch if
+         * they have a nonzero value.
+         */
+        metricInvocations(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+        /**
+         * Measures the number of invocations that failed due to errors in the function (response
+         * code 4XX). This replaces the deprecated ErrorCount metric. Failed invocations may trigger
+         * a retry attempt that succeeds. This includes:
+         *
+         * * Handled exceptions (for example, context.fail(error))
+         * * Unhandled exceptions causing the code to exit
+         * * Out of memory exceptions
+         * * Timeouts
+         * * Permissions errors
+         *
+         * This does not include invocations that fail due to invocation rates exceeding default
+         * concurrent limits (error code 429) or failures due to internal service errors (error code
+         * 500).
+         */
+        metricErrors(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+        /**
+         * Incremented when Lambda is unable to write the failed event payload to your configured
+         * Dead Letter Queues. This could be due to the following:
+         *
+         * * Permissions errors
+         * * Throttles from downstream services
+         * * Misconfigured resources
+         * * Timeouts
+         */
+        metricDeadLetterErrors(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+        /**
+         * Measures the number of Lambda function invocation attempts that were throttled due to
+         * invocation rates exceeding the customer’s concurrent limits (error code 429). Failed
+         * invocations may trigger a retry attempt that succeeds.
+         */
+        metricThrottles(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+        /**
+         * Emitted for stream-based invocations only (functions triggered by an Amazon DynamoDB
+         * stream or Kinesis stream). Measures the age of the last record for each batch of records
+         * processed. Age is the difference between the time Lambda received the batch, and the time
+         * the last record in the batch was written to the stream.
+         */
+        metricIteratorAge(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+        /**
+         * Emitted as an aggregate metric for all functions in the account, and for functions that
+         * have a custom concurrency limit specified. Not applicable for versions or aliases.
+         * Measures the sum of concurrent executions for a given function at a given point in time.
+         * Must be viewed as an average metric if aggregated across a time period.
+         */
+        metricConcurrentExecutions(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+        /**
+         * Emitted as an aggregate metric for all functions in the account only. Not applicable for
+         * functions, versions, or aliases. Represents the sum of the concurrency of the functions
+         * that do not have a custom concurrency limit specified. Must be viewed as an average
+         * metric if aggregated across a time period.
+         */
+        metricUnreservedConcurrentExecutions(change?: cloudwatch.MetricChange): cloudwatch.Metric;
     }
+}
+
+LambdaFunction.prototype.metric = function(this: LambdaFunction, metricName: string, change: cloudwatch.MetricChange = {}) {
+    return new cloudwatch.Metric({
+        namespace: "AWS/Lambda",
+        name: metricName,
+        ...change,
+    }, this);
+}
+
+LambdaFunction.prototype.metricInvocations = function(this: LambdaFunction, change: cloudwatch.MetricChange) {
+    return this.metric("Invocations", change);
+}
+
+LambdaFunction.prototype.metricErrors = function(this: LambdaFunction, change: cloudwatch.MetricChange) {
+    return this.metric("Errors", change);
+}
+
+LambdaFunction.prototype.metricDeadLetterErrors = function(this: LambdaFunction, change: cloudwatch.MetricChange) {
+    return this.metric("DeadLetterErrors", change);
+}
+
+LambdaFunction.prototype.metricThrottles = function(this: LambdaFunction, change: cloudwatch.MetricChange) {
+    return this.metric("Throttles", change);
+}
+
+LambdaFunction.prototype.metricIteratorAge = function(this: LambdaFunction, change: cloudwatch.MetricChange) {
+    return this.metric("IteratorAge", change);
+}
+
+LambdaFunction.prototype.metricConcurrentExecutions = function(this: LambdaFunction, change: cloudwatch.MetricChange) {
+    return this.metric("ConcurrentExecutions", change);
+}
+
+LambdaFunction.prototype.metricUnreservedConcurrentExecutions = function(this: LambdaFunction, change: cloudwatch.MetricChange) {
+    return this.metric("UnreservedConcurrentExecutions", change);
 }

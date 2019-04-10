@@ -249,6 +249,9 @@ function validateExtendedStatistic(extendedStatistic: number) {
     }
 }
 
+/**
+ * Interface for all the parts of a metric that can be changed.
+ */
 export interface MetricChange {
     /**
      * The new dimension for this metric.  If this object is missing this property, then no change
@@ -256,7 +259,6 @@ export interface MetricChange {
      * cleared.
      */
     dimensions?: pulumi.Input<Record<string, any>>;
-    namespace?: pulumi.Input<string>;
     /**
      * The new period in seconds over which the specified `stat` is applied.  If this object is
      * missing this property, then no change will be made.  However, if the property is there by set
