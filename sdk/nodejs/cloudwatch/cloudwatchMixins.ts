@@ -63,7 +63,7 @@ export class Metric {
      * The name for this metric. See docs for
      * [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    metricName: pulumi.Output<string>;
+    name: pulumi.Output<string>;
     /**
      * The dimensions for this metric.  For the list of available dimensions see the AWS documentation
      * [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -114,7 +114,7 @@ export class Metric {
      */
     constructor(args: MetricArgs, resource?: pulumi.Resource) {
         this.resource = resource;
-        this.metricName = pulumi.output(args.metricName);
+        this.name = pulumi.output(args.name);
         this.dimensions = pulumi.output(args.dimensions);
         this.namespace = pulumi.output(args.namespace);
         this.period = utils.ifUndefined(args.period, 60).apply(validatePeriod);
@@ -168,20 +168,36 @@ export class Metric {
     }
 
     public createAlarm(name: string, args: AlarmArgs, opts: pulumi.CustomResourceOptions = {}) {
+        const comparisonOperator = utils.ifUndefined(args.comparisonOperator, "GreaterThanOrEqualToThreshold");
         return new alarm.MetricAlarm(name, {
             ...args,
+
+            comparisonOperator,
             actionsEnabled: utils.ifUndefined(args.actionsEnabled, true),
-            comparisonOperator: utils.ifUndefined(args.comparisonOperator, "GreaterThanOrEqualToThreshold"),
+            alarmDescription: computeDescription(this, args, comparisonOperator),
             treatMissingData: utils.ifUndefined(args.treatMissingData, "missing"),
+
             dimensions: this.dimensions,
             extendedStatistic: this.extendedStatistic.apply(s => s === undefined ? undefined : `p${s}`),
-            metricName: this.metricName,
+            metricName: this.name,
             namespace: this.namespace,
             period: this.period,
             statistic: this.statistic,
             unit: this.unit,
         }, { parent: this.resource, ...opts });
     }
+}
+
+function computeDescription(metric: Metric, args: AlarmArgs, comparisonOperator: pulumi.Output<AlarmComparisonOperator>): pulumi.Output<string> {
+    return pulumi.all([metric, args, comparisonOperator])
+                 .apply(([metric, args, comparisonOperator]) => {
+        if (args.alarmDescription !== undefined) {
+            return args.alarmDescription;
+        }
+
+        const time = args.evaluationPeriods * metric.period;
+        return `${metric.name} ${comparisonOperator} ${args.threshold} in the last ${time}s`;
+    })
 }
 
 export type AlarmComparisonOperator =
@@ -298,7 +314,7 @@ export interface MetricArgs {
      * The name for this metric. See docs for
      * [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    metricName?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The dimensions for this metric.  For the list of available dimensions see the AWS documentation
      * [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
