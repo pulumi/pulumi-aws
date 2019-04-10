@@ -413,3 +413,83 @@ export type MetricUnit =
     "Bytes/Second"  | "Kilobytes/Second"    | "Megabytes/Second"    | "Gigabytes/Second"    | "Terabytes/Second"    |
     "Bits/Second"   | "Kilobits/Second"     | "Megabits/Second"     | "Gigabits/Second"     | "Terabits/Second"     |
     "Count/Second"  | "None";
+
+// actual cloudwatch events (that cloudwatch sends to itself)
+
+export type CloudwatchMetricName =
+    "DeadLetterInvocations" | "Invocations" | "FailedInvocations" | "TriggeredRules" |
+    "MatchedEvents" | "ThrottledRules";
+
+/**
+ * CloudWatch Events sends metrics to Amazon CloudWatch every minute.
+ *
+ * Creates an AWS/Events metric with the requested [metricName]. See
+ * https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatch-Events-Monitoring-CloudWatch-Metrics.html
+ * for list of all metric-names.
+ *
+ * Note, individual metrics can easily be obtained without supplying the name using the other
+ * [metricXXX] functions.
+ *
+ * All of these metrics use Count as the unit, so Sum and SampleCount are the most useful
+ * statistics.
+ *
+ * CloudWatch Events metrics have one dimension:
+ * 1. "RuleName": Filters the available metrics by rule name.
+ */
+export function metric(metricName: CloudwatchMetricName, change: MetricChange = {} = {}) {
+    return new Metric({
+        namespace: "AWS/Events",
+        name: metricName,
+        ...change,
+    });
+}
+
+/**
+ * Measures the number of times a rule’s target is not invoked in response to an event. This
+ * includes invocations that would result in triggering the same rule again, causing an infinite
+ * loop.
+ */
+export function metricDeadLetterInvocations(change: MetricChange = {}) {
+    return metric("DeadLetterInvocations", { unit: "Count", ...change });
+}
+
+/**
+ * Measures the number of times a target is invoked for a rule in response to an event. This
+ * includes successful and failed invocations, but does not include throttled or retried attempts
+ * until they fail permanently. It does not include DeadLetterInvocations.
+ *
+ * Note: CloudWatch Events only sends this metric to CloudWatch if it has a non-zero value.
+ */
+export function metricInvocations(change: MetricChange = {}) {
+    return metric("Invocations", { unit: "Count", ...change });
+}
+
+/**
+ * Measures the number of invocations that failed permanently. This does not include invocations
+ * that are retried, or that succeeded after a retry attempt. It also does not count failed
+ * invocations that are counted in DeadLetterInvocations.
+ */
+export function metricFailedInvocations(change: MetricChange = {}) {
+    return metric("FailedInvocations", { unit: "Count", ...change });
+}
+
+/**
+ * Measures the number of triggered rules that matched with any event.
+ */
+export function metricTriggeredRules(change: MetricChange = {}) {
+    return metric("TriggeredRules", { unit: "Count", ...change });
+}
+
+/**
+ * Measures the number of events that matched with any rule.
+ */
+export function metricMatchedEvents(change: MetricChange = {}) {
+    return metric("MatchedEvents", { unit: "Count", ...change });
+}
+
+/**
+ * Measures the number of triggered rules that are being throttled.
+ */
+export function metricThrottledRules(change: MetricChange = {}) {
+    return metric("ThrottledRules", { unit: "Count", ...change });
+}
