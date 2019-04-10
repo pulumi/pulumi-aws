@@ -1,0 +1,23 @@
+{
+    "name": "metrics",
+    "version": "0.0.1",
+    "license": "Apache-2.0",
+    "main": "bin/index.js",
+    "typings": "bin/index.d.ts",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "dev",
+        "node-fetch": "^2.2.0"
+    },
+    "devDependencies": {
+        "@types/aws-sdk": "^2.7.0",
+        "@types/node": "^10.0.0",
+        "typescript": "^3.0.0",
+        "@types/node-fetch": "=2.1.2"
+    },
+    "peerDependencies": {
+        "@pulumi/aws": "latest"
+    }
+}

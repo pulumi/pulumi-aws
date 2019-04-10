@@ -20,7 +20,6 @@ export * from "./integrationResponse";
 export * from "./method";
 export * from "./methodResponse";
 export * from "./methodSettings";
-export * from "./metrics";
 export * from "./model";
 export * from "./requestValidator";
 export * from "./resource";

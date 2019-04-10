@@ -5,6 +5,5 @@
 export * from "./dynamodbMixins";
 export * from "./getTable";
 export * from "./globalTable";
-export * from "./metrics";
 export * from "./table";
 export * from "./tableItem";
