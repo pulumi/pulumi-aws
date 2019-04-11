@@ -1989,6 +1989,7 @@ func Provider() tfbridge.ProviderInfo {
 					"sns": {
 						DestFiles: []string{
 							"snsMixins.ts",
+							"metrics.ts",
 						},
 					},
 					"sqs": {
