@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./getQueue";
+export * from "./metrics";
 export * from "./queue";
 export * from "./queuePolicy";
 export * from "./redrive";

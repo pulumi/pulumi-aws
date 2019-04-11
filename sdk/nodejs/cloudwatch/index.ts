@@ -19,3 +19,4 @@ export * from "./logStream";
 export * from "./logSubscriptionFilter";
 export * from "./metric";
 export * from "./metricAlarm";
+export * from "./metrics";

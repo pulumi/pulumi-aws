@@ -8,5 +8,6 @@ export * from "./getCluster";
 export * from "./getContainerDefinition";
 export * from "./getService";
 export * from "./getTaskDefinition";
+export * from "./metrics";
 export * from "./service";
 export * from "./taskDefinition";

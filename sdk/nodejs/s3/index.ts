@@ -13,4 +13,5 @@ export * from "./cannedAcl";
 export * from "./getBucket";
 export * from "./getBucketObject";
 export * from "./inventory";
+export * from "./metrics";
 export * from "./s3Mixins";

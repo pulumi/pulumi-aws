@@ -1875,10 +1875,25 @@ func Provider() tfbridge.ProviderInfo {
 					"utils.ts",  // Helpers,
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
+					"acmpca": {
+						DestFiles: []string{
+							"metrics.ts",
+						},
+					},
+					"apigateway": {
+						DestFiles: []string{
+							"metrics.ts",
+						},
+					},
 					"autoscaling": {
 						DestFiles: []string{
 							"metrics.ts",          // Metric and MetricsGranularity union types and constants
 							"notificationType.ts", // NotificationType union type and constants
+						},
+					},
+					"cloudfront": {
+						DestFiles: []string{
+							"metrics.ts",
 						},
 					},
 					"cloudwatch": {
@@ -1887,6 +1902,17 @@ func Provider() tfbridge.ProviderInfo {
 							"eventRuleMixins.ts",
 							"logGroupMixins.ts",
 							"metric.ts",
+							"metrics.ts",
+						},
+					},
+					"codebuild": {
+						DestFiles: []string{
+							"metrics.ts",
+						},
+					},
+					"cognito": {
+						DestFiles: []string{
+							"metrics.ts",
 						},
 					},
 					"config": {
@@ -1897,6 +1923,12 @@ func Provider() tfbridge.ProviderInfo {
 					"dynamodb": {
 						DestFiles: []string{
 							"dynamodbMixins.ts",
+							"metrics.ts",
+						},
+					},
+					"ebs": {
+						DestFiles: []string{
+							"metrics.ts",
 						},
 					},
 					"ec2": {
@@ -1905,11 +1937,18 @@ func Provider() tfbridge.ProviderInfo {
 							"instancePlatform.ts",  // InstancePlatform union type and constants
 							"placementStrategy.ts", // PlacementStrategy union type and constants
 							"tenancy.ts",           // Tenancy union type and constants
+							"metrics.ts",
 						},
 					},
 					"ecs": {
 						DestFiles: []string{
 							"container.ts", // Container definition JSON schema
+							"metrics.ts",
+						},
+					},
+					"efs": {
+						DestFiles: []string{
+							"metrics.ts",
 						},
 					},
 					"iam": {
@@ -1931,10 +1970,16 @@ func Provider() tfbridge.ProviderInfo {
 							"metrics.ts",
 						},
 					},
+					"rds": {
+						DestFiles: []string{
+							"metrics.ts",
+						},
+					},
 					"s3": {
 						DestFiles: []string{
 							"cannedAcl.ts", // a union type and constants for canned ACL names.
 							"s3Mixins.ts",
+							"metrics.ts",
 						},
 					},
 					"serverless": {
@@ -1945,12 +1990,14 @@ func Provider() tfbridge.ProviderInfo {
 					"sns": {
 						DestFiles: []string{
 							"snsMixins.ts",
+							"metrics.ts",
 						},
 					},
 					"sqs": {
 						DestFiles: []string{
 							"redrive.ts", // schema definitions for SQS redrive policies.
 							"sqsMixins.ts",
+							"metrics.ts",
 						},
 					},
 				},
