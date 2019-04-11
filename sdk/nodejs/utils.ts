@@ -17,8 +17,10 @@
 // to this @pulumi/aws module. If we actually *import* or *export* that property, the getter will
 // execute, which is not what we want at all.  Instead, we want to really just expose that we have
 // this "runtime" property on the typing, and we want to execute the code that jams the getter on.
+
 import "./awsMixins";
 
+import * as pulumi from "@pulumi/pulumi";
 import * as crypto from "crypto";
 
 type Diff<T extends string | number | symbol, U extends string | number | symbol> =
@@ -34,4 +36,10 @@ export function sha1hash(s: string): string {
   const shasum: crypto.Hash = crypto.createHash("sha1");
   shasum.update(s);
   return shasum.digest("hex").substring(0, 8);
+}
+
+/** @internal */
+export function ifUndefined<T>(input: pulumi.Input<T> | undefined, value: pulumi.Input<T>) {
+  return pulumi.all([input, value])
+               .apply(([input, value]) => input !== undefined ? input : value);
 }

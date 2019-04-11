@@ -1886,6 +1886,7 @@ func Provider() tfbridge.ProviderInfo {
 							"cloudwatchMixins.ts",
 							"eventRuleMixins.ts",
 							"logGroupMixins.ts",
+							"metric.ts",
 						},
 					},
 					"config": {
@@ -1927,6 +1928,7 @@ func Provider() tfbridge.ProviderInfo {
 						DestFiles: []string{
 							"runtimes.ts", // a union type and constants for available Lambda runtimes.
 							"lambdaMixins.ts",
+							"metrics.ts",
 						},
 					},
 					"s3": {

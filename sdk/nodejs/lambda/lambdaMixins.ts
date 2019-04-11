@@ -371,8 +371,10 @@ const lambdaRolePolicy = {
 
 declare module "./function" {
     interface Function {
-        // Actual Role instance value for this Function.  Will only be set if this function
-        // was created from [createFunction]
+        /**
+         * Actual Role instance value for this Function.  Will only be set if this function was
+         * created from [createFunction]
+         */
         roleInstance?: iam.Role;
     }
 }
