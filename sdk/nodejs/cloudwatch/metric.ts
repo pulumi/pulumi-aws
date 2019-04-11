@@ -125,10 +125,16 @@ export class Metric {
         return result;
     }
 
+    /**
+     * Produces a new [Metric] instances with the specific [dimensions] of this instance overwritten
+     * with the [dimensions] pass in as arguments.  Because this is a merging, to unset a particular
+     * dimension, pass in an explicit value of `{ name: undefined }`.  To clear all dimensions, pass
+     * in `undefined` for the entire argument.
+     */
     public withDimensions(dimensions: pulumi.Input<Record<string, any>> | undefined) {
         return new Metric({
             ...this,
-            dimensions,
+            dimensions: mergeDimensions(this.dimensions, pulumi.output(dimensions)),
         }, this.resource);
     }
 
@@ -187,6 +193,33 @@ export class Metric {
             unit: this.unit,
         }, { parent: this.resource, ...opts });
     }
+}
+
+function mergeDimensions(
+        oldDimensions: pulumi.Output<Record<string, any> | undefined>,
+        newDimensions: pulumi.Output<Record<string, any> | undefined>) {
+
+    return pulumi.all([oldDimensions, newDimensions]).apply(([oldDimensions, newDimensions]) => {
+        if (!newDimensions) {
+            // they're explicitly clearing out all dimensions.
+            return undefined;
+        }
+
+        if (!oldDimensions) {
+            // no old dimensions, can just use all the new dimensions passed in.
+            return newDimensions;
+        }
+
+        // have both old and new.  need to overwrite all the old dimensions with whatever is in new.
+        const result = { ...oldDimensions };
+        for (const name in newDimensions) {
+            if (newDimensions.hasOwnProperty(name)) {
+                result[name] = newDimensions[name];
+            }
+        }
+
+        return result;
+    })
 }
 
 function hasOwnProperty<T>(obj: T, key: keyof T) {
