@@ -1927,6 +1927,11 @@ func Provider() tfbridge.ProviderInfo {
 							"metrics.ts",
 						},
 					},
+					"ebs": {
+						DestFiles: []string{
+							"metrics.ts",
+						},
+					},
 					"ec2": {
 						DestFiles: []string{
 							"instanceType.ts",      // InstanceType union type and constants
