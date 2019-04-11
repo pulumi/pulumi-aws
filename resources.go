@@ -1947,6 +1947,11 @@ func Provider() tfbridge.ProviderInfo {
 							"metrics.ts",
 						},
 					},
+					"efs": {
+						DestFiles: []string{
+							"metrics.ts",
+						},
+					},
 					"iam": {
 						DestFiles: []string{
 							"documents.ts",       // policy document schemas.
