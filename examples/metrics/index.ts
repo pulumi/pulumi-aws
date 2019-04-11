@@ -34,7 +34,7 @@ const subscription = topic.onEvent("for-each-url", async (event) => {
     }
 });
 
-const metric = aws.lambda.metricDuration({ unit: "Seconds", dimensions: { FunctionName: subscription.func.name } });
+const metric = aws.lambda.metrics.duration({ unit: "Seconds", dimensions: { FunctionName: subscription.func.name } });
 const alarm = metric.createAlarm("LongDuration", { threshold: 60, evaluationPeriods: 2 });
 
 export const alarmDescription = alarm.alarmDescription;
