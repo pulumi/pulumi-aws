@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./getTopic";
+export * from "./metrics";
 export * from "./platformApplication";
 export * from "./smsPreferences";
 export * from "./snsMixins";

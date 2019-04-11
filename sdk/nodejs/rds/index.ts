@@ -15,6 +15,7 @@ export * from "./getInstance";
 export * from "./getSnapshot";
 export * from "./globalCluster";
 export * from "./instance";
+export * from "./metrics";
 export * from "./optionGroup";
 export * from "./parameterGroup";
 export * from "./securityGroup";
