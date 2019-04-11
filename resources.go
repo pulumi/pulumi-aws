@@ -1996,6 +1996,7 @@ func Provider() tfbridge.ProviderInfo {
 						DestFiles: []string{
 							"redrive.ts", // schema definitions for SQS redrive policies.
 							"sqsMixins.ts",
+							"metrics.ts",
 						},
 					},
 				},
