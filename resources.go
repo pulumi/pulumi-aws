@@ -1970,6 +1970,11 @@ func Provider() tfbridge.ProviderInfo {
 							"metrics.ts",
 						},
 					},
+					"rds": {
+						DestFiles: []string{
+							"metrics.ts",
+						},
+					},
 					"s3": {
 						DestFiles: []string{
 							"cannedAcl.ts", // a union type and constants for canned ACL names.
