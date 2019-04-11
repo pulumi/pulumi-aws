@@ -6,6 +6,7 @@ export * from "./getUserPools";
 export * from "./identityPool";
 export * from "./identityPoolRoleAttachment";
 export * from "./identityProvider";
+export * from "./metrics";
 export * from "./resourceServer";
 export * from "./userGroup";
 export * from "./userPool";
