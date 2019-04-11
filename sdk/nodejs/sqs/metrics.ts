@@ -25,8 +25,8 @@ export module metrics {
 
     /**
      * Creates an AWS/SQS metric with the requested [metricName]. See
-     * https://docs.aws.amazon.com/sns/latest/dg/sns-monitoring-using-cloudwatch.html for list of
-     * all metric-names.
+     * https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-monitoring-using-cloudwatch.html
+     * for list of all metric-names.
      *
      * Note, individual metrics can easily be obtained without supplying the name using the other
      * [metricXXX] functions.
