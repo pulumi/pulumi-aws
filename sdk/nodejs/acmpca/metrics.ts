@@ -15,60 +15,62 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as cloudwatch from "../cloudwatch";
 
-export type AcmpcaMetricName =
-    "CRLGenerated" | "MisconfiguredCRLBucket" | "Time" | "Success" | "Failure";
+export module metrics {
+    export type AcmpcaMetricName =
+        "CRLGenerated" | "MisconfiguredCRLBucket" | "Time" | "Success" | "Failure";
 
-/**
- * Creates an AWS/ACMPrivateCA metric with the requested [metricName]. See
- * https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCloudWatch.html for list of all
- * metric-names.
- *
- * Note, individual metrics can easily be obtained without supplying the name using the other
- * [metricXXX] functions.
- */
-export function metric(metricName: AcmpcaMetricName, change: cloudwatch.MetricChange = {}) {
-    return new cloudwatch.Metric({
-        namespace: "AWS/ACMPrivateCA",
-        name: metricName,
-        ...change,
-    });
-}
+    /**
+     * Creates an AWS/ACMPrivateCA metric with the requested [metricName]. See
+     * https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCloudWatch.html for list of all
+     * metric-names.
+     *
+     * Note, individual metrics can easily be obtained without supplying the name using the other
+     * [metricXXX] functions.
+     */
+    export function metric(metricName: AcmpcaMetricName, change: cloudwatch.MetricChange = {}) {
+        return new cloudwatch.Metric({
+            namespace: "AWS/ACMPrivateCA",
+            name: metricName,
+            ...change,
+        });
+    }
 
-/**
- * A certificate revocation list (CRL) was generated. This metric applies only to a private CA.
- */
-export function metricCRLGenerated(change: cloudwatch.MetricChange) {
-    return metric("CRLGenerated", change);
-}
+    /**
+     * A certificate revocation list (CRL) was generated. This metric applies only to a private CA.
+     */
+    export function crlGenerated(change: cloudwatch.MetricChange) {
+        return metric("CRLGenerated", change);
+    }
 
-/**
- * The S3 bucket specified for the CRL is not correctly configured. Check the bucket policy. This
- * metric applies only to a private CA.
- */
-export function metricMisconfiguredCRLBucket(change?: cloudwatch.MetricChange) {
-    return metric("MisconfiguredCRLBucket", change);
-}
+    /**
+     * The S3 bucket specified for the CRL is not correctly configured. Check the bucket policy. This
+     * metric applies only to a private CA.
+     */
+    export function misconfiguredCRLBucket(change?: cloudwatch.MetricChange) {
+        return metric("MisconfiguredCRLBucket", change);
+    }
 
-/**
- * The time at which the certificate was issued. This metric applies only to the
- * [IssueCertificate](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_IssueCertificate.html)
- * operation.
- */
-export function metricTime(change?: cloudwatch.MetricChange) {
-    return metric("Time", change);
-}
+    /**
+     * The time at which the certificate was issued. This metric applies only to the
+     * [IssueCertificate](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_IssueCertificate.html)
+     * operation.
+     */
+    export function time(change?: cloudwatch.MetricChange) {
+        return metric("Time", change);
+    }
 
-/**
- * Specifies whether a certificate was successfully issued. This metric applies only to the
- * IssueCertificate operation.
- */
-export function metricSuccess(change?: cloudwatch.MetricChange) {
-    return metric("Success", change);
-}
+    /**
+     * Specifies whether a certificate was successfully issued. This metric applies only to the
+     * IssueCertificate operation.
+     */
+    export function success(change?: cloudwatch.MetricChange) {
+        return metric("Success", change);
+    }
 
-/**
- * Indicates that an operation failed. This metric applies only to the IssueCertificate operation.
- */
-export function metricFailure(change?: cloudwatch.MetricChange) {
-    return metric("Failure", change);
+    /**
+     * Indicates that an operation failed. This metric applies only to the IssueCertificate operation.
+     */
+    export function failure(change?: cloudwatch.MetricChange) {
+        return metric("Failure", change);
+    }
 }

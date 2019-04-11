@@ -15,71 +15,73 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as cloudwatch from "../cloudwatch";
 
-export type CloudfrontMetricName =
-    "Requests" | "BytesDownloaded" | "BytesUploaded" | "TotalErrorRate" |
-    "4xxErrorRate" | "5xxErrorRate";
+export module metrics {
+    export type CloudfrontMetricName =
+        "Requests" | "BytesDownloaded" | "BytesUploaded" | "TotalErrorRate" |
+        "4xxErrorRate" | "5xxErrorRate";
 
-/**
- * Creates an AWS/CloudFront metric with the requested [metricName]. See
- * https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/monitoring-using-cloudwatch.html
- * for list of all metric-names.
- *
- * Note, individual metrics can easily be obtained without supplying the name using the other
- * [metricXXX] functions.
- *
- * CloudFront metrics use the CloudFront namespace and provide metrics for two dimensions:
- *
- * 1. "DistributionId": The CloudFront ID of the distribution for which you want to display metrics.
- * 2. "Region": The region for which you want to display metrics. This value must be Global. The
- *    Region dimension is different from the region in which CloudFront metrics are stored, which is
- *    US East (N. Virginia).
- */
-export function metric(metricName: CloudfrontMetricName, change: cloudwatch.MetricChange = {} = {}) {
-    return new cloudwatch.Metric({
-        namespace: "AWS/ApiGateway",
-        name: metricName,
-        ...change,
-    });
-}
+    /**
+     * Creates an AWS/CloudFront metric with the requested [metricName]. See
+     * https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/monitoring-using-cloudwatch.html
+     * for list of all metric-names.
+     *
+     * Note, individual metrics can easily be obtained without supplying the name using the other
+     * [metricXXX] functions.
+     *
+     * CloudFront metrics use the CloudFront namespace and provide metrics for two dimensions:
+     *
+     * 1. "DistributionId": The CloudFront ID of the distribution for which you want to display metrics.
+     * 2. "Region": The region for which you want to display metrics. This value must be Global. The
+     *    Region dimension is different from the region in which CloudFront metrics are stored, which is
+     *    US East (N. Virginia).
+     */
+    export function metric(metricName: CloudfrontMetricName, change: cloudwatch.MetricChange = {} = {}) {
+        return new cloudwatch.Metric({
+            namespace: "AWS/ApiGateway",
+            name: metricName,
+            ...change,
+        });
+    }
 
-/**
- * The number of requests for all HTTP methods and for both HTTP and HTTPS requests.
- */
-export function metricRequests(change: cloudwatch.MetricChange = {}) {
-    return metric("Requests", { statistic: "Sum", unit: "None", ...change });
-}
+    /**
+     * The number of requests for all HTTP methods and for both HTTP and HTTPS requests.
+     */
+    export function requests(change: cloudwatch.MetricChange = {}) {
+        return metric("Requests", { statistic: "Sum", unit: "None", ...change });
+    }
 
-/**
- * The number of bytes downloaded by viewers for GET, HEAD, and OPTIONS requests.
- */
-export function metricBytesDownloaded(change: cloudwatch.MetricChange = {}) {
-    return metric("BytesDownloaded", { statistic: "Sum", unit: "None", ...change });
-}
+    /**
+     * The number of bytes downloaded by viewers for GET, HEAD, and OPTIONS requests.
+     */
+    export function bytesDownloaded(change: cloudwatch.MetricChange = {}) {
+        return metric("BytesDownloaded", { statistic: "Sum", unit: "None", ...change });
+    }
 
-/**
- * The number of bytes uploaded to your origin with CloudFront using POST and PUT requests.
- */
-export function metricBytesUploaded(change: cloudwatch.MetricChange = {}) {
-    return metric("BytesUploaded", { statistic: "Sum", unit: "None", ...change });
-}
+    /**
+     * The number of bytes uploaded to your origin with CloudFront using POST and PUT requests.
+     */
+    export function bytesUploaded(change: cloudwatch.MetricChange = {}) {
+        return metric("BytesUploaded", { statistic: "Sum", unit: "None", ...change });
+    }
 
-/**
- * The percentage of all requests for which the HTTP status code is 4xx or 5xx.
- */
-export function metricTotalErrorRate(change: cloudwatch.MetricChange = {}) {
-    return metric("TotalErrorRate", { statistic: "Average", unit: "Percent", ...change });
-}
+    /**
+     * The percentage of all requests for which the HTTP status code is 4xx or 5xx.
+     */
+    export function totalErrorRate(change: cloudwatch.MetricChange = {}) {
+        return metric("TotalErrorRate", { statistic: "Average", unit: "Percent", ...change });
+    }
 
-/**
- * The percentage of all requests for which the HTTP status code is 4xx.
- */
-export function metric4xxErrorRate(change: cloudwatch.MetricChange = {}) {
-    return metric("4xxErrorRate", { statistic: "Average", unit: "Percent", ...change });
-}
+    /**
+     * The percentage of all requests for which the HTTP status code is 4xx.
+     */
+    export function errorRate4xx(change: cloudwatch.MetricChange = {}) {
+        return metric("4xxErrorRate", { statistic: "Average", unit: "Percent", ...change });
+    }
 
-/**
- * The percentage of all requests for which the HTTP status code is 5xx.
- */
-export function metric5xxErrorRate(change: cloudwatch.MetricChange = {}) {
-    return metric("5xxErrorRate", { statistic: "Average", unit: "Percent", ...change });
+    /**
+     * The percentage of all requests for which the HTTP status code is 5xx.
+     */
+    export function errorRate5xx(change: cloudwatch.MetricChange = {}) {
+        return metric("5xxErrorRate", { statistic: "Average", unit: "Percent", ...change });
+    }
 }
