@@ -38,7 +38,7 @@ export module metrics {
     /**
      * A certificate revocation list (CRL) was generated. This metric applies only to a private CA.
      */
-    export function crlGenerated(change: cloudwatch.MetricChange) {
+    export function crlGenerated(change?: cloudwatch.MetricChange) {
         return metric("CRLGenerated", change);
     }
 

@@ -14,6 +14,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import { Function as LambdaFunction, FunctionArgs } from "./function";
+
 import * as cloudwatch from "../cloudwatch";
 
 export module metrics {
@@ -53,7 +55,7 @@ export module metrics {
      * function. Note that AWS Lambda only sends these metrics to CloudWatch if they have a nonzero
      * value.
      */
-    export function invocations(change: cloudwatch.MetricChange) {
+    export function invocations(change?: cloudwatch.MetricChange) {
         return metric("Invocations", { unit: "Count", ...change });
     }
 
@@ -139,3 +141,97 @@ export module metrics {
         return metric("UnreservedConcurrentExecutions", { unit: "Count", ...change });
     }
 }
+
+declare module "./function" {
+    interface Function {
+        /**
+         * Direct access to create metrics for this specific [aws.Function].
+         */
+        metrics: {
+            /**
+             * Measures the number of times this function is invoked in response to an event or
+             * invocation API call. This replaces the deprecated RequestCount metric. This includes
+             * successful and failed invocations, but does not include throttled attempts. This equals
+             * the billed requests for the function. Note that AWS Lambda only sends these metrics to
+             * CloudWatch if they have a nonzero value.
+             */
+            invocations(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * Measures the number of invocations that failed due to errors in this function (response
+             * code 4XX). This replaces the deprecated ErrorCount metric. Failed invocations may trigger
+             * a retry attempt that succeeds. This includes:
+             *
+             * * Handled exceptions (for example, context.fail(error))
+             * * Unhandled exceptions causing the code to exit
+             * * Out of memory exceptions
+             * * Timeouts
+             * * Permissions errors
+             *
+             * This does not include invocations that fail due to invocation rates exceeding default
+             * concurrent limits (error code 429) or failures due to internal service errors (error code
+             * 500).
+             */
+            errors(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * Incremented when this Lambda is unable to write the failed event payload to your
+             * configured Dead Letter Queues. This could be due to the following:
+             *
+             * * Permissions errors
+             * * Throttles from downstream services
+             * * Misconfigured resources
+             * * Timeouts
+             */
+            deadLetterErrors(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * Measures the elapsed wall clock time from when this function code starts executing as a
+             * result of an invocation to when it stops executing. The maximum data point value possible
+             * is the function timeout configuration. The billed duration will be rounded up to the
+             * nearest 100 millisecond. Note that AWS Lambda only sends these metrics to CloudWatch if
+             * they have a nonzero value.
+             */
+            duration(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * Measures the number of this Lambda function's invocation attempts that were throttled due
+             * to invocation rates exceeding the customer’s concurrent limits (error code 429). Failed
+             * invocations may trigger a retry attempt that succeeds.
+             */
+            throttles(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * Emitted for stream-based invocations only (functions triggered by an Amazon DynamoDB
+             * stream or Kinesis stream). Measures the age of the last record for each batch of records
+             * processed. Age is the difference between the time this Lambda received the batch, and the
+             * time the last record in the batch was written to the stream.
+             */
+            iteratorAge(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+        }
+    }
+}
+
+// All instance metrics just make a normal AWS/Lambda metric, except with the FunctionName
+// dimension set to this Function's name.
+
+function getMetric(
+    func: LambdaFunction, change: cloudwatch.MetricChange,
+    moduleFunction: (change: cloudwatch.MetricChange) => cloudwatch.Metric) {
+
+    return moduleFunction({ dimensions: { FunctionName: func.name } }).with(change);
+}
+
+Object.defineProperty(LambdaFunction.prototype, "metrics", {
+    get: function (this: LambdaFunction) {
+        const lambda = this;
+        return {
+            invocations: (change: cloudwatch.MetricChange) => getMetric(lambda, change, metrics.invocations),
+            errors: (change: cloudwatch.MetricChange) => getMetric(lambda, change, metrics.errors),
+            deadLetterErrors: (change: cloudwatch.MetricChange) => getMetric(lambda, change, metrics.deadLetterErrors),
+            duration: (change: cloudwatch.MetricChange) => getMetric(lambda, change, metrics.duration),
+            throttles: (change: cloudwatch.MetricChange) => getMetric(lambda, change, metrics.throttles),
+            iteratorAge: (change: cloudwatch.MetricChange) => getMetric(lambda, change, metrics.iteratorAge),
+        }
+    }
+});
