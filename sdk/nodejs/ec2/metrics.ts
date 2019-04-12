@@ -130,10 +130,13 @@ export module metrics {
 
     /**
      * The percentage of allocated EC2 compute units that are currently in use on the instance. This
-     * metric identifies the processing power required to run an application upon a selected instance.
+     * metric identifies the processing power required to run an application upon a selected
+     * instance.
      *
-     * Depending on the instance type, tools in your operating system can show a lower percentage than
-     * CloudWatch when the instance is not allocated a full processor core.
+     * Depending on the instance type, tools in your operating system can show a lower percentage
+     * than CloudWatch when the instance is not allocated a full processor core.
+     *
+     * Units: Percent
      */
     export function cpuUtilization(change: cloudwatch.MetricChange = {}) {
         return metric("CPUUtilization", { unit: "Percent", ...change });
@@ -147,19 +150,23 @@ export module metrics {
      * operations in the period by the number of seconds in that period.
      *
      * If there are no instance store volumes, either the value is 0 or the metric is not reported.
+     *
+     * Units: Count
      */
     export function diskReadOps(change: cloudwatch.MetricChange = {}) {
         return metric("DiskReadOps", { unit: "Count", ...change });
     }
 
     /**
-     * Completed write operations to all instance store volumes available to the instance in a specified
-     * period of time.
+     * Completed write operations to all instance store volumes available to the instance in a
+     * specified period of time.
      *
      * To calculate the average I/O operations per second (IOPS) for the period, divide the total
      * operations in the period by the number of seconds in that period.
      *
      * If there are no instance store volumes, either the value is 0 or the metric is not reported.
+     *
+     * Units: Count
      */
     export function diskWriteOps(change: cloudwatch.MetricChange = {}) {
         return metric("DiskWriteOps", { unit: "Count", ...change });
@@ -168,14 +175,16 @@ export module metrics {
     /**
      * Bytes read from all instance store volumes available to the instance.
      *
-     * This metric is used to determine the volume of the data the application reads from the hard disk
-     * of the instance. This can be used to determine the speed of the application.
+     * This metric is used to determine the volume of the data the application reads from the hard
+     * disk of the instance. This can be used to determine the speed of the application.
      *
      * The number reported is the number of bytes received during the period. If you are using basic
      * (five-minute) monitoring, you can divide this number by 300 to find Bytes/second. If you have
      * detailed (one-minute) monitoring, divide it by 60.
      *
      * If there are no instance store volumes, either the value is 0 or the metric is not reported.
+     *
+     * Units: Bytes
      */
     export function diskReadBytes(change: cloudwatch.MetricChange = {}) {
         return metric("DiskReadBytes", { unit: "Bytes", ...change });
@@ -184,56 +193,70 @@ export module metrics {
     /**
      * Bytes written to all instance store volumes available to the instance.
      *
-     * This metric is used to determine the volume of the data the application writes onto the hard disk
-     * of the instance. This can be used to determine the speed of the application.
+     * This metric is used to determine the volume of the data the application writes onto the hard
+     * disk of the instance. This can be used to determine the speed of the application.
      *
      * The number reported is the number of bytes received during the period. If you are using basic
      * (five-minute) monitoring, you can divide this number by 300 to find Bytes/second. If you have
      * detailed (one-minute) monitoring, divide it by 60.
      *
      * If there are no instance store volumes, either the value is 0 or the metric is not reported.
+     *
+     * Units: Bytes
      */
     export function diskWriteBytes(change: cloudwatch.MetricChange = {}) {
         return metric("DiskWriteBytes", { unit: "Bytes", ...change });
     }
 
     /**
-     * The number of bytes received on all network interfaces by the instance. This metric identifies
-     * the volume of incoming network traffic to a single instance.
+     * The number of bytes received on all network interfaces by the instance. This metric
+     * identifies the volume of incoming network traffic to a single instance.
      *
      * The number reported is the number of bytes received during the period. If you are using basic
      * (five-minute) monitoring, you can divide this number by 300 to find Bytes/second. If you have
      * detailed (one-minute) monitoring, divide it by 60.
+     *
+     * Units: Bytes
      */
     export function networkIn(change: cloudwatch.MetricChange = {}) {
         return metric("NetworkIn", { unit: "Bytes", ...change });
     }
 
     /**
-     * The number of bytes sent out on all network interfaces by the instance. This metric identifies
-     * the volume of outgoing network traffic from a single instance.
+     * The number of bytes sent out on all network interfaces by the instance. This metric
+     * identifies the volume of outgoing network traffic from a single instance.
      *
      * The number reported is the number of bytes sent during the period. If you are using basic
      * (five-minute) monitoring, you can divide this number by 300 to find Bytes/second. If you have
      * detailed (one-minute) monitoring, divide it by 60.
+     *
+     * Units: Bytes
      */
     export function networkOut(change: cloudwatch.MetricChange = {}) {
         return metric("NetworkOut", { unit: "Bytes", ...change });
     }
 
     /**
-     * The number of packets received on all network interfaces by the instance. This metric identifies
-     * the volume of incoming traffic in terms of the number of packets on a single instance. This
-     * metric is available for basic monitoring only.
+     * The number of packets received on all network interfaces by the instance. This metric
+     * identifies the volume of incoming traffic in terms of the number of packets on a single
+     * instance. This metric is available for basic monitoring only.
+     *
+     * Units: Count
+     *
+     * Statistics: Minimum, Maximum, Average
      */
     export function networkPacketsIn(change: cloudwatch.MetricChange = {}) {
         return metric("NetworkPacketsIn", { unit: "Count", ...change });
     }
 
     /**
-     * The number of packets sent out on all network interfaces by the instance. This metric identifies
-     * the volume of outgoing traffic in terms of the number of packets on a single instance. This
-     * metric is available for basic monitoring only.
+     * The number of packets sent out on all network interfaces by the instance. This metric
+     * identifies the volume of outgoing traffic in terms of the number of packets on a single
+     * instance. This metric is available for basic monitoring only.
+     *
+     * Units: Count
+     *
+     * Statistics: Minimum, Maximum, Average
      */
     export function networkPacketsOut(change: cloudwatch.MetricChange = {}) {
         return metric("NetworkPacketsOut", { unit: "Count", ...change });
@@ -246,6 +269,8 @@ export module metrics {
      * This metric can be either 0 (passed) or 1 (failed).
      *
      * By default, this metric is available at a 1-minute frequency at no charge.
+     *
+     * Units: Count
      */
     export function statusCheckFailed(change: cloudwatch.MetricChange = {}) {
         return metric("StatusCheckFailed", { unit: "Count", ...change });
@@ -257,6 +282,8 @@ export module metrics {
      * This metric can be either 0 (passed) or 1 (failed).
      *
      * By default, this metric is available at a 1-minute frequency at no charge.
+     *
+     * Units: Count
      */
     export function statusCheckFailed_Instance(change: cloudwatch.MetricChange = {}) {
         return metric("StatusCheckFailed_Instance", { unit: "Count", ...change });
@@ -268,6 +295,8 @@ export module metrics {
      * This metric can be either 0 (passed) or 1 (failed).
      *
      * By default, this metric is available at a 1-minute frequency at no charge.
+     *
+     * Units: Count
      */
     export function statusCheckFailed_System(change: cloudwatch.MetricChange = {}) {
         return metric("StatusCheckFailed_System", { statistic: "Sum", unit: "Count", ...change });
@@ -277,23 +306,27 @@ export module metrics {
      * Completed read operations from all Amazon EBS volumes attached to the instance in a specified
      * period of time.
      *
-     * To calculate the average read I/O operations per second (Read IOPS) for the period, divide the
-     * total operations in the period by the number of seconds in that period. If you are using basic
-     * (five-minute) monitoring, you can divide this number by 300 to calculate the Read IOPS. If you
-     * have detailed (one-minute) monitoring, divide it by 60.
+     * To calculate the average read I/O operations per second (Read IOPS) for the period, divide
+     * the total operations in the period by the number of seconds in that period. If you are using
+     * basic (five-minute) monitoring, you can divide this number by 300 to calculate the Read IOPS.
+     * If you have detailed (one-minute) monitoring, divide it by 60.
+     *
+     * Unit: Count
      */
     export function ebsReadOps(change: cloudwatch.MetricChange = {}) {
         return metric("EBSReadOps", { unit: "Count", ...change });
     }
 
     /**
-     * Completed write operations to all EBS volumes attached to the instance in a specified period of
-     * time.
+     * Completed write operations to all EBS volumes attached to the instance in a specified period
+     * of time.
      *
-     * To calculate the average write I/O operations per second (Write IOPS) for the period, divide the
-     * total operations in the period by the number of seconds in that period. If you are using basic
-     * (five-minute) monitoring, you can divide this number by 300 to calculate the Write IOPS. If you
-     * have detailed (one-minute) monitoring, divide it by 60.
+     * To calculate the average write I/O operations per second (Write IOPS) for the period, divide
+     * the total operations in the period by the number of seconds in that period. If you are using
+     * basic (five-minute) monitoring, you can divide this number by 300 to calculate the Write
+     * IOPS. If you have detailed (one-minute) monitoring, divide it by 60.
+     *
+     * Unit: Count
      */
     export function ebsWriteOps(change: cloudwatch.MetricChange = {}) {
         return metric("EBSWriteOps", { unit: "Count", ...change });
@@ -305,6 +338,8 @@ export module metrics {
      * The number reported is the number of bytes read during the period. If you are using basic
      * (five-minute) monitoring, you can divide this number by 300 to find Read Bytes/second. If you
      * have detailed (one-minute) monitoring, divide it by 60.
+     *
+     * Unit: Bytes
      */
     export function ebsReadBytes(change: cloudwatch.MetricChange = {}) {
         return metric("EBSReadBytes", { unit: "Bytes", ...change });
@@ -314,16 +349,21 @@ export module metrics {
      * Bytes written to all EBS volumes attached to the instance in a specified period of time.
      *
      * The number reported is the number of bytes written during the period. If you are using basic
-     * (five-minute) monitoring, you can divide this number by 300 to find Write Bytes/second. If you
-     * have detailed (one-minute) monitoring, divide it by 60.
+     * (five-minute) monitoring, you can divide this number by 300 to find Write Bytes/second. If
+     * you have detailed (one-minute) monitoring, divide it by 60.
+     *
+     * Unit: Bytes
      */
     export function ebsWriteBytes(change: cloudwatch.MetricChange = {}) {
         return metric("EBSWriteBytes", { unit: "Bytes", ...change });
     }
 
     /**
-     * Available only for the smaller instance sizes. Provides information about the percentage of I/O
-     * credits remaining in the burst bucket. This metric is available for basic monitoring only.
+     * Available only for the smaller instance sizes. Provides information about the percentage of
+     * I/O credits remaining in the burst bucket. This metric is available for basic monitoring
+     * only.
+     *
+     * Unit: Percent
      */
     export function ebsIOBalance(change: cloudwatch.MetricChange = {}) {
         return metric("EBSIOBalance%", { unit: "Percent", ...change });
@@ -331,8 +371,10 @@ export module metrics {
 
     /**
      * Available only for the smaller instance sizes. Provides information about the percentage of
-     * throughput credits remaining in the burst bucket. This metric is available for basic monitoring
-     * only.
+     * throughput credits remaining in the burst bucket. This metric is available for basic
+     * monitoring only.
+     *
+     * Unit: Percent
      */
     export function ebsByteBalance(change: cloudwatch.MetricChange = {}) {
         return metric("EBSByteBalance%", { unit: "Percent", ...change });

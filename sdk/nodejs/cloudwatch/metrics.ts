@@ -47,8 +47,11 @@ export module metrics {
 
         /**
          * Measures the number of times a rule’s target is not invoked in response to an event. This
-         * includes invocations that would result in triggering the same rule again, causing an infinite
-         * loop.
+         * includes invocations that would result in triggering the same rule again, causing an
+         * infinite loop.
+         *
+         * Valid Dimensions: RuleName
+         * Units: Count
          */
         export function deadLetterInvocations(change: MetricChange = {}) {
             return metric("DeadLetterInvocations", { unit: "Count", ...change });
@@ -60,6 +63,9 @@ export module metrics {
          * until they fail permanently. It does not include DeadLetterInvocations.
          *
          * Note: CloudWatch Events only sends this metric to CloudWatch if it has a non-zero value.
+         *
+         * Valid Dimensions: RuleName
+         * Units: Count
          */
         export function invocations(change: MetricChange = {}) {
             return metric("Invocations", { unit: "Count", ...change });
@@ -69,6 +75,9 @@ export module metrics {
          * Measures the number of invocations that failed permanently. This does not include invocations
          * that are retried, or that succeeded after a retry attempt. It also does not count failed
          * invocations that are counted in DeadLetterInvocations.
+         *
+         * Valid Dimensions: RuleName
+         * Units: Count
          */
         export function failedInvocations(change: MetricChange = {}) {
             return metric("FailedInvocations", { unit: "Count", ...change });
@@ -76,6 +85,9 @@ export module metrics {
 
         /**
          * Measures the number of triggered rules that matched with any event.
+         *
+         * Valid Dimensions: RuleName
+         * Units: Count
          */
         export function triggeredRules(change: MetricChange = {}) {
             return metric("TriggeredRules", { unit: "Count", ...change });
@@ -83,6 +95,9 @@ export module metrics {
 
         /**
          * Measures the number of events that matched with any rule.
+         *
+         * Valid Dimensions: None
+         * Units: Count
          */
         export function matchedEvents(change: MetricChange = {}) {
             return metric("MatchedEvents", { unit: "Count", ...change });
@@ -90,6 +105,9 @@ export module metrics {
 
         /**
          * Measures the number of triggered rules that are being throttled.
+         *
+         * Valid Dimensions: RuleName
+         * Units: Count
          */
         export function throttledRules(change: MetricChange = {}) {
             return metric("ThrottledRules", { unit: "Count", ...change });
@@ -128,9 +146,13 @@ export module metrics {
         }
 
         /**
-         * The volume of log events in uncompressed bytes uploaded to CloudWatch Logs. When used with the
-         * LogGroupName dimension, this is the volume of log events in uncompressed bytes uploaded to the
-         * log group.
+         * The volume of log events in uncompressed bytes uploaded to CloudWatch Logs. When used
+         * with the LogGroupName dimension, this is the volume of log events in uncompressed bytes
+         * uploaded to the log group.
+         *
+         * Valid Dimensions: LogGroupName
+         * Valid Statistic: Sum
+         * Units: Bytes
          */
         export function incomingBytes(change: MetricChange = {}) {
             return metric("IncomingBytes", { statistic: "Sum", unit: "Bytes", ...change });
@@ -139,6 +161,10 @@ export module metrics {
         /**
          * The number of log events uploaded to CloudWatch Logs. When used with the LogGroupName dimension,
          * this is the number of log events uploaded to the log group.
+         *
+         * Valid Dimensions: LogGroupName
+         * Valid Statistic: Sum
+         * Units: None
          */
         export function incomingLogEvents(change: MetricChange = {}) {
             return metric("IncomingLogEvents", { statistic: "Sum", unit: "None", ...change });
@@ -146,6 +172,10 @@ export module metrics {
 
         /**
          * The volume of log events in compressed bytes forwarded to the subscription destination.
+         *
+         * Valid Dimensions: LogGroupName, DestinationType, FilterName
+         * Valid Statistic: Sum
+         * Units: Bytes
          */
         export function forwardedBytes(change: MetricChange = {}) {
             return metric("ForwardedBytes", { statistic: "Sum", unit: "Bytes", ...change });
@@ -153,6 +183,10 @@ export module metrics {
 
         /**
          * The number of log events forwarded to the subscription destination.
+         *
+         * Valid Dimensions: LogGroupName, DestinationType, FilterName
+         * Valid Statistic: Sum
+         * Units: None
          */
         export function forwardedLogEvents(change: MetricChange = {}) {
             return metric("ForwardedLogEvents", { statistic: "Sum", unit: "None", ...change });
@@ -161,6 +195,10 @@ export module metrics {
         /**
          * The number of log events for which CloudWatch Logs received an error when forwarding data to the
          * subscription destination.
+         *
+         * Valid Dimensions: LogGroupName, DestinationType, FilterName
+         * Valid Statistic: Sum
+         * Units: None
          */
         export function deliveryErrors(change: MetricChange = {}) {
             return metric("DeliveryErrors", { statistic: "Sum", unit: "None", ...change });
@@ -169,6 +207,10 @@ export module metrics {
         /**
          * The number of log events for which CloudWatch Logs was throttled when forwarding data to the
          * subscription destination.
+         *
+         * Valid Dimensions: LogGroupName, DestinationType, FilterName
+         * Valid Statistic: Sum
+         * Units: None
          */
         export function deliveryThrottling(change: MetricChange = {}) {
             return metric("DeliveryThrottling", { statistic: "Sum", unit: "None", ...change });

@@ -66,7 +66,10 @@ export module metrics {
     }
 
     /**
-     * The amount of disk space occupied by binary logs on the master. Applies to MySQL read replicas.
+     * The amount of disk space occupied by binary logs on the master. Applies to MySQL read
+     * replicas.
+     *
+     * Units: Bytes
      */
     export function binLogDiskUsage(change: cloudwatch.MetricChange = {}) {
         return metric("BinLogDiskUsage", { unit: "Bytes", ...change });
@@ -74,6 +77,8 @@ export module metrics {
 
     /**
      * The percent of General Purpose SSD (gp2) burst-bucket I/O credits available.
+     *
+     * Units: Percent
      */
     export function burstBalance(change: cloudwatch.MetricChange = {}) {
         return metric("BurstBalance", { unit: "Percent", ...change });
@@ -81,6 +86,8 @@ export module metrics {
 
     /**
      * The percentage of CPU utilization.
+     *
+     * Units: Percent
      */
     export function cpuUtilization(change: cloudwatch.MetricChange = {}) {
         return metric("CPUUtilization", { unit: "Percent", ...change });
@@ -123,6 +130,8 @@ export module metrics {
 
     /**
      * The number of database connections in use.
+     *
+     * Units: Count
      */
     export function databaseConnections(change: cloudwatch.MetricChange = {}) {
         return metric("DatabaseConnections", { unit: "Count", ...change });
@@ -130,6 +139,8 @@ export module metrics {
 
     /**
      * The number of outstanding IOs (read/write requests) waiting to access the disk.
+     *
+     * Units: Count
      */
     export function diskQueueDepth(change: cloudwatch.MetricChange = {}) {
         return metric("DiskQueueDepth", { unit: "Count", ...change });
@@ -137,13 +148,17 @@ export module metrics {
 
     /**
      * The number of failed SQL Server Agent jobs during the last minute.
+     *
+     * Unit: Count/Minute
      */
     export function failedSQLServerAgentJobsCount(change: cloudwatch.MetricChange = {}) {
-        return metric("FailedSQLServerAgentJobsCount", { unit: "Count", ...change });
+        return metric("FailedSQLServerAgentJobsCount", { period: 60, unit: "Count", ...change });
     }
 
     /**
      * The amount of available random access memory.
+     *
+     * Units: Bytes
      */
     export function freeableMemory(change: cloudwatch.MetricChange = {}) {
         return metric("FreeableMemory", { unit: "Bytes", ...change });
@@ -151,6 +166,8 @@ export module metrics {
 
     /**
      * The amount of available storage space.
+     *
+     * Units: Bytes
      */
     export function freeStorageSpace(change: cloudwatch.MetricChange = {}) {
         return metric("FreeStorageSpace", { unit: "Bytes", ...change });
@@ -158,6 +175,8 @@ export module metrics {
 
     /**
      * The maximum transaction ID that has been used. Applies to PostgreSQL.
+     *
+     * Units: Count
      */
     export function maximumUsedTransactionIDs(change: cloudwatch.MetricChange = {}) {
         return metric("MaximumUsedTransactionIDs", { unit: "Count", ...change });
@@ -166,6 +185,8 @@ export module metrics {
     /**
      * The incoming (Receive) network traffic on the DB instance, including both customer database
      * traffic and Amazon RDS traffic used for monitoring and replication.
+     *
+     * Units: Bytes/Second
      */
     export function networkReceiveThroughput(change: cloudwatch.MetricChange = {}) {
         return metric("NetworkReceiveThroughput", { unit: "Bytes/Second", ...change });
@@ -174,6 +195,8 @@ export module metrics {
     /**
      * The outgoing (Transmit) network traffic on the DB instance, including both customer database
      * traffic and Amazon RDS traffic used for monitoring and replication.
+     *
+     * Units: Bytes/Second
      */
     export function networkTransmitThroughput(change: cloudwatch.MetricChange = {}) {
         return metric("NetworkTransmitThroughput", { unit: "Bytes/Second", ...change });
@@ -182,6 +205,8 @@ export module metrics {
     /**
      * The lagging size of the replica lagging the most in terms of WAL data received. Applies to
      * PostgreSQL.
+     *
+     * Units: Megabytes
      */
     export function oldestReplicationSlotLag(change: cloudwatch.MetricChange = {}) {
         return metric("OldestReplicationSlotLag", { unit: "Megabytes", ...change });
@@ -189,6 +214,8 @@ export module metrics {
 
     /**
      * The average number of disk read I/O operations per second.
+     *
+     * Units: Count/Second
      */
     export function readIOPS(change: cloudwatch.MetricChange = {}) {
         return metric("ReadIOPS", { unit: "Count/Second", ...change });
@@ -196,6 +223,8 @@ export module metrics {
 
     /**
      * The average amount of time taken per disk I/O operation.
+     *
+     * Units: Seconds
      */
     export function readLatency(change: cloudwatch.MetricChange = {}) {
         return metric("ReadLatency", { unit: "Seconds", ...change });
@@ -203,6 +232,8 @@ export module metrics {
 
     /**
      * The average number of bytes read from disk per second.
+     *
+     * Units: Bytes/Second
      */
     export function readThroughput(change: cloudwatch.MetricChange = {}) {
         return metric("ReadThroughput", { unit: "Bytes/Second", ...change });
@@ -211,6 +242,8 @@ export module metrics {
     /**
      * The amount of time a Read Replica DB instance lags behind the source DB instance. Applies to
      * MySQL, MariaDB, and PostgreSQL Read Replicas.
+     *
+     * Units: Seconds
      */
     export function replicaLag(change: cloudwatch.MetricChange = {}) {
         return metric("ReplicaLag", { unit: "Seconds", ...change });
@@ -218,6 +251,8 @@ export module metrics {
 
     /**
      * The disk space used by replication slot files. Applies to PostgreSQL.
+     *
+     * Units: Megabytes
      */
     export function replicationSlotDiskUsage(change: cloudwatch.MetricChange = {}) {
         return metric("ReplicationSlotDiskUsage", { unit: "Megabytes", ...change });
@@ -226,6 +261,8 @@ export module metrics {
     /**
      * The amount of swap space used on the DB instance. This metric is not available for SQL
      * Server.
+     *
+     * Units: Bytes
      */
     export function swapUsage(change: cloudwatch.MetricChange = {}) {
         return metric("SwapUsage", { unit: "Bytes", ...change });
@@ -233,6 +270,8 @@ export module metrics {
 
     /**
      * The disk space used by transaction logs. Applies to PostgreSQL.
+     *
+     * Units: Megabytes
      */
     export function transactionLogsDiskUsage(change: cloudwatch.MetricChange = {}) {
         return metric("TransactionLogsDiskUsage", { unit: "Megabytes", ...change });
@@ -240,6 +279,8 @@ export module metrics {
 
     /**
      * The size of transaction logs generated per second. Applies to PostgreSQL.
+     *
+     * Units: Megabytes/Second
      */
     export function transactionLogsGeneration(change: cloudwatch.MetricChange = {}) {
         return metric("TransactionLogsGeneration", { unit: "Megabytes/Second", ...change });
@@ -247,6 +288,8 @@ export module metrics {
 
     /**
      * The average number of disk write I/O operations per second.
+     *
+     * Units: Count/Second
      */
     export function writeIOPS(change: cloudwatch.MetricChange = {}) {
         return metric("WriteIOPS", { unit: "Count/Second", ...change });
@@ -254,6 +297,8 @@ export module metrics {
 
     /**
      * The average amount of time taken per disk I/O operation.
+     *
+     * Units: Seconds
      */
     export function writeLatency(change: cloudwatch.MetricChange = {}) {
         return metric("WriteLatency", { unit: "Seconds", ...change });
@@ -261,6 +306,8 @@ export module metrics {
 
     /**
      * The average number of bytes written to disk per second.
+     *
+     * Units: Bytes/Second
      */
     export function writeThroughput(change: cloudwatch.MetricChange = {}) {
         return metric("WriteThroughput", { unit: "Bytes/Second", ...change });

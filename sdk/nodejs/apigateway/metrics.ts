@@ -58,6 +58,8 @@ export module metrics {
      * given period. The Average statistic represents the 4XXError error rate, namely, the total count
      * of the 4XXError errors divided by the total number of requests during the period. The denominator
      * corresponds to the Count metric (below).
+     *
+     * Unit: Count
      */
     export function error4XX(change: cloudwatch.MetricChange = {}) {
         return metric("4XXError", { unit: "Count", ...change });
@@ -70,6 +72,8 @@ export module metrics {
      * given period. The Average statistic represents the 5XXError error rate, namely, the total count
      * of the 5XXError errors divided by the total number of requests during the period. The denominator
      * corresponds to the Count metric (below).
+     *
+     * Unit: Count
      */
     export function error5XX(change: cloudwatch.MetricChange = {}) {
         return metric("5XXError", { unit: "Count", ...change });
@@ -94,6 +98,8 @@ export module metrics {
      * specified period. The Average statistic represents the cache miss rate, namely, the total count
      * of the cache hits divided by the total number of requests during the period. The denominator
      * corresponds to the Count metric (below).
+     *
+     * Unit: Count
      */
     export function cacheMissCount(change: cloudwatch.MetricChange = {}) {
         return metric("CacheMissCount", { unit: "Count", ...change });
@@ -103,6 +109,8 @@ export module metrics {
      * The total number API requests in a given period.
      *
      * The SampleCount statistic represents this metric.
+     *
+     * Unit: Count
      */
     export function count(change: cloudwatch.MetricChange = {}) {
         return metric("Count", { unit: "Count", ...change });
@@ -111,6 +119,8 @@ export module metrics {
     /**
      * The time between when API Gateway relays a request to the back end and when it receives a
      * response from the back end.
+     *
+     * Unit: Milliseconds
      */
     export function integrationLatency(change: cloudwatch.MetricChange = {}) {
         return metric("IntegrationLatency", { unit: "Milliseconds", ...change });
@@ -119,6 +129,8 @@ export module metrics {
     /**
      * The time between when API Gateway receives a request from a client and when it returns a response
      * to the client. The latency includes the integration latency and other API Gateway overhead.
+     *
+     * Unit: Milliseconds
      */
     export function latency(change: cloudwatch.MetricChange = {}) {
         return metric("Latency", { unit: "Milliseconds", ...change });
