@@ -228,7 +228,7 @@ Object.defineProperty(LambdaFunction.prototype, "metrics", {
         return {
             invocations: (change: cloudwatch.MetricChange) => getMetric(lambda, change, metrics.invocations),
             errors: (change: cloudwatch.MetricChange) => getMetric(lambda, change, metrics.errors),
-            deadLetterErrors: (change: cloudwatch.MetricChange) => getMetric(this, change, metrics.deadLetterErrors),
+            deadLetterErrors: (change: cloudwatch.MetricChange) => getMetric(lambda, change, metrics.deadLetterErrors),
             duration: (change: cloudwatch.MetricChange) => getMetric(lambda, change, metrics.duration),
             throttles: (change: cloudwatch.MetricChange) => getMetric(lambda, change, metrics.throttles),
             iteratorAge: (change: cloudwatch.MetricChange) => getMetric(lambda, change, metrics.iteratorAge),
