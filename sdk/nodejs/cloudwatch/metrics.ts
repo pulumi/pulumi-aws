@@ -37,7 +37,7 @@ export module metrics {
          * CloudWatch Events metrics have one dimension:
          * 1. "RuleName": Filters the available metrics by rule name.
          */
-        export function metric(metricName: CloudwatchEventMetricName, change: MetricChange = {} = {}) {
+        function metric(metricName: CloudwatchEventMetricName, change: MetricChange = {} = {}) {
             return new Metric({
                 namespace: "AWS/Events",
                 name: metricName,
@@ -137,7 +137,7 @@ export module metrics {
          *    to the destination. The subscription filter name is automatically converted by CloudWatch to
          *    ASCII and any unsupported characters get replaced with a question mark (?).
          */
-        export function metric(metricName: CloudwatchLogMetricName, change: MetricChange = {} = {}) {
+        function metric(metricName: CloudwatchLogMetricName, change: MetricChange = {} = {}) {
             return new Metric({
                 namespace: "AWS/Logs",
                 name: metricName,

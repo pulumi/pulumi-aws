@@ -31,7 +31,7 @@ export module metrics {
      * CloudWatch. The advanced security metrics are grouped together by risk level and also by request
      * level.
      */
-    export function metric(metricName: CognitoMetricName, change: cloudwatch.MetricChange = {}) {
+    function metric(metricName: CognitoMetricName, change: cloudwatch.MetricChange = {}) {
         return new cloudwatch.Metric({
             namespace: "AWS/Cognito",
             name: metricName,

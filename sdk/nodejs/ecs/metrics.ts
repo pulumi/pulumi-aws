@@ -41,7 +41,7 @@ export module metrics {
      * 2. "ServiceName": This dimension filters the data that you request for all resources in a
      *    specified service within a specified cluster.
      */
-    export function metric(metricName: EcsMetricName, change: cloudwatch.MetricChange = {}) {
+    function metric(metricName: EcsMetricName, change: cloudwatch.MetricChange = {}) {
         return new cloudwatch.Metric({
             namespace: "AWS/ECS",
             name: metricName,

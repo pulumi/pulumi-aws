@@ -56,7 +56,7 @@ export module metrics {
      *    instance to determine which has the better business value for your application. Available for
      *    instances with Detailed Monitoring enabled.
      */
-    export function metric(metricName: Ec2MetricName, change: cloudwatch.MetricChange = {}) {
+    function metric(metricName: Ec2MetricName, change: cloudwatch.MetricChange = {}) {
         return new cloudwatch.Metric({
             namespace: "AWS/EC2",
             name: metricName,

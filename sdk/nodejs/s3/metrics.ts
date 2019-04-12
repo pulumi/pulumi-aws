@@ -86,7 +86,7 @@ export module metrics {
      *    create a metrics configuration. For more information, see
      *    [Metrics-Configurations-for-Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html).
      */
-    export function metric(metricName: S3MetricName, change: cloudwatch.MetricChange = {}) {
+    function metric(metricName: S3MetricName, change: cloudwatch.MetricChange = {}) {
         return new cloudwatch.Metric({
             namespace: "AWS/S3",
             name: metricName,

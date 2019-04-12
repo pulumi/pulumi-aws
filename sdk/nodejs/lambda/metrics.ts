@@ -40,7 +40,7 @@ export module metrics {
      * 3. "ExecutedVersion". Filters the metric data by Lambda function versions. This only applies
      *    to alias invocations.
      */
-    export function metric(metricName: LambdaMetricName, change: cloudwatch.MetricChange = {}) {
+    function metric(metricName: LambdaMetricName, change: cloudwatch.MetricChange = {}) {
         return new cloudwatch.Metric({
             namespace: "AWS/Lambda",
             name: metricName,
@@ -231,23 +231,13 @@ declare module "./function" {
 // All instance metrics just make a normal AWS/Lambda metric, except with the FunctionName
 // dimension set to this Function's name.
 
-function getMetric(
-    func: LambdaFunction, change: cloudwatch.MetricChange,
-    moduleFunction: (change: cloudwatch.MetricChange) => cloudwatch.Metric) {
-
-    return moduleFunction({ dimensions: { FunctionName: func.name } }).with(change);
-}
-
 Object.defineProperty(LambdaFunction.prototype, "metrics", {
     get: function (this: LambdaFunction) {
-        const lambda = this;
-        return {
-            invocations: (change: cloudwatch.MetricChange) => getMetric(lambda, change, metrics.invocations),
-            errors: (change: cloudwatch.MetricChange) => getMetric(lambda, change, metrics.errors),
-            deadLetterErrors: (change: cloudwatch.MetricChange) => getMetric(lambda, change, metrics.deadLetterErrors),
-            duration: (change: cloudwatch.MetricChange) => getMetric(lambda, change, metrics.duration),
-            throttles: (change: cloudwatch.MetricChange) => getMetric(lambda, change, metrics.throttles),
-            iteratorAge: (change: cloudwatch.MetricChange) => getMetric(lambda, change, metrics.iteratorAge),
+        const dimensions = { dimensions: { FunctionName: this.name } };
+        const result = {};
+        for (const name in metrics) {
+            result[name] = (change: cloudwatch.MetricChange) => metrics[name](dimensions).with(change);
         }
+        return result;
     }
 });

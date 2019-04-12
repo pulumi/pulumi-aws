@@ -59,7 +59,7 @@ export module metrics {
      * 6. "SMSType": Filters on the message type of SMS message. Can be "promotional" or
      *    "transactional".
      */
-    export function metric(metricName: SnsMetricName, change: cloudwatch.MetricChange = {}) {
+    function metric(metricName: SnsMetricName, change: cloudwatch.MetricChange = {}) {
         return new cloudwatch.Metric({
             namespace: "AWS/SNS",
             name: metricName,
@@ -282,25 +282,13 @@ declare module "./topic" {
 // All instance metrics just make a normal AWS/SNS metric, except with the TopicName
 // dimension set to this Topic's name.
 
-function getMetric(
-    topic: Topic, change: cloudwatch.MetricChange,
-    moduleFunction: (change: cloudwatch.MetricChange) => cloudwatch.Metric) {
-
-    return moduleFunction({ dimensions: { TopicName: topic.name } }).with(change);
-}
-
 Object.defineProperty(Topic.prototype, "metrics", {
     get: function (this: Topic) {
-        const _this = this;
-        return {
-            numberOfMessagesPublished: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.numberOfMessagesPublished),
-            numberOfNotificationsDelivered: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.numberOfNotificationsDelivered),
-            numberOfNotificationsFailed: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.numberOfNotificationsFailed),
-            numberOfNotificationsFilteredOut_NoMessageAttributes: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.numberOfNotificationsFilteredOut_NoMessageAttributes),
-            numberOfNotificationsFilteredOut_InvalidAttributes: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.numberOfNotificationsFilteredOut_InvalidAttributes),
-            publishSize: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.publishSize),
-            smsMonthToDateSpentUSD: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.smsMonthToDateSpentUSD),
-            smsSuccessRate: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.smsSuccessRate),
+        const dimensions = { dimensions: { TopicName: this.name } };
+        const result = {};
+        for (const name in metrics) {
+            result[name] = (change: cloudwatch.MetricChange) => metrics[name](dimensions).with(change);
         }
+        return result;
     }
 });

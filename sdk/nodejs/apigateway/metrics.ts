@@ -44,7 +44,7 @@ export module metrics {
      *    see Amazon CloudWatch Pricing.
      * 3. "ApiName, Stage": Filters API Gateway metrics for an API stage of the specified API and stage.
      */
-    export function metric(metricName: ApigatewayMetricName, change: cloudwatch.MetricChange = {}) {
+    function metric(metricName: ApigatewayMetricName, change: cloudwatch.MetricChange = {}) {
         return new cloudwatch.Metric({
             namespace: "AWS/ApiGateway",
             name: metricName,
@@ -221,24 +221,13 @@ declare module "./restApi" {
 // All instance metrics just make a normal AWS/ApiGateway metric, except with the ApiName
 // dimension set to this RestApi's name.
 
-function getMetric(
-    api: RestApi, change: cloudwatch.MetricChange,
-    moduleFunction: (change: cloudwatch.MetricChange) => cloudwatch.Metric) {
-
-    return moduleFunction({ dimensions: { ApiName: api.name } }).with(change);
-}
-
 Object.defineProperty(RestApi.prototype, "metrics", {
     get: function (this: RestApi) {
-        const _this = this;
-        return {
-            error4XX: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.error4XX),
-            error5XX: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.error5XX),
-            cacheHitCount: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.cacheHitCount),
-            cacheMissCount: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.cacheMissCount),
-            count: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.count),
-            integrationLatency: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.integrationLatency),
-            latency: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.latency),
+        const dimensions = { dimensions: { ApiName: this.name } };
+        const result = {};
+        for (const name in metrics) {
+            result[name] = (change: cloudwatch.MetricChange) => metrics[name](dimensions).with(change);
         }
+        return result;
     }
 });

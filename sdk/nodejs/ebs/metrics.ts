@@ -69,7 +69,7 @@ export module metrics {
      * The only dimension that Amazon EBS sends to CloudWatch is the volume ID. This means that all
      * available statistics are filtered by volume ID.
      */
-    export function metric(metricName: EbsMetricName, change: cloudwatch.MetricChange = {}) {
+    function metric(metricName: EbsMetricName, change: cloudwatch.MetricChange = {}) {
         return new cloudwatch.Metric({
             namespace: "AWS/EBS",
             name: metricName,

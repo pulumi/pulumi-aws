@@ -74,7 +74,7 @@ export module metrics {
      * To filter the metrics for your Auto Scaling group by group name, use the "AutoScalingGroupName"
      * dimension.
      */
-    export function metric(metricName: AutoscalingMetricName, change: cloudwatch.MetricChange = {}) {
+    function metric(metricName: AutoscalingMetricName, change: cloudwatch.MetricChange = {}) {
         return new cloudwatch.Metric({
             namespace: "AWS/AutoScaling",
             name: metricName,
