@@ -14,6 +14,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as cloudwatch from "../cloudwatch";
+import { RestApi } from "./restApi";
 
 export module metrics {
     export type ApigatewayMetricName =
@@ -136,3 +137,108 @@ export module metrics {
         return metric("Latency", { unit: "Milliseconds", ...change });
     }
 }
+
+declare module "./restApi" {
+    interface RestApi {
+        /**
+         * Direct access to create metrics for this specific [apigateway.RestApi].
+         */
+        metrics: {
+            /**
+             * The number of client-side errors captured in a specified period.
+             *
+             * The Sum statistic represents this metric, namely, the total count of the 4XXError errors in the
+             * given period. The Average statistic represents the 4XXError error rate, namely, the total count
+             * of the 4XXError errors divided by the total number of requests during the period. The denominator
+             * corresponds to the Count metric (below).
+             *
+             * Unit: Count
+             */
+            error4XX(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * The number of server-side errors captured in a given period.
+             *
+             * The Sum statistic represents this metric, namely, the total count of the 5XXError errors in the
+             * given period. The Average statistic represents the 5XXError error rate, namely, the total count
+             * of the 5XXError errors divided by the total number of requests during the period. The denominator
+             * corresponds to the Count metric (below).
+             *
+             * Unit: Count
+             */
+            error5XX(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * The number of requests served from the API cache in a given period.
+             *
+             * The Sum statistic represents this metric, namely, the total count of the cache hits in the
+             * specified period. The Average statistic represents the cache hit rate, namely, the total count of
+             * the cache hits divided by the total number of requests during the period. The denominator
+             * corresponds to the Count metric (below).
+             */
+            cacheHitCount(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * The number of requests served from the back end in a given period, when API caching is enabled.
+             *
+             * The Sum statistic represents this metric, namely, the total count of the cache misses in the
+             * specified period. The Average statistic represents the cache miss rate, namely, the total count
+             * of the cache hits divided by the total number of requests during the period. The denominator
+             * corresponds to the Count metric (below).
+             *
+             * Unit: Count
+             */
+            cacheMissCount(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * The total number API requests in a given period.
+             *
+             * The SampleCount statistic represents this metric.
+             *
+             * Unit: Count
+             */
+            count(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * The time between when API Gateway relays a request to the back end and when it receives a
+             * response from the back end.
+             *
+             * Unit: Milliseconds
+             */
+            integrationLatency(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * The time between when API Gateway receives a request from a client and when it returns a response
+             * to the client. The latency includes the integration latency and other API Gateway overhead.
+             *
+             * Unit: Milliseconds
+             */
+            latency(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+        }
+    }
+}
+
+// All instance metrics just make a normal AWS/ApiGateway metric, except with the ApiName
+// dimension set to this RestApi's name.
+
+function getMetric(
+    api: RestApi, change: cloudwatch.MetricChange,
+    moduleFunction: (change: cloudwatch.MetricChange) => cloudwatch.Metric) {
+
+    return moduleFunction({ dimensions: { ApiName: api.name } }).with(change);
+}
+
+Object.defineProperty(RestApi.prototype, "metrics", {
+    get: function (this: RestApi) {
+        const _this = this;
+        return {
+            error4XX: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.error4XX),
+            error5XX: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.error5XX),
+            cacheHitCount: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.cacheHitCount),
+            cacheMissCount: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.cacheMissCount),
+            count: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.count),
+            integrationLatency: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.integrationLatency),
+            latency: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.latency),
+        }
+    }
+});
