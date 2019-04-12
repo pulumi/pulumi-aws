@@ -16,6 +16,8 @@ import * as pulumi from "@pulumi/pulumi";
 
 import * as cloudwatch from "../cloudwatch";
 
+import { Queue } from "./queue";
+
 export module metrics {
     export type SqsMetricName =
         "ApproximateAgeOfOldestMessage" | "ApproximateNumberOfMessagesDelayed" |
@@ -174,3 +176,144 @@ export module metrics {
         return metric("SentMessageSize", { unit: "Bytes", ...change });
     }
 }
+
+declare module "./queue" {
+    interface Queue {
+        /**
+         * Direct access to create metrics for this specific [sqs.Queue].
+         */
+        metrics: {
+            /**
+             * The approximate age of the oldest non-deleted message in the queue.
+             *
+             * Note: For dead-letter queues, the value of ApproximateAgeOfOldestMessage is the longest time
+             * that a message has been in the queue.
+             *
+             * Units: Seconds
+             *
+             * Valid Statistics: Average, Minimum, Maximum, Sum, Data Samples (displays as Sample Count in
+             * the Amazon SQS console)
+             */
+            approximateAgeOfOldestMessage(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * The number of messages in the queue that are delayed and not available for reading
+             * immediately. This can happen when the queue is configured as a delay queue or when a message
+             * has been sent with a delay parameter.
+             *
+             * Units: Count
+             *
+             * Valid Statistics: Average, Minimum, Maximum, Sum, Data Samples (displays as Sample Count in
+             * the Amazon SQS console)
+             */
+            approximateNumberOfMessagesDelayed(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * The number of messages that are in flight. Messages are considered to be in flight if they
+             * have been sent to a client but have not yet been deleted or have not yet reached the end of
+             * their visibility window.
+             *
+             * Units: Count
+             *
+             * Valid Statistics: Average, Minimum, Maximum, Sum, Data Samples (displays as Sample Count in
+             * the Amazon SQS console)
+             */
+            approximateNumberOfMessagesNotVisible(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * The number of messages available for retrieval from the queue.
+             *
+             * Units: Count
+             *
+             * Valid Statistics: Average, Minimum, Maximum, Sum, Data Samples (displays as Sample Count in
+             * the Amazon SQS console)
+             */
+            approximateNumberOfMessagesVisible(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * The number of ReceiveMessage API calls that did not return a message.
+             *
+             * Units: Count
+             *
+             * Valid Statistics: Average, Minimum, Maximum, Sum, Data Samples (displays as Sample Count in
+             * the Amazon SQS console)
+             */
+            numberOfEmptyReceives(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * The number of messages deleted from the queue.
+             *
+             * Amazon SQS emits the NumberOfMessagesDeleted metric for every successful deletion operation
+             * that uses a valid receipt handle, including duplicate deletions. The following scenarios
+             * might cause the value of the NumberOfMessagesDeleted metric to be higher than expected:
+             *
+             * * Calling the DeleteMessage action on different receipt handles that belong to the same
+             *   message: If the message is not processed before the visibility timeout expires, the message
+             *   becomes available to other consumers that can process it and delete it again, increasing
+             *   the value of the NumberOfMessagesDeleted metric.
+             *
+             * * Calling the DeleteMessage action on the same receipt handle: If the message is processed
+             *   and deleted but you call the DeleteMessage action again using the same receipt handle, a
+             *   success status is returned, increasing the value of the NumberOfMessagesDeleted metric.
+             *
+             * Units: Count
+             *
+             * Valid Statistics: Average, Minimum, Maximum, Sum, Data Samples (displays as Sample Count in
+             * the Amazon SQS console)
+             */
+            numberOfMessagesDeleted(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * The number of messages returned by calls to the ReceiveMessage action.
+             */
+            numberOfMessagesReceived(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * The number of messages added to a queue.
+             *
+             * Units: Count
+             *
+             * Valid Statistics: Average, Minimum, Maximum, Sum, Data Samples (displays as Sample Count in
+             * the Amazon SQS console)
+             */
+            numberOfMessagesSent(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * The size of messages added to a queue.
+             *
+             * Units: Bytes
+             *
+             * Valid Statistics: Average, Minimum, Maximum, Sum, Data Samples (displays as Sample Count in
+             * the Amazon SQS console)
+             */
+            sentMessageSize(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+        }
+    }
+}
+
+// All instance metrics just make a normal AWS/SQS metric, except with the QueueName
+// dimension set to this Queue's name.
+
+function getMetric(
+    queue: Queue, change: cloudwatch.MetricChange,
+    moduleFunction: (change: cloudwatch.MetricChange) => cloudwatch.Metric) {
+
+    return moduleFunction({ dimensions: { QueueName: queue.name } }).with(change);
+}
+
+Object.defineProperty(Queue.prototype, "metrics", {
+    get: function (this: Queue) {
+        const _this = this;
+        return {
+            approximateAgeOfOldestMessage: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.approximateAgeOfOldestMessage),
+            approximateNumberOfMessagesDelayed: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.approximateNumberOfMessagesDelayed),
+            approximateNumberOfMessagesNotVisible: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.approximateNumberOfMessagesNotVisible),
+            approximateNumberOfMessagesVisible: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.approximateNumberOfMessagesVisible),
+            numberOfEmptyReceives: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.numberOfEmptyReceives),
+            numberOfMessagesDeleted: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.numberOfMessagesDeleted),
+            numberOfMessagesReceived: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.numberOfMessagesReceived),
+            numberOfMessagesSent: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.numberOfMessagesSent),
+            sentMessageSize: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.sentMessageSize),
+        }
+    }
+});
