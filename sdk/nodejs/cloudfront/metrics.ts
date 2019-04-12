@@ -45,6 +45,9 @@ export module metrics {
 
     /**
      * The number of requests for all HTTP methods and for both HTTP and HTTPS requests.
+     *
+     * Valid Statistics: Sum
+     * Units: None
      */
     export function requests(change: cloudwatch.MetricChange = {}) {
         return metric("Requests", { statistic: "Sum", unit: "None", ...change });
@@ -52,6 +55,9 @@ export module metrics {
 
     /**
      * The number of bytes downloaded by viewers for GET, HEAD, and OPTIONS requests.
+     *
+     * Valid Statistics: Sum
+     * Units: None
      */
     export function bytesDownloaded(change: cloudwatch.MetricChange = {}) {
         return metric("BytesDownloaded", { statistic: "Sum", unit: "None", ...change });
@@ -59,6 +65,9 @@ export module metrics {
 
     /**
      * The number of bytes uploaded to your origin with CloudFront using POST and PUT requests.
+     *
+     * Valid Statistics: Sum
+     * Units: None
      */
     export function bytesUploaded(change: cloudwatch.MetricChange = {}) {
         return metric("BytesUploaded", { statistic: "Sum", unit: "None", ...change });
@@ -66,6 +75,9 @@ export module metrics {
 
     /**
      * The percentage of all requests for which the HTTP status code is 4xx or 5xx.
+     *
+     * Valid Statistics: Average
+     * Units: Percent
      */
     export function totalErrorRate(change: cloudwatch.MetricChange = {}) {
         return metric("TotalErrorRate", { statistic: "Average", unit: "Percent", ...change });
@@ -73,6 +85,9 @@ export module metrics {
 
     /**
      * The percentage of all requests for which the HTTP status code is 4xx.
+     *
+     * Valid Statistics: Average
+     * Units: Percent
      */
     export function errorRate4xx(change: cloudwatch.MetricChange = {}) {
         return metric("4xxErrorRate", { statistic: "Average", unit: "Percent", ...change });
@@ -80,6 +95,9 @@ export module metrics {
 
     /**
      * The percentage of all requests for which the HTTP status code is 5xx.
+     *
+     * Valid Statistics: Average
+     * Units: Percent
      */
     export function errorRate5xx(change: cloudwatch.MetricChange = {}) {
         return metric("5xxErrorRate", { statistic: "Average", unit: "Percent", ...change });

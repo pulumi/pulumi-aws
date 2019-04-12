@@ -67,6 +67,10 @@ export module metrics {
 
     /**
      * The number of messages published to your Amazon SNS topics.
+     *
+     * Units: Count
+     *
+     * Valid Statistics: Sum
      */
     export function numberOfMessagesPublished(change: cloudwatch.MetricChange = {}) {
         return metric("NumberOfMessagesPublished", { statistic: "Sum", unit: "Count", ...change });
@@ -80,6 +84,10 @@ export module metrics {
      * subscription accepts a message if a.) it lacks a filter policy or b.) its filter policy
      * includes attributes that match those assigned to the message. If the subscription rejects the
      * message, the delivery attempt isn't counted for this metric.
+     *
+     * Units: Count
+     *
+     * Valid Statistics: Sum
      */
     export function numberOfNotificationsDelivered(change: cloudwatch.MetricChange = {}) {
         return metric("NumberOfNotificationsDelivered", { statistic: "Sum", unit: "Count", ...change });
@@ -95,6 +103,10 @@ export module metrics {
      * the number of attempts).
      *
      * This metric does not include messages that were rejected by subscription filter policies.
+     *
+     * Units: Count
+     *
+     * Valid Statistics: Sum, Average
      */
     export function numberOfNotificationsFailed(change: cloudwatch.MetricChange = {}) {
         return metric("NumberOfNotificationsFailed", { unit: "Count", ...change });
@@ -103,6 +115,10 @@ export module metrics {
     /**
      * The number of messages that were rejected by subscription filter policies because the
      * messages have no attributes.
+     *
+     * Units: Count
+     *
+     * Valid Statistics: Sum, Average
      */
     export function numberOfNotificationsFilteredOut_NoMessageAttributes(change: cloudwatch.MetricChange = {}) {
         return metric("NumberOfNotificationsFilteredOut-NoMessageAttributes", { unit: "Count", ...change });
@@ -112,6 +128,10 @@ export module metrics {
      * The number of messages that were rejected by subscription filter policies because the
      * messages' attributes are invalid – for example, because the attribute JSON is incorrectly
      * formatted.
+     *
+     * Units: Count
+     *
+     * Valid Statistics: Sum, Average
      */
     export function numberOfNotificationsFilteredOut_InvalidAttributes(change: cloudwatch.MetricChange = {}) {
         return metric("NumberOfNotificationsFilteredOut-InvalidAttributes", { unit: "Count", ...change });
@@ -119,6 +139,10 @@ export module metrics {
 
     /**
      * The number of database connections in use.
+     *
+     * Units: Bytes
+     *
+     * Valid Statistics: Minimum, Maximum, Average and Count
      */
     export function publishSize(change: cloudwatch.MetricChange = {}) {
         return metric("PublishSize", { unit: "Bytes", ...change });
@@ -132,6 +156,8 @@ export module metrics {
      * monthly SMS spend limit for your account. When Amazon SNS determines that sending an SMS
      * message would incur a cost that exceeds this limit, it stops publishing SMS messages within
      * minutes.
+     *
+     * Valid Statistics: Maximum
      */
     export function smsMonthToDateSpentUSD(change: cloudwatch.MetricChange = {}) {
         return metric("SMSMonthToDateSpentUSD", { statistic: "Maximum", ...change });
@@ -139,6 +165,10 @@ export module metrics {
 
     /**
      * The rate of successful SMS message deliveries.
+     *
+     * Units: Count
+     *
+     * Valid Statistics: Sum, Average, Data Samples
      */
     export function smsSuccessRate(change: cloudwatch.MetricChange = {}) {
         return metric("SMSSuccessRate", { unit: "Count", ...change });

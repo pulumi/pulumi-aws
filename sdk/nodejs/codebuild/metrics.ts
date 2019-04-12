@@ -62,6 +62,9 @@ export module metrics {
 
     /**
      * Measures the duration of the build's BUILD phase.
+     *
+     * Units:Seconds
+     * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
      */
     export function buildDuration(change: cloudwatch.MetricChange = {}) {
         return metric("BuildDuration", { statistic: "Average", unit: "Seconds", ...change });
@@ -69,6 +72,9 @@ export module metrics {
 
     /**
      * Measures the number of builds triggered.
+     *
+     * Units: Count
+     * Valid CloudWatch statistics: Sum
      */
     export function builds(change: cloudwatch.MetricChange = {}) {
         return metric("Builds", { statistic: "Sum", unit: "Count", ...change });
@@ -76,6 +82,9 @@ export module metrics {
 
     /**
      * Measures the duration of the build's DOWNLOAD_SOURCE phase.
+     *
+     * Units:Seconds
+     * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
      */
     export function downloadSourceDuration(change: cloudwatch.MetricChange = {}) {
         return metric("DownloadSourceDuration", { statistic: "Average", unit: "Seconds", ...change });
@@ -83,6 +92,9 @@ export module metrics {
 
     /**
      * Measures the duration of all builds over time.
+     *
+     * Units: Seconds
+     * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
      */
     export function duration(change: cloudwatch.MetricChange = {}) {
         return metric("Duration", { statistic: "Average", unit: "Seconds", ...change });
@@ -90,6 +102,9 @@ export module metrics {
 
     /**
      * Measures the number of builds that failed because of client error or because of a timeout.
+     *
+     * Units: Count
+     * Valid CloudWatch statistics: Sum
      */
     export function failedBuilds(change: cloudwatch.MetricChange = {}) {
         return metric("FailedBuilds", { statistic: "Sum", unit: "Count", ...change });
@@ -97,6 +112,9 @@ export module metrics {
 
     /**
      * Measures the duration of the build's FINALIZING phase.
+     *
+     * Units:Seconds
+     * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
      */
     export function finalizingDuration(change: cloudwatch.MetricChange = {}) {
         return metric("FinalizingDuration", { statistic: "Average", unit: "Seconds", ...change });
@@ -104,6 +122,9 @@ export module metrics {
 
     /**
      * Measures the duration of the build's INSTALL phase.
+     *
+     * Units:Seconds
+     * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
      */
     export function installDuration(change: cloudwatch.MetricChange = {}) {
         return metric("InstallDuration", { statistic: "Average", unit: "Seconds", ...change });
@@ -111,6 +132,9 @@ export module metrics {
 
     /**
      * Measures the duration of the build's POST_BUILD phase.
+     *
+     * Units:Seconds
+     * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
      */
     export function postBuildDuration(change: cloudwatch.MetricChange = {}) {
         return metric("PostBuildDuration", { statistic: "Average", unit: "Seconds", ...change });
@@ -118,6 +142,9 @@ export module metrics {
 
     /**
      * Measures the duration of the build's PRE_BUILD phase.
+     *
+     * Units:Seconds
+     * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
      */
     export function preBuildDuration(change: cloudwatch.MetricChange = {}) {
         return metric("PreBuildDuration", { statistic: "Average", unit: "Seconds", ...change });
@@ -125,6 +152,9 @@ export module metrics {
 
     /**
      * Measures the duration of the build's PROVISIONING phase.
+     *
+     * Units:Seconds
+     * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
      */
     export function provisioningDuration(change: cloudwatch.MetricChange = {}) {
         return metric("ProvisioningDuration", { statistic: "Average", unit: "Seconds", ...change });
@@ -132,6 +162,9 @@ export module metrics {
 
     /**
      * Measures the duration of the build's QUEUED phase.
+     *
+     * Units:Seconds
+     * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
      */
     export function queuedDuration(change: cloudwatch.MetricChange = {}) {
         return metric("QueuedDuration", { statistic: "Average", unit: "Seconds", ...change });
@@ -139,6 +172,9 @@ export module metrics {
 
     /**
      * Measures the duration of the build's SUBMITTED phase.
+     *
+     * Units:Seconds
+     * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
      */
     export function submittedDuration(change: cloudwatch.MetricChange = {}) {
         return metric("SubmittedDuration", { statistic: "Average", unit: "Seconds", ...change });
@@ -146,6 +182,9 @@ export module metrics {
 
     /**
      * Measures the number of successful builds.
+     *
+     * Units: Count
+     * Valid CloudWatch statistics: Sum
      */
     export function succeededBuilds(change: cloudwatch.MetricChange = {}) {
         return metric("SucceededBuilds", { statistic: "Sum", unit: "Count", ...change });
@@ -153,6 +192,9 @@ export module metrics {
 
     /**
      * Measures the duration of the build's UPLOAD_ARTIFACTS phase.
+     *
+     * Units:Seconds
+     * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
      */
     export function uploadArtifactsDuration(change: cloudwatch.MetricChange = {}) {
         return metric("UploadArtifactsDuration", { statistic: "Average", unit: "Seconds", ...change });

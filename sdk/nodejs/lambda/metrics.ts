@@ -54,6 +54,8 @@ export module metrics {
      * invocations, but does not include throttled attempts. This equals the billed requests for the
      * function. Note that AWS Lambda only sends these metrics to CloudWatch if they have a nonzero
      * value.
+     *
+     * Units: Count
      */
     export function invocations(change?: cloudwatch.MetricChange) {
         return metric("Invocations", { unit: "Count", ...change });
@@ -73,6 +75,8 @@ export module metrics {
      * This does not include invocations that fail due to invocation rates exceeding default
      * concurrent limits (error code 429) or failures due to internal service errors (error code
      * 500).
+     *
+     * Units: Count
      */
     export function errors(change?: cloudwatch.MetricChange) {
         return metric("Errors", { unit: "Count", ...change });
@@ -86,6 +90,8 @@ export module metrics {
      * * Throttles from downstream services
      * * Misconfigured resources
      * * Timeouts
+     *
+     * Units: Count
      */
     export function deadLetterErrors(change?: cloudwatch.MetricChange) {
         return metric("DeadLetterErrors", { unit: "Count", ...change });
@@ -97,6 +103,8 @@ export module metrics {
      * function timeout configuration. The billed duration will be rounded up to the nearest 100
      * millisecond. Note that AWS Lambda only sends these metrics to CloudWatch if they have a
      * nonzero value.
+     *
+     * Units: Count
      */
     export function duration(change?: cloudwatch.MetricChange) {
         return metric("Duration", { unit: "Milliseconds", ...change });
@@ -106,6 +114,8 @@ export module metrics {
      * Measures the number of Lambda function invocation attempts that were throttled due to
      * invocation rates exceeding the customer’s concurrent limits (error code 429). Failed
      * invocations may trigger a retry attempt that succeeds.
+     *
+     * Units: Count
      */
     export function throttles(change?: cloudwatch.MetricChange) {
         return metric("Throttles", { unit: "Count", ...change });
@@ -116,6 +126,8 @@ export module metrics {
      * or Kinesis stream). Measures the age of the last record for each batch of records processed.
      * Age is the difference between the time Lambda received the batch, and the time the last
      * record in the batch was written to the stream.
+     *
+     * Units: Milliseconds
      */
     export function iteratorAge(change?: cloudwatch.MetricChange) {
         return metric("IteratorAge", { unit: "Milliseconds", ...change });
@@ -126,6 +138,8 @@ export module metrics {
      * a custom concurrency limit specified. Not applicable for versions or aliases. Measures the
      * sum of concurrent executions for a given function at a given point in time. Must be viewed as
      * an average metric if aggregated across a time period.
+     *
+     * Units: Count
      */
     export function concurrentExecutions(change?: cloudwatch.MetricChange) {
         return metric("ConcurrentExecutions", { unit: "Count", ...change });
@@ -136,6 +150,8 @@ export module metrics {
      * functions, versions, or aliases. Represents the sum of the concurrency of the functions that
      * do not have a custom concurrency limit specified. Must be viewed as an average metric if
      * aggregated across a time period.
+     *
+     * Units: Count
      */
     export function unreservedConcurrentExecutions(change?: cloudwatch.MetricChange) {
         return metric("UnreservedConcurrentExecutions", { unit: "Count", ...change });

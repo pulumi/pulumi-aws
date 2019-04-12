@@ -101,6 +101,10 @@ export module metrics {
      * (GLACIER) storage class. This value is calculated by summing the size of all objects in the
      * bucket (both current and noncurrent objects), including the size of all parts for all
      * incomplete multipart uploads to the bucket.
+     *
+     * Units: Bytes
+     *
+     * Valid statistics: Average
      */
     export function bucketSizeBytes(change: cloudwatch.MetricChange = {}) {
         return metric("BucketSizeBytes", { unit: "Bytes", ...change });
@@ -111,6 +115,10 @@ export module metrics {
      * storage class. This value is calculated by counting all objects in the bucket (both current
      * and noncurrent objects) and the total number of parts for all incomplete multipart uploads to
      * the bucket.
+     *
+     * Units: Count
+     *
+     * Valid statistics: Average
      */
     export function numberOfObjects(change: cloudwatch.MetricChange = {}) {
         return metric("NumberOfObjects", { unit: "Count", ...change });
@@ -120,6 +128,10 @@ export module metrics {
      * The total number of HTTP requests made to an Amazon S3 bucket, regardless of type. If you're
      * using a metrics configuration with a filter, then this metric only returns the HTTP requests
      * made to the objects in the bucket that meet the filter's requirements.
+     *
+     * Units: Count
+     *
+     * Valid statistics: Sum
      */
     export function allRequests(change: cloudwatch.MetricChange = {}) {
         return metric("AllRequests", { statistic: "Sum", unit: "Count", ...change });
@@ -131,6 +143,10 @@ export module metrics {
      *
      * Note: Paginated list-oriented requests, like List Multipart Uploads, List Parts, Get Bucket
      * Object versions, and others, are not included in this metric.
+     *
+     * Units: Count
+     *
+     * Valid statistics: Sum
      */
     export function getRequests(change: cloudwatch.MetricChange = {}) {
         return metric("GetRequests", { statistic: "Sum", unit: "Count", ...change });
@@ -138,6 +154,10 @@ export module metrics {
 
     /**
      * The number of HTTP PUT requests made for objects in an Amazon S3 bucket.
+     *
+     * Units: Count
+     *
+     * Valid statistics: Sum
      */
     export function putRequests(change: cloudwatch.MetricChange = {}) {
         return metric("PutRequests", { statistic: "Sum", unit: "Count", ...change });
@@ -147,6 +167,10 @@ export module metrics {
      * The number of HTTP DELETE requests made for objects in an Amazon S3 bucket. This also
      * includes Delete Multiple Objects requests. This metric shows the number of requests, not the
      * number of objects deleted.
+     *
+     * Units: Count
+     *
+     * Valid statistics: Sum
      */
     export function deleteRequests(change: cloudwatch.MetricChange = {}) {
         return metric("DeleteRequests", { statistic: "Sum", unit: "Count", ...change });
@@ -154,6 +178,10 @@ export module metrics {
 
     /**
      * The number of HTTP HEAD requests made to an Amazon S3 bucket.
+     *
+     * Units: Count
+     *
+     * Valid statistics: Sum
      */
     export function headRequests(change: cloudwatch.MetricChange = {}) {
         return metric("HeadRequests", { statistic: "Sum", unit: "Count", ...change });
@@ -164,6 +192,10 @@ export module metrics {
      *
      * Note: Delete Multiple Objects and SELECT Object Content requests are not included in this
      * metric.
+     *
+     * Units: Count
+     *
+     * Valid statistics: Sum
      */
     export function postRequests(change: cloudwatch.MetricChange = {}) {
         return metric("PostRequests", { statistic: "Sum", unit: "Count", ...change });
@@ -172,6 +204,10 @@ export module metrics {
     /**
      * The number of Amazon S3 SELECT Object Content requests made for objects in an Amazon S3
      * bucket.
+     *
+     * Units: Count
+     *
+     * Valid statistics: Sum
      */
     export function selectRequests(change: cloudwatch.MetricChange = {}) {
         return metric("SelectRequests", { statistic: "Sum", unit: "Count", ...change });
@@ -180,6 +216,10 @@ export module metrics {
     /**
      * The number of bytes of data scanned with Amazon S3 SELECT Object Content requests in an
      * Amazon S3 bucket.
+     *
+     * Units: Bytes
+     *
+     * Valid statistics: Average (bytes per request), Sum (bytes per period), Sample Count, Min, Max
      */
     export function selectScannedBytes(change: cloudwatch.MetricChange = {}) {
         return metric("SelectScannedBytes", { unit: "Bytes", ...change });
@@ -188,6 +228,10 @@ export module metrics {
     /**
      * The number of bytes of data returned with Amazon S3 SELECT Object Content requests in an
      * Amazon S3 bucket.
+     *
+     * Units: Bytes
+     *
+     * Valid statistics: Average (bytes per request), Sum (bytes per period), Sample Count, Min, Max
      */
     export function selectReturnedBytes(change: cloudwatch.MetricChange = {}) {
         return metric("SelectReturnedBytes", { unit: "Bytes", ...change });
@@ -195,6 +239,10 @@ export module metrics {
 
     /**
      * The number of HTTP requests that list the contents of a bucket.
+     *
+     * Units: Count
+     *
+     * Valid statistics: Sum
      */
     export function listRequests(change: cloudwatch.MetricChange = {}) {
         return metric("ListRequests", { statistic: "Sum", unit: "Bytes", ...change });
@@ -203,6 +251,10 @@ export module metrics {
     /**
      * The number bytes downloaded for requests made to an Amazon S3 bucket, where the response
      * includes a body.
+     *
+     * Units: Bytes
+     *
+     * Valid statistics: Average (bytes per request), Sum (bytes per period), Sample Count, Min, Max
      */
     export function bytesDownloaded(change: cloudwatch.MetricChange = {}) {
         return metric("BytesDownloaded", { unit: "Bytes", ...change });
@@ -210,6 +262,10 @@ export module metrics {
 
     /**
      * The number bytes uploaded that contain a request body, made to an Amazon S3 bucket.
+     *
+     * Units: Bytes
+     *
+     * Valid statistics: Average (bytes per request), Sum (bytes per period), Sample Count, Min, Max
      */
     export function bytesUploaded(change: cloudwatch.MetricChange = {}) {
         return metric("BytesUploaded", { unit: "Bytes", ...change });
@@ -219,6 +275,11 @@ export module metrics {
      * he number of HTTP 4xx client error status code requests made to an Amazon S3 bucket with a
      * value of either 0 or 1. The average statistic shows the error rate, and the sum statistic
      * shows the count of that type of error, during each period.
+     *
+     * Units: Count
+     *
+     * Valid statistics: Average (reports per request), Sum (reports per period), Min, Max, Sample
+     * Count
      */
     export function errors4xx(change: cloudwatch.MetricChange = {}) {
         return metric("4xxErrors", { unit: "Count", ...change });
@@ -228,6 +289,11 @@ export module metrics {
      * The number of HTTP 5xx server error status code requests made to an Amazon S3 bucket with a
      * value of either 0 or 1. The average statistic shows the error rate, and the sum statistic
      * shows the count of that type of error, during each period.
+     *
+     * Units: Count
+     *
+     * Valid statistics: Average (reports per request), Sum (reports per period), Min, Max, Sample
+     * Count
      */
     export function errors5xx(change: cloudwatch.MetricChange = {}) {
         return metric("5xxErrors", { unit: "Count", ...change });
@@ -236,6 +302,10 @@ export module metrics {
     /**
      * The per-request time from the complete request being received by an Amazon S3 bucket to when
      * the response starts to be returned.
+     *
+     * Units: Milliseconds
+     *
+     * Valid statistics: Average, Sum, Min, Max, Sample Count
      */
     export function firstByteLatency(change: cloudwatch.MetricChange = {}) {
         return metric("FirstByteLatency", { unit: "Milliseconds", ...change });
@@ -245,6 +315,10 @@ export module metrics {
      * The elapsed per-request time from the first byte received to the last byte sent to an Amazon
      * S3 bucket. This includes the time taken to receive the request body and send the response
      * body, which is not included in FirstByteLatency.
+     *
+     * Units: Milliseconds
+     *
+     * Valid statistics: Average, Sum, Min, Max, Sample Count
      */
     export function totalRequestLatency(change: cloudwatch.MetricChange = {}) {
         return metric("TotalRequestLatency", { unit: "Milliseconds", ...change });

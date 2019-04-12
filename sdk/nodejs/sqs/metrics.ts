@@ -56,6 +56,11 @@ export module metrics {
      *
      * Note: For dead-letter queues, the value of ApproximateAgeOfOldestMessage is the longest time
      * that a message has been in the queue.
+     *
+     * Units: Seconds
+     *
+     * Valid Statistics: Average, Minimum, Maximum, Sum, Data Samples (displays as Sample Count in
+     * the Amazon SQS console)
      */
     export function approximateAgeOfOldestMessage(change: cloudwatch.MetricChange = {}) {
         return metric("ApproximateAgeOfOldestMessage", { unit: "Seconds", ...change });
@@ -65,6 +70,11 @@ export module metrics {
      * The number of messages in the queue that are delayed and not available for reading
      * immediately. This can happen when the queue is configured as a delay queue or when a message
      * has been sent with a delay parameter.
+     *
+     * Units: Count
+     *
+     * Valid Statistics: Average, Minimum, Maximum, Sum, Data Samples (displays as Sample Count in
+     * the Amazon SQS console)
      */
     export function approximateNumberOfMessagesDelayed(change: cloudwatch.MetricChange = {}) {
         return metric("ApproximateNumberOfMessagesDelayed", { unit: "Count", ...change });
@@ -74,6 +84,11 @@ export module metrics {
      * The number of messages that are in flight. Messages are considered to be in flight if they
      * have been sent to a client but have not yet been deleted or have not yet reached the end of
      * their visibility window.
+     *
+     * Units: Count
+     *
+     * Valid Statistics: Average, Minimum, Maximum, Sum, Data Samples (displays as Sample Count in
+     * the Amazon SQS console)
      */
     export function approximateNumberOfMessagesNotVisible(change: cloudwatch.MetricChange = {}) {
         return metric("ApproximateNumberOfMessagesNotVisible", { unit: "Count", ...change });
@@ -81,6 +96,11 @@ export module metrics {
 
     /**
      * The number of messages available for retrieval from the queue.
+     *
+     * Units: Count
+     *
+     * Valid Statistics: Average, Minimum, Maximum, Sum, Data Samples (displays as Sample Count in
+     * the Amazon SQS console)
      */
     export function approximateNumberOfMessagesVisible(change: cloudwatch.MetricChange = {}) {
         return metric("ApproximateNumberOfMessagesVisible", { unit: "Count", ...change });
@@ -88,6 +108,11 @@ export module metrics {
 
     /**
      * The number of ReceiveMessage API calls that did not return a message.
+     *
+     * Units: Count
+     *
+     * Valid Statistics: Average, Minimum, Maximum, Sum, Data Samples (displays as Sample Count in
+     * the Amazon SQS console)
      */
     export function numberOfEmptyReceives(change: cloudwatch.MetricChange = {}) {
         return metric("NumberOfEmptyReceives", { unit: "Count", ...change });
@@ -108,6 +133,11 @@ export module metrics {
      * * Calling the DeleteMessage action on the same receipt handle: If the message is processed
      *   and deleted but you call the DeleteMessage action again using the same receipt handle, a
      *   success status is returned, increasing the value of the NumberOfMessagesDeleted metric.
+     *
+     * Units: Count
+     *
+     * Valid Statistics: Average, Minimum, Maximum, Sum, Data Samples (displays as Sample Count in
+     * the Amazon SQS console)
      */
     export function numberOfMessagesDeleted(change: cloudwatch.MetricChange = {}) {
         return metric("NumberOfMessagesDeleted", { unit: "Count", ...change });
@@ -122,6 +152,11 @@ export module metrics {
 
     /**
      * The number of messages added to a queue.
+     *
+     * Units: Count
+     *
+     * Valid Statistics: Average, Minimum, Maximum, Sum, Data Samples (displays as Sample Count in
+     * the Amazon SQS console)
      */
     export function numberOfMessagesSent(change: cloudwatch.MetricChange = {}) {
         return metric("NumberOfMessagesSent", { unit: "Count", ...change });
@@ -129,6 +164,11 @@ export module metrics {
 
     /**
      * The size of messages added to a queue.
+     *
+     * Units: Bytes
+     *
+     * Valid Statistics: Average, Minimum, Maximum, Sum, Data Samples (displays as Sample Count in
+     * the Amazon SQS console)
      */
     export function sentMessageSize(change: cloudwatch.MetricChange = {}) {
         return metric("SentMessageSize", { unit: "Bytes", ...change });

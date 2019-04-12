@@ -53,9 +53,16 @@ export module metrics {
      * The percentage of CPU units that are reserved by running tasks in the cluster.
      *
      * Cluster CPU reservation (this metric can only be filtered by ClusterName) is measured as the
-     * total CPU units that are reserved by Amazon ECS tasks on the cluster, divided by the total CPU
-     * units that were registered for all of the container instances in the cluster. This metric is only
-     * used for tasks using the EC2 launch type.
+     * total CPU units that are reserved by Amazon ECS tasks on the cluster, divided by the total
+     * CPU units that were registered for all of the container instances in the cluster. This metric
+     * is only used for tasks using the EC2 launch type.
+     *
+     * Valid dimensions: ClusterName.
+     *
+     * Valid statistics: Average, Minimum, Maximum, Sum, Sample Count. The most useful statistic is
+     * Average.
+     *
+     * Unit: Percent.
      */
     export function cpuReservation(change: cloudwatch.MetricChange = {}) {
         return metric("CPUReservation", { unit: "Percent", ...change });
@@ -65,14 +72,22 @@ export module metrics {
      * The percentage of CPU units that are used in the cluster or service.
      *
      * Cluster CPU utilization (metrics that are filtered by ClusterName without ServiceName) is
-     * measured as the total CPU units in use by Amazon ECS tasks on the cluster, divided by the total
-     * CPU units that were registered for all of the container instances in the cluster. Cluster CPU
-     * utilization metrics are only used for tasks using the EC2 launch type.
+     * measured as the total CPU units in use by Amazon ECS tasks on the cluster, divided by the
+     * total CPU units that were registered for all of the container instances in the cluster.
+     * Cluster CPU utilization metrics are only used for tasks using the EC2 launch type.
      *
-     * Service CPU utilization (metrics that are filtered by ClusterName and ServiceName) is measured as
-     * the total CPU units in use by the tasks that belong to the service, divided by the total number
-     * of CPU units that are reserved for the tasks that belong to the service. Service CPU utilization
-     * metrics are used for tasks using both the Fargate and the EC2 launch type.
+     * Service CPU utilization (metrics that are filtered by ClusterName and ServiceName) is
+     * measured as the total CPU units in use by the tasks that belong to the service, divided by
+     * the total number of CPU units that are reserved for the tasks that belong to the service.
+     * Service CPU utilization metrics are used for tasks using both the Fargate and the EC2 launch
+     * type.
+     *
+     * Valid dimensions: ClusterName, ServiceName.
+     *
+     * Valid statistics: Average, Minimum, Maximum, Sum, Sample Count. The most useful statistic is
+     * Average.
+     *
+     * Unit: Percent.
      */
     export function cpuUtilization(change: cloudwatch.MetricChange = {}) {
         return metric("CPUUtilization", { unit: "Percent", ...change });
@@ -81,10 +96,17 @@ export module metrics {
     /**
      * The percentage of memory that is reserved by running tasks in the cluster.
      *
-     * Cluster memory reservation (this metric can only be filtered by ClusterName) is measured as the
-     * total memory that is reserved by Amazon ECS tasks on the cluster, divided by the total amount of
-     * memory that was registered for all of the container instances in the cluster. This metric is only
-     * used for tasks using the EC2 launch type.
+     * Cluster memory reservation (this metric can only be filtered by ClusterName) is measured as
+     * the total memory that is reserved by Amazon ECS tasks on the cluster, divided by the total
+     * amount of memory that was registered for all of the container instances in the cluster. This
+     * metric is only used for tasks using the EC2 launch type.
+     *
+     * Valid dimensions: ClusterName.
+     *
+     * Valid statistics: Average, Minimum, Maximum, Sum, Sample Count. The most useful statistic is
+     * Average.
+     *
+     * Unit: Percent.
      */
     export function memoryReservation(change: cloudwatch.MetricChange = {}) {
         return metric("MemoryReservation", { unit: "Percent", ...change });
@@ -95,13 +117,20 @@ export module metrics {
      *
      * Cluster memory utilization (metrics that are filtered by ClusterName without ServiceName) is
      * measured as the total memory in use by Amazon ECS tasks on the cluster, divided by the total
-     * amount of memory that was registered for all of the container instances in the cluster. Cluster
-     * memory utilization metrics are only used for tasks using the EC2 launch type.
+     * amount of memory that was registered for all of the container instances in the cluster.
+     * Cluster memory utilization metrics are only used for tasks using the EC2 launch type.
      *
-     * Service memory utilization (metrics that are filtered by ClusterName and ServiceName) is measured
-     * as the total memory in use by the tasks that belong to the service, divided by the total memory
-     * that is reserved for the tasks that belong to the service. Service memory utilization metrics are
-     * used for tasks using both the Fargate and EC2 launch types.
+     * Service memory utilization (metrics that are filtered by ClusterName and ServiceName) is
+     * measured as the total memory in use by the tasks that belong to the service, divided by the
+     * total memory that is reserved for the tasks that belong to the service. Service memory
+     * utilization metrics are used for tasks using both the Fargate and EC2 launch types.
+     *
+     * Valid dimensions: ClusterName, ServiceName.
+     *
+     * Valid statistics: Average, Minimum, Maximum, Sum, Sample Count. The most useful statistic is
+     * Average.
+     *
+     * Unit: Percent.
      */
     export function memoryUtilization(change: cloudwatch.MetricChange = {}) {
         return metric("MemoryUtilization", { unit: "Percent", ...change });
@@ -113,6 +142,13 @@ export module metrics {
      * Cluster GPU reservation is measured as the number of GPUs reserved by Amazon ECS tasks on the
      * cluster, divided by the total number of GPUs that was available on all of the GPU-enabled
      * container instances in the cluster.
+     *
+     * Valid dimensions: ClusterName.
+     *
+     * Valid statistics: Average, Minimum, Maximum, Sum, Sample Count. The most useful statistic is
+     * Average.
+     *
+     * Unit: Percent.
      */
     export function gpuReservation(change: cloudwatch.MetricChange = {}) {
         return metric("GPUReservation", { unit: "Percent", ...change });
