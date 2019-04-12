@@ -27,7 +27,7 @@ export module metrics {
      * Note, individual metrics can easily be obtained without supplying the name using the other
      * [metricXXX] functions.
      */
-    export function metric(metricName: AcmpcaMetricName, change: cloudwatch.MetricChange = {}) {
+    function metric(metricName: AcmpcaMetricName, change: cloudwatch.MetricChange = {}) {
         return new cloudwatch.Metric({
             namespace: "AWS/ACMPrivateCA",
             name: metricName,

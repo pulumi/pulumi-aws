@@ -45,7 +45,7 @@ export module metrics {
      *
      * The only dimension that Amazon SQS sends to CloudWatch is "QueueName"
      */
-    export function metric(metricName: SqsMetricName, change: cloudwatch.MetricChange = {}) {
+    function metric(metricName: SqsMetricName, change: cloudwatch.MetricChange = {}) {
         return new cloudwatch.Metric({
             namespace: "AWS/SQS",
             name: metricName,
@@ -294,26 +294,14 @@ declare module "./queue" {
 // All instance metrics just make a normal AWS/SQS metric, except with the QueueName
 // dimension set to this Queue's name.
 
-function getMetric(
-    queue: Queue, change: cloudwatch.MetricChange,
-    moduleFunction: (change: cloudwatch.MetricChange) => cloudwatch.Metric) {
-
-    return moduleFunction({ dimensions: { QueueName: queue.name } }).with(change);
-}
-
 Object.defineProperty(Queue.prototype, "metrics", {
     get: function (this: Queue) {
-        const _this = this;
-        return {
-            approximateAgeOfOldestMessage: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.approximateAgeOfOldestMessage),
-            approximateNumberOfMessagesDelayed: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.approximateNumberOfMessagesDelayed),
-            approximateNumberOfMessagesNotVisible: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.approximateNumberOfMessagesNotVisible),
-            approximateNumberOfMessagesVisible: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.approximateNumberOfMessagesVisible),
-            numberOfEmptyReceives: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.numberOfEmptyReceives),
-            numberOfMessagesDeleted: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.numberOfMessagesDeleted),
-            numberOfMessagesReceived: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.numberOfMessagesReceived),
-            numberOfMessagesSent: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.numberOfMessagesSent),
-            sentMessageSize: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.sentMessageSize),
+        const dimensions = { dimensions: { QueueName: this.name } };
+
+        const result = {};
+        for (const name in metrics) {
+            result[name] = (change: cloudwatch.MetricChange) => metrics[name](dimensions).with(change);
         }
+        return result;
     }
 });

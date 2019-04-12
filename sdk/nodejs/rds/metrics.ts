@@ -57,7 +57,7 @@ export module metrics {
      * 6. "SourceRegion": This dimension filters the data you request for the specified region only. For
      *    example, you can aggregate metrics for all instances in the region us-east-1.
      */
-    export function metric(metricName: RdsMetricName, change: cloudwatch.MetricChange = {}) {
+    function metric(metricName: RdsMetricName, change: cloudwatch.MetricChange = {}) {
         return new cloudwatch.Metric({
             namespace: "AWS/RDS",
             name: metricName,

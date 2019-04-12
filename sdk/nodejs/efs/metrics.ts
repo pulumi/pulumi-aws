@@ -40,7 +40,7 @@ export module metrics {
      * "FileSystemId". A file system's ID can be found in the Amazon EFS management console, and it
      * takes the form of fs-XXXXXXXX.
      */
-    export function metric(metricName: EfsMetricName, change: cloudwatch.MetricChange = {}) {
+    function metric(metricName: EfsMetricName, change: cloudwatch.MetricChange = {}) {
         return new cloudwatch.Metric({
             namespace: "AWS/EFS",
             name: metricName,

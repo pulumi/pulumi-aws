@@ -35,7 +35,7 @@ export module metrics {
      *    Region dimension is different from the region in which CloudFront metrics are stored, which is
      *    US East (N. Virginia).
      */
-    export function metric(metricName: CloudfrontMetricName, change: cloudwatch.MetricChange = {} = {}) {
+    function metric(metricName: CloudfrontMetricName, change: cloudwatch.MetricChange = {} = {}) {
         return new cloudwatch.Metric({
             namespace: "AWS/ApiGateway",
             name: metricName,

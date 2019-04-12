@@ -53,7 +53,7 @@ export module metrics {
      * 5. "TableName": This dimension limits the data to a specific table. This value can be any table
      *    name in the current region and the current AWS account.
      */
-    export function metric(metricName: DynamodbMetricName, change: cloudwatch.MetricChange = {}) {
+    function metric(metricName: DynamodbMetricName, change: cloudwatch.MetricChange = {}) {
         return new cloudwatch.Metric({
             namespace: "AWS/DynamoDB",
             name: metricName,
@@ -955,36 +955,13 @@ declare module "./table" {
 // All instance metrics just make a normal AWS/DynamoDB metric, except with the TableName
 // dimension set to this Table's name.
 
-function getMetric(
-    table: Table, change: cloudwatch.MetricChange,
-    moduleFunction: (change: cloudwatch.MetricChange) => cloudwatch.Metric) {
-
-    return moduleFunction({ dimensions: { TableName: table.name } }).with(change);
-}
-
 Object.defineProperty(Table.prototype, "metrics", {
     get: function (this: Table) {
-        const _this = this;
-        return {
-            conditionalCheckFailedRequests: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.conditionalCheckFailedRequests),
-            consumedReadCapacityUnits: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.consumedReadCapacityUnits),
-            consumedWriteCapacityUnits: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.consumedWriteCapacityUnits),
-            onlineIndexConsumedWriteCapacity: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.onlineIndexConsumedWriteCapacity),
-            onlineIndexPercentageProgress: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.onlineIndexPercentageProgress),
-            onlineIndexThrottleEvents: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.onlineIndexThrottleEvents),
-            pendingReplicationCount: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.pendingReplicationCount),
-            provisionedReadCapacityUnits: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.provisionedReadCapacityUnits),
-            provisionedWriteCapacityUnits: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.provisionedWriteCapacityUnits),
-            readThrottleEvents: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.readThrottleEvents),
-            replicationLatency: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.replicationLatency),
-            returnedBytes: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.returnedBytes),
-            returnedItemCount: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.returnedItemCount),
-            returnedRecordsCount: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.returnedRecordsCount),
-            successfulRequestLatency: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.successfulRequestLatency),
-            systemErrors: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.systemErrors),
-            timeToLiveDeletedItemCount: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.timeToLiveDeletedItemCount),
-            throttledRequests: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.throttledRequests),
-            writeThrottleEvents: (change: cloudwatch.MetricChange) => getMetric(_this, change, metrics.writeThrottleEvents),
+        const dimensions = { dimensions: { TableName: this.name } };
+        const result = {};
+        for (const name in metrics) {
+            result[name] = (change: cloudwatch.MetricChange) => metrics[name](dimensions).with(change);
         }
+        return result;
     }
 });
