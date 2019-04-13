@@ -15,6 +15,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as cloudwatch from "../cloudwatch";
 
+import { Project } from "./project";
+
 export module metrics {
     export type CodebuildMetricName =
         "BuildDuration" | "Builds" | "DownloadSourceDuration" | "Duration" |
@@ -199,5 +201,139 @@ export module metrics {
     export function uploadArtifactsDuration(change: cloudwatch.MetricChange = {}) {
         return metric("UploadArtifactsDuration", { statistic: "Average", unit: "Seconds", ...change });
     }
-
 }
+
+declare module "./project" {
+    interface Project {
+        /**
+         * Direct access to create metrics for this specific [codebuild.Project].
+         */
+        metrics: {
+            /**
+             * Measures the duration of the build's BUILD phase.
+             *
+             * Units:Seconds
+             * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
+             */
+            buildDuration(change?: cloudwatch.MetricChange): cloudwatch.MetricChange;
+
+            /**
+             * Measures the number of builds triggered.
+             *
+             * Units: Count
+             * Valid CloudWatch statistics: Sum
+             */
+            builds(change?: cloudwatch.MetricChange): cloudwatch.MetricChange;
+
+            /**
+             * Measures the duration of the build's DOWNLOAD_SOURCE phase.
+             *
+             * Units:Seconds
+             * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
+             */
+            downloadSourceDuration(change?: cloudwatch.MetricChange): cloudwatch.MetricChange;
+
+            /**
+             * Measures the duration of all builds over time.
+             *
+             * Units: Seconds
+             * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
+             */
+            duration(change?: cloudwatch.MetricChange): cloudwatch.MetricChange;
+
+            /**
+             * Measures the number of builds that failed because of client error or because of a timeout.
+             *
+             * Units: Count
+             * Valid CloudWatch statistics: Sum
+             */
+            failedBuilds(change?: cloudwatch.MetricChange): cloudwatch.MetricChange;
+
+            /**
+             * Measures the duration of the build's FINALIZING phase.
+             *
+             * Units:Seconds
+             * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
+             */
+            finalizingDuration(change?: cloudwatch.MetricChange): cloudwatch.MetricChange;
+
+            /**
+             * Measures the duration of the build's INSTALL phase.
+             *
+             * Units:Seconds
+             * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
+             */
+            installDuration(change?: cloudwatch.MetricChange): cloudwatch.MetricChange;
+
+            /**
+             * Measures the duration of the build's POST_BUILD phase.
+             *
+             * Units:Seconds
+             * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
+             */
+            postBuildDuration(change?: cloudwatch.MetricChange): cloudwatch.MetricChange;
+
+            /**
+             * Measures the duration of the build's PRE_BUILD phase.
+             *
+             * Units:Seconds
+             * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
+             */
+            preBuildDuration(change?: cloudwatch.MetricChange): cloudwatch.MetricChange;
+
+            /**
+             * Measures the duration of the build's PROVISIONING phase.
+             *
+             * Units:Seconds
+             * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
+             */
+            provisioningDuration(change?: cloudwatch.MetricChange): cloudwatch.MetricChange;
+
+            /**
+             * Measures the duration of the build's QUEUED phase.
+             *
+             * Units:Seconds
+             * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
+             */
+            queuedDuration(change?: cloudwatch.MetricChange): cloudwatch.MetricChange;
+
+            /**
+             * Measures the duration of the build's SUBMITTED phase.
+             *
+             * Units:Seconds
+             * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
+             */
+            submittedDuration(change?: cloudwatch.MetricChange): cloudwatch.MetricChange;
+
+            /**
+             * Measures the number of successful builds.
+             *
+             * Units: Count
+             * Valid CloudWatch statistics: Sum
+             */
+            succeededBuilds(change?: cloudwatch.MetricChange): cloudwatch.MetricChange;
+
+            /**
+             * Measures the duration of the build's UPLOAD_ARTIFACTS phase.
+             *
+             * Units:Seconds
+             * Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
+             */
+            uploadArtifactsDuration(change?: cloudwatch.MetricChange): cloudwatch.MetricChange;
+        }
+    }
+}
+
+// All instance metrics just make a normal AWS/CodeBuild metric, except with the ProjectName set
+// appropriately.
+
+Object.defineProperty(Project.prototype, "metrics", {
+    get: function (this: Project) {
+        const dimensions = { dimensions: { ProjectName: this.name } };
+        const result = {};
+        for (const name in metrics) {
+            result[name] = (change: cloudwatch.MetricChange) => metrics[name](dimensions).with(change);
+        }
+        return result;
+    }
+});
