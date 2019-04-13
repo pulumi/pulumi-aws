@@ -17,6 +17,7 @@ import { Metric, MetricChange } from "./metric";
 
 import { EventRule } from "./eventRule";
 import { LogGroup } from "./logGroup";
+import { LogSubscriptionFilter } from "./logSubscriptionFilter";
 
 export module metrics {
     export module events {
@@ -274,7 +275,7 @@ declare module "./eventRule" {
 }
 
 // All instance metrics just make a normal AWS/Events metric, except with the RuleName set
-// correctly.
+// appropriately.
 
 Object.defineProperty(EventRule.prototype, "metrics", {
     get: function (this: EventRule) {
@@ -354,11 +355,72 @@ declare module "./logGroup" {
 }
 
 // All instance metrics just make a normal AWS/Logs metric, except with the LogGroupName set
-// appropriate.
+// appropriately.
 
 Object.defineProperty(LogGroup.prototype, "metrics", {
     get: function (this: LogGroup) {
         const dimensions = { dimensions: { LogGroupName: this.name } };
+        const result = {};
+        for (const name in metrics.logs) {
+            result[name] = (change: MetricChange) => metrics.logs[name](dimensions).with(change);
+        }
+        return result;
+    }
+});
+
+declare module "./logSubscriptionFilter" {
+    interface LogSubscriptionFilter {
+        /**
+         * Direct access to create metrics for this specific [cloudwatch.LogSubscriptionFilter].
+         */
+        metrics: {
+            /**
+             * The volume of log events in compressed bytes forwarded to the subscription destination.
+             *
+             * Additional Dimensions: LogGroupName, DestinationType
+             * Valid Statistic: Sum
+             * Units: Bytes
+             */
+            forwardedBytes(change?: MetricChange): Metric;
+
+            /**
+             * The number of log events forwarded to the subscription destination.
+             *
+             * Additional Dimensions: LogGroupName, DestinationType
+             * Valid Statistic: Sum
+             * Units: None
+             */
+            forwardedLogEvents(change?: MetricChange): Metric;
+
+            /**
+             * The number of log events for which CloudWatch Logs received an error when forwarding data to the
+             * subscription destination.
+             *
+             * Additional Dimensions: LogGroupName, DestinationType
+             * Valid Statistic: Sum
+             * Units: None
+             */
+            deliveryErrors(change?: MetricChange): Metric;
+
+            /**
+             * The number of log events for which CloudWatch Logs was throttled when forwarding data to the
+             * subscription destination.
+             *
+             * Additional Dimensions: LogGroupName, DestinationType
+             * Valid Statistic: Sum
+             * Units: None
+             */
+            deliveryThrottling(change?: MetricChange): Metric;
+        }
+    }
+}
+
+// All instance metrics just make a normal AWS/Logs metric, except with the FilterName set
+// appropriately.
+
+Object.defineProperty(LogSubscriptionFilter.prototype, "metrics", {
+    get: function (this: LogSubscriptionFilter) {
+        const dimensions = { dimensions: { FilterName: this.name } };
         const result = {};
         for (const name in metrics.logs) {
             result[name] = (change: MetricChange) => metrics.logs[name](dimensions).with(change);
