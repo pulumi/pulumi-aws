@@ -15,6 +15,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as cloudwatch from "../cloudwatch";
 
+import { UserPool } from "./userPool";
+
 export module metrics {
     export type CognitoMetricName =
         "CompromisedCredentialsRisk" | "AccountTakeOverRisk" | "OverrideBlock" | "Risk" | "NoRisk";
@@ -74,3 +76,41 @@ export module metrics {
         return metric("NoRisk", change);
     }
 }
+
+declare module "./userPool" {
+    interface UserPool {
+        /**
+         * Direct access to create metrics for this specific [cognito.UserPool].
+         */
+        metrics: {
+            /**
+             * Requests where Amazon Cognito detected compromised credentials.
+             */
+            compromisedCredentialsRisk(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * Requests that Amazon Cognito marked as risky.
+             */
+            risk(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * Requests where Amazon Cognito did not identify any risk.
+             */
+            noRisk(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+        }
+    }
+}
+
+// All instance metrics just make a normal AWS/Cognito metric, except with the UserPoolId set
+// correctly.
+
+Object.defineProperty(UserPool.prototype, "metrics", {
+    get: function (this: UserPool) {
+        const dimensions = { dimensions: { UserPoolId: this.id } };
+        const result = {};
+        for (const name in metrics) {
+            result[name] = (change: cloudwatch.MetricChange) => metrics[name](dimensions).with(change);
+        }
+        return result;
+    }
+});
