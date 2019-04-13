@@ -15,6 +15,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as cloudwatch from "../cloudwatch";
 
+import { Distribution } from "./distribution";
+
 export module metrics {
     export type CloudfrontMetricName =
         "Requests" | "BytesDownloaded" | "BytesUploaded" | "TotalErrorRate" |
@@ -37,7 +39,7 @@ export module metrics {
      */
     function metric(metricName: CloudfrontMetricName, change: cloudwatch.MetricChange = {} = {}) {
         return new cloudwatch.Metric({
-            namespace: "AWS/ApiGateway",
+            namespace: "AWS/CloudFront",
             name: metricName,
             ...change,
         });
@@ -103,3 +105,74 @@ export module metrics {
         return metric("5xxErrorRate", { statistic: "Average", unit: "Percent", ...change });
     }
 }
+
+declare module "./distribution" {
+    interface Distribution {
+        /**
+         * Direct access to create metrics for this specific [cloudfront.Distribution].
+         */
+        metrics: {
+            /**
+             * The number of requests for all HTTP methods and for both HTTP and HTTPS requests.
+             *
+             * Valid Statistics: Sum
+             * Units: None
+             */
+            requests(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * The number of bytes downloaded by viewers for GET, HEAD, and OPTIONS requests.
+             *
+             * Valid Statistics: Sum
+             * Units: None
+             */
+            bytesDownloaded(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * The number of bytes uploaded to your origin with CloudFront using POST and PUT requests.
+             *
+             * Valid Statistics: Sum
+             * Units: None
+             */
+            bytesUploaded(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * The percentage of all requests for which the HTTP status code is 4xx or 5xx.
+             *
+             * Valid Statistics: Average
+             * Units: Percent
+             */
+            totalErrorRate(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * The percentage of all requests for which the HTTP status code is 4xx.
+             *
+             * Valid Statistics: Average
+             * Units: Percent
+             */
+            errorRate4xx(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+
+            /**
+             * The percentage of all requests for which the HTTP status code is 5xx.
+             *
+             * Valid Statistics: Average
+             * Units: Percent
+             */
+            errorRate5xx(change?: cloudwatch.MetricChange): cloudwatch.Metric;
+        }
+    }
+}
+
+// All instance metrics just make a normal AWS/CloudFront metric, except with the DistributionId
+// dimension set to this Distribution's id.
+
+Object.defineProperty(Distribution.prototype, "metrics", {
+    get: function (this: Distribution) {
+        const dimensions = { dimensions: { DistributionId: this.id } };
+        const result = {};
+        for (const name in metrics) {
+            result[name] = (change: cloudwatch.MetricChange) => metrics[name](dimensions).with(change);
+        }
+        return result;
+    }
+});
