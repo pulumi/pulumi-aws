@@ -62,7 +62,7 @@ const restApi = new aws.apigateway.RestApi("MyDemoAPI", {
     description: "This is my API for demonstration purposes",
   });
 
-const restApiMetric = restApi.metrics.erro5XX();
+const restApiMetric = restApi.metrics.error5XX();
 const restApiAlarm = restApiMetric.createAlarm("alarm" + alarmIndex++, { threshold: 50, evaluationPeriods: 2 });
 
 const table = new aws.dynamodb.Table("testtable", {
