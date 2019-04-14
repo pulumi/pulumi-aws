@@ -293,23 +293,62 @@ interface TextWidgetJson extends WidgetJson {
     properties: { markdown: string };
 }
 
+/**
+ * Base type for widgets that display data from a set of [Metric]s.
+ */
+export abstract class MetricWidget extends Widget {
+
+}
+
+/**
+ * Displays a set of metrics as a graph.
+ */
+export abstract class TimeSeriesMetricWidget extends MetricWidget {
+
+}
+
+/**
+ * Displays a set of metrics as a number.
+ */
+export abstract class SingleValueMetricWidget extends MetricWidget {
+
+}
+
+export class AlarmWidget extends TimeSeriesMetricWidget {
+
+}
+
+export interface MetricWidgetArgs {
+    
+}
+
 interface MetricWidgetJson extends WidgetJson {
     type: "metric";
-    properties: {
-        metrics: MetricJson[] | undefined,
-        annotations: {
-            alarms: pulumi.Input<string>[] | undefined,
-            horizontal: HorizontalAnnotationJsonBase[] | undefined,
-            vertical: VerticalAnnotationJsonBase[] | undefined,
-        } | undefined;
-        title: string | undefined;
-        period: number | undefined;
-        region: string;
-        stat: string;
-        view: "timeSeries" | "singleValue" | undefined;
-        stacked: boolean | undefined;
-        yAxis: yAxisJson | undefined;
-    };
+    properties: MetricWidgetPropertiesJson;
+}
+
+interface MetricWidgetPropertiesJson {
+    metrics: MetricJson[] | undefined,
+    annotations: {
+        alarms: pulumi.Input<string>[] | undefined,
+        horizontal: HorizontalAnnotationJsonBase[] | undefined,
+        vertical: VerticalAnnotationJsonBase[] | undefined,
+    } | undefined;
+    title: string | undefined;
+    period: number | undefined;
+    region: string;
+    stat: string;
+    view: "timeSeries" | "singleValue" | undefined;
+    stacked: boolean | undefined;
+    yAxis: yAxisJson | undefined;
+}
+
+interface TimeSeriesMetricWidgetPropertiesJson extends MetricWidgetPropertiesJson {
+    view: "timeSeries";
+}
+
+interface TimeSeriesMetricWidgetJson extends MetricWidgetJson {
+    properties: TimeSeriesMetricWidgetPropertiesJson;
 }
 
 type MetricJson = SingleMetricJson | ExpressionMetricJson;
@@ -353,8 +392,4 @@ interface VerticalAnnotationJson extends VerticalAnnotationJsonBase {
 interface yAxisJson {
     left:  { min: number | undefined, max: number | undefined } | undefined;
     right: { min: number | undefined, max: number | undefined } | undefined;
-}
-
-interface AlarmWidgetJson extends MetricWidgetJson {
-
 }
