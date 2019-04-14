@@ -1899,10 +1899,15 @@ func Provider() tfbridge.ProviderInfo {
 					"cloudwatch": {
 						DestFiles: []string{
 							"cloudwatchMixins.ts",
+							"dashboardMixins.ts",
 							"eventRuleMixins.ts",
 							"logGroupMixins.ts",
 							"metric.ts",
 							"metrics.ts",
+							"widgets.ts",
+							"widgetJson.ts",
+							"flowWidgets.ts",
+							"simpleWidgets.ts",
 						},
 					},
 					"codebuild": {
