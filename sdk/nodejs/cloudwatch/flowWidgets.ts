@@ -89,11 +89,9 @@ export abstract class FlowWidget extends Widget {
     }
 
     /**
-     * Gets the dimensions of all the Widgets in this sequence.  `x`, `width` and `height` will all
-     * be correct.  `y` will be relative the position of this vertical point of this sequence in the
-     * [Dashboard] grid. In other words, the first widget will be at the [x,y] point [0,0].  This
-     * `x` grid coordinate is correct in the final [Dashboard].  But the `y` coordinate will have to
-     * be adjusted accordingly.
+     * Determines the relative positions of all the child widgets in this [FlowWidget]. 'Relative
+     * Position' tells us where the widget should be placed relative to the upper-left point of this
+     * FlowWidget.
      */
     protected getWidgetRelativePositions(): Map<Widget, WidgetRelativePosition> {
         if (!this._widgetToRelativePosition) {
