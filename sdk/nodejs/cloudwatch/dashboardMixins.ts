@@ -58,9 +58,9 @@ export interface DashboardGrid {
  * Each [Widget] in the [Dashboard] have a specific width/height in terms of grid units.
  */
 export class DashboardBody {
-    public readonly start: string | undefined;
-    public readonly end: string | undefined;
-    public readonly periodOverride: "auto" | "inherit" | undefined;
+    public readonly start: pulumi.Output<string | undefined>;
+    public readonly end: pulumi.Output<string | undefined>;
+    public readonly periodOverride: pulumi.Output<"auto" | "inherit" | undefined>;
 
     private readonly rows: RowWidget[] = [];
 
@@ -70,9 +70,9 @@ export class DashboardBody {
      * be treated as a single row to add to the grid.
      */
     constructor(args: DashboardBodyArgs = {}) {
-        this.start = args.start;
-        this.end = args.end;
-        this.periodOverride = args.periodOverride;
+        this.start = pulumi.output(args.start);
+        this.end = pulumi.output(args.end);
+        this.periodOverride = pulumi.output(args.periodOverride);
 
         const widgets = args.widgets || [];
         if (widgets.length > 0) {
@@ -128,12 +128,14 @@ export class DashboardBody {
         const widgetJsons: WidgetJson[] = [];
         new ColumnWidget(...this.rows).addWidgetJsons(widgetJsons, /*xOffset:*/ 0, /*yOffset:*/0);
 
-        return pulumi.output({
+        const op = pulumi.output({
             start: this.start,
             end: this.end,
             periodOverride: this.periodOverride,
             widgets: widgetJsons,
         });
+
+        return op;
     }
 }
 
@@ -144,7 +146,7 @@ export interface DashboardBodyArgs {
      * values, specify an absolute time in the ISO 8601 format. For example,
      * 2018-12-17T06:00:00.000Z.
      */
-    end?: string;
+    end?: pulumi.Input<string>;
 
     /**
      * The start of the time range to use for each widget on the dashboard.
@@ -160,7 +162,7 @@ export interface DashboardBodyArgs {
      *
      * If you omit start, the dashboard shows the default time range when it loads.
     */
-    start?: string;
+    start?: pulumi.Input<string>;
 
     /**
      * Use this field to specify the period for the graphs when the dashboard loads. Specifying auto
@@ -168,7 +170,7 @@ export interface DashboardBodyArgs {
      * the dashboard. Specifying inherit ensures that the period set for each graph is always
      * obeyed.
      */
-    periodOverride?: "auto" | "inherit";
+    periodOverride?: pulumi.Input<"auto" | "inherit">;
 
     /**
      * Widgets to initially add to the [DashboardBody].  If any of these are [RowWidgets] this will

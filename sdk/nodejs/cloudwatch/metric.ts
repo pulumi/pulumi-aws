@@ -135,6 +135,7 @@ export class Metric extends WidgetMetric {
      */
     constructor(args: MetricArgs, resource?: pulumi.Resource) {
         super();
+
         this.resource = resource;
         this.name = pulumi.output(args.name);
         this.dimensions = pulumi.output(args.dimensions);
