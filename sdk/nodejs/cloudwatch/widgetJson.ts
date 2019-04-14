@@ -16,6 +16,10 @@ import * as pulumi from "@pulumi/pulumi";
 
 import { YAxis } from "./simpleWidgets";
 
+// All the typings for the json blob we need to create for Dashboard.dashboardBody. We'll convert
+// the right in-memory auto-laid-out system we have into these.  These typings are purely so we do
+// the json conversion properly as it's very easy to screw up if using things like the 'any' type.
+
 export interface WidgetJson {
     type: pulumi.Input<"metric" | "text">;
     x: pulumi.Input<number>;
