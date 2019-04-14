@@ -52,7 +52,7 @@ export abstract class SimpleWidget extends Widget {
     protected abstract computeProperties(): wjson.WidgetJson["properties"];
 
     /** @internal */
-    public addWidgetJsons(widgetJsons: wjson.WidgetJson[], xOffset: number, yOffset: number) {
+    public addWidgetJson(widgetJsons: wjson.WidgetJson[], xOffset: number, yOffset: number) {
         widgetJsons.push({
             x: xOffset,
             y: yOffset,
@@ -149,7 +149,7 @@ export abstract class MetricWidget extends SimpleWidget {
         if (this.metricArgs.annotations.length > 0) {
             annotations = {};
             for (const annotation of this.metricArgs.annotations) {
-                annotation.addWidgetJsons(annotations);
+                annotation.addWidgetJson(annotations);
             }
         }
 
@@ -157,7 +157,7 @@ export abstract class MetricWidget extends SimpleWidget {
         if (this.metricArgs.metrics.length > 0) {
             metrics = [];
             for (const metric of this.metricArgs.metrics) {
-                metric.addWidgetJsons(metrics);
+                metric.addWidgetJson(metrics);
             }
         }
 
@@ -276,6 +276,9 @@ export interface MetricWidgetArgs extends SimpleWidgetArgs {
      *
      * An alarm annotation is required only when metrics is not specified. A horizontal or vertical
      * annotation is not required.
+     *
+     * Instances of this interface include [aws.cloudwatch.Alarm], [HorizontalAnnotation] and
+     * [VerticalAnnotation].
      */
     annotations?: WidgetAnnotation[];
 
@@ -303,9 +306,9 @@ export interface GraphMetricWidgetArgs extends MetricWidgetArgs {
  * See [ExpressionWidgetMetric] and [Metric] to create instances that can be added to
  * [MetricWidgetArgs.metrics].
  */
-export abstract class WidgetMetric {
-    /** @internal */
-    abstract addWidgetJsons(metrics: wjson.MetricJson[]): void;
+export interface WidgetMetric {
+    /** For internal use only. Only intended to be called by [MetricWidget]. */
+    addWidgetJson(metrics: wjson.MetricJson[]): void;
 }
 
 /**
@@ -326,7 +329,7 @@ export class ExpressionWidgetMetric implements WidgetMetric {
                 private readonly id?: pulumi.Input<string>) {
     }
 
-    addWidgetJsons(metrics: wjson.MetricJson[]): void {
+    addWidgetJson(metrics: wjson.MetricJson[]): void {
         const json: wjson.ExpressionMetricJson = [{
             expression: this.expression,
             label: this.label,
@@ -337,23 +340,14 @@ export class ExpressionWidgetMetric implements WidgetMetric {
     }
 }
 
-export abstract class WidgetAnnotation {
-    /** @internal */
-    public abstract addWidgetJsons(annotations: wjson.MetricWidgetAnnotationsJson);
-}
-
-export class AlarmAnnotation extends WidgetAnnotation {
-    constructor(private readonly alarmArn: pulumi.Input<string>) {
-        super();
-    }
-
-    public addWidgetJsons(annotations: wjson.MetricWidgetAnnotationsJson) {
-        if (annotations.alarms && annotations.alarms.length >= 1) {
-            throw new Error("Widget can only have a maximum of one alarm annotation.");
-        }
-
-        annotations.alarms = [this.alarmArn];
-    }
+/**
+ * Base interface for values that can be placed inside [MetricWidgetArgs.annotations].
+ * Instances of this interface include [aws.cloudwatch.Alarm], [HorizontalAnnotation] and
+ * [VerticalAnnotation].
+ */
+export interface WidgetAnnotation {
+    /** For internal use only. Only intended to be called by [MetricWidget]. */
+    addWidgetJson(annotations: wjson.MetricWidgetAnnotationsJson);
 }
 
 /**
@@ -361,15 +355,15 @@ export class AlarmAnnotation extends WidgetAnnotation {
  * annotation line, shading below the annotation line, and "band" shading that appears between two
  * linked annotation lines as part of a single band annotation
  */
-export class HorizontalAnnotation extends WidgetAnnotation {
+export class HorizontalAnnotation implements WidgetAnnotation {
     constructor(private readonly args: HorizontalAnnotationArgs) {
-        super();
         if (args.fill && args.lowerEdge) {
             throw new Error(`[args.fill] should not be provided if [args.lowerEdge] is provided.`);
         }
     }
 
-    public addWidgetJsons(annotations: wjson.MetricWidgetAnnotationsJson) {
+    /** @internal */
+    public addWidgetJson(annotations: wjson.MetricWidgetAnnotationsJson) {
         annotations.horizontal = annotations.horizontal || [];
 
         const annotation: wjson.HorizontalAnnotationJson = {
@@ -456,15 +450,15 @@ export interface HorizontalEdge {
  * annotation line, shading after the annotation line, and "band" shading that appears between two
  * linked annotation lines as part of a single band annotation
  */
-export class VerticalAnnotation extends WidgetAnnotation {
+export class VerticalAnnotation implements WidgetAnnotation {
     constructor(private readonly args: VerticalAnnotationArgs) {
-        super();
         if (args.fill && args.endEdge) {
             throw new Error(`[args.fill] should not be provided if [args.endEdge] is provided.`);
         }
     }
 
-    public addWidgetJsons(annotations: wjson.MetricWidgetAnnotationsJson) {
+    /** @internal */
+    public addWidgetJson(annotations: wjson.MetricWidgetAnnotationsJson) {
         annotations.vertical = annotations.vertical || [];
 
         const annotation: wjson.VerticalAnnotationJson = {

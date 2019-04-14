@@ -44,7 +44,7 @@ import * as utils from "../utils";
  * see https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Metric
  * for more details.
  */
-export class Metric extends WidgetMetric {
+export class Metric implements WidgetMetric {
     /**
      * Optional resource this is a metric for.  Used only for parenting purposes when making new alarms.
      */
@@ -134,8 +134,6 @@ export class Metric extends WidgetMetric {
      * the parent of the alarm by default.
      */
     constructor(args: MetricArgs, resource?: pulumi.Resource) {
-        super();
-
         this.resource = resource;
         this.name = pulumi.output(args.name);
         this.dimensions = pulumi.output(args.dimensions);
@@ -251,7 +249,7 @@ export class Metric extends WidgetMetric {
     }
 
     /** @internal */
-    public addWidgetJsons(metrics: wjson.MetricJson[]): void {
+    public addWidgetJson(metrics: wjson.MetricJson[]): void {
         // Each single metric in the metrics array has the following format:
         // [Namespace, MetricName, [{DimensionName,DimensionValue}...] [Rendering Properties Object] ]
 

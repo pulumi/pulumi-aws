@@ -126,7 +126,7 @@ export class DashboardBody {
     /** @internal */
     public toDashboardJson(): pulumi.Output<DashboardJson> {
         const widgetJsons: WidgetJson[] = [];
-        new ColumnWidget(...this.rows).addWidgetJsons(widgetJsons, /*xOffset:*/ 0, /*yOffset:*/0);
+        new ColumnWidget(...this.rows).addWidgetJson(widgetJsons, /*xOffset:*/ 0, /*yOffset:*/0);
 
         const op = pulumi.output({
             start: this.start,

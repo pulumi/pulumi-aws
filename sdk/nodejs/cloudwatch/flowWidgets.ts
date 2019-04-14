@@ -104,9 +104,9 @@ export abstract class FlowWidget extends Widget {
     }
 
     /** @internal */
-    public addWidgetJsons(widgetJsons: WidgetJson[], xOffset: number, yOffset: number) {
+    public addWidgetJson(widgetJsons: WidgetJson[], xOffset: number, yOffset: number) {
         for (const [widget, dimension] of this.getWidgetRelativePositions()) {
-            widget.addWidgetJsons(widgetJsons, xOffset + dimension.relativeX, yOffset + dimension.relativeY);
+            widget.addWidgetJson(widgetJsons, xOffset + dimension.relativeX, yOffset + dimension.relativeY);
         }
     }
 }
@@ -188,11 +188,11 @@ export class RowWidget extends FlowWidget {
     }
 
     /** @internal */
-    public addWidgetJsons(widgetJsons: WidgetJson[], xOffset: number, yOffset: number) {
+    public addWidgetJson(widgetJsons: WidgetJson[], xOffset: number, yOffset: number) {
         if (xOffset !== 0) {
             throw new Error(`A RowWidget must be placed in the leftmost grid column: ${xOffset}`);
         }
 
-        return super.addWidgetJsons(widgetJsons, xOffset, yOffset);
+        return super.addWidgetJson(widgetJsons, xOffset, yOffset);
     }
 }

@@ -1902,6 +1902,7 @@ func Provider() tfbridge.ProviderInfo {
 							"dashboardMixins.ts",
 							"eventRuleMixins.ts",
 							"logGroupMixins.ts",
+							"metricAlarmMixins.ts",
 							"metric.ts",
 							"metrics.ts",
 							"widgets.ts",

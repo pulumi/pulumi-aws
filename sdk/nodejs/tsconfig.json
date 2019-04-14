@@ -142,6 +142,7 @@
         "cloudwatch/logSubscriptionFilter.ts",
         "cloudwatch/metric.ts",
         "cloudwatch/metricAlarm.ts",
+        "cloudwatch/metricAlarmMixins.ts",
         "cloudwatch/metrics.ts",
         "cloudwatch/simpleWidgets.ts",
         "cloudwatch/widgetJson.ts",

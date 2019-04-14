@@ -21,6 +21,7 @@ export * from "./logStream";
 export * from "./logSubscriptionFilter";
 export * from "./metric";
 export * from "./metricAlarm";
+export * from "./metricAlarmMixins";
 export * from "./metrics";
 export * from "./simpleWidgets";
 export * from "./widgetJson";
