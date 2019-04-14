@@ -190,7 +190,7 @@ export class RowWidget extends FlowWidget {
     /** @internal */
     public addWidgetJsons(widgetJsons: WidgetJson[], xOffset: number, yOffset: number) {
         if (xOffset !== 0) {
-            throw new Error(`A HorizontalWidgetSequence must be placed in the leftmost grid column: ${xOffset}`);
+            throw new Error(`A RowWidget must be placed in the leftmost grid column: ${xOffset}`);
         }
 
         return super.addWidgetJsons(widgetJsons, xOffset, yOffset);
