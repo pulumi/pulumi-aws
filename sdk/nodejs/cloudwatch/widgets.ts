@@ -34,6 +34,7 @@ export abstract class Widget {
     abstract height(): number;
 
     /**
+     * @internal
      * Converts this widget to an appropriate JSON pojo.  The [xOffset] and [yOffset] parameters
      * specify where in the final [Dashboard] grid this [Widget] should be placed.
      */

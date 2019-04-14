@@ -35,13 +35,9 @@ export interface MetricWidgetJson extends WidgetJson {
     properties: MetricWidgetPropertiesJson;
 }
 
-interface MetricWidgetPropertiesJson {
+export interface MetricWidgetPropertiesJson {
     metrics: MetricJson[] | undefined,
-    annotations: {
-        alarms: pulumi.Input<string>[] | undefined,
-        horizontal: BaseHorizontalAnnotationJson[] | undefined,
-        vertical: BaseVerticalAnnotationJson[] | undefined,
-    } | undefined;
+    annotations: MetricWidgetAnnotationsJson | undefined;
     title: string | undefined;
     period: number | undefined;
     region: string;
@@ -51,21 +47,27 @@ interface MetricWidgetPropertiesJson {
     yAxis: YAxis | undefined;
 }
 
-interface TimeSeriesMetricWidgetPropertiesJson extends MetricWidgetPropertiesJson {
-    view: "timeSeries";
+export interface MetricWidgetAnnotationsJson {
+    alarms?: pulumi.Input<string>[];
+    horizontal?: BaseHorizontalAnnotationJson[];
+    vertical?: BaseVerticalAnnotationJson[];
 }
 
-interface SingleValueMetricWidgetPropertiesJson extends MetricWidgetPropertiesJson {
-    view: "singleValue";
-}
+// interface TimeSeriesMetricWidgetPropertiesJson extends MetricWidgetPropertiesJson {
+//     view: "timeSeries";
+// }
 
-export interface TimeSeriesMetricWidgetJson extends MetricWidgetJson {
-    properties: TimeSeriesMetricWidgetPropertiesJson;
-}
+// interface SingleValueMetricWidgetPropertiesJson extends MetricWidgetPropertiesJson {
+//     view: "singleValue";
+// }
 
-export interface SingleValueMetricWidgetJson extends MetricWidgetJson {
-    properties: SingleValueMetricWidgetPropertiesJson;
-}
+// export interface TimeSeriesMetricWidgetJson extends MetricWidgetJson {
+//     properties: TimeSeriesMetricWidgetPropertiesJson;
+// }
+
+// export interface SingleValueMetricWidgetJson extends MetricWidgetJson {
+//     properties: SingleValueMetricWidgetPropertiesJson;
+// }
 
 type MetricJson = SingleMetricJson | ExpressionMetricJson;
 
@@ -82,12 +84,12 @@ interface RenderingPropertiesJson {
     yAxis: "right" | "left" | undefined;
 }
 
-interface BaseHorizontalAnnotationJson {
+export interface BaseHorizontalAnnotationJson {
     value: number;
     label: string | undefined;
 }
 
-interface HorizontalAnnotationJson extends BaseHorizontalAnnotationJson {
+export interface HorizontalAnnotationJson extends BaseHorizontalAnnotationJson {
     color: string | undefined;
     fill: string | undefined;
     visible: boolean | undefined;
