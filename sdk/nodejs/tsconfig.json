@@ -124,6 +124,7 @@
         "cloudtrail/trail.ts",
         "cloudwatch/cloudwatchMixins.ts",
         "cloudwatch/dashboard.ts",
+        "cloudwatch/dashboardBody.ts",
         "cloudwatch/dashboardMixins.ts",
         "cloudwatch/eventPermission.ts",
         "cloudwatch/eventRule.ts",

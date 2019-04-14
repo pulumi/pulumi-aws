@@ -4,6 +4,7 @@
 // Export members:
 export * from "./cloudwatchMixins";
 export * from "./dashboard";
+export * from "./dashboardBody";
 export * from "./dashboardMixins";
 export * from "./eventPermission";
 export * from "./eventRule";
