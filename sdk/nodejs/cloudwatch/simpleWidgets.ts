@@ -120,10 +120,6 @@ export abstract class MetricWidget extends SimpleWidget {
     constructor(private readonly metricArgs: MetricWidgetArgs) {
         super(metricArgs);
 
-        if (metricArgs.statistic !== undefined && metricArgs.extendedStatistic !== undefined) {
-            throw new Error("[args.statistic] and [args.extendedStatistic] cannot both be provided.");
-        }
-
         if (!metricArgs.annotations && !metricArgs.metrics) {
             throw new Error("[args.metrics] must be provided if [args.annotations] is not provided.");
         }
@@ -142,8 +138,14 @@ export abstract class MetricWidget extends SimpleWidget {
 
     protected computeProperties(): wjson.MetricWidgetJson["properties"] {
         const stat = pulumi.all([this.metricArgs.extendedStatistic, this.metricArgs.statistic])
-                           .apply(([extendedStatistic, statistic]) =>
-                                extendedStatistic !== undefined ? `p${extendedStatistic}` : statistic);
+                           .apply(([extendedStatistic, statistic]) => {
+            if (statistic !== undefined && extendedStatistic !== undefined) {
+                throw new Error("[args.statistic] and [args.extendedStatistic] cannot both be provided.");
+            }
+
+            return extendedStatistic !== undefined ? `p${extendedStatistic}` : statistic;
+        });
+
 
         let annotations: wjson.MetricWidgetAnnotationsJson | undefined;
         if (this.metricArgs.annotations.length > 0) {
