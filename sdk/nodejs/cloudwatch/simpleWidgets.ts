@@ -85,7 +85,7 @@ export class TextWidget extends SimpleWidget {
         this.textArgs = args;
     }
 
-    protected computeType(): wjson.TextWidgetJson["type"] {
+    protected computeType(): "text" {
         return "text";
     }
 
@@ -122,7 +122,7 @@ export abstract class MetricWidget extends SimpleWidget {
     protected abstract computeView(): "timeSeries" | "singleValue";
     protected abstract computedStacked(): boolean;
 
-    protected computeType(): wjson.MetricWidgetJson["type"] {
+    protected computeType(): "metric" {
         return "metric";
     }
 
