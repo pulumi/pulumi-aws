@@ -29,6 +29,13 @@ import * as utils from "../utils";
 export abstract class SimpleWidget extends Widget {
     constructor(private readonly args: SimpleWidgetArgs) {
         super();
+
+        if (args.width > 24) {
+            throw new Error("[args.width] cannot be greater than 24.");
+        }
+        if (args.height > 1000) {
+            throw new Error("[args.height] cannot be greater than 1000.");
+        }
     }
 
     public width() {
@@ -47,11 +54,11 @@ export abstract class SimpleWidget extends Widget {
     /** @internal */
     public addWidgetJsons(widgetJsons: wjson.WidgetJson[], xOffset: number, yOffset: number) {
         widgetJsons.push({
-            type: this.computeType(),
             x: xOffset,
             y: yOffset,
             width: this.width(),
             height: this.height(),
+            type: this.computeType(),
             properties: this.computeProperties(),
         });
     }
@@ -62,8 +69,6 @@ export interface SimpleWidgetArgs {
      * The width of the widget in grid units (in a 24-column grid). The default is 6.
      *
      * Valid Values: 1–24
-     *
-     * Type: Integer
      */
     width?: number;
 
