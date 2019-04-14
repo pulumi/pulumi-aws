@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import * as pulumi from "@pulumi/pulumi";
+
 export abstract class Widget {
     /**
      * The width of the widget in grid units (in a 24-column grid). The default is 6.
@@ -239,7 +241,7 @@ export class TextWidget extends Widget {
     }
 
     public addWidgetJsons(widgetJsons: WidgetJson[], xOffset: number, yOffset: number) {
-        widgetJsons.push({
+        const json: TextWidgetJson = {
             type: "text",
             x: xOffset,
             y: yOffset,
@@ -248,7 +250,9 @@ export class TextWidget extends Widget {
             properties: {
                 markdown: this.args.markdown,
             },
-        });
+        };
+
+        widgetJsons.push(json);
     }
 }
 
@@ -282,4 +286,75 @@ export interface WidgetJson {
     width: number;
     height: number;
     properties: Record<string, any>;
+}
+
+interface TextWidgetJson extends WidgetJson {
+    type: "text";
+    properties: { markdown: string };
+}
+
+interface MetricWidgetJson extends WidgetJson {
+    type: "metric";
+    properties: {
+        metrics: MetricJson[] | undefined,
+        annotations: {
+            alarms: pulumi.Input<string>[] | undefined,
+            horizontal: HorizontalAnnotationJsonBase[] | undefined,
+            vertical: VerticalAnnotationJsonBase[] | undefined,
+        } | undefined;
+        title: string | undefined;
+        period: number | undefined;
+        region: string;
+        stat: string;
+        view: "timeSeries" | "singleValue" | undefined;
+        stacked: boolean | undefined;
+        yAxis: yAxisJson | undefined;
+    };
+}
+
+type MetricJson = SingleMetricJson | ExpressionMetricJson;
+
+type ExpressionMetricJson = [{ expression: string, label: string | undefined, id: string | undefined }];
+
+type SingleMetricJson = (string | RenderingProperties)[];
+
+interface RenderingProperties {
+    color: string | undefined;
+    label: string | undefined;
+    period: number | undefined;
+    stat: string | undefined;
+    visible: boolean | undefined;
+    yAxis: "right" | "left" | undefined;
+}
+
+interface HorizontalAnnotationJsonBase {
+    value: number;
+    label: string | undefined;
+}
+
+interface HorizontalAnnotationJson extends HorizontalAnnotationJsonBase {
+    color: string | undefined;
+    fill: string | undefined;
+    visible: boolean | undefined;
+    yAxis: "right" | "left" | undefined;
+}
+
+interface VerticalAnnotationJsonBase {
+    value: string;
+    label: string | undefined;
+}
+
+interface VerticalAnnotationJson extends VerticalAnnotationJsonBase {
+    color: string | undefined;
+    fill: string | undefined;
+    visible: boolean | undefined;
+}
+
+interface yAxisJson {
+    left:  { min: number | undefined, max: number | undefined } | undefined;
+    right: { min: number | undefined, max: number | undefined } | undefined;
+}
+
+interface AlarmWidgetJson extends MetricWidgetJson {
+
 }

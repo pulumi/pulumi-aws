@@ -32,7 +32,7 @@ declare module "./dashboard" {
 Dashboard.fromGrid = (name: string, args: DashboardGrid, opts?: pulumi.CustomResourceOptions): Dashboard => {
     const argsCopy = {
         dashboardName: utils.ifUndefined(args.name, name),
-        dashboardBody: JSON.stringify(args.body.toDashboardJson()),
+        dashboardBody: args.body.toDashboardJson().apply(JSON.stringify),
     };
 
     return new Dashboard(name, argsCopy, opts);
@@ -122,16 +122,16 @@ export class DashboardBody {
     }
 
     /** @internal */
-    public toDashboardJson(): DashboardJson {
+    public toDashboardJson(): pulumi.Output<DashboardJson> {
         const widgetJsons: WidgetJson[] = [];
         new ColumnWidget(...this.rows).addWidgetJsons(widgetJsons, /*xOffset:*/ 0, /*yOffset:*/0);
 
-        return {
+        return pulumi.output({
             start: this.start,
             end: this.end,
             periodOverride: this.periodOverride,
             widgets: widgetJsons,
-        };
+        });
     }
 }
 
