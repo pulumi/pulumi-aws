@@ -80,6 +80,9 @@ export interface SimpleWidgetArgs {
     height?: number;
 }
 
+/**
+ * Simple widget that displays a piece of text in the dashboard grid.
+ */
 export class TextWidget extends SimpleWidget {
     private readonly textArgs: TextWidgetArgs;
 
@@ -174,6 +177,9 @@ export abstract class MetricWidget extends SimpleWidget {
 
 /**
  * Base type for widets that display metrics as a graph (either a line or stacked graph).
+ *
+ * See https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph_metrics.html for more
+ * details.
  */
 export abstract class GraphMetricWidget extends MetricWidget {
     constructor(private readonly graphArgs: GraphMetricWidgetArgs) {
