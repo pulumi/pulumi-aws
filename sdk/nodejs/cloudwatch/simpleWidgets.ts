@@ -263,15 +263,31 @@ export interface MetricWidgetArgs extends SimpleWidgetArgs {
     /**
      * Specify a metrics array to include one or more metrics (without alarms), math expressions, or
      * search expressions. One metrics array can include 0–100 metrics and expressions.
+     *
+     * See [ExpressionWidgetMetric] and [Metric] to create instances that can be added to this
+     * array.
      */
     metrics?: WidgetMetric[];
 }
 
-export interface WidgetMetric {
+/**
+ * Base type for all objects that can be placed in the [metrics] array of [MetricWidgetArgs].
+ *
+ * See [ExpressionWidgetMetric] and [Metric] to create instances that can be added to
+ * [MetricWidgetArgs.metrics].
+ */
+export abstract class WidgetMetric {
     /** @internal */
-    addWidgetJsons(metrics: wjson.MetricJson[]): void;
+    abstract addWidgetJsons(metrics: wjson.MetricJson[]): void;
 }
 
+/**
+ * Used to pass math or search expressions to a [MetricWidget].
+ *
+ * See https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html and
+ * https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-search-expressions.html for
+ * more details.
+ */
 export class ExpressionWidgetMetric implements WidgetMetric {
     /**
      * @param expression The math expression or search expression.

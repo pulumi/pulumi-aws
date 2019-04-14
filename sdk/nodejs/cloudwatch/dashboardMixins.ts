@@ -18,7 +18,9 @@ import * as eventRule from "./eventRuleMixins";
 import * as utils from "../utils";
 
 import { Dashboard } from "./dashboard";
-import { ColumnWidget, RowWidget, Widget, WidgetJson } from "./widgets";
+import { Widget } from "./widgets";
+import { WidgetJson } from "./widgetJson";
+import { ColumnWidget, RowWidget } from "./flowWidgets";
 
 declare module "./dashboard" {
     module Dashboard {

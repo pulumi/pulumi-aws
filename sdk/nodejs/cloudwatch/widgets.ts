@@ -16,6 +16,20 @@ import * as pulumi from "@pulumi/pulumi";
 
 import { WidgetJson } from "./widgetJson";
 
+/**
+ * Base type for all [Widget]s that can be placed in a [DashboardGrid].
+ *
+ * 1. [RowWidget] and [ColumnWidget] can be used to easily flow other Widgets in a horizontal or
+ *    vertical direction.
+ *
+ * 2. [TextWidget] can be used to add text labels easily to the grid.
+ *
+ * 3. [SingleNumberMetricWidget] can be used to make a widget that displays information about a
+ *    [Metric] as a single number.
+ *
+ * 4. [LineGraphMetricWidget] and [StackedAreaGraphMetricWidget] can be used to display a series
+ *    of metric values as a graph.
+ */
 export abstract class Widget {
     /**
      * The width of the widget in grid units (in a 24-column grid). The default is 6.

@@ -14,6 +14,9 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import { WidgetMetric } from "./simpleWidgets";
+import * as wjson from "./widgetJson";
+
 import * as alarm from "./metricAlarm";
 import * as sns from "../sns";
 import * as utils from "../utils";
@@ -41,7 +44,7 @@ import * as utils from "../utils";
  * see https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Metric
  * for more details.
  */
-export class Metric {
+export class Metric extends WidgetMetric {
     /**
      * Optional resource this is a metric for.  Used only for parenting purposes when making new alarms.
      */
@@ -131,6 +134,7 @@ export class Metric {
      * the parent of the alarm by default.
      */
     constructor(args: MetricArgs, resource?: pulumi.Resource) {
+        super();
         this.resource = resource;
         this.name = pulumi.output(args.name);
         this.dimensions = pulumi.output(args.dimensions);
@@ -243,6 +247,41 @@ export class Metric {
             statistic: this.statistic,
             unit: this.unit,
         }, { parent: this.resource, ...opts });
+    }
+
+    /** @internal */
+    public addWidgetJsons(metrics: wjson.MetricJson[]): void {
+        // Each single metric in the metrics array has the following format:
+        // [Namespace, MetricName, [{DimensionName,DimensionValue}...] [Rendering Properties Object] ]
+
+        const op = pulumi.output(this).apply(uw => {
+            const result: (string | wjson.RenderingPropertiesJson)[] = [];
+
+            result.push(uw.namespace)
+            result.push(uw.name);
+
+            for (const key in uw.dimensions) {
+                result.push(key);
+                result.push(uw.dimensions[key]);
+            }
+
+            const stat = uw.extendedStatistic !== undefined
+                ? `p${uw.extendedStatistic}`
+                : uw.statistic;
+            const renderingProps: wjson.RenderingPropertiesJson = {
+                stat,
+                color: uw.color,
+                label: uw.label,
+                period: uw.period,
+                visible: uw.visible,
+                yAxis: uw.yAxis,
+            };
+
+            result.push(renderingProps);
+            return result;
+        });
+
+        metrics.push(op);
     }
 }
 

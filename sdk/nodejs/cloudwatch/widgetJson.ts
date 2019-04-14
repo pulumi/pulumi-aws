@@ -53,29 +53,13 @@ export interface MetricWidgetAnnotationsJson {
     vertical?: BaseVerticalAnnotationJson[];
 }
 
-// interface TimeSeriesMetricWidgetPropertiesJson extends MetricWidgetPropertiesJson {
-//     view: "timeSeries";
-// }
-
-// interface SingleValueMetricWidgetPropertiesJson extends MetricWidgetPropertiesJson {
-//     view: "singleValue";
-// }
-
-// export interface TimeSeriesMetricWidgetJson extends MetricWidgetJson {
-//     properties: TimeSeriesMetricWidgetPropertiesJson;
-// }
-
-// export interface SingleValueMetricWidgetJson extends MetricWidgetJson {
-//     properties: SingleValueMetricWidgetPropertiesJson;
-// }
-
 export type MetricJson = SingleMetricJson | ExpressionMetricJson;
 
 export type ExpressionMetricJson = [{ expression: string, label: string | undefined, id: string | undefined }];
 
-export type SingleMetricJson = (string | RenderingPropertiesJson)[];
+export type SingleMetricJson = pulumi.Output<(string | RenderingPropertiesJson)[]>;
 
-interface RenderingPropertiesJson {
+export interface RenderingPropertiesJson {
     color: string | undefined;
     label: string | undefined;
     period: number | undefined;
