@@ -69,11 +69,11 @@ export interface MetricWidgetAnnotationsJson {
 //     properties: SingleValueMetricWidgetPropertiesJson;
 // }
 
-type MetricJson = SingleMetricJson | ExpressionMetricJson;
+export type MetricJson = SingleMetricJson | ExpressionMetricJson;
 
-type ExpressionMetricJson = [{ expression: string, label: string | undefined, id: string | undefined }];
+export type ExpressionMetricJson = [{ expression: string, label: string | undefined, id: string | undefined }];
 
-type SingleMetricJson = (string | RenderingPropertiesJson)[];
+export type SingleMetricJson = (string | RenderingPropertiesJson)[];
 
 interface RenderingPropertiesJson {
     color: string | undefined;

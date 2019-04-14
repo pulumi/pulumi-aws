@@ -21,6 +21,9 @@ import { MetricStatistic } from "./metric";
 import { Widget } from "./widgets";
 import * as wjson from "./widgetJson";
 
+/**
+ * Base type of all non-flow Widgets to place in a DashboardGrid.
+ */
 export abstract class SimpleWidget extends Widget {
     constructor(private readonly args: SimpleWidgetArgs) {
         super();
@@ -41,27 +44,15 @@ export abstract class SimpleWidget extends Widget {
 
     /** @internal */
     public addWidgetJsons(widgetJsons: wjson.WidgetJson[], xOffset: number, yOffset: number) {
-        const json: wjson.WidgetJson = {
+        widgetJsons.push({
             type: this.computeType(),
             x: xOffset,
             y: yOffset,
             width: this.width(),
             height: this.height(),
             properties: this.computeProperties(),
-        };
-
-        widgetJsons.push(json);
+        });
     }
-
-    /**
-     *
-    type: "metric" | "text";
-    x: number;
-    y: number;
-    width: number;
-    height: number;
-    properties: Record<string, any>;
-     */
 }
 
 export interface SimpleWidgetArgs {
@@ -111,7 +102,9 @@ export interface TextWidgetArgs extends SimpleWidgetArgs {
 }
 
 /**
- * Base type for widgets that display data from a set of [Metric]s.
+ * Base type for widgets that display data from a set of [Metric]s.  See [LineGraphMetricWidget],
+ * [StackedAreaGraphMetricWidget] and [SingleNumberMetricWidget] as concrete [Widget] instances for
+ * displaying [Metric]s.
  */
 export abstract class MetricWidget extends SimpleWidget {
     constructor(private readonly metricArgs: MetricWidgetArgs) {
@@ -119,6 +112,10 @@ export abstract class MetricWidget extends SimpleWidget {
 
         if (metricArgs.statistic !== undefined && metricArgs.extendedStatistic !== undefined) {
             throw new Error("[args.statistic] and [args.extendedStatistic] cannot both be provided.");
+        }
+
+        if (!metricArgs.annotations && !metricArgs.metrics) {
+            throw new Error("[args.metrics] must be provided if [args.annotations] is not provided.");
         }
     }
 
@@ -142,32 +139,26 @@ export abstract class MetricWidget extends SimpleWidget {
             }
         }
 
+        let metrics: wjson.MetricJson[] | undefined;
+        if (this.metricArgs.metrics && this.metricArgs.metrics.length > 0) {
+            metrics = [];
+            for (const metric of this.metricArgs.metrics) {
+                metric.addWidgetJsons(metrics);
+            }
+        }
+
         return {
             stat,
+            metrics,
             annotations,
             title: this.metricArgs.title,
             period: this.metricArgs.period !== undefined ? this.metricArgs.period : 300,
-            region: this.metricArgs.region || config.region;
+            region: this.metricArgs.region || config.region,
             view: this.computeView(),
             stacked: this.computedStacked(),
             yAxis: this.metricArgs.yAxis,
         };
     }
-
-    /*
-        metrics: MetricJson[] | undefined,
-    annotations: {
-        alarms: pulumi.Input<string>[] | undefined,
-        horizontal: BaseHorizontalAnnotationJson[] | undefined,
-        vertical: BaseVerticalAnnotationJson[] | undefined,
-    } | undefined;
-    period: number | undefined;
-    region: string;
-    stat: string;
-    view: "timeSeries" | "singleValue" | undefined;
-    stacked: boolean | undefined;
-    yAxis: yAxisJson | undefined;
-    */
 }
 
 /**
@@ -194,19 +185,6 @@ export class LineGraphMetricWidget extends GraphMetricWidget {
     protected computedStacked() {
         return false;
     }
-
-    // public addWidgetJsons(widgetJsons: wjson.WidgetJson[], xOffset: number, yOffset: number) {
-    //     const json: wjson.TimeSeriesMetricWidgetJson = {
-    //         type: "metric",
-    //         ...this.dimensions(xOffset, yOffset),
-    //         properties: {
-    //             view: "timeSeries",
-    //             stacked: false,
-    //         },
-    //     };
-
-    //     widgetJsons.push(json);
-    // }
 }
 
 /**
@@ -220,19 +198,6 @@ export class StackedAreaGraphMetricWidget extends GraphMetricWidget {
     protected computedStacked() {
         return true;
     }
-
-    // public addWidgetJsons(widgetJsons: wjson.WidgetJson[], xOffset: number, yOffset: number) {
-    //     const json: wjson.TimeSeriesMetricWidgetJson = {
-    //         type: "metric",
-    //         ...this.dimensions(xOffset, yOffset),
-    //         properties: {
-    //             view: "timeSeries",
-    //             stacked: true,
-    //         },
-    //     };
-
-    //     widgetJsons.push(json);
-    // }
 }
 
 /**
@@ -263,7 +228,9 @@ export interface MetricWidgetArgs extends SimpleWidgetArgs {
      */
     period?: number;
 
-    /** The region of the metric. */
+    /**
+     * The region of the metric.  Defaults to the region of the stack if not specified.
+     */
     region?: region.Region;
 
     /**
@@ -292,6 +259,39 @@ export interface MetricWidgetArgs extends SimpleWidgetArgs {
      * annotation is not required.
      */
     annotations?: WidgetAnnotation[];
+
+    /**
+     * Specify a metrics array to include one or more metrics (without alarms), math expressions, or
+     * search expressions. One metrics array can include 0–100 metrics and expressions.
+     */
+    metrics?: WidgetMetric[];
+}
+
+export interface WidgetMetric {
+    /** @internal */
+    addWidgetJsons(metrics: wjson.MetricJson[]): void;
+}
+
+export class ExpressionWidgetMetric implements WidgetMetric {
+    /**
+     * @param expression The math expression or search expression.
+     * @param label The label to display in the graph to represent this time series.
+     * @param id The id of this time series. This id can be used as part of a math expression.
+     */
+    constructor(private readonly expression: string,
+                private readonly label?: string,
+                private readonly id?: string) {
+    }
+
+    addWidgetJsons(metrics: wjson.MetricJson[]): void {
+        const json: wjson.ExpressionMetricJson = [{
+            expression: this.expression,
+            label: this.label,
+            id: this.id,
+        }];
+
+        metrics.push(json);
+    }
 }
 
 export abstract class WidgetAnnotation {
