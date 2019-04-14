@@ -14,6 +14,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import { YAxis } from "./simpleWidgets";
+
 export interface WidgetJson {
     type: "metric" | "text";
     x: number;
@@ -46,7 +48,7 @@ interface MetricWidgetPropertiesJson {
     stat: string;
     view: "timeSeries" | "singleValue" | undefined;
     stacked: boolean | undefined;
-    yAxis: yAxisJson | undefined;
+    yAxis: YAxis | undefined;
 }
 
 interface TimeSeriesMetricWidgetPropertiesJson extends MetricWidgetPropertiesJson {
@@ -101,9 +103,4 @@ interface VerticalAnnotationJson extends BaseVerticalAnnotationJson {
     color: string | undefined;
     fill: string | undefined;
     visible: boolean | undefined;
-}
-
-interface yAxisJson {
-    left:  { min: number | undefined, max: number | undefined } | undefined;
-    right: { min: number | undefined, max: number | undefined } | undefined;
 }

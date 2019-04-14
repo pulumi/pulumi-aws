@@ -17,6 +17,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as config from "../config";
 import * as region from "../region";
 
+import { MetricStatistic } from "./metric";
 import { Widget } from "./widgets";
 import * as wjson from "./widgetJson";
 
@@ -110,25 +111,34 @@ export interface TextWidgetArgs extends SimpleWidgetArgs {
  * Base type for widgets that display data from a set of [Metric]s.
  */
 export abstract class MetricWidget extends SimpleWidget {
-    private readonly metricArgs: MetricWidgetArgs;
+    constructor(private readonly metricArgs: MetricWidgetArgs) {
+        super(metricArgs);
 
-    constructor(args: MetricWidgetArgs) {
-        super(args);
-        this.metricArgs = args;
+        if (metricArgs.statistic !== undefined && metricArgs.extendedStatistic !== undefined) {
+            throw new Error("[args.statistic] and [args.extendedStatistic] cannot both be provided.");
+        }
     }
 
     protected abstract computeView(): "timeSeries" | "singleValue";
+    protected abstract computedStacked(): boolean;
 
     protected computeType(): wjson.MetricWidgetJson["type"] {
         return "metric";
     }
 
     protected computeProperties(): wjson.MetricWidgetJson["properties"] {
+        const stat = this.metricArgs.extendedStatistic !== undefined
+            ? `p${this.metricArgs.extendedStatistic}`
+            : this.metricArgs.statistic;
+
         return {
-            title: this.metricArgs.title;
+            stat,
+            title: this.metricArgs.title,
             period: this.metricArgs.period !== undefined ? this.metricArgs.period : 300,
             region: this.metricArgs.region || config.region;
             view: this.computeView(),
+            stacked: this.computedStacked(),
+            yAxis: this.metricArgs.yAxis,
         };
     }
 
@@ -169,6 +179,10 @@ export class LineGraphMetricWidget extends GraphMetricWidget {
         super(args);
     }
 
+    protected computedStacked() {
+        return false;
+    }
+
     // public addWidgetJsons(widgetJsons: wjson.WidgetJson[], xOffset: number, yOffset: number) {
     //     const json: wjson.TimeSeriesMetricWidgetJson = {
     //         type: "metric",
@@ -191,18 +205,22 @@ export class StackedAreaGraphMetricWidget extends GraphMetricWidget {
         super(args);
     }
 
-    public addWidgetJsons(widgetJsons: wjson.WidgetJson[], xOffset: number, yOffset: number) {
-        const json: wjson.TimeSeriesMetricWidgetJson = {
-            type: "metric",
-            ...this.dimensions(xOffset, yOffset),
-            properties: {
-                view: "timeSeries",
-                stacked: true,
-            },
-        };
-
-        widgetJsons.push(json);
+    protected computedStacked() {
+        return true;
     }
+
+    // public addWidgetJsons(widgetJsons: wjson.WidgetJson[], xOffset: number, yOffset: number) {
+    //     const json: wjson.TimeSeriesMetricWidgetJson = {
+    //         type: "metric",
+    //         ...this.dimensions(xOffset, yOffset),
+    //         properties: {
+    //             view: "timeSeries",
+    //             stacked: true,
+    //         },
+    //     };
+
+    //     widgetJsons.push(json);
+    // }
 }
 
 /**
@@ -215,6 +233,10 @@ export class SingleNumberMetricWidget extends MetricWidget {
 
     protected computeView(): "singleValue" {
         return "singleValue";
+    }
+
+    protected computedStacked() {
+        return false;
     }
 
     // public addWidgetJsons(widgetJsons: wjson.WidgetJson[], xOffset: number, yOffset: number) {
@@ -246,8 +268,42 @@ export interface MetricWidgetArgs extends SimpleWidgetArgs {
 
     /** The region of the metric. */
     region?: region.Region;
+
+    /**
+     * The default statistic to be displayed for each metric in the array. This default can be
+     * overridden within the definition of each individual metric in the metrics array.
+     */
+    statistic?: MetricStatistic;
+
+    /**
+     * The percentile statistic for the metric associated with the alarm. Specify a value between
+     * [0.0] and [100].
+     */
+    extendedStatistic?: pulumi.Input<number>;
+
+    /**
+     * Limits for the minimums and maximums of the y-axis.  This applies to every metric being
+     * graphed, unless specific metrics override it.
+     */
+    yAxis?: YAxis;
 }
 
-export interface SingleNumberMetricWidget extends MetricWidgetArgs {
-
+export interface SingleNumberMetricWidgetArgs extends MetricWidgetArgs {
+    yAxis?: never;
 }
+
+export interface YAxis {
+    /** Optional min and max settings for the left Y-axis.  */
+    left?: MinMax;
+
+    /** Optional min and max settings for the right Y-axis. */
+    right?: MinMax;
+}
+
+export interface MinMax {
+    /** The minimum value for this Y-axis */
+    min?: number;
+    /** The maximum value for this Y-axis */
+    max?: number;
+}
+
