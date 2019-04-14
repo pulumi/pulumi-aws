@@ -8,6 +8,7 @@ import * as assert from "assert";
 import * as aws from "../..";
 
 import { Widget } from "../../cloudwatch/widgets";
+import { ColumnWidget, RowWidget } from "../../cloudwatch/flowWidgets";
 import { TextWidget } from "../../cloudwatch/simpleWidgets";
 import { DashboardBody } from "../../cloudwatch/dashboardBody";
 
@@ -157,6 +158,81 @@ describe("dashboard", () => {
             "type": "text",
             "properties": {
                 "markdown": "!"
+            }
+        }
+    ]
+}`);
+            });
+            it("multiple rows with wrapping", async () => {
+                const json = await bodyJson(
+                    new RowWidget(
+                        new TextWidget({ markdown: "hello", height: 4 }),
+                        new TextWidget({ markdown: "world", height: 3 }),
+                    new RowWidget(
+                        new TextWidget({ markdown: "goodnight", height: 1, width: 10 }),
+                        new TextWidget({ markdown: "moon", height: 3, width: 10 }),
+                        new TextWidget({ markdown: "!", height: 5, width: 10 })),
+                    new RowWidget(new TextWidget("byebye"))));
+                assert.equal(json, `{
+    "widgets": [
+        {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 4,
+            "type": "text",
+            "properties": {
+                "markdown": "hello"
+            }
+        },
+        {
+            "x": 6,
+            "y": 0,
+            "width": 6,
+            "height": 3,
+            "type": "text",
+            "properties": {
+                "markdown": "world"
+            }
+        },
+        {
+            "x": 0,
+            "y": 4,
+            "width": 10,
+            "height": 1,
+            "type": "text",
+            "properties": {
+                "markdown": "goodnight"
+            }
+        },
+        {
+            "x": 10,
+            "y": 4,
+            "width": 10,
+            "height": 3,
+            "type": "text",
+            "properties": {
+                "markdown": "moon"
+            }
+        },
+        {
+            "x": 0,
+            "y": 7,
+            "width": 10,
+            "height": 5,
+            "type": "text",
+            "properties": {
+                "markdown": "!"
+            }
+        },
+        {
+            "x": 0,
+            "y": 12,
+            "width": 6,
+            "height": 6,
+            "type": "text",
+            "properties": {
+                "markdown": "byebye"
             }
         }
     ]
