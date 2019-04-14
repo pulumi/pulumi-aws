@@ -91,7 +91,7 @@ export interface BaseHorizontalAnnotationJson {
 
 export interface HorizontalAnnotationJson extends BaseHorizontalAnnotationJson {
     color: string | undefined;
-    fill: string | undefined;
+    fill: "above" | "below" | undefined;
     visible: boolean | undefined;
     yAxis: "right" | "left" | undefined;
 }
@@ -101,8 +101,8 @@ interface BaseVerticalAnnotationJson {
     label: string | undefined;
 }
 
-interface VerticalAnnotationJson extends BaseVerticalAnnotationJson {
+export interface VerticalAnnotationJson extends BaseVerticalAnnotationJson {
     color: string | undefined;
-    fill: string | undefined;
+    fill: "before" | "after" | undefined;
     visible: boolean | undefined;
 }

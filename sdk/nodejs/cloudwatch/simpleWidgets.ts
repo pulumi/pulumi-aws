@@ -372,8 +372,9 @@ export interface HorizontalAnnotationArgs {
      * How to use fill shading with the annotation. Valid values are above for shading above the
      * annotation, below for shading below the annotation. If fill is omitted, there is no shading.
      *
-     * if [fill] is ["band"] this will have shading between the values of [upperEdge] and
-     * [lowerEdge].  [lowerEdge] is required in this case.
+     * The exception is an annotation with band shading (in which case [lowerEdge] is provided).
+     * These annotations always have shading between the two values, and any value for fill is
+     * ignored.
      */
     fill?: "above" | "below";
 
@@ -400,6 +401,115 @@ export interface HorizontalEdge {
      * annotations appear on the graph.
      */
     value: number;
+
+    /**
+     * A string that appears on the graph next to the annotation.
+     */
+    label?: string;
+}
+
+/**
+ * Vertical annotations have several options for fill shading, including shading before the
+ * annotation line, shading after the annotation line, and "band" shading that appears between two
+ * linked annotation lines as part of a single band annotation
+ */
+export class VerticalAnnotation extends WidgetAnnotation {
+    constructor(private readonly args: VerticalAnnotationArgs) {
+        super();
+        if (args.fill && args.endEdge) {
+            throw new Error(`[args.fill] should not be provided if [args.endEdge] is provided.`);
+        }
+    }
+
+    public addWidgetJsons(annotations: wjson.MetricWidgetAnnotationsJson) {
+        annotations.vertical = annotations.vertical || [];
+
+        const annotation: wjson.VerticalAnnotationJson = {
+            fill: this.args.fill,
+            color: this.args.color,
+            label: this.args.beginningEdge.label,
+            value: this.args.beginningEdge.value,
+            visible: this.args.visible,
+        };
+
+        annotations.vertical.push(annotation);
+
+        if (this.args.endEdge) {
+            annotations.vertical.push({
+                value: this.args.endEdge.value,
+                label: this.args.endEdge.label,
+            });
+        }
+    }
+}
+
+/**
+ * For each vertical annotation, you can choose to have fill shading before the annotation, after
+ * it, or between two vertical lines that are linked as a single band annotation.
+ */
+export interface VerticalAnnotationArgs {
+    /**
+     * The metric value in the graph where the vertical annotation line is to appear.  If
+     * [endEdge] is also provided, then this will produce a band annotation.  In that case [fill]
+     * should not be provided.
+     */
+    beginningEdge: VerticalEdge;
+
+    /**
+     * The ending edge when using band shading.
+     */
+    endEdge?: VerticalEdge;
+
+    /**
+     * The six-digit HTML hex color code to be used for the annotation. This color is used for both
+     * the annotation line and the fill shading.
+     */
+    color?: string;
+
+    /**
+     * How to use fill shading with the annotation. Valid values are before for shading before the
+     * annotation, after for shading after the annotation. If fill is omitted, there is no shading.
+     *
+     * The exception is an annotation with band shading. These annotations always have shading
+     * between the two values, and any value for [fill] is ignored.
+     */
+    fill?: "before" | "after";
+
+    /**
+     * Set this to true to have the annotation appear in the graph, or false to have it be hidden.
+     * The default is true.
+     */
+    visible?: boolean;
+}
+
+export interface HorizontalEdge {
+    /**
+     * The metric value in the graph where the horizontal annotation line is to appear. On a band
+     * shading annotation, the two values for Value define the upper and lower edges of the band.
+     *
+     * On a graph with horizontal annotations, the graph is scaled so that all visible horizontal
+     * annotations appear on the graph.
+     */
+    value: number;
+
+    /**
+     * A string that appears on the graph next to the annotation.
+     */
+    label?: string;
+}
+
+export interface VerticalEdge {
+    /**
+     * The date and time in the graph where the vertical annotation line is to appear. On a band
+     * shading annotation, the two values for Value define the beginning and ending edges of the
+     * band.
+     *
+     * On a graph with vertical annotations, the graph is scaled so that all visible vertical
+     * annotations appear on the graph.
+     *
+     * This is defined as a string in ISO 8601 format. For more information, see ISO 8601.
+     */
+    value: string;
 
     /**
      * A string that appears on the graph next to the annotation.
