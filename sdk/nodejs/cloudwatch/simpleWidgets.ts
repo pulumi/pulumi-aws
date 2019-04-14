@@ -331,6 +331,7 @@ export class ExpressionWidgetMetric implements WidgetMetric {
                 private readonly id?: pulumi.Input<string>) {
     }
 
+    /** @internal */
     addWidgetJson(metrics: wjson.MetricJson[]): void {
         const json: wjson.ExpressionMetricJson = [{
             expression: this.expression,
