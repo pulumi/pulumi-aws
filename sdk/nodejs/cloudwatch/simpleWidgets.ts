@@ -100,7 +100,7 @@ export interface TextWidgetArgs extends SimpleWidgetArgs {
     /**
      * The text to be displayed by the widget.
      */
-    markdown: string;
+    markdown: pulumi.Input<string>;
 }
 
 /**
@@ -126,6 +126,7 @@ export abstract class MetricWidget extends SimpleWidget {
 
     protected abstract computeView(): wjson.MetricWidgetPropertiesJson["view"];
     protected abstract computedStacked(): wjson.MetricWidgetPropertiesJson["stacked"];
+    protected abstract computeYAxis(): wjson.MetricWidgetPropertiesJson["yAxis"];
 
     protected computeType(): wjson.MetricWidgetJson["type"] {
         return "metric";
@@ -161,7 +162,7 @@ export abstract class MetricWidget extends SimpleWidget {
             region: utils.ifUndefined(this.metricArgs.region, config.region),
             view: this.computeView(),
             stacked: this.computedStacked(),
-            yAxis: this.metricArgs.yAxis,
+            yAxis: this.computeYAxis(),
         };
     }
 }
@@ -170,12 +171,16 @@ export abstract class MetricWidget extends SimpleWidget {
  * Base type for widets that display metrics as a graph (either a line or stacked graph).
  */
 export abstract class GraphMetricWidget extends MetricWidget {
-    constructor(args: GraphMetricWidgetArgs) {
-        super(args);
+    constructor(private readonly graphArgs: GraphMetricWidgetArgs) {
+        super(graphArgs);
     }
 
-    protected computeView(): "timeSeries" {
+    protected computeView(): wjson.MetricWidgetPropertiesJson["view"] {
         return "timeSeries";
+    }
+
+    protected computeYAxis(): wjson.MetricWidgetPropertiesJson["yAxis"] {
+        return this.graphArgs.yAxis;
     }
 }
 
@@ -183,7 +188,7 @@ export abstract class GraphMetricWidget extends MetricWidget {
  * Displays a set of metrics as a line graph.
  */
 export class LineGraphMetricWidget extends GraphMetricWidget {
-    constructor(args: LineGraphMetricWidgetArgs) {
+    constructor(args: GraphMetricWidgetArgs) {
         super(args);
     }
 
@@ -196,7 +201,7 @@ export class LineGraphMetricWidget extends GraphMetricWidget {
  * Displays a set of metrics as a stacked area graph.
  */
 export class StackedAreaGraphMetricWidget extends GraphMetricWidget {
-    constructor(args: StackedAreaGraphMetricWidgetArgs) {
+    constructor(args: GraphMetricWidgetArgs) {
         super(args);
     }
 
@@ -209,16 +214,20 @@ export class StackedAreaGraphMetricWidget extends GraphMetricWidget {
  * Displays a set of metrics as a single number.
  */
 export class SingleNumberMetricWidget extends MetricWidget {
-    constructor(args: SingleNumberMetricWidgetArgs) {
+    constructor(args: MetricWidgetArgs) {
         super(args);
     }
 
-    protected computeView(): "singleValue" {
+    protected computeView(): wjson.MetricWidgetPropertiesJson["view"] {
         return "singleValue";
     }
 
     protected computedStacked() {
         return false;
+    }
+
+    protected computeYAxis(): wjson.MetricWidgetPropertiesJson["yAxis"] {
+        return undefined;
     }
 }
 
@@ -251,12 +260,6 @@ export interface MetricWidgetArgs extends SimpleWidgetArgs {
     extendedStatistic?: pulumi.Input<number>;
 
     /**
-     * Limits for the minimums and maximums of the y-axis.  This applies to every metric being
-     * graphed, unless specific metrics override it.
-     */
-    yAxis?: pulumi.Input<YAxis>;
-
-    /**
      * A single metric widget can have up to one alarm, and multiple horizontal and vertical
      * annotations.
      *
@@ -273,6 +276,14 @@ export interface MetricWidgetArgs extends SimpleWidgetArgs {
      * array.
      */
     metrics?: WidgetMetric[];
+}
+
+export interface GraphMetricWidgetArgs extends MetricWidgetArgs {
+    /**
+     * Limits for the minimums and maximums of the y-axis.  This applies to every metric being
+     * graphed, unless specific metrics override it.
+     */
+    yAxis?: pulumi.Input<YAxis>;
 }
 
 /**
@@ -299,9 +310,9 @@ export class ExpressionWidgetMetric implements WidgetMetric {
      * @param label The label to display in the graph to represent this time series.
      * @param id The id of this time series. This id can be used as part of a math expression.
      */
-    constructor(private readonly expression: string,
-                private readonly label?: string,
-                private readonly id?: string) {
+    constructor(private readonly expression: pulumi.Input<string>,
+                private readonly label?: pulumi.Input<string>,
+                private readonly id?: pulumi.Input<string>) {
     }
 
     addWidgetJsons(metrics: wjson.MetricJson[]): void {
@@ -536,19 +547,6 @@ export interface VerticalEdge {
      * A string that appears on the graph next to the annotation.
      */
     label?: string;
-}
-
-export interface SingleNumberMetricWidgetArgs extends MetricWidgetArgs {
-    yAxis?: never;
-}
-
-export interface GraphMetricWidgetArgs extends MetricWidgetArgs {
-}
-
-export interface LineGraphMetricWidgetArgs extends GraphMetricWidgetArgs {
-}
-
-export interface StackedAreaGraphMetricWidgetArgs extends GraphMetricWidgetArgs {
 }
 
 export interface YAxis {

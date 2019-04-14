@@ -17,22 +17,22 @@ import * as pulumi from "@pulumi/pulumi";
 import { YAxis } from "./simpleWidgets";
 
 export interface WidgetJson {
-    type: "metric" | "text";
-    x: number;
-    y: number;
-    width: number;
-    height: number;
+    type: pulumi.Input<"metric" | "text">;
+    x: pulumi.Input<number>;
+    y: pulumi.Input<number>;
+    width: pulumi.Input<number>;
+    height: pulumi.Input<number>;
     properties: Record<string, any>;
 }
 
 export interface TextWidgetJson extends WidgetJson {
-    type: "text";
-    properties: { markdown: string };
+    type: pulumi.Input<"text">;
+    properties: pulumi.Input<{ markdown: pulumi.Input<string> }>;
 }
 
 export interface MetricWidgetJson extends WidgetJson {
-    type: "metric";
-    properties: MetricWidgetPropertiesJson;
+    type: pulumi.Input<"metric">;
+    properties: pulumi.Input<MetricWidgetPropertiesJson>;
 }
 
 export interface MetricWidgetPropertiesJson {
@@ -55,7 +55,11 @@ export interface MetricWidgetAnnotationsJson {
 
 export type MetricJson = SingleMetricJson | ExpressionMetricJson;
 
-export type ExpressionMetricJson = [{ expression: string, label: string | undefined, id: string | undefined }];
+export type ExpressionMetricJson = [{
+    expression: pulumi.Input<string>,
+    label: pulumi.Input<string | undefined>,
+    id: pulumi.Input<string | undefined>,
+}];
 
 export type SingleMetricJson = pulumi.Output<(string | RenderingPropertiesJson)[]>;
 
