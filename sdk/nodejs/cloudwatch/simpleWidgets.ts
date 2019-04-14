@@ -21,6 +21,8 @@ import { MetricStatistic } from "./metric";
 import { Widget } from "./widgets";
 import * as wjson from "./widgetJson";
 
+import * as utils from "../utils";
+
 /**
  * Base type of all non-flow Widgets to place in a DashboardGrid.
  */
@@ -38,9 +40,9 @@ export abstract class SimpleWidget extends Widget {
     }
 
     /** @internal */
-    protected abstract computeType(): "text" | "metric";
+    protected abstract computeType(): wjson.WidgetJson["type"];
     /** @internal */
-    protected abstract computeProperties(): Record<string, any>;
+    protected abstract computeProperties(): wjson.WidgetJson["properties"];
 
     /** @internal */
     public addWidgetJsons(widgetJsons: wjson.WidgetJson[], xOffset: number, yOffset: number) {
@@ -85,7 +87,7 @@ export class TextWidget extends SimpleWidget {
         this.textArgs = args;
     }
 
-    protected computeType(): "text" {
+    protected computeType(): wjson.TextWidgetJson["type"] {
         return "text";
     }
 
@@ -117,22 +119,25 @@ export abstract class MetricWidget extends SimpleWidget {
         if (!metricArgs.annotations && !metricArgs.metrics) {
             throw new Error("[args.metrics] must be provided if [args.annotations] is not provided.");
         }
+
+        metricArgs.annotations = metricArgs.annotations || [];
+        metricArgs.metrics = metricArgs.metrics || [];
     }
 
-    protected abstract computeView(): "timeSeries" | "singleValue";
-    protected abstract computedStacked(): boolean;
+    protected abstract computeView(): wjson.MetricWidgetPropertiesJson["view"];
+    protected abstract computedStacked(): wjson.MetricWidgetPropertiesJson["stacked"];
 
-    protected computeType(): "metric" {
+    protected computeType(): wjson.MetricWidgetJson["type"] {
         return "metric";
     }
 
     protected computeProperties(): wjson.MetricWidgetJson["properties"] {
-        const stat = this.metricArgs.extendedStatistic !== undefined
-            ? `p${this.metricArgs.extendedStatistic}`
-            : this.metricArgs.statistic;
+        const stat = pulumi.all([this.metricArgs.extendedStatistic, this.metricArgs.statistic])
+                           .apply(([extendedStatistic, statistic]) =>
+                                extendedStatistic !== undefined ? `p${extendedStatistic}` : statistic);
 
         let annotations: wjson.MetricWidgetAnnotationsJson | undefined;
-        if (this.metricArgs.annotations && this.metricArgs.annotations.length > 0) {
+        if (this.metricArgs.annotations.length > 0) {
             annotations = {};
             for (const annotation of this.metricArgs.annotations) {
                 annotation.addWidgetJsons(annotations);
@@ -140,7 +145,7 @@ export abstract class MetricWidget extends SimpleWidget {
         }
 
         let metrics: wjson.MetricJson[] | undefined;
-        if (this.metricArgs.metrics && this.metricArgs.metrics.length > 0) {
+        if (this.metricArgs.metrics.length > 0) {
             metrics = [];
             for (const metric of this.metricArgs.metrics) {
                 metric.addWidgetJsons(metrics);
@@ -152,8 +157,8 @@ export abstract class MetricWidget extends SimpleWidget {
             metrics,
             annotations,
             title: this.metricArgs.title,
-            period: this.metricArgs.period !== undefined ? this.metricArgs.period : 300,
-            region: this.metricArgs.region || config.region,
+            period: utils.ifUndefined(this.metricArgs.period, 300),
+            region: utils.ifUndefined(this.metricArgs.region, config.region),
             view: this.computeView(),
             stacked: this.computedStacked(),
             yAxis: this.metricArgs.yAxis,
@@ -219,25 +224,25 @@ export class SingleNumberMetricWidget extends MetricWidget {
 
 export interface MetricWidgetArgs extends SimpleWidgetArgs {
     /** The title to be displayed for the graph or number. */
-    title?: string;
+    title?: pulumi.Input<string>;
 
     /**
      * The default period, in seconds, for all metrics in this widget. The period is the length of
      * time represented by one data point on the graph. This default can be overridden within each
      * metric definition. The default is 300.
      */
-    period?: number;
+    period?: pulumi.Input<number>;
 
     /**
      * The region of the metric.  Defaults to the region of the stack if not specified.
      */
-    region?: region.Region;
+    region?: pulumi.Input<region.Region>;
 
     /**
      * The default statistic to be displayed for each metric in the array. This default can be
      * overridden within the definition of each individual metric in the metrics array.
      */
-    statistic?: MetricStatistic;
+    statistic?: pulumi.Input<MetricStatistic>;
 
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between
@@ -249,7 +254,7 @@ export interface MetricWidgetArgs extends SimpleWidgetArgs {
      * Limits for the minimums and maximums of the y-axis.  This applies to every metric being
      * graphed, unless specific metrics override it.
      */
-    yAxis?: YAxis;
+    yAxis?: pulumi.Input<YAxis>;
 
     /**
      * A single metric widget can have up to one alarm, and multiple horizontal and vertical

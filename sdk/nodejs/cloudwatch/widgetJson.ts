@@ -38,13 +38,13 @@ export interface MetricWidgetJson extends WidgetJson {
 export interface MetricWidgetPropertiesJson {
     metrics: MetricJson[] | undefined,
     annotations: MetricWidgetAnnotationsJson | undefined;
-    title: string | undefined;
-    period: number | undefined;
-    region: string;
-    stat: string;
-    view: "timeSeries" | "singleValue" | undefined;
-    stacked: boolean | undefined;
-    yAxis: YAxis | undefined;
+    title: pulumi.Input<string> | undefined;
+    period: pulumi.Input<number> | undefined;
+    region: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+    view: pulumi.Input<"timeSeries" | "singleValue" | undefined>;
+    stacked: pulumi.Input<boolean | undefined>;
+    yAxis: pulumi.Input<YAxis> | undefined;
 }
 
 export interface MetricWidgetAnnotationsJson {
