@@ -17,13 +17,11 @@ import * as pulumi from "@pulumi/pulumi";
 import { Widget } from "./widgets";
 import { WidgetJson } from "./widgetJson"
 
-interface WidgetDimension {
+interface WidgetRelativePosition {
     /** x-position of this widget, relative to the x-position of its container. */
     relativeX: number;
     /** y-position of this widget, relative to the y-position of its container. */
     relativeY: number;
-    width: number;
-    height: number;
 }
 
 /**
@@ -39,7 +37,7 @@ export abstract class FlowWidget extends Widget {
 
     private _width: number | undefined;
     private _height: number | undefined;
-    private _widgetDimensions: Map<Widget, WidgetDimension> | undefined;
+    private _widgetToRelativePosition: Map<Widget, WidgetRelativePosition> | undefined;
 
     constructor(...widgets: Widget[]) {
         super();
@@ -53,12 +51,12 @@ export abstract class FlowWidget extends Widget {
 
         // clear out the cached information about the widgets.  we'll recompute it the next time
         // it's needed.
-        this._widgetDimensions = undefined;
+        this._widgetToRelativePosition = undefined;
         this._height = undefined;
         this._width = undefined;
     }
 
-    protected abstract computeWidgetDimensions(): Map<Widget, WidgetDimension>;
+    protected abstract computeWidgetRelativePositions(): Map<Widget, WidgetRelativePosition>;
 
     public width() {
         this.ensureWidthAndHeight();
@@ -75,14 +73,14 @@ export abstract class FlowWidget extends Widget {
             let width = 0;
             let height = 0;
 
-            for (const [_, dimension] of this.getWidgetDimensions()) {
+            for (const [widget, dimension] of this.getWidgetRelativePositions()) {
                 // The width of the sequence is the rightmost grid column of all of the widgets in
                 // the sequence.
-                width = Math.max(width, dimension.relativeX + dimension.width);
+                width = Math.max(width, dimension.relativeX + widget.width());
 
                 // The height of the sequence is the bottommost grid column of all the widgets in
                 // the sequence.
-                height = Math.max(height, dimension.relativeY + dimension.height);
+                height = Math.max(height, dimension.relativeY + widget.height());
             }
 
             this._width = width;
@@ -97,17 +95,17 @@ export abstract class FlowWidget extends Widget {
      * `x` grid coordinate is correct in the final [Dashboard].  But the `y` coordinate will have to
      * be adjusted accordingly.
      */
-    protected getWidgetDimensions(): Map<Widget, WidgetDimension> {
-        if (!this._widgetDimensions) {
-            this._widgetDimensions = this.computeWidgetDimensions();
+    protected getWidgetRelativePositions(): Map<Widget, WidgetRelativePosition> {
+        if (!this._widgetToRelativePosition) {
+            this._widgetToRelativePosition = this.computeWidgetRelativePositions();
         }
 
-        return this._widgetDimensions;
+        return this._widgetToRelativePosition;
     }
 
     /** @internal */
     public addWidgetJsons(widgetJsons: WidgetJson[], xOffset: number, yOffset: number) {
-        for (const [widget, dimension] of this.getWidgetDimensions()) {
+        for (const [widget, dimension] of this.getWidgetRelativePositions()) {
             widget.addWidgetJsons(widgetJsons, xOffset + dimension.relativeX, yOffset + dimension.relativeY);
         }
     }
@@ -125,18 +123,17 @@ export class ColumnWidget extends FlowWidget {
         super(...widgets);
     }
 
-    protected computeWidgetDimensions(): Map<Widget, WidgetDimension> {
-        const result = new Map<Widget, WidgetDimension>();
+    protected computeWidgetRelativePositions(): Map<Widget, WidgetRelativePosition> {
+        const result = new Map<Widget, WidgetRelativePosition>();
 
         let currentY = 0;
         for (const widget of this.widgets) {
             const widgetHeight = widget.height();
-            const widgetWidth = widget.width();
 
             // In a vertical flow, there is no wraparound.  So all subwidgets start at the same
             // x-position as their parent.  Each is placed below the last though.  So the relativeY
             // keeps getting incremented by the height of the last widget we added.
-            result.set(widget, { relativeX: 0, relativeY: currentY, width: widgetWidth, height: widgetHeight });
+            result.set(widget, { relativeX: 0, relativeY: currentY });
             currentY += widgetHeight;
         }
 
@@ -159,8 +156,8 @@ export class RowWidget extends FlowWidget {
         super(...widgets);
     }
 
-    protected computeWidgetDimensions(): Map<Widget, WidgetDimension> {
-        const result = new Map<Widget, WidgetDimension>();
+    protected computeWidgetRelativePositions(): Map<Widget, WidgetRelativePosition> {
+        const result = new Map<Widget, WidgetRelativePosition>();
 
         const maxWidth = 24;
 
@@ -182,7 +179,7 @@ export class RowWidget extends FlowWidget {
             }
 
             height = Math.max(height, currentY + widgetHeight);
-            result.set(widget, { relativeX: currentX, relativeY: currentY, width: widgetWidth, height: widgetHeight });
+            result.set(widget, { relativeX: currentX, relativeY: currentY });
 
             currentX += widgetWidth;
         }
