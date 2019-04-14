@@ -4,6 +4,7 @@
 // Export members:
 export * from "./cloudwatchMixins";
 export * from "./dashboard";
+export * from "./dashboardMixins";
 export * from "./eventPermission";
 export * from "./eventRule";
 export * from "./eventRuleMixins";
@@ -20,3 +21,4 @@ export * from "./logSubscriptionFilter";
 export * from "./metric";
 export * from "./metricAlarm";
 export * from "./metrics";
+export * from "./widgets";
