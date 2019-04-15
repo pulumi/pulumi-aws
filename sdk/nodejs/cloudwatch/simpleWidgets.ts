@@ -111,6 +111,10 @@ export interface TextWidgetArgs extends SimpleWidgetArgs {
     markdown: pulumi.Input<string>;
 }
 
+function flattenAnnotations(annotations: WidgetAnnotation | WidgetAnnotation[]) {
+    return Array.isArray(annotations) ? annotations : annotations ? [annotations] : []
+}
+
 /**
  * Base type for widgets that display data from a set of [Metric]s.  See [LineGraphMetricWidget],
  * [StackedAreaGraphMetricWidget] and [SingleNumberMetricWidget] as concrete [Widget] instances for
@@ -127,11 +131,7 @@ export abstract class MetricWidget extends SimpleWidget {
             throw new Error("[args.metrics] must be provided if [args.annotations] is not provided.");
         }
 
-        this.annotations = Array.isArray(metricArgs.annotations)
-            ? metricArgs.annotations
-            : metricArgs.annotations
-                ? [metricArgs.annotations]
-                : [];
+        this.annotations = flattenAnnotations(metricArgs.annotations)
         this.metrics = Array.isArray(metricArgs.metrics)
             ? metricArgs.metrics
             : metricArgs.metrics
@@ -215,6 +215,32 @@ export abstract class GraphMetricWidget extends MetricWidget {
 }
 
 /**
+ * Creates a widget to show the status of a particular alarm.
+ */
+export class AlarmWidget extends GraphMetricWidget {
+    constructor(alarmArgs: AlarmWidgetArgs) {
+        const annotations = flattenAnnotations(alarmArgs.annotations);
+        const alarm = alarmArgs.alarm;
+        const alarmArm = pulumi.all([<pulumi.Input<string>>alarm, (<WidgetAlarm>alarm).arn])
+                               .apply(([s1, s2]) => s2 || s1);
+        annotations.push(new AlarmAnnotation(alarmArm));
+        super(alarmArgs);
+    }
+
+    protected computedStacked() {
+        return false;
+    }
+}
+
+export interface AlarmWidgetArgs extends GraphMetricWidgetArgs {
+    alarm: pulumi.Input<string> | WidgetAlarm;
+}
+
+export interface WidgetAlarm {
+    arn: pulumi.Input<string>;
+}
+
+/**
  * Displays a set of metrics as a line graph.
  */
 export class LineGraphMetricWidget extends GraphMetricWidget {
@@ -262,6 +288,27 @@ export class SingleNumberMetricWidget extends MetricWidget {
 }
 
 export interface MetricWidgetArgs extends SimpleWidgetArgs {
+    /**
+     * A single metric widget can have up to one alarm, and multiple horizontal and vertical
+     * annotations.
+     *
+     * An alarm annotation is required only when metrics is not specified. A horizontal or vertical
+     * annotation is not required.
+     *
+     * Instances of this interface include [aws.cloudwatch.Alarm], [AlarmAnnotation],
+     * [HorizontalAnnotation] and [VerticalAnnotation].
+     */
+    annotations?: WidgetAnnotation | WidgetAnnotation[];
+
+    /**
+     * Specify a metrics array to include one or more metrics (without alarms), math expressions, or
+     * search expressions. One metrics array can include 0–100 metrics and expressions.
+     *
+     * See [ExpressionWidgetMetric] and [Metric] to create instances that can be added to this
+     * array.
+     */
+    metrics?: WidgetMetric | WidgetMetric[];
+
     /** The title to be displayed for the graph or number. */
     title?: pulumi.Input<string>;
 
@@ -288,27 +335,6 @@ export interface MetricWidgetArgs extends SimpleWidgetArgs {
      * [0.0] and [100].
      */
     extendedStatistic?: pulumi.Input<number>;
-
-    /**
-     * A single metric widget can have up to one alarm, and multiple horizontal and vertical
-     * annotations.
-     *
-     * An alarm annotation is required only when metrics is not specified. A horizontal or vertical
-     * annotation is not required.
-     *
-     * Instances of this interface include [aws.cloudwatch.Alarm], [AlarmAnnotation],
-     * [HorizontalAnnotation] and [VerticalAnnotation].
-     */
-    annotations?: WidgetAnnotation | WidgetAnnotation[];
-
-    /**
-     * Specify a metrics array to include one or more metrics (without alarms), math expressions, or
-     * search expressions. One metrics array can include 0–100 metrics and expressions.
-     *
-     * See [ExpressionWidgetMetric] and [Metric] to create instances that can be added to this
-     * array.
-     */
-    metrics?: WidgetMetric | WidgetMetric[];
 }
 
 export interface GraphMetricWidgetArgs extends MetricWidgetArgs {
@@ -475,12 +501,12 @@ export interface HorizontalEdge {
      * On a graph with horizontal annotations, the graph is scaled so that all visible horizontal
      * annotations appear on the graph.
      */
-    value: number;
+    value: pulumi.Input<number>;
 
     /**
      * A string that appears on the graph next to the annotation.
      */
-    label?: string;
+    label?: pulumi.Input<string>;
 }
 
 /**
@@ -555,22 +581,6 @@ export interface VerticalAnnotationArgs {
      * The default is true.
      */
     visible?: boolean;
-}
-
-export interface HorizontalEdge {
-    /**
-     * The metric value in the graph where the horizontal annotation line is to appear. On a band
-     * shading annotation, the two values for Value define the upper and lower edges of the band.
-     *
-     * On a graph with horizontal annotations, the graph is scaled so that all visible horizontal
-     * annotations appear on the graph.
-     */
-    value: number;
-
-    /**
-     * A string that appears on the graph next to the annotation.
-     */
-    label?: string;
 }
 
 export interface VerticalEdge {

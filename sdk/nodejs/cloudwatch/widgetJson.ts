@@ -77,8 +77,8 @@ export interface RenderingPropertiesJson {
 }
 
 export interface BaseHorizontalAnnotationJson {
-    value: number;
-    label: string | undefined;
+    value: pulumi.Input<number>;
+    label: pulumi.Input<string | undefined>;
 }
 
 export interface HorizontalAnnotationJson extends BaseHorizontalAnnotationJson {
@@ -89,8 +89,8 @@ export interface HorizontalAnnotationJson extends BaseHorizontalAnnotationJson {
 }
 
 interface BaseVerticalAnnotationJson {
-    value: string;
-    label: string | undefined;
+    value: pulumi.Input<string>;
+    label: pulumi.Input<string | undefined>;
 }
 
 export interface VerticalAnnotationJson extends BaseVerticalAnnotationJson {

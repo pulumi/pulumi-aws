@@ -15,19 +15,30 @@
 import * as pulumi from "@pulumi/pulumi";
 
 import { MetricAlarm } from "./metricAlarm";
-import { AlarmAnnotation, WidgetAnnotation } from "./simpleWidgets";
+import { HorizontalAnnotation, WidgetAnnotation } from "./simpleWidgets";
 
 import * as wjson from "./widgetJson";
 
 declare module "./metricAlarm" {
-    // Mixin WidgetAnnotation.addWidgetJson so that a MetricAlarm can be used in
-    // [MetricWidgetArgs.annotations].
+    /**
+     * Mixin WidgetAnnotation.addWidgetJson so that a MetricAlarm can be used in
+     * [MetricWidgetArgs.annotations].  If added to [MetricWidgetArgs.annotations] it will
+     * show up as a horizontal line in the graph with the description of this alarm.
+     *
+     * To make an actual widget that shows an alarm when this [MetricAlarm] is triggered,
+     * pass this [MetricAlarm] to [MetricWidgetArgs.alarm].
+     */
     interface MetricAlarm extends WidgetAnnotation {
     }
 }
 
 MetricAlarm.prototype.addWidgetJson = function(this: MetricAlarm, annotations: wjson.MetricWidgetAnnotationsJson) {
-    new AlarmAnnotation(this.arn).addWidgetJson(annotations);
+    new HorizontalAnnotation({
+        aboveEdge: {
+            label: this.alarmDescription,
+            value: this.threshold,
+        }
+    }).addWidgetJson(annotations);
 }
 
 /** @internal */
