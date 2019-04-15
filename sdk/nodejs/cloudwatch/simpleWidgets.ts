@@ -168,7 +168,13 @@ export abstract class MetricWidget extends SimpleWidget {
             metrics,
             annotations,
             title: this.metricArgs.title,
-            period: utils.ifUndefined(this.metricArgs.period, 300),
+            period: utils.ifUndefined(this.metricArgs.period, 300).apply(p => {
+                if (p % 60 !== 0) {
+                    throw new Error(`Dashboard metric period must be a multiple of 60: ${p}`);
+                }
+
+                return p;
+            }),
             region: utils.ifUndefined(this.metricArgs.region, config.region),
             view: this.computeView(),
             stacked: this.computedStacked(),

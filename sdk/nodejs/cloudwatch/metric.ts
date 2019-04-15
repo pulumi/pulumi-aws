@@ -256,6 +256,10 @@ export class Metric implements WidgetMetric {
         const op = pulumi.output(this).apply(uw => {
             const result: (string | wjson.RenderingPropertiesJson)[] = [];
 
+            if (uw.period % 60 !== 0) {
+                throw new Error(`Dashboard metric period must be a multiple of 60: ${uw.period}`);
+            }
+
             result.push(uw.namespace)
             result.push(uw.name);
 

@@ -22,6 +22,10 @@ function createBody(...widgets: Widget[]) {
 
 async function bodyJson(...widgets: Widget[]) {
     const body = createBody(...widgets);
+    return await toJson(body);
+}
+
+async function toJson(body: DashboardBody) {
     const json = await (<any>body.toDashboardJson()).promise();
     return JSON.stringify(json, null, 4);
 }
@@ -30,6 +34,14 @@ describe("dashboard", () => {
     it("empty", async () => {
         const json = await bodyJson();
         assert.equal(json, `{
+    "widgets": []
+}`);
+    });
+
+    it("period override", async () => {
+        const json = await toJson(new DashboardBody({ periodOverride: "auto" }));
+        assert.equal(json, `{
+    "periodOverride": "auto",
     "widgets": []
 }`);
     });
@@ -430,6 +442,14 @@ describe("dashboard", () => {
                         const json = await bodyJson(new SingleNumberMetricWidget({}));
                     });
                 });
+
+                it("invalid period", async() => {
+                    await assert.rejects(async () => {
+                        const json = await bodyJson(new SingleNumberMetricWidget({
+                            metrics: [new Metric({ namespace: "AWS/EC2", name: "NetworkIn", period: 5 })]
+                        }));
+                    });
+                });
             }
 
             it("single metric", async () => {
@@ -452,6 +472,100 @@ describe("dashboard", () => {
                     [
                         "AWS/Lambda",
                         "Invocations",
+                        {
+                            "stat": "Average",
+                            "period": 300,
+                            "visible": true,
+                            "yAxis": "left"
+                        }
+                    ]
+                ],
+                "period": 300,
+                "region": "us-east-2",
+                "view": "singleValue",
+                "stacked": false
+            }
+        }
+    ]
+}`);
+            });
+
+            it("multiple metrics", async () => {
+                const json = await bodyJson(new SingleNumberMetricWidget({
+                    metrics: [
+                        new Metric({ namespace: "AWS/Lambda", name: "Invocations", yAxis: "right" }),
+                        new Metric({ namespace: "AWS/EC2", name: "NetworkIn", period: 60 })
+                    ],
+                }));
+                assert.equal(json, `{
+    "widgets": [
+        {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 6,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [
+                        "AWS/Lambda",
+                        "Invocations",
+                        {
+                            "stat": "Average",
+                            "period": 300,
+                            "visible": true,
+                            "yAxis": "right"
+                        }
+                    ],
+                    [
+                        "AWS/EC2",
+                        "NetworkIn",
+                        {
+                            "stat": "Average",
+                            "period": 60,
+                            "visible": true,
+                            "yAxis": "left"
+                        }
+                    ]
+                ],
+                "period": 300,
+                "region": "us-east-2",
+                "view": "singleValue",
+                "stacked": false
+            }
+        }
+    ]
+}`);
+            });
+
+            it("with dimension", async () => {
+                const json = await bodyJson(new SingleNumberMetricWidget({
+                    metrics: [new Metric({
+                        namespace: "AWS/Lambda",
+                        name: "Invocations",
+                        dimensions: {
+                            FunctionName: "MyFunc",
+                            Hello: "world",
+                        }
+                    })]
+                }));
+                assert.equal(json, `{
+    "widgets": [
+        {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 6,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [
+                        "AWS/Lambda",
+                        "Invocations",
+                        "FunctionName",
+                        "MyFunc",
+                        "Hello",
+                        "world",
                         {
                             "stat": "Average",
                             "period": 300,
