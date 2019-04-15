@@ -8,6 +8,7 @@ import * as semver from "semver";
 
 import * as aws from "../..";
 
+import { Metric } from "../../cloudwatch/metric";
 import { Widget } from "../../cloudwatch/widgets";
 import { ColumnWidget, RowWidget } from "../../cloudwatch/flowWidgets";
 import { SingleNumberMetricWidget, TextWidget } from "../../cloudwatch/simpleWidgets";
@@ -430,6 +431,44 @@ describe("dashboard", () => {
                     });
                 });
             }
+
+            it("single metric", async () => {
+                const json = await bodyJson(new SingleNumberMetricWidget({
+                    metrics: [new Metric({
+                        namespace: "AWS/Lambda",
+                        name: "Invocations",
+                    })]
+                }));
+                assert.equal(json, `{
+    "widgets": [
+        {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 6,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [
+                        "AWS/Lambda",
+                        "Invocations",
+                        {
+                            "stat": "Average",
+                            "period": 300,
+                            "visible": true,
+                            "yAxis": "left"
+                        }
+                    ]
+                ],
+                "period": 300,
+                "region": "us-east-2",
+                "view": "singleValue",
+                "stacked": false
+            }
+        }
+    ]
+}`);
+            });
         });
     });
 });

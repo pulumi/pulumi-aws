@@ -72,7 +72,7 @@ export class Metric implements WidgetMetric {
      * 30, or any multiple of 60. For example, to specify a period of six minutes, use 360 as the
      * period value. You can adjust how the data is aggregated by varying the length of the period.
      * A period can be as short as one second or as long as one day (86,400 seconds). The default
-     * value is 60 seconds.
+     * value is 300 seconds.
      *
      * See https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html
      * for more details.
@@ -138,7 +138,7 @@ export class Metric implements WidgetMetric {
         this.name = pulumi.output(args.name);
         this.dimensions = pulumi.output(args.dimensions);
         this.namespace = pulumi.output(args.namespace);
-        this.period = utils.ifUndefined(args.period, 60).apply(validatePeriod);
+        this.period = utils.ifUndefined(args.period, 300).apply(validatePeriod);
         this.statistic = pulumi.all([args.statistic, args.extendedStatistic])
                                .apply(([statistic, extendedStatistic]) => validateStatistics(statistic, extendedStatistic));
         this.extendedStatistic = pulumi.output(args.extendedStatistic).apply(validateExtendedStatistic);
@@ -371,7 +371,7 @@ export interface MetricChange {
     /**
      * The new period in seconds over which the specified `stat` is applied.  If this object is
      * missing this property, then no change will be made.  However, if the property is there by set
-     * to [undefined] then the value will be set to the default.
+     * to [undefined] then the value will be set to the default (300s).
      */
     period?: pulumi.Input<number>;
     /**
