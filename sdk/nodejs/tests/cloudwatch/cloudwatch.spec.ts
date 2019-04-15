@@ -13,10 +13,12 @@ import { Widget } from "../../cloudwatch/widgets";
 import { ColumnWidget, RowWidget } from "../../cloudwatch/flowWidgets";
 import {
     AlarmAnnotation,
+    HorizontalAnnotation,
     LineGraphMetricWidget,
     SingleNumberMetricWidget,
     StackedAreaGraphMetricWidget,
     TextWidget,
+    VerticalAnnotation,
 } from "../../cloudwatch/simpleWidgets";
 import { DashboardBody } from "../../cloudwatch/dashboardBody";
 
@@ -52,11 +54,23 @@ describe("dashboard", () => {
 }`);
     });
 
-    it("alarm annotation", async () => {
-        const json = await bodyJson(new SingleNumberMetricWidget({
-            annotations: [new AlarmAnnotation("some_arn")],
-        }));
-        assert.equal(json, `{
+    describe("annotations", () => {
+        describe("alarms", () => {
+            if (semver.gte(process.version, "10.0.0")) {
+                it("multiple alarms", async() => {
+                    await assert.rejects(async() => {
+                        await bodyJson(new SingleNumberMetricWidget({
+                            annotations: [new AlarmAnnotation("some_arn"), new AlarmAnnotation("some_arn")],
+                        }));
+                    });
+                });
+            }
+
+            it("single", async () => {
+                const json = await bodyJson(new SingleNumberMetricWidget({
+                    annotations: [new AlarmAnnotation("some_arn")],
+                }));
+                assert.equal(json, `{
     "widgets": [
         {
             "x": 0,
@@ -78,6 +92,91 @@ describe("dashboard", () => {
         }
     ]
 }`);
+            });
+        });
+
+        describe("horizontal", () => {
+            if (semver.gte(process.version, "10.0.0")) {
+                it("fill and band", async() => {
+                    await assert.rejects(async() => {
+                        await bodyJson(new SingleNumberMetricWidget({
+                            annotations: [new HorizontalAnnotation({
+                                fill: "above",
+                                upperEdge: { value: 10 },
+                                lowerEdge: { value: 5 },
+                            })],
+                        }));
+                    });
+                });
+            }
+
+            it("single", async () => {
+                const json = await bodyJson(new SingleNumberMetricWidget({
+                    annotations: [new HorizontalAnnotation({
+                        upperEdge: { value: 10 },
+                    })],
+                }));
+                assert.equal(json, `{
+    "widgets": [
+        {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 6,
+            "type": "metric",
+            "properties": {
+                "annotations": {
+                    "horizontal": [
+                        {
+                            "value": 10
+                        }
+                    ]
+                },
+                "period": 300,
+                "region": "us-east-2",
+                "view": "singleValue",
+                "stacked": false
+            }
+        }
+    ]
+}`);
+            });
+            it("band", async () => {
+                const json = await bodyJson(new SingleNumberMetricWidget({
+                    annotations: [new HorizontalAnnotation({
+                        upperEdge: { value: 10 },
+                        lowerEdge: { value: 5 },
+                    })],
+                }));
+                assert.equal(json, `{
+    "widgets": [
+        {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 6,
+            "type": "metric",
+            "properties": {
+                "annotations": {
+                    "horizontal": [
+                        {
+                            "value": 10
+                        },
+                        {
+                            "value": 5
+                        }
+                    ]
+                },
+                "period": 300,
+                "region": "us-east-2",
+                "view": "singleValue",
+                "stacked": false
+            }
+        }
+    ]
+}`);
+            });
+        });
     });
 
     describe("simple widgets", () => {
