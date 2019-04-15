@@ -117,6 +117,9 @@ export interface TextWidgetArgs extends SimpleWidgetArgs {
  * displaying [Metric]s.
  */
 export abstract class MetricWidget extends SimpleWidget {
+    private readonly annotations: WidgetAnnotation[];
+    private readonly metrics: WidgetMetric[];
+
     constructor(private readonly metricArgs: MetricWidgetArgs) {
         super(metricArgs);
 
@@ -124,8 +127,16 @@ export abstract class MetricWidget extends SimpleWidget {
             throw new Error("[args.metrics] must be provided if [args.annotations] is not provided.");
         }
 
-        metricArgs.annotations = metricArgs.annotations || [];
-        metricArgs.metrics = metricArgs.metrics || [];
+        this.annotations = Array.isArray(metricArgs.annotations)
+            ? metricArgs.annotations
+            : metricArgs.annotations
+                ? [metricArgs.annotations]
+                : [];
+        this.metrics = Array.isArray(metricArgs.metrics)
+            ? metricArgs.metrics
+            : metricArgs.metrics
+                ? [metricArgs.metrics]
+                : [];
     }
 
     protected abstract computeView(): wjson.MetricWidgetPropertiesJson["view"];
@@ -148,17 +159,17 @@ export abstract class MetricWidget extends SimpleWidget {
 
 
         let annotations: wjson.MetricWidgetAnnotationsJson | undefined;
-        if (this.metricArgs.annotations.length > 0) {
+        if (this.annotations.length > 0) {
             annotations = {};
-            for (const annotation of this.metricArgs.annotations) {
+            for (const annotation of this.annotations) {
                 annotation.addWidgetJson(annotations);
             }
         }
 
         let metrics: wjson.MetricJson[] | undefined;
-        if (this.metricArgs.metrics.length > 0) {
+        if (this.metrics.length > 0) {
             metrics = [];
-            for (const metric of this.metricArgs.metrics) {
+            for (const metric of this.metrics) {
                 metric.addWidgetJson(metrics);
             }
         }
@@ -288,7 +299,7 @@ export interface MetricWidgetArgs extends SimpleWidgetArgs {
      * Instances of this interface include [aws.cloudwatch.Alarm], [AlarmAnnotation],
      * [HorizontalAnnotation] and [VerticalAnnotation].
      */
-    annotations?: WidgetAnnotation[];
+    annotations?: WidgetAnnotation | WidgetAnnotation[];
 
     /**
      * Specify a metrics array to include one or more metrics (without alarms), math expressions, or
@@ -297,7 +308,7 @@ export interface MetricWidgetArgs extends SimpleWidgetArgs {
      * See [ExpressionWidgetMetric] and [Metric] to create instances that can be added to this
      * array.
      */
-    metrics?: WidgetMetric[];
+    metrics?: WidgetMetric | WidgetMetric[];
 }
 
 export interface GraphMetricWidgetArgs extends MetricWidgetArgs {

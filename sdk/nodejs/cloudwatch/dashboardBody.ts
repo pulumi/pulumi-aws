@@ -26,6 +26,12 @@ import { ColumnWidget, RowWidget } from "./flowWidgets";
  * Each [Widget] in the [Dashboard] have a specific width/height in terms of grid units.
  */
 export class DashboardBody {
+    /**
+     * Name of the dashboard.  If not provided, will be set to the name of the pulumi resource
+     * created for the acutal aws.cloudwatch.Dashboard.
+     */
+    public readonly name: pulumi.Output<string | undefined>;
+
     public readonly start: pulumi.Output<string | undefined>;
     public readonly end: pulumi.Output<string | undefined>;
     public readonly periodOverride: pulumi.Output<"auto" | "inherit" | undefined>;
@@ -38,6 +44,7 @@ export class DashboardBody {
      * be treated as a single row to add to the grid.
      */
     constructor(args: DashboardBodyArgs = {}) {
+        this.name = pulumi.output(args.name);
         this.start = pulumi.output(args.start);
         this.end = pulumi.output(args.end);
         this.periodOverride = pulumi.output(args.periodOverride);
@@ -108,6 +115,11 @@ export class DashboardBody {
 }
 
 export interface DashboardBodyArgs {
+    /**
+     * The name of the dashboard.
+     */
+    name?: pulumi.Input<string>;
+
     /**
      * The end of the time range to use for each widget on the dashboard when the dashboard loads.
      * If you specify a value for end, you must also specify a value for start. For each of these

@@ -29,3 +29,6 @@ declare module "./metricAlarm" {
 MetricAlarm.prototype.addWidgetJson = function(this: MetricAlarm, annotations: wjson.MetricWidgetAnnotationsJson) {
     new AlarmAnnotation(this.arn).addWidgetJson(annotations);
 }
+
+/** @internal */
+export const __metricAlarmUnused = 0;

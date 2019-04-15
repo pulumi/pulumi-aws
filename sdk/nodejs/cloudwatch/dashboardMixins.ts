@@ -22,29 +22,24 @@ import { DashboardBody } from "./dashboardBody";
 declare module "./dashboard" {
     module Dashboard {
         /**
-         * Creates a new [Dashboard] with the body described in [args.body].
+         * Creates a new dashboard from the body description provided.
          */
-        export function fromGrid(name: string, args: DashboardGrid, opts?: pulumi.CustomResourceOptions): Dashboard;
+        export function fromBody(name: string, body: DashboardBody, opts?: pulumi.CustomResourceOptions): Dashboard
     }
 }
 
-Dashboard.fromGrid = (name: string, args: DashboardGrid, opts?: pulumi.CustomResourceOptions): Dashboard => {
+Dashboard.fromBody = function(name: string, body: DashboardBody, opts?: pulumi.CustomResourceOptions): Dashboard {
     const argsCopy = {
-        dashboardName: utils.ifUndefined(args.name, name),
-        dashboardBody: args.body.toDashboardJson().apply(JSON.stringify),
+        dashboardName: utils.ifUndefined(body.name, name),
+        dashboardBody: body.toDashboardJson().apply(j => {
+            const result = JSON.stringify(j, null, 2);
+            console.log(result);
+            return result;
+        }),
     };
 
     return new Dashboard(name, argsCopy, opts);
 };
 
-export interface DashboardGrid {
-    /**
-     * The name of the dashboard.
-     */
-    name?: pulumi.Input<string>;
-
-    /**
-     * Grid of the dashboard.
-     */
-    body: DashboardBody;
-}
+/** @internal */
+export const __dashboardUnused = 0;
