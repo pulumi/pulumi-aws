@@ -11,7 +11,13 @@ import * as aws from "../..";
 import { Metric } from "../../cloudwatch/metric";
 import { Widget } from "../../cloudwatch/widgets";
 import { ColumnWidget, RowWidget } from "../../cloudwatch/flowWidgets";
-import { SingleNumberMetricWidget, TextWidget, StackedAreaGraphMetricWidget, LineGraphMetricWidget } from "../../cloudwatch/simpleWidgets";
+import {
+    AlarmAnnotation,
+    LineGraphMetricWidget,
+    SingleNumberMetricWidget,
+    StackedAreaGraphMetricWidget,
+    TextWidget,
+} from "../../cloudwatch/simpleWidgets";
 import { DashboardBody } from "../../cloudwatch/dashboardBody";
 
 function createBody(...widgets: Widget[]) {
@@ -43,6 +49,34 @@ describe("dashboard", () => {
         assert.equal(json, `{
     "periodOverride": "auto",
     "widgets": []
+}`);
+    });
+
+    it("alarm annotation", async () => {
+        const json = await bodyJson(new SingleNumberMetricWidget({
+            annotations: [new AlarmAnnotation("some_arn")],
+        }));
+        assert.equal(json, `{
+    "widgets": [
+        {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 6,
+            "type": "metric",
+            "properties": {
+                "annotations": {
+                    "alarms": [
+                        "some_arn"
+                    ]
+                },
+                "period": 300,
+                "region": "us-east-2",
+                "view": "singleValue",
+                "stacked": false
+            }
+        }
+    ]
 }`);
     });
 
@@ -574,6 +608,50 @@ describe("dashboard", () => {
                         }
                     ]
                 ],
+                "period": 300,
+                "region": "us-east-2",
+                "view": "singleValue",
+                "stacked": false
+            }
+        }
+    ]
+}`);
+            });
+
+            it("alarm annotation", async () => {
+                const json = await bodyJson(new SingleNumberMetricWidget({
+                    metrics: [new Metric({
+                        namespace: "AWS/Lambda",
+                        name: "Invocations",
+                    })],
+                    annotations: [new AlarmAnnotation("some_arn")],
+                }));
+                assert.equal(json, `{
+    "widgets": [
+        {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 6,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [
+                        "AWS/Lambda",
+                        "Invocations",
+                        {
+                            "stat": "Average",
+                            "period": 300,
+                            "visible": true,
+                            "yAxis": "left"
+                        }
+                    ]
+                ],
+                "annotations": {
+                    "alarms": [
+                        "some_arn"
+                    ]
+                },
                 "period": 300,
                 "region": "us-east-2",
                 "view": "singleValue",

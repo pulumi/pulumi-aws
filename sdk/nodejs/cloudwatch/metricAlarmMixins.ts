@@ -15,7 +15,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 import { MetricAlarm } from "./metricAlarm";
-import { WidgetAnnotation } from "./simpleWidgets";
+import { AlarmAnnotation, WidgetAnnotation } from "./simpleWidgets";
 
 import * as wjson from "./widgetJson";
 
@@ -27,9 +27,5 @@ declare module "./metricAlarm" {
 }
 
 MetricAlarm.prototype.addWidgetJson = function(this: MetricAlarm, annotations: wjson.MetricWidgetAnnotationsJson) {
-    if (annotations.alarms && annotations.alarms.length >= 1) {
-        throw new Error("Widget can only have a maximum of one alarm annotation.");
-    }
-
-    annotations.alarms = [this.arn];
+    new AlarmAnnotation(this.arn).addWidgetJson(annotations);
 }

@@ -285,8 +285,8 @@ export interface MetricWidgetArgs extends SimpleWidgetArgs {
      * An alarm annotation is required only when metrics is not specified. A horizontal or vertical
      * annotation is not required.
      *
-     * Instances of this interface include [aws.cloudwatch.Alarm], [HorizontalAnnotation] and
-     * [VerticalAnnotation].
+     * Instances of this interface include [aws.cloudwatch.Alarm], [AlarmAnnotation],
+     * [HorizontalAnnotation] and [VerticalAnnotation].
      */
     annotations?: WidgetAnnotation[];
 
@@ -350,13 +350,31 @@ export class ExpressionWidgetMetric implements WidgetMetric {
 }
 
 /**
- * Base interface for values that can be placed inside [MetricWidgetArgs.annotations].
- * Instances of this interface include [aws.cloudwatch.Alarm], [HorizontalAnnotation] and
+ * Base interface for values that can be placed inside [MetricWidgetArgs.annotations]. Instances of
+ * this interface include [aws.cloudwatch.Alarm], [AlarmAnnotation], [HorizontalAnnotation] and
  * [VerticalAnnotation].
  */
 export interface WidgetAnnotation {
     /** For internal use only. Only intended to be called by [MetricWidget]. */
     addWidgetJson(annotations: wjson.MetricWidgetAnnotationsJson);
+}
+
+/**
+ * Adds an alarm annotation to a [MetricWidget], allowing a metric alarm to be displayed in a
+ * Dashboard.
+ */
+export class AlarmAnnotation implements WidgetAnnotation {
+    constructor(private readonly alarmArn: pulumi.Input<string>) {
+    }
+
+    /** @internal */
+    public addWidgetJson(annotations: wjson.MetricWidgetAnnotationsJson) {
+        if (annotations.alarms && annotations.alarms.length >= 1) {
+            throw new Error("Widget can only have a maximum of one alarm annotation.");
+        }
+
+        annotations.alarms = [this.alarmArn];
+    }
 }
 
 /**
