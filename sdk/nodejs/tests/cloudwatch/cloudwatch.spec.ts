@@ -13,6 +13,7 @@ import { Widget } from "../../cloudwatch/widgets";
 import { ColumnWidget, RowWidget } from "../../cloudwatch/flowWidgets";
 import {
     AlarmAnnotation,
+    ExpressionWidgetMetric,
     HorizontalAnnotation,
     LineGraphMetricWidget,
     SingleNumberMetricWidget,
@@ -266,36 +267,36 @@ describe("dashboard", () => {
         it("string constructor", async () => {
             const json = await bodyJson(new TextWidget("text"));
             assert.equal(json, `{
-"widgets": [
-    {
-        "x": 0,
-        "y": 0,
-        "width": 6,
-        "height": 6,
-        "type": "text",
-        "properties": {
-            "markdown": "text"
+    "widgets": [
+        {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 6,
+            "type": "text",
+            "properties": {
+                "markdown": "text"
+            }
         }
-    }
-]
+    ]
 }`);
         });
 
         it("custom constructor", async () => {
             const json = await bodyJson(new TextWidget({ markdown: "text", width: 2, height: 1 }));
             assert.equal(json, `{
-"widgets": [
-    {
-        "x": 0,
-        "y": 0,
-        "width": 2,
-        "height": 1,
-        "type": "text",
-        "properties": {
-            "markdown": "text"
+    "widgets": [
+        {
+            "x": 0,
+            "y": 0,
+            "width": 2,
+            "height": 1,
+            "type": "text",
+            "properties": {
+                "markdown": "text"
+            }
         }
-    }
-]
+    ]
 }`);
         });
     });
@@ -1000,5 +1001,215 @@ describe("dashboard", () => {
 }`);
             });
         })
+    });
+
+    describe("realworld", () => {
+        it("realword 1", async () => {
+            const json = await toJson(new DashboardBody({
+                start: "-PT6H",
+                periodOverride: "inherit",
+                widgets: [
+                    new LineGraphMetricWidget({
+                        width: 12, height: 6,
+                        period: 300,
+                        statistic: "Average",
+                        title: "EC2 Instance CPU",
+                        metrics: [
+                            new Metric({
+                                namespace: "AWS/EC2",
+                                name: "DiskReadBytes",
+                                dimensions: {
+                                    InstanceId: "i-123"
+                                }
+                            }),
+                            new ExpressionWidgetMetric("SUM(METRICS())", "Sum of DiskReadbytes", "e3"),
+                        ],
+                    }),
+                    new LineGraphMetricWidget({
+                        width: 18, height: 9,
+                        period: 300,
+                        statistic: "Average",
+                        title: "EC2 Instance CPU",
+                        metrics: [
+                            new ExpressionWidgetMetric("SEARCH('{AWS/EC2,InstanceId} MetricName=\"CPUUtilization\"', 'Average', 300)", undefined, "e1"),
+                        ],
+                    })
+                ],
+            }));
+
+            assert.equal(json, `{
+    "start": "-PT6H",
+    "periodOverride": "inherit",
+    "widgets": [
+        {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 6,
+            "type": "metric",
+            "properties": {
+                "stat": "Average",
+                "metrics": [
+                    [
+                        "AWS/EC2",
+                        "DiskReadBytes",
+                        "InstanceId",
+                        "i-123",
+                        {
+                            "stat": "Average",
+                            "period": 300,
+                            "visible": true,
+                            "yAxis": "left"
+                        }
+                    ],
+                    [
+                        {
+                            "expression": "SUM(METRICS())",
+                            "label": "Sum of DiskReadbytes",
+                            "id": "e3"
+                        }
+                    ]
+                ],
+                "title": "EC2 Instance CPU",
+                "period": 300,
+                "region": "us-east-2",
+                "view": "timeSeries",
+                "stacked": false
+            }
+        },
+        {
+            "x": 0,
+            "y": 6,
+            "width": 18,
+            "height": 9,
+            "type": "metric",
+            "properties": {
+                "stat": "Average",
+                "metrics": [
+                    [
+                        {
+                            "expression": "SEARCH('{AWS/EC2,InstanceId} MetricName=\\"CPUUtilization\\"', 'Average', 300)",
+                            "id": "e1"
+                        }
+                    ]
+                ],
+                "title": "EC2 Instance CPU",
+                "period": 300,
+                "region": "us-east-2",
+                "view": "timeSeries",
+                "stacked": false
+            }
+        }
+    ]
+}`);
+        });
+
+        it("realword 2", async () => {
+            const json = await bodyJson(new StackedAreaGraphMetricWidget({
+                width: 12, height: 6,
+                period: 300,
+                statistic: "Average",
+                title: "EC2 Instance CPU",
+                yAxis: { left: { min:0, max :100 }, right: { min: 50  } },
+                annotations: [new HorizontalAnnotation({
+                    aboveEdge: {
+                        "label": "Critical range",
+                        "value": 20,
+                    },
+                    "visible":true,
+                    "color":"#9467bd",
+                    "fill": "above",
+                    "yAxis": "right"
+                })],
+                metrics: [
+                    new Metric({
+                        namespace: "AWS/EC2",
+                        name: "CPUUtilization",
+                        dimensions: {
+                            InstanceId: "i-012345",
+                        },
+                    }),
+                    new Metric({
+                        namespace: "AWS/EC2",
+                        name: "NetworkIn",
+                        dimensions: {
+                            InstanceId: "i-012345",
+                        },
+                        yAxis: "right",
+                        label: "NetworkIn",
+                        period: 3600,
+                        statistic: "Maximum",
+                    }),
+                ],
+            }));
+
+            assert.equal(json, `{
+    "widgets": [
+        {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 6,
+            "type": "metric",
+            "properties": {
+                "stat": "Average",
+                "metrics": [
+                    [
+                        "AWS/EC2",
+                        "CPUUtilization",
+                        "InstanceId",
+                        "i-012345",
+                        {
+                            "stat": "Average",
+                            "period": 300,
+                            "visible": true,
+                            "yAxis": "left"
+                        }
+                    ],
+                    [
+                        "AWS/EC2",
+                        "NetworkIn",
+                        "InstanceId",
+                        "i-012345",
+                        {
+                            "stat": "Maximum",
+                            "label": "NetworkIn",
+                            "period": 3600,
+                            "visible": true,
+                            "yAxis": "right"
+                        }
+                    ]
+                ],
+                "annotations": {
+                    "horizontal": [
+                        {
+                            "fill": "above",
+                            "color": "#9467bd",
+                            "label": "Critical range",
+                            "value": 20,
+                            "visible": true,
+                            "yAxis": "right"
+                        }
+                    ]
+                },
+                "title": "EC2 Instance CPU",
+                "period": 300,
+                "region": "us-east-2",
+                "view": "timeSeries",
+                "stacked": true,
+                "yAxis": {
+                    "left": {
+                        "min": 0,
+                        "max": 100
+                    },
+                    "right": {
+                        "min": 50
+                    }
+                }
+            }
+        }
+    ]
+}`);
+        });
     });
 });
