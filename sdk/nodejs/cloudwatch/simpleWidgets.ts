@@ -111,7 +111,7 @@ export interface TextWidgetArgs extends SimpleWidgetArgs {
     markdown: pulumi.Input<string>;
 }
 
-function flattenAnnotations(annotations: WidgetAnnotation | WidgetAnnotation[]) {
+function flattenArray<T>(annotations: T | T[]) {
     return Array.isArray(annotations) ? annotations : annotations ? [annotations] : []
 }
 
@@ -127,16 +127,21 @@ export abstract class MetricWidget extends SimpleWidget {
     constructor(private readonly metricArgs: MetricWidgetArgs) {
         super(metricArgs);
 
-        if (!metricArgs.annotations && !metricArgs.metrics) {
-            throw new Error("[args.metrics] must be provided if [args.annotations] is not provided.");
+        this.annotations = flattenArray(metricArgs.annotations);
+        this.metrics = flattenArray(metricArgs.metrics);
+
+        // If they specified an alarm, then make an appropriate annotation that will set
+        // properties.alarms.
+        const alarm = metricArgs.alarm;
+        if (alarm) {
+            const alarmArm = pulumi.all([(<WidgetAlarm>alarm).arn, <pulumi.Input<string>>alarm])
+                                   .apply(([s1, s2]) => s1 || s2);
+            this.annotations.push(new AlarmAnnotation(alarmArm));
         }
 
-        this.annotations = flattenAnnotations(metricArgs.annotations)
-        this.metrics = Array.isArray(metricArgs.metrics)
-            ? metricArgs.metrics
-            : metricArgs.metrics
-                ? [metricArgs.metrics]
-                : [];
+        if (this.annotations.length === 0 && this.metrics.length === 0) {
+            throw new Error("[args.metrics] must be provided if [args.annotations] is not provided.");
+        }
     }
 
     protected abstract computeView(): wjson.MetricWidgetPropertiesJson["view"];
@@ -214,24 +219,6 @@ export abstract class GraphMetricWidget extends MetricWidget {
     }
 }
 
-/**
- * Creates a widget to show the status of a particular alarm.
- */
-export class AlarmWidget extends GraphMetricWidget {
-    constructor(alarmArgs: AlarmWidgetArgs) {
-        const annotations = flattenAnnotations(alarmArgs.annotations);
-        const alarm = alarmArgs.alarm;
-        const alarmArm = pulumi.all([<pulumi.Input<string>>alarm, (<WidgetAlarm>alarm).arn])
-                               .apply(([s1, s2]) => s2 || s1);
-        annotations.push(new AlarmAnnotation(alarmArm));
-        super(alarmArgs);
-    }
-
-    protected computedStacked() {
-        return false;
-    }
-}
-
 export interface AlarmWidgetArgs extends GraphMetricWidgetArgs {
     alarm: pulumi.Input<string> | WidgetAlarm;
 }
@@ -288,6 +275,12 @@ export class SingleNumberMetricWidget extends MetricWidget {
 }
 
 export interface MetricWidgetArgs extends SimpleWidgetArgs {
+    /**
+     * Used to show a graph of a single alarm.  If, instead, you want to place horizontal lines in
+     * graphs to show the trigger point of an alarm, then add the alarm to [annotations] instead.
+     */
+    alarm?: pulumi.Input<string> | WidgetAlarm;
+
     /**
      * A single metric widget can have up to one alarm, and multiple horizontal and vertical
      * annotations.

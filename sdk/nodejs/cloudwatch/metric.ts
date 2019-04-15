@@ -326,9 +326,29 @@ function computeDescription(metric: Metric, args: AlarmArgs, comparisonOperator:
             return args.alarmDescription;
         }
 
+        const name = metric.label || metric.name;
+        const op = operatorDescription(comparisonOperator);
+        const period = args.evaluationPeriods === 1
+            ? `for 1 datapoint`
+            : `for ${args.evaluationPeriods} datapoints`;
+
         const time = args.evaluationPeriods * metric.period;
-        return `${metric.name} ${comparisonOperator} ${args.threshold} in the last ${time}s`;
+        const timeDesc = time % 60 === 0
+            ? `within ${time / 60} minutes`
+            : `within ${time} seconds`;
+
+        return `${name} ${op} ${args.threshold} ${period} ${timeDesc}`;
     })
+}
+
+function operatorDescription(op: AlarmComparisonOperator) {
+    switch (op) {
+        case "GreaterThanOrEqualToThreshold": return ">=";
+        case "GreaterThanThreshold": return ">";
+        case "LessThanThreshold": return "<";
+        case "LessThanOrEqualToThreshold": return "<=";
+        default: throw new Error(`Unexpected comparison operator: ${op}`);
+    }
 }
 
 function validatePeriod(period: number) {

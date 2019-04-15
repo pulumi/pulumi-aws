@@ -33,7 +33,6 @@ Dashboard.fromBody = function(name: string, body: DashboardBody, opts?: pulumi.C
         dashboardName: utils.ifUndefined(body.name, name),
         dashboardBody: body.toDashboardJson().apply(j => {
             const result = JSON.stringify(j, null, 2);
-            console.log(result);
             return result;
         }),
     };

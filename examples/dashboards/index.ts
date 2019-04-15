@@ -50,6 +50,7 @@ const dashboard = aws.cloudwatch.Dashboard.fromBody("topicinfo", new aws.cloudwa
     widgets: [
         new aws.cloudwatch.SingleNumberMetricWidget({
             title: "Requests/Minute",
+            width: 10,
             metrics: subscription.func.metrics.invocations({
                 unit: "Count",
                 statistic: "Average",
@@ -58,6 +59,8 @@ const dashboard = aws.cloudwatch.Dashboard.fromBody("topicinfo", new aws.cloudwa
         }),
         new aws.cloudwatch.LineGraphMetricWidget({
             title: "Lambda duration",
+            width: 14,
+
             // Place a line on the graph to indicate where our alarm will be triggered.
             annotations: funcAlarm,
 
