@@ -384,8 +384,8 @@ export class AlarmAnnotation implements WidgetAnnotation {
  */
 export class HorizontalAnnotation implements WidgetAnnotation {
     constructor(private readonly args: HorizontalAnnotationArgs) {
-        if (args.fill && args.lowerEdge) {
-            throw new Error(`[args.fill] should not be provided if [args.lowerEdge] is provided.`);
+        if (args.fill && args.belowEdge) {
+            throw new Error(`[args.fill] should not be provided if [args.belowEdge] is provided.`);
         }
     }
 
@@ -396,18 +396,18 @@ export class HorizontalAnnotation implements WidgetAnnotation {
         const annotation: wjson.HorizontalAnnotationJson = {
             fill: this.args.fill,
             color: this.args.color,
-            label: this.args.upperEdge.label,
-            value: this.args.upperEdge.value,
+            label: this.args.aboveEdge.label,
+            value: this.args.aboveEdge.value,
             visible: this.args.visible,
             yAxis: this.args.yAxis,
         };
 
         annotations.horizontal.push(annotation);
 
-        if (this.args.lowerEdge) {
+        if (this.args.belowEdge) {
             annotations.horizontal.push({
-                value: this.args.lowerEdge.value,
-                label: this.args.lowerEdge.label,
+                value: this.args.belowEdge.value,
+                label: this.args.belowEdge.label,
             });
         }
     }
@@ -416,15 +416,15 @@ export class HorizontalAnnotation implements WidgetAnnotation {
 export interface HorizontalAnnotationArgs {
     /**
      * The metric value in the graph where the horizontal annotation line is to appear.  If
-     * [lowerEdge] is also provided, then this will produce a band annotation.  In that case [fill]
+     * [belowEdge] is also provided, then this will produce a band annotation.  In that case [fill]
      * should not be provided.
      */
-    upperEdge: HorizontalEdge;
+    aboveEdge: HorizontalEdge;
 
     /**
      * The lower edge when using band shading.
      */
-    lowerEdge?: HorizontalEdge;
+    belowEdge?: HorizontalEdge;
 
     /**
      * The six-digit HTML hex color code to be used for the annotation. This color is used for both
@@ -479,8 +479,8 @@ export interface HorizontalEdge {
  */
 export class VerticalAnnotation implements WidgetAnnotation {
     constructor(private readonly args: VerticalAnnotationArgs) {
-        if (args.fill && args.endEdge) {
-            throw new Error(`[args.fill] should not be provided if [args.endEdge] is provided.`);
+        if (args.fill && args.afterEdge) {
+            throw new Error(`[args.fill] should not be provided if [args.afterEdge] is provided.`);
         }
     }
 
@@ -491,17 +491,17 @@ export class VerticalAnnotation implements WidgetAnnotation {
         const annotation: wjson.VerticalAnnotationJson = {
             fill: this.args.fill,
             color: this.args.color,
-            label: this.args.beginningEdge.label,
-            value: this.args.beginningEdge.value,
+            label: this.args.beforeEdge.label,
+            value: this.args.beforeEdge.value,
             visible: this.args.visible,
         };
 
         annotations.vertical.push(annotation);
 
-        if (this.args.endEdge) {
+        if (this.args.afterEdge) {
             annotations.vertical.push({
-                value: this.args.endEdge.value,
-                label: this.args.endEdge.label,
+                value: this.args.afterEdge.value,
+                label: this.args.afterEdge.label,
             });
         }
     }
@@ -517,12 +517,12 @@ export interface VerticalAnnotationArgs {
      * [endEdge] is also provided, then this will produce a band annotation.  In that case [fill]
      * should not be provided.
      */
-    beginningEdge: VerticalEdge;
+    beforeEdge: VerticalEdge;
 
     /**
      * The ending edge when using band shading.
      */
-    endEdge?: VerticalEdge;
+    afterEdge?: VerticalEdge;
 
     /**
      * The six-digit HTML hex color code to be used for the annotation. This color is used for both

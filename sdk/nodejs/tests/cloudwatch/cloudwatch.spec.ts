@@ -102,8 +102,8 @@ describe("dashboard", () => {
                         await bodyJson(new SingleNumberMetricWidget({
                             annotations: [new HorizontalAnnotation({
                                 fill: "above",
-                                upperEdge: { value: 10 },
-                                lowerEdge: { value: 5 },
+                                aboveEdge: { value: 10 },
+                                belowEdge: { value: 5 },
                             })],
                         }));
                     });
@@ -113,7 +113,7 @@ describe("dashboard", () => {
             it("single", async () => {
                 const json = await bodyJson(new SingleNumberMetricWidget({
                     annotations: [new HorizontalAnnotation({
-                        upperEdge: { value: 10 },
+                        aboveEdge: { value: 10 },
                     })],
                 }));
                 assert.equal(json, `{
@@ -144,8 +144,8 @@ describe("dashboard", () => {
             it("band", async () => {
                 const json = await bodyJson(new SingleNumberMetricWidget({
                     annotations: [new HorizontalAnnotation({
-                        upperEdge: { value: 10 },
-                        lowerEdge: { value: 5 },
+                        aboveEdge: { value: 10 },
+                        belowEdge: { value: 5 },
                     })],
                 }));
                 assert.equal(json, `{
@@ -177,12 +177,28 @@ describe("dashboard", () => {
 }`);
             });
         });
-    });
 
-    describe("simple widgets", () => {
-        describe("text widgets", () => {
-            it("string constructor", async () => {
-                const json = await bodyJson(new TextWidget("text"));
+        describe("vertical", () => {
+            if (semver.gte(process.version, "10.0.0")) {
+                it("fill and band", async() => {
+                    await assert.rejects(async() => {
+                        await bodyJson(new SingleNumberMetricWidget({
+                            annotations: [new VerticalAnnotation({
+                                fill: "after",
+                                beforeEdge: { value: "10" },
+                                afterEdge: { value: "5" },
+                            })],
+                        }));
+                    });
+                });
+            }
+
+            it("single", async () => {
+                const json = await bodyJson(new SingleNumberMetricWidget({
+                    annotations: [new VerticalAnnotation({
+                        beforeEdge: { value: "10" },
+                    })],
+                }));
                 assert.equal(json, `{
     "widgets": [
         {
@@ -190,32 +206,97 @@ describe("dashboard", () => {
             "y": 0,
             "width": 6,
             "height": 6,
-            "type": "text",
+            "type": "metric",
             "properties": {
-                "markdown": "text"
+                "annotations": {
+                    "vertical": [
+                        {
+                            "value": "10"
+                        }
+                    ]
+                },
+                "period": 300,
+                "region": "us-east-2",
+                "view": "singleValue",
+                "stacked": false
             }
         }
     ]
 }`);
             });
-
-            it("custom constructor", async () => {
-                const json = await bodyJson(new TextWidget({ markdown: "text", width: 2, height: 1 }));
+            it("band", async () => {
+                const json = await bodyJson(new SingleNumberMetricWidget({
+                    annotations: [new VerticalAnnotation({
+                        beforeEdge: { value: "10" },
+                        afterEdge: { value: "5" },
+                    })],
+                }));
                 assert.equal(json, `{
     "widgets": [
         {
             "x": 0,
             "y": 0,
-            "width": 2,
-            "height": 1,
-            "type": "text",
+            "width": 6,
+            "height": 6,
+            "type": "metric",
             "properties": {
-                "markdown": "text"
+                "annotations": {
+                    "vertical": [
+                        {
+                            "value": "10"
+                        },
+                        {
+                            "value": "5"
+                        }
+                    ]
+                },
+                "period": 300,
+                "region": "us-east-2",
+                "view": "singleValue",
+                "stacked": false
             }
         }
     ]
 }`);
             });
+        });
+    });
+
+    describe("text widgets", () => {
+        it("string constructor", async () => {
+            const json = await bodyJson(new TextWidget("text"));
+            assert.equal(json, `{
+"widgets": [
+    {
+        "x": 0,
+        "y": 0,
+        "width": 6,
+        "height": 6,
+        "type": "text",
+        "properties": {
+            "markdown": "text"
+        }
+    }
+]
+}`);
+        });
+
+        it("custom constructor", async () => {
+            const json = await bodyJson(new TextWidget({ markdown: "text", width: 2, height: 1 }));
+            assert.equal(json, `{
+"widgets": [
+    {
+        "x": 0,
+        "y": 0,
+        "width": 2,
+        "height": 1,
+        "type": "text",
+        "properties": {
+            "markdown": "text"
+        }
+    }
+]
+}`);
         });
     });
 
@@ -607,6 +688,84 @@ describe("dashboard", () => {
                         "Invocations",
                         {
                             "stat": "Average",
+                            "period": 300,
+                            "visible": true,
+                            "yAxis": "left"
+                        }
+                    ]
+                ],
+                "period": 300,
+                "region": "us-east-2",
+                "view": "singleValue",
+                "stacked": false
+            }
+        }
+    ]
+}`);
+            });
+
+            it("stat", async () => {
+                const json = await bodyJson(new SingleNumberMetricWidget({
+                    metrics: [new Metric({
+                        namespace: "AWS/Lambda",
+                        name: "Invocations",
+                        statistic: "SampleCount",
+                    })]
+                }));
+                assert.equal(json, `{
+    "widgets": [
+        {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 6,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [
+                        "AWS/Lambda",
+                        "Invocations",
+                        {
+                            "stat": "SampleCount",
+                            "period": 300,
+                            "visible": true,
+                            "yAxis": "left"
+                        }
+                    ]
+                ],
+                "period": 300,
+                "region": "us-east-2",
+                "view": "singleValue",
+                "stacked": false
+            }
+        }
+    ]
+}`);
+            });
+
+            it("extended stat", async () => {
+                const json = await bodyJson(new SingleNumberMetricWidget({
+                    metrics: [new Metric({
+                        namespace: "AWS/Lambda",
+                        name: "Invocations",
+                        extendedStatistic: 99,
+                    })]
+                }));
+                assert.equal(json, `{
+    "widgets": [
+        {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 6,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [
+                        "AWS/Lambda",
+                        "Invocations",
+                        {
+                            "stat": "p99",
                             "period": 300,
                             "visible": true,
                             "yAxis": "left"
