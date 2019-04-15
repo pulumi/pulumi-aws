@@ -11,7 +11,7 @@ import * as aws from "../..";
 import { Metric } from "../../cloudwatch/metric";
 import { Widget } from "../../cloudwatch/widgets";
 import { ColumnWidget, RowWidget } from "../../cloudwatch/flowWidgets";
-import { SingleNumberMetricWidget, TextWidget } from "../../cloudwatch/simpleWidgets";
+import { SingleNumberMetricWidget, TextWidget, StackedAreaGraphMetricWidget, LineGraphMetricWidget } from "../../cloudwatch/simpleWidgets";
 import { DashboardBody } from "../../cloudwatch/dashboardBody";
 
 function createBody(...widgets: Widget[]) {
@@ -584,5 +584,85 @@ describe("dashboard", () => {
 }`);
             });
         });
+
+        describe("stacked area graph", () => {
+            it("single metric", async () => {
+                const json = await bodyJson(new StackedAreaGraphMetricWidget({
+                    metrics: [new Metric({
+                        namespace: "AWS/Lambda",
+                        name: "Invocations",
+                    })]
+                }));
+                assert.equal(json, `{
+    "widgets": [
+        {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 6,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [
+                        "AWS/Lambda",
+                        "Invocations",
+                        {
+                            "stat": "Average",
+                            "period": 300,
+                            "visible": true,
+                            "yAxis": "left"
+                        }
+                    ]
+                ],
+                "period": 300,
+                "region": "us-east-2",
+                "view": "timeSeries",
+                "stacked": true
+            }
+        }
+    ]
+}`);
+            });
+        })
+
+        describe("line graph", () => {
+            it("single metric", async () => {
+                const json = await bodyJson(new LineGraphMetricWidget({
+                    metrics: [new Metric({
+                        namespace: "AWS/Lambda",
+                        name: "Invocations",
+                    })]
+                }));
+                assert.equal(json, `{
+    "widgets": [
+        {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 6,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [
+                        "AWS/Lambda",
+                        "Invocations",
+                        {
+                            "stat": "Average",
+                            "period": 300,
+                            "visible": true,
+                            "yAxis": "left"
+                        }
+                    ]
+                ],
+                "period": 300,
+                "region": "us-east-2",
+                "view": "timeSeries",
+                "stacked": false
+            }
+        }
+    ]
+}`);
+            });
+        })
     });
 });
