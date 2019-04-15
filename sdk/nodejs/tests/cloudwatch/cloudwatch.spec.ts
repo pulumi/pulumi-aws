@@ -3,13 +3,14 @@ import * as pulumi from "@pulumi/pulumi";
 pulumi.runtime.setConfig("aws:region", "us-east-2");
 
 import * as assert from "assert";
+import * as semver from "semver";
 // import { asyncTest } from "../util";
 
 import * as aws from "../..";
 
 import { Widget } from "../../cloudwatch/widgets";
 import { ColumnWidget, RowWidget } from "../../cloudwatch/flowWidgets";
-import { TextWidget } from "../../cloudwatch/simpleWidgets";
+import { SingleNumberMetricWidget, TextWidget } from "../../cloudwatch/simpleWidgets";
 import { DashboardBody } from "../../cloudwatch/dashboardBody";
 
 function createBody(...widgets: Widget[]) {
@@ -72,7 +73,7 @@ describe("dashboard", () => {
         });
     });
 
-    describe("flow", () => {
+    describe("flow widgets", () => {
         describe("horizontal", () => {
             it("two widgets", async () => {
                 const json = await bodyJson(new TextWidget("hello"), new TextWidget("world"));
@@ -418,5 +419,17 @@ describe("dashboard", () => {
 }`);
             });
         })
+    });
+
+    describe("metric widgets", () => {
+        describe("single number", () => {
+            if (semver.gte(process.version, "10.0.0")) {
+                it("empty metrics", async () => {
+                    await assert.rejects(async () => {
+                        const json = await bodyJson(new SingleNumberMetricWidget({}));
+                    });
+                });
+            }
+        });
     });
 });
