@@ -9,6 +9,5 @@ export * from "./getFunction";
 export * from "./getInvocation";
 export * from "./lambdaMixins";
 export * from "./layerVersion";
-export * from "./metrics";
 export * from "./permission";
 export * from "./runtimes";

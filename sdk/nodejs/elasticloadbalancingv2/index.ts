@@ -9,6 +9,5 @@ export * from "./listener";
 export * from "./listenerCertificate";
 export * from "./listenerRule";
 export * from "./loadBalancer";
-export * from "./metrics";
 export * from "./targetGroup";
 export * from "./targetGroupAttachment";

@@ -50,7 +50,6 @@ export * from "./keyPair";
 export * from "./launchConfiguration";
 export * from "./launchTemplate";
 export * from "./mainRouteTableAssociation";
-export * from "./metrics";
 export * from "./natGateway";
 export * from "./networkAcl";
 export * from "./networkAclRule";
