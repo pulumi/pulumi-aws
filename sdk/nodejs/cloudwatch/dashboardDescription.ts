@@ -68,6 +68,10 @@ export interface DashboardDescriptionArgs {
  * [Dashboard]s are represented by a grid of columns 24 wide, with an unlimited number of rows.
  *
  * Each [Widget] in the [Dashboard] have a specific width/height in terms of grid units.
+ *
+ * A [Dashboard] can include up to 100 widgets.  See
+ * https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html#CloudWatch-Dashboard-Properties-Rendering-Object-Format
+ * for more details.
  */
 export class DashboardDescription {
     /**
