@@ -101,15 +101,16 @@ export class ColumnWidget extends FlowWidget {
     protected getWidgetRelativePositions(): Map<Widget, WidgetRelativePosition> {
         const result = new Map<Widget, WidgetRelativePosition>();
 
-        let currentY = 0;
+        const relativeX = 0;
+        let relativeY = 0;
         for (const widget of this.widgets) {
             const widgetHeight = widget.height();
 
             // In a vertical flow, there is no wraparound.  So all subwidgets start at the same
             // x-position as their parent.  Each is placed below the last though.  So the relativeY
             // keeps getting incremented by the height of the last widget we added.
-            result.set(widget, { relativeX: 0, relativeY: currentY });
-            currentY += widgetHeight;
+            result.set(widget, { relativeX, relativeY });
+            relativeY += widgetHeight;
         }
 
         return result;
@@ -137,8 +138,8 @@ export class RowWidget extends FlowWidget {
         const maxWidth = 24;
 
         let height = 0;
-        let currentY = 0;
-        let currentX = 0;
+        let relativeX = 0;
+        let relativeY = 0;
         for (const widget of this.widgets) {
             const widgetHeight = widget.height();
             const widgetWidth = widget.width();
@@ -148,15 +149,15 @@ export class RowWidget extends FlowWidget {
             }
 
             // If this widget would go past 24 grid columns then wrap around.
-            if (currentX + widgetWidth > maxWidth) {
-                currentX = 0;
-                currentY = height;
+            if (relativeX + widgetWidth > maxWidth) {
+                relativeX = 0;
+                relativeY = height;
             }
 
-            height = Math.max(height, currentY + widgetHeight);
-            result.set(widget, { relativeX: currentX, relativeY: currentY });
+            height = Math.max(height, relativeY + widgetHeight);
+            result.set(widget, { relativeX, relativeY });
 
-            currentX += widgetWidth;
+            relativeX += widgetWidth;
         }
 
         return result;
