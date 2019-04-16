@@ -30,7 +30,7 @@ import { WidgetJson } from "./widgets_json";
  * 4. [LineGraphMetricWidget] and [StackedAreaGraphMetricWidget] can be used to display a series
  *    of metric values as a graph.
  */
-export abstract class Widget {
+export interface Widget {
     /**
      * The width of the widget in grid units (in a 24-column grid). The default is 6.
      *
@@ -38,19 +38,19 @@ export abstract class Widget {
      *
      * Type: Integer
      */
-    abstract width(): number;
+    width(): number;
 
     /**
      * The height of the widget in grid units. The default is 6.
      *
      * Valid Values: 1–1000
      */
-    abstract height(): number;
+    height(): number;
 
     /**
      * @internal
      * Converts this widget to an appropriate JSON pojo.  The [xOffset] and [yOffset] parameters
      * specify where in the final [Dashboard] grid this [Widget] should be placed.
      */
-    public abstract addWidgetJson(widgetJsons: WidgetJson[], xOffset: number, yOffset: number): void;
+    addWidgetJson(widgetJsons: WidgetJson[], xOffset: number, yOffset: number): void;
 }

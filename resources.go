@@ -1906,7 +1906,7 @@ func Provider() tfbridge.ProviderInfo {
 							"metricAlarmMixins.ts",
 							"metric.ts",
 							"metrics.ts",
-							"widgets.ts",
+							"widget.ts",
 							"widgets_annotations.ts",
 							"widgets_json.ts",
 							"widgets_flow.ts",

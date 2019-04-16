@@ -14,7 +14,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
-import { Widget } from "./widgets";
+import { Widget } from "./widget";
 import { WidgetJson } from "./widgets_json"
 
 interface WidgetRelativePosition {
@@ -29,11 +29,10 @@ interface WidgetRelativePosition {
  * must wrap after 24 grid columns.  There is no effective vertical limit on widgets flowing
  * vertically.
  */
-export abstract class FlowWidget extends Widget {
+export abstract class FlowWidget implements Widget {
     protected readonly widgets: Widget[] = [];
 
     constructor(...widgets: Widget[]) {
-        super();
         for (const widget of widgets) {
             this.addWidget(widget);
         }

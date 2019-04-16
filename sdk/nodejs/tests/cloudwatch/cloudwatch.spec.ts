@@ -9,7 +9,7 @@ import * as semver from "semver";
 import * as aws from "../..";
 
 import { Metric } from "../../cloudwatch/metric";
-import { Widget } from "../../cloudwatch/widgets";
+import { Widget } from "../../cloudwatch/widget";
 import { ColumnWidget, RowWidget } from "../../cloudwatch/widgets_flow";
 import { ExpressionWidgetMetric, TextWidget } from "../../cloudwatch/widgets_simple";
 import { AlarmAnnotation, HorizontalAnnotation, VerticalAnnotation } from "../../cloudwatch/widgets_annotations";

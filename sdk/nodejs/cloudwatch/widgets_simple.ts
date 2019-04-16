@@ -18,7 +18,7 @@ import * as config from "../config";
 import * as region from "../region";
 
 import { MetricStatistic } from "./metric";
-import { Widget } from "./widgets";
+import { Widget } from "./widget";
 import { AlarmAnnotation, WidgetAnnotation } from "./widgets_annotations";
 import * as wjson from "./widgets_json";
 
@@ -43,10 +43,8 @@ export interface SimpleWidgetArgs {
 /**
  * Base type of all non-flow Widgets to place in a DashboardGrid.
  */
-export abstract class SimpleWidget extends Widget {
+export abstract class SimpleWidget implements Widget {
     constructor(private readonly args: SimpleWidgetArgs) {
-        super();
-
         if (args.width > 24) {
             throw new Error("[args.width] cannot be greater than 24.");
         }
