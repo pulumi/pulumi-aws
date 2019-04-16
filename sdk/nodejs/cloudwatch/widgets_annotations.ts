@@ -46,42 +46,6 @@ export class AlarmAnnotation implements WidgetAnnotation {
     }
 }
 
-/**
- * Horizontal annotations have several options for fill shading, including shading above the
- * annotation line, shading below the annotation line, and "band" shading that appears between two
- * linked annotation lines as part of a single band annotation
- */
-export class HorizontalAnnotation implements WidgetAnnotation {
-    constructor(private readonly args: HorizontalAnnotationArgs) {
-        if (args.fill && args.belowEdge) {
-            throw new Error(`[args.fill] should not be provided if [args.belowEdge] is provided.`);
-        }
-    }
-
-    /** @internal */
-    public addWidgetJson(annotations: wjson.MetricWidgetAnnotationsJson) {
-        annotations.horizontal = annotations.horizontal || [];
-
-        const annotation: wjson.HorizontalAnnotationJson = {
-            fill: this.args.fill,
-            color: this.args.color,
-            label: this.args.aboveEdge.label,
-            value: this.args.aboveEdge.value,
-            visible: this.args.visible,
-            yAxis: this.args.yAxis,
-        };
-
-        annotations.horizontal.push(annotation);
-
-        if (this.args.belowEdge) {
-            annotations.horizontal.push({
-                value: this.args.belowEdge.value,
-                label: this.args.belowEdge.label,
-            });
-        }
-    }
-}
-
 export interface HorizontalAnnotationArgs {
     /**
      * The metric value in the graph where the horizontal annotation line is to appear.  If
@@ -142,35 +106,36 @@ export interface HorizontalEdge {
 }
 
 /**
- * Vertical annotations have several options for fill shading, including shading before the
- * annotation line, shading after the annotation line, and "band" shading that appears between two
+ * Horizontal annotations have several options for fill shading, including shading above the
+ * annotation line, shading below the annotation line, and "band" shading that appears between two
  * linked annotation lines as part of a single band annotation
  */
-export class VerticalAnnotation implements WidgetAnnotation {
-    constructor(private readonly args: VerticalAnnotationArgs) {
-        if (args.fill && args.afterEdge) {
-            throw new Error(`[args.fill] should not be provided if [args.afterEdge] is provided.`);
+export class HorizontalAnnotation implements WidgetAnnotation {
+    constructor(private readonly args: HorizontalAnnotationArgs) {
+        if (args.fill && args.belowEdge) {
+            throw new Error(`[args.fill] should not be provided if [args.belowEdge] is provided.`);
         }
     }
 
     /** @internal */
     public addWidgetJson(annotations: wjson.MetricWidgetAnnotationsJson) {
-        annotations.vertical = annotations.vertical || [];
+        annotations.horizontal = annotations.horizontal || [];
 
-        const annotation: wjson.VerticalAnnotationJson = {
+        const annotation: wjson.HorizontalAnnotationJson = {
             fill: this.args.fill,
             color: this.args.color,
-            label: this.args.beforeEdge.label,
-            value: this.args.beforeEdge.value,
+            label: this.args.aboveEdge.label,
+            value: this.args.aboveEdge.value,
             visible: this.args.visible,
+            yAxis: this.args.yAxis,
         };
 
-        annotations.vertical.push(annotation);
+        annotations.horizontal.push(annotation);
 
-        if (this.args.afterEdge) {
-            annotations.vertical.push({
-                value: this.args.afterEdge.value,
-                label: this.args.afterEdge.label,
+        if (this.args.belowEdge) {
+            annotations.horizontal.push({
+                value: this.args.belowEdge.value,
+                label: this.args.belowEdge.label,
             });
         }
     }
@@ -232,4 +197,39 @@ export interface VerticalEdge {
      * A string that appears on the graph next to the annotation.
      */
     label?: string;
+}
+
+/**
+ * Vertical annotations have several options for fill shading, including shading before the
+ * annotation line, shading after the annotation line, and "band" shading that appears between two
+ * linked annotation lines as part of a single band annotation
+ */
+export class VerticalAnnotation implements WidgetAnnotation {
+    constructor(private readonly args: VerticalAnnotationArgs) {
+        if (args.fill && args.afterEdge) {
+            throw new Error(`[args.fill] should not be provided if [args.afterEdge] is provided.`);
+        }
+    }
+
+    /** @internal */
+    public addWidgetJson(annotations: wjson.MetricWidgetAnnotationsJson) {
+        annotations.vertical = annotations.vertical || [];
+
+        const annotation: wjson.VerticalAnnotationJson = {
+            fill: this.args.fill,
+            color: this.args.color,
+            label: this.args.beforeEdge.label,
+            value: this.args.beforeEdge.value,
+            visible: this.args.visible,
+        };
+
+        annotations.vertical.push(annotation);
+
+        if (this.args.afterEdge) {
+            annotations.vertical.push({
+                value: this.args.afterEdge.value,
+                label: this.args.afterEdge.label,
+            });
+        }
+    }
 }
