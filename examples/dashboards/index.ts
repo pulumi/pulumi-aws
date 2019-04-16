@@ -40,13 +40,13 @@ const subscription = topic.onEvent("for-each-url", async (event) => {
 // Get the metric for the lambda that processing our topic requests.
 const funcMetric = subscription.func.metrics.duration();
 
-// Create an alarm if this lambda takes more than 10 seconds to complete in a period of 10 minutes
-// over at least five periods in a row.
-const funcAlarm = funcMetric.with({ unit: "Seconds", period: 600 })
-                            .createAlarm("SlowUrlProcessing", { threshold: 10, evaluationPeriods: 5 });
+// Create an alarm if this lambda takes more than 1000ms to complete in a period of 10 minutes over
+// at least five periods in a row.
+const funcAlarm1 = funcMetric.with({ unit: "Milliseconds", period: 600 })
+                             .createAlarm("SlowUrlProcessing", { threshold: 1000, evaluationPeriods: 5 });
 
 // Also great a dashboard to track this.
-const dashboard = aws.cloudwatch.Dashboard.fromBody("topicinfo", new aws.cloudwatch.DashboardBody({
+const dashboard = aws.cloudwatch.Dashboard.fromBody("TopicData", new aws.cloudwatch.DashboardBody({
     widgets: [
         new aws.cloudwatch.SingleNumberMetricWidget({
             title: "Requests/Minute",
@@ -62,13 +62,13 @@ const dashboard = aws.cloudwatch.Dashboard.fromBody("topicinfo", new aws.cloudwa
             width: 14,
 
             // Place a line on the graph to indicate where our alarm will be triggered.
-            annotations: funcAlarm,
+            annotations: funcAlarm1,
 
             // Log our different p90/p95/p99 latencies
             metrics: [
                 funcMetric.with({ extendedStatistic: 90, label: "Duration p90" }),
                 funcMetric.with({ extendedStatistic: 95, label: "Duration p95" }),
-                funcMetric.with({ extendedStatistic: 99, label: "Duration p99" }),
+                funcMetric.with({ extendedStatistic: 98, label: "Duration p99" }),
             ],
         })
     ],
