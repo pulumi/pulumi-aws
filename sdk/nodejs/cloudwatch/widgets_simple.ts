@@ -209,9 +209,7 @@ export abstract class MetricWidget extends SimpleWidget {
     protected abstract computedStacked(): wjson.MetricWidgetPropertiesJson["stacked"];
     protected abstract computeYAxis(): wjson.MetricWidgetPropertiesJson["yAxis"];
 
-    protected computeType(): wjson.MetricWidgetJson["type"] {
-        return "metric";
-    }
+    protected computeType = (): wjson.MetricWidgetJson["type"] => "metric";
 
     protected computeProperties(): wjson.MetricWidgetJson["properties"] {
         const stat = pulumi.all([this.metricArgs.extendedStatistic, this.metricArgs.statistic])
