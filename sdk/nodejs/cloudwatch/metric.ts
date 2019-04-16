@@ -252,6 +252,7 @@ export class Metric implements WidgetMetric {
     public addWidgetJson(metrics: wjson.MetricJson[]): void {
         // Each single metric in the metrics array has the following format:
         // [Namespace, MetricName, [{DimensionName,DimensionValue}...] [Rendering Properties Object] ]
+        // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html#CloudWatch-Dashboard-Properties-Metrics-Array-Format
 
         const op = pulumi.output(this).apply(uw => {
             const result: (string | wjson.RenderingPropertiesJson)[] = [];
@@ -263,6 +264,8 @@ export class Metric implements WidgetMetric {
             result.push(uw.namespace)
             result.push(uw.name);
 
+            // note that dimensions are just added added directly into the array, there's no
+            // sub-array or other structure to hold them.
             for (const key in uw.dimensions) {
                 result.push(key);
                 result.push(uw.dimensions[key]);
