@@ -82,6 +82,13 @@ export abstract class SimpleWidget extends Widget {
     }
 }
 
+export interface TextWidgetArgs extends SimpleWidgetArgs {
+    /**
+     * The text to be displayed by the widget.
+     */
+    markdown: pulumi.Input<string>;
+}
+
 /**
  * Simple widget that displays a piece of text in the dashboard grid.
  */
@@ -104,13 +111,6 @@ export class TextWidget extends SimpleWidget {
     protected computeProperties(): wjson.TextWidgetJson["properties"] {
         return { markdown: this.textArgs.markdown };
     }
-}
-
-export interface TextWidgetArgs extends SimpleWidgetArgs {
-    /**
-     * The text to be displayed by the widget.
-     */
-    markdown: pulumi.Input<string>;
 }
 
 function flattenArray<T>(annotations: T | T[]) {
