@@ -120,6 +120,8 @@ export interface MetricWidgetArgs extends SimpleWidgetArgs {
     /**
      * Used to show a graph of a single alarm.  If, instead, you want to place horizontal lines in
      * graphs to show the trigger point of an alarm, then add the alarm to [annotations] instead.
+     *
+     * At least one of [alarm], [annotations] or [metrics] must be supplied.
      */
     alarm?: pulumi.Input<string> | WidgetAlarm;
 
@@ -132,6 +134,8 @@ export interface MetricWidgetArgs extends SimpleWidgetArgs {
      *
      * Instances of this interface include [aws.cloudwatch.Alarm], [AlarmAnnotation],
      * [HorizontalAnnotation] and [VerticalAnnotation].
+     *
+     * At least one of [alarm], [annotations] or [metrics] must be supplied.
      */
     annotations?: WidgetAnnotation | WidgetAnnotation[];
 
@@ -141,6 +145,8 @@ export interface MetricWidgetArgs extends SimpleWidgetArgs {
      *
      * See [ExpressionWidgetMetric] and [Metric] to create instances that can be added to this
      * array.
+     *
+     * At least one of [alarm], [annotations] or [metrics] must be supplied.
      */
     metrics?: WidgetMetric | WidgetMetric[];
 
