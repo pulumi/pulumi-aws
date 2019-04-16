@@ -62,6 +62,7 @@ export abstract class GraphMetricWidget extends MetricWidget {
         return this.graphArgs.yAxis;
     }
 }
+
 /**
  * Displays a set of metrics as a line graph.
  */
