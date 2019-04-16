@@ -1951,6 +1951,11 @@ func Provider() tfbridge.ProviderInfo {
 							"metrics.ts",
 						},
 					},
+					"elasticloadbalancingv2": {
+						DestFiles: []string{
+							"metrics.ts",
+						},
+					},
 					"iam": {
 						DestFiles: []string{
 							"documents.ts",       // policy document schemas.
