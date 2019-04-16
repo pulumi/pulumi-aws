@@ -14,7 +14,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
-import { Widget } from "./widgets";
+import { Widget } from "./widget";
 import { WidgetJson } from "./widgets_json";
 import { ColumnWidget, RowWidget } from "./widgets_flow";
 
