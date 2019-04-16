@@ -16,6 +16,8 @@ import * as pulumi from "@pulumi/pulumi";
 
 import * as cloudwatch from "../cloudwatch";
 
+import { Cluster } from "./cluster";
+
 export module metrics {
     export type RdsMetricName =
         "BinLogDiskUsage" | "BurstBalance" | "CPUUtilization" | "CPUCreditUsage" | "CPUCreditBalance" |
@@ -25,7 +27,70 @@ export module metrics {
         "ReadIOPS" | "ReadLatency" | "ReadThroughput" |
         "ReplicaLag" | "ReplicationSlotDiskUsage" | "SwapUsage" |
         "TransactionLogsDiskUsage" | "TransactionLogsGeneration" |
-        "WriteIOPS" | "WriteLatency" | "WriteThroughput";
+        "WriteIOPS" | "WriteLatency" | "WriteThroughput" |
+
+        // aurora metrics
+        "ActiveTransactions" |
+        "AuroraBinlogReplicaLag" |
+        "AuroraGlobalDBReplicatedWriteIO" |
+        "AuroraGlobalDBDataTransferBytes" |
+        "AuroraGlobalDBReplicationLag" |
+        "AuroraReplicaLag" |
+        "AuroraReplicaLagMaximum" |
+        "AuroraReplicaLagMinimum" |
+        "BacktrackChangeRecordsCreationRate" |
+        "BacktrackChangeRecordsStored" |
+        "BacktrackWindowActual" |
+        "BacktrackWindowAlert" |
+        "BackupRetentionPeriodStorageUsed" |
+        "BinLogDiskUsage" |
+        "BlockedTransactions" |
+        "BufferCacheHitRatio" |
+        "CommitLatency" |
+        "CommitThroughput" |
+        "CPUCreditBalance" |
+        "CPUCreditUsage" |
+        "CPUUtilization" |
+        "DatabaseConnections" |
+        "DDLLatency" |
+        "DDLThroughput" |
+        "Deadlocks" |
+        "DeleteLatency" |
+        "DeleteThroughput" |
+        "DiskQueueDepth" |
+        "DMLLatency" |
+        "DMLThroughput" |
+        "EngineUptime" |
+        "FreeableMemory" |
+        "FreeLocalStorage" |
+        "InsertLatency" |
+        "InsertThroughput" |
+        "LoginFailures" |
+        "MaximumUsedTransactionIDs" |
+        "NetworkReceiveThroughput" |
+        "NetworkThroughput" |
+        "NetworkTransmitThroughput" |
+        "Queries" |
+        "RDSToAuroraPostgreSQLReplicaLag" |
+        "ReadIOPS" |
+        "ReadLatency" |
+        "ReadThroughput" |
+        "ResultSetCacheHitRatio" |
+        "SelectLatency" |
+        "SelectThroughput" |
+        "SnapshotStorageUsed" |
+        "SwapUsage" |
+        "TotalBackupStorageBilled" |
+        "TransactionLogsDiskUsage" |
+        "UpdateLatency" |
+        "UpdateThroughput" |
+        "VolumeBytesUsed" |
+        "VolumeReadIOPs" |
+        "VolumeWriteIOPs" |
+        "WriteIOPS" |
+        "WriteLatency" |
+        "WriteThroughput";
+
 
     /**
      * Creates an AWS/RDS metric with the requested [metricName]. See
@@ -312,4 +377,544 @@ export module metrics {
     export function writeThroughput(change: cloudwatch.MetricChange = {}) {
         return metric("WriteThroughput", { unit: "Bytes/Second", ...change });
     }
+
+    // aurora functions
+
+    /**
+     * The average number of current transactions executing on an Aurora database instance per
+     * second. By default, Aurora doesn't enable this metric. To begin measuring this value, set
+     * innodb_monitor_enable='all' in the DB parameter group for a specific DB instance.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function activeTransactions(change: cloudwatch.MetricChange = {}) {
+        return metric("ActiveTransactions", { ...change });
+    }
+
+    /**
+     * The amount of time a replica DB cluster running on Aurora with MySQL compatibility lags
+     * behind the source DB cluster. This metric reports the value of the Seconds_Behind_Master
+     * field of the MySQL SHOW SLAVE STATUS command. This metric is useful for monitoring replica
+     * lag between Aurora DB clusters that are replicating across different AWS Regions. For more
+     * information, see Aurora MySQL Replication.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function auroraBinlogReplicaLag(change: cloudwatch.MetricChange = {}) {
+        return metric("AuroraBinlogReplicaLag", { ...change });
+    }
+
+    /**
+     * Units: Bytes
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function auroraGlobalDBReplicatedWriteIO(change: cloudwatch.MetricChange = {}) {
+        return metric("AuroraGlobalDBReplicatedWriteIO", { unit: "Bytes", ...change });
+    }
+
+    /**
+     * Units: Bytes
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function auroraGlobalDBDataTransferBytes(change: cloudwatch.MetricChange = {}) {
+        return metric("AuroraGlobalDBDataTransferBytes", { unit: "Bytes", ...change });
+    }
+
+    /**
+     * Units: Milliseconds
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function auroraGlobalDBReplicationLag(change: cloudwatch.MetricChange = {}) {
+        return metric("AuroraGlobalDBReplicationLag", { unit: "Milliseconds", ...change });
+    }
+
+    /**
+     * For an Aurora Replica, the amount of lag when replicating updates from the primary instance,
+     * in milliseconds.
+     *
+     * Applies to: Aurora MySQL and Aurora PostgreSQL
+     */
+    export function auroraReplicaLag(change: cloudwatch.MetricChange = {}) {
+        return metric("AuroraReplicaLag", { unit: "Milliseconds", ...change });
+    }
+
+    /**
+     * The maximum amount of lag between the primary instance and each Aurora DB instance in the DB
+     * cluster, in milliseconds.
+     *
+     * Applies to: Aurora MySQL and Aurora PostgreSQL
+     */
+    export function auroraReplicaLagMaximum(change: cloudwatch.MetricChange = {}) {
+        return metric("AuroraReplicaLagMaximum", { unit: "Milliseconds",...change });
+    }
+
+    /**
+     * The minimum amount of lag between the primary instance and each Aurora DB instance in the DB
+     * cluster, in milliseconds.
+     *
+     * Applies to: Aurora MySQL and Aurora PostgreSQL
+     */
+    export function auroraReplicaLagMinimum(change: cloudwatch.MetricChange = {}) {
+        return metric("AuroraReplicaLagMinimum", { unit: "Milliseconds",...change });
+    }
+
+    /**
+     * The number of backtrack change records created over five minutes for your DB cluster.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function backtrackChangeRecordsCreationRate(change: cloudwatch.MetricChange = {}) {
+        return metric("BacktrackChangeRecordsCreationRate", { ...change });
+    }
+
+    /**
+     * The actual number of backtrack change records used by your DB cluster.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function backtrackChangeRecordsStored(change: cloudwatch.MetricChange = {}) {
+        return metric("BacktrackChangeRecordsStored", { ...change });
+    }
+
+    /**
+     * The difference between the target backtrack window and the actual backtrack window.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function backtrackWindowActual(change: cloudwatch.MetricChange = {}) {
+        return metric("BacktrackWindowActual", { ...change });
+    }
+
+    /**
+     * The number of times that the actual backtrack window is smaller than the target backtrack
+     * window for a given period of time.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function backtrackWindowAlert(change: cloudwatch.MetricChange = {}) {
+        return metric("BacktrackWindowAlert", { ...change });
+    }
+
+    /**
+     * The total amount of backup storage in GiB used to support the point-in-time restore feature
+     * within the Aurora DB cluster's backup retention window. Included in the total reported by the
+     * TotalBackupStorageBilled metric. Computed separately for each Aurora cluster. For
+     * instructions, see Understanding Aurora Backup Storage Usage. Units: Gibibytes (GiB)
+     *
+     * Applies to: Aurora MySQL and Aurora PostgreSQL
+     */
+    export function backupRetentionPeriodStorageUsed(change: cloudwatch.MetricChange = {}) {
+        return metric("BackupRetentionPeriodStorageUsed", { unit: "Gigabytes", ...change });
+    }
+
+    /**
+     * The average number of transactions in the database that are blocked per second.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function blockedTransactions(change: cloudwatch.MetricChange = {}) {
+        return metric("BlockedTransactions", { ...change });
+    }
+
+    /**
+     * The percentage of requests that are served by the buffer cache.
+     *
+     * Applies to: Aurora MySQL and Aurora PostgreSQL
+     */
+    export function bufferCacheHitRatio(change: cloudwatch.MetricChange = {}) {
+        return metric("BufferCacheHitRatio", { ...change });
+    }
+
+    /**
+     * The amount of latency for commit operations, in milliseconds.
+     *
+     * Applies to: Aurora MySQL and Aurora PostgreSQL
+     */
+    export function commitLatency(change: cloudwatch.MetricChange = {}) {
+        return metric("CommitLatency", { unit: "Milliseconds", ...change });
+    }
+
+    /**
+     * The average number of commit operations per second.
+     *
+     * Applies to: Aurora MySQL and Aurora PostgreSQL
+     */
+    export function commitThroughput(change: cloudwatch.MetricChange = {}) {
+        return metric("CommitThroughput", { ...change });
+    }
+
+    /**
+     * The amount of latency for data definition language (DDL) requests, in milliseconds—for
+     * example, create, alter, and drop requests.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function ddlLatency(change: cloudwatch.MetricChange = {}) {
+        return metric("DDLLatency", { ...change });
+    }
+
+    /**
+     * The average number of DDL requests per second.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function ddlThroughput(change: cloudwatch.MetricChange = {}) {
+        return metric("DDLThroughput", { ...change });
+    }
+
+    /**
+     * The average number of deadlocks in the database per second.
+     *
+     * Applies to: Aurora MySQL and Aurora PostgreSQL
+     */
+    export function deadlocks(change: cloudwatch.MetricChange = {}) {
+        return metric("Deadlocks", { ...change });
+    }
+
+    /**
+     * The amount of latency for delete queries, in milliseconds.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function deleteLatency(change: cloudwatch.MetricChange = {}) {
+        return metric("DeleteLatency", { unit: "Milliseconds", ...change });
+    }
+
+    /**
+     * The average number of delete queries per second.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function deleteThroughput(change: cloudwatch.MetricChange = {}) {
+        return metric("DeleteThroughput", { ...change });
+    }
+
+    /**
+     * The amount of latency for inserts, updates, and deletes, in milliseconds.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function dmdLatency(change: cloudwatch.MetricChange = {}) {
+        return metric("DMLLatency", { unit: "Milliseconds",...change });
+    }
+
+    /**
+     * The average number of inserts, updates, and deletes per second.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function dmlThroughput(change: cloudwatch.MetricChange = {}) {
+        return metric("DMLThroughput", { ...change });
+    }
+
+    /**
+     * The amount of time that the instance has been running, in seconds.
+     *
+     * Applies to: Aurora MySQL and Aurora PostgreSQL
+     */
+    export function engineUptime(change: cloudwatch.MetricChange = {}) {
+        return metric("EngineUptime", { unit: "Seconds", ...change });
+    }
+
+    /**
+     * The amount of storage available for temporary tables and logs, in bytes. Unlike for other DB
+     * engines, for Aurora DB instances this metric reports the amount of storage available to each
+     * DB instance for temporary tables and logs. This value depends on the DB instance class (for
+     * pricing information, see the Amazon RDS product page). You can increase the amount of free
+     * storage space for an instance by choosing a larger DB instance class for your instance.
+     *
+     * Applies to: Aurora MySQL and Aurora PostgreSQL
+     */
+    export function freeLocalStorage(change: cloudwatch.MetricChange = {}) {
+        return metric("FreeLocalStorage", { unit: "Bytes", ...change });
+    }
+
+    /**
+     * The amount of latency for insert queries, in milliseconds.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function insertLatency(change: cloudwatch.MetricChange = {}) {
+        return metric("InsertLatency", { unit: "Milliseconds",...change });
+    }
+
+    /**
+     * The average number of insert queries per second.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function insertThroughput(change: cloudwatch.MetricChange = {}) {
+        return metric("InsertThroughput", { ...change });
+    }
+
+    /**
+     * The average number of failed login attempts per second.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function loginFailures(change: cloudwatch.MetricChange = {}) {
+        return metric("LoginFailures", { ...change });
+    }
+
+    /**
+     * The amount of network throughput both received from and transmitted to clients by each
+     * instance in the Aurora MySQL DB cluster, in bytes per second. This throughput doesn't include
+     * network traffic between instances in the DB cluster and the cluster volume.
+     *
+     * Applies to: Aurora MySQL and Aurora PostgreSQL
+     */
+    export function networkThroughput(change: cloudwatch.MetricChange = {}) {
+        return metric("NetworkThroughput", { unit: "Bytes/Second", ...change });
+    }
+
+    /**
+     * The average number of queries executed per second.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function queries(change: cloudwatch.MetricChange = {}) {
+        return metric("Queries", { ...change });
+    }
+
+    /**
+     * The amount of lag in seconds when replicating updates from the primary RDS PostgreSQL
+     * instance to other nodes in the cluster.
+     *
+     * Applies to: Aurora PostgreSQL
+     */
+    export function rdsToAuroraPostgreSQLReplicaLag(change: cloudwatch.MetricChange = {}) {
+        return metric("RDSToAuroraPostgreSQLReplicaLag", { ...change });
+    }
+
+    /**
+     * The percentage of requests that are served by the Resultset cache.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function resultSetCacheHitRatio(change: cloudwatch.MetricChange = {}) {
+        return metric("ResultSetCacheHitRatio", { ...change });
+    }
+
+    /**
+     * The amount of latency for select queries, in milliseconds.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function selectLatency(change: cloudwatch.MetricChange = {}) {
+        return metric("SelectLatency", { ...change });
+    }
+
+    /**
+     * The average number of select queries per second.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function selectThroughput(change: cloudwatch.MetricChange = {}) {
+        return metric("SelectThroughput", { ...change });
+    }
+
+    /**
+     * The total amount of backup storage in GiB consumed by all Aurora snapshots for an Aurora DB
+     * cluster outside its backup retention window. Included in the total reported by the
+     * TotalBackupStorageBilled metric. Computed separately for each Aurora cluster. For
+     * instructions, see Understanding Aurora Backup Storage Usage. Units: Gibibytes (GiB)
+     *
+     * Applies to: Aurora MySQL and Aurora PostgreSQL
+     */
+    export function snapshotStorageUsed(change: cloudwatch.MetricChange = {}) {
+        return metric("SnapshotStorageUsed", { unit: "Gigabytes", ...change });
+    }
+
+    /**
+     * The total amount of backup storage in GiB for which you are billed for a given Aurora DB
+     * cluster. Includes the backup storage measured by the BackupRetentionPeriodStorageUsed and
+     * SnapshotStorageUsed metrics. Computed separately for each Aurora cluster. For instructions,
+     * see Understanding Aurora Backup Storage Usage. Units: Gibibytes (GiB)
+     *
+     * Applies to: Aurora MySQL and Aurora PostgreSQL
+     */
+    export function totalBackupStorageBilled(change: cloudwatch.MetricChange = {}) {
+        return metric("TotalBackupStorageBilled", { unit: "Gigabytes", ...change });
+    }
+
+    /**
+     * The amount of latency for update queries, in milliseconds.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function updateLatency(change: cloudwatch.MetricChange = {}) {
+        return metric("UpdateLatency", { ...change });
+    }
+
+    /**
+     * The average number of update queries per second.
+     *
+     * Applies to: Aurora MySQL
+     */
+    export function updateThroughput(change: cloudwatch.MetricChange = {}) {
+        return metric("UpdateThroughput", { ...change });
+    }
+
+    /**
+     * The amount of storage used by your Aurora DB instance, in bytes. This value affects the cost
+     * of the Aurora DB cluster (for pricing information, see the Amazon RDS product page).
+     *
+     * Applies to: Aurora MySQL and Aurora PostgreSQL
+     */
+    export function volumeBytesUsed(change: cloudwatch.MetricChange = {}) {
+        return metric("VolumeBytesUsed", { unit: "Bytes", ...change });
+    }
+
+    /**
+     * The number of billed read I/O operations from a cluster volume, reported at 5-minute
+     * intervals. Billed read operations are calculated at the cluster volume level, aggregated from
+     * all instances in the Aurora DB cluster, and then reported at 5-minute intervals. The value is
+     * calculated by taking the value of the Read operations metric over a 5-minute period. You can
+     * determine the amount of billed read operations per second by taking the value of the Billed
+     * read operations metric and dividing by 300 seconds. For example, if the Billed read
+     * operations returns 13,686, then the billed read operations per second is 45 (13,686 / 300 =
+     * 45.62). You accrue billed read operations for queries that request database pages that aren't
+     * in the buffer cache and therefore must be loaded from storage. You might see spikes in billed
+     * read operations as query results are read from storage and then loaded into the buffer cache.
+     *
+     * Applies to: Aurora MySQL and Aurora PostgreSQL
+     */
+    export function volumeReadIOPs(change: cloudwatch.MetricChange = {}) {
+        return metric("VolumeReadIOPs", { ...change });
+    }
+
+    /**
+     * The number of write disk I/O operations to the cluster volume, reported at 5-minute
+     * intervals. See the description of VolumeReadIOPS above for a detailed description of how
+     * billed write operations are calculated.
+     *
+     * Applies to: Aurora MySQL and Aurora PostgreSQL
+     */
+    export function volumeWriteIOPs(change: cloudwatch.MetricChange = {}) {
+        return metric("VolumeWriteIOPs", { ...change });
+    }
 }
+
+
+declare module "./cluster" {
+    interface Cluster {
+        /**
+         * Direct access to create metrics for this specific [rds.Cluster].
+         */
+        metrics: {
+            /**
+             * The amount of time a replica DB cluster running on Aurora with MySQL compatibility lags
+             * behind the source DB cluster. This metric reports the value of the Seconds_Behind_Master
+             * field of the MySQL SHOW SLAVE STATUS command. This metric is useful for monitoring replica
+             * lag between Aurora DB clusters that are replicating across different AWS Regions. For more
+             * information, see Aurora MySQL Replication.
+             *
+             * Applies to: Aurora MySQL
+             */
+            auroraBinlogReplicaLag(change?: cloudwatch.MetricChange);
+
+            /**
+             * The number of backtrack change records created over five minutes for your DB cluster.
+             *
+             * Applies to: Aurora MySQL
+             */
+            backtrackChangeRecordsCreationRate(change?: cloudwatch.MetricChange);
+
+            /**
+             * The actual number of backtrack change records used by your DB cluster.
+             *
+             * Applies to: Aurora MySQL
+             */
+            backtrackChangeRecordsStored(change?: cloudwatch.MetricChange);
+
+            /**
+             * The total amount of backup storage in GiB used to support the point-in-time restore feature
+             * within the Aurora DB cluster's backup retention window. Included in the total reported by the
+             * TotalBackupStorageBilled metric. Computed separately for each Aurora cluster. For
+             * instructions, see Understanding Aurora Backup Storage Usage. Units: Gibibytes (GiB)
+             *
+             * Applies to: Aurora MySQL and Aurora PostgreSQL
+             */
+            backupRetentionPeriodStorageUsed(change?: cloudwatch.MetricChange);
+
+            /**
+             * The amount of network throughput both received from and transmitted to clients by each
+             * instance in the Aurora MySQL DB cluster, in bytes per second. This throughput doesn't include
+             * network traffic between instances in the DB cluster and the cluster volume.
+             *
+             * Applies to: Aurora MySQL and Aurora PostgreSQL
+             */
+            networkThroughput(change?: cloudwatch.MetricChange);
+
+            /**
+             * The amount of lag in seconds when replicating updates from the primary RDS PostgreSQL
+             * instance to other nodes in the cluster.
+             *
+             * Applies to: Aurora PostgreSQL
+             */
+            rdsToAuroraPostgreSQLReplicaLag(change?: cloudwatch.MetricChange);
+
+            /**
+             * The total amount of backup storage in GiB consumed by all Aurora snapshots for an Aurora DB
+             * cluster outside its backup retention window. Included in the total reported by the
+             * TotalBackupStorageBilled metric. Computed separately for each Aurora cluster. For
+             * instructions, see Understanding Aurora Backup Storage Usage. Units: Gibibytes (GiB)
+             *
+             * Applies to: Aurora MySQL and Aurora PostgreSQL
+             */
+            snapshotStorageUsed(change?: cloudwatch.MetricChange);
+
+            /**
+             * The total amount of backup storage in GiB for which you are billed for a given Aurora DB
+             * cluster. Includes the backup storage measured by the BackupRetentionPeriodStorageUsed and
+             * SnapshotStorageUsed metrics. Computed separately for each Aurora cluster. For instructions,
+             * see Understanding Aurora Backup Storage Usage. Units: Gibibytes (GiB)
+             *
+             * Applies to: Aurora MySQL and Aurora PostgreSQL
+             */
+            totalBackupStorageBilled(change?: cloudwatch.MetricChange);
+
+            /**
+             * The number of billed read I/O operations from a cluster volume, reported at 5-minute
+             * intervals. Billed read operations are calculated at the cluster volume level, aggregated from
+             * all instances in the Aurora DB cluster, and then reported at 5-minute intervals. The value is
+             * calculated by taking the value of the Read operations metric over a 5-minute period. You can
+             * determine the amount of billed read operations per second by taking the value of the Billed
+             * read operations metric and dividing by 300 seconds. For example, if the Billed read
+             * operations returns 13,686, then the billed read operations per second is 45 (13,686 / 300 =
+             * 45.62). You accrue billed read operations for queries that request database pages that aren't
+             * in the buffer cache and therefore must be loaded from storage. You might see spikes in billed
+             * read operations as query results are read from storage and then loaded into the buffer cache.
+             *
+             * Applies to: Aurora MySQL and Aurora PostgreSQL
+             */
+            volumeReadIOPs(change?: cloudwatch.MetricChange);
+
+            /**
+             * The number of write disk I/O operations to the cluster volume, reported at 5-minute
+             * intervals. See the description of VolumeReadIOPS above for a detailed description of how
+             * billed write operations are calculated.
+             *
+             * Applies to: Aurora MySQL and Aurora PostgreSQL
+             */
+            volumeWriteIOPs(change?: cloudwatch.MetricChange);
+        }
+    }
+}
+
+// All instance metrics just make a normal AWS/RDS metric, except with the DBClusterIdentifier
+// dimension set to this Cluster's 'clusterIdentifier'.
+
+Object.defineProperty(Cluster.prototype, "metrics", {
+    get: function (this: Cluster) {
+        const dimensions = { dimensions: { DBClusterIdentifier: this.clusterIdentifier } };
+        const result = {};
+        for (const name in metrics) {
+            result[name] = (change: cloudwatch.MetricChange) => metrics[name](dimensions).with(change);
+        }
+        return result;
+    }
+});
