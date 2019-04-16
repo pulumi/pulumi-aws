@@ -32,13 +32,6 @@ interface WidgetRelativePosition {
 export abstract class FlowWidget extends Widget {
     protected readonly widgets: Widget[] = [];
 
-    // Do not access any of these variables directly.  They should only be accessed through their
-    // respective getters.
-
-    private _width: number | undefined;
-    private _height: number | undefined;
-    private _widgetToRelativePosition: Map<Widget, WidgetRelativePosition> | undefined;
-
     constructor(...widgets: Widget[]) {
         super();
         for (const widget of widgets) {
@@ -48,44 +41,6 @@ export abstract class FlowWidget extends Widget {
 
     public addWidget(widget: Widget) {
         this.widgets.push(widget);
-
-        // clear out the cached information about the widgets.  we'll recompute it the next time
-        // it's needed.
-        this._widgetToRelativePosition = undefined;
-        this._height = undefined;
-        this._width = undefined;
-    }
-
-    protected abstract computeWidgetRelativePositions(): Map<Widget, WidgetRelativePosition>;
-
-    public width() {
-        this.ensureWidthAndHeight();
-        return this._width!;
-    }
-
-    public height() {
-        this.ensureWidthAndHeight();
-        return this._height!;
-    }
-
-    private ensureWidthAndHeight() {
-        if (this._width === undefined) {
-            let width = 0;
-            let height = 0;
-
-            for (const [widget, dimension] of this.getWidgetRelativePositions()) {
-                // The width of the sequence is the rightmost grid column of all of the widgets in
-                // the sequence.
-                width = Math.max(width, dimension.relativeX + widget.width());
-
-                // The height of the sequence is the bottommost grid column of all the widgets in
-                // the sequence.
-                height = Math.max(height, dimension.relativeY + widget.height());
-            }
-
-            this._width = width;
-            this._height = height;
-        }
     }
 
     /**
@@ -93,12 +48,32 @@ export abstract class FlowWidget extends Widget {
      * Position' tells us where the widget should be placed relative to the upper-left point of this
      * FlowWidget.
      */
-    protected getWidgetRelativePositions(): Map<Widget, WidgetRelativePosition> {
-        if (!this._widgetToRelativePosition) {
-            this._widgetToRelativePosition = this.computeWidgetRelativePositions();
+    protected abstract getWidgetRelativePositions(): Map<Widget, WidgetRelativePosition>;
+
+    public width() {
+        let width = 0;
+
+        const positions = this.getWidgetRelativePositions();
+        for (const [widget, dimension] of positions) {
+            // The width of the sequence is the rightmost grid column of all of the widgets in
+            // the sequence.
+            width = Math.max(width, dimension.relativeX + widget.width());
         }
 
-        return this._widgetToRelativePosition;
+        return width;
+    }
+
+    public height() {
+        let height = 0;
+
+        const positions = this.getWidgetRelativePositions();
+        for (const [widget, dimension] of positions) {
+            // The height of the sequence is the bottommost grid column of all the widgets in
+            // the sequence.
+            height = Math.max(height, dimension.relativeY + widget.height());
+        }
+
+        return height;
     }
 
     /** @internal */
@@ -121,7 +96,7 @@ export class ColumnWidget extends FlowWidget {
         super(...widgets);
     }
 
-    protected computeWidgetRelativePositions(): Map<Widget, WidgetRelativePosition> {
+    protected getWidgetRelativePositions(): Map<Widget, WidgetRelativePosition> {
         const result = new Map<Widget, WidgetRelativePosition>();
 
         let currentY = 0;
@@ -154,7 +129,7 @@ export class RowWidget extends FlowWidget {
         super(...widgets);
     }
 
-    protected computeWidgetRelativePositions(): Map<Widget, WidgetRelativePosition> {
+    protected getWidgetRelativePositions(): Map<Widget, WidgetRelativePosition> {
         const result = new Map<Widget, WidgetRelativePosition>();
 
         const maxWidth = 24;
