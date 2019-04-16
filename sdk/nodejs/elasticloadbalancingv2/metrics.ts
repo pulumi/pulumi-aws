@@ -114,7 +114,7 @@ export module metrics {
          * Dimensions: AvailabilityZone, LoadBalancer
          */
         export function clientTLSNegotiationErrorCount(change: cloudwatch.MetricChange = {}) {
-            return metric("ClientTLSNegotiationErrorCount", { statistic: "Sum",...change });
+            return metric("ClientTLSNegotiationErrorCount", { statistic: "Sum", ...change });
         }
 
         /**
@@ -151,7 +151,7 @@ export module metrics {
          * Dimensions: LoadBalancer
          */
         export function httpRedirectCount(change: cloudwatch.MetricChange = {}) {
-            return metric("HTTP_Redirect_Count", { statistic: "Sum",...change });
+            return metric("HTTP_Redirect_Count", { statistic: "Sum", ...change });
         }
 
         /**
@@ -163,7 +163,7 @@ export module metrics {
          * Dimensions: LoadBalancer
          */
         export function httpRedirectUrlLimitExceededCount(change: cloudwatch.MetricChange = {}) {
-            return metric("HTTP_Redirect_Url_Limit_Exceeded_Count", { statistic: "Sum",...change });
+            return metric("HTTP_Redirect_Url_Limit_Exceeded_Count", { statistic: "Sum", ...change });
         }
 
         /**
@@ -175,7 +175,7 @@ export module metrics {
          * Dimensions: LoadBalancer
          */
         export function httpCodeELB3XXCount(change: cloudwatch.MetricChange = {}) {
-            return metric("HTTPCode_ELB_3XX_Count", { statistic: "Sum",...change });
+            return metric("HTTPCode_ELB_3XX_Count", { statistic: "Sum", ...change });
         }
 
         /**
@@ -190,7 +190,7 @@ export module metrics {
          * Dimensions: LoadBalancer AvailabilityZone, LoadBalancer
          */
         export function httpCodeELB4XXCount(change: cloudwatch.MetricChange = {}) {
-            return metric("HTTPCode_ELB_4XX_Count", { statistic: "Sum",...change });
+            return metric("HTTPCode_ELB_4XX_Count", { statistic: "Sum", ...change });
         }
 
         /**
@@ -204,7 +204,7 @@ export module metrics {
          * Dimensions: LoadBalancer AvailabilityZone, LoadBalancer
          */
         export function httpCodeELB5XXCount(change: cloudwatch.MetricChange = {}) {
-            return metric("HTTPCode_ELB_5XX_Count", { statistic: "Sum",...change });
+            return metric("HTTPCode_ELB_5XX_Count", { statistic: "Sum", ...change });
         }
 
         /**
@@ -215,7 +215,7 @@ export module metrics {
          * Statistics: The only meaningful statistic is Sum.
          */
         export function httpCodeELB500Count(change: cloudwatch.MetricChange = {}) {
-            return metric("HTTPCode_ELB_500_Count", { statistic: "Sum",...change });
+            return metric("HTTPCode_ELB_500_Count", { statistic: "Sum", ...change });
         }
 
         /**
@@ -225,7 +225,7 @@ export module metrics {
          * Statistics: The only meaningful statistic is Sum.
          */
         export function httpCodeELB502Count(change: cloudwatch.MetricChange = {}) {
-            return metric("HTTPCode_ELB_502_Count", { statistic: "Sum",...change });
+            return metric("HTTPCode_ELB_502_Count", { statistic: "Sum", ...change });
         }
 
         /**
@@ -235,7 +235,7 @@ export module metrics {
          * Statistics: The only meaningful statistic is Sum.
          */
         export function httpCodeELB503Count(change: cloudwatch.MetricChange = {}) {
-            return metric("HTTPCode_ELB_503_Count", { statistic: "Sum",...change });
+            return metric("HTTPCode_ELB_503_Count", { statistic: "Sum", ...change });
         }
 
         /**
@@ -245,7 +245,7 @@ export module metrics {
          * Statistics: The only meaningful statistic is Sum.
          */
         export function httpCodeELB504Count(change: cloudwatch.MetricChange = {}) {
-            return metric("HTTPCode_ELB_504_Count", { statistic: "Sum",...change });
+            return metric("HTTPCode_ELB_504_Count", { statistic: "Sum", ...change });
         }
 
         /**
@@ -257,7 +257,7 @@ export module metrics {
          * Dimensions: LoadBalancer
          */
         export function ipv6ProcessedBytes(change: cloudwatch.MetricChange = {}) {
-            return metric("IPv6ProcessedBytes", { statistic: "Sum",...change });
+            return metric("IPv6ProcessedBytes", { statistic: "Sum", ...change });
         }
 
         /**
@@ -271,7 +271,7 @@ export module metrics {
          * TargetGroup, AvailabilityZone, LoadBalancer
          */
         export function ipv6RequestCount(change: cloudwatch.MetricChange = {}) {
-            return metric("IPv6RequestCount", { statistic: "Sum",...change });
+            return metric("IPv6RequestCount", { statistic: "Sum", ...change });
         }
 
         /**
@@ -283,7 +283,7 @@ export module metrics {
          * Dimensions: LoadBalancer
          */
         export function newConnectionCount(change: cloudwatch.MetricChange = {}) {
-            return metric("NewConnectionCount", { statistic: "Sum",...change });
+            return metric("NewConnectionCount", { statistic: "Sum", ...change });
         }
 
         /**
@@ -295,7 +295,7 @@ export module metrics {
          * Dimensions: LoadBalancer
          */
         export function processedBytes(change: cloudwatch.MetricChange = {}) {
-            return metric("ProcessedBytes", { statistic: "Sum",...change });
+            return metric("ProcessedBytes", { statistic: "Sum", ...change });
         }
 
         /**
@@ -307,7 +307,7 @@ export module metrics {
          * Dimensions: LoadBalancer AvailabilityZone, LoadBalancer
          */
         export function rejectedConnectionCount(change: cloudwatch.MetricChange = {}) {
-            return metric("RejectedConnectionCount", { statistic: "Sum",...change });
+            return metric("RejectedConnectionCount", { statistic: "Sum", ...change });
         }
 
         /**
@@ -321,7 +321,7 @@ export module metrics {
          * TargetGroup, AvailabilityZone, LoadBalancer
          */
         export function requestCount(change: cloudwatch.MetricChange = {}) {
-            return metric("RequestCount", { statistic: "Sum",...change });
+            return metric("RequestCount", { statistic: "Sum", ...change });
         }
 
         /**
@@ -333,7 +333,7 @@ export module metrics {
          * Dimensions: LoadBalancer
          */
         export function ruleEvaluations(change: cloudwatch.MetricChange = {}) {
-            return metric("RuleEvaluations", { statistic: "Sum",...change });
+            return metric("RuleEvaluations", { statistic: "Sum", ...change });
         }
 
         /**
@@ -421,7 +421,7 @@ export module metrics {
          * Statistics: The only meaningful statistic is Sum.
          */
         export function nonStickyRequestCount(change: cloudwatch.MetricChange = {}) {
-            return metric("NonStickyRequestCount", { statistic: "Sum",...change });
+            return metric("NonStickyRequestCount", { statistic: "Sum", ...change });
         }
 
         /**
@@ -435,7 +435,7 @@ export module metrics {
          * Dimensions: TargetGroup TargetGroup, LoadBalancer
          */
         export function requestCountPerTarget(change: cloudwatch.MetricChange = {}) {
-            return metric("RequestCountPerTarget", { statistic: "Sum",...change });
+            return metric("RequestCountPerTarget", { statistic: "Sum", ...change });
         }
 
         /**
@@ -449,7 +449,7 @@ export module metrics {
          * TargetGroup, AvailabilityZone, LoadBalancer
          */
         export function targetConnectionErrorCount(change: cloudwatch.MetricChange = {}) {
-            return metric("TargetConnectionErrorCount", { statistic: "Sum",...change });
+            return metric("TargetConnectionErrorCount", { statistic: "Sum", ...change });
         }
 
         /**
@@ -478,7 +478,7 @@ export module metrics {
          * TargetGroup, AvailabilityZone, LoadBalancer
          */
         export function targetTLSNegotiationErrorCount(change: cloudwatch.MetricChange = {}) {
-            return metric("TargetTLSNegotiationErrorCount", { statistic: "Sum",...change });
+            return metric("TargetTLSNegotiationErrorCount", { statistic: "Sum", ...change });
         }
 
         /**
@@ -491,6 +491,199 @@ export module metrics {
          */
         export function unHealthyHostCount(change: cloudwatch.MetricChange = {}) {
             return metric("UnHealthyHostCount", { ...change });
+        }
+    }
+
+    export module network {
+        export type NetworkMetricName =
+            "ActiveFlowCount" |
+            "ActiveFlowCount_TLS" |
+            "ClientTLSNegotiationErrorCount" |
+            "ConsumedLCUs" |
+            "HealthyHostCount" |
+            "NewFlowCount" |
+            "NewFlowCount_TLS" |
+            "ProcessedBytes" |
+            "ProcessedBytes_TLS" |
+            "TargetTLSNegotiationErrorCount" |
+            "TCP_Client_Reset_Count" |
+            "TCP_ELB_Reset_Count" |
+            "TCP_Target_Reset_Count" |
+            "UnHealthyHostCount";
+
+        /**
+         * Creates an AWS/NetworkELB metric with the requested [metricName]. See
+         * https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-cloudwatch-metrics.html
+         * for list of all metric-names.
+         *
+         * Elastic Load Balancing publishes data points to Amazon CloudWatch for your load balancers
+         * and your targets. CloudWatch enables you to retrieve statistics about those data points
+         * as an ordered set of time-series data, known as metrics. Think of a metric as a variable
+         * to monitor, and the data points as the values of that variable over time. For example,
+         * you can monitor the total number of healthy targets for a load balancer over a specified
+         * time period. Each data point has an associated time stamp and an optional unit of
+         * measurement.
+         *
+         * You can use metrics to verify that your system is performing as expected. For example,
+         * you can create a CloudWatch alarm to monitor a specified metric and initiate an action
+         * (such as sending a notification to an email address) if the metric goes outside what you
+         * consider an acceptable range.
+         *
+         * Elastic Load Balancing reports metrics to CloudWatch only when requests are flowing
+         * through the load balancer. If there are requests flowing through the load balancer,
+         * Elastic Load Balancing measures and sends its metrics in 60-second intervals. If there
+         * are no requests flowing through the load balancer or no data for a metric, the metric is
+         * not reported.
+         *
+         * To filter the metrics for your Application Load Balancer, use the following dimensions.
+         * 1. "AvailabilityZone": Filters the metric data by Availability Zone.
+         * 2. "LoadBalancer": Filters the metric data by load balancer. Specify the load balancer
+         *    using `LoadBalancer.arnSuffix`.
+         * 3. "TargetGroup": Filters the metric data by target group. Specify the target group using
+         *    `TargetGroup.arnSuffix`.
+         */
+        function metric(metricName: NetworkMetricName, change: cloudwatch.MetricChange = {} = {}) {
+            return new cloudwatch.Metric({
+                namespace: "AWS/NetworkELB ",
+                name: metricName,
+                ...change,
+            });
+        }
+
+        /**
+         * The total number of concurrent flows (or connections) from clients to targets. This
+         * metric includes connections in the SYN_SENT and ESTABLISHED states. TCP connections are
+         * not terminated at the load balancer, so a client opening a TCP connection to a target
+         * counts as a single flow.
+         *
+         * Statistics: The most useful statistics are Average, Maximum, and Minimum.
+         */
+        export function activeFlowCount(change: cloudwatch.MetricChange = {}) {
+            return metric("ActiveFlowCount", { ...change });
+        }
+
+        /**
+         * The total number of concurrent TLS flows (or connections) from clients to targets. This
+         * metric includes only connections in the ESTABLISHED states.
+         *
+         * Statistics: The most useful statistics are Average, Maximum, and Minimum.
+         */
+        export function activeFlowCount_TLS(change: cloudwatch.MetricChange = {}) {
+            return metric("ActiveFlowCount_TLS", { ...change });
+        }
+
+        /**
+         * The total number of TLS handshakes that failed during negotiation between a client and a
+         * TLS listener.
+         *
+         * Statistics: The most useful statistic is Sum.
+         */
+        export function clientTLSNegotiationErrorCount(change: cloudwatch.MetricChange = {}) {
+            return metric("ClientTLSNegotiationErrorCount", { statistic: "Sum", ...change });
+        }
+
+        /**
+         * The number of load balancer capacity units (LCU) used by your load balancer. You pay for
+         * the number of LCUs that you use per hour. For more information, see Elastic Load
+         * Balancing Pricing.
+         */
+        export function consumedLCUs(change: cloudwatch.MetricChange = {}) {
+            return metric("ConsumedLCUs", { ...change });
+        }
+
+        /**
+         * The number of targets that are considered healthy.
+         *
+         * Statistics: The most useful statistics are Maximum and Minimum.
+         */
+        export function healthyHostCount(change: cloudwatch.MetricChange = {}) {
+            return metric("HealthyHostCount", { statistic: "Maximum", ...change });
+        }
+
+        /**
+         * The total number of new flows (or connections) established from clients to targets in the
+         * time period.
+         *
+         * Statistics: The most useful statistic is Sum.
+         */
+        export function newFlowCount(change: cloudwatch.MetricChange = {}) {
+            return metric("NewFlowCount", { statistic: "Sum", ...change });
+        }
+
+        /**
+         * The total number of new TLS flows (or connections) established from clients to targets in
+         * the time period.
+         *
+         * Statistics: The most useful statistic is Sum.
+         */
+        export function newFlowCountTLS(change: cloudwatch.MetricChange = {}) {
+            return metric("NewFlowCount_TLS", { statistic: "Sum",...change });
+        }
+
+        /**
+         * The total number of bytes processed by the load balancer, including TCP/IP headers.
+         *
+         * Statistics: The most useful statistic is Sum.
+         */
+        export function processedBytes(change: cloudwatch.MetricChange = {}) {
+            return metric("ProcessedBytes", { statistic: "Sum",...change });
+        }
+
+        /**
+         * The total number of bytes processed by TLS listeners.
+         *
+         * Statistics: The most useful statistic is Sum.
+         */
+        export function processedBytesTLS(change: cloudwatch.MetricChange = {}) {
+            return metric("ProcessedBytes_TLS", { statistic: "Sum",...change });
+        }
+
+        /**
+         * The total number of TLS handshakes that failed during negotiation between a TLS listener
+         * and a target.
+         *
+         * Statistics: The most useful statistic is Sum.
+         */
+        export function targetTLSNegotiationErrorCount(change: cloudwatch.MetricChange = {}) {
+            return metric("TargetTLSNegotiationErrorCount", { statistic: "Sum",...change });
+        }
+
+        /**
+         * The total number of reset (RST) packets sent from a client to a target. These resets are
+         * generated by the client and forwarded by the load balancer.
+         *
+         * Statistics: The most useful statistic is Sum.
+         */
+        export function tCP_Client_Reset_Count(change: cloudwatch.MetricChange = {}) {
+            return metric("TCP_Client_Reset_Count", { statistic: "Sum",...change });
+        }
+
+        /**
+         * The total number of reset (RST) packets generated by the load balancer.
+         *
+         * Statistics: The most useful statistic is Sum.
+         */
+        export function tCP_ELB_Reset_Count(change: cloudwatch.MetricChange = {}) {
+            return metric("TCP_ELB_Reset_Count", { statistic: "Sum",...change });
+        }
+
+        /**
+         * The total number of reset (RST) packets sent from a target to a client. These resets are
+         * generated by the target and forwarded by the load balancer.
+         *
+         * Statistics: The most useful statistic is Sum.
+         */
+        export function tCP_Target_Reset_Count(change: cloudwatch.MetricChange = {}) {
+            return metric("TCP_Target_Reset_Count", { statistic: "Sum",...change });
+        }
+
+        /**
+         * The number of targets that are considered unhealthy.
+         *
+         * Statistics: The most useful statistics are Maximum and Minimum.
+         */
+        export function unHealthyHostCount(change: cloudwatch.MetricChange = {}) {
+            return metric("UnHealthyHostCount", { statistic: "Maximum", ...change });
         }
     }
 }
