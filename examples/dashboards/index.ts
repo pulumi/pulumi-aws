@@ -45,8 +45,8 @@ const funcMetric = subscription.func.metrics.duration();
 const funcAlarm1 = funcMetric.with({ unit: "Milliseconds", period: 600 })
                              .createAlarm("SlowUrlProcessing", { threshold: 1000, evaluationPeriods: 5 });
 
-// Also great a dashboard to track this.
-const dashboard = aws.cloudwatch.Dashboard.fromBody("TopicData", new aws.cloudwatch.DashboardBody({
+// Also create a dashboard to track this.
+const dashboard = aws.cloudwatch.Dashboard.fromDescription("TopicData", new aws.cloudwatch.DashboardDescription({
     widgets: [
         new aws.cloudwatch.SingleNumberMetricWidget({
             title: "Requests/Minute",

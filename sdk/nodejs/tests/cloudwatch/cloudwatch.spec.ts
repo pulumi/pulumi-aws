@@ -21,10 +21,10 @@ import {
     TextWidget,
     VerticalAnnotation,
 } from "../../cloudwatch/simpleWidgets";
-import { DashboardBody } from "../../cloudwatch/dashboardBody";
+import { DashboardDescription } from "../../cloudwatch/dashboardDescription";
 
 function createBody(...widgets: Widget[]) {
-    return new DashboardBody({
+    return new DashboardDescription({
         widgets: widgets,
     });
 }
@@ -34,7 +34,7 @@ async function bodyJson(...widgets: Widget[]) {
     return await toJson(body);
 }
 
-async function toJson(body: DashboardBody) {
+async function toJson(body: DashboardDescription) {
     const json = await (<any>body.toDashboardJson()).promise();
     return JSON.stringify(json, null, 4);
 }
@@ -48,7 +48,7 @@ describe("dashboard", () => {
     });
 
     it("period override", async () => {
-        const json = await toJson(new DashboardBody({ periodOverride: "auto" }));
+        const json = await toJson(new DashboardDescription({ periodOverride: "auto" }));
         assert.equal(json, `{
     "periodOverride": "auto",
     "widgets": []
@@ -1005,7 +1005,7 @@ describe("dashboard", () => {
 
     describe("realworld", () => {
         it("realword 1", async () => {
-            const json = await toJson(new DashboardBody({
+            const json = await toJson(new DashboardDescription({
                 start: "-PT6H",
                 periodOverride: "inherit",
                 widgets: [

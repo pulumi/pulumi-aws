@@ -17,21 +17,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utils from "../utils";
 
 import { Dashboard } from "./dashboard";
-import { DashboardBody } from "./dashboardBody";
+import { DashboardDescription } from "./dashboardDescription";
 
 declare module "./dashboard" {
     module Dashboard {
         /**
          * Creates a new dashboard from the body description provided.
          */
-        export function fromBody(name: string, body: DashboardBody, opts?: pulumi.CustomResourceOptions): Dashboard
+        export function fromDescription(name: string, description: DashboardDescription, opts?: pulumi.CustomResourceOptions): Dashboard
     }
 }
 
-Dashboard.fromBody = function(name: string, body: DashboardBody, opts?: pulumi.CustomResourceOptions): Dashboard {
+Dashboard.fromDescription = function(name: string, description: DashboardDescription, opts?: pulumi.CustomResourceOptions): Dashboard {
     const argsCopy = {
-        dashboardName: utils.ifUndefined(body.name, name),
-        dashboardBody: body.toDashboardJson().apply(j => {
+        dashboardName: utils.ifUndefined(description.name, name),
+        dashboardBody: description.toDashboardJson().apply(j => {
             const result = JSON.stringify(j, null, 2);
             return result;
         }),

@@ -4,7 +4,9 @@
   [aws.cloudwatch.Metric] for more details, and see [aws.lambda.metrics.duration] as an example of
   a newly exposed easy-to-use metric.
 - Dashboards can easily be created from the above [aws.cloudwatch.Metric] objects using the new
-  [aws.cloudwatch.Dashboard.fromBody] helper.  See [here](https://github.com/pulumi/pulumi-aws/blob/master/examples/dashboards/index.ts) for an example.
+  [aws.cloudwatch.Dashboard.fromDescription] helper.  See
+  [here](https://github.com/pulumi/pulumi-aws/blob/master/examples/dashboards/index.ts) for an
+  example.
 
 ## 0.18.1 (Released April 5th, 2019)
 
