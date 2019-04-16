@@ -54,13 +54,8 @@ export abstract class GraphMetricWidget extends MetricWidget {
         super(graphArgs);
     }
 
-    protected computeView(): wjson.MetricWidgetPropertiesJson["view"] {
-        return "timeSeries";
-    }
-
-    protected computeYAxis(): wjson.MetricWidgetPropertiesJson["yAxis"] {
-        return this.graphArgs.yAxis;
-    }
+    protected computeView = (): wjson.MetricWidgetPropertiesJson["view"] => "timeSeries";
+    protected computeYAxis = (): wjson.MetricWidgetPropertiesJson["yAxis"] => this.graphArgs.yAxis;
 }
 
 /**
@@ -71,9 +66,7 @@ export class LineGraphMetricWidget extends GraphMetricWidget {
         super(args);
     }
 
-    protected computedStacked() {
-        return false;
-    }
+    protected computedStacked = () => false;
 }
 
 /**
@@ -84,9 +77,7 @@ export class StackedAreaGraphMetricWidget extends GraphMetricWidget {
         super(args);
     }
 
-    protected computedStacked() {
-        return true;
-    }
+    protected computedStacked = () => true;
 }
 
 /**
@@ -97,15 +88,7 @@ export class SingleNumberMetricWidget extends MetricWidget {
         super(args);
     }
 
-    protected computeView(): wjson.MetricWidgetPropertiesJson["view"] {
-        return "singleValue";
-    }
-
-    protected computedStacked() {
-        return false;
-    }
-
-    protected computeYAxis(): wjson.MetricWidgetPropertiesJson["yAxis"] {
-        return undefined;
-    }
+    protected computedStacked = () => false;
+    protected computeView = (): wjson.MetricWidgetPropertiesJson["view"] => "singleValue";
+    protected computeYAxis = (): wjson.MetricWidgetPropertiesJson["yAxis"] => undefined;
 }
