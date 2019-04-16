@@ -5,5 +5,4 @@
 export * from "./fileSystem";
 export * from "./getFileSystem";
 export * from "./getMountTarget";
-export * from "./metrics";
 export * from "./mountTarget";

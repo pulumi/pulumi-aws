@@ -4,4 +4,3 @@
 // Export members:
 export * from "./certificateAuthority";
 export * from "./getCertificateAuthority";
-export * from "./metrics";
