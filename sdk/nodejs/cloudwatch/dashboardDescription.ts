@@ -15,8 +15,8 @@
 import * as pulumi from "@pulumi/pulumi";
 
 import { Widget } from "./widgets";
-import { WidgetJson } from "./widgetJson";
-import { ColumnWidget, RowWidget } from "./flowWidgets";
+import { WidgetJson } from "./widgets_json";
+import { ColumnWidget, RowWidget } from "./widgets_flow";
 
 export interface DashboardDescriptionArgs {
     /**

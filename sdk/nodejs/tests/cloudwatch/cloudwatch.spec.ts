@@ -10,17 +10,10 @@ import * as aws from "../..";
 
 import { Metric } from "../../cloudwatch/metric";
 import { Widget } from "../../cloudwatch/widgets";
-import { ColumnWidget, RowWidget } from "../../cloudwatch/flowWidgets";
-import {
-    AlarmAnnotation,
-    ExpressionWidgetMetric,
-    HorizontalAnnotation,
-    LineGraphMetricWidget,
-    SingleNumberMetricWidget,
-    StackedAreaGraphMetricWidget,
-    TextWidget,
-    VerticalAnnotation,
-} from "../../cloudwatch/simpleWidgets";
+import { ColumnWidget, RowWidget } from "../../cloudwatch/widgets_flow";
+import { ExpressionWidgetMetric, TextWidget } from "../../cloudwatch/widgets_simple";
+import { AlarmAnnotation, HorizontalAnnotation, VerticalAnnotation } from "../../cloudwatch/widgets_annotations";
+import { LineGraphMetricWidget, SingleNumberMetricWidget, StackedAreaGraphMetricWidget } from "../../cloudwatch/widgets_graph";
 import { DashboardDescription } from "../../cloudwatch/dashboardDescription";
 
 function createBody(...widgets: Widget[]) {

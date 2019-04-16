@@ -4,13 +4,12 @@
 // Export members:
 export * from "./cloudwatchMixins";
 export * from "./dashboard";
-export * from "./dashboardBody";
+export * from "./dashboardDescription";
 export * from "./dashboardMixins";
 export * from "./eventPermission";
 export * from "./eventRule";
 export * from "./eventRuleMixins";
 export * from "./eventTarget";
-export * from "./flowWidgets";
 export * from "./getLogGroup";
 export * from "./logDestination";
 export * from "./logDestinationPolicy";
@@ -24,6 +23,9 @@ export * from "./metric";
 export * from "./metricAlarm";
 export * from "./metricAlarmMixins";
 export * from "./metrics";
-export * from "./simpleWidgets";
-export * from "./widgetJson";
 export * from "./widgets";
+export * from "./widgets_annotations";
+export * from "./widgets_flow";
+export * from "./widgets_graph";
+export * from "./widgets_json";
+export * from "./widgets_simple";

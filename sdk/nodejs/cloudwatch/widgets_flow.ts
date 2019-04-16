@@ -15,7 +15,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 import { Widget } from "./widgets";
-import { WidgetJson } from "./widgetJson"
+import { WidgetJson } from "./widgets_json"
 
 interface WidgetRelativePosition {
     /** x-position of this widget, relative to the x-position of its container. */

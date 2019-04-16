@@ -14,7 +14,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
-import { WidgetJson } from "./widgetJson";
+import { WidgetJson } from "./widgets_json";
 
 /**
  * Base type for all [Widget]s that can be placed in a [DashboardGrid].

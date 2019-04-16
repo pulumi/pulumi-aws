@@ -15,9 +15,9 @@
 import * as pulumi from "@pulumi/pulumi";
 
 import { MetricAlarm } from "./metricAlarm";
-import { HorizontalAnnotation, WidgetAnnotation } from "./simpleWidgets";
+import { HorizontalAnnotation, WidgetAnnotation } from "./widgets_annotations";
 
-import * as wjson from "./widgetJson";
+import * as wjson from "./widgets_json";
 
 declare module "./metricAlarm" {
     /**

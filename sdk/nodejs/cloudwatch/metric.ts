@@ -14,8 +14,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
-import { WidgetMetric } from "./simpleWidgets";
-import * as wjson from "./widgetJson";
+import { WidgetMetric } from "./widgets_simple";
+import * as wjson from "./widgets_json";
 
 import * as alarm from "./metricAlarm";
 import * as sns from "../sns";

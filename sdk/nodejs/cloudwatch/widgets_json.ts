@@ -14,7 +14,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
-import { YAxis } from "./simpleWidgets";
+import { YAxis } from "./widgets_graph";
 
 // All the typings for the json blob we need to create for Dashboard.dashboardBody. We'll convert
 // the right in-memory auto-laid-out system we have into these.  These typings are purely so we do
