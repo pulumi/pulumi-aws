@@ -396,6 +396,7 @@
         "elasticloadbalancingv2/listenerCertificate.ts",
         "elasticloadbalancingv2/listenerRule.ts",
         "elasticloadbalancingv2/loadBalancer.ts",
+        "elasticloadbalancingv2/metrics.ts",
         "elasticloadbalancingv2/targetGroup.ts",
         "elasticloadbalancingv2/targetGroupAttachment.ts",
         "elasticsearch/domain.ts",
