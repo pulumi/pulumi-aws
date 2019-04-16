@@ -23,7 +23,7 @@ export * from "./metric";
 export * from "./metricAlarm";
 export * from "./metricAlarmMixins";
 export * from "./metrics";
-export * from "./widgets";
+export * from "./widget";
 export * from "./widgets_annotations";
 export * from "./widgets_flow";
 export * from "./widgets_graph";

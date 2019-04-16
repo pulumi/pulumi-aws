@@ -78,6 +78,9 @@ export abstract class FlowWidget implements Widget {
     /** @internal */
     public addWidgetJson(widgetJsons: WidgetJson[], xOffset: number, yOffset: number) {
         for (const [widget, dimension] of this.getWidgetRelativePositions()) {
+            // Recurse into each of our children, asking them to add themselves into [widgetJsons].
+            // We pass them their actual position based on the x/y offset of this FlowWidget and
+            // their relative offset within us.
             widget.addWidgetJson(widgetJsons, xOffset + dimension.relativeX, yOffset + dimension.relativeY);
         }
     }

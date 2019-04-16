@@ -144,7 +144,7 @@
         "cloudwatch/metricAlarm.ts",
         "cloudwatch/metricAlarmMixins.ts",
         "cloudwatch/metrics.ts",
-        "cloudwatch/widgets.ts",
+        "cloudwatch/widget.ts",
         "cloudwatch/widgets_annotations.ts",
         "cloudwatch/widgets_flow.ts",
         "cloudwatch/widgets_graph.ts",
