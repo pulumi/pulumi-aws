@@ -4,7 +4,6 @@ pulumi.runtime.setConfig("aws:region", "us-east-2");
 
 import * as assert from "assert";
 import * as semver from "semver";
-// import { asyncTest } from "../util";
 
 import * as aws from "../..";
 
