@@ -23,6 +23,22 @@ import * as wjson from "./widgetJson";
 
 import * as utils from "../utils";
 
+export interface SimpleWidgetArgs {
+    /**
+     * The width of the widget in grid units (in a 24-column grid). The default is 6.
+     *
+     * Valid Values: 1–24
+     */
+    width?: number;
+
+    /**
+     * The height of the widget in grid units. The default is 6.
+     *
+     * Valid Values: 1–1000
+     */
+    height?: number;
+}
+
 /**
  * Base type of all non-flow Widgets to place in a DashboardGrid.
  */
@@ -53,6 +69,8 @@ export abstract class SimpleWidget extends Widget {
 
     /** @internal */
     public addWidgetJson(widgetJsons: wjson.WidgetJson[], xOffset: number, yOffset: number) {
+        // Build the structure common to all simple widgets.  Defer to our subclasses for
+        // details only they can fill in.
         widgetJsons.push({
             x: xOffset,
             y: yOffset,
@@ -62,22 +80,6 @@ export abstract class SimpleWidget extends Widget {
             properties: this.computeProperties(),
         });
     }
-}
-
-export interface SimpleWidgetArgs {
-    /**
-     * The width of the widget in grid units (in a 24-column grid). The default is 6.
-     *
-     * Valid Values: 1–24
-     */
-    width?: number;
-
-    /**
-     * The height of the widget in grid units. The default is 6.
-     *
-     * Valid Values: 1–1000
-     */
-    height?: number;
 }
 
 /**
