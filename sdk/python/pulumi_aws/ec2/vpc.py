@@ -83,7 +83,7 @@ class Vpc(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, assign_generated_ipv6_cidr_block=None, cidr_block=None, enable_classiclink=None, enable_classiclink_dns_support=None, enable_dns_hostnames=None, enable_dns_support=None, instance_tenancy=None, tags=None, __name__=None, __opts__=None):
         """
-        Provides an VPC resource.
+        Provides a VPC resource.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

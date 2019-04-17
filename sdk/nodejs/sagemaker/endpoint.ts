@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const endpoint = new aws.sagemaker.Endpoint("e", {
- *     configurationName: aws_sagemaker_endpoint_configuration_ec.name,
+ *     endpointConfigName: aws_sagemaker_endpoint_configuration_ec.name,
  *     tags: {
  *         Name: "foo",
  *     },
@@ -40,6 +40,9 @@ export class Endpoint extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * The name of the endpoint configuration to use.
+     */
     public readonly endpointConfigName: pulumi.Output<string>;
     /**
      * The name of the endpoint. If omitted, Terraform will assign a random, unique name.
@@ -88,6 +91,9 @@ export interface EndpointState {
      * The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The name of the endpoint configuration to use.
+     */
     readonly endpointConfigName?: pulumi.Input<string>;
     /**
      * The name of the endpoint. If omitted, Terraform will assign a random, unique name.
@@ -103,6 +109,9 @@ export interface EndpointState {
  * The set of arguments for constructing a Endpoint resource.
  */
 export interface EndpointArgs {
+    /**
+     * The name of the endpoint configuration to use.
+     */
     readonly endpointConfigName: pulumi.Input<string>;
     /**
      * The name of the endpoint. If omitted, Terraform will assign a random, unique name.

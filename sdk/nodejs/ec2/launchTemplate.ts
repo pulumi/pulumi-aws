@@ -61,6 +61,10 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly elasticGpuSpecifications: pulumi.Output<{ type: string }[] | undefined>;
     /**
+     * Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+     */
+    public readonly elasticInferenceAccelerator: pulumi.Output<{ type: string } | undefined>;
+    /**
      * The IAM Instance Profile to launch the instance with. See Instance Profile
      * below for more details.
      */
@@ -167,6 +171,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["disableApiTermination"] = state ? state.disableApiTermination : undefined;
             inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
             inputs["elasticGpuSpecifications"] = state ? state.elasticGpuSpecifications : undefined;
+            inputs["elasticInferenceAccelerator"] = state ? state.elasticInferenceAccelerator : undefined;
             inputs["iamInstanceProfile"] = state ? state.iamInstanceProfile : undefined;
             inputs["imageId"] = state ? state.imageId : undefined;
             inputs["instanceInitiatedShutdownBehavior"] = state ? state.instanceInitiatedShutdownBehavior : undefined;
@@ -196,6 +201,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["disableApiTermination"] = args ? args.disableApiTermination : undefined;
             inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
             inputs["elasticGpuSpecifications"] = args ? args.elasticGpuSpecifications : undefined;
+            inputs["elasticInferenceAccelerator"] = args ? args.elasticInferenceAccelerator : undefined;
             inputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
             inputs["imageId"] = args ? args.imageId : undefined;
             inputs["instanceInitiatedShutdownBehavior"] = args ? args.instanceInitiatedShutdownBehavior : undefined;
@@ -267,6 +273,10 @@ export interface LaunchTemplateState {
      * below for more details.
      */
     readonly elasticGpuSpecifications?: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string> }>[]>;
+    /**
+     * Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+     */
+    readonly elasticInferenceAccelerator?: pulumi.Input<{ type: pulumi.Input<string> }>;
     /**
      * The IAM Instance Profile to launch the instance with. See Instance Profile
      * below for more details.
@@ -390,6 +400,10 @@ export interface LaunchTemplateArgs {
      * below for more details.
      */
     readonly elasticGpuSpecifications?: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string> }>[]>;
+    /**
+     * Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+     */
+    readonly elasticInferenceAccelerator?: pulumi.Input<{ type: pulumi.Input<string> }>;
     /**
      * The IAM Instance Profile to launch the instance with. See Instance Profile
      * below for more details.

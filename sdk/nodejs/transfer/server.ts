@@ -76,6 +76,14 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
+     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
+     */
+    public readonly endpointDetails: pulumi.Output<{ vpcEndpointId: string } | undefined>;
+    /**
+     * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.
+     */
+    public readonly endpointType: pulumi.Output<string | undefined>;
+    /**
      * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
      */
     public readonly forceDestroy: pulumi.Output<boolean | undefined>;
@@ -114,6 +122,8 @@ export class Server extends pulumi.CustomResource {
             const state: ServerState = argsOrState as ServerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
+            inputs["endpointDetails"] = state ? state.endpointDetails : undefined;
+            inputs["endpointType"] = state ? state.endpointType : undefined;
             inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
             inputs["identityProviderType"] = state ? state.identityProviderType : undefined;
             inputs["invocationRole"] = state ? state.invocationRole : undefined;
@@ -122,6 +132,8 @@ export class Server extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
+            inputs["endpointDetails"] = args ? args.endpointDetails : undefined;
+            inputs["endpointType"] = args ? args.endpointType : undefined;
             inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             inputs["identityProviderType"] = args ? args.identityProviderType : undefined;
             inputs["invocationRole"] = args ? args.invocationRole : undefined;
@@ -147,6 +159,14 @@ export interface ServerState {
      * The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
      */
     readonly endpoint?: pulumi.Input<string>;
+    /**
+     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
+     */
+    readonly endpointDetails?: pulumi.Input<{ vpcEndpointId: pulumi.Input<string> }>;
+    /**
+     * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.
+     */
+    readonly endpointType?: pulumi.Input<string>;
     /**
      * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
      */
@@ -177,6 +197,14 @@ export interface ServerState {
  * The set of arguments for constructing a Server resource.
  */
 export interface ServerArgs {
+    /**
+     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
+     */
+    readonly endpointDetails?: pulumi.Input<{ vpcEndpointId: pulumi.Input<string> }>;
+    /**
+     * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.
+     */
+    readonly endpointType?: pulumi.Input<string>;
     /**
      * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
      */

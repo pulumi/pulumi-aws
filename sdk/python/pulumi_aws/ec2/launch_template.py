@@ -49,6 +49,10 @@ class LaunchTemplate(pulumi.CustomResource):
     The elastic GPU to attach to the instance. See Elastic GPU
     below for more details.
     """
+    elastic_inference_accelerator: pulumi.Output[dict]
+    """
+    Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+    """
     iam_instance_profile: pulumi.Output[dict]
     """
     The IAM Instance Profile to launch the instance with. See Instance Profile
@@ -134,7 +138,7 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     A list of security group IDs to associate with.
     """
-    def __init__(__self__, resource_name, opts=None, block_device_mappings=None, capacity_reservation_specification=None, credit_specification=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, license_specifications=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, block_device_mappings=None, capacity_reservation_specification=None, credit_specification=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, license_specifications=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None, __name__=None, __opts__=None):
         """
         Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
         
@@ -151,6 +155,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] ebs_optimized: If `true`, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[list] elastic_gpu_specifications: The elastic GPU to attach to the instance. See Elastic GPU
                below for more details.
+        :param pulumi.Input[dict] elastic_inference_accelerator: Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         :param pulumi.Input[dict] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
                below for more details.
         :param pulumi.Input[str] image_id: The AMI from which to launch the instance.
@@ -204,6 +209,8 @@ class LaunchTemplate(pulumi.CustomResource):
         __props__['ebs_optimized'] = ebs_optimized
 
         __props__['elastic_gpu_specifications'] = elastic_gpu_specifications
+
+        __props__['elastic_inference_accelerator'] = elastic_inference_accelerator
 
         __props__['iam_instance_profile'] = iam_instance_profile
 

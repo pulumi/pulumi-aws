@@ -70,6 +70,7 @@ func (r *Endpoint) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
+// The name of the endpoint configuration to use.
 func (r *Endpoint) EndpointConfigName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["endpointConfigName"])
 }
@@ -88,6 +89,7 @@ func (r *Endpoint) Tags() *pulumi.MapOutput {
 type EndpointState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
 	Arn interface{}
+	// The name of the endpoint configuration to use.
 	EndpointConfigName interface{}
 	// The name of the endpoint. If omitted, Terraform will assign a random, unique name.
 	Name interface{}
@@ -97,6 +99,7 @@ type EndpointState struct {
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
+	// The name of the endpoint configuration to use.
 	EndpointConfigName interface{}
 	// The name of the endpoint. If omitted, Terraform will assign a random, unique name.
 	Name interface{}

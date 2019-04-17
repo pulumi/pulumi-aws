@@ -52,7 +52,7 @@ export class Plan extends pulumi.CustomResource {
      */
     public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
-     * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan. 
+     * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
      */
     public /*out*/ readonly version: pulumi.Output<string>;
 
@@ -109,7 +109,7 @@ export interface PlanState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan. 
+     * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
      */
     readonly version?: pulumi.Input<string>;
 }

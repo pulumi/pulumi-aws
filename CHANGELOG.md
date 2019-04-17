@@ -1,6 +1,6 @@
 ## 0.18.2 (Unreleased)
 
-- Update to v2.5.0 of the AWS Terraform Provider.
+- Update to v2.6.0 of the AWS Terraform Provider.
 
 ## 0.18.1 (Released April 5th, 2019)
 

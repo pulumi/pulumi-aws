@@ -72,6 +72,7 @@ func (r *Selection) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
 func (r *Selection) IamRoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["iamRoleArn"])
 }
@@ -98,6 +99,7 @@ func (r *Selection) SelectionTags() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering Selection resources.
 type SelectionState struct {
+	// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
 	IamRoleArn interface{}
 	// The display name of a resource selection document.
 	Name interface{}
@@ -111,6 +113,7 @@ type SelectionState struct {
 
 // The set of arguments for constructing a Selection resource.
 type SelectionArgs struct {
+	// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
 	IamRoleArn interface{}
 	// The display name of a resource selection document.
 	Name interface{}

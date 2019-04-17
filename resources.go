@@ -1659,6 +1659,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_wafregional_xss_match_set":           {Tok: awsResource(wafregionalMod, "XssMatchSet")},
 			// Worklink
 			"aws_worklink_fleet": {Tok: awsResource(worklinkMod, "Fleet")},
+			"aws_worklink_website_certificate_authority_association": {
+				Tok: awsResource(worklinkMod, "WebsiteCertificateAuthorityAssociation"),
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// AWS

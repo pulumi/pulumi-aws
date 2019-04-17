@@ -12,7 +12,7 @@ class GetTargetGroupResult:
     """
     A collection of values returned by getTargetGroup.
     """
-    def __init__(__self__, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, lambda_multi_value_headers_enabled=None, name=None, port=None, protocol=None, slow_start=None, stickiness=None, tags=None, vpc_id=None, id=None):
+    def __init__(__self__, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, lambda_multi_value_headers_enabled=None, name=None, port=None, protocol=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None, id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -37,6 +37,9 @@ class GetTargetGroupResult:
         if protocol and not isinstance(protocol, str):
             raise TypeError("Expected argument 'protocol' to be a str")
         __self__.protocol = protocol
+        if proxy_protocol_v2 and not isinstance(proxy_protocol_v2, bool):
+            raise TypeError("Expected argument 'proxy_protocol_v2' to be a bool")
+        __self__.proxy_protocol_v2 = proxy_protocol_v2
         if slow_start and not isinstance(slow_start, float):
             raise TypeError("Expected argument 'slow_start' to be a float")
         __self__.slow_start = slow_start
@@ -46,6 +49,9 @@ class GetTargetGroupResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
+        if target_type and not isinstance(target_type, str):
+            raise TypeError("Expected argument 'target_type' to be a str")
+        __self__.target_type = target_type
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         __self__.vpc_id = vpc_id
@@ -82,8 +88,10 @@ async def get_target_group(arn=None,name=None,tags=None,opts=None):
         name=__ret__.get('name'),
         port=__ret__.get('port'),
         protocol=__ret__.get('protocol'),
+        proxy_protocol_v2=__ret__.get('proxyProtocolV2'),
         slow_start=__ret__.get('slowStart'),
         stickiness=__ret__.get('stickiness'),
         tags=__ret__.get('tags'),
+        target_type=__ret__.get('targetType'),
         vpc_id=__ret__.get('vpcId'),
         id=__ret__.get('id'))

@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides an VPC resource.
+// Provides a VPC resource.
 type Vpc struct {
 	s *pulumi.ResourceState
 }

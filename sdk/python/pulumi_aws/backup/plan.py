@@ -27,7 +27,7 @@ class Plan(pulumi.CustomResource):
     """
     version: pulumi.Output[str]
     """
-    Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan. 
+    Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
     """
     def __init__(__self__, resource_name, opts=None, name=None, rules=None, tags=None, __name__=None, __opts__=None):
         """
