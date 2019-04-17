@@ -27,6 +27,7 @@ func LookupInstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceRes
 		DbClusterIdentifier: outputs["dbClusterIdentifier"],
 		DbInstanceArn: outputs["dbInstanceArn"],
 		DbInstanceClass: outputs["dbInstanceClass"],
+		DbInstanceIdentifier: outputs["dbInstanceIdentifier"],
 		DbInstancePort: outputs["dbInstancePort"],
 		DbName: outputs["dbName"],
 		DbParameterGroups: outputs["dbParameterGroups"],
@@ -84,6 +85,7 @@ type GetInstanceResult struct {
 	DbInstanceArn interface{}
 	// Contains the name of the compute and memory capacity class of the DB instance.
 	DbInstanceClass interface{}
+	DbInstanceIdentifier interface{}
 	// Specifies the port that the DB instance listens on.
 	DbInstancePort interface{}
 	// Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.

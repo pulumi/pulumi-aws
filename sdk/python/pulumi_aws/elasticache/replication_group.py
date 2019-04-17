@@ -236,7 +236,7 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__['port'] = port
 
         if replication_group_description is None:
-            raise TypeError('Missing required property replication_group_description')
+            raise TypeError("Missing required property 'replication_group_description'")
         __props__['replication_group_description'] = replication_group_description
 
         __props__['replication_group_id'] = replication_group_id

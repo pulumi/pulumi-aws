@@ -43,7 +43,7 @@ class ProductSubscription(pulumi.CustomResource):
         __props__ = dict()
 
         if product_arn is None:
-            raise TypeError('Missing required property product_arn')
+            raise TypeError("Missing required property 'product_arn'")
         __props__['product_arn'] = product_arn
 
         __props__['arn'] = None

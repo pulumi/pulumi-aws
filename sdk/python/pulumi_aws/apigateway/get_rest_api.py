@@ -12,15 +12,18 @@ class GetRestApiResult:
     """
     A collection of values returned by getRestApi.
     """
-    def __init__(__self__, root_resource_id=None, id=None):
+    def __init__(__self__, name=None, root_resource_id=None, id=None):
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        __self__.name = name
         if root_resource_id and not isinstance(root_resource_id, str):
-            raise TypeError('Expected argument root_resource_id to be a str')
+            raise TypeError("Expected argument 'root_resource_id' to be a str")
         __self__.root_resource_id = root_resource_id
         """
         Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -39,5 +42,6 @@ async def get_rest_api(name=None,opts=None):
     __ret__ = await pulumi.runtime.invoke('aws:apigateway/getRestApi:getRestApi', __args__, opts=opts)
 
     return GetRestApiResult(
+        name=__ret__.get('name'),
         root_resource_id=__ret__.get('rootResourceId'),
         id=__ret__.get('id'))

@@ -50,11 +50,11 @@ class Certificate(pulumi.CustomResource):
         __props__ = dict()
 
         if active is None:
-            raise TypeError('Missing required property active')
+            raise TypeError("Missing required property 'active'")
         __props__['active'] = active
 
         if csr is None:
-            raise TypeError('Missing required property csr')
+            raise TypeError("Missing required property 'csr'")
         __props__['csr'] = csr
 
         __props__['arn'] = None

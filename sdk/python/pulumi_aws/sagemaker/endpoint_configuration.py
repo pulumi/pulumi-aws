@@ -60,7 +60,7 @@ class EndpointConfiguration(pulumi.CustomResource):
         __props__['name'] = name
 
         if production_variants is None:
-            raise TypeError('Missing required property production_variants')
+            raise TypeError("Missing required property 'production_variants'")
         __props__['production_variants'] = production_variants
 
         __props__['tags'] = tags

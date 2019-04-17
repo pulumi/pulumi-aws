@@ -53,6 +53,9 @@ export interface GetLocalDiskResult {
      * The disk identifier. e.g. `pci-0000:03:00.0-scsi-0:0:0:0`
      */
     readonly diskId: string;
+    readonly diskNode?: string;
+    readonly diskPath?: string;
+    readonly gatewayArn: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

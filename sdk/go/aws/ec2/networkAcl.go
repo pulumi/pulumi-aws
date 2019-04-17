@@ -79,11 +79,13 @@ func (r *NetworkAcl) ID() *pulumi.IDOutput {
 }
 
 // Specifies an egress rule. Parameters defined below.
+// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 func (r *NetworkAcl) Egress() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["egress"])
 }
 
 // Specifies an ingress rule. Parameters defined below.
+// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 func (r *NetworkAcl) Ingress() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ingress"])
 }
@@ -111,8 +113,10 @@ func (r *NetworkAcl) VpcId() *pulumi.StringOutput {
 // Input properties used for looking up and filtering NetworkAcl resources.
 type NetworkAclState struct {
 	// Specifies an egress rule. Parameters defined below.
+	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Egress interface{}
 	// Specifies an ingress rule. Parameters defined below.
+	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Ingress interface{}
 	// The ID of the AWS account that owns the network ACL.
 	OwnerId interface{}
@@ -127,8 +131,10 @@ type NetworkAclState struct {
 // The set of arguments for constructing a NetworkAcl resource.
 type NetworkAclArgs struct {
 	// Specifies an egress rule. Parameters defined below.
+	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Egress interface{}
 	// Specifies an ingress rule. Parameters defined below.
+	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Ingress interface{}
 	// A list of Subnet IDs to apply the ACL to
 	SubnetIds interface{}

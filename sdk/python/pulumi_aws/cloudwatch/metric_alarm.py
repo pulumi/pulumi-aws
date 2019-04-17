@@ -89,6 +89,10 @@ class MetricAlarm(pulumi.CustomResource):
     The statistic to apply to the alarm's associated metric.
     Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
     """
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
     threshold: pulumi.Output[float]
     """
     The value against which the specified statistic is compared.
@@ -101,7 +105,7 @@ class MetricAlarm(pulumi.CustomResource):
     """
     The unit for this metric.
     """
-    def __init__(__self__, resource_name, opts=None, actions_enabled=None, alarm_actions=None, alarm_description=None, name=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentiles=None, evaluation_periods=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, metric_queries=None, namespace=None, ok_actions=None, period=None, statistic=None, threshold=None, treat_missing_data=None, unit=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, actions_enabled=None, alarm_actions=None, alarm_description=None, name=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentiles=None, evaluation_periods=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, metric_queries=None, namespace=None, ok_actions=None, period=None, statistic=None, tags=None, threshold=None, treat_missing_data=None, unit=None, __name__=None, __opts__=None):
         """
         Provides a CloudWatch Metric Alarm resource.
         
@@ -132,6 +136,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[float] period: The period in seconds over which the specified `stat` is applied.
         :param pulumi.Input[str] statistic: The statistic to apply to the alarm's associated metric.
                Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] threshold: The value against which the specified statistic is compared.
         :param pulumi.Input[str] treat_missing_data: Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
         :param pulumi.Input[str] unit: The unit for this metric.
@@ -160,7 +165,7 @@ class MetricAlarm(pulumi.CustomResource):
         __props__['name'] = name
 
         if comparison_operator is None:
-            raise TypeError('Missing required property comparison_operator')
+            raise TypeError("Missing required property 'comparison_operator'")
         __props__['comparison_operator'] = comparison_operator
 
         __props__['datapoints_to_alarm'] = datapoints_to_alarm
@@ -170,7 +175,7 @@ class MetricAlarm(pulumi.CustomResource):
         __props__['evaluate_low_sample_count_percentiles'] = evaluate_low_sample_count_percentiles
 
         if evaluation_periods is None:
-            raise TypeError('Missing required property evaluation_periods')
+            raise TypeError("Missing required property 'evaluation_periods'")
         __props__['evaluation_periods'] = evaluation_periods
 
         __props__['extended_statistic'] = extended_statistic
@@ -189,8 +194,10 @@ class MetricAlarm(pulumi.CustomResource):
 
         __props__['statistic'] = statistic
 
+        __props__['tags'] = tags
+
         if threshold is None:
-            raise TypeError('Missing required property threshold')
+            raise TypeError("Missing required property 'threshold'")
         __props__['threshold'] = threshold
 
         __props__['treat_missing_data'] = treat_missing_data

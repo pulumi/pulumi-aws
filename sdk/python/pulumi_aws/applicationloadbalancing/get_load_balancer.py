@@ -14,52 +14,52 @@ class GetLoadBalancerResult:
     """
     def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, dns_name=None, enable_deletion_protection=None, idle_timeout=None, internal=None, load_balancer_type=None, name=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, zone_id=None, id=None):
         if access_logs and not isinstance(access_logs, dict):
-            raise TypeError('Expected argument access_logs to be a dict')
+            raise TypeError("Expected argument 'access_logs' to be a dict")
         __self__.access_logs = access_logs
         if arn and not isinstance(arn, str):
-            raise TypeError('Expected argument arn to be a str')
+            raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         if arn_suffix and not isinstance(arn_suffix, str):
-            raise TypeError('Expected argument arn_suffix to be a str')
+            raise TypeError("Expected argument 'arn_suffix' to be a str")
         __self__.arn_suffix = arn_suffix
         if dns_name and not isinstance(dns_name, str):
-            raise TypeError('Expected argument dns_name to be a str')
+            raise TypeError("Expected argument 'dns_name' to be a str")
         __self__.dns_name = dns_name
         if enable_deletion_protection and not isinstance(enable_deletion_protection, bool):
-            raise TypeError('Expected argument enable_deletion_protection to be a bool')
+            raise TypeError("Expected argument 'enable_deletion_protection' to be a bool")
         __self__.enable_deletion_protection = enable_deletion_protection
         if idle_timeout and not isinstance(idle_timeout, float):
-            raise TypeError('Expected argument idle_timeout to be a float')
+            raise TypeError("Expected argument 'idle_timeout' to be a float")
         __self__.idle_timeout = idle_timeout
         if internal and not isinstance(internal, bool):
-            raise TypeError('Expected argument internal to be a bool')
+            raise TypeError("Expected argument 'internal' to be a bool")
         __self__.internal = internal
         if load_balancer_type and not isinstance(load_balancer_type, str):
-            raise TypeError('Expected argument load_balancer_type to be a str')
+            raise TypeError("Expected argument 'load_balancer_type' to be a str")
         __self__.load_balancer_type = load_balancer_type
         if name and not isinstance(name, str):
-            raise TypeError('Expected argument name to be a str')
+            raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         if security_groups and not isinstance(security_groups, list):
-            raise TypeError('Expected argument security_groups to be a list')
+            raise TypeError("Expected argument 'security_groups' to be a list")
         __self__.security_groups = security_groups
         if subnet_mappings and not isinstance(subnet_mappings, list):
-            raise TypeError('Expected argument subnet_mappings to be a list')
+            raise TypeError("Expected argument 'subnet_mappings' to be a list")
         __self__.subnet_mappings = subnet_mappings
         if subnets and not isinstance(subnets, list):
-            raise TypeError('Expected argument subnets to be a list')
+            raise TypeError("Expected argument 'subnets' to be a list")
         __self__.subnets = subnets
         if tags and not isinstance(tags, dict):
-            raise TypeError('Expected argument tags to be a dict')
+            raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         if vpc_id and not isinstance(vpc_id, str):
-            raise TypeError('Expected argument vpc_id to be a str')
+            raise TypeError("Expected argument 'vpc_id' to be a str")
         __self__.vpc_id = vpc_id
         if zone_id and not isinstance(zone_id, str):
-            raise TypeError('Expected argument zone_id to be a str')
+            raise TypeError("Expected argument 'zone_id' to be a str")
         __self__.zone_id = zone_id
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

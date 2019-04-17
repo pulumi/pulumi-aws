@@ -72,6 +72,7 @@ export interface GetVolumeResult {
      * Whether the disk is encrypted.
      */
     readonly encrypted: boolean;
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * The amount of IOPS for the disk.
      */
@@ -80,6 +81,7 @@ export interface GetVolumeResult {
      * The ARN for the KMS encryption key.
      */
     readonly kmsKeyId: string;
+    readonly mostRecent?: boolean;
     /**
      * The size of the drive in GiBs.
      */

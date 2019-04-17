@@ -165,7 +165,7 @@ class HealthCheck(pulumi.CustomResource):
         __props__['tags'] = tags
 
         if type is None:
-            raise TypeError('Missing required property type')
+            raise TypeError("Missing required property 'type'")
         __props__['type'] = type
 
         super(HealthCheck, __self__).__init__(

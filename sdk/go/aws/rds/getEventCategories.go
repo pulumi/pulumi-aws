@@ -18,6 +18,7 @@ func LookupEventCategories(ctx *pulumi.Context, args *GetEventCategoriesArgs) (*
 	}
 	return &GetEventCategoriesResult{
 		EventCategories: outputs["eventCategories"],
+		SourceType: outputs["sourceType"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -32,6 +33,7 @@ type GetEventCategoriesArgs struct {
 type GetEventCategoriesResult struct {
 	// A list of the event categories.
 	EventCategories interface{}
+	SourceType interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

@@ -14,20 +14,20 @@ class GetAvailabilityZoneResult:
     """
     def __init__(__self__, name=None, name_suffix=None, region=None, state=None, zone_id=None, id=None):
         if name and not isinstance(name, str):
-            raise TypeError('Expected argument name to be a str')
+            raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the selected availability zone.
         """
         if name_suffix and not isinstance(name_suffix, str):
-            raise TypeError('Expected argument name_suffix to be a str')
+            raise TypeError("Expected argument 'name_suffix' to be a str")
         __self__.name_suffix = name_suffix
         """
         The part of the AZ name that appears after the region name,
         uniquely identifying the AZ within its region.
         """
         if region and not isinstance(region, str):
-            raise TypeError('Expected argument region to be a str')
+            raise TypeError("Expected argument 'region' to be a str")
         __self__.region = region
         """
         The region where the selected availability zone resides.
@@ -35,19 +35,19 @@ class GetAvailabilityZoneResult:
         searches only within that region.
         """
         if state and not isinstance(state, str):
-            raise TypeError('Expected argument state to be a str')
+            raise TypeError("Expected argument 'state' to be a str")
         __self__.state = state
         """
         The current state of the AZ.
         """
         if zone_id and not isinstance(zone_id, str):
-            raise TypeError('Expected argument zone_id to be a str')
+            raise TypeError("Expected argument 'zone_id' to be a str")
         __self__.zone_id = zone_id
         """
         (Optional) The zone ID of the selected availability zone.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

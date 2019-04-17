@@ -21,6 +21,7 @@ func LookupRestApi(ctx *pulumi.Context, args *GetRestApiArgs) (*GetRestApiResult
 		return nil, err
 	}
 	return &GetRestApiResult{
+		Name: outputs["name"],
 		RootResourceId: outputs["rootResourceId"],
 		Id: outputs["id"],
 	}, nil
@@ -35,6 +36,7 @@ type GetRestApiArgs struct {
 
 // A collection of values returned by getRestApi.
 type GetRestApiResult struct {
+	Name interface{}
 	// Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
 	RootResourceId interface{}
 	// id is the provider-assigned unique ID for this managed resource.

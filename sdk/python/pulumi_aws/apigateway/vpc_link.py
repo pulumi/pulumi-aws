@@ -51,7 +51,7 @@ class VpcLink(pulumi.CustomResource):
         __props__['name'] = name
 
         if target_arn is None:
-            raise TypeError('Missing required property target_arn')
+            raise TypeError("Missing required property 'target_arn'")
         __props__['target_arn'] = target_arn
 
         super(VpcLink, __self__).__init__(

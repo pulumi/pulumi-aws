@@ -44,11 +44,11 @@ class TopicPolicy(pulumi.CustomResource):
         __props__ = dict()
 
         if arn is None:
-            raise TypeError('Missing required property arn')
+            raise TypeError("Missing required property 'arn'")
         __props__['arn'] = arn
 
         if policy is None:
-            raise TypeError('Missing required property policy')
+            raise TypeError("Missing required property 'policy'")
         __props__['policy'] = policy
 
         super(TopicPolicy, __self__).__init__(

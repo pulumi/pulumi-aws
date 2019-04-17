@@ -21,6 +21,7 @@ func LookupVpcs(ctx *pulumi.Context, args *GetVpcsArgs) (*GetVpcsResult, error) 
 		return nil, err
 	}
 	return &GetVpcsResult{
+		Filters: outputs["filters"],
 		Ids: outputs["ids"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
@@ -38,6 +39,7 @@ type GetVpcsArgs struct {
 
 // A collection of values returned by getVpcs.
 type GetVpcsResult struct {
+	Filters interface{}
 	// A list of all the VPC Ids found. This data source will fail if none are found.
 	Ids interface{}
 	Tags interface{}

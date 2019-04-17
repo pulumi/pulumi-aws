@@ -19,6 +19,7 @@ func LookupEndpoint(ctx *pulumi.Context, args *GetEndpointArgs) (*GetEndpointRes
 	}
 	return &GetEndpointResult{
 		EndpointAddress: outputs["endpointAddress"],
+		EndpointType: outputs["endpointType"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -38,6 +39,7 @@ type GetEndpointResult struct {
 	// * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
 	// * `iot:Job`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
 	EndpointAddress interface{}
+	EndpointType interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

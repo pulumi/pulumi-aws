@@ -71,7 +71,7 @@ class Repository(pulumi.CustomResource):
         __props__['description'] = description
 
         if repository_name is None:
-            raise TypeError('Missing required property repository_name')
+            raise TypeError("Missing required property 'repository_name'")
         __props__['repository_name'] = repository_name
 
         __props__['arn'] = None

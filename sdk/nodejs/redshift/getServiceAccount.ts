@@ -70,6 +70,7 @@ export interface GetServiceAccountResult {
      * The ARN of the AWS Redshift service account in the selected region.
      */
     readonly arn: string;
+    readonly region?: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

@@ -58,15 +58,15 @@ class ListenerRule(pulumi.CustomResource):
         __props__ = dict()
 
         if actions is None:
-            raise TypeError('Missing required property actions')
+            raise TypeError("Missing required property 'actions'")
         __props__['actions'] = actions
 
         if conditions is None:
-            raise TypeError('Missing required property conditions')
+            raise TypeError("Missing required property 'conditions'")
         __props__['conditions'] = conditions
 
         if listener_arn is None:
-            raise TypeError('Missing required property listener_arn')
+            raise TypeError("Missing required property 'listener_arn'")
         __props__['listener_arn'] = listener_arn
 
         __props__['priority'] = priority

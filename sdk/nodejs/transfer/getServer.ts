@@ -59,6 +59,7 @@ export interface GetServerResult {
      * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      */
     readonly loggingRole: string;
+    readonly serverId: string;
     /**
      * URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
      */

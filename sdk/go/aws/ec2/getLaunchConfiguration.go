@@ -27,6 +27,7 @@ func LookupLaunchConfiguration(ctx *pulumi.Context, args *GetLaunchConfiguration
 		ImageId: outputs["imageId"],
 		InstanceType: outputs["instanceType"],
 		KeyName: outputs["keyName"],
+		Name: outputs["name"],
 		PlacementTenancy: outputs["placementTenancy"],
 		RootBlockDevices: outputs["rootBlockDevices"],
 		SecurityGroups: outputs["securityGroups"],
@@ -64,6 +65,8 @@ type GetLaunchConfigurationResult struct {
 	InstanceType interface{}
 	// The Key Name that should be used for the instance.
 	KeyName interface{}
+	// The Name of the launch configuration.
+	Name interface{}
 	// The Tenancy of the instance.
 	PlacementTenancy interface{}
 	// The Root Block Device of the instance.

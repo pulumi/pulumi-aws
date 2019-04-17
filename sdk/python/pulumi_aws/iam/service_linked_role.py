@@ -67,7 +67,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
         __props__ = dict()
 
         if aws_service_name is None:
-            raise TypeError('Missing required property aws_service_name')
+            raise TypeError("Missing required property 'aws_service_name'")
         __props__['aws_service_name'] = aws_service_name
 
         __props__['custom_suffix'] = custom_suffix

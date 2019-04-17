@@ -50,6 +50,7 @@ export interface GetJobQueueResult {
      * * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
      */
     readonly computeEnvironmentOrders: { computeEnvironment: string, order: number }[];
+    readonly name: string;
     /**
      * The priority of the job queue. Job queues with a higher priority are evaluated first when
      * associated with the same compute environment.

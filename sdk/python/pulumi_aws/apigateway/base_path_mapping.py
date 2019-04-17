@@ -54,13 +54,13 @@ class BasePathMapping(pulumi.CustomResource):
         __props__ = dict()
 
         if rest_api is None:
-            raise TypeError('Missing required property rest_api')
+            raise TypeError("Missing required property 'rest_api'")
         __props__['rest_api'] = rest_api
 
         __props__['base_path'] = base_path
 
         if domain_name is None:
-            raise TypeError('Missing required property domain_name')
+            raise TypeError("Missing required property 'domain_name'")
         __props__['domain_name'] = domain_name
 
         __props__['stage_name'] = stage_name

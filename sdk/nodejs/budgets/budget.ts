@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  *     },
  *     limitAmount: "1200",
  *     limitUnit: "USD",
+ *     notifications: [{
+ *         comparisonOperator: "GREATER_THAN",
+ *         notificationType: "FORECASTED",
+ *         subscriberEmailAddresses: ["test@example.com"],
+ *         threshold: 100,
+ *         thresholdType: "PERCENTAGE",
+ *     }],
  *     timePeriodEnd: "2087-06-15_00:00",
  *     timePeriodStart: "2017-07-01_00:00",
  *     timeUnit: "MONTHLY",
@@ -100,6 +107,10 @@ export class Budget extends pulumi.CustomResource {
      */
     public readonly namePrefix: pulumi.Output<string>;
     /**
+     * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+     */
+    public readonly notifications: pulumi.Output<{ comparisonOperator: string, notificationType: string, subscriberEmailAddresses?: string[], subscriberSnsTopicArns?: string[], threshold: number, thresholdType: string }[] | undefined>;
+    /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */
     public readonly timePeriodEnd: pulumi.Output<string | undefined>;
@@ -132,6 +143,7 @@ export class Budget extends pulumi.CustomResource {
             inputs["limitUnit"] = state ? state.limitUnit : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
+            inputs["notifications"] = state ? state.notifications : undefined;
             inputs["timePeriodEnd"] = state ? state.timePeriodEnd : undefined;
             inputs["timePeriodStart"] = state ? state.timePeriodStart : undefined;
             inputs["timeUnit"] = state ? state.timeUnit : undefined;
@@ -160,6 +172,7 @@ export class Budget extends pulumi.CustomResource {
             inputs["limitUnit"] = args ? args.limitUnit : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
+            inputs["notifications"] = args ? args.notifications : undefined;
             inputs["timePeriodEnd"] = args ? args.timePeriodEnd : undefined;
             inputs["timePeriodStart"] = args ? args.timePeriodStart : undefined;
             inputs["timeUnit"] = args ? args.timeUnit : undefined;
@@ -204,6 +217,10 @@ export interface BudgetState {
      * The prefix of the name of a budget. Unique within accounts.
      */
     readonly namePrefix?: pulumi.Input<string>;
+    /**
+     * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+     */
+    readonly notifications?: pulumi.Input<pulumi.Input<{ comparisonOperator: pulumi.Input<string>, notificationType: pulumi.Input<string>, subscriberEmailAddresses?: pulumi.Input<pulumi.Input<string>[]>, subscriberSnsTopicArns?: pulumi.Input<pulumi.Input<string>[]>, threshold: pulumi.Input<number>, thresholdType: pulumi.Input<string> }>[]>;
     /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */
@@ -254,6 +271,10 @@ export interface BudgetArgs {
      * The prefix of the name of a budget. Unique within accounts.
      */
     readonly namePrefix?: pulumi.Input<string>;
+    /**
+     * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+     */
+    readonly notifications?: pulumi.Input<pulumi.Input<{ comparisonOperator: pulumi.Input<string>, notificationType: pulumi.Input<string>, subscriberEmailAddresses?: pulumi.Input<pulumi.Input<string>[]>, subscriberSnsTopicArns?: pulumi.Input<pulumi.Input<string>[]>, threshold: pulumi.Input<number>, thresholdType: pulumi.Input<string> }>[]>;
     /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */

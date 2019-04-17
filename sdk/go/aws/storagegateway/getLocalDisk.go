@@ -21,6 +21,9 @@ func LookupLocalDisk(ctx *pulumi.Context, args *GetLocalDiskArgs) (*GetLocalDisk
 	}
 	return &GetLocalDiskResult{
 		DiskId: outputs["diskId"],
+		DiskNode: outputs["diskNode"],
+		DiskPath: outputs["diskPath"],
+		GatewayArn: outputs["gatewayArn"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -39,6 +42,9 @@ type GetLocalDiskArgs struct {
 type GetLocalDiskResult struct {
 	// The disk identifier. e.g. `pci-0000:03:00.0-scsi-0:0:0:0`
 	DiskId interface{}
+	DiskNode interface{}
+	DiskPath interface{}
+	GatewayArn interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

@@ -52,7 +52,7 @@ class SamlProvider(pulumi.CustomResource):
         __props__['name'] = name
 
         if saml_metadata_document is None:
-            raise TypeError('Missing required property saml_metadata_document')
+            raise TypeError("Missing required property 'saml_metadata_document'")
         __props__['saml_metadata_document'] = saml_metadata_document
 
         __props__['arn'] = None

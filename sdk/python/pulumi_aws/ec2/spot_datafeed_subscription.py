@@ -45,7 +45,7 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         __props__ = dict()
 
         if bucket is None:
-            raise TypeError('Missing required property bucket')
+            raise TypeError("Missing required property 'bucket'")
         __props__['bucket'] = bucket
 
         __props__['prefix'] = prefix

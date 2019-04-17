@@ -44,11 +44,11 @@ class ResourceAssociation(pulumi.CustomResource):
         __props__ = dict()
 
         if resource_arn is None:
-            raise TypeError('Missing required property resource_arn')
+            raise TypeError("Missing required property 'resource_arn'")
         __props__['resource_arn'] = resource_arn
 
         if resource_share_arn is None:
-            raise TypeError('Missing required property resource_share_arn')
+            raise TypeError("Missing required property 'resource_share_arn'")
         __props__['resource_share_arn'] = resource_share_arn
 
         super(ResourceAssociation, __self__).__init__(

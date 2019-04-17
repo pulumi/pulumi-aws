@@ -75,7 +75,7 @@ class Model(pulumi.CustomResource):
         __props__['enable_network_isolation'] = enable_network_isolation
 
         if execution_role_arn is None:
-            raise TypeError('Missing required property execution_role_arn')
+            raise TypeError("Missing required property 'execution_role_arn'")
         __props__['execution_role_arn'] = execution_role_arn
 
         __props__['name'] = name

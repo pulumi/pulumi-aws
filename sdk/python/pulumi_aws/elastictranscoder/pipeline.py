@@ -89,7 +89,7 @@ class Pipeline(pulumi.CustomResource):
         __props__['content_config_permissions'] = content_config_permissions
 
         if input_bucket is None:
-            raise TypeError('Missing required property input_bucket')
+            raise TypeError("Missing required property 'input_bucket'")
         __props__['input_bucket'] = input_bucket
 
         __props__['name'] = name
@@ -99,7 +99,7 @@ class Pipeline(pulumi.CustomResource):
         __props__['output_bucket'] = output_bucket
 
         if role is None:
-            raise TypeError('Missing required property role')
+            raise TypeError("Missing required property 'role'")
         __props__['role'] = role
 
         __props__['thumbnail_config'] = thumbnail_config

@@ -24,6 +24,7 @@ func LookupServer(ctx *pulumi.Context, args *GetServerArgs) (*GetServerResult, e
 		IdentityProviderType: outputs["identityProviderType"],
 		InvocationRole: outputs["invocationRole"],
 		LoggingRole: outputs["loggingRole"],
+		ServerId: outputs["serverId"],
 		Url: outputs["url"],
 		Id: outputs["id"],
 	}, nil
@@ -47,6 +48,7 @@ type GetServerResult struct {
 	InvocationRole interface{}
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole interface{}
+	ServerId interface{}
 	// URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
 	Url interface{}
 	// id is the provider-assigned unique ID for this managed resource.

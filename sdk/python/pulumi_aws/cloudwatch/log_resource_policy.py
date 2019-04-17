@@ -42,11 +42,11 @@ class LogResourcePolicy(pulumi.CustomResource):
         __props__ = dict()
 
         if policy_document is None:
-            raise TypeError('Missing required property policy_document')
+            raise TypeError("Missing required property 'policy_document'")
         __props__['policy_document'] = policy_document
 
         if policy_name is None:
-            raise TypeError('Missing required property policy_name')
+            raise TypeError("Missing required property 'policy_name'")
         __props__['policy_name'] = policy_name
 
         super(LogResourcePolicy, __self__).__init__(

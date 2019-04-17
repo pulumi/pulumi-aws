@@ -31,6 +31,7 @@ func LookupZone(ctx *pulumi.Context, args *GetZoneArgs) (*GetZoneResult, error) 
 		Comment: outputs["comment"],
 		Name: outputs["name"],
 		NameServers: outputs["nameServers"],
+		PrivateZone: outputs["privateZone"],
 		ResourceRecordSetCount: outputs["resourceRecordSetCount"],
 		Tags: outputs["tags"],
 		VpcId: outputs["vpcId"],
@@ -66,6 +67,7 @@ type GetZoneResult struct {
 	Name interface{}
 	// The list of DNS name servers for the Hosted Zone.
 	NameServers interface{}
+	PrivateZone interface{}
 	// the number of Record Set in the Hosted Zone
 	ResourceRecordSetCount interface{}
 	Tags interface{}

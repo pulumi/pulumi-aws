@@ -83,33 +83,33 @@ class ReportDefinition(pulumi.CustomResource):
         __props__['additional_artifacts'] = additional_artifacts
 
         if additional_schema_elements is None:
-            raise TypeError('Missing required property additional_schema_elements')
+            raise TypeError("Missing required property 'additional_schema_elements'")
         __props__['additional_schema_elements'] = additional_schema_elements
 
         if compression is None:
-            raise TypeError('Missing required property compression')
+            raise TypeError("Missing required property 'compression'")
         __props__['compression'] = compression
 
         if format is None:
-            raise TypeError('Missing required property format')
+            raise TypeError("Missing required property 'format'")
         __props__['format'] = format
 
         if report_name is None:
-            raise TypeError('Missing required property report_name')
+            raise TypeError("Missing required property 'report_name'")
         __props__['report_name'] = report_name
 
         if s3_bucket is None:
-            raise TypeError('Missing required property s3_bucket')
+            raise TypeError("Missing required property 's3_bucket'")
         __props__['s3_bucket'] = s3_bucket
 
         __props__['s3_prefix'] = s3_prefix
 
         if s3_region is None:
-            raise TypeError('Missing required property s3_region')
+            raise TypeError("Missing required property 's3_region'")
         __props__['s3_region'] = s3_region
 
         if time_unit is None:
-            raise TypeError('Missing required property time_unit')
+            raise TypeError("Missing required property 'time_unit'")
         __props__['time_unit'] = time_unit
 
         super(ReportDefinition, __self__).__init__(

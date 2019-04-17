@@ -28,6 +28,7 @@ func LookupGroup(ctx *pulumi.Context, args *GetGroupArgs) (*GetGroupResult, erro
 		LoadBalancers: outputs["loadBalancers"],
 		MaxSize: outputs["maxSize"],
 		MinSize: outputs["minSize"],
+		Name: outputs["name"],
 		NewInstancesProtectedFromScaleIn: outputs["newInstancesProtectedFromScaleIn"],
 		PlacementGroup: outputs["placementGroup"],
 		ServiceLinkedRoleArn: outputs["serviceLinkedRoleArn"],
@@ -66,6 +67,8 @@ type GetGroupResult struct {
 	MaxSize interface{}
 	// The minimum size of the group.
 	MinSize interface{}
+	// The name of the Auto Scaling group.
+	Name interface{}
 	NewInstancesProtectedFromScaleIn interface{}
 	// The name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
 	PlacementGroup interface{}

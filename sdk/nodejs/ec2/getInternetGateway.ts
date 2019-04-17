@@ -57,6 +57,7 @@ export interface GetInternetGatewayArgs {
  */
 export interface GetInternetGatewayResult {
     readonly attachments: { state: string, vpcId: string }[];
+    readonly filters?: { name: string, values: string[] }[];
     readonly internetGatewayId: string;
     /**
      * The ID of the AWS account that owns the internet gateway.

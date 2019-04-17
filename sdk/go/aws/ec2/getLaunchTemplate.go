@@ -36,6 +36,7 @@ func LookupLaunchTemplate(ctx *pulumi.Context, args *GetLaunchTemplateArgs) (*Ge
 		KeyName: outputs["keyName"],
 		LatestVersion: outputs["latestVersion"],
 		Monitorings: outputs["monitorings"],
+		Name: outputs["name"],
 		NetworkInterfaces: outputs["networkInterfaces"],
 		Placements: outputs["placements"],
 		RamDiskId: outputs["ramDiskId"],
@@ -97,6 +98,7 @@ type GetLaunchTemplateResult struct {
 	LatestVersion interface{}
 	// The monitoring option for the instance.
 	Monitorings interface{}
+	Name interface{}
 	// Customize network interfaces to be attached at instance boot time. See Network
 	// Interfaces below for more details.
 	NetworkInterfaces interface{}

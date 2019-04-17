@@ -65,7 +65,7 @@ class UserGroup(pulumi.CustomResource):
         __props__['role_arn'] = role_arn
 
         if user_pool_id is None:
-            raise TypeError('Missing required property user_pool_id')
+            raise TypeError("Missing required property 'user_pool_id'")
         __props__['user_pool_id'] = user_pool_id
 
         super(UserGroup, __self__).__init__(

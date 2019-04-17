@@ -350,6 +350,12 @@ export class Distribution extends pulumi.CustomResource {
      */
     public readonly viewerCertificate: pulumi.Output<{ acmCertificateArn?: string, cloudfrontDefaultCertificate?: boolean, iamCertificateId?: string, minimumProtocolVersion?: string, sslSupportMethod?: string }>;
     /**
+     * If enabled, the resource will wait for
+     * the distribution status to change from `InProgress` to `Deployed`. Setting
+     * this to`false` will skip the process. Default: `true`.
+     */
+    public readonly waitForDeployment: pulumi.Output<boolean | undefined>;
+    /**
      * If you're using AWS WAF to filter CloudFront
      * requests, the Id of the AWS WAF web ACL that is associated with the
      * distribution.
@@ -394,6 +400,7 @@ export class Distribution extends pulumi.CustomResource {
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["viewerCertificate"] = state ? state.viewerCertificate : undefined;
+            inputs["waitForDeployment"] = state ? state.waitForDeployment : undefined;
             inputs["webAclId"] = state ? state.webAclId : undefined;
         } else {
             const args = argsOrState as DistributionArgs | undefined;
@@ -429,6 +436,7 @@ export class Distribution extends pulumi.CustomResource {
             inputs["retainOnDelete"] = args ? args.retainOnDelete : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["viewerCertificate"] = args ? args.viewerCertificate : undefined;
+            inputs["waitForDeployment"] = args ? args.waitForDeployment : undefined;
             inputs["webAclId"] = args ? args.webAclId : undefined;
             inputs["activeTrustedSigners"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
@@ -582,6 +590,12 @@ export interface DistributionState {
      */
     readonly viewerCertificate?: pulumi.Input<{ acmCertificateArn?: pulumi.Input<string>, cloudfrontDefaultCertificate?: pulumi.Input<boolean>, iamCertificateId?: pulumi.Input<string>, minimumProtocolVersion?: pulumi.Input<string>, sslSupportMethod?: pulumi.Input<string> }>;
     /**
+     * If enabled, the resource will wait for
+     * the distribution status to change from `InProgress` to `Deployed`. Setting
+     * this to`false` will skip the process. Default: `true`.
+     */
+    readonly waitForDeployment?: pulumi.Input<boolean>;
+    /**
      * If you're using AWS WAF to filter CloudFront
      * requests, the Id of the AWS WAF web ACL that is associated with the
      * distribution.
@@ -680,6 +694,12 @@ export interface DistributionArgs {
      * one).
      */
     readonly viewerCertificate: pulumi.Input<{ acmCertificateArn?: pulumi.Input<string>, cloudfrontDefaultCertificate?: pulumi.Input<boolean>, iamCertificateId?: pulumi.Input<string>, minimumProtocolVersion?: pulumi.Input<string>, sslSupportMethod?: pulumi.Input<string> }>;
+    /**
+     * If enabled, the resource will wait for
+     * the distribution status to change from `InProgress` to `Deployed`. Setting
+     * this to`false` will skip the process. Default: `true`.
+     */
+    readonly waitForDeployment?: pulumi.Input<boolean>;
     /**
      * If you're using AWS WAF to filter CloudFront
      * requests, the Id of the AWS WAF web ACL that is associated with the

@@ -46,11 +46,11 @@ class Dashboard(pulumi.CustomResource):
         __props__ = dict()
 
         if dashboard_body is None:
-            raise TypeError('Missing required property dashboard_body')
+            raise TypeError("Missing required property 'dashboard_body'")
         __props__['dashboard_body'] = dashboard_body
 
         if dashboard_name is None:
-            raise TypeError('Missing required property dashboard_name')
+            raise TypeError("Missing required property 'dashboard_name'")
         __props__['dashboard_name'] = dashboard_name
 
         __props__['dashboard_arn'] = None

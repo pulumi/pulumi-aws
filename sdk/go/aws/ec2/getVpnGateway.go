@@ -28,6 +28,7 @@ func LookupVpnGateway(ctx *pulumi.Context, args *GetVpnGatewayArgs) (*GetVpnGate
 		AmazonSideAsn: outputs["amazonSideAsn"],
 		AttachedVpcId: outputs["attachedVpcId"],
 		AvailabilityZone: outputs["availabilityZone"],
+		Filters: outputs["filters"],
 		Id: outputs["id"],
 		State: outputs["state"],
 		Tags: outputs["tags"],
@@ -58,6 +59,7 @@ type GetVpnGatewayResult struct {
 	AmazonSideAsn interface{}
 	AttachedVpcId interface{}
 	AvailabilityZone interface{}
+	Filters interface{}
 	Id interface{}
 	State interface{}
 	Tags interface{}

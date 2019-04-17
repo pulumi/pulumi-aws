@@ -84,7 +84,7 @@ class Fleet(pulumi.CustomResource):
         __props__['excess_capacity_termination_policy'] = excess_capacity_termination_policy
 
         if launch_template_config is None:
-            raise TypeError('Missing required property launch_template_config')
+            raise TypeError("Missing required property 'launch_template_config'")
         __props__['launch_template_config'] = launch_template_config
 
         __props__['on_demand_options'] = on_demand_options
@@ -96,7 +96,7 @@ class Fleet(pulumi.CustomResource):
         __props__['tags'] = tags
 
         if target_capacity_specification is None:
-            raise TypeError('Missing required property target_capacity_specification')
+            raise TypeError("Missing required property 'target_capacity_specification'")
         __props__['target_capacity_specification'] = target_capacity_specification
 
         __props__['terminate_instances'] = terminate_instances

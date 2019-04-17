@@ -24,6 +24,7 @@ func LookupStream(ctx *pulumi.Context, args *GetStreamArgs) (*GetStreamResult, e
 		Arn: outputs["arn"],
 		ClosedShards: outputs["closedShards"],
 		CreationTimestamp: outputs["creationTimestamp"],
+		Name: outputs["name"],
 		OpenShards: outputs["openShards"],
 		RetentionPeriod: outputs["retentionPeriod"],
 		ShardLevelMetrics: outputs["shardLevelMetrics"],
@@ -47,6 +48,8 @@ type GetStreamResult struct {
 	ClosedShards interface{}
 	// The approximate UNIX timestamp that the stream was created.
 	CreationTimestamp interface{}
+	// The name of the Kinesis Stream.
+	Name interface{}
 	// The list of shard ids in the OPEN state. See [Shard State][2] for more.
 	OpenShards interface{}
 	// Length of time (in hours) data records are accessible after they are added to the stream.

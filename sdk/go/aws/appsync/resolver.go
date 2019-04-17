@@ -99,6 +99,7 @@ func (r *Resolver) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
+// The DataSource name.
 func (r *Resolver) DataSource() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dataSource"])
 }
@@ -129,6 +130,7 @@ type ResolverState struct {
 	ApiId interface{}
 	// The ARN
 	Arn interface{}
+	// The DataSource name.
 	DataSource interface{}
 	// The field name from the schema defined in the GraphQL API.
 	Field interface{}
@@ -144,6 +146,7 @@ type ResolverState struct {
 type ResolverArgs struct {
 	// The API ID for the GraphQL API.
 	ApiId interface{}
+	// The DataSource name.
 	DataSource interface{}
 	// The field name from the schema defined in the GraphQL API.
 	Field interface{}

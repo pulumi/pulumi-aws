@@ -152,19 +152,19 @@ class Cluster(pulumi.CustomResource):
         __props__['availability_zones'] = availability_zones
 
         if cluster_name is None:
-            raise TypeError('Missing required property cluster_name')
+            raise TypeError("Missing required property 'cluster_name'")
         __props__['cluster_name'] = cluster_name
 
         __props__['description'] = description
 
         if iam_role_arn is None:
-            raise TypeError('Missing required property iam_role_arn')
+            raise TypeError("Missing required property 'iam_role_arn'")
         __props__['iam_role_arn'] = iam_role_arn
 
         __props__['maintenance_window'] = maintenance_window
 
         if node_type is None:
-            raise TypeError('Missing required property node_type')
+            raise TypeError("Missing required property 'node_type'")
         __props__['node_type'] = node_type
 
         __props__['notification_topic_arn'] = notification_topic_arn
@@ -172,7 +172,7 @@ class Cluster(pulumi.CustomResource):
         __props__['parameter_group_name'] = parameter_group_name
 
         if replication_factor is None:
-            raise TypeError('Missing required property replication_factor')
+            raise TypeError("Missing required property 'replication_factor'")
         __props__['replication_factor'] = replication_factor
 
         __props__['security_group_ids'] = security_group_ids

@@ -54,17 +54,17 @@ class CustomerGateway(pulumi.CustomResource):
         __props__ = dict()
 
         if bgp_asn is None:
-            raise TypeError('Missing required property bgp_asn')
+            raise TypeError("Missing required property 'bgp_asn'")
         __props__['bgp_asn'] = bgp_asn
 
         if ip_address is None:
-            raise TypeError('Missing required property ip_address')
+            raise TypeError("Missing required property 'ip_address'")
         __props__['ip_address'] = ip_address
 
         __props__['tags'] = tags
 
         if type is None:
-            raise TypeError('Missing required property type')
+            raise TypeError("Missing required property 'type'")
         __props__['type'] = type
 
         super(CustomerGateway, __self__).__init__(

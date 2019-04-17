@@ -94,9 +94,14 @@ export interface GetClusterSnapshotResult {
      */
     readonly availabilityZones: string[];
     /**
+     * Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
+     */
+    readonly dbClusterIdentifier?: string;
+    /**
      * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
      */
     readonly dbClusterSnapshotArn: string;
+    readonly dbClusterSnapshotIdentifier?: string;
     /**
      * Specifies the name of the database engine.
      */
@@ -105,6 +110,8 @@ export interface GetClusterSnapshotResult {
      * Version of the database engine for this DB cluster snapshot.
      */
     readonly engineVersion: string;
+    readonly includePublic?: boolean;
+    readonly includeShared?: boolean;
     /**
      * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      */
@@ -113,6 +120,7 @@ export interface GetClusterSnapshotResult {
      * License model information for the restored DB cluster.
      */
     readonly licenseModel: string;
+    readonly mostRecent?: boolean;
     /**
      * Port that the DB cluster was listening on at the time of the snapshot.
      */
@@ -121,6 +129,7 @@ export interface GetClusterSnapshotResult {
      * Time when the snapshot was taken, in Universal Coordinated Time (UTC).
      */
     readonly snapshotCreateTime: string;
+    readonly snapshotType?: string;
     readonly sourceDbClusterSnapshotArn: string;
     /**
      * The status of this DB Cluster Snapshot.

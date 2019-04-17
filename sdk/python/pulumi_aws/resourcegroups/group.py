@@ -55,7 +55,7 @@ class Group(pulumi.CustomResource):
         __props__['name'] = name
 
         if resource_query is None:
-            raise TypeError('Missing required property resource_query')
+            raise TypeError("Missing required property 'resource_query'")
         __props__['resource_query'] = resource_query
 
         __props__['arn'] = None

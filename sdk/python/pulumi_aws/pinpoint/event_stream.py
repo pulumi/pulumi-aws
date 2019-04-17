@@ -47,15 +47,15 @@ class EventStream(pulumi.CustomResource):
         __props__ = dict()
 
         if application_id is None:
-            raise TypeError('Missing required property application_id')
+            raise TypeError("Missing required property 'application_id'")
         __props__['application_id'] = application_id
 
         if destination_stream_arn is None:
-            raise TypeError('Missing required property destination_stream_arn')
+            raise TypeError("Missing required property 'destination_stream_arn'")
         __props__['destination_stream_arn'] = destination_stream_arn
 
         if role_arn is None:
-            raise TypeError('Missing required property role_arn')
+            raise TypeError("Missing required property 'role_arn'")
         __props__['role_arn'] = role_arn
 
         super(EventStream, __self__).__init__(

@@ -47,10 +47,12 @@ export interface GetSolutionStackArgs {
  * A collection of values returned by getSolutionStack.
  */
 export interface GetSolutionStackResult {
+    readonly mostRecent?: boolean;
     /**
      * The name of the solution stack.
      */
     readonly name: string;
+    readonly nameRegex: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

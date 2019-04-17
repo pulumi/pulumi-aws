@@ -45,6 +45,7 @@ export interface GetContainerDefinitionArgs {
  * A collection of values returned by getContainerDefinition.
  */
 export interface GetContainerDefinitionResult {
+    readonly containerName: string;
     /**
      * The CPU limit for this container definition
      */
@@ -77,6 +78,7 @@ export interface GetContainerDefinitionResult {
      * The soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
      */
     readonly memoryReservation: number;
+    readonly taskDefinition: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

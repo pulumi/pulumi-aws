@@ -43,6 +43,7 @@ export interface GetComputeEnvironmentResult {
      * The ARN of the compute environment.
      */
     readonly arn: string;
+    readonly computeEnvironmentName: string;
     /**
      * The ARN of the underlying Amazon ECS cluster used by the compute environment.
      */

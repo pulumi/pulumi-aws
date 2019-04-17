@@ -116,6 +116,7 @@ export interface GetSubnetResult {
     readonly availabilityZoneId: string;
     readonly cidrBlock: string;
     readonly defaultForAz: boolean;
+    readonly filters?: { name: string, values: string[] }[];
     readonly id: string;
     readonly ipv6CidrBlock: string;
     readonly ipv6CidrBlockAssociationId: string;

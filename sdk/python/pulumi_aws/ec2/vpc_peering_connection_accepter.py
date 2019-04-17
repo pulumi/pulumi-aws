@@ -96,7 +96,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         __props__['tags'] = tags
 
         if vpc_peering_connection_id is None:
-            raise TypeError('Missing required property vpc_peering_connection_id')
+            raise TypeError("Missing required property 'vpc_peering_connection_id'")
         __props__['vpc_peering_connection_id'] = vpc_peering_connection_id
 
         __props__['accept_status'] = None

@@ -14,25 +14,25 @@ class GetRegionResult:
     """
     def __init__(__self__, description=None, endpoint=None, name=None, id=None):
         if description and not isinstance(description, str):
-            raise TypeError('Expected argument description to be a str')
+            raise TypeError("Expected argument 'description' to be a str")
         __self__.description = description
         """
         The region's description in this format: "Location (Region name)".
         """
         if endpoint and not isinstance(endpoint, str):
-            raise TypeError('Expected argument endpoint to be a str')
+            raise TypeError("Expected argument 'endpoint' to be a str")
         __self__.endpoint = endpoint
         """
         The EC2 endpoint for the selected region.
         """
         if name and not isinstance(name, str):
-            raise TypeError('Expected argument name to be a str')
+            raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the selected region.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

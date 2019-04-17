@@ -40,6 +40,10 @@ export interface GetPolicyArgs {
  */
 export interface GetPolicyResult {
     /**
+     * The Amazon Resource Name (ARN) specifying the policy.
+     */
+    readonly arn: string;
+    /**
      * The description of the policy.
      */
     readonly description: string;

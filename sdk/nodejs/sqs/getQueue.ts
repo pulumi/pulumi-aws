@@ -44,6 +44,7 @@ export interface GetQueueResult {
      * The Amazon Resource Name (ARN) of the queue.
      */
     readonly arn: string;
+    readonly name: string;
     /**
      * The URL of the queue.
      */

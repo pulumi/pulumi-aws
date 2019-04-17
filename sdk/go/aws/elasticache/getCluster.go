@@ -23,6 +23,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		AvailabilityZone: outputs["availabilityZone"],
 		CacheNodes: outputs["cacheNodes"],
 		ClusterAddress: outputs["clusterAddress"],
+		ClusterId: outputs["clusterId"],
 		ConfigurationEndpoint: outputs["configurationEndpoint"],
 		Engine: outputs["engine"],
 		EngineVersion: outputs["engineVersion"],
@@ -60,6 +61,7 @@ type GetClusterResult struct {
 	CacheNodes interface{}
 	// (Memcached only) The DNS name of the cache cluster without the port appended.
 	ClusterAddress interface{}
+	ClusterId interface{}
 	// (Memcached only) The configuration endpoint to allow host discovery.
 	ConfigurationEndpoint interface{}
 	// Name of the cache engine.

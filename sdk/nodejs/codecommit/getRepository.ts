@@ -54,6 +54,7 @@ export interface GetRepositoryResult {
      * The ID of the repository
      */
     readonly repositoryId: string;
+    readonly repositoryName: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

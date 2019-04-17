@@ -106,7 +106,7 @@ class Route(pulumi.CustomResource):
         __props__['network_interface_id'] = network_interface_id
 
         if route_table_id is None:
-            raise TypeError('Missing required property route_table_id')
+            raise TypeError("Missing required property 'route_table_id'")
         __props__['route_table_id'] = route_table_id
 
         __props__['transit_gateway_id'] = transit_gateway_id

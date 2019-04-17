@@ -53,6 +53,7 @@ export interface GetClusterResult {
      * The number of available cluster certificates may vary depending on state of the cluster.
      */
     readonly clusterCertificates: { awsHardwareCertificate: string, clusterCertificate: string, clusterCsr: string, hsmCertificate: string, manufacturerHardwareCertificate: string };
+    readonly clusterId: string;
     readonly clusterState: string;
     /**
      * The ID of the security group associated with the CloudHSM cluster.

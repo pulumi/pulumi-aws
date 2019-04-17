@@ -60,6 +60,7 @@ export interface GetLoadBalancerResult {
     readonly instances: string[];
     readonly internal: boolean;
     readonly listeners: { instancePort: number, instanceProtocol: string, lbPort: number, lbProtocol: string, sslCertificateId: string }[];
+    readonly name: string;
     readonly securityGroups: string[];
     readonly sourceSecurityGroup: string;
     readonly sourceSecurityGroupId: string;

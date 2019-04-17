@@ -12,10 +12,12 @@ class NetworkAcl(pulumi.CustomResource):
     egress: pulumi.Output[list]
     """
     Specifies an egress rule. Parameters defined below.
+    This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
     """
     ingress: pulumi.Output[list]
     """
     Specifies an ingress rule. Parameters defined below.
+    This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
     """
     owner_id: pulumi.Output[str]
     """
@@ -47,7 +49,9 @@ class NetworkAcl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] egress: Specifies an egress rule. Parameters defined below.
+               This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[list] ingress: Specifies an ingress rule. Parameters defined below.
+               This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[list] subnet_ids: A list of Subnet IDs to apply the ACL to
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the associated VPC.
@@ -76,7 +80,7 @@ class NetworkAcl(pulumi.CustomResource):
         __props__['tags'] = tags
 
         if vpc_id is None:
-            raise TypeError('Missing required property vpc_id')
+            raise TypeError("Missing required property 'vpc_id'")
         __props__['vpc_id'] = vpc_id
 
         __props__['owner_id'] = None

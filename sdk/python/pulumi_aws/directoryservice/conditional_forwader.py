@@ -47,15 +47,15 @@ class ConditionalForwader(pulumi.CustomResource):
         __props__ = dict()
 
         if directory_id is None:
-            raise TypeError('Missing required property directory_id')
+            raise TypeError("Missing required property 'directory_id'")
         __props__['directory_id'] = directory_id
 
         if dns_ips is None:
-            raise TypeError('Missing required property dns_ips')
+            raise TypeError("Missing required property 'dns_ips'")
         __props__['dns_ips'] = dns_ips
 
         if remote_domain_name is None:
-            raise TypeError('Missing required property remote_domain_name')
+            raise TypeError("Missing required property 'remote_domain_name'")
         __props__['remote_domain_name'] = remote_domain_name
 
         super(ConditionalForwader, __self__).__init__(

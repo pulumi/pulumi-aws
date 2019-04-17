@@ -29,6 +29,8 @@ func LookupKey(ctx *pulumi.Context, args *GetKeyArgs) (*GetKeyResult, error) {
 		Description: outputs["description"],
 		Enabled: outputs["enabled"],
 		ExpirationModel: outputs["expirationModel"],
+		GrantTokens: outputs["grantTokens"],
+		KeyId: outputs["keyId"],
 		KeyManager: outputs["keyManager"],
 		KeyState: outputs["keyState"],
 		KeyUsage: outputs["keyUsage"],
@@ -59,6 +61,8 @@ type GetKeyResult struct {
 	Description interface{}
 	Enabled interface{}
 	ExpirationModel interface{}
+	GrantTokens interface{}
+	KeyId interface{}
 	KeyManager interface{}
 	KeyState interface{}
 	KeyUsage interface{}

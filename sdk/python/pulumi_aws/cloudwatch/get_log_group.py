@@ -12,21 +12,24 @@ class GetLogGroupResult:
     """
     A collection of values returned by getLogGroup.
     """
-    def __init__(__self__, arn=None, creation_time=None, id=None):
+    def __init__(__self__, arn=None, creation_time=None, name=None, id=None):
         if arn and not isinstance(arn, str):
-            raise TypeError('Expected argument arn to be a str')
+            raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
         The ARN of the Cloudwatch log group
         """
         if creation_time and not isinstance(creation_time, float):
-            raise TypeError('Expected argument creation_time to be a float')
+            raise TypeError("Expected argument 'creation_time' to be a float")
         __self__.creation_time = creation_time
         """
         The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
         """
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        __self__.name = name
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -44,4 +47,5 @@ async def get_log_group(name=None,opts=None):
     return GetLogGroupResult(
         arn=__ret__.get('arn'),
         creation_time=__ret__.get('creationTime'),
+        name=__ret__.get('name'),
         id=__ret__.get('id'))

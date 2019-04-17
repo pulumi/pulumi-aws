@@ -105,13 +105,13 @@ class NfsFileShare(pulumi.CustomResource):
         __props__ = dict()
 
         if client_lists is None:
-            raise TypeError('Missing required property client_lists')
+            raise TypeError("Missing required property 'client_lists'")
         __props__['client_lists'] = client_lists
 
         __props__['default_storage_class'] = default_storage_class
 
         if gateway_arn is None:
-            raise TypeError('Missing required property gateway_arn')
+            raise TypeError("Missing required property 'gateway_arn'")
         __props__['gateway_arn'] = gateway_arn
 
         __props__['guess_mime_type_enabled'] = guess_mime_type_enabled
@@ -121,7 +121,7 @@ class NfsFileShare(pulumi.CustomResource):
         __props__['kms_key_arn'] = kms_key_arn
 
         if location_arn is None:
-            raise TypeError('Missing required property location_arn')
+            raise TypeError("Missing required property 'location_arn'")
         __props__['location_arn'] = location_arn
 
         __props__['nfs_file_share_defaults'] = nfs_file_share_defaults
@@ -133,7 +133,7 @@ class NfsFileShare(pulumi.CustomResource):
         __props__['requester_pays'] = requester_pays
 
         if role_arn is None:
-            raise TypeError('Missing required property role_arn')
+            raise TypeError("Missing required property 'role_arn'")
         __props__['role_arn'] = role_arn
 
         __props__['squash'] = squash

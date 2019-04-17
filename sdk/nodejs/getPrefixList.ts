@@ -76,6 +76,7 @@ export interface GetPrefixListResult {
      * The name of the selected prefix list.
      */
     readonly name: string;
+    readonly prefixListId?: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

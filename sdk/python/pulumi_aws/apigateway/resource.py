@@ -51,15 +51,15 @@ class Resource(pulumi.CustomResource):
         __props__ = dict()
 
         if parent_id is None:
-            raise TypeError('Missing required property parent_id')
+            raise TypeError("Missing required property 'parent_id'")
         __props__['parent_id'] = parent_id
 
         if path_part is None:
-            raise TypeError('Missing required property path_part')
+            raise TypeError("Missing required property 'path_part'")
         __props__['path_part'] = path_part
 
         if rest_api is None:
-            raise TypeError('Missing required property rest_api')
+            raise TypeError("Missing required property 'rest_api'")
         __props__['rest_api'] = rest_api
 
         __props__['path'] = None

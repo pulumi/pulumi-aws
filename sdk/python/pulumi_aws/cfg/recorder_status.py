@@ -44,7 +44,7 @@ class RecorderStatus(pulumi.CustomResource):
         __props__ = dict()
 
         if is_enabled is None:
-            raise TypeError('Missing required property is_enabled')
+            raise TypeError("Missing required property 'is_enabled'")
         __props__['is_enabled'] = is_enabled
 
         __props__['name'] = name

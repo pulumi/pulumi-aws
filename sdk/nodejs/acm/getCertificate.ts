@@ -63,6 +63,10 @@ export interface GetCertificateResult {
      * Set to the ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
      */
     readonly arn: string;
+    readonly domain: string;
+    readonly mostRecent?: boolean;
+    readonly statuses?: string[];
+    readonly types?: string[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

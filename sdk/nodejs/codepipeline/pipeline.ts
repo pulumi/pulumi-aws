@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const fooRole = new aws.iam.Role("foo", {
+ * const codepipelineRole = new aws.iam.Role("codepipeline_role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -30,22 +30,22 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const fooBucket = new aws.s3.Bucket("foo", {
+ * const codepipelineBucket = new aws.s3.Bucket("codepipeline_bucket", {
  *     acl: "private",
  * });
  * const s3kmskey = pulumi.output(aws.kms.getAlias({
  *     name: "alias/myKmsKey",
  * }));
- * const fooPipeline = new aws.codepipeline.Pipeline("foo", {
+ * const codepipeline = new aws.codepipeline.Pipeline("codepipeline", {
  *     artifactStore: {
  *         encryptionKey: {
  *             id: s3kmskey.apply(s3kmskey => s3kmskey.arn),
  *             type: "KMS",
  *         },
- *         location: fooBucket.bucket,
+ *         location: codepipelineBucket.bucket,
  *         type: "S3",
  *     },
- *     roleArn: fooRole.arn,
+ *     roleArn: codepipelineRole.arn,
  *     stages: [
  *         {
  *             actions: [{
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *                     Repo: "test",
  *                 },
  *                 name: "Source",
- *                 outputArtifacts: ["test"],
+ *                 outputArtifacts: ["source_output"],
  *                 owner: "ThirdParty",
  *                 provider: "GitHub",
  *                 version: "1",
@@ -69,18 +69,37 @@ import * as utilities from "../utilities";
  *                 configuration: {
  *                     ProjectName: "test",
  *                 },
- *                 inputArtifacts: ["test"],
+ *                 inputArtifacts: ["source_output"],
  *                 name: "Build",
+ *                 outputArtifacts: ["build_output"],
  *                 owner: "AWS",
  *                 provider: "CodeBuild",
  *                 version: "1",
  *             }],
  *             name: "Build",
  *         },
+ *         {
+ *             actions: [{
+ *                 category: "Deploy",
+ *                 configuration: {
+ *                     ActionMode: "REPLACE_ON_FAILURE",
+ *                     Capabilities: "CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM",
+ *                     OutputFileName: "CreateStackOutput.json",
+ *                     StackName: "MyStack",
+ *                     TemplatePath: "build_output::sam-templated.yaml",
+ *                 },
+ *                 inputArtifacts: ["build_output"],
+ *                 name: "Deploy",
+ *                 owner: "AWS",
+ *                 provider: "CloudFormation",
+ *                 version: "1",
+ *             }],
+ *             name: "Deploy",
+ *         },
  *     ],
  * });
  * const codepipelinePolicy = new aws.iam.RolePolicy("codepipeline_policy", {
- *     policy: pulumi.all([fooBucket.arn, fooBucket.arn]).apply(([fooBucketArn, fooBucketArn1]) => `{
+ *     policy: pulumi.all([codepipelineBucket.arn, codepipelineBucket.arn]).apply(([codepipelineBucketArn, codepipelineBucketArn1]) => `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -91,8 +110,8 @@ import * as utilities from "../utilities";
  *         "s3:GetBucketVersioning"
  *       ],
  *       "Resource": [
- *         "${fooBucketArn}",
- *         "${fooBucketArn1}/*"
+ *         "${codepipelineBucketArn}",
+ *         "${codepipelineBucketArn1}/*"
  *       ]
  *     },
  *     {
@@ -106,7 +125,7 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `),
- *     role: aws_iam_role_codepipeline_role.id,
+ *     role: codepipelineRole.id,
  * });
  * ```
  */

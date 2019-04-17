@@ -69,7 +69,7 @@ class InstanceGroup(pulumi.CustomResource):
         __props__ = dict()
 
         if cluster_id is None:
-            raise TypeError('Missing required property cluster_id')
+            raise TypeError("Missing required property 'cluster_id'")
         __props__['cluster_id'] = cluster_id
 
         __props__['ebs_configs'] = ebs_configs
@@ -79,7 +79,7 @@ class InstanceGroup(pulumi.CustomResource):
         __props__['instance_count'] = instance_count
 
         if instance_type is None:
-            raise TypeError('Missing required property instance_type')
+            raise TypeError("Missing required property 'instance_type'")
         __props__['instance_type'] = instance_type
 
         __props__['name'] = name

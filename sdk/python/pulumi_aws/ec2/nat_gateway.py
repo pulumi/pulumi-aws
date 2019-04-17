@@ -59,11 +59,11 @@ class NatGateway(pulumi.CustomResource):
         __props__ = dict()
 
         if allocation_id is None:
-            raise TypeError('Missing required property allocation_id')
+            raise TypeError("Missing required property 'allocation_id'")
         __props__['allocation_id'] = allocation_id
 
         if subnet_id is None:
-            raise TypeError('Missing required property subnet_id')
+            raise TypeError("Missing required property 'subnet_id'")
         __props__['subnet_id'] = subnet_id
 
         __props__['tags'] = tags

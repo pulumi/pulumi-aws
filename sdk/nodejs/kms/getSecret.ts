@@ -24,6 +24,7 @@ export interface GetSecretArgs {
  * A collection of values returned by getSecret.
  */
 export interface GetSecretResult {
+    readonly secrets: { context?: {[key: string]: string}, grantTokens?: string[], name: string, payload: string }[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

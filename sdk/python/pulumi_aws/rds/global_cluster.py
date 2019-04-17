@@ -78,7 +78,7 @@ class GlobalCluster(pulumi.CustomResource):
         __props__['engine_version'] = engine_version
 
         if global_cluster_identifier is None:
-            raise TypeError('Missing required property global_cluster_identifier')
+            raise TypeError("Missing required property 'global_cluster_identifier'")
         __props__['global_cluster_identifier'] = global_cluster_identifier
 
         __props__['storage_encrypted'] = storage_encrypted

@@ -69,7 +69,12 @@ export interface GetAmiIdsArgs {
  * A collection of values returned by getAmiIds.
  */
 export interface GetAmiIdsResult {
+    readonly executableUsers?: string[];
+    readonly filters?: { name: string, values: string[] }[];
     readonly ids: string[];
+    readonly nameRegex?: string;
+    readonly owners: string[];
+    readonly sortAscending?: boolean;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

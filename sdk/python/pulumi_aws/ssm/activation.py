@@ -73,7 +73,7 @@ class Activation(pulumi.CustomResource):
         __props__['expiration_date'] = expiration_date
 
         if iam_role is None:
-            raise TypeError('Missing required property iam_role')
+            raise TypeError("Missing required property 'iam_role'")
         __props__['iam_role'] = iam_role
 
         __props__['name'] = name

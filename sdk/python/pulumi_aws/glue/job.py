@@ -89,7 +89,7 @@ class Job(pulumi.CustomResource):
         __props__['allocated_capacity'] = allocated_capacity
 
         if command is None:
-            raise TypeError('Missing required property command')
+            raise TypeError("Missing required property 'command'")
         __props__['command'] = command
 
         __props__['connections'] = connections
@@ -105,7 +105,7 @@ class Job(pulumi.CustomResource):
         __props__['name'] = name
 
         if role_arn is None:
-            raise TypeError('Missing required property role_arn')
+            raise TypeError("Missing required property 'role_arn'")
         __props__['role_arn'] = role_arn
 
         __props__['security_configuration'] = security_configuration

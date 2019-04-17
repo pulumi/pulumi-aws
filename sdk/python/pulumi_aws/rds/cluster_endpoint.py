@@ -66,15 +66,15 @@ class ClusterEndpoint(pulumi.CustomResource):
         __props__ = dict()
 
         if cluster_endpoint_identifier is None:
-            raise TypeError('Missing required property cluster_endpoint_identifier')
+            raise TypeError("Missing required property 'cluster_endpoint_identifier'")
         __props__['cluster_endpoint_identifier'] = cluster_endpoint_identifier
 
         if cluster_identifier is None:
-            raise TypeError('Missing required property cluster_identifier')
+            raise TypeError("Missing required property 'cluster_identifier'")
         __props__['cluster_identifier'] = cluster_identifier
 
         if custom_endpoint_type is None:
-            raise TypeError('Missing required property custom_endpoint_type')
+            raise TypeError("Missing required property 'custom_endpoint_type'")
         __props__['custom_endpoint_type'] = custom_endpoint_type
 
         __props__['excluded_members'] = excluded_members

@@ -44,11 +44,11 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         __props__ = dict()
 
         if group is None:
-            raise TypeError('Missing required property group')
+            raise TypeError("Missing required property 'group'")
         __props__['group'] = group
 
         if policy_arn is None:
-            raise TypeError('Missing required property policy_arn')
+            raise TypeError("Missing required property 'policy_arn'")
         __props__['policy_arn'] = policy_arn
 
         super(GroupPolicyAttachment, __self__).__init__(

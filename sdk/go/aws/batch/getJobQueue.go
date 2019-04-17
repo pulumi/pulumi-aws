@@ -21,6 +21,7 @@ func LookupJobQueue(ctx *pulumi.Context, args *GetJobQueueArgs) (*GetJobQueueRes
 	return &GetJobQueueResult{
 		Arn: outputs["arn"],
 		ComputeEnvironmentOrders: outputs["computeEnvironmentOrders"],
+		Name: outputs["name"],
 		Priority: outputs["priority"],
 		State: outputs["state"],
 		Status: outputs["status"],
@@ -44,6 +45,7 @@ type GetJobQueueResult struct {
 	// * `compute_environment_order.#.order` - The order of the compute environment.
 	// * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
 	ComputeEnvironmentOrders interface{}
+	Name interface{}
 	// The priority of the job queue. Job queues with a higher priority are evaluated first when
 	// associated with the same compute environment.
 	Priority interface{}

@@ -12,12 +12,15 @@ class GetDelegationSetResult:
     """
     A collection of values returned by getDelegationSet.
     """
-    def __init__(__self__, caller_reference=None, name_servers=None):
+    def __init__(__self__, caller_reference=None, id=None, name_servers=None):
         if caller_reference and not isinstance(caller_reference, str):
-            raise TypeError('Expected argument caller_reference to be a str')
+            raise TypeError("Expected argument 'caller_reference' to be a str")
         __self__.caller_reference = caller_reference
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
         if name_servers and not isinstance(name_servers, list):
-            raise TypeError('Expected argument name_servers to be a list')
+            raise TypeError("Expected argument 'name_servers' to be a list")
         __self__.name_servers = name_servers
 
 async def get_delegation_set(id=None,opts=None):
@@ -33,4 +36,5 @@ async def get_delegation_set(id=None,opts=None):
 
     return GetDelegationSetResult(
         caller_reference=__ret__.get('callerReference'),
+        id=__ret__.get('id'),
         name_servers=__ret__.get('nameServers'))

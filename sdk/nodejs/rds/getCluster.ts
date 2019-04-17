@@ -43,6 +43,7 @@ export interface GetClusterResult {
     readonly arn: string;
     readonly availabilityZones: string[];
     readonly backupRetentionPeriod: number;
+    readonly clusterIdentifier: string;
     readonly clusterMembers: string[];
     readonly clusterResourceId: string;
     readonly databaseName: string;

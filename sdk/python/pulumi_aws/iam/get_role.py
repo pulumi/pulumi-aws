@@ -12,57 +12,60 @@ class GetRoleResult:
     """
     A collection of values returned by getRole.
     """
-    def __init__(__self__, arn=None, assume_role_policy=None, create_date=None, description=None, max_session_duration=None, path=None, permissions_boundary=None, unique_id=None, id=None):
+    def __init__(__self__, arn=None, assume_role_policy=None, create_date=None, description=None, max_session_duration=None, name=None, path=None, permissions_boundary=None, unique_id=None, id=None):
         if arn and not isinstance(arn, str):
-            raise TypeError('Expected argument arn to be a str')
+            raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
         The Amazon Resource Name (ARN) specifying the role.
         """
         if assume_role_policy and not isinstance(assume_role_policy, str):
-            raise TypeError('Expected argument assume_role_policy to be a str')
+            raise TypeError("Expected argument 'assume_role_policy' to be a str")
         __self__.assume_role_policy = assume_role_policy
         """
         The policy document associated with the role.
         """
         if create_date and not isinstance(create_date, str):
-            raise TypeError('Expected argument create_date to be a str')
+            raise TypeError("Expected argument 'create_date' to be a str")
         __self__.create_date = create_date
         """
         Creation date of the role in RFC 3339 format.
         """
         if description and not isinstance(description, str):
-            raise TypeError('Expected argument description to be a str')
+            raise TypeError("Expected argument 'description' to be a str")
         __self__.description = description
         """
         Description for the role.
         """
         if max_session_duration and not isinstance(max_session_duration, float):
-            raise TypeError('Expected argument max_session_duration to be a float')
+            raise TypeError("Expected argument 'max_session_duration' to be a float")
         __self__.max_session_duration = max_session_duration
         """
         Maximum session duration.
         """
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        __self__.name = name
         if path and not isinstance(path, str):
-            raise TypeError('Expected argument path to be a str')
+            raise TypeError("Expected argument 'path' to be a str")
         __self__.path = path
         """
         The path to the role.
         """
         if permissions_boundary and not isinstance(permissions_boundary, str):
-            raise TypeError('Expected argument permissions_boundary to be a str')
+            raise TypeError("Expected argument 'permissions_boundary' to be a str")
         __self__.permissions_boundary = permissions_boundary
         """
         The ARN of the policy that is used to set the permissions boundary for the role.
         """
         if unique_id and not isinstance(unique_id, str):
-            raise TypeError('Expected argument unique_id to be a str')
+            raise TypeError("Expected argument 'unique_id' to be a str")
         __self__.unique_id = unique_id
         """
         The stable and unique string identifying the role.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -85,6 +88,7 @@ async def get_role(name=None,opts=None):
         create_date=__ret__.get('createDate'),
         description=__ret__.get('description'),
         max_session_duration=__ret__.get('maxSessionDuration'),
+        name=__ret__.get('name'),
         path=__ret__.get('path'),
         permissions_boundary=__ret__.get('permissionsBoundary'),
         unique_id=__ret__.get('uniqueId'),

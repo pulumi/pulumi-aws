@@ -114,7 +114,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
         __props__['peer_region'] = peer_region
 
         if peer_vpc_id is None:
-            raise TypeError('Missing required property peer_vpc_id')
+            raise TypeError("Missing required property 'peer_vpc_id'")
         __props__['peer_vpc_id'] = peer_vpc_id
 
         __props__['requester'] = requester
@@ -122,7 +122,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
         __props__['tags'] = tags
 
         if vpc_id is None:
-            raise TypeError('Missing required property vpc_id')
+            raise TypeError("Missing required property 'vpc_id'")
         __props__['vpc_id'] = vpc_id
 
         __props__['accept_status'] = None

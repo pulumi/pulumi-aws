@@ -90,7 +90,7 @@ class EventSubscription(pulumi.CustomResource):
         __props__['name_prefix'] = name_prefix
 
         if sns_topic is None:
-            raise TypeError('Missing required property sns_topic')
+            raise TypeError("Missing required property 'sns_topic'")
         __props__['sns_topic'] = sns_topic
 
         __props__['source_ids'] = source_ids

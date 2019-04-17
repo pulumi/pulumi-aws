@@ -32,6 +32,7 @@ func LookupVpcPeeringConnection(ctx *pulumi.Context, args *GetVpcPeeringConnecti
 	return &GetVpcPeeringConnectionResult{
 		Accepter: outputs["accepter"],
 		CidrBlock: outputs["cidrBlock"],
+		Filters: outputs["filters"],
 		Id: outputs["id"],
 		OwnerId: outputs["ownerId"],
 		PeerCidrBlock: outputs["peerCidrBlock"],
@@ -81,6 +82,7 @@ type GetVpcPeeringConnectionResult struct {
 	// (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
 	Accepter interface{}
 	CidrBlock interface{}
+	Filters interface{}
 	Id interface{}
 	OwnerId interface{}
 	PeerCidrBlock interface{}

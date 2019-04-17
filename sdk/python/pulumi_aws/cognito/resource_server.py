@@ -52,7 +52,7 @@ class ResourceServer(pulumi.CustomResource):
         __props__ = dict()
 
         if identifier is None:
-            raise TypeError('Missing required property identifier')
+            raise TypeError("Missing required property 'identifier'")
         __props__['identifier'] = identifier
 
         __props__['name'] = name
@@ -60,7 +60,7 @@ class ResourceServer(pulumi.CustomResource):
         __props__['scopes'] = scopes
 
         if user_pool_id is None:
-            raise TypeError('Missing required property user_pool_id')
+            raise TypeError("Missing required property 'user_pool_id'")
         __props__['user_pool_id'] = user_pool_id
 
         __props__['scope_identifiers'] = None

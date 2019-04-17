@@ -71,13 +71,13 @@ class Cluster(pulumi.CustomResource):
         __props__['name'] = name
 
         if role_arn is None:
-            raise TypeError('Missing required property role_arn')
+            raise TypeError("Missing required property 'role_arn'")
         __props__['role_arn'] = role_arn
 
         __props__['version'] = version
 
         if vpc_config is None:
-            raise TypeError('Missing required property vpc_config')
+            raise TypeError("Missing required property 'vpc_config'")
         __props__['vpc_config'] = vpc_config
 
         __props__['arn'] = None

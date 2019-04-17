@@ -60,13 +60,13 @@ class StateMachine(pulumi.CustomResource):
         __props__ = dict()
 
         if definition is None:
-            raise TypeError('Missing required property definition')
+            raise TypeError("Missing required property 'definition'")
         __props__['definition'] = definition
 
         __props__['name'] = name
 
         if role_arn is None:
-            raise TypeError('Missing required property role_arn')
+            raise TypeError("Missing required property 'role_arn'")
         __props__['role_arn'] = role_arn
 
         __props__['tags'] = tags

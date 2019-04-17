@@ -110,6 +110,7 @@ export interface GetVpcResult {
      * Whether or not the VPC has DNS support
      */
     readonly enableDnsSupport: boolean;
+    readonly filters?: { name: string, values: string[] }[];
     readonly id: string;
     /**
      * The allowed tenancy of instances launched into the

@@ -42,6 +42,7 @@ export interface GetCertificateAuthorityArgs {
  * A collection of values returned by getCertificateAuthority.
  */
 export interface GetCertificateAuthorityResult {
+    readonly arn: string;
     /**
      * Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
      */

@@ -71,17 +71,17 @@ class ResolverEndpoint(pulumi.CustomResource):
         __props__ = dict()
 
         if direction is None:
-            raise TypeError('Missing required property direction')
+            raise TypeError("Missing required property 'direction'")
         __props__['direction'] = direction
 
         if ip_addresses is None:
-            raise TypeError('Missing required property ip_addresses')
+            raise TypeError("Missing required property 'ip_addresses'")
         __props__['ip_addresses'] = ip_addresses
 
         __props__['name'] = name
 
         if security_group_ids is None:
-            raise TypeError('Missing required property security_group_ids')
+            raise TypeError("Missing required property 'security_group_ids'")
         __props__['security_group_ids'] = security_group_ids
 
         __props__['tags'] = tags

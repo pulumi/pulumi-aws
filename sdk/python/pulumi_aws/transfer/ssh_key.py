@@ -47,15 +47,15 @@ class SshKey(pulumi.CustomResource):
         __props__ = dict()
 
         if body is None:
-            raise TypeError('Missing required property body')
+            raise TypeError("Missing required property 'body'")
         __props__['body'] = body
 
         if server_id is None:
-            raise TypeError('Missing required property server_id')
+            raise TypeError("Missing required property 'server_id'")
         __props__['server_id'] = server_id
 
         if user_name is None:
-            raise TypeError('Missing required property user_name')
+            raise TypeError("Missing required property 'user_name'")
         __props__['user_name'] = user_name
 
         super(SshKey, __self__).__init__(

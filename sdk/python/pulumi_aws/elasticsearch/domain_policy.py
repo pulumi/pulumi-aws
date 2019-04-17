@@ -42,11 +42,11 @@ class DomainPolicy(pulumi.CustomResource):
         __props__ = dict()
 
         if access_policies is None:
-            raise TypeError('Missing required property access_policies')
+            raise TypeError("Missing required property 'access_policies'")
         __props__['access_policies'] = access_policies
 
         if domain_name is None:
-            raise TypeError('Missing required property domain_name')
+            raise TypeError("Missing required property 'domain_name'")
         __props__['domain_name'] = domain_name
 
         super(DomainPolicy, __self__).__init__(

@@ -21,6 +21,8 @@ func LookupVpnAttachment(ctx *pulumi.Context, args *GetVpnAttachmentArgs) (*GetV
 	}
 	return &GetVpnAttachmentResult{
 		Tags: outputs["tags"],
+		TransitGatewayId: outputs["transitGatewayId"],
+		VpnConnectionId: outputs["vpnConnectionId"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -38,6 +40,8 @@ type GetVpnAttachmentArgs struct {
 type GetVpnAttachmentResult struct {
 	// Key-value tags for the EC2 Transit Gateway VPN Attachment
 	Tags interface{}
+	TransitGatewayId interface{}
+	VpnConnectionId interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

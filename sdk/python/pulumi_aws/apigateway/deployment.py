@@ -77,7 +77,7 @@ class Deployment(pulumi.CustomResource):
         __props__['description'] = description
 
         if rest_api is None:
-            raise TypeError('Missing required property rest_api')
+            raise TypeError("Missing required property 'rest_api'")
         __props__['rest_api'] = rest_api
 
         __props__['stage_description'] = stage_description

@@ -94,6 +94,11 @@ export interface GetTransitGatewayResult {
      * Whether DNS support is enabled.
      */
     readonly dnsSupport: string;
+    readonly filters?: { name: string, values: string[] }[];
+    /**
+     * EC2 Transit Gateway identifier
+     */
+    readonly id?: string;
     /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway
      */

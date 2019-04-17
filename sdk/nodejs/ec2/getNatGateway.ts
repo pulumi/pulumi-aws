@@ -86,6 +86,7 @@ export interface GetNatGatewayResult {
      * The Id of the EIP allocated to the selected Nat Gateway.
      */
     readonly allocationId: string;
+    readonly filters?: { name: string, values: string[] }[];
     readonly id: string;
     /**
      * The Id of the ENI allocated to the selected Nat Gateway.

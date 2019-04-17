@@ -73,7 +73,7 @@ class StackSetInstance(pulumi.CustomResource):
         __props__['retain_stack'] = retain_stack
 
         if stack_set_name is None:
-            raise TypeError('Missing required property stack_set_name')
+            raise TypeError("Missing required property 'stack_set_name'")
         __props__['stack_set_name'] = stack_set_name
 
         __props__['stack_id'] = None

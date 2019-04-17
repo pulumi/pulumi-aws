@@ -89,7 +89,7 @@ class StackSet(pulumi.CustomResource):
         __props__ = dict()
 
         if administration_role_arn is None:
-            raise TypeError('Missing required property administration_role_arn')
+            raise TypeError("Missing required property 'administration_role_arn'")
         __props__['administration_role_arn'] = administration_role_arn
 
         __props__['capabilities'] = capabilities

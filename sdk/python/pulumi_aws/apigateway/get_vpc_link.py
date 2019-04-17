@@ -12,13 +12,16 @@ class GetVpcLinkResult:
     """
     A collection of values returned by getVpcLink.
     """
-    def __init__(__self__, id=None):
+    def __init__(__self__, id=None, name=None):
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         Set to the ID of the found API Gateway VPC Link.
         """
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        __self__.name = name
 
 async def get_vpc_link(name=None,opts=None):
     """
@@ -33,4 +36,5 @@ async def get_vpc_link(name=None,opts=None):
     __ret__ = await pulumi.runtime.invoke('aws:apigateway/getVpcLink:getVpcLink', __args__, opts=opts)
 
     return GetVpcLinkResult(
-        id=__ret__.get('id'))
+        id=__ret__.get('id'),
+        name=__ret__.get('name'))

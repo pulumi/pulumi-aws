@@ -19,7 +19,7 @@ class RouteTable(pulumi.CustomResource):
     """
     routes: pulumi.Output[list]
     """
-    A list of route objects. Their keys are documented below.
+    A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
     """
     tags: pulumi.Output[dict]
     """
@@ -55,7 +55,7 @@ class RouteTable(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] propagating_vgws: A list of virtual gateways for propagation.
-        :param pulumi.Input[list] routes: A list of route objects. Their keys are documented below.
+        :param pulumi.Input[list] routes: A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID.
         """
@@ -81,7 +81,7 @@ class RouteTable(pulumi.CustomResource):
         __props__['tags'] = tags
 
         if vpc_id is None:
-            raise TypeError('Missing required property vpc_id')
+            raise TypeError("Missing required property 'vpc_id'")
         __props__['vpc_id'] = vpc_id
 
         __props__['owner_id'] = None

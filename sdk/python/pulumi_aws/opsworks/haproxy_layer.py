@@ -180,13 +180,13 @@ class HaproxyLayer(pulumi.CustomResource):
         __props__['name'] = name
 
         if stack_id is None:
-            raise TypeError('Missing required property stack_id')
+            raise TypeError("Missing required property 'stack_id'")
         __props__['stack_id'] = stack_id
 
         __props__['stats_enabled'] = stats_enabled
 
         if stats_password is None:
-            raise TypeError('Missing required property stats_password')
+            raise TypeError("Missing required property 'stats_password'")
         __props__['stats_password'] = stats_password
 
         __props__['stats_url'] = stats_url

@@ -229,7 +229,7 @@ class Cluster(pulumi.CustomResource):
         __props__['availability_zone'] = availability_zone
 
         if cluster_identifier is None:
-            raise TypeError('Missing required property cluster_identifier')
+            raise TypeError("Missing required property 'cluster_identifier'")
         __props__['cluster_identifier'] = cluster_identifier
 
         __props__['cluster_parameter_group_name'] = cluster_parameter_group_name
@@ -269,7 +269,7 @@ class Cluster(pulumi.CustomResource):
         __props__['master_username'] = master_username
 
         if node_type is None:
-            raise TypeError('Missing required property node_type')
+            raise TypeError("Missing required property 'node_type'")
         __props__['node_type'] = node_type
 
         __props__['number_of_nodes'] = number_of_nodes

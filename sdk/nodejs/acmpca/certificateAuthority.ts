@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
  *             commonName: "example.com",
  *         },
  *     },
+ *     permanentDeletionTimeInDays: 7,
  * });
  * ```
  * 
@@ -122,6 +123,10 @@ export class CertificateAuthority extends pulumi.CustomResource {
      */
     public /*out*/ readonly notBefore: pulumi.Output<string>;
     /**
+     * The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+     */
+    public readonly permanentDeletionTimeInDays: pulumi.Output<number | undefined>;
+    /**
      * Nested argument containing revocation configuration. Defined below.
      */
     public readonly revocationConfiguration: pulumi.Output<{ crlConfiguration?: { customCname?: string, enabled?: boolean, expirationInDays: number, s3BucketName?: string } } | undefined>;
@@ -162,6 +167,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["notAfter"] = state ? state.notAfter : undefined;
             inputs["notBefore"] = state ? state.notBefore : undefined;
+            inputs["permanentDeletionTimeInDays"] = state ? state.permanentDeletionTimeInDays : undefined;
             inputs["revocationConfiguration"] = state ? state.revocationConfiguration : undefined;
             inputs["serial"] = state ? state.serial : undefined;
             inputs["status"] = state ? state.status : undefined;
@@ -174,6 +180,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
             }
             inputs["certificateAuthorityConfiguration"] = args ? args.certificateAuthorityConfiguration : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["permanentDeletionTimeInDays"] = args ? args.permanentDeletionTimeInDays : undefined;
             inputs["revocationConfiguration"] = args ? args.revocationConfiguration : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
@@ -227,6 +234,10 @@ export interface CertificateAuthorityState {
      */
     readonly notBefore?: pulumi.Input<string>;
     /**
+     * The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+     */
+    readonly permanentDeletionTimeInDays?: pulumi.Input<number>;
+    /**
      * Nested argument containing revocation configuration. Defined below.
      */
     readonly revocationConfiguration?: pulumi.Input<{ crlConfiguration?: pulumi.Input<{ customCname?: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, expirationInDays: pulumi.Input<number>, s3BucketName?: pulumi.Input<string> }> }>;
@@ -260,6 +271,10 @@ export interface CertificateAuthorityArgs {
      * Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
      */
     readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+     */
+    readonly permanentDeletionTimeInDays?: pulumi.Input<number>;
     /**
      * Nested argument containing revocation configuration. Defined below.
      */

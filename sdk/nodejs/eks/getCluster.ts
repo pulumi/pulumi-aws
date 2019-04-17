@@ -57,6 +57,7 @@ export interface GetClusterResult {
      * The endpoint for your Kubernetes API server.
      */
     readonly endpoint: string;
+    readonly name: string;
     /**
      * The platform version for the cluster.
      */

@@ -41,6 +41,7 @@ func NewBudget(ctx *pulumi.Context,
 		inputs["limitUnit"] = nil
 		inputs["name"] = nil
 		inputs["namePrefix"] = nil
+		inputs["notifications"] = nil
 		inputs["timePeriodEnd"] = nil
 		inputs["timePeriodStart"] = nil
 		inputs["timeUnit"] = nil
@@ -53,6 +54,7 @@ func NewBudget(ctx *pulumi.Context,
 		inputs["limitUnit"] = args.LimitUnit
 		inputs["name"] = args.Name
 		inputs["namePrefix"] = args.NamePrefix
+		inputs["notifications"] = args.Notifications
 		inputs["timePeriodEnd"] = args.TimePeriodEnd
 		inputs["timePeriodStart"] = args.TimePeriodStart
 		inputs["timeUnit"] = args.TimeUnit
@@ -78,6 +80,7 @@ func GetBudget(ctx *pulumi.Context,
 		inputs["limitUnit"] = state.LimitUnit
 		inputs["name"] = state.Name
 		inputs["namePrefix"] = state.NamePrefix
+		inputs["notifications"] = state.Notifications
 		inputs["timePeriodEnd"] = state.TimePeriodEnd
 		inputs["timePeriodStart"] = state.TimePeriodStart
 		inputs["timeUnit"] = state.TimeUnit
@@ -139,6 +142,11 @@ func (r *Budget) NamePrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
+// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+func (r *Budget) Notifications() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["notifications"])
+}
+
 // The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 func (r *Budget) TimePeriodEnd() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["timePeriodEnd"])
@@ -172,6 +180,8 @@ type BudgetState struct {
 	Name interface{}
 	// The prefix of the name of a budget. Unique within accounts.
 	NamePrefix interface{}
+	// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+	Notifications interface{}
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd interface{}
 	// The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
@@ -198,6 +208,8 @@ type BudgetArgs struct {
 	Name interface{}
 	// The prefix of the name of a budget. Unique within accounts.
 	NamePrefix interface{}
+	// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+	Notifications interface{}
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd interface{}
 	// The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.

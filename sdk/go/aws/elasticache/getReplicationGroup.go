@@ -27,6 +27,7 @@ func LookupReplicationGroup(ctx *pulumi.Context, args *GetReplicationGroupArgs) 
 		Port: outputs["port"],
 		PrimaryEndpointAddress: outputs["primaryEndpointAddress"],
 		ReplicationGroupDescription: outputs["replicationGroupDescription"],
+		ReplicationGroupId: outputs["replicationGroupId"],
 		SnapshotRetentionLimit: outputs["snapshotRetentionLimit"],
 		SnapshotWindow: outputs["snapshotWindow"],
 		Id: outputs["id"],
@@ -59,6 +60,8 @@ type GetReplicationGroupResult struct {
 	PrimaryEndpointAddress interface{}
 	// The description of the replication group.
 	ReplicationGroupDescription interface{}
+	// The identifier for the replication group.
+	ReplicationGroupId interface{}
 	// The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
 	SnapshotRetentionLimit interface{}
 	// The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).

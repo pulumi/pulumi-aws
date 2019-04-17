@@ -174,7 +174,7 @@ class Stack(pulumi.CustomResource):
         __props__['default_availability_zone'] = default_availability_zone
 
         if default_instance_profile_arn is None:
-            raise TypeError('Missing required property default_instance_profile_arn')
+            raise TypeError("Missing required property 'default_instance_profile_arn'")
         __props__['default_instance_profile_arn'] = default_instance_profile_arn
 
         __props__['default_os'] = default_os
@@ -192,11 +192,11 @@ class Stack(pulumi.CustomResource):
         __props__['name'] = name
 
         if region is None:
-            raise TypeError('Missing required property region')
+            raise TypeError("Missing required property 'region'")
         __props__['region'] = region
 
         if service_role_arn is None:
-            raise TypeError('Missing required property service_role_arn')
+            raise TypeError("Missing required property 'service_role_arn'")
         __props__['service_role_arn'] = service_role_arn
 
         __props__['tags'] = tags

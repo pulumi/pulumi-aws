@@ -511,7 +511,7 @@ class Instance(pulumi.CustomResource):
         __props__['identifier_prefix'] = identifier_prefix
 
         if instance_class is None:
-            raise TypeError('Missing required property instance_class')
+            raise TypeError("Missing required property 'instance_class'")
         __props__['instance_class'] = instance_class
 
         __props__['iops'] = iops

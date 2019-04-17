@@ -42,11 +42,11 @@ class PatchGroup(pulumi.CustomResource):
         __props__ = dict()
 
         if baseline_id is None:
-            raise TypeError('Missing required property baseline_id')
+            raise TypeError("Missing required property 'baseline_id'")
         __props__['baseline_id'] = baseline_id
 
         if patch_group is None:
-            raise TypeError('Missing required property patch_group')
+            raise TypeError("Missing required property 'patch_group'")
         __props__['patch_group'] = patch_group
 
         super(PatchGroup, __self__).__init__(

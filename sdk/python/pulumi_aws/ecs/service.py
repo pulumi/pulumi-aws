@@ -242,7 +242,7 @@ class Service(pulumi.CustomResource):
         __props__['tags'] = tags
 
         if task_definition is None:
-            raise TypeError('Missing required property task_definition')
+            raise TypeError("Missing required property 'task_definition'")
         __props__['task_definition'] = task_definition
 
         __props__['wait_for_steady_state'] = wait_for_steady_state

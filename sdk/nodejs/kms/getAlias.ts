@@ -44,6 +44,7 @@ export interface GetAliasResult {
      * The Amazon Resource Name(ARN) of the key alias.
      */
     readonly arn: string;
+    readonly name: string;
     /**
      * ARN pointed to by the alias.
      */

@@ -21,7 +21,9 @@ func LookupResource(ctx *pulumi.Context, args *GetResourceArgs) (*GetResourceRes
 	}
 	return &GetResourceResult{
 		ParentId: outputs["parentId"],
+		Path: outputs["path"],
 		PathPart: outputs["pathPart"],
+		RestApiId: outputs["restApiId"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -38,8 +40,10 @@ type GetResourceArgs struct {
 type GetResourceResult struct {
 	// Set to the ID of the parent Resource.
 	ParentId interface{}
+	Path interface{}
 	// Set to the path relative to the parent Resource.
 	PathPart interface{}
+	RestApiId interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

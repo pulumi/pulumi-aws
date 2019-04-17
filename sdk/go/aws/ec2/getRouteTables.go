@@ -20,8 +20,10 @@ func LookupRouteTables(ctx *pulumi.Context, args *GetRouteTablesArgs) (*GetRoute
 		return nil, err
 	}
 	return &GetRouteTablesResult{
+		Filters: outputs["filters"],
 		Ids: outputs["ids"],
 		Tags: outputs["tags"],
+		VpcId: outputs["vpcId"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -39,9 +41,11 @@ type GetRouteTablesArgs struct {
 
 // A collection of values returned by getRouteTables.
 type GetRouteTablesResult struct {
+	Filters interface{}
 	// A list of all the route table ids found. This data source will fail if none are found.
 	Ids interface{}
 	Tags interface{}
+	VpcId interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

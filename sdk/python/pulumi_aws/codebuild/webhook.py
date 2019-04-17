@@ -56,7 +56,7 @@ class Webhook(pulumi.CustomResource):
         __props__['branch_filter'] = branch_filter
 
         if project_name is None:
-            raise TypeError('Missing required property project_name')
+            raise TypeError("Missing required property 'project_name'")
         __props__['project_name'] = project_name
 
         __props__['payload_url'] = None

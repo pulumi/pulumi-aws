@@ -46,4 +46,5 @@ export interface GetVpcLinkResult {
      * Set to the ID of the found API Gateway VPC Link.
      */
     readonly id: string;
+    readonly name: string;
 }

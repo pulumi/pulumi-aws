@@ -85,7 +85,7 @@ class FlowLog(pulumi.CustomResource):
         __props__['subnet_id'] = subnet_id
 
         if traffic_type is None:
-            raise TypeError('Missing required property traffic_type')
+            raise TypeError("Missing required property 'traffic_type'")
         __props__['traffic_type'] = traffic_type
 
         __props__['vpc_id'] = vpc_id

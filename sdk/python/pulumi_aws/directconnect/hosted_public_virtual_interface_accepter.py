@@ -49,7 +49,7 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
         __props__['tags'] = tags
 
         if virtual_interface_id is None:
-            raise TypeError('Missing required property virtual_interface_id')
+            raise TypeError("Missing required property 'virtual_interface_id'")
         __props__['virtual_interface_id'] = virtual_interface_id
 
         __props__['arn'] = None

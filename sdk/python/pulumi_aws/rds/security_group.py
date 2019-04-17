@@ -63,7 +63,7 @@ class SecurityGroup(pulumi.CustomResource):
         __props__['description'] = description
 
         if ingress is None:
-            raise TypeError('Missing required property ingress')
+            raise TypeError("Missing required property 'ingress'")
         __props__['ingress'] = ingress
 
         __props__['name'] = name

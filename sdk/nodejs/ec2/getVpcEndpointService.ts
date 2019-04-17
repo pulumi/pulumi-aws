@@ -88,6 +88,7 @@ export interface GetVpcEndpointServiceResult {
      * The private DNS name for the service.
      */
     readonly privateDnsName: string;
+    readonly service?: string;
     readonly serviceName: string;
     /**
      * The service type, `Gateway` or `Interface`.

@@ -22,6 +22,8 @@ func LookupRouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTa
 	return &GetRouteTableResult{
 		DefaultAssociationRouteTable: outputs["defaultAssociationRouteTable"],
 		DefaultPropagationRouteTable: outputs["defaultPropagationRouteTable"],
+		Filters: outputs["filters"],
+		Id: outputs["id"],
 		Tags: outputs["tags"],
 		TransitGatewayId: outputs["transitGatewayId"],
 	}, nil
@@ -42,6 +44,9 @@ type GetRouteTableResult struct {
 	DefaultAssociationRouteTable interface{}
 	// Boolean whether this is the default propagation route table for the EC2 Transit Gateway
 	DefaultPropagationRouteTable interface{}
+	Filters interface{}
+	// EC2 Transit Gateway Route Table identifier
+	Id interface{}
 	// Key-value tags for the EC2 Transit Gateway Route Table
 	Tags interface{}
 	// EC2 Transit Gateway identifier

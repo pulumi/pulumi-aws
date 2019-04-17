@@ -20,6 +20,7 @@ func LookupComputeEnvironment(ctx *pulumi.Context, args *GetComputeEnvironmentAr
 	}
 	return &GetComputeEnvironmentResult{
 		Arn: outputs["arn"],
+		ComputeEnvironmentName: outputs["computeEnvironmentName"],
 		EcsClusterArn: outputs["ecsClusterArn"],
 		ServiceRole: outputs["serviceRole"],
 		State: outputs["state"],
@@ -40,6 +41,7 @@ type GetComputeEnvironmentArgs struct {
 type GetComputeEnvironmentResult struct {
 	// The ARN of the compute environment.
 	Arn interface{}
+	ComputeEnvironmentName interface{}
 	// The ARN of the underlying Amazon ECS cluster used by the compute environment.
 	EcsClusterArn interface{}
 	// The ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.

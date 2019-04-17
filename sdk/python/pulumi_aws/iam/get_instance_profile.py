@@ -12,46 +12,49 @@ class GetInstanceProfileResult:
     """
     A collection of values returned by getInstanceProfile.
     """
-    def __init__(__self__, arn=None, create_date=None, path=None, role_arn=None, role_id=None, role_name=None, id=None):
+    def __init__(__self__, arn=None, create_date=None, name=None, path=None, role_arn=None, role_id=None, role_name=None, id=None):
         if arn and not isinstance(arn, str):
-            raise TypeError('Expected argument arn to be a str')
+            raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
         The Amazon Resource Name (ARN) specifying the instance profile.
         """
         if create_date and not isinstance(create_date, str):
-            raise TypeError('Expected argument create_date to be a str')
+            raise TypeError("Expected argument 'create_date' to be a str")
         __self__.create_date = create_date
         """
         The string representation of the date the instance profile
         was created.
         """
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        __self__.name = name
         if path and not isinstance(path, str):
-            raise TypeError('Expected argument path to be a str')
+            raise TypeError("Expected argument 'path' to be a str")
         __self__.path = path
         """
         The path to the instance profile.
         """
         if role_arn and not isinstance(role_arn, str):
-            raise TypeError('Expected argument role_arn to be a str')
+            raise TypeError("Expected argument 'role_arn' to be a str")
         __self__.role_arn = role_arn
         """
         The role arn associated with this instance profile.
         """
         if role_id and not isinstance(role_id, str):
-            raise TypeError('Expected argument role_id to be a str')
+            raise TypeError("Expected argument 'role_id' to be a str")
         __self__.role_id = role_id
         """
         The role id associated with this instance profile.
         """
         if role_name and not isinstance(role_name, str):
-            raise TypeError('Expected argument role_name to be a str')
+            raise TypeError("Expected argument 'role_name' to be a str")
         __self__.role_name = role_name
         """
         The role name associated with this instance profile.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -71,6 +74,7 @@ async def get_instance_profile(name=None,opts=None):
     return GetInstanceProfileResult(
         arn=__ret__.get('arn'),
         create_date=__ret__.get('createDate'),
+        name=__ret__.get('name'),
         path=__ret__.get('path'),
         role_arn=__ret__.get('roleArn'),
         role_id=__ret__.get('roleId'),

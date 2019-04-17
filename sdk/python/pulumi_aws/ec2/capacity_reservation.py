@@ -87,7 +87,7 @@ class CapacityReservation(pulumi.CustomResource):
         __props__ = dict()
 
         if availability_zone is None:
-            raise TypeError('Missing required property availability_zone')
+            raise TypeError("Missing required property 'availability_zone'")
         __props__['availability_zone'] = availability_zone
 
         __props__['ebs_optimized'] = ebs_optimized
@@ -99,17 +99,17 @@ class CapacityReservation(pulumi.CustomResource):
         __props__['ephemeral_storage'] = ephemeral_storage
 
         if instance_count is None:
-            raise TypeError('Missing required property instance_count')
+            raise TypeError("Missing required property 'instance_count'")
         __props__['instance_count'] = instance_count
 
         __props__['instance_match_criteria'] = instance_match_criteria
 
         if instance_platform is None:
-            raise TypeError('Missing required property instance_platform')
+            raise TypeError("Missing required property 'instance_platform'")
         __props__['instance_platform'] = instance_platform
 
         if instance_type is None:
-            raise TypeError('Missing required property instance_type')
+            raise TypeError("Missing required property 'instance_type'")
         __props__['instance_type'] = instance_type
 
         __props__['tags'] = tags

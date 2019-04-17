@@ -48,11 +48,11 @@ class QueryLog(pulumi.CustomResource):
         __props__ = dict()
 
         if cloudwatch_log_group_arn is None:
-            raise TypeError('Missing required property cloudwatch_log_group_arn')
+            raise TypeError("Missing required property 'cloudwatch_log_group_arn'")
         __props__['cloudwatch_log_group_arn'] = cloudwatch_log_group_arn
 
         if zone_id is None:
-            raise TypeError('Missing required property zone_id')
+            raise TypeError("Missing required property 'zone_id'")
         __props__['zone_id'] = zone_id
 
         super(QueryLog, __self__).__init__(

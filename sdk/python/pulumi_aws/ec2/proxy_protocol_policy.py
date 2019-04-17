@@ -46,11 +46,11 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         __props__ = dict()
 
         if instance_ports is None:
-            raise TypeError('Missing required property instance_ports')
+            raise TypeError("Missing required property 'instance_ports'")
         __props__['instance_ports'] = instance_ports
 
         if load_balancer is None:
-            raise TypeError('Missing required property load_balancer')
+            raise TypeError("Missing required property 'load_balancer'")
         __props__['load_balancer'] = load_balancer
 
         super(ProxyProtocolPolicy, __self__).__init__(

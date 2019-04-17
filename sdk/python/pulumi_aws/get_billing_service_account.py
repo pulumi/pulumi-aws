@@ -14,13 +14,13 @@ class GetBillingServiceAccountResult:
     """
     def __init__(__self__, arn=None, id=None):
         if arn and not isinstance(arn, str):
-            raise TypeError('Expected argument arn to be a str')
+            raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
         The ARN of the AWS billing service account.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

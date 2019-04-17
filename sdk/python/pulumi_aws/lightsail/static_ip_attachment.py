@@ -44,11 +44,11 @@ class StaticIpAttachment(pulumi.CustomResource):
         __props__ = dict()
 
         if instance_name is None:
-            raise TypeError('Missing required property instance_name')
+            raise TypeError("Missing required property 'instance_name'")
         __props__['instance_name'] = instance_name
 
         if static_ip_name is None:
-            raise TypeError('Missing required property static_ip_name')
+            raise TypeError("Missing required property 'static_ip_name'")
         __props__['static_ip_name'] = static_ip_name
 
         super(StaticIpAttachment, __self__).__init__(

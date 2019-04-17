@@ -130,13 +130,13 @@ class Record(pulumi.CustomResource):
         __props__['ttl'] = ttl
 
         if type is None:
-            raise TypeError('Missing required property type')
+            raise TypeError("Missing required property 'type'")
         __props__['type'] = type
 
         __props__['weighted_routing_policies'] = weighted_routing_policies
 
         if zone_id is None:
-            raise TypeError('Missing required property zone_id')
+            raise TypeError("Missing required property 'zone_id'")
         __props__['zone_id'] = zone_id
 
         __props__['fqdn'] = None

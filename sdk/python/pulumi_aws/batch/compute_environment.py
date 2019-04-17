@@ -79,19 +79,19 @@ class ComputeEnvironment(pulumi.CustomResource):
         __props__ = dict()
 
         if compute_environment_name is None:
-            raise TypeError('Missing required property compute_environment_name')
+            raise TypeError("Missing required property 'compute_environment_name'")
         __props__['compute_environment_name'] = compute_environment_name
 
         __props__['compute_resources'] = compute_resources
 
         if service_role is None:
-            raise TypeError('Missing required property service_role')
+            raise TypeError("Missing required property 'service_role'")
         __props__['service_role'] = service_role
 
         __props__['state'] = state
 
         if type is None:
-            raise TypeError('Missing required property type')
+            raise TypeError("Missing required property 'type'")
         __props__['type'] = type
 
         __props__['arn'] = None

@@ -24,6 +24,7 @@ func LookupFunction(ctx *pulumi.Context, args *GetFunctionArgs) (*GetFunctionRes
 		DeadLetterConfig: outputs["deadLetterConfig"],
 		Description: outputs["description"],
 		Environment: outputs["environment"],
+		FunctionName: outputs["functionName"],
 		Handler: outputs["handler"],
 		InvokeArn: outputs["invokeArn"],
 		KmsKeyArn: outputs["kmsKeyArn"],
@@ -31,6 +32,7 @@ func LookupFunction(ctx *pulumi.Context, args *GetFunctionArgs) (*GetFunctionRes
 		Layers: outputs["layers"],
 		MemorySize: outputs["memorySize"],
 		QualifiedArn: outputs["qualifiedArn"],
+		Qualifier: outputs["qualifier"],
 		ReservedConcurrentExecutions: outputs["reservedConcurrentExecutions"],
 		Role: outputs["role"],
 		Runtime: outputs["runtime"],
@@ -64,6 +66,7 @@ type GetFunctionResult struct {
 	Description interface{}
 	// The Lambda environment's configuration settings.
 	Environment interface{}
+	FunctionName interface{}
 	// The function entrypoint in your code.
 	Handler interface{}
 	// The ARN to be used for invoking Lambda Function from API Gateway.
@@ -78,6 +81,7 @@ type GetFunctionResult struct {
 	MemorySize interface{}
 	// Qualified (`:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `arn`.
 	QualifiedArn interface{}
+	Qualifier interface{}
 	// The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
 	ReservedConcurrentExecutions interface{}
 	// IAM role attached to the Lambda Function.

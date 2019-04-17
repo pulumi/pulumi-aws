@@ -49,6 +49,7 @@ export interface GetInstanceProfileResult {
      * was created.
      */
     readonly createDate: string;
+    readonly name: string;
     /**
      * The path to the instance profile.
      */

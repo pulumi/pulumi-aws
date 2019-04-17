@@ -95,19 +95,19 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
         __props__ = dict()
 
         if address_family is None:
-            raise TypeError('Missing required property address_family')
+            raise TypeError("Missing required property 'address_family'")
         __props__['address_family'] = address_family
 
         __props__['amazon_address'] = amazon_address
 
         if bgp_asn is None:
-            raise TypeError('Missing required property bgp_asn')
+            raise TypeError("Missing required property 'bgp_asn'")
         __props__['bgp_asn'] = bgp_asn
 
         __props__['bgp_auth_key'] = bgp_auth_key
 
         if connection_id is None:
-            raise TypeError('Missing required property connection_id')
+            raise TypeError("Missing required property 'connection_id'")
         __props__['connection_id'] = connection_id
 
         __props__['customer_address'] = customer_address
@@ -117,11 +117,11 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
         __props__['name'] = name
 
         if owner_account_id is None:
-            raise TypeError('Missing required property owner_account_id')
+            raise TypeError("Missing required property 'owner_account_id'")
         __props__['owner_account_id'] = owner_account_id
 
         if vlan is None:
-            raise TypeError('Missing required property vlan')
+            raise TypeError("Missing required property 'vlan'")
         __props__['vlan'] = vlan
 
         __props__['arn'] = None

@@ -47,11 +47,11 @@ class ListenerPolicy(pulumi.CustomResource):
         __props__ = dict()
 
         if load_balancer_name is None:
-            raise TypeError('Missing required property load_balancer_name')
+            raise TypeError("Missing required property 'load_balancer_name'")
         __props__['load_balancer_name'] = load_balancer_name
 
         if load_balancer_port is None:
-            raise TypeError('Missing required property load_balancer_port')
+            raise TypeError("Missing required property 'load_balancer_port'")
         __props__['load_balancer_port'] = load_balancer_port
 
         __props__['policy_names'] = policy_names

@@ -67,6 +67,9 @@ export interface GetCipherTextResult {
      * Base64 encoded ciphertext
      */
     readonly ciphertextBlob: string;
+    readonly context?: {[key: string]: string};
+    readonly keyId: string;
+    readonly plaintext: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

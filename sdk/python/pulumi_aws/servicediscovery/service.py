@@ -63,7 +63,7 @@ class Service(pulumi.CustomResource):
         __props__['description'] = description
 
         if dns_config is None:
-            raise TypeError('Missing required property dns_config')
+            raise TypeError("Missing required property 'dns_config'")
         __props__['dns_config'] = dns_config
 
         __props__['health_check_config'] = health_check_config

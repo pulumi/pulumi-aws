@@ -38,6 +38,10 @@ export interface GetHostedZoneArgs {
  */
 export interface GetHostedZoneResult {
     /**
+     * The region of the hosted zone.
+     */
+    readonly region?: string;
+    /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

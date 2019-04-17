@@ -23,6 +23,7 @@ func LookupTaskDefinition(ctx *pulumi.Context, args *GetTaskDefinitionArgs) (*Ge
 		NetworkMode: outputs["networkMode"],
 		Revision: outputs["revision"],
 		Status: outputs["status"],
+		TaskDefinition: outputs["taskDefinition"],
 		TaskRoleArn: outputs["taskRoleArn"],
 		Id: outputs["id"],
 	}, nil
@@ -44,6 +45,7 @@ type GetTaskDefinitionResult struct {
 	Revision interface{}
 	// The status of this task definition
 	Status interface{}
+	TaskDefinition interface{}
 	// The ARN of the IAM role that containers in this task can assume
 	TaskRoleArn interface{}
 	// id is the provider-assigned unique ID for this managed resource.

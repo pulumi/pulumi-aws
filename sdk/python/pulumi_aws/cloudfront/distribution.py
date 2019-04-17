@@ -142,13 +142,19 @@ class Distribution(pulumi.CustomResource):
     configuration for this distribution (maximum
     one).
     """
+    wait_for_deployment: pulumi.Output[bool]
+    """
+    If enabled, the resource will wait for
+    the distribution status to change from `InProgress` to `Deployed`. Setting
+    this to`false` will skip the process. Default: `true`.
+    """
     web_acl_id: pulumi.Output[str]
     """
     If you're using AWS WAF to filter CloudFront
     requests, the Id of the AWS WAF web ACL that is associated with the
     distribution.
     """
-    def __init__(__self__, resource_name, opts=None, aliases=None, comment=None, custom_error_responses=None, default_cache_behavior=None, default_root_object=None, enabled=None, http_version=None, is_ipv6_enabled=None, logging_config=None, ordered_cache_behaviors=None, origins=None, origin_groups=None, price_class=None, restrictions=None, retain_on_delete=None, tags=None, viewer_certificate=None, web_acl_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, aliases=None, comment=None, custom_error_responses=None, default_cache_behavior=None, default_root_object=None, enabled=None, http_version=None, is_ipv6_enabled=None, logging_config=None, ordered_cache_behaviors=None, origins=None, origin_groups=None, price_class=None, restrictions=None, retain_on_delete=None, tags=None, viewer_certificate=None, wait_for_deployment=None, web_acl_id=None, __name__=None, __opts__=None):
         """
         Creates an Amazon CloudFront web distribution.
         
@@ -200,6 +206,9 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[dict] viewer_certificate: The SSL
                configuration for this distribution (maximum
                one).
+        :param pulumi.Input[bool] wait_for_deployment: If enabled, the resource will wait for
+               the distribution status to change from `InProgress` to `Deployed`. Setting
+               this to`false` will skip the process. Default: `true`.
         :param pulumi.Input[str] web_acl_id: If you're using AWS WAF to filter CloudFront
                requests, the Id of the AWS WAF web ACL that is associated with the
                distribution.
@@ -226,13 +235,13 @@ class Distribution(pulumi.CustomResource):
         __props__['custom_error_responses'] = custom_error_responses
 
         if default_cache_behavior is None:
-            raise TypeError('Missing required property default_cache_behavior')
+            raise TypeError("Missing required property 'default_cache_behavior'")
         __props__['default_cache_behavior'] = default_cache_behavior
 
         __props__['default_root_object'] = default_root_object
 
         if enabled is None:
-            raise TypeError('Missing required property enabled')
+            raise TypeError("Missing required property 'enabled'")
         __props__['enabled'] = enabled
 
         __props__['http_version'] = http_version
@@ -244,7 +253,7 @@ class Distribution(pulumi.CustomResource):
         __props__['ordered_cache_behaviors'] = ordered_cache_behaviors
 
         if origins is None:
-            raise TypeError('Missing required property origins')
+            raise TypeError("Missing required property 'origins'")
         __props__['origins'] = origins
 
         __props__['origin_groups'] = origin_groups
@@ -252,7 +261,7 @@ class Distribution(pulumi.CustomResource):
         __props__['price_class'] = price_class
 
         if restrictions is None:
-            raise TypeError('Missing required property restrictions')
+            raise TypeError("Missing required property 'restrictions'")
         __props__['restrictions'] = restrictions
 
         __props__['retain_on_delete'] = retain_on_delete
@@ -260,8 +269,10 @@ class Distribution(pulumi.CustomResource):
         __props__['tags'] = tags
 
         if viewer_certificate is None:
-            raise TypeError('Missing required property viewer_certificate')
+            raise TypeError("Missing required property 'viewer_certificate'")
         __props__['viewer_certificate'] = viewer_certificate
+
+        __props__['wait_for_deployment'] = wait_for_deployment
 
         __props__['web_acl_id'] = web_acl_id
 

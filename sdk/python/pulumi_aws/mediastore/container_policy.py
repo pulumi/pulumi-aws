@@ -42,11 +42,11 @@ class ContainerPolicy(pulumi.CustomResource):
         __props__ = dict()
 
         if container_name is None:
-            raise TypeError('Missing required property container_name')
+            raise TypeError("Missing required property 'container_name'")
         __props__['container_name'] = container_name
 
         if policy is None:
-            raise TypeError('Missing required property policy')
+            raise TypeError("Missing required property 'policy'")
         __props__['policy'] = policy
 
         super(ContainerPolicy, __self__).__init__(

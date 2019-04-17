@@ -114,6 +114,7 @@ export interface GetVpcPeeringConnectionResult {
      */
     readonly accepter: {[key: string]: boolean};
     readonly cidrBlock: string;
+    readonly filters?: { name: string, values: string[] }[];
     readonly id: string;
     readonly ownerId: string;
     readonly peerCidrBlock: string;

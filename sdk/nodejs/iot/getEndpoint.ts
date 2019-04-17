@@ -37,6 +37,7 @@ export interface GetEndpointResult {
      * * `iot:Job`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
      */
     readonly endpointAddress: string;
+    readonly endpointType?: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

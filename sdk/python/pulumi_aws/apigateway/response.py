@@ -61,11 +61,11 @@ class Response(pulumi.CustomResource):
         __props__['response_templates'] = response_templates
 
         if response_type is None:
-            raise TypeError('Missing required property response_type')
+            raise TypeError("Missing required property 'response_type'")
         __props__['response_type'] = response_type
 
         if rest_api_id is None:
-            raise TypeError('Missing required property rest_api_id')
+            raise TypeError("Missing required property 'rest_api_id'")
         __props__['rest_api_id'] = rest_api_id
 
         __props__['status_code'] = status_code

@@ -76,19 +76,19 @@ class VolumeAttachment(pulumi.CustomResource):
         __props__ = dict()
 
         if device_name is None:
-            raise TypeError('Missing required property device_name')
+            raise TypeError("Missing required property 'device_name'")
         __props__['device_name'] = device_name
 
         __props__['force_detach'] = force_detach
 
         if instance_id is None:
-            raise TypeError('Missing required property instance_id')
+            raise TypeError("Missing required property 'instance_id'")
         __props__['instance_id'] = instance_id
 
         __props__['skip_destroy'] = skip_destroy
 
         if volume_id is None:
-            raise TypeError('Missing required property volume_id')
+            raise TypeError("Missing required property 'volume_id'")
         __props__['volume_id'] = volume_id
 
         super(VolumeAttachment, __self__).__init__(

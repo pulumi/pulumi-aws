@@ -40,6 +40,10 @@ export interface GetKeyArgs {
  */
 export interface GetKeyResult {
     /**
+     * Set to the ID of the API Key.
+     */
+    readonly id: string;
+    /**
      * Set to the name of the API Key.
      */
     readonly name: string;

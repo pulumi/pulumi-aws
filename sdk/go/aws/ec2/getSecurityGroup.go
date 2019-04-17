@@ -28,6 +28,7 @@ func LookupSecurityGroup(ctx *pulumi.Context, args *GetSecurityGroupArgs) (*GetS
 	return &GetSecurityGroupResult{
 		Arn: outputs["arn"],
 		Description: outputs["description"],
+		Filters: outputs["filters"],
 		Id: outputs["id"],
 		Name: outputs["name"],
 		Tags: outputs["tags"],
@@ -57,6 +58,7 @@ type GetSecurityGroupResult struct {
 	Arn interface{}
 	// The description of the security group.
 	Description interface{}
+	Filters interface{}
 	Id interface{}
 	Name interface{}
 	Tags interface{}

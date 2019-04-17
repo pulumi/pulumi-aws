@@ -51,7 +51,7 @@ class ApiKey(pulumi.CustomResource):
         __props__ = dict()
 
         if api_id is None:
-            raise TypeError('Missing required property api_id')
+            raise TypeError("Missing required property 'api_id'")
         __props__['api_id'] = api_id
 
         __props__['description'] = description

@@ -56,7 +56,7 @@ class Policy(pulumi.CustomResource):
         __props__ = dict()
 
         if content is None:
-            raise TypeError('Missing required property content')
+            raise TypeError("Missing required property 'content'")
         __props__['content'] = content
 
         __props__['description'] = description

@@ -54,6 +54,7 @@ export interface GetClusterResult {
      * (Memcached only) The DNS name of the cache cluster without the port appended.
      */
     readonly clusterAddress: string;
+    readonly clusterId: string;
     /**
      * (Memcached only) The configuration endpoint to allow host discovery.
      */

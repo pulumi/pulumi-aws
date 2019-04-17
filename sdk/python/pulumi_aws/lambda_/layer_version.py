@@ -117,7 +117,7 @@ class LayerVersion(pulumi.CustomResource):
         __props__['filename'] = filename
 
         if layer_name is None:
-            raise TypeError('Missing required property layer_name')
+            raise TypeError("Missing required property 'layer_name'")
         __props__['layer_name'] = layer_name
 
         __props__['license_info'] = license_info

@@ -24,6 +24,10 @@ func LookupCertificate(ctx *pulumi.Context, args *GetCertificateArgs) (*GetCerti
 	}
 	return &GetCertificateResult{
 		Arn: outputs["arn"],
+		Domain: outputs["domain"],
+		MostRecent: outputs["mostRecent"],
+		Statuses: outputs["statuses"],
+		Types: outputs["types"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -46,6 +50,10 @@ type GetCertificateArgs struct {
 type GetCertificateResult struct {
 	// Set to the ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
 	Arn interface{}
+	Domain interface{}
+	MostRecent interface{}
+	Statuses interface{}
+	Types interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

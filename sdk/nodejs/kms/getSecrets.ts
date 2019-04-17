@@ -33,6 +33,7 @@ export interface GetSecretsResult {
      * Map containing each `secret` `name` as the key with its decrypted plaintext value
      */
     readonly plaintext: {[key: string]: string};
+    readonly secrets: { context?: {[key: string]: string}, grantTokens?: string[], name: string, payload: string }[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

@@ -49,11 +49,11 @@ class Attachment(pulumi.CustomResource):
         __props__ = dict()
 
         if elb is None:
-            raise TypeError('Missing required property elb')
+            raise TypeError("Missing required property 'elb'")
         __props__['elb'] = elb
 
         if instance is None:
-            raise TypeError('Missing required property instance')
+            raise TypeError("Missing required property 'instance'")
         __props__['instance'] = instance
 
         super(Attachment, __self__).__init__(

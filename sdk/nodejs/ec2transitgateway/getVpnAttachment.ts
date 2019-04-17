@@ -52,6 +52,8 @@ export interface GetVpnAttachmentResult {
      * Key-value tags for the EC2 Transit Gateway VPN Attachment
      */
     readonly tags: {[key: string]: any};
+    readonly transitGatewayId: string;
+    readonly vpnConnectionId: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

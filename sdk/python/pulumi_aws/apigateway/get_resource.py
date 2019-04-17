@@ -12,21 +12,27 @@ class GetResourceResult:
     """
     A collection of values returned by getResource.
     """
-    def __init__(__self__, parent_id=None, path_part=None, id=None):
+    def __init__(__self__, parent_id=None, path=None, path_part=None, rest_api_id=None, id=None):
         if parent_id and not isinstance(parent_id, str):
-            raise TypeError('Expected argument parent_id to be a str')
+            raise TypeError("Expected argument 'parent_id' to be a str")
         __self__.parent_id = parent_id
         """
         Set to the ID of the parent Resource.
         """
+        if path and not isinstance(path, str):
+            raise TypeError("Expected argument 'path' to be a str")
+        __self__.path = path
         if path_part and not isinstance(path_part, str):
-            raise TypeError('Expected argument path_part to be a str')
+            raise TypeError("Expected argument 'path_part' to be a str")
         __self__.path_part = path_part
         """
         Set to the path relative to the parent Resource.
         """
+        if rest_api_id and not isinstance(rest_api_id, str):
+            raise TypeError("Expected argument 'rest_api_id' to be a str")
+        __self__.rest_api_id = rest_api_id
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -45,5 +51,7 @@ async def get_resource(path=None,rest_api_id=None,opts=None):
 
     return GetResourceResult(
         parent_id=__ret__.get('parentId'),
+        path=__ret__.get('path'),
         path_part=__ret__.get('pathPart'),
+        rest_api_id=__ret__.get('restApiId'),
         id=__ret__.get('id'))

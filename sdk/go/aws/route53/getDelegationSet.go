@@ -21,6 +21,7 @@ func LookupDelegationSet(ctx *pulumi.Context, args *GetDelegationSetArgs) (*GetD
 	}
 	return &GetDelegationSetResult{
 		CallerReference: outputs["callerReference"],
+		Id: outputs["id"],
 		NameServers: outputs["nameServers"],
 	}, nil
 }
@@ -34,5 +35,6 @@ type GetDelegationSetArgs struct {
 // A collection of values returned by getDelegationSet.
 type GetDelegationSetResult struct {
 	CallerReference interface{}
+	Id interface{}
 	NameServers interface{}
 }
