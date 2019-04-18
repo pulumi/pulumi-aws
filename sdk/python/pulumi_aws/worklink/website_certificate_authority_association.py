@@ -8,32 +8,32 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class Endpoint(pulumi.CustomResource):
-    arn: pulumi.Output[str]
+class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
+    certificate: pulumi.Output[str]
     """
-    The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
+    The root certificate of the Certificate Authority.
     """
-    endpoint_config_name: pulumi.Output[str]
+    display_name: pulumi.Output[str]
     """
-    The name of the endpoint configuration to use.
+    The certificate name to display.
     """
-    name: pulumi.Output[str]
+    fleet_arn: pulumi.Output[str]
     """
-    The name of the endpoint. If omitted, Terraform will assign a random, unique name.
+    The ARN of the fleet.
     """
-    tags: pulumi.Output[dict]
+    website_ca_id: pulumi.Output[str]
     """
-    A mapping of tags to assign to the resource.
+    A unique identifier for the Certificate Authority.
     """
-    def __init__(__self__, resource_name, opts=None, endpoint_config_name=None, name=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, certificate=None, display_name=None, fleet_arn=None, __name__=None, __opts__=None):
         """
-        Provides a SageMaker Endpoint resource.
+        Create a WebsiteCertificateAuthorityAssociation resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] endpoint_config_name: The name of the endpoint configuration to use.
-        :param pulumi.Input[str] name: The name of the endpoint. If omitted, Terraform will assign a random, unique name.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] certificate: The root certificate of the Certificate Authority.
+        :param pulumi.Input[str] display_name: The certificate name to display.
+        :param pulumi.Input[str] fleet_arn: The ARN of the fleet.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -50,18 +50,20 @@ class Endpoint(pulumi.CustomResource):
 
         __props__ = dict()
 
-        if endpoint_config_name is None:
-            raise TypeError("Missing required property 'endpoint_config_name'")
-        __props__['endpoint_config_name'] = endpoint_config_name
+        if certificate is None:
+            raise TypeError("Missing required property 'certificate'")
+        __props__['certificate'] = certificate
 
-        __props__['name'] = name
+        __props__['display_name'] = display_name
 
-        __props__['tags'] = tags
+        if fleet_arn is None:
+            raise TypeError("Missing required property 'fleet_arn'")
+        __props__['fleet_arn'] = fleet_arn
 
-        __props__['arn'] = None
+        __props__['website_ca_id'] = None
 
-        super(Endpoint, __self__).__init__(
-            'aws:sagemaker/endpoint:Endpoint',
+        super(WebsiteCertificateAuthorityAssociation, __self__).__init__(
+            'aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation',
             resource_name,
             __props__,
             opts)

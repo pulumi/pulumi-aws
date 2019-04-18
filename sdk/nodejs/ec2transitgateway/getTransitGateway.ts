@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * 
  * const example = pulumi.output(aws.ec2transitgateway.getTransitGateway({
  *     filters: [{
- *         name: "amazon-side-asn",
+ *         name: "options.amazon-side-asn",
  *         values: ["64512"],
  *     }],
  * }));

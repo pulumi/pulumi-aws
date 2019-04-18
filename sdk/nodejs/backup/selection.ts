@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = new aws.backup.Selection("example", {
- *     iamRole: "arn:aws:iam::123456789012:role/service-role/AWSBackupDefaultServiceRole",
+ *     iamRoleArn: "arn:aws:iam::123456789012:role/service-role/AWSBackupDefaultServiceRole",
  *     planId: aws_backup_plan_example.id,
  *     resources: ["arn:aws:ec2:us-east-1:123456789012:volume/"],
- *     tag: [{
+ *     selectionTags: [{
  *         key: "foo",
  *         type: "STRINGEQUALS",
  *         value: "bar",
@@ -38,6 +38,9 @@ export class Selection extends pulumi.CustomResource {
         return new Selection(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+     */
     public readonly iamRoleArn: pulumi.Output<string>;
     /**
      * The display name of a resource selection document.
@@ -95,6 +98,9 @@ export class Selection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Selection resources.
  */
 export interface SelectionState {
+    /**
+     * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+     */
     readonly iamRoleArn?: pulumi.Input<string>;
     /**
      * The display name of a resource selection document.
@@ -118,6 +124,9 @@ export interface SelectionState {
  * The set of arguments for constructing a Selection resource.
  */
 export interface SelectionArgs {
+    /**
+     * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+     */
     readonly iamRoleArn: pulumi.Input<string>;
     /**
      * The display name of a resource selection document.

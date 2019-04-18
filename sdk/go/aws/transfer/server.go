@@ -17,6 +17,8 @@ func NewServer(ctx *pulumi.Context,
 	name string, args *ServerArgs, opts ...pulumi.ResourceOpt) (*Server, error) {
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["endpointDetails"] = nil
+		inputs["endpointType"] = nil
 		inputs["forceDestroy"] = nil
 		inputs["identityProviderType"] = nil
 		inputs["invocationRole"] = nil
@@ -24,6 +26,8 @@ func NewServer(ctx *pulumi.Context,
 		inputs["tags"] = nil
 		inputs["url"] = nil
 	} else {
+		inputs["endpointDetails"] = args.EndpointDetails
+		inputs["endpointType"] = args.EndpointType
 		inputs["forceDestroy"] = args.ForceDestroy
 		inputs["identityProviderType"] = args.IdentityProviderType
 		inputs["invocationRole"] = args.InvocationRole
@@ -48,6 +52,8 @@ func GetServer(ctx *pulumi.Context,
 	if state != nil {
 		inputs["arn"] = state.Arn
 		inputs["endpoint"] = state.Endpoint
+		inputs["endpointDetails"] = state.EndpointDetails
+		inputs["endpointType"] = state.EndpointType
 		inputs["forceDestroy"] = state.ForceDestroy
 		inputs["identityProviderType"] = state.IdentityProviderType
 		inputs["invocationRole"] = state.InvocationRole
@@ -80,6 +86,16 @@ func (r *Server) Arn() *pulumi.StringOutput {
 // The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
 func (r *Server) Endpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["endpoint"])
+}
+
+// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
+func (r *Server) EndpointDetails() *pulumi.Output {
+	return r.s.State["endpointDetails"]
+}
+
+// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.
+func (r *Server) EndpointType() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["endpointType"])
 }
 
 // A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
@@ -118,6 +134,10 @@ type ServerState struct {
 	Arn interface{}
 	// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
 	Endpoint interface{}
+	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
+	EndpointDetails interface{}
+	// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.
+	EndpointType interface{}
 	// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
 	ForceDestroy interface{}
 	// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
@@ -134,6 +154,10 @@ type ServerState struct {
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
+	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
+	EndpointDetails interface{}
+	// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.
+	EndpointType interface{}
 	// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
 	ForceDestroy interface{}
 	// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.

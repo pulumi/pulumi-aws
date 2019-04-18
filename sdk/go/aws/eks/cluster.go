@@ -24,11 +24,13 @@ func NewCluster(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["enabledClusterLogTypes"] = nil
 		inputs["name"] = nil
 		inputs["roleArn"] = nil
 		inputs["version"] = nil
 		inputs["vpcConfig"] = nil
 	} else {
+		inputs["enabledClusterLogTypes"] = args.EnabledClusterLogTypes
 		inputs["name"] = args.Name
 		inputs["roleArn"] = args.RoleArn
 		inputs["version"] = args.Version
@@ -55,6 +57,7 @@ func GetCluster(ctx *pulumi.Context,
 		inputs["arn"] = state.Arn
 		inputs["certificateAuthority"] = state.CertificateAuthority
 		inputs["createdAt"] = state.CreatedAt
+		inputs["enabledClusterLogTypes"] = state.EnabledClusterLogTypes
 		inputs["endpoint"] = state.Endpoint
 		inputs["name"] = state.Name
 		inputs["platformVersion"] = state.PlatformVersion
@@ -91,6 +94,11 @@ func (r *Cluster) CertificateAuthority() *pulumi.Output {
 
 func (r *Cluster) CreatedAt() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["createdAt"])
+}
+
+// A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
+func (r *Cluster) EnabledClusterLogTypes() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["enabledClusterLogTypes"])
 }
 
 // The endpoint for your Kubernetes API server.
@@ -130,6 +138,8 @@ type ClusterState struct {
 	// Nested attribute containing `certificate-authority-data` for your cluster.
 	CertificateAuthority interface{}
 	CreatedAt interface{}
+	// A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
+	EnabledClusterLogTypes interface{}
 	// The endpoint for your Kubernetes API server.
 	Endpoint interface{}
 	// Name of the cluster.
@@ -146,6 +156,8 @@ type ClusterState struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	// A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
+	EnabledClusterLogTypes interface{}
 	// Name of the cluster.
 	Name interface{}
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.

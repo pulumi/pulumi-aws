@@ -14,6 +14,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = new aws.eks.Cluster("example", {
+ *     enabledClusterLogTypes: [
+ *         "api",
+ *         "audit",
+ *     ],
  *     roleArn: aws_iam_role_example.arn,
  *     vpcConfig: {
  *         subnetIds: [
@@ -49,6 +53,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly certificateAuthority: pulumi.Output<{ data: string }>;
     public /*out*/ readonly createdAt: pulumi.Output<string>;
+    /**
+     * A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
+     */
+    public readonly enabledClusterLogTypes: pulumi.Output<string[] | undefined>;
     /**
      * The endpoint for your Kubernetes API server.
      */
@@ -89,6 +97,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
             inputs["createdAt"] = state ? state.createdAt : undefined;
+            inputs["enabledClusterLogTypes"] = state ? state.enabledClusterLogTypes : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["platformVersion"] = state ? state.platformVersion : undefined;
@@ -103,6 +112,7 @@ export class Cluster extends pulumi.CustomResource {
             if (!args || args.vpcConfig === undefined) {
                 throw new Error("Missing required property 'vpcConfig'");
             }
+            inputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["version"] = args ? args.version : undefined;
@@ -130,6 +140,10 @@ export interface ClusterState {
      */
     readonly certificateAuthority?: pulumi.Input<{ data?: pulumi.Input<string> }>;
     readonly createdAt?: pulumi.Input<string>;
+    /**
+     * A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
+     */
+    readonly enabledClusterLogTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The endpoint for your Kubernetes API server.
      */
@@ -160,6 +174,10 @@ export interface ClusterState {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
+     */
+    readonly enabledClusterLogTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the cluster.
      */

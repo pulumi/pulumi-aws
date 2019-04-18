@@ -18,8 +18,10 @@ func NewMesh(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["name"] = nil
+		inputs["spec"] = nil
 	} else {
 		inputs["name"] = args.Name
+		inputs["spec"] = args.Spec
 	}
 	inputs["arn"] = nil
 	inputs["createdDate"] = nil
@@ -41,6 +43,7 @@ func GetMesh(ctx *pulumi.Context,
 		inputs["createdDate"] = state.CreatedDate
 		inputs["lastUpdatedDate"] = state.LastUpdatedDate
 		inputs["name"] = state.Name
+		inputs["spec"] = state.Spec
 	}
 	s, err := ctx.ReadResource("aws:appmesh/mesh:Mesh", name, id, inputs, opts...)
 	if err != nil {
@@ -79,6 +82,11 @@ func (r *Mesh) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// The service mesh specification to apply.
+func (r *Mesh) Spec() *pulumi.Output {
+	return r.s.State["spec"]
+}
+
 // Input properties used for looking up and filtering Mesh resources.
 type MeshState struct {
 	// The ARN of the service mesh.
@@ -89,10 +97,14 @@ type MeshState struct {
 	LastUpdatedDate interface{}
 	// The name to use for the service mesh.
 	Name interface{}
+	// The service mesh specification to apply.
+	Spec interface{}
 }
 
 // The set of arguments for constructing a Mesh resource.
 type MeshArgs struct {
 	// The name to use for the service mesh.
 	Name interface{}
+	// The service mesh specification to apply.
+	Spec interface{}
 }

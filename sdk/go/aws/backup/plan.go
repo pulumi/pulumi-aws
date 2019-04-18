@@ -87,7 +87,7 @@ func (r *Plan) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan. 
+// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
 func (r *Plan) Version() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["version"])
 }
@@ -102,7 +102,7 @@ type PlanState struct {
 	Rules interface{}
 	// Metadata that you can assign to help organize the plans you create.
 	Tags interface{}
-	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan. 
+	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
 	Version interface{}
 }
 

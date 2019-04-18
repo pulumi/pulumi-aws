@@ -759,6 +759,7 @@
         "wafregional/xssMatchSet.ts",
         "worklink/fleet.ts",
         "worklink/index.ts",
+        "worklink/websiteCertificateAuthorityAssociation.ts",
         "workspaces/getBundle.ts",
         "workspaces/index.ts"
     ]

@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides a resource to create an association between a WAF Regional WebACL and Application Load Balancer.
+// Manages an association with WAF Regional Web ACL.
 // 
 // > **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
 type WebAclAssociation struct {
@@ -65,7 +65,7 @@ func (r *WebAclAssociation) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Application Load Balancer ARN to associate with.
+// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
 func (r *WebAclAssociation) ResourceArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceArn"])
 }
@@ -77,7 +77,7 @@ func (r *WebAclAssociation) WebAclId() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering WebAclAssociation resources.
 type WebAclAssociationState struct {
-	// Application Load Balancer ARN to associate with.
+	// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
 	ResourceArn interface{}
 	// The ID of the WAF Regional WebACL to create an association.
 	WebAclId interface{}
@@ -85,7 +85,7 @@ type WebAclAssociationState struct {
 
 // The set of arguments for constructing a WebAclAssociation resource.
 type WebAclAssociationArgs struct {
-	// Application Load Balancer ARN to associate with.
+	// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
 	ResourceArn interface{}
 	// The ID of the WAF Regional WebACL to create an association.
 	WebAclId interface{}

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to create an association between a WAF Regional WebACL and Application Load Balancer.
+ * Manages an association with WAF Regional Web ACL.
  * 
  * > **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
  * 
@@ -83,7 +83,7 @@ export class WebAclAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * Application Load Balancer ARN to associate with.
+     * ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
      */
     public readonly resourceArn: pulumi.Output<string>;
     /**
@@ -125,7 +125,7 @@ export class WebAclAssociation extends pulumi.CustomResource {
  */
 export interface WebAclAssociationState {
     /**
-     * Application Load Balancer ARN to associate with.
+     * ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
      */
     readonly resourceArn?: pulumi.Input<string>;
     /**
@@ -139,7 +139,7 @@ export interface WebAclAssociationState {
  */
 export interface WebAclAssociationArgs {
     /**
-     * Application Load Balancer ARN to associate with.
+     * ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
      */
     readonly resourceArn: pulumi.Input<string>;
     /**

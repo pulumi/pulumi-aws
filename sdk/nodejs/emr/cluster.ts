@@ -593,7 +593,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly serviceRole: pulumi.Output<string>;
     /**
-     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
     public readonly steps: pulumi.Output<{ actionOnFailure: string, hadoopJarStep: { args?: string[], jar: string, mainClass?: string, properties?: {[key: string]: any} }, name: string }[]>;
     /**
@@ -782,7 +782,7 @@ export interface ClusterState {
      */
     readonly serviceRole?: pulumi.Input<string>;
     /**
-     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
     readonly steps?: pulumi.Input<pulumi.Input<{ actionOnFailure: pulumi.Input<string>, hadoopJarStep: pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, jar: pulumi.Input<string>, mainClass?: pulumi.Input<string>, properties?: pulumi.Input<{[key: string]: any}> }>, name: pulumi.Input<string> }>[]>;
     /**
@@ -888,7 +888,7 @@ export interface ClusterArgs {
      */
     readonly serviceRole: pulumi.Input<string>;
     /**
-     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
     readonly steps?: pulumi.Input<pulumi.Input<{ actionOnFailure: pulumi.Input<string>, hadoopJarStep: pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, jar: pulumi.Input<string>, mainClass?: pulumi.Input<string>, properties?: pulumi.Input<{[key: string]: any}> }>, name: pulumi.Input<string> }>[]>;
     /**
