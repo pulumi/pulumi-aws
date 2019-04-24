@@ -1,0 +1,3 @@
+name: ignorechanges
+runtime: nodejs
+description: AWS examples highighting `ignoreChanges`

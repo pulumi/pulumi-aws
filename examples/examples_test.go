@@ -69,6 +69,20 @@ func TestExamples(t *testing.T) {
 			},
 		}),
 		baseJS.With(integration.ProgramTestOptions{
+			Dir: path.Join(cwd, "ignoreChanges"),
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      path.Join(cwd, "ignoreChanges", "step1"),
+					Additive: true,
+					ExtraRuntimeValidation: func(t *testing.T, info integration.RuntimeValidationStackInfo) {
+						// Verify that the change to `"bar"` was succesfully ignored.
+						assert.Equal(t, "foo", info.Deployment.Resources[2].Inputs["bucketPrefix"])
+						assert.Equal(t, "foo", info.Deployment.Resources[2].Outputs["bucketPrefix"])
+					},
+				},
+			},
+		}),
+		baseJS.With(integration.ProgramTestOptions{
 			Dir: path.Join(cwd, "serverless_functions"),
 			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
 				cfg := &aws.Config{
