@@ -2,11 +2,9 @@
 
 ### Improvements
 
-- Add 'healthcheck' properties to aws.ecs.ContainerDefinition API.
-
-### Improvements
-
-- Update to v0.17.8 of the `pulumi` dependency, including support for the new `ignoreChanges` resource option. [547](https://github.com/pulumi/pulumi-aws/pull/547)
+- Update to v0.17.8 of the `pulumi` dependency, including support for the new `ignoreChanges`
+  resource option. [547](https://github.com/pulumi/pulumi-aws/pull/547)
+- Add 'healthCheck' properties to aws.ecs.ContainerDefinition API.
 
 ## 0.18.2 (Released April 23rd, 2019)
 
