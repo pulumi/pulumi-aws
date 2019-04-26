@@ -26,6 +26,7 @@ func LookupTable(ctx *pulumi.Context, args *GetTableArgs) (*GetTableResult, erro
 		GlobalSecondaryIndexes: outputs["globalSecondaryIndexes"],
 		HashKey: outputs["hashKey"],
 		LocalSecondaryIndexes: outputs["localSecondaryIndexes"],
+		Name: outputs["name"],
 		PointInTimeRecovery: outputs["pointInTimeRecovery"],
 		RangeKey: outputs["rangeKey"],
 		ReadCapacity: outputs["readCapacity"],
@@ -57,6 +58,7 @@ type GetTableResult struct {
 	GlobalSecondaryIndexes interface{}
 	HashKey interface{}
 	LocalSecondaryIndexes interface{}
+	Name interface{}
 	PointInTimeRecovery interface{}
 	RangeKey interface{}
 	ReadCapacity interface{}

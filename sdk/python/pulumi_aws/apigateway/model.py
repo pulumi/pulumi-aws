@@ -57,7 +57,7 @@ class Model(pulumi.CustomResource):
         __props__ = dict()
 
         if content_type is None:
-            raise TypeError('Missing required property content_type')
+            raise TypeError("Missing required property 'content_type'")
         __props__['content_type'] = content_type
 
         __props__['description'] = description
@@ -65,7 +65,7 @@ class Model(pulumi.CustomResource):
         __props__['name'] = name
 
         if rest_api is None:
-            raise TypeError('Missing required property rest_api')
+            raise TypeError("Missing required property 'rest_api'")
         __props__['rest_api'] = rest_api
 
         __props__['schema'] = schema

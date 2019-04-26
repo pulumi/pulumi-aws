@@ -111,7 +111,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         __props__['description'] = description
 
         if from_port is None:
-            raise TypeError('Missing required property from_port')
+            raise TypeError("Missing required property 'from_port'")
         __props__['from_port'] = from_port
 
         __props__['ipv6_cidr_blocks'] = ipv6_cidr_blocks
@@ -119,11 +119,11 @@ class SecurityGroupRule(pulumi.CustomResource):
         __props__['prefix_list_ids'] = prefix_list_ids
 
         if protocol is None:
-            raise TypeError('Missing required property protocol')
+            raise TypeError("Missing required property 'protocol'")
         __props__['protocol'] = protocol
 
         if security_group_id is None:
-            raise TypeError('Missing required property security_group_id')
+            raise TypeError("Missing required property 'security_group_id'")
         __props__['security_group_id'] = security_group_id
 
         __props__['self'] = self
@@ -131,11 +131,11 @@ class SecurityGroupRule(pulumi.CustomResource):
         __props__['source_security_group_id'] = source_security_group_id
 
         if to_port is None:
-            raise TypeError('Missing required property to_port')
+            raise TypeError("Missing required property 'to_port'")
         __props__['to_port'] = to_port
 
         if type is None:
-            raise TypeError('Missing required property type')
+            raise TypeError("Missing required property 'type'")
         __props__['type'] = type
 
         super(SecurityGroupRule, __self__).__init__(

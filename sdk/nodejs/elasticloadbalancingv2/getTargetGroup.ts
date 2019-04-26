@@ -60,14 +60,16 @@ export interface GetTargetGroupResult {
     readonly arn: string;
     readonly arnSuffix: string;
     readonly deregistrationDelay: number;
-    readonly healthCheck: { healthyThreshold: number, interval: number, matcher: string, path: string, port: string, protocol: string, timeout: number, unhealthyThreshold: number };
+    readonly healthCheck: { enabled: boolean, healthyThreshold: number, interval: number, matcher: string, path: string, port: string, protocol: string, timeout: number, unhealthyThreshold: number };
     readonly lambdaMultiValueHeadersEnabled: boolean;
     readonly name: string;
     readonly port: number;
     readonly protocol: string;
+    readonly proxyProtocolV2: boolean;
     readonly slowStart: number;
     readonly stickiness: { cookieDuration: number, enabled: boolean, type: string };
     readonly tags: {[key: string]: any};
+    readonly targetType: string;
     readonly vpcId: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.

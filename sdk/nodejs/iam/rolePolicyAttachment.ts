@@ -76,7 +76,7 @@ export class RolePolicyAttachment extends pulumi.CustomResource {
     /**
      * The role the policy should be applied to
      */
-    public readonly role: pulumi.Output<Role>;
+    public readonly role: pulumi.Output<string>;
 
     /**
      * Create a RolePolicyAttachment resource with the given unique name, arguments, and options.
@@ -118,7 +118,7 @@ export interface RolePolicyAttachmentState {
     /**
      * The role the policy should be applied to
      */
-    readonly role?: pulumi.Input<Role>;
+    readonly role?: pulumi.Input<string | Role>;
 }
 
 /**
@@ -132,5 +132,5 @@ export interface RolePolicyAttachmentArgs {
     /**
      * The role the policy should be applied to
      */
-    readonly role: pulumi.Input<Role>;
+    readonly role: pulumi.Input<string | Role>;
 }

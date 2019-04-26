@@ -20,6 +20,7 @@ func LookupRepository(ctx *pulumi.Context, args *GetRepositoryArgs) (*GetReposit
 	}
 	return &GetRepositoryResult{
 		Arn: outputs["arn"],
+		Name: outputs["name"],
 		RegistryId: outputs["registryId"],
 		RepositoryUrl: outputs["repositoryUrl"],
 		Tags: outputs["tags"],
@@ -38,6 +39,7 @@ type GetRepositoryArgs struct {
 type GetRepositoryResult struct {
 	// Full ARN of the repository.
 	Arn interface{}
+	Name interface{}
 	// The registry ID where the repository was created.
 	RegistryId interface{}
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).

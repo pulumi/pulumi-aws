@@ -42,6 +42,7 @@ export interface GetGatewayResult {
      * The ASN on the Amazon side of the connection.
      */
     readonly amazonSideAsn: string;
+    readonly name: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

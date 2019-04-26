@@ -59,7 +59,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
         __props__['name'] = name
 
         if vpc is None:
-            raise TypeError('Missing required property vpc')
+            raise TypeError("Missing required property 'vpc'")
         __props__['vpc'] = vpc
 
         __props__['arn'] = None

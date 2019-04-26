@@ -122,13 +122,13 @@ class Document(pulumi.CustomResource):
         __props__ = dict()
 
         if content is None:
-            raise TypeError('Missing required property content')
+            raise TypeError("Missing required property 'content'")
         __props__['content'] = content
 
         __props__['document_format'] = document_format
 
         if document_type is None:
-            raise TypeError('Missing required property document_type')
+            raise TypeError("Missing required property 'document_type'")
         __props__['document_type'] = document_type
 
         __props__['name'] = name

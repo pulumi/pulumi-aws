@@ -23,6 +23,7 @@ func LookupVpcDhcpOptions(ctx *pulumi.Context, args *GetVpcDhcpOptionsArgs) (*Ge
 		DhcpOptionsId: outputs["dhcpOptionsId"],
 		DomainName: outputs["domainName"],
 		DomainNameServers: outputs["domainNameServers"],
+		Filters: outputs["filters"],
 		NetbiosNameServers: outputs["netbiosNameServers"],
 		NetbiosNodeType: outputs["netbiosNodeType"],
 		NtpServers: outputs["ntpServers"],
@@ -49,6 +50,7 @@ type GetVpcDhcpOptionsResult struct {
 	DomainName interface{}
 	// List of name servers.
 	DomainNameServers interface{}
+	Filters interface{}
 	// List of NETBIOS name servers.
 	NetbiosNameServers interface{}
 	// The NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).

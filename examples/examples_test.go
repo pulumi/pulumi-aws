@@ -14,6 +14,10 @@ import (
 	"github.com/stretchr/testify/assert"
 
 	"github.com/pulumi/pulumi/pkg/testing/integration"
+
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/lambda"
 )
 
 func TestExamples(t *testing.T) {
@@ -32,6 +36,7 @@ func TestExamples(t *testing.T) {
 			"aws:region": region,
 		},
 	}
+
 	baseJS := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
 			"@pulumi/aws",
@@ -51,18 +56,54 @@ func TestExamples(t *testing.T) {
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "table"), ExpectRefreshChanges: true}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "topic"), ExpectRefreshChanges: true}),
 		baseJS.With(integration.ProgramTestOptions{
-			Dir: path.Join(cwd, "api"),
-			ExtraRuntimeValidation: validateAPITest(func(body string) {
-				assert.Equal(t, "Hello, world!", body)
-			}),
-			EditDirs: []integration.EditDir{{
-				Dir:      "./api/step2",
-				Additive: true,
-				ExtraRuntimeValidation: validateAPITest(func(body string) {
-					assert.Equal(t, "<h1>Hello world!</h1>", body)
-				}),
-			}},
-			ExpectRefreshChanges: true,
+			Dir: path.Join(cwd, "delete_before_create", "mount_target", "step1"),
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      "step2",
+					Additive: true,
+				},
+				{
+					Dir:      "step3",
+					Additive: true,
+				},
+			},
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir: path.Join(cwd, "ignoreChanges"),
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      path.Join(cwd, "ignoreChanges", "step1"),
+					Additive: true,
+					ExtraRuntimeValidation: func(t *testing.T, info integration.RuntimeValidationStackInfo) {
+						// Verify that the change to `"bar"` was succesfully ignored.
+						assert.Equal(t, "foo", info.Deployment.Resources[2].Inputs["bucketPrefix"])
+						assert.Equal(t, "foo", info.Deployment.Resources[2].Outputs["bucketPrefix"])
+					},
+				},
+			},
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir: path.Join(cwd, "serverless_functions"),
+			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+				cfg := &aws.Config{
+					Region: aws.String("us-west-2"),
+				}
+				sess, err := session.NewSession(cfg)
+				if !assert.NoError(t, err) {
+					return
+				}
+				lambdaSvc := lambda.New(sess)
+				out, err := lambdaSvc.Invoke(&lambda.InvokeInput{
+					FunctionName: aws.String(stack.Outputs["functionARN"].(string)),
+				})
+				if !assert.NoError(t, err) {
+					return
+				}
+
+				if out.FunctionError != nil {
+					assert.Nil(t, out.FunctionError, "Function error: %q\n", *out.FunctionError)
+				}
+			},
 		}),
 	}
 

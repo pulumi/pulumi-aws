@@ -31,6 +31,7 @@ func LookupBroker(ctx *pulumi.Context, args *GetBrokerArgs) (*GetBrokerResult, e
 		EngineVersion: outputs["engineVersion"],
 		HostInstanceType: outputs["hostInstanceType"],
 		Instances: outputs["instances"],
+		Logs: outputs["logs"],
 		MaintenanceWindowStartTime: outputs["maintenanceWindowStartTime"],
 		PubliclyAccessible: outputs["publiclyAccessible"],
 		SecurityGroups: outputs["securityGroups"],
@@ -63,6 +64,7 @@ type GetBrokerResult struct {
 	EngineVersion interface{}
 	HostInstanceType interface{}
 	Instances interface{}
+	Logs interface{}
 	MaintenanceWindowStartTime interface{}
 	PubliclyAccessible interface{}
 	SecurityGroups interface{}

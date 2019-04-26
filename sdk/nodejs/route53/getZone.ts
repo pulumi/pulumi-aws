@@ -91,6 +91,7 @@ export interface GetZoneResult {
      * The list of DNS name servers for the Hosted Zone.
      */
     readonly nameServers: string[];
+    readonly privateZone?: boolean;
     /**
      * the number of Record Set in the Hosted Zone
      */

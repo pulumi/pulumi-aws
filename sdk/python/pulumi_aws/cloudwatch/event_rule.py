@@ -44,7 +44,11 @@ class EventRule(pulumi.CustomResource):
     The scheduling expression.
     For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, event_pattern=None, is_enabled=None, name=None, name_prefix=None, role_arn=None, schedule_expression=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
+    def __init__(__self__, resource_name, opts=None, description=None, event_pattern=None, is_enabled=None, name=None, name_prefix=None, role_arn=None, schedule_expression=None, tags=None, __name__=None, __opts__=None):
         """
         Provides a CloudWatch Event Rule resource.
         
@@ -60,6 +64,7 @@ class EventRule(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
         :param pulumi.Input[str] schedule_expression: The scheduling expression.
                For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -89,6 +94,8 @@ class EventRule(pulumi.CustomResource):
         __props__['role_arn'] = role_arn
 
         __props__['schedule_expression'] = schedule_expression
+
+        __props__['tags'] = tags
 
         __props__['arn'] = None
 

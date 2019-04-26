@@ -28,13 +28,19 @@ func LookupClusterSnapshot(ctx *pulumi.Context, args *GetClusterSnapshotArgs) (*
 	return &GetClusterSnapshotResult{
 		AllocatedStorage: outputs["allocatedStorage"],
 		AvailabilityZones: outputs["availabilityZones"],
+		DbClusterIdentifier: outputs["dbClusterIdentifier"],
 		DbClusterSnapshotArn: outputs["dbClusterSnapshotArn"],
+		DbClusterSnapshotIdentifier: outputs["dbClusterSnapshotIdentifier"],
 		Engine: outputs["engine"],
 		EngineVersion: outputs["engineVersion"],
+		IncludePublic: outputs["includePublic"],
+		IncludeShared: outputs["includeShared"],
 		KmsKeyId: outputs["kmsKeyId"],
 		LicenseModel: outputs["licenseModel"],
+		MostRecent: outputs["mostRecent"],
 		Port: outputs["port"],
 		SnapshotCreateTime: outputs["snapshotCreateTime"],
+		SnapshotType: outputs["snapshotType"],
 		SourceDbClusterSnapshotArn: outputs["sourceDbClusterSnapshotArn"],
 		Status: outputs["status"],
 		StorageEncrypted: outputs["storageEncrypted"],
@@ -70,20 +76,27 @@ type GetClusterSnapshotResult struct {
 	AllocatedStorage interface{}
 	// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
 	AvailabilityZones interface{}
+	// Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
+	DbClusterIdentifier interface{}
 	// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
 	DbClusterSnapshotArn interface{}
+	DbClusterSnapshotIdentifier interface{}
 	// Specifies the name of the database engine.
 	Engine interface{}
 	// Version of the database engine for this DB cluster snapshot.
 	EngineVersion interface{}
+	IncludePublic interface{}
+	IncludeShared interface{}
 	// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
 	KmsKeyId interface{}
 	// License model information for the restored DB cluster.
 	LicenseModel interface{}
+	MostRecent interface{}
 	// Port that the DB cluster was listening on at the time of the snapshot.
 	Port interface{}
 	// Time when the snapshot was taken, in Universal Coordinated Time (UTC).
 	SnapshotCreateTime interface{}
+	SnapshotType interface{}
 	SourceDbClusterSnapshotArn interface{}
 	// The status of this DB Cluster Snapshot.
 	Status interface{}

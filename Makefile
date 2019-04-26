@@ -11,7 +11,13 @@ PROVIDER        := pulumi-resource-${PACK}
 VERSION         := $(shell scripts/get-version)
 PYPI_VERSION    := $(shell scripts/get-py-version)
 
-TESTPARALLELISM := 4
+TESTPARALLELISM := 20
+
+tfgen::
+	go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${TFGEN}
+
+provider::
+	go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
 
 # NOTE: Since the plugin is published using the nodejs style semver version
 # We set the PLUGIN_VERSION to be the same as the version we use when building
@@ -38,12 +44,6 @@ build:: provider tfgen
 		rm ./bin/setup.py.bak && \
 		cd ./bin && $(PYTHON) setup.py build sdist
 
-provider::
-	go install -ldflags "-X github.com/pulumi/pulumi-aws/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
-
-tfgen::
-	go install -ldflags "-X github.com/pulumi/pulumi-aws/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${TFGEN}
-
 lint::
 	golangci-lint run
 
@@ -61,11 +61,9 @@ install::
 
 test_fast::
 	$(GO_TEST_FAST) ./examples
-	$(GO_TEST_FAST) ./tests/...
 
 test_all::
 	$(GO_TEST) ./examples
-	$(GO_TEST) ./tests/...
 
 .PHONY: publish_tgz
 publish_tgz:

@@ -97,7 +97,7 @@ func (r *RouteTable) PropagatingVgws() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["propagatingVgws"])
 }
 
-// A list of route objects. Their keys are documented below.
+// A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 func (r *RouteTable) Routes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["routes"])
 }
@@ -118,7 +118,7 @@ type RouteTableState struct {
 	OwnerId interface{}
 	// A list of virtual gateways for propagation.
 	PropagatingVgws interface{}
-	// A list of route objects. Their keys are documented below.
+	// A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Routes interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -130,7 +130,7 @@ type RouteTableState struct {
 type RouteTableArgs struct {
 	// A list of virtual gateways for propagation.
 	PropagatingVgws interface{}
-	// A list of route objects. Their keys are documented below.
+	// A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Routes interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

@@ -117,6 +117,8 @@ export interface GetAmiResult {
      * creation.
      */
     readonly description: string;
+    readonly executableUsers?: string[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * The hypervisor type of the image.
      */
@@ -143,14 +145,17 @@ export interface GetAmiResult {
      * for machine images.
      */
     readonly kernelId: string;
+    readonly mostRecent?: boolean;
     /**
      * The name of the AMI that was provided during image creation.
      */
     readonly name: string;
+    readonly nameRegex?: string;
     /**
      * The AWS account ID of the image owner.
      */
     readonly ownerId: string;
+    readonly owners: string[];
     /**
      * The value is Windows for `Windows` AMIs; otherwise blank.
      */

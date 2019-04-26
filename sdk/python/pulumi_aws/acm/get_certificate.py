@@ -12,15 +12,27 @@ class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
     """
-    def __init__(__self__, arn=None, id=None):
+    def __init__(__self__, arn=None, domain=None, most_recent=None, statuses=None, types=None, id=None):
         if arn and not isinstance(arn, str):
-            raise TypeError('Expected argument arn to be a str')
+            raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
         Set to the ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
         """
+        if domain and not isinstance(domain, str):
+            raise TypeError("Expected argument 'domain' to be a str")
+        __self__.domain = domain
+        if most_recent and not isinstance(most_recent, bool):
+            raise TypeError("Expected argument 'most_recent' to be a bool")
+        __self__.most_recent = most_recent
+        if statuses and not isinstance(statuses, list):
+            raise TypeError("Expected argument 'statuses' to be a list")
+        __self__.statuses = statuses
+        if types and not isinstance(types, list):
+            raise TypeError("Expected argument 'types' to be a list")
+        __self__.types = types
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -42,4 +54,8 @@ async def get_certificate(domain=None,most_recent=None,statuses=None,types=None,
 
     return GetCertificateResult(
         arn=__ret__.get('arn'),
+        domain=__ret__.get('domain'),
+        most_recent=__ret__.get('mostRecent'),
+        statuses=__ret__.get('statuses'),
+        types=__ret__.get('types'),
         id=__ret__.get('id'))

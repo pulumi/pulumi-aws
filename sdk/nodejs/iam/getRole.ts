@@ -60,6 +60,7 @@ export interface GetRoleResult {
      * Maximum session duration.
      */
     readonly maxSessionDuration: number;
+    readonly name: string;
     /**
      * The path to the role.
      */

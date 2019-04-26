@@ -12,24 +12,27 @@ class GetApplicationResult:
     """
     A collection of values returned by getApplication.
     """
-    def __init__(__self__, appversion_lifecycle=None, arn=None, description=None, id=None):
+    def __init__(__self__, appversion_lifecycle=None, arn=None, description=None, name=None, id=None):
         if appversion_lifecycle and not isinstance(appversion_lifecycle, dict):
-            raise TypeError('Expected argument appversion_lifecycle to be a dict')
+            raise TypeError("Expected argument 'appversion_lifecycle' to be a dict")
         __self__.appversion_lifecycle = appversion_lifecycle
         if arn and not isinstance(arn, str):
-            raise TypeError('Expected argument arn to be a str')
+            raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
         The Amazon Resource Name (ARN) of the application.
         """
         if description and not isinstance(description, str):
-            raise TypeError('Expected argument description to be a str')
+            raise TypeError("Expected argument 'description' to be a str")
         __self__.description = description
         """
         Short description of the application
         """
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        __self__.name = name
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -48,4 +51,5 @@ async def get_application(name=None,opts=None):
         appversion_lifecycle=__ret__.get('appversionLifecycle'),
         arn=__ret__.get('arn'),
         description=__ret__.get('description'),
+        name=__ret__.get('name'),
         id=__ret__.get('id'))

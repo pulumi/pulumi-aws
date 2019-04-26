@@ -22,6 +22,7 @@ func LookupMountTarget(ctx *pulumi.Context, args *GetMountTargetArgs) (*GetMount
 		FileSystemArn: outputs["fileSystemArn"],
 		FileSystemId: outputs["fileSystemId"],
 		IpAddress: outputs["ipAddress"],
+		MountTargetId: outputs["mountTargetId"],
 		NetworkInterfaceId: outputs["networkInterfaceId"],
 		SecurityGroups: outputs["securityGroups"],
 		SubnetId: outputs["subnetId"],
@@ -45,6 +46,7 @@ type GetMountTargetResult struct {
 	FileSystemId interface{}
 	// Address at which the file system may be mounted via the mount target.
 	IpAddress interface{}
+	MountTargetId interface{}
 	// The ID of the network interface that Amazon EFS created when it created the mount target.
 	NetworkInterfaceId interface{}
 	// List of VPC security group IDs attached to the mount target.

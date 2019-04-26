@@ -29,6 +29,10 @@ class GraphQLApi(pulumi.CustomResource):
     """
     Nested argument containing OpenID Connect configuration. Defined below.
     """
+    schema: pulumi.Output[str]
+    """
+    The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration.
+    """
     uris: pulumi.Output[dict]
     """
     Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
@@ -37,7 +41,7 @@ class GraphQLApi(pulumi.CustomResource):
     """
     The Amazon Cognito User Pool configuration. Defined below.
     """
-    def __init__(__self__, resource_name, opts=None, authentication_type=None, log_config=None, name=None, openid_connect_config=None, user_pool_config=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authentication_type=None, log_config=None, name=None, openid_connect_config=None, schema=None, user_pool_config=None, __name__=None, __opts__=None):
         """
         Provides an AppSync GraphQL API.
         
@@ -47,6 +51,7 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[dict] log_config: Nested argument containing logging configuration. Defined below.
         :param pulumi.Input[str] name: A user-supplied name for the GraphqlApi.
         :param pulumi.Input[dict] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
+        :param pulumi.Input[str] schema: The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration.
         :param pulumi.Input[dict] user_pool_config: The Amazon Cognito User Pool configuration. Defined below.
         """
         if __name__ is not None:
@@ -65,7 +70,7 @@ class GraphQLApi(pulumi.CustomResource):
         __props__ = dict()
 
         if authentication_type is None:
-            raise TypeError('Missing required property authentication_type')
+            raise TypeError("Missing required property 'authentication_type'")
         __props__['authentication_type'] = authentication_type
 
         __props__['log_config'] = log_config
@@ -73,6 +78,8 @@ class GraphQLApi(pulumi.CustomResource):
         __props__['name'] = name
 
         __props__['openid_connect_config'] = openid_connect_config
+
+        __props__['schema'] = schema
 
         __props__['user_pool_config'] = user_pool_config
 

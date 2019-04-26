@@ -102,6 +102,7 @@ export interface GetElasticIpResult {
      * Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
      */
     readonly domain: string;
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.
      */

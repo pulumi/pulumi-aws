@@ -68,11 +68,11 @@ class Connection(pulumi.CustomResource):
         __props__ = dict()
 
         if bandwidth is None:
-            raise TypeError('Missing required property bandwidth')
+            raise TypeError("Missing required property 'bandwidth'")
         __props__['bandwidth'] = bandwidth
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

@@ -19,8 +19,10 @@ func LookupNetworkAcls(ctx *pulumi.Context, args *GetNetworkAclsArgs) (*GetNetwo
 		return nil, err
 	}
 	return &GetNetworkAclsResult{
+		Filters: outputs["filters"],
 		Ids: outputs["ids"],
 		Tags: outputs["tags"],
+		VpcId: outputs["vpcId"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -38,9 +40,11 @@ type GetNetworkAclsArgs struct {
 
 // A collection of values returned by getNetworkAcls.
 type GetNetworkAclsResult struct {
+	Filters interface{}
 	// A list of all the network ACL ids found. This data source will fail if none are found.
 	Ids interface{}
 	Tags interface{}
+	VpcId interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

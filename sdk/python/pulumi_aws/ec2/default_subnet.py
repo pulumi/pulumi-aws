@@ -72,7 +72,7 @@ class DefaultSubnet(pulumi.CustomResource):
         __props__ = dict()
 
         if availability_zone is None:
-            raise TypeError('Missing required property availability_zone')
+            raise TypeError("Missing required property 'availability_zone'")
         __props__['availability_zone'] = availability_zone
 
         __props__['map_public_ip_on_launch'] = map_public_ip_on_launch

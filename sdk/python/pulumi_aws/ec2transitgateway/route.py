@@ -47,15 +47,15 @@ class Route(pulumi.CustomResource):
         __props__ = dict()
 
         if destination_cidr_block is None:
-            raise TypeError('Missing required property destination_cidr_block')
+            raise TypeError("Missing required property 'destination_cidr_block'")
         __props__['destination_cidr_block'] = destination_cidr_block
 
         if transit_gateway_attachment_id is None:
-            raise TypeError('Missing required property transit_gateway_attachment_id')
+            raise TypeError("Missing required property 'transit_gateway_attachment_id'")
         __props__['transit_gateway_attachment_id'] = transit_gateway_attachment_id
 
         if transit_gateway_route_table_id is None:
-            raise TypeError('Missing required property transit_gateway_route_table_id')
+            raise TypeError("Missing required property 'transit_gateway_route_table_id'")
         __props__['transit_gateway_route_table_id'] = transit_gateway_route_table_id
 
         super(Route, __self__).__init__(

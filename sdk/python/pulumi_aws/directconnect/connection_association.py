@@ -42,11 +42,11 @@ class ConnectionAssociation(pulumi.CustomResource):
         __props__ = dict()
 
         if connection_id is None:
-            raise TypeError('Missing required property connection_id')
+            raise TypeError("Missing required property 'connection_id'")
         __props__['connection_id'] = connection_id
 
         if lag_id is None:
-            raise TypeError('Missing required property lag_id')
+            raise TypeError("Missing required property 'lag_id'")
         __props__['lag_id'] = lag_id
 
         super(ConnectionAssociation, __self__).__init__(

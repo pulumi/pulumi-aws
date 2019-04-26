@@ -20,6 +20,7 @@ func LookupContainerDefinition(ctx *pulumi.Context, args *GetContainerDefinition
 		return nil, err
 	}
 	return &GetContainerDefinitionResult{
+		ContainerName: outputs["containerName"],
 		Cpu: outputs["cpu"],
 		DisableNetworking: outputs["disableNetworking"],
 		DockerLabels: outputs["dockerLabels"],
@@ -28,6 +29,7 @@ func LookupContainerDefinition(ctx *pulumi.Context, args *GetContainerDefinition
 		ImageDigest: outputs["imageDigest"],
 		Memory: outputs["memory"],
 		MemoryReservation: outputs["memoryReservation"],
+		TaskDefinition: outputs["taskDefinition"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -42,6 +44,7 @@ type GetContainerDefinitionArgs struct {
 
 // A collection of values returned by getContainerDefinition.
 type GetContainerDefinitionResult struct {
+	ContainerName interface{}
 	// The CPU limit for this container definition
 	Cpu interface{}
 	// Indicator if networking is disabled
@@ -58,6 +61,7 @@ type GetContainerDefinitionResult struct {
 	Memory interface{}
 	// The soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
 	MemoryReservation interface{}
+	TaskDefinition interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

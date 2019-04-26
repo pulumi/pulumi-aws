@@ -8,7 +8,9 @@ import (
 )
 
 // The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
-// by using an AWS KMS customer master key.
+// by using an AWS KMS customer master key. The value returned by this data source
+// changes every apply. For a stable ciphertext value, see the [`aws_kms_ciphertext`
+// resource](https://www.terraform.io/docs/providers/aws/r/kms_ciphertext.html).
 // 
 // > **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
@@ -25,6 +27,9 @@ func LookupCipherText(ctx *pulumi.Context, args *GetCipherTextArgs) (*GetCipherT
 	}
 	return &GetCipherTextResult{
 		CiphertextBlob: outputs["ciphertextBlob"],
+		Context: outputs["context"],
+		KeyId: outputs["keyId"],
+		Plaintext: outputs["plaintext"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -43,6 +48,9 @@ type GetCipherTextArgs struct {
 type GetCipherTextResult struct {
 	// Base64 encoded ciphertext
 	CiphertextBlob interface{}
+	Context interface{}
+	KeyId interface{}
+	Plaintext interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

@@ -21,6 +21,9 @@
 //
 // These give a better developer experience and are just sugared strings.
 
+
+import * as cloudwatch from "../cloudwatch";
+
 export let OneMinuteMetricsGranularity: MetricsGranularity = "1Minute";
 
 // See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html
@@ -46,4 +49,3 @@ export type Metric =
     "GroupStandbyInstances" |
     "GroupTerminatingInstances" |
     "GroupTotalInstances";
-

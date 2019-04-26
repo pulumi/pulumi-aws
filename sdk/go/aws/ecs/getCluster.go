@@ -20,6 +20,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 	}
 	return &GetClusterResult{
 		Arn: outputs["arn"],
+		ClusterName: outputs["clusterName"],
 		PendingTasksCount: outputs["pendingTasksCount"],
 		RegisteredContainerInstancesCount: outputs["registeredContainerInstancesCount"],
 		RunningTasksCount: outputs["runningTasksCount"],
@@ -38,6 +39,7 @@ type GetClusterArgs struct {
 type GetClusterResult struct {
 	// The ARN of the ECS Cluster
 	Arn interface{}
+	ClusterName interface{}
 	// The number of pending tasks for the ECS Cluster
 	PendingTasksCount interface{}
 	// The number of registered container instances for the ECS Cluster

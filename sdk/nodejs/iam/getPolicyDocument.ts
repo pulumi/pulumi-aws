@@ -260,6 +260,11 @@ export interface GetPolicyDocumentResult {
      * The above arguments serialized as a standard JSON policy document.
      */
     readonly json: string;
+    readonly overrideJson?: string;
+    readonly policyId?: string;
+    readonly sourceJson?: string;
+    readonly statements?: { actions?: string[], conditions?: { test: string, values: string[], variable: string }[], effect?: string, notActions?: string[], notPrincipals?: { identifiers: string[], type: string }[], notResources?: string[], principals?: { identifiers: string[], type: string }[], resources?: string[], sid?: string }[];
+    readonly version?: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

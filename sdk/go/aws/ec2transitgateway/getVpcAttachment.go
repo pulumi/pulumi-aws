@@ -21,6 +21,8 @@ func LookupVpcAttachment(ctx *pulumi.Context, args *GetVpcAttachmentArgs) (*GetV
 	}
 	return &GetVpcAttachmentResult{
 		DnsSupport: outputs["dnsSupport"],
+		Filters: outputs["filters"],
+		Id: outputs["id"],
 		Ipv6Support: outputs["ipv6Support"],
 		SubnetIds: outputs["subnetIds"],
 		Tags: outputs["tags"],
@@ -43,6 +45,9 @@ type GetVpcAttachmentArgs struct {
 type GetVpcAttachmentResult struct {
 	// Whether DNS support is enabled.
 	DnsSupport interface{}
+	Filters interface{}
+	// EC2 Transit Gateway VPC Attachment identifier
+	Id interface{}
 	// Whether IPv6 support is enabled.
 	Ipv6Support interface{}
 	// Identifiers of EC2 Subnets.

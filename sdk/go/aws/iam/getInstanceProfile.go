@@ -22,6 +22,7 @@ func LookupInstanceProfile(ctx *pulumi.Context, args *GetInstanceProfileArgs) (*
 	return &GetInstanceProfileResult{
 		Arn: outputs["arn"],
 		CreateDate: outputs["createDate"],
+		Name: outputs["name"],
 		Path: outputs["path"],
 		RoleArn: outputs["roleArn"],
 		RoleId: outputs["roleId"],
@@ -43,6 +44,7 @@ type GetInstanceProfileResult struct {
 	// The string representation of the date the instance profile
 	// was created.
 	CreateDate interface{}
+	Name interface{}
 	// The path to the instance profile.
 	Path interface{}
 	// The role arn associated with this instance profile.

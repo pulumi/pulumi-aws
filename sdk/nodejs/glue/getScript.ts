@@ -229,6 +229,9 @@ export interface GetScriptArgs {
  * A collection of values returned by getScript.
  */
 export interface GetScriptResult {
+    readonly dagEdges: { source: string, target: string, targetParameter?: string }[];
+    readonly dagNodes: { args: { name: string, param?: boolean, value: string }[], id: string, lineNumber?: number, nodeType: string }[];
+    readonly language?: string;
     /**
      * The Python script generated from the DAG when the `language` argument is set to `PYTHON`.
      */

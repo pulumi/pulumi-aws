@@ -21,6 +21,7 @@ func LookupApplication(ctx *pulumi.Context, args *GetApplicationArgs) (*GetAppli
 		AppversionLifecycle: outputs["appversionLifecycle"],
 		Arn: outputs["arn"],
 		Description: outputs["description"],
+		Name: outputs["name"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -38,6 +39,7 @@ type GetApplicationResult struct {
 	Arn interface{}
 	// Short description of the application
 	Description interface{}
+	Name interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

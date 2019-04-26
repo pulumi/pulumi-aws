@@ -88,7 +88,7 @@ class NetworkInterface(pulumi.CustomResource):
         __props__['source_dest_check'] = source_dest_check
 
         if subnet_id is None:
-            raise TypeError('Missing required property subnet_id')
+            raise TypeError("Missing required property 'subnet_id'")
         __props__['subnet_id'] = subnet_id
 
         __props__['tags'] = tags

@@ -158,7 +158,7 @@ class ClusterInstance(pulumi.CustomResource):
         __props__['availability_zone'] = availability_zone
 
         if cluster_identifier is None:
-            raise TypeError('Missing required property cluster_identifier')
+            raise TypeError("Missing required property 'cluster_identifier'")
         __props__['cluster_identifier'] = cluster_identifier
 
         __props__['engine'] = engine
@@ -170,7 +170,7 @@ class ClusterInstance(pulumi.CustomResource):
         __props__['identifier_prefix'] = identifier_prefix
 
         if instance_class is None:
-            raise TypeError('Missing required property instance_class')
+            raise TypeError("Missing required property 'instance_class'")
         __props__['instance_class'] = instance_class
 
         __props__['neptune_parameter_group_name'] = neptune_parameter_group_name

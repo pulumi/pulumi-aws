@@ -24,6 +24,7 @@ func NewLaunchTemplate(ctx *pulumi.Context,
 		inputs["disableApiTermination"] = nil
 		inputs["ebsOptimized"] = nil
 		inputs["elasticGpuSpecifications"] = nil
+		inputs["elasticInferenceAccelerator"] = nil
 		inputs["iamInstanceProfile"] = nil
 		inputs["imageId"] = nil
 		inputs["instanceInitiatedShutdownBehavior"] = nil
@@ -51,6 +52,7 @@ func NewLaunchTemplate(ctx *pulumi.Context,
 		inputs["disableApiTermination"] = args.DisableApiTermination
 		inputs["ebsOptimized"] = args.EbsOptimized
 		inputs["elasticGpuSpecifications"] = args.ElasticGpuSpecifications
+		inputs["elasticInferenceAccelerator"] = args.ElasticInferenceAccelerator
 		inputs["iamInstanceProfile"] = args.IamInstanceProfile
 		inputs["imageId"] = args.ImageId
 		inputs["instanceInitiatedShutdownBehavior"] = args.InstanceInitiatedShutdownBehavior
@@ -96,6 +98,7 @@ func GetLaunchTemplate(ctx *pulumi.Context,
 		inputs["disableApiTermination"] = state.DisableApiTermination
 		inputs["ebsOptimized"] = state.EbsOptimized
 		inputs["elasticGpuSpecifications"] = state.ElasticGpuSpecifications
+		inputs["elasticInferenceAccelerator"] = state.ElasticInferenceAccelerator
 		inputs["iamInstanceProfile"] = state.IamInstanceProfile
 		inputs["imageId"] = state.ImageId
 		inputs["instanceInitiatedShutdownBehavior"] = state.InstanceInitiatedShutdownBehavior
@@ -181,6 +184,11 @@ func (r *LaunchTemplate) EbsOptimized() *pulumi.StringOutput {
 // below for more details.
 func (r *LaunchTemplate) ElasticGpuSpecifications() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["elasticGpuSpecifications"])
+}
+
+// Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+func (r *LaunchTemplate) ElasticInferenceAccelerator() *pulumi.Output {
+	return r.s.State["elasticInferenceAccelerator"]
 }
 
 // The IAM Instance Profile to launch the instance with. See Instance Profile
@@ -312,6 +320,8 @@ type LaunchTemplateState struct {
 	// The elastic GPU to attach to the instance. See Elastic GPU
 	// below for more details.
 	ElasticGpuSpecifications interface{}
+	// Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+	ElasticInferenceAccelerator interface{}
 	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
 	IamInstanceProfile interface{}
@@ -379,6 +389,8 @@ type LaunchTemplateArgs struct {
 	// The elastic GPU to attach to the instance. See Elastic GPU
 	// below for more details.
 	ElasticGpuSpecifications interface{}
+	// Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+	ElasticInferenceAccelerator interface{}
 	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
 	IamInstanceProfile interface{}

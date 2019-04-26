@@ -38,6 +38,7 @@ func LookupRoute(ctx *pulumi.Context, args *GetRouteArgs) (*GetRouteResult, erro
 		InstanceId: outputs["instanceId"],
 		NatGatewayId: outputs["natGatewayId"],
 		NetworkInterfaceId: outputs["networkInterfaceId"],
+		RouteTableId: outputs["routeTableId"],
 		TransitGatewayId: outputs["transitGatewayId"],
 		VpcPeeringConnectionId: outputs["vpcPeeringConnectionId"],
 		Id: outputs["id"],
@@ -77,6 +78,7 @@ type GetRouteResult struct {
 	InstanceId interface{}
 	NatGatewayId interface{}
 	NetworkInterfaceId interface{}
+	RouteTableId interface{}
 	TransitGatewayId interface{}
 	VpcPeeringConnectionId interface{}
 	// id is the provider-assigned unique ID for this managed resource.

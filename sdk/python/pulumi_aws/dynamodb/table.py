@@ -134,7 +134,7 @@ class Table(pulumi.CustomResource):
         __props__ = dict()
 
         if attributes is None:
-            raise TypeError('Missing required property attributes')
+            raise TypeError("Missing required property 'attributes'")
         __props__['attributes'] = attributes
 
         __props__['billing_mode'] = billing_mode
@@ -142,7 +142,7 @@ class Table(pulumi.CustomResource):
         __props__['global_secondary_indexes'] = global_secondary_indexes
 
         if hash_key is None:
-            raise TypeError('Missing required property hash_key')
+            raise TypeError("Missing required property 'hash_key'")
         __props__['hash_key'] = hash_key
 
         __props__['local_secondary_indexes'] = local_secondary_indexes

@@ -55,17 +55,17 @@ class BaiduChannel(pulumi.CustomResource):
         __props__ = dict()
 
         if api_key is None:
-            raise TypeError('Missing required property api_key')
+            raise TypeError("Missing required property 'api_key'")
         __props__['api_key'] = api_key
 
         if application_id is None:
-            raise TypeError('Missing required property application_id')
+            raise TypeError("Missing required property 'application_id'")
         __props__['application_id'] = application_id
 
         __props__['enabled'] = enabled
 
         if secret_key is None:
-            raise TypeError('Missing required property secret_key')
+            raise TypeError("Missing required property 'secret_key'")
         __props__['secret_key'] = secret_key
 
         super(BaiduChannel, __self__).__init__(

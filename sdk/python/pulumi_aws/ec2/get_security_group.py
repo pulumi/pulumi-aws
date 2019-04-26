@@ -12,30 +12,33 @@ class GetSecurityGroupResult:
     """
     A collection of values returned by getSecurityGroup.
     """
-    def __init__(__self__, arn=None, description=None, id=None, name=None, tags=None, vpc_id=None):
+    def __init__(__self__, arn=None, description=None, filters=None, id=None, name=None, tags=None, vpc_id=None):
         if arn and not isinstance(arn, str):
-            raise TypeError('Expected argument arn to be a str')
+            raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
         The computed ARN of the security group.
         """
         if description and not isinstance(description, str):
-            raise TypeError('Expected argument description to be a str')
+            raise TypeError("Expected argument 'description' to be a str")
         __self__.description = description
         """
         The description of the security group.
         """
+        if filters and not isinstance(filters, list):
+            raise TypeError("Expected argument 'filters' to be a list")
+        __self__.filters = filters
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         if name and not isinstance(name, str):
-            raise TypeError('Expected argument name to be a str')
+            raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         if tags and not isinstance(tags, dict):
-            raise TypeError('Expected argument tags to be a dict')
+            raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         if vpc_id and not isinstance(vpc_id, str):
-            raise TypeError('Expected argument vpc_id to be a str')
+            raise TypeError("Expected argument 'vpc_id' to be a str")
         __self__.vpc_id = vpc_id
 
 async def get_security_group(filters=None,id=None,name=None,tags=None,vpc_id=None,opts=None):
@@ -58,6 +61,7 @@ async def get_security_group(filters=None,id=None,name=None,tags=None,vpc_id=Non
     return GetSecurityGroupResult(
         arn=__ret__.get('arn'),
         description=__ret__.get('description'),
+        filters=__ret__.get('filters'),
         id=__ret__.get('id'),
         name=__ret__.get('name'),
         tags=__ret__.get('tags'),

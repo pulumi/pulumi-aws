@@ -119,7 +119,7 @@ class Directory(pulumi.CustomResource):
         __props__['name'] = name
 
         if password is None:
-            raise TypeError('Missing required property password')
+            raise TypeError("Missing required property 'password'")
         __props__['password'] = password
 
         __props__['short_name'] = short_name

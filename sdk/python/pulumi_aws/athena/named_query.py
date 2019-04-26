@@ -52,7 +52,7 @@ class NamedQuery(pulumi.CustomResource):
         __props__ = dict()
 
         if database is None:
-            raise TypeError('Missing required property database')
+            raise TypeError("Missing required property 'database'")
         __props__['database'] = database
 
         __props__['description'] = description
@@ -60,7 +60,7 @@ class NamedQuery(pulumi.CustomResource):
         __props__['name'] = name
 
         if query is None:
-            raise TypeError('Missing required property query')
+            raise TypeError("Missing required property 'query'")
         __props__['query'] = query
 
         super(NamedQuery, __self__).__init__(

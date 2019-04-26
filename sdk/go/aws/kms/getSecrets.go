@@ -21,6 +21,7 @@ func LookupSecrets(ctx *pulumi.Context, args *GetSecretsArgs) (*GetSecretsResult
 	}
 	return &GetSecretsResult{
 		Plaintext: outputs["plaintext"],
+		Secrets: outputs["secrets"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -35,6 +36,7 @@ type GetSecretsArgs struct {
 type GetSecretsResult struct {
 	// Map containing each `secret` `name` as the key with its decrypted plaintext value
 	Plaintext interface{}
+	Secrets interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

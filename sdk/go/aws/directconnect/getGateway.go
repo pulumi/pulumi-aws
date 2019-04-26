@@ -19,6 +19,7 @@ func LookupGateway(ctx *pulumi.Context, args *GetGatewayArgs) (*GetGatewayResult
 	}
 	return &GetGatewayResult{
 		AmazonSideAsn: outputs["amazonSideAsn"],
+		Name: outputs["name"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -33,6 +34,7 @@ type GetGatewayArgs struct {
 type GetGatewayResult struct {
 	// The ASN on the Amazon side of the connection.
 	AmazonSideAsn interface{}
+	Name interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

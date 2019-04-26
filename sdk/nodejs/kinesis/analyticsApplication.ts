@@ -68,7 +68,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn: pulumi.Output<ARN>;
     /**
-     * The CloudWatch log stream options to monitor application errors. 
+     * The CloudWatch log stream options to monitor application errors.
      * See CloudWatch Logging Options below for more details.
      */
     public readonly cloudwatchLoggingOptions: pulumi.Output<{ id: string, logStreamArn: string, roleArn: string } | undefined>;
@@ -101,7 +101,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
      */
     public readonly outputs: pulumi.Output<{ id: string, kinesisFirehose?: { resourceArn: string, roleArn: string }, kinesisStream?: { resourceArn: string, roleArn: string }, lambda?: { resourceArn: string, roleArn: string }, name: string, schema: { recordFormatType?: string } }[] | undefined>;
     /**
-     * An S3 Reference Data Source for the application. 
+     * An S3 Reference Data Source for the application.
      * See Reference Data Sources below for more details.
      */
     public readonly referenceDataSources: pulumi.Output<{ id: string, s3: { bucketArn: string, fileKey: string, roleArn: string }, schema: { recordColumns: { mapping?: string, name: string, sqlType: string }[], recordEncoding?: string, recordFormat: { mappingParameters?: { csv?: { recordColumnDelimiter: string, recordRowDelimiter: string }, json?: { recordRowPath: string } }, recordFormatType: string } }, tableName: string } | undefined>;
@@ -166,7 +166,7 @@ export interface AnalyticsApplicationState {
      */
     readonly arn?: pulumi.Input<ARN>;
     /**
-     * The CloudWatch log stream options to monitor application errors. 
+     * The CloudWatch log stream options to monitor application errors.
      * See CloudWatch Logging Options below for more details.
      */
     readonly cloudwatchLoggingOptions?: pulumi.Input<{ id?: pulumi.Input<string>, logStreamArn: pulumi.Input<string>, roleArn: pulumi.Input<string> }>;
@@ -199,7 +199,7 @@ export interface AnalyticsApplicationState {
      */
     readonly outputs?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, kinesisFirehose?: pulumi.Input<{ resourceArn: pulumi.Input<string>, roleArn: pulumi.Input<string> }>, kinesisStream?: pulumi.Input<{ resourceArn: pulumi.Input<string>, roleArn: pulumi.Input<string> }>, lambda?: pulumi.Input<{ resourceArn: pulumi.Input<string>, roleArn: pulumi.Input<string> }>, name: pulumi.Input<string>, schema: pulumi.Input<{ recordFormatType?: pulumi.Input<string> }> }>[]>;
     /**
-     * An S3 Reference Data Source for the application. 
+     * An S3 Reference Data Source for the application.
      * See Reference Data Sources below for more details.
      */
     readonly referenceDataSources?: pulumi.Input<{ id?: pulumi.Input<string>, s3: pulumi.Input<{ bucketArn: pulumi.Input<string>, fileKey: pulumi.Input<string>, roleArn: pulumi.Input<string> }>, schema: pulumi.Input<{ recordColumns: pulumi.Input<pulumi.Input<{ mapping?: pulumi.Input<string>, name: pulumi.Input<string>, sqlType: pulumi.Input<string> }>[]>, recordEncoding?: pulumi.Input<string>, recordFormat: pulumi.Input<{ mappingParameters?: pulumi.Input<{ csv?: pulumi.Input<{ recordColumnDelimiter: pulumi.Input<string>, recordRowDelimiter: pulumi.Input<string> }>, json?: pulumi.Input<{ recordRowPath: pulumi.Input<string> }> }>, recordFormatType?: pulumi.Input<string> }> }>, tableName: pulumi.Input<string> }>;
@@ -218,7 +218,7 @@ export interface AnalyticsApplicationState {
  */
 export interface AnalyticsApplicationArgs {
     /**
-     * The CloudWatch log stream options to monitor application errors. 
+     * The CloudWatch log stream options to monitor application errors.
      * See CloudWatch Logging Options below for more details.
      */
     readonly cloudwatchLoggingOptions?: pulumi.Input<{ id?: pulumi.Input<string>, logStreamArn: pulumi.Input<string>, roleArn: pulumi.Input<string> }>;
@@ -243,7 +243,7 @@ export interface AnalyticsApplicationArgs {
      */
     readonly outputs?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, kinesisFirehose?: pulumi.Input<{ resourceArn: pulumi.Input<string>, roleArn: pulumi.Input<string> }>, kinesisStream?: pulumi.Input<{ resourceArn: pulumi.Input<string>, roleArn: pulumi.Input<string> }>, lambda?: pulumi.Input<{ resourceArn: pulumi.Input<string>, roleArn: pulumi.Input<string> }>, name: pulumi.Input<string>, schema: pulumi.Input<{ recordFormatType?: pulumi.Input<string> }> }>[]>;
     /**
-     * An S3 Reference Data Source for the application. 
+     * An S3 Reference Data Source for the application.
      * See Reference Data Sources below for more details.
      */
     readonly referenceDataSources?: pulumi.Input<{ id?: pulumi.Input<string>, s3: pulumi.Input<{ bucketArn: pulumi.Input<string>, fileKey: pulumi.Input<string>, roleArn: pulumi.Input<string> }>, schema: pulumi.Input<{ recordColumns: pulumi.Input<pulumi.Input<{ mapping?: pulumi.Input<string>, name: pulumi.Input<string>, sqlType: pulumi.Input<string> }>[]>, recordEncoding?: pulumi.Input<string>, recordFormat: pulumi.Input<{ mappingParameters?: pulumi.Input<{ csv?: pulumi.Input<{ recordColumnDelimiter: pulumi.Input<string>, recordRowDelimiter: pulumi.Input<string> }>, json?: pulumi.Input<{ recordRowPath: pulumi.Input<string> }> }>, recordFormatType?: pulumi.Input<string> }> }>, tableName: pulumi.Input<string> }>;

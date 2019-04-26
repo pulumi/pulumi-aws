@@ -42,11 +42,11 @@ class RouteTableAssociation(pulumi.CustomResource):
         __props__ = dict()
 
         if route_table_id is None:
-            raise TypeError('Missing required property route_table_id')
+            raise TypeError("Missing required property 'route_table_id'")
         __props__['route_table_id'] = route_table_id
 
         if subnet_id is None:
-            raise TypeError('Missing required property subnet_id')
+            raise TypeError("Missing required property 'subnet_id'")
         __props__['subnet_id'] = subnet_id
 
         super(RouteTableAssociation, __self__).__init__(

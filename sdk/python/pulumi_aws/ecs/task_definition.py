@@ -115,7 +115,7 @@ class TaskDefinition(pulumi.CustomResource):
         __props__ = dict()
 
         if container_definitions is None:
-            raise TypeError('Missing required property container_definitions')
+            raise TypeError("Missing required property 'container_definitions'")
         __props__['container_definitions'] = container_definitions
 
         __props__['cpu'] = cpu
@@ -123,7 +123,7 @@ class TaskDefinition(pulumi.CustomResource):
         __props__['execution_role_arn'] = execution_role_arn
 
         if family is None:
-            raise TypeError('Missing required property family')
+            raise TypeError("Missing required property 'family'")
         __props__['family'] = family
 
         __props__['ipc_mode'] = ipc_mode

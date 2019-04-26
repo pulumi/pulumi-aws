@@ -57,6 +57,7 @@ export interface GetMountTargetResult {
      * Address at which the file system may be mounted via the mount target.
      */
     readonly ipAddress: string;
+    readonly mountTargetId: string;
     /**
      * The ID of the network interface that Amazon EFS created when it created the mount target.
      */

@@ -46,11 +46,11 @@ class ListenerCertificate(pulumi.CustomResource):
         __props__ = dict()
 
         if certificate_arn is None:
-            raise TypeError('Missing required property certificate_arn')
+            raise TypeError("Missing required property 'certificate_arn'")
         __props__['certificate_arn'] = certificate_arn
 
         if listener_arn is None:
-            raise TypeError('Missing required property listener_arn')
+            raise TypeError("Missing required property 'listener_arn'")
         __props__['listener_arn'] = listener_arn
 
         super(ListenerCertificate, __self__).__init__(

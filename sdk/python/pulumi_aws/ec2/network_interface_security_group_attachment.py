@@ -58,11 +58,11 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         __props__ = dict()
 
         if network_interface_id is None:
-            raise TypeError('Missing required property network_interface_id')
+            raise TypeError("Missing required property 'network_interface_id'")
         __props__['network_interface_id'] = network_interface_id
 
         if security_group_id is None:
-            raise TypeError('Missing required property security_group_id')
+            raise TypeError("Missing required property 'security_group_id'")
         __props__['security_group_id'] = security_group_id
 
         super(NetworkInterfaceSecurityGroupAttachment, __self__).__init__(

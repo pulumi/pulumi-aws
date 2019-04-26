@@ -21,6 +21,8 @@ class ProductSubscription(pulumi.CustomResource):
         """
         Subscribes to a Security Hub product.
         
+        > **NOTE:** This AWS service is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between Terraform AWS Provider releases.
+        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] product_arn: The ARN of the product that generates findings that you want to import into Security Hub - see below.
@@ -41,7 +43,7 @@ class ProductSubscription(pulumi.CustomResource):
         __props__ = dict()
 
         if product_arn is None:
-            raise TypeError('Missing required property product_arn')
+            raise TypeError("Missing required property 'product_arn'")
         __props__['product_arn'] = product_arn
 
         __props__['arn'] = None

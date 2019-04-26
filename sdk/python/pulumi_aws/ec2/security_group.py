@@ -24,11 +24,13 @@ class SecurityGroup(pulumi.CustomResource):
     """
     Can be specified multiple times for each
     egress rule. Each egress block supports fields documented below.
+    This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
     """
     ingress: pulumi.Output[list]
     """
     Can be specified multiple times for each
     ingress rule. Each ingress block supports fields documented below.
+    This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
     """
     name: pulumi.Output[str]
     """
@@ -83,8 +85,10 @@ class SecurityGroup(pulumi.CustomResource):
                to classify your security groups in a way that can be updated, use `tags`.
         :param pulumi.Input[list] egress: Can be specified multiple times for each
                egress rule. Each egress block supports fields documented below.
+               This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[list] ingress: Can be specified multiple times for each
                ingress rule. Each ingress block supports fields documented below.
+               This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[str] name: The name of the security group. If omitted, Terraform will
                assign a random, unique name
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified

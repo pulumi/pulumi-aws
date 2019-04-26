@@ -66,7 +66,7 @@ class Hsm(pulumi.CustomResource):
         __props__['availability_zone'] = availability_zone
 
         if cluster_id is None:
-            raise TypeError('Missing required property cluster_id')
+            raise TypeError("Missing required property 'cluster_id'")
         __props__['cluster_id'] = cluster_id
 
         __props__['ip_address'] = ip_address

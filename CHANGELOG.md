@@ -1,10 +1,28 @@
-## 0.18.0 (Unreleased)
+## 0.18.3 (Unreleased)
+
+### Improvements
+
+- Update to v0.17.8 of the `pulumi` dependency, including support for the new `ignoreChanges` resource option. [547](https://github.com/pulumi/pulumi-aws/pull/547)
+
+## 0.18.2 (Released April 23rd, 2019)
+
+- Update to v2.6.0 of the AWS Terraform Provider.
+
+## 0.18.1 (Released April 5th, 2019)
+
+- Update to v2.4.0 of the AWS Terraform Provider.
+
+## 0.18.0 (Released March 28th, 2019)
 
 ### Important
 
 - Version 0.18.0 of `pulumi-aws` is now based on v2.2.0 of the AWS Terraform Provider, which has a variety of breaking changes from the previous version.
 
 - The `defaultAction` property on `aws.elasticloadbalancingv2.Listener` and `aws.applicationloadbalancing.Listener` is now named `defaultActions` and is an array of actions.
+
+- The output types of aws.iam.InstanceProfile::role[s] and aws.iam.RolePolicyAttachment::role is now `string` instead of `Role`, and represent the ID of the role.
+
+- The deprecated api `aws.apigateway.x.API` has been removed.  Its replacement is in the `@pulumi/awsx` package with the name `awsx.apigateway.API`.
 
 ### Improvement
 

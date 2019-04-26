@@ -12,15 +12,24 @@ class GetLocalDiskResult:
     """
     A collection of values returned by getLocalDisk.
     """
-    def __init__(__self__, disk_id=None, id=None):
+    def __init__(__self__, disk_id=None, disk_node=None, disk_path=None, gateway_arn=None, id=None):
         if disk_id and not isinstance(disk_id, str):
-            raise TypeError('Expected argument disk_id to be a str')
+            raise TypeError("Expected argument 'disk_id' to be a str")
         __self__.disk_id = disk_id
         """
         The disk identifier. e.g. `pci-0000:03:00.0-scsi-0:0:0:0`
         """
+        if disk_node and not isinstance(disk_node, str):
+            raise TypeError("Expected argument 'disk_node' to be a str")
+        __self__.disk_node = disk_node
+        if disk_path and not isinstance(disk_path, str):
+            raise TypeError("Expected argument 'disk_path' to be a str")
+        __self__.disk_path = disk_path
+        if gateway_arn and not isinstance(gateway_arn, str):
+            raise TypeError("Expected argument 'gateway_arn' to be a str")
+        __self__.gateway_arn = gateway_arn
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -39,4 +48,7 @@ async def get_local_disk(disk_node=None,disk_path=None,gateway_arn=None,opts=Non
 
     return GetLocalDiskResult(
         disk_id=__ret__.get('diskId'),
+        disk_node=__ret__.get('diskNode'),
+        disk_path=__ret__.get('diskPath'),
+        gateway_arn=__ret__.get('gatewayArn'),
         id=__ret__.get('id'))

@@ -24,6 +24,7 @@ class DefaultRouteTable(pulumi.CustomResource):
     routes: pulumi.Output[list]
     """
     A list of route objects. Their keys are documented below.
+    This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
     """
     tags: pulumi.Output[dict]
     """
@@ -68,6 +69,7 @@ class DefaultRouteTable(pulumi.CustomResource):
         :param pulumi.Input[str] default_route_table_id: The ID of the Default Routing Table.
         :param pulumi.Input[list] propagating_vgws: A list of virtual gateways for propagation.
         :param pulumi.Input[list] routes: A list of route objects. Their keys are documented below.
+               This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
@@ -86,7 +88,7 @@ class DefaultRouteTable(pulumi.CustomResource):
         __props__ = dict()
 
         if default_route_table_id is None:
-            raise TypeError('Missing required property default_route_table_id')
+            raise TypeError("Missing required property 'default_route_table_id'")
         __props__['default_route_table_id'] = default_route_table_id
 
         __props__['propagating_vgws'] = propagating_vgws

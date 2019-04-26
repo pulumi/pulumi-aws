@@ -46,7 +46,7 @@ class LogStream(pulumi.CustomResource):
         __props__ = dict()
 
         if log_group_name is None:
-            raise TypeError('Missing required property log_group_name')
+            raise TypeError("Missing required property 'log_group_name'")
         __props__['log_group_name'] = log_group_name
 
         __props__['name'] = name

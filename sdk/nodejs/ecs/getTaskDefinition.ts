@@ -84,6 +84,7 @@ export interface GetTaskDefinitionResult {
      * The status of this task definition
      */
     readonly status: string;
+    readonly taskDefinition: string;
     /**
      * The ARN of the IAM role that containers in this task can assume
      */

@@ -24,6 +24,7 @@ export interface GetCredentialsResult {
     readonly authorizationToken: string;
     readonly expiresAt: string;
     readonly proxyEndpoint: string;
+    readonly registryId: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

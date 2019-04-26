@@ -144,7 +144,7 @@ class Broker(pulumi.CustomResource):
         __props__['auto_minor_version_upgrade'] = auto_minor_version_upgrade
 
         if broker_name is None:
-            raise TypeError('Missing required property broker_name')
+            raise TypeError("Missing required property 'broker_name'")
         __props__['broker_name'] = broker_name
 
         __props__['configuration'] = configuration
@@ -152,15 +152,15 @@ class Broker(pulumi.CustomResource):
         __props__['deployment_mode'] = deployment_mode
 
         if engine_type is None:
-            raise TypeError('Missing required property engine_type')
+            raise TypeError("Missing required property 'engine_type'")
         __props__['engine_type'] = engine_type
 
         if engine_version is None:
-            raise TypeError('Missing required property engine_version')
+            raise TypeError("Missing required property 'engine_version'")
         __props__['engine_version'] = engine_version
 
         if host_instance_type is None:
-            raise TypeError('Missing required property host_instance_type')
+            raise TypeError("Missing required property 'host_instance_type'")
         __props__['host_instance_type'] = host_instance_type
 
         __props__['logs'] = logs
@@ -170,7 +170,7 @@ class Broker(pulumi.CustomResource):
         __props__['publicly_accessible'] = publicly_accessible
 
         if security_groups is None:
-            raise TypeError('Missing required property security_groups')
+            raise TypeError("Missing required property 'security_groups'")
         __props__['security_groups'] = security_groups
 
         __props__['subnet_ids'] = subnet_ids
@@ -178,7 +178,7 @@ class Broker(pulumi.CustomResource):
         __props__['tags'] = tags
 
         if users is None:
-            raise TypeError('Missing required property users')
+            raise TypeError("Missing required property 'users'")
         __props__['users'] = users
 
         __props__['arn'] = None

@@ -210,11 +210,11 @@ class LaunchConfiguration(pulumi.CustomResource):
         __props__['iam_instance_profile'] = iam_instance_profile
 
         if image_id is None:
-            raise TypeError('Missing required property image_id')
+            raise TypeError("Missing required property 'image_id'")
         __props__['image_id'] = image_id
 
         if instance_type is None:
-            raise TypeError('Missing required property instance_type')
+            raise TypeError("Missing required property 'instance_type'")
         __props__['instance_type'] = instance_type
 
         __props__['key_name'] = key_name

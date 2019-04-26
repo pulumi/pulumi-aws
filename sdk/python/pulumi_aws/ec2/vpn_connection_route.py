@@ -42,11 +42,11 @@ class VpnConnectionRoute(pulumi.CustomResource):
         __props__ = dict()
 
         if destination_cidr_block is None:
-            raise TypeError('Missing required property destination_cidr_block')
+            raise TypeError("Missing required property 'destination_cidr_block'")
         __props__['destination_cidr_block'] = destination_cidr_block
 
         if vpn_connection_id is None:
-            raise TypeError('Missing required property vpn_connection_id')
+            raise TypeError("Missing required property 'vpn_connection_id'")
         __props__['vpn_connection_id'] = vpn_connection_id
 
         super(VpnConnectionRoute, __self__).__init__(

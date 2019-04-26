@@ -14,49 +14,49 @@ class GetFileSystemResult:
     """
     def __init__(__self__, arn=None, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, kms_key_id=None, performance_mode=None, tags=None, id=None):
         if arn and not isinstance(arn, str):
-            raise TypeError('Expected argument arn to be a str')
+            raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
         Amazon Resource Name of the file system.
         """
         if creation_token and not isinstance(creation_token, str):
-            raise TypeError('Expected argument creation_token to be a str')
+            raise TypeError("Expected argument 'creation_token' to be a str")
         __self__.creation_token = creation_token
         if dns_name and not isinstance(dns_name, str):
-            raise TypeError('Expected argument dns_name to be a str')
+            raise TypeError("Expected argument 'dns_name' to be a str")
         __self__.dns_name = dns_name
         """
         The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         """
         if encrypted and not isinstance(encrypted, bool):
-            raise TypeError('Expected argument encrypted to be a bool')
+            raise TypeError("Expected argument 'encrypted' to be a bool")
         __self__.encrypted = encrypted
         """
         Whether EFS is encrypted.
         """
         if file_system_id and not isinstance(file_system_id, str):
-            raise TypeError('Expected argument file_system_id to be a str')
+            raise TypeError("Expected argument 'file_system_id' to be a str")
         __self__.file_system_id = file_system_id
         if kms_key_id and not isinstance(kms_key_id, str):
-            raise TypeError('Expected argument kms_key_id to be a str')
+            raise TypeError("Expected argument 'kms_key_id' to be a str")
         __self__.kms_key_id = kms_key_id
         """
         The ARN for the KMS encryption key.
         """
         if performance_mode and not isinstance(performance_mode, str):
-            raise TypeError('Expected argument performance_mode to be a str')
+            raise TypeError("Expected argument 'performance_mode' to be a str")
         __self__.performance_mode = performance_mode
         """
         The PerformanceMode of the file system.
         """
         if tags and not isinstance(tags, dict):
-            raise TypeError('Expected argument tags to be a dict')
+            raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         The list of tags assigned to the file system.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

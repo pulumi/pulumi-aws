@@ -181,7 +181,7 @@ class Environment(pulumi.CustomResource):
         __props__ = dict()
 
         if application is None:
-            raise TypeError('Missing required property application')
+            raise TypeError("Missing required property 'application'")
         __props__['application'] = application
 
         __props__['cname_prefix'] = cname_prefix

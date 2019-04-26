@@ -42,7 +42,7 @@ class SecurityConfiguration(pulumi.CustomResource):
         __props__ = dict()
 
         if encryption_configuration is None:
-            raise TypeError('Missing required property encryption_configuration')
+            raise TypeError("Missing required property 'encryption_configuration'")
         __props__['encryption_configuration'] = encryption_configuration
 
         __props__['name'] = name

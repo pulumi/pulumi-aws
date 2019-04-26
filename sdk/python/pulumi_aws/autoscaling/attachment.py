@@ -56,7 +56,7 @@ class Attachment(pulumi.CustomResource):
         __props__['alb_target_group_arn'] = alb_target_group_arn
 
         if autoscaling_group_name is None:
-            raise TypeError('Missing required property autoscaling_group_name')
+            raise TypeError("Missing required property 'autoscaling_group_name'")
         __props__['autoscaling_group_name'] = autoscaling_group_name
 
         __props__['elb'] = elb

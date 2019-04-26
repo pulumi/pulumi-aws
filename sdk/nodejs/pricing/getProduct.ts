@@ -89,10 +89,12 @@ export interface GetProductArgs {
  * A collection of values returned by getProduct.
  */
 export interface GetProductResult {
+    readonly filters: { field: string, value: string }[];
     /**
      * Set to the product returned from the API.
      */
     readonly result: string;
+    readonly serviceCode: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

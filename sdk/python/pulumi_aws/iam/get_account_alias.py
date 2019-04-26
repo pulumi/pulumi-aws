@@ -14,13 +14,13 @@ class GetAccountAliasResult:
     """
     def __init__(__self__, account_alias=None, id=None):
         if account_alias and not isinstance(account_alias, str):
-            raise TypeError('Expected argument account_alias to be a str')
+            raise TypeError("Expected argument 'account_alias' to be a str")
         __self__.account_alias = account_alias
         """
         The alias associated with the AWS account.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

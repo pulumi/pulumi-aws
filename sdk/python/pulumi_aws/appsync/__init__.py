@@ -6,3 +6,4 @@
 from .api_key import *
 from .data_source import *
 from .graph_ql_api import *
+from .resolver import *

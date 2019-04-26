@@ -57,6 +57,7 @@ export interface GetClusterResult {
      * The endpoint for your Kubernetes API server.
      */
     readonly endpoint: string;
+    readonly name: string;
     /**
      * The platform version for the cluster.
      */
@@ -72,7 +73,7 @@ export interface GetClusterResult {
     /**
      * Nested attribute containing VPC configuration for the cluster.
      */
-    readonly vpcConfig: { securityGroupIds: string[], subnetIds: string[], vpcId: string };
+    readonly vpcConfig: { endpointPrivateAccess: boolean, endpointPublicAccess: boolean, securityGroupIds: string[], subnetIds: string[], vpcId: string };
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

@@ -56,7 +56,7 @@ class GroupPolicy(pulumi.CustomResource):
         __props__ = dict()
 
         if group is None:
-            raise TypeError('Missing required property group')
+            raise TypeError("Missing required property 'group'")
         __props__['group'] = group
 
         __props__['name'] = name
@@ -64,7 +64,7 @@ class GroupPolicy(pulumi.CustomResource):
         __props__['name_prefix'] = name_prefix
 
         if policy is None:
-            raise TypeError('Missing required property policy')
+            raise TypeError("Missing required property 'policy'")
         __props__['policy'] = policy
 
         super(GroupPolicy, __self__).__init__(

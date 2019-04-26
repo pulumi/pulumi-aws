@@ -89,7 +89,7 @@ func (r *AnalyticsApplication) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The CloudWatch log stream options to monitor application errors. 
+// The CloudWatch log stream options to monitor application errors.
 // See CloudWatch Logging Options below for more details.
 func (r *AnalyticsApplication) CloudwatchLoggingOptions() *pulumi.Output {
 	return r.s.State["cloudwatchLoggingOptions"]
@@ -130,7 +130,7 @@ func (r *AnalyticsApplication) Outputs() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["outputs"])
 }
 
-// An S3 Reference Data Source for the application. 
+// An S3 Reference Data Source for the application.
 // See Reference Data Sources below for more details.
 func (r *AnalyticsApplication) ReferenceDataSources() *pulumi.Output {
 	return r.s.State["referenceDataSources"]
@@ -150,7 +150,7 @@ func (r *AnalyticsApplication) Version() *pulumi.IntOutput {
 type AnalyticsApplicationState struct {
 	// The ARN of the Kinesis Analytics Appliation.
 	Arn interface{}
-	// The CloudWatch log stream options to monitor application errors. 
+	// The CloudWatch log stream options to monitor application errors.
 	// See CloudWatch Logging Options below for more details.
 	CloudwatchLoggingOptions interface{}
 	// SQL Code to transform input data, and generate output.
@@ -167,7 +167,7 @@ type AnalyticsApplicationState struct {
 	Name interface{}
 	// Output destination configuration of the application. See Outputs below for more details.
 	Outputs interface{}
-	// An S3 Reference Data Source for the application. 
+	// An S3 Reference Data Source for the application.
 	// See Reference Data Sources below for more details.
 	ReferenceDataSources interface{}
 	// The Status of the application.
@@ -178,7 +178,7 @@ type AnalyticsApplicationState struct {
 
 // The set of arguments for constructing a AnalyticsApplication resource.
 type AnalyticsApplicationArgs struct {
-	// The CloudWatch log stream options to monitor application errors. 
+	// The CloudWatch log stream options to monitor application errors.
 	// See CloudWatch Logging Options below for more details.
 	CloudwatchLoggingOptions interface{}
 	// SQL Code to transform input data, and generate output.
@@ -191,7 +191,7 @@ type AnalyticsApplicationArgs struct {
 	Name interface{}
 	// Output destination configuration of the application. See Outputs below for more details.
 	Outputs interface{}
-	// An S3 Reference Data Source for the application. 
+	// An S3 Reference Data Source for the application.
 	// See Reference Data Sources below for more details.
 	ReferenceDataSources interface{}
 }

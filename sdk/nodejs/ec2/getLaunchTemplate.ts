@@ -114,6 +114,7 @@ export interface GetLaunchTemplateResult {
      * The monitoring option for the instance.
      */
     readonly monitorings: { enabled: boolean }[];
+    readonly name: string;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network
      * Interfaces below for more details.

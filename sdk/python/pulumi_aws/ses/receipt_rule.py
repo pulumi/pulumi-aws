@@ -116,7 +116,7 @@ class ReceiptRule(pulumi.CustomResource):
         __props__['recipients'] = recipients
 
         if rule_set_name is None:
-            raise TypeError('Missing required property rule_set_name')
+            raise TypeError("Missing required property 'rule_set_name'")
         __props__['rule_set_name'] = rule_set_name
 
         __props__['s3_actions'] = s3_actions

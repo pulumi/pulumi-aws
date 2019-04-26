@@ -58,7 +58,7 @@ import (
 // * `instance_type` - (Required) The EC2 instance type for all instances in the instance group
 // * `instance_count` - (Optional) Target number of instances for the instance group
 // * `name` - (Optional) Friendly name given to the instance group
-// * `bid_price` - (Optional) If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances. `bid_price` can not be set for the `MASTER` instance group, since that group must always be On-Demand
+// * `bid_price` - (Optional) If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
 // * `ebs_config` - (Optional) A list of attributes for the EBS volumes attached to each instance in the instance group. Each `ebs_config` defined will result in additional EBS volumes being attached to _each_ instance in the instance group. Defined below
 // * `autoscaling_policy` - (Optional) The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
 // 
@@ -334,7 +334,7 @@ func (r *Cluster) ServiceRole() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["serviceRole"])
 }
 
-// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 func (r *Cluster) Steps() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["steps"])
 }
@@ -401,7 +401,7 @@ type ClusterState struct {
 	SecurityConfiguration interface{}
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources
 	ServiceRole interface{}
-	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Steps interface{}
 	// list of tags to apply to the EMR Cluster
 	Tags interface{}
@@ -455,7 +455,7 @@ type ClusterArgs struct {
 	SecurityConfiguration interface{}
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources
 	ServiceRole interface{}
-	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Steps interface{}
 	// list of tags to apply to the EMR Cluster
 	Tags interface{}

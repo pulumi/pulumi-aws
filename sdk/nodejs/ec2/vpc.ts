@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides an VPC resource.
+ * Provides a VPC resource.
  * 
  * ## Example Usage
  * 

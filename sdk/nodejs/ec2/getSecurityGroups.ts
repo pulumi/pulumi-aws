@@ -69,6 +69,7 @@ export interface GetSecurityGroupsArgs {
  * A collection of values returned by getSecurityGroups.
  */
 export interface GetSecurityGroupsResult {
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * IDs of the matches security groups.
      */

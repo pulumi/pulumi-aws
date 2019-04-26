@@ -11,9 +11,11 @@ linters:
     - ineffassign
     - interfacer
     - lll
-    - megacheck
     - misspell
     - nakedret
     - structcheck
     - unconvert
     - varcheck
+  disable:
+    - staticcheck
+    - megacheck

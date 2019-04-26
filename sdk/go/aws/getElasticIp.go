@@ -23,6 +23,7 @@ func LookupElasticIp(ctx *pulumi.Context, args *GetElasticIpArgs) (*GetElasticIp
 	return &GetElasticIpResult{
 		AssociationId: outputs["associationId"],
 		Domain: outputs["domain"],
+		Filters: outputs["filters"],
 		Id: outputs["id"],
 		InstanceId: outputs["instanceId"],
 		NetworkInterfaceId: outputs["networkInterfaceId"],
@@ -54,6 +55,7 @@ type GetElasticIpResult struct {
 	AssociationId interface{}
 	// Indicates whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
 	Domain interface{}
+	Filters interface{}
 	// If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.
 	Id interface{}
 	// The ID of the instance that the address is associated with (if any).

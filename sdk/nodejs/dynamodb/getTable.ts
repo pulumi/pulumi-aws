@@ -48,6 +48,7 @@ export interface GetTableResult {
     readonly globalSecondaryIndexes: { hashKey: string, name: string, nonKeyAttributes: string[], projectionType: string, rangeKey: string, readCapacity: number, writeCapacity: number }[];
     readonly hashKey: string;
     readonly localSecondaryIndexes: { name: string, nonKeyAttributes: string[], projectionType: string, rangeKey: string }[];
+    readonly name: string;
     readonly pointInTimeRecovery: { enabled: boolean };
     readonly rangeKey: string;
     readonly readCapacity: number;

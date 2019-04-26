@@ -49,6 +49,7 @@ export interface GetServiceResult {
      * The ARN of the ECS Service
      */
     readonly arn: string;
+    readonly clusterArn: string;
     /**
      * The number of tasks for the ECS Service
      */
@@ -61,6 +62,7 @@ export interface GetServiceResult {
      * The scheduling strategy for the ECS Service
      */
     readonly schedulingStrategy: string;
+    readonly serviceName: string;
     /**
      * The family for the latest ACTIVE revision
      */

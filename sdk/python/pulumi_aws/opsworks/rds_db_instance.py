@@ -55,19 +55,19 @@ class RdsDbInstance(pulumi.CustomResource):
         __props__ = dict()
 
         if db_password is None:
-            raise TypeError('Missing required property db_password')
+            raise TypeError("Missing required property 'db_password'")
         __props__['db_password'] = db_password
 
         if db_user is None:
-            raise TypeError('Missing required property db_user')
+            raise TypeError("Missing required property 'db_user'")
         __props__['db_user'] = db_user
 
         if rds_db_instance_arn is None:
-            raise TypeError('Missing required property rds_db_instance_arn')
+            raise TypeError("Missing required property 'rds_db_instance_arn'")
         __props__['rds_db_instance_arn'] = rds_db_instance_arn
 
         if stack_id is None:
-            raise TypeError('Missing required property stack_id')
+            raise TypeError("Missing required property 'stack_id'")
         __props__['stack_id'] = stack_id
 
         super(RdsDbInstance, __self__).__init__(

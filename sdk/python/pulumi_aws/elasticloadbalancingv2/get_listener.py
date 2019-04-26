@@ -14,28 +14,28 @@ class GetListenerResult:
     """
     def __init__(__self__, arn=None, certificate_arn=None, default_actions=None, load_balancer_arn=None, port=None, protocol=None, ssl_policy=None, id=None):
         if arn and not isinstance(arn, str):
-            raise TypeError('Expected argument arn to be a str')
+            raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         if certificate_arn and not isinstance(certificate_arn, str):
-            raise TypeError('Expected argument certificate_arn to be a str')
+            raise TypeError("Expected argument 'certificate_arn' to be a str")
         __self__.certificate_arn = certificate_arn
         if default_actions and not isinstance(default_actions, list):
-            raise TypeError('Expected argument default_actions to be a list')
+            raise TypeError("Expected argument 'default_actions' to be a list")
         __self__.default_actions = default_actions
         if load_balancer_arn and not isinstance(load_balancer_arn, str):
-            raise TypeError('Expected argument load_balancer_arn to be a str')
+            raise TypeError("Expected argument 'load_balancer_arn' to be a str")
         __self__.load_balancer_arn = load_balancer_arn
         if port and not isinstance(port, float):
-            raise TypeError('Expected argument port to be a float')
+            raise TypeError("Expected argument 'port' to be a float")
         __self__.port = port
         if protocol and not isinstance(protocol, str):
-            raise TypeError('Expected argument protocol to be a str')
+            raise TypeError("Expected argument 'protocol' to be a str")
         __self__.protocol = protocol
         if ssl_policy and not isinstance(ssl_policy, str):
-            raise TypeError('Expected argument ssl_policy to be a str')
+            raise TypeError("Expected argument 'ssl_policy' to be a str")
         __self__.ssl_policy = ssl_policy
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

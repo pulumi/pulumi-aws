@@ -20,7 +20,9 @@ func LookupProduct(ctx *pulumi.Context, args *GetProductArgs) (*GetProductResult
 		return nil, err
 	}
 	return &GetProductResult{
+		Filters: outputs["filters"],
 		Result: outputs["result"],
+		ServiceCode: outputs["serviceCode"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -35,8 +37,10 @@ type GetProductArgs struct {
 
 // A collection of values returned by getProduct.
 type GetProductResult struct {
+	Filters interface{}
 	// Set to the product returned from the API.
 	Result interface{}
+	ServiceCode interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

@@ -24,8 +24,10 @@ func LookupVolume(ctx *pulumi.Context, args *GetVolumeArgs) (*GetVolumeResult, e
 		Arn: outputs["arn"],
 		AvailabilityZone: outputs["availabilityZone"],
 		Encrypted: outputs["encrypted"],
+		Filters: outputs["filters"],
 		Iops: outputs["iops"],
 		KmsKeyId: outputs["kmsKeyId"],
+		MostRecent: outputs["mostRecent"],
 		Size: outputs["size"],
 		SnapshotId: outputs["snapshotId"],
 		Tags: outputs["tags"],
@@ -55,10 +57,12 @@ type GetVolumeResult struct {
 	AvailabilityZone interface{}
 	// Whether the disk is encrypted.
 	Encrypted interface{}
+	Filters interface{}
 	// The amount of IOPS for the disk.
 	Iops interface{}
 	// The ARN for the KMS encryption key.
 	KmsKeyId interface{}
+	MostRecent interface{}
 	// The size of the drive in GiBs.
 	Size interface{}
 	// The snapshot_id the EBS volume is based off.

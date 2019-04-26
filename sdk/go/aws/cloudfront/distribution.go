@@ -54,11 +54,13 @@ func NewDistribution(ctx *pulumi.Context,
 		inputs["loggingConfig"] = nil
 		inputs["orderedCacheBehaviors"] = nil
 		inputs["origins"] = nil
+		inputs["originGroups"] = nil
 		inputs["priceClass"] = nil
 		inputs["restrictions"] = nil
 		inputs["retainOnDelete"] = nil
 		inputs["tags"] = nil
 		inputs["viewerCertificate"] = nil
+		inputs["waitForDeployment"] = nil
 		inputs["webAclId"] = nil
 	} else {
 		inputs["aliases"] = args.Aliases
@@ -72,11 +74,13 @@ func NewDistribution(ctx *pulumi.Context,
 		inputs["loggingConfig"] = args.LoggingConfig
 		inputs["orderedCacheBehaviors"] = args.OrderedCacheBehaviors
 		inputs["origins"] = args.Origins
+		inputs["originGroups"] = args.OriginGroups
 		inputs["priceClass"] = args.PriceClass
 		inputs["restrictions"] = args.Restrictions
 		inputs["retainOnDelete"] = args.RetainOnDelete
 		inputs["tags"] = args.Tags
 		inputs["viewerCertificate"] = args.ViewerCertificate
+		inputs["waitForDeployment"] = args.WaitForDeployment
 		inputs["webAclId"] = args.WebAclId
 	}
 	inputs["activeTrustedSigners"] = nil
@@ -120,12 +124,14 @@ func GetDistribution(ctx *pulumi.Context,
 		inputs["loggingConfig"] = state.LoggingConfig
 		inputs["orderedCacheBehaviors"] = state.OrderedCacheBehaviors
 		inputs["origins"] = state.Origins
+		inputs["originGroups"] = state.OriginGroups
 		inputs["priceClass"] = state.PriceClass
 		inputs["restrictions"] = state.Restrictions
 		inputs["retainOnDelete"] = state.RetainOnDelete
 		inputs["status"] = state.Status
 		inputs["tags"] = state.Tags
 		inputs["viewerCertificate"] = state.ViewerCertificate
+		inputs["waitForDeployment"] = state.WaitForDeployment
 		inputs["webAclId"] = state.WebAclId
 	}
 	s, err := ctx.ReadResource("aws:cloudfront/distribution:Distribution", name, id, inputs, opts...)
@@ -260,6 +266,12 @@ func (r *Distribution) Origins() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["origins"])
 }
 
+// One or more origin_group for this
+// distribution (multiples allowed).
+func (r *Distribution) OriginGroups() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["originGroups"])
+}
+
 // The price class for this distribution. One of
 // `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
 func (r *Distribution) PriceClass() *pulumi.StringOutput {
@@ -296,6 +308,13 @@ func (r *Distribution) Tags() *pulumi.MapOutput {
 // one).
 func (r *Distribution) ViewerCertificate() *pulumi.Output {
 	return r.s.State["viewerCertificate"]
+}
+
+// If enabled, the resource will wait for
+// the distribution status to change from `InProgress` to `Deployed`. Setting
+// this to`false` will skip the process. Default: `true`.
+func (r *Distribution) WaitForDeployment() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["waitForDeployment"])
 }
 
 // If you're using AWS WAF to filter CloudFront
@@ -365,6 +384,9 @@ type DistributionState struct {
 	// One or more origins for this
 	// distribution (multiples allowed).
 	Origins interface{}
+	// One or more origin_group for this
+	// distribution (multiples allowed).
+	OriginGroups interface{}
 	// The price class for this distribution. One of
 	// `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
 	PriceClass interface{}
@@ -385,6 +407,10 @@ type DistributionState struct {
 	// configuration for this distribution (maximum
 	// one).
 	ViewerCertificate interface{}
+	// If enabled, the resource will wait for
+	// the distribution status to change from `InProgress` to `Deployed`. Setting
+	// this to`false` will skip the process. Default: `true`.
+	WaitForDeployment interface{}
 	// If you're using AWS WAF to filter CloudFront
 	// requests, the Id of the AWS WAF web ACL that is associated with the
 	// distribution.
@@ -427,6 +453,9 @@ type DistributionArgs struct {
 	// One or more origins for this
 	// distribution (multiples allowed).
 	Origins interface{}
+	// One or more origin_group for this
+	// distribution (multiples allowed).
+	OriginGroups interface{}
 	// The price class for this distribution. One of
 	// `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
 	PriceClass interface{}
@@ -443,6 +472,10 @@ type DistributionArgs struct {
 	// configuration for this distribution (maximum
 	// one).
 	ViewerCertificate interface{}
+	// If enabled, the resource will wait for
+	// the distribution status to change from `InProgress` to `Deployed`. Setting
+	// this to`false` will skip the process. Default: `true`.
+	WaitForDeployment interface{}
 	// If you're using AWS WAF to filter CloudFront
 	// requests, the Id of the AWS WAF web ACL that is associated with the
 	// distribution.

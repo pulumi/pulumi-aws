@@ -63,6 +63,7 @@ export interface GetStackResult {
      * The ARN of the IAM role used to create the stack.
      */
     readonly iamRoleArn: string;
+    readonly name: string;
     /**
      * A list of SNS topic ARNs to publish stack related events
      */

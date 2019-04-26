@@ -19,7 +19,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/hashicorp/aws-sdk-go-base"
+	awsbase "github.com/hashicorp/aws-sdk-go-base"
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/hashicorp/terraform/terraform"
 	homedir "github.com/mitchellh/go-homedir"
@@ -239,11 +239,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appsync_api_key":     {Tok: awsResource(appsyncMod, "ApiKey")},
 			"aws_appsync_graphql_api": {Tok: awsResource(appsyncMod, "GraphQLApi")},
 			"aws_appsync_datasource":  {Tok: awsResource(appsyncMod, "DataSource")},
+			"aws_appsync_resolver":    {Tok: awsResource(appsyncMod, "Resolver")},
 			// AppMesh
-			"aws_appmesh_mesh":           {Tok: awsResource(appmeshMod, "Mesh")},
-			"aws_appmesh_route":          {Tok: awsResource(appmeshMod, "Route")},
-			"aws_appmesh_virtual_node":   {Tok: awsResource(appmeshMod, "VirtualNode")},
-			"aws_appmesh_virtual_router": {Tok: awsResource(appmeshMod, "VirtualRouter")},
+			"aws_appmesh_mesh":            {Tok: awsResource(appmeshMod, "Mesh")},
+			"aws_appmesh_route":           {Tok: awsResource(appmeshMod, "Route")},
+			"aws_appmesh_virtual_node":    {Tok: awsResource(appmeshMod, "VirtualNode")},
+			"aws_appmesh_virtual_router":  {Tok: awsResource(appmeshMod, "VirtualRouter")},
+			"aws_appmesh_virtual_service": {Tok: awsResource(appmeshMod, "VirtualService")},
 			// API Gateway
 			"aws_api_gateway_account": {Tok: awsResource(apigatewayMod, "Account")},
 			"aws_api_gateway_api_key": {
@@ -459,7 +461,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_autoscaling_policy":   {Tok: awsResource(autoscalingMod, "Policy")},
 			"aws_autoscaling_schedule": {Tok: awsResource(autoscalingMod, "Schedule")},
 			// Backup
-			"aws_backup_vault": {Tok: awsResource(backupMod, "Vault")},
+			"aws_backup_plan":      {Tok: awsResource(backupMod, "Plan")},
+			"aws_backup_selection": {Tok: awsResource(backupMod, "Selection")},
+			"aws_backup_vault":     {Tok: awsResource(backupMod, "Vault")},
 			// Batch
 			"aws_batch_compute_environment": {Tok: awsResource(batchMod, "ComputeEnvironment")},
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
@@ -469,7 +473,9 @@ func Provider() tfbridge.ProviderInfo {
 			// Cloud9
 			"aws_cloud9_environment_ec2": {Tok: awsResource(cloud9Mod, "EnvironmentEC2")},
 			// CloudFormation
-			"aws_cloudformation_stack": {Tok: awsResource(cloudformationMod, "Stack")},
+			"aws_cloudformation_stack":              {Tok: awsResource(cloudformationMod, "Stack")},
+			"aws_cloudformation_stack_set":          {Tok: awsResource(cloudformationMod, "StackSet")},
+			"aws_cloudformation_stack_set_instance": {Tok: awsResource(cloudformationMod, "StackSetInstance")},
 			// CloudHSM
 			"aws_cloudhsm_v2_cluster": {Tok: awsResource(cloudhsmv2Mod, "Cluster")},
 			"aws_cloudhsm_v2_hsm":     {Tok: awsResource(cloudhsmv2Mod, "Hsm")},
@@ -1084,9 +1090,15 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_instance_profile": {
 				Tok: awsResource(iamMod, "InstanceProfile"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"role": {Type: awsResource(iamMod, "Role")},
+					"role": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(iamMod+"/role", "Role")},
+					},
 					"roles": {
-						Elem: &tfbridge.SchemaInfo{Type: awsResource(iamMod, "Role")},
+						Elem: &tfbridge.SchemaInfo{
+							Type:     "string",
+							AltTypes: []tokens.Type{awsType(iamMod+"/role", "Role")},
+						},
 					},
 				},
 			},
@@ -1116,7 +1128,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_role_policy_attachment": {
 				Tok: awsResource(iamMod, "RolePolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"role": {Type: awsType(iamMod+"/role", "Role")},
+					"role": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(iamMod+"/role", "Role")},
+					},
 					"policy_arn": {
 						Name: "policyArn",
 						Type: awsType(awsMod, "ARN"),
@@ -1242,9 +1257,11 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Key Management Service (KMS)
-			"aws_kms_alias": {Tok: awsResource(kmsMod, "Alias")},
-			"aws_kms_grant": {Tok: awsResource(kmsMod, "Grant")},
-			"aws_kms_key":   {Tok: awsResource(kmsMod, "Key")},
+			"aws_kms_alias":        {Tok: awsResource(kmsMod, "Alias")},
+			"aws_kms_ciphertext":   {Tok: awsResource(kmsMod, "Ciphertext")},
+			"aws_kms_external_key": {Tok: awsResource(kmsMod, "ExternalKey")},
+			"aws_kms_grant":        {Tok: awsResource(kmsMod, "Grant")},
+			"aws_kms_key":          {Tok: awsResource(kmsMod, "Key")},
 			// Lambda
 			"aws_lambda_function": {
 				Tok:      awsResource(lambdaMod, "Function"),
@@ -1456,8 +1473,13 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_route53_health_check": {Tok: awsResource(route53Mod, "HealthCheck")},
 			// Sagemaker
-			"aws_sagemaker_model":             {Tok: awsResource(sagemakerMod, "Model")},
-			"aws_sagemaker_notebook_instance": {Tok: awsResource(sagemakerMod, "NotebookInstance")},
+			"aws_sagemaker_endpoint":               {Tok: awsResource(sagemakerMod, "Endpoint")},
+			"aws_sagemaker_endpoint_configuration": {Tok: awsResource(sagemakerMod, "EndpointConfiguration")},
+			"aws_sagemaker_model":                  {Tok: awsResource(sagemakerMod, "Model")},
+			"aws_sagemaker_notebook_instance":      {Tok: awsResource(sagemakerMod, "NotebookInstance")},
+			"aws_sagemaker_notebook_instance_lifecycle_configuration": {
+				Tok: awsResource(sagemakerMod, "NotebookInstanceLifecycleConfiguration"),
+			},
 			// Secrets Manager
 			"aws_secretsmanager_secret":         {Tok: awsResource(secretsmanagerMod, "Secret")},
 			"aws_secretsmanager_secret_version": {Tok: awsResource(secretsmanagerMod, "SecretVersion")},
@@ -1637,6 +1659,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_wafregional_xss_match_set":           {Tok: awsResource(wafregionalMod, "XssMatchSet")},
 			// Worklink
 			"aws_worklink_fleet": {Tok: awsResource(worklinkMod, "Fleet")},
+			"aws_worklink_website_certificate_authority_association": {
+				Tok: awsResource(worklinkMod, "WebsiteCertificateAuthorityAssociation"),
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// AWS
@@ -1721,6 +1746,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway":                {Tok: awsDataSource(ec2TransitGatewayMod, "getTransitGateway")},
 			"aws_ec2_transit_gateway_route_table":    {Tok: awsDataSource(ec2TransitGatewayMod, "getRouteTable")},
 			"aws_ec2_transit_gateway_vpc_attachment": {Tok: awsDataSource(ec2TransitGatewayMod, "getVpcAttachment")},
+			"aws_ec2_transit_gateway_vpn_attachment": {Tok: awsDataSource(ec2TransitGatewayMod, "getVpnAttachment")},
 			// Elastic Beanstalk
 			"aws_elastic_beanstalk_application": {Tok: awsDataSource(elasticbeanstalkMod, "getApplication")},
 			// Elastic Block Storage
@@ -1831,12 +1857,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ssm_parameter": {Tok: awsDataSource(ssmMod, "getParameter")},
 			// Storage Gateway
 			"aws_storagegateway_local_disk": {Tok: awsDataSource(storagegatewayMod, "getLocalDisk")},
+			// Transfer
+			"aws_transfer_server": {Tok: awsDataSource(transferMod, "getServer")},
 			// Workspaces
 			"aws_workspaces_bundle": {Tok: awsDataSource(workspacesMod, "getBundle")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
-				"@pulumi/pulumi":    "^0.17.1",
+				"@pulumi/pulumi":    "^0.17.8",
 				"aws-sdk":           "^2.0.0",
 				"mime":              "^2.0.0",
 				"builtin-modules":   "3.0.0",
@@ -1859,11 +1887,6 @@ func Provider() tfbridge.ProviderInfo {
 						DestFiles: []string{
 							"metrics.ts",          // Metric and MetricsGranularity union types and constants
 							"notificationType.ts", // NotificationType union type and constants
-						},
-					},
-					"apigateway": {
-						DestFiles: []string{
-							"x.ts",
 						},
 					},
 					"cloudwatch": {
@@ -1941,7 +1964,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=0.17.1,<0.18.0",
+				"pulumi": ">=0.17.8,<0.18.0",
 			},
 		},
 	}

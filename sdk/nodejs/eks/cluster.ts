@@ -14,6 +14,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = new aws.eks.Cluster("example", {
+ *     enabledClusterLogTypes: [
+ *         "api",
+ *         "audit",
+ *     ],
  *     roleArn: aws_iam_role_example.arn,
  *     vpcConfig: {
  *         subnetIds: [
@@ -50,6 +54,10 @@ export class Cluster extends pulumi.CustomResource {
     public /*out*/ readonly certificateAuthority: pulumi.Output<{ data: string }>;
     public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
+     * A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
+     */
+    public readonly enabledClusterLogTypes: pulumi.Output<string[] | undefined>;
+    /**
      * The endpoint for your Kubernetes API server.
      */
     public /*out*/ readonly endpoint: pulumi.Output<string>;
@@ -72,7 +80,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
      */
-    public readonly vpcConfig: pulumi.Output<{ securityGroupIds?: string[], subnetIds: string[], vpcId: string }>;
+    public readonly vpcConfig: pulumi.Output<{ endpointPrivateAccess?: boolean, endpointPublicAccess?: boolean, securityGroupIds?: string[], subnetIds: string[], vpcId: string }>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -89,6 +97,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
             inputs["createdAt"] = state ? state.createdAt : undefined;
+            inputs["enabledClusterLogTypes"] = state ? state.enabledClusterLogTypes : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["platformVersion"] = state ? state.platformVersion : undefined;
@@ -103,6 +112,7 @@ export class Cluster extends pulumi.CustomResource {
             if (!args || args.vpcConfig === undefined) {
                 throw new Error("Missing required property 'vpcConfig'");
             }
+            inputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["version"] = args ? args.version : undefined;
@@ -131,6 +141,10 @@ export interface ClusterState {
     readonly certificateAuthority?: pulumi.Input<{ data?: pulumi.Input<string> }>;
     readonly createdAt?: pulumi.Input<string>;
     /**
+     * A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
+     */
+    readonly enabledClusterLogTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The endpoint for your Kubernetes API server.
      */
     readonly endpoint?: pulumi.Input<string>;
@@ -153,13 +167,17 @@ export interface ClusterState {
     /**
      * Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
      */
-    readonly vpcConfig?: pulumi.Input<{ securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId?: pulumi.Input<string> }>;
+    readonly vpcConfig?: pulumi.Input<{ endpointPrivateAccess?: pulumi.Input<boolean>, endpointPublicAccess?: pulumi.Input<boolean>, securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId?: pulumi.Input<string> }>;
 }
 
 /**
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
+     */
+    readonly enabledClusterLogTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the cluster.
      */
@@ -175,5 +193,5 @@ export interface ClusterArgs {
     /**
      * Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
      */
-    readonly vpcConfig: pulumi.Input<{ securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId?: pulumi.Input<string> }>;
+    readonly vpcConfig: pulumi.Input<{ endpointPrivateAccess?: pulumi.Input<boolean>, endpointPublicAccess?: pulumi.Input<boolean>, securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, subnetIds: pulumi.Input<pulumi.Input<string>[]>, vpcId?: pulumi.Input<string> }>;
 }

@@ -24,6 +24,7 @@ func LookupNatGateway(ctx *pulumi.Context, args *GetNatGatewayArgs) (*GetNatGate
 	}
 	return &GetNatGatewayResult{
 		AllocationId: outputs["allocationId"],
+		Filters: outputs["filters"],
 		Id: outputs["id"],
 		NetworkInterfaceId: outputs["networkInterfaceId"],
 		PrivateIp: outputs["privateIp"],
@@ -56,6 +57,7 @@ type GetNatGatewayArgs struct {
 type GetNatGatewayResult struct {
 	// The Id of the EIP allocated to the selected Nat Gateway.
 	AllocationId interface{}
+	Filters interface{}
 	Id interface{}
 	// The Id of the ENI allocated to the selected Nat Gateway.
 	NetworkInterfaceId interface{}

@@ -1,0 +1,14 @@
+{
+    "name": "ignorechanges",
+    "version": "0.1.0",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "@pulumi/pulumi": "dev"
+    },
+    "devDependencies": {
+        "@types/node": "^10.0.0"
+    },
+    "peerDependencies": {
+        "@pulumi/aws": "latest"
+    }
+}

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * 
  * const example = pulumi.output(aws.ec2transitgateway.getTransitGateway({
  *     filters: [{
- *         name: "amazon-side-asn",
+ *         name: "options.amazon-side-asn",
  *         values: ["64512"],
  *     }],
  * }));
@@ -94,6 +94,11 @@ export interface GetTransitGatewayResult {
      * Whether DNS support is enabled.
      */
     readonly dnsSupport: string;
+    readonly filters?: { name: string, values: string[] }[];
+    /**
+     * EC2 Transit Gateway identifier
+     */
+    readonly id?: string;
     /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway
      */

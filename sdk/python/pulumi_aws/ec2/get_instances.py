@@ -12,30 +12,36 @@ class GetInstancesResult:
     """
     A collection of values returned by getInstances.
     """
-    def __init__(__self__, ids=None, instance_tags=None, private_ips=None, public_ips=None, id=None):
+    def __init__(__self__, filters=None, ids=None, instance_state_names=None, instance_tags=None, private_ips=None, public_ips=None, id=None):
+        if filters and not isinstance(filters, list):
+            raise TypeError("Expected argument 'filters' to be a list")
+        __self__.filters = filters
         if ids and not isinstance(ids, list):
-            raise TypeError('Expected argument ids to be a list')
+            raise TypeError("Expected argument 'ids' to be a list")
         __self__.ids = ids
         """
         IDs of instances found through the filter
         """
+        if instance_state_names and not isinstance(instance_state_names, list):
+            raise TypeError("Expected argument 'instance_state_names' to be a list")
+        __self__.instance_state_names = instance_state_names
         if instance_tags and not isinstance(instance_tags, dict):
-            raise TypeError('Expected argument instance_tags to be a dict')
+            raise TypeError("Expected argument 'instance_tags' to be a dict")
         __self__.instance_tags = instance_tags
         if private_ips and not isinstance(private_ips, list):
-            raise TypeError('Expected argument private_ips to be a list')
+            raise TypeError("Expected argument 'private_ips' to be a list")
         __self__.private_ips = private_ips
         """
         Private IP addresses of instances found through the filter
         """
         if public_ips and not isinstance(public_ips, list):
-            raise TypeError('Expected argument public_ips to be a list')
+            raise TypeError("Expected argument 'public_ips' to be a list")
         __self__.public_ips = public_ips
         """
         Public IP addresses of instances found through the filter
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -64,7 +70,9 @@ async def get_instances(filters=None,instance_state_names=None,instance_tags=Non
     __ret__ = await pulumi.runtime.invoke('aws:ec2/getInstances:getInstances', __args__, opts=opts)
 
     return GetInstancesResult(
+        filters=__ret__.get('filters'),
         ids=__ret__.get('ids'),
+        instance_state_names=__ret__.get('instanceStateNames'),
         instance_tags=__ret__.get('instanceTags'),
         private_ips=__ret__.get('privateIps'),
         public_ips=__ret__.get('publicIps'),

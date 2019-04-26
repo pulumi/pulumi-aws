@@ -12,60 +12,63 @@ class GetTableResult:
     """
     A collection of values returned by getTable.
     """
-    def __init__(__self__, arn=None, attributes=None, billing_mode=None, global_secondary_indexes=None, hash_key=None, local_secondary_indexes=None, point_in_time_recovery=None, range_key=None, read_capacity=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, tags=None, ttl=None, write_capacity=None, id=None):
+    def __init__(__self__, arn=None, attributes=None, billing_mode=None, global_secondary_indexes=None, hash_key=None, local_secondary_indexes=None, name=None, point_in_time_recovery=None, range_key=None, read_capacity=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, tags=None, ttl=None, write_capacity=None, id=None):
         if arn and not isinstance(arn, str):
-            raise TypeError('Expected argument arn to be a str')
+            raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         if attributes and not isinstance(attributes, list):
-            raise TypeError('Expected argument attributes to be a list')
+            raise TypeError("Expected argument 'attributes' to be a list")
         __self__.attributes = attributes
         if billing_mode and not isinstance(billing_mode, str):
-            raise TypeError('Expected argument billing_mode to be a str')
+            raise TypeError("Expected argument 'billing_mode' to be a str")
         __self__.billing_mode = billing_mode
         if global_secondary_indexes and not isinstance(global_secondary_indexes, list):
-            raise TypeError('Expected argument global_secondary_indexes to be a list')
+            raise TypeError("Expected argument 'global_secondary_indexes' to be a list")
         __self__.global_secondary_indexes = global_secondary_indexes
         if hash_key and not isinstance(hash_key, str):
-            raise TypeError('Expected argument hash_key to be a str')
+            raise TypeError("Expected argument 'hash_key' to be a str")
         __self__.hash_key = hash_key
         if local_secondary_indexes and not isinstance(local_secondary_indexes, list):
-            raise TypeError('Expected argument local_secondary_indexes to be a list')
+            raise TypeError("Expected argument 'local_secondary_indexes' to be a list")
         __self__.local_secondary_indexes = local_secondary_indexes
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        __self__.name = name
         if point_in_time_recovery and not isinstance(point_in_time_recovery, dict):
-            raise TypeError('Expected argument point_in_time_recovery to be a dict')
+            raise TypeError("Expected argument 'point_in_time_recovery' to be a dict")
         __self__.point_in_time_recovery = point_in_time_recovery
         if range_key and not isinstance(range_key, str):
-            raise TypeError('Expected argument range_key to be a str')
+            raise TypeError("Expected argument 'range_key' to be a str")
         __self__.range_key = range_key
         if read_capacity and not isinstance(read_capacity, float):
-            raise TypeError('Expected argument read_capacity to be a float')
+            raise TypeError("Expected argument 'read_capacity' to be a float")
         __self__.read_capacity = read_capacity
         if server_side_encryption and not isinstance(server_side_encryption, dict):
-            raise TypeError('Expected argument server_side_encryption to be a dict')
+            raise TypeError("Expected argument 'server_side_encryption' to be a dict")
         __self__.server_side_encryption = server_side_encryption
         if stream_arn and not isinstance(stream_arn, str):
-            raise TypeError('Expected argument stream_arn to be a str')
+            raise TypeError("Expected argument 'stream_arn' to be a str")
         __self__.stream_arn = stream_arn
         if stream_enabled and not isinstance(stream_enabled, bool):
-            raise TypeError('Expected argument stream_enabled to be a bool')
+            raise TypeError("Expected argument 'stream_enabled' to be a bool")
         __self__.stream_enabled = stream_enabled
         if stream_label and not isinstance(stream_label, str):
-            raise TypeError('Expected argument stream_label to be a str')
+            raise TypeError("Expected argument 'stream_label' to be a str")
         __self__.stream_label = stream_label
         if stream_view_type and not isinstance(stream_view_type, str):
-            raise TypeError('Expected argument stream_view_type to be a str')
+            raise TypeError("Expected argument 'stream_view_type' to be a str")
         __self__.stream_view_type = stream_view_type
         if tags and not isinstance(tags, dict):
-            raise TypeError('Expected argument tags to be a dict')
+            raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         if ttl and not isinstance(ttl, dict):
-            raise TypeError('Expected argument ttl to be a dict')
+            raise TypeError("Expected argument 'ttl' to be a dict")
         __self__.ttl = ttl
         if write_capacity and not isinstance(write_capacity, float):
-            raise TypeError('Expected argument write_capacity to be a float')
+            raise TypeError("Expected argument 'write_capacity' to be a float")
         __self__.write_capacity = write_capacity
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -89,6 +92,7 @@ async def get_table(name=None,server_side_encryption=None,tags=None,opts=None):
         global_secondary_indexes=__ret__.get('globalSecondaryIndexes'),
         hash_key=__ret__.get('hashKey'),
         local_secondary_indexes=__ret__.get('localSecondaryIndexes'),
+        name=__ret__.get('name'),
         point_in_time_recovery=__ret__.get('pointInTimeRecovery'),
         range_key=__ret__.get('rangeKey'),
         read_capacity=__ret__.get('readCapacity'),

@@ -64,7 +64,7 @@ class SecretVersion(pulumi.CustomResource):
         __props__['secret_binary'] = secret_binary
 
         if secret_id is None:
-            raise TypeError('Missing required property secret_id')
+            raise TypeError("Missing required property 'secret_id'")
         __props__['secret_id'] = secret_id
 
         __props__['secret_string'] = secret_string

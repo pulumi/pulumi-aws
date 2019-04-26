@@ -93,11 +93,11 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__['enabled'] = enabled
 
         if event_source_arn is None:
-            raise TypeError('Missing required property event_source_arn')
+            raise TypeError("Missing required property 'event_source_arn'")
         __props__['event_source_arn'] = event_source_arn
 
         if function_name is None:
-            raise TypeError('Missing required property function_name')
+            raise TypeError("Missing required property 'function_name'")
         __props__['function_name'] = function_name
 
         __props__['starting_position'] = starting_position

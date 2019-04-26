@@ -20,6 +20,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 	}
 	return &GetClusterResult{
 		ClusterCertificates: outputs["clusterCertificates"],
+		ClusterId: outputs["clusterId"],
 		ClusterState: outputs["clusterState"],
 		SecurityGroupId: outputs["securityGroupId"],
 		SubnetIds: outputs["subnetIds"],
@@ -46,6 +47,7 @@ type GetClusterResult struct {
 	// * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
 	// The number of available cluster certificates may vary depending on state of the cluster.
 	ClusterCertificates interface{}
+	ClusterId interface{}
 	ClusterState interface{}
 	// The ID of the security group associated with the CloudHSM cluster.
 	SecurityGroupId interface{}

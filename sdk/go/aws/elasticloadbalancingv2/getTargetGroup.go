@@ -34,9 +34,11 @@ func LookupTargetGroup(ctx *pulumi.Context, args *GetTargetGroupArgs) (*GetTarge
 		Name: outputs["name"],
 		Port: outputs["port"],
 		Protocol: outputs["protocol"],
+		ProxyProtocolV2: outputs["proxyProtocolV2"],
 		SlowStart: outputs["slowStart"],
 		Stickiness: outputs["stickiness"],
 		Tags: outputs["tags"],
+		TargetType: outputs["targetType"],
 		VpcId: outputs["vpcId"],
 		Id: outputs["id"],
 	}, nil
@@ -61,9 +63,11 @@ type GetTargetGroupResult struct {
 	Name interface{}
 	Port interface{}
 	Protocol interface{}
+	ProxyProtocolV2 interface{}
 	SlowStart interface{}
 	Stickiness interface{}
 	Tags interface{}
+	TargetType interface{}
 	VpcId interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

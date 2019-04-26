@@ -66,11 +66,11 @@ class UserLoginProfile(pulumi.CustomResource):
         __props__['password_reset_required'] = password_reset_required
 
         if pgp_key is None:
-            raise TypeError('Missing required property pgp_key')
+            raise TypeError("Missing required property 'pgp_key'")
         __props__['pgp_key'] = pgp_key
 
         if user is None:
-            raise TypeError('Missing required property user')
+            raise TypeError("Missing required property 'user'")
         __props__['user'] = user
 
         __props__['encrypted_password'] = None

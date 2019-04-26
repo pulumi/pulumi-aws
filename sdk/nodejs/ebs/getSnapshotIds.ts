@@ -62,7 +62,10 @@ export interface GetSnapshotIdsArgs {
  * A collection of values returned by getSnapshotIds.
  */
 export interface GetSnapshotIdsResult {
+    readonly filters?: { name: string, values: string[] }[];
     readonly ids: string[];
+    readonly owners?: string[];
+    readonly restorableByUserIds?: string[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

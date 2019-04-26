@@ -56,6 +56,7 @@ export interface GetEventCategoriesResult {
      * A list of the event categories.
      */
     readonly eventCategories: string[];
+    readonly sourceType?: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

@@ -42,11 +42,11 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
         __props__ = dict()
 
         if account_id is None:
-            raise TypeError('Missing required property account_id')
+            raise TypeError("Missing required property 'account_id'")
         __props__['account_id'] = account_id
 
         if snapshot_id is None:
-            raise TypeError('Missing required property snapshot_id')
+            raise TypeError("Missing required property 'snapshot_id'")
         __props__['snapshot_id'] = snapshot_id
 
         super(SnapshotCreateVolumePermission, __self__).__init__(

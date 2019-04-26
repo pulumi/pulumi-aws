@@ -123,15 +123,15 @@ class Endpoint(pulumi.CustomResource):
         __props__['database_name'] = database_name
 
         if endpoint_id is None:
-            raise TypeError('Missing required property endpoint_id')
+            raise TypeError("Missing required property 'endpoint_id'")
         __props__['endpoint_id'] = endpoint_id
 
         if endpoint_type is None:
-            raise TypeError('Missing required property endpoint_type')
+            raise TypeError("Missing required property 'endpoint_type'")
         __props__['endpoint_type'] = endpoint_type
 
         if engine_name is None:
-            raise TypeError('Missing required property engine_name')
+            raise TypeError("Missing required property 'engine_name'")
         __props__['engine_name'] = engine_name
 
         __props__['extra_connection_attributes'] = extra_connection_attributes

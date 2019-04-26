@@ -19,6 +19,7 @@ func LookupPolicy(ctx *pulumi.Context, args *GetPolicyArgs) (*GetPolicyResult, e
 		return nil, err
 	}
 	return &GetPolicyResult{
+		Arn: outputs["arn"],
 		Description: outputs["description"],
 		Name: outputs["name"],
 		Path: outputs["path"],
@@ -35,6 +36,8 @@ type GetPolicyArgs struct {
 
 // A collection of values returned by getPolicy.
 type GetPolicyResult struct {
+	// The Amazon Resource Name (ARN) specifying the policy.
+	Arn interface{}
 	// The description of the policy.
 	Description interface{}
 	// The name of the IAM policy.

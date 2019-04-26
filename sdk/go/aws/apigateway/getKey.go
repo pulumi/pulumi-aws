@@ -19,6 +19,7 @@ func LookupKey(ctx *pulumi.Context, args *GetKeyArgs) (*GetKeyResult, error) {
 		return nil, err
 	}
 	return &GetKeyResult{
+		Id: outputs["id"],
 		Name: outputs["name"],
 		Value: outputs["value"],
 	}, nil
@@ -32,6 +33,8 @@ type GetKeyArgs struct {
 
 // A collection of values returned by getKey.
 type GetKeyResult struct {
+	// Set to the ID of the API Key.
+	Id interface{}
 	// Set to the name of the API Key.
 	Name interface{}
 	// Set to the value of the API Key.

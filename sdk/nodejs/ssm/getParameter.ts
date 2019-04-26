@@ -50,8 +50,10 @@ export interface GetParameterArgs {
  */
 export interface GetParameterResult {
     readonly arn: string;
+    readonly name: string;
     readonly type: string;
     readonly value: string;
+    readonly withDecryption?: boolean;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

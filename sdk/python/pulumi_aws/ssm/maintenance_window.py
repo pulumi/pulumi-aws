@@ -79,11 +79,11 @@ class MaintenanceWindow(pulumi.CustomResource):
         __props__['allow_unassociated_targets'] = allow_unassociated_targets
 
         if cutoff is None:
-            raise TypeError('Missing required property cutoff')
+            raise TypeError("Missing required property 'cutoff'")
         __props__['cutoff'] = cutoff
 
         if duration is None:
-            raise TypeError('Missing required property duration')
+            raise TypeError("Missing required property 'duration'")
         __props__['duration'] = duration
 
         __props__['enabled'] = enabled
@@ -93,7 +93,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         __props__['name'] = name
 
         if schedule is None:
-            raise TypeError('Missing required property schedule')
+            raise TypeError("Missing required property 'schedule'")
         __props__['schedule'] = schedule
 
         __props__['schedule_timezone'] = schedule_timezone

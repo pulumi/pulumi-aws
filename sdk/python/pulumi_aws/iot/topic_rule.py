@@ -82,7 +82,7 @@ class TopicRule(pulumi.CustomResource):
         __props__['elasticsearch'] = elasticsearch
 
         if enabled is None:
-            raise TypeError('Missing required property enabled')
+            raise TypeError("Missing required property 'enabled'")
         __props__['enabled'] = enabled
 
         __props__['firehose'] = firehose
@@ -100,11 +100,11 @@ class TopicRule(pulumi.CustomResource):
         __props__['sns'] = sns
 
         if sql is None:
-            raise TypeError('Missing required property sql')
+            raise TypeError("Missing required property 'sql'")
         __props__['sql'] = sql
 
         if sql_version is None:
-            raise TypeError('Missing required property sql_version')
+            raise TypeError("Missing required property 'sql_version'")
         __props__['sql_version'] = sql_version
 
         __props__['sqs'] = sqs

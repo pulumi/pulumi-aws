@@ -172,15 +172,15 @@ class Instance(pulumi.CustomResource):
         __props__ = dict()
 
         if availability_zone is None:
-            raise TypeError('Missing required property availability_zone')
+            raise TypeError("Missing required property 'availability_zone'")
         __props__['availability_zone'] = availability_zone
 
         if blueprint_id is None:
-            raise TypeError('Missing required property blueprint_id')
+            raise TypeError("Missing required property 'blueprint_id'")
         __props__['blueprint_id'] = blueprint_id
 
         if bundle_id is None:
-            raise TypeError('Missing required property bundle_id')
+            raise TypeError("Missing required property 'bundle_id'")
         __props__['bundle_id'] = bundle_id
 
         __props__['key_pair_name'] = key_pair_name

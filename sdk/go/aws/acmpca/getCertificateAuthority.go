@@ -20,6 +20,7 @@ func LookupCertificateAuthority(ctx *pulumi.Context, args *GetCertificateAuthori
 		return nil, err
 	}
 	return &GetCertificateAuthorityResult{
+		Arn: outputs["arn"],
 		Certificate: outputs["certificate"],
 		CertificateChain: outputs["certificateChain"],
 		CertificateSigningRequest: outputs["certificateSigningRequest"],
@@ -44,6 +45,7 @@ type GetCertificateAuthorityArgs struct {
 
 // A collection of values returned by getCertificateAuthority.
 type GetCertificateAuthorityResult struct {
+	Arn interface{}
 	// Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
 	Certificate interface{}
 	// Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.

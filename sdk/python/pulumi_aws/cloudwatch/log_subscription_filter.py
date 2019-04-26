@@ -62,17 +62,17 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         __props__ = dict()
 
         if destination_arn is None:
-            raise TypeError('Missing required property destination_arn')
+            raise TypeError("Missing required property 'destination_arn'")
         __props__['destination_arn'] = destination_arn
 
         __props__['distribution'] = distribution
 
         if filter_pattern is None:
-            raise TypeError('Missing required property filter_pattern')
+            raise TypeError("Missing required property 'filter_pattern'")
         __props__['filter_pattern'] = filter_pattern
 
         if log_group is None:
-            raise TypeError('Missing required property log_group')
+            raise TypeError("Missing required property 'log_group'")
         __props__['log_group'] = log_group
 
         __props__['name'] = name

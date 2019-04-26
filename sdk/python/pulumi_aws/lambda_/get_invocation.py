@@ -12,21 +12,30 @@ class GetInvocationResult:
     """
     A collection of values returned by getInvocation.
     """
-    def __init__(__self__, result=None, result_map=None, id=None):
+    def __init__(__self__, function_name=None, input=None, qualifier=None, result=None, result_map=None, id=None):
+        if function_name and not isinstance(function_name, str):
+            raise TypeError("Expected argument 'function_name' to be a str")
+        __self__.function_name = function_name
+        if input and not isinstance(input, str):
+            raise TypeError("Expected argument 'input' to be a str")
+        __self__.input = input
+        if qualifier and not isinstance(qualifier, str):
+            raise TypeError("Expected argument 'qualifier' to be a str")
+        __self__.qualifier = qualifier
         if result and not isinstance(result, str):
-            raise TypeError('Expected argument result to be a str')
+            raise TypeError("Expected argument 'result' to be a str")
         __self__.result = result
         """
         A result of the lambda function invocation.
         """
         if result_map and not isinstance(result_map, dict):
-            raise TypeError('Expected argument result_map to be a dict')
+            raise TypeError("Expected argument 'result_map' to be a dict")
         __self__.result_map = result_map
         """
         This field is set only if result is a map of primitive types.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -46,6 +55,9 @@ async def get_invocation(function_name=None,input=None,qualifier=None,opts=None)
     __ret__ = await pulumi.runtime.invoke('aws:lambda/getInvocation:getInvocation', __args__, opts=opts)
 
     return GetInvocationResult(
+        function_name=__ret__.get('functionName'),
+        input=__ret__.get('input'),
+        qualifier=__ret__.get('qualifier'),
         result=__ret__.get('result'),
         result_map=__ret__.get('resultMap'),
         id=__ret__.get('id'))

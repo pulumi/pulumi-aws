@@ -11,6 +11,126 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const cluster = new aws.emr.Cluster("cluster", {
+ *     additionalInfo: `{
+ *   "instanceAwsClientConfiguration": {
+ *     "proxyPort": 8099,
+ *     "proxyHost": "myproxy.example.com"
+ *   }
+ * }
+ * `,
+ *     applications: ["Spark"],
+ *     bootstrapActions: [{
+ *         args: [
+ *             "instance.isMaster=true",
+ *             "echo running on master node",
+ *         ],
+ *         name: "runif",
+ *         path: "s3://elasticmapreduce/bootstrap-actions/run-if",
+ *     }],
+ *     configurationsJson: `  [
+ *     {
+ *       "Classification": "hadoop-env",
+ *       "Configurations": [
+ *         {
+ *           "Classification": "export",
+ *           "Properties": {
+ *             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+ *           }
+ *         }
+ *       ],
+ *       "Properties": {}
+ *     },
+ *     {
+ *       "Classification": "spark-env",
+ *       "Configurations": [
+ *         {
+ *           "Classification": "export",
+ *           "Properties": {
+ *             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+ *           }
+ *         }
+ *       ],
+ *       "Properties": {}
+ *     }
+ *   ]
+ * `,
+ *     coreInstanceCount: 1,
+ *     coreInstanceType: "m5.xlarge",
+ *     ebsRootVolumeSize: 100,
+ *     ec2Attributes: {
+ *         emrManagedMasterSecurityGroup: aws_security_group_sg.id,
+ *         emrManagedSlaveSecurityGroup: aws_security_group_sg.id,
+ *         instanceProfile: aws_iam_instance_profile_emr_profile.arn,
+ *         subnetId: aws_subnet_main.id,
+ *     },
+ *     instanceGroups: [{
+ *         autoscalingPolicy: `{
+ * "Constraints": {
+ *   "MinCapacity": 1,
+ *   "MaxCapacity": 2
+ * },
+ * "Rules": [
+ *   {
+ *     "Name": "ScaleOutMemoryPercentage",
+ *     "Description": "Scale out if YARNMemoryAvailablePercentage is less than 15",
+ *     "Action": {
+ *       "SimpleScalingPolicyConfiguration": {
+ *         "AdjustmentType": "CHANGE_IN_CAPACITY",
+ *         "ScalingAdjustment": 1,
+ *         "CoolDown": 300
+ *       }
+ *     },
+ *     "Trigger": {
+ *       "CloudWatchAlarmDefinition": {
+ *         "ComparisonOperator": "LESS_THAN",
+ *         "EvaluationPeriods": 1,
+ *         "MetricName": "YARNMemoryAvailablePercentage",
+ *         "Namespace": "AWS/ElasticMapReduce",
+ *         "Period": 300,
+ *         "Statistic": "AVERAGE",
+ *         "Threshold": 15.0,
+ *         "Unit": "PERCENT"
+ *       }
+ *     }
+ *   }
+ * ]
+ * }
+ * `,
+ *         bidPrice: "0.30",
+ *         ebsConfigs: [{
+ *             size: 40,
+ *             type: "gp2",
+ *             volumesPerInstance: 1,
+ *         }],
+ *         instanceCount: 1,
+ *         instanceRole: "CORE",
+ *         instanceType: "c4.large",
+ *     }],
+ *     keepJobFlowAliveWhenNoSteps: true,
+ *     masterInstanceType: "m5.xlarge",
+ *     releaseLabel: "emr-4.6.0",
+ *     serviceRole: aws_iam_role_iam_emr_service_role.arn,
+ *     tags: {
+ *         env: "env",
+ *         role: "rolename",
+ *     },
+ *     terminationProtection: false,
+ * });
+ * ```
+ * 
+ * The `aws_emr_cluster` resource typically requires two IAM roles, one for the EMR Cluster
+ * to use as a service, and another to place on your Cluster Instances to interact
+ * with AWS from those instances. The suggested role policy template for the EMR service is `AmazonElasticMapReduceRole`,
+ * and `AmazonElasticMapReduceforEC2Role` for the EC2 profile. See the [Getting
+ * Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html)
+ * guide for more information on these IAM roles. There is also a fully-bootable
+ * example Terraform configuration at the bottom of this page.
+ * 
  * ### Enable Debug Logging
  * 
  * [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html)
@@ -80,7 +200,7 @@ import * as utilities from "../utilities";
  * * `instance_type` - (Required) The EC2 instance type for all instances in the instance group
  * * `instance_count` - (Optional) Target number of instances for the instance group
  * * `name` - (Optional) Friendly name given to the instance group
- * * `bid_price` - (Optional) If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances. `bid_price` can not be set for the `MASTER` instance group, since that group must always be On-Demand
+ * * `bid_price` - (Optional) If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
  * * `ebs_config` - (Optional) A list of attributes for the EBS volumes attached to each instance in the instance group. Each `ebs_config` defined will result in additional EBS volumes being attached to _each_ instance in the instance group. Defined below
  * * `autoscaling_policy` - (Optional) The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
  * 
@@ -473,7 +593,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly serviceRole: pulumi.Output<string>;
     /**
-     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
     public readonly steps: pulumi.Output<{ actionOnFailure: string, hadoopJarStep: { args?: string[], jar: string, mainClass?: string, properties?: {[key: string]: any} }, name: string }[]>;
     /**
@@ -662,7 +782,7 @@ export interface ClusterState {
      */
     readonly serviceRole?: pulumi.Input<string>;
     /**
-     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
     readonly steps?: pulumi.Input<pulumi.Input<{ actionOnFailure: pulumi.Input<string>, hadoopJarStep: pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, jar: pulumi.Input<string>, mainClass?: pulumi.Input<string>, properties?: pulumi.Input<{[key: string]: any}> }>, name: pulumi.Input<string> }>[]>;
     /**
@@ -768,7 +888,7 @@ export interface ClusterArgs {
      */
     readonly serviceRole: pulumi.Input<string>;
     /**
-     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform.
+     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
     readonly steps?: pulumi.Input<pulumi.Input<{ actionOnFailure: pulumi.Input<string>, hadoopJarStep: pulumi.Input<{ args?: pulumi.Input<pulumi.Input<string>[]>, jar: pulumi.Input<string>, mainClass?: pulumi.Input<string>, properties?: pulumi.Input<{[key: string]: any}> }>, name: pulumi.Input<string> }>[]>;
     /**

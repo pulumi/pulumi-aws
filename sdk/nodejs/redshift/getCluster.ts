@@ -76,6 +76,10 @@ export interface GetClusterResult {
      */
     readonly bucketName: string;
     /**
+     * The cluster identifier
+     */
+    readonly clusterIdentifier: string;
+    /**
      * The name of the parameter group to be associated with this cluster
      */
     readonly clusterParameterGroupName: string;
@@ -160,6 +164,10 @@ export interface GetClusterResult {
      * The folder inside the S3 bucket where the log files are stored
      */
     readonly s3KeyPrefix: string;
+    /**
+     * The tags associated to the cluster
+     */
+    readonly tags?: {[key: string]: any};
     /**
      * The VPC Id associated with the cluster
      */

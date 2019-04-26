@@ -56,17 +56,17 @@ class VaultLock(pulumi.CustomResource):
         __props__ = dict()
 
         if complete_lock is None:
-            raise TypeError('Missing required property complete_lock')
+            raise TypeError("Missing required property 'complete_lock'")
         __props__['complete_lock'] = complete_lock
 
         __props__['ignore_deletion_error'] = ignore_deletion_error
 
         if policy is None:
-            raise TypeError('Missing required property policy')
+            raise TypeError("Missing required property 'policy'")
         __props__['policy'] = policy
 
         if vault_name is None:
-            raise TypeError('Missing required property vault_name')
+            raise TypeError("Missing required property 'vault_name'")
         __props__['vault_name'] = vault_name
 
         super(VaultLock, __self__).__init__(

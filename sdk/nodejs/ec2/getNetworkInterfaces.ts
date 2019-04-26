@@ -77,6 +77,7 @@ export interface GetNetworkInterfacesArgs {
  * A collection of values returned by getNetworkInterfaces.
  */
 export interface GetNetworkInterfacesResult {
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * A list of all the network interface ids found. This data source will fail if none are found.
      */

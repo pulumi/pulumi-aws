@@ -54,11 +54,11 @@ class Build(pulumi.CustomResource):
         __props__['name'] = name
 
         if operating_system is None:
-            raise TypeError('Missing required property operating_system')
+            raise TypeError("Missing required property 'operating_system'")
         __props__['operating_system'] = operating_system
 
         if storage_location is None:
-            raise TypeError('Missing required property storage_location')
+            raise TypeError("Missing required property 'storage_location'")
         __props__['storage_location'] = storage_location
 
         __props__['version'] = version

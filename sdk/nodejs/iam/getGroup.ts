@@ -48,6 +48,7 @@ export interface GetGroupResult {
      * The stable and unique string identifying the group.
      */
     readonly groupId: string;
+    readonly groupName: string;
     /**
      * The path to the group.
      */

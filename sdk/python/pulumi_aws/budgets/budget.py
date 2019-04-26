@@ -41,6 +41,10 @@ class Budget(pulumi.CustomResource):
     """
     The prefix of the name of a budget. Unique within accounts.
     """
+    notifications: pulumi.Output[list]
+    """
+    Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+    """
     time_period_end: pulumi.Output[str]
     """
     The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
@@ -53,7 +57,7 @@ class Budget(pulumi.CustomResource):
     """
     The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
     """
-    def __init__(__self__, resource_name, opts=None, account_id=None, budget_type=None, cost_filters=None, cost_types=None, limit_amount=None, limit_unit=None, name=None, name_prefix=None, time_period_end=None, time_period_start=None, time_unit=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_id=None, budget_type=None, cost_filters=None, cost_types=None, limit_amount=None, limit_unit=None, name=None, name_prefix=None, notifications=None, time_period_end=None, time_period_start=None, time_unit=None, __name__=None, __opts__=None):
         """
         Provides a budgets budget resource. Budgets use the cost visualisation provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
         
@@ -67,6 +71,7 @@ class Budget(pulumi.CustomResource):
         :param pulumi.Input[str] limit_unit: The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
         :param pulumi.Input[str] name: The name of a budget. Unique within accounts.
         :param pulumi.Input[str] name_prefix: The prefix of the name of a budget. Unique within accounts.
+        :param pulumi.Input[list] notifications: Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
         :param pulumi.Input[str] time_period_end: The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         :param pulumi.Input[str] time_period_start: The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
         :param pulumi.Input[str] time_unit: The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
@@ -89,7 +94,7 @@ class Budget(pulumi.CustomResource):
         __props__['account_id'] = account_id
 
         if budget_type is None:
-            raise TypeError('Missing required property budget_type')
+            raise TypeError("Missing required property 'budget_type'")
         __props__['budget_type'] = budget_type
 
         __props__['cost_filters'] = cost_filters
@@ -97,25 +102,27 @@ class Budget(pulumi.CustomResource):
         __props__['cost_types'] = cost_types
 
         if limit_amount is None:
-            raise TypeError('Missing required property limit_amount')
+            raise TypeError("Missing required property 'limit_amount'")
         __props__['limit_amount'] = limit_amount
 
         if limit_unit is None:
-            raise TypeError('Missing required property limit_unit')
+            raise TypeError("Missing required property 'limit_unit'")
         __props__['limit_unit'] = limit_unit
 
         __props__['name'] = name
 
         __props__['name_prefix'] = name_prefix
 
+        __props__['notifications'] = notifications
+
         __props__['time_period_end'] = time_period_end
 
         if time_period_start is None:
-            raise TypeError('Missing required property time_period_start')
+            raise TypeError("Missing required property 'time_period_start'")
         __props__['time_period_start'] = time_period_start
 
         if time_unit is None:
-            raise TypeError('Missing required property time_unit')
+            raise TypeError("Missing required property 'time_unit'")
         __props__['time_unit'] = time_unit
 
         super(Budget, __self__).__init__(

@@ -80,6 +80,7 @@ export interface GetVpcDhcpOptionsResult {
      * List of name servers.
      */
     readonly domainNameServers: string[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * List of NETBIOS name servers.
      */

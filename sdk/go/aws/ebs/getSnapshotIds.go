@@ -21,7 +21,10 @@ func LookupSnapshotIds(ctx *pulumi.Context, args *GetSnapshotIdsArgs) (*GetSnaps
 		return nil, err
 	}
 	return &GetSnapshotIdsResult{
+		Filters: outputs["filters"],
 		Ids: outputs["ids"],
+		Owners: outputs["owners"],
+		RestorableByUserIds: outputs["restorableByUserIds"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -40,7 +43,10 @@ type GetSnapshotIdsArgs struct {
 
 // A collection of values returned by getSnapshotIds.
 type GetSnapshotIdsResult struct {
+	Filters interface{}
 	Ids interface{}
+	Owners interface{}
+	RestorableByUserIds interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

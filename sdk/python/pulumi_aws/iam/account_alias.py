@@ -39,7 +39,7 @@ class AccountAlias(pulumi.CustomResource):
         __props__ = dict()
 
         if account_alias is None:
-            raise TypeError('Missing required property account_alias')
+            raise TypeError("Missing required property 'account_alias'")
         __props__['account_alias'] = account_alias
 
         super(AccountAlias, __self__).__init__(

@@ -74,6 +74,7 @@ export interface GetInstanceResult {
      * Contains the name of the compute and memory capacity class of the DB instance.
      */
     readonly dbInstanceClass: string;
+    readonly dbInstanceIdentifier: string;
     /**
      * Specifies the port that the DB instance listens on.
      */

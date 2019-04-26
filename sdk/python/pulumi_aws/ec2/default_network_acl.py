@@ -92,7 +92,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         __props__ = dict()
 
         if default_network_acl_id is None:
-            raise TypeError('Missing required property default_network_acl_id')
+            raise TypeError("Missing required property 'default_network_acl_id'")
         __props__['default_network_acl_id'] = default_network_acl_id
 
         __props__['egress'] = egress

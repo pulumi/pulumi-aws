@@ -11,7 +11,7 @@ from .. import utilities, tables
 class WebAclAssociation(pulumi.CustomResource):
     resource_arn: pulumi.Output[str]
     """
-    Application Load Balancer ARN to associate with.
+    ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
     """
     web_acl_id: pulumi.Output[str]
     """
@@ -19,13 +19,13 @@ class WebAclAssociation(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, resource_arn=None, web_acl_id=None, __name__=None, __opts__=None):
         """
-        Provides a resource to create an association between a WAF Regional WebACL and Application Load Balancer.
+        Manages an association with WAF Regional Web ACL.
         
         > **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] resource_arn: Application Load Balancer ARN to associate with.
+        :param pulumi.Input[str] resource_arn: ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
         :param pulumi.Input[str] web_acl_id: The ID of the WAF Regional WebACL to create an association.
         """
         if __name__ is not None:
@@ -44,11 +44,11 @@ class WebAclAssociation(pulumi.CustomResource):
         __props__ = dict()
 
         if resource_arn is None:
-            raise TypeError('Missing required property resource_arn')
+            raise TypeError("Missing required property 'resource_arn'")
         __props__['resource_arn'] = resource_arn
 
         if web_acl_id is None:
-            raise TypeError('Missing required property web_acl_id')
+            raise TypeError("Missing required property 'web_acl_id'")
         __props__['web_acl_id'] = web_acl_id
 
         super(WebAclAssociation, __self__).__init__(

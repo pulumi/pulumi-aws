@@ -12,9 +12,9 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, cluster_certificates=None, cluster_state=None, security_group_id=None, subnet_ids=None, vpc_id=None, id=None):
+    def __init__(__self__, cluster_certificates=None, cluster_id=None, cluster_state=None, security_group_id=None, subnet_ids=None, vpc_id=None, id=None):
         if cluster_certificates and not isinstance(cluster_certificates, dict):
-            raise TypeError('Expected argument cluster_certificates to be a dict')
+            raise TypeError("Expected argument 'cluster_certificates' to be a dict")
         __self__.cluster_certificates = cluster_certificates
         """
         The list of cluster certificates.
@@ -25,29 +25,32 @@ class GetClusterResult:
         * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
         The number of available cluster certificates may vary depending on state of the cluster.
         """
+        if cluster_id and not isinstance(cluster_id, str):
+            raise TypeError("Expected argument 'cluster_id' to be a str")
+        __self__.cluster_id = cluster_id
         if cluster_state and not isinstance(cluster_state, str):
-            raise TypeError('Expected argument cluster_state to be a str')
+            raise TypeError("Expected argument 'cluster_state' to be a str")
         __self__.cluster_state = cluster_state
         if security_group_id and not isinstance(security_group_id, str):
-            raise TypeError('Expected argument security_group_id to be a str')
+            raise TypeError("Expected argument 'security_group_id' to be a str")
         __self__.security_group_id = security_group_id
         """
         The ID of the security group associated with the CloudHSM cluster.
         """
         if subnet_ids and not isinstance(subnet_ids, list):
-            raise TypeError('Expected argument subnet_ids to be a list')
+            raise TypeError("Expected argument 'subnet_ids' to be a list")
         __self__.subnet_ids = subnet_ids
         """
         The IDs of subnets in which cluster operates.
         """
         if vpc_id and not isinstance(vpc_id, str):
-            raise TypeError('Expected argument vpc_id to be a str')
+            raise TypeError("Expected argument 'vpc_id' to be a str")
         __self__.vpc_id = vpc_id
         """
         The id of the VPC that the CloudHSM cluster resides in.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -65,6 +68,7 @@ async def get_cluster(cluster_id=None,cluster_state=None,opts=None):
 
     return GetClusterResult(
         cluster_certificates=__ret__.get('clusterCertificates'),
+        cluster_id=__ret__.get('clusterId'),
         cluster_state=__ret__.get('clusterState'),
         security_group_id=__ret__.get('securityGroupId'),
         subnet_ids=__ret__.get('subnetIds'),

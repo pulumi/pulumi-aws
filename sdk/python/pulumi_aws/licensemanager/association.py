@@ -44,11 +44,11 @@ class Association(pulumi.CustomResource):
         __props__ = dict()
 
         if license_configuration_arn is None:
-            raise TypeError('Missing required property license_configuration_arn')
+            raise TypeError("Missing required property 'license_configuration_arn'")
         __props__['license_configuration_arn'] = license_configuration_arn
 
         if resource_arn is None:
-            raise TypeError('Missing required property resource_arn')
+            raise TypeError("Missing required property 'resource_arn'")
         __props__['resource_arn'] = resource_arn
 
         super(Association, __self__).__init__(

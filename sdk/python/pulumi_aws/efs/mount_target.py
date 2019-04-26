@@ -68,7 +68,7 @@ class MountTarget(pulumi.CustomResource):
         __props__ = dict()
 
         if file_system_id is None:
-            raise TypeError('Missing required property file_system_id')
+            raise TypeError("Missing required property 'file_system_id'")
         __props__['file_system_id'] = file_system_id
 
         __props__['ip_address'] = ip_address
@@ -76,7 +76,7 @@ class MountTarget(pulumi.CustomResource):
         __props__['security_groups'] = security_groups
 
         if subnet_id is None:
-            raise TypeError('Missing required property subnet_id')
+            raise TypeError("Missing required property 'subnet_id'")
         __props__['subnet_id'] = subnet_id
 
         __props__['dns_name'] = None

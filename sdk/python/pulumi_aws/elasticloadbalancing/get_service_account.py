@@ -12,15 +12,18 @@ class GetServiceAccountResult:
     """
     A collection of values returned by getServiceAccount.
     """
-    def __init__(__self__, arn=None, id=None):
+    def __init__(__self__, arn=None, region=None, id=None):
         if arn and not isinstance(arn, str):
-            raise TypeError('Expected argument arn to be a str')
+            raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
         The ARN of the AWS ELB service account in the selected region.
         """
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        __self__.region = region
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -38,4 +41,5 @@ async def get_service_account(region=None,opts=None):
 
     return GetServiceAccountResult(
         arn=__ret__.get('arn'),
+        region=__ret__.get('region'),
         id=__ret__.get('id'))

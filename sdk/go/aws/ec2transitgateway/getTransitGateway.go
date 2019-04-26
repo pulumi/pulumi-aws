@@ -28,6 +28,8 @@ func LookupTransitGateway(ctx *pulumi.Context, args *GetTransitGatewayArgs) (*Ge
 		DefaultRouteTablePropagation: outputs["defaultRouteTablePropagation"],
 		Description: outputs["description"],
 		DnsSupport: outputs["dnsSupport"],
+		Filters: outputs["filters"],
+		Id: outputs["id"],
 		OwnerId: outputs["ownerId"],
 		PropagationDefaultRouteTableId: outputs["propagationDefaultRouteTableId"],
 		Tags: outputs["tags"],
@@ -62,6 +64,9 @@ type GetTransitGatewayResult struct {
 	Description interface{}
 	// Whether DNS support is enabled.
 	DnsSupport interface{}
+	Filters interface{}
+	// EC2 Transit Gateway identifier
+	Id interface{}
 	// Identifier of the AWS account that owns the EC2 Transit Gateway
 	OwnerId interface{}
 	// Identifier of the default propagation route table.

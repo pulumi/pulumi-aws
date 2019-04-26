@@ -132,11 +132,11 @@ class ReplicationInstance(pulumi.CustomResource):
         __props__['publicly_accessible'] = publicly_accessible
 
         if replication_instance_class is None:
-            raise TypeError('Missing required property replication_instance_class')
+            raise TypeError("Missing required property 'replication_instance_class'")
         __props__['replication_instance_class'] = replication_instance_class
 
         if replication_instance_id is None:
-            raise TypeError('Missing required property replication_instance_id')
+            raise TypeError("Missing required property 'replication_instance_id'")
         __props__['replication_instance_id'] = replication_instance_id
 
         __props__['replication_subnet_group_id'] = replication_subnet_group_id

@@ -181,7 +181,7 @@ class JavaAppLayer(pulumi.CustomResource):
         __props__['name'] = name
 
         if stack_id is None:
-            raise TypeError('Missing required property stack_id')
+            raise TypeError("Missing required property 'stack_id'")
         __props__['stack_id'] = stack_id
 
         __props__['system_packages'] = system_packages

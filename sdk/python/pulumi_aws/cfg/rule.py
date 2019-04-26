@@ -86,7 +86,7 @@ class Rule(pulumi.CustomResource):
         __props__['scope'] = scope
 
         if source is None:
-            raise TypeError('Missing required property source')
+            raise TypeError("Missing required property 'source'")
         __props__['source'] = source
 
         __props__['arn'] = None

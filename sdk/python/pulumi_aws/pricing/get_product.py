@@ -12,15 +12,21 @@ class GetProductResult:
     """
     A collection of values returned by getProduct.
     """
-    def __init__(__self__, result=None, id=None):
+    def __init__(__self__, filters=None, result=None, service_code=None, id=None):
+        if filters and not isinstance(filters, list):
+            raise TypeError("Expected argument 'filters' to be a list")
+        __self__.filters = filters
         if result and not isinstance(result, str):
-            raise TypeError('Expected argument result to be a str')
+            raise TypeError("Expected argument 'result' to be a str")
         __self__.result = result
         """
         Set to the product returned from the API.
         """
+        if service_code and not isinstance(service_code, str):
+            raise TypeError("Expected argument 'service_code' to be a str")
+        __self__.service_code = service_code
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
@@ -38,5 +44,7 @@ async def get_product(filters=None,service_code=None,opts=None):
     __ret__ = await pulumi.runtime.invoke('aws:pricing/getProduct:getProduct', __args__, opts=opts)
 
     return GetProductResult(
+        filters=__ret__.get('filters'),
         result=__ret__.get('result'),
+        service_code=__ret__.get('serviceCode'),
         id=__ret__.get('id'))

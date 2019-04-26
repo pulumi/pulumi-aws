@@ -37,7 +37,16 @@ class VirtualNode(pulumi.CustomResource):
         """
         Provides an AWS App Mesh virtual node resource.
         
-        > **Note:** Backward incompatible API changes have been announced for AWS App Mesh which will affect this resource. Read more about the changes [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92).
+        ## Breaking Changes
+        
+        Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), `aws_appmesh_virtual_node` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
+        
+        * Rename the `service_name` attribute of the `dns` object to `hostname`.
+        
+        * Replace the `backends` attribute of the `spec` object with one or more `backend` configuration blocks,
+        setting `virtual_service_name` to the name of the service.
+        
+        The Terraform state associated with existing resources will automatically be migrated.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -61,13 +70,13 @@ class VirtualNode(pulumi.CustomResource):
         __props__ = dict()
 
         if mesh_name is None:
-            raise TypeError('Missing required property mesh_name')
+            raise TypeError("Missing required property 'mesh_name'")
         __props__['mesh_name'] = mesh_name
 
         __props__['name'] = name
 
         if spec is None:
-            raise TypeError('Missing required property spec')
+            raise TypeError("Missing required property 'spec'")
         __props__['spec'] = spec
 
         __props__['arn'] = None

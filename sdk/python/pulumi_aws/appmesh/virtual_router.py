@@ -37,7 +37,17 @@ class VirtualRouter(pulumi.CustomResource):
         """
         Provides an AWS App Mesh virtual router resource.
         
-        > **Note:** Backward incompatible API changes have been announced for AWS App Mesh which will affect this resource. Read more about the changes [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92).
+        ## Breaking Changes
+        
+        Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92) and [here](https://github.com/awslabs/aws-app-mesh-examples/issues/94)), `aws_appmesh_virtual_router` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
+        
+        * Remove service `service_names` from the `spec` argument.
+        AWS has created a `aws_appmesh_virtual_service` resource for each of service names.
+        These resource can be imported using `terraform import`.
+        
+        * Add a `listener` configuration block to the `spec` argument.
+        
+        The Terraform state associated with existing resources will automatically be migrated.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -61,13 +71,13 @@ class VirtualRouter(pulumi.CustomResource):
         __props__ = dict()
 
         if mesh_name is None:
-            raise TypeError('Missing required property mesh_name')
+            raise TypeError("Missing required property 'mesh_name'")
         __props__['mesh_name'] = mesh_name
 
         __props__['name'] = name
 
         if spec is None:
-            raise TypeError('Missing required property spec')
+            raise TypeError("Missing required property 'spec'")
         __props__['spec'] = spec
 
         __props__['arn'] = None

@@ -76,6 +76,11 @@ export interface GetRouteTableResult {
      * Boolean whether this is the default propagation route table for the EC2 Transit Gateway
      */
     readonly defaultPropagationRouteTable: boolean;
+    readonly filters?: { name: string, values: string[] }[];
+    /**
+     * EC2 Transit Gateway Route Table identifier
+     */
+    readonly id?: string;
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table
      */

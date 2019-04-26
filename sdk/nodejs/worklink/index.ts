@@ -3,3 +3,4 @@
 
 // Export members:
 export * from "./fleet";
+export * from "./websiteCertificateAuthorityAssociation";

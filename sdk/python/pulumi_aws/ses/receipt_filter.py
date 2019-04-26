@@ -47,13 +47,13 @@ class ReceiptFilter(pulumi.CustomResource):
         __props__ = dict()
 
         if cidr is None:
-            raise TypeError('Missing required property cidr')
+            raise TypeError("Missing required property 'cidr'")
         __props__['cidr'] = cidr
 
         __props__['name'] = name
 
         if policy is None:
-            raise TypeError('Missing required property policy')
+            raise TypeError("Missing required property 'policy'")
         __props__['policy'] = policy
 
         super(ReceiptFilter, __self__).__init__(

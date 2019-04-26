@@ -44,6 +44,7 @@ export interface GetRepositoryResult {
      * Full ARN of the repository.
      */
     readonly arn: string;
+    readonly name: string;
     /**
      * The registry ID where the repository was created.
      */

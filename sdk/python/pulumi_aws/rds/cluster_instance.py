@@ -234,7 +234,7 @@ class ClusterInstance(pulumi.CustomResource):
         __props__['availability_zone'] = availability_zone
 
         if cluster_identifier is None:
-            raise TypeError('Missing required property cluster_identifier')
+            raise TypeError("Missing required property 'cluster_identifier'")
         __props__['cluster_identifier'] = cluster_identifier
 
         __props__['copy_tags_to_snapshot'] = copy_tags_to_snapshot
@@ -252,7 +252,7 @@ class ClusterInstance(pulumi.CustomResource):
         __props__['identifier_prefix'] = identifier_prefix
 
         if instance_class is None:
-            raise TypeError('Missing required property instance_class')
+            raise TypeError("Missing required property 'instance_class'")
         __props__['instance_class'] = instance_class
 
         __props__['monitoring_interval'] = monitoring_interval

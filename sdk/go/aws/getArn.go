@@ -19,6 +19,7 @@ func LookupArn(ctx *pulumi.Context, args *GetArnArgs) (*GetArnResult, error) {
 	}
 	return &GetArnResult{
 		Account: outputs["account"],
+		Arn: outputs["arn"],
 		Partition: outputs["partition"],
 		Region: outputs["region"],
 		Resource: outputs["resource"],
@@ -37,6 +38,7 @@ type GetArnArgs struct {
 type GetArnResult struct {
 	// The [ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS account that owns the resource, without the hyphens.
 	Account interface{}
+	Arn interface{}
 	// The partition that the resource is in.
 	Partition interface{}
 	// The region the resource resides in.

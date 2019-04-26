@@ -66,23 +66,23 @@ class Webhook(pulumi.CustomResource):
         __props__ = dict()
 
         if authentication is None:
-            raise TypeError('Missing required property authentication')
+            raise TypeError("Missing required property 'authentication'")
         __props__['authentication'] = authentication
 
         __props__['authentication_configuration'] = authentication_configuration
 
         if filters is None:
-            raise TypeError('Missing required property filters')
+            raise TypeError("Missing required property 'filters'")
         __props__['filters'] = filters
 
         __props__['name'] = name
 
         if target_action is None:
-            raise TypeError('Missing required property target_action')
+            raise TypeError("Missing required property 'target_action'")
         __props__['target_action'] = target_action
 
         if target_pipeline is None:
-            raise TypeError('Missing required property target_pipeline')
+            raise TypeError("Missing required property 'target_pipeline'")
         __props__['target_pipeline'] = target_pipeline
 
         __props__['url'] = None

@@ -72,7 +72,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         __props__['requester'] = requester
 
         if vpc_peering_connection_id is None:
-            raise TypeError('Missing required property vpc_peering_connection_id')
+            raise TypeError("Missing required property 'vpc_peering_connection_id'")
         __props__['vpc_peering_connection_id'] = vpc_peering_connection_id
 
         super(PeeringConnectionOptions, __self__).__init__(

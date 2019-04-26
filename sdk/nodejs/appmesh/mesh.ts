@@ -9,11 +9,28 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * ### Basic
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
  * const simple = new aws.appmesh.Mesh("simple", {});
+ * ```
+ * 
+ * ### Egress Filter
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const simple = new aws.appmesh.Mesh("simple", {
+ *     spec: {
+ *         egressFilter: {
+ *             type: "ALLOW_ALL",
+ *         },
+ *     },
+ * });
  * ```
  */
 export class Mesh extends pulumi.CustomResource {
@@ -45,6 +62,10 @@ export class Mesh extends pulumi.CustomResource {
      * The name to use for the service mesh.
      */
     public readonly name: pulumi.Output<string>;
+    /**
+     * The service mesh specification to apply.
+     */
+    public readonly spec: pulumi.Output<{ egressFilter?: { type?: string } } | undefined>;
 
     /**
      * Create a Mesh resource with the given unique name, arguments, and options.
@@ -62,9 +83,11 @@ export class Mesh extends pulumi.CustomResource {
             inputs["createdDate"] = state ? state.createdDate : undefined;
             inputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["spec"] = state ? state.spec : undefined;
         } else {
             const args = argsOrState as MeshArgs | undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["spec"] = args ? args.spec : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createdDate"] = undefined /*out*/;
             inputs["lastUpdatedDate"] = undefined /*out*/;
@@ -93,6 +116,10 @@ export interface MeshState {
      * The name to use for the service mesh.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The service mesh specification to apply.
+     */
+    readonly spec?: pulumi.Input<{ egressFilter?: pulumi.Input<{ type?: pulumi.Input<string> }> }>;
 }
 
 /**
@@ -103,4 +130,8 @@ export interface MeshArgs {
      * The name to use for the service mesh.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The service mesh specification to apply.
+     */
+    readonly spec?: pulumi.Input<{ egressFilter?: pulumi.Input<{ type?: pulumi.Input<string> }> }>;
 }

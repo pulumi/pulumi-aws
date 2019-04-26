@@ -14,13 +14,13 @@ class GetCanonicalUserIdResult:
     """
     def __init__(__self__, display_name=None, id=None):
         if display_name and not isinstance(display_name, str):
-            raise TypeError('Expected argument display_name to be a str')
+            raise TypeError("Expected argument 'display_name' to be a str")
         __self__.display_name = display_name
         """
         The human-friendly name linked to the canonical user ID. The bucket owner's display name. **NOTE:** [This value](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTServiceGET.html) is only included in the response in the US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), EU (Ireland), and South America (São Paulo) regions.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

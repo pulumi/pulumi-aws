@@ -22,6 +22,7 @@ func LookupRepository(ctx *pulumi.Context, args *GetRepositoryArgs) (*GetReposit
 		CloneUrlHttp: outputs["cloneUrlHttp"],
 		CloneUrlSsh: outputs["cloneUrlSsh"],
 		RepositoryId: outputs["repositoryId"],
+		RepositoryName: outputs["repositoryName"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -42,6 +43,7 @@ type GetRepositoryResult struct {
 	CloneUrlSsh interface{}
 	// The ID of the repository
 	RepositoryId interface{}
+	RepositoryName interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

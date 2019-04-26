@@ -54,6 +54,10 @@ export interface GetStreamResult {
      */
     readonly creationTimestamp: number;
     /**
+     * The name of the Kinesis Stream.
+     */
+    readonly name: string;
+    /**
      * The list of shard ids in the OPEN state. See [Shard State][2] for more.
      */
     readonly openShards: string[];

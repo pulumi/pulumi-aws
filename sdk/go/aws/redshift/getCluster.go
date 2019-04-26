@@ -23,6 +23,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		AutomatedSnapshotRetentionPeriod: outputs["automatedSnapshotRetentionPeriod"],
 		AvailabilityZone: outputs["availabilityZone"],
 		BucketName: outputs["bucketName"],
+		ClusterIdentifier: outputs["clusterIdentifier"],
 		ClusterParameterGroupName: outputs["clusterParameterGroupName"],
 		ClusterPublicKey: outputs["clusterPublicKey"],
 		ClusterRevisionNumber: outputs["clusterRevisionNumber"],
@@ -45,6 +46,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		PreferredMaintenanceWindow: outputs["preferredMaintenanceWindow"],
 		PubliclyAccessible: outputs["publiclyAccessible"],
 		S3KeyPrefix: outputs["s3KeyPrefix"],
+		Tags: outputs["tags"],
 		VpcId: outputs["vpcId"],
 		VpcSecurityGroupIds: outputs["vpcSecurityGroupIds"],
 		Id: outputs["id"],
@@ -68,6 +70,8 @@ type GetClusterResult struct {
 	AvailabilityZone interface{}
 	// The name of the S3 bucket where the log files are to be stored
 	BucketName interface{}
+	// The cluster identifier
+	ClusterIdentifier interface{}
 	// The name of the parameter group to be associated with this cluster
 	ClusterParameterGroupName interface{}
 	// The public key for the cluster
@@ -111,6 +115,8 @@ type GetClusterResult struct {
 	PubliclyAccessible interface{}
 	// The folder inside the S3 bucket where the log files are stored
 	S3KeyPrefix interface{}
+	// The tags associated to the cluster
+	Tags interface{}
 	// The VPC Id associated with the cluster
 	VpcId interface{}
 	// The VPC security group Ids associated with the cluster

@@ -51,15 +51,15 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         __props__ = dict()
 
         if client_id_lists is None:
-            raise TypeError('Missing required property client_id_lists')
+            raise TypeError("Missing required property 'client_id_lists'")
         __props__['client_id_lists'] = client_id_lists
 
         if thumbprint_lists is None:
-            raise TypeError('Missing required property thumbprint_lists')
+            raise TypeError("Missing required property 'thumbprint_lists'")
         __props__['thumbprint_lists'] = thumbprint_lists
 
         if url is None:
-            raise TypeError('Missing required property url')
+            raise TypeError("Missing required property 'url'")
         __props__['url'] = url
 
         __props__['arn'] = None

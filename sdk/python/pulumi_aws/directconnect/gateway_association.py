@@ -42,11 +42,11 @@ class GatewayAssociation(pulumi.CustomResource):
         __props__ = dict()
 
         if dx_gateway_id is None:
-            raise TypeError('Missing required property dx_gateway_id')
+            raise TypeError("Missing required property 'dx_gateway_id'")
         __props__['dx_gateway_id'] = dx_gateway_id
 
         if vpn_gateway_id is None:
-            raise TypeError('Missing required property vpn_gateway_id')
+            raise TypeError("Missing required property 'vpn_gateway_id'")
         __props__['vpn_gateway_id'] = vpn_gateway_id
 
         super(GatewayAssociation, __self__).__init__(

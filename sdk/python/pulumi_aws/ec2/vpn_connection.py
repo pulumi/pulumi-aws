@@ -26,6 +26,10 @@ class VpnConnection(pulumi.CustomResource):
     """
     Tags to apply to the connection.
     """
+    transit_gateway_attachment_id: pulumi.Output[str]
+    """
+    When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID.
+    """
     transit_gateway_id: pulumi.Output[str]
     """
     The ID of the EC2 Transit Gateway.
@@ -134,7 +138,7 @@ class VpnConnection(pulumi.CustomResource):
         __props__ = dict()
 
         if customer_gateway_id is None:
-            raise TypeError('Missing required property customer_gateway_id')
+            raise TypeError("Missing required property 'customer_gateway_id'")
         __props__['customer_gateway_id'] = customer_gateway_id
 
         __props__['static_routes_only'] = static_routes_only
@@ -152,13 +156,14 @@ class VpnConnection(pulumi.CustomResource):
         __props__['tunnel2_preshared_key'] = tunnel2_preshared_key
 
         if type is None:
-            raise TypeError('Missing required property type')
+            raise TypeError("Missing required property 'type'")
         __props__['type'] = type
 
         __props__['vpn_gateway_id'] = vpn_gateway_id
 
         __props__['customer_gateway_configuration'] = None
         __props__['routes'] = None
+        __props__['transit_gateway_attachment_id'] = None
         __props__['tunnel1_address'] = None
         __props__['tunnel1_bgp_asn'] = None
         __props__['tunnel1_bgp_holdtime'] = None

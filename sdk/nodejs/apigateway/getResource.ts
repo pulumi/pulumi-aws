@@ -14,12 +14,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const myResource = aws_api_gateway_rest_api_my_rest_api.id.apply(id => aws.apigateway.getResource({
- *     path: "/endpoint/path",
- *     restApiId: id,
- * }));
  * const myRestApi = pulumi.output(aws.apigateway.getRestApi({
  *     name: "my-rest-api",
+ * }));
+ * const myResource = myRestApi.apply(myRestApi => aws.apigateway.getResource({
+ *     path: "/endpoint/path",
+ *     restApiId: myRestApi.id,
  * }));
  * ```
  */
@@ -52,10 +52,12 @@ export interface GetResourceResult {
      * Set to the ID of the parent Resource.
      */
     readonly parentId: string;
+    readonly path: string;
     /**
      * Set to the path relative to the parent Resource.
      */
     readonly pathPart: string;
+    readonly restApiId: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

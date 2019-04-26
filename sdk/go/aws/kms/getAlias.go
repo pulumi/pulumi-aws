@@ -21,6 +21,7 @@ func LookupAlias(ctx *pulumi.Context, args *GetAliasArgs) (*GetAliasResult, erro
 	}
 	return &GetAliasResult{
 		Arn: outputs["arn"],
+		Name: outputs["name"],
 		TargetKeyArn: outputs["targetKeyArn"],
 		TargetKeyId: outputs["targetKeyId"],
 		Id: outputs["id"],
@@ -37,6 +38,7 @@ type GetAliasArgs struct {
 type GetAliasResult struct {
 	// The Amazon Resource Name(ARN) of the key alias.
 	Arn interface{}
+	Name interface{}
 	// ARN pointed to by the alias.
 	TargetKeyArn interface{}
 	// Key identifier pointed to by the alias.

@@ -233,7 +233,7 @@ export class EventSubscription extends pulumi.ComponentResource {
     }
 }
 
-/* @internal */ export function createFunctionFromEventHandler<E, R>(
+/** @internal */ export function createFunctionFromEventHandler<E, R>(
     name: string, handler: EventHandler<E, R>, opts?: pulumi.ResourceOptions): LambdaFunction {
 
     if (handler instanceof Function) {
@@ -366,13 +366,14 @@ const lambdaRolePolicy = {
         },
     ],
 };
-
 // Mixin the Role we potentially create into the Function instances we return.
 
 declare module "./function" {
     interface Function {
-        // Actual Role instance value for this Function.  Will only be set if this function
-        // was created from [createFunction]
+        /**
+         * Actual Role instance value for this Function.  Will only be set if this function was
+         * created from [createFunction]
+         */
         roleInstance?: iam.Role;
     }
 }

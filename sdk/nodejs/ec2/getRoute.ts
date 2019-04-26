@@ -107,6 +107,7 @@ export interface GetRouteResult {
     readonly instanceId: string;
     readonly natGatewayId: string;
     readonly networkInterfaceId: string;
+    readonly routeTableId: string;
     readonly transitGatewayId: string;
     readonly vpcPeeringConnectionId: string;
     /**

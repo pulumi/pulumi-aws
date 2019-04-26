@@ -91,7 +91,7 @@ class Stream(pulumi.CustomResource):
         __props__['retention_period'] = retention_period
 
         if shard_count is None:
-            raise TypeError('Missing required property shard_count')
+            raise TypeError("Missing required property 'shard_count'")
         __props__['shard_count'] = shard_count
 
         __props__['shard_level_metrics'] = shard_level_metrics

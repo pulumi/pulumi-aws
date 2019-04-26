@@ -56,17 +56,17 @@ class AssessmentTemplate(pulumi.CustomResource):
         __props__ = dict()
 
         if duration is None:
-            raise TypeError('Missing required property duration')
+            raise TypeError("Missing required property 'duration'")
         __props__['duration'] = duration
 
         __props__['name'] = name
 
         if rules_package_arns is None:
-            raise TypeError('Missing required property rules_package_arns')
+            raise TypeError("Missing required property 'rules_package_arns'")
         __props__['rules_package_arns'] = rules_package_arns
 
         if target_arn is None:
-            raise TypeError('Missing required property target_arn')
+            raise TypeError("Missing required property 'target_arn'")
         __props__['target_arn'] = target_arn
 
         __props__['arn'] = None

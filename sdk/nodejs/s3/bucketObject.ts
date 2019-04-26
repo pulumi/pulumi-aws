@@ -16,13 +16,15 @@ import {Bucket} from "./bucket";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
  * 
  * const object = new aws.s3.BucketObject("object", {
  *     bucket: "your_bucket_name",
+ *     // The filemd5() function is available in Terraform 0.11.12 and later
+ *     // For Terraform 0.11.11 and earlier, use the md5() function and the file() function:
+ *     // etag = "${md5(file("path/to/file"))}"
  *     etag: (() => {
- *         throw "tf2pulumi error: NYI: call to md5";
- *         return (() => { throw "NYI: call to md5"; })();
+ *         throw "tf2pulumi error: NYI: call to filemd5";
+ *         return (() => { throw "NYI: call to filemd5"; })();
  *     })(),
  *     key: "new_object_key",
  *     source: new pulumi.asset.FileAsset("path/to/file"),
@@ -134,7 +136,7 @@ export class BucketObject extends pulumi.CustomResource {
      */
     public readonly contentType: pulumi.Output<string>;
     /**
-     * Used to trigger updates. The only meaningful value is `${md5(file("path/to/file"))}`.
+     * Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (Terraform 0.11.12 or later) or `${md5(file("path/to/file"))}` (Terraform 0.11.11 or earlier).
      * This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
      */
     public readonly etag: pulumi.Output<string>;
@@ -159,7 +161,7 @@ export class BucketObject extends pulumi.CustomResource {
     public readonly source: pulumi.Output<pulumi.asset.Asset | undefined>;
     /**
      * Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
-     * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
+     * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
      */
     public readonly storageClass: pulumi.Output<string>;
     /**
@@ -275,7 +277,7 @@ export interface BucketObjectState {
      */
     readonly contentType?: pulumi.Input<string>;
     /**
-     * Used to trigger updates. The only meaningful value is `${md5(file("path/to/file"))}`.
+     * Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (Terraform 0.11.12 or later) or `${md5(file("path/to/file"))}` (Terraform 0.11.11 or earlier).
      * This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
      */
     readonly etag?: pulumi.Input<string>;
@@ -300,7 +302,7 @@ export interface BucketObjectState {
     readonly source?: pulumi.Input<pulumi.asset.Asset>;
     /**
      * Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
-     * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
+     * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
      */
     readonly storageClass?: pulumi.Input<string>;
     /**
@@ -359,7 +361,7 @@ export interface BucketObjectArgs {
      */
     readonly contentType?: pulumi.Input<string>;
     /**
-     * Used to trigger updates. The only meaningful value is `${md5(file("path/to/file"))}`.
+     * Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (Terraform 0.11.12 or later) or `${md5(file("path/to/file"))}` (Terraform 0.11.11 or earlier).
      * This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
      */
     readonly etag?: pulumi.Input<string>;
@@ -384,7 +386,7 @@ export interface BucketObjectArgs {
     readonly source?: pulumi.Input<pulumi.asset.Asset>;
     /**
      * Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
-     * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
+     * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
      */
     readonly storageClass?: pulumi.Input<string>;
     /**

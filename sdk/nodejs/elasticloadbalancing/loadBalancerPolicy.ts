@@ -70,6 +70,15 @@ import * as utilities from "../utilities";
  *     policyName: "wu-tang-ca-pubkey-policy",
  *     policyTypeName: "PublicKeyPolicyType",
  * });
+ * const wu_tang_ssl_tls_1_1 = new aws.elasticloadbalancing.LoadBalancerPolicy("wu-tang-ssl-tls-1-1", {
+ *     loadBalancerName: wu_tang.name,
+ *     policyAttributes: [{
+ *         name: "Reference-Security-Policy",
+ *         value: "ELBSecurityPolicy-TLS-1-1-2017-01",
+ *     }],
+ *     policyName: "wu-tang-ssl",
+ *     policyTypeName: "SSLNegotiationPolicyType",
+ * });
  * ```
  * 
  * Where the file `pubkey` in the current directory contains only the _public key_ of the certificate.

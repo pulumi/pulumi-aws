@@ -76,6 +76,7 @@ export interface GetRouteTableArgs {
  */
 export interface GetRouteTableResult {
     readonly associations: { main: boolean, routeTableAssociationId: string, routeTableId: string, subnetId: string }[];
+    readonly filters?: { name: string, values: string[] }[];
     /**
      * The ID of the AWS account that owns the route table
      */

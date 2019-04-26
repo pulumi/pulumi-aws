@@ -94,7 +94,7 @@ class EventTarget(pulumi.CustomResource):
         __props__ = dict()
 
         if arn is None:
-            raise TypeError('Missing required property arn')
+            raise TypeError("Missing required property 'arn'")
         __props__['arn'] = arn
 
         __props__['batch_target'] = batch_target
@@ -112,7 +112,7 @@ class EventTarget(pulumi.CustomResource):
         __props__['role_arn'] = role_arn
 
         if rule is None:
-            raise TypeError('Missing required property rule')
+            raise TypeError("Missing required property 'rule'")
         __props__['rule'] = rule
 
         __props__['run_command_targets'] = run_command_targets

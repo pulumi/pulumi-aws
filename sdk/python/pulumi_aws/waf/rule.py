@@ -47,7 +47,7 @@ class Rule(pulumi.CustomResource):
         __props__ = dict()
 
         if metric_name is None:
-            raise TypeError('Missing required property metric_name')
+            raise TypeError("Missing required property 'metric_name'")
         __props__['metric_name'] = metric_name
 
         __props__['name'] = name
