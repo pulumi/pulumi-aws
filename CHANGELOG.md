@@ -2,6 +2,10 @@
 
 ### Improvements
 
+- Add 'healthcheck' properties to aws.ecs.ContainerDefinition API.
+
+### Improvements
+
 - Update to v0.17.8 of the `pulumi` dependency, including support for the new `ignoreChanges` resource option. [547](https://github.com/pulumi/pulumi-aws/pull/547)
 
 ## 0.18.2 (Released April 23rd, 2019)
@@ -29,14 +33,6 @@
 - Update to v2.2.0 of the AWS Terraform Provider.
 
 - Fix a bug where setting a property value back to the default results in no change
-
-
-## 0.17.2 (Unreleased)
-
-### Improvements
-
-- Add 'healthcheck' properties to aws.ecs.ContainerDefinition API.
-
 
 ### 0.17.1 (Released March 6th, 2019)
 
