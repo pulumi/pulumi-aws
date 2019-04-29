@@ -144,7 +144,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.emr.Cluster("example", {
  *     steps: [{
- *         action: "TERMINATE_CLUSTER",
+ *         actionOnFailure: "TERMINATE_CLUSTER",
  *         hadoopJarStep: {
  *             args: ["state-pusher-script"],
  *             jar: "command-runner.jar",

@@ -51,7 +51,7 @@ export class BucketPublicAccessBlock extends pulumi.CustomResource {
     public readonly bucket: pulumi.Output<string>;
     /**
      * Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-     * * Ignore all public ACLs on buckets in this account and any objects that they contain.
+     * * Ignore public ACLs on this bucket and any objects that it contains.
      */
     public readonly ignorePublicAcls: pulumi.Output<boolean | undefined>;
     /**
@@ -113,7 +113,7 @@ export interface BucketPublicAccessBlockState {
     readonly bucket?: pulumi.Input<string>;
     /**
      * Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-     * * Ignore all public ACLs on buckets in this account and any objects that they contain.
+     * * Ignore public ACLs on this bucket and any objects that it contains.
      */
     readonly ignorePublicAcls?: pulumi.Input<boolean>;
     /**
@@ -144,7 +144,7 @@ export interface BucketPublicAccessBlockArgs {
     readonly bucket: pulumi.Input<string>;
     /**
      * Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-     * * Ignore all public ACLs on buckets in this account and any objects that they contain.
+     * * Ignore public ACLs on this bucket and any objects that it contains.
      */
     readonly ignorePublicAcls?: pulumi.Input<boolean>;
     /**

@@ -184,6 +184,7 @@
         "directconnect/connectionAssociation.ts",
         "directconnect/gateway.ts",
         "directconnect/gatewayAssociation.ts",
+        "directconnect/gatewayAssociationProposal.ts",
         "directconnect/getGateway.ts",
         "directconnect/hostedPrivateVirtualInterface.ts",
         "directconnect/hostedPrivateVirtualInterfaceAccepter.ts",

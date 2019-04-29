@@ -7,6 +7,7 @@ export * from "./connection";
 export * from "./connectionAssociation";
 export * from "./gateway";
 export * from "./gatewayAssociation";
+export * from "./gatewayAssociationProposal";
 export * from "./getGateway";
 export * from "./hostedPrivateVirtualInterface";
 export * from "./hostedPrivateVirtualInterfaceAccepter";

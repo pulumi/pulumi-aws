@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides an RDS Cluster Resource Instance. A Cluster Instance Resource defines
+// Provides an RDS Cluster Instance Resource. A Cluster Instance Resource defines
 // attributes that are specific to a single instance in a [RDS Cluster][3],
 // specifically running Amazon Aurora.
 // 
@@ -222,21 +222,7 @@ func (r *ClusterInstance) IdentifierPrefix() *pulumi.StringOutput {
 }
 
 // The instance class to use. For details on CPU
-// and memory, see [Scaling Aurora DB Instances][4]. Aurora currently
-// supports the below instance classes. Please see [AWS Documentation][7] for complete details.
-// - db.t2.small
-// - db.t2.medium
-// - db.r3.large
-// - db.r3.xlarge
-// - db.r3.2xlarge
-// - db.r3.4xlarge
-// - db.r3.8xlarge
-// - db.r4.large
-// - db.r4.xlarge
-// - db.r4.2xlarge
-// - db.r4.4xlarge
-// - db.r4.8xlarge
-// - db.r4.16xlarge
+// and memory, see [Scaling Aurora DB Instances][4]. Aurora uses `db.*` instance classes/types. Please see [AWS Documentation][7] for currently available instance classes and complete details.
 func (r *ClusterInstance) InstanceClass() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["instanceClass"])
 }
@@ -347,21 +333,7 @@ type ClusterInstanceState struct {
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix interface{}
 	// The instance class to use. For details on CPU
-	// and memory, see [Scaling Aurora DB Instances][4]. Aurora currently
-	// supports the below instance classes. Please see [AWS Documentation][7] for complete details.
-	// - db.t2.small
-	// - db.t2.medium
-	// - db.r3.large
-	// - db.r3.xlarge
-	// - db.r3.2xlarge
-	// - db.r3.4xlarge
-	// - db.r3.8xlarge
-	// - db.r4.large
-	// - db.r4.xlarge
-	// - db.r4.2xlarge
-	// - db.r4.4xlarge
-	// - db.r4.8xlarge
-	// - db.r4.16xlarge
+	// and memory, see [Scaling Aurora DB Instances][4]. Aurora uses `db.*` instance classes/types. Please see [AWS Documentation][7] for currently available instance classes and complete details.
 	InstanceClass interface{}
 	// The ARN for the KMS encryption key if one is set to the cluster.
 	KmsKeyId interface{}
@@ -426,21 +398,7 @@ type ClusterInstanceArgs struct {
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix interface{}
 	// The instance class to use. For details on CPU
-	// and memory, see [Scaling Aurora DB Instances][4]. Aurora currently
-	// supports the below instance classes. Please see [AWS Documentation][7] for complete details.
-	// - db.t2.small
-	// - db.t2.medium
-	// - db.r3.large
-	// - db.r3.xlarge
-	// - db.r3.2xlarge
-	// - db.r3.4xlarge
-	// - db.r3.8xlarge
-	// - db.r4.large
-	// - db.r4.xlarge
-	// - db.r4.2xlarge
-	// - db.r4.4xlarge
-	// - db.r4.8xlarge
-	// - db.r4.16xlarge
+	// and memory, see [Scaling Aurora DB Instances][4]. Aurora uses `db.*` instance classes/types. Please see [AWS Documentation][7] for currently available instance classes and complete details.
 	InstanceClass interface{}
 	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
 	MonitoringInterval interface{}

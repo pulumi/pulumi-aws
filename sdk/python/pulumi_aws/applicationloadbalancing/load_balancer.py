@@ -11,7 +11,7 @@ from .. import utilities, tables
 class LoadBalancer(pulumi.CustomResource):
     access_logs: pulumi.Output[dict]
     """
-    An Access Logs block. Access Logs documented below. Only valid for Load Balancers of type `application`.
+    An Access Logs block. Access Logs documented below.
     """
     arn: pulumi.Output[str]
     """
@@ -96,7 +96,7 @@ class LoadBalancer(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] access_logs: An Access Logs block. Access Logs documented below. Only valid for Load Balancers of type `application`.
+        :param pulumi.Input[dict] access_logs: An Access Logs block. Access Logs documented below.
         :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled.
                This is a `network` load balancer feature. Defaults to `false`.
         :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via

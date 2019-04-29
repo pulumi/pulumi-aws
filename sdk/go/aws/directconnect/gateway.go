@@ -27,6 +27,7 @@ func NewGateway(ctx *pulumi.Context,
 		inputs["amazonSideAsn"] = args.AmazonSideAsn
 		inputs["name"] = args.Name
 	}
+	inputs["ownerAccountId"] = nil
 	s, err := ctx.RegisterResource("aws:directconnect/gateway:Gateway", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -42,6 +43,7 @@ func GetGateway(ctx *pulumi.Context,
 	if state != nil {
 		inputs["amazonSideAsn"] = state.AmazonSideAsn
 		inputs["name"] = state.Name
+		inputs["ownerAccountId"] = state.OwnerAccountId
 	}
 	s, err := ctx.ReadResource("aws:directconnect/gateway:Gateway", name, id, inputs, opts...)
 	if err != nil {
@@ -70,12 +72,19 @@ func (r *Gateway) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// AWS Account ID of the gateway.
+func (r *Gateway) OwnerAccountId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["ownerAccountId"])
+}
+
 // Input properties used for looking up and filtering Gateway resources.
 type GatewayState struct {
 	// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
 	AmazonSideAsn interface{}
 	// The name of the connection.
 	Name interface{}
+	// AWS Account ID of the gateway.
+	OwnerAccountId interface{}
 }
 
 // The set of arguments for constructing a Gateway resource.

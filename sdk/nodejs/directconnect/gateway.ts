@@ -39,6 +39,10 @@ export class Gateway extends pulumi.CustomResource {
      * The name of the connection.
      */
     public readonly name: pulumi.Output<string>;
+    /**
+     * AWS Account ID of the gateway.
+     */
+    public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
 
     /**
      * Create a Gateway resource with the given unique name, arguments, and options.
@@ -54,6 +58,7 @@ export class Gateway extends pulumi.CustomResource {
             const state: GatewayState = argsOrState as GatewayState | undefined;
             inputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
         } else {
             const args = argsOrState as GatewayArgs | undefined;
             if (!args || args.amazonSideAsn === undefined) {
@@ -61,6 +66,7 @@ export class Gateway extends pulumi.CustomResource {
             }
             inputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["ownerAccountId"] = undefined /*out*/;
         }
         super("aws:directconnect/gateway:Gateway", name, inputs, opts);
     }
@@ -78,6 +84,10 @@ export interface GatewayState {
      * The name of the connection.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * AWS Account ID of the gateway.
+     */
+    readonly ownerAccountId?: pulumi.Input<string>;
 }
 
 /**

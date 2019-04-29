@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Associates a Direct Connect Gateway with a VGW.
+// Associates a Direct Connect Gateway with a VGW. For creating cross-account association proposals, see the [`aws_dx_gateway_association_proposal` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal.html).
 type GatewayAssociation struct {
 	s *pulumi.ResourceState
 }
@@ -24,12 +24,15 @@ func NewGatewayAssociation(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["allowedPrefixes"] = nil
 		inputs["dxGatewayId"] = nil
 		inputs["vpnGatewayId"] = nil
 	} else {
+		inputs["allowedPrefixes"] = args.AllowedPrefixes
 		inputs["dxGatewayId"] = args.DxGatewayId
 		inputs["vpnGatewayId"] = args.VpnGatewayId
 	}
+	inputs["dxGatewayAssociationId"] = nil
 	s, err := ctx.RegisterResource("aws:directconnect/gatewayAssociation:GatewayAssociation", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -43,6 +46,8 @@ func GetGatewayAssociation(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *GatewayAssociationState, opts ...pulumi.ResourceOpt) (*GatewayAssociation, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["allowedPrefixes"] = state.AllowedPrefixes
+		inputs["dxGatewayAssociationId"] = state.DxGatewayAssociationId
 		inputs["dxGatewayId"] = state.DxGatewayId
 		inputs["vpnGatewayId"] = state.VpnGatewayId
 	}
@@ -63,7 +68,17 @@ func (r *GatewayAssociation) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The ID of the Direct Connect Gateway.
+// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+func (r *GatewayAssociation) AllowedPrefixes() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["allowedPrefixes"])
+}
+
+// The ID of the Direct Connect gateway association.
+func (r *GatewayAssociation) DxGatewayAssociationId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["dxGatewayAssociationId"])
+}
+
+// The ID of the Direct Connect gateway.
 func (r *GatewayAssociation) DxGatewayId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dxGatewayId"])
 }
@@ -75,7 +90,11 @@ func (r *GatewayAssociation) VpnGatewayId() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering GatewayAssociation resources.
 type GatewayAssociationState struct {
-	// The ID of the Direct Connect Gateway.
+	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+	AllowedPrefixes interface{}
+	// The ID of the Direct Connect gateway association.
+	DxGatewayAssociationId interface{}
+	// The ID of the Direct Connect gateway.
 	DxGatewayId interface{}
 	// The ID of the VGW with which to associate the gateway.
 	VpnGatewayId interface{}
@@ -83,7 +102,9 @@ type GatewayAssociationState struct {
 
 // The set of arguments for constructing a GatewayAssociation resource.
 type GatewayAssociationArgs struct {
-	// The ID of the Direct Connect Gateway.
+	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+	AllowedPrefixes interface{}
+	// The ID of the Direct Connect gateway.
 	DxGatewayId interface{}
 	// The ID of the VGW with which to associate the gateway.
 	VpnGatewayId interface{}

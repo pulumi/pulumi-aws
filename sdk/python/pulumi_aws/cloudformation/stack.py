@@ -12,7 +12,7 @@ class Stack(pulumi.CustomResource):
     capabilities: pulumi.Output[list]
     """
     A list of capabilities.
-    Valid values: `CAPABILITY_IAM` or `CAPABILITY_NAMED_IAM`
+    Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
     """
     disable_rollback: pulumi.Output[bool]
     """
@@ -77,7 +77,7 @@ class Stack(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] capabilities: A list of capabilities.
-               Valid values: `CAPABILITY_IAM` or `CAPABILITY_NAMED_IAM`
+               Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
         :param pulumi.Input[bool] disable_rollback: Set to true to disable rollback of the stack if stack creation failed.
                Conflicts with `on_failure`.
         :param pulumi.Input[str] iam_role_arn: The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.

@@ -86,9 +86,9 @@ export class LoadBalancer extends pulumi.CustomResource {
     }
 
     /**
-     * An Access Logs block. Access Logs documented below. Only valid for Load Balancers of type `application`.
+     * An Access Logs block. Access Logs documented below.
      */
-    public readonly accessLogs: pulumi.Output<{ bucket: string, enabled?: boolean, prefix?: string }>;
+    public readonly accessLogs: pulumi.Output<{ bucket: string, enabled?: boolean, prefix?: string } | undefined>;
     /**
      * The ARN of the load balancer (matches `id`).
      */
@@ -227,7 +227,7 @@ export class LoadBalancer extends pulumi.CustomResource {
  */
 export interface LoadBalancerState {
     /**
-     * An Access Logs block. Access Logs documented below. Only valid for Load Balancers of type `application`.
+     * An Access Logs block. Access Logs documented below.
      */
     readonly accessLogs?: pulumi.Input<{ bucket: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, prefix?: pulumi.Input<string> }>;
     /**
@@ -312,7 +312,7 @@ export interface LoadBalancerState {
  */
 export interface LoadBalancerArgs {
     /**
-     * An Access Logs block. Access Logs documented below. Only valid for Load Balancers of type `application`.
+     * An Access Logs block. Access Logs documented below.
      */
     readonly accessLogs?: pulumi.Input<{ bucket: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, prefix?: pulumi.Input<string> }>;
     /**

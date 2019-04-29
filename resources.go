@@ -636,6 +636,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_dx_connection_association":           {Tok: awsResource(dxMod, "ConnectionAssociation")},
 			"aws_dx_gateway":                          {Tok: awsResource(dxMod, "Gateway")},
 			"aws_dx_gateway_association":              {Tok: awsResource(dxMod, "GatewayAssociation")},
+			"aws_dx_gateway_association_proposal":     {Tok: awsResource(dxMod, "GatewayAssociationProposal")},
 			"aws_dx_hosted_private_virtual_interface": {Tok: awsResource(dxMod, "HostedPrivateVirtualInterface")},
 			"aws_dx_hosted_private_virtual_interface_accepter": {
 				Tok: awsResource(dxMod, "HostedPrivateVirtualInterfaceAccepter"),

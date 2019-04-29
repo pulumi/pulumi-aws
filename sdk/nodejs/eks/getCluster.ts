@@ -54,6 +54,10 @@ export interface GetClusterResult {
      */
     readonly createdAt: string;
     /**
+     * The enabled control plane logs.
+     */
+    readonly enabledClusterLogTypes: string[];
+    /**
      * The endpoint for your Kubernetes API server.
      */
     readonly endpoint: string;
