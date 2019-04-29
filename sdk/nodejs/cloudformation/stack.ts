@@ -56,7 +56,7 @@ export class Stack extends pulumi.CustomResource {
 
     /**
      * A list of capabilities.
-     * Valid values: `CAPABILITY_IAM` or `CAPABILITY_NAMED_IAM`
+     * Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
      */
     public readonly capabilities: pulumi.Output<string[] | undefined>;
     /**
@@ -169,7 +169,7 @@ export class Stack extends pulumi.CustomResource {
 export interface StackState {
     /**
      * A list of capabilities.
-     * Valid values: `CAPABILITY_IAM` or `CAPABILITY_NAMED_IAM`
+     * Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
      */
     readonly capabilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -236,7 +236,7 @@ export interface StackState {
 export interface StackArgs {
     /**
      * A list of capabilities.
-     * Valid values: `CAPABILITY_IAM` or `CAPABILITY_NAMED_IAM`
+     * Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
      */
     readonly capabilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**

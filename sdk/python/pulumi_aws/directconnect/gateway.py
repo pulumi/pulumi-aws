@@ -17,6 +17,10 @@ class Gateway(pulumi.CustomResource):
     """
     The name of the connection.
     """
+    owner_account_id: pulumi.Output[str]
+    """
+    AWS Account ID of the gateway.
+    """
     def __init__(__self__, resource_name, opts=None, amazon_side_asn=None, name=None, __name__=None, __opts__=None):
         """
         Provides a Direct Connect Gateway.
@@ -46,6 +50,8 @@ class Gateway(pulumi.CustomResource):
         __props__['amazon_side_asn'] = amazon_side_asn
 
         __props__['name'] = name
+
+        __props__['owner_account_id'] = None
 
         super(Gateway, __self__).__init__(
             'aws:directconnect/gateway:Gateway',

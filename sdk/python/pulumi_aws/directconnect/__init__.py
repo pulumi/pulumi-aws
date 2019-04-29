@@ -8,6 +8,7 @@ from .connection import *
 from .connection_association import *
 from .gateway import *
 from .gateway_association import *
+from .gateway_association_proposal import *
 from .hosted_private_virtual_interface import *
 from .hosted_private_virtual_interface_accepter import *
 from .hosted_public_virtual_interface import *

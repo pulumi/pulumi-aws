@@ -40,6 +40,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, family=None, name=None, name_prefix=None, parameters=None, tags=None, __name__=None, __opts__=None):
         """
         Provides an RDS DB cluster parameter group resource. Documentation of the available parameters for various Aurora engines can be found at:
+        
         * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
         * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
         

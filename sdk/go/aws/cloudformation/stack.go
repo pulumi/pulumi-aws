@@ -92,7 +92,7 @@ func (r *Stack) ID() *pulumi.IDOutput {
 }
 
 // A list of capabilities.
-// Valid values: `CAPABILITY_IAM` or `CAPABILITY_NAMED_IAM`
+// Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
 func (r *Stack) Capabilities() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["capabilities"])
 }
@@ -169,7 +169,7 @@ func (r *Stack) TimeoutInMinutes() *pulumi.IntOutput {
 // Input properties used for looking up and filtering Stack resources.
 type StackState struct {
 	// A list of capabilities.
-	// Valid values: `CAPABILITY_IAM` or `CAPABILITY_NAMED_IAM`
+	// Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
 	Capabilities interface{}
 	// Set to true to disable rollback of the stack if stack creation failed.
 	// Conflicts with `on_failure`.
@@ -206,7 +206,7 @@ type StackState struct {
 // The set of arguments for constructing a Stack resource.
 type StackArgs struct {
 	// A list of capabilities.
-	// Valid values: `CAPABILITY_IAM` or `CAPABILITY_NAMED_IAM`
+	// Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
 	Capabilities interface{}
 	// Set to true to disable rollback of the stack if stack creation failed.
 	// Conflicts with `on_failure`.

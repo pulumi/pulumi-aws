@@ -104,7 +104,7 @@ func (r *LoadBalancer) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// An Access Logs block. Access Logs documented below. Only valid for Load Balancers of type `application`.
+// An Access Logs block. Access Logs documented below.
 func (r *LoadBalancer) AccessLogs() *pulumi.Output {
 	return r.s.State["accessLogs"]
 }
@@ -206,7 +206,7 @@ func (r *LoadBalancer) ZoneId() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering LoadBalancer resources.
 type LoadBalancerState struct {
-	// An Access Logs block. Access Logs documented below. Only valid for Load Balancers of type `application`.
+	// An Access Logs block. Access Logs documented below.
 	AccessLogs interface{}
 	// The ARN of the load balancer (matches `id`).
 	Arn interface{}
@@ -253,7 +253,7 @@ type LoadBalancerState struct {
 
 // The set of arguments for constructing a LoadBalancer resource.
 type LoadBalancerArgs struct {
-	// An Access Logs block. Access Logs documented below. Only valid for Load Balancers of type `application`.
+	// An Access Logs block. Access Logs documented below.
 	AccessLogs interface{}
 	// If true, cross-zone load balancing of the load balancer will be enabled.
 	// This is a `network` load balancer feature. Defaults to `false`.

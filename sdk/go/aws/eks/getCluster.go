@@ -21,6 +21,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		Arn: outputs["arn"],
 		CertificateAuthority: outputs["certificateAuthority"],
 		CreatedAt: outputs["createdAt"],
+		EnabledClusterLogTypes: outputs["enabledClusterLogTypes"],
 		Endpoint: outputs["endpoint"],
 		Name: outputs["name"],
 		PlatformVersion: outputs["platformVersion"],
@@ -45,6 +46,8 @@ type GetClusterResult struct {
 	CertificateAuthority interface{}
 	// The Unix epoch time stamp in seconds for when the cluster was created.
 	CreatedAt interface{}
+	// The enabled control plane logs.
+	EnabledClusterLogTypes interface{}
 	// The endpoint for your Kubernetes API server.
 	Endpoint interface{}
 	Name interface{}

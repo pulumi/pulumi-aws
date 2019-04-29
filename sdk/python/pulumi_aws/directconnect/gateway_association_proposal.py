@@ -8,32 +8,33 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GatewayAssociation(pulumi.CustomResource):
+class GatewayAssociationProposal(pulumi.CustomResource):
     allowed_prefixes: pulumi.Output[list]
     """
     VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
     """
-    dx_gateway_association_id: pulumi.Output[str]
-    """
-    The ID of the Direct Connect gateway association.
-    """
     dx_gateway_id: pulumi.Output[str]
     """
-    The ID of the Direct Connect gateway.
+    Direct Connect Gateway identifier.
+    """
+    dx_gateway_owner_account_id: pulumi.Output[str]
+    """
+    AWS Account identifier of the Direct Connect Gateway.
     """
     vpn_gateway_id: pulumi.Output[str]
     """
-    The ID of the VGW with which to associate the gateway.
+    Virtual Gateway identifier to associate with the Direct Connect Gateway.
     """
-    def __init__(__self__, resource_name, opts=None, allowed_prefixes=None, dx_gateway_id=None, vpn_gateway_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allowed_prefixes=None, dx_gateway_id=None, dx_gateway_owner_account_id=None, vpn_gateway_id=None, __name__=None, __opts__=None):
         """
-        Associates a Direct Connect Gateway with a VGW. For creating cross-account association proposals, see the [`aws_dx_gateway_association_proposal` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal.html).
+        Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the [`aws_dx_gateway_association` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association.html).
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] allowed_prefixes: VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-        :param pulumi.Input[str] dx_gateway_id: The ID of the Direct Connect gateway.
-        :param pulumi.Input[str] vpn_gateway_id: The ID of the VGW with which to associate the gateway.
+        :param pulumi.Input[str] dx_gateway_id: Direct Connect Gateway identifier.
+        :param pulumi.Input[str] dx_gateway_owner_account_id: AWS Account identifier of the Direct Connect Gateway.
+        :param pulumi.Input[str] vpn_gateway_id: Virtual Gateway identifier to associate with the Direct Connect Gateway.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -56,14 +57,16 @@ class GatewayAssociation(pulumi.CustomResource):
             raise TypeError("Missing required property 'dx_gateway_id'")
         __props__['dx_gateway_id'] = dx_gateway_id
 
+        if dx_gateway_owner_account_id is None:
+            raise TypeError("Missing required property 'dx_gateway_owner_account_id'")
+        __props__['dx_gateway_owner_account_id'] = dx_gateway_owner_account_id
+
         if vpn_gateway_id is None:
             raise TypeError("Missing required property 'vpn_gateway_id'")
         __props__['vpn_gateway_id'] = vpn_gateway_id
 
-        __props__['dx_gateway_association_id'] = None
-
-        super(GatewayAssociation, __self__).__init__(
-            'aws:directconnect/gatewayAssociation:GatewayAssociation',
+        super(GatewayAssociationProposal, __self__).__init__(
+            'aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal',
             resource_name,
             __props__,
             opts)

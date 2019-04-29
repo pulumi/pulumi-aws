@@ -12,7 +12,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, certificate_authority=None, created_at=None, endpoint=None, name=None, platform_version=None, role_arn=None, version=None, vpc_config=None, id=None):
+    def __init__(__self__, arn=None, certificate_authority=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, name=None, platform_version=None, role_arn=None, version=None, vpc_config=None, id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -30,6 +30,12 @@ class GetClusterResult:
         __self__.created_at = created_at
         """
         The Unix epoch time stamp in seconds for when the cluster was created.
+        """
+        if enabled_cluster_log_types and not isinstance(enabled_cluster_log_types, list):
+            raise TypeError("Expected argument 'enabled_cluster_log_types' to be a list")
+        __self__.enabled_cluster_log_types = enabled_cluster_log_types
+        """
+        The enabled control plane logs.
         """
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
@@ -84,6 +90,7 @@ async def get_cluster(name=None,opts=None):
         arn=__ret__.get('arn'),
         certificate_authority=__ret__.get('certificateAuthority'),
         created_at=__ret__.get('createdAt'),
+        enabled_cluster_log_types=__ret__.get('enabledClusterLogTypes'),
         endpoint=__ret__.get('endpoint'),
         name=__ret__.get('name'),
         platform_version=__ret__.get('platformVersion'),

@@ -40,7 +40,7 @@ class Broker(pulumi.CustomResource):
     """
     engine_version: pulumi.Output[str]
     """
-    The version of the broker engine. Currently, Amazon MQ supports only `5.15.0` or `5.15.6`.
+    The version of the broker engine. Currently, See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
     """
     host_instance_type: pulumi.Output[str]
     """
@@ -114,7 +114,7 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[dict] configuration: Configuration of the broker. See below.
         :param pulumi.Input[str] deployment_mode: The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
         :param pulumi.Input[str] engine_type: The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
-        :param pulumi.Input[str] engine_version: The version of the broker engine. Currently, Amazon MQ supports only `5.15.0` or `5.15.6`.
+        :param pulumi.Input[str] engine_version: The version of the broker engine. Currently, See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
         :param pulumi.Input[str] host_instance_type: The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
         :param pulumi.Input[dict] logs: Logging configuration of the broker. See below.
         :param pulumi.Input[dict] maintenance_window_start_time: Maintenance window start time. See below.

@@ -12,7 +12,7 @@ class GetGatewayResult:
     """
     A collection of values returned by getGateway.
     """
-    def __init__(__self__, amazon_side_asn=None, name=None, id=None):
+    def __init__(__self__, amazon_side_asn=None, name=None, owner_account_id=None, id=None):
         if amazon_side_asn and not isinstance(amazon_side_asn, str):
             raise TypeError("Expected argument 'amazon_side_asn' to be a str")
         __self__.amazon_side_asn = amazon_side_asn
@@ -22,6 +22,12 @@ class GetGatewayResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
+        if owner_account_id and not isinstance(owner_account_id, str):
+            raise TypeError("Expected argument 'owner_account_id' to be a str")
+        __self__.owner_account_id = owner_account_id
+        """
+        AWS Account ID of the gateway.
+        """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
@@ -41,4 +47,5 @@ async def get_gateway(name=None,opts=None):
     return GetGatewayResult(
         amazon_side_asn=__ret__.get('amazonSideAsn'),
         name=__ret__.get('name'),
+        owner_account_id=__ret__.get('ownerAccountId'),
         id=__ret__.get('id'))

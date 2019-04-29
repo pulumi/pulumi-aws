@@ -44,6 +44,10 @@ export interface GetGatewayResult {
     readonly amazonSideAsn: string;
     readonly name: string;
     /**
+     * AWS Account ID of the gateway.
+     */
+    readonly ownerAccountId: string;
+    /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

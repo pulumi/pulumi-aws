@@ -72,21 +72,7 @@ class ClusterInstance(pulumi.CustomResource):
     instance_class: pulumi.Output[str]
     """
     The instance class to use. For details on CPU
-    and memory, see [Scaling Aurora DB Instances][4]. Aurora currently
-    supports the below instance classes. Please see [AWS Documentation][7] for complete details.
-    - db.t2.small
-    - db.t2.medium
-    - db.r3.large
-    - db.r3.xlarge
-    - db.r3.2xlarge
-    - db.r3.4xlarge
-    - db.r3.8xlarge
-    - db.r4.large
-    - db.r4.xlarge
-    - db.r4.2xlarge
-    - db.r4.4xlarge
-    - db.r4.8xlarge
-    - db.r4.16xlarge
+    and memory, see [Scaling Aurora DB Instances][4]. Aurora uses `db.*` instance classes/types. Please see [AWS Documentation][7] for currently available instance classes and complete details.
     """
     kms_key_id: pulumi.Output[str]
     """
@@ -148,7 +134,7 @@ class ClusterInstance(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, cluster_identifier=None, copy_tags_to_snapshot=None, db_parameter_group_name=None, db_subnet_group_name=None, engine=None, engine_version=None, identifier=None, identifier_prefix=None, instance_class=None, monitoring_interval=None, monitoring_role_arn=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, preferred_backup_window=None, preferred_maintenance_window=None, promotion_tier=None, publicly_accessible=None, tags=None, __name__=None, __opts__=None):
         """
-        Provides an RDS Cluster Resource Instance. A Cluster Instance Resource defines
+        Provides an RDS Cluster Instance Resource. A Cluster Instance Resource defines
         attributes that are specific to a single instance in a [RDS Cluster][3],
         specifically running Amazon Aurora.
         
@@ -181,21 +167,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] identifier: The indentifier for the RDS instance, if omitted, Terraform will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU
-               and memory, see [Scaling Aurora DB Instances][4]. Aurora currently
-               supports the below instance classes. Please see [AWS Documentation][7] for complete details.
-               - db.t2.small
-               - db.t2.medium
-               - db.r3.large
-               - db.r3.xlarge
-               - db.r3.2xlarge
-               - db.r3.4xlarge
-               - db.r3.8xlarge
-               - db.r4.large
-               - db.r4.xlarge
-               - db.r4.2xlarge
-               - db.r4.4xlarge
-               - db.r4.8xlarge
-               - db.r4.16xlarge
+               and memory, see [Scaling Aurora DB Instances][4]. Aurora uses `db.*` instance classes/types. Please see [AWS Documentation][7] for currently available instance classes and complete details.
         :param pulumi.Input[float] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         :param pulumi.Input[str] monitoring_role_arn: The ARN for the IAM role that permits RDS to send
                enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
