@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const exampleVpnGateway = new aws.ec2.VpnGateway("example", {
  *     vpcId: exampleVpc.id,
  * });
- * const exampleDxGatewayAssociationProposal = new aws.DxGatewayAssociationProposal("example", {
+ * const exampleGatewayAssociationProposal = new aws.directconnect.GatewayAssociationProposal("example", {
  *     dxGatewayId: exampleGateway.id,
  *     dxGatewayOwnerAccountId: exampleGateway.ownerAccountId,
  *     vpnGatewayId: exampleVpnGateway.id,
