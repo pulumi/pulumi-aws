@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const lbUser = new aws.iam.User("lb", {
  *     path: "/system/",
  * });
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * `,
  *     user: lbUser.name,
  * });
- *
+ * 
  * export const secret = lbAccessKey.encryptedSecret;
  * ```
  */
@@ -58,38 +58,38 @@ export class AccessKey extends pulumi.CustomResource {
      * > **NOTE:** The encrypted secret may be decrypted using the command line,
      * for example: `terraform output encrypted_secret | base64 --decode | keybase pgp decrypt`.
      */
-    public /*out*/ readonly encryptedSecret!: pulumi.Output<string>;
+    public /*out*/ readonly encryptedSecret: pulumi.Output<string>;
     /**
      * The fingerprint of the PGP key used to encrypt
      * the secret
      */
-    public /*out*/ readonly keyFingerprint!: pulumi.Output<string>;
+    public /*out*/ readonly keyFingerprint: pulumi.Output<string>;
     /**
      * Either a base-64 encoded PGP public key, or a
      * keybase username in the form `keybase:some_person_that_exists`.
      */
-    public readonly pgpKey!: pulumi.Output<string | undefined>;
+    public readonly pgpKey: pulumi.Output<string | undefined>;
     /**
      * The secret access key. Note that this will be written
      * to the state file. Please supply a `pgp_key` instead, which will prevent the
      * secret from being stored in plain text
      */
-    public /*out*/ readonly secret!: pulumi.Output<string>;
+    public /*out*/ readonly secret: pulumi.Output<string>;
     /**
      * The secret access key converted into an SES SMTP
      * password by applying [AWS's documented conversion
      * algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
      */
-    public /*out*/ readonly sesSmtpPassword!: pulumi.Output<string>;
+    public /*out*/ readonly sesSmtpPassword: pulumi.Output<string>;
     /**
      * The access key status to apply. Defaults to `Active`.
      * Valid values are `Active` and `Inactive`.
      */
-    public readonly status!: pulumi.Output<string>;
+    public readonly status: pulumi.Output<string>;
     /**
      * The IAM user to associate with this access key.
      */
-    public readonly user!: pulumi.Output<string>;
+    public readonly user: pulumi.Output<string>;
 
     /**
      * Create a AccessKey resource with the given unique name, arguments, and options.
@@ -102,7 +102,7 @@ export class AccessKey extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AccessKeyArgs | AccessKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as AccessKeyState | undefined;
+            const state: AccessKeyState = argsOrState as AccessKeyState | undefined;
             inputs["encryptedSecret"] = state ? state.encryptedSecret : undefined;
             inputs["keyFingerprint"] = state ? state.keyFingerprint : undefined;
             inputs["pgpKey"] = state ? state.pgpKey : undefined;

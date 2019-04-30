@@ -8,13 +8,13 @@ import {InstanceProfile} from "../iam";
 
 /**
  * Provides a resource to create a new launch configuration, used for autoscaling groups.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const ubuntu = pulumi.output(aws.getAmi({
  *     filters: [
  *         {
@@ -34,9 +34,9 @@ import {InstanceProfile} from "../iam";
  *     instanceType: "t2.micro",
  * });
  * ```
- *
+ * 
  * ## Using with AutoScaling Groups
- *
+ * 
  * Launch Configurations cannot be updated after creation with the Amazon
  * Web Service API. In order to update a Launch Configuration, Terraform will
  * destroy the existing resource and create a replacement. In order to effectively
@@ -44,11 +44,11 @@ import {InstanceProfile} from "../iam";
  * it's recommended to specify `create_before_destroy` in a [lifecycle][2] block.
  * Either omit the Launch Configuration `name` attribute, or specify a partial name
  * with `name_prefix`.  Example:
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const ubuntu = pulumi.output(aws.getAmi({
  *     filters: [
  *         {
@@ -74,24 +74,24 @@ import {InstanceProfile} from "../iam";
  *     minSize: 1,
  * });
  * ```
- *
+ * 
  * With this setup Terraform generates a unique name for your Launch
  * Configuration and can then update the AutoScaling Group without conflict before
  * destroying the previous Launch Configuration.
- *
+ * 
  * ## Using with Spot Instances
- *
+ * 
  * Launch configurations can set the spot instance pricing to be used for the
  * Auto Scaling Group to reserve instances. Simply specifying the `spot_price`
  * parameter will set the price on the Launch Configuration which will attempt to
  * reserve your instances at this price.  See the [AWS Spot Instance
  * documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
  * for more information or how to launch [Spot Instances][3] with Terraform.
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const ubuntu = pulumi.output(aws.getAmi({
  *     filters: [
  *         {
@@ -115,16 +115,16 @@ import {InstanceProfile} from "../iam";
  *     launchConfiguration: asConf.name,
  * });
  * ```
- *
+ * 
  * ## Block devices
- *
+ * 
  * Each of the `*_block_device` attributes controls a portion of the AWS
  * Launch Configuration's "Block Device Mapping". It's a good idea to familiarize yourself with [AWS's Block Device
  * Mapping docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)
  * to understand the implications of using these attributes.
- *
+ * 
  * The `root_block_device` mapping supports the following:
- *
+ * 
  * * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
  *   or `"io1"`. (Default: `"standard"`).
  * * `volume_size` - (Optional) The size of the volume in gigabytes.
@@ -133,12 +133,12 @@ import {InstanceProfile} from "../iam";
  *   This must be set with a `volume_type` of `"io1"`.
  * * `delete_on_termination` - (Optional) Whether the volume should be destroyed
  *   on instance termination (Default: `true`).
- *
+ * 
  * Modifying any of the `root_block_device` settings requires resource
  * replacement.
- *
+ * 
  * Each `ebs_block_device` supports the following:
- *
+ * 
  * * `device_name` - (Required) The name of the device to mount.
  * * `snapshot_id` - (Optional) The Snapshot ID to mount.
  * * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
@@ -150,22 +150,22 @@ import {InstanceProfile} from "../iam";
  * * `delete_on_termination` - (Optional) Whether the volume should be destroyed
  *   on instance termination (Default: `true`).
  * * `encrypted` - (Optional) Whether the volume should be encrypted or not. Do not use this option if you are using `snapshot_id` as the encrypted flag will be determined by the snapshot. (Default: `false`).
- *
+ * 
  * Modifying any `ebs_block_device` currently requires resource replacement.
- *
+ * 
  * Each `ephemeral_block_device` supports the following:
- *
+ * 
  * * `device_name` - The name of the block device to mount on the instance.
  * * `virtual_name` - The [Instance Store Device
  *   Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
  *   (e.g. `"ephemeral0"`)
- *
+ * 
  * Each AWS Instance type has a different set of Instance Store block devices
  * available for attachment. AWS [publishes a
  * list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes)
  * of which ephemeral devices are available on each type. The devices are always
  * identified by the `virtual_name` in the format `"ephemeral{0..N}"`.
- *
+ * 
  * > **NOTE:** Changes to `*_block_device` configuration of _existing_ resources
  * cannot currently be detected by Terraform. After updating to block device
  * configuration, resource recreation can be manually triggered by using the
@@ -187,87 +187,87 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     /**
      * Associate a public ip address with an instance in a VPC.
      */
-    public readonly associatePublicIpAddress!: pulumi.Output<boolean | undefined>;
+    public readonly associatePublicIpAddress: pulumi.Output<boolean | undefined>;
     /**
      * Additional EBS block devices to attach to the
      * instance.  See Block Devices below for details.
      */
-    public readonly ebsBlockDevices!: pulumi.Output<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, noDevice?: boolean, snapshotId: string, volumeSize: number, volumeType: string }[]>;
+    public readonly ebsBlockDevices: pulumi.Output<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, noDevice?: boolean, snapshotId: string, volumeSize: number, volumeType: string }[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      */
-    public readonly ebsOptimized!: pulumi.Output<boolean>;
+    public readonly ebsOptimized: pulumi.Output<boolean>;
     /**
      * Enables/disables detailed monitoring. This is enabled by default.
      */
-    public readonly enableMonitoring!: pulumi.Output<boolean | undefined>;
+    public readonly enableMonitoring: pulumi.Output<boolean | undefined>;
     /**
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    public readonly ephemeralBlockDevices!: pulumi.Output<{ deviceName: string, virtualName: string }[] | undefined>;
+    public readonly ephemeralBlockDevices: pulumi.Output<{ deviceName: string, virtualName: string }[] | undefined>;
     /**
      * The name attribute of the IAM instance profile to associate
      * with launched instances.
      */
-    public readonly iamInstanceProfile!: pulumi.Output<string | undefined>;
+    public readonly iamInstanceProfile: pulumi.Output<string | undefined>;
     /**
      * The EC2 image ID to launch.
      */
-    public readonly imageId!: pulumi.Output<string>;
+    public readonly imageId: pulumi.Output<string>;
     /**
      * The size of instance to launch.
      */
-    public readonly instanceType!: pulumi.Output<string>;
+    public readonly instanceType: pulumi.Output<string>;
     /**
      * The key name that should be used for the instance.
      */
-    public readonly keyName!: pulumi.Output<string>;
+    public readonly keyName: pulumi.Output<string>;
     /**
      * The name of the launch configuration. If you leave
      * this blank, Terraform will auto-generate a unique name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string | undefined>;
+    public readonly namePrefix: pulumi.Output<string | undefined>;
     /**
      * The tenancy of the instance. Valid values are
      * `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
      * for more details
      */
-    public readonly placementTenancy!: pulumi.Output<string | undefined>;
+    public readonly placementTenancy: pulumi.Output<string | undefined>;
     /**
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    public readonly rootBlockDevice!: pulumi.Output<{ deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }>;
+    public readonly rootBlockDevice: pulumi.Output<{ deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }>;
     /**
      * A list of associated security group IDS.
      */
-    public readonly securityGroups!: pulumi.Output<string[] | undefined>;
+    public readonly securityGroups: pulumi.Output<string[] | undefined>;
     /**
      * The maximum price to use for reserving spot instances.
      */
-    public readonly spotPrice!: pulumi.Output<string | undefined>;
+    public readonly spotPrice: pulumi.Output<string | undefined>;
     /**
      * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
      */
-    public readonly userData!: pulumi.Output<string | undefined>;
+    public readonly userData: pulumi.Output<string | undefined>;
     /**
      * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      */
-    public readonly userDataBase64!: pulumi.Output<string | undefined>;
+    public readonly userDataBase64: pulumi.Output<string | undefined>;
     /**
      * The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
      */
-    public readonly vpcClassicLinkId!: pulumi.Output<string | undefined>;
+    public readonly vpcClassicLinkId: pulumi.Output<string | undefined>;
     /**
      * The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
      */
-    public readonly vpcClassicLinkSecurityGroups!: pulumi.Output<string[] | undefined>;
+    public readonly vpcClassicLinkSecurityGroups: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a LaunchConfiguration resource with the given unique name, arguments, and options.
@@ -280,7 +280,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LaunchConfigurationArgs | LaunchConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as LaunchConfigurationState | undefined;
+            const state: LaunchConfigurationState = argsOrState as LaunchConfigurationState | undefined;
             inputs["associatePublicIpAddress"] = state ? state.associatePublicIpAddress : undefined;
             inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
             inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;

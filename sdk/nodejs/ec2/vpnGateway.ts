@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create a VPC VPN Gateway.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const vpnGw = new aws.ec2.VpnGateway("vpn_gw", {
  *     tags: {
  *         Name: "main",
@@ -37,19 +37,19 @@ export class VpnGateway extends pulumi.CustomResource {
     /**
      * The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
      */
-    public readonly amazonSideAsn!: pulumi.Output<string>;
+    public readonly amazonSideAsn: pulumi.Output<string>;
     /**
      * The Availability Zone for the virtual private gateway.
      */
-    public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    public readonly availabilityZone: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The VPC ID to create in.
      */
-    public readonly vpcId!: pulumi.Output<string>;
+    public readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a VpnGateway resource with the given unique name, arguments, and options.
@@ -62,7 +62,7 @@ export class VpnGateway extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpnGatewayArgs | VpnGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as VpnGatewayState | undefined;
+            const state: VpnGatewayState = argsOrState as VpnGatewayState | undefined;
             inputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["tags"] = state ? state.tags : undefined;

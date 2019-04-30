@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES receipt rule resource
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * // Add a header to the email and store it in S3
  * const store = new aws.ses.ReceiptRule("store", {
  *     addHeaderActions: [{
@@ -47,59 +47,59 @@ export class ReceiptRule extends pulumi.CustomResource {
     /**
      * A list of Add Header Action blocks. Documented below.
      */
-    public readonly addHeaderActions!: pulumi.Output<{ headerName: string, headerValue: string, position: number }[] | undefined>;
+    public readonly addHeaderActions: pulumi.Output<{ headerName: string, headerValue: string, position: number }[] | undefined>;
     /**
      * The name of the rule to place this rule after
      */
-    public readonly after!: pulumi.Output<string | undefined>;
+    public readonly after: pulumi.Output<string | undefined>;
     /**
      * A list of Bounce Action blocks. Documented below.
      */
-    public readonly bounceActions!: pulumi.Output<{ message: string, position: number, sender: string, smtpReplyCode: string, statusCode?: string, topicArn?: string }[] | undefined>;
+    public readonly bounceActions: pulumi.Output<{ message: string, position: number, sender: string, smtpReplyCode: string, statusCode?: string, topicArn?: string }[] | undefined>;
     /**
      * If true, the rule will be enabled
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    public readonly enabled: pulumi.Output<boolean>;
     /**
      * A list of Lambda Action blocks. Documented below.
      */
-    public readonly lambdaActions!: pulumi.Output<{ functionArn: string, invocationType: string, position: number, topicArn?: string }[] | undefined>;
+    public readonly lambdaActions: pulumi.Output<{ functionArn: string, invocationType: string, position: number, topicArn?: string }[] | undefined>;
     /**
      * The name of the rule
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * A list of email addresses
      */
-    public readonly recipients!: pulumi.Output<string[] | undefined>;
+    public readonly recipients: pulumi.Output<string[] | undefined>;
     /**
      * The name of the rule set
      */
-    public readonly ruleSetName!: pulumi.Output<string>;
+    public readonly ruleSetName: pulumi.Output<string>;
     /**
      * A list of S3 Action blocks. Documented below.
      */
-    public readonly s3Actions!: pulumi.Output<{ bucketName: string, kmsKeyArn?: string, objectKeyPrefix?: string, position: number, topicArn?: string }[] | undefined>;
+    public readonly s3Actions: pulumi.Output<{ bucketName: string, kmsKeyArn?: string, objectKeyPrefix?: string, position: number, topicArn?: string }[] | undefined>;
     /**
      * If true, incoming emails will be scanned for spam and viruses
      */
-    public readonly scanEnabled!: pulumi.Output<boolean>;
+    public readonly scanEnabled: pulumi.Output<boolean>;
     /**
      * A list of SNS Action blocks. Documented below.
      */
-    public readonly snsActions!: pulumi.Output<{ position: number, topicArn: string }[] | undefined>;
+    public readonly snsActions: pulumi.Output<{ position: number, topicArn: string }[] | undefined>;
     /**
      * A list of Stop Action blocks. Documented below.
      */
-    public readonly stopActions!: pulumi.Output<{ position: number, scope: string, topicArn?: string }[] | undefined>;
+    public readonly stopActions: pulumi.Output<{ position: number, scope: string, topicArn?: string }[] | undefined>;
     /**
      * Require or Optional
      */
-    public readonly tlsPolicy!: pulumi.Output<string>;
+    public readonly tlsPolicy: pulumi.Output<string>;
     /**
      * A list of WorkMail Action blocks. Documented below.
      */
-    public readonly workmailActions!: pulumi.Output<{ organizationArn: string, position: number, topicArn?: string }[] | undefined>;
+    public readonly workmailActions: pulumi.Output<{ organizationArn: string, position: number, topicArn?: string }[] | undefined>;
 
     /**
      * Create a ReceiptRule resource with the given unique name, arguments, and options.
@@ -112,7 +112,7 @@ export class ReceiptRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ReceiptRuleArgs | ReceiptRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ReceiptRuleState | undefined;
+            const state: ReceiptRuleState = argsOrState as ReceiptRuleState | undefined;
             inputs["addHeaderActions"] = state ? state.addHeaderActions : undefined;
             inputs["after"] = state ? state.after : undefined;
             inputs["bounceActions"] = state ? state.bounceActions : undefined;

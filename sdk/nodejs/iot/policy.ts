@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an IoT policy.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const pubsub = new aws.iot.Policy("pubsub", {
  *     policy: `{
  *   "Version": "2012-10-17",
@@ -46,19 +46,19 @@ export class Policy extends pulumi.CustomResource {
     /**
      * The ARN assigned by AWS to this policy.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The default version of this policy.
      */
-    public /*out*/ readonly defaultVersionId!: pulumi.Output<string>;
+    public /*out*/ readonly defaultVersionId: pulumi.Output<string>;
     /**
      * The name of the policy.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    public readonly policy!: pulumi.Output<string>;
+    public readonly policy: pulumi.Output<string>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -71,7 +71,7 @@ export class Policy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as PolicyState | undefined;
+            const state: PolicyState = argsOrState as PolicyState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["defaultVersionId"] = state ? state.defaultVersionId : undefined;
             inputs["name"] = state ? state.name : undefined;

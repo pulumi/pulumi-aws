@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Subscribes to a Security Hub product.
- *
+ * 
  * > **NOTE:** This AWS service is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between Terraform AWS Provider releases.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const exampleAccount = new aws.securityhub.Account("example", {});
  * const current = pulumi.output(aws.getRegion({}));
  * const exampleProductSubscription = new aws.securityhub.ProductSubscription("example", {
@@ -38,11 +38,11 @@ export class ProductSubscription extends pulumi.CustomResource {
     /**
      * The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The ARN of the product that generates findings that you want to import into Security Hub - see below.
      */
-    public readonly productArn!: pulumi.Output<string>;
+    public readonly productArn: pulumi.Output<string>;
 
     /**
      * Create a ProductSubscription resource with the given unique name, arguments, and options.
@@ -55,7 +55,7 @@ export class ProductSubscription extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProductSubscriptionArgs | ProductSubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ProductSubscriptionState | undefined;
+            const state: ProductSubscriptionState = argsOrState as ProductSubscriptionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["productArn"] = state ? state.productArn : undefined;
         } else {

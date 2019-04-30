@@ -6,37 +6,37 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodeDeploy application to be used as a basis for deployments
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### ECS Application
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.codedeploy.Application("example", {
  *     computePlatform: "ECS",
  * });
  * ```
- *
+ * 
  * ### Lambda Application
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.codedeploy.Application("example", {
  *     computePlatform: "Lambda",
  * });
  * ```
- *
+ * 
  * ### Server Application
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.codedeploy.Application("example", {
  *     computePlatform: "Server",
  * });
@@ -58,12 +58,12 @@ export class Application extends pulumi.CustomResource {
     /**
      * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
      */
-    public readonly computePlatform!: pulumi.Output<string | undefined>;
+    public readonly computePlatform: pulumi.Output<string | undefined>;
     /**
      * The name of the application.
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly uniqueId!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
+    public readonly uniqueId: pulumi.Output<string>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ export class Application extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ApplicationState | undefined;
+            const state: ApplicationState = argsOrState as ApplicationState | undefined;
             inputs["computePlatform"] = state ? state.computePlatform : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["uniqueId"] = state ? state.uniqueId : undefined;

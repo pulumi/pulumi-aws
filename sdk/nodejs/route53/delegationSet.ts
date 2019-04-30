@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html) resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const main = new aws.route53.DelegationSet("main", {
  *     referenceName: "DynDNS",
  * });
@@ -41,12 +41,12 @@ export class DelegationSet extends pulumi.CustomResource {
      * A list of authoritative name servers for the hosted zone
      * (effectively a list of NS records).
      */
-    public /*out*/ readonly nameServers!: pulumi.Output<string[]>;
+    public /*out*/ readonly nameServers: pulumi.Output<string[]>;
     /**
      * This is a reference name used in Caller Reference
      * (helpful for identifying single delegation set amongst others)
      */
-    public readonly referenceName!: pulumi.Output<string | undefined>;
+    public readonly referenceName: pulumi.Output<string | undefined>;
 
     /**
      * Create a DelegationSet resource with the given unique name, arguments, and options.
@@ -59,7 +59,7 @@ export class DelegationSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DelegationSetArgs | DelegationSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as DelegationSetState | undefined;
+            const state: DelegationSetState = argsOrState as DelegationSetState | undefined;
             inputs["nameServers"] = state ? state.nameServers : undefined;
             inputs["referenceName"] = state ? state.referenceName : undefined;
         } else {

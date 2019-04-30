@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Direct Connect BGP peer resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const peer = new aws.directconnect.BgpPeer("peer", {
  *     addressFamily: "ipv6",
  *     bgpAsn: 65351,
@@ -36,41 +36,41 @@ export class BgpPeer extends pulumi.CustomResource {
     /**
      * The address family for the BGP peer. `ipv4 ` or `ipv6`.
      */
-    public readonly addressFamily!: pulumi.Output<string>;
+    public readonly addressFamily: pulumi.Output<string>;
     /**
      * The IPv4 CIDR address to use to send traffic to Amazon.
      * Required for IPv4 BGP peers on public virtual interfaces.
      */
-    public readonly amazonAddress!: pulumi.Output<string>;
+    public readonly amazonAddress: pulumi.Output<string>;
     /**
      * The Direct Connect endpoint on which the BGP peer terminates.
      */
-    public /*out*/ readonly awsDevice!: pulumi.Output<string>;
+    public /*out*/ readonly awsDevice: pulumi.Output<string>;
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      */
-    public readonly bgpAsn!: pulumi.Output<number>;
+    public readonly bgpAsn: pulumi.Output<number>;
     /**
      * The authentication key for BGP configuration.
      */
-    public readonly bgpAuthKey!: pulumi.Output<string>;
+    public readonly bgpAuthKey: pulumi.Output<string>;
     /**
      * The ID of the BGP peer.
      */
-    public /*out*/ readonly bgpPeerId!: pulumi.Output<string>;
+    public /*out*/ readonly bgpPeerId: pulumi.Output<string>;
     /**
      * The Up/Down state of the BGP peer.
      */
-    public /*out*/ readonly bgpStatus!: pulumi.Output<string>;
+    public /*out*/ readonly bgpStatus: pulumi.Output<string>;
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic.
      * Required for IPv4 BGP peers on public virtual interfaces.
      */
-    public readonly customerAddress!: pulumi.Output<string>;
+    public readonly customerAddress: pulumi.Output<string>;
     /**
      * The ID of the Direct Connect virtual interface on which to create the BGP peer.
      */
-    public readonly virtualInterfaceId!: pulumi.Output<string>;
+    public readonly virtualInterfaceId: pulumi.Output<string>;
 
     /**
      * Create a BgpPeer resource with the given unique name, arguments, and options.
@@ -83,7 +83,7 @@ export class BgpPeer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BgpPeerArgs | BgpPeerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as BgpPeerState | undefined;
+            const state: BgpPeerState = argsOrState as BgpPeerState | undefined;
             inputs["addressFamily"] = state ? state.addressFamily : undefined;
             inputs["amazonAddress"] = state ? state.amazonAddress : undefined;
             inputs["awsDevice"] = state ? state.awsDevice : undefined;

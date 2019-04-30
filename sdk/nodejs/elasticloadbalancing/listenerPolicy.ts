@@ -6,14 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Attaches a load balancer policy to an ELB Listener.
- *
- *
+ * 
+ * 
  * ## Example Usage for Custom Policy
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const wu_tang = new aws.elasticloadbalancing.LoadBalancer("wu-tang", {
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [{
@@ -48,15 +48,15 @@ import * as utilities from "../utilities";
  *     policyNames: [wu_tang_ssl.policyName],
  * });
  * ```
- *
+ * 
  * This example shows how to customize the TLS settings of an HTTPS listener.
- *
+ * 
  * ## Example Usage for AWS Predefined Security Policy
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const wu_tang = new aws.elasticloadbalancing.LoadBalancer("wu-tang", {
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [{
@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  *     policyNames: [wu_tang_ssl_tls_1_1.policyName],
  * });
  * ```
- *
+ * 
  * This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
  */
 export class ListenerPolicy extends pulumi.CustomResource {
@@ -104,15 +104,15 @@ export class ListenerPolicy extends pulumi.CustomResource {
     /**
      * The load balancer to attach the policy to.
      */
-    public readonly loadBalancerName!: pulumi.Output<string>;
+    public readonly loadBalancerName: pulumi.Output<string>;
     /**
      * The load balancer listener port to apply the policy to.
      */
-    public readonly loadBalancerPort!: pulumi.Output<number>;
+    public readonly loadBalancerPort: pulumi.Output<number>;
     /**
      * List of Policy Names to apply to the backend server.
      */
-    public readonly policyNames!: pulumi.Output<string[] | undefined>;
+    public readonly policyNames: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ListenerPolicy resource with the given unique name, arguments, and options.
@@ -125,7 +125,7 @@ export class ListenerPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ListenerPolicyArgs | ListenerPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ListenerPolicyState | undefined;
+            const state: ListenerPolicyState = argsOrState as ListenerPolicyState | undefined;
             inputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
             inputs["loadBalancerPort"] = state ? state.loadBalancerPort : undefined;
             inputs["policyNames"] = state ? state.policyNames : undefined;

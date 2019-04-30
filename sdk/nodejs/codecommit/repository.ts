@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodeCommit Repository Resource.
- *
+ * 
  * > **NOTE on CodeCommit Availability**: The CodeCommit is not yet rolled out
  * in all regions - available regions are listed
  * [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region).
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const test = new aws.codecommit.Repository("test", {
  *     description: "This is the Sample App Repository",
  *     repositoryName: "MyTestRepository",
@@ -39,31 +39,31 @@ export class Repository extends pulumi.CustomResource {
     /**
      * The ARN of the repository
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The URL to use for cloning the repository over HTTPS.
      */
-    public /*out*/ readonly cloneUrlHttp!: pulumi.Output<string>;
+    public /*out*/ readonly cloneUrlHttp: pulumi.Output<string>;
     /**
      * The URL to use for cloning the repository over SSH.
      */
-    public /*out*/ readonly cloneUrlSsh!: pulumi.Output<string>;
+    public /*out*/ readonly cloneUrlSsh: pulumi.Output<string>;
     /**
      * The default branch of the repository. The branch specified here needs to exist.
      */
-    public readonly defaultBranch!: pulumi.Output<string | undefined>;
+    public readonly defaultBranch: pulumi.Output<string | undefined>;
     /**
      * The description of the repository. This needs to be less than 1000 characters
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the repository
      */
-    public /*out*/ readonly repositoryId!: pulumi.Output<string>;
+    public /*out*/ readonly repositoryId: pulumi.Output<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */
-    public readonly repositoryName!: pulumi.Output<string>;
+    public readonly repositoryName: pulumi.Output<string>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ export class Repository extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RepositoryArgs | RepositoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as RepositoryState | undefined;
+            const state: RepositoryState = argsOrState as RepositoryState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cloneUrlHttp"] = state ? state.cloneUrlHttp : undefined;
             inputs["cloneUrlSsh"] = state ? state.cloneUrlSsh : undefined;

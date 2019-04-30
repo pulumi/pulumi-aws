@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Allocates a static IP address.
- *
+ * 
  * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const test = new aws.lightsail.StaticIp("test", {});
  * ```
  */
@@ -34,19 +34,19 @@ export class StaticIp extends pulumi.CustomResource {
     /**
      * The ARN of the Lightsail static IP
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The allocated static IP address
      */
-    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
+    public /*out*/ readonly ipAddress: pulumi.Output<string>;
     /**
      * The name for the allocated static IP
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * The support code.
      */
-    public /*out*/ readonly supportCode!: pulumi.Output<string>;
+    public /*out*/ readonly supportCode: pulumi.Output<string>;
 
     /**
      * Create a StaticIp resource with the given unique name, arguments, and options.
@@ -59,7 +59,7 @@ export class StaticIp extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StaticIpArgs | StaticIpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as StaticIpState | undefined;
+            const state: StaticIpState = argsOrState as StaticIpState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
             inputs["name"] = state ? state.name : undefined;

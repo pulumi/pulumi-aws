@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage a GuardDuty ThreatIntelSet.
- *
+ * 
  * > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage ThreatIntelSets. ThreatIntelSets that are uploaded by the master account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-threat-intel-set.html)
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const master = new aws.guardduty.Detector("master", {
  *     enable: true,
  * });
@@ -51,23 +51,23 @@ export class ThreatIntelSet extends pulumi.CustomResource {
     /**
      * Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
      */
-    public readonly activate!: pulumi.Output<boolean>;
+    public readonly activate: pulumi.Output<boolean>;
     /**
      * The detector ID of the GuardDuty.
      */
-    public readonly detectorId!: pulumi.Output<string>;
+    public readonly detectorId: pulumi.Output<string>;
     /**
      * The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      */
-    public readonly format!: pulumi.Output<string>;
+    public readonly format: pulumi.Output<string>;
     /**
      * The URI of the file that contains the ThreatIntelSet.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location: pulumi.Output<string>;
     /**
      * The friendly name to identify the ThreatIntelSet.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
 
     /**
      * Create a ThreatIntelSet resource with the given unique name, arguments, and options.
@@ -80,7 +80,7 @@ export class ThreatIntelSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ThreatIntelSetArgs | ThreatIntelSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ThreatIntelSetState | undefined;
+            const state: ThreatIntelSetState = argsOrState as ThreatIntelSetState | undefined;
             inputs["activate"] = state ? state.activate : undefined;
             inputs["detectorId"] = state ? state.detectorId : undefined;
             inputs["format"] = state ? state.format : undefined;

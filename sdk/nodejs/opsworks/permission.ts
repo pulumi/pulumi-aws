@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks permission resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const myStackPermission = new aws.opsworks.Permission("my_stack_permission", {
  *     allowSsh: true,
  *     allowSudo: true,
@@ -38,23 +38,23 @@ export class Permission extends pulumi.CustomResource {
     /**
      * Whether the user is allowed to use SSH to communicate with the instance
      */
-    public readonly allowSsh!: pulumi.Output<boolean>;
+    public readonly allowSsh: pulumi.Output<boolean>;
     /**
      * Whether the user is allowed to use sudo to elevate privileges
      */
-    public readonly allowSudo!: pulumi.Output<boolean>;
+    public readonly allowSudo: pulumi.Output<boolean>;
     /**
      * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
      */
-    public readonly level!: pulumi.Output<string>;
+    public readonly level: pulumi.Output<string>;
     /**
      * The stack to set the permissions for
      */
-    public readonly stackId!: pulumi.Output<string>;
+    public readonly stackId: pulumi.Output<string>;
     /**
      * The user's IAM ARN to set permissions for
      */
-    public readonly userArn!: pulumi.Output<string>;
+    public readonly userArn: pulumi.Output<string>;
 
     /**
      * Create a Permission resource with the given unique name, arguments, and options.
@@ -67,7 +67,7 @@ export class Permission extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PermissionArgs | PermissionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as PermissionState | undefined;
+            const state: PermissionState = argsOrState as PermissionState | undefined;
             inputs["allowSsh"] = state ? state.allowSsh : undefined;
             inputs["allowSudo"] = state ? state.allowSudo : undefined;
             inputs["level"] = state ? state.level : undefined;

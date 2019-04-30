@@ -9,13 +9,13 @@ import {PlacementStrategy} from "./placementStrategy";
 /**
  * Provides an EC2 placement group. Read more about placement groups
  * in [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const web = new aws.ec2.PlacementGroup("web", {
  *     strategy: "cluster",
  * });
@@ -37,11 +37,11 @@ export class PlacementGroup extends pulumi.CustomResource {
     /**
      * The name of the placement group.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * The placement strategy.
      */
-    public readonly strategy!: pulumi.Output<PlacementStrategy>;
+    public readonly strategy: pulumi.Output<PlacementStrategy>;
 
     /**
      * Create a PlacementGroup resource with the given unique name, arguments, and options.
@@ -54,7 +54,7 @@ export class PlacementGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PlacementGroupArgs | PlacementGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as PlacementGroupState | undefined;
+            const state: PlacementGroupState = argsOrState as PlacementGroupState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["strategy"] = state ? state.strategy : undefined;
         } else {

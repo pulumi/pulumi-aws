@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Regional Web ACL Resource for use with Application Load Balancer.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### Regular Rule
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const ipset = new aws.wafregional.IpSet("ipset", {
  *     ipSetDescriptors: [{
  *         type: "IPV4",
@@ -44,13 +44,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
+ * 
  * ### Group Rule
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.wafregional.WebAcl("example", {
  *     defaultAction: {
  *         type: "ALLOW",
@@ -66,15 +66,15 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
+ * 
  * ### Logging
- *
+ * 
  * > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-`. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.wafregional.WebAcl("example", {
  *     loggingConfiguration: {
  *         logDestination: aws_kinesis_firehose_delivery_stream_example.arn,
@@ -109,27 +109,27 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the WAF Regional WebACL.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
      */
-    public readonly defaultAction!: pulumi.Output<{ type: string }>;
+    public readonly defaultAction: pulumi.Output<{ type: string }>;
     /**
      * Configuration block to enable WAF logging. Detailed below.
      */
-    public readonly loggingConfiguration!: pulumi.Output<{ logDestination: string, redactedFields?: { fieldToMatches: { data?: string, type: string }[] } } | undefined>;
+    public readonly loggingConfiguration: pulumi.Output<{ logDestination: string, redactedFields?: { fieldToMatches: { data?: string, type: string }[] } } | undefined>;
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
-    public readonly metricName!: pulumi.Output<string>;
+    public readonly metricName: pulumi.Output<string>;
     /**
      * The name or description of the web ACL.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * Set of configuration blocks containing rules for the web ACL. Detailed below.
      */
-    public readonly rules!: pulumi.Output<{ action?: { type: string }, overrideAction?: { type: string }, priority: number, ruleId: string, type?: string }[] | undefined>;
+    public readonly rules: pulumi.Output<{ action?: { type: string }, overrideAction?: { type: string }, priority: number, ruleId: string, type?: string }[] | undefined>;
 
     /**
      * Create a WebAcl resource with the given unique name, arguments, and options.
@@ -142,7 +142,7 @@ export class WebAcl extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: WebAclArgs | WebAclState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as WebAclState | undefined;
+            const state: WebAclState = argsOrState as WebAclState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["defaultAction"] = state ? state.defaultAction : undefined;
             inputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;

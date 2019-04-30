@@ -8,13 +8,13 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides an API Gateway Resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
  * });
@@ -41,19 +41,19 @@ export class Resource extends pulumi.CustomResource {
     /**
      * The ID of the parent API resource
      */
-    public readonly parentId!: pulumi.Output<string>;
+    public readonly parentId: pulumi.Output<string>;
     /**
      * The complete path for this API resource, including all parent paths.
      */
-    public /*out*/ readonly path!: pulumi.Output<string>;
+    public /*out*/ readonly path: pulumi.Output<string>;
     /**
      * The last path segment of this API resource.
      */
-    public readonly pathPart!: pulumi.Output<string>;
+    public readonly pathPart: pulumi.Output<string>;
     /**
      * The ID of the associated REST API
      */
-    public readonly restApi!: pulumi.Output<RestApi>;
+    public readonly restApi: pulumi.Output<RestApi>;
 
     /**
      * Create a Resource resource with the given unique name, arguments, and options.
@@ -66,7 +66,7 @@ export class Resource extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResourceArgs | ResourceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ResourceState | undefined;
+            const state: ResourceState = argsOrState as ResourceState | undefined;
             inputs["parentId"] = state ? state.parentId : undefined;
             inputs["path"] = state ? state.path : undefined;
             inputs["pathPart"] = state ? state.pathPart : undefined;

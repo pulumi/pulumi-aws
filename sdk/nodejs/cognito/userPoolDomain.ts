@@ -6,14 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Pool Domain resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### Amazon Cognito domain
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.cognito.UserPool("example", {});
  * const main = new aws.cognito.UserPoolDomain("main", {
  *     domain: "example-domain",
@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.cognito.UserPool("example", {});
  * const main = new aws.cognito.UserPoolDomain("main", {
  *     certificateArn: aws_acm_certificate_cert.arn,
@@ -49,31 +49,31 @@ export class UserPoolDomain extends pulumi.CustomResource {
     /**
      * The AWS account ID for the user pool owner.
      */
-    public /*out*/ readonly awsAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly awsAccountId: pulumi.Output<string>;
     /**
      * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
      */
-    public readonly certificateArn!: pulumi.Output<string | undefined>;
+    public readonly certificateArn: pulumi.Output<string | undefined>;
     /**
      * The ARN of the CloudFront distribution.
      */
-    public /*out*/ readonly cloudfrontDistributionArn!: pulumi.Output<string>;
+    public /*out*/ readonly cloudfrontDistributionArn: pulumi.Output<string>;
     /**
      * The domain string.
      */
-    public readonly domain!: pulumi.Output<string>;
+    public readonly domain: pulumi.Output<string>;
     /**
      * The S3 bucket where the static files for this domain are stored.
      */
-    public /*out*/ readonly s3Bucket!: pulumi.Output<string>;
+    public /*out*/ readonly s3Bucket: pulumi.Output<string>;
     /**
      * The user pool ID.
      */
-    public readonly userPoolId!: pulumi.Output<string>;
+    public readonly userPoolId: pulumi.Output<string>;
     /**
      * The app version.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a UserPoolDomain resource with the given unique name, arguments, and options.
@@ -86,7 +86,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserPoolDomainArgs | UserPoolDomainState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as UserPoolDomainState | undefined;
+            const state: UserPoolDomainState = argsOrState as UserPoolDomainState | undefined;
             inputs["awsAccountId"] = state ? state.awsAccountId : undefined;
             inputs["certificateArn"] = state ? state.certificateArn : undefined;
             inputs["cloudfrontDistributionArn"] = state ? state.cloudfrontDistributionArn : undefined;

@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
  * Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases & keys,
  * but API (hence Terraform too) allows you to create as many aliases as
  * the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const key = new aws.kms.Key("a", {});
  * const alias = new aws.kms.Alias("a", {
  *     targetKeyId: key.keyId,
@@ -37,24 +37,24 @@ export class Alias extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the key alias.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * Creates an unique alias beginning with the specified prefix.
      * The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string | undefined>;
+    public readonly namePrefix: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the target key identifier.
      */
-    public /*out*/ readonly targetKeyArn!: pulumi.Output<string>;
+    public /*out*/ readonly targetKeyArn: pulumi.Output<string>;
     /**
      * Identifier for the key for which the alias is for, can be either an ARN or key_id.
      */
-    public readonly targetKeyId!: pulumi.Output<string>;
+    public readonly targetKeyId: pulumi.Output<string>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -67,7 +67,7 @@ export class Alias extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AliasArgs | AliasState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as AliasState | undefined;
+            const state: AliasState = argsOrState as AliasState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;

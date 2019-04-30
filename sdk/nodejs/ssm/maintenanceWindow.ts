@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Maintenance Window resource
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const production = new aws.ssm.MaintenanceWindow("production", {
  *     cutoff: 1,
  *     duration: 3,
@@ -36,39 +36,39 @@ export class MaintenanceWindow extends pulumi.CustomResource {
     /**
      * Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
      */
-    public readonly allowUnassociatedTargets!: pulumi.Output<boolean | undefined>;
+    public readonly allowUnassociatedTargets: pulumi.Output<boolean | undefined>;
     /**
      * The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
      */
-    public readonly cutoff!: pulumi.Output<number>;
+    public readonly cutoff: pulumi.Output<number>;
     /**
      * The duration of the Maintenance Window in hours.
      */
-    public readonly duration!: pulumi.Output<number>;
+    public readonly duration: pulumi.Output<number>;
     /**
      * Whether the maintenance window is enabled. Default: `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
      */
-    public readonly endDate!: pulumi.Output<string | undefined>;
+    public readonly endDate: pulumi.Output<string | undefined>;
     /**
      * The name of the maintenance window.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
      */
-    public readonly schedule!: pulumi.Output<string>;
+    public readonly schedule: pulumi.Output<string>;
     /**
      * Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
      */
-    public readonly scheduleTimezone!: pulumi.Output<string | undefined>;
+    public readonly scheduleTimezone: pulumi.Output<string | undefined>;
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
      */
-    public readonly startDate!: pulumi.Output<string | undefined>;
+    public readonly startDate: pulumi.Output<string | undefined>;
 
     /**
      * Create a MaintenanceWindow resource with the given unique name, arguments, and options.
@@ -81,7 +81,7 @@ export class MaintenanceWindow extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MaintenanceWindowArgs | MaintenanceWindowState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as MaintenanceWindowState | undefined;
+            const state: MaintenanceWindowState = argsOrState as MaintenanceWindowState | undefined;
             inputs["allowUnassociatedTargets"] = state ? state.allowUnassociatedTargets : undefined;
             inputs["cutoff"] = state ? state.cutoff : undefined;
             inputs["duration"] = state ? state.duration : undefined;

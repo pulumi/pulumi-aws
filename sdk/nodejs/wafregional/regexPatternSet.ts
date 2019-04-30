@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Regional Regex Pattern Set Resource
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.wafregional.RegexPatternSet("example", {
  *     regexPatternStrings: [
  *         "one",
@@ -37,11 +37,11 @@ export class RegexPatternSet extends pulumi.CustomResource {
     /**
      * The name or description of the Regex Pattern Set.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
      */
-    public readonly regexPatternStrings!: pulumi.Output<string[] | undefined>;
+    public readonly regexPatternStrings: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a RegexPatternSet resource with the given unique name, arguments, and options.
@@ -54,7 +54,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RegexPatternSetArgs | RegexPatternSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as RegexPatternSetState | undefined;
+            const state: RegexPatternSetState = argsOrState as RegexPatternSetState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["regexPatternStrings"] = state ? state.regexPatternStrings : undefined;
         } else {

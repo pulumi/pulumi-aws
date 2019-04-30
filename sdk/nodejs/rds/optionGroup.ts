@@ -10,13 +10,13 @@ import * as utilities from "../utilities";
  * * [Microsoft SQL Server Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.Options.html)
  * * [MySQL Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.Options.html)
  * * [Oracle Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.html)
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.rds.OptionGroup("example", {
  *     engineName: "sqlserver-ee",
  *     majorEngineVersion: "11.00",
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *     optionGroupDescription: "Terraform Option Group",
  * });
  * ```
- *
+ * 
  * > **Note**: Any modifications to the `db_option_group` are set to happen immediately as we default to applying immediately.
  */
 export class OptionGroup extends pulumi.CustomResource {
@@ -61,35 +61,35 @@ export class OptionGroup extends pulumi.CustomResource {
     /**
      * The ARN of the db option group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies the name of the engine that this option group should be associated with.
      */
-    public readonly engineName!: pulumi.Output<string>;
+    public readonly engineName: pulumi.Output<string>;
     /**
      * Specifies the major version of the engine that this option group should be associated with.
      */
-    public readonly majorEngineVersion!: pulumi.Output<string>;
+    public readonly majorEngineVersion: pulumi.Output<string>;
     /**
      * The Name of the setting.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix: pulumi.Output<string>;
     /**
      * A list of Options to apply.
      */
-    public readonly options!: pulumi.Output<{ dbSecurityGroupMemberships?: string[], optionName: string, optionSettings?: { name: string, value: string }[], port?: number, version?: string, vpcSecurityGroupMemberships?: string[] }[] | undefined>;
+    public readonly options: pulumi.Output<{ dbSecurityGroupMemberships?: string[], optionName: string, optionSettings?: { name: string, value: string }[], port?: number, version?: string, vpcSecurityGroupMemberships?: string[] }[] | undefined>;
     /**
      * The description of the option group. Defaults to "Managed by Terraform".
      */
-    public readonly optionGroupDescription!: pulumi.Output<string>;
+    public readonly optionGroupDescription: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a OptionGroup resource with the given unique name, arguments, and options.
@@ -102,7 +102,7 @@ export class OptionGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: OptionGroupArgs | OptionGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as OptionGroupState | undefined;
+            const state: OptionGroupState = argsOrState as OptionGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["engineName"] = state ? state.engineName : undefined;
             inputs["majorEngineVersion"] = state ? state.majorEngineVersion : undefined;

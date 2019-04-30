@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
  * Provides an Elastic MapReduce Cluster, a web service that makes it easy to
  * process large amounts of data efficiently. See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/elastic-mapreduce/)
  * for more information.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const cluster = new aws.emr.Cluster("cluster", {
  *     additionalInfo: `{
  *   "instanceAwsClientConfiguration": {
@@ -122,7 +122,7 @@ import * as utilities from "../utilities";
  *     terminationProtection: false,
  * });
  * ```
- *
+ * 
  * The `aws_emr_cluster` resource typically requires two IAM roles, one for the EMR Cluster
  * to use as a service, and another to place on your Cluster Instances to interact
  * with AWS from those instances. The suggested role policy template for the EMR service is `AmazonElasticMapReduceRole`,
@@ -130,18 +130,18 @@ import * as utilities from "../utilities";
  * Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html)
  * guide for more information on these IAM roles. There is also a fully-bootable
  * example Terraform configuration at the bottom of this page.
- *
+ * 
  * ### Enable Debug Logging
- *
+ * 
  * [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html)
  * is implemented as a step. It is highly recommended to utilize the
  * [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other
  * steps are being managed outside of Terraform.
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.emr.Cluster("example", {
  *     steps: [{
  *         actionOnFailure: "TERMINATE_CLUSTER",
@@ -153,11 +153,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
+ * 
  * ## ec2_attributes
- *
+ * 
  * Attributes for the Amazon EC2 instances running the job flow
- *
+ * 
  * * `key_name` - (Optional) Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`
  * * `subnet_id` - (Optional) VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in a Amazon VPC
  * * `additional_master_security_groups` - (Optional) String containing a comma separated list of additional Amazon EC2 security group IDs for the master node
@@ -166,7 +166,7 @@ import * as utilities from "../utilities";
  * * `emr_managed_slave_security_group` - (Optional) Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes
  * * `service_access_security_group` - (Optional) Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet
  * * `instance_profile` - (Required) Instance Profile for EC2 instances of the cluster assume this role
- *
+ * 
  * > **NOTE on EMR-Managed security groups:** These security groups will have any
  * missing inbound or outbound access rules added and maintained by AWS, to ensure
  * proper communication between instances in a cluster. The EMR service will
@@ -181,21 +181,21 @@ import * as utilities from "../utilities";
  * `emr_managed_slave_security_group`. See [Amazon EMR-Managed Security
  * Groups](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html)
  * for more information about the EMR-managed security group rules.
- *
+ * 
  * ## kerberos_attributes
- *
+ * 
  * Attributes for Kerberos configuration
- *
+ * 
  * * `ad_domain_join_password` - (Optional) The Active Directory password for `ad_domain_join_user`
  * * `ad_domain_join_user` - (Optional) Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain.
  * * `cross_realm_trust_principal_password` - (Optional) Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms.
  * * `kdc_admin_password` - (Required) The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
  * * `realm` - (Required) The name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
- *
+ * 
  * ## instance_group
- *
+ * 
  * Attributes for each task instance group in the cluster
- *
+ * 
  * * `instance_role` - (Required) The role of the instance group in the cluster. Valid values are: `MASTER`, `CORE`, and `TASK`.
  * * `instance_type` - (Required) The EC2 instance type for all instances in the instance group
  * * `instance_count` - (Optional) Target number of instances for the instance group
@@ -203,49 +203,49 @@ import * as utilities from "../utilities";
  * * `bid_price` - (Optional) If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
  * * `ebs_config` - (Optional) A list of attributes for the EBS volumes attached to each instance in the instance group. Each `ebs_config` defined will result in additional EBS volumes being attached to _each_ instance in the instance group. Defined below
  * * `autoscaling_policy` - (Optional) The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
- *
+ * 
  * ## ebs_config
- *
+ * 
  * Attributes for the EBS volumes attached to each EC2 instance in the `instance_group`
- *
+ * 
  * * `size` - (Required) The volume size, in gibibytes (GiB).
  * * `type` - (Required) The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
  * * `iops` - (Optional) The number of I/O operations per second (IOPS) that the volume supports
  * * `volumes_per_instance` - (Optional) The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
- *
+ * 
  * ## bootstrap_action
- *
+ * 
  * * `name` - (Required) Name of the bootstrap action
  * * `path` - (Required) Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system
  * * `args` - (Optional) List of command line arguments to pass to the bootstrap action script
- *
+ * 
  * ## step
- *
+ * 
  * Attributes for step configuration
- *
+ * 
  * * `action_on_failure` - (Required) The action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
  * * `hadoop_jar_step` - (Required) The JAR file used for the step. Defined below.
  * * `name` - (Required) The name of the step.
- *
+ * 
  * ### hadoop_jar_step
- *
+ * 
  * Attributes for Hadoop job step configuration
- *
+ * 
  * * `args` - (Optional) List of command line arguments passed to the JAR file's main function when executed.
  * * `jar` - (Required) Path to a JAR file run during the step.
  * * `main_class` - (Optional) Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
  * * `properties` - (Optional) Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
- *
+ * 
  * ## Example bootable config
- *
+ * 
  * **NOTE:** This configuration demonstrates a minimal configuration needed to
  * boot an example EMR Cluster. It is not meant to display best practices. Please
  * use at your own risk.
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * // IAM Role for EC2 Instance Profile
  * const iamEmrProfileRole = new aws.iam.Role("iam_emr_profile_role", {
  *     assumeRolePolicy: `{
@@ -506,108 +506,108 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore Terraform cannot detect drift from the actual EMR cluster if its value is changed outside Terraform.
      */
-    public readonly additionalInfo!: pulumi.Output<string | undefined>;
+    public readonly additionalInfo: pulumi.Output<string | undefined>;
     /**
      * A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
      */
-    public readonly applications!: pulumi.Output<string[] | undefined>;
+    public readonly applications: pulumi.Output<string[] | undefined>;
     /**
      * An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
      */
-    public readonly autoscalingRole!: pulumi.Output<string | undefined>;
+    public readonly autoscalingRole: pulumi.Output<string | undefined>;
     /**
      * List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
      */
-    public readonly bootstrapActions!: pulumi.Output<{ args?: string[], name: string, path: string }[] | undefined>;
-    public /*out*/ readonly clusterState!: pulumi.Output<string>;
+    public readonly bootstrapActions: pulumi.Output<{ args?: string[], name: string, path: string }[] | undefined>;
+    public /*out*/ readonly clusterState: pulumi.Output<string>;
     /**
      * List of configurations supplied for the EMR cluster you are creating
      */
-    public readonly configurations!: pulumi.Output<string | undefined>;
+    public readonly configurations: pulumi.Output<string | undefined>;
     /**
      * A JSON string for supplying list of configurations for the EMR cluster.
      */
-    public readonly configurationsJson!: pulumi.Output<string | undefined>;
+    public readonly configurationsJson: pulumi.Output<string | undefined>;
     /**
      * Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `instance_groups` is set. Default `1`
      */
-    public readonly coreInstanceCount!: pulumi.Output<number>;
+    public readonly coreInstanceCount: pulumi.Output<number>;
     /**
      * The EC2 instance type of the slave nodes. Cannot be specified if `instance_groups` is set
      */
-    public readonly coreInstanceType!: pulumi.Output<string>;
+    public readonly coreInstanceType: pulumi.Output<string>;
     /**
      * A custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
      */
-    public readonly customAmiId!: pulumi.Output<string | undefined>;
+    public readonly customAmiId: pulumi.Output<string | undefined>;
     /**
      * Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
      */
-    public readonly ebsRootVolumeSize!: pulumi.Output<number | undefined>;
+    public readonly ebsRootVolumeSize: pulumi.Output<number | undefined>;
     /**
      * Attributes for the EC2 instances running the job flow. Defined below
      */
-    public readonly ec2Attributes!: pulumi.Output<{ additionalMasterSecurityGroups?: string, additionalSlaveSecurityGroups?: string, emrManagedMasterSecurityGroup?: string, emrManagedSlaveSecurityGroup?: string, instanceProfile: string, keyName?: string, serviceAccessSecurityGroup?: string, subnetId?: string } | undefined>;
+    public readonly ec2Attributes: pulumi.Output<{ additionalMasterSecurityGroups?: string, additionalSlaveSecurityGroups?: string, emrManagedMasterSecurityGroup?: string, emrManagedSlaveSecurityGroup?: string, instanceProfile: string, keyName?: string, serviceAccessSecurityGroup?: string, subnetId?: string } | undefined>;
     /**
      * A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Defined below
      */
-    public readonly instanceGroups!: pulumi.Output<{ autoscalingPolicy?: string, bidPrice?: string, ebsConfigs: { iops?: number, size: number, type: string, volumesPerInstance?: number }[], id: string, instanceCount?: number, instanceRole: string, instanceType: string, name?: string }[]>;
+    public readonly instanceGroups: pulumi.Output<{ autoscalingPolicy?: string, bidPrice?: string, ebsConfigs: { iops?: number, size: number, type: string, volumesPerInstance?: number }[], id: string, instanceCount?: number, instanceRole: string, instanceType: string, name?: string }[]>;
     /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      */
-    public readonly keepJobFlowAliveWhenNoSteps!: pulumi.Output<boolean>;
+    public readonly keepJobFlowAliveWhenNoSteps: pulumi.Output<boolean>;
     /**
      * Kerberos configuration for the cluster. Defined below
      */
-    public readonly kerberosAttributes!: pulumi.Output<{ adDomainJoinPassword?: string, adDomainJoinUser?: string, crossRealmTrustPrincipalPassword?: string, kdcAdminPassword: string, realm: string } | undefined>;
+    public readonly kerberosAttributes: pulumi.Output<{ adDomainJoinPassword?: string, adDomainJoinUser?: string, crossRealmTrustPrincipalPassword?: string, kdcAdminPassword: string, realm: string } | undefined>;
     /**
      * S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
      */
-    public readonly logUri!: pulumi.Output<string | undefined>;
+    public readonly logUri: pulumi.Output<string | undefined>;
     /**
      * The EC2 instance type of the master node. Exactly one of `master_instance_type` and `instance_group` must be specified.
      */
-    public readonly masterInstanceType!: pulumi.Output<string>;
+    public readonly masterInstanceType: pulumi.Output<string>;
     /**
      * The public DNS name of the master EC2 instance.
      */
-    public /*out*/ readonly masterPublicDns!: pulumi.Output<string>;
+    public /*out*/ readonly masterPublicDns: pulumi.Output<string>;
     /**
      * The name of the job flow
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * The release label for the Amazon EMR release
      */
-    public readonly releaseLabel!: pulumi.Output<string>;
+    public readonly releaseLabel: pulumi.Output<string>;
     /**
      * The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
      */
-    public readonly scaleDownBehavior!: pulumi.Output<string>;
+    public readonly scaleDownBehavior: pulumi.Output<string>;
     /**
      * The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater
      */
-    public readonly securityConfiguration!: pulumi.Output<string | undefined>;
+    public readonly securityConfiguration: pulumi.Output<string | undefined>;
     /**
      * IAM role that will be assumed by the Amazon EMR service to access AWS resources
      */
-    public readonly serviceRole!: pulumi.Output<string>;
+    public readonly serviceRole: pulumi.Output<string>;
     /**
      * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
-    public readonly steps!: pulumi.Output<{ actionOnFailure: string, hadoopJarStep: { args?: string[], jar: string, mainClass?: string, properties?: {[key: string]: any} }, name: string }[]>;
+    public readonly steps: pulumi.Output<{ actionOnFailure: string, hadoopJarStep: { args?: string[], jar: string, mainClass?: string, properties?: {[key: string]: any} }, name: string }[]>;
     /**
      * list of tags to apply to the EMR Cluster
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Switch on/off termination protection (default is off)
      */
-    public readonly terminationProtection!: pulumi.Output<boolean>;
+    public readonly terminationProtection: pulumi.Output<boolean>;
     /**
      * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
      */
-    public readonly visibleToAllUsers!: pulumi.Output<boolean | undefined>;
+    public readonly visibleToAllUsers: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -620,7 +620,7 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ClusterState | undefined;
+            const state: ClusterState = argsOrState as ClusterState | undefined;
             inputs["additionalInfo"] = state ? state.additionalInfo : undefined;
             inputs["applications"] = state ? state.applications : undefined;
             inputs["autoscalingRole"] = state ? state.autoscalingRole : undefined;

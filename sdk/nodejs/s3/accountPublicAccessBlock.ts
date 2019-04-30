@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages S3 account-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
- *
+ * 
  * > **NOTE:** Each AWS account may only have one S3 Public Access Block configuration. Multiple configurations of the resource against the same AWS account will cause a perpetual difference.
- *
+ * 
  * > Advanced usage: To use a custom API endpoint for this Terraform resource, use the [`s3control` endpoint provider configuration](https://www.terraform.io/docs/providers/aws/index.html#s3control), not the `s3` endpoint provider configuration.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.s3.AccountPublicAccessBlock("example", {
  *     blockPublicAcls: true,
  *     blockPublicPolicy: true,
@@ -39,28 +39,28 @@ export class AccountPublicAccessBlock extends pulumi.CustomResource {
     /**
      * AWS account ID to configure. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    public readonly accountId: pulumi.Output<string>;
     /**
      * Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
      * * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
      * * PUT Object calls will fail if the request includes an object ACL.
      */
-    public readonly blockPublicAcls!: pulumi.Output<boolean | undefined>;
+    public readonly blockPublicAcls: pulumi.Output<boolean | undefined>;
     /**
      * Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
      * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
      */
-    public readonly blockPublicPolicy!: pulumi.Output<boolean | undefined>;
+    public readonly blockPublicPolicy: pulumi.Output<boolean | undefined>;
     /**
      * Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
      * * Ignore all public ACLs on buckets in this account and any objects that they contain.
      */
-    public readonly ignorePublicAcls!: pulumi.Output<boolean | undefined>;
+    public readonly ignorePublicAcls: pulumi.Output<boolean | undefined>;
     /**
      * Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `false`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
      * * Only the bucket owner and AWS Services can access buckets with public policies.
      */
-    public readonly restrictPublicBuckets!: pulumi.Output<boolean | undefined>;
+    public readonly restrictPublicBuckets: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AccountPublicAccessBlock resource with the given unique name, arguments, and options.
@@ -73,7 +73,7 @@ export class AccountPublicAccessBlock extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AccountPublicAccessBlockArgs | AccountPublicAccessBlockState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as AccountPublicAccessBlockState | undefined;
+            const state: AccountPublicAccessBlockState = argsOrState as AccountPublicAccessBlockState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["blockPublicAcls"] = state ? state.blockPublicAcls : undefined;
             inputs["blockPublicPolicy"] = state ? state.blockPublicPolicy : undefined;

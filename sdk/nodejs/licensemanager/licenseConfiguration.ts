@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a License Manager license configuration resource.
- *
+ * 
  * > **Note:** Removing the `license_count` attribute is not supported by the License Manager API - use `terraform taint aws_licensemanager_license_configuration.<id>` to recreate the resource instead.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.licensemanager.LicenseConfiguration("example", {
  *     description: "Example",
  *     licenseCount: 10,
@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * ## Rules
- *
+ * 
  * License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
- *
+ * 
  * * `minimumVcpus` - Resource must have minimum vCPU count in order to use the license. Default: 1
  * * `maximumVcpus` - Resource must have maximum vCPU count in order to use the license. Default: unbounded, limit: 10000
  * * `minimumCores` - Resource must have minimum core count in order to use the license. Default: 1
@@ -55,31 +55,31 @@ export class LicenseConfiguration extends pulumi.CustomResource {
     /**
      * Description of the license configuration.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description: pulumi.Output<string | undefined>;
     /**
      * Number of licenses managed by the license configuration.
      */
-    public readonly licenseCount!: pulumi.Output<number | undefined>;
+    public readonly licenseCount: pulumi.Output<number | undefined>;
     /**
      * Sets the number of available licenses as a hard limit.
      */
-    public readonly licenseCountHardLimit!: pulumi.Output<boolean | undefined>;
+    public readonly licenseCountHardLimit: pulumi.Output<boolean | undefined>;
     /**
      * Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
      */
-    public readonly licenseCountingType!: pulumi.Output<string>;
+    public readonly licenseCountingType: pulumi.Output<string>;
     /**
      * Array of configured License Manager rules.
      */
-    public readonly licenseRules!: pulumi.Output<string[] | undefined>;
+    public readonly licenseRules: pulumi.Output<string[] | undefined>;
     /**
      * Name of the license configuration.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a LicenseConfiguration resource with the given unique name, arguments, and options.
@@ -92,7 +92,7 @@ export class LicenseConfiguration extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LicenseConfigurationArgs | LicenseConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as LicenseConfigurationState | undefined;
+            const state: LicenseConfigurationState = argsOrState as LicenseConfigurationState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["licenseCount"] = state ? state.licenseCount : undefined;
             inputs["licenseCountHardLimit"] = state ? state.licenseCountHardLimit : undefined;

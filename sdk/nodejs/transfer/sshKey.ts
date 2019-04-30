@@ -6,12 +6,12 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a AWS Transfer User SSH Key resource.
- *
- *
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const fooRole = new aws.iam.Role("foo", {
  *     assumeRolePolicy: `{
  * 	"Version": "2012-10-17",
@@ -81,15 +81,15 @@ export class SshKey extends pulumi.CustomResource {
     /**
      * The public key portion of an SSH key pair.
      */
-    public readonly body!: pulumi.Output<string>;
+    public readonly body: pulumi.Output<string>;
     /**
      * The Server ID of the Transfer Server (e.g. `s-12345678`)
      */
-    public readonly serverId!: pulumi.Output<string>;
+    public readonly serverId: pulumi.Output<string>;
     /**
      * The name of the user account that is assigned to one or more servers.
      */
-    public readonly userName!: pulumi.Output<string>;
+    public readonly userName: pulumi.Output<string>;
 
     /**
      * Create a SshKey resource with the given unique name, arguments, and options.
@@ -102,7 +102,7 @@ export class SshKey extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SshKeyArgs | SshKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as SshKeyState | undefined;
+            const state: SshKeyState = argsOrState as SshKeyState | undefined;
             inputs["body"] = state ? state.body : undefined;
             inputs["serverId"] = state ? state.serverId : undefined;
             inputs["userName"] = state ? state.userName : undefined;

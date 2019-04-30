@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const exampleBucket = new aws.s3.Bucket("example", {});
  * const exampleBucketPublicAccessBlock = new aws.s3.BucketPublicAccessBlock("example", {
  *     blockPublicAcls: true,
@@ -39,26 +39,26 @@ export class BucketPublicAccessBlock extends pulumi.CustomResource {
      * * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
      * * PUT Object calls will fail if the request includes an object ACL.
      */
-    public readonly blockPublicAcls!: pulumi.Output<boolean | undefined>;
+    public readonly blockPublicAcls: pulumi.Output<boolean | undefined>;
     /**
      * Whether Amazon S3 should block public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the existing bucket policy. When set to `true` causes Amazon S3 to:
      * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
      */
-    public readonly blockPublicPolicy!: pulumi.Output<boolean | undefined>;
+    public readonly blockPublicPolicy: pulumi.Output<boolean | undefined>;
     /**
      * S3 Bucket to which this Public Access Block configuration should be applied.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    public readonly bucket: pulumi.Output<string>;
     /**
      * Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
      * * Ignore public ACLs on this bucket and any objects that it contains.
      */
-    public readonly ignorePublicAcls!: pulumi.Output<boolean | undefined>;
+    public readonly ignorePublicAcls: pulumi.Output<boolean | undefined>;
     /**
      * Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
      * * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
      */
-    public readonly restrictPublicBuckets!: pulumi.Output<boolean | undefined>;
+    public readonly restrictPublicBuckets: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a BucketPublicAccessBlock resource with the given unique name, arguments, and options.
@@ -71,7 +71,7 @@ export class BucketPublicAccessBlock extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BucketPublicAccessBlockArgs | BucketPublicAccessBlockState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as BucketPublicAccessBlockState | undefined;
+            const state: BucketPublicAccessBlockState = argsOrState as BucketPublicAccessBlockState | undefined;
             inputs["blockPublicAcls"] = state ? state.blockPublicAcls : undefined;
             inputs["blockPublicPolicy"] = state ? state.blockPublicPolicy : undefined;
             inputs["bucket"] = state ? state.bucket : undefined;

@@ -8,14 +8,14 @@ import {ARN} from "../index";
 
 /**
  * Attaches Principal to AWS IoT Thing.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- *
+ * 
  * const cert = new aws.iot.Certificate("cert", {
  *     active: true,
  *     csr: fs.readFileSync("csr.pem", "utf-8"),
@@ -43,11 +43,11 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
     /**
      * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
      */
-    public readonly principal!: pulumi.Output<ARN>;
+    public readonly principal: pulumi.Output<ARN>;
     /**
      * The name of the thing.
      */
-    public readonly thing!: pulumi.Output<string>;
+    public readonly thing: pulumi.Output<string>;
 
     /**
      * Create a ThingPrincipalAttachment resource with the given unique name, arguments, and options.
@@ -60,7 +60,7 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ThingPrincipalAttachmentArgs | ThingPrincipalAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ThingPrincipalAttachmentState | undefined;
+            const state: ThingPrincipalAttachmentState = argsOrState as ThingPrincipalAttachmentState | undefined;
             inputs["principal"] = state ? state.principal : undefined;
             inputs["thing"] = state ? state.thing : undefined;
         } else {

@@ -101,7 +101,7 @@ export class EventRuleEventSubscription extends lambda.EventSubscription {
             targetId: name,
         }, parentOpts);
 
-        this.registerOutputs({});
+        this.registerOutputs();
     }
 }
 

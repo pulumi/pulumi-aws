@@ -5,8 +5,7 @@
         "module": "commonjs",
         "moduleResolution": "node",
         "declaration": true,
-        "sourceMap": true,
-        "strict": true
+        "sourceMap": true
     },
     "files": [
         "acm/certificate.ts",

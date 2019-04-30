@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Athena database.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const hogeBucket = new aws.s3.Bucket("hoge", {});
  * const hogeDatabase = new aws.athena.Database("hoge", {
  *     bucket: hogeBucket.bucket,
@@ -36,19 +36,19 @@ export class Database extends pulumi.CustomResource {
     /**
      * Name of s3 bucket to save the results of the query execution.
      */
-    public readonly bucket!: pulumi.Output<string>;
+    public readonly bucket: pulumi.Output<string>;
     /**
      * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryption_configuration` block is documented below.
      */
-    public readonly encryptionConfiguration!: pulumi.Output<{ encryptionOption: string, kmsKey?: string } | undefined>;
+    public readonly encryptionConfiguration: pulumi.Output<{ encryptionOption: string, kmsKey?: string } | undefined>;
     /**
      * A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      */
-    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
+    public readonly forceDestroy: pulumi.Output<boolean | undefined>;
     /**
      * Name of the database to create.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -61,7 +61,7 @@ export class Database extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DatabaseArgs | DatabaseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as DatabaseState | undefined;
+            const state: DatabaseState = argsOrState as DatabaseState | undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
             inputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
             inputs["forceDestroy"] = state ? state.forceDestroy : undefined;

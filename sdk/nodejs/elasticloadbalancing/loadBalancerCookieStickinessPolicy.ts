@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a load balancer cookie stickiness policy, which allows an ELB to control the sticky session lifetime of the browser.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const lb = new aws.elasticloadbalancing.LoadBalancer("lb", {
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [{
@@ -46,22 +46,22 @@ export class LoadBalancerCookieStickinessPolicy extends pulumi.CustomResource {
      * The time period after which
      * the session cookie should be considered stale, expressed in seconds.
      */
-    public readonly cookieExpirationPeriod!: pulumi.Output<number | undefined>;
+    public readonly cookieExpirationPeriod: pulumi.Output<number | undefined>;
     /**
      * The load balancer port to which the policy
      * should be applied. This must be an active listener on the load
      * balancer.
      */
-    public readonly lbPort!: pulumi.Output<number>;
+    public readonly lbPort: pulumi.Output<number>;
     /**
      * The load balancer to which the policy
      * should be attached.
      */
-    public readonly loadBalancer!: pulumi.Output<string>;
+    public readonly loadBalancer: pulumi.Output<string>;
     /**
      * The name of the stickiness policy.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
 
     /**
      * Create a LoadBalancerCookieStickinessPolicy resource with the given unique name, arguments, and options.
@@ -74,7 +74,7 @@ export class LoadBalancerCookieStickinessPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LoadBalancerCookieStickinessPolicyArgs | LoadBalancerCookieStickinessPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as LoadBalancerCookieStickinessPolicyState | undefined;
+            const state: LoadBalancerCookieStickinessPolicyState = argsOrState as LoadBalancerCookieStickinessPolicyState | undefined;
             inputs["cookieExpirationPeriod"] = state ? state.cookieExpirationPeriod : undefined;
             inputs["lbPort"] = state ? state.lbPort : undefined;
             inputs["loadBalancer"] = state ? state.loadBalancer : undefined;

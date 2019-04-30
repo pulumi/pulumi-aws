@@ -9,13 +9,13 @@ import * as utilities from "../utilities";
  * EC2-Classic Platform. For instances inside a VPC, use the
  * [`aws_db_instance.vpc_security_group_ids`](https://www.terraform.io/docs/providers/aws/r/db_instance.html#vpc_security_group_ids)
  * attribute instead.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const defaultSecurityGroup = new aws.rds.SecurityGroup("default", {
  *     ingress: [{
  *         cidr: "10.0.0.0/24",
@@ -39,23 +39,23 @@ export class SecurityGroup extends pulumi.CustomResource {
     /**
      * The arn of the DB security group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The description of the DB security group. Defaults to "Managed by Terraform".
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description: pulumi.Output<string>;
     /**
      * A list of ingress rules.
      */
-    public readonly ingress!: pulumi.Output<{ cidr?: string, securityGroupId: string, securityGroupName: string, securityGroupOwnerId: string }[]>;
+    public readonly ingress: pulumi.Output<{ cidr?: string, securityGroupId: string, securityGroupName: string, securityGroupOwnerId: string }[]>;
     /**
      * The name of the DB security group.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a SecurityGroup resource with the given unique name, arguments, and options.
@@ -68,7 +68,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SecurityGroupArgs | SecurityGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as SecurityGroupState | undefined;
+            const state: SecurityGroupState = argsOrState as SecurityGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["ingress"] = state ? state.ingress : undefined;

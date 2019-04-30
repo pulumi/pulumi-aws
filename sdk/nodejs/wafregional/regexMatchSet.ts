@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Regional Regex Match Set Resource
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const exampleRegexPatternSet = new aws.wafregional.RegexPatternSet("example", {
  *     regexPatternStrings: [
  *         "one",
@@ -47,12 +47,12 @@ export class RegexMatchSet extends pulumi.CustomResource {
     /**
      * The name or description of the Regex Match Set.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * The regular expression pattern that you want AWS WAF to search for in web requests,
      * the location in requests that you want AWS WAF to search, and other settings. See below.
      */
-    public readonly regexMatchTuples!: pulumi.Output<{ fieldToMatch: { data?: string, type: string }, regexPatternSetId: string, textTransformation: string }[] | undefined>;
+    public readonly regexMatchTuples: pulumi.Output<{ fieldToMatch: { data?: string, type: string }, regexPatternSetId: string, textTransformation: string }[] | undefined>;
 
     /**
      * Create a RegexMatchSet resource with the given unique name, arguments, and options.
@@ -65,7 +65,7 @@ export class RegexMatchSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RegexMatchSetArgs | RegexMatchSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as RegexMatchSetState | undefined;
+            const state: RegexMatchSetState = argsOrState as RegexMatchSetState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["regexMatchTuples"] = state ? state.regexMatchTuples : undefined;
         } else {

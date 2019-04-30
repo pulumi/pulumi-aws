@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const dlmLifecycleRole = new aws.iam.Role("dlm_lifecycle_role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -99,19 +99,19 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     /**
      * A description for the DLM lifecycle policy.
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description: pulumi.Output<string>;
     /**
      * The ARN of an IAM role that is able to be assumed by the DLM service.
      */
-    public readonly executionRoleArn!: pulumi.Output<string>;
+    public readonly executionRoleArn: pulumi.Output<string>;
     /**
      * See the `policy_details` configuration block. Max of 1.
      */
-    public readonly policyDetails!: pulumi.Output<{ resourceTypes: string[], schedules: { copyTags: boolean, createRule: { interval: number, intervalUnit?: string, times: string }, name: string, retainRule: { count: number }, tagsToAdd?: {[key: string]: any} }[], targetTags: {[key: string]: any} }>;
+    public readonly policyDetails: pulumi.Output<{ resourceTypes: string[], schedules: { copyTags: boolean, createRule: { interval: number, intervalUnit?: string, times: string }, name: string, retainRule: { count: number }, tagsToAdd?: {[key: string]: any} }[], targetTags: {[key: string]: any} }>;
     /**
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    public readonly state: pulumi.Output<string | undefined>;
 
     /**
      * Create a LifecyclePolicy resource with the given unique name, arguments, and options.
@@ -124,7 +124,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LifecyclePolicyArgs | LifecyclePolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as LifecyclePolicyState | undefined;
+            const state: LifecyclePolicyState = argsOrState as LifecyclePolicyState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
             inputs["policyDetails"] = state ? state.policyDetails : undefined;

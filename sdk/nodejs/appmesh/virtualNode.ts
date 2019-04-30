@@ -6,26 +6,26 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS App Mesh virtual node resource.
- *
+ * 
  * ## Breaking Changes
- *
+ * 
  * Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), `aws_appmesh_virtual_node` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
- *
+ * 
  * * Rename the `service_name` attribute of the `dns` object to `hostname`.
- *
+ * 
  * * Replace the `backends` attribute of the `spec` object with one or more `backend` configuration blocks,
  * setting `virtual_service_name` to the name of the service.
- *
+ * 
  * The Terraform state associated with existing resources will automatically be migrated.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### Basic
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
  *     meshName: aws_appmesh_mesh_simple.id,
  *     spec: {
@@ -48,13 +48,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * ### Listener Health Check
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
  *     meshName: aws_appmesh_mesh_simple.id,
  *     spec: {
@@ -85,13 +85,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * ### Logging
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
  *     meshName: aws_appmesh_mesh_simple.id,
  *     spec: {
@@ -138,27 +138,27 @@ export class VirtualNode extends pulumi.CustomResource {
     /**
      * The ARN of the virtual node.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The creation date of the virtual node.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * The last update date of the virtual node.
      */
-    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedDate: pulumi.Output<string>;
     /**
      * The name of the service mesh in which to create the virtual node.
      */
-    public readonly meshName!: pulumi.Output<string>;
+    public readonly meshName: pulumi.Output<string>;
     /**
      * The name to use for the virtual node.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * The virtual node specification to apply.
      */
-    public readonly spec!: pulumi.Output<{ backends?: { virtualService?: { virtualServiceName: string } }[], listener?: { healthCheck?: { healthyThreshold: number, intervalMillis: number, path?: string, port: number, protocol: string, timeoutMillis: number, unhealthyThreshold: number }, portMapping: { port: number, protocol: string } }, logging?: { accessLog?: { file?: { path: string } } }, serviceDiscovery?: { dns: { hostname: string } } }>;
+    public readonly spec: pulumi.Output<{ backends?: { virtualService?: { virtualServiceName: string } }[], listener?: { healthCheck?: { healthyThreshold: number, intervalMillis: number, path?: string, port: number, protocol: string, timeoutMillis: number, unhealthyThreshold: number }, portMapping: { port: number, protocol: string } }, logging?: { accessLog?: { file?: { path: string } } }, serviceDiscovery?: { dns: { hostname: string } } }>;
 
     /**
      * Create a VirtualNode resource with the given unique name, arguments, and options.
@@ -171,7 +171,7 @@ export class VirtualNode extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VirtualNodeArgs | VirtualNodeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as VirtualNodeState | undefined;
+            const state: VirtualNodeState = argsOrState as VirtualNodeState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
             inputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;

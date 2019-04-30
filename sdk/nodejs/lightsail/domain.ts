@@ -10,15 +10,15 @@ import * as utilities from "../utilities";
  * a domain name using Amazon Route 53 or another domain name registrar.
  * If you have already registered your domain, you can enter its name in
  * this parameter to manage the DNS records for that domain.
- *
+ * 
  * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
- *
+ * 
  * ## Example Usage, creating a new domain
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const domainTest = new aws.lightsail.Domain("domain_test", {
  *     domainName: "mydomain.com",
  * });
@@ -40,11 +40,11 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The ARN of the Lightsail domain
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The name of the Lightsail domain to manage
      */
-    public readonly domainName!: pulumi.Output<string>;
+    public readonly domainName: pulumi.Output<string>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -57,7 +57,7 @@ export class Domain extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DomainArgs | DomainState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as DomainState | undefined;
+            const state: DomainState = argsOrState as DomainState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
         } else {

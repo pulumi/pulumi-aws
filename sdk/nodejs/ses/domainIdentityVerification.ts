@@ -6,19 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a successful verification of an SES domain identity.
- *
+ * 
  * Most commonly, this resource is used together with `aws_route53_record` and
  * `aws_ses_domain_identity` to request an SES domain identity,
  * deploy the required DNS verification records, and wait for verification to complete.
- *
+ * 
  * > **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.ses.DomainIdentity("example", {
  *     domain: "example.com",
  * });
@@ -49,11 +49,11 @@ export class DomainIdentityVerification extends pulumi.CustomResource {
     /**
      * The ARN of the domain identity.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The domain name of the SES domain identity to verify.
      */
-    public readonly domain!: pulumi.Output<string>;
+    public readonly domain: pulumi.Output<string>;
 
     /**
      * Create a DomainIdentityVerification resource with the given unique name, arguments, and options.
@@ -66,7 +66,7 @@ export class DomainIdentityVerification extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DomainIdentityVerificationArgs | DomainIdentityVerificationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as DomainIdentityVerificationState | undefined;
+            const state: DomainIdentityVerificationState = argsOrState as DomainIdentityVerificationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["domain"] = state ? state.domain : undefined;
         } else {

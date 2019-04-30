@@ -9,13 +9,13 @@ import {Role} from "./role";
 
 /**
  * Provides an IAM role policy.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const testRole = new aws.iam.Role("test_role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -67,20 +67,20 @@ export class RolePolicy extends pulumi.CustomResource {
      * The name of the role policy. If omitted, Terraform will
      * assign a random, unique name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string | undefined>;
+    public readonly namePrefix: pulumi.Output<string | undefined>;
     /**
      * The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
-    public readonly policy!: pulumi.Output<string>;
+    public readonly policy: pulumi.Output<string>;
     /**
      * The IAM role to attach to the policy.
      */
-    public readonly role!: pulumi.Output<string>;
+    public readonly role: pulumi.Output<string>;
 
     /**
      * Create a RolePolicy resource with the given unique name, arguments, and options.
@@ -93,7 +93,7 @@ export class RolePolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RolePolicyArgs | RolePolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as RolePolicyState | undefined;
+            const state: RolePolicyState = argsOrState as RolePolicyState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
             inputs["policy"] = state ? state.policy : undefined;

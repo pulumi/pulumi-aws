@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Glue Security Configuration.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.glue.SecurityConfiguration("example", {
  *     encryptionConfiguration: {
  *         cloudwatchEncryption: {
@@ -45,11 +45,11 @@ export class SecurityConfiguration extends pulumi.CustomResource {
     /**
      * Configuration block containing encryption configuration. Detailed below.
      */
-    public readonly encryptionConfiguration!: pulumi.Output<{ cloudwatchEncryption: { cloudwatchEncryptionMode?: string, kmsKeyArn?: string }, jobBookmarksEncryption: { jobBookmarksEncryptionMode?: string, kmsKeyArn?: string }, s3Encryption: { kmsKeyArn?: string, s3EncryptionMode?: string } }>;
+    public readonly encryptionConfiguration: pulumi.Output<{ cloudwatchEncryption: { cloudwatchEncryptionMode?: string, kmsKeyArn?: string }, jobBookmarksEncryption: { jobBookmarksEncryptionMode?: string, kmsKeyArn?: string }, s3Encryption: { kmsKeyArn?: string, s3EncryptionMode?: string } }>;
     /**
      * Name of the security configuration.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
 
     /**
      * Create a SecurityConfiguration resource with the given unique name, arguments, and options.
@@ -62,7 +62,7 @@ export class SecurityConfiguration extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SecurityConfigurationArgs | SecurityConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as SecurityConfigurationState | undefined;
+            const state: SecurityConfigurationState = argsOrState as SecurityConfigurationState | undefined;
             inputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {

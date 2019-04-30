@@ -7,30 +7,30 @@ import * as utilities from "../utilities";
 /**
  * The ACM certificate resource allows requesting and management of certificates
  * from the Amazon Certificate Manager.
- *
+ * 
  * It deals with requesting certificates and managing their attributes and life-cycle.
  * This resource does not deal with validation of a certificate but can provide inputs
  * for other resources implementing the validation. It does not wait for a certificate to be issued.
  * Use a `aws_acm_certificate_validation` resource for this.
- *
+ * 
  * Most commonly, this resource is used to together with `aws_route53_record` and
  * `aws_acm_certificate_validation` to request a DNS validated certificate,
  * deploy the required validation records and wait for validation to complete.
- *
+ * 
  * Domain validation through E-Mail is also supported but should be avoided as it requires a manual step outside
  * of Terraform.
- *
+ * 
  * It's recommended to specify `create_before_destroy = true` in a [lifecycle][1] block to replace a certificate
  * which is currently in use (eg, by `aws_lb_listener`).
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### Certificate creation
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const cert = new aws.acm.Certificate("cert", {
  *     domainName: "example.com",
  *     tags: {
@@ -56,44 +56,44 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The ARN of the certificate
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The certificate's PEM-formatted public key
      */
-    public readonly certificateBody!: pulumi.Output<string | undefined>;
+    public readonly certificateBody: pulumi.Output<string | undefined>;
     /**
      * The certificate's PEM-formatted chain
      */
-    public readonly certificateChain!: pulumi.Output<string | undefined>;
+    public readonly certificateChain: pulumi.Output<string | undefined>;
     /**
      * A domain name for which the certificate should be issued
      */
-    public readonly domainName!: pulumi.Output<string>;
+    public readonly domainName: pulumi.Output<string>;
     /**
      * A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
      */
-    public /*out*/ readonly domainValidationOptions!: pulumi.Output<{ domainName: string, resourceRecordName: string, resourceRecordType: string, resourceRecordValue: string }[]>;
+    public /*out*/ readonly domainValidationOptions: pulumi.Output<{ domainName: string, resourceRecordName: string, resourceRecordType: string, resourceRecordValue: string }[]>;
     /**
      * The certificate's PEM-formatted private key
      */
-    public readonly privateKey!: pulumi.Output<string | undefined>;
+    public readonly privateKey: pulumi.Output<string | undefined>;
     /**
      * A list of domains that should be SANs in the issued certificate
      */
-    public readonly subjectAlternativeNames!: pulumi.Output<string[]>;
+    public readonly subjectAlternativeNames: pulumi.Output<string[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
      */
-    public /*out*/ readonly validationEmails!: pulumi.Output<string[]>;
+    public /*out*/ readonly validationEmails: pulumi.Output<string[]>;
     /**
      * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into Terraform.
      * * Importing an existing certificate
      */
-    public readonly validationMethod!: pulumi.Output<string>;
+    public readonly validationMethod: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -106,7 +106,7 @@ export class Certificate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as CertificateState | undefined;
+            const state: CertificateState = argsOrState as CertificateState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["certificateBody"] = state ? state.certificateBody : undefined;
             inputs["certificateChain"] = state ? state.certificateChain : undefined;

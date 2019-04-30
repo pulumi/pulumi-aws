@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic File System (EFS) mount target.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const foo = new aws.ec2.Vpc("foo", {
  *     cidrBlock: "10.0.0.0/16",
  * });
@@ -43,33 +43,33 @@ export class MountTarget extends pulumi.CustomResource {
     /**
      * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      */
-    public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    public /*out*/ readonly dnsName: pulumi.Output<string>;
     /**
      * Amazon Resource Name of the file system.
      */
-    public /*out*/ readonly fileSystemArn!: pulumi.Output<string>;
+    public /*out*/ readonly fileSystemArn: pulumi.Output<string>;
     /**
      * The ID of the file system for which the mount target is intended.
      */
-    public readonly fileSystemId!: pulumi.Output<string>;
+    public readonly fileSystemId: pulumi.Output<string>;
     /**
      * The address (within the address range of the specified subnet) at
      * which the file system may be mounted via the mount target.
      */
-    public readonly ipAddress!: pulumi.Output<string>;
+    public readonly ipAddress: pulumi.Output<string>;
     /**
      * The ID of the network interface that Amazon EFS created when it created the mount target.
      */
-    public /*out*/ readonly networkInterfaceId!: pulumi.Output<string>;
+    public /*out*/ readonly networkInterfaceId: pulumi.Output<string>;
     /**
      * A list of up to 5 VPC security group IDs (that must
      * be for the same VPC as subnet specified) in effect for the mount target.
      */
-    public readonly securityGroups!: pulumi.Output<string[]>;
+    public readonly securityGroups: pulumi.Output<string[]>;
     /**
      * The ID of the subnet to add the mount target in.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    public readonly subnetId: pulumi.Output<string>;
 
     /**
      * Create a MountTarget resource with the given unique name, arguments, and options.
@@ -82,7 +82,7 @@ export class MountTarget extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MountTargetArgs | MountTargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as MountTargetState | undefined;
+            const state: MountTargetState = argsOrState as MountTargetState | undefined;
             inputs["dnsName"] = state ? state.dnsName : undefined;
             inputs["fileSystemArn"] = state ? state.fileSystemArn : undefined;
             inputs["fileSystemId"] = state ? state.fileSystemId : undefined;

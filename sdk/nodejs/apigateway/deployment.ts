@@ -8,16 +8,16 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides an API Gateway Deployment.
- *
+ * 
  * > **Note:** Depends on having `aws_api_gateway_integration` inside your rest api (which in turn depends on `aws_api_gateway_method`). To avoid race conditions
  * you might need to add an explicit `depends_on = ["aws_api_gateway_integration.name"]`.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
  * });
@@ -63,38 +63,38 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * The creation date of the deployment
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * The description of the deployment
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description: pulumi.Output<string | undefined>;
     /**
      * The execution ARN to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
-    public /*out*/ readonly executionArn!: pulumi.Output<string>;
+    public /*out*/ readonly executionArn: pulumi.Output<string>;
     /**
      * The URL to invoke the API pointing to the stage,
      * e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      */
-    public /*out*/ readonly invokeUrl!: pulumi.Output<string>;
+    public /*out*/ readonly invokeUrl: pulumi.Output<string>;
     /**
      * The ID of the associated REST API
      */
-    public readonly restApi!: pulumi.Output<RestApi>;
+    public readonly restApi: pulumi.Output<RestApi>;
     /**
      * The description of the stage
      */
-    public readonly stageDescription!: pulumi.Output<string | undefined>;
+    public readonly stageDescription: pulumi.Output<string | undefined>;
     /**
      * The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
      */
-    public readonly stageName!: pulumi.Output<string | undefined>;
+    public readonly stageName: pulumi.Output<string | undefined>;
     /**
      * A map that defines variables for the stage
      */
-    public readonly variables!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly variables: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -107,7 +107,7 @@ export class Deployment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DeploymentArgs | DeploymentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as DeploymentState | undefined;
+            const state: DeploymentState = argsOrState as DeploymentState | undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["executionArn"] = state ? state.executionArn : undefined;

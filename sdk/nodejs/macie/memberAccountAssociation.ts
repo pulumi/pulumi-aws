@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Associates an AWS account with Amazon Macie as a member account.
- *
+ * 
  * > **NOTE:** Before using Amazon Macie for the first time it must be enabled manually. Instructions are [here](https://docs.aws.amazon.com/macie/latest/userguide/macie-setting-up.html#macie-setting-up-enable).
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.macie.MemberAccountAssociation("example", {
  *     memberAccountId: "123456789012",
  * });
@@ -36,7 +36,7 @@ export class MemberAccountAssociation extends pulumi.CustomResource {
     /**
      * The ID of the AWS account that you want to associate with Amazon Macie as a member account.
      */
-    public readonly memberAccountId!: pulumi.Output<string>;
+    public readonly memberAccountId: pulumi.Output<string>;
 
     /**
      * Create a MemberAccountAssociation resource with the given unique name, arguments, and options.
@@ -49,7 +49,7 @@ export class MemberAccountAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MemberAccountAssociationArgs | MemberAccountAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as MemberAccountAssociationState | undefined;
+            const state: MemberAccountAssociationState = argsOrState as MemberAccountAssociationState | undefined;
             inputs["memberAccountId"] = state ? state.memberAccountId : undefined;
         } else {
             const args = argsOrState as MemberAccountAssociationArgs | undefined;

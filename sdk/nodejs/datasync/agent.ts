@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an AWS DataSync Agent deployed on premises.
- *
+ * 
  * > **NOTE:** One of `activation_key` or `ip_address` must be provided for resource creation (agent activation). Neither is required for resource import. If using `ip_address`, Terraform must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running. The agent will turn off that HTTP server after activation.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.datasync.Agent("example", {
  *     ipAddress: "1.2.3.4",
  * });
@@ -36,23 +36,23 @@ export class Agent extends pulumi.CustomResource {
     /**
      * DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, Terraform will retrieve the `activation_key` as part of the resource creation.
      */
-    public readonly activationKey!: pulumi.Output<string>;
+    public readonly activationKey: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the DataSync Agent.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where Terraform is running.
      */
-    public readonly ipAddress!: pulumi.Output<string>;
+    public readonly ipAddress: pulumi.Output<string>;
     /**
      * Name of the DataSync Agent.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Agent.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Agent resource with the given unique name, arguments, and options.
@@ -65,7 +65,7 @@ export class Agent extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AgentArgs | AgentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as AgentState | undefined;
+            const state: AgentState = argsOrState as AgentState | undefined;
             inputs["activationKey"] = state ? state.activationKey : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;

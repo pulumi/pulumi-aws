@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Resource Group.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const test = new aws.resourcegroups.Group("test", {
  *     resourceQuery: {
  *         query: `{
@@ -47,19 +47,19 @@ export class Group extends pulumi.CustomResource {
     /**
      * The ARN assigned by AWS for this resource group.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * A description of the resource group.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description: pulumi.Output<string | undefined>;
     /**
      * The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * A `resource_query` block. Resource queries are documented below.
      */
-    public readonly resourceQuery!: pulumi.Output<{ query: string, type?: string }>;
+    public readonly resourceQuery: pulumi.Output<{ query: string, type?: string }>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -72,7 +72,7 @@ export class Group extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as GroupState | undefined;
+            const state: GroupState = argsOrState as GroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;

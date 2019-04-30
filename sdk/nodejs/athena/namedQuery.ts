@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Athena Named Query resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const hogeBucket = new aws.s3.Bucket("hoge", {});
  * const hogeDatabase = new aws.athena.Database("hoge", {
  *     bucket: hogeBucket.bucket,
@@ -40,19 +40,19 @@ export class NamedQuery extends pulumi.CustomResource {
     /**
      * The database to which the query belongs.
      */
-    public readonly database!: pulumi.Output<string>;
+    public readonly database: pulumi.Output<string>;
     /**
      * A brief explanation of the query. Maximum length of 1024.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description: pulumi.Output<string | undefined>;
     /**
      * The plain language name for the query. Maximum length of 128.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * The text of the query itself. In other words, all query statements. Maximum length of 262144.
      */
-    public readonly query!: pulumi.Output<string>;
+    public readonly query: pulumi.Output<string>;
 
     /**
      * Create a NamedQuery resource with the given unique name, arguments, and options.
@@ -65,7 +65,7 @@ export class NamedQuery extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NamedQueryArgs | NamedQueryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as NamedQueryState | undefined;
+            const state: NamedQueryState = argsOrState as NamedQueryState | undefined;
             inputs["database"] = state ? state.database : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;

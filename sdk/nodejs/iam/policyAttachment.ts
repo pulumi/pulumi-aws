@@ -11,17 +11,17 @@ import {User} from "./user";
 
 /**
  * Attaches a Managed IAM Policy to user(s), role(s), and/or group(s)
- *
+ * 
  * !> **WARNING:** The aws_iam_policy_attachment resource creates **exclusive** attachments of IAM policies. Across the entire AWS account, all of the users/roles/groups to which a single policy is attached must be declared by a single aws_iam_policy_attachment resource. This means that even any users/roles/groups that have the attached policy via any other mechanism (including other Terraform resources) will have that attached policy revoked by this resource. Consider `aws_iam_role_policy_attachment`, `aws_iam_user_policy_attachment`, or `aws_iam_group_policy_attachment` instead. These resources do not enforce exclusive attachment of an IAM policy.
- *
+ * 
  * > **NOTE:** The usage of this resource conflicts with the `aws_iam_group_policy_attachment`, `aws_iam_role_policy_attachment`, and `aws_iam_user_policy_attachment` resources and will permanently show a difference if both are defined.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const group = new aws.iam.Group("group", {});
  * const policy = new aws.iam.Policy("policy", {
  *     description: "A test policy",
@@ -80,23 +80,23 @@ export class PolicyAttachment extends pulumi.CustomResource {
     /**
      * The group(s) the policy should be applied to
      */
-    public readonly groups!: pulumi.Output<Group[] | undefined>;
+    public readonly groups: pulumi.Output<Group[] | undefined>;
     /**
      * The name of the attachment. This cannot be an empty string.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * The ARN of the policy you want to apply
      */
-    public readonly policyArn!: pulumi.Output<ARN>;
+    public readonly policyArn: pulumi.Output<ARN>;
     /**
      * The role(s) the policy should be applied to
      */
-    public readonly roles!: pulumi.Output<Role[] | undefined>;
+    public readonly roles: pulumi.Output<Role[] | undefined>;
     /**
      * The user(s) the policy should be applied to
      */
-    public readonly users!: pulumi.Output<User[] | undefined>;
+    public readonly users: pulumi.Output<User[] | undefined>;
 
     /**
      * Create a PolicyAttachment resource with the given unique name, arguments, and options.
@@ -109,7 +109,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PolicyAttachmentArgs | PolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as PolicyAttachmentState | undefined;
+            const state: PolicyAttachmentState = argsOrState as PolicyAttachmentState | undefined;
             inputs["groups"] = state ? state.groups : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["policyArn"] = state ? state.policyArn : undefined;

@@ -6,14 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a load balancer policy, which can be attached to an ELB listener or backend server.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- *
+ * 
  * const wu_tang = new aws.elasticloadbalancing.LoadBalancer("wu-tang", {
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [{
@@ -80,13 +80,13 @@ import * as utilities from "../utilities";
  *     policyTypeName: "SSLNegotiationPolicyType",
  * });
  * ```
- *
+ * 
  * Where the file `pubkey` in the current directory contains only the _public key_ of the certificate.
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * ```
- *
+ * 
  * This example shows how to enable backend authentication for an ELB as well as customize the TLS settings.
  */
 export class LoadBalancerPolicy extends pulumi.CustomResource {
@@ -105,19 +105,19 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
     /**
      * The load balancer on which the policy is defined.
      */
-    public readonly loadBalancerName!: pulumi.Output<string>;
+    public readonly loadBalancerName: pulumi.Output<string>;
     /**
      * Policy attribute to apply to the policy.
      */
-    public readonly policyAttributes!: pulumi.Output<{ name?: string, value?: string }[] | undefined>;
+    public readonly policyAttributes: pulumi.Output<{ name?: string, value?: string }[] | undefined>;
     /**
      * The name of the load balancer policy.
      */
-    public readonly policyName!: pulumi.Output<string>;
+    public readonly policyName: pulumi.Output<string>;
     /**
      * The policy type.
      */
-    public readonly policyTypeName!: pulumi.Output<string>;
+    public readonly policyTypeName: pulumi.Output<string>;
 
     /**
      * Create a LoadBalancerPolicy resource with the given unique name, arguments, and options.
@@ -130,7 +130,7 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LoadBalancerPolicyArgs | LoadBalancerPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as LoadBalancerPolicyState | undefined;
+            const state: LoadBalancerPolicyState = argsOrState as LoadBalancerPolicyState | undefined;
             inputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
             inputs["policyAttributes"] = state ? state.policyAttributes : undefined;
             inputs["policyName"] = state ? state.policyName : undefined;

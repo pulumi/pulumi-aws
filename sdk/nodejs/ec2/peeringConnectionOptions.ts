@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage VPC peering connection options.
- *
+ * 
  * > **NOTE on VPC Peering Connections and VPC Peering Connection Options:** Terraform provides
  * both a standalone VPC Peering Connection Options and a VPC Peering Connection
  * resource with `accepter` and `requester` attributes. Do not manage options for the same VPC peering
@@ -14,13 +14,13 @@ import * as utilities from "../utilities";
  * Doing so will cause a conflict of options and will overwrite the options.
  * Using a VPC Peering Connection Options resource decouples management of the connection options from
  * management of the VPC Peering Connection and allows options to be set correctly in cross-account scenarios.
- *
+ * 
  * Basic usage:
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const bar = new aws.ec2.Vpc("bar", {
  *     cidrBlock: "10.1.0.0/16",
  * });
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     vpcPeeringConnectionId: fooVpcPeeringConnection.id,
  * });
  * ```
- *
+ * 
  * Basic cross-account usage:
  */
 export class PeeringConnectionOptions extends pulumi.CustomResource {
@@ -64,17 +64,17 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
      * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      */
-    public readonly accepter!: pulumi.Output<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }>;
+    public readonly accepter: pulumi.Output<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection]
      * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
-    public readonly requester!: pulumi.Output<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }>;
+    public readonly requester: pulumi.Output<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }>;
     /**
      * The ID of the requester VPC peering connection.
      */
-    public readonly vpcPeeringConnectionId!: pulumi.Output<string>;
+    public readonly vpcPeeringConnectionId: pulumi.Output<string>;
 
     /**
      * Create a PeeringConnectionOptions resource with the given unique name, arguments, and options.
@@ -87,7 +87,7 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PeeringConnectionOptionsArgs | PeeringConnectionOptionsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as PeeringConnectionOptionsState | undefined;
+            const state: PeeringConnectionOptionsState = argsOrState as PeeringConnectionOptionsState | undefined;
             inputs["accepter"] = state ? state.accepter : undefined;
             inputs["requester"] = state ? state.requester : undefined;
             inputs["vpcPeeringConnectionId"] = state ? state.vpcPeeringConnectionId : undefined;

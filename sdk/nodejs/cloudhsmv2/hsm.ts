@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Creates an HSM module in Amazon CloudHSM v2 cluster.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * The following example below creates an HSM module in CloudHSM cluster.
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const cluster = pulumi.output(aws.cloudhsmv2.getCluster({
  *     clusterId: var_cloudhsm_cluster_id,
  * }));
@@ -40,31 +40,31 @@ export class Hsm extends pulumi.CustomResource {
     /**
      * The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
      */
-    public readonly availabilityZone!: pulumi.Output<string>;
+    public readonly availabilityZone: pulumi.Output<string>;
     /**
      * The ID of Cloud HSM v2 cluster to which HSM will be added.
      */
-    public readonly clusterId!: pulumi.Output<string>;
+    public readonly clusterId: pulumi.Output<string>;
     /**
      * The id of the ENI interface allocated for HSM module.
      */
-    public /*out*/ readonly hsmEniId!: pulumi.Output<string>;
+    public /*out*/ readonly hsmEniId: pulumi.Output<string>;
     /**
      * The id of the HSM module.
      */
-    public /*out*/ readonly hsmId!: pulumi.Output<string>;
+    public /*out*/ readonly hsmId: pulumi.Output<string>;
     /**
      * The state of the HSM module.
      */
-    public /*out*/ readonly hsmState!: pulumi.Output<string>;
+    public /*out*/ readonly hsmState: pulumi.Output<string>;
     /**
      * The IP address of HSM module. Must be within the CIDR of selected subnet.
      */
-    public readonly ipAddress!: pulumi.Output<string>;
+    public readonly ipAddress: pulumi.Output<string>;
     /**
      * The ID of subnet in which HSM module will be located.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    public readonly subnetId: pulumi.Output<string>;
 
     /**
      * Create a Hsm resource with the given unique name, arguments, and options.
@@ -77,7 +77,7 @@ export class Hsm extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: HsmArgs | HsmState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as HsmState | undefined;
+            const state: HsmState = argsOrState as HsmState | undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["clusterId"] = state ? state.clusterId : undefined;
             inputs["hsmEniId"] = state ? state.hsmEniId : undefined;

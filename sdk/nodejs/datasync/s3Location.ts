@@ -8,13 +8,13 @@ import {ARN} from "../index";
 
 /**
  * Manages an S3 Location within AWS DataSync.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.datasync.S3Location("example", {
  *     s3BucketArn: aws_s3_bucket_example.arn,
  *     s3Config: {
@@ -40,24 +40,24 @@ export class S3Location extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the S3 Bucket.
      */
-    public readonly s3BucketArn!: pulumi.Output<ARN>;
+    public readonly s3BucketArn: pulumi.Output<ARN>;
     /**
      * Configuration block containing information for connecting to S3.
      */
-    public readonly s3Config!: pulumi.Output<{ bucketAccessRoleArn: string }>;
+    public readonly s3Config: pulumi.Output<{ bucketAccessRoleArn: string }>;
     /**
      * Prefix to perform actions as source or destination.
      */
-    public readonly subdirectory!: pulumi.Output<string>;
+    public readonly subdirectory: pulumi.Output<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly uri: pulumi.Output<string>;
 
     /**
      * Create a S3Location resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ export class S3Location extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: S3LocationArgs | S3LocationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as S3LocationState | undefined;
+            const state: S3LocationState = argsOrState as S3LocationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["s3BucketArn"] = state ? state.s3BucketArn : undefined;
             inputs["s3Config"] = state ? state.s3Config : undefined;

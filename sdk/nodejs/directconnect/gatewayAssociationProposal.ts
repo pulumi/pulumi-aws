@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the [`aws_dx_gateway_association` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association.html).
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const exampleGateway = new aws.directconnect.Gateway("example", {
  *     amazonSideAsn: "64512",
  * });
@@ -45,19 +45,19 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
     /**
      * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      */
-    public readonly allowedPrefixes!: pulumi.Output<string[]>;
+    public readonly allowedPrefixes: pulumi.Output<string[]>;
     /**
      * Direct Connect Gateway identifier.
      */
-    public readonly dxGatewayId!: pulumi.Output<string>;
+    public readonly dxGatewayId: pulumi.Output<string>;
     /**
      * AWS Account identifier of the Direct Connect Gateway.
      */
-    public readonly dxGatewayOwnerAccountId!: pulumi.Output<string>;
+    public readonly dxGatewayOwnerAccountId: pulumi.Output<string>;
     /**
      * Virtual Gateway identifier to associate with the Direct Connect Gateway.
      */
-    public readonly vpnGatewayId!: pulumi.Output<string>;
+    public readonly vpnGatewayId: pulumi.Output<string>;
 
     /**
      * Create a GatewayAssociationProposal resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GatewayAssociationProposalArgs | GatewayAssociationProposalState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as GatewayAssociationProposalState | undefined;
+            const state: GatewayAssociationProposalState = argsOrState as GatewayAssociationProposalState | undefined;
             inputs["allowedPrefixes"] = state ? state.allowedPrefixes : undefined;
             inputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
             inputs["dxGatewayOwnerAccountId"] = state ? state.dxGatewayOwnerAccountId : undefined;

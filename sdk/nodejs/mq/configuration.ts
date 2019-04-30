@@ -5,16 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides an MQ Configuration Resource.
- *
+ * Provides an MQ Configuration Resource. 
+ * 
  * For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.mq.Configuration("example", {
  *     data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
  * <broker xmlns="http://activemq.apache.org/schema/core">
@@ -47,37 +47,37 @@ export class Configuration extends pulumi.CustomResource {
     /**
      * The ARN of the configuration.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The broker configuration in XML format.
      * See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
      * for supported parameters and format of the XML.
      */
-    public readonly data!: pulumi.Output<string>;
+    public readonly data: pulumi.Output<string>;
     /**
      * The description of the configuration.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description: pulumi.Output<string | undefined>;
     /**
      * The type of broker engine.
      */
-    public readonly engineType!: pulumi.Output<string>;
+    public readonly engineType: pulumi.Output<string>;
     /**
      * The version of the broker engine.
      */
-    public readonly engineVersion!: pulumi.Output<string>;
+    public readonly engineVersion: pulumi.Output<string>;
     /**
      * The latest revision of the configuration.
      */
-    public /*out*/ readonly latestRevision!: pulumi.Output<number>;
+    public /*out*/ readonly latestRevision: pulumi.Output<number>;
     /**
      * The name of the configuration
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Configuration resource with the given unique name, arguments, and options.
@@ -90,7 +90,7 @@ export class Configuration extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ConfigurationArgs | ConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ConfigurationState | undefined;
+            const state: ConfigurationState = argsOrState as ConfigurationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["data"] = state ? state.data : undefined;
             inputs["description"] = state ? state.description : undefined;

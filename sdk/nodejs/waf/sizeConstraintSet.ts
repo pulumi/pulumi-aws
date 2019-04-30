@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Size Constraint Set Resource
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const sizeConstraintSet = new aws.waf.SizeConstraintSet("size_constraint_set", {
  *     sizeConstraints: [{
  *         comparisonOperator: "EQ",
@@ -41,11 +41,11 @@ export class SizeConstraintSet extends pulumi.CustomResource {
     /**
      * The name or description of the Size Constraint Set.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * Specifies the parts of web requests that you want to inspect the size of.
      */
-    public readonly sizeConstraints!: pulumi.Output<{ comparisonOperator: string, fieldToMatch: { data?: string, type: string }, size: number, textTransformation: string }[] | undefined>;
+    public readonly sizeConstraints: pulumi.Output<{ comparisonOperator: string, fieldToMatch: { data?: string, type: string }, size: number, textTransformation: string }[] | undefined>;
 
     /**
      * Create a SizeConstraintSet resource with the given unique name, arguments, and options.
@@ -58,7 +58,7 @@ export class SizeConstraintSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SizeConstraintSetArgs | SizeConstraintSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as SizeConstraintSetState | undefined;
+            const state: SizeConstraintSetState = argsOrState as SizeConstraintSetState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["sizeConstraints"] = state ? state.sizeConstraints : undefined;
         } else {

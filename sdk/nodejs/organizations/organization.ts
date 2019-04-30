@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create an organization.
- *
+ * 
  * ## Example Usage:
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const org = new aws.organizations.Organization("org", {
  *     awsServiceAccessPrincipals: [
  *         "cloudtrail.amazonaws.com",
@@ -38,27 +38,27 @@ export class Organization extends pulumi.CustomResource {
     /**
      * ARN of the organization
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
      */
-    public readonly awsServiceAccessPrincipals!: pulumi.Output<string[] | undefined>;
+    public readonly awsServiceAccessPrincipals: pulumi.Output<string[] | undefined>;
     /**
      * Specify "ALL" (default) or "CONSOLIDATED_BILLING".
      */
-    public readonly featureSet!: pulumi.Output<string | undefined>;
+    public readonly featureSet: pulumi.Output<string | undefined>;
     /**
      * ARN of the master account
      */
-    public /*out*/ readonly masterAccountArn!: pulumi.Output<string>;
+    public /*out*/ readonly masterAccountArn: pulumi.Output<string>;
     /**
      * Email address of the master account
      */
-    public /*out*/ readonly masterAccountEmail!: pulumi.Output<string>;
+    public /*out*/ readonly masterAccountEmail: pulumi.Output<string>;
     /**
      * Identifier of the master account
      */
-    public /*out*/ readonly masterAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly masterAccountId: pulumi.Output<string>;
 
     /**
      * Create a Organization resource with the given unique name, arguments, and options.
@@ -71,7 +71,7 @@ export class Organization extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: OrganizationArgs | OrganizationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as OrganizationState | undefined;
+            const state: OrganizationState = argsOrState as OrganizationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["awsServiceAccessPrincipals"] = state ? state.awsServiceAccessPrincipals : undefined;
             inputs["featureSet"] = state ? state.featureSet : undefined;

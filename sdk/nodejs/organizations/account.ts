@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create a member account in the current organization.
- *
+ * 
  * > **Note:** Account management must be done from the organization's master account.
- *
+ * 
  * !> **WARNING:** Deleting this Terraform resource will only remove an AWS account from an organization. Terraform will not close the account. The member account must be prepared to be a standalone account beforehand. See the [AWS Organizations documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html) for more information.
- *
+ * 
  * ## Example Usage:
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const account = new aws.organizations.Account("account", {
  *     email: "john@doe.org",
  * });
@@ -38,26 +38,26 @@ export class Account extends pulumi.CustomResource {
     /**
      * The ARN for this account.
      */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
      */
-    public readonly email!: pulumi.Output<string>;
+    public readonly email: pulumi.Output<string>;
     /**
      * If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
      */
-    public readonly iamUserAccessToBilling!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly joinedMethod!: pulumi.Output<string>;
-    public /*out*/ readonly joinedTimestamp!: pulumi.Output<string>;
+    public readonly iamUserAccessToBilling: pulumi.Output<string | undefined>;
+    public /*out*/ readonly joinedMethod: pulumi.Output<string>;
+    public /*out*/ readonly joinedTimestamp: pulumi.Output<string>;
     /**
      * A friendly name for the member account.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account.
      */
-    public readonly roleName!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public readonly roleName: pulumi.Output<string | undefined>;
+    public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ export class Account extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as AccountState | undefined;
+            const state: AccountState = argsOrState as AccountState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["email"] = state ? state.email : undefined;
             inputs["iamUserAccessToBilling"] = state ? state.iamUserAccessToBilling : undefined;

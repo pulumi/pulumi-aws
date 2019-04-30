@@ -6,20 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * > **WARNING:** Multiple aws_iam_group_membership resources with the same group name will produce inconsistent behavior!
- *
+ * 
  * Provides a top level resource to manage IAM Group membership for IAM Users. For
  * more information on managing IAM Groups or IAM Users, see [IAM Groups][1] or
  * [IAM Users][2]
- *
+ * 
  * > **Note:** `aws_iam_group_membership` will conflict with itself if used more than once with the same group. To non-exclusively manage the users in a group, see the
  * [`aws_iam_user_group_membership` resource][3].
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const group = new aws.iam.Group("group", {});
  * const userOne = new aws.iam.User("user_one", {});
  * const userTwo = new aws.iam.User("user_two", {});
@@ -48,15 +48,15 @@ export class GroupMembership extends pulumi.CustomResource {
     /**
      * The IAM Group name to attach the list of `users` to
      */
-    public readonly group!: pulumi.Output<string>;
+    public readonly group: pulumi.Output<string>;
     /**
      * The name to identify the Group Membership
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name: pulumi.Output<string>;
     /**
      * A list of IAM User names to associate with the Group
      */
-    public readonly users!: pulumi.Output<string[]>;
+    public readonly users: pulumi.Output<string[]>;
 
     /**
      * Create a GroupMembership resource with the given unique name, arguments, and options.
@@ -69,7 +69,7 @@ export class GroupMembership extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GroupMembershipArgs | GroupMembershipState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as GroupMembershipState | undefined;
+            const state: GroupMembershipState = argsOrState as GroupMembershipState | undefined;
             inputs["group"] = state ? state.group : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["users"] = state ? state.users : undefined;
