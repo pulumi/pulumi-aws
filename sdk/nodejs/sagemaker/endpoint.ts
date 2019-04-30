@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a SageMaker Endpoint resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * Basic usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const endpoint = new aws.sagemaker.Endpoint("e", {
  *     endpointConfigName: aws_sagemaker_endpoint_configuration_ec.name,
  *     tags: {
@@ -64,7 +64,7 @@ export class Endpoint extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EndpointState = argsOrState as EndpointState | undefined;
+            const state = argsOrState as EndpointState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["endpointConfigName"] = state ? state.endpointConfigName : undefined;
             inputs["name"] = state ? state.name : undefined;

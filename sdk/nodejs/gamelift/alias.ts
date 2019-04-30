@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Gamelift Alias resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.gamelift.Alias("example", {
  *     description: "Example Description",
  *     routingStrategy: {
@@ -63,7 +63,7 @@ export class Alias extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AliasArgs | AliasState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AliasState = argsOrState as AliasState | undefined;
+            const state = argsOrState as AliasState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;

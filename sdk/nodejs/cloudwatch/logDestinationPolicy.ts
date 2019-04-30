@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudWatch Logs destination policy resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testDestination = new aws.cloudwatch.LogDestination("test_destination", {
  *     roleArn: aws_iam_role_iam_for_cloudwatch.arn,
  *     targetArn: aws_kinesis_stream_kinesis_for_cloudwatch.arn,
@@ -67,7 +67,7 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LogDestinationPolicyArgs | LogDestinationPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LogDestinationPolicyState = argsOrState as LogDestinationPolicyState | undefined;
+            const state = argsOrState as LogDestinationPolicyState | undefined;
             inputs["accessPolicy"] = state ? state.accessPolicy : undefined;
             inputs["destinationName"] = state ? state.destinationName : undefined;
         } else {

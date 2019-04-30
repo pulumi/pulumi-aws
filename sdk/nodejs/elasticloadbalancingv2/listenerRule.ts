@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Load Balancer Listener Rule resource.
- * 
+ *
  * > **Note:** `aws_alb_listener_rule` is known as `aws_lb_listener_rule`. The functionality is identical.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const pool = new aws.cognito.UserPool("pool", {});
  * const client = new aws.cognito.UserPoolClient("client", {});
  * const domain = new aws.cognito.UserPoolDomain("domain", {});
@@ -158,7 +158,7 @@ export class ListenerRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ListenerRuleArgs | ListenerRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ListenerRuleState = argsOrState as ListenerRuleState | undefined;
+            const state = argsOrState as ListenerRuleState | undefined;
             inputs["actions"] = state ? state.actions : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["conditions"] = state ? state.conditions : undefined;

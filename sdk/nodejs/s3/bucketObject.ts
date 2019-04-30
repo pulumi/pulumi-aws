@@ -8,15 +8,15 @@ import {Bucket} from "./bucket";
 
 /**
  * Provides a S3 bucket object resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Uploading a file to a bucket
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const object = new aws.s3.BucketObject("object", {
  *     bucket: "your_bucket_name",
  *     // The filemd5() function is available in Terraform 0.11.12 and later
@@ -30,13 +30,13 @@ import {Bucket} from "./bucket";
  *     source: new pulumi.asset.FileAsset("path/to/file"),
  * });
  * ```
- * 
+ *
  * ### Encrypting with KMS Key
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const examplekms = new aws.kms.Key("examplekms", {
  *     deletionWindowInDays: 7,
  *     description: "KMS key 1",
@@ -51,13 +51,13 @@ import {Bucket} from "./bucket";
  *     source: new pulumi.asset.FileAsset("index.html"),
  * });
  * ```
- * 
+ *
  * ### Server Side Encryption with S3 Default Master Key
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const examplebucket = new aws.s3.Bucket("examplebucket", {
  *     acl: "private",
  * });
@@ -68,13 +68,13 @@ import {Bucket} from "./bucket";
  *     source: new pulumi.asset.FileAsset("index.html"),
  * });
  * ```
- * 
+ *
  * ### Server Side Encryption with AWS-Managed Key
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const examplebucket = new aws.s3.Bucket("examplebucket", {
  *     acl: "private",
  * });
@@ -189,7 +189,7 @@ export class BucketObject extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BucketObjectArgs | BucketObjectState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: BucketObjectState = argsOrState as BucketObjectState | undefined;
+            const state = argsOrState as BucketObjectState | undefined;
             inputs["acl"] = state ? state.acl : undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
             inputs["cacheControl"] = state ? state.cacheControl : undefined;

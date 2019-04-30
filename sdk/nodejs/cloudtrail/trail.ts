@@ -6,22 +6,22 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudTrail resource.
- * 
+ *
  * > *NOTE:* For a multi-region trail, this resource must be in the home region of the trail.
- * 
+ *
  * > *NOTE:* For an organization trail, this resource must be in the master account of the organization.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic
- * 
+ *
  * Enable CloudTrail to capture all compatible management events in region.
  * For capturing events from services like IAM, `include_global_service_events` must be enabled.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.s3.Bucket("foo", {
  *     forceDestroy: true,
  *     policy: `{
@@ -60,17 +60,17 @@ import * as utilities from "../utilities";
  *     s3KeyPrefix: "prefix",
  * });
  * ```
- * 
+ *
  * ### Data Event Logging
- * 
+ *
  * CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the [CloudTrail API DataResource documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html).
- * 
+ *
  * #### Logging All Lambda Function Invocations
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.cloudtrail.Trail("example", {
  *     eventSelectors: [{
  *         dataResources: [{
@@ -82,13 +82,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * #### Logging All S3 Bucket Object Events
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.cloudtrail.Trail("example", {
  *     eventSelectors: [{
  *         dataResources: [{
@@ -100,13 +100,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * #### Logging Individual S3 Bucket Events
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const important_bucket = pulumi.output(aws.s3.getBucket({
  *     bucket: "important-bucket",
  * }));
@@ -221,7 +221,7 @@ export class Trail extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TrailArgs | TrailState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TrailState = argsOrState as TrailState | undefined;
+            const state = argsOrState as TrailState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cloudWatchLogsGroupArn"] = state ? state.cloudWatchLogsGroupArn : undefined;
             inputs["cloudWatchLogsRoleArn"] = state ? state.cloudWatchLogsRoleArn : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EC2 Transit Gateway Route Table association.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ec2transitgateway.RouteTableAssociation("example", {
  *     transitGatewayAttachmentId: aws_ec2_transit_gateway_vpc_attachment_example.id,
  *     transitGatewayRouteTableId: aws_ec2_transit_gateway_route_table_example.id,
@@ -60,7 +60,7 @@ export class RouteTableAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RouteTableAssociationArgs | RouteTableAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RouteTableAssociationState = argsOrState as RouteTableAssociationState | undefined;
+            const state = argsOrState as RouteTableAssociationState | undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;
             inputs["resourceType"] = state ? state.resourceType : undefined;
             inputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;

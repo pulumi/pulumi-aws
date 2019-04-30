@@ -8,13 +8,13 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides an HTTP Method Integration for an API Gateway Integration.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
  * });
@@ -49,18 +49,18 @@ import {RestApi} from "./restApi";
  *     type: "MOCK",
  * });
  * ```
- * 
+ *
  * ## Lambda integration
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const accountId = config.require("accountId");
  * // Variables
  * const myregion = config.require("myregion");
- * 
+ *
  * // API Gateway
  * const api = new aws.apigateway.RestApi("api", {});
  * // IAM
@@ -113,17 +113,17 @@ import {RestApi} from "./restApi";
  *     sourceArn: pulumi.all([api.id, method.httpMethod, resource.path]).apply(([id, httpMethod, path]) => `arn:aws:execute-api:${myregion}:${accountId}:${id}/*&#47;${httpMethod}/${path}`),
  * });
  * ```
- * 
+ *
  * ## VPC Link
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const name = config.require("name");
  * const subnetId = config.require("subnetId");
- * 
+ *
  * const testRestApi = new aws.apigateway.RestApi("test", {});
  * const testResource = new aws.apigateway.Resource("test", {
  *     parentId: testRestApi.rootResourceId,
@@ -267,7 +267,7 @@ export class Integration extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: IntegrationArgs | IntegrationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: IntegrationState = argsOrState as IntegrationState | undefined;
+            const state = argsOrState as IntegrationState | undefined;
             inputs["cacheKeyParameters"] = state ? state.cacheKeyParameters : undefined;
             inputs["cacheNamespace"] = state ? state.cacheNamespace : undefined;
             inputs["connectionId"] = state ? state.connectionId : undefined;

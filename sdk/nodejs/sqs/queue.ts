@@ -6,11 +6,11 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const terraformQueue = new aws.sqs.Queue("terraform_queue", {
  *     delaySeconds: 90,
  *     maxMessageSize: 2048,
@@ -22,25 +22,25 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ## FIFO queue
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const terraformQueue = new aws.sqs.Queue("terraform_queue", {
  *     contentBasedDeduplication: true,
  *     fifoQueue: true,
  * });
  * ```
- * 
+ *
  * ## Server-side encryption (SSE)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const terraformQueue = new aws.sqs.Queue("terraform_queue", {
  *     kmsDataKeyReusePeriodSeconds: 300,
  *     kmsMasterKeyId: "alias/aws/sqs",
@@ -132,7 +132,7 @@ export class Queue extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: QueueArgs | QueueState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: QueueState = argsOrState as QueueState | undefined;
+            const state = argsOrState as QueueState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["contentBasedDeduplication"] = state ? state.contentBasedDeduplication : undefined;
             inputs["delaySeconds"] = state ? state.delaySeconds : undefined;

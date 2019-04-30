@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a SageMaker model resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * Basic usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const model = new aws.sagemaker.Model("m", {
  *     executionRoleArn: aws_iam_role_foo.arn,
  *     primaryContainer: {
@@ -92,7 +92,7 @@ export class Model extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ModelArgs | ModelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ModelState = argsOrState as ModelState | undefined;
+            const state = argsOrState as ModelState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["containers"] = state ? state.containers : undefined;
             inputs["enableNetworkIsolation"] = state ? state.enableNetworkIsolation : undefined;

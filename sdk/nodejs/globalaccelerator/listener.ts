@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Global Accelerator listener.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleAccelerator = new aws.globalaccelerator.Accelerator("example", {
  *     attributes: {
  *         flowLogsEnabled: true,
@@ -74,7 +74,7 @@ export class Listener extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ListenerArgs | ListenerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ListenerState = argsOrState as ListenerState | undefined;
+            const state = argsOrState as ListenerState | undefined;
             inputs["acceleratorArn"] = state ? state.acceleratorArn : undefined;
             inputs["clientAffinity"] = state ? state.clientAffinity : undefined;
             inputs["portRanges"] = state ? state.portRanges : undefined;

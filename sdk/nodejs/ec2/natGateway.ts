@@ -6,25 +6,25 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create a VPC NAT Gateway.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const gw = new aws.ec2.NatGateway("gw", {
  *     allocationId: aws_eip_nat.id,
  *     subnetId: aws_subnet_public.id,
  * });
  * ```
- * 
+ *
  * Usage with tags:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const gw = new aws.ec2.NatGateway("gw", {
  *     allocationId: aws_eip_nat.id,
  *     subnetId: aws_subnet_public.id,
@@ -83,7 +83,7 @@ export class NatGateway extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NatGatewayArgs | NatGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NatGatewayState = argsOrState as NatGatewayState | undefined;
+            const state = argsOrState as NatGatewayState | undefined;
             inputs["allocationId"] = state ? state.allocationId : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             inputs["privateIp"] = state ? state.privateIp : undefined;

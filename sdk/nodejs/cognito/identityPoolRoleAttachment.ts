@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Cognito Identity Pool Roles Attachment.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mainIdentityPool = new aws.cognito.IdentityPool("main", {
  *     allowUnauthenticatedIdentities: false,
  *     identityPoolName: "identity pool",
@@ -119,7 +119,7 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: IdentityPoolRoleAttachmentArgs | IdentityPoolRoleAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: IdentityPoolRoleAttachmentState = argsOrState as IdentityPoolRoleAttachmentState | undefined;
+            const state = argsOrState as IdentityPoolRoleAttachmentState | undefined;
             inputs["identityPoolId"] = state ? state.identityPoolId : undefined;
             inputs["roleMappings"] = state ? state.roleMappings : undefined;
             inputs["roles"] = state ? state.roles : undefined;

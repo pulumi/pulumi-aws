@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an API Gateway VPC Link.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("example", {
  *     internal: true,
  *     loadBalancerType: "network",
@@ -63,7 +63,7 @@ export class VpcLink extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcLinkArgs | VpcLinkState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpcLinkState = argsOrState as VpcLinkState | undefined;
+            const state = argsOrState as VpcLinkState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["targetArn"] = state ? state.targetArn : undefined;

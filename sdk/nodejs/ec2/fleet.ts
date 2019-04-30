@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage EC2 Fleets.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ec2.Fleet("example", {
  *     launchTemplateConfig: {
  *         launchTemplateSpecification: {
@@ -92,7 +92,7 @@ export class Fleet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FleetArgs | FleetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FleetState = argsOrState as FleetState | undefined;
+            const state = argsOrState as FleetState | undefined;
             inputs["excessCapacityTerminationPolicy"] = state ? state.excessCapacityTerminationPolicy : undefined;
             inputs["launchTemplateConfig"] = state ? state.launchTemplateConfig : undefined;
             inputs["onDemandOptions"] = state ? state.onDemandOptions : undefined;

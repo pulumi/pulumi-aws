@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an API Gateway Usage Plan.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myapi = new aws.apigateway.RestApi("myapi", {});
  * const dev = new aws.apigateway.Deployment("dev", {
  *     restApi: myapi.id,
@@ -96,7 +96,7 @@ export class UsagePlan extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UsagePlanArgs | UsagePlanState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UsagePlanState = argsOrState as UsagePlanState | undefined;
+            const state = argsOrState as UsagePlanState | undefined;
             inputs["apiStages"] = state ? state.apiStages : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;

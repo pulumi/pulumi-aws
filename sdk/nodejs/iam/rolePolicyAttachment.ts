@@ -9,15 +9,15 @@ import {Role} from "./role";
 
 /**
  * Attaches a Managed IAM Policy to an IAM role
- * 
+ *
  * > **NOTE:** The usage of this resource conflicts with the `aws_iam_policy_attachment` resource and will permanently show a difference if both are defined.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const policy = new aws.iam.Policy("policy", {
  *     description: "A test policy",
  *     policy: `{
@@ -89,7 +89,7 @@ export class RolePolicyAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RolePolicyAttachmentArgs | RolePolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RolePolicyAttachmentState = argsOrState as RolePolicyAttachmentState | undefined;
+            const state = argsOrState as RolePolicyAttachmentState | undefined;
             inputs["policyArn"] = state ? state.policyArn : undefined;
             inputs["role"] = state ? state.role : undefined;
         } else {

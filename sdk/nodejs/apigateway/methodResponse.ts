@@ -8,13 +8,13 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides an HTTP Method Response for an API Gateway Resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
  * });
@@ -94,7 +94,7 @@ export class MethodResponse extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MethodResponseArgs | MethodResponseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MethodResponseState = argsOrState as MethodResponseState | undefined;
+            const state = argsOrState as MethodResponseState | undefined;
             inputs["httpMethod"] = state ? state.httpMethod : undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;
             inputs["responseModels"] = state ? state.responseModels : undefined;

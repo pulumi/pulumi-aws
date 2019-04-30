@@ -6,16 +6,16 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DMS (Data Migration Service) certificate resource. DMS certificates can be created, deleted, and imported.
- * 
+ *
  * > **Note:** All arguments including the PEM encoded certificate will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Create a new certificate
  * const test = new aws.dms.Certificate("test", {
  *     certificateId: "test-dms-certificate-tf",
@@ -64,7 +64,7 @@ export class Certificate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CertificateState = argsOrState as CertificateState | undefined;
+            const state = argsOrState as CertificateState | undefined;
             inputs["certificateArn"] = state ? state.certificateArn : undefined;
             inputs["certificateId"] = state ? state.certificateId : undefined;
             inputs["certificatePem"] = state ? state.certificatePem : undefined;

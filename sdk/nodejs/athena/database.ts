@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Athena database.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const hogeBucket = new aws.s3.Bucket("hoge", {});
  * const hogeDatabase = new aws.athena.Database("hoge", {
  *     bucket: hogeBucket.bucket,
@@ -61,7 +61,7 @@ export class Database extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DatabaseArgs | DatabaseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DatabaseState = argsOrState as DatabaseState | undefined;
+            const state = argsOrState as DatabaseState | undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
             inputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
             inputs["forceDestroy"] = state ? state.forceDestroy : undefined;

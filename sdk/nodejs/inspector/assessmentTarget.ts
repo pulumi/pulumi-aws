@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Inspector assessment target
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bar = new aws.inspector.ResourceGroup("bar", {
  *     tags: {
  *         Env: "bar",
@@ -61,7 +61,7 @@ export class AssessmentTarget extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AssessmentTargetArgs | AssessmentTargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AssessmentTargetState = argsOrState as AssessmentTargetState | undefined;
+            const state = argsOrState as AssessmentTargetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupArn"] = state ? state.resourceGroupArn : undefined;

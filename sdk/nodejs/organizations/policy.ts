@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage an [AWS Organizations policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.organizations.Policy("example", {
  *     content: `{
  *   "Version": "2012-10-17",
@@ -71,7 +71,7 @@ export class Policy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PolicyState = argsOrState as PolicyState | undefined;
+            const state = argsOrState as PolicyState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["content"] = state ? state.content : undefined;
             inputs["description"] = state ? state.description : undefined;

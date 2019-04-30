@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Subscribes to a Security Hub product.
- * 
+ *
  * > **NOTE:** This AWS service is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between Terraform AWS Provider releases.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleAccount = new aws.securityhub.Account("example", {});
  * const current = pulumi.output(aws.getRegion({}));
  * const exampleProductSubscription = new aws.securityhub.ProductSubscription("example", {
@@ -55,7 +55,7 @@ export class ProductSubscription extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProductSubscriptionArgs | ProductSubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ProductSubscriptionState = argsOrState as ProductSubscriptionState | undefined;
+            const state = argsOrState as ProductSubscriptionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["productArn"] = state ? state.productArn : undefined;
         } else {

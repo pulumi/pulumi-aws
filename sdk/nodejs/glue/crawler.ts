@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### DynamoDB Target
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Crawler("example", {
  *     databaseName: aws_glue_catalog_database_example.name,
  *     dynamodbTargets: [{
@@ -23,13 +23,13 @@ import * as utilities from "../utilities";
  *     role: aws_iam_role_example.arn,
  * });
  * ```
- * 
+ *
  * ### JDBC Target
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Crawler("example", {
  *     databaseName: aws_glue_catalog_database_example.name,
  *     jdbcTargets: [{
@@ -39,13 +39,13 @@ import * as utilities from "../utilities";
  *     role: aws_iam_role_example.arn,
  * });
  * ```
- * 
+ *
  * ### S3 Target
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Crawler("example", {
  *     databaseName: aws_glue_catalog_database_example.name,
  *     role: aws_iam_role_example.arn,
@@ -69,7 +69,7 @@ export class Crawler extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the crawler 
+     * The ARN of the crawler
      */
     public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -136,7 +136,7 @@ export class Crawler extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CrawlerArgs | CrawlerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CrawlerState = argsOrState as CrawlerState | undefined;
+            const state = argsOrState as CrawlerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["classifiers"] = state ? state.classifiers : undefined;
             inputs["configuration"] = state ? state.configuration : undefined;
@@ -183,7 +183,7 @@ export class Crawler extends pulumi.CustomResource {
  */
 export interface CrawlerState {
     /**
-     * The ARN of the crawler 
+     * The ARN of the crawler
      */
     readonly arn?: pulumi.Input<string>;
     /**

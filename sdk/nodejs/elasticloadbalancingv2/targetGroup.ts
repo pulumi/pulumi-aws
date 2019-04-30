@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Target Group resource for use with Load Balancer resources.
- * 
+ *
  * > **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Instance Target Group
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });
@@ -26,13 +26,13 @@ import * as utilities from "../utilities";
  *     vpcId: main.id,
  * });
  * ```
- * 
+ *
  * ### IP Target Group
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });
@@ -43,13 +43,13 @@ import * as utilities from "../utilities";
  *     vpcId: main.id,
  * });
  * ```
- * 
+ *
  * ### Lambda Target Group
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const lambda_example = new aws.elasticloadbalancingv2.TargetGroup("lambda-example", {
  *     targetType: "lambda",
  * });
@@ -145,7 +145,7 @@ export class TargetGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TargetGroupArgs | TargetGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TargetGroupState = argsOrState as TargetGroupState | undefined;
+            const state = argsOrState as TargetGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["arnSuffix"] = state ? state.arnSuffix : undefined;
             inputs["deregistrationDelay"] = state ? state.deregistrationDelay : undefined;

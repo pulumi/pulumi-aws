@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES receipt filter resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const filter = new aws.ses.ReceiptFilter("filter", {
  *     cidr: "10.10.10.10",
  *     policy: "Block",
@@ -56,7 +56,7 @@ export class ReceiptFilter extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ReceiptFilterArgs | ReceiptFilterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ReceiptFilterState = argsOrState as ReceiptFilterState | undefined;
+            const state = argsOrState as ReceiptFilterState | undefined;
             inputs["cidr"] = state ? state.cidr : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["policy"] = state ? state.policy : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DMS (Data Migration Service) replication subnet group resource. DMS replication subnet groups can be created, updated, deleted, and imported.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Create a new replication subnet group
  * const test = new aws.dms.ReplicationSubnetGroup("test", {
  *     replicationSubnetGroupDescription: "Test replication subnet group",
@@ -70,7 +70,7 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ReplicationSubnetGroupArgs | ReplicationSubnetGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ReplicationSubnetGroupState = argsOrState as ReplicationSubnetGroupState | undefined;
+            const state = argsOrState as ReplicationSubnetGroupState | undefined;
             inputs["replicationSubnetGroupArn"] = state ? state.replicationSubnetGroupArn : undefined;
             inputs["replicationSubnetGroupDescription"] = state ? state.replicationSubnetGroupDescription : undefined;
             inputs["replicationSubnetGroupId"] = state ? state.replicationSubnetGroupId : undefined;

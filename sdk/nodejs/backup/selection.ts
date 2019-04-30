@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages selection conditions for AWS Backup plan resources.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.backup.Selection("example", {
  *     iamRoleArn: "arn:aws:iam::123456789012:role/service-role/AWSBackupDefaultServiceRole",
  *     planId: aws_backup_plan_example.id,
@@ -70,7 +70,7 @@ export class Selection extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SelectionArgs | SelectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SelectionState = argsOrState as SelectionState | undefined;
+            const state = argsOrState as SelectionState | undefined;
             inputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["planId"] = state ? state.planId : undefined;

@@ -8,15 +8,15 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides an API Gateway API Key.
- * 
+ *
  * > **NOTE:** Since the API Gateway usage plans feature was launched on August 11, 2016, usage plans are now **required** to associate an API key with an API stage.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myDemoApiKey = new aws.apigateway.ApiKey("MyDemoApiKey", {});
  * ```
  */
@@ -69,7 +69,7 @@ export class ApiKey extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApiKeyArgs | ApiKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ApiKeyState = argsOrState as ApiKeyState | undefined;
+            const state = argsOrState as ApiKeyState | undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;

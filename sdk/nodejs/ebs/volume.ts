@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a single EBS volume.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ebs.Volume("example", {
  *     availabilityZone: "us-west-2a",
  *     size: 40,
@@ -21,8 +21,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
- * > **NOTE**: One of `size` or `snapshot_id` is required when specifying an EBS volume 
+ *
+ * > **NOTE**: One of `size` or `snapshot_id` is required when specifying an EBS volume
  */
 export class Volume extends pulumi.CustomResource {
     /**
@@ -85,7 +85,7 @@ export class Volume extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VolumeArgs | VolumeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VolumeState = argsOrState as VolumeState | undefined;
+            const state = argsOrState as VolumeState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["encrypted"] = state ? state.encrypted : undefined;

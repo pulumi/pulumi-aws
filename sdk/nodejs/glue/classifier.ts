@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Glue Classifier resource.
- * 
+ *
  * > **NOTE:** It is only valid to create one type of classifier (grok, JSON, or XML). Changing classifier types will recreate the classifier.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Grok Classifier
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Classifier("example", {
  *     grokClassifier: {
  *         classification: "example",
@@ -24,26 +24,26 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### JSON Classifier
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Classifier("example", {
  *     jsonClassifier: {
  *         jsonPath: "example",
  *     },
  * });
  * ```
- * 
+ *
  * ### XML Classifier
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Classifier("example", {
  *     xmlClassifier: {
  *         classification: "example",
@@ -93,7 +93,7 @@ export class Classifier extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClassifierArgs | ClassifierState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ClassifierState = argsOrState as ClassifierState | undefined;
+            const state = argsOrState as ClassifierState | undefined;
             inputs["grokClassifier"] = state ? state.grokClassifier : undefined;
             inputs["jsonClassifier"] = state ? state.jsonClassifier : undefined;
             inputs["name"] = state ? state.name : undefined;

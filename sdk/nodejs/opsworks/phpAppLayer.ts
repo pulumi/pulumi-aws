@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks PHP application layer resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const app = new aws.opsworks.PhpAppLayer("app", {
  *     stackId: aws_opsworks_stack_main.id,
  * });
@@ -108,7 +108,7 @@ export class PhpAppLayer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PhpAppLayerArgs | PhpAppLayerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PhpAppLayerState = argsOrState as PhpAppLayerState | undefined;
+            const state = argsOrState as PhpAppLayerState | undefined;
             inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
             inputs["autoAssignPublicIps"] = state ? state.autoAssignPublicIps : undefined;
             inputs["autoHealing"] = state ? state.autoHealing : undefined;

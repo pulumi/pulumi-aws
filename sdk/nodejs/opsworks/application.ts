@@ -6,14 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks application resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const foo_app = new aws.opsworks.Application("foo-app", {
  *     appSources: [{
  *         revision: "master",
@@ -137,7 +137,7 @@ export class Application extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ApplicationState = argsOrState as ApplicationState | undefined;
+            const state = argsOrState as ApplicationState | undefined;
             inputs["appSources"] = state ? state.appSources : undefined;
             inputs["autoBundleOnDeploy"] = state ? state.autoBundleOnDeploy : undefined;
             inputs["awsFlowRubySettings"] = state ? state.awsFlowRubySettings : undefined;

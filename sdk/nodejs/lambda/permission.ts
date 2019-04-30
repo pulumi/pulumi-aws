@@ -9,13 +9,13 @@ import {Function} from "./function";
 /**
  * Creates a Lambda permission to allow external sources invoking the Lambda function
  * (e.g. CloudWatch Event Rule, SNS or S3).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -51,13 +51,13 @@ import {Function} from "./function";
  *     sourceArn: "arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
  * });
  * ```
- * 
+ *
  * ## Usage with SNS
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultRole = new aws.iam.Role("default", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -93,13 +93,13 @@ import {Function} from "./function";
  *     topic: defaultTopic.arn,
  * });
  * ```
- * 
+ *
  * ## Specify Lambda permissions for API Gateway REST API
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
  * });
@@ -181,7 +181,7 @@ export class Permission extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PermissionArgs | PermissionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PermissionState = argsOrState as PermissionState | undefined;
+            const state = argsOrState as PermissionState | undefined;
             inputs["action"] = state ? state.action : undefined;
             inputs["eventSourceToken"] = state ? state.eventSourceToken : undefined;
             inputs["function"] = state ? state.function : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DMS (Data Migration Service) replication instance resource. DMS replication instances can be created, updated, deleted, and imported.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Create a new replication instance
  * const test = new aws.dms.ReplicationInstance("test", {
  *     allocatedStorage: 20,
@@ -127,7 +127,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ReplicationInstanceArgs | ReplicationInstanceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ReplicationInstanceState = argsOrState as ReplicationInstanceState | undefined;
+            const state = argsOrState as ReplicationInstanceState | undefined;
             inputs["allocatedStorage"] = state ? state.allocatedStorage : undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
             inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;

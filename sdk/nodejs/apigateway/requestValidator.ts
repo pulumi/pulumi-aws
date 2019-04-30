@@ -8,13 +8,13 @@ import {RestApi} from "./restApi";
 
 /**
  * Manages an API Gateway Request Validator.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.apigateway.RequestValidator("example", {
  *     restApi: aws_api_gateway_rest_api_example.id,
  *     validateRequestBody: true,
@@ -63,7 +63,7 @@ export class RequestValidator extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RequestValidatorArgs | RequestValidatorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RequestValidatorState = argsOrState as RequestValidatorState | undefined;
+            const state = argsOrState as RequestValidatorState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["restApi"] = state ? state.restApi : undefined;
             inputs["validateRequestBody"] = state ? state.validateRequestBody : undefined;

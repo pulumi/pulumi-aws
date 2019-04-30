@@ -6,31 +6,31 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic IP resource.
- * 
+ *
  * > **Note:** EIP may require IGW to exist prior to association. Use `depends_on` to set an explicit dependency on the IGW.
- * 
+ *
  * > **Note:** Do not use `network_interface` to associate the EIP to `aws_lb` or `aws_nat_gateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * Single EIP associated with an instance:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const lb = new aws.ec2.Eip("lb", {
  *     instance: aws_instance_web.id,
  *     vpc: true,
  * });
  * ```
- * 
+ *
  * Multiple EIPs associated with a single network interface:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const multi_ip = new aws.ec2.NetworkInterface("multi-ip", {
  *     privateIps: [
  *         "10.0.0.10",
@@ -49,13 +49,13 @@ import * as utilities from "../utilities";
  *     vpc: true,
  * });
  * ```
- * 
+ *
  * Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only):
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultVpc = new aws.ec2.Vpc("default", {
  *     cidrBlock: "10.0.0.0/16",
  *     enableDnsHostnames: true,
@@ -81,13 +81,13 @@ import * as utilities from "../utilities";
  *     vpc: true,
  * }, {dependsOn: [gw]});
  * ```
- * 
+ *
  * Allocating EIP from the BYOIP pool:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const byoip_ip = new aws.ec2.Eip("byoip-ip", {
  *     publicIpv4Pool: "ipv4pool-ec2-012345",
  *     vpc: true,
@@ -164,7 +164,7 @@ export class Eip extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EipArgs | EipState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EipState = argsOrState as EipState | undefined;
+            const state = argsOrState as EipState | undefined;
             inputs["allocationId"] = state ? state.allocationId : undefined;
             inputs["associateWithPrivateIp"] = state ? state.associateWithPrivateIp : undefined;
             inputs["associationId"] = state ? state.associationId : undefined;

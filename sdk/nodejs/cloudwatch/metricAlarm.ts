@@ -8,13 +8,13 @@ import {Topic} from "../sns/topic";
 
 /**
  * Provides a CloudWatch Metric Alarm resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
  *     alarmDescription: "This metric monitors ec2 cpu utilization",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
@@ -27,13 +27,13 @@ import {Topic} from "../sns/topic";
  *     threshold: 80,
  * });
  * ```
- * 
+ *
  * ## Example in Conjunction with Scaling Policies
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const batPolicy = new aws.autoscaling.Policy("bat", {
  *     adjustmentType: "ChangeInCapacity",
  *     autoscalingGroupName: aws_autoscaling_group_bar.name,
@@ -55,13 +55,13 @@ import {Topic} from "../sns/topic";
  *     threshold: 80,
  * });
  * ```
- * 
+ *
  * ## Example with an Expression
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
  *     alarmDescription: "Request error rate has exceeded 10%",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
@@ -104,7 +104,7 @@ import {Topic} from "../sns/topic";
  *     threshold: 10,
  * });
  * ```
- * 
+ *
  * > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
  * You must choose one or the other
  */
@@ -229,7 +229,7 @@ export class MetricAlarm extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MetricAlarmArgs | MetricAlarmState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MetricAlarmState = argsOrState as MetricAlarmState | undefined;
+            const state = argsOrState as MetricAlarmState | undefined;
             inputs["actionsEnabled"] = state ? state.actionsEnabled : undefined;
             inputs["alarmActions"] = state ? state.alarmActions : undefined;
             inputs["alarmDescription"] = state ? state.alarmDescription : undefined;

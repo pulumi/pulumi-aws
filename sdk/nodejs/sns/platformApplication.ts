@@ -6,28 +6,28 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SNS platform application resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Apple Push Notification Service (APNS)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const apnsApplication = new aws.sns.PlatformApplication("apns_application", {
  *     platform: "APNS",
  *     platformCredential: "<APNS PRIVATE KEY>",
  *     platformPrincipal: "<APNS CERTIFICATE>",
  * });
  * ```
- * 
+ *
  * ### Google Cloud Messaging (GCM)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const gcmApplication = new aws.sns.PlatformApplication("gcm_application", {
  *     platform: "GCM",
  *     platformCredential: "<GCM API KEY>",
@@ -107,7 +107,7 @@ export class PlatformApplication extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PlatformApplicationArgs | PlatformApplicationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PlatformApplicationState = argsOrState as PlatformApplicationState | undefined;
+            const state = argsOrState as PlatformApplicationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["eventDeliveryFailureTopicArn"] = state ? state.eventDeliveryFailureTopicArn : undefined;
             inputs["eventEndpointCreatedTopicArn"] = state ? state.eventEndpointCreatedTopicArn : undefined;

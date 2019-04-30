@@ -7,21 +7,21 @@ import * as utilities from "../utilities";
 /**
  * Provides a VPC Endpoint Service resource.
  * Service consumers can create an _Interface_ VPC Endpoint to connect to the service.
- * 
+ *
  * > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** Terraform provides
  * both a standalone VPC Endpoint Service Allowed Principal resource
  * and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
  * a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
  * and will overwrite the association.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * Basic usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.ec2.VpcEndpointService("foo", {
  *     acceptanceRequired: false,
  *     networkLoadBalancerArns: [aws_lb_test.arn],
@@ -89,7 +89,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcEndpointServiceArgs | VpcEndpointServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpcEndpointServiceState = argsOrState as VpcEndpointServiceState | undefined;
+            const state = argsOrState as VpcEndpointServiceState | undefined;
             inputs["acceptanceRequired"] = state ? state.acceptanceRequired : undefined;
             inputs["allowedPrincipals"] = state ? state.allowedPrincipals : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;

@@ -8,13 +8,13 @@ import {PolicyDocument} from "./documents";
 
 /**
  * Provides an IAM role.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testRole = new aws.iam.Role("test_role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -35,13 +35,13 @@ import {PolicyDocument} from "./documents";
  *     },
  * });
  * ```
- * 
+ *
  * ## Example of Using Data Source for Assume Role Policy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const instance_assume_role_policy = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
@@ -131,7 +131,7 @@ export class Role extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RoleArgs | RoleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RoleState = argsOrState as RoleState | undefined;
+            const state = argsOrState as RoleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["assumeRolePolicy"] = state ? state.assumeRolePolicy : undefined;
             inputs["createDate"] = state ? state.createDate : undefined;

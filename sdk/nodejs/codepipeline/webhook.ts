@@ -60,7 +60,7 @@ export class Webhook extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: WebhookArgs | WebhookState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: WebhookState = argsOrState as WebhookState | undefined;
+            const state = argsOrState as WebhookState | undefined;
             inputs["authentication"] = state ? state.authentication : undefined;
             inputs["authenticationConfiguration"] = state ? state.authenticationConfiguration : undefined;
             inputs["filters"] = state ? state.filters : undefined;

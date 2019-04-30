@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Direct Connect LAG. Connections can be added to the LAG via the [`aws_dx_connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) and [`aws_dx_connection_association`](https://www.terraform.io/docs/providers/aws/r/dx_connection_association.html) resources.
- * 
+ *
  * > *NOTE:* When creating a LAG, Direct Connect requires creating a Connection. Terraform will remove this unmanaged connection during resource creation.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const hoge = new aws.directconnect.LinkAggregationGroup("hoge", {
  *     connectionsBandwidth: "1Gbps",
  *     forceDestroy: true,
@@ -77,7 +77,7 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LinkAggregationGroupArgs | LinkAggregationGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LinkAggregationGroupState = argsOrState as LinkAggregationGroupState | undefined;
+            const state = argsOrState as LinkAggregationGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["connectionsBandwidth"] = state ? state.connectionsBandwidth : undefined;
             inputs["forceDestroy"] = state ? state.forceDestroy : undefined;

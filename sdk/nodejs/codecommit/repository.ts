@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodeCommit Repository Resource.
- * 
+ *
  * > **NOTE on CodeCommit Availability**: The CodeCommit is not yet rolled out
  * in all regions - available regions are listed
  * [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.codecommit.Repository("test", {
  *     description: "This is the Sample App Repository",
  *     repositoryName: "MyTestRepository",
@@ -76,7 +76,7 @@ export class Repository extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RepositoryArgs | RepositoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RepositoryState = argsOrState as RepositoryState | undefined;
+            const state = argsOrState as RepositoryState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cloneUrlHttp"] = state ? state.cloneUrlHttp : undefined;
             inputs["cloneUrlSsh"] = state ? state.cloneUrlSsh : undefined;

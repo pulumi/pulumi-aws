@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Step Function State Machine resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const sfnStateMachine = new aws.sfn.StateMachine("sfn_state_machine", {
  *     definition: aws_lambda_function_lambda.arn.apply(arn => `{
  *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
@@ -79,7 +79,7 @@ export class StateMachine extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StateMachineArgs | StateMachineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: StateMachineState = argsOrState as StateMachineState | undefined;
+            const state = argsOrState as StateMachineState | undefined;
             inputs["creationDate"] = state ? state.creationDate : undefined;
             inputs["definition"] = state ? state.definition : undefined;
             inputs["name"] = state ? state.name : undefined;

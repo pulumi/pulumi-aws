@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create a member account in the current organization.
- * 
+ *
  * > **Note:** Account management must be done from the organization's master account.
- * 
+ *
  * !> **WARNING:** Deleting this Terraform resource will only remove an AWS account from an organization. Terraform will not close the account. The member account must be prepared to be a standalone account beforehand. See the [AWS Organizations documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html) for more information.
- * 
+ *
  * ## Example Usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const account = new aws.organizations.Account("account", {
  *     email: "john@doe.org",
  * });
@@ -70,7 +70,7 @@ export class Account extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AccountState = argsOrState as AccountState | undefined;
+            const state = argsOrState as AccountState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["email"] = state ? state.email : undefined;
             inputs["iamUserAccessToBilling"] = state ? state.iamUserAccessToBilling : undefined;

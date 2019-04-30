@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Elemental MediaPackage Channel.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const kittens = new aws.mediapackage.Channel("kittens", {
  *     channelId: "kitten-channel",
  *     description: "A channel dedicated to amusing videos of kittens.",
@@ -64,7 +64,7 @@ export class Channel extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ChannelArgs | ChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ChannelState = argsOrState as ChannelState | undefined;
+            const state = argsOrState as ChannelState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["channelId"] = state ? state.channelId : undefined;
             inputs["description"] = state ? state.description : undefined;

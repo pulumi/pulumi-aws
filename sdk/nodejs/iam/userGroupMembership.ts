@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
  * Provides a resource for adding an [IAM User][2] to [IAM Groups][1]. This
  * resource can be used multiple times with the same user for non-overlapping
  * groups.
- * 
+ *
  * To exclusively manage the users in a group, see the
  * [`aws_iam_group_membership` resource][3].
- * 
+ *
  * ## Example usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const group1 = new aws.iam.Group("group1", {});
  * const group2 = new aws.iam.Group("group2", {});
  * const group3 = new aws.iam.Group("group3", {});
@@ -68,7 +68,7 @@ export class UserGroupMembership extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserGroupMembershipArgs | UserGroupMembershipState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserGroupMembershipState = argsOrState as UserGroupMembershipState | undefined;
+            const state = argsOrState as UserGroupMembershipState | undefined;
             inputs["groups"] = state ? state.groups : undefined;
             inputs["user"] = state ? state.user : undefined;
         } else {

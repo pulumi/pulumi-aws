@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create a SES template.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myTemplate = new aws.ses.Template("MyTemplate", {
  *     html: "<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
  *     subject: "Greetings, {{name}}!",
@@ -62,7 +62,7 @@ export class Template extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TemplateArgs | TemplateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TemplateState = argsOrState as TemplateState | undefined;
+            const state = argsOrState as TemplateState | undefined;
             inputs["html"] = state ? state.html : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["subject"] = state ? state.subject : undefined;

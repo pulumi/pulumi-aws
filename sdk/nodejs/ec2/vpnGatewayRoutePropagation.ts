@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Requests automatic route propagation between a VPN gateway and a route table.
- * 
+ *
  * > **Note:** This resource should not be used with a route table that has
  * the `propagating_vgws` argument set. If that argument is set, any route
  * propagation not explicitly listed in its value will be removed.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ec2.VpnGatewayRoutePropagation("example", {
  *     routeTableId: aws_route_table_example.id,
  *     vpnGatewayId: aws_vpn_gateway_example.id,
@@ -56,7 +56,7 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpnGatewayRoutePropagationArgs | VpnGatewayRoutePropagationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpnGatewayRoutePropagationState = argsOrState as VpnGatewayRoutePropagationState | undefined;
+            const state = argsOrState as VpnGatewayRoutePropagationState | undefined;
             inputs["routeTableId"] = state ? state.routeTableId : undefined;
             inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {

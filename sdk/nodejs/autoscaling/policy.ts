@@ -6,19 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AutoScaling Scaling Policy resource.
- * 
+ *
  * > **NOTE:** You may want to omit `desired_capacity` attribute from attached `aws_autoscaling_group`
  * when using autoscaling policies. It's good practice to pick either
  * [manual](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-manual-scaling.html)
  * or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
  * (policy-based) scaling.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bar = new aws.autoscaling.Group("bar", {
  *     availabilityZones: ["us-east-1a"],
  *     forceDelete: true,
@@ -105,7 +105,7 @@ export class Policy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PolicyState = argsOrState as PolicyState | undefined;
+            const state = argsOrState as PolicyState | undefined;
             inputs["adjustmentType"] = state ? state.adjustmentType : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;

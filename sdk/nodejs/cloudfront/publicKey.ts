@@ -6,14 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
+ *
  * The following example below creates a CloudFront public key.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const example = new aws.cloudfront.PublicKey("example", {
  *     comment: "test public key",
  *     encodedKey: fs.readFileSync("public_key.pem", "utf-8"),
@@ -69,7 +69,7 @@ export class PublicKey extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PublicKeyArgs | PublicKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PublicKeyState = argsOrState as PublicKeyState | undefined;
+            const state = argsOrState as PublicKeyState | undefined;
             inputs["callerReference"] = state ? state.callerReference : undefined;
             inputs["comment"] = state ? state.comment : undefined;
             inputs["encodedKey"] = state ? state.encodedKey : undefined;

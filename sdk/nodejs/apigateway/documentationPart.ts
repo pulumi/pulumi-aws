@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a settings of an API Gateway Documentation Part.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleRestApi = new aws.apigateway.RestApi("example", {});
  * const exampleDocumentationPart = new aws.apigateway.DocumentationPart("example", {
  *     location: {
@@ -62,7 +62,7 @@ export class DocumentationPart extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DocumentationPartArgs | DocumentationPartState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DocumentationPartState = argsOrState as DocumentationPartState | undefined;
+            const state = argsOrState as DocumentationPartState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["properties"] = state ? state.properties : undefined;
             inputs["restApiId"] = state ? state.restApiId : undefined;

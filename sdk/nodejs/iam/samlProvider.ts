@@ -6,14 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an IAM SAML provider.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const defaultSamlProvider = new aws.iam.SamlProvider("default", {
  *     samlMetadataDocument: fs.readFileSync("saml-metadata.xml", "utf-8"),
  * });
@@ -60,7 +60,7 @@ export class SamlProvider extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SamlProviderArgs | SamlProviderState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SamlProviderState = argsOrState as SamlProviderState | undefined;
+            const state = argsOrState as SamlProviderState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["samlMetadataDocument"] = state ? state.samlMetadataDocument : undefined;

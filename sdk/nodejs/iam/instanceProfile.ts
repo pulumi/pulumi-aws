@@ -8,15 +8,15 @@ import {Role} from "./role";
 
 /**
  * Provides an IAM instance profile.
- * 
+ *
  * > **NOTE:** Either `role` or `roles` (**deprecated**) must be specified.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const role = new aws.iam.Role("role", {
  *     assumeRolePolicy: `{
  *     "Version": "2012-10-17",
@@ -77,7 +77,7 @@ export class InstanceProfile extends pulumi.CustomResource {
      */
     public readonly role: pulumi.Output<string>;
     /**
-     * 
+     *
      * A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
      * WARNING: This is deprecated since [version 0.9.3 (April 12, 2017)](https://github.com/hashicorp/terraform/blob/master/CHANGELOG.md#093-april-12-2017), as >= 2 roles are not possible. See [issue #11575](https://github.com/hashicorp/terraform/issues/11575).
      */
@@ -98,7 +98,7 @@ export class InstanceProfile extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: InstanceProfileArgs | InstanceProfileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: InstanceProfileState = argsOrState as InstanceProfileState | undefined;
+            const state = argsOrState as InstanceProfileState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["createDate"] = state ? state.createDate : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -151,7 +151,7 @@ export interface InstanceProfileState {
      */
     readonly role?: pulumi.Input<string | Role>;
     /**
-     * 
+     *
      * A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
      * WARNING: This is deprecated since [version 0.9.3 (April 12, 2017)](https://github.com/hashicorp/terraform/blob/master/CHANGELOG.md#093-april-12-2017), as >= 2 roles are not possible. See [issue #11575](https://github.com/hashicorp/terraform/issues/11575).
      */
@@ -183,7 +183,7 @@ export interface InstanceProfileArgs {
      */
     readonly role?: pulumi.Input<string | Role>;
     /**
-     * 
+     *
      * A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
      * WARNING: This is deprecated since [version 0.9.3 (April 12, 2017)](https://github.com/hashicorp/terraform/blob/master/CHANGELOG.md#093-april-12-2017), as >= 2 roles are not possible. See [issue #11575](https://github.com/hashicorp/terraform/issues/11575).
      */

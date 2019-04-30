@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage an API Gateway Documentation Version.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleRestApi = new aws.apigateway.RestApi("example", {});
  * const exampleDocumentationPart = new aws.apigateway.DocumentationPart("example", {
  *     location: {
@@ -65,7 +65,7 @@ export class DocumentationVersion extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DocumentationVersionArgs | DocumentationVersionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DocumentationVersionState = argsOrState as DocumentationVersionState | undefined;
+            const state = argsOrState as DocumentationVersionState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["restApiId"] = state ? state.restApiId : undefined;
             inputs["version"] = state ? state.version : undefined;

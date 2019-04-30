@@ -6,27 +6,27 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Parameter resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * To store a basic string parameter:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.ssm.Parameter("foo", {
  *     type: "String",
  *     value: "bar",
  * });
  * ```
- * 
+ *
  * To store an encrypted string using the default SSM KMS key:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultInstance = new aws.rds.Instance("default", {
  *     allocatedStorage: 10,
  *     dbSubnetGroupName: "my_database_subnet_group",
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *     value: var_database_master_password,
  * });
  * ```
- * 
+ *
  * > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  */
@@ -113,7 +113,7 @@ export class Parameter extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ParameterArgs | ParameterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ParameterState = argsOrState as ParameterState | undefined;
+            const state = argsOrState as ParameterState | undefined;
             inputs["allowedPattern"] = state ? state.allowedPattern : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;

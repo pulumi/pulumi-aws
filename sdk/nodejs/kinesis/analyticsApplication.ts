@@ -9,15 +9,15 @@ import {ARN} from "../index";
 /**
  * Provides a Kinesis Analytics Application resource. Kinesis Analytics is a managed service that
  * allows processing and analyzing streaming data using standard SQL.
- * 
+ *
  * For more details, see the [Amazon Kinesis Analytics Documentation][1].
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testStream = new aws.kinesis.Stream("test_stream", {
  *     shardCount: 1,
  * });
@@ -125,7 +125,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AnalyticsApplicationArgs | AnalyticsApplicationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AnalyticsApplicationState = argsOrState as AnalyticsApplicationState | undefined;
+            const state = argsOrState as AnalyticsApplicationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cloudwatchLoggingOptions"] = state ? state.cloudwatchLoggingOptions : undefined;
             inputs["code"] = state ? state.code : undefined;

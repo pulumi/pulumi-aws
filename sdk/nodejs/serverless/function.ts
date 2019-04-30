@@ -94,7 +94,7 @@ export type FunctionOptions = utils.Overwrite<lambda.CallbackFunctionArgs<any, a
 export class Function extends pulumi.ComponentResource {
     public readonly options: FunctionOptions;
     public readonly lambda: lambda.Function;
-    public readonly role: Role;
+    public readonly role: Role | undefined;
 
     /**
      * @param func Deprecated.  Pass the function as [options.func] or [options.factoryFunc] instead.
@@ -122,5 +122,6 @@ export class Function extends pulumi.ComponentResource {
 
         this.lambda = new lambda.CallbackFunction(name, options, { parent: this });
         this.role = this.lambda.roleInstance;
+        this.options = options;
     }
 }

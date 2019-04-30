@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodeDeploy deployment config for an application
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Server Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const fooDeploymentConfig = new aws.codedeploy.DeploymentConfig("foo", {
  *     deploymentConfigName: "test-deployment-config",
  *     minimumHealthyHosts: {
@@ -47,13 +47,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ### Lambda Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const fooDeploymentConfig = new aws.codedeploy.DeploymentConfig("foo", {
  *     computePlatform: "Lambda",
  *     deploymentConfigName: "test-deployment-config",
@@ -126,7 +126,7 @@ export class DeploymentConfig extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DeploymentConfigArgs | DeploymentConfigState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DeploymentConfigState = argsOrState as DeploymentConfigState | undefined;
+            const state = argsOrState as DeploymentConfigState | undefined;
             inputs["computePlatform"] = state ? state.computePlatform : undefined;
             inputs["deploymentConfigId"] = state ? state.deploymentConfigId : undefined;
             inputs["deploymentConfigName"] = state ? state.deploymentConfigName : undefined;

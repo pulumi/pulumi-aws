@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Regional Byte Match Set Resource for use with Application Load Balancer.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const byteSet = new aws.wafregional.ByteMatchSet("byte_set", {
  *     byteMatchTuples: [{
  *         fieldToMatch: {
@@ -59,7 +59,7 @@ export class ByteMatchSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ByteMatchSetArgs | ByteMatchSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ByteMatchSetState = argsOrState as ByteMatchSetState | undefined;
+            const state = argsOrState as ByteMatchSetState | undefined;
             inputs["byteMatchTuples"] = state ? state.byteMatchTuples : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {

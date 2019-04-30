@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an NFS Location within AWS DataSync.
- * 
+ *
  * > **NOTE:** The DataSync Agents must be available before creating this resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.datasync.NfsLocation("example", {
  *     onPremConfig: {
  *         agentArns: [aws_datasync_agent_example.arn],
@@ -70,7 +70,7 @@ export class NfsLocation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NfsLocationArgs | NfsLocationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NfsLocationState = argsOrState as NfsLocationState | undefined;
+            const state = argsOrState as NfsLocationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["onPremConfig"] = state ? state.onPremConfig : undefined;
             inputs["serverHostname"] = state ? state.serverHostname : undefined;

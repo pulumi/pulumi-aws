@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic network interface (ENI) resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.ec2.NetworkInterface("test", {
  *     attachments: [{
  *         deviceIndex: 1,
@@ -52,7 +52,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly privateIps: pulumi.Output<string[]>;
     /**
-     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
      */
     public readonly privateIpsCount: pulumi.Output<number>;
     /**
@@ -83,7 +83,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NetworkInterfaceArgs | NetworkInterfaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkInterfaceState = argsOrState as NetworkInterfaceState | undefined;
+            const state = argsOrState as NetworkInterfaceState | undefined;
             inputs["attachments"] = state ? state.attachments : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["privateDnsName"] = state ? state.privateDnsName : undefined;
@@ -133,7 +133,7 @@ export interface NetworkInterfaceState {
      */
     readonly privateIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
      */
     readonly privateIpsCount?: pulumi.Input<number>;
     /**
@@ -172,7 +172,7 @@ export interface NetworkInterfaceArgs {
      */
     readonly privateIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
      */
     readonly privateIpsCount?: pulumi.Input<number>;
     /**

@@ -5,7 +5,13 @@
         "module": "commonjs",
         "moduleResolution": "node",
         "declaration": true,
-        "sourceMap": true
+        "sourceMap": true,
+        "stripInternal": true,
+        "experimentalDecorators": true,
+        "noFallthroughCasesInSwitch": true,
+        "forceConsistentCasingInFileNames": true,
+        "strictPropertyInitialization": false,
+        "strict": true
     },
     "files": [
         "acm/certificate.ts",

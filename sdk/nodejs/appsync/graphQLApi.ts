@@ -6,26 +6,26 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AppSync GraphQL API.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### API Key Authentication
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "API_KEY",
  * });
  * ```
- * 
+ *
  * ### AWS Cognito User Pool Authentication
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "AMAZON_COGNITO_USER_POOLS",
  *     userPoolConfig: {
@@ -35,23 +35,23 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### AWS IAM Authentication
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "AWS_IAM",
  * });
  * ```
- * 
+ *
  * ### With Schema
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "AWS_IAM",
  *     schema: `schema {
@@ -63,13 +63,13 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- * 
+ *
  * ### OpenID Connect Authentication
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "OPENID_CONNECT",
  *     openidConnectConfig: {
@@ -77,13 +77,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### Enabling Logging
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleRole = new aws.iam.Role("example", {
  *     assumeRolePolicy: `{
  *     "Version": "2012-10-17",
@@ -168,7 +168,7 @@ export class GraphQLApi extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GraphQLApiArgs | GraphQLApiState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GraphQLApiState = argsOrState as GraphQLApiState | undefined;
+            const state = argsOrState as GraphQLApiState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["authenticationType"] = state ? state.authenticationType : undefined;
             inputs["logConfig"] = state ? state.logConfig : undefined;

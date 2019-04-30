@@ -8,16 +8,16 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides an HTTP Method Integration Response for an API Gateway Resource.
- * 
+ *
  * > **Note:** Depends on having `aws_api_gateway_integration` inside your rest api. To ensure this
  * you might need to add an explicit `depends_on` for clean runs.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
  * });
@@ -122,7 +122,7 @@ export class IntegrationResponse extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: IntegrationResponseArgs | IntegrationResponseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: IntegrationResponseState = argsOrState as IntegrationResponseState | undefined;
+            const state = argsOrState as IntegrationResponseState | undefined;
             inputs["contentHandling"] = state ? state.contentHandling : undefined;
             inputs["httpMethod"] = state ? state.httpMethod : undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;

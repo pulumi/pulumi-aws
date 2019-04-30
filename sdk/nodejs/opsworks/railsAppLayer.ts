@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks Ruby on Rails application layer resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const app = new aws.opsworks.RailsAppLayer("app", {
  *     stackId: aws_opsworks_stack_main.id,
  * });
@@ -132,7 +132,7 @@ export class RailsAppLayer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RailsAppLayerArgs | RailsAppLayerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RailsAppLayerState = argsOrState as RailsAppLayerState | undefined;
+            const state = argsOrState as RailsAppLayerState | undefined;
             inputs["appServer"] = state ? state.appServer : undefined;
             inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
             inputs["autoAssignPublicIps"] = state ? state.autoAssignPublicIps : undefined;

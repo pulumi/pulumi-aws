@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Batch Job Queue resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testQueue = new aws.batch.JobQueue("test_queue", {
  *     computeEnvironments: [
  *         aws_batch_compute_environment_test_environment_1.arn,
@@ -72,7 +72,7 @@ export class JobQueue extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: JobQueueArgs | JobQueueState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: JobQueueState = argsOrState as JobQueueState | undefined;
+            const state = argsOrState as JobQueueState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["computeEnvironments"] = state ? state.computeEnvironments : undefined;
             inputs["name"] = state ? state.name : undefined;

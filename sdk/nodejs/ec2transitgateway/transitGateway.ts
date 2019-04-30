@@ -8,13 +8,13 @@ import {ARN} from "../index";
 
 /**
  * Manages an EC2 Transit Gateway.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ec2transitgateway.TransitGateway("example", {
  *     description: "example",
  * });
@@ -93,7 +93,7 @@ export class TransitGateway extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TransitGatewayArgs | TransitGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TransitGatewayState = argsOrState as TransitGatewayState | undefined;
+            const state = argsOrState as TransitGatewayState | undefined;
             inputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["associationDefaultRouteTableId"] = state ? state.associationDefaultRouteTableId : undefined;

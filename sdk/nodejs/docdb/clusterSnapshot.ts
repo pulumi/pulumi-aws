@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a DocDB database cluster snapshot for DocDB clusters.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.docdb.ClusterSnapshot("example", {
  *     dbClusterIdentifier: aws_docdb_cluster_example.id,
  *     dbClusterSnapshotIdentifier: "resourcetestsnapshot1234",
@@ -90,7 +90,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterSnapshotArgs | ClusterSnapshotState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ClusterSnapshotState = argsOrState as ClusterSnapshotState | undefined;
+            const state = argsOrState as ClusterSnapshotState | undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             inputs["dbClusterIdentifier"] = state ? state.dbClusterIdentifier : undefined;
             inputs["dbClusterSnapshotArn"] = state ? state.dbClusterSnapshotArn : undefined;

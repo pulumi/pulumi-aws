@@ -7,13 +7,13 @@ import * as utilities from "../utilities";
 /**
  * Allows you to set a policy of an SQS Queue
  * while referencing ARN of the queue within the policy.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const queue = new aws.sqs.Queue("q", {});
  * const test = new aws.sqs.QueuePolicy("test", {
  *     policy: pulumi.all([queue.arn, queue.arn]).apply(([queueArn, queueArn1]) => `{
@@ -72,7 +72,7 @@ export class QueuePolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: QueuePolicyArgs | QueuePolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: QueuePolicyState = argsOrState as QueuePolicyState | undefined;
+            const state = argsOrState as QueuePolicyState | undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["queueUrl"] = state ? state.queueUrl : undefined;
         } else {

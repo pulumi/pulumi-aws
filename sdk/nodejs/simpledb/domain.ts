@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a SimpleDB domain resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const users = new aws.simpledb.Domain("users", {});
  * ```
  */
@@ -45,7 +45,7 @@ export class Domain extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DomainArgs | DomainState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DomainState = argsOrState as DomainState | undefined;
+            const state = argsOrState as DomainState | undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;

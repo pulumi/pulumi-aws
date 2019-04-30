@@ -6,14 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Cognito Identity Pool.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const defaultSamlProvider = new aws.iam.SamlProvider("default", {
  *     samlMetadataDocument: fs.readFileSync("saml-metadata.xml", "utf-8"),
  * });
@@ -99,7 +99,7 @@ export class IdentityPool extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: IdentityPoolArgs | IdentityPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: IdentityPoolState = argsOrState as IdentityPoolState | undefined;
+            const state = argsOrState as IdentityPoolState | undefined;
             inputs["allowUnauthenticatedIdentities"] = state ? state.allowUnauthenticatedIdentities : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cognitoIdentityProviders"] = state ? state.cognitoIdentityProviders : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a RDS database instance snapshot. For managing RDS database cluster snapshots, see the [`aws_db_cluster_snapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_cluster_snapshot.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bar = new aws.rds.Instance("bar", {
  *     allocatedStorage: 10,
  *     backupRetentionPeriod: 0,
@@ -130,7 +130,7 @@ export class Snapshot extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SnapshotArgs | SnapshotState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SnapshotState = argsOrState as SnapshotState | undefined;
+            const state = argsOrState as SnapshotState | undefined;
             inputs["allocatedStorage"] = state ? state.allocatedStorage : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["dbInstanceIdentifier"] = state ? state.dbInstanceIdentifier : undefined;

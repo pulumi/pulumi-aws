@@ -161,7 +161,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LaunchTemplateArgs | LaunchTemplateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LaunchTemplateState = argsOrState as LaunchTemplateState | undefined;
+            const state = argsOrState as LaunchTemplateState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["blockDeviceMappings"] = state ? state.blockDeviceMappings : undefined;
             inputs["capacityReservationSpecification"] = state ? state.capacityReservationSpecification : undefined;

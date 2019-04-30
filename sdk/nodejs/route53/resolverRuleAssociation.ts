@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Route53 Resolver rule association.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.route53.ResolverRuleAssociation("example", {
  *     resolverRuleId: aws_route53_resolver_rule_sys.id,
  *     vpcId: aws_vpc_foo.id,
@@ -56,7 +56,7 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResolverRuleAssociationArgs | ResolverRuleAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ResolverRuleAssociationState = argsOrState as ResolverRuleAssociationState | undefined;
+            const state = argsOrState as ResolverRuleAssociationState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resolverRuleId"] = state ? state.resolverRuleId : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;

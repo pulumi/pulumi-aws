@@ -10,13 +10,13 @@ import {Tenancy} from "./tenancy";
 
 /**
  * Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultCapacityReservation = new aws.ec2.CapacityReservation("default", {
  *     availabilityZone: "eu-west-1a",
  *     instanceCount: 1,
@@ -94,7 +94,7 @@ export class CapacityReservation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CapacityReservationArgs | CapacityReservationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CapacityReservationState = argsOrState as CapacityReservationState | undefined;
+            const state = argsOrState as CapacityReservationState | undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
             inputs["endDate"] = state ? state.endDate : undefined;

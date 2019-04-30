@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudWatch Dashboard resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.cloudwatch.Dashboard("main", {
  *     dashboardBody: ` {
  *    "widgets": [
@@ -91,7 +91,7 @@ export class Dashboard extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DashboardArgs | DashboardState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DashboardState = argsOrState as DashboardState | undefined;
+            const state = argsOrState as DashboardState | undefined;
             inputs["dashboardArn"] = state ? state.dashboardArn : undefined;
             inputs["dashboardBody"] = state ? state.dashboardBody : undefined;
             inputs["dashboardName"] = state ? state.dashboardName : undefined;

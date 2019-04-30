@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource-based access control mechanism for a KMS customer master key.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const role = new aws.iam.Role("a", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -107,7 +107,7 @@ export class Grant extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GrantArgs | GrantState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GrantState = argsOrState as GrantState | undefined;
+            const state = argsOrState as GrantState | undefined;
             inputs["constraints"] = state ? state.constraints : undefined;
             inputs["grantCreationTokens"] = state ? state.grantCreationTokens : undefined;
             inputs["grantId"] = state ? state.grantId : undefined;

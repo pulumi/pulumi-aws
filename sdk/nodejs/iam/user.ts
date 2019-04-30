@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an IAM user.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const lbUser = new aws.iam.User("lb", {
  *     path: "/system/",
  *     tags: {
@@ -95,7 +95,7 @@ export class User extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserState = argsOrState as UserState | undefined;
+            const state = argsOrState as UserState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
             inputs["name"] = state ? state.name : undefined;

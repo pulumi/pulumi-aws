@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Creates and manages an AWS IoT Thing.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.iot.Thing("example", {
  *     attributes: {
  *         First: "examplevalue",
@@ -69,7 +69,7 @@ export class Thing extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ThingArgs | ThingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ThingState = argsOrState as ThingState | undefined;
+            const state = argsOrState as ThingState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["attributes"] = state ? state.attributes : undefined;
             inputs["defaultClientId"] = state ? state.defaultClientId : undefined;

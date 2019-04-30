@@ -6,28 +6,28 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AppSync Resolver.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testGraphQLApi = new aws.appsync.GraphQLApi("test", {
  *     authenticationType: "API_KEY",
  *     schema: `type Mutation {
  * 	putPost(id: ID!, title: String!): Post
  * }
- * 
+ *
  * type Post {
  * 	id: ID!
  * 	title: String!
  * }
- * 
+ *
  * type Query {
  * 	singlePost(id: ID!): Post
  * }
- * 
+ *
  * schema {
  * 	query: Query
  * 	mutation: Mutation
@@ -117,7 +117,7 @@ export class Resolver extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResolverArgs | ResolverState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ResolverState = argsOrState as ResolverState | undefined;
+            const state = argsOrState as ResolverState | undefined;
             inputs["apiId"] = state ? state.apiId : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["dataSource"] = state ? state.dataSource : undefined;

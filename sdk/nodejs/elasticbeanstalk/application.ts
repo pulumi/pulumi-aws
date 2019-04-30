@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
  * Provides an Elastic Beanstalk Application Resource. Elastic Beanstalk allows
  * you to deploy and manage applications in the AWS cloud without worrying about
  * the infrastructure that runs those applications.
- * 
+ *
  * This resource creates an application that has one configuration template named
  * `default`, and no application versions
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const tftest = new aws.elasticbeanstalk.Application("tftest", {
  *     appversionLifecycle: {
  *         deleteSourceFromS3: true,
@@ -62,7 +62,7 @@ export class Application extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ApplicationState = argsOrState as ApplicationState | undefined;
+            const state = argsOrState as ApplicationState | undefined;
             inputs["appversionLifecycle"] = state ? state.appversionLifecycle : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;

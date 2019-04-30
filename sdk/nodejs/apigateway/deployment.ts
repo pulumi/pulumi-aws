@@ -8,16 +8,16 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides an API Gateway Deployment.
- * 
+ *
  * > **Note:** Depends on having `aws_api_gateway_integration` inside your rest api (which in turn depends on `aws_api_gateway_method`). To avoid race conditions
  * you might need to add an explicit `depends_on = ["aws_api_gateway_integration.name"]`.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
  * });
@@ -107,7 +107,7 @@ export class Deployment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DeploymentArgs | DeploymentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DeploymentState = argsOrState as DeploymentState | undefined;
+            const state = argsOrState as DeploymentState | undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["executionArn"] = state ? state.executionArn : undefined;

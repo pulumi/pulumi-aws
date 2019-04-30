@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an IAM OpenID Connect provider.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultOpenIdConnectProvider = new aws.iam.OpenIdConnectProvider("default", {
  *     clientIdLists: ["266362248691-342342xasdasdasda-apps.googleusercontent.com"],
  *     thumbprintLists: [],
@@ -42,7 +42,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
      */
     public readonly clientIdLists: pulumi.Output<string[]>;
     /**
-     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
+     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
      */
     public readonly thumbprintLists: pulumi.Output<string[]>;
     /**
@@ -61,7 +61,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: OpenIdConnectProviderArgs | OpenIdConnectProviderState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: OpenIdConnectProviderState = argsOrState as OpenIdConnectProviderState | undefined;
+            const state = argsOrState as OpenIdConnectProviderState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["clientIdLists"] = state ? state.clientIdLists : undefined;
             inputs["thumbprintLists"] = state ? state.thumbprintLists : undefined;
@@ -99,7 +99,7 @@ export interface OpenIdConnectProviderState {
      */
     readonly clientIdLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
+     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
      */
     readonly thumbprintLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -117,7 +117,7 @@ export interface OpenIdConnectProviderArgs {
      */
     readonly clientIdLists: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
+     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
      */
     readonly thumbprintLists: pulumi.Input<pulumi.Input<string>[]>;
     /**

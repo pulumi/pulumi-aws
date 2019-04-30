@@ -8,13 +8,13 @@ import {PolicyDocument} from "./documents";
 
 /**
  * Provides an IAM policy attached to a user.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const lbUser = new aws.iam.User("lb", {
  *     path: "/system/",
  * });
@@ -80,7 +80,7 @@ export class UserPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserPolicyArgs | UserPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserPolicyState = argsOrState as UserPolicyState | undefined;
+            const state = argsOrState as UserPolicyState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
             inputs["policy"] = state ? state.policy : undefined;

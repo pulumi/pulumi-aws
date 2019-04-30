@@ -5,20 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to manage AWS Device Farm Projects. 
+ * Provides a resource to manage AWS Device Farm Projects.
  * Please keep in mind that this feature is only supported on the "us-west-2" region.
  * This resource will error if you try to create a project in another region.
- * 
+ *
  * For more information about Device Farm Projects, see the AWS Documentation on
  * [Device Farm Projects][aws-get-project].
- * 
+ *
  * ## Basic Example Usage
- * 
- * 
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const awesomeDevices = new aws.devicefarm.Project("awesome_devices", {});
  * ```
  */
@@ -55,7 +55,7 @@ export class Project extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProjectArgs | ProjectState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ProjectState = argsOrState as ProjectState | undefined;
+            const state = argsOrState as ProjectState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {

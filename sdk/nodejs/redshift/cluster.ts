@@ -6,16 +6,16 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Redshift Cluster Resource.
- * 
+ *
  * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultCluster = new aws.redshift.Cluster("default", {
  *     clusterIdentifier: "tf-redshift-cluster",
  *     clusterType: "single-node",
@@ -198,7 +198,7 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ClusterState = argsOrState as ClusterState | undefined;
+            const state = argsOrState as ClusterState | undefined;
             inputs["allowVersionUpgrade"] = state ? state.allowVersionUpgrade : undefined;
             inputs["automatedSnapshotRetentionPeriod"] = state ? state.automatedSnapshotRetentionPeriod : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;

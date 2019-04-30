@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Pinpoint App resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.pinpoint.App("example", {
  *     limits: {
  *         maximumDuration: 600,
@@ -73,7 +73,7 @@ export class App extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AppArgs | AppState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AppState = argsOrState as AppState | undefined;
+            const state = argsOrState as AppState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["campaignHook"] = state ? state.campaignHook : undefined;
             inputs["limits"] = state ? state.limits : undefined;

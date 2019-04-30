@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cloud9 EC2 Development Environment.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.cloud9.EnvironmentEC2("example", {
  *     instanceType: "t2.micro",
  * });
@@ -75,7 +75,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EnvironmentEC2Args | EnvironmentEC2State, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EnvironmentEC2State = argsOrState as EnvironmentEC2State | undefined;
+            const state = argsOrState as EnvironmentEC2State | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["automaticStopTimeMinutes"] = state ? state.automaticStopTimeMinutes : undefined;
             inputs["description"] = state ? state.description : undefined;

@@ -8,13 +8,13 @@ import {ARN} from "../index";
 
 /**
  * Manages an S3 Location within AWS DataSync.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.datasync.S3Location("example", {
  *     s3BucketArn: aws_s3_bucket_example.arn,
  *     s3Config: {
@@ -70,7 +70,7 @@ export class S3Location extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: S3LocationArgs | S3LocationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: S3LocationState = argsOrState as S3LocationState | undefined;
+            const state = argsOrState as S3LocationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["s3BucketArn"] = state ? state.s3BucketArn : undefined;
             inputs["s3Config"] = state ? state.s3Config : undefined;

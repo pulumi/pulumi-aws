@@ -6,26 +6,26 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Pool Client resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Create a basic user pool client
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const pool = new aws.cognito.UserPool("pool", {});
  * const client = new aws.cognito.UserPoolClient("client", {
  *     userPoolId: pool.id,
  * });
  * ```
- * 
+ *
  * ### Create a user pool client with no SRP authentication
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const pool = new aws.cognito.UserPool("pool", {});
  * const client = new aws.cognito.UserPoolClient("client", {
  *     explicitAuthFlows: ["ADMIN_NO_SRP_AUTH"],
@@ -119,7 +119,7 @@ export class UserPoolClient extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserPoolClientArgs | UserPoolClientState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserPoolClientState = argsOrState as UserPoolClientState | undefined;
+            const state = argsOrState as UserPoolClientState | undefined;
             inputs["allowedOauthFlows"] = state ? state.allowedOauthFlows : undefined;
             inputs["allowedOauthFlowsUserPoolClient"] = state ? state.allowedOauthFlowsUserPoolClient : undefined;
             inputs["allowedOauthScopes"] = state ? state.allowedOauthScopes : undefined;

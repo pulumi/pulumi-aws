@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Pinpoint APNs Channel resource.
- * 
+ *
  * > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const app = new aws.pinpoint.App("app", {});
  * const apns = new aws.pinpoint.ApnsChannel("apns", {
  *     applicationId: app.applicationId,
@@ -51,7 +51,7 @@ export class ApnsChannel extends pulumi.CustomResource {
      */
     public readonly certificate: pulumi.Output<string | undefined>;
     /**
-     * The default authentication method used for APNs. 
+     * The default authentication method used for APNs.
      * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
      * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
      * If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
@@ -70,7 +70,7 @@ export class ApnsChannel extends pulumi.CustomResource {
      */
     public readonly teamId: pulumi.Output<string | undefined>;
     /**
-     * The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+     * The `.p8` file that you download from your Apple developer account when you create an authentication key.
      */
     public readonly tokenKey: pulumi.Output<string | undefined>;
     /**
@@ -89,7 +89,7 @@ export class ApnsChannel extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApnsChannelArgs | ApnsChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ApnsChannelState = argsOrState as ApnsChannelState | undefined;
+            const state = argsOrState as ApnsChannelState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["bundleId"] = state ? state.bundleId : undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
@@ -135,7 +135,7 @@ export interface ApnsChannelState {
      */
     readonly certificate?: pulumi.Input<string>;
     /**
-     * The default authentication method used for APNs. 
+     * The default authentication method used for APNs.
      * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
      * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
      * If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
@@ -154,7 +154,7 @@ export interface ApnsChannelState {
      */
     readonly teamId?: pulumi.Input<string>;
     /**
-     * The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+     * The `.p8` file that you download from your Apple developer account when you create an authentication key.
      */
     readonly tokenKey?: pulumi.Input<string>;
     /**
@@ -180,7 +180,7 @@ export interface ApnsChannelArgs {
      */
     readonly certificate?: pulumi.Input<string>;
     /**
-     * The default authentication method used for APNs. 
+     * The default authentication method used for APNs.
      * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
      * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
      * If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
@@ -199,7 +199,7 @@ export interface ApnsChannelArgs {
      */
     readonly teamId?: pulumi.Input<string>;
     /**
-     * The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+     * The `.p8` file that you download from your Apple developer account when you create an authentication key.
      */
     readonly tokenKey?: pulumi.Input<string>;
     /**

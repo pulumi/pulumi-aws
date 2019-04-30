@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Inspector resource group
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bar = new aws.inspector.ResourceGroup("bar", {
  *     tags: {
  *         Env: "bar",
@@ -54,7 +54,7 @@ export class ResourceGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResourceGroupArgs | ResourceGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ResourceGroupState = argsOrState as ResourceGroupState | undefined;
+            const state = argsOrState as ResourceGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {

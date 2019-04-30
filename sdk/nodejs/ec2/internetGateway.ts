@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create a VPC Internet Gateway.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const gw = new aws.ec2.InternetGateway("gw", {
  *     tags: {
  *         Name: "main",
@@ -58,7 +58,7 @@ export class InternetGateway extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: InternetGatewayArgs | InternetGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: InternetGatewayState = argsOrState as InternetGatewayState | undefined;
+            const state = argsOrState as InternetGatewayState | undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;

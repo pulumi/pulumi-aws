@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
- * 
+ *
  * > **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const cloudwatchRole = new aws.iam.Role("cloudwatch", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -93,7 +93,7 @@ export class Account extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AccountState = argsOrState as AccountState | undefined;
+            const state = argsOrState as AccountState | undefined;
             inputs["cloudwatchRoleArn"] = state ? state.cloudwatchRoleArn : undefined;
             inputs["throttleSettings"] = state ? state.throttleSettings : undefined;
         } else {

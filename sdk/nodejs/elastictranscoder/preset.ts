@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic Transcoder preset resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bar = new aws.elastictranscoder.Preset("bar", {
  *     audio: {
  *         audioPackingMode: "SingleTrack",
@@ -130,7 +130,7 @@ export class Preset extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PresetArgs | PresetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PresetState = argsOrState as PresetState | undefined;
+            const state = argsOrState as PresetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["audio"] = state ? state.audio : undefined;
             inputs["audioCodecOptions"] = state ? state.audioCodecOptions : undefined;

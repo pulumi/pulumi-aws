@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Group resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mainUserPool = new aws.cognito.UserPool("main", {});
  * const groupRole = new aws.iam.Role("group_role", {
  *     assumeRolePolicy: `{
@@ -91,7 +91,7 @@ export class UserGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserGroupArgs | UserGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserGroupState = argsOrState as UserGroupState | undefined;
+            const state = argsOrState as UserGroupState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["precedence"] = state ? state.precedence : undefined;

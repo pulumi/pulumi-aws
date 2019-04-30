@@ -6,12 +6,12 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a AWS Transfer Server resource.
- * 
- * 
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const fooRole = new aws.iam.Role("foo", {
  *     assumeRolePolicy: `{
  * 	"Version": "2012-10-17",
@@ -119,7 +119,7 @@ export class Server extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ServerArgs | ServerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ServerState = argsOrState as ServerState | undefined;
+            const state = argsOrState as ServerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["endpointDetails"] = state ? state.endpointDetails : undefined;

@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Creates a snapshot copy grant that allows AWS Redshift to encrypt copied snapshots with a customer master key from AWS KMS in a destination region.
- * 
+ *
  * Note that the grant must exist in the destination region, and not in the region of the cluster.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testSnapshotCopyGrant = new aws.redshift.SnapshotCopyGrant("test", {
  *     snapshotCopyGrantName: "my-grant",
  * });
@@ -64,7 +64,7 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SnapshotCopyGrantArgs | SnapshotCopyGrantState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SnapshotCopyGrantState = argsOrState as SnapshotCopyGrantState | undefined;
+            const state = argsOrState as SnapshotCopyGrantState | undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             inputs["snapshotCopyGrantName"] = state ? state.snapshotCopyGrantName : undefined;
             inputs["tags"] = state ? state.tags : undefined;

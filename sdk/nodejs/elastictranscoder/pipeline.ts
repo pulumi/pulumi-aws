@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic Transcoder pipeline resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bar = new aws.elastictranscoder.Pipeline("bar", {
  *     contentConfig: {
  *         bucket: aws_s3_bucket_content_bucket.bucket,
@@ -93,7 +93,7 @@ export class Pipeline extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PipelineArgs | PipelineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PipelineState = argsOrState as PipelineState | undefined;
+            const state = argsOrState as PipelineState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["awsKmsKeyArn"] = state ? state.awsKmsKeyArn : undefined;
             inputs["contentConfig"] = state ? state.contentConfig : undefined;

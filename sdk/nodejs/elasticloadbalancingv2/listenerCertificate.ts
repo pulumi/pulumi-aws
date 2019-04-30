@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Load Balancer Listener Certificate resource.
- * 
+ *
  * This resource is for additional certificates and does not replace the default certificate on the listener.
- * 
+ *
  * > **Note:** `aws_alb_listener_certificate` is known as `aws_lb_listener_certificate`. The functionality is identical.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleCertificate = new aws.acm.Certificate("example", {});
  * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
  * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {});
@@ -59,7 +59,7 @@ export class ListenerCertificate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ListenerCertificateArgs | ListenerCertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ListenerCertificateState = argsOrState as ListenerCertificateState | undefined;
+            const state = argsOrState as ListenerCertificateState | undefined;
             inputs["certificateArn"] = state ? state.certificateArn : undefined;
             inputs["listenerArn"] = state ? state.listenerArn : undefined;
         } else {

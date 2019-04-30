@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Backup vault resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.backup.Vault("example", {
  *     kmsKeyArn: aws_kms_key_example.arn,
  * });
@@ -63,7 +63,7 @@ export class Vault extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VaultArgs | VaultState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VaultState = argsOrState as VaultState | undefined;
+            const state = argsOrState as VaultState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             inputs["name"] = state ? state.name : undefined;

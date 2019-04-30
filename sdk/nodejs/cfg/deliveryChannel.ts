@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Config Delivery Channel.
- * 
+ *
  * > **Note:** Delivery Channel requires a [Configuration Recorder](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const role = new aws.iam.Role("r", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -106,7 +106,7 @@ export class DeliveryChannel extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DeliveryChannelArgs | DeliveryChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DeliveryChannelState = argsOrState as DeliveryChannelState | undefined;
+            const state = argsOrState as DeliveryChannelState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["s3BucketName"] = state ? state.s3BucketName : undefined;
             inputs["s3KeyPrefix"] = state ? state.s3KeyPrefix : undefined;

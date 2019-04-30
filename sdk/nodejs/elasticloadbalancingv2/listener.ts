@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Load Balancer Listener resource.
- * 
+ *
  * > **Note:** `aws_alb_listener` is known as `aws_lb_listener`. The functionality is identical.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Forward Action
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
  * const frontEndTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("front_end", {});
  * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {
@@ -31,13 +31,13 @@ import * as utilities from "../utilities";
  *     sslPolicy: "ELBSecurityPolicy-2016-08",
  * });
  * ```
- * 
+ *
  * ### Redirect Action
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
  * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {
  *     defaultActions: [{
@@ -53,13 +53,13 @@ import * as utilities from "../utilities";
  *     protocol: "HTTP",
  * });
  * ```
- * 
+ *
  * ### Fixed-response Action
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
  * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {
  *     defaultActions: [{
@@ -75,13 +75,13 @@ import * as utilities from "../utilities";
  *     protocol: "HTTP",
  * });
  * ```
- * 
+ *
  * ### Authenticate-cognito Action
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const pool = new aws.cognito.UserPool("pool", {});
  * const client = new aws.cognito.UserPoolClient("client", {});
  * const domain = new aws.cognito.UserPoolDomain("domain", {});
@@ -107,13 +107,13 @@ import * as utilities from "../utilities";
  *     protocol: "HTTP",
  * });
  * ```
- * 
+ *
  * ### Authenticate-oidc Action
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
  * const frontEndTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("front_end", {});
  * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {
@@ -193,7 +193,7 @@ export class Listener extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ListenerArgs | ListenerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ListenerState = argsOrState as ListenerState | undefined;
+            const state = argsOrState as ListenerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["certificateArn"] = state ? state.certificateArn : undefined;
             inputs["defaultActions"] = state ? state.defaultActions : undefined;

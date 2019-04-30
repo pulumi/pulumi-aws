@@ -7,15 +7,15 @@ import * as utilities from "../utilities";
 /**
  * Provides a VPC/Subnet/ENI Flow Log to capture IP traffic for a specific network
  * interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### CloudWatch Logging
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {});
  * const testRole = new aws.iam.Role("test_role", {
  *     assumeRolePolicy: `{
@@ -60,13 +60,13 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_example.id,
  * });
  * ```
- * 
+ *
  * ### S3 Logging
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleBucket = new aws.s3.Bucket("example", {
  *     name: "example",
  * });
@@ -135,7 +135,7 @@ export class FlowLog extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FlowLogArgs | FlowLogState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FlowLogState = argsOrState as FlowLogState | undefined;
+            const state = argsOrState as FlowLogState | undefined;
             inputs["eniId"] = state ? state.eniId : undefined;
             inputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
             inputs["logDestination"] = state ? state.logDestination : undefined;

@@ -6,26 +6,26 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a VPC resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * Basic usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });
  * ```
- * 
+ *
  * Basic usage with tags:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  *     instanceTenancy: "dedicated",
@@ -132,7 +132,7 @@ export class Vpc extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcArgs | VpcState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpcState = argsOrState as VpcState | undefined;
+            const state = argsOrState as VpcState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["assignGeneratedIpv6CidrBlock"] = state ? state.assignGeneratedIpv6CidrBlock : undefined;
             inputs["cidrBlock"] = state ? state.cidrBlock : undefined;

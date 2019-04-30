@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodeDeploy Deployment Group for a CodeDeploy Application
- * 
+ *
  * > **NOTE on blue/green deployments:** When using `green_fleet_provisioning_option` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by terraform and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleApplication = new aws.codedeploy.Application("example", {});
  * const exampleRole = new aws.iam.Role("example", {
  *     assumeRolePolicy: `{
@@ -70,13 +70,13 @@ import * as utilities from "../utilities";
  *     role: exampleRole.name,
  * });
  * ```
- * 
+ *
  * ### Blue Green Deployments with ECS
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleApplication = new aws.codedeploy.Application("example", {
  *     computePlatform: "ECS",
  * });
@@ -123,13 +123,13 @@ import * as utilities from "../utilities";
  *     serviceRoleArn: aws_iam_role_example.arn,
  * });
  * ```
- * 
+ *
  * ### Blue Green Deployments with Servers and Classic ELB
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleApplication = new aws.codedeploy.Application("example", {});
  * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("example", {
  *     appName: exampleApplication.name,
@@ -244,7 +244,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DeploymentGroupArgs | DeploymentGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DeploymentGroupState = argsOrState as DeploymentGroupState | undefined;
+            const state = argsOrState as DeploymentGroupState | undefined;
             inputs["alarmConfiguration"] = state ? state.alarmConfiguration : undefined;
             inputs["appName"] = state ? state.appName : undefined;
             inputs["autoRollbackConfiguration"] = state ? state.autoRollbackConfiguration : undefined;

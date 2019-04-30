@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an [IAM service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const elasticbeanstalk = new aws.iam.ServiceLinkedRole("elasticbeanstalk", {
  *     awsServiceName: "elasticbeanstalk.amazonaws.com",
  * });
@@ -75,7 +75,7 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ServiceLinkedRoleArgs | ServiceLinkedRoleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ServiceLinkedRoleState = argsOrState as ServiceLinkedRoleState | undefined;
+            const state = argsOrState as ServiceLinkedRoleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["awsServiceName"] = state ? state.awsServiceName : undefined;
             inputs["createDate"] = state ? state.createDate : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Pinpoint Event Stream resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testRole = new aws.iam.Role("test_role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -94,7 +94,7 @@ export class EventStream extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventStreamArgs | EventStreamState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventStreamState = argsOrState as EventStreamState | undefined;
+            const state = argsOrState as EventStreamState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["destinationStreamArn"] = state ? state.destinationStreamArn : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;

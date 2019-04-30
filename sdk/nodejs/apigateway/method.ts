@@ -8,13 +8,13 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides a HTTP Method for an API Gateway Resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
  * });
@@ -30,16 +30,16 @@ import {RestApi} from "./restApi";
  *     restApi: myDemoAPI.id,
  * });
  * ```
- * 
+ *
  * ## Usage with Cognito User Pool Authorizer
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const cognitoUserPoolName = config.require("cognitoUserPoolName");
- * 
+ *
  * const thisRestApi = new aws.apigateway.RestApi("this", {});
  * const thisUserPools = pulumi.output(aws.cognito.getUserPools({
  *     name: cognitoUserPoolName,
@@ -134,7 +134,7 @@ export class Method extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MethodArgs | MethodState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MethodState = argsOrState as MethodState | undefined;
+            const state = argsOrState as MethodState | undefined;
             inputs["apiKeyRequired"] = state ? state.apiKeyRequired : undefined;
             inputs["authorization"] = state ? state.authorization : undefined;
             inputs["authorizationScopes"] = state ? state.authorizationScopes : undefined;

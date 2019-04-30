@@ -45,7 +45,7 @@ export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource 
     constructor(name: string, argsOrState?: HostedPublicVirtualInterfaceAccepterArgs | HostedPublicVirtualInterfaceAccepterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: HostedPublicVirtualInterfaceAccepterState = argsOrState as HostedPublicVirtualInterfaceAccepterState | undefined;
+            const state = argsOrState as HostedPublicVirtualInterfaceAccepterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["virtualInterfaceId"] = state ? state.virtualInterfaceId : undefined;

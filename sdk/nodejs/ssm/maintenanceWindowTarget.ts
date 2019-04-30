@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Maintenance Window Target resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const window = new aws.ssm.MaintenanceWindow("window", {
  *     cutoff: 1,
  *     duration: 3,
@@ -69,7 +69,7 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MaintenanceWindowTargetArgs | MaintenanceWindowTargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MaintenanceWindowTargetState = argsOrState as MaintenanceWindowTargetState | undefined;
+            const state = argsOrState as MaintenanceWindowTargetState | undefined;
             inputs["ownerInformation"] = state ? state.ownerInformation : undefined;
             inputs["resourceType"] = state ? state.resourceType : undefined;
             inputs["targets"] = state ? state.targets : undefined;

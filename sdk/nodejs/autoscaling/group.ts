@@ -10,15 +10,15 @@ import {Metric, MetricsGranularity} from "./metrics";
 
 /**
  * Provides an AutoScaling Group resource.
- * 
+ *
  * > **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.ec2.PlacementGroup("test", {
  *     strategy: "cluster",
  * });
@@ -64,13 +64,13 @@ import {Metric, MetricsGranularity} from "./metrics";
  *     ],
  * });
  * ```
- * 
+ *
  * ### With Latest Version Of Launch Template
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foobar = new aws.ec2.LaunchTemplate("foobar", {
  *     imageId: "ami-1a2b3c",
  *     instanceType: "t2.micro",
@@ -87,13 +87,13 @@ import {Metric, MetricsGranularity} from "./metrics";
  *     minSize: 1,
  * });
  * ```
- * 
+ *
  * ### Mixed Instances Policy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleLaunchTemplate = new aws.ec2.LaunchTemplate("example", {
  *     imageId: aws_ami_example.id.apply(id => id),
  *     instanceType: "c5.large",
@@ -121,13 +121,13 @@ import {Metric, MetricsGranularity} from "./metrics";
  *     },
  * });
  * ```
- * 
+ *
  * ## Interpolated tags
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const extraTags = config.get("extraTags") || [
  *     {
@@ -141,7 +141,7 @@ import {Metric, MetricsGranularity} from "./metrics";
  *         value: "Bam",
  *     },
  * ];
- * 
+ *
  * const bar = new aws.autoscaling.Group("bar", {
  *     launchConfiguration: aws_launch_configuration_foobar.name,
  *     maxSize: 5,
@@ -165,64 +165,64 @@ import {Metric, MetricsGranularity} from "./metrics";
  *     ],
  * });
  * ```
- * 
+ *
  * ## Waiting for Capacity
- * 
+ *
  * A newly-created ASG is initially empty and begins to scale to `min_size` (or
  * `desired_capacity`, if specified) by launching instances using the provided
  * Launch Configuration. These instances take time to launch and boot.
- * 
+ *
  * On ASG Update, changes to these values also take time to result in the target
  * number of instances providing service.
- * 
+ *
  * Terraform provides two mechanisms to help consistently manage ASG scale up
  * time across dependent resources.
- * 
+ *
  * #### Waiting for ASG Capacity
- * 
+ *
  * The first is default behavior. Terraform waits after ASG creation for
  * `min_size` (or `desired_capacity`, if specified) healthy instances to show up
  * in the ASG before continuing.
- * 
+ *
  * If `min_size` or `desired_capacity` are changed in a subsequent update,
  * Terraform will also wait for the correct number of healthy instances before
  * continuing.
- * 
+ *
  * Terraform considers an instance "healthy" when the ASG reports `HealthStatus:
  * "Healthy"` and `LifecycleState: "InService"`. See the [AWS AutoScaling
  * Docs](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html)
  * for more information on an ASG's lifecycle.
- * 
+ *
  * Terraform will wait for healthy instances for up to
  * `wait_for_capacity_timeout`. If ASG creation is taking more than a few minutes,
  * it's worth investigating for scaling activity errors, which can be caused by
  * problems with the selected Launch Configuration.
- * 
+ *
  * Setting `wait_for_capacity_timeout` to `"0"` disables ASG Capacity waiting.
- * 
+ *
  * #### Waiting for ELB Capacity
- * 
+ *
  * The second mechanism is optional, and affects ASGs with attached ELBs specified
  * via the `load_balancers` attribute or with ALBs specified with `target_group_arns`.
- * 
+ *
  * The `min_elb_capacity` parameter causes Terraform to wait for at least the
  * requested number of instances to show up `"InService"` in all attached ELBs
  * during ASG creation.  It has no effect on ASG updates.
- * 
+ *
  * If `wait_for_elb_capacity` is set, Terraform will wait for exactly that number
  * of Instances to be `"InService"` in all attached ELBs on both creation and
  * updates.
- * 
+ *
  * These parameters can be used to ensure that service is being provided before
  * Terraform moves on. If new instances don't pass the ELB's health checks for any
  * reason, the Terraform apply will time out, and the ASG will be marked as
  * tainted (i.e. marked to be destroyed in a follow up run).
- * 
+ *
  * As with ASG Capacity, Terraform will wait for up to `wait_for_capacity_timeout`
  * for the proper number of instances to be healthy.
- * 
+ *
  * #### Troubleshooting Capacity Waiting Timeouts
- * 
+ *
  * If ASG creation takes more than a few minutes, this could indicate one of a
  * number of configuration problems. See the [AWS Docs on Load Balancer
  * Troubleshooting](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-troubleshooting.html)
@@ -400,7 +400,7 @@ export class Group extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GroupState = argsOrState as GroupState | undefined;
+            const state = argsOrState as GroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             inputs["defaultCooldown"] = state ? state.defaultCooldown : undefined;

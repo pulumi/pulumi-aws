@@ -9,15 +9,15 @@ import {Group} from "./group";
 
 /**
  * Attaches a Managed IAM Policy to an IAM group
- * 
+ *
  * > **NOTE:** The usage of this resource conflicts with the `aws_iam_policy_attachment` resource and will permanently show a difference if both are defined.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const group = new aws.iam.Group("group", {});
  * const policy = new aws.iam.Policy("policy", {
  *     description: "A test policy",
@@ -62,7 +62,7 @@ export class GroupPolicyAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GroupPolicyAttachmentArgs | GroupPolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GroupPolicyAttachmentState = argsOrState as GroupPolicyAttachmentState | undefined;
+            const state = argsOrState as GroupPolicyAttachmentState | undefined;
             inputs["group"] = state ? state.group : undefined;
             inputs["policyArn"] = state ? state.policyArn : undefined;
         } else {

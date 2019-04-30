@@ -11,16 +11,16 @@ import {ApplicationVersion} from "./applicationVersion";
  * Provides an Elastic Beanstalk Environment Resource. Elastic Beanstalk allows
  * you to deploy and manage applications in the AWS cloud without worrying about
  * the infrastructure that runs those applications.
- * 
+ *
  * Environments are often things such as `development`, `integration`, or
  * `production`.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const tftest = new aws.elasticbeanstalk.Application("tftest", {
  *     description: "tf-test-desc",
  * });
@@ -29,25 +29,25 @@ import {ApplicationVersion} from "./applicationVersion";
  *     solutionStackName: "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
  * });
  * ```
- * 
+ *
  * ## Option Settings
- * 
+ *
  * Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
  * for supported options and examples.
- * 
+ *
  * The `setting` and `all_settings` mappings support the following format:
- * 
+ *
  * * `namespace` - unique namespace identifying the option's associated AWS resource
  * * `name` - name of the configuration option
  * * `value` - value for the configuration option
  * * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
- * 
+ *
  * ### Example With Options
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const tftest = new aws.elasticbeanstalk.Application("tftest", {
  *     description: "tf-test-desc",
  * });
@@ -197,7 +197,7 @@ export class Environment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EnvironmentArgs | EnvironmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EnvironmentState = argsOrState as EnvironmentState | undefined;
+            const state = argsOrState as EnvironmentState | undefined;
             inputs["allSettings"] = state ? state.allSettings : undefined;
             inputs["application"] = state ? state.application : undefined;
             inputs["arn"] = state ? state.arn : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks haproxy layer resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const lb = new aws.opsworks.HaproxyLayer("lb", {
  *     stackId: aws_opsworks_stack_main.id,
  *     statsPassword: "foobarbaz",
@@ -133,7 +133,7 @@ export class HaproxyLayer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: HaproxyLayerArgs | HaproxyLayerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: HaproxyLayerState = argsOrState as HaproxyLayerState | undefined;
+            const state = argsOrState as HaproxyLayerState | undefined;
             inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
             inputs["autoAssignPublicIps"] = state ? state.autoAssignPublicIps : undefined;
             inputs["autoHealing"] = state ? state.autoHealing : undefined;

@@ -8,13 +8,13 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides a Model for a API Gateway.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
  * });
@@ -74,7 +74,7 @@ export class Model extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ModelArgs | ModelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ModelState = argsOrState as ModelState | undefined;
+            const state = argsOrState as ModelState | undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;

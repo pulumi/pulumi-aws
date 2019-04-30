@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudWatch Log Group resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const yada = new aws.cloudwatch.LogGroup("yada", {
  *     tags: {
  *         Application: "serviceA",
@@ -73,7 +73,7 @@ export class LogGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LogGroupArgs | LogGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LogGroupState = argsOrState as LogGroupState | undefined;
+            const state = argsOrState as LogGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             inputs["name"] = state ? state.name : undefined;

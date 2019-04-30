@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage a GuardDuty ThreatIntelSet.
- * 
+ *
  * > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage ThreatIntelSets. ThreatIntelSets that are uploaded by the master account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-threat-intel-set.html)
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const master = new aws.guardduty.Detector("master", {
  *     enable: true,
  * });
@@ -80,7 +80,7 @@ export class ThreatIntelSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ThreatIntelSetArgs | ThreatIntelSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ThreatIntelSetState = argsOrState as ThreatIntelSetState | undefined;
+            const state = argsOrState as ThreatIntelSetState | undefined;
             inputs["activate"] = state ? state.activate : undefined;
             inputs["detectorId"] = state ? state.detectorId : undefined;
             inputs["format"] = state ? state.format : undefined;

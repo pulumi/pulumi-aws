@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an DocumentDB subnet group resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultSubnetGroup = new aws.docdb.SubnetGroup("default", {
  *     subnetIds: [
  *         aws_subnet_frontend.id,
@@ -73,7 +73,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SubnetGroupArgs | SubnetGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SubnetGroupState = argsOrState as SubnetGroupState | undefined;
+            const state = argsOrState as SubnetGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;

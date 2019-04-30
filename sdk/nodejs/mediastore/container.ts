@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a MediaStore Container.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.mediastore.Container("example", {});
  * ```
  */
@@ -53,7 +53,7 @@ export class Container extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ContainerArgs | ContainerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ContainerState = argsOrState as ContainerState | undefined;
+            const state = argsOrState as ContainerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["name"] = state ? state.name : undefined;

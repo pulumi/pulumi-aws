@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Step Function Activity resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const sfnActivity = new aws.sfn.Activity("sfn_activity", {});
  * ```
  */
@@ -53,7 +53,7 @@ export class Activity extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ActivityArgs | ActivityState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ActivityState = argsOrState as ActivityState | undefined;
+            const state = argsOrState as ActivityState | undefined;
             inputs["creationDate"] = state ? state.creationDate : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tags"] = state ? state.tags : undefined;

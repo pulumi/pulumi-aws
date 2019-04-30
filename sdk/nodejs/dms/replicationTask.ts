@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DMS (Data Migration Service) replication task resource. DMS replication tasks can be created, updated, deleted, and imported.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Create a new replication task
  * const test = new aws.dms.ReplicationTask("test", {
  *     cdcStartTime: "1484346880",
@@ -94,7 +94,7 @@ export class ReplicationTask extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ReplicationTaskArgs | ReplicationTaskState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ReplicationTaskState = argsOrState as ReplicationTaskState | undefined;
+            const state = argsOrState as ReplicationTaskState | undefined;
             inputs["cdcStartTime"] = state ? state.cdcStartTime : undefined;
             inputs["migrationType"] = state ? state.migrationType : undefined;
             inputs["replicationInstanceArn"] = state ? state.replicationInstanceArn : undefined;

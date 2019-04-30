@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an API Gateway Usage Plan Key.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mykey = new aws.apigateway.ApiKey("mykey", {});
  * const test = new aws.apigateway.RestApi("test", {});
  * const myusageplan = new aws.apigateway.UsagePlan("myusageplan", {
@@ -73,7 +73,7 @@ export class UsagePlanKey extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UsagePlanKeyArgs | UsagePlanKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UsagePlanKeyState = argsOrState as UsagePlanKeyState | undefined;
+            const state = argsOrState as UsagePlanKeyState | undefined;
             inputs["keyId"] = state ? state.keyId : undefined;
             inputs["keyType"] = state ? state.keyType : undefined;
             inputs["name"] = state ? state.name : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Neptune Cluster Parameter Group
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.neptune.ClusterParameterGroup("example", {
  *     description: "neptune cluster parameter group",
  *     family: "neptune1",
@@ -76,7 +76,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterParameterGroupArgs | ClusterParameterGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ClusterParameterGroupState = argsOrState as ClusterParameterGroupState | undefined;
+            const state = argsOrState as ClusterParameterGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["family"] = state ? state.family : undefined;

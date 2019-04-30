@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DAX Cluster resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bar = new aws.dax.Cluster("bar", {
  *     clusterName: "cluster-example",
  *     iamRoleArn: aws_iam_role_example.arn.apply(arn => arn),
@@ -136,7 +136,7 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ClusterState = argsOrState as ClusterState | undefined;
+            const state = argsOrState as ClusterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             inputs["clusterAddress"] = state ? state.clusterAddress : undefined;

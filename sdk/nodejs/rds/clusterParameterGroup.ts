@@ -6,16 +6,16 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an RDS DB cluster parameter group resource. Documentation of the available parameters for various Aurora engines can be found at:
- * 
+ *
  * * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
  * * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultClusterParameterGroup = new aws.rds.ClusterParameterGroup("default", {
  *     description: "RDS default cluster parameter group",
  *     family: "aurora5.6",
@@ -85,7 +85,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterParameterGroupArgs | ClusterParameterGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ClusterParameterGroupState = argsOrState as ClusterParameterGroupState | undefined;
+            const state = argsOrState as ClusterParameterGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["family"] = state ? state.family : undefined;

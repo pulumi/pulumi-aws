@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an EC2 Container Registry Repository.
- * 
+ *
  * > **NOTE on ECR Availability**: The EC2 Container Registry is not yet rolled out
  * in all regions - available regions are listed
  * [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#ecr_region).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.ecr.Repository("foo", {});
  * ```
  */
@@ -65,7 +65,7 @@ export class Repository extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RepositoryArgs | RepositoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RepositoryState = argsOrState as RepositoryState | undefined;
+            const state = argsOrState as RepositoryState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["registryId"] = state ? state.registryId : undefined;

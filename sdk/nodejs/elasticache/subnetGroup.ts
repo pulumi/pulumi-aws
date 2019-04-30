@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an ElastiCache Subnet Group resource.
- * 
+ *
  * > **NOTE:** ElastiCache Subnet Groups are only for use when working with an
  * ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
  * ElastiCache Security Group resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const fooVpc = new aws.ec2.Vpc("foo", {
  *     cidrBlock: "10.0.0.0/16",
  *     tags: {
@@ -73,7 +73,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SubnetGroupArgs | SubnetGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SubnetGroupState = argsOrState as SubnetGroupState | undefined;
+            const state = argsOrState as SubnetGroupState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;

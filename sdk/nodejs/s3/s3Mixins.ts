@@ -124,7 +124,7 @@ let bucketSubscriptionInfos = new Map<Bucket, SubscriptionInfo[]>();
  * completion and all subscriptions have been heard about.
  */
 export class BucketEventSubscription extends lambda.EventSubscription {
-    public readonly bucket: pulumi.Output<Bucket>;
+    public readonly bucket: Bucket;
 
     public constructor(
         name: string, bucket: Bucket, handler: BucketEventHandler,
@@ -168,10 +168,12 @@ export class BucketEventSubscription extends lambda.EventSubscription {
             // shared between the two.  As a temporary workaround we explicitly pull the provider
             // out of the parent bucket and pass it along. We use the "aws::" form as we know that
             // Resource will pull off the "aws" portion to grab that provider.
-            provider: this.getProvider("aws::"),
+            provider: this.getProvider("aws::")!,
         });
 
-        this.registerOutputs({});
+        this.bucket = bucket;
+
+        this.registerOutputs();
     }
 }
 

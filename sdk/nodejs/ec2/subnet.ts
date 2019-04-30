@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an VPC subnet resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.ec2.Subnet("main", {
  *     cidrBlock: "10.0.1.0/24",
  *     tags: {
@@ -23,16 +23,16 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_main.id,
  * });
  * ```
- * 
+ *
  * ### Subnets In Secondary VPC CIDR Blocks
- * 
+ *
  * When managing subnets in one of a VPC's secondary CIDR blocks created using a `aws_vpc_ipv4_cidr_block_association`
  * resource, it is recommended to reference that resource's `vpc_id` attribute to ensure correct dependency ordering.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const secondaryCidr = new aws.ec2.VpcIpv4CidrBlockAssociation("secondary_cidr", {
  *     cidrBlock: "172.2.0.0/16",
  *     vpcId: aws_vpc_main.id,
@@ -117,7 +117,7 @@ export class Subnet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SubnetArgs | SubnetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SubnetState = argsOrState as SubnetState | undefined;
+            const state = argsOrState as SubnetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["assignIpv6AddressOnCreation"] = state ? state.assignIpv6AddressOnCreation : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;

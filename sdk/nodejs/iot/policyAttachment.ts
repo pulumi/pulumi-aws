@@ -9,14 +9,14 @@ import {ARN} from "../index";
 
 /**
  * Provides an IoT policy attachment.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const cert = new aws.iot.Certificate("cert", {
  *     active: true,
  *     csr: fs.readFileSync("csr.pem", "utf-8"),
@@ -75,7 +75,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PolicyAttachmentArgs | PolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PolicyAttachmentState = argsOrState as PolicyAttachmentState | undefined;
+            const state = argsOrState as PolicyAttachmentState | undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["target"] = state ? state.target : undefined;
         } else {

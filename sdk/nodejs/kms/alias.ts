@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
  * Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases & keys,
  * but API (hence Terraform too) allows you to create as many aliases as
  * the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const key = new aws.kms.Key("a", {});
  * const alias = new aws.kms.Alias("a", {
  *     targetKeyId: key.keyId,
@@ -67,7 +67,7 @@ export class Alias extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AliasArgs | AliasState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AliasState = argsOrState as AliasState | undefined;
+            const state = argsOrState as AliasState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;

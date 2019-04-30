@@ -6,19 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Creates an entry (a rule) in a network ACL with the specified rule number.
- * 
+ *
  * > **NOTE on Network ACLs and Network ACL Rules:** Terraform currently
  * provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
  * defined in-line. At this time you cannot use a Network ACL with in-line rules
  * in conjunction with any Network ACL Rule resources. Doing so will cause
  * a conflict of rule settings and will overwrite rules.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const barNetworkAcl = new aws.ec2.NetworkAcl("bar", {
  *     vpcId: aws_vpc_foo.id,
  * });
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     toPort: 22,
  * });
  * ```
- * 
+ *
  * > **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
  */
 export class NetworkAclRule extends pulumi.CustomResource {
@@ -106,7 +106,7 @@ export class NetworkAclRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NetworkAclRuleArgs | NetworkAclRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkAclRuleState = argsOrState as NetworkAclRuleState | undefined;
+            const state = argsOrState as NetworkAclRuleState | undefined;
             inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
             inputs["egress"] = state ? state.egress : undefined;
             inputs["fromPort"] = state ? state.fromPort : undefined;

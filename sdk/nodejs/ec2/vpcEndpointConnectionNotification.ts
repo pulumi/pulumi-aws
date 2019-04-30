@@ -7,13 +7,13 @@ import * as utilities from "../utilities";
 /**
  * Provides a VPC Endpoint connection notification resource.
  * Connection notifications notify subscribers of VPC Endpoint events.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const topic = new aws.sns.Topic("topic", {
  *     policy: `{
  *     "Version":"2012-10-17",
@@ -91,7 +91,7 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcEndpointConnectionNotificationArgs | VpcEndpointConnectionNotificationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpcEndpointConnectionNotificationState = argsOrState as VpcEndpointConnectionNotificationState | undefined;
+            const state = argsOrState as VpcEndpointConnectionNotificationState | undefined;
             inputs["connectionEvents"] = state ? state.connectionEvents : undefined;
             inputs["connectionNotificationArn"] = state ? state.connectionNotificationArn : undefined;
             inputs["notificationType"] = state ? state.notificationType : undefined;

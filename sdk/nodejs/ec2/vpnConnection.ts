@@ -6,21 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EC2 VPN connection. These objects can be connected to customer gateways, and allow you to establish tunnels between your network and Amazon.
- * 
+ *
  * > **Note:** All arguments including `tunnel1_preshared_key` and `tunnel2_preshared_key` will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * > **Note:** The CIDR blocks in the arguments `tunnel1_inside_cidr` and `tunnel2_inside_cidr` must have a prefix of /30 and be a part of a specific range.
  * [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### EC2 Transit Gateway
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleCustomerGateway = new aws.ec2.CustomerGateway("example", {
  *     bgpAsn: 65000,
  *     ipAddress: "172.0.0.1",
@@ -33,13 +33,13 @@ import * as utilities from "../utilities";
  *     type: exampleCustomerGateway.type,
  * });
  * ```
- * 
+ *
  * ### Virtual Private Gateway
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const customerGateway = new aws.ec2.CustomerGateway("customer_gateway", {
  *     bgpAsn: 65000,
  *     ipAddress: "172.0.0.1",
@@ -174,7 +174,7 @@ export class VpnConnection extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpnConnectionArgs | VpnConnectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpnConnectionState = argsOrState as VpnConnectionState | undefined;
+            const state = argsOrState as VpnConnectionState | undefined;
             inputs["customerGatewayConfiguration"] = state ? state.customerGatewayConfiguration : undefined;
             inputs["customerGatewayId"] = state ? state.customerGatewayId : undefined;
             inputs["routes"] = state ? state.routes : undefined;

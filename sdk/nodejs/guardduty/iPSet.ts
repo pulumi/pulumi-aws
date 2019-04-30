@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage a GuardDuty IPSet.
- * 
+ *
  * > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage IPSets. IPSets that are uploaded by the master account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-ip-set.html)
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const master = new aws.guardduty.Detector("master", {
  *     enable: true,
  * });
@@ -80,7 +80,7 @@ export class IPSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: IPSetArgs | IPSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: IPSetState = argsOrState as IPSetState | undefined;
+            const state = argsOrState as IPSetState | undefined;
             inputs["activate"] = state ? state.activate : undefined;
             inputs["detectorId"] = state ? state.detectorId : undefined;
             inputs["format"] = state ? state.format : undefined;

@@ -6,24 +6,24 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a DocDB Cluster.
- * 
+ *
  * Changes to a DocDB Cluster can occur when you manually change a
  * parameter, such as `port`, and are reflected in the next maintenance
  * window. Because of this, Terraform may report a difference in its planning
  * phase because a modification has not yet taken place. You can use the
  * `apply_immediately` flag to instruct the service to apply the change immediately
  * (see documentation below).
- * 
+ *
  * > **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
  * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const docdb = new aws.docdb.Cluster("docdb", {
  *     backupRetentionPeriod: 5,
  *     clusterIdentifier: "my-docdb-cluster",
@@ -128,7 +128,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly masterPassword: pulumi.Output<string | undefined>;
     /**
-     * Username for the master DB user. 
+     * Username for the master DB user.
      */
     public readonly masterUsername: pulumi.Output<string>;
     /**
@@ -178,7 +178,7 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ClusterState = argsOrState as ClusterState | undefined;
+            const state = argsOrState as ClusterState | undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
@@ -326,7 +326,7 @@ export interface ClusterState {
      */
     readonly masterPassword?: pulumi.Input<string>;
     /**
-     * Username for the master DB user. 
+     * Username for the master DB user.
      */
     readonly masterUsername?: pulumi.Input<string>;
     /**
@@ -434,7 +434,7 @@ export interface ClusterArgs {
      */
     readonly masterPassword?: pulumi.Input<string>;
     /**
-     * Username for the master DB user. 
+     * Username for the master DB user.
      */
     readonly masterUsername?: pulumi.Input<string>;
     /**

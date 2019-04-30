@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage AWS Certificate Manager Private Certificate Authorities (ACM PCA Certificate Authorities).
- * 
+ *
  * > **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificate_signing_request` attribute and import the signed certificate outside of Terraform. Terraform can support another resource to manage that workflow automatically in the future.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.acmpca.CertificateAuthority("example", {
  *     certificateAuthorityConfiguration: {
  *         keyAlgorithm: "RSA_4096",
@@ -28,13 +28,13 @@ import * as utilities from "../utilities";
  *     permanentDeletionTimeInDays: 7,
  * });
  * ```
- * 
+ *
  * ### Enable Certificate Revocation List
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleBucket = new aws.s3.Bucket("example", {});
  * const acmpcaBucketAccess = pulumi.all([exampleBucket.arn, exampleBucket.arn]).apply(([exampleBucketArn, exampleBucketArn1]) => aws.iam.getPolicyDocument({
  *     statements: [{
@@ -158,7 +158,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CertificateAuthorityArgs | CertificateAuthorityState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CertificateAuthorityState = argsOrState as CertificateAuthorityState | undefined;
+            const state = argsOrState as CertificateAuthorityState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
             inputs["certificateAuthorityConfiguration"] = state ? state.certificateAuthorityConfiguration : undefined;

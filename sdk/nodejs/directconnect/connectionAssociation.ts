@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Associates a Direct Connect Connection with a LAG.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleConnection = new aws.directconnect.Connection("example", {
  *     bandwidth: "1Gbps",
  *     location: "EqSe2",
@@ -60,7 +60,7 @@ export class ConnectionAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ConnectionAssociationArgs | ConnectionAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ConnectionAssociationState = argsOrState as ConnectionAssociationState | undefined;
+            const state = argsOrState as ConnectionAssociationState | undefined;
             inputs["connectionId"] = state ? state.connectionId : undefined;
             inputs["lagId"] = state ? state.lagId : undefined;
         } else {

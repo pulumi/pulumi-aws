@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Load Balancer resource.
- * 
+ *
  * > **Note:** `aws_alb` is known as `aws_lb`. The functionality is identical.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Application Load Balancer
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.elasticloadbalancingv2.LoadBalancer("test", {
  *     accessLogs: {
  *         bucket: aws_s3_bucket_lb_logs.bucket,
@@ -33,13 +33,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### Network Load Balancer
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.elasticloadbalancingv2.LoadBalancer("test", {
  *     enableDeletionProtection: true,
  *     internal: false,
@@ -50,13 +50,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### Specifying Elastic IPs
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.elasticloadbalancingv2.LoadBalancer("example", {
  *     loadBalancerType: "network",
  *     subnetMappings: [
@@ -176,7 +176,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LoadBalancerArgs | LoadBalancerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LoadBalancerState = argsOrState as LoadBalancerState | undefined;
+            const state = argsOrState as LoadBalancerState | undefined;
             inputs["accessLogs"] = state ? state.accessLogs : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["arnSuffix"] = state ? state.arnSuffix : undefined;

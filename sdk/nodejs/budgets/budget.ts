@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a budgets budget resource. Budgets use the cost visualisation provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ec2 = new aws.budgets.Budget("ec2", {
  *     budgetType: "COST",
  *     costFilters: {
@@ -32,13 +32,13 @@ import * as utilities from "../utilities";
  *     timeUnit: "MONTHLY",
  * });
  * ```
- * 
+ *
  * Create a budget for *$100*.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const cost = new aws.budgets.Budget("cost", {
  *     // ...
  *     budgetType: "COST",
@@ -46,13 +46,13 @@ import * as utilities from "../utilities";
  *     limitUnit: "USD",
  * });
  * ```
- * 
+ *
  * Create a budget for s3 with a limit of *3 GB* of storage.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const s3 = new aws.budgets.Budget("s3", {
  *     // ...
  *     budgetType: "USAGE",
@@ -134,7 +134,7 @@ export class Budget extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BudgetArgs | BudgetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: BudgetState = argsOrState as BudgetState | undefined;
+            const state = argsOrState as BudgetState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["budgetType"] = state ? state.budgetType : undefined;
             inputs["costFilters"] = state ? state.costFilters : undefined;

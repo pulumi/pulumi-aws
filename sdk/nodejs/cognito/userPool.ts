@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Pool resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic configuration
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const pool = new aws.cognito.UserPool("pool", {});
  * ```
  */
@@ -135,7 +135,7 @@ export class UserPool extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserPoolArgs | UserPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserPoolState = argsOrState as UserPoolState | undefined;
+            const state = argsOrState as UserPoolState | undefined;
             inputs["adminCreateUserConfig"] = state ? state.adminCreateUserConfig : undefined;
             inputs["aliasAttributes"] = state ? state.aliasAttributes : undefined;
             inputs["arn"] = state ? state.arn : undefined;

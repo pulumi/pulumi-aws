@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks permission resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myStackPermission = new aws.opsworks.Permission("my_stack_permission", {
  *     allowSsh: true,
  *     allowSudo: true,
@@ -67,7 +67,7 @@ export class Permission extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PermissionArgs | PermissionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PermissionState = argsOrState as PermissionState | undefined;
+            const state = argsOrState as PermissionState | undefined;
             inputs["allowSsh"] = state ? state.allowSsh : undefined;
             inputs["allowSudo"] = state ? state.allowSudo : undefined;
             inputs["level"] = state ? state.level : undefined;

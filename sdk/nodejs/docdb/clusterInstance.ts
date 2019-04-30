@@ -7,19 +7,19 @@ import * as utilities from "../utilities";
 /**
  * Provides an DocDB Cluster Resource Instance. A Cluster Instance Resource defines
  * attributes that are specific to a single instance in a [DocDB Cluster][1].
- * 
+ *
  * You do not designate a primary and subsequent replicas. Instead, you simply add DocDB
  * Instances and DocDB manages the replication. You can use the [count][3]
  * meta-parameter to make multiple instances and join them all to the same DocDB
  * Cluster, or you may specify different Cluster Instance resources with various
  * `instance_class` sizes.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultCluster = new aws.docdb.Cluster("default", {
  *     availabilityZones: [
  *         "us-west-2a",
@@ -159,7 +159,7 @@ export class ClusterInstance extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterInstanceArgs | ClusterInstanceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ClusterInstanceState = argsOrState as ClusterInstanceState | undefined;
+            const state = argsOrState as ClusterInstanceState | undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;

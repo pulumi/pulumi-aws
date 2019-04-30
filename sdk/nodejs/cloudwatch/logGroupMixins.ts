@@ -69,16 +69,15 @@ export interface LogGroupEventRecord {
 export type LogGroupEventHandler = lambda.EventHandler<LogGroupEvent, void>;
 
 export class LogGroupEventSubscription extends lambda.EventSubscription {
-    public readonly logGroup: pulumi.Output<logGroup.LogGroup>;
+    public readonly logGroup: logGroup.LogGroup;
     public readonly logSubscriptionFilter: logSubscriptionFilter.LogSubscriptionFilter;
 
     constructor(
         name: string, logGroup: logGroup.LogGroup, handler: LogGroupEventHandler,
-        args: LogGroupEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
+        args: LogGroupEventSubscriptionArgs = {}, opts: pulumi.ComponentResourceOptions = {}) {
 
         super("aws:cloudwatch:LogGroupEventSubscription", name, opts);
 
-        args = args || {};
         const parentOpts = { parent: this };
         this.func = lambda.createFunctionFromEventHandler(name, handler, parentOpts);
 
@@ -95,7 +94,9 @@ export class LogGroupEventSubscription extends lambda.EventSubscription {
             logGroup: logGroup,
         }, parentOpts);
 
-        this.registerOutputs({});
+        this.logGroup = logGroup;
+
+        this.registerOutputs();
     }
 }
 

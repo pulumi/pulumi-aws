@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Attaches a load balancer policy to an ELB backend server.
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const wu_tang = new aws.elasticloadbalancing.LoadBalancer("wu-tang", {
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [{
@@ -52,13 +52,13 @@ import * as utilities from "../utilities";
  *     policyTypeName: "PublicKeyPolicyType",
  * });
  * ```
- * 
+ *
  * Where the file `pubkey` in the current directory contains only the _public key_ of the certificate.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * ```
- * 
+ *
  * This example shows how to enable backend authentication for an ELB as well as customize the TLS settings.
  */
 export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {
@@ -98,7 +98,7 @@ export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LoadBalancerBackendServerPolicyArgs | LoadBalancerBackendServerPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LoadBalancerBackendServerPolicyState = argsOrState as LoadBalancerBackendServerPolicyState | undefined;
+            const state = argsOrState as LoadBalancerBackendServerPolicyState | undefined;
             inputs["instancePort"] = state ? state.instancePort : undefined;
             inputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
             inputs["policyNames"] = state ? state.policyNames : undefined;

@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Resource Access Manager (RAM) Resource Association.
- * 
+ *
  * > *NOTE:* Certain AWS resources (e.g. EC2 Subnets) can only be shared in an AWS account that is a member of an AWS Organizations organization with organization-wide Resource Access Manager functionality enabled. See the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) and AWS service specific documentation for additional information.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ram.ResourceAssociation("example", {
  *     resourceArn: aws_subnet_example.arn,
  *     resourceShareArn: aws_ram_resource_share_example.arn,
@@ -54,7 +54,7 @@ export class ResourceAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResourceAssociationArgs | ResourceAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ResourceAssociationState = argsOrState as ResourceAssociationState | undefined;
+            const state = argsOrState as ResourceAssociationState | undefined;
             inputs["resourceArn"] = state ? state.resourceArn : undefined;
             inputs["resourceShareArn"] = state ? state.resourceShareArn : undefined;
         } else {

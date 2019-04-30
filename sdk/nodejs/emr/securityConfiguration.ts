@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage AWS EMR Security Configurations
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.emr.SecurityConfiguration("foo", {
  *     configuration: `{
  *   "EncryptionConfiguration": {
@@ -75,7 +75,7 @@ export class SecurityConfiguration extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SecurityConfigurationArgs | SecurityConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SecurityConfigurationState = argsOrState as SecurityConfigurationState | undefined;
+            const state = argsOrState as SecurityConfigurationState | undefined;
             inputs["configuration"] = state ? state.configuration : undefined;
             inputs["creationDate"] = state ? state.creationDate : undefined;
             inputs["name"] = state ? state.name : undefined;

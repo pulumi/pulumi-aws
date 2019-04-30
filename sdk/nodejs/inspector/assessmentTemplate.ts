@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Inspector assessment template
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.inspector.AssessmentTemplate("foo", {
  *     duration: 3600,
  *     rulesPackageArns: [
@@ -70,7 +70,7 @@ export class AssessmentTemplate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AssessmentTemplateArgs | AssessmentTemplateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AssessmentTemplateState = argsOrState as AssessmentTemplateState | undefined;
+            const state = argsOrState as AssessmentTemplateState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["duration"] = state ? state.duration : undefined;
             inputs["name"] = state ? state.name : undefined;

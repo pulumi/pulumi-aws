@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an AWS Elasticsearch Domain.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.elasticsearch.Domain("example", {
  *     clusterConfig: {
  *         instanceType: "r4.large.elasticsearch",
@@ -28,18 +28,18 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### Access Policy
- * 
+ *
  * > See also: [`aws_elasticsearch_domain_policy` resource](https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain_policy.html)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const domain = config.get("domain") || "tf-test";
- * 
+ *
  * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({}));
  * const currentRegion = pulumi.output(aws.getRegion({}));
  * const example = new aws.elasticsearch.Domain("example", {
@@ -60,13 +60,13 @@ import * as utilities from "../utilities";
  * `),
  * });
  * ```
- * 
+ *
  * ### Log Publishing to CloudWatch Logs
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {});
  * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("example", {
  *     policyDocument: `{
@@ -97,15 +97,15 @@ import * as utilities from "../utilities";
  * });
  * ```
  * ### VPC based ES
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const domain = config.get("domain") || "tf-test";
  * const vpc = config.require("vpc");
- * 
+ *
  * const esServiceLinkedRole = new aws.iam.ServiceLinkedRole("es", {
  *     awsServiceName: "es.amazonaws.com",
  * });
@@ -263,7 +263,7 @@ export class Domain extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DomainArgs | DomainState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DomainState = argsOrState as DomainState | undefined;
+            const state = argsOrState as DomainState | undefined;
             inputs["accessPolicies"] = state ? state.accessPolicies : undefined;
             inputs["advancedOptions"] = state ? state.advancedOptions : undefined;
             inputs["arn"] = state ? state.arn : undefined;

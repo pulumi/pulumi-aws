@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a KMS customer master key.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const key = new aws.kms.Key("a", {
  *     deletionWindowInDays: 10,
  *     description: "KMS key 1",
@@ -83,7 +83,7 @@ export class Key extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: KeyArgs | KeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: KeyState = argsOrState as KeyState | undefined;
+            const state = argsOrState as KeyState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["deletionWindowInDays"] = state ? state.deletionWindowInDays : undefined;
             inputs["description"] = state ? state.description : undefined;

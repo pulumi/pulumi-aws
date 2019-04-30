@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a CloudFormation Stack Set. Stack Sets allow CloudFormation templates to be easily deployed across multiple accounts and regions via Stack Set Instances ([`aws_cloudformation_stack_set_instance` resource](https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance.html)). Additional information about Stack Sets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
- * 
+ *
  * > **NOTE:** All template parameters, including those with a `Default`, must be configured or ignored with the `lifecycle` configuration block `ignore_changes` argument.
- * 
+ *
  * > **NOTE:** All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
@@ -139,7 +139,7 @@ export class StackSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StackSetArgs | StackSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: StackSetState = argsOrState as StackSetState | undefined;
+            const state = argsOrState as StackSetState | undefined;
             inputs["administrationRoleArn"] = state ? state.administrationRoleArn : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["capabilities"] = state ? state.capabilities : undefined;
