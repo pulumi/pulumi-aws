@@ -65,11 +65,10 @@ export class TopicEventSubscription extends lambda.EventSubscription {
 
     public constructor(
         name: string, topic: topic.Topic, handler: TopicEventHandler,
-        args: TopicEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
+        args: TopicEventSubscriptionArgs = {}, opts: pulumi.ComponentResourceOptions = {}) {
 
         super("aws:sns:TopicEventSubscription", name, opts);
 
-        args = args || {};
         this.topic = topic;
 
         const parentOpts = { parent: this };
@@ -88,7 +87,7 @@ export class TopicEventSubscription extends lambda.EventSubscription {
             endpoint: this.func.arn,
         }, parentOpts);
 
-        this.registerOutputs({});
+        this.registerOutputs();
     }
 }
 

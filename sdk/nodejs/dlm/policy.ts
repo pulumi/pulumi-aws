@@ -48,7 +48,7 @@ export class Policy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PolicyState = argsOrState as PolicyState | undefined;
+            const state = argsOrState as PolicyState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
             inputs["policyDetails"] = state ? state.policyDetails : undefined;
