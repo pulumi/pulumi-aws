@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a VPC DHCP Options resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * Basic usage:
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const dnsResolver = new aws.ec2.VpcDhcpOptions("dns_resolver", {
  *     domainNameServers: [
  *         "8.8.8.8",
@@ -22,13 +22,13 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
+ * 
  * Full usage:
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const foo = new aws.ec2.VpcDhcpOptions("foo", {
  *     domainName: "service.consul",
  *     domainNameServers: [
@@ -43,9 +43,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * ## Remarks
- *
+ * 
  * * Notice that all arguments are optional but you have to specify at least one argument.
  * * `domain_name_servers`, `netbios_name_servers`, `ntp_servers` are limited by AWS to maximum four servers only.
  * * To actually use the DHCP Options Set you need to associate it to a VPC using [`aws_vpc_dhcp_options_association`](https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association.html).
@@ -105,7 +105,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcDhcpOptionsArgs | VpcDhcpOptionsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as VpcDhcpOptionsState | undefined;
+            const state: VpcDhcpOptionsState = argsOrState as VpcDhcpOptionsState | undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
             inputs["domainNameServers"] = state ? state.domainNameServers : undefined;
             inputs["netbiosNameServers"] = state ? state.netbiosNameServers : undefined;

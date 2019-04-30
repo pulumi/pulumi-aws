@@ -6,11 +6,11 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const role = new aws.iam.Role("role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -116,7 +116,7 @@ export class TopicRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TopicRuleArgs | TopicRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as TopicRuleState | undefined;
+            const state: TopicRuleState = argsOrState as TopicRuleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cloudwatchAlarm"] = state ? state.cloudwatchAlarm : undefined;
             inputs["cloudwatchMetric"] = state ? state.cloudwatchMetric : undefined;

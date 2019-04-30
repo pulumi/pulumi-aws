@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES domain identity resource
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.ses.DomainIdentity("example", {
  *     domain: "example.com",
  * });
@@ -67,7 +67,7 @@ export class DomainIdentity extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DomainIdentityArgs | DomainIdentityState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as DomainIdentityState | undefined;
+            const state: DomainIdentityState = argsOrState as DomainIdentityState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["domain"] = state ? state.domain : undefined;
             inputs["verificationToken"] = state ? state.verificationToken : undefined;

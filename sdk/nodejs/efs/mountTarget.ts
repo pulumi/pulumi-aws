@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic File System (EFS) mount target.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const foo = new aws.ec2.Vpc("foo", {
  *     cidrBlock: "10.0.0.0/16",
  * });
@@ -82,7 +82,7 @@ export class MountTarget extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MountTargetArgs | MountTargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as MountTargetState | undefined;
+            const state: MountTargetState = argsOrState as MountTargetState | undefined;
             inputs["dnsName"] = state ? state.dnsName : undefined;
             inputs["fileSystemArn"] = state ? state.fileSystemArn : undefined;
             inputs["fileSystemId"] = state ? state.fileSystemId : undefined;

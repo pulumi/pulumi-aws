@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const awsGlueCatalogDatabase = new aws.glue.CatalogDatabase("aws_glue_catalog_database", {});
  * ```
  */
@@ -61,7 +61,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CatalogDatabaseArgs | CatalogDatabaseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as CatalogDatabaseState | undefined;
+            const state: CatalogDatabaseState = argsOrState as CatalogDatabaseState | undefined;
             inputs["catalogId"] = state ? state.catalogId : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["locationUri"] = state ? state.locationUri : undefined;

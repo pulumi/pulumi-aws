@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Glacier Vault Resource. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-vaults.html) for a full explanation of the Glacier Vault functionality
- *
+ * 
  * > **NOTE:** When removing a Glacier Vault, the Vault must be empty.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const awsSnsTopic = new aws.sns.Topic("aws_sns_topic", {});
  * const myArchive = new aws.glacier.Vault("my_archive", {
  *     accessPolicy: `{
@@ -96,7 +96,7 @@ export class Vault extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VaultArgs | VaultState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as VaultState | undefined;
+            const state: VaultState = argsOrState as VaultState | undefined;
             inputs["accessPolicy"] = state ? state.accessPolicy : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["location"] = state ? state.location : undefined;

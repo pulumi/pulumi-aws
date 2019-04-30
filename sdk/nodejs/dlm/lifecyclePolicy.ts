@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const dlmLifecycleRole = new aws.iam.Role("dlm_lifecycle_role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -124,7 +124,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LifecyclePolicyArgs | LifecyclePolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as LifecyclePolicyState | undefined;
+            const state: LifecyclePolicyState = argsOrState as LifecyclePolicyState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
             inputs["policyDetails"] = state ? state.policyDetails : undefined;

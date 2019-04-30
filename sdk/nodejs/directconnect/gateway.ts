@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Direct Connect Gateway.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.directconnect.Gateway("example", {
  *     amazonSideAsn: "64512",
  * });
@@ -55,7 +55,7 @@ export class Gateway extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GatewayArgs | GatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as GatewayState | undefined;
+            const state: GatewayState = argsOrState as GatewayState | undefined;
             inputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;

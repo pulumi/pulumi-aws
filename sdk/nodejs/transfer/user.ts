@@ -6,12 +6,12 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the [`aws_transfer_ssh_key` resource](https://www.terraform.io/docs/providers/aws/r/transfer_ssh_key.html).
- *
- *
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const fooRole = new aws.iam.Role("foo", {
  *     assumeRolePolicy: `{
  * 	"Version": "2012-10-17",
@@ -110,7 +110,7 @@ export class User extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as UserState | undefined;
+            const state: UserState = argsOrState as UserState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["homeDirectory"] = state ? state.homeDirectory : undefined;
             inputs["policy"] = state ? state.policy : undefined;

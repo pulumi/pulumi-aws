@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Glue Job resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### Python Job
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.glue.Job("example", {
  *     command: {
  *         scriptLocation: aws_s3_bucket_example.bucket.apply(bucket => `s3://${bucket}/example.py`),
@@ -22,13 +22,13 @@ import * as utilities from "../utilities";
  *     roleArn: aws_iam_role_example.arn,
  * });
  * ```
- *
+ * 
  * ### Scala Job
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.glue.Job("example", {
  *     command: {
  *         scriptLocation: aws_s3_bucket_example.bucket.apply(bucket => `s3://${bucket}/example.scala`),
@@ -90,7 +90,7 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly roleArn: pulumi.Output<string>;
     /**
-     * The name of the Security Configuration to be associated with the job.
+     * The name of the Security Configuration to be associated with the job. 
      */
     public readonly securityConfiguration: pulumi.Output<string | undefined>;
     /**
@@ -109,7 +109,7 @@ export class Job extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: JobArgs | JobState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as JobState | undefined;
+            const state: JobState = argsOrState as JobState | undefined;
             inputs["allocatedCapacity"] = state ? state.allocatedCapacity : undefined;
             inputs["command"] = state ? state.command : undefined;
             inputs["connections"] = state ? state.connections : undefined;
@@ -186,7 +186,7 @@ export interface JobState {
      */
     readonly roleArn?: pulumi.Input<string>;
     /**
-     * The name of the Security Configuration to be associated with the job.
+     * The name of the Security Configuration to be associated with the job. 
      */
     readonly securityConfiguration?: pulumi.Input<string>;
     /**
@@ -236,7 +236,7 @@ export interface JobArgs {
      */
     readonly roleArn: pulumi.Input<string>;
     /**
-     * The name of the Security Configuration to be associated with the job.
+     * The name of the Security Configuration to be associated with the job. 
      */
     readonly securityConfiguration?: pulumi.Input<string>;
     /**

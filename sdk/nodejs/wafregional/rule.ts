@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an WAF Regional Rule Resource for use with Application Load Balancer.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const ipset = new aws.wafregional.IpSet("ipset", {
  *     ipSetDescriptors: [{
  *         type: "IPV4",
@@ -28,15 +28,15 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
+ * 
  * ## Nested Fields
- *
+ * 
  * ### `predicate`
- *
+ * 
  * See the [WAF Documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_Predicate.html) for more information.
- *
+ * 
  * #### Arguments
- *
+ * 
  * * `type` - (Required) The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
  * * `data_id` - (Required) The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
  * * `negated` - (Required) Whether to use the settings or the negated settings that you specified in the objects.
@@ -78,7 +78,7 @@ export class Rule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RuleArgs | RuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as RuleState | undefined;
+            const state: RuleState = argsOrState as RuleState | undefined;
             inputs["metricName"] = state ? state.metricName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["predicates"] = state ? state.predicates : undefined;

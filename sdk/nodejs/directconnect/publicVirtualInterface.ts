@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Direct Connect public virtual interface resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const foo = new aws.directconnect.PublicVirtualInterface("foo", {
  *     addressFamily: "ipv4",
  *     amazonAddress: "175.45.176.2/30",
@@ -100,7 +100,7 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PublicVirtualInterfaceArgs | PublicVirtualInterfaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as PublicVirtualInterfaceState | undefined;
+            const state: PublicVirtualInterfaceState = argsOrState as PublicVirtualInterfaceState | undefined;
             inputs["addressFamily"] = state ? state.addressFamily : undefined;
             inputs["amazonAddress"] = state ? state.amazonAddress : undefined;
             inputs["arn"] = state ? state.arn : undefined;

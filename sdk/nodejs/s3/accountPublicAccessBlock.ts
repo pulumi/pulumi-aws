@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages S3 account-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
- *
+ * 
  * > **NOTE:** Each AWS account may only have one S3 Public Access Block configuration. Multiple configurations of the resource against the same AWS account will cause a perpetual difference.
- *
+ * 
  * > Advanced usage: To use a custom API endpoint for this Terraform resource, use the [`s3control` endpoint provider configuration](https://www.terraform.io/docs/providers/aws/index.html#s3control), not the `s3` endpoint provider configuration.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.s3.AccountPublicAccessBlock("example", {
  *     blockPublicAcls: true,
  *     blockPublicPolicy: true,
@@ -73,7 +73,7 @@ export class AccountPublicAccessBlock extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AccountPublicAccessBlockArgs | AccountPublicAccessBlockState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as AccountPublicAccessBlockState | undefined;
+            const state: AccountPublicAccessBlockState = argsOrState as AccountPublicAccessBlockState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["blockPublicAcls"] = state ? state.blockPublicAcls : undefined;
             inputs["blockPublicPolicy"] = state ? state.blockPublicPolicy : undefined;

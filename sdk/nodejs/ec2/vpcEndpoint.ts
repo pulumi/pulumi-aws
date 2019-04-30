@@ -6,34 +6,34 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a VPC Endpoint resource.
- *
+ * 
  * > **NOTE on VPC Endpoints and VPC Endpoint Associations:** Terraform provides both standalone VPC Endpoint Associations for
  * Route Tables - (an association between a VPC endpoint and a single `route_table_id`) and
  * Subnets - (an association between a VPC endpoint and a single `subnet_id`) and
  * a VPC Endpoint resource with `route_table_ids` and `subnet_ids` attributes.
  * Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
  * Doing so will cause a conflict of associations and will overwrite the association.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * Basic usage:
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const s3 = new aws.ec2.VpcEndpoint("s3", {
  *     serviceName: "com.amazonaws.us-west-2.s3",
  *     vpcId: aws_vpc_main.id,
  * });
  * ```
- *
+ * 
  * Interface type usage:
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const ec2 = new aws.ec2.VpcEndpoint("ec2", {
  *     privateDnsEnabled: true,
  *     securityGroupIds: [aws_security_group_sg1.id],
@@ -42,13 +42,13 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_main.id,
  * });
  * ```
- *
+ * 
  * Custom Service Usage:
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const ptfeServiceVpcEndpoint = new aws.ec2.VpcEndpoint("ptfe_service", {
  *     privateDnsEnabled: false,
  *     securityGroupIds: [aws_security_group_ptfe_service.id],
@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  *     zoneId: internal.apply(internal => internal.zoneId),
  * });
  * ```
- *
+ * 
  * > **NOTE The `dns_entry` output is a list of maps:** Terraform interpolation support for lists of maps requires the `lookup` and `[]` until full support of lists of maps is available
  */
 export class VpcEndpoint extends pulumi.CustomResource {
@@ -154,7 +154,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcEndpointArgs | VpcEndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as VpcEndpointState | undefined;
+            const state: VpcEndpointState = argsOrState as VpcEndpointState | undefined;
             inputs["autoAccept"] = state ? state.autoAccept : undefined;
             inputs["cidrBlocks"] = state ? state.cidrBlocks : undefined;
             inputs["dnsEntries"] = state ? state.dnsEntries : undefined;

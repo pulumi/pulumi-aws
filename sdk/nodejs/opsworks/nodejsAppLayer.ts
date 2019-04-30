@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks NodeJS application layer resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const app = new aws.opsworks.NodejsAppLayer("app", {
  *     stackId: aws_opsworks_stack_main.id,
  * });
@@ -112,7 +112,7 @@ export class NodejsAppLayer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NodejsAppLayerArgs | NodejsAppLayerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as NodejsAppLayerState | undefined;
+            const state: NodejsAppLayerState = argsOrState as NodejsAppLayerState | undefined;
             inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
             inputs["autoAssignPublicIps"] = state ? state.autoAssignPublicIps : undefined;
             inputs["autoHealing"] = state ? state.autoHealing : undefined;

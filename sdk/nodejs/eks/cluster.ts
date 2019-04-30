@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EKS Cluster.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.eks.Cluster("example", {
  *     enabledClusterLogTypes: [
  *         "api",
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         ],
  *     },
  * });
- *
+ * 
  * export const endpoint = example.endpoint;
  * export const kubeconfig_certificate_authority_data = example.certificateAuthority.apply(certificateAuthority => certificateAuthority.data);
  * ```
@@ -93,7 +93,7 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ClusterState | undefined;
+            const state: ClusterState = argsOrState as ClusterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
             inputs["createdAt"] = state ? state.createdAt : undefined;

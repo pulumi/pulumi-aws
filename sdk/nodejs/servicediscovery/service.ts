@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Service Discovery Service resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const exampleVpc = new aws.ec2.Vpc("example", {
  *     cidrBlock: "10.0.0.0/16",
  *     enableDnsHostnames: true,
@@ -36,11 +36,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const examplePublicDnsNamespace = new aws.servicediscovery.PublicDnsNamespace("example", {
  *     description: "example",
  * });
@@ -109,7 +109,7 @@ export class Service extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ServiceState | undefined;
+            const state: ServiceState = argsOrState as ServiceState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["dnsConfig"] = state ? state.dnsConfig : undefined;

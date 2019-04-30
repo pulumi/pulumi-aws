@@ -6,11 +6,11 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const defaultCluster = new aws.neptune.Cluster("default", {
  *     applyImmediately: true,
  *     backupRetentionPeriod: 5,
@@ -50,11 +50,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * ## Attributes
- *
+ * 
  * The following additional atttributes are provided:
- *
+ * 
  * * `id` - The name of the Neptune event notification subscription.
  * * `arn` - The Amazon Resource Name of the Neptune event notification subscription.
  * * `customer_aws_id` - The AWS customer account associated with the Neptune event notification subscription.
@@ -118,7 +118,7 @@ export class EventSubscription extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventSubscriptionArgs | EventSubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as EventSubscriptionState | undefined;
+            const state: EventSubscriptionState = argsOrState as EventSubscriptionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["customerAwsId"] = state ? state.customerAwsId : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;

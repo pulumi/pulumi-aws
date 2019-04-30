@@ -97,7 +97,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TaskDefinitionArgs | TaskDefinitionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as TaskDefinitionState | undefined;
+            const state: TaskDefinitionState = argsOrState as TaskDefinitionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["containerDefinitions"] = state ? state.containerDefinitions : undefined;
             inputs["cpu"] = state ? state.cpu : undefined;

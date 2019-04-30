@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages status (recording / stopped) of an AWS Config Configuration Recorder.
- *
+ * 
  * > **Note:** Starting Configuration Recorder requires a [Delivery Channel](https://www.terraform.io/docs/providers/aws/r/config_delivery_channel.html) to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const role = new aws.iam.Role("r", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -99,7 +99,7 @@ export class RecorderStatus extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RecorderStatusArgs | RecorderStatusState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as RecorderStatusState | undefined;
+            const state: RecorderStatusState = argsOrState as RecorderStatusState | undefined;
             inputs["isEnabled"] = state ? state.isEnabled : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {

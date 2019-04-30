@@ -6,12 +6,12 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a AWS Transfer User SSH Key resource.
- *
- *
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const fooRole = new aws.iam.Role("foo", {
  *     assumeRolePolicy: `{
  * 	"Version": "2012-10-17",
@@ -102,7 +102,7 @@ export class SshKey extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SshKeyArgs | SshKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as SshKeyState | undefined;
+            const state: SshKeyState = argsOrState as SshKeyState | undefined;
             inputs["body"] = state ? state.body : undefined;
             inputs["serverId"] = state ? state.serverId : undefined;
             inputs["userName"] = state ? state.userName : undefined;

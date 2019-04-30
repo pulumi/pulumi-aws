@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage a DynamoDB Global Table. These are layered on top of existing DynamoDB Tables.
- *
+ * 
  * > Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
  */
 export class GlobalTable extends pulumi.CustomResource {
@@ -46,7 +46,7 @@ export class GlobalTable extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GlobalTableArgs | GlobalTableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as GlobalTableState | undefined;
+            const state: GlobalTableState = argsOrState as GlobalTableState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["replicas"] = state ? state.replicas : undefined;

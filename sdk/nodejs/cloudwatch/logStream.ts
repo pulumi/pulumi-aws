@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudWatch Log Stream resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const yada = new aws.cloudwatch.LogGroup("yada", {});
  * const foo = new aws.cloudwatch.LogStream("foo", {
  *     logGroupName: yada.name,
@@ -56,7 +56,7 @@ export class LogStream extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LogStreamArgs | LogStreamState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as LogStreamState | undefined;
+            const state: LogStreamState = argsOrState as LogStreamState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["logGroupName"] = state ? state.logGroupName : undefined;
             inputs["name"] = state ? state.name : undefined;

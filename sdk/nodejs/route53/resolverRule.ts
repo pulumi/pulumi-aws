@@ -6,27 +6,27 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Route53 Resolver rule.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### System rule
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const sys = new aws.route53.ResolverRule("sys", {
  *     domainName: "subdomain.example.com",
  *     ruleType: "SYSTEM",
  * });
  * ```
- *
+ * 
  * ### Forward rule
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const fwd = new aws.route53.ResolverRule("fwd", {
  *     domainName: "example.com",
  *     resolverEndpointId: aws_route53_resolver_endpoint_foo.id,
@@ -104,7 +104,7 @@ export class ResolverRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResolverRuleArgs | ResolverRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ResolverRuleState | undefined;
+            const state: ResolverRuleState = argsOrState as ResolverRuleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
             inputs["name"] = state ? state.name : undefined;

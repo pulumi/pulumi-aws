@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Rule Resource
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const ipset = new aws.waf.IpSet("ipset", {
  *     ipSetDescriptors: [{
  *         type: "IPV4",
@@ -66,7 +66,7 @@ export class Rule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RuleArgs | RuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as RuleState | undefined;
+            const state: RuleState = argsOrState as RuleState | undefined;
             inputs["metricName"] = state ? state.metricName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["predicates"] = state ? state.predicates : undefined;

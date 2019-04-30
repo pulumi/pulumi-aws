@@ -10,13 +10,13 @@ import * as utilities from "../utilities";
  * * [Microsoft SQL Server Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.Options.html)
  * * [MySQL Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.Options.html)
  * * [Oracle Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.html)
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.rds.OptionGroup("example", {
  *     engineName: "sqlserver-ee",
  *     majorEngineVersion: "11.00",
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *     optionGroupDescription: "Terraform Option Group",
  * });
  * ```
- *
+ * 
  * > **Note**: Any modifications to the `db_option_group` are set to happen immediately as we default to applying immediately.
  */
 export class OptionGroup extends pulumi.CustomResource {
@@ -102,7 +102,7 @@ export class OptionGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: OptionGroupArgs | OptionGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as OptionGroupState | undefined;
+            const state: OptionGroupState = argsOrState as OptionGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["engineName"] = state ? state.engineName : undefined;
             inputs["majorEngineVersion"] = state ? state.majorEngineVersion : undefined;

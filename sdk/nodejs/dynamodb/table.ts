@@ -6,18 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DynamoDB table resource
- *
+ * 
  * > **Note:** It is recommended to use `lifecycle` [`ignore_changes`](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) for `read_capacity` and/or `write_capacity` if there's [autoscaling policy](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html) attached to the table.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * The following dynamodb table description models the table and GSI shown
  * in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const basic_dynamodb_table = new aws.dynamodb.Table("basic-dynamodb-table", {
  *     attributes: [
  *         {
@@ -57,9 +57,9 @@ import * as utilities from "../utilities";
  *     writeCapacity: 20,
  * });
  * ```
- *
+ * 
  * Notes: `attribute` can be lists
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * ```
@@ -169,7 +169,7 @@ export class Table extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TableArgs | TableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as TableState | undefined;
+            const state: TableState = argsOrState as TableState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["attributes"] = state ? state.attributes : undefined;
             inputs["billingMode"] = state ? state.billingMode : undefined;

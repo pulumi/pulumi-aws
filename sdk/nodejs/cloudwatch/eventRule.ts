@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudWatch Event Rule resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const console = new aws.cloudwatch.EventRule("console", {
  *     description: "Capture each AWS Console Sign In",
  *     eventPattern: `{
@@ -108,7 +108,7 @@ export class EventRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventRuleArgs | EventRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as EventRuleState | undefined;
+            const state: EventRuleState = argsOrState as EventRuleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["eventPattern"] = state ? state.eventPattern : undefined;

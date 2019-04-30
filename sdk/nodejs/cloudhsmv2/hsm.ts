@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Creates an HSM module in Amazon CloudHSM v2 cluster.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * The following example below creates an HSM module in CloudHSM cluster.
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const cluster = pulumi.output(aws.cloudhsmv2.getCluster({
  *     clusterId: var_cloudhsm_cluster_id,
  * }));
@@ -77,7 +77,7 @@ export class Hsm extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: HsmArgs | HsmState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as HsmState | undefined;
+            const state: HsmState = argsOrState as HsmState | undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["clusterId"] = state ? state.clusterId : undefined;
             inputs["hsmEniId"] = state ? state.hsmEniId : undefined;

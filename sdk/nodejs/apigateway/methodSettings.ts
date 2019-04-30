@@ -8,13 +8,13 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides an API Gateway Method Settings, e.g. logging or monitoring.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const testRestApi = new aws.apigateway.RestApi("test", {
  *     description: "This is my API for demonstration purposes",
  * });
@@ -102,7 +102,7 @@ export class MethodSettings extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MethodSettingsArgs | MethodSettingsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as MethodSettingsState | undefined;
+            const state: MethodSettingsState = argsOrState as MethodSettingsState | undefined;
             inputs["methodPath"] = state ? state.methodPath : undefined;
             inputs["restApi"] = state ? state.restApi : undefined;
             inputs["settings"] = state ? state.settings : undefined;

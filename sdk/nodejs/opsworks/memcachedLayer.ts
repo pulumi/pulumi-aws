@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks memcached layer resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const cache = new aws.opsworks.MemcachedLayer("cache", {
  *     stackId: aws_opsworks_stack_main.id,
  * });
@@ -112,7 +112,7 @@ export class MemcachedLayer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MemcachedLayerArgs | MemcachedLayerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as MemcachedLayerState | undefined;
+            const state: MemcachedLayerState = argsOrState as MemcachedLayerState | undefined;
             inputs["allocatedMemory"] = state ? state.allocatedMemory : undefined;
             inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
             inputs["autoAssignPublicIps"] = state ? state.autoAssignPublicIps : undefined;

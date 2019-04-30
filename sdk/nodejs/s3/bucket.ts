@@ -8,15 +8,15 @@ import {CannedAcl} from "./cannedAcl";
 
 /**
  * Provides a S3 bucket resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### Private Bucket w/ Tags
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const bucket = new aws.s3.Bucket("b", {
  *     acl: "private",
  *     tags: {
@@ -25,14 +25,14 @@ import {CannedAcl} from "./cannedAcl";
  *     },
  * });
  * ```
- *
+ * 
  * ### Static Website Hosting
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- *
+ * 
  * const bucket = new aws.s3.Bucket("b", {
  *     acl: "public-read",
  *     policy: fs.readFileSync("policy.json", "utf-8"),
@@ -51,13 +51,13 @@ import {CannedAcl} from "./cannedAcl";
  *     },
  * });
  * ```
- *
+ * 
  * ### Using CORS
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const bucket = new aws.s3.Bucket("b", {
  *     acl: "public-read",
  *     corsRules: [{
@@ -72,13 +72,13 @@ import {CannedAcl} from "./cannedAcl";
  *     }],
  * });
  * ```
- *
+ * 
  * ### Using versioning
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const bucket = new aws.s3.Bucket("b", {
  *     acl: "private",
  *     versioning: {
@@ -86,13 +86,13 @@ import {CannedAcl} from "./cannedAcl";
  *     },
  * });
  * ```
- *
+ * 
  * ### Enable Logging
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const logBucket = new aws.s3.Bucket("log_bucket", {
  *     acl: "log-delivery-write",
  * });
@@ -104,13 +104,13 @@ import {CannedAcl} from "./cannedAcl";
  *     }],
  * });
  * ```
- *
+ * 
  * ### Using object lifecycle
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "private",
  *     lifecycleRules: [
@@ -170,13 +170,13 @@ import {CannedAcl} from "./cannedAcl";
  *     },
  * });
  * ```
- *
+ * 
  * ### Enable Default Server Side Encryption
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const mykey = new aws.kms.Key("mykey", {
  *     deletionWindowInDays: 10,
  *     description: "This key is used to encrypt bucket objects",
@@ -314,7 +314,7 @@ export class Bucket extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BucketArgs | BucketState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as BucketState | undefined;
+            const state: BucketState = argsOrState as BucketState | undefined;
             inputs["accelerationStatus"] = state ? state.accelerationStatus : undefined;
             inputs["acl"] = state ? state.acl : undefined;
             inputs["arn"] = state ? state.arn : undefined;

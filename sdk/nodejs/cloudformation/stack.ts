@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudFormation Stack resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const network = new aws.cloudformation.Stack("network", {
  *     parameters: {
  *         VPCCidr: "10.0.0.0/16",
@@ -127,7 +127,7 @@ export class Stack extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StackArgs | StackState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as StackState | undefined;
+            const state: StackState = argsOrState as StackState | undefined;
             inputs["capabilities"] = state ? state.capabilities : undefined;
             inputs["disableRollback"] = state ? state.disableRollback : undefined;
             inputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;

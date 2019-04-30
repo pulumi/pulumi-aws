@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS App Mesh route resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### HTTP Routing
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const serviceb = new aws.appmesh.Route("serviceb", {
  *     meshName: aws_appmesh_mesh_simple.id,
  *     spec: {
@@ -39,13 +39,13 @@ import * as utilities from "../utilities";
  *     virtualRouterName: aws_appmesh_virtual_router_serviceb.name,
  * });
  * ```
- *
+ * 
  * ### TCP Routing
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const serviceb = new aws.appmesh.Route("serviceb", {
  *     meshName: aws_appmesh_mesh_simple.id,
  *     spec: {
@@ -115,7 +115,7 @@ export class Route extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as RouteState | undefined;
+            const state: RouteState = argsOrState as RouteState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
             inputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;

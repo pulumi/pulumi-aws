@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a VPC Endpoint Route Table Association
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.ec2.VpcEndpointRouteTableAssociation("example", {
  *     routeTableId: aws_route_table_example.id,
  *     vpcEndpointId: aws_vpc_endpoint_example.id,
@@ -52,7 +52,7 @@ export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcEndpointRouteTableAssociationArgs | VpcEndpointRouteTableAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as VpcEndpointRouteTableAssociationState | undefined;
+            const state: VpcEndpointRouteTableAssociationState = argsOrState as VpcEndpointRouteTableAssociationState | undefined;
             inputs["routeTableId"] = state ? state.routeTableId : undefined;
             inputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
         } else {

@@ -7,19 +7,19 @@ import * as utilities from "../utilities";
 /**
  * The AMI resource allows the creation and management of a completely-custom
  * *Amazon Machine Image* (AMI).
- *
+ * 
  * If you just want to duplicate an existing AMI, possibly copying it to another
  * region, it's better to use `aws_ami_copy` instead.
- *
+ * 
  * If you just want to share an existing AMI with another AWS account,
  * it's better to use `aws_ami_launch_permission` instead.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * // Create an AMI that will start a machine whose root device is backed by
  * // an EBS volume populated from a snapshot. It is assumed that such a snapshot
  * // already exists with the id "snap-xxxxxxxx".
@@ -124,7 +124,7 @@ export class Ami extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AmiArgs | AmiState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as AmiState | undefined;
+            const state: AmiState = argsOrState as AmiState | undefined;
             inputs["architecture"] = state ? state.architecture : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;

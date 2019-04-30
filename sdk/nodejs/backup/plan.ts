@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Backup plan resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.backup.Plan("example", {
  *     rules: [{
  *         ruleName: "tf_example_backup_rule",
@@ -67,7 +67,7 @@ export class Plan extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PlanArgs | PlanState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as PlanState | undefined;
+            const state: PlanState = argsOrState as PlanState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["rules"] = state ? state.rules : undefined;

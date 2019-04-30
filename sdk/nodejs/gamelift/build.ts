@@ -48,7 +48,7 @@ export class Build extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BuildArgs | BuildState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as BuildState | undefined;
+            const state: BuildState = argsOrState as BuildState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["operatingSystem"] = state ? state.operatingSystem : undefined;
             inputs["storageLocation"] = state ? state.storageLocation : undefined;

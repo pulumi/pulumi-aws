@@ -6,24 +6,24 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS App Mesh service mesh resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### Basic
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const simple = new aws.appmesh.Mesh("simple", {});
  * ```
- *
+ * 
  * ### Egress Filter
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const simple = new aws.appmesh.Mesh("simple", {
  *     spec: {
  *         egressFilter: {
@@ -78,7 +78,7 @@ export class Mesh extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MeshArgs | MeshState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as MeshState | undefined;
+            const state: MeshState = argsOrState as MeshState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
             inputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;

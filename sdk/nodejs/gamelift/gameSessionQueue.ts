@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Gamelift Game Session Queue resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const test = new aws.gamelift.GameSessionQueue("test", {
  *     destinations: [
  *         aws_gamelift_fleet_us_west_2_fleet.arn,
@@ -76,7 +76,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GameSessionQueueArgs | GameSessionQueueState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as GameSessionQueueState | undefined;
+            const state: GameSessionQueueState = argsOrState as GameSessionQueueState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["destinations"] = state ? state.destinations : undefined;
             inputs["name"] = state ? state.name : undefined;

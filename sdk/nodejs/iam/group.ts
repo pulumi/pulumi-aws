@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an IAM group.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const developers = new aws.iam.Group("developers", {
  *     path: "/users/",
  * });
@@ -59,7 +59,7 @@ export class Group extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as GroupState | undefined;
+            const state: GroupState = argsOrState as GroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["path"] = state ? state.path : undefined;

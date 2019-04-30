@@ -6,21 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an AWS Storage Gateway cached iSCSI volume.
- *
+ * 
  * > **NOTE:** The gateway must have cache added (e.g. via the [`aws_storagegateway_cache`](https://www.terraform.io/docs/providers/aws/r/storagegateway_cache.html) resource) before creating volumes otherwise the Storage Gateway API will return an error.
- *
+ * 
  * > **NOTE:** The gateway must have an upload buffer added (e.g. via the [`aws_storagegateway_upload_buffer`](https://www.terraform.io/docs/providers/aws/r/storagegateway_upload_buffer.html) resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `UPLOAD BUFFER NOT CONFIGURED`.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * > **NOTE:** These examples are referencing the [`aws_storagegateway_cache`](https://www.terraform.io/docs/providers/aws/r/storagegateway_cache.html) resource `gateway_arn` attribute to ensure Terraform properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `depends_on = ["aws_storagegateway_cache.example"]`) to ensure proper ordering.
- *
+ * 
  * ### Create Empty Cached iSCSI Volume
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.storagegateway.CachesIscsiVolume("example", {
  *     gatewayArn: aws_storagegateway_cache_example.gatewayArn,
  *     networkInterfaceId: aws_instance_example.privateIp,
@@ -28,13 +28,13 @@ import * as utilities from "../utilities";
  *     volumeSizeInBytes: 5368709120, // 5 GB
  * });
  * ```
- *
+ * 
  * ### Create Cached iSCSI Volume From Snapshot
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.storagegateway.CachesIscsiVolume("example", {
  *     gatewayArn: aws_storagegateway_cache_example.gatewayArn,
  *     networkInterfaceId: aws_instance_example.privateIp,
@@ -43,13 +43,13 @@ import * as utilities from "../utilities";
  *     volumeSizeInBytes: aws_ebs_snapshot_example.volumeSize.apply(volumeSize => (((volumeSize * 1024) * 1024) * 1024)),
  * });
  * ```
- *
+ * 
  * ### Create Cached iSCSI Volume From Source Volume
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.storagegateway.CachesIscsiVolume("example", {
  *     gatewayArn: aws_storagegateway_cache_example.gatewayArn,
  *     networkInterfaceId: aws_instance_example.privateIp,
@@ -136,7 +136,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CachesIscsiVolumeArgs | CachesIscsiVolumeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as CachesIscsiVolumeState | undefined;
+            const state: CachesIscsiVolumeState = argsOrState as CachesIscsiVolumeState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["chapEnabled"] = state ? state.chapEnabled : undefined;
             inputs["gatewayArn"] = state ? state.gatewayArn : undefined;

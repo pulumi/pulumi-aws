@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the [`aws_dx_gateway_association` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association.html).
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const exampleGateway = new aws.directconnect.Gateway("example", {
  *     amazonSideAsn: "64512",
  * });
@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const exampleVpnGateway = new aws.ec2.VpnGateway("example", {
  *     vpcId: exampleVpc.id,
  * });
- * const exampleGatewayAssociationProposal = new aws.directconnect.GatewayAssociationProposal("example", {
+ * const exampleDxGatewayAssociationProposal = new aws.DxGatewayAssociationProposal("example", {
  *     dxGatewayId: exampleGateway.id,
  *     dxGatewayOwnerAccountId: exampleGateway.ownerAccountId,
  *     vpnGatewayId: exampleVpnGateway.id,
@@ -70,7 +70,7 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GatewayAssociationProposalArgs | GatewayAssociationProposalState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as GatewayAssociationProposalState | undefined;
+            const state: GatewayAssociationProposalState = argsOrState as GatewayAssociationProposalState | undefined;
             inputs["allowedPrefixes"] = state ? state.allowedPrefixes : undefined;
             inputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
             inputs["dxGatewayOwnerAccountId"] = state ? state.dxGatewayOwnerAccountId : undefined;

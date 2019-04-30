@@ -6,19 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Creates a AWS Batch compute environment. Compute environments contain the Amazon ECS container instances that are used to run containerized batch jobs.
- *
+ * 
  * For information about AWS Batch, see [What is AWS Batch?][1] .
  * For information about compute environment, see [Compute Environments][2] .
- *
+ * 
  * > **Note:** To prevent a race condition during environment deletion, make sure to set `depends_on` to the related `aws_iam_role_policy_attachment`;
  *    otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch][3] .
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const awsBatchServiceRoleRole = new aws.iam.Role("aws_batch_service_role", {
  *     assumeRolePolicy: `{
  *     "Version": "2012-10-17",
@@ -145,7 +145,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ComputeEnvironmentArgs | ComputeEnvironmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ComputeEnvironmentState | undefined;
+            const state: ComputeEnvironmentState = argsOrState as ComputeEnvironmentState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["computeEnvironmentName"] = state ? state.computeEnvironmentName : undefined;
             inputs["computeResources"] = state ? state.computeResources : undefined;

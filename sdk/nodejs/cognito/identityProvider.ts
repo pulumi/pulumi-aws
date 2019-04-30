@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Identity Provider resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.cognito.UserPool("example", {
  *     autoVerifiedAttributes: ["email"],
  * });
@@ -81,7 +81,7 @@ export class IdentityProvider extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: IdentityProviderArgs | IdentityProviderState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as IdentityProviderState | undefined;
+            const state: IdentityProviderState = argsOrState as IdentityProviderState | undefined;
             inputs["attributeMapping"] = state ? state.attributeMapping : undefined;
             inputs["idpIdentifiers"] = state ? state.idpIdentifiers : undefined;
             inputs["providerDetails"] = state ? state.providerDetails : undefined;

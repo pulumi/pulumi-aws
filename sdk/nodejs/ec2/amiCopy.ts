@@ -7,22 +7,22 @@ import * as utilities from "../utilities";
 /**
  * The "AMI copy" resource allows duplication of an Amazon Machine Image (AMI),
  * including cross-region copies.
- *
+ * 
  * If the source AMI has associated EBS snapshots, those will also be duplicated
  * along with the AMI.
- *
+ * 
  * This is useful for taking a single AMI provisioned in one region and making
  * it available in another for a multi-region deployment.
- *
+ * 
  * Copying an AMI can take several minutes. The creation of this resource will
  * block until the new AMI is available for use on new instances.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.ec2.AmiCopy("example", {
  *     description: "A copy of ami-xxxxxxxx",
  *     sourceAmiId: "ami-xxxxxxxx",
@@ -138,7 +138,7 @@ export class AmiCopy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AmiCopyArgs | AmiCopyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as AmiCopyState | undefined;
+            const state: AmiCopyState = argsOrState as AmiCopyState | undefined;
             inputs["architecture"] = state ? state.architecture : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;

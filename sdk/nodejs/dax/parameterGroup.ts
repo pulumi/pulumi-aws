@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DAX Parameter Group resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.dax.ParameterGroup("example", {
  *     parameters: [
  *         {
@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
+ * 
  * ## parameters
- *
+ * 
  * `parameters` supports the following:
- *
+ * 
  * * `name` - (Required) The name of the parameter.
  * * `value` - (Required) The value for the parameter.
  */
@@ -71,7 +71,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ParameterGroupArgs | ParameterGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ParameterGroupState | undefined;
+            const state: ParameterGroupState = argsOrState as ParameterGroupState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;

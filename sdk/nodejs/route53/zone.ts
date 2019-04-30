@@ -6,28 +6,28 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Route53 Hosted Zone.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### Public Zone
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const primary = new aws.route53.Zone("primary", {});
  * ```
- *
+ * 
  * ### Public Subdomain Zone
- *
+ * 
  * For use in subdomains, note that you need to create a
  * `aws_route53_record` of type `NS` as well as the subdomain
  * zone.
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const dev = new aws.route53.Zone("dev", {
  *     tags: {
  *         Environment: "dev",
@@ -46,17 +46,17 @@ import * as utilities from "../utilities";
  *     zoneId: main.zoneId,
  * });
  * ```
- *
+ * 
  * ### Private Zone
- *
+ * 
  * > **NOTE:** Terraform provides both exclusive VPC associations defined in-line in this resource via `vpc` configuration blocks and a separate [Zone VPC Association](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) resource. At this time, you cannot use in-line VPC associations in conjunction with any `aws_route53_zone_association` resources with the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use the generic Terraform resource [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html#lifecycle) with `ignore_changes` to manage additional associations via the `aws_route53_zone_association` resource.
- *
+ * 
  * > **NOTE:** Private zones require at least one VPC association at all times.
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const privateZone = new aws.route53.Zone("private", {
  *     vpcs: [{
  *         vpcId: aws_vpc_example.id,
@@ -122,7 +122,7 @@ export class Zone extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ZoneArgs | ZoneState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ZoneState | undefined;
+            const state: ZoneState = argsOrState as ZoneState | undefined;
             inputs["comment"] = state ? state.comment : undefined;
             inputs["delegationSetId"] = state ? state.delegationSetId : undefined;
             inputs["forceDestroy"] = state ? state.forceDestroy : undefined;

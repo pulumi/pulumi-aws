@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const testRole = new aws.iam.Role("test_role", {
  *     assumeRolePolicy: `  {
  *     "Version": "2012-10-17",
@@ -92,7 +92,7 @@ export class Activation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ActivationArgs | ActivationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ActivationState | undefined;
+            const state: ActivationState = argsOrState as ActivationState | undefined;
             inputs["activationCode"] = state ? state.activationCode : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["expirationDate"] = state ? state.expirationDate : undefined;

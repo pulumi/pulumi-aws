@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks Java application layer resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const app = new aws.opsworks.JavaAppLayer("app", {
  *     stackId: aws_opsworks_stack_main.id,
  * });
@@ -128,7 +128,7 @@ export class JavaAppLayer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: JavaAppLayerArgs | JavaAppLayerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as JavaAppLayerState | undefined;
+            const state: JavaAppLayerState = argsOrState as JavaAppLayerState | undefined;
             inputs["appServer"] = state ? state.appServer : undefined;
             inputs["appServerVersion"] = state ? state.appServerVersion : undefined;
             inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;

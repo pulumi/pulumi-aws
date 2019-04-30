@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage the accepter's side of a VPC Peering Connection.
- *
+ * 
  * When a cross-account (requester's AWS account differs from the accepter's AWS account) or an inter-region
  * VPC Peering Connection is created, a VPC Peering Connection resource is automatically created in the
  * accepter's account.
@@ -81,7 +81,7 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcPeeringConnectionAccepterArgs | VpcPeeringConnectionAccepterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as VpcPeeringConnectionAccepterState | undefined;
+            const state: VpcPeeringConnectionAccepterState = argsOrState as VpcPeeringConnectionAccepterState | undefined;
             inputs["acceptStatus"] = state ? state.acceptStatus : undefined;
             inputs["accepter"] = state ? state.accepter : undefined;
             inputs["autoAccept"] = state ? state.autoAccept : undefined;

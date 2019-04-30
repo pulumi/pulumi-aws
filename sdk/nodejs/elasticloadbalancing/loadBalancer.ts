@@ -8,20 +8,20 @@ import * as utilities from "../utilities";
  * Provides an Elastic Load Balancer resource, also known as a "Classic
  * Load Balancer" after the release of
  * [Application/Network Load Balancers](https://www.terraform.io/docs/providers/aws/r/lb.html).
- *
+ * 
  * > **NOTE on ELB Instances and ELB Attachments:** Terraform currently
  * provides both a standalone ELB Attachment resource
  * (describing an instance attached to an ELB), and an ELB resource with
  * `instances` defined in-line. At this time you cannot use an ELB with in-line
  * instances in conjunction with a ELB Attachment resources. Doing so will cause a
  * conflict and will overwrite attachments.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * // Create a new load balancer
  * const bar = new aws.elasticloadbalancing.LoadBalancer("bar", {
  *     accessLogs: {
@@ -66,9 +66,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * ## Note on ECDSA Key Algorithm
- *
+ * 
  * If the ARN of the `ssl_certificate_id` that is pointed to references a
  * certificate that was signed by an ECDSA key, note that ELB only supports the
  * P256 and P384 curves.  Using a certificate signed by a key using a different
@@ -186,7 +186,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LoadBalancerArgs | LoadBalancerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as LoadBalancerState | undefined;
+            const state: LoadBalancerState = argsOrState as LoadBalancerState | undefined;
             inputs["accessLogs"] = state ? state.accessLogs : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;

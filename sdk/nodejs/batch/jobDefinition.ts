@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Batch Job Definition resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const test = new aws.batch.JobDefinition("test", {
  *     containerProperties: `{
  * 	"command": ["ls", "-la"],
@@ -49,17 +49,17 @@ import * as utilities from "../utilities";
  *     type: "container",
  * });
  * ```
- *
+ * 
  * ## retry_strategy
- *
+ * 
  * `retry_strategy` supports the following:
- *
+ * 
  * * `attempts` - (Optional) The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
- *
+ * 
  * ## timeout
- *
+ * 
  * `timeout` supports the following:
- *
+ * 
  * * `attempt_duration_seconds` - (Optional) The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
  */
 export class JobDefinition extends pulumi.CustomResource {
@@ -121,7 +121,7 @@ export class JobDefinition extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: JobDefinitionArgs | JobDefinitionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as JobDefinitionState | undefined;
+            const state: JobDefinitionState = argsOrState as JobDefinitionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["containerProperties"] = state ? state.containerProperties : undefined;
             inputs["name"] = state ? state.name : undefined;

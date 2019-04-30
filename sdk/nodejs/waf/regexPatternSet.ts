@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Regex Pattern Set Resource
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.waf.RegexPatternSet("example", {
  *     regexPatternStrings: [
  *         "one",
@@ -54,7 +54,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RegexPatternSetArgs | RegexPatternSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as RegexPatternSetState | undefined;
+            const state: RegexPatternSetState = argsOrState as RegexPatternSetState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["regexPatternStrings"] = state ? state.regexPatternStrings : undefined;
         } else {

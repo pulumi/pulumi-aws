@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages Cost and Usage Report Definitions.
- *
+ * 
  * > *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
- *
+ * 
  * > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const exampleCurReportDefinition = new aws.cur.ReportDefinition("example_cur_report_definition", {
  *     additionalArtifacts: [
  *         "REDSHIFT",
@@ -93,7 +93,7 @@ export class ReportDefinition extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ReportDefinitionArgs | ReportDefinitionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ReportDefinitionState | undefined;
+            const state: ReportDefinitionState = argsOrState as ReportDefinitionState | undefined;
             inputs["additionalArtifacts"] = state ? state.additionalArtifacts : undefined;
             inputs["additionalSchemaElements"] = state ? state.additionalSchemaElements : undefined;
             inputs["compression"] = state ? state.compression : undefined;

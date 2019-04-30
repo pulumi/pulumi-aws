@@ -8,22 +8,22 @@ import * as utilities from "../utilities";
  * Provides an ElastiCache Cluster resource, which manages a Memcached cluster or Redis instance.
  * For working with Redis (Cluster Mode Enabled) replication groups, see the
  * [`aws_elasticache_replication_group` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group.html).
- *
+ * 
  * > **Note:** When you change an attribute, such as `node_type`, by default
  * it is applied in the next maintenance window. Because of this, Terraform may report
  * a difference in its planning phase because the actual modification has not yet taken
  * place. You can use the `apply_immediately` flag to instruct the service to apply the
  * change immediately. Using `apply_immediately` can result in a brief downtime as the server reboots.
  * See the AWS Docs on [Modifying an ElastiCache Cache Cluster][2] for more information.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### Memcached Cluster
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.elasticache.Cluster("example", {
  *     engine: "memcached",
  *     nodeType: "cache.m4.large",
@@ -32,13 +32,13 @@ import * as utilities from "../utilities";
  *     port: 11211,
  * });
  * ```
- *
+ * 
  * ### Redis Instance
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.elasticache.Cluster("example", {
  *     engine: "redis",
  *     engineVersion: "3.2.10",
@@ -48,15 +48,15 @@ import * as utilities from "../utilities";
  *     port: 6379,
  * });
  * ```
- *
+ * 
  * ### Redis Cluster Mode Disabled Read Replica Instance
- *
+ * 
  * These inherit their settings from the replication group.
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const replica = new aws.elasticache.Cluster("replica", {
  *     replicationGroupId: aws_elasticache_replication_group_example.id,
  * });
@@ -215,7 +215,7 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ClusterState | undefined;
+            const state: ClusterState = argsOrState as ClusterState | undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["azMode"] = state ? state.azMode : undefined;

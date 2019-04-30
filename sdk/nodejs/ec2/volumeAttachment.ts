@@ -7,15 +7,15 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS EBS Volume Attachment as a top level resource, to attach and
  * detach volumes from AWS Instances.
- *
+ * 
  * > **NOTE on EBS block devices:** If you use `ebs_block_device` on an `aws_instance`, Terraform will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `aws_ebs_volume` + `aws_ebs_volume_attachment` resources for a given instance.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.ebs.Volume("example", {
  *     availabilityZone: "us-west-2a",
  *     size: 1,
@@ -88,7 +88,7 @@ export class VolumeAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VolumeAttachmentArgs | VolumeAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as VolumeAttachmentState | undefined;
+            const state: VolumeAttachmentState = argsOrState as VolumeAttachmentState | undefined;
             inputs["deviceName"] = state ? state.deviceName : undefined;
             inputs["forceDetach"] = state ? state.forceDetach : undefined;
             inputs["instanceId"] = state ? state.instanceId : undefined;

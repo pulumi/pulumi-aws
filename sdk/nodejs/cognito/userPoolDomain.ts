@@ -6,14 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Pool Domain resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### Amazon Cognito domain
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.cognito.UserPool("example", {});
  * const main = new aws.cognito.UserPoolDomain("main", {
  *     domain: "example-domain",
@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.cognito.UserPool("example", {});
  * const main = new aws.cognito.UserPoolDomain("main", {
  *     certificateArn: aws_acm_certificate_cert.arn,
@@ -86,7 +86,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserPoolDomainArgs | UserPoolDomainState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as UserPoolDomainState | undefined;
+            const state: UserPoolDomainState = argsOrState as UserPoolDomainState | undefined;
             inputs["awsAccountId"] = state ? state.awsAccountId : undefined;
             inputs["certificateArn"] = state ? state.certificateArn : undefined;
             inputs["cloudfrontDistributionArn"] = state ? state.cloudfrontDistributionArn : undefined;

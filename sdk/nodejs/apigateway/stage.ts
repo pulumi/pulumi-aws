@@ -9,13 +9,13 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides an API Gateway Stage.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const testRestApi = new aws.apigateway.RestApi("test", {
  *     description: "This is my API for demonstration purposes",
  * });
@@ -141,7 +141,7 @@ export class Stage extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StageArgs | StageState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as StageState | undefined;
+            const state: StageState = argsOrState as StageState | undefined;
             inputs["accessLogSettings"] = state ? state.accessLogSettings : undefined;
             inputs["cacheClusterEnabled"] = state ? state.cacheClusterEnabled : undefined;
             inputs["cacheClusterSize"] = state ? state.cacheClusterSize : undefined;

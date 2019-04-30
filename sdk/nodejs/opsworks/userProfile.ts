@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks User Profile resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const myProfile = new aws.opsworks.UserProfile("my_profile", {
  *     sshUsername: "my_user",
  *     userArn: aws_iam_user_user.arn,
@@ -60,7 +60,7 @@ export class UserProfile extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserProfileArgs | UserProfileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as UserProfileState | undefined;
+            const state: UserProfileState = argsOrState as UserProfileState | undefined;
             inputs["allowSelfManagement"] = state ? state.allowSelfManagement : undefined;
             inputs["sshPublicKey"] = state ? state.sshPublicKey : undefined;
             inputs["sshUsername"] = state ? state.sshUsername : undefined;

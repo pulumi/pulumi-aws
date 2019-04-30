@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Pinpoint SMS Channel resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const role = new aws.iam.Role("role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -107,7 +107,7 @@ export class EmailChannel extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EmailChannelArgs | EmailChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as EmailChannelState | undefined;
+            const state: EmailChannelState = argsOrState as EmailChannelState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["fromAddress"] = state ? state.fromAddress : undefined;

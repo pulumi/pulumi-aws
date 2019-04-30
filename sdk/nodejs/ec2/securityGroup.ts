@@ -6,24 +6,24 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a security group resource.
- *
+ * 
  * > **NOTE on Security Groups and Security Group Rules:** Terraform currently
  * provides both a standalone Security Group Rule resource (a single `ingress` or
  * `egress` rule), and a Security Group resource with `ingress` and `egress` rules
  * defined in-line. At this time you cannot use a Security Group with in-line rules
  * in conjunction with any Security Group Rule resources. Doing so will cause
  * a conflict of rule settings and will overwrite rules.
- *
+ * 
  * > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
- *
+ * 
  * ## Example Usage
- *
+ * 
  * Basic usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const allowTls = new aws.ec2.SecurityGroup("allow_tls", {
  *     description: "Allow TLS inbound traffic",
  *     egress: [{
@@ -45,13 +45,13 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_main.id,
  * });
  * ```
- *
+ * 
  * Basic usage with tags:
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const allowTls = new aws.ec2.SecurityGroup("allow_tls", {
  *     description: "Allow TLS inbound traffic",
  *     ingress: [{
@@ -68,17 +68,17 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * ## Usage with prefix list IDs
- *
+ * 
  * Prefix list IDs are managed by AWS internally. Prefix list IDs
  * are associated with a prefix list name, or service name, that is linked to a specific region.
  * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * // ...
  * const myEndpoint = new aws.ec2.VpcEndpoint("my_endpoint", {});
  * ```
@@ -163,7 +163,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SecurityGroupArgs | SecurityGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as SecurityGroupState | undefined;
+            const state: SecurityGroupState = argsOrState as SecurityGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["egress"] = state ? state.egress : undefined;

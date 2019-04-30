@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Connection of Direct Connect.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const hoge = new aws.directconnect.Connection("hoge", {
  *     bandwidth: "1Gbps",
  *     location: "EqDC2",
@@ -76,7 +76,7 @@ export class Connection extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ConnectionArgs | ConnectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ConnectionState | undefined;
+            const state: ConnectionState = argsOrState as ConnectionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["awsDevice"] = state ? state.awsDevice : undefined;
             inputs["bandwidth"] = state ? state.bandwidth : undefined;

@@ -9,13 +9,13 @@ import {Role} from "./role";
 
 /**
  * Provides an IAM role policy.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const testRole = new aws.iam.Role("test_role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -93,7 +93,7 @@ export class RolePolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RolePolicyArgs | RolePolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as RolePolicyState | undefined;
+            const state: RolePolicyState = argsOrState as RolePolicyState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
             inputs["policy"] = state ? state.policy : undefined;

@@ -40,7 +40,7 @@ export class InviteAccepter extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: InviteAccepterArgs | InviteAccepterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as InviteAccepterState | undefined;
+            const state: InviteAccepterState = argsOrState as InviteAccepterState | undefined;
             inputs["detectorId"] = state ? state.detectorId : undefined;
             inputs["masterAccountId"] = state ? state.masterAccountId : undefined;
         } else {

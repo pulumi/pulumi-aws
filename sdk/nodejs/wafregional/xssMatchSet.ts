@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Regional XSS Match Set Resource for use with Application Load Balancer.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const xssMatchSet = new aws.wafregional.XssMatchSet("xss_match_set", {
  *     xssMatchTuples: [
  *         {
@@ -64,7 +64,7 @@ export class XssMatchSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: XssMatchSetArgs | XssMatchSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as XssMatchSetState | undefined;
+            const state: XssMatchSetState = argsOrState as XssMatchSetState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["xssMatchTuples"] = state ? state.xssMatchTuples : undefined;
         } else {

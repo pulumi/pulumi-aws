@@ -7,17 +7,17 @@ import * as utilities from "../utilities";
 /**
  * Provides an ElastiCache Security Group to control access to one or more cache
  * clusters.
- *
+ * 
  * > **NOTE:** ElastiCache Security Groups are for use only when working with an
  * ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
  * ElastiCache Subnet Group resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const barEc2SecurityGroup = new aws.ec2.SecurityGroup("bar", {});
  * const barSecurityGroup = new aws.elasticache.SecurityGroup("bar", {
  *     securityGroupNames: [barEc2SecurityGroup.name],
@@ -62,7 +62,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SecurityGroupArgs | SecurityGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as SecurityGroupState | undefined;
+            const state: SecurityGroupState = argsOrState as SecurityGroupState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;

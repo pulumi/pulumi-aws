@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an IoT policy.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const pubsub = new aws.iot.Policy("pubsub", {
  *     policy: `{
  *   "Version": "2012-10-17",
@@ -71,7 +71,7 @@ export class Policy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as PolicyState | undefined;
+            const state: PolicyState = argsOrState as PolicyState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["defaultVersionId"] = state ? state.defaultVersionId : undefined;
             inputs["name"] = state ? state.name : undefined;

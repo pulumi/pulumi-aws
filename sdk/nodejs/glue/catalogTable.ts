@@ -6,26 +6,26 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Glue Catalog Table Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### Basic Table
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws_glue_catalog_table", {
  *     databaseName: "MyCatalogDatabase",
  * });
  * ```
- *
+ * 
  * ### Parquet Table for Athena
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws_glue_catalog_table", {
  *     databaseName: "MyCatalogDatabase",
  *     parameters: {
@@ -146,7 +146,7 @@ export class CatalogTable extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CatalogTableArgs | CatalogTableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as CatalogTableState | undefined;
+            const state: CatalogTableState = argsOrState as CatalogTableState | undefined;
             inputs["catalogId"] = state ? state.catalogId : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["description"] = state ? state.description : undefined;

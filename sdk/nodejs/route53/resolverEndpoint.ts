@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Route 53 Resolver endpoint resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const foo = new aws.route53.ResolverEndpoint("foo", {
  *     direction: "INBOUND",
  *     ipAddresses: [
@@ -90,7 +90,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResolverEndpointArgs | ResolverEndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ResolverEndpointState | undefined;
+            const state: ResolverEndpointState = argsOrState as ResolverEndpointState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["direction"] = state ? state.direction : undefined;
             inputs["hostVpcId"] = state ? state.hostVpcId : undefined;

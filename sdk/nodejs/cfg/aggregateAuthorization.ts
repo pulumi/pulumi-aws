@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an AWS Config Aggregate Authorization
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.cfg.AggregateAuthorization("example", {
  *     accountId: "123456789012",
  *     region: "eu-west-2",
@@ -56,7 +56,7 @@ export class AggregateAuthorization extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AggregateAuthorizationArgs | AggregateAuthorizationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as AggregateAuthorizationState | undefined;
+            const state: AggregateAuthorizationState = argsOrState as AggregateAuthorizationState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["region"] = state ? state.region : undefined;

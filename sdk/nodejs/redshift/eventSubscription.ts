@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Redshift event subscription resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const defaultCluster = new aws.redshift.Cluster("default", {
  *     clusterIdentifier: "default",
  *     databaseName: "default",
@@ -34,11 +34,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * ## Attributes
- *
+ * 
  * The following additional atttributes are provided:
- *
+ * 
  * * `id` - The name of the Redshift event notification subscription
  * * `customer_aws_id` - The AWS customer account associated with the Redshift event notification subscription
  */
@@ -101,7 +101,7 @@ export class EventSubscription extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventSubscriptionArgs | EventSubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as EventSubscriptionState | undefined;
+            const state: EventSubscriptionState = argsOrState as EventSubscriptionState | undefined;
             inputs["customerAwsId"] = state ? state.customerAwsId : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["eventCategories"] = state ? state.eventCategories : undefined;

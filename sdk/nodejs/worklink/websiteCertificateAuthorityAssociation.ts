@@ -6,12 +6,12 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- *
+ * 
  * const example = new aws.worklink.Fleet("example", {});
  * const test = new aws.worklink.WebsiteCertificateAuthorityAssociation("test", {
  *     certificate: fs.readFileSync("certificate.pem", "utf-8"),
@@ -60,7 +60,7 @@ export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResourc
     constructor(name: string, argsOrState?: WebsiteCertificateAuthorityAssociationArgs | WebsiteCertificateAuthorityAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as WebsiteCertificateAuthorityAssociationState | undefined;
+            const state: WebsiteCertificateAuthorityAssociationState = argsOrState as WebsiteCertificateAuthorityAssociationState | undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["fleetArn"] = state ? state.fleetArn : undefined;

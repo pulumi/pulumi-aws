@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g. ARN)
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.elasticsearch.Domain("example", {
  *     elasticsearchVersion: "2.3",
  * });
@@ -69,7 +69,7 @@ export class DomainPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DomainPolicyArgs | DomainPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as DomainPolicyState | undefined;
+            const state: DomainPolicyState = argsOrState as DomainPolicyState | undefined;
             inputs["accessPolicies"] = state ? state.accessPolicies : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
         } else {

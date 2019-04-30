@@ -7,18 +7,18 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS EIP Association as a top level resource, to associate and
  * disassociate Elastic IPs from AWS Instances and Network Interfaces.
- *
+ * 
  * > **NOTE:** Do not use this resource to associate an EIP to `aws_lb` or `aws_nat_gateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
- *
+ * 
  * > **NOTE:** `aws_eip_association` is useful in scenarios where EIPs are either
  * pre-existing or distributed to customers or users and therefore cannot be changed.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.ec2.Eip("example", {
  *     vpc: true,
  * });
@@ -94,7 +94,7 @@ export class EipAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EipAssociationArgs | EipAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as EipAssociationState | undefined;
+            const state: EipAssociationState = argsOrState as EipAssociationState | undefined;
             inputs["allocationId"] = state ? state.allocationId : undefined;
             inputs["allowReassociation"] = state ? state.allowReassociation : undefined;
             inputs["instanceId"] = state ? state.instanceId : undefined;

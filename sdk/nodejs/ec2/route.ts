@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create a routing table entry (a route) in a VPC routing table.
- *
+ * 
  * > **NOTE on Route Tables and Routes:** Terraform currently
  * provides both a standalone Route resource and a Route Table resource with routes
  * defined in-line. At this time you cannot use a Route Table with in-line routes
@@ -82,7 +82,7 @@ export class Route extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as RouteState | undefined;
+            const state: RouteState = argsOrState as RouteState | undefined;
             inputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
             inputs["destinationIpv6CidrBlock"] = state ? state.destinationIpv6CidrBlock : undefined;
             inputs["destinationPrefixListId"] = state ? state.destinationPrefixListId : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Uploads an SSH public key and associates it with the specified IAM user.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const userUser = new aws.iam.User("user", {
  *     path: "/",
  * });
@@ -72,7 +72,7 @@ export class SshKey extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SshKeyArgs | SshKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as SshKeyState | undefined;
+            const state: SshKeyState = argsOrState as SshKeyState | undefined;
             inputs["encoding"] = state ? state.encoding : undefined;
             inputs["fingerprint"] = state ? state.fingerprint : undefined;
             inputs["publicKey"] = state ? state.publicKey : undefined;

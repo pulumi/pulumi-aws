@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Pinpoint SMS Channel resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const app = new aws.pinpoint.App("app", {});
  * const sms = new aws.pinpoint.SmsChannel("sms", {
  *     applicationId: app.applicationId,
@@ -68,7 +68,7 @@ export class SmsChannel extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SmsChannelArgs | SmsChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as SmsChannelState | undefined;
+            const state: SmsChannelState = argsOrState as SmsChannelState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["promotionalMessagesPerSecond"] = state ? state.promotionalMessagesPerSecond : undefined;

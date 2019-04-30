@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Resource Access Manager (RAM) principal association.
- *
+ * 
  * > *NOTE:* For an AWS Account ID principal, the target account must accept the RAM association invitation after resource creation.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### AWS Account ID
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const exampleResourceShare = new aws.ram.ResourceShare("example", {
  *     // ... other configuration ...
  *     allowExternalPrincipals: true,
@@ -26,13 +26,13 @@ import * as utilities from "../utilities";
  *     resourceShareArn: exampleResourceShare.arn,
  * });
  * ```
- *
+ * 
  * ### AWS Organization
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.ram.PrincipalAssociation("example", {
  *     principal: aws_organizations_organization_example.arn,
  *     resourceShareArn: aws_ram_resource_share_example.arn,
@@ -72,7 +72,7 @@ export class PrincipalAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PrincipalAssociationArgs | PrincipalAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as PrincipalAssociationState | undefined;
+            const state: PrincipalAssociationState = argsOrState as PrincipalAssociationState | undefined;
             inputs["principal"] = state ? state.principal : undefined;
             inputs["resourceShareArn"] = state ? state.resourceShareArn : undefined;
         } else {

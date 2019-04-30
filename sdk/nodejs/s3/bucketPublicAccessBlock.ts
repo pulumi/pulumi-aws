@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const exampleBucket = new aws.s3.Bucket("example", {});
  * const exampleBucketPublicAccessBlock = new aws.s3.BucketPublicAccessBlock("example", {
  *     blockPublicAcls: true,
@@ -71,7 +71,7 @@ export class BucketPublicAccessBlock extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BucketPublicAccessBlockArgs | BucketPublicAccessBlockState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as BucketPublicAccessBlockState | undefined;
+            const state: BucketPublicAccessBlockState = argsOrState as BucketPublicAccessBlockState | undefined;
             inputs["blockPublicAcls"] = state ? state.blockPublicAcls : undefined;
             inputs["blockPublicPolicy"] = state ? state.blockPublicPolicy : undefined;
             inputs["bucket"] = state ? state.bucket : undefined;

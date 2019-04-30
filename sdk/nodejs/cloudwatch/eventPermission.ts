@@ -6,27 +6,27 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create a CloudWatch Events permission to support cross-account events in the current account default event bus.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### Account Access
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const devAccountAccess = new aws.cloudwatch.EventPermission("DevAccountAccess", {
  *     principal: "123456789012",
  *     statementId: "DevAccountAccess",
  * });
  * ```
- *
+ * 
  * ### Organization Access
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const organizationAccess = new aws.cloudwatch.EventPermission("OrganizationAccess", {
  *     condition: {
  *         key: "aws:PrincipalOrgID",
@@ -79,7 +79,7 @@ export class EventPermission extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventPermissionArgs | EventPermissionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as EventPermissionState | undefined;
+            const state: EventPermissionState = argsOrState as EventPermissionState | undefined;
             inputs["action"] = state ? state.action : undefined;
             inputs["condition"] = state ? state.condition : undefined;
             inputs["principal"] = state ? state.principal : undefined;

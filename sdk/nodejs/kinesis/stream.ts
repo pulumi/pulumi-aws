@@ -7,15 +7,15 @@ import * as utilities from "../utilities";
 /**
  * Provides a Kinesis Stream resource. Amazon Kinesis is a managed service that
  * scales elastically for real-time processing of streaming big data.
- *
+ * 
  * For more details, see the [Amazon Kinesis Documentation][1].
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const testStream = new aws.kinesis.Stream("test_stream", {
  *     retentionPeriod: 48,
  *     shardCount: 1,
@@ -89,7 +89,7 @@ export class Stream extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StreamArgs | StreamState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as StreamState | undefined;
+            const state: StreamState = argsOrState as StreamState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["encryptionType"] = state ? state.encryptionType : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DB event subscription resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const defaultInstance = new aws.rds.Instance("default", {
  *     allocatedStorage: 10,
  *     dbSubnetGroupName: "my_database_subnet_group",
@@ -43,11 +43,11 @@ import * as utilities from "../utilities";
  *     sourceType: "db-instance",
  * });
  * ```
- *
+ * 
  * ## Attributes
- *
+ * 
  * The following additional atttributes are provided:
- *
+ * 
  * * `id` - The name of the RDS event notification subscription
  * * `arn` - The Amazon Resource Name of the RDS event notification subscription
  * * `customer_aws_id` - The AWS customer account associated with the RDS event notification subscription
@@ -111,7 +111,7 @@ export class EventSubscription extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventSubscriptionArgs | EventSubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as EventSubscriptionState | undefined;
+            const state: EventSubscriptionState = argsOrState as EventSubscriptionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["customerAwsId"] = state ? state.customerAwsId : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;

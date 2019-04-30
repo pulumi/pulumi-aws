@@ -6,25 +6,25 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS App Mesh virtual router resource.
- *
+ * 
  * ## Breaking Changes
- *
+ * 
  * Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92) and [here](https://github.com/awslabs/aws-app-mesh-examples/issues/94)), `aws_appmesh_virtual_router` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
- *
+ * 
  * * Remove service `service_names` from the `spec` argument.
  * AWS has created a `aws_appmesh_virtual_service` resource for each of service names.
  * These resource can be imported using `terraform import`.
- *
+ * 
  * * Add a `listener` configuration block to the `spec` argument.
- *
+ * 
  * The Terraform state associated with existing resources will automatically be migrated.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const serviceb = new aws.appmesh.VirtualRouter("serviceb", {
  *     meshName: aws_appmesh_mesh_simple.id,
  *     spec: {
@@ -87,7 +87,7 @@ export class VirtualRouter extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VirtualRouterArgs | VirtualRouterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as VirtualRouterState | undefined;
+            const state: VirtualRouterState = argsOrState as VirtualRouterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
             inputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Direct Connect BGP peer resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const peer = new aws.directconnect.BgpPeer("peer", {
  *     addressFamily: "ipv6",
  *     bgpAsn: 65351,
@@ -83,7 +83,7 @@ export class BgpPeer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BgpPeerArgs | BgpPeerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as BgpPeerState | undefined;
+            const state: BgpPeerState = argsOrState as BgpPeerState | undefined;
             inputs["addressFamily"] = state ? state.addressFamily : undefined;
             inputs["amazonAddress"] = state ? state.amazonAddress : undefined;
             inputs["awsDevice"] = state ? state.awsDevice : undefined;

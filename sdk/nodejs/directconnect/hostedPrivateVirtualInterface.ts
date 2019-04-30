@@ -7,13 +7,13 @@ import * as utilities from "../utilities";
 /**
  * Provides a Direct Connect hosted private virtual interface resource. This resource represents the allocator's side of the hosted virtual interface.
  * A hosted virtual interface is a virtual interface that is owned by another AWS account.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const foo = new aws.directconnect.HostedPrivateVirtualInterface("foo", {
  *     addressFamily: "ipv4",
  *     bgpAsn: 65352,
@@ -99,7 +99,7 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: HostedPrivateVirtualInterfaceArgs | HostedPrivateVirtualInterfaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as HostedPrivateVirtualInterfaceState | undefined;
+            const state: HostedPrivateVirtualInterfaceState = argsOrState as HostedPrivateVirtualInterfaceState | undefined;
             inputs["addressFamily"] = state ? state.addressFamily : undefined;
             inputs["amazonAddress"] = state ? state.amazonAddress : undefined;
             inputs["arn"] = state ? state.arn : undefined;

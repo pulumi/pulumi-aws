@@ -6,23 +6,23 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Document resource
- *
+ * 
  * > **NOTE on updating SSM documents:** Only documents with a schema version of 2.0
  * or greater can update their content once created, see [SSM Schema Features][1]. To update a document with an older
  * schema version you must recreate the resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const foo = new aws.ssm.Document("foo", {
  *     content: `  {
  *     "schemaVersion": "1.2",
  *     "description": "Check ip configuration of a Linux instance.",
  *     "parameters": {
- *
+ * 
  *     },
  *     "runtimeConfig": {
  *       "aws:runShellScript": {
@@ -39,15 +39,15 @@ import * as utilities from "../utilities";
  *     documentType: "Command",
  * });
  * ```
- *
+ * 
  * ## Permissions
- *
+ * 
  * The permissions attribute specifies how you want to share the document. If you share a document privately,
  * you must specify the AWS user account IDs for those people who can use the document. If you share a document
  * publicly, you must specify All as the account ID.
- *
+ * 
  * The permissions mapping supports the following:
- *
+ * 
  * * `type` - The permission type for the document. The permission type can be `Share`.
  * * `account_ids` - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or `All`.
  */
@@ -145,7 +145,7 @@ export class Document extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DocumentArgs | DocumentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as DocumentState | undefined;
+            const state: DocumentState = argsOrState as DocumentState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["content"] = state ? state.content : undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;

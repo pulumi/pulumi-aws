@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES event destination
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### CloudWatch Destination
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const cloudwatch = new aws.ses.EventDestination("cloudwatch", {
  *     cloudwatchDestinations: [{
  *         defaultValue: "default",
@@ -29,13 +29,13 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
+ * 
  * ### Kinesis Destination
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const kinesis = new aws.ses.EventDestination("kinesis", {
  *     configurationSetName: aws_ses_configuration_set_example.name,
  *     enabled: true,
@@ -49,13 +49,13 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
+ * 
  * ### SNS Destination
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const sns = new aws.ses.EventDestination("sns", {
  *     configurationSetName: aws_ses_configuration_set_example.name,
  *     enabled: true,
@@ -122,7 +122,7 @@ export class EventDestination extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventDestinationArgs | EventDestinationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as EventDestinationState | undefined;
+            const state: EventDestinationState = argsOrState as EventDestinationState | undefined;
             inputs["cloudwatchDestinations"] = state ? state.cloudwatchDestinations : undefined;
             inputs["configurationSetName"] = state ? state.configurationSetName : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;

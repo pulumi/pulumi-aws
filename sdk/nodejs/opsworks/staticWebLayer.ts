@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks static web server layer resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const web = new aws.opsworks.StaticWebLayer("web", {
  *     stackId: aws_opsworks_stack_main.id,
  * });
@@ -105,7 +105,7 @@ export class StaticWebLayer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StaticWebLayerArgs | StaticWebLayerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as StaticWebLayerState | undefined;
+            const state: StaticWebLayerState = argsOrState as StaticWebLayerState | undefined;
             inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
             inputs["autoAssignPublicIps"] = state ? state.autoAssignPublicIps : undefined;
             inputs["autoHealing"] = state ? state.autoHealing : undefined;

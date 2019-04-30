@@ -6,30 +6,30 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Patch Baseline resource
- *
- * > **NOTE on Patch Baselines:** The `approved_patches` and `approval_rule` are
+ * 
+ * > **NOTE on Patch Baselines:** The `approved_patches` and `approval_rule` are 
  * both marked as optional fields, but the Patch Baseline requires that at least one
  * of them is specified.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * Basic usage using `approved_patches` only
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const production = new aws.ssm.PatchBaseline("production", {
  *     approvedPatches: ["KB123456"],
  * });
  * ```
- *
+ * 
  * Advanced usage, specifying patch filters
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const production = new aws.ssm.PatchBaseline("production", {
  *     approvalRules: [
  *         {
@@ -146,7 +146,7 @@ export class PatchBaseline extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PatchBaselineArgs | PatchBaselineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as PatchBaselineState | undefined;
+            const state: PatchBaselineState = argsOrState as PatchBaselineState | undefined;
             inputs["approvalRules"] = state ? state.approvalRules : undefined;
             inputs["approvedPatches"] = state ? state.approvedPatches : undefined;
             inputs["approvedPatchesComplianceLevel"] = state ? state.approvedPatchesComplianceLevel : undefined;

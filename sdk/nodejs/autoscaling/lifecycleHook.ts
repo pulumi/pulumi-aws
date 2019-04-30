@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AutoScaling Lifecycle Hook resource.
- *
+ * 
  * > **NOTE:** Terraform has two types of ways you can add lifecycle hooks - via
  * the `initial_lifecycle_hook` attribute from the
  * [`aws_autoscaling_group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html)
@@ -18,13 +18,13 @@ import * as utilities from "../utilities";
  * `initial_lifecycle_hook` in
  * [`aws_autoscaling_group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
  * but take care to not duplicate those hooks with this resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const foobarGroup = new aws.autoscaling.Group("foobar", {
  *     availabilityZones: ["us-west-2a"],
  *     healthCheckType: "EC2",
@@ -106,7 +106,7 @@ export class LifecycleHook extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LifecycleHookArgs | LifecycleHookState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as LifecycleHookState | undefined;
+            const state: LifecycleHookState = argsOrState as LifecycleHookState | undefined;
             inputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
             inputs["defaultResult"] = state ? state.defaultResult : undefined;
             inputs["heartbeatTimeout"] = state ? state.heartbeatTimeout : undefined;

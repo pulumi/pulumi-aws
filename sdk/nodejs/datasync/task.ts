@@ -8,13 +8,13 @@ import {ARN} from "../index";
 
 /**
  * Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this Terraform resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.datasync.Task("example", {
  *     destinationLocationArn: aws_datasync_location_s3_destination.arn,
  *     options: {
@@ -77,7 +77,7 @@ export class Task extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TaskArgs | TaskState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as TaskState | undefined;
+            const state: TaskState = argsOrState as TaskState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cloudwatchLogGroupArn"] = state ? state.cloudwatchLogGroupArn : undefined;
             inputs["destinationLocationArn"] = state ? state.destinationLocationArn : undefined;

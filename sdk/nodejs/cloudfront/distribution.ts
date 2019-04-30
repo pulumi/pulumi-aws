@@ -6,25 +6,25 @@ import * as utilities from "../utilities";
 
 /**
  * Creates an Amazon CloudFront web distribution.
- *
+ * 
  * For information about CloudFront distributions, see the
  * [Amazon CloudFront Developer Guide][1]. For specific information about creating
  * CloudFront web distributions, see the [POST Distribution][2] page in the Amazon
  * CloudFront API Reference.
- *
+ * 
  * > **NOTE:** CloudFront distributions take about 15 minutes to a deployed state
  * after creation or modification. During this time, deletes to resources will be
  * blocked. If you need to delete a distribution that is enabled and you do not
  * want to wait, you need to use the `retain_on_delete` flag.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * The following example below creates a CloudFront distribution with an S3 origin.
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const s3OriginId = "myS3Origin";
  * const bucket = new aws.s3.Bucket("b", {
  *     acl: "private",
@@ -153,13 +153,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * The following example below creates a Cloudfront distribution with an origin group for failover routing:
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const s3Distribution = new aws.cloudfront.Distribution("s3_distribution", {
  *     defaultCacheBehavior: {
  *         // ... other configuration ...
@@ -373,7 +373,7 @@ export class Distribution extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DistributionArgs | DistributionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as DistributionState | undefined;
+            const state: DistributionState = argsOrState as DistributionState | undefined;
             inputs["activeTrustedSigners"] = state ? state.activeTrustedSigners : undefined;
             inputs["aliases"] = state ? state.aliases : undefined;
             inputs["arn"] = state ? state.arn : undefined;

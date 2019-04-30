@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const lb = new aws.elasticloadbalancing.LoadBalancer("lb", {
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [
@@ -74,7 +74,7 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProxyProtocolPolicyArgs | ProxyProtocolPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ProxyProtocolPolicyState | undefined;
+            const state: ProxyProtocolPolicyState = argsOrState as ProxyProtocolPolicyState | undefined;
             inputs["instancePorts"] = state ? state.instancePorts : undefined;
             inputs["loadBalancer"] = state ? state.loadBalancer : undefined;
         } else {

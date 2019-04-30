@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a static route between a VPN connection and a customer gateway.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const customerGateway = new aws.ec2.CustomerGateway("customer_gateway", {
  *     bgpAsn: 65000,
  *     ipAddress: "172.0.0.1",
@@ -69,7 +69,7 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpnConnectionRouteArgs | VpnConnectionRouteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as VpnConnectionRouteState | undefined;
+            const state: VpnConnectionRouteState = argsOrState as VpnConnectionRouteState | undefined;
             inputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
             inputs["vpnConnectionId"] = state ? state.vpnConnectionId : undefined;
         } else {

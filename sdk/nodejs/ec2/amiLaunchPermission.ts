@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Adds launch permission to Amazon Machine Image (AMI) from another AWS account.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.ec2.AmiLaunchPermission("example", {
  *     accountId: "123456789012",
  *     imageId: "ami-12345678",
@@ -52,7 +52,7 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AmiLaunchPermissionArgs | AmiLaunchPermissionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as AmiLaunchPermissionState | undefined;
+            const state: AmiLaunchPermissionState = argsOrState as AmiLaunchPermissionState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["imageId"] = state ? state.imageId : undefined;
         } else {

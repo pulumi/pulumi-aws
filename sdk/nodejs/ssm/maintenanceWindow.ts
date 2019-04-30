@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Maintenance Window resource
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const production = new aws.ssm.MaintenanceWindow("production", {
  *     cutoff: 1,
  *     duration: 3,
@@ -81,7 +81,7 @@ export class MaintenanceWindow extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MaintenanceWindowArgs | MaintenanceWindowState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as MaintenanceWindowState | undefined;
+            const state: MaintenanceWindowState = argsOrState as MaintenanceWindowState | undefined;
             inputs["allowUnassociatedTargets"] = state ? state.allowUnassociatedTargets : undefined;
             inputs["cutoff"] = state ? state.cutoff : undefined;
             inputs["duration"] = state ? state.duration : undefined;

@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a S3 Bucket Notification Configuration. For additional information, see the [Configuring S3 Event Notifications section in the Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html).
- *
+ * 
  * > **NOTE:** S3 Buckets only support a single notification configuration. Declaring multiple `aws_s3_bucket_notification` resources to the same S3 Bucket will cause a perpetual difference in configuration.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### Add notification configuration to SNS Topic
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const bucket = new aws.s3.Bucket("bucket", {});
  * const topic = new aws.sns.Topic("topic", {
  *     policy: bucket.arn.apply(arn => `{
@@ -42,13 +42,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
+ * 
  * ### Add notification configuration to SQS Queue
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const bucket = new aws.s3.Bucket("bucket", {});
  * const queue = new aws.sqs.Queue("queue", {
  *     policy: bucket.arn.apply(arn => `{
@@ -76,13 +76,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
+ * 
  * ### Add notification configuration to Lambda Function
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -121,13 +121,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
+ * 
  * ### Trigger multiple Lambda functions
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -185,13 +185,13 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
+ * 
  * ### Add multiple notification configurations to SQS Queue
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const bucket = new aws.s3.Bucket("bucket", {});
  * const queue = new aws.sqs.Queue("queue", {
  *     policy: bucket.arn.apply(arn => `{
@@ -228,9 +228,9 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
+ * 
  * For Terraform's [JSON syntax](https://www.terraform.io/docs/configuration/syntax.html), use an array instead of defining the `queue` key twice.
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * ```
@@ -276,7 +276,7 @@ export class BucketNotification extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BucketNotificationArgs | BucketNotificationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as BucketNotificationState | undefined;
+            const state: BucketNotificationState = argsOrState as BucketNotificationState | undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
             inputs["lambdaFunctions"] = state ? state.lambdaFunctions : undefined;
             inputs["queues"] = state ? state.queues : undefined;

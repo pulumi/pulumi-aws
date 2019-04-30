@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks stack resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const main = new aws.opsworks.Stack("main", {
  *     customJson: `{
  *  "foobar": {
@@ -151,7 +151,7 @@ export class Stack extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StackArgs | StackState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as StackState | undefined;
+            const state: StackState = argsOrState as StackState | undefined;
             inputs["agentVersion"] = state ? state.agentVersion : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["berkshelfVersion"] = state ? state.berkshelfVersion : undefined;

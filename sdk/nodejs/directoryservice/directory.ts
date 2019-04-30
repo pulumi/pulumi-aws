@@ -6,18 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Simple or Managed Microsoft directory in AWS Directory Service.
- *
+ * 
  * > **Note:** All arguments including the password and customer username will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### SimpleAD
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });
@@ -46,13 +46,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * ### Microsoft Active Directory (MicrosoftAD)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });
@@ -82,13 +82,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * ### Microsoft Active Directory Connector (ADConnector)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });
@@ -203,7 +203,7 @@ export class Directory extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DirectoryArgs | DirectoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as DirectoryState | undefined;
+            const state: DirectoryState = argsOrState as DirectoryState | undefined;
             inputs["accessUrl"] = state ? state.accessUrl : undefined;
             inputs["alias"] = state ? state.alias : undefined;
             inputs["connectSettings"] = state ? state.connectSettings : undefined;

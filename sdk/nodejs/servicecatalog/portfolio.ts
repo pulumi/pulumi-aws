@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create a Service Catalog Portfolio.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const portfolio = new aws.servicecatalog.Portfolio("portfolio", {
  *     description: "List of my organizations apps",
  *     providerName: "Brett",
@@ -62,7 +62,7 @@ export class Portfolio extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PortfolioArgs | PortfolioState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as PortfolioState | undefined;
+            const state: PortfolioState = argsOrState as PortfolioState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["createdTime"] = state ? state.createdTime : undefined;
             inputs["description"] = state ? state.description : undefined;

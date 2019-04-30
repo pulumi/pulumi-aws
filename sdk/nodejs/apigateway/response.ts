@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an API Gateway Gateway Response for a REST API Gateway.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const main = new aws.apigateway.RestApi("main", {});
  * const test = new aws.apigateway.Response("test", {
  *     responseParameters: {
@@ -72,7 +72,7 @@ export class Response extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResponseArgs | ResponseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ResponseState | undefined;
+            const state: ResponseState = argsOrState as ResponseState | undefined;
             inputs["responseParameters"] = state ? state.responseParameters : undefined;
             inputs["responseTemplates"] = state ? state.responseTemplates : undefined;
             inputs["responseType"] = state ? state.responseType : undefined;

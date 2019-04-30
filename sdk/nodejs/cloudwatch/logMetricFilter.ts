@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudWatch Log Metric Filter resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const dada = new aws.cloudwatch.LogGroup("dada", {});
  * const yada = new aws.cloudwatch.LogMetricFilter("yada", {
  *     logGroupName: dada.name,
@@ -68,7 +68,7 @@ export class LogMetricFilter extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LogMetricFilterArgs | LogMetricFilterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as LogMetricFilterState | undefined;
+            const state: LogMetricFilterState = argsOrState as LogMetricFilterState | undefined;
             inputs["logGroupName"] = state ? state.logGroupName : undefined;
             inputs["metricTransformation"] = state ? state.metricTransformation : undefined;
             inputs["name"] = state ? state.name : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Neptune database cluster snapshot.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.neptune.ClusterSnapshot("example", {
  *     dbClusterIdentifier: aws_neptune_cluster_example.id,
  *     dbClusterSnapshotIdentifier: "resourcetestsnapshot1234",
@@ -98,7 +98,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterSnapshotArgs | ClusterSnapshotState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ClusterSnapshotState | undefined;
+            const state: ClusterSnapshotState = argsOrState as ClusterSnapshotState | undefined;
             inputs["allocatedStorage"] = state ? state.allocatedStorage : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             inputs["dbClusterIdentifier"] = state ? state.dbClusterIdentifier : undefined;

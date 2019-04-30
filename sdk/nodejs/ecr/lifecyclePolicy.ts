@@ -6,19 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an ECR repository lifecycle policy.
- *
+ * 
  * > **NOTE:** Only one `aws_ecr_lifecycle_policy` resource can be used with the same ECR repository. To apply multiple rules, they must be combined in the `policy` JSON.
- *
+ * 
  * > **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the Terraform code, the resource will be flagged for recreation every `terraform plan`.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### Policy on untagged image
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const foo = new aws.ecr.Repository("foo", {});
  * const foopolicy = new aws.ecr.LifecyclePolicy("foopolicy", {
  *     policy: `{
@@ -42,13 +42,13 @@ import * as utilities from "../utilities";
  *     repository: foo.name,
  * });
  * ```
- *
+ * 
  * ### Policy on tagged image
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const foo = new aws.ecr.Repository("foo", {});
  * const foopolicy = new aws.ecr.LifecyclePolicy("foopolicy", {
  *     policy: `{
@@ -110,7 +110,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LifecyclePolicyArgs | LifecyclePolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as LifecyclePolicyState | undefined;
+            const state: LifecyclePolicyState = argsOrState as LifecyclePolicyState | undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["registryId"] = state ? state.registryId : undefined;
             inputs["repository"] = state ? state.repository : undefined;

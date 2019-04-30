@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodePipeline.
- *
+ * 
  * > **NOTE on `aws_codepipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const codepipelineRole = new aws.iam.Role("codepipeline_role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -172,7 +172,7 @@ export class Pipeline extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PipelineArgs | PipelineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as PipelineState | undefined;
+            const state: PipelineState = argsOrState as PipelineState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["artifactStore"] = state ? state.artifactStore : undefined;
             inputs["name"] = state ? state.name : undefined;

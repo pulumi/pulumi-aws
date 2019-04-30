@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Regional Geo Match Set Resource
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const geoMatchSet = new aws.wafregional.GeoMatchSet("geo_match_set", {
  *     geoMatchConstraints: [
  *         {
@@ -60,7 +60,7 @@ export class GeoMatchSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GeoMatchSetArgs | GeoMatchSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as GeoMatchSetState | undefined;
+            const state: GeoMatchSetState = argsOrState as GeoMatchSetState | undefined;
             inputs["geoMatchConstraints"] = state ? state.geoMatchConstraints : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {

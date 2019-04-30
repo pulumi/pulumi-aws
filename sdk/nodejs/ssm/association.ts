@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Associates an SSM Document to an instance or EC2 tag.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.ssm.Association("example", {
  *     targets: [{
  *         key: "InstanceIds",
@@ -91,7 +91,7 @@ export class Association extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AssociationArgs | AssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as AssociationState | undefined;
+            const state: AssociationState = argsOrState as AssociationState | undefined;
             inputs["associationId"] = state ? state.associationId : undefined;
             inputs["associationName"] = state ? state.associationName : undefined;
             inputs["complianceSeverity"] = state ? state.complianceSeverity : undefined;

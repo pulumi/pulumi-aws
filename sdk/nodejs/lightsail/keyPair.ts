@@ -8,37 +8,37 @@ import * as utilities from "../utilities";
  * Provides a Lightsail Key Pair, for use with Lightsail Instances. These key pairs
  * are separate from EC2 Key Pairs, and must be created or imported for use with
  * Lightsail.
- *
+ * 
  * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
- *
+ * 
  * ## Example Usage, creating a new Key Pair
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * // Create a new Lightsail Key Pair
  * const lgKeyPair = new aws.lightsail.KeyPair("lg_key_pair", {});
  * ```
- *
+ * 
  * ## Create new Key Pair, encrypting the private key with a PGP Key
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const lgKeyPair = new aws.lightsail.KeyPair("lg_key_pair", {
  *     pgpKey: "keybase:keybaseusername",
  * });
  * ```
- *
+ * 
  * ## Import an existing public key
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- *
+ * 
  * const lgKeyPair = new aws.lightsail.KeyPair("lg_key_pair", {
  *     publicKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf-8"),
  * });
@@ -109,7 +109,7 @@ export class KeyPair extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: KeyPairArgs | KeyPairState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as KeyPairState | undefined;
+            const state: KeyPairState = argsOrState as KeyPairState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["encryptedFingerprint"] = state ? state.encryptedFingerprint : undefined;
             inputs["encryptedPrivateKey"] = state ? state.encryptedPrivateKey : undefined;

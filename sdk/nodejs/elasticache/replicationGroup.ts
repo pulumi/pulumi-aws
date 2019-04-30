@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Provides an ElastiCache Replication Group resource.
  * For working with Memcached or single primary Redis instances (Cluster Mode Disabled), see the
  * [`aws_elasticache_cluster` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_cluster.html).
- *
+ * 
  * > **Note:** When you change an attribute, such as `engine_version`, by
  * default the ElastiCache API applies it in the next maintenance window. Because
  * of this, Terraform may report a difference in its planning phase because the
@@ -16,17 +16,17 @@ import * as utilities from "../utilities";
  * `apply_immediately` flag to instruct the service to apply the change
  * immediately. Using `apply_immediately` can result in a brief downtime as
  * servers reboots.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### Redis Cluster Mode Disabled
- *
+ * 
  * To create a single shard primary with single read replica:
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.elasticache.ReplicationGroup("example", {
  *     automaticFailoverEnabled: true,
  *     availabilityZones: [
@@ -40,16 +40,16 @@ import * as utilities from "../utilities";
  *     replicationGroupDescription: "test description",
  * });
  * ```
- *
+ * 
  * You have two options for adjusting the number of replicas:
- *
+ * 
  * * Adjusting `number_cache_clusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g. preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
  * * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the [`aws_elasticache_cluster` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_cluster.html) and its `replication_group_id` attribute. In this situation, you will need to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` to prevent perpetual differences during Terraform plan with the `number_cache_cluster` attribute.
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.elasticache.ReplicationGroup("example", {
  *     automaticFailoverEnabled: true,
  *     availabilityZones: [
@@ -66,15 +66,15 @@ import * as utilities from "../utilities";
  *     replicationGroupId: example.id,
  * });
  * ```
- *
+ * 
  * ### Redis Cluster Mode Enabled
- *
+ * 
  * To create two shards with a primary and a single read replica each:
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const baz = new aws.elasticache.ReplicationGroup("baz", {
  *     automaticFailoverEnabled: true,
  *     clusterMode: {
@@ -87,9 +87,9 @@ import * as utilities from "../utilities";
  *     replicationGroupDescription: "test description",
  * });
  * ```
- *
+ * 
  * > **Note:** We currently do not support passing a `primary_cluster_id` in order to create the Replication Group.
- *
+ * 
  * > **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
  * and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
  * for full details on using Replication Groups.
@@ -246,7 +246,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ReplicationGroupArgs | ReplicationGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ReplicationGroupState | undefined;
+            const state: ReplicationGroupState = argsOrState as ReplicationGroupState | undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
             inputs["atRestEncryptionEnabled"] = state ? state.atRestEncryptionEnabled : undefined;
             inputs["authToken"] = state ? state.authToken : undefined;

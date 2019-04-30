@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AppSync DataSource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const exampleGraphQLApi = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "API_KEY",
  * });
@@ -133,7 +133,7 @@ export class DataSource extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DataSourceArgs | DataSourceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as DataSourceState | undefined;
+            const state: DataSourceState = argsOrState as DataSourceState | undefined;
             inputs["apiId"] = state ? state.apiId : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;

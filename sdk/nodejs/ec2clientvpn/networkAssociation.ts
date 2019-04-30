@@ -5,15 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
+ * Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the 
  * [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.ec2clientvpn.NetworkAssociation("example", {
  *     clientVpnEndpointId: aws_ec2_client_vpn_endpoint_example.id,
  *     subnetId: aws_subnet_example.id,
@@ -50,7 +50,7 @@ export class NetworkAssociation extends pulumi.CustomResource {
      */
     public readonly subnetId: pulumi.Output<string>;
     /**
-     * The ID of the VPC in which the target network (subnet) is located.
+     * The ID of the VPC in which the target network (subnet) is located. 
      */
     public /*out*/ readonly vpcId: pulumi.Output<string>;
 
@@ -65,7 +65,7 @@ export class NetworkAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NetworkAssociationArgs | NetworkAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as NetworkAssociationState | undefined;
+            const state: NetworkAssociationState = argsOrState as NetworkAssociationState | undefined;
             inputs["clientVpnEndpointId"] = state ? state.clientVpnEndpointId : undefined;
             inputs["securityGroups"] = state ? state.securityGroups : undefined;
             inputs["status"] = state ? state.status : undefined;
@@ -110,7 +110,7 @@ export interface NetworkAssociationState {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
-     * The ID of the VPC in which the target network (subnet) is located.
+     * The ID of the VPC in which the target network (subnet) is located. 
      */
     readonly vpcId?: pulumi.Input<string>;
 }

@@ -10,14 +10,14 @@ import {RestApi} from "./restApi";
  * Connects a custom domain name registered via `aws_api_gateway_domain_name`
  * with a deployed API so that its methods can be called via the
  * custom domain name.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- *
+ * 
  * const exampleDeployment = new aws.apigateway.Deployment("example", {
  *     // See aws_api_gateway_rest_api docs for how to create this
  *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
@@ -78,7 +78,7 @@ export class BasePathMapping extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BasePathMappingArgs | BasePathMappingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as BasePathMappingState | undefined;
+            const state: BasePathMappingState = argsOrState as BasePathMappingState | undefined;
             inputs["restApi"] = state ? state.restApi : undefined;
             inputs["basePath"] = state ? state.basePath : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;

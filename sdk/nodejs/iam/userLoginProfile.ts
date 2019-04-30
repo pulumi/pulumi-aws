@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an IAM User Login Profile with limited support for password creation during Terraform resource creation. Uses PGP to encrypt the password for safe transport to the user. PGP keys can be obtained from Keybase.
- *
+ * 
  * > To reset an IAM User login password via Terraform, you can use the [`terraform taint` command](https://www.terraform.io/docs/commands/taint.html) or change any of the arguments.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const exampleUser = new aws.iam.User("example", {
  *     forceDestroy: true,
  *     path: "/",
@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     pgpKey: "keybase:some_person_that_exists",
  *     user: exampleUser.name,
  * });
- *
+ * 
  * export const password = exampleUserLoginProfile.encryptedPassword;
  * ```
  */
@@ -76,7 +76,7 @@ export class UserLoginProfile extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserLoginProfileArgs | UserLoginProfileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as UserLoginProfileState | undefined;
+            const state: UserLoginProfileState = argsOrState as UserLoginProfileState | undefined;
             inputs["encryptedPassword"] = state ? state.encryptedPassword : undefined;
             inputs["keyFingerprint"] = state ? state.keyFingerprint : undefined;
             inputs["passwordLength"] = state ? state.passwordLength : undefined;

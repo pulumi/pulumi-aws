@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EC2 Transit Gateway VPC Attachment. For examples of custom route table association and propagation, see the EC2 Transit Gateway Networking Examples Guide.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.ec2transitgateway.VpcAttachment("example", {
  *     subnetIds: [aws_subnet_example.id],
  *     transitGatewayId: aws_ec2_transit_gateway_example.id,
@@ -81,7 +81,7 @@ export class VpcAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcAttachmentArgs | VpcAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as VpcAttachmentState | undefined;
+            const state: VpcAttachmentState = argsOrState as VpcAttachmentState | undefined;
             inputs["dnsSupport"] = state ? state.dnsSupport : undefined;
             inputs["ipv6Support"] = state ? state.ipv6Support : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;

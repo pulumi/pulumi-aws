@@ -8,13 +8,13 @@ import {PolicyDocument} from "./documents";
 
 /**
  * Provides an IAM policy attached to a group.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const myDevelopers = new aws.iam.Group("my_developers", {
  *     path: "/users/",
  * });
@@ -79,7 +79,7 @@ export class GroupPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GroupPolicyArgs | GroupPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as GroupPolicyState | undefined;
+            const state: GroupPolicyState = argsOrState as GroupPolicyState | undefined;
             inputs["group"] = state ? state.group : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;

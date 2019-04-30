@@ -7,19 +7,19 @@ import * as utilities from "../utilities";
 /**
  * Provides an network ACL resource. You might set up network ACLs with rules similar
  * to your security groups in order to add an additional layer of security to your VPC.
- *
+ * 
  * > **NOTE on Network ACLs and Network ACL Rules:** Terraform currently
  * provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
  * defined in-line. At this time you cannot use a Network ACL with in-line rules
  * in conjunction with any Network ACL Rule resources. Doing so will cause
  * a conflict of rule settings and will overwrite rules.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const main = new aws.ec2.NetworkAcl("main", {
  *     egress: [{
  *         action: "allow",
@@ -95,7 +95,7 @@ export class NetworkAcl extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NetworkAclArgs | NetworkAclState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as NetworkAclState | undefined;
+            const state: NetworkAclState = argsOrState as NetworkAclState | undefined;
             inputs["egress"] = state ? state.egress : undefined;
             inputs["ingress"] = state ? state.ingress : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;

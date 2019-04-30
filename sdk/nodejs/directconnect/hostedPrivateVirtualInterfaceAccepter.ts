@@ -53,7 +53,7 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
     constructor(name: string, argsOrState?: HostedPrivateVirtualInterfaceAccepterArgs | HostedPrivateVirtualInterfaceAccepterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as HostedPrivateVirtualInterfaceAccepterState | undefined;
+            const state: HostedPrivateVirtualInterfaceAccepterState = argsOrState as HostedPrivateVirtualInterfaceAccepterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
             inputs["tags"] = state ? state.tags : undefined;

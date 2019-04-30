@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a RDS Global Cluster, which is an Aurora global database spread across multiple regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
- *
+ * 
  * More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
- *
+ * 
  * > **NOTE:** RDS only supports the `aurora` engine (MySQL 5.6 compatible) for Global Clusters at this time.
  */
 export class GlobalCluster extends pulumi.CustomResource {
@@ -65,7 +65,7 @@ export class GlobalCluster extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GlobalClusterArgs | GlobalClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as GlobalClusterState | undefined;
+            const state: GlobalClusterState = argsOrState as GlobalClusterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["deletionProtection"] = state ? state.deletionProtection : undefined;

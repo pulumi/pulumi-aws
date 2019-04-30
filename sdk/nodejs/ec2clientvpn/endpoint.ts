@@ -7,13 +7,13 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
  * [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.ec2clientvpn.Endpoint("example", {
  *     authenticationOptions: {
  *         rootCertificateChainArn: aws_acm_certificate_root_cert.arn,
@@ -95,7 +95,7 @@ export class Endpoint extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as EndpointState | undefined;
+            const state: EndpointState = argsOrState as EndpointState | undefined;
             inputs["authenticationOptions"] = state ? state.authenticationOptions : undefined;
             inputs["clientCidrBlock"] = state ? state.clientCidrBlock : undefined;
             inputs["connectionLogOptions"] = state ? state.connectionLogOptions : undefined;

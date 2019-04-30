@@ -6,28 +6,28 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito Resource Server.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### Create a basic resource server
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const pool = new aws.cognito.UserPool("pool", {});
  * const resource = new aws.cognito.ResourceServer("resource", {
  *     identifier: "https://example.com",
  *     userPoolId: pool.id,
  * });
  * ```
- *
+ * 
  * ### Create a resource server with sample-scope
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const pool = new aws.cognito.UserPool("pool", {});
  * const resource = new aws.cognito.ResourceServer("resource", {
  *     identifier: "https://example.com",
@@ -81,7 +81,7 @@ export class ResourceServer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResourceServerArgs | ResourceServerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ResourceServerState | undefined;
+            const state: ResourceServerState = argsOrState as ResourceServerState | undefined;
             inputs["identifier"] = state ? state.identifier : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["scopes"] = state ? state.scopes : undefined;

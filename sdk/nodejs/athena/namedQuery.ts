@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Athena Named Query resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const hogeBucket = new aws.s3.Bucket("hoge", {});
  * const hogeDatabase = new aws.athena.Database("hoge", {
  *     bucket: hogeBucket.bucket,
@@ -65,7 +65,7 @@ export class NamedQuery extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NamedQueryArgs | NamedQueryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as NamedQueryState | undefined;
+            const state: NamedQueryState = argsOrState as NamedQueryState | undefined;
             inputs["database"] = state ? state.database : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;

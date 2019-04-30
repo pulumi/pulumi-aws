@@ -10,15 +10,15 @@ import {NotificationType} from "./notificationType";
  * Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
  * the `notifications` map to a [Notification Configuration][2] inside Amazon Web
  * Services, and are applied to each AutoScaling Group you supply.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * Basic usage:
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const bar = new aws.autoscaling.Group("bar", {});
  * const foo = new aws.autoscaling.Group("foo", {});
  * const example = new aws.sns.Topic("example", {});
@@ -74,7 +74,7 @@ export class Notification extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NotificationArgs | NotificationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as NotificationState | undefined;
+            const state: NotificationState = argsOrState as NotificationState | undefined;
             inputs["groupNames"] = state ? state.groupNames : undefined;
             inputs["notifications"] = state ? state.notifications : undefined;
             inputs["topicArn"] = state ? state.topicArn : undefined;

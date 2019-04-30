@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AutoScaling Schedule resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const foobarGroup = new aws.autoscaling.Group("foobar", {
  *     availabilityZones: ["us-west-2a"],
  *     forceDelete: true,
@@ -98,7 +98,7 @@ export class Schedule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ScheduleArgs | ScheduleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ScheduleState | undefined;
+            const state: ScheduleState = argsOrState as ScheduleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
             inputs["desiredCapacity"] = state ? state.desiredCapacity : undefined;

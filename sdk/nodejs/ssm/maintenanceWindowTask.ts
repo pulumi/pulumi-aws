@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Maintenance Window Task resource
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const instance = new aws.ec2.Instance("instance", {
  *     ami: "ami-4fccb37f",
  *     instanceType: "m1.small",
@@ -112,7 +112,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MaintenanceWindowTaskArgs | MaintenanceWindowTaskState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as MaintenanceWindowTaskState | undefined;
+            const state: MaintenanceWindowTaskState = argsOrState as MaintenanceWindowTaskState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["loggingInfo"] = state ? state.loggingInfo : undefined;
             inputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;

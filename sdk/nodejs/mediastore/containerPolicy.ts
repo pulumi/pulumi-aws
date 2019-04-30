@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a MediaStore Container Policy.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const exampleContainer = new aws.mediastore.Container("example", {});
  * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({}));
  * const currentRegion = pulumi.output(aws.getRegion({}));
@@ -68,7 +68,7 @@ export class ContainerPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ContainerPolicyArgs | ContainerPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ContainerPolicyState | undefined;
+            const state: ContainerPolicyState = argsOrState as ContainerPolicyState | undefined;
             inputs["containerName"] = state ? state.containerName : undefined;
             inputs["policy"] = state ? state.policy : undefined;
         } else {

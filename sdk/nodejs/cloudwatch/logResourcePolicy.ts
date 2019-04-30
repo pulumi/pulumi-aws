@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage a CloudWatch log resource policy.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### Elasticsearch Log Publishing
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const elasticsearch_log_publishing_policyPolicyDocument = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
@@ -34,13 +34,13 @@ import * as utilities from "../utilities";
  *     policyName: "elasticsearch-log-publishing-policy",
  * });
  * ```
- *
+ * 
  * ### Route53 Query Logging
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const route53_query_logging_policyPolicyDocument = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
@@ -93,7 +93,7 @@ export class LogResourcePolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LogResourcePolicyArgs | LogResourcePolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as LogResourcePolicyState | undefined;
+            const state: LogResourcePolicyState = argsOrState as LogResourcePolicyState | undefined;
             inputs["policyDocument"] = state ? state.policyDocument : undefined;
             inputs["policyName"] = state ? state.policyName : undefined;
         } else {

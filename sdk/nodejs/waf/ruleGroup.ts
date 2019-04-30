@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Rule Group Resource
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const exampleRule = new aws.waf.Rule("example", {
  *     metricName: "example",
  * });
@@ -65,7 +65,7 @@ export class RuleGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RuleGroupArgs | RuleGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as RuleGroupState | undefined;
+            const state: RuleGroupState = argsOrState as RuleGroupState | undefined;
             inputs["activatedRules"] = state ? state.activatedRules : undefined;
             inputs["metricName"] = state ? state.metricName : undefined;
             inputs["name"] = state ? state.name : undefined;

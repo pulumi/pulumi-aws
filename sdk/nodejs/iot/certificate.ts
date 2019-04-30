@@ -6,14 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Creates and manages an AWS IoT certificate.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- *
+ * 
  * const cert = new aws.iot.Certificate("cert", {
  *     active: true,
  *     csr: fs.readFileSync("/my/csr.pem", "utf-8"),
@@ -59,7 +59,7 @@ export class Certificate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as CertificateState | undefined;
+            const state: CertificateState = argsOrState as CertificateState | undefined;
             inputs["active"] = state ? state.active : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["csr"] = state ? state.csr : undefined;

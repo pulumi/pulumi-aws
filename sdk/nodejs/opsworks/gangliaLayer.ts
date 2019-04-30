@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks Ganglia layer resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const monitor = new aws.opsworks.GangliaLayer("monitor", {
  *     password: "foobarbaz",
  *     stackId: aws_opsworks_stack_main.id,
@@ -121,7 +121,7 @@ export class GangliaLayer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GangliaLayerArgs | GangliaLayerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as GangliaLayerState | undefined;
+            const state: GangliaLayerState = argsOrState as GangliaLayerState | undefined;
             inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
             inputs["autoAssignPublicIps"] = state ? state.autoAssignPublicIps : undefined;
             inputs["autoHealing"] = state ? state.autoHealing : undefined;

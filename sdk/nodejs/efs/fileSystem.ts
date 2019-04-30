@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic File System (EFS) resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const foo = new aws.efs.FileSystem("foo", {
  *     tags: {
  *         Name: "MyProduct",
@@ -84,7 +84,7 @@ export class FileSystem extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FileSystemArgs | FileSystemState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as FileSystemState | undefined;
+            const state: FileSystemState = argsOrState as FileSystemState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["creationToken"] = state ? state.creationToken : undefined;
             inputs["dnsName"] = state ? state.dnsName : undefined;

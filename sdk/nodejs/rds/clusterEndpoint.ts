@@ -7,14 +7,14 @@ import * as utilities from "../utilities";
 /**
  * Manages a RDS Aurora Cluster Endpoint.
  * You can refer to the [User Guide][1].
- *
- *
+ * 
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const defaultCluster = new aws.rds.Cluster("default", {
  *     availabilityZones: [
  *         "us-west-2a",
@@ -119,7 +119,7 @@ export class ClusterEndpoint extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterEndpointArgs | ClusterEndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ClusterEndpointState | undefined;
+            const state: ClusterEndpointState = argsOrState as ClusterEndpointState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["clusterEndpointIdentifier"] = state ? state.clusterEndpointIdentifier : undefined;
             inputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;

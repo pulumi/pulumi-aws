@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Service Discovery Private DNS Namespace resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const exampleVpc = new aws.ec2.Vpc("example", {
  *     cidrBlock: "10.0.0.0/16",
  * });
@@ -67,7 +67,7 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PrivateDnsNamespaceArgs | PrivateDnsNamespaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as PrivateDnsNamespaceState | undefined;
+            const state: PrivateDnsNamespaceState = argsOrState as PrivateDnsNamespaceState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["hostedZone"] = state ? state.hostedZone : undefined;

@@ -6,11 +6,11 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const example = new aws.servicediscovery.HttpNamespace("example", {
  *     description: "example",
  * });
@@ -53,7 +53,7 @@ export class HttpNamespace extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: HttpNamespaceArgs | HttpNamespaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as HttpNamespaceState | undefined;
+            const state: HttpNamespaceState = argsOrState as HttpNamespaceState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;

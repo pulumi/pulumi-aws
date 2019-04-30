@@ -8,13 +8,13 @@ import {RestApi} from "./restApi";
 
 /**
  * Provides an API Gateway Authorizer.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const demoRestApi = new aws.apigateway.RestApi("demo", {});
  * const invocationRole = new aws.iam.Role("invocation_role", {
  *     assumeRolePolicy: `{
@@ -146,7 +146,7 @@ export class Authorizer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AuthorizerArgs | AuthorizerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as AuthorizerState | undefined;
+            const state: AuthorizerState = argsOrState as AuthorizerState | undefined;
             inputs["authorizerCredentials"] = state ? state.authorizerCredentials : undefined;
             inputs["authorizerResultTtlInSeconds"] = state ? state.authorizerResultTtlInSeconds : undefined;
             inputs["authorizerUri"] = state ? state.authorizerUri : undefined;

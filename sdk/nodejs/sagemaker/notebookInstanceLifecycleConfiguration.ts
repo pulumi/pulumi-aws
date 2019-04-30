@@ -48,7 +48,7 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
     constructor(name: string, argsOrState?: NotebookInstanceLifecycleConfigurationArgs | NotebookInstanceLifecycleConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as NotebookInstanceLifecycleConfigurationState | undefined;
+            const state: NotebookInstanceLifecycleConfigurationState = argsOrState as NotebookInstanceLifecycleConfigurationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["onCreate"] = state ? state.onCreate : undefined;

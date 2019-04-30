@@ -11,13 +11,13 @@ import {Topic} from "./topic";
  * This resource allows you to automatically place messages sent to SNS topics in SQS queues, send them as HTTP(S) POST requests
  * to a given endpoint, send SMS messages, or notify devices / applications. The most likely use case for Terraform users will
  * probably be SQS queues.
- *
+ * 
  * > **NOTE:** If the SNS topic and SQS queue are in different AWS regions, it is important for the "aws_sns_topic_subscription" to use an AWS provider that is in the same region of the SNS topic. If the "aws_sns_topic_subscription" is using a provider with a different region than the SNS topic, terraform will fail to create the subscription.
- *
+ * 
  * > **NOTE:** Setup of cross-account subscriptions from SNS topics to SQS queues requires Terraform to have access to BOTH accounts.
- *
+ * 
  * > **NOTE:** If SNS topic and SQS queue are in different AWS accounts but the same region it is important for the "aws_sns_topic_subscription" to use the AWS provider of the account with the SQS queue. If "aws_sns_topic_subscription" is using a Provider with a different account than the SQS queue, terraform creates the subscriptions but does not keep state and tries to re-create the subscription at every apply.
- *
+ * 
  * > **NOTE:** If SNS topic and SQS queue are in different AWS accounts and different AWS regions it is important to recognize that the subscription needs to be initiated from the account with the SQS queue but in the region of the SNS topic.
  */
 export class TopicSubscription extends pulumi.CustomResource {
@@ -81,7 +81,7 @@ export class TopicSubscription extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TopicSubscriptionArgs | TopicSubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as TopicSubscriptionState | undefined;
+            const state: TopicSubscriptionState = argsOrState as TopicSubscriptionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["confirmationTimeoutInMinutes"] = state ? state.confirmationTimeoutInMinutes : undefined;
             inputs["deliveryPolicy"] = state ? state.deliveryPolicy : undefined;

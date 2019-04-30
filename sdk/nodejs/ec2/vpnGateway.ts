@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create a VPC VPN Gateway.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const vpnGw = new aws.ec2.VpnGateway("vpn_gw", {
  *     tags: {
  *         Name: "main",
@@ -62,7 +62,7 @@ export class VpnGateway extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpnGatewayArgs | VpnGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as VpnGatewayState | undefined;
+            const state: VpnGatewayState = argsOrState as VpnGatewayState | undefined;
             inputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["tags"] = state ? state.tags : undefined;

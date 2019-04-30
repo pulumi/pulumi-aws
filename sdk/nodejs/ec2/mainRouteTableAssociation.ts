@@ -6,21 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource for managing the main routing table of a VPC.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const mainRouteTableAssociation = new aws.ec2.MainRouteTableAssociation("a", {
  *     routeTableId: aws_route_table_bar.id,
  *     vpcId: aws_vpc_foo.id,
  * });
  * ```
- *
+ * 
  * ## Notes
- *
+ * 
  * On VPC creation, the AWS API always creates an initial Main Route Table. This
  * resource records the ID of that Route Table under `original_route_table_id`.
  * The "Delete" action for a `main_route_table_association` consists of resetting
@@ -66,7 +66,7 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MainRouteTableAssociationArgs | MainRouteTableAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as MainRouteTableAssociationState | undefined;
+            const state: MainRouteTableAssociationState = argsOrState as MainRouteTableAssociationState | undefined;
             inputs["originalRouteTableId"] = state ? state.originalRouteTableId : undefined;
             inputs["routeTableId"] = state ? state.routeTableId : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
