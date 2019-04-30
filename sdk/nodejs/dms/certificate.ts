@@ -6,16 +6,16 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DMS (Data Migration Service) certificate resource. DMS certificates can be created, deleted, and imported.
- * 
+ *
  * > **Note:** All arguments including the PEM encoded certificate will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Create a new certificate
  * const test = new aws.dms.Certificate("test", {
  *     certificateId: "test-dms-certificate-tf",
@@ -39,19 +39,19 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the certificate.
      */
-    public /*out*/ readonly certificateArn: pulumi.Output<string>;
+    public /*out*/ readonly certificateArn!: pulumi.Output<string>;
     /**
      * The certificate identifier.
      */
-    public readonly certificateId: pulumi.Output<string>;
+    public readonly certificateId!: pulumi.Output<string>;
     /**
      * The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
      */
-    public readonly certificatePem: pulumi.Output<string | undefined>;
+    public readonly certificatePem!: pulumi.Output<string | undefined>;
     /**
      * The contents of the Oracle Wallet certificate for use with SSL. Either `certificate_pem` or `certificate_wallet` must be set.
      */
-    public readonly certificateWallet: pulumi.Output<string | undefined>;
+    public readonly certificateWallet!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -64,7 +64,7 @@ export class Certificate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CertificateState = argsOrState as CertificateState | undefined;
+            const state = argsOrState as CertificateState | undefined;
             inputs["certificateArn"] = state ? state.certificateArn : undefined;
             inputs["certificateId"] = state ? state.certificateId : undefined;
             inputs["certificatePem"] = state ? state.certificatePem : undefined;

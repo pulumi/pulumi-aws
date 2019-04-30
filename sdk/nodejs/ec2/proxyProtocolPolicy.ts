@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const lb = new aws.elasticloadbalancing.LoadBalancer("lb", {
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [
@@ -56,12 +56,12 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
      * List of instance ports to which the policy
      * should be applied. This can be specified if the protocol is SSL or TCP.
      */
-    public readonly instancePorts: pulumi.Output<string[]>;
+    public readonly instancePorts!: pulumi.Output<string[]>;
     /**
      * The load balancer to which the policy
      * should be attached.
      */
-    public readonly loadBalancer: pulumi.Output<string>;
+    public readonly loadBalancer!: pulumi.Output<string>;
 
     /**
      * Create a ProxyProtocolPolicy resource with the given unique name, arguments, and options.
@@ -74,7 +74,7 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProxyProtocolPolicyArgs | ProxyProtocolPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ProxyProtocolPolicyState = argsOrState as ProxyProtocolPolicyState | undefined;
+            const state = argsOrState as ProxyProtocolPolicyState | undefined;
             inputs["instancePorts"] = state ? state.instancePorts : undefined;
             inputs["loadBalancer"] = state ? state.loadBalancer : undefined;
         } else {

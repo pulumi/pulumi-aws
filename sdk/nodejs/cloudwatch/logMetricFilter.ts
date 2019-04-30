@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudWatch Log Metric Filter resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const dada = new aws.cloudwatch.LogGroup("dada", {});
  * const yada = new aws.cloudwatch.LogMetricFilter("yada", {
  *     logGroupName: dada.name,
@@ -41,21 +41,21 @@ export class LogMetricFilter extends pulumi.CustomResource {
     /**
      * The name of the log group to associate the metric filter with.
      */
-    public readonly logGroupName: pulumi.Output<string>;
+    public readonly logGroupName!: pulumi.Output<string>;
     /**
      * A block defining collection of information
      * needed to define how metric data gets emitted. See below.
      */
-    public readonly metricTransformation: pulumi.Output<{ defaultValue?: string, name: string, namespace: string, value: string }>;
+    public readonly metricTransformation!: pulumi.Output<{ defaultValue?: string, name: string, namespace: string, value: string }>;
     /**
      * A name for the metric filter.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
      * for extracting metric data out of ingested log events.
      */
-    public readonly pattern: pulumi.Output<string>;
+    public readonly pattern!: pulumi.Output<string>;
 
     /**
      * Create a LogMetricFilter resource with the given unique name, arguments, and options.
@@ -68,7 +68,7 @@ export class LogMetricFilter extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LogMetricFilterArgs | LogMetricFilterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LogMetricFilterState = argsOrState as LogMetricFilterState | undefined;
+            const state = argsOrState as LogMetricFilterState | undefined;
             inputs["logGroupName"] = state ? state.logGroupName : undefined;
             inputs["metricTransformation"] = state ? state.metricTransformation : undefined;
             inputs["name"] = state ? state.name : undefined;

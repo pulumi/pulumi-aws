@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES domain identity resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ses.DomainIdentity("example", {
  *     domain: "example.com",
  * });
@@ -40,11 +40,11 @@ export class DomainIdentity extends pulumi.CustomResource {
     /**
      * The ARN of the domain identity.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The domain name to assign to SES
      */
-    public readonly domain: pulumi.Output<string>;
+    public readonly domain!: pulumi.Output<string>;
     /**
      * A code which when added to the domain as a TXT record
      * will signal to SES that the owner of the domain has authorised SES to act on
@@ -54,7 +54,7 @@ export class DomainIdentity extends pulumi.CustomResource {
      * more about verifying domains in Amazon SES in the [AWS SES
      * docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
      */
-    public /*out*/ readonly verificationToken: pulumi.Output<string>;
+    public /*out*/ readonly verificationToken!: pulumi.Output<string>;
 
     /**
      * Create a DomainIdentity resource with the given unique name, arguments, and options.
@@ -67,7 +67,7 @@ export class DomainIdentity extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DomainIdentityArgs | DomainIdentityState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DomainIdentityState = argsOrState as DomainIdentityState | undefined;
+            const state = argsOrState as DomainIdentityState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["domain"] = state ? state.domain : undefined;
             inputs["verificationToken"] = state ? state.verificationToken : undefined;

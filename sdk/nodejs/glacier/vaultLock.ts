@@ -6,19 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Glacier Vault Lock. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html) for a full explanation of the Glacier Vault Lock functionality.
- * 
+ *
  * > **NOTE:** This resource allows you to test Glacier Vault Lock policies by setting the `complete_lock` argument to `false`. When testing policies in this manner, the Glacier Vault Lock automatically expires after 24 hours and Terraform will show this resource as needing recreation after that time. To permanently apply the policy, set the `complete_lock` argument to `true`. When changing `complete_lock` to `true`, it is expected the resource will show as recreating.
- * 
+ *
  * !> **WARNING:** Once a Glacier Vault Lock is completed, it is immutable. The deletion of the Glacier Vault Lock is not be possible and attempting to remove it from Terraform will return an error. Set the `ignore_deletion_error` argument to `true` and apply this configuration before attempting to delete this resource via Terraform or use `terraform state rm` to remove this resource from Terraform management.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Testing Glacier Vault Lock Policy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleVault = new aws.glacier.Vault("example", {});
  * const examplePolicyDocument = exampleVault.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [{
@@ -38,13 +38,13 @@ import * as utilities from "../utilities";
  *     vaultName: exampleVault.name,
  * });
  * ```
- * 
+ *
  * ### Permanently Applying Glacier Vault Lock Policy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glacier.VaultLock("example", {
  *     completeLock: true,
  *     policy: aws_iam_policy_document_example.json.apply(json => json),
@@ -68,19 +68,19 @@ export class VaultLock extends pulumi.CustomResource {
     /**
      * Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the Terraform resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
      */
-    public readonly completeLock: pulumi.Output<boolean>;
+    public readonly completeLock!: pulumi.Output<boolean>;
     /**
      * Allow Terraform to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via Terraform, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
      */
-    public readonly ignoreDeletionError: pulumi.Output<boolean | undefined>;
+    public readonly ignoreDeletionError!: pulumi.Output<boolean | undefined>;
     /**
      * JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
      */
-    public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * The name of the Glacier Vault.
      */
-    public readonly vaultName: pulumi.Output<string>;
+    public readonly vaultName!: pulumi.Output<string>;
 
     /**
      * Create a VaultLock resource with the given unique name, arguments, and options.
@@ -93,7 +93,7 @@ export class VaultLock extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VaultLockArgs | VaultLockState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VaultLockState = argsOrState as VaultLockState | undefined;
+            const state = argsOrState as VaultLockState | undefined;
             inputs["completeLock"] = state ? state.completeLock : undefined;
             inputs["ignoreDeletionError"] = state ? state.ignoreDeletionError : undefined;
             inputs["policy"] = state ? state.policy : undefined;

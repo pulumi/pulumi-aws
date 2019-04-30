@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Associates a Direct Connect Gateway with a VGW. For creating cross-account association proposals, see the [`aws_dx_gateway_association_proposal` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleGateway = new aws.directconnect.Gateway("example", {
  *     amazonSideAsn: "64512",
  * });
@@ -29,13 +29,13 @@ import * as utilities from "../utilities";
  *     vpnGatewayId: exampleVpnGateway.id,
  * });
  * ```
- * 
+ *
  * ### Allowed Prefixes
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleGateway = new aws.directconnect.Gateway("example", {
  *     amazonSideAsn: "64512",
  * });
@@ -71,19 +71,19 @@ export class GatewayAssociation extends pulumi.CustomResource {
     /**
      * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      */
-    public readonly allowedPrefixes: pulumi.Output<string[]>;
+    public readonly allowedPrefixes!: pulumi.Output<string[]>;
     /**
      * The ID of the Direct Connect gateway association.
      */
-    public /*out*/ readonly dxGatewayAssociationId: pulumi.Output<string>;
+    public /*out*/ readonly dxGatewayAssociationId!: pulumi.Output<string>;
     /**
      * The ID of the Direct Connect gateway.
      */
-    public readonly dxGatewayId: pulumi.Output<string>;
+    public readonly dxGatewayId!: pulumi.Output<string>;
     /**
      * The ID of the VGW with which to associate the gateway.
      */
-    public readonly vpnGatewayId: pulumi.Output<string>;
+    public readonly vpnGatewayId!: pulumi.Output<string>;
 
     /**
      * Create a GatewayAssociation resource with the given unique name, arguments, and options.
@@ -96,7 +96,7 @@ export class GatewayAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GatewayAssociationArgs | GatewayAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GatewayAssociationState = argsOrState as GatewayAssociationState | undefined;
+            const state = argsOrState as GatewayAssociationState | undefined;
             inputs["allowedPrefixes"] = state ? state.allowedPrefixes : undefined;
             inputs["dxGatewayAssociationId"] = state ? state.dxGatewayAssociationId : undefined;
             inputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;

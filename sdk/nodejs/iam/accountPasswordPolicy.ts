@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * > **Note:** There is only a single policy allowed per AWS account. An existing policy will be lost when using this resource as an effect of this limitation.
- * 
+ *
  * Manages Password Policy for the AWS Account.
  * See more about [Account Password Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html)
  * in the official AWS docs.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const strict = new aws.iam.AccountPasswordPolicy("strict", {
  *     allowUsersToChangePassword: true,
  *     minimumPasswordLength: 8,
@@ -43,46 +43,46 @@ export class AccountPasswordPolicy extends pulumi.CustomResource {
     /**
      * Whether to allow users to change their own password
      */
-    public readonly allowUsersToChangePassword: pulumi.Output<boolean | undefined>;
+    public readonly allowUsersToChangePassword!: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether passwords in the account expire.
      * Returns `true` if `max_password_age` contains a value greater than `0`.
      * Returns `false` if it is `0` or _not present_.
      */
-    public /*out*/ readonly expirePasswords: pulumi.Output<boolean>;
+    public /*out*/ readonly expirePasswords!: pulumi.Output<boolean>;
     /**
      * Whether users are prevented from setting a new password after their password has expired
      * (i.e. require administrator reset)
      */
-    public readonly hardExpiry: pulumi.Output<boolean>;
+    public readonly hardExpiry!: pulumi.Output<boolean>;
     /**
      * The number of days that an user password is valid.
      */
-    public readonly maxPasswordAge: pulumi.Output<number>;
+    public readonly maxPasswordAge!: pulumi.Output<number>;
     /**
      * Minimum length to require for user passwords.
      */
-    public readonly minimumPasswordLength: pulumi.Output<number | undefined>;
+    public readonly minimumPasswordLength!: pulumi.Output<number | undefined>;
     /**
      * The number of previous passwords that users are prevented from reusing.
      */
-    public readonly passwordReusePrevention: pulumi.Output<number>;
+    public readonly passwordReusePrevention!: pulumi.Output<number>;
     /**
      * Whether to require lowercase characters for user passwords.
      */
-    public readonly requireLowercaseCharacters: pulumi.Output<boolean>;
+    public readonly requireLowercaseCharacters!: pulumi.Output<boolean>;
     /**
      * Whether to require numbers for user passwords.
      */
-    public readonly requireNumbers: pulumi.Output<boolean>;
+    public readonly requireNumbers!: pulumi.Output<boolean>;
     /**
      * Whether to require symbols for user passwords.
      */
-    public readonly requireSymbols: pulumi.Output<boolean>;
+    public readonly requireSymbols!: pulumi.Output<boolean>;
     /**
      * Whether to require uppercase characters for user passwords.
      */
-    public readonly requireUppercaseCharacters: pulumi.Output<boolean>;
+    public readonly requireUppercaseCharacters!: pulumi.Output<boolean>;
 
     /**
      * Create a AccountPasswordPolicy resource with the given unique name, arguments, and options.
@@ -95,7 +95,7 @@ export class AccountPasswordPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AccountPasswordPolicyArgs | AccountPasswordPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AccountPasswordPolicyState = argsOrState as AccountPasswordPolicyState | undefined;
+            const state = argsOrState as AccountPasswordPolicyState | undefined;
             inputs["allowUsersToChangePassword"] = state ? state.allowUsersToChangePassword : undefined;
             inputs["expirePasswords"] = state ? state.expirePasswords : undefined;
             inputs["hardExpiry"] = state ? state.hardExpiry : undefined;

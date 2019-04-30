@@ -6,30 +6,30 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Patch Baseline resource
- * 
- * > **NOTE on Patch Baselines:** The `approved_patches` and `approval_rule` are 
+ *
+ * > **NOTE on Patch Baselines:** The `approved_patches` and `approval_rule` are
  * both marked as optional fields, but the Patch Baseline requires that at least one
  * of them is specified.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * Basic usage using `approved_patches` only
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const production = new aws.ssm.PatchBaseline("production", {
  *     approvedPatches: ["KB123456"],
  * });
  * ```
- * 
+ *
  * Advanced usage, specifying patch filters
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const production = new aws.ssm.PatchBaseline("production", {
  *     approvalRules: [
  *         {
@@ -105,35 +105,35 @@ export class PatchBaseline extends pulumi.CustomResource {
     /**
      * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
      */
-    public readonly approvalRules: pulumi.Output<{ approveAfterDays: number, complianceLevel?: string, enableNonSecurity?: boolean, patchFilters: { key: string, values: string[] }[] }[] | undefined>;
+    public readonly approvalRules!: pulumi.Output<{ approveAfterDays: number, complianceLevel?: string, enableNonSecurity?: boolean, patchFilters: { key: string, values: string[] }[] }[] | undefined>;
     /**
      * A list of explicitly approved patches for the baseline.
      */
-    public readonly approvedPatches: pulumi.Output<string[] | undefined>;
+    public readonly approvedPatches!: pulumi.Output<string[] | undefined>;
     /**
      * Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
      */
-    public readonly approvedPatchesComplianceLevel: pulumi.Output<string | undefined>;
+    public readonly approvedPatchesComplianceLevel!: pulumi.Output<string | undefined>;
     /**
      * The description of the patch baseline.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
      */
-    public readonly globalFilters: pulumi.Output<{ key: string, values: string[] }[] | undefined>;
+    public readonly globalFilters!: pulumi.Output<{ key: string, values: string[] }[] | undefined>;
     /**
      * The name of the patch baseline.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
      */
-    public readonly operatingSystem: pulumi.Output<string | undefined>;
+    public readonly operatingSystem!: pulumi.Output<string | undefined>;
     /**
      * A list of rejected patches.
      */
-    public readonly rejectedPatches: pulumi.Output<string[] | undefined>;
+    public readonly rejectedPatches!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a PatchBaseline resource with the given unique name, arguments, and options.
@@ -146,7 +146,7 @@ export class PatchBaseline extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PatchBaselineArgs | PatchBaselineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PatchBaselineState = argsOrState as PatchBaselineState | undefined;
+            const state = argsOrState as PatchBaselineState | undefined;
             inputs["approvalRules"] = state ? state.approvalRules : undefined;
             inputs["approvedPatches"] = state ? state.approvedPatches : undefined;
             inputs["approvedPatchesComplianceLevel"] = state ? state.approvedPatchesComplianceLevel : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DAX Subnet Group resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.dax.SubnetGroup("example", {
  *     subnetIds: [
  *         aws_subnet_example1.id,
@@ -37,19 +37,19 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * A description of the subnet group.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the subnet group.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A list of VPC subnet IDs for the subnet group.
      */
-    public readonly subnetIds: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * VPC ID of the subnet group.
      */
-    public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a SubnetGroup resource with the given unique name, arguments, and options.
@@ -62,7 +62,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SubnetGroupArgs | SubnetGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SubnetGroupState = argsOrState as SubnetGroupState | undefined;
+            const state = argsOrState as SubnetGroupState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;

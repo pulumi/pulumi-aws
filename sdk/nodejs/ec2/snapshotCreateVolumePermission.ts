@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Adds permission to create volumes off of a given EBS Snapshot.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ebs.Volume("example", {
  *     availabilityZone: "us-west-2a",
  *     size: 40,
@@ -42,11 +42,11 @@ export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
     /**
      * An AWS Account ID to add create volume permissions
      */
-    public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * A snapshot ID
      */
-    public readonly snapshotId: pulumi.Output<string>;
+    public readonly snapshotId!: pulumi.Output<string>;
 
     /**
      * Create a SnapshotCreateVolumePermission resource with the given unique name, arguments, and options.
@@ -59,7 +59,7 @@ export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SnapshotCreateVolumePermissionArgs | SnapshotCreateVolumePermissionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SnapshotCreateVolumePermissionState = argsOrState as SnapshotCreateVolumePermissionState | undefined;
+            const state = argsOrState as SnapshotCreateVolumePermissionState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["snapshotId"] = state ? state.snapshotId : undefined;
         } else {

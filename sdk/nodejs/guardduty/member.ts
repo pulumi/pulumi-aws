@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage a GuardDuty member.
- * 
+ *
  * > **NOTE:** Currently after using this resource, you must manually accept member account invitations before GuardDuty will begin sending cross-account events. More information for how to accomplish this via the AWS Console or API can be found in the [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_accounts.html). Terraform implementation of the member acceptance resource can be tracked in [Github](https://github.com/terraform-providers/terraform-provider-aws/issues/2489).
  */
 export class Member extends pulumi.CustomResource {
@@ -25,31 +25,31 @@ export class Member extends pulumi.CustomResource {
     /**
      * AWS account ID for member account.
      */
-    public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The detector ID of the GuardDuty account where you want to create member accounts.
      */
-    public readonly detectorId: pulumi.Output<string>;
+    public readonly detectorId!: pulumi.Output<string>;
     /**
      * Boolean whether an email notification is sent to the accounts. Defaults to `false`.
      */
-    public readonly disableEmailNotification: pulumi.Output<boolean | undefined>;
+    public readonly disableEmailNotification!: pulumi.Output<boolean | undefined>;
     /**
      * Email address for member account.
      */
-    public readonly email: pulumi.Output<string>;
+    public readonly email!: pulumi.Output<string>;
     /**
      * Message for invitation.
      */
-    public readonly invitationMessage: pulumi.Output<string | undefined>;
+    public readonly invitationMessage!: pulumi.Output<string | undefined>;
     /**
      * Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the Terraform state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
      */
-    public readonly invite: pulumi.Output<boolean | undefined>;
+    public readonly invite!: pulumi.Output<boolean | undefined>;
     /**
      * The status of the relationship between the member account and its master account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
      */
-    public /*out*/ readonly relationshipStatus: pulumi.Output<string>;
+    public /*out*/ readonly relationshipStatus!: pulumi.Output<string>;
 
     /**
      * Create a Member resource with the given unique name, arguments, and options.
@@ -62,7 +62,7 @@ export class Member extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MemberArgs | MemberState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MemberState = argsOrState as MemberState | undefined;
+            const state = argsOrState as MemberState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["detectorId"] = state ? state.detectorId : undefined;
             inputs["disableEmailNotification"] = state ? state.disableEmailNotification : undefined;

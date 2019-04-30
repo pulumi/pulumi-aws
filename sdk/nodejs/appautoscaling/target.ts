@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the [`aws_appautoscaling_policy` resource](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### DynamoDB Table Autoscaling
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const dynamodbTableReadTarget = new aws.appautoscaling.Target("dynamodb_table_read_target", {
  *     maxCapacity: 100,
  *     minCapacity: 5,
@@ -24,13 +24,13 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "dynamodb",
  * });
  * ```
- * 
+ *
  * ### DynamoDB Index Autoscaling
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const dynamodbIndexReadTarget = new aws.appautoscaling.Target("dynamodb_index_read_target", {
  *     maxCapacity: 100,
  *     minCapacity: 5,
@@ -40,13 +40,13 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "dynamodb",
  * });
  * ```
- * 
+ *
  * ### ECS Service Autoscaling
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ecsTarget = new aws.appautoscaling.Target("ecs_target", {
  *     maxCapacity: 4,
  *     minCapacity: 1,
@@ -56,13 +56,13 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "ecs",
  * });
  * ```
- * 
+ *
  * ### Aurora Read Replica Autoscaling
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const replicas = new aws.appautoscaling.Target("replicas", {
  *     maxCapacity: 15,
  *     minCapacity: 1,
@@ -88,28 +88,28 @@ export class Target extends pulumi.CustomResource {
     /**
      * The max capacity of the scalable target.
      */
-    public readonly maxCapacity: pulumi.Output<number>;
+    public readonly maxCapacity!: pulumi.Output<number>;
     /**
      * The min capacity of the scalable target.
      */
-    public readonly minCapacity: pulumi.Output<number>;
+    public readonly minCapacity!: pulumi.Output<number>;
     /**
      * The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    public readonly resourceId: pulumi.Output<string>;
+    public readonly resourceId!: pulumi.Output<string>;
     /**
      * The ARN of the IAM role that allows Application
      * AutoScaling to modify your scalable target on your behalf.
      */
-    public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    public readonly scalableDimension: pulumi.Output<string>;
+    public readonly scalableDimension!: pulumi.Output<string>;
     /**
      * The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    public readonly serviceNamespace: pulumi.Output<string>;
+    public readonly serviceNamespace!: pulumi.Output<string>;
 
     /**
      * Create a Target resource with the given unique name, arguments, and options.
@@ -122,7 +122,7 @@ export class Target extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TargetArgs | TargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TargetState = argsOrState as TargetState | undefined;
+            const state = argsOrState as TargetState | undefined;
             inputs["maxCapacity"] = state ? state.maxCapacity : undefined;
             inputs["minCapacity"] = state ? state.minCapacity : undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;

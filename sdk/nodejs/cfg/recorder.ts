@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Config Configuration Recorder. Please note that this resource **does not start** the created recorder automatically.
- * 
+ *
  * > **Note:** _Starting_ the Configuration Recorder requires a [delivery channel](https://www.terraform.io/docs/providers/aws/r/config_delivery_channel.html) (while delivery channel creation requires Configuration Recorder). This is why [`aws_config_configuration_recorder_status`](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder_status.html) is a separate resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const role = new aws.iam.Role("r", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -52,17 +52,17 @@ export class Recorder extends pulumi.CustomResource {
     /**
      * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Recording group - see below.
      */
-    public readonly recordingGroup: pulumi.Output<{ allSupported?: boolean, includeGlobalResourceTypes?: boolean, resourceTypes?: string[] }>;
+    public readonly recordingGroup!: pulumi.Output<{ allSupported?: boolean, includeGlobalResourceTypes?: boolean, resourceTypes?: string[] }>;
     /**
      * Amazon Resource Name (ARN) of the IAM role.
      * used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
      * See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */
-    public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
 
     /**
      * Create a Recorder resource with the given unique name, arguments, and options.
@@ -75,7 +75,7 @@ export class Recorder extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RecorderArgs | RecorderState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RecorderState = argsOrState as RecorderState | undefined;
+            const state = argsOrState as RecorderState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["recordingGroup"] = state ? state.recordingGroup : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;

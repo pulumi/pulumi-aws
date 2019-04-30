@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DMS (Data Migration Service) replication subnet group resource. DMS replication subnet groups can be created, updated, deleted, and imported.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Create a new replication subnet group
  * const test = new aws.dms.ReplicationSubnetGroup("test", {
  *     replicationSubnetGroupDescription: "Test replication subnet group",
@@ -37,27 +37,27 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
         return new ReplicationSubnetGroup(name, <any>state, { ...opts, id: id });
     }
 
-    public /*out*/ readonly replicationSubnetGroupArn: pulumi.Output<string>;
+    public /*out*/ readonly replicationSubnetGroupArn!: pulumi.Output<string>;
     /**
      * The description for the subnet group.
      */
-    public readonly replicationSubnetGroupDescription: pulumi.Output<string>;
+    public readonly replicationSubnetGroupDescription!: pulumi.Output<string>;
     /**
      * The name for the replication subnet group. This value is stored as a lowercase string.
      */
-    public readonly replicationSubnetGroupId: pulumi.Output<string>;
+    public readonly replicationSubnetGroupId!: pulumi.Output<string>;
     /**
      * A list of the EC2 subnet IDs for the subnet group.
      */
-    public readonly subnetIds: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The ID of the VPC the subnet group is in.
      */
-    public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a ReplicationSubnetGroup resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ReplicationSubnetGroupArgs | ReplicationSubnetGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ReplicationSubnetGroupState = argsOrState as ReplicationSubnetGroupState | undefined;
+            const state = argsOrState as ReplicationSubnetGroupState | undefined;
             inputs["replicationSubnetGroupArn"] = state ? state.replicationSubnetGroupArn : undefined;
             inputs["replicationSubnetGroupDescription"] = state ? state.replicationSubnetGroupDescription : undefined;
             inputs["replicationSubnetGroupId"] = state ? state.replicationSubnetGroupId : undefined;

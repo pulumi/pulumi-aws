@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Glue Connection resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Non-VPC Connection
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Connection("example", {
  *     connectionProperties: {
  *         JDBC_CONNECTION_URL: "jdbc:mysql://example.com/exampledatabase",
@@ -23,15 +23,15 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### VPC Connection
- * 
+ *
  * For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.glue.Connection("example", {
  *     connectionProperties: {
  *         JDBC_CONNECTION_URL: aws_rds_cluster_example.endpoint.apply(endpoint => `jdbc:mysql://${endpoint}/exampledatabase`),
@@ -62,31 +62,31 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      */
-    public readonly catalogId: pulumi.Output<string>;
+    public readonly catalogId!: pulumi.Output<string>;
     /**
      * A map of key-value pairs used as parameters for this connection.
      */
-    public readonly connectionProperties: pulumi.Output<{[key: string]: any}>;
+    public readonly connectionProperties!: pulumi.Output<{[key: string]: any}>;
     /**
      * The type of the connection. Defaults to `JBDC`.
      */
-    public readonly connectionType: pulumi.Output<string | undefined>;
+    public readonly connectionType!: pulumi.Output<string | undefined>;
     /**
      * Description of the connection.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A list of criteria that can be used in selecting this connection.
      */
-    public readonly matchCriterias: pulumi.Output<string[] | undefined>;
+    public readonly matchCriterias!: pulumi.Output<string[] | undefined>;
     /**
      * The name of the connection.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
      */
-    public readonly physicalConnectionRequirements: pulumi.Output<{ availabilityZone?: string, securityGroupIdLists?: string[], subnetId?: string } | undefined>;
+    public readonly physicalConnectionRequirements!: pulumi.Output<{ availabilityZone?: string, securityGroupIdLists?: string[], subnetId?: string } | undefined>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -99,7 +99,7 @@ export class Connection extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ConnectionArgs | ConnectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ConnectionState = argsOrState as ConnectionState | undefined;
+            const state = argsOrState as ConnectionState | undefined;
             inputs["catalogId"] = state ? state.catalogId : undefined;
             inputs["connectionProperties"] = state ? state.connectionProperties : undefined;
             inputs["connectionType"] = state ? state.connectionType : undefined;

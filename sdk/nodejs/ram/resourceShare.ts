@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Resource Access Manager (RAM) Resource Share. To association principals with the share, see the [`aws_ram_principal_association` resource](https://www.terraform.io/docs/providers/aws/r/ram_principal_association.html). To associate resources with the share, see the [`aws_ram_resource_association` resource](https://www.terraform.io/docs/providers/aws/r/ram_resource_association.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ram.ResourceShare("example", {
  *     allowExternalPrincipals: true,
  *     tags: {
@@ -37,19 +37,19 @@ export class ResourceShare extends pulumi.CustomResource {
     /**
      * Indicates whether principals outside your organization can be associated with a resource share.
      */
-    public readonly allowExternalPrincipals: pulumi.Output<boolean | undefined>;
+    public readonly allowExternalPrincipals!: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the resource share.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the resource share.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource share.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a ResourceShare resource with the given unique name, arguments, and options.
@@ -62,7 +62,7 @@ export class ResourceShare extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResourceShareArgs | ResourceShareState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ResourceShareState = argsOrState as ResourceShareState | undefined;
+            const state = argsOrState as ResourceShareState | undefined;
             inputs["allowExternalPrincipals"] = state ? state.allowExternalPrincipals : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;

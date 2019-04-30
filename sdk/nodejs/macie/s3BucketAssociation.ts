@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Associates an S3 resource with Amazon Macie for monitoring and data classification.
- * 
+ *
  * > **NOTE:** Before using Amazon Macie for the first time it must be enabled manually. Instructions are [here](https://docs.aws.amazon.com/macie/latest/userguide/macie-setting-up.html#macie-setting-up-enable).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.macie.S3BucketAssociation("example", {
  *     bucketName: "tf-macie-example",
  *     classificationType: {
@@ -40,19 +40,19 @@ export class S3BucketAssociation extends pulumi.CustomResource {
     /**
      * The name of the S3 bucket that you want to associate with Amazon Macie.
      */
-    public readonly bucketName: pulumi.Output<string>;
+    public readonly bucketName!: pulumi.Output<string>;
     /**
      * The configuration of how Amazon Macie classifies the S3 objects.
      */
-    public readonly classificationType: pulumi.Output<{ continuous?: string, oneTime?: string }>;
+    public readonly classificationType!: pulumi.Output<{ continuous?: string, oneTime?: string }>;
     /**
      * The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `member_account_id` isn't specified, the action associates specified S3 resources with Macie for the current master account.
      */
-    public readonly memberAccountId: pulumi.Output<string | undefined>;
+    public readonly memberAccountId!: pulumi.Output<string | undefined>;
     /**
      * Object key prefix identifying one or more S3 objects to which the association applies.
      */
-    public readonly prefix: pulumi.Output<string | undefined>;
+    public readonly prefix!: pulumi.Output<string | undefined>;
 
     /**
      * Create a S3BucketAssociation resource with the given unique name, arguments, and options.
@@ -65,7 +65,7 @@ export class S3BucketAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: S3BucketAssociationArgs | S3BucketAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: S3BucketAssociationState = argsOrState as S3BucketAssociationState | undefined;
+            const state = argsOrState as S3BucketAssociationState | undefined;
             inputs["bucketName"] = state ? state.bucketName : undefined;
             inputs["classificationType"] = state ? state.classificationType : undefined;
             inputs["memberAccountId"] = state ? state.memberAccountId : undefined;

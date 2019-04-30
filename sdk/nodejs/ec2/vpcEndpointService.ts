@@ -7,21 +7,21 @@ import * as utilities from "../utilities";
 /**
  * Provides a VPC Endpoint Service resource.
  * Service consumers can create an _Interface_ VPC Endpoint to connect to the service.
- * 
+ *
  * > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** Terraform provides
  * both a standalone VPC Endpoint Service Allowed Principal resource
  * and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
  * a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
  * and will overwrite the association.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * Basic usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.ec2.VpcEndpointService("foo", {
  *     acceptanceRequired: false,
  *     networkLoadBalancerArns: [aws_lb_test.arn],
@@ -44,39 +44,39 @@ export class VpcEndpointService extends pulumi.CustomResource {
     /**
      * Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
      */
-    public readonly acceptanceRequired: pulumi.Output<boolean>;
+    public readonly acceptanceRequired!: pulumi.Output<boolean>;
     /**
      * The ARNs of one or more principals allowed to discover the endpoint service.
      */
-    public readonly allowedPrincipals: pulumi.Output<string[]>;
+    public readonly allowedPrincipals!: pulumi.Output<string[]>;
     /**
      * The Availability Zones in which the service is available.
      */
-    public /*out*/ readonly availabilityZones: pulumi.Output<string[]>;
+    public /*out*/ readonly availabilityZones!: pulumi.Output<string[]>;
     /**
      * The DNS names for the service.
      */
-    public /*out*/ readonly baseEndpointDnsNames: pulumi.Output<string[]>;
+    public /*out*/ readonly baseEndpointDnsNames!: pulumi.Output<string[]>;
     /**
      * The ARNs of one or more Network Load Balancers for the endpoint service.
      */
-    public readonly networkLoadBalancerArns: pulumi.Output<string[]>;
+    public readonly networkLoadBalancerArns!: pulumi.Output<string[]>;
     /**
      * The private DNS name for the service.
      */
-    public /*out*/ readonly privateDnsName: pulumi.Output<string>;
+    public /*out*/ readonly privateDnsName!: pulumi.Output<string>;
     /**
      * The service name.
      */
-    public /*out*/ readonly serviceName: pulumi.Output<string>;
+    public /*out*/ readonly serviceName!: pulumi.Output<string>;
     /**
      * The service type, `Gateway` or `Interface`.
      */
-    public /*out*/ readonly serviceType: pulumi.Output<string>;
+    public /*out*/ readonly serviceType!: pulumi.Output<string>;
     /**
      * The state of the VPC endpoint service.
      */
-    public /*out*/ readonly state: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
 
     /**
      * Create a VpcEndpointService resource with the given unique name, arguments, and options.
@@ -89,7 +89,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcEndpointServiceArgs | VpcEndpointServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpcEndpointServiceState = argsOrState as VpcEndpointServiceState | undefined;
+            const state = argsOrState as VpcEndpointServiceState | undefined;
             inputs["acceptanceRequired"] = state ? state.acceptanceRequired : undefined;
             inputs["allowedPrincipals"] = state ? state.allowedPrincipals : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;

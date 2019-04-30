@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodeDeploy Deployment Group for a CodeDeploy Application
- * 
+ *
  * > **NOTE on blue/green deployments:** When using `green_fleet_provisioning_option` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by terraform and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleApplication = new aws.codedeploy.Application("example", {});
  * const exampleRole = new aws.iam.Role("example", {
  *     assumeRolePolicy: `{
@@ -70,13 +70,13 @@ import * as utilities from "../utilities";
  *     role: exampleRole.name,
  * });
  * ```
- * 
+ *
  * ### Blue Green Deployments with ECS
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleApplication = new aws.codedeploy.Application("example", {
  *     computePlatform: "ECS",
  * });
@@ -123,13 +123,13 @@ import * as utilities from "../utilities";
  *     serviceRoleArn: aws_iam_role_example.arn,
  * });
  * ```
- * 
+ *
  * ### Blue Green Deployments with Servers and Classic ELB
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleApplication = new aws.codedeploy.Application("example", {});
  * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("example", {
  *     appName: exampleApplication.name,
@@ -175,63 +175,63 @@ export class DeploymentGroup extends pulumi.CustomResource {
     /**
      * Configuration block of alarms associated with the deployment group (documented below).
      */
-    public readonly alarmConfiguration: pulumi.Output<{ alarms?: string[], enabled?: boolean, ignorePollAlarmFailure?: boolean } | undefined>;
+    public readonly alarmConfiguration!: pulumi.Output<{ alarms?: string[], enabled?: boolean, ignorePollAlarmFailure?: boolean } | undefined>;
     /**
      * The name of the application.
      */
-    public readonly appName: pulumi.Output<string>;
+    public readonly appName!: pulumi.Output<string>;
     /**
      * Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
      */
-    public readonly autoRollbackConfiguration: pulumi.Output<{ enabled?: boolean, events?: string[] } | undefined>;
+    public readonly autoRollbackConfiguration!: pulumi.Output<{ enabled?: boolean, events?: string[] } | undefined>;
     /**
      * Autoscaling groups associated with the deployment group.
      */
-    public readonly autoscalingGroups: pulumi.Output<string[] | undefined>;
+    public readonly autoscalingGroups!: pulumi.Output<string[] | undefined>;
     /**
      * Configuration block of the blue/green deployment options for a deployment group (documented below).
      */
-    public readonly blueGreenDeploymentConfig: pulumi.Output<{ deploymentReadyOption?: { actionOnTimeout?: string, waitTimeInMinutes?: number }, greenFleetProvisioningOption: { action?: string }, terminateBlueInstancesOnDeploymentSuccess?: { action?: string, terminationWaitTimeInMinutes?: number } }>;
+    public readonly blueGreenDeploymentConfig!: pulumi.Output<{ deploymentReadyOption?: { actionOnTimeout?: string, waitTimeInMinutes?: number }, greenFleetProvisioningOption: { action?: string }, terminateBlueInstancesOnDeploymentSuccess?: { action?: string, terminationWaitTimeInMinutes?: number } }>;
     /**
      * The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
      */
-    public readonly deploymentConfigName: pulumi.Output<string | undefined>;
+    public readonly deploymentConfigName!: pulumi.Output<string | undefined>;
     /**
      * The name of the deployment group.
      */
-    public readonly deploymentGroupName: pulumi.Output<string>;
+    public readonly deploymentGroupName!: pulumi.Output<string>;
     /**
      * Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
      */
-    public readonly deploymentStyle: pulumi.Output<{ deploymentOption?: string, deploymentType?: string }>;
+    public readonly deploymentStyle!: pulumi.Output<{ deploymentOption?: string, deploymentType?: string }>;
     /**
      * Tag filters associated with the deployment group. See the AWS docs for details.
      */
-    public readonly ec2TagFilters: pulumi.Output<{ key?: string, type?: string, value?: string }[] | undefined>;
+    public readonly ec2TagFilters!: pulumi.Output<{ key?: string, type?: string, value?: string }[] | undefined>;
     /**
      * Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
      */
-    public readonly ec2TagSets: pulumi.Output<{ ec2TagFilters?: { key?: string, type?: string, value?: string }[] }[] | undefined>;
+    public readonly ec2TagSets!: pulumi.Output<{ ec2TagFilters?: { key?: string, type?: string, value?: string }[] }[] | undefined>;
     /**
      * Configuration block(s) of the ECS services for a deployment group (documented below).
      */
-    public readonly ecsService: pulumi.Output<{ clusterName: string, serviceName: string } | undefined>;
+    public readonly ecsService!: pulumi.Output<{ clusterName: string, serviceName: string } | undefined>;
     /**
      * Single configuration block of the load balancer to use in a blue/green deployment (documented below).
      */
-    public readonly loadBalancerInfo: pulumi.Output<{ elbInfos?: { name?: string }[], targetGroupInfos?: { name?: string }[], targetGroupPairInfo?: { prodTrafficRoute: { listenerArns: string[] }, targetGroups: { name: string }[], testTrafficRoute?: { listenerArns: string[] } } }>;
+    public readonly loadBalancerInfo!: pulumi.Output<{ elbInfos?: { name?: string }[], targetGroupInfos?: { name?: string }[], targetGroupPairInfo?: { prodTrafficRoute: { listenerArns: string[] }, targetGroups: { name: string }[], testTrafficRoute?: { listenerArns: string[] } } }>;
     /**
      * On premise tag filters associated with the group. See the AWS docs for details.
      */
-    public readonly onPremisesInstanceTagFilters: pulumi.Output<{ key?: string, type?: string, value?: string }[] | undefined>;
+    public readonly onPremisesInstanceTagFilters!: pulumi.Output<{ key?: string, type?: string, value?: string }[] | undefined>;
     /**
      * The service role ARN that allows deployments.
      */
-    public readonly serviceRoleArn: pulumi.Output<string>;
+    public readonly serviceRoleArn!: pulumi.Output<string>;
     /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      */
-    public readonly triggerConfigurations: pulumi.Output<{ triggerEvents: string[], triggerName: string, triggerTargetArn: string }[] | undefined>;
+    public readonly triggerConfigurations!: pulumi.Output<{ triggerEvents: string[], triggerName: string, triggerTargetArn: string }[] | undefined>;
 
     /**
      * Create a DeploymentGroup resource with the given unique name, arguments, and options.
@@ -244,7 +244,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DeploymentGroupArgs | DeploymentGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DeploymentGroupState = argsOrState as DeploymentGroupState | undefined;
+            const state = argsOrState as DeploymentGroupState | undefined;
             inputs["alarmConfiguration"] = state ? state.alarmConfiguration : undefined;
             inputs["appName"] = state ? state.appName : undefined;
             inputs["autoRollbackConfiguration"] = state ? state.autoRollbackConfiguration : undefined;

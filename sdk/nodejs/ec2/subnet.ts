@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an VPC subnet resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.ec2.Subnet("main", {
  *     cidrBlock: "10.0.1.0/24",
  *     tags: {
@@ -23,16 +23,16 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_main.id,
  * });
  * ```
- * 
+ *
  * ### Subnets In Secondary VPC CIDR Blocks
- * 
+ *
  * When managing subnets in one of a VPC's secondary CIDR blocks created using a `aws_vpc_ipv4_cidr_block_association`
  * resource, it is recommended to reference that resource's `vpc_id` attribute to ensure correct dependency ordering.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const secondaryCidr = new aws.ec2.VpcIpv4CidrBlockAssociation("secondary_cidr", {
  *     cidrBlock: "172.2.0.0/16",
  *     vpcId: aws_vpc_main.id,
@@ -59,52 +59,52 @@ export class Subnet extends pulumi.CustomResource {
     /**
      * The ARN of the subnet.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specify true to indicate
      * that network interfaces created in the specified subnet should be
      * assigned an IPv6 address. Default is `false`
      */
-    public readonly assignIpv6AddressOnCreation: pulumi.Output<boolean | undefined>;
+    public readonly assignIpv6AddressOnCreation!: pulumi.Output<boolean | undefined>;
     /**
      * The AZ for the subnet.
      */
-    public readonly availabilityZone: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string>;
     /**
      * The AZ ID of the subnet.
      */
-    public readonly availabilityZoneId: pulumi.Output<string>;
+    public readonly availabilityZoneId!: pulumi.Output<string>;
     /**
      * The CIDR block for the subnet.
      */
-    public readonly cidrBlock: pulumi.Output<string>;
+    public readonly cidrBlock!: pulumi.Output<string>;
     /**
      * The IPv6 network range for the subnet,
      * in CIDR notation. The subnet size must use a /64 prefix length.
      */
-    public readonly ipv6CidrBlock: pulumi.Output<string>;
+    public readonly ipv6CidrBlock!: pulumi.Output<string>;
     /**
      * The association ID for the IPv6 CIDR block.
      */
-    public /*out*/ readonly ipv6CidrBlockAssociationId: pulumi.Output<string>;
+    public /*out*/ readonly ipv6CidrBlockAssociationId!: pulumi.Output<string>;
     /**
      * Specify true to indicate
      * that instances launched into the subnet should be assigned
      * a public IP address. Default is `false`.
      */
-    public readonly mapPublicIpOnLaunch: pulumi.Output<boolean | undefined>;
+    public readonly mapPublicIpOnLaunch!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the AWS account that owns the subnet.
      */
-    public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The VPC ID.
      */
-    public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a Subnet resource with the given unique name, arguments, and options.
@@ -117,7 +117,7 @@ export class Subnet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SubnetArgs | SubnetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SubnetState = argsOrState as SubnetState | undefined;
+            const state = argsOrState as SubnetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["assignIpv6AddressOnCreation"] = state ? state.assignIpv6AddressOnCreation : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;

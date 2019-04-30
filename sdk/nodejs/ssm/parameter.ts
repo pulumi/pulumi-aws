@@ -6,27 +6,27 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Parameter resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * To store a basic string parameter:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.ssm.Parameter("foo", {
  *     type: "String",
  *     value: "bar",
  * });
  * ```
- * 
+ *
  * To store an encrypted string using the default SSM KMS key:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultInstance = new aws.rds.Instance("default", {
  *     allocatedStorage: 10,
  *     dbSubnetGroupName: "my_database_subnet_group",
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *     value: var_database_master_password,
  * });
  * ```
- * 
+ *
  * > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  */
@@ -68,39 +68,39 @@ export class Parameter extends pulumi.CustomResource {
     /**
      * A regular expression used to validate the parameter value.
      */
-    public readonly allowedPattern: pulumi.Output<string | undefined>;
+    public readonly allowedPattern!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the parameter.
      */
-    public readonly arn: pulumi.Output<string>;
+    public readonly arn!: pulumi.Output<string>;
     /**
      * The description of the parameter.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The KMS key id or arn for encrypting a SecureString.
      */
-    public readonly keyId: pulumi.Output<string>;
+    public readonly keyId!: pulumi.Output<string>;
     /**
      * The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by terraform to avoid overwrite of existing resource and will default to `true` otherwise (terraform lifecycle rules should then be used to manage the update behavior).
      */
-    public readonly overwrite: pulumi.Output<boolean | undefined>;
+    public readonly overwrite!: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags to assign to the object.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      */
-    public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * The value of the parameter.
      */
-    public readonly value: pulumi.Output<string>;
+    public readonly value!: pulumi.Output<string>;
 
     /**
      * Create a Parameter resource with the given unique name, arguments, and options.
@@ -113,7 +113,7 @@ export class Parameter extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ParameterArgs | ParameterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ParameterState = argsOrState as ParameterState | undefined;
+            const state = argsOrState as ParameterState | undefined;
             inputs["allowedPattern"] = state ? state.allowedPattern : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;

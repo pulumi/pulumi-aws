@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Backup plan resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.backup.Plan("example", {
  *     rules: [{
  *         ruleName: "tf_example_backup_rule",
@@ -38,23 +38,23 @@ export class Plan extends pulumi.CustomResource {
     /**
      * The ARN of the backup plan.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The display name of a backup plan.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A rule object that specifies a scheduled task that is used to back up a selection of resources.
      */
-    public readonly rules: pulumi.Output<{ completionWindow?: number, lifecycle?: { coldStorageAfter?: number, deleteAfter?: number }, recoveryPointTags?: {[key: string]: string}, ruleName: string, schedule?: string, startWindow?: number, targetVaultName: string }[]>;
+    public readonly rules!: pulumi.Output<{ completionWindow?: number, lifecycle?: { coldStorageAfter?: number, deleteAfter?: number }, recoveryPointTags?: {[key: string]: string}, ruleName: string, schedule?: string, startWindow?: number, targetVaultName: string }[]>;
     /**
      * Metadata that you can assign to help organize the plans you create.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
      */
-    public /*out*/ readonly version: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a Plan resource with the given unique name, arguments, and options.
@@ -67,7 +67,7 @@ export class Plan extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PlanArgs | PlanState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PlanState = argsOrState as PlanState | undefined;
+            const state = argsOrState as PlanState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["rules"] = state ? state.rules : undefined;

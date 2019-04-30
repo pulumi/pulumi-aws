@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a MediaStore Container Policy.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleContainer = new aws.mediastore.Container("example", {});
  * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({}));
  * const currentRegion = pulumi.output(aws.getRegion({}));
@@ -51,11 +51,11 @@ export class ContainerPolicy extends pulumi.CustomResource {
     /**
      * The name of the container.
      */
-    public readonly containerName: pulumi.Output<string>;
+    public readonly containerName!: pulumi.Output<string>;
     /**
      * The contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
 
     /**
      * Create a ContainerPolicy resource with the given unique name, arguments, and options.
@@ -68,7 +68,7 @@ export class ContainerPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ContainerPolicyArgs | ContainerPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ContainerPolicyState = argsOrState as ContainerPolicyState | undefined;
+            const state = argsOrState as ContainerPolicyState | undefined;
             inputs["containerName"] = state ? state.containerName : undefined;
             inputs["policy"] = state ? state.policy : undefined;
         } else {

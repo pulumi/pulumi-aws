@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES domain MAIL FROM resource.
- * 
+ *
  * > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the [aws_ses_domain_identity resource](https://www.terraform.io/docs/providers/aws/r/ses_domain_identity.html). To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html) for more information.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Example SES Domain Identity
  * const exampleDomainIdentity = new aws.ses.DomainIdentity("example", {
  *     domain: "example.com",
@@ -55,15 +55,15 @@ export class MailFrom extends pulumi.CustomResource {
     /**
      * The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
      */
-    public readonly behaviorOnMxFailure: pulumi.Output<string | undefined>;
+    public readonly behaviorOnMxFailure!: pulumi.Output<string | undefined>;
     /**
      * Verified domain name to generate DKIM tokens for.
      */
-    public readonly domain: pulumi.Output<string>;
+    public readonly domain!: pulumi.Output<string>;
     /**
      * Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
      */
-    public readonly mailFromDomain: pulumi.Output<string>;
+    public readonly mailFromDomain!: pulumi.Output<string>;
 
     /**
      * Create a MailFrom resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ export class MailFrom extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MailFromArgs | MailFromState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MailFromState = argsOrState as MailFromState | undefined;
+            const state = argsOrState as MailFromState | undefined;
             inputs["behaviorOnMxFailure"] = state ? state.behaviorOnMxFailure : undefined;
             inputs["domain"] = state ? state.domain : undefined;
             inputs["mailFromDomain"] = state ? state.mailFromDomain : undefined;

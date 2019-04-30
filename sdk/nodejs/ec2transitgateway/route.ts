@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EC2 Transit Gateway Route.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ec2transitgateway.Route("example", {
  *     destinationCidrBlock: "0.0.0.0/0",
  *     transitGatewayAttachmentId: aws_ec2_transit_gateway_vpc_attachment_example.id,
@@ -36,15 +36,15 @@ export class Route extends pulumi.CustomResource {
     /**
      * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
      */
-    public readonly destinationCidrBlock: pulumi.Output<string>;
+    public readonly destinationCidrBlock!: pulumi.Output<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */
-    public readonly transitGatewayAttachmentId: pulumi.Output<string>;
+    public readonly transitGatewayAttachmentId!: pulumi.Output<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      */
-    public readonly transitGatewayRouteTableId: pulumi.Output<string>;
+    public readonly transitGatewayRouteTableId!: pulumi.Output<string>;
 
     /**
      * Create a Route resource with the given unique name, arguments, and options.
@@ -57,7 +57,7 @@ export class Route extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RouteState = argsOrState as RouteState | undefined;
+            const state = argsOrState as RouteState | undefined;
             inputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
             inputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
             inputs["transitGatewayRouteTableId"] = state ? state.transitGatewayRouteTableId : undefined;

@@ -6,16 +6,16 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an RDS DB cluster parameter group resource. Documentation of the available parameters for various Aurora engines can be found at:
- * 
+ *
  * * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
  * * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultClusterParameterGroup = new aws.rds.ClusterParameterGroup("default", {
  *     description: "RDS default cluster parameter group",
  *     family: "aurora5.6",
@@ -48,31 +48,31 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
     /**
      * The ARN of the db cluster parameter group.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The description of the DB cluster parameter group. Defaults to "Managed by Terraform".
      */
-    public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * The family of the DB cluster parameter group.
      */
-    public readonly family: pulumi.Output<string>;
+    public readonly family!: pulumi.Output<string>;
     /**
      * The name of the DB parameter.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
      */
-    public readonly parameters: pulumi.Output<{ applyMethod?: string, name: string, value: string }[] | undefined>;
+    public readonly parameters!: pulumi.Output<{ applyMethod?: string, name: string, value: string }[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a ClusterParameterGroup resource with the given unique name, arguments, and options.
@@ -85,7 +85,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterParameterGroupArgs | ClusterParameterGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ClusterParameterGroupState = argsOrState as ClusterParameterGroupState | undefined;
+            const state = argsOrState as ClusterParameterGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["family"] = state ? state.family : undefined;

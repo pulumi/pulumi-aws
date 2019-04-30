@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Creates and manages an AWS IoT Thing Type.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.iot.ThingType("foo", {});
  * ```
  */
@@ -32,16 +32,16 @@ export class ThingType extends pulumi.CustomResource {
     /**
      * The ARN of the created AWS IoT Thing Type.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Whether the thing type is deprecated. If true, no new things could be associated with this type.
      */
-    public readonly deprecated: pulumi.Output<boolean | undefined>;
+    public readonly deprecated!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the thing type.
      */
-    public readonly name: pulumi.Output<string>;
-    public readonly properties: pulumi.Output<{ description?: string, searchableAttributes: string[] } | undefined>;
+    public readonly name!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<{ description?: string, searchableAttributes: string[] } | undefined>;
 
     /**
      * Create a ThingType resource with the given unique name, arguments, and options.
@@ -54,7 +54,7 @@ export class ThingType extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ThingTypeArgs | ThingTypeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ThingTypeState = argsOrState as ThingTypeState | undefined;
+            const state = argsOrState as ThingTypeState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["deprecated"] = state ? state.deprecated : undefined;
             inputs["name"] = state ? state.name : undefined;

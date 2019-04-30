@@ -6,31 +6,31 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AutoScaling Attachment resource.
- * 
+ *
  * > **NOTE on AutoScaling Groups and ASG Attachments:** Terraform currently provides
  * both a standalone ASG Attachment resource (describing an ASG attached to
  * an ELB), and an AutoScaling Group resource with
  * `load_balancers` defined in-line. At this time you cannot use an ASG with in-line
  * load balancers in conjunction with an ASG Attachment resource. Doing so will cause a
  * conflict and will overwrite attachments.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Create a new load balancer attachment
  * const asgAttachmentBar = new aws.autoscaling.Attachment("asg_attachment_bar", {
  *     autoscalingGroupName: aws_autoscaling_group_asg.id,
  *     elb: aws_elb_bar.id,
  * });
  * ```
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Create a new ALB Target Group attachment
  * const asgAttachmentBar = new aws.autoscaling.Attachment("asg_attachment_bar", {
  *     albTargetGroupArn: aws_alb_target_group_test.arn,
@@ -54,15 +54,15 @@ export class Attachment extends pulumi.CustomResource {
     /**
      * The ARN of an ALB Target Group.
      */
-    public readonly albTargetGroupArn: pulumi.Output<string | undefined>;
+    public readonly albTargetGroupArn!: pulumi.Output<string | undefined>;
     /**
      * Name of ASG to associate with the ELB.
      */
-    public readonly autoscalingGroupName: pulumi.Output<string>;
+    public readonly autoscalingGroupName!: pulumi.Output<string>;
     /**
      * The name of the ELB.
      */
-    public readonly elb: pulumi.Output<string | undefined>;
+    public readonly elb!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Attachment resource with the given unique name, arguments, and options.
@@ -75,7 +75,7 @@ export class Attachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AttachmentArgs | AttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AttachmentState = argsOrState as AttachmentState | undefined;
+            const state = argsOrState as AttachmentState | undefined;
             inputs["albTargetGroupArn"] = state ? state.albTargetGroupArn : undefined;
             inputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
             inputs["elb"] = state ? state.elb : undefined;

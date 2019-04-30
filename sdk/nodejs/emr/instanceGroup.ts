@@ -7,17 +7,17 @@ import * as utilities from "../utilities";
 /**
  * Provides an Elastic MapReduce Cluster Instance Group configuration.
  * See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
- * 
+ *
  * > **NOTE:** At this time, Instance Groups cannot be destroyed through the API nor
  * web interface. Instance Groups are destroyed when the EMR Cluster is destroyed.
  * Terraform will resize any Instance Group to zero when destroying the resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const task = new aws.emr.InstanceGroup("task", {
  *     clusterId: aws_emr_cluster_tf_test_cluster.id,
  *     instanceCount: 1,
@@ -41,29 +41,29 @@ export class InstanceGroup extends pulumi.CustomResource {
     /**
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      */
-    public readonly clusterId: pulumi.Output<string>;
+    public readonly clusterId!: pulumi.Output<string>;
     /**
      * One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly ebsConfigs: pulumi.Output<{ iops?: number, size: number, type: string, volumesPerInstance?: number }[] | undefined>;
+    public readonly ebsConfigs!: pulumi.Output<{ iops?: number, size: number, type: string, volumesPerInstance?: number }[] | undefined>;
     /**
      * Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
      */
-    public readonly ebsOptimized: pulumi.Output<boolean | undefined>;
+    public readonly ebsOptimized!: pulumi.Output<boolean | undefined>;
     /**
      * Target number of instances for the instance group. Defaults to 0.
      */
-    public readonly instanceCount: pulumi.Output<number | undefined>;
+    public readonly instanceCount!: pulumi.Output<number | undefined>;
     /**
      * The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
      */
-    public readonly instanceType: pulumi.Output<string>;
+    public readonly instanceType!: pulumi.Output<string>;
     /**
      * Human friendly name given to the instance group. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
-    public /*out*/ readonly runningInstanceCount: pulumi.Output<number>;
-    public /*out*/ readonly status: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly runningInstanceCount!: pulumi.Output<number>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
      * Create a InstanceGroup resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ export class InstanceGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: InstanceGroupArgs | InstanceGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: InstanceGroupState = argsOrState as InstanceGroupState | undefined;
+            const state = argsOrState as InstanceGroupState | undefined;
             inputs["clusterId"] = state ? state.clusterId : undefined;
             inputs["ebsConfigs"] = state ? state.ebsConfigs : undefined;
             inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;

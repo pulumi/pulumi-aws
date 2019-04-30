@@ -6,12 +6,12 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const example = new aws.worklink.Fleet("example", {});
  * const test = new aws.worklink.WebsiteCertificateAuthorityAssociation("test", {
  *     certificate: fs.readFileSync("certificate.pem", "utf-8"),
@@ -35,19 +35,19 @@ export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResourc
     /**
      * The root certificate of the Certificate Authority.
      */
-    public readonly certificate: pulumi.Output<string>;
+    public readonly certificate!: pulumi.Output<string>;
     /**
      * The certificate name to display.
      */
-    public readonly displayName: pulumi.Output<string | undefined>;
+    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the fleet.
      */
-    public readonly fleetArn: pulumi.Output<string>;
+    public readonly fleetArn!: pulumi.Output<string>;
     /**
      * A unique identifier for the Certificate Authority.
      */
-    public /*out*/ readonly websiteCaId: pulumi.Output<string>;
+    public /*out*/ readonly websiteCaId!: pulumi.Output<string>;
 
     /**
      * Create a WebsiteCertificateAuthorityAssociation resource with the given unique name, arguments, and options.
@@ -60,7 +60,7 @@ export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResourc
     constructor(name: string, argsOrState?: WebsiteCertificateAuthorityAssociationArgs | WebsiteCertificateAuthorityAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: WebsiteCertificateAuthorityAssociationState = argsOrState as WebsiteCertificateAuthorityAssociationState | undefined;
+            const state = argsOrState as WebsiteCertificateAuthorityAssociationState | undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["fleetArn"] = state ? state.fleetArn : undefined;

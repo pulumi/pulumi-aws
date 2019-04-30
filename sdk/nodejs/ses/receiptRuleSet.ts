@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES receipt rule set resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.ses.ReceiptRuleSet("main", {
  *     ruleSetName: "primary-rules",
  * });
@@ -34,7 +34,7 @@ export class ReceiptRuleSet extends pulumi.CustomResource {
     /**
      * The name of the rule set
      */
-    public readonly ruleSetName: pulumi.Output<string>;
+    public readonly ruleSetName!: pulumi.Output<string>;
 
     /**
      * Create a ReceiptRuleSet resource with the given unique name, arguments, and options.
@@ -47,7 +47,7 @@ export class ReceiptRuleSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ReceiptRuleSetArgs | ReceiptRuleSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ReceiptRuleSetState = argsOrState as ReceiptRuleSetState | undefined;
+            const state = argsOrState as ReceiptRuleSetState | undefined;
             inputs["ruleSetName"] = state ? state.ruleSetName : undefined;
         } else {
             const args = argsOrState as ReceiptRuleSetArgs | undefined;

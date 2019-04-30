@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EC2 Transit Gateway Route Table propagation.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ec2transitgateway.RouteTablePropagation("example", {
  *     transitGatewayAttachmentId: aws_ec2_transit_gateway_vpc_attachment_example.id,
  *     transitGatewayRouteTableId: aws_ec2_transit_gateway_route_table_example.id,
@@ -35,19 +35,19 @@ export class RouteTablePropagation extends pulumi.CustomResource {
     /**
      * Identifier of the resource
      */
-    public /*out*/ readonly resourceId: pulumi.Output<string>;
+    public /*out*/ readonly resourceId!: pulumi.Output<string>;
     /**
      * Type of the resource
      */
-    public /*out*/ readonly resourceType: pulumi.Output<string>;
+    public /*out*/ readonly resourceType!: pulumi.Output<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */
-    public readonly transitGatewayAttachmentId: pulumi.Output<string>;
+    public readonly transitGatewayAttachmentId!: pulumi.Output<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      */
-    public readonly transitGatewayRouteTableId: pulumi.Output<string>;
+    public readonly transitGatewayRouteTableId!: pulumi.Output<string>;
 
     /**
      * Create a RouteTablePropagation resource with the given unique name, arguments, and options.
@@ -60,7 +60,7 @@ export class RouteTablePropagation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RouteTablePropagationArgs | RouteTablePropagationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RouteTablePropagationState = argsOrState as RouteTablePropagationState | undefined;
+            const state = argsOrState as RouteTablePropagationState | undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;
             inputs["resourceType"] = state ? state.resourceType : undefined;
             inputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;

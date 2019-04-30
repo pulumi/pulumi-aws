@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testRole = new aws.iam.Role("test_role", {
  *     assumeRolePolicy: `  {
  *     "Version": "2012-10-17",
@@ -51,35 +51,35 @@ export class Activation extends pulumi.CustomResource {
     /**
      * The code the system generates when it processes the activation.
      */
-    public /*out*/ readonly activationCode: pulumi.Output<string>;
+    public /*out*/ readonly activationCode!: pulumi.Output<string>;
     /**
      * The description of the resource that you want to register.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time.
      */
-    public readonly expirationDate: pulumi.Output<string | undefined>;
+    public readonly expirationDate!: pulumi.Output<string | undefined>;
     /**
      * If the current activation has expired.
      */
-    public /*out*/ readonly expired: pulumi.Output<string>;
+    public /*out*/ readonly expired!: pulumi.Output<string>;
     /**
      * The IAM Role to attach to the managed instance.
      */
-    public readonly iamRole: pulumi.Output<string>;
+    public readonly iamRole!: pulumi.Output<string>;
     /**
      * The default name of the registered managed instance.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The number of managed instances that are currently registered using this activation.
      */
-    public /*out*/ readonly registrationCount: pulumi.Output<number>;
+    public /*out*/ readonly registrationCount!: pulumi.Output<number>;
     /**
      * The maximum number of managed instances you want to register. The default value is 1 instance.
      */
-    public readonly registrationLimit: pulumi.Output<number | undefined>;
+    public readonly registrationLimit!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Activation resource with the given unique name, arguments, and options.
@@ -92,7 +92,7 @@ export class Activation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ActivationArgs | ActivationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ActivationState = argsOrState as ActivationState | undefined;
+            const state = argsOrState as ActivationState | undefined;
             inputs["activationCode"] = state ? state.activationCode : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["expirationDate"] = state ? state.expirationDate : undefined;

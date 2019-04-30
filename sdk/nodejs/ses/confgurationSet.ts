@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES configuration set resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.ses.ConfgurationSet("test", {});
  * ```
  */
@@ -32,7 +32,7 @@ export class ConfgurationSet extends pulumi.CustomResource {
     /**
      * The name of the configuration set
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a ConfgurationSet resource with the given unique name, arguments, and options.
@@ -45,7 +45,7 @@ export class ConfgurationSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ConfgurationSetArgs | ConfgurationSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ConfgurationSetState = argsOrState as ConfgurationSetState | undefined;
+            const state = argsOrState as ConfgurationSetState | undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ConfgurationSetArgs | undefined;

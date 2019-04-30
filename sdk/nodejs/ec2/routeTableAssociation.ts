@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create an association between a subnet and routing table.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const routeTableAssociation = new aws.ec2.RouteTableAssociation("a", {
  *     routeTableId: aws_route_table_bar.id,
  *     subnetId: aws_subnet_foo.id,
@@ -35,11 +35,11 @@ export class RouteTableAssociation extends pulumi.CustomResource {
     /**
      * The ID of the routing table to associate with.
      */
-    public readonly routeTableId: pulumi.Output<string>;
+    public readonly routeTableId!: pulumi.Output<string>;
     /**
      * The subnet ID to create an association.
      */
-    public readonly subnetId: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string>;
 
     /**
      * Create a RouteTableAssociation resource with the given unique name, arguments, and options.
@@ -52,7 +52,7 @@ export class RouteTableAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RouteTableAssociationArgs | RouteTableAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RouteTableAssociationState = argsOrState as RouteTableAssociationState | undefined;
+            const state = argsOrState as RouteTableAssociationState | undefined;
             inputs["routeTableId"] = state ? state.routeTableId : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {

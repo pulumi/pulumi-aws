@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Pinpoint SMS Channel resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const app = new aws.pinpoint.App("app", {});
  * const sms = new aws.pinpoint.SmsChannel("sms", {
  *     applicationId: app.applicationId,
@@ -35,27 +35,27 @@ export class SmsChannel extends pulumi.CustomResource {
     /**
      * The application ID.
      */
-    public readonly applicationId: pulumi.Output<string>;
+    public readonly applicationId!: pulumi.Output<string>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Promotional messages per second that can be sent.
      */
-    public /*out*/ readonly promotionalMessagesPerSecond: pulumi.Output<number>;
+    public /*out*/ readonly promotionalMessagesPerSecond!: pulumi.Output<number>;
     /**
      * Sender identifier of your messages.
      */
-    public readonly senderId: pulumi.Output<string | undefined>;
+    public readonly senderId!: pulumi.Output<string | undefined>;
     /**
      * The Short Code registered with the phone provider.
      */
-    public readonly shortCode: pulumi.Output<string | undefined>;
+    public readonly shortCode!: pulumi.Output<string | undefined>;
     /**
      * Transactional messages per second that can be sent.
      */
-    public /*out*/ readonly transactionalMessagesPerSecond: pulumi.Output<number>;
+    public /*out*/ readonly transactionalMessagesPerSecond!: pulumi.Output<number>;
 
     /**
      * Create a SmsChannel resource with the given unique name, arguments, and options.
@@ -68,7 +68,7 @@ export class SmsChannel extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SmsChannelArgs | SmsChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SmsChannelState = argsOrState as SmsChannelState | undefined;
+            const state = argsOrState as SmsChannelState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["promotionalMessagesPerSecond"] = state ? state.promotionalMessagesPerSecond : undefined;

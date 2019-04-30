@@ -6,16 +6,16 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks RDS DB Instance resource.
- * 
+ *
  * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myInstance = new aws.opsworks.RdsDbInstance("my_instance", {
  *     dbPassword: "somePass",
  *     dbUser: "someUser",
@@ -40,19 +40,19 @@ export class RdsDbInstance extends pulumi.CustomResource {
     /**
      * A db password
      */
-    public readonly dbPassword: pulumi.Output<string>;
+    public readonly dbPassword!: pulumi.Output<string>;
     /**
      * A db username
      */
-    public readonly dbUser: pulumi.Output<string>;
+    public readonly dbUser!: pulumi.Output<string>;
     /**
      * The db instance to register for this stack. Changing this will force a new resource.
      */
-    public readonly rdsDbInstanceArn: pulumi.Output<string>;
+    public readonly rdsDbInstanceArn!: pulumi.Output<string>;
     /**
      * The stack to register a db instance for. Changing this will force a new resource.
      */
-    public readonly stackId: pulumi.Output<string>;
+    public readonly stackId!: pulumi.Output<string>;
 
     /**
      * Create a RdsDbInstance resource with the given unique name, arguments, and options.
@@ -65,7 +65,7 @@ export class RdsDbInstance extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RdsDbInstanceArgs | RdsDbInstanceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RdsDbInstanceState = argsOrState as RdsDbInstanceState | undefined;
+            const state = argsOrState as RdsDbInstanceState | undefined;
             inputs["dbPassword"] = state ? state.dbPassword : undefined;
             inputs["dbUser"] = state ? state.dbUser : undefined;
             inputs["rdsDbInstanceArn"] = state ? state.rdsDbInstanceArn : undefined;

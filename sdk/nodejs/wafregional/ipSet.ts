@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Regional IPSet Resource for use with Application Load Balancer.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ipset = new aws.wafregional.IpSet("ipset", {
  *     ipSetDescriptors: [
  *         {
@@ -43,15 +43,15 @@ export class IpSet extends pulumi.CustomResource {
     /**
      * The ARN of the WAF IPSet.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
      */
-    public readonly ipSetDescriptors: pulumi.Output<{ type: string, value: string }[] | undefined>;
+    public readonly ipSetDescriptors!: pulumi.Output<{ type: string, value: string }[] | undefined>;
     /**
      * The name or description of the IPSet.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a IpSet resource with the given unique name, arguments, and options.
@@ -64,7 +64,7 @@ export class IpSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: IpSetArgs | IpSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: IpSetState = argsOrState as IpSetState | undefined;
+            const state = argsOrState as IpSetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["ipSetDescriptors"] = state ? state.ipSetDescriptors : undefined;
             inputs["name"] = state ? state.name : undefined;

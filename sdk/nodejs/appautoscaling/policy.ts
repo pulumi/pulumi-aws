@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Application AutoScaling Policy resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### DynamoDB Table Autoscaling
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const dynamodbTableReadTarget = new aws.appautoscaling.Target("dynamodb_table_read_target", {
  *     maxCapacity: 100,
  *     minCapacity: 5,
@@ -36,13 +36,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### ECS Service Autoscaling
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ecsTarget = new aws.appautoscaling.Target("ecs_target", {
  *     maxCapacity: 4,
  *     minCapacity: 1,
@@ -67,26 +67,26 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### Preserve desired count when updating an autoscaled ECS Service
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ecsService = new aws.ecs.Service("ecs_service", {
  *     cluster: "clusterName",
  *     desiredCount: 2,
  *     taskDefinition: "taskDefinitionFamily:1",
  * });
  * ```
- * 
+ *
  * ### Aurora Read Replica Autoscaling
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const replicasTarget = new aws.appautoscaling.Target("replicas", {
  *     maxCapacity: 15,
  *     minCapacity: 1,
@@ -109,28 +109,28 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ## Nested fields
- * 
+ *
  * ### `target_tracking_scaling_policy_configuration`
- * 
+ *
  * * `target_value` - (Required) The target value for the metric.
  * * `disable_scale_in` - (Optional) Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
  * * `scale_in_cooldown` - (Optional) The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
  * * `scale_out_cooldown` - (Optional) The amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
  * * `customized_metric_specification` - (Optional) Reserved for future use. See supported fields below.
  * * `predefined_metric_specification` - (Optional) A predefined metric. See supported fields below.
- * 
+ *
  * ### `customized_metric_specification`
- * 
+ *
  * * `dimensions` - (Optional) The dimensions of the metric.
  * * `metric_name` - (Required) The name of the metric.
  * * `namespace` - (Required) The namespace of the metric.
  * * `statistic` - (Required) The statistic of the metric.
  * * `unit` - (Optional) The unit of the metric.
- * 
+ *
  * ### `predefined_metric_specification`
- * 
+ *
  * * `predefined_metric_type` - (Required) The metric type.
  * * `resource_label` - (Optional) Reserved for future use.
  */
@@ -147,39 +147,39 @@ export class Policy extends pulumi.CustomResource {
         return new Policy(name, <any>state, { ...opts, id: id });
     }
 
-    public readonly alarms: pulumi.Output<string[] | undefined>;
+    public readonly alarms!: pulumi.Output<string[] | undefined>;
     /**
      * The ARN assigned by AWS to the scaling policy.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the policy.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * For DynamoDB, only `TargetTrackingScaling` is supported. For Amazon ECS, Spot Fleet, and Amazon RDS, both `StepScaling` and `TargetTrackingScaling` are supported. For any other service, only `StepScaling` is supported. Defaults to `StepScaling`.
      */
-    public readonly policyType: pulumi.Output<string | undefined>;
+    public readonly policyType!: pulumi.Output<string | undefined>;
     /**
      * The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    public readonly resourceId: pulumi.Output<string>;
+    public readonly resourceId!: pulumi.Output<string>;
     /**
      * The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    public readonly scalableDimension: pulumi.Output<string>;
+    public readonly scalableDimension!: pulumi.Output<string>;
     /**
      * The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    public readonly serviceNamespace: pulumi.Output<string>;
+    public readonly serviceNamespace!: pulumi.Output<string>;
     /**
      * Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
      */
-    public readonly stepScalingPolicyConfiguration: pulumi.Output<{ adjustmentType?: string, cooldown?: number, metricAggregationType?: string, minAdjustmentMagnitude?: number, stepAdjustments?: { metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[] } | undefined>;
+    public readonly stepScalingPolicyConfiguration!: pulumi.Output<{ adjustmentType?: string, cooldown?: number, metricAggregationType?: string, minAdjustmentMagnitude?: number, stepAdjustments?: { metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[] } | undefined>;
     /**
      * A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
      */
-    public readonly targetTrackingScalingPolicyConfiguration: pulumi.Output<{ customizedMetricSpecification?: { dimensions?: { name: string, value: string }[], metricName: string, namespace: string, statistic: string, unit?: string }, disableScaleIn?: boolean, predefinedMetricSpecification?: { predefinedMetricType: string, resourceLabel?: string }, scaleInCooldown?: number, scaleOutCooldown?: number, targetValue: number } | undefined>;
+    public readonly targetTrackingScalingPolicyConfiguration!: pulumi.Output<{ customizedMetricSpecification?: { dimensions?: { name: string, value: string }[], metricName: string, namespace: string, statistic: string, unit?: string }, disableScaleIn?: boolean, predefinedMetricSpecification?: { predefinedMetricType: string, resourceLabel?: string }, scaleInCooldown?: number, scaleOutCooldown?: number, targetValue: number } | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -192,7 +192,7 @@ export class Policy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PolicyState = argsOrState as PolicyState | undefined;
+            const state = argsOrState as PolicyState | undefined;
             inputs["alarms"] = state ? state.alarms : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;

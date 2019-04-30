@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a CloudFormation Stack Set. Stack Sets allow CloudFormation templates to be easily deployed across multiple accounts and regions via Stack Set Instances ([`aws_cloudformation_stack_set_instance` resource](https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance.html)). Additional information about Stack Sets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
- * 
+ *
  * > **NOTE:** All template parameters, including those with a `Default`, must be configured or ignored with the `lifecycle` configuration block `ignore_changes` argument.
- * 
+ *
  * > **NOTE:** All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy = pulumi.output(aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
@@ -86,47 +86,47 @@ export class StackSet extends pulumi.CustomResource {
     /**
      * Amazon Resource Number (ARN) of the IAM Role in the administrator account.
      */
-    public readonly administrationRoleArn: pulumi.Output<string>;
+    public readonly administrationRoleArn!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the Stack Set.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
      */
-    public readonly capabilities: pulumi.Output<string[] | undefined>;
+    public readonly capabilities!: pulumi.Output<string[] | undefined>;
     /**
      * Description of the Stack Set.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Name of the IAM Role in all target accounts for Stack Set operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
      */
-    public readonly executionRoleName: pulumi.Output<string | undefined>;
+    public readonly executionRoleName!: pulumi.Output<string | undefined>;
     /**
      * Name of the Stack Set. The name must be unique in the region where you create your Stack Set. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Key-value map of input parameters for the Stack Set template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
      */
-    public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Unique identifier of the Stack Set.
      */
-    public /*out*/ readonly stackSetId: pulumi.Output<string>;
+    public /*out*/ readonly stackSetId!: pulumi.Output<string>;
     /**
      * Key-value map of tags to associate with this Stack Set and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
      */
-    public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
      */
-    public readonly templateBody: pulumi.Output<string>;
+    public readonly templateBody!: pulumi.Output<string>;
     /**
      * String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.
      */
-    public readonly templateUrl: pulumi.Output<string | undefined>;
+    public readonly templateUrl!: pulumi.Output<string | undefined>;
 
     /**
      * Create a StackSet resource with the given unique name, arguments, and options.
@@ -139,7 +139,7 @@ export class StackSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StackSetArgs | StackSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: StackSetState = argsOrState as StackSetState | undefined;
+            const state = argsOrState as StackSetState | undefined;
             inputs["administrationRoleArn"] = state ? state.administrationRoleArn : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["capabilities"] = state ? state.capabilities : undefined;

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodeCommit Trigger Resource.
- * 
+ *
  * > **NOTE on CodeCommit**: The CodeCommit is not yet rolled out
  * in all regions - available regions are listed
  * [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region).
@@ -24,12 +24,12 @@ export class Trigger extends pulumi.CustomResource {
         return new Trigger(name, <any>state, { ...opts, id: id });
     }
 
-    public /*out*/ readonly configurationId: pulumi.Output<string>;
+    public /*out*/ readonly configurationId!: pulumi.Output<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */
-    public readonly repositoryName: pulumi.Output<string>;
-    public readonly triggers: pulumi.Output<{ branches?: string[], customData?: string, destinationArn: string, events: string[], name: string }[]>;
+    public readonly repositoryName!: pulumi.Output<string>;
+    public readonly triggers!: pulumi.Output<{ branches?: string[], customData?: string, destinationArn: string, events: string[], name: string }[]>;
 
     /**
      * Create a Trigger resource with the given unique name, arguments, and options.
@@ -42,7 +42,7 @@ export class Trigger extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TriggerArgs | TriggerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TriggerState = argsOrState as TriggerState | undefined;
+            const state = argsOrState as TriggerState | undefined;
             inputs["configurationId"] = state ? state.configurationId : undefined;
             inputs["repositoryName"] = state ? state.repositoryName : undefined;
             inputs["triggers"] = state ? state.triggers : undefined;

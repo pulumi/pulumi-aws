@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an IAM group.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const developers = new aws.iam.Group("developers", {
  *     path: "/users/",
  * });
@@ -34,19 +34,19 @@ export class Group extends pulumi.CustomResource {
     /**
      * The ARN assigned by AWS for this group.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Path in which to create the group.
      */
-    public readonly path: pulumi.Output<string | undefined>;
+    public readonly path!: pulumi.Output<string | undefined>;
     /**
      * The [unique ID][1] assigned by AWS.
      */
-    public /*out*/ readonly uniqueId: pulumi.Output<string>;
+    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -59,7 +59,7 @@ export class Group extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GroupState = argsOrState as GroupState | undefined;
+            const state = argsOrState as GroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["path"] = state ? state.path : undefined;

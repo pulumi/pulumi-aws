@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Batch Job Definition resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.batch.JobDefinition("test", {
  *     containerProperties: `{
  * 	"command": ["ls", "-la"],
@@ -49,17 +49,17 @@ import * as utilities from "../utilities";
  *     type: "container",
  * });
  * ```
- * 
+ *
  * ## retry_strategy
- * 
+ *
  * `retry_strategy` supports the following:
- * 
+ *
  * * `attempts` - (Optional) The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
- * 
+ *
  * ## timeout
- * 
+ *
  * `timeout` supports the following:
- * 
+ *
  * * `attempt_duration_seconds` - (Optional) The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
  */
 export class JobDefinition extends pulumi.CustomResource {
@@ -78,37 +78,37 @@ export class JobDefinition extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of the job definition.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
      * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
      */
-    public readonly containerProperties: pulumi.Output<string | undefined>;
+    public readonly containerProperties!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the job definition.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the parameter substitution placeholders to set in the job definition.
      */
-    public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
      * Maximum number of `retry_strategy` is `1`.  Defined below.
      */
-    public readonly retryStrategy: pulumi.Output<{ attempts?: number } | undefined>;
+    public readonly retryStrategy!: pulumi.Output<{ attempts?: number } | undefined>;
     /**
      * The revision of the job definition.
      */
-    public /*out*/ readonly revision: pulumi.Output<number>;
+    public /*out*/ readonly revision!: pulumi.Output<number>;
     /**
      * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      */
-    public readonly timeout: pulumi.Output<{ attemptDurationSeconds?: number } | undefined>;
+    public readonly timeout!: pulumi.Output<{ attemptDurationSeconds?: number } | undefined>;
     /**
      * The type of job definition.  Must be `container`
      */
-    public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a JobDefinition resource with the given unique name, arguments, and options.
@@ -121,7 +121,7 @@ export class JobDefinition extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: JobDefinitionArgs | JobDefinitionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: JobDefinitionState = argsOrState as JobDefinitionState | undefined;
+            const state = argsOrState as JobDefinitionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["containerProperties"] = state ? state.containerProperties : undefined;
             inputs["name"] = state ? state.name : undefined;

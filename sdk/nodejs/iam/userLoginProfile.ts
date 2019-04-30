@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an IAM User Login Profile with limited support for password creation during Terraform resource creation. Uses PGP to encrypt the password for safe transport to the user. PGP keys can be obtained from Keybase.
- * 
+ *
  * > To reset an IAM User login password via Terraform, you can use the [`terraform taint` command](https://www.terraform.io/docs/commands/taint.html) or change any of the arguments.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleUser = new aws.iam.User("example", {
  *     forceDestroy: true,
  *     path: "/",
@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     pgpKey: "keybase:some_person_that_exists",
  *     user: exampleUser.name,
  * });
- * 
+ *
  * export const password = exampleUserLoginProfile.encryptedPassword;
  * ```
  */
@@ -43,27 +43,27 @@ export class UserLoginProfile extends pulumi.CustomResource {
     /**
      * The encrypted password, base64 encoded. Only available if password was handled on Terraform resource creation, not import.
      */
-    public /*out*/ readonly encryptedPassword: pulumi.Output<string>;
+    public /*out*/ readonly encryptedPassword!: pulumi.Output<string>;
     /**
      * The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on Terraform resource creation, not import.
      */
-    public /*out*/ readonly keyFingerprint: pulumi.Output<string>;
+    public /*out*/ readonly keyFingerprint!: pulumi.Output<string>;
     /**
      * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
      */
-    public readonly passwordLength: pulumi.Output<number | undefined>;
+    public readonly passwordLength!: pulumi.Output<number | undefined>;
     /**
      * Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
      */
-    public readonly passwordResetRequired: pulumi.Output<boolean | undefined>;
+    public readonly passwordResetRequired!: pulumi.Output<boolean | undefined>;
     /**
      * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
      */
-    public readonly pgpKey: pulumi.Output<string>;
+    public readonly pgpKey!: pulumi.Output<string>;
     /**
      * The IAM user's name.
      */
-    public readonly user: pulumi.Output<string>;
+    public readonly user!: pulumi.Output<string>;
 
     /**
      * Create a UserLoginProfile resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ export class UserLoginProfile extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserLoginProfileArgs | UserLoginProfileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserLoginProfileState = argsOrState as UserLoginProfileState | undefined;
+            const state = argsOrState as UserLoginProfileState | undefined;
             inputs["encryptedPassword"] = state ? state.encryptedPassword : undefined;
             inputs["keyFingerprint"] = state ? state.keyFingerprint : undefined;
             inputs["passwordLength"] = state ? state.passwordLength : undefined;

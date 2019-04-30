@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an AWS Storage Gateway working storage.
- * 
+ *
  * > **NOTE:** The Storage Gateway API provides no method to remove a working storage disk. Destroying this Terraform resource does not perform any Storage Gateway actions.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.storagegateway.WorkingStorage("example", {
  *     diskId: aws_storagegateway_local_disk_example.id.apply(id => id),
  *     gatewayArn: aws_storagegateway_gateway_example.arn,
@@ -37,11 +37,11 @@ export class WorkingStorage extends pulumi.CustomResource {
     /**
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      */
-    public readonly diskId: pulumi.Output<string>;
+    public readonly diskId!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
-    public readonly gatewayArn: pulumi.Output<string>;
+    public readonly gatewayArn!: pulumi.Output<string>;
 
     /**
      * Create a WorkingStorage resource with the given unique name, arguments, and options.
@@ -54,7 +54,7 @@ export class WorkingStorage extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: WorkingStorageArgs | WorkingStorageState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: WorkingStorageState = argsOrState as WorkingStorageState | undefined;
+            const state = argsOrState as WorkingStorageState | undefined;
             inputs["diskId"] = state ? state.diskId : undefined;
             inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
         } else {

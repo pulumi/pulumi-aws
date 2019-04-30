@@ -6,21 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a VPC DHCP Options Association resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const dnsResolver = new aws.ec2.VpcDhcpOptionsAssociation("dns_resolver", {
  *     dhcpOptionsId: aws_vpc_dhcp_options_foo.id,
  *     vpcId: aws_vpc_foo.id,
  * });
  * ```
- * 
+ *
  * ## Remarks
- * 
+ *
  * * You can only associate one DHCP Options Set to a given VPC ID.
  * * Removing the DHCP Options Association automatically sets AWS's `default` DHCP Options Set to the VPC.
  */
@@ -40,11 +40,11 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
     /**
      * The ID of the DHCP Options Set to associate to the VPC.
      */
-    public readonly dhcpOptionsId: pulumi.Output<string>;
+    public readonly dhcpOptionsId!: pulumi.Output<string>;
     /**
      * The ID of the VPC to which we would like to associate a DHCP Options Set.
      */
-    public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a VpcDhcpOptionsAssociation resource with the given unique name, arguments, and options.
@@ -57,7 +57,7 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcDhcpOptionsAssociationArgs | VpcDhcpOptionsAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpcDhcpOptionsAssociationState = argsOrState as VpcDhcpOptionsAssociationState | undefined;
+            const state = argsOrState as VpcDhcpOptionsAssociationState | undefined;
             inputs["dhcpOptionsId"] = state ? state.dhcpOptionsId : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {

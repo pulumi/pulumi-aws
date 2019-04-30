@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks User Profile resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myProfile = new aws.opsworks.UserProfile("my_profile", {
  *     sshUsername: "my_user",
  *     userArn: aws_iam_user_user.arn,
@@ -35,19 +35,19 @@ export class UserProfile extends pulumi.CustomResource {
     /**
      * Whether users can specify their own SSH public key through the My Settings page
      */
-    public readonly allowSelfManagement: pulumi.Output<boolean | undefined>;
+    public readonly allowSelfManagement!: pulumi.Output<boolean | undefined>;
     /**
      * The users public key
      */
-    public readonly sshPublicKey: pulumi.Output<string | undefined>;
+    public readonly sshPublicKey!: pulumi.Output<string | undefined>;
     /**
      * The ssh username, with witch this user wants to log in
      */
-    public readonly sshUsername: pulumi.Output<string>;
+    public readonly sshUsername!: pulumi.Output<string>;
     /**
      * The user's IAM ARN
      */
-    public readonly userArn: pulumi.Output<string>;
+    public readonly userArn!: pulumi.Output<string>;
 
     /**
      * Create a UserProfile resource with the given unique name, arguments, and options.
@@ -60,7 +60,7 @@ export class UserProfile extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserProfileArgs | UserProfileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserProfileState = argsOrState as UserProfileState | undefined;
+            const state = argsOrState as UserProfileState | undefined;
             inputs["allowSelfManagement"] = state ? state.allowSelfManagement : undefined;
             inputs["sshPublicKey"] = state ? state.sshPublicKey : undefined;
             inputs["sshUsername"] = state ? state.sshUsername : undefined;

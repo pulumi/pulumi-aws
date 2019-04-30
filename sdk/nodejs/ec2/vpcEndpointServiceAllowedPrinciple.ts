@@ -6,21 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to allow a principal to discover a VPC endpoint service.
- * 
+ *
  * > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** Terraform provides
  * both a standalone VPC Endpoint Service Allowed Principal resource
  * and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
  * a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
  * and will overwrite the association.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * Basic usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const current = pulumi.output(aws.getCallerIdentity({}));
  * const allowMeToFoo = new aws.ec2.VpcEndpointServiceAllowedPrinciple("allow_me_to_foo", {
  *     principalArn: current.apply(current => current.arn),
@@ -44,11 +44,11 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
     /**
      * The ARN of the principal to allow permissions.
      */
-    public readonly principalArn: pulumi.Output<string>;
+    public readonly principalArn!: pulumi.Output<string>;
     /**
      * The ID of the VPC endpoint service to allow permission.
      */
-    public readonly vpcEndpointServiceId: pulumi.Output<string>;
+    public readonly vpcEndpointServiceId!: pulumi.Output<string>;
 
     /**
      * Create a VpcEndpointServiceAllowedPrinciple resource with the given unique name, arguments, and options.
@@ -61,7 +61,7 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcEndpointServiceAllowedPrincipleArgs | VpcEndpointServiceAllowedPrincipleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpcEndpointServiceAllowedPrincipleState = argsOrState as VpcEndpointServiceAllowedPrincipleState | undefined;
+            const state = argsOrState as VpcEndpointServiceAllowedPrincipleState | undefined;
             inputs["principalArn"] = state ? state.principalArn : undefined;
             inputs["vpcEndpointServiceId"] = state ? state.vpcEndpointServiceId : undefined;
         } else {

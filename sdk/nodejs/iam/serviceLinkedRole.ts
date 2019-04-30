@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an [IAM service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const elasticbeanstalk = new aws.iam.ServiceLinkedRole("elasticbeanstalk", {
  *     awsServiceName: "elasticbeanstalk.amazonaws.com",
  * });
@@ -34,35 +34,35 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the role.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
      */
-    public readonly awsServiceName: pulumi.Output<string>;
+    public readonly awsServiceName!: pulumi.Output<string>;
     /**
      * The creation date of the IAM role.
      */
-    public /*out*/ readonly createDate: pulumi.Output<string>;
+    public /*out*/ readonly createDate!: pulumi.Output<string>;
     /**
      * Additional string appended to the role name. Not all AWS services support custom suffixes.
      */
-    public readonly customSuffix: pulumi.Output<string | undefined>;
+    public readonly customSuffix!: pulumi.Output<string | undefined>;
     /**
      * The description of the role.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the role.
      */
-    public /*out*/ readonly name: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The path of the role.
      */
-    public /*out*/ readonly path: pulumi.Output<string>;
+    public /*out*/ readonly path!: pulumi.Output<string>;
     /**
      * The stable and unique string identifying the role.
      */
-    public /*out*/ readonly uniqueId: pulumi.Output<string>;
+    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
 
     /**
      * Create a ServiceLinkedRole resource with the given unique name, arguments, and options.
@@ -75,7 +75,7 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ServiceLinkedRoleArgs | ServiceLinkedRoleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ServiceLinkedRoleState = argsOrState as ServiceLinkedRoleState | undefined;
+            const state = argsOrState as ServiceLinkedRoleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["awsServiceName"] = state ? state.awsServiceName : undefined;
             inputs["createDate"] = state ? state.createDate : undefined;

@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the [`aws_elb_attachment` resource](https://www.terraform.io/docs/providers/aws/r/elb_attachment.html).
- * 
+ *
  * > **Note:** `aws_alb_target_group_attachment` is known as `aws_lb_target_group_attachment`. The functionality is identical.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testInstance = new aws.ec2.Instance("test", {});
  * const testTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("test", {});
  * const testTargetGroupAttachment = new aws.elasticloadbalancingv2.TargetGroupAttachment("test", {
@@ -23,13 +23,13 @@ import * as utilities from "../utilities";
  *     targetId: testInstance.id,
  * });
  * ```
- * 
+ *
  * ## Usage with lambda
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testFunction = new aws.lambda.Function("test", {});
  * const testTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("test", {
  *     targetType: "lambda",
@@ -62,19 +62,19 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
     /**
      * The Availability Zone where the IP address of the target is to be registered.
      */
-    public readonly availabilityZone: pulumi.Output<string | undefined>;
+    public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
      * The port on which targets receive traffic.
      */
-    public readonly port: pulumi.Output<number | undefined>;
+    public readonly port!: pulumi.Output<number | undefined>;
     /**
      * The ARN of the target group with which to register targets
      */
-    public readonly targetGroupArn: pulumi.Output<string>;
+    public readonly targetGroupArn!: pulumi.Output<string>;
     /**
      * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
      */
-    public readonly targetId: pulumi.Output<string>;
+    public readonly targetId!: pulumi.Output<string>;
 
     /**
      * Create a TargetGroupAttachment resource with the given unique name, arguments, and options.
@@ -87,7 +87,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TargetGroupAttachmentArgs | TargetGroupAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TargetGroupAttachmentState = argsOrState as TargetGroupAttachmentState | undefined;
+            const state = argsOrState as TargetGroupAttachmentState | undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["port"] = state ? state.port : undefined;
             inputs["targetGroupArn"] = state ? state.targetGroupArn : undefined;

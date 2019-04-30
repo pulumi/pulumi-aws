@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Group resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mainUserPool = new aws.cognito.UserPool("main", {});
  * const groupRole = new aws.iam.Role("group_role", {
  *     assumeRolePolicy: `{
@@ -62,23 +62,23 @@ export class UserGroup extends pulumi.CustomResource {
     /**
      * The description of the user group.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the user group.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The precedence of the user group.
      */
-    public readonly precedence: pulumi.Output<number | undefined>;
+    public readonly precedence!: pulumi.Output<number | undefined>;
     /**
      * The ARN of the IAM role to be associated with the user group.
      */
-    public readonly roleArn: pulumi.Output<string | undefined>;
+    public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
      * The user pool ID.
      */
-    public readonly userPoolId: pulumi.Output<string>;
+    public readonly userPoolId!: pulumi.Output<string>;
 
     /**
      * Create a UserGroup resource with the given unique name, arguments, and options.
@@ -91,7 +91,7 @@ export class UserGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserGroupArgs | UserGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserGroupState = argsOrState as UserGroupState | undefined;
+            const state = argsOrState as UserGroupState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["precedence"] = state ? state.precedence : undefined;

@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an NFS Location within AWS DataSync.
- * 
+ *
  * > **NOTE:** The DataSync Agents must be available before creating this resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.datasync.NfsLocation("example", {
  *     onPremConfig: {
  *         agentArns: [aws_datasync_agent_example.arn],
@@ -40,24 +40,24 @@ export class NfsLocation extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Configuration block containing information for connecting to the NFS File System.
      */
-    public readonly onPremConfig: pulumi.Output<{ agentArns: string[] }>;
+    public readonly onPremConfig!: pulumi.Output<{ agentArns: string[] }>;
     /**
      * Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
      */
-    public readonly serverHostname: pulumi.Output<string>;
+    public readonly serverHostname!: pulumi.Output<string>;
     /**
      * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
      */
-    public readonly subdirectory: pulumi.Output<string>;
+    public readonly subdirectory!: pulumi.Output<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly uri: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly uri!: pulumi.Output<string>;
 
     /**
      * Create a NfsLocation resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ export class NfsLocation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NfsLocationArgs | NfsLocationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NfsLocationState = argsOrState as NfsLocationState | undefined;
+            const state = argsOrState as NfsLocationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["onPremConfig"] = state ? state.onPremConfig : undefined;
             inputs["serverHostname"] = state ? state.serverHostname : undefined;

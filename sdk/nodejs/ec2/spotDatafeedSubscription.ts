@@ -6,16 +6,16 @@ import * as utilities from "../utilities";
 
 /**
  * > **Note:** There is only a single subscription allowed per account.
- * 
+ *
  * To help you understand the charges for your Spot instances, Amazon EC2 provides a data feed that describes your Spot instance usage and pricing.
  * This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultBucket = new aws.s3.Bucket("default", {});
  * const defaultSpotDatafeedSubscription = new aws.ec2.SpotDatafeedSubscription("default", {
  *     bucket: defaultBucket.bucket,
@@ -39,11 +39,11 @@ export class SpotDatafeedSubscription extends pulumi.CustomResource {
     /**
      * The Amazon S3 bucket in which to store the Spot instance data feed.
      */
-    public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * Path of folder inside bucket to place spot pricing data.
      */
-    public readonly prefix: pulumi.Output<string | undefined>;
+    public readonly prefix!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SpotDatafeedSubscription resource with the given unique name, arguments, and options.
@@ -56,7 +56,7 @@ export class SpotDatafeedSubscription extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SpotDatafeedSubscriptionArgs | SpotDatafeedSubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SpotDatafeedSubscriptionState = argsOrState as SpotDatafeedSubscriptionState | undefined;
+            const state = argsOrState as SpotDatafeedSubscriptionState | undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
             inputs["prefix"] = state ? state.prefix : undefined;
         } else {

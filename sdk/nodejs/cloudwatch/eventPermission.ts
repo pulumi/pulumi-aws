@@ -6,27 +6,27 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create a CloudWatch Events permission to support cross-account events in the current account default event bus.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Account Access
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const devAccountAccess = new aws.cloudwatch.EventPermission("DevAccountAccess", {
  *     principal: "123456789012",
  *     statementId: "DevAccountAccess",
  * });
  * ```
- * 
+ *
  * ### Organization Access
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const organizationAccess = new aws.cloudwatch.EventPermission("OrganizationAccess", {
  *     condition: {
  *         key: "aws:PrincipalOrgID",
@@ -54,19 +54,19 @@ export class EventPermission extends pulumi.CustomResource {
     /**
      * The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
      */
-    public readonly action: pulumi.Output<string | undefined>;
+    public readonly action!: pulumi.Output<string | undefined>;
     /**
      * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
      */
-    public readonly condition: pulumi.Output<{ key: string, type: string, value: string } | undefined>;
+    public readonly condition!: pulumi.Output<{ key: string, type: string, value: string } | undefined>;
     /**
      * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
      */
-    public readonly principal: pulumi.Output<string>;
+    public readonly principal!: pulumi.Output<string>;
     /**
      * An identifier string for the external account that you are granting permissions to.
      */
-    public readonly statementId: pulumi.Output<string>;
+    public readonly statementId!: pulumi.Output<string>;
 
     /**
      * Create a EventPermission resource with the given unique name, arguments, and options.
@@ -79,7 +79,7 @@ export class EventPermission extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventPermissionArgs | EventPermissionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventPermissionState = argsOrState as EventPermissionState | undefined;
+            const state = argsOrState as EventPermissionState | undefined;
             inputs["action"] = state ? state.action : undefined;
             inputs["condition"] = state ? state.condition : undefined;
             inputs["principal"] = state ? state.principal : undefined;

@@ -23,11 +23,11 @@ export class InviteAccepter extends pulumi.CustomResource {
     /**
      * The detector ID of the member GuardDuty account.
      */
-    public readonly detectorId: pulumi.Output<string>;
+    public readonly detectorId!: pulumi.Output<string>;
     /**
      * AWS account ID for master account.
      */
-    public readonly masterAccountId: pulumi.Output<string>;
+    public readonly masterAccountId!: pulumi.Output<string>;
 
     /**
      * Create a InviteAccepter resource with the given unique name, arguments, and options.
@@ -40,7 +40,7 @@ export class InviteAccepter extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: InviteAccepterArgs | InviteAccepterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: InviteAccepterState = argsOrState as InviteAccepterState | undefined;
+            const state = argsOrState as InviteAccepterState | undefined;
             inputs["detectorId"] = state ? state.detectorId : undefined;
             inputs["masterAccountId"] = state ? state.masterAccountId : undefined;
         } else {

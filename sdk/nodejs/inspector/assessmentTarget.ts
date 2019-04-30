@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Inspector assessment target
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bar = new aws.inspector.ResourceGroup("bar", {
  *     tags: {
  *         Env: "bar",
@@ -40,15 +40,15 @@ export class AssessmentTarget extends pulumi.CustomResource {
     /**
      * The target assessment ARN.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the assessment target.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
      */
-    public readonly resourceGroupArn: pulumi.Output<string | undefined>;
+    public readonly resourceGroupArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AssessmentTarget resource with the given unique name, arguments, and options.
@@ -61,7 +61,7 @@ export class AssessmentTarget extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AssessmentTargetArgs | AssessmentTargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AssessmentTargetState = argsOrState as AssessmentTargetState | undefined;
+            const state = argsOrState as AssessmentTargetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupArn"] = state ? state.resourceGroupArn : undefined;

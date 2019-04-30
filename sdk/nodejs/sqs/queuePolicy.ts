@@ -7,13 +7,13 @@ import * as utilities from "../utilities";
 /**
  * Allows you to set a policy of an SQS Queue
  * while referencing ARN of the queue within the policy.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const queue = new aws.sqs.Queue("q", {});
  * const test = new aws.sqs.QueuePolicy("test", {
  *     policy: pulumi.all([queue.arn, queue.arn]).apply(([queueArn, queueArn1]) => `{
@@ -55,11 +55,11 @@ export class QueuePolicy extends pulumi.CustomResource {
     /**
      * The JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * The URL of the SQS Queue to which to attach the policy
      */
-    public readonly queueUrl: pulumi.Output<string>;
+    public readonly queueUrl!: pulumi.Output<string>;
 
     /**
      * Create a QueuePolicy resource with the given unique name, arguments, and options.
@@ -72,7 +72,7 @@ export class QueuePolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: QueuePolicyArgs | QueuePolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: QueuePolicyState = argsOrState as QueuePolicyState | undefined;
+            const state = argsOrState as QueuePolicyState | undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["queueUrl"] = state ? state.queueUrl : undefined;
         } else {

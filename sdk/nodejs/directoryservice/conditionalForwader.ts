@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a conditional forwarder for managed Microsoft AD in AWS Directory Service.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.directoryservice.ConditionalForwader("example", {
  *     directoryId: aws_directory_service_directory_ad.id,
  *     dnsIps: [
@@ -39,15 +39,15 @@ export class ConditionalForwader extends pulumi.CustomResource {
     /**
      * The id of directory.
      */
-    public readonly directoryId: pulumi.Output<string>;
+    public readonly directoryId!: pulumi.Output<string>;
     /**
      * A list of forwarder IP addresses.
      */
-    public readonly dnsIps: pulumi.Output<string[]>;
+    public readonly dnsIps!: pulumi.Output<string[]>;
     /**
      * The fully qualified domain name of the remote domain for which forwarders will be used.
      */
-    public readonly remoteDomainName: pulumi.Output<string>;
+    public readonly remoteDomainName!: pulumi.Output<string>;
 
     /**
      * Create a ConditionalForwader resource with the given unique name, arguments, and options.
@@ -60,7 +60,7 @@ export class ConditionalForwader extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ConditionalForwaderArgs | ConditionalForwaderState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ConditionalForwaderState = argsOrState as ConditionalForwaderState | undefined;
+            const state = argsOrState as ConditionalForwaderState | undefined;
             inputs["directoryId"] = state ? state.directoryId : undefined;
             inputs["dnsIps"] = state ? state.dnsIps : undefined;
             inputs["remoteDomainName"] = state ? state.remoteDomainName : undefined;

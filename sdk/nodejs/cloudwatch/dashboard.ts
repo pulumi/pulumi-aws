@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudWatch Dashboard resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.cloudwatch.Dashboard("main", {
  *     dashboardBody: ` {
  *    "widgets": [
@@ -70,15 +70,15 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the dashboard.
      */
-    public /*out*/ readonly dashboardArn: pulumi.Output<string>;
+    public /*out*/ readonly dashboardArn!: pulumi.Output<string>;
     /**
      * The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
      */
-    public readonly dashboardBody: pulumi.Output<string>;
+    public readonly dashboardBody!: pulumi.Output<string>;
     /**
      * The name of the dashboard.
      */
-    public readonly dashboardName: pulumi.Output<string>;
+    public readonly dashboardName!: pulumi.Output<string>;
 
     /**
      * Create a Dashboard resource with the given unique name, arguments, and options.
@@ -91,7 +91,7 @@ export class Dashboard extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DashboardArgs | DashboardState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DashboardState = argsOrState as DashboardState | undefined;
+            const state = argsOrState as DashboardState | undefined;
             inputs["dashboardArn"] = state ? state.dashboardArn : undefined;
             inputs["dashboardBody"] = state ? state.dashboardBody : undefined;
             inputs["dashboardName"] = state ? state.dashboardName : undefined;

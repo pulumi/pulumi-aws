@@ -8,13 +8,13 @@ import {LogGroup} from "./logGroup";
 
 /**
  * Provides a CloudWatch Logs subscription filter resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testLambdafunctionLogfilter = new aws.cloudwatch.LogSubscriptionFilter("test_lambdafunction_logfilter", {
  *     destinationArn: aws_kinesis_stream_test_logstream.arn,
  *     distribution: "Random",
@@ -40,27 +40,27 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
     /**
      * The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
      */
-    public readonly destinationArn: pulumi.Output<string>;
+    public readonly destinationArn!: pulumi.Output<string>;
     /**
      * The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
      */
-    public readonly distribution: pulumi.Output<string | undefined>;
+    public readonly distribution!: pulumi.Output<string | undefined>;
     /**
      * A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
      */
-    public readonly filterPattern: pulumi.Output<string>;
+    public readonly filterPattern!: pulumi.Output<string>;
     /**
      * The name of the log group to associate the subscription filter with
      */
-    public readonly logGroup: pulumi.Output<LogGroup>;
+    public readonly logGroup!: pulumi.Output<LogGroup>;
     /**
      * A name for the subscription filter
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
-     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws_lambda_permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
+     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws_lambda_permission` resource for granting access from CloudWatch logs to the destination Lambda function.
      */
-    public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
 
     /**
      * Create a LogSubscriptionFilter resource with the given unique name, arguments, and options.
@@ -73,7 +73,7 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LogSubscriptionFilterArgs | LogSubscriptionFilterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LogSubscriptionFilterState = argsOrState as LogSubscriptionFilterState | undefined;
+            const state = argsOrState as LogSubscriptionFilterState | undefined;
             inputs["destinationArn"] = state ? state.destinationArn : undefined;
             inputs["distribution"] = state ? state.distribution : undefined;
             inputs["filterPattern"] = state ? state.filterPattern : undefined;
@@ -127,7 +127,7 @@ export interface LogSubscriptionFilterState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws_lambda_permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
+     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws_lambda_permission` resource for granting access from CloudWatch logs to the destination Lambda function.
      */
     readonly roleArn?: pulumi.Input<string>;
 }
@@ -157,7 +157,7 @@ export interface LogSubscriptionFilterArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws_lambda_permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
+     * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws_lambda_permission` resource for granting access from CloudWatch logs to the destination Lambda function.
      */
     readonly roleArn?: pulumi.Input<string>;
 }

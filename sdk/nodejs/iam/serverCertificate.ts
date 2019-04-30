@@ -7,39 +7,39 @@ import * as utilities from "../utilities";
 /**
  * Provides an IAM Server Certificate resource to upload Server Certificates.
  * Certs uploaded to IAM can easily work with other AWS services such as:
- * 
+ *
  * - AWS Elastic Beanstalk
  * - Elastic Load Balancing
  * - CloudFront
  * - AWS OpsWorks
- * 
+ *
  * For information about server certificates in IAM, see [Managing Server
  * Certificates][2] in AWS Documentation.
- * 
+ *
  * > **Note:** All arguments including the private key will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * **Using certs on file:**
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const testCert = new aws.iam.ServerCertificate("test_cert", {
  *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf-8"),
  *     privateKey: fs.readFileSync("test-key.pem", "utf-8"),
  * });
  * ```
- * 
+ *
  * **Example with cert in-line:**
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testCertAlt = new aws.iam.ServerCertificate("test_cert_alt", {
  *     certificateBody: `-----BEGIN CERTIFICATE-----
  * [......] # cert contents
@@ -51,21 +51,21 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- * 
+ *
  * **Use in combination with an AWS ELB resource:**
- * 
+ *
  * Some properties of an IAM Server Certificates cannot be updated while they are
  * in use. In order for Terraform to effectively manage a Certificate in this situation, it is
  * recommended you utilize the `name_prefix` attribute and enable the
  * `create_before_destroy` [lifecycle block][lifecycle]. This will allow Terraform
  * to create a new, updated `aws_iam_server_certificate` resource and replace it in
  * dependant resources before attempting to destroy the old version.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const testCert = new aws.iam.ServerCertificate("test_cert", {
  *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf-8"),
  *     namePrefix: "example-cert",
@@ -100,39 +100,39 @@ export class ServerCertificate extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the server certificate.
      */
-    public readonly arn: pulumi.Output<string>;
+    public readonly arn!: pulumi.Output<string>;
     /**
      * The contents of the public key certificate in
      * PEM-encoded format.
      */
-    public readonly certificateBody: pulumi.Output<string>;
+    public readonly certificateBody!: pulumi.Output<string>;
     /**
      * The contents of the certificate chain.
      * This is typically a concatenation of the PEM-encoded public key certificates
      * of the chain.
      */
-    public readonly certificateChain: pulumi.Output<string | undefined>;
+    public readonly certificateChain!: pulumi.Output<string | undefined>;
     /**
      * The name of the Server Certificate. Do not include the
      * path in this value. If omitted, Terraform will assign a random, unique name.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    public readonly namePrefix: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The IAM path for the server certificate.  If it is not
      * included, it defaults to a slash (/). If this certificate is for use with
      * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
      * See [IAM Identifiers][1] for more details on IAM Paths.
      */
-    public readonly path: pulumi.Output<string | undefined>;
+    public readonly path!: pulumi.Output<string | undefined>;
     /**
      * The contents of the private key in PEM-encoded format.
      */
-    public readonly privateKey: pulumi.Output<string>;
+    public readonly privateKey!: pulumi.Output<string>;
 
     /**
      * Create a ServerCertificate resource with the given unique name, arguments, and options.
@@ -145,7 +145,7 @@ export class ServerCertificate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ServerCertificateArgs | ServerCertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ServerCertificateState = argsOrState as ServerCertificateState | undefined;
+            const state = argsOrState as ServerCertificateState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["certificateBody"] = state ? state.certificateBody : undefined;
             inputs["certificateChain"] = state ? state.certificateChain : undefined;

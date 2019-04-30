@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Subscribes to a Security Hub standard.
- * 
+ *
  * > **NOTE:** This AWS service is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between Terraform AWS Provider releases.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleAccount = new aws.securityhub.Account("example", {});
  * const exampleStandardsSubscription = new aws.securityhub.StandardsSubscription("example", {
  *     standardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
@@ -37,7 +37,7 @@ export class StandardsSubscription extends pulumi.CustomResource {
     /**
      * The ARN of a standard - see below.
      */
-    public readonly standardsArn: pulumi.Output<string>;
+    public readonly standardsArn!: pulumi.Output<string>;
 
     /**
      * Create a StandardsSubscription resource with the given unique name, arguments, and options.
@@ -50,7 +50,7 @@ export class StandardsSubscription extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StandardsSubscriptionArgs | StandardsSubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: StandardsSubscriptionState = argsOrState as StandardsSubscriptionState | undefined;
+            const state = argsOrState as StandardsSubscriptionState | undefined;
             inputs["standardsArn"] = state ? state.standardsArn : undefined;
         } else {
             const args = argsOrState as StandardsSubscriptionArgs | undefined;

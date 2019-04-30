@@ -6,41 +6,41 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage the default AWS Security Group.
- * 
+ *
  * For EC2 Classic accounts, each region comes with a Default Security Group.
  * Additionally, each VPC created in AWS comes with a Default Security Group that can be managed, but not
  * destroyed. **This is an advanced resource**, and has special caveats to be aware
  * of when using it. Please read this document in its entirety before using this
  * resource.
- * 
+ *
  * The `aws_default_security_group` behaves differently from normal resources, in that
  * Terraform does not _create_ this resource, but instead "adopts" it
  * into management. We can do this because these default security groups cannot be
  * destroyed, and are created with a known set of default ingress/egress rules.
- * 
+ *
  * When Terraform first adopts the Default Security Group, it **immediately removes all
  * ingress and egress rules in the Security Group**. It then proceeds to create any rules specified in the
  * configuration. This step is required so that only the rules specified in the
  * configuration are created.
- * 
+ *
  * This resource treats its inline rules as absolute; only the rules defined
  * inline are created, and any additions/removals external to this resource will
  * result in diff shown. For these reasons, this resource is incompatible with the
  * `aws_security_group_rule` resource.
- * 
+ *
  * For more information about Default Security Groups, see the AWS Documentation on
  * [Default Security Groups][aws-default-security-groups].
- * 
+ *
  * ## Basic Example Usage, with default rules
- * 
+ *
  * The following config gives the Default Security Group the same rules that AWS
  * provides by default, but pulls the resource under management by Terraform. This means that
  * any ingress or egress rules added or changed will be detected as drift.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mainvpc = new aws.ec2.Vpc("mainvpc", {
  *     cidrBlock: "10.1.0.0/16",
  * });
@@ -60,16 +60,16 @@ import * as utilities from "../utilities";
  *     vpcId: mainvpc.id,
  * });
  * ```
- * 
+ *
  * ## Example config to deny all Egress traffic, allowing Ingress
- * 
+ *
  * The following denies all Egress traffic by omitting any `egress` rules, while
  * including the default `ingress` rule to allow all traffic.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mainvpc = new aws.ec2.Vpc("mainvpc", {
  *     cidrBlock: "10.1.0.0/16",
  * });
@@ -83,15 +83,15 @@ import * as utilities from "../utilities";
  *     vpcId: mainvpc.id,
  * });
  * ```
- * 
+ *
  * ## Usage
- * 
+ *
  * With the exceptions mentioned above, `aws_default_security_group` should
  * identical behavior to `aws_security_group`. Please consult [AWS_SECURITY_GROUP](https://www.terraform.io/docs/providers/aws/r/security_group.html)
  * for further usage documentation.
- * 
+ *
  * ### Removing `aws_default_security_group` from your configuration
- * 
+ *
  * Each AWS VPC (or region, if using EC2 Classic) comes with a Default Security
  * Group that cannot be deleted. The `aws_default_security_group` allows you to
  * manage this Security Group, but Terraform cannot destroy it. Removing this resource
@@ -112,36 +112,36 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
         return new DefaultSecurityGroup(name, <any>state, { ...opts, id: id });
     }
 
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Can be specified multiple times for each
      * egress rule. Each egress block supports fields documented below.
      */
-    public readonly egress: pulumi.Output<{ cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[] | undefined>;
+    public readonly egress!: pulumi.Output<{ cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[] | undefined>;
     /**
      * Can be specified multiple times for each
      * ingress rule. Each ingress block supports fields documented below.
      */
-    public readonly ingress: pulumi.Output<{ cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[] | undefined>;
+    public readonly ingress!: pulumi.Output<{ cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[] | undefined>;
     /**
      * The name of the security group
      */
-    public /*out*/ readonly name: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The owner ID.
      */
-    public /*out*/ readonly ownerId: pulumi.Output<string>;
-    public readonly revokeRulesOnDelete: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public readonly revokeRulesOnDelete!: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The VPC ID. **Note that changing
      * the `vpc_id` will _not_ restore any default security group rules that were
      * modified, added, or removed.** It will be left in its current state
      */
-    public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a DefaultSecurityGroup resource with the given unique name, arguments, and options.
@@ -154,7 +154,7 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DefaultSecurityGroupArgs | DefaultSecurityGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DefaultSecurityGroupState = argsOrState as DefaultSecurityGroupState | undefined;
+            const state = argsOrState as DefaultSecurityGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["egress"] = state ? state.egress : undefined;
             inputs["ingress"] = state ? state.ingress : undefined;

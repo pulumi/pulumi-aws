@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a SSM resource data sync.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const hogeBucket = new aws.s3.Bucket("hoge", {
  *     region: "us-east-1",
  * });
@@ -55,11 +55,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ## s3_destination
- * 
+ *
  * `s3_destination` supports the following:
- * 
+ *
  * * `bucket_name` - (Required) Name of S3 bucket where the aggregated data is stored.
  * * `region` - (Required) Region with the bucket targeted by the Resource Data Sync.
  * * `kms_key_arn` - (Optional) ARN of an encryption key for a destination in Amazon S3.
@@ -82,11 +82,11 @@ export class ResourceDataSync extends pulumi.CustomResource {
     /**
      * Name for the configuration.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Amazon S3 configuration details for the sync.
      */
-    public readonly s3Destination: pulumi.Output<{ bucketName: string, kmsKeyArn?: string, prefix?: string, region: string, syncFormat?: string }>;
+    public readonly s3Destination!: pulumi.Output<{ bucketName: string, kmsKeyArn?: string, prefix?: string, region: string, syncFormat?: string }>;
 
     /**
      * Create a ResourceDataSync resource with the given unique name, arguments, and options.
@@ -99,7 +99,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResourceDataSyncArgs | ResourceDataSyncState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ResourceDataSyncState = argsOrState as ResourceDataSyncState | undefined;
+            const state = argsOrState as ResourceDataSyncState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["s3Destination"] = state ? state.s3Destination : undefined;
         } else {

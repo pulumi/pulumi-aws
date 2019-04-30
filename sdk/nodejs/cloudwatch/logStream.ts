@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudWatch Log Stream resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const yada = new aws.cloudwatch.LogGroup("yada", {});
  * const foo = new aws.cloudwatch.LogStream("foo", {
  *     logGroupName: yada.name,
@@ -35,15 +35,15 @@ export class LogStream extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the log stream.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the log group under which the log stream is to be created.
      */
-    public readonly logGroupName: pulumi.Output<string>;
+    public readonly logGroupName!: pulumi.Output<string>;
     /**
      * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a LogStream resource with the given unique name, arguments, and options.
@@ -56,7 +56,7 @@ export class LogStream extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LogStreamArgs | LogStreamState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LogStreamState = argsOrState as LogStreamState | undefined;
+            const state = argsOrState as LogStreamState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["logGroupName"] = state ? state.logGroupName : undefined;
             inputs["name"] = state ? state.name : undefined;

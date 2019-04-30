@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Elemental MediaPackage Channel.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const kittens = new aws.mediapackage.Channel("kittens", {
  *     channelId: "kitten-channel",
  *     description: "A channel dedicated to amusing videos of kittens.",
@@ -35,23 +35,23 @@ export class Channel extends pulumi.CustomResource {
     /**
      * The ARN of the channel
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A unique identifier describing the channel
      */
-    public readonly channelId: pulumi.Output<string>;
+    public readonly channelId!: pulumi.Output<string>;
     /**
      * A description of the channel
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A single item list of HLS ingest information
      */
-    public /*out*/ readonly hlsIngests: pulumi.Output<{ ingestEndpoints: { password: string, url: string, username: string }[] }[]>;
+    public /*out*/ readonly hlsIngests!: pulumi.Output<{ ingestEndpoints: { password: string, url: string, username: string }[] }[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -64,7 +64,7 @@ export class Channel extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ChannelArgs | ChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ChannelState = argsOrState as ChannelState | undefined;
+            const state = argsOrState as ChannelState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["channelId"] = state ? state.channelId : undefined;
             inputs["description"] = state ? state.description : undefined;

@@ -6,40 +6,40 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage the default AWS Network ACL. VPC Only.
- * 
+ *
  * Each VPC created in AWS comes with a Default Network ACL that can be managed, but not
  * destroyed. **This is an advanced resource**, and has special caveats to be aware
  * of when using it. Please read this document in its entirety before using this
  * resource.
- * 
+ *
  * The `aws_default_network_acl` behaves differently from normal resources, in that
  * Terraform does not _create_ this resource, but instead attempts to "adopt" it
  * into management. We can do this because each VPC created has a Default Network
  * ACL that cannot be destroyed, and is created with a known set of default rules.
- * 
+ *
  * When Terraform first adopts the Default Network ACL, it **immediately removes all
  * rules in the ACL**. It then proceeds to create any rules specified in the
  * configuration. This step is required so that only the rules specified in the
  * configuration are created.
- * 
+ *
  * This resource treats its inline rules as absolute; only the rules defined
  * inline are created, and any additions/removals external to this resource will
  * result in diffs being shown. For these reasons, this resource is incompatible with the
  * `aws_network_acl_rule` resource.
- * 
+ *
  * For more information about Network ACLs, see the AWS Documentation on
  * [Network ACLs][aws-network-acls].
- * 
+ *
  * ## Basic Example Usage, with default rules
- * 
+ *
  * The following config gives the Default Network ACL the same rules that AWS
  * includes, but pulls the resource under management by Terraform. This means that
  * any ACL rules added or changed will be detected as drift.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mainvpc = new aws.ec2.Vpc("mainvpc", {
  *     cidrBlock: "10.1.0.0/16",
  * });
@@ -63,16 +63,16 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ## Example config to deny all Egress traffic, allowing Ingress
- * 
+ *
  * The following denies all Egress traffic by omitting any `egress` rules, while
  * including the default `ingress` rule to allow all traffic.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mainvpc = new aws.ec2.Vpc("mainvpc", {
  *     cidrBlock: "10.1.0.0/16",
  * });
@@ -88,17 +88,17 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ## Example config to deny all traffic to any Subnet in the Default Network ACL:
- * 
+ *
  * This config denies all traffic in the Default ACL. This can be useful if you
  * want a locked down default to force all resources in the VPC to assign a
  * non-default ACL.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mainvpc = new aws.ec2.Vpc("mainvpc", {
  *     cidrBlock: "10.1.0.0/16",
  * });
@@ -124,32 +124,32 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
      * The Network ACL ID to manage. This
      * attribute is exported from `aws_vpc`, or manually found via the AWS Console.
      */
-    public readonly defaultNetworkAclId: pulumi.Output<string>;
+    public readonly defaultNetworkAclId!: pulumi.Output<string>;
     /**
      * Specifies an egress rule. Parameters defined below.
      */
-    public readonly egress: pulumi.Output<{ action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[] | undefined>;
+    public readonly egress!: pulumi.Output<{ action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[] | undefined>;
     /**
      * Specifies an ingress rule. Parameters defined below.
      */
-    public readonly ingress: pulumi.Output<{ action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[] | undefined>;
+    public readonly ingress!: pulumi.Output<{ action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[] | undefined>;
     /**
      * The ID of the AWS account that owns the Default Network ACL
      */
-    public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * A list of Subnet IDs to apply the ACL to. See the
      * notes below on managing Subnets in the Default Network ACL
      */
-    public readonly subnetIds: pulumi.Output<string[] | undefined>;
+    public readonly subnetIds!: pulumi.Output<string[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The ID of the associated VPC
      */
-    public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a DefaultNetworkAcl resource with the given unique name, arguments, and options.
@@ -162,7 +162,7 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DefaultNetworkAclArgs | DefaultNetworkAclState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DefaultNetworkAclState = argsOrState as DefaultNetworkAclState | undefined;
+            const state = argsOrState as DefaultNetworkAclState | undefined;
             inputs["defaultNetworkAclId"] = state ? state.defaultNetworkAclId : undefined;
             inputs["egress"] = state ? state.egress : undefined;
             inputs["ingress"] = state ? state.ingress : undefined;

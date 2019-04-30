@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Direct Connect LAG. Connections can be added to the LAG via the [`aws_dx_connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) and [`aws_dx_connection_association`](https://www.terraform.io/docs/providers/aws/r/dx_connection_association.html) resources.
- * 
+ *
  * > *NOTE:* When creating a LAG, Direct Connect requires creating a Connection. Terraform will remove this unmanaged connection during resource creation.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const hoge = new aws.directconnect.LinkAggregationGroup("hoge", {
  *     connectionsBandwidth: "1Gbps",
  *     forceDestroy: true,
@@ -39,32 +39,32 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
      * The ARN of the LAG.
      * * `jumbo_frame_capable` -Indicates whether jumbo frames (9001 MTU) are supported.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The bandwidth of the individual physical connections bundled by the LAG. Available values: 1Gbps, 10Gbps. Case sensitive.
      */
-    public readonly connectionsBandwidth: pulumi.Output<string>;
+    public readonly connectionsBandwidth!: pulumi.Output<string>;
     /**
      * A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
      */
-    public readonly forceDestroy: pulumi.Output<boolean | undefined>;
+    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
      */
-    public /*out*/ readonly hasLogicalRedundancy: pulumi.Output<string>;
-    public /*out*/ readonly jumboFrameCapable: pulumi.Output<boolean>;
+    public /*out*/ readonly hasLogicalRedundancy!: pulumi.Output<string>;
+    public /*out*/ readonly jumboFrameCapable!: pulumi.Output<boolean>;
     /**
      * The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the LAG.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a LinkAggregationGroup resource with the given unique name, arguments, and options.
@@ -77,7 +77,7 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LinkAggregationGroupArgs | LinkAggregationGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LinkAggregationGroupState = argsOrState as LinkAggregationGroupState | undefined;
+            const state = argsOrState as LinkAggregationGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["connectionsBandwidth"] = state ? state.connectionsBandwidth : undefined;
             inputs["forceDestroy"] = state ? state.forceDestroy : undefined;

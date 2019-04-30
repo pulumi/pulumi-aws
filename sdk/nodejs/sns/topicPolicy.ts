@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SNS topic policy resource
- * 
+ *
  * > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future terraform plans to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.sns.Topic("test", {});
  * const sns_topic_policy = test.arn.apply(arn => aws.iam.getPolicyDocument({
  *     policyId: "__default_policy_ID",
@@ -66,11 +66,11 @@ export class TopicPolicy extends pulumi.CustomResource {
     /**
      * The ARN of the SNS topic
      */
-    public readonly arn: pulumi.Output<string>;
+    public readonly arn!: pulumi.Output<string>;
     /**
      * The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
 
     /**
      * Create a TopicPolicy resource with the given unique name, arguments, and options.
@@ -83,7 +83,7 @@ export class TopicPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TopicPolicyArgs | TopicPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TopicPolicyState = argsOrState as TopicPolicyState | undefined;
+            const state = argsOrState as TopicPolicyState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["policy"] = state ? state.policy : undefined;
         } else {

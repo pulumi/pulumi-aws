@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a License Manager association.
- * 
+ *
  * > **Note:** License configurations can also be associated with launch templates by specifying the `license_specifications` block for an `aws_launch_template`.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleLicenseConfiguration = new aws.licensemanager.LicenseConfiguration("example", {
  *     licenseCountingType: "Instance",
  * });
@@ -52,11 +52,11 @@ export class Association extends pulumi.CustomResource {
     /**
      * ARN of the license configuration.
      */
-    public readonly licenseConfigurationArn: pulumi.Output<string>;
+    public readonly licenseConfigurationArn!: pulumi.Output<string>;
     /**
      * ARN of the resource associated with the license configuration.
      */
-    public readonly resourceArn: pulumi.Output<string>;
+    public readonly resourceArn!: pulumi.Output<string>;
 
     /**
      * Create a Association resource with the given unique name, arguments, and options.
@@ -69,7 +69,7 @@ export class Association extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AssociationArgs | AssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AssociationState = argsOrState as AssociationState | undefined;
+            const state = argsOrState as AssociationState | undefined;
             inputs["licenseConfigurationArn"] = state ? state.licenseConfigurationArn : undefined;
             inputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an API Gateway Client Certificate.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const demo = new aws.apigateway.ClientCertificate("demo", {
  *     description: "My client certificate",
  * });
@@ -34,19 +34,19 @@ export class ClientCertificate extends pulumi.CustomResource {
     /**
      * The date when the client certificate was created.
      */
-    public /*out*/ readonly createdDate: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
      * The description of the client certificate.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The date when the client certificate will expire.
      */
-    public /*out*/ readonly expirationDate: pulumi.Output<string>;
+    public /*out*/ readonly expirationDate!: pulumi.Output<string>;
     /**
      * The PEM-encoded public key of the client certificate.
      */
-    public /*out*/ readonly pemEncodedCertificate: pulumi.Output<string>;
+    public /*out*/ readonly pemEncodedCertificate!: pulumi.Output<string>;
 
     /**
      * Create a ClientCertificate resource with the given unique name, arguments, and options.
@@ -59,7 +59,7 @@ export class ClientCertificate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClientCertificateArgs | ClientCertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ClientCertificateState = argsOrState as ClientCertificateState | undefined;
+            const state = argsOrState as ClientCertificateState | undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["expirationDate"] = state ? state.expirationDate : undefined;

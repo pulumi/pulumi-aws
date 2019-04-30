@@ -23,19 +23,19 @@ export class Build extends pulumi.CustomResource {
     /**
      * Name of the build
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
      */
-    public readonly operatingSystem: pulumi.Output<string>;
+    public readonly operatingSystem!: pulumi.Output<string>;
     /**
      * Information indicating where your game build files are stored. See below.
      */
-    public readonly storageLocation: pulumi.Output<{ bucket: string, key: string, roleArn: string }>;
+    public readonly storageLocation!: pulumi.Output<{ bucket: string, key: string, roleArn: string }>;
     /**
      * Version that is associated with this build.
      */
-    public readonly version: pulumi.Output<string | undefined>;
+    public readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Build resource with the given unique name, arguments, and options.
@@ -48,7 +48,7 @@ export class Build extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BuildArgs | BuildState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: BuildState = argsOrState as BuildState | undefined;
+            const state = argsOrState as BuildState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["operatingSystem"] = state ? state.operatingSystem : undefined;
             inputs["storageLocation"] = state ? state.storageLocation : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Backup vault resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.backup.Vault("example", {
  *     kmsKeyArn: aws_kms_key_example.arn,
  * });
@@ -34,23 +34,23 @@ export class Vault extends pulumi.CustomResource {
     /**
      * The ARN of the vault.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The server-side encryption key that is used to protect your backups.
      */
-    public readonly kmsKeyArn: pulumi.Output<string>;
+    public readonly kmsKeyArn!: pulumi.Output<string>;
     /**
      * Name of the backup vault to create.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The number of recovery points that are stored in a backup vault.
      */
-    public /*out*/ readonly recoveryPoints: pulumi.Output<number>;
+    public /*out*/ readonly recoveryPoints!: pulumi.Output<number>;
     /**
      * Metadata that you can assign to help organize the resources that you create.
      */
-    public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Vault resource with the given unique name, arguments, and options.
@@ -63,7 +63,7 @@ export class Vault extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VaultArgs | VaultState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VaultState = argsOrState as VaultState | undefined;
+            const state = argsOrState as VaultState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             inputs["name"] = state ? state.name : undefined;

@@ -8,29 +8,29 @@ import * as utilities from "../utilities";
  * This resource attaches a security group to an Elastic Network Interface (ENI).
  * It can be used to attach a security group to any existing ENI, be it a
  * secondary ENI or one attached as the primary interface on an instance.
- * 
+ *
  * > **NOTE on instances, interfaces, and security groups:** Terraform currently
  * provides the capability to assign security groups via the [`aws_instance`][1]
  * and the [`aws_network_interface`][2] resources. Using this resource in
  * conjunction with security groups provided in-line in those resources will cause
  * conflicts, and will lead to spurious diffs and undefined behavior - please use
  * one or the other.
- * 
+ *
  * [1]: /docs/providers/aws/d/instance.html
  * [2]: /docs/providers/aws/r/network_interface.html
- * 
+ *
  * ## Example Usage
- * 
+ *
  * The following provides a very basic example of setting up an instance (provided
  * by `instance`) in the default security group, creating a security group
  * (provided by `sg`) and then attaching the security group to the instance's
  * primary network interface via the `aws_network_interface_sg_attachment` resource,
  * named `sg_attachment`:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const sg = new aws.ec2.SecurityGroup("sg", {
  *     tags: {
  *         type: "terraform-test-security-group",
@@ -56,15 +56,15 @@ import * as utilities from "../utilities";
  *     securityGroupId: sg.id,
  * });
  * ```
- * 
+ *
  * In this example, `instance` is provided by the `aws_instance` data source,
  * fetching an external instance, possibly not managed by Terraform.
  * `sg_attachment` then attaches to the output instance's `network_interface_id`:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const sg = new aws.ec2.SecurityGroup("sg", {
  *     tags: {
  *         type: "terraform-test-security-group",
@@ -78,9 +78,9 @@ import * as utilities from "../utilities";
  *     securityGroupId: sg.id,
  * });
  * ```
- * 
+ *
  * ## Output Reference
- * 
+ *
  * There are no outputs for this resource.
  */
 export class NetworkInterfaceSecurityGroupAttachment extends pulumi.CustomResource {
@@ -99,11 +99,11 @@ export class NetworkInterfaceSecurityGroupAttachment extends pulumi.CustomResour
     /**
      * The ID of the network interface to attach to.
      */
-    public readonly networkInterfaceId: pulumi.Output<string>;
+    public readonly networkInterfaceId!: pulumi.Output<string>;
     /**
      * The ID of the security group.
      */
-    public readonly securityGroupId: pulumi.Output<string>;
+    public readonly securityGroupId!: pulumi.Output<string>;
 
     /**
      * Create a NetworkInterfaceSecurityGroupAttachment resource with the given unique name, arguments, and options.
@@ -116,7 +116,7 @@ export class NetworkInterfaceSecurityGroupAttachment extends pulumi.CustomResour
     constructor(name: string, argsOrState?: NetworkInterfaceSecurityGroupAttachmentArgs | NetworkInterfaceSecurityGroupAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkInterfaceSecurityGroupAttachmentState = argsOrState as NetworkInterfaceSecurityGroupAttachmentState | undefined;
+            const state = argsOrState as NetworkInterfaceSecurityGroupAttachmentState | undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             inputs["securityGroupId"] = state ? state.securityGroupId : undefined;
         } else {

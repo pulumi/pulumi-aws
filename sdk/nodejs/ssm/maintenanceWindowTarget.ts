@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Maintenance Window Target resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const window = new aws.ssm.MaintenanceWindow("window", {
  *     cutoff: 1,
  *     duration: 3,
@@ -44,19 +44,19 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
     /**
      * User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
      */
-    public readonly ownerInformation: pulumi.Output<string | undefined>;
+    public readonly ownerInformation!: pulumi.Output<string | undefined>;
     /**
      * The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
      */
-    public readonly resourceType: pulumi.Output<string>;
+    public readonly resourceType!: pulumi.Output<string>;
     /**
      * The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value.
      */
-    public readonly targets: pulumi.Output<{ key: string, values: string[] }[]>;
+    public readonly targets!: pulumi.Output<{ key: string, values: string[] }[]>;
     /**
      * The Id of the maintenance window to register the target with.
      */
-    public readonly windowId: pulumi.Output<string>;
+    public readonly windowId!: pulumi.Output<string>;
 
     /**
      * Create a MaintenanceWindowTarget resource with the given unique name, arguments, and options.
@@ -69,7 +69,7 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MaintenanceWindowTargetArgs | MaintenanceWindowTargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MaintenanceWindowTargetState = argsOrState as MaintenanceWindowTargetState | undefined;
+            const state = argsOrState as MaintenanceWindowTargetState | undefined;
             inputs["ownerInformation"] = state ? state.ownerInformation : undefined;
             inputs["resourceType"] = state ? state.resourceType : undefined;
             inputs["targets"] = state ? state.targets : undefined;

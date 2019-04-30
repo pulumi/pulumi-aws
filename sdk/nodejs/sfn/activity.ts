@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Step Function Activity resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const sfnActivity = new aws.sfn.Activity("sfn_activity", {});
  * ```
  */
@@ -32,15 +32,15 @@ export class Activity extends pulumi.CustomResource {
     /**
      * The date the activity was created.
      */
-    public /*out*/ readonly creationDate: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * The name of the activity to create.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Activity resource with the given unique name, arguments, and options.
@@ -53,7 +53,7 @@ export class Activity extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ActivityArgs | ActivityState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ActivityState = argsOrState as ActivityState | undefined;
+            const state = argsOrState as ActivityState | undefined;
             inputs["creationDate"] = state ? state.creationDate : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tags"] = state ? state.tags : undefined;

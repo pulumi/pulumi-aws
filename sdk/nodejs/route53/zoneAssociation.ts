@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Route53 Hosted Zone VPC association. VPC associations can only be made on private zones.
- * 
+ *
  * > **NOTE:** Unless explicit association ordering is required (e.g. a separate cross-account association authorization), usage of this resource is not recommended. Use the `vpc` configuration blocks available within the [`aws_route53_zone` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone.html) instead.
- * 
+ *
  * > **NOTE:** Terraform provides both this standalone Zone VPC Association resource and exclusive VPC associations defined in-line in the [`aws_route53_zone` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone.html) via `vpc` configuration blocks. At this time, you cannot use those in-line VPC associations in conjunction with this resource and the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use the generic Terraform resource [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html#lifecycle) with `ignore_changes` in the `aws_route53_zone` resource to manage additional associations via this resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const primary = new aws.ec2.Vpc("primary", {
  *     cidrBlock: "10.6.0.0/16",
  *     enableDnsHostnames: true,
@@ -59,15 +59,15 @@ export class ZoneAssociation extends pulumi.CustomResource {
     /**
      * The VPC to associate with the private hosted zone.
      */
-    public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
     /**
      * The VPC's region. Defaults to the region of the AWS provider.
      */
-    public readonly vpcRegion: pulumi.Output<string>;
+    public readonly vpcRegion!: pulumi.Output<string>;
     /**
      * The private hosted zone to associate.
      */
-    public readonly zoneId: pulumi.Output<string>;
+    public readonly zoneId!: pulumi.Output<string>;
 
     /**
      * Create a ZoneAssociation resource with the given unique name, arguments, and options.
@@ -80,7 +80,7 @@ export class ZoneAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ZoneAssociationArgs | ZoneAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ZoneAssociationState = argsOrState as ZoneAssociationState | undefined;
+            const state = argsOrState as ZoneAssociationState | undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
             inputs["vpcRegion"] = state ? state.vpcRegion : undefined;
             inputs["zoneId"] = state ? state.zoneId : undefined;

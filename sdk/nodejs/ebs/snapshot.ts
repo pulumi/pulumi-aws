@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Creates a Snapshot of an EBS Volume.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ebs.Volume("example", {
  *     availabilityZone: "us-west-2a",
  *     size: 40,
@@ -44,39 +44,39 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * The data encryption key identifier for the snapshot.
      */
-    public /*out*/ readonly dataEncryptionKeyId: pulumi.Output<string>;
+    public /*out*/ readonly dataEncryptionKeyId!: pulumi.Output<string>;
     /**
      * A description of what the snapshot is.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Whether the snapshot is encrypted.
      */
-    public /*out*/ readonly encrypted: pulumi.Output<boolean>;
+    public /*out*/ readonly encrypted!: pulumi.Output<boolean>;
     /**
      * The ARN for the KMS encryption key.
      */
-    public /*out*/ readonly kmsKeyId: pulumi.Output<string>;
+    public /*out*/ readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      */
-    public /*out*/ readonly ownerAlias: pulumi.Output<string>;
+    public /*out*/ readonly ownerAlias!: pulumi.Output<string>;
     /**
      * The AWS account ID of the EBS snapshot owner.
      */
-    public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the snapshot
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The Volume ID of which to make a snapshot.
      */
-    public readonly volumeId: pulumi.Output<string>;
+    public readonly volumeId!: pulumi.Output<string>;
     /**
      * The size of the drive in GiBs.
      */
-    public /*out*/ readonly volumeSize: pulumi.Output<number>;
+    public /*out*/ readonly volumeSize!: pulumi.Output<number>;
 
     /**
      * Create a Snapshot resource with the given unique name, arguments, and options.
@@ -89,7 +89,7 @@ export class Snapshot extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SnapshotArgs | SnapshotState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SnapshotState = argsOrState as SnapshotState | undefined;
+            const state = argsOrState as SnapshotState | undefined;
             inputs["dataEncryptionKeyId"] = state ? state.dataEncryptionKeyId : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["encrypted"] = state ? state.encrypted : undefined;
