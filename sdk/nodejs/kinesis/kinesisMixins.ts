@@ -64,7 +64,7 @@ export interface StreamEventRecord {
 export type StreamEventHandler = lambda.EventHandler<StreamEvent, void>;
 
 export class StreamEventSubscription extends lambda.EventSubscription {
-    public readonly stream: pulumi.Output<stream.Stream>;
+    public readonly stream: stream.Stream;
     public readonly eventSourceMapping: lambda.EventSourceMapping;
 
     constructor(
@@ -93,7 +93,9 @@ export class StreamEventSubscription extends lambda.EventSubscription {
         };
         this.eventSourceMapping = new lambda.EventSourceMapping(name, mappingArgs, parentOpts);
 
-        this.registerOutputs({});
+        this.stream = stream;
+
+        this.registerOutputs();
     }
 }
 

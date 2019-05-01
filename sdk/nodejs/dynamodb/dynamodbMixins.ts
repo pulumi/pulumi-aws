@@ -60,7 +60,7 @@ export interface TableEventRecord {
 export type TableEventHandler = lambda.EventHandler<TableEvent, void>;
 
 export class TableEventSubscription extends lambda.EventSubscription {
-    public readonly table: pulumi.Output<table.Table>;
+    public readonly table: table.Table;
     public readonly eventSourceMapping: lambda.EventSourceMapping;
 
     constructor(
@@ -87,7 +87,9 @@ export class TableEventSubscription extends lambda.EventSubscription {
             startingPosition: args.startingPosition,
         }, parentOpts);
 
-        this.registerOutputs({});
+        this.table = table;
+
+        this.registerOutputs();
     }
 }
 

@@ -223,8 +223,8 @@ export interface CallbackFunctionArgs<E, R> extends BaseCallbackFunctionArgs {
  * AWS resource an an AWS lambda that will be triggered when something happens to that resource.
  */
 export class EventSubscription extends pulumi.ComponentResource {
-    public permission: permission.Permission;
-    public func: LambdaFunction;
+    public permission!: permission.Permission;
+    public func!: LambdaFunction;
 
     public constructor(
         type: string, name: string, opts?: pulumi.ComponentResourceOptions) {
