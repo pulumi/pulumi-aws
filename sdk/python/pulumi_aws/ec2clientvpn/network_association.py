@@ -66,6 +66,10 @@ class NetworkAssociation(pulumi.CustomResource):
         __props__['status'] = None
         __props__['vpc_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(NetworkAssociation, __self__).__init__(
             'aws:ec2clientvpn/networkAssociation:NetworkAssociation',
             resource_name,

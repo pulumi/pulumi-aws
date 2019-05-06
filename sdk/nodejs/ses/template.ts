@@ -37,19 +37,19 @@ export class Template extends pulumi.CustomResource {
     /**
      * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
      */
-    public readonly html: pulumi.Output<string | undefined>;
+    public readonly html!: pulumi.Output<string | undefined>;
     /**
      * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The subject line of the email.
      */
-    public readonly subject: pulumi.Output<string | undefined>;
+    public readonly subject!: pulumi.Output<string | undefined>;
     /**
      * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
      */
-    public readonly text: pulumi.Output<string | undefined>;
+    public readonly text!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Template resource with the given unique name, arguments, and options.
@@ -62,7 +62,7 @@ export class Template extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TemplateArgs | TemplateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TemplateState = argsOrState as TemplateState | undefined;
+            const state = argsOrState as TemplateState | undefined;
             inputs["html"] = state ? state.html : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["subject"] = state ? state.subject : undefined;
@@ -73,6 +73,13 @@ export class Template extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["subject"] = args ? args.subject : undefined;
             inputs["text"] = args ? args.text : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ses/template:Template", name, inputs, opts);
     }

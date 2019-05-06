@@ -45,6 +45,10 @@ class XssMatchSet(pulumi.CustomResource):
 
         __props__['xss_match_tuples'] = xss_match_tuples
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(XssMatchSet, __self__).__init__(
             'aws:waf/xssMatchSet:XssMatchSet',
             resource_name,

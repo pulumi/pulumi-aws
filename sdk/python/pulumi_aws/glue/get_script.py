@@ -50,6 +50,10 @@ async def get_script(dag_edges=None,dag_nodes=None,language=None,opts=None):
     __args__['dagEdges'] = dag_edges
     __args__['dagNodes'] = dag_nodes
     __args__['language'] = language
+ .   if opts is None:
+         opts = pulumi.ResourceOptions()
+     if opts.version is None:
+         opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:glue/getScript:getScript', __args__, opts=opts)
 
     return GetScriptResult(

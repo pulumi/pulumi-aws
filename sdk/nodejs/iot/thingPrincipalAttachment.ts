@@ -43,11 +43,11 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
     /**
      * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
      */
-    public readonly principal: pulumi.Output<ARN>;
+    public readonly principal!: pulumi.Output<ARN>;
     /**
      * The name of the thing.
      */
-    public readonly thing: pulumi.Output<string>;
+    public readonly thing!: pulumi.Output<string>;
 
     /**
      * Create a ThingPrincipalAttachment resource with the given unique name, arguments, and options.
@@ -60,7 +60,7 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ThingPrincipalAttachmentArgs | ThingPrincipalAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ThingPrincipalAttachmentState = argsOrState as ThingPrincipalAttachmentState | undefined;
+            const state = argsOrState as ThingPrincipalAttachmentState | undefined;
             inputs["principal"] = state ? state.principal : undefined;
             inputs["thing"] = state ? state.thing : undefined;
         } else {
@@ -73,6 +73,13 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
             }
             inputs["principal"] = args ? args.principal : undefined;
             inputs["thing"] = args ? args.thing : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment", name, inputs, opts);
     }

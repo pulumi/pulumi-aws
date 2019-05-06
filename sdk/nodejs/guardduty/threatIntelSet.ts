@@ -51,23 +51,23 @@ export class ThreatIntelSet extends pulumi.CustomResource {
     /**
      * Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
      */
-    public readonly activate: pulumi.Output<boolean>;
+    public readonly activate!: pulumi.Output<boolean>;
     /**
      * The detector ID of the GuardDuty.
      */
-    public readonly detectorId: pulumi.Output<string>;
+    public readonly detectorId!: pulumi.Output<string>;
     /**
      * The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      */
-    public readonly format: pulumi.Output<string>;
+    public readonly format!: pulumi.Output<string>;
     /**
      * The URI of the file that contains the ThreatIntelSet.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The friendly name to identify the ThreatIntelSet.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a ThreatIntelSet resource with the given unique name, arguments, and options.
@@ -80,7 +80,7 @@ export class ThreatIntelSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ThreatIntelSetArgs | ThreatIntelSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ThreatIntelSetState = argsOrState as ThreatIntelSetState | undefined;
+            const state = argsOrState as ThreatIntelSetState | undefined;
             inputs["activate"] = state ? state.activate : undefined;
             inputs["detectorId"] = state ? state.detectorId : undefined;
             inputs["format"] = state ? state.format : undefined;
@@ -105,6 +105,13 @@ export class ThreatIntelSet extends pulumi.CustomResource {
             inputs["format"] = args ? args.format : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:guardduty/threatIntelSet:ThreatIntelSet", name, inputs, opts);
     }

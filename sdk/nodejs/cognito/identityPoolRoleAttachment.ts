@@ -98,15 +98,15 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
     /**
      * An identity pool ID in the format REGION:GUID.
      */
-    public readonly identityPoolId: pulumi.Output<string>;
+    public readonly identityPoolId!: pulumi.Output<string>;
     /**
      * A List of Role Mapping.
      */
-    public readonly roleMappings: pulumi.Output<{ ambiguousRoleResolution?: string, identityProvider: string, mappingRules?: { claim: string, matchType: string, roleArn: string, value: string }[], type: string }[] | undefined>;
+    public readonly roleMappings!: pulumi.Output<{ ambiguousRoleResolution?: string, identityProvider: string, mappingRules?: { claim: string, matchType: string, roleArn: string, value: string }[], type: string }[] | undefined>;
     /**
      * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
      */
-    public readonly roles: pulumi.Output<{ authenticated?: string, unauthenticated?: string }>;
+    public readonly roles!: pulumi.Output<{ authenticated?: string, unauthenticated?: string }>;
 
     /**
      * Create a IdentityPoolRoleAttachment resource with the given unique name, arguments, and options.
@@ -119,7 +119,7 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: IdentityPoolRoleAttachmentArgs | IdentityPoolRoleAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: IdentityPoolRoleAttachmentState = argsOrState as IdentityPoolRoleAttachmentState | undefined;
+            const state = argsOrState as IdentityPoolRoleAttachmentState | undefined;
             inputs["identityPoolId"] = state ? state.identityPoolId : undefined;
             inputs["roleMappings"] = state ? state.roleMappings : undefined;
             inputs["roles"] = state ? state.roles : undefined;
@@ -134,6 +134,13 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
             inputs["identityPoolId"] = args ? args.identityPoolId : undefined;
             inputs["roleMappings"] = args ? args.roleMappings : undefined;
             inputs["roles"] = args ? args.roles : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment", name, inputs, opts);
     }

@@ -41,48 +41,48 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Fleet ARN.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * ID of the Gamelift Build to be deployed on the fleet.
      */
-    public readonly buildId: pulumi.Output<string>;
+    public readonly buildId!: pulumi.Output<string>;
     /**
      * Human-readable description of the fleet.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      */
-    public readonly ec2InboundPermissions: pulumi.Output<{ fromPort: number, ipRange: string, protocol: string, toPort: number }[] | undefined>;
+    public readonly ec2InboundPermissions!: pulumi.Output<{ fromPort: number, ipRange: string, protocol: string, toPort: number }[] | undefined>;
     /**
      * Name of an EC2 instance type. e.g. `t2.micro`
      */
-    public readonly ec2InstanceType: pulumi.Output<string>;
-    public /*out*/ readonly logPaths: pulumi.Output<string[]>;
+    public readonly ec2InstanceType!: pulumi.Output<string>;
+    public /*out*/ readonly logPaths!: pulumi.Output<string[]>;
     /**
      * List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
      */
-    public readonly metricGroups: pulumi.Output<string[]>;
+    public readonly metricGroups!: pulumi.Output<string[]>;
     /**
      * The name of the fleet.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
      */
-    public readonly newGameSessionProtectionPolicy: pulumi.Output<string | undefined>;
+    public readonly newGameSessionProtectionPolicy!: pulumi.Output<string | undefined>;
     /**
      * Operating system of the fleet's computing resources.
      */
-    public /*out*/ readonly operatingSystem: pulumi.Output<string>;
+    public /*out*/ readonly operatingSystem!: pulumi.Output<string>;
     /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      */
-    public readonly resourceCreationLimitPolicy: pulumi.Output<{ newGameSessionsPerCreator?: number, policyPeriodInMinutes?: number } | undefined>;
+    public readonly resourceCreationLimitPolicy!: pulumi.Output<{ newGameSessionsPerCreator?: number, policyPeriodInMinutes?: number } | undefined>;
     /**
      * Instructions for launching server processes on each instance in the fleet. See below.
      */
-    public readonly runtimeConfiguration: pulumi.Output<{ gameSessionActivationTimeoutSeconds?: number, maxConcurrentGameSessionActivations?: number, serverProcesses?: { concurrentExecutions: number, launchPath: string, parameters?: string }[] } | undefined>;
+    public readonly runtimeConfiguration!: pulumi.Output<{ gameSessionActivationTimeoutSeconds?: number, maxConcurrentGameSessionActivations?: number, serverProcesses?: { concurrentExecutions: number, launchPath: string, parameters?: string }[] } | undefined>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -95,7 +95,7 @@ export class Fleet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FleetArgs | FleetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FleetState = argsOrState as FleetState | undefined;
+            const state = argsOrState as FleetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["buildId"] = state ? state.buildId : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -128,6 +128,13 @@ export class Fleet extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["logPaths"] = undefined /*out*/;
             inputs["operatingSystem"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:gamelift/fleet:Fleet", name, inputs, opts);
     }

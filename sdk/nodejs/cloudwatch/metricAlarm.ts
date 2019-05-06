@@ -124,35 +124,35 @@ export class MetricAlarm extends pulumi.CustomResource {
     /**
      * Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
      */
-    public readonly actionsEnabled: pulumi.Output<boolean | undefined>;
+    public readonly actionsEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    public readonly alarmActions: pulumi.Output<string[] | undefined>;
+    public readonly alarmActions!: pulumi.Output<string[] | undefined>;
     /**
      * The description for the alarm.
      */
-    public readonly alarmDescription: pulumi.Output<string | undefined>;
+    public readonly alarmDescription!: pulumi.Output<string | undefined>;
     /**
      * The descriptive name for the alarm. This name must be unique within the user's AWS account
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ARN of the cloudwatch metric alarm.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`.
      */
-    public readonly comparisonOperator: pulumi.Output<string>;
+    public readonly comparisonOperator!: pulumi.Output<string>;
     /**
      * The number of datapoints that must be breaching to trigger the alarm.
      */
-    public readonly datapointsToAlarm: pulumi.Output<number | undefined>;
+    public readonly datapointsToAlarm!: pulumi.Output<number | undefined>;
     /**
      * The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    public readonly dimensions: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly dimensions!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Used only for alarms
      * based on percentiles. If you specify `ignore`, the alarm state will not
@@ -161,62 +161,62 @@ export class MetricAlarm extends pulumi.CustomResource {
      * evaluated and possibly change state no matter how many data points are available.
      * The following values are supported: `ignore`, and `evaluate`.
      */
-    public readonly evaluateLowSampleCountPercentiles: pulumi.Output<string>;
+    public readonly evaluateLowSampleCountPercentiles!: pulumi.Output<string>;
     /**
      * The number of periods over which data is compared to the specified threshold.
      */
-    public readonly evaluationPeriods: pulumi.Output<number>;
+    public readonly evaluationPeriods!: pulumi.Output<number>;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
      */
-    public readonly extendedStatistic: pulumi.Output<string | undefined>;
+    public readonly extendedStatistic!: pulumi.Output<string | undefined>;
     /**
      * The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    public readonly insufficientDataActions: pulumi.Output<string[] | undefined>;
+    public readonly insufficientDataActions!: pulumi.Output<string[] | undefined>;
     /**
      * The name for this metric.
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    public readonly metricName: pulumi.Output<string | undefined>;
+    public readonly metricName!: pulumi.Output<string | undefined>;
     /**
      * Enables you to create an alarm based on a metric math expression. You may specify at most 20.
      */
-    public readonly metricQueries: pulumi.Output<{ expression?: string, id: string, label?: string, metric?: { dimensions?: {[key: string]: any}, metricName: string, namespace?: string, period: number, stat: string, unit?: string }, returnData?: boolean }[] | undefined>;
+    public readonly metricQueries!: pulumi.Output<{ expression?: string, id: string, label?: string, metric?: { dimensions?: {[key: string]: any}, metricName: string, namespace?: string, period: number, stat: string, unit?: string }, returnData?: boolean }[] | undefined>;
     /**
      * The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    public readonly namespace: pulumi.Output<string | undefined>;
+    public readonly namespace!: pulumi.Output<string | undefined>;
     /**
      * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    public readonly okActions: pulumi.Output<string[] | undefined>;
+    public readonly okActions!: pulumi.Output<string[] | undefined>;
     /**
      * The period in seconds over which the specified `stat` is applied.
      */
-    public readonly period: pulumi.Output<number | undefined>;
+    public readonly period!: pulumi.Output<number | undefined>;
     /**
      * The statistic to apply to the alarm's associated metric.
      * Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
      */
-    public readonly statistic: pulumi.Output<string | undefined>;
+    public readonly statistic!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The value against which the specified statistic is compared.
      */
-    public readonly threshold: pulumi.Output<number>;
+    public readonly threshold!: pulumi.Output<number>;
     /**
      * Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
      */
-    public readonly treatMissingData: pulumi.Output<string | undefined>;
+    public readonly treatMissingData!: pulumi.Output<string | undefined>;
     /**
      * The unit for this metric.
      */
-    public readonly unit: pulumi.Output<string | undefined>;
+    public readonly unit!: pulumi.Output<string | undefined>;
 
     /**
      * Create a MetricAlarm resource with the given unique name, arguments, and options.
@@ -229,7 +229,7 @@ export class MetricAlarm extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MetricAlarmArgs | MetricAlarmState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MetricAlarmState = argsOrState as MetricAlarmState | undefined;
+            const state = argsOrState as MetricAlarmState | undefined;
             inputs["actionsEnabled"] = state ? state.actionsEnabled : undefined;
             inputs["alarmActions"] = state ? state.alarmActions : undefined;
             inputs["alarmDescription"] = state ? state.alarmDescription : undefined;
@@ -285,6 +285,13 @@ export class MetricAlarm extends pulumi.CustomResource {
             inputs["treatMissingData"] = args ? args.treatMissingData : undefined;
             inputs["unit"] = args ? args.unit : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cloudwatch/metricAlarm:MetricAlarm", name, inputs, opts);
     }

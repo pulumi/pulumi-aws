@@ -186,32 +186,32 @@ export class Integration extends pulumi.CustomResource {
     /**
      * A list of cache key parameters for the integration.
      */
-    public readonly cacheKeyParameters: pulumi.Output<string[] | undefined>;
+    public readonly cacheKeyParameters!: pulumi.Output<string[] | undefined>;
     /**
      * The integration's cache namespace.
      */
-    public readonly cacheNamespace: pulumi.Output<string>;
+    public readonly cacheNamespace!: pulumi.Output<string>;
     /**
      * The id of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
      */
-    public readonly connectionId: pulumi.Output<string | undefined>;
+    public readonly connectionId!: pulumi.Output<string | undefined>;
     /**
      * The integration input's [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
      */
-    public readonly connectionType: pulumi.Output<string | undefined>;
+    public readonly connectionType!: pulumi.Output<string | undefined>;
     /**
      * Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
      */
-    public readonly contentHandling: pulumi.Output<string | undefined>;
+    public readonly contentHandling!: pulumi.Output<string | undefined>;
     /**
      * The credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
      */
-    public readonly credentials: pulumi.Output<string | undefined>;
+    public readonly credentials!: pulumi.Output<string | undefined>;
     /**
      * The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
      * when calling the associated resource.
      */
-    public readonly httpMethod: pulumi.Output<string>;
+    public readonly httpMethod!: pulumi.Output<string>;
     /**
      * The integration HTTP method
      * (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`) specifying how API Gateway will interact with the back end.
@@ -219,42 +219,42 @@ export class Integration extends pulumi.CustomResource {
      * Not all methods are compatible with all `AWS` integrations.
      * e.g. Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
      */
-    public readonly integrationHttpMethod: pulumi.Output<string | undefined>;
+    public readonly integrationHttpMethod!: pulumi.Output<string | undefined>;
     /**
      * The integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
      */
-    public readonly passthroughBehavior: pulumi.Output<string>;
+    public readonly passthroughBehavior!: pulumi.Output<string>;
     /**
      * A map of request query string parameters and headers that should be passed to the backend responder.
      * For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
      */
-    public readonly requestParameters: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly requestParameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of the integration's request templates.
      */
-    public readonly requestTemplates: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly requestTemplates!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The API resource ID.
      */
-    public readonly resourceId: pulumi.Output<string>;
+    public readonly resourceId!: pulumi.Output<string>;
     /**
      * The ID of the associated REST API.
      */
-    public readonly restApi: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<RestApi>;
     /**
      * Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
      */
-    public readonly timeoutMilliseconds: pulumi.Output<number | undefined>;
+    public readonly timeoutMilliseconds!: pulumi.Output<number | undefined>;
     /**
      * The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
      */
-    public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * The input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
      * For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
      * e.g. `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`
      */
-    public readonly uri: pulumi.Output<string | undefined>;
+    public readonly uri!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Integration resource with the given unique name, arguments, and options.
@@ -267,7 +267,7 @@ export class Integration extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: IntegrationArgs | IntegrationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: IntegrationState = argsOrState as IntegrationState | undefined;
+            const state = argsOrState as IntegrationState | undefined;
             inputs["cacheKeyParameters"] = state ? state.cacheKeyParameters : undefined;
             inputs["cacheNamespace"] = state ? state.cacheNamespace : undefined;
             inputs["connectionId"] = state ? state.connectionId : undefined;
@@ -314,6 +314,13 @@ export class Integration extends pulumi.CustomResource {
             inputs["timeoutMilliseconds"] = args ? args.timeoutMilliseconds : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["uri"] = args ? args.uri : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:apigateway/integration:Integration", name, inputs, opts);
     }

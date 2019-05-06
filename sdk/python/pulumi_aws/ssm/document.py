@@ -150,6 +150,10 @@ class Document(pulumi.CustomResource):
         __props__['schema_version'] = None
         __props__['status'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Document, __self__).__init__(
             'aws:ssm/document:Document',
             resource_name,

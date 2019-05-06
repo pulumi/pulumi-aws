@@ -99,6 +99,10 @@ class EventRule(pulumi.CustomResource):
 
         __props__['arn'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(EventRule, __self__).__init__(
             'aws:cloudwatch/eventRule:EventRule',
             resource_name,

@@ -31,6 +31,10 @@ async def get_hosted_zone_id(region=None,opts=None):
     __args__ = dict()
 
     __args__['region'] = region
+ .   if opts is None:
+         opts = pulumi.ResourceOptions()
+     if opts.version is None:
+         opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:elasticloadbalancing/getHostedZoneId:getHostedZoneId', __args__, opts=opts)
 
     return GetHostedZoneIdResult(

@@ -43,6 +43,10 @@ async def get_autoscaling_groups(filters=None,opts=None):
     __args__ = dict()
 
     __args__['filters'] = filters
+ .   if opts is None:
+         opts = pulumi.ResourceOptions()
+     if opts.version is None:
+         opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:index/getAutoscalingGroups:getAutoscalingGroups', __args__, opts=opts)
 
     return GetAutoscalingGroupsResult(

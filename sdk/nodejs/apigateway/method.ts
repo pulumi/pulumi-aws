@@ -82,46 +82,46 @@ export class Method extends pulumi.CustomResource {
     /**
      * Specify if the method requires an API key
      */
-    public readonly apiKeyRequired: pulumi.Output<boolean | undefined>;
+    public readonly apiKeyRequired!: pulumi.Output<boolean | undefined>;
     /**
      * The type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
      */
-    public readonly authorization: pulumi.Output<string>;
+    public readonly authorization!: pulumi.Output<string>;
     /**
      * The authorization scopes used when the authorization is `COGNITO_USER_POOLS`
      */
-    public readonly authorizationScopes: pulumi.Output<string[] | undefined>;
+    public readonly authorizationScopes!: pulumi.Output<string[] | undefined>;
     /**
      * The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      */
-    public readonly authorizerId: pulumi.Output<string | undefined>;
+    public readonly authorizerId!: pulumi.Output<string | undefined>;
     /**
      * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      */
-    public readonly httpMethod: pulumi.Output<string>;
+    public readonly httpMethod!: pulumi.Output<string>;
     /**
      * A map of the API models used for the request's content type
      * where key is the content type (e.g. `application/json`)
      * and value is either `Error`, `Empty` (built-in models) or `aws_api_gateway_model`'s `name`.
      */
-    public readonly requestModels: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly requestModels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of request query string parameters and headers that should be passed to the integration.
      * For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
      */
-    public readonly requestParameters: pulumi.Output<{[key: string]: boolean} | undefined>;
+    public readonly requestParameters!: pulumi.Output<{[key: string]: boolean} | undefined>;
     /**
      * The ID of a `aws_api_gateway_request_validator`
      */
-    public readonly requestValidatorId: pulumi.Output<string | undefined>;
+    public readonly requestValidatorId!: pulumi.Output<string | undefined>;
     /**
      * The API resource ID
      */
-    public readonly resourceId: pulumi.Output<string>;
+    public readonly resourceId!: pulumi.Output<string>;
     /**
      * The ID of the associated REST API
      */
-    public readonly restApi: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<RestApi>;
 
     /**
      * Create a Method resource with the given unique name, arguments, and options.
@@ -134,7 +134,7 @@ export class Method extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MethodArgs | MethodState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MethodState = argsOrState as MethodState | undefined;
+            const state = argsOrState as MethodState | undefined;
             inputs["apiKeyRequired"] = state ? state.apiKeyRequired : undefined;
             inputs["authorization"] = state ? state.authorization : undefined;
             inputs["authorizationScopes"] = state ? state.authorizationScopes : undefined;
@@ -169,6 +169,13 @@ export class Method extends pulumi.CustomResource {
             inputs["requestValidatorId"] = args ? args.requestValidatorId : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["restApi"] = args ? args.restApi : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:apigateway/method:Method", name, inputs, opts);
     }

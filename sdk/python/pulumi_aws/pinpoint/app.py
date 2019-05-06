@@ -72,6 +72,10 @@ class App(pulumi.CustomResource):
 
         __props__['application_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(App, __self__).__init__(
             'aws:pinpoint/app:App',
             resource_name,

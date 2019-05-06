@@ -234,6 +234,10 @@ async def get_instance(filters=None,get_password_data=None,get_user_data=None,in
     __args__['instanceId'] = instance_id
     __args__['instanceTags'] = instance_tags
     __args__['tags'] = tags
+ .   if opts is None:
+         opts = pulumi.ResourceOptions()
+     if opts.version is None:
+         opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ec2/getInstance:getInstance', __args__, opts=opts)
 
     return GetInstanceResult(

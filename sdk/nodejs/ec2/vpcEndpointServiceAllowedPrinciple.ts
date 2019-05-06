@@ -44,11 +44,11 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
     /**
      * The ARN of the principal to allow permissions.
      */
-    public readonly principalArn: pulumi.Output<string>;
+    public readonly principalArn!: pulumi.Output<string>;
     /**
      * The ID of the VPC endpoint service to allow permission.
      */
-    public readonly vpcEndpointServiceId: pulumi.Output<string>;
+    public readonly vpcEndpointServiceId!: pulumi.Output<string>;
 
     /**
      * Create a VpcEndpointServiceAllowedPrinciple resource with the given unique name, arguments, and options.
@@ -61,7 +61,7 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcEndpointServiceAllowedPrincipleArgs | VpcEndpointServiceAllowedPrincipleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpcEndpointServiceAllowedPrincipleState = argsOrState as VpcEndpointServiceAllowedPrincipleState | undefined;
+            const state = argsOrState as VpcEndpointServiceAllowedPrincipleState | undefined;
             inputs["principalArn"] = state ? state.principalArn : undefined;
             inputs["vpcEndpointServiceId"] = state ? state.vpcEndpointServiceId : undefined;
         } else {
@@ -74,6 +74,13 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
             }
             inputs["principalArn"] = args ? args.principalArn : undefined;
             inputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple", name, inputs, opts);
     }

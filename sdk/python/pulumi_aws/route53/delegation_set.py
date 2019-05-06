@@ -47,6 +47,10 @@ class DelegationSet(pulumi.CustomResource):
 
         __props__['name_servers'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(DelegationSet, __self__).__init__(
             'aws:route53/delegationSet:DelegationSet',
             resource_name,

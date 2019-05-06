@@ -40,11 +40,11 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The ARN of the Lightsail domain
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the Lightsail domain to manage
      */
-    public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -57,7 +57,7 @@ export class Domain extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DomainArgs | DomainState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DomainState = argsOrState as DomainState | undefined;
+            const state = argsOrState as DomainState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
         } else {
@@ -67,6 +67,13 @@ export class Domain extends pulumi.CustomResource {
             }
             inputs["domainName"] = args ? args.domainName : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:lightsail/domain:Domain", name, inputs, opts);
     }

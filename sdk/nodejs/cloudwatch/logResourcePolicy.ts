@@ -76,11 +76,11 @@ export class LogResourcePolicy extends pulumi.CustomResource {
     /**
      * Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
      */
-    public readonly policyDocument: pulumi.Output<string>;
+    public readonly policyDocument!: pulumi.Output<string>;
     /**
      * Name of the resource policy.
      */
-    public readonly policyName: pulumi.Output<string>;
+    public readonly policyName!: pulumi.Output<string>;
 
     /**
      * Create a LogResourcePolicy resource with the given unique name, arguments, and options.
@@ -93,7 +93,7 @@ export class LogResourcePolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LogResourcePolicyArgs | LogResourcePolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LogResourcePolicyState = argsOrState as LogResourcePolicyState | undefined;
+            const state = argsOrState as LogResourcePolicyState | undefined;
             inputs["policyDocument"] = state ? state.policyDocument : undefined;
             inputs["policyName"] = state ? state.policyName : undefined;
         } else {
@@ -106,6 +106,13 @@ export class LogResourcePolicy extends pulumi.CustomResource {
             }
             inputs["policyDocument"] = args ? args.policyDocument : undefined;
             inputs["policyName"] = args ? args.policyName : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cloudwatch/logResourcePolicy:LogResourcePolicy", name, inputs, opts);
     }

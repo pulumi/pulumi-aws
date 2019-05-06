@@ -222,52 +222,52 @@ export class EventTarget extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) associated of the target.
      */
-    public readonly arn: pulumi.Output<string>;
+    public readonly arn!: pulumi.Output<string>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
      */
-    public readonly batchTarget: pulumi.Output<{ arraySize?: number, jobAttempts?: number, jobDefinition: string, jobName: string } | undefined>;
+    public readonly batchTarget!: pulumi.Output<{ arraySize?: number, jobAttempts?: number, jobDefinition: string, jobName: string } | undefined>;
     /**
      * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
      */
-    public readonly ecsTarget: pulumi.Output<{ group?: string, launchType?: string, networkConfiguration?: { assignPublicIp?: boolean, securityGroups?: string[], subnets: string[] }, platformVersion?: string, taskCount?: number, taskDefinitionArn: string } | undefined>;
+    public readonly ecsTarget!: pulumi.Output<{ group?: string, launchType?: string, networkConfiguration?: { assignPublicIp?: boolean, securityGroups?: string[], subnets: string[] }, platformVersion?: string, taskCount?: number, taskDefinitionArn: string } | undefined>;
     /**
      * Valid JSON text passed to the target.
      */
-    public readonly input: pulumi.Output<string | undefined>;
+    public readonly input!: pulumi.Output<string | undefined>;
     /**
      * The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
      * that is used for extracting part of the matched event when passing it to the target.
      */
-    public readonly inputPath: pulumi.Output<string | undefined>;
+    public readonly inputPath!: pulumi.Output<string | undefined>;
     /**
      * Parameters used when you are providing a custom input to a target based on certain event data.
      */
-    public readonly inputTransformer: pulumi.Output<{ inputPaths?: {[key: string]: any}, inputTemplate: string } | undefined>;
+    public readonly inputTransformer!: pulumi.Output<{ inputPaths?: {[key: string]: any}, inputTemplate: string } | undefined>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
      */
-    public readonly kinesisTarget: pulumi.Output<{ partitionKeyPath?: string } | undefined>;
+    public readonly kinesisTarget!: pulumi.Output<{ partitionKeyPath?: string } | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
      */
-    public readonly roleArn: pulumi.Output<string | undefined>;
+    public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
      * The name of the rule you want to add targets to.
      */
-    public readonly rule: pulumi.Output<string>;
+    public readonly rule!: pulumi.Output<string>;
     /**
      * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
      */
-    public readonly runCommandTargets: pulumi.Output<{ key: string, values: string[] }[] | undefined>;
+    public readonly runCommandTargets!: pulumi.Output<{ key: string, values: string[] }[] | undefined>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
      */
-    public readonly sqsTarget: pulumi.Output<{ messageGroupId?: string } | undefined>;
+    public readonly sqsTarget!: pulumi.Output<{ messageGroupId?: string } | undefined>;
     /**
      * The unique target assignment ID.  If missing, will generate a random, unique id.
      */
-    public readonly targetId: pulumi.Output<string>;
+    public readonly targetId!: pulumi.Output<string>;
 
     /**
      * Create a EventTarget resource with the given unique name, arguments, and options.
@@ -280,7 +280,7 @@ export class EventTarget extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventTargetArgs | EventTargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventTargetState = argsOrState as EventTargetState | undefined;
+            const state = argsOrState as EventTargetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["batchTarget"] = state ? state.batchTarget : undefined;
             inputs["ecsTarget"] = state ? state.ecsTarget : undefined;
@@ -313,6 +313,13 @@ export class EventTarget extends pulumi.CustomResource {
             inputs["runCommandTargets"] = args ? args.runCommandTargets : undefined;
             inputs["sqsTarget"] = args ? args.sqsTarget : undefined;
             inputs["targetId"] = args ? args.targetId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cloudwatch/eventTarget:EventTarget", name, inputs, opts);
     }

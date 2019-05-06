@@ -66,53 +66,53 @@ export class AnalyticsApplication extends pulumi.CustomResource {
     /**
      * The ARN of the Kinesis Analytics Appliation.
      */
-    public /*out*/ readonly arn: pulumi.Output<ARN>;
+    public /*out*/ readonly arn!: pulumi.Output<ARN>;
     /**
      * The CloudWatch log stream options to monitor application errors.
      * See CloudWatch Logging Options below for more details.
      */
-    public readonly cloudwatchLoggingOptions: pulumi.Output<{ id: string, logStreamArn: string, roleArn: string } | undefined>;
+    public readonly cloudwatchLoggingOptions!: pulumi.Output<{ id: string, logStreamArn: string, roleArn: string } | undefined>;
     /**
      * SQL Code to transform input data, and generate output.
      */
-    public readonly code: pulumi.Output<string | undefined>;
+    public readonly code!: pulumi.Output<string | undefined>;
     /**
      * The Timestamp when the application version was created.
      */
-    public /*out*/ readonly createTimestamp: pulumi.Output<string>;
+    public /*out*/ readonly createTimestamp!: pulumi.Output<string>;
     /**
      * Description of the application.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Input configuration of the application. See Inputs below for more details.
      */
-    public readonly inputs: pulumi.Output<{ id: string, kinesisFirehose?: { resourceArn: string, roleArn: string }, kinesisStream?: { resourceArn: string, roleArn: string }, namePrefix: string, parallelism?: { count: number }, processingConfiguration?: { lambda: { resourceArn: string, roleArn: string } }, schema: { recordColumns: { mapping?: string, name: string, sqlType: string }[], recordEncoding?: string, recordFormat: { mappingParameters?: { csv?: { recordColumnDelimiter: string, recordRowDelimiter: string }, json?: { recordRowPath: string } }, recordFormatType: string } }, startingPositionConfigurations: { startingPosition: string }[], streamNames: string[] } | undefined>;
+    public readonly inputs!: pulumi.Output<{ id: string, kinesisFirehose?: { resourceArn: string, roleArn: string }, kinesisStream?: { resourceArn: string, roleArn: string }, namePrefix: string, parallelism?: { count: number }, processingConfiguration?: { lambda: { resourceArn: string, roleArn: string } }, schema: { recordColumns: { mapping?: string, name: string, sqlType: string }[], recordEncoding?: string, recordFormat: { mappingParameters?: { csv?: { recordColumnDelimiter: string, recordRowDelimiter: string }, json?: { recordRowPath: string } }, recordFormatType: string } }, startingPositionConfigurations: { startingPosition: string }[], streamNames: string[] } | undefined>;
     /**
      * The Timestamp when the application was last updated.
      */
-    public /*out*/ readonly lastUpdateTimestamp: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdateTimestamp!: pulumi.Output<string>;
     /**
      * Name of the Kinesis Analytics Application.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Output destination configuration of the application. See Outputs below for more details.
      */
-    public readonly outputs: pulumi.Output<{ id: string, kinesisFirehose?: { resourceArn: string, roleArn: string }, kinesisStream?: { resourceArn: string, roleArn: string }, lambda?: { resourceArn: string, roleArn: string }, name: string, schema: { recordFormatType?: string } }[] | undefined>;
+    public readonly outputs!: pulumi.Output<{ id: string, kinesisFirehose?: { resourceArn: string, roleArn: string }, kinesisStream?: { resourceArn: string, roleArn: string }, lambda?: { resourceArn: string, roleArn: string }, name: string, schema: { recordFormatType?: string } }[] | undefined>;
     /**
      * An S3 Reference Data Source for the application.
      * See Reference Data Sources below for more details.
      */
-    public readonly referenceDataSources: pulumi.Output<{ id: string, s3: { bucketArn: string, fileKey: string, roleArn: string }, schema: { recordColumns: { mapping?: string, name: string, sqlType: string }[], recordEncoding?: string, recordFormat: { mappingParameters?: { csv?: { recordColumnDelimiter: string, recordRowDelimiter: string }, json?: { recordRowPath: string } }, recordFormatType: string } }, tableName: string } | undefined>;
+    public readonly referenceDataSources!: pulumi.Output<{ id: string, s3: { bucketArn: string, fileKey: string, roleArn: string }, schema: { recordColumns: { mapping?: string, name: string, sqlType: string }[], recordEncoding?: string, recordFormat: { mappingParameters?: { csv?: { recordColumnDelimiter: string, recordRowDelimiter: string }, json?: { recordRowPath: string } }, recordFormatType: string } }, tableName: string } | undefined>;
     /**
      * The Status of the application.
      */
-    public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * The Version of the application.
      */
-    public /*out*/ readonly version: pulumi.Output<number>;
+    public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
      * Create a AnalyticsApplication resource with the given unique name, arguments, and options.
@@ -125,7 +125,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AnalyticsApplicationArgs | AnalyticsApplicationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AnalyticsApplicationState = argsOrState as AnalyticsApplicationState | undefined;
+            const state = argsOrState as AnalyticsApplicationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cloudwatchLoggingOptions"] = state ? state.cloudwatchLoggingOptions : undefined;
             inputs["code"] = state ? state.code : undefined;
@@ -152,6 +152,13 @@ export class AnalyticsApplication extends pulumi.CustomResource {
             inputs["lastUpdateTimestamp"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:kinesis/analyticsApplication:AnalyticsApplication", name, inputs, opts);
     }

@@ -137,6 +137,10 @@ class UserPoolClient(pulumi.CustomResource):
 
         __props__['client_secret'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(UserPoolClient, __self__).__init__(
             'aws:cognito/userPoolClient:UserPoolClient',
             resource_name,

@@ -36,39 +36,39 @@ export class VpcAttachment extends pulumi.CustomResource {
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
-    public readonly dnsSupport: pulumi.Output<string | undefined>;
+    public readonly dnsSupport!: pulumi.Output<string | undefined>;
     /**
      * Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
      */
-    public readonly ipv6Support: pulumi.Output<string | undefined>;
+    public readonly ipv6Support!: pulumi.Output<string | undefined>;
     /**
      * Identifiers of EC2 Subnets.
      */
-    public readonly subnetIds: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment.
      */
-    public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */
-    public readonly transitGatewayDefaultRouteTableAssociation: pulumi.Output<boolean | undefined>;
+    public readonly transitGatewayDefaultRouteTableAssociation!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */
-    public readonly transitGatewayDefaultRouteTablePropagation: pulumi.Output<boolean | undefined>;
+    public readonly transitGatewayDefaultRouteTablePropagation!: pulumi.Output<boolean | undefined>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    public readonly transitGatewayId: pulumi.Output<string>;
+    public readonly transitGatewayId!: pulumi.Output<string>;
     /**
      * Identifier of EC2 VPC.
      */
-    public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
     /**
      * Identifier of the AWS account that owns the EC2 VPC.
      */
-    public /*out*/ readonly vpcOwnerId: pulumi.Output<string>;
+    public /*out*/ readonly vpcOwnerId!: pulumi.Output<string>;
 
     /**
      * Create a VpcAttachment resource with the given unique name, arguments, and options.
@@ -81,7 +81,7 @@ export class VpcAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcAttachmentArgs | VpcAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpcAttachmentState = argsOrState as VpcAttachmentState | undefined;
+            const state = argsOrState as VpcAttachmentState | undefined;
             inputs["dnsSupport"] = state ? state.dnsSupport : undefined;
             inputs["ipv6Support"] = state ? state.ipv6Support : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -111,6 +111,13 @@ export class VpcAttachment extends pulumi.CustomResource {
             inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["vpcOwnerId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2transitgateway/vpcAttachment:VpcAttachment", name, inputs, opts);
     }

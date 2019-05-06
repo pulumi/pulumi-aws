@@ -42,11 +42,11 @@ export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
     /**
      * An AWS Account ID to add create volume permissions
      */
-    public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * A snapshot ID
      */
-    public readonly snapshotId: pulumi.Output<string>;
+    public readonly snapshotId!: pulumi.Output<string>;
 
     /**
      * Create a SnapshotCreateVolumePermission resource with the given unique name, arguments, and options.
@@ -59,7 +59,7 @@ export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SnapshotCreateVolumePermissionArgs | SnapshotCreateVolumePermissionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SnapshotCreateVolumePermissionState = argsOrState as SnapshotCreateVolumePermissionState | undefined;
+            const state = argsOrState as SnapshotCreateVolumePermissionState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["snapshotId"] = state ? state.snapshotId : undefined;
         } else {
@@ -72,6 +72,13 @@ export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
             }
             inputs["accountId"] = args ? args.accountId : undefined;
             inputs["snapshotId"] = args ? args.snapshotId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission", name, inputs, opts);
     }

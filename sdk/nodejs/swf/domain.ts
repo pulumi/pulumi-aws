@@ -37,19 +37,19 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The domain description.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the domain. If omitted, Terraform will assign a random, unique name.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
      */
-    public readonly workflowExecutionRetentionPeriodInDays: pulumi.Output<string>;
+    public readonly workflowExecutionRetentionPeriodInDays!: pulumi.Output<string>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -62,7 +62,7 @@ export class Domain extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DomainArgs | DomainState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DomainState = argsOrState as DomainState | undefined;
+            const state = argsOrState as DomainState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
@@ -76,6 +76,13 @@ export class Domain extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["workflowExecutionRetentionPeriodInDays"] = args ? args.workflowExecutionRetentionPeriodInDays : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:swf/domain:Domain", name, inputs, opts);
     }

@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLocalDisk(args: GetLocalDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalDiskResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:storagegateway/getLocalDisk:getLocalDisk", {
         "diskNode": args.diskNode,
         "diskPath": args.diskPath,

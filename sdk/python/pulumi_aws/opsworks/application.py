@@ -154,6 +154,10 @@ class Application(pulumi.CustomResource):
             raise TypeError("Missing required property 'type'")
         __props__['type'] = type
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Application, __self__).__init__(
             'aws:opsworks/application:Application',
             resource_name,

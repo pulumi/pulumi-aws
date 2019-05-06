@@ -39,31 +39,31 @@ export class Repository extends pulumi.CustomResource {
     /**
      * The ARN of the repository
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The URL to use for cloning the repository over HTTPS.
      */
-    public /*out*/ readonly cloneUrlHttp: pulumi.Output<string>;
+    public /*out*/ readonly cloneUrlHttp!: pulumi.Output<string>;
     /**
      * The URL to use for cloning the repository over SSH.
      */
-    public /*out*/ readonly cloneUrlSsh: pulumi.Output<string>;
+    public /*out*/ readonly cloneUrlSsh!: pulumi.Output<string>;
     /**
      * The default branch of the repository. The branch specified here needs to exist.
      */
-    public readonly defaultBranch: pulumi.Output<string | undefined>;
+    public readonly defaultBranch!: pulumi.Output<string | undefined>;
     /**
      * The description of the repository. This needs to be less than 1000 characters
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The ID of the repository
      */
-    public /*out*/ readonly repositoryId: pulumi.Output<string>;
+    public /*out*/ readonly repositoryId!: pulumi.Output<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */
-    public readonly repositoryName: pulumi.Output<string>;
+    public readonly repositoryName!: pulumi.Output<string>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ export class Repository extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RepositoryArgs | RepositoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RepositoryState = argsOrState as RepositoryState | undefined;
+            const state = argsOrState as RepositoryState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cloneUrlHttp"] = state ? state.cloneUrlHttp : undefined;
             inputs["cloneUrlSsh"] = state ? state.cloneUrlSsh : undefined;
@@ -96,6 +96,13 @@ export class Repository extends pulumi.CustomResource {
             inputs["cloneUrlHttp"] = undefined /*out*/;
             inputs["cloneUrlSsh"] = undefined /*out*/;
             inputs["repositoryId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:codecommit/repository:Repository", name, inputs, opts);
     }

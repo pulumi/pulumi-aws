@@ -129,23 +129,23 @@ export class ListenerRule extends pulumi.CustomResource {
     /**
      * An Action block. Action blocks are documented below.
      */
-    public readonly actions: pulumi.Output<{ authenticateCognito?: { authenticationRequestExtraParams?: {[key: string]: any}, onUnauthenticatedRequest: string, scope: string, sessionCookieName: string, sessionTimeout: number, userPoolArn: string, userPoolClientId: string, userPoolDomain: string }, authenticateOidc?: { authenticationRequestExtraParams?: {[key: string]: any}, authorizationEndpoint: string, clientId: string, clientSecret: string, issuer: string, onUnauthenticatedRequest: string, scope: string, sessionCookieName: string, sessionTimeout: number, tokenEndpoint: string, userInfoEndpoint: string }, fixedResponse?: { contentType: string, messageBody?: string, statusCode: string }, order: number, redirect?: { host?: string, path?: string, port?: string, protocol?: string, query?: string, statusCode: string }, targetGroupArn?: string, type: string }[]>;
+    public readonly actions!: pulumi.Output<{ authenticateCognito?: { authenticationRequestExtraParams?: {[key: string]: any}, onUnauthenticatedRequest: string, scope: string, sessionCookieName: string, sessionTimeout: number, userPoolArn: string, userPoolClientId: string, userPoolDomain: string }, authenticateOidc?: { authenticationRequestExtraParams?: {[key: string]: any}, authorizationEndpoint: string, clientId: string, clientSecret: string, issuer: string, onUnauthenticatedRequest: string, scope: string, sessionCookieName: string, sessionTimeout: number, tokenEndpoint: string, userInfoEndpoint: string }, fixedResponse?: { contentType: string, messageBody?: string, statusCode: string }, order: number, redirect?: { host?: string, path?: string, port?: string, protocol?: string, query?: string, statusCode: string }, targetGroupArn?: string, type: string }[]>;
     /**
      * The ARN of the rule (matches `id`)
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A Condition block. Condition blocks are documented below.
      */
-    public readonly conditions: pulumi.Output<{ field?: string, values?: string }[]>;
+    public readonly conditions!: pulumi.Output<{ field?: string, values?: string }[]>;
     /**
      * The ARN of the listener to which to attach the rule.
      */
-    public readonly listenerArn: pulumi.Output<string>;
+    public readonly listenerArn!: pulumi.Output<string>;
     /**
      * The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
      */
-    public readonly priority: pulumi.Output<number>;
+    public readonly priority!: pulumi.Output<number>;
 
     /**
      * Create a ListenerRule resource with the given unique name, arguments, and options.
@@ -158,7 +158,7 @@ export class ListenerRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ListenerRuleArgs | ListenerRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ListenerRuleState = argsOrState as ListenerRuleState | undefined;
+            const state = argsOrState as ListenerRuleState | undefined;
             inputs["actions"] = state ? state.actions : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["conditions"] = state ? state.conditions : undefined;
@@ -180,6 +180,13 @@ export class ListenerRule extends pulumi.CustomResource {
             inputs["listenerArn"] = args ? args.listenerArn : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:applicationloadbalancing/listenerRule:ListenerRule", name, inputs, opts);
     }

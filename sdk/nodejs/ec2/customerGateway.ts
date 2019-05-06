@@ -39,20 +39,20 @@ export class CustomerGateway extends pulumi.CustomResource {
     /**
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
-    public readonly bgpAsn: pulumi.Output<number>;
+    public readonly bgpAsn!: pulumi.Output<number>;
     /**
      * The IP address of the gateway's Internet-routable external interface.
      */
-    public readonly ipAddress: pulumi.Output<string>;
+    public readonly ipAddress!: pulumi.Output<string>;
     /**
      * Tags to apply to the gateway.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The type of customer gateway. The only type AWS
      * supports at this time is "ipsec.1".
      */
-    public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a CustomerGateway resource with the given unique name, arguments, and options.
@@ -65,7 +65,7 @@ export class CustomerGateway extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CustomerGatewayArgs | CustomerGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CustomerGatewayState = argsOrState as CustomerGatewayState | undefined;
+            const state = argsOrState as CustomerGatewayState | undefined;
             inputs["bgpAsn"] = state ? state.bgpAsn : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -85,6 +85,13 @@ export class CustomerGateway extends pulumi.CustomResource {
             inputs["ipAddress"] = args ? args.ipAddress : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/customerGateway:CustomerGateway", name, inputs, opts);
     }

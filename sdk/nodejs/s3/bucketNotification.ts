@@ -251,19 +251,19 @@ export class BucketNotification extends pulumi.CustomResource {
     /**
      * The name of the bucket to put notification configuration.
      */
-    public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * Used to configure notifications to a Lambda Function (documented below).
      */
-    public readonly lambdaFunctions: pulumi.Output<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, lambdaFunctionArn?: string }[] | undefined>;
+    public readonly lambdaFunctions!: pulumi.Output<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, lambdaFunctionArn?: string }[] | undefined>;
     /**
      * The notification configuration to SQS Queue (documented below).
      */
-    public readonly queues: pulumi.Output<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, queueArn: string }[] | undefined>;
+    public readonly queues!: pulumi.Output<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, queueArn: string }[] | undefined>;
     /**
      * The notification configuration to SNS Topic (documented below).
      */
-    public readonly topics: pulumi.Output<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, topicArn: string }[] | undefined>;
+    public readonly topics!: pulumi.Output<{ events: string[], filterPrefix?: string, filterSuffix?: string, id: string, topicArn: string }[] | undefined>;
 
     /**
      * Create a BucketNotification resource with the given unique name, arguments, and options.
@@ -276,7 +276,7 @@ export class BucketNotification extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BucketNotificationArgs | BucketNotificationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: BucketNotificationState = argsOrState as BucketNotificationState | undefined;
+            const state = argsOrState as BucketNotificationState | undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
             inputs["lambdaFunctions"] = state ? state.lambdaFunctions : undefined;
             inputs["queues"] = state ? state.queues : undefined;
@@ -290,6 +290,13 @@ export class BucketNotification extends pulumi.CustomResource {
             inputs["lambdaFunctions"] = args ? args.lambdaFunctions : undefined;
             inputs["queues"] = args ? args.queues : undefined;
             inputs["topics"] = args ? args.topics : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:s3/bucketNotification:BucketNotification", name, inputs, opts);
     }

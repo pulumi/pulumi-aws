@@ -40,27 +40,27 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * The ARN of the db subnet group.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The description of the DB subnet group. Defaults to "Managed by Terraform".
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the DB subnet group. If omitted, Terraform will assign a random, unique name.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * A list of VPC subnet IDs.
      */
-    public readonly subnetIds: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a SubnetGroup resource with the given unique name, arguments, and options.
@@ -73,7 +73,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SubnetGroupArgs | SubnetGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SubnetGroupState = argsOrState as SubnetGroupState | undefined;
+            const state = argsOrState as SubnetGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -91,6 +91,13 @@ export class SubnetGroup extends pulumi.CustomResource {
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:rds/subnetGroup:SubnetGroup", name, inputs, opts);
     }

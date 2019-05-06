@@ -35,6 +35,13 @@ import * as utilities from "../utilities";
  */
 export function getServerCertificate(args?: GetServerCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCertificateResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:iam/getServerCertificate:getServerCertificate", {
         "latest": args.latest,
         "name": args.name,

@@ -44,16 +44,16 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
     /**
      * Used internally, see __Notes__ below
      */
-    public /*out*/ readonly originalRouteTableId: pulumi.Output<string>;
+    public /*out*/ readonly originalRouteTableId!: pulumi.Output<string>;
     /**
      * The ID of the Route Table to set as the new
      * main route table for the target VPC
      */
-    public readonly routeTableId: pulumi.Output<string>;
+    public readonly routeTableId!: pulumi.Output<string>;
     /**
      * The ID of the VPC whose main route table should be set
      */
-    public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a MainRouteTableAssociation resource with the given unique name, arguments, and options.
@@ -66,7 +66,7 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MainRouteTableAssociationArgs | MainRouteTableAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MainRouteTableAssociationState = argsOrState as MainRouteTableAssociationState | undefined;
+            const state = argsOrState as MainRouteTableAssociationState | undefined;
             inputs["originalRouteTableId"] = state ? state.originalRouteTableId : undefined;
             inputs["routeTableId"] = state ? state.routeTableId : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
@@ -81,6 +81,13 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
             inputs["routeTableId"] = args ? args.routeTableId : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["originalRouteTableId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation", name, inputs, opts);
     }

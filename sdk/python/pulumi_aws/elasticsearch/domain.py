@@ -147,6 +147,10 @@ class Domain(pulumi.CustomResource):
         __props__['endpoint'] = None
         __props__['kibana_endpoint'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Domain, __self__).__init__(
             'aws:elasticsearch/domain:Domain',
             resource_name,

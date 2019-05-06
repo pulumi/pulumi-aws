@@ -40,39 +40,39 @@ export class Volume extends pulumi.CustomResource {
     /**
      * The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The AZ where the EBS volume will exist.
      */
-    public readonly availabilityZone: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string>;
     /**
      * If true, the disk will be encrypted.
      */
-    public readonly encrypted: pulumi.Output<boolean>;
+    public readonly encrypted!: pulumi.Output<boolean>;
     /**
      * The amount of IOPS to provision for the disk.
      */
-    public readonly iops: pulumi.Output<number>;
+    public readonly iops!: pulumi.Output<number>;
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
      */
-    public readonly kmsKeyId: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * The size of the drive in GiBs.
      */
-    public readonly size: pulumi.Output<number>;
+    public readonly size!: pulumi.Output<number>;
     /**
      * A snapshot to base the EBS volume off of.
      */
-    public readonly snapshotId: pulumi.Output<string>;
+    public readonly snapshotId!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
      */
-    public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a Volume resource with the given unique name, arguments, and options.
@@ -85,7 +85,7 @@ export class Volume extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VolumeArgs | VolumeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VolumeState = argsOrState as VolumeState | undefined;
+            const state = argsOrState as VolumeState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["encrypted"] = state ? state.encrypted : undefined;
@@ -109,6 +109,13 @@ export class Volume extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ebs/volume:Volume", name, inputs, opts);
     }

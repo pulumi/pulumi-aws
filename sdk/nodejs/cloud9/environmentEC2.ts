@@ -34,35 +34,35 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
     /**
      * The ARN of the environment.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The number of minutes until the running instance is shut down after the environment has last been used.
      */
-    public readonly automaticStopTimeMinutes: pulumi.Output<number | undefined>;
+    public readonly automaticStopTimeMinutes!: pulumi.Output<number | undefined>;
     /**
      * The description of the environment.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The type of instance to connect to the environment, e.g. `t2.micro`.
      */
-    public readonly instanceType: pulumi.Output<string>;
+    public readonly instanceType!: pulumi.Output<string>;
     /**
      * The name of the environment.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
      */
-    public readonly ownerArn: pulumi.Output<string>;
+    public readonly ownerArn!: pulumi.Output<string>;
     /**
      * The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
      */
-    public readonly subnetId: pulumi.Output<string | undefined>;
+    public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
      * The type of the environment (e.g. `ssh` or `ec2`)
      */
-    public /*out*/ readonly type: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a EnvironmentEC2 resource with the given unique name, arguments, and options.
@@ -75,7 +75,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EnvironmentEC2Args | EnvironmentEC2State, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EnvironmentEC2State = argsOrState as EnvironmentEC2State | undefined;
+            const state = argsOrState as EnvironmentEC2State | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["automaticStopTimeMinutes"] = state ? state.automaticStopTimeMinutes : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -97,6 +97,13 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cloud9/environmentEC2:EnvironmentEC2", name, inputs, opts);
     }

@@ -167,6 +167,10 @@ class Integration(pulumi.CustomResource):
 
         __props__['uri'] = uri
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Integration, __self__).__init__(
             'aws:apigateway/integration:Integration',
             resource_name,

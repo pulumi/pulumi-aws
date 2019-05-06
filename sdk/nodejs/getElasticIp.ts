@@ -60,6 +60,13 @@ import * as utilities from "./utilities";
  */
 export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticIpResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:index/getElasticIp:getElasticIp", {
         "filters": args.filters,
         "id": args.id,

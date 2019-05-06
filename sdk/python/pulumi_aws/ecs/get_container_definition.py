@@ -83,6 +83,10 @@ async def get_container_definition(container_name=None,task_definition=None,opts
 
     __args__['containerName'] = container_name
     __args__['taskDefinition'] = task_definition
+ .   if opts is None:
+         opts = pulumi.ResourceOptions()
+     if opts.version is None:
+         opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ecs/getContainerDefinition:getContainerDefinition', __args__, opts=opts)
 
     return GetContainerDefinitionResult(

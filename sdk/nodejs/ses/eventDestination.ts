@@ -85,31 +85,31 @@ export class EventDestination extends pulumi.CustomResource {
     /**
      * CloudWatch destination for the events
      */
-    public readonly cloudwatchDestinations: pulumi.Output<{ defaultValue: string, dimensionName: string, valueSource: string }[] | undefined>;
+    public readonly cloudwatchDestinations!: pulumi.Output<{ defaultValue: string, dimensionName: string, valueSource: string }[] | undefined>;
     /**
      * The name of the configuration set
      */
-    public readonly configurationSetName: pulumi.Output<string>;
+    public readonly configurationSetName!: pulumi.Output<string>;
     /**
      * If true, the event destination will be enabled
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Send the events to a kinesis firehose destination
      */
-    public readonly kinesisDestination: pulumi.Output<{ roleArn: string, streamArn: string } | undefined>;
+    public readonly kinesisDestination!: pulumi.Output<{ roleArn: string, streamArn: string } | undefined>;
     /**
      * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
      */
-    public readonly matchingTypes: pulumi.Output<string[]>;
+    public readonly matchingTypes!: pulumi.Output<string[]>;
     /**
      * The name of the event destination
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Send the events to an SNS Topic destination
      */
-    public readonly snsDestination: pulumi.Output<{ topicArn: string } | undefined>;
+    public readonly snsDestination!: pulumi.Output<{ topicArn: string } | undefined>;
 
     /**
      * Create a EventDestination resource with the given unique name, arguments, and options.
@@ -122,7 +122,7 @@ export class EventDestination extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventDestinationArgs | EventDestinationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventDestinationState = argsOrState as EventDestinationState | undefined;
+            const state = argsOrState as EventDestinationState | undefined;
             inputs["cloudwatchDestinations"] = state ? state.cloudwatchDestinations : undefined;
             inputs["configurationSetName"] = state ? state.configurationSetName : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -145,6 +145,13 @@ export class EventDestination extends pulumi.CustomResource {
             inputs["matchingTypes"] = args ? args.matchingTypes : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["snsDestination"] = args ? args.snsDestination : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ses/eventDestination:EventDestination", name, inputs, opts);
     }

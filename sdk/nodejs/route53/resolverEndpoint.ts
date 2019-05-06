@@ -50,34 +50,34 @@ export class ResolverEndpoint extends pulumi.CustomResource {
     /**
      * The ARN of the Route 53 Resolver endpoint.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The direction of DNS queries to or from the Route 53 Resolver endpoint.
      * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
      * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
      */
-    public readonly direction: pulumi.Output<string>;
+    public readonly direction!: pulumi.Output<string>;
     /**
      * The ID of the VPC that you want to create the resolver endpoint in.
      */
-    public /*out*/ readonly hostVpcId: pulumi.Output<string>;
+    public /*out*/ readonly hostVpcId!: pulumi.Output<string>;
     /**
      * The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
      * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
      */
-    public readonly ipAddresses: pulumi.Output<{ ip: string, ipId: string, subnetId: string }[]>;
+    public readonly ipAddresses!: pulumi.Output<{ ip: string, ipId: string, subnetId: string }[]>;
     /**
      * The friendly name of the Route 53 Resolver endpoint.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ID of one or more security groups that you want to use to control access to this VPC.
      */
-    public readonly securityGroupIds: pulumi.Output<string[]>;
+    public readonly securityGroupIds!: pulumi.Output<string[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a ResolverEndpoint resource with the given unique name, arguments, and options.
@@ -90,7 +90,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResolverEndpointArgs | ResolverEndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ResolverEndpointState = argsOrState as ResolverEndpointState | undefined;
+            const state = argsOrState as ResolverEndpointState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["direction"] = state ? state.direction : undefined;
             inputs["hostVpcId"] = state ? state.hostVpcId : undefined;
@@ -116,6 +116,13 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["hostVpcId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:route53/resolverEndpoint:ResolverEndpoint", name, inputs, opts);
     }

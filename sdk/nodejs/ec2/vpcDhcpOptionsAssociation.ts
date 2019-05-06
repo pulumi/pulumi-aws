@@ -40,11 +40,11 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
     /**
      * The ID of the DHCP Options Set to associate to the VPC.
      */
-    public readonly dhcpOptionsId: pulumi.Output<string>;
+    public readonly dhcpOptionsId!: pulumi.Output<string>;
     /**
      * The ID of the VPC to which we would like to associate a DHCP Options Set.
      */
-    public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a VpcDhcpOptionsAssociation resource with the given unique name, arguments, and options.
@@ -57,7 +57,7 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcDhcpOptionsAssociationArgs | VpcDhcpOptionsAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpcDhcpOptionsAssociationState = argsOrState as VpcDhcpOptionsAssociationState | undefined;
+            const state = argsOrState as VpcDhcpOptionsAssociationState | undefined;
             inputs["dhcpOptionsId"] = state ? state.dhcpOptionsId : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
@@ -70,6 +70,13 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
             }
             inputs["dhcpOptionsId"] = args ? args.dhcpOptionsId : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation", name, inputs, opts);
     }

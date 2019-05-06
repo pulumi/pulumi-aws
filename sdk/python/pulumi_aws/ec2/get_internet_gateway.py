@@ -47,6 +47,10 @@ async def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,o
     __args__['filters'] = filters
     __args__['internetGatewayId'] = internet_gateway_id
     __args__['tags'] = tags
+ .   if opts is None:
+         opts = pulumi.ResourceOptions()
+     if opts.version is None:
+         opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ec2/getInternetGateway:getInternetGateway', __args__, opts=opts)
 
     return GetInternetGatewayResult(

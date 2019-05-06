@@ -49,6 +49,10 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
             raise TypeError("Missing required property 'snapshot_id'")
         __props__['snapshot_id'] = snapshot_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(SnapshotCreateVolumePermission, __self__).__init__(
             'aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission',
             resource_name,

@@ -22,6 +22,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:lambda/getFunction:getFunction", {
         "functionName": args.functionName,
         "qualifier": args.qualifier,

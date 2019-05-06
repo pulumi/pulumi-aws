@@ -86,6 +86,10 @@ class LinkAggregationGroup(pulumi.CustomResource):
         __props__['has_logical_redundancy'] = None
         __props__['jumbo_frame_capable'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(LinkAggregationGroup, __self__).__init__(
             'aws:directconnect/linkAggregationGroup:LinkAggregationGroup',
             resource_name,

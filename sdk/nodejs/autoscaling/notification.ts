@@ -52,16 +52,16 @@ export class Notification extends pulumi.CustomResource {
     /**
      * A list of AutoScaling Group Names
      */
-    public readonly groupNames: pulumi.Output<string[]>;
+    public readonly groupNames!: pulumi.Output<string[]>;
     /**
      * A list of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here][1]
      */
-    public readonly notifications: pulumi.Output<NotificationType[]>;
+    public readonly notifications!: pulumi.Output<NotificationType[]>;
     /**
      * The Topic ARN for notifications to be sent through
      */
-    public readonly topicArn: pulumi.Output<string>;
+    public readonly topicArn!: pulumi.Output<string>;
 
     /**
      * Create a Notification resource with the given unique name, arguments, and options.
@@ -74,7 +74,7 @@ export class Notification extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NotificationArgs | NotificationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NotificationState = argsOrState as NotificationState | undefined;
+            const state = argsOrState as NotificationState | undefined;
             inputs["groupNames"] = state ? state.groupNames : undefined;
             inputs["notifications"] = state ? state.notifications : undefined;
             inputs["topicArn"] = state ? state.topicArn : undefined;
@@ -92,6 +92,13 @@ export class Notification extends pulumi.CustomResource {
             inputs["groupNames"] = args ? args.groupNames : undefined;
             inputs["notifications"] = args ? args.notifications : undefined;
             inputs["topicArn"] = args ? args.topicArn : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:autoscaling/notification:Notification", name, inputs, opts);
     }

@@ -52,15 +52,15 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * Description for the cache subnet group. Defaults to "Managed by Terraform".
      */
-    public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * Name for the cache subnet group. Elasticache converts this name to lowercase.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * List of VPC Subnet IDs for the cache subnet group
      */
-    public readonly subnetIds: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
 
     /**
      * Create a SubnetGroup resource with the given unique name, arguments, and options.
@@ -73,7 +73,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SubnetGroupArgs | SubnetGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SubnetGroupState = argsOrState as SubnetGroupState | undefined;
+            const state = argsOrState as SubnetGroupState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -85,6 +85,13 @@ export class SubnetGroup extends pulumi.CustomResource {
             inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";
             inputs["name"] = args ? args.name : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:elasticache/subnetGroup:SubnetGroup", name, inputs, opts);
     }

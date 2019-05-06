@@ -49,6 +49,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskDefinitionResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:ecs/getTaskDefinition:getTaskDefinition", {
         "taskDefinition": args.taskDefinition,
     }, opts);

@@ -39,19 +39,19 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the endpoint configuration to use.
      */
-    public readonly endpointConfigName: pulumi.Output<string>;
+    public readonly endpointConfigName!: pulumi.Output<string>;
     /**
      * The name of the endpoint. If omitted, Terraform will assign a random, unique name.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -64,7 +64,7 @@ export class Endpoint extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EndpointState = argsOrState as EndpointState | undefined;
+            const state = argsOrState as EndpointState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["endpointConfigName"] = state ? state.endpointConfigName : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -78,6 +78,13 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:sagemaker/endpoint:Endpoint", name, inputs, opts);
     }

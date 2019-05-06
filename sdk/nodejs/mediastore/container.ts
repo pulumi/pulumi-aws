@@ -32,15 +32,15 @@ export class Container extends pulumi.CustomResource {
     /**
      * The ARN of the container.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The DNS endpoint of the container.
      */
-    public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * The name of the container. Must contain alphanumeric characters or underscores.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a Container resource with the given unique name, arguments, and options.
@@ -53,7 +53,7 @@ export class Container extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ContainerArgs | ContainerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ContainerState = argsOrState as ContainerState | undefined;
+            const state = argsOrState as ContainerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -62,6 +62,13 @@ export class Container extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:mediastore/container:Container", name, inputs, opts);
     }

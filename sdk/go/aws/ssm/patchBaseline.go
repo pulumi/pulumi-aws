@@ -29,6 +29,7 @@ func NewPatchBaseline(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["operatingSystem"] = nil
 		inputs["rejectedPatches"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["approvalRules"] = args.ApprovalRules
 		inputs["approvedPatches"] = args.ApprovedPatches
@@ -38,6 +39,7 @@ func NewPatchBaseline(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["operatingSystem"] = args.OperatingSystem
 		inputs["rejectedPatches"] = args.RejectedPatches
+		inputs["tags"] = args.Tags
 	}
 	s, err := ctx.RegisterResource("aws:ssm/patchBaseline:PatchBaseline", name, true, inputs, opts...)
 	if err != nil {
@@ -60,6 +62,7 @@ func GetPatchBaseline(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["operatingSystem"] = state.OperatingSystem
 		inputs["rejectedPatches"] = state.RejectedPatches
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:ssm/patchBaseline:PatchBaseline", name, id, inputs, opts...)
 	if err != nil {
@@ -118,6 +121,10 @@ func (r *PatchBaseline) RejectedPatches() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["rejectedPatches"])
 }
 
+func (r *PatchBaseline) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering PatchBaseline resources.
 type PatchBaselineState struct {
 	// A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
@@ -136,6 +143,7 @@ type PatchBaselineState struct {
 	OperatingSystem interface{}
 	// A list of rejected patches.
 	RejectedPatches interface{}
+	Tags interface{}
 }
 
 // The set of arguments for constructing a PatchBaseline resource.
@@ -156,4 +164,5 @@ type PatchBaselineArgs struct {
 	OperatingSystem interface{}
 	// A list of rejected patches.
 	RejectedPatches interface{}
+	Tags interface{}
 }

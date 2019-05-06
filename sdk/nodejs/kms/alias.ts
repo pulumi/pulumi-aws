@@ -37,24 +37,24 @@ export class Alias extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the key alias.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates an unique alias beginning with the specified prefix.
      * The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
      */
-    public readonly namePrefix: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the target key identifier.
      */
-    public /*out*/ readonly targetKeyArn: pulumi.Output<string>;
+    public /*out*/ readonly targetKeyArn!: pulumi.Output<string>;
     /**
      * Identifier for the key for which the alias is for, can be either an ARN or key_id.
      */
-    public readonly targetKeyId: pulumi.Output<string>;
+    public readonly targetKeyId!: pulumi.Output<string>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -67,7 +67,7 @@ export class Alias extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AliasArgs | AliasState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AliasState = argsOrState as AliasState | undefined;
+            const state = argsOrState as AliasState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
@@ -83,6 +83,13 @@ export class Alias extends pulumi.CustomResource {
             inputs["targetKeyId"] = args ? args.targetKeyId : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["targetKeyArn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:kms/alias:Alias", name, inputs, opts);
     }

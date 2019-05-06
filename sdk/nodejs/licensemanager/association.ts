@@ -52,11 +52,11 @@ export class Association extends pulumi.CustomResource {
     /**
      * ARN of the license configuration.
      */
-    public readonly licenseConfigurationArn: pulumi.Output<string>;
+    public readonly licenseConfigurationArn!: pulumi.Output<string>;
     /**
      * ARN of the resource associated with the license configuration.
      */
-    public readonly resourceArn: pulumi.Output<string>;
+    public readonly resourceArn!: pulumi.Output<string>;
 
     /**
      * Create a Association resource with the given unique name, arguments, and options.
@@ -69,7 +69,7 @@ export class Association extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AssociationArgs | AssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AssociationState = argsOrState as AssociationState | undefined;
+            const state = argsOrState as AssociationState | undefined;
             inputs["licenseConfigurationArn"] = state ? state.licenseConfigurationArn : undefined;
             inputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
@@ -82,6 +82,13 @@ export class Association extends pulumi.CustomResource {
             }
             inputs["licenseConfigurationArn"] = args ? args.licenseConfigurationArn : undefined;
             inputs["resourceArn"] = args ? args.resourceArn : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:licensemanager/association:Association", name, inputs, opts);
     }

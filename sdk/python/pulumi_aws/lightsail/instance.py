@@ -199,6 +199,10 @@ class Instance(pulumi.CustomResource):
         __props__['ram_size'] = None
         __props__['username'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Instance, __self__).__init__(
             'aws:lightsail/instance:Instance',
             resource_name,

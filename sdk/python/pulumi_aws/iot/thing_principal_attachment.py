@@ -49,6 +49,10 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
             raise TypeError("Missing required property 'thing'")
         __props__['thing'] = thing
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ThingPrincipalAttachment, __self__).__init__(
             'aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment',
             resource_name,

@@ -112,6 +112,10 @@ class Job(pulumi.CustomResource):
 
         __props__['timeout'] = timeout
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Job, __self__).__init__(
             'aws:glue/job:Job',
             resource_name,

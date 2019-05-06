@@ -96,6 +96,10 @@ class LicenseConfiguration(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(LicenseConfiguration, __self__).__init__(
             'aws:licensemanager/licenseConfiguration:LicenseConfiguration',
             resource_name,

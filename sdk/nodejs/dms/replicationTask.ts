@@ -45,43 +45,43 @@ export class ReplicationTask extends pulumi.CustomResource {
     /**
      * The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
      */
-    public readonly cdcStartTime: pulumi.Output<string | undefined>;
+    public readonly cdcStartTime!: pulumi.Output<string | undefined>;
     /**
      * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      */
-    public readonly migrationType: pulumi.Output<string>;
+    public readonly migrationType!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the replication instance.
      */
-    public readonly replicationInstanceArn: pulumi.Output<string>;
+    public readonly replicationInstanceArn!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the replication task.
      */
-    public /*out*/ readonly replicationTaskArn: pulumi.Output<string>;
+    public /*out*/ readonly replicationTaskArn!: pulumi.Output<string>;
     /**
      * The replication task identifier.
      */
-    public readonly replicationTaskId: pulumi.Output<string>;
+    public readonly replicationTaskId!: pulumi.Output<string>;
     /**
      * An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
      */
-    public readonly replicationTaskSettings: pulumi.Output<string | undefined>;
+    public readonly replicationTaskSettings!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
      */
-    public readonly sourceEndpointArn: pulumi.Output<string>;
+    public readonly sourceEndpointArn!: pulumi.Output<string>;
     /**
      * An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
      */
-    public readonly tableMappings: pulumi.Output<string>;
+    public readonly tableMappings!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
      */
-    public readonly targetEndpointArn: pulumi.Output<string>;
+    public readonly targetEndpointArn!: pulumi.Output<string>;
 
     /**
      * Create a ReplicationTask resource with the given unique name, arguments, and options.
@@ -94,7 +94,7 @@ export class ReplicationTask extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ReplicationTaskArgs | ReplicationTaskState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ReplicationTaskState = argsOrState as ReplicationTaskState | undefined;
+            const state = argsOrState as ReplicationTaskState | undefined;
             inputs["cdcStartTime"] = state ? state.cdcStartTime : undefined;
             inputs["migrationType"] = state ? state.migrationType : undefined;
             inputs["replicationInstanceArn"] = state ? state.replicationInstanceArn : undefined;
@@ -135,6 +135,13 @@ export class ReplicationTask extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetEndpointArn"] = args ? args.targetEndpointArn : undefined;
             inputs["replicationTaskArn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:dms/replicationTask:ReplicationTask", name, inputs, opts);
     }

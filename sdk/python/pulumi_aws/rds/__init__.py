@@ -6,6 +6,7 @@
 from .cluster_snapshot import *
 from .event_subscription import *
 from .instance import *
+from .role_association import *
 from .option_group import *
 from .parameter_group import *
 from .security_group import *

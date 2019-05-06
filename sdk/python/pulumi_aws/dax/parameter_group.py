@@ -59,6 +59,10 @@ class ParameterGroup(pulumi.CustomResource):
 
         __props__['parameters'] = parameters
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ParameterGroup, __self__).__init__(
             'aws:dax/parameterGroup:ParameterGroup',
             resource_name,

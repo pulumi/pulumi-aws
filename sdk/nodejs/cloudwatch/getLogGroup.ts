@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLogGroup(args: GetLogGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLogGroupResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:cloudwatch/getLogGroup:getLogGroup", {
         "name": args.name,
     }, opts);

@@ -49,43 +49,43 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * The ARN assigned by AWS to the autoscaling schedule.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name or Amazon Resource Name (ARN) of the Auto Scaling group.
      */
-    public readonly autoscalingGroupName: pulumi.Output<string>;
+    public readonly autoscalingGroupName!: pulumi.Output<string>;
     /**
      * The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
      */
-    public readonly desiredCapacity: pulumi.Output<number>;
+    public readonly desiredCapacity!: pulumi.Output<number>;
     /**
      * The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
      * If you try to schedule your action in the past, Auto Scaling returns an error message.
      */
-    public readonly endTime: pulumi.Output<string>;
+    public readonly endTime!: pulumi.Output<string>;
     /**
      * The maximum size for the Auto Scaling group. Default 0.
      * Set to -1 if you don't want to change the maximum size at the scheduled time.
      */
-    public readonly maxSize: pulumi.Output<number>;
+    public readonly maxSize!: pulumi.Output<number>;
     /**
      * The minimum size for the Auto Scaling group. Default 0.
      * Set to -1 if you don't want to change the minimum size at the scheduled time.
      */
-    public readonly minSize: pulumi.Output<number>;
+    public readonly minSize!: pulumi.Output<number>;
     /**
      * The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
      */
-    public readonly recurrence: pulumi.Output<string>;
+    public readonly recurrence!: pulumi.Output<string>;
     /**
      * The name of this scaling action.
      */
-    public readonly scheduledActionName: pulumi.Output<string>;
+    public readonly scheduledActionName!: pulumi.Output<string>;
     /**
      * The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
      * If you try to schedule your action in the past, Auto Scaling returns an error message.
      */
-    public readonly startTime: pulumi.Output<string>;
+    public readonly startTime!: pulumi.Output<string>;
 
     /**
      * Create a Schedule resource with the given unique name, arguments, and options.
@@ -98,7 +98,7 @@ export class Schedule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ScheduleArgs | ScheduleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ScheduleState = argsOrState as ScheduleState | undefined;
+            const state = argsOrState as ScheduleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
             inputs["desiredCapacity"] = state ? state.desiredCapacity : undefined;
@@ -125,6 +125,13 @@ export class Schedule extends pulumi.CustomResource {
             inputs["scheduledActionName"] = args ? args.scheduledActionName : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:autoscaling/schedule:Schedule", name, inputs, opts);
     }

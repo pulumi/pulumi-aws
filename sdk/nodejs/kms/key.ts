@@ -35,42 +35,42 @@ export class Key extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the key.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Duration in days after which the key is deleted
      * after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
      */
-    public readonly deletionWindowInDays: pulumi.Output<number | undefined>;
+    public readonly deletionWindowInDays!: pulumi.Output<number | undefined>;
     /**
      * The description of the key as viewed in AWS console.
      */
-    public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
      * is enabled. Defaults to false.
      */
-    public readonly enableKeyRotation: pulumi.Output<boolean | undefined>;
+    public readonly enableKeyRotation!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the key is enabled. Defaults to true.
      */
-    public readonly isEnabled: pulumi.Output<boolean | undefined>;
+    public readonly isEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The globally unique identifier for the key.
      */
-    public /*out*/ readonly keyId: pulumi.Output<string>;
+    public /*out*/ readonly keyId!: pulumi.Output<string>;
     /**
      * Specifies the intended use of the key.
      * Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
      */
-    public readonly keyUsage: pulumi.Output<string>;
+    public readonly keyUsage!: pulumi.Output<string>;
     /**
      * A valid policy JSON document. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the object.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Key resource with the given unique name, arguments, and options.
@@ -83,7 +83,7 @@ export class Key extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: KeyArgs | KeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: KeyState = argsOrState as KeyState | undefined;
+            const state = argsOrState as KeyState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["deletionWindowInDays"] = state ? state.deletionWindowInDays : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -104,6 +104,13 @@ export class Key extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["keyId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:kms/key:Key", name, inputs, opts);
     }

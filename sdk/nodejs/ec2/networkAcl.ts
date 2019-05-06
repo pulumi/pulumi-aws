@@ -61,28 +61,28 @@ export class NetworkAcl extends pulumi.CustomResource {
      * Specifies an egress rule. Parameters defined below.
      * This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
-    public readonly egress: pulumi.Output<{ action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[]>;
+    public readonly egress!: pulumi.Output<{ action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[]>;
     /**
      * Specifies an ingress rule. Parameters defined below.
      * This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
-    public readonly ingress: pulumi.Output<{ action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[]>;
+    public readonly ingress!: pulumi.Output<{ action: string, cidrBlock?: string, fromPort: number, icmpCode?: number, icmpType?: number, ipv6CidrBlock?: string, protocol: string, ruleNo: number, toPort: number }[]>;
     /**
      * The ID of the AWS account that owns the network ACL.
      */
-    public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * A list of Subnet IDs to apply the ACL to
      */
-    public readonly subnetIds: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The ID of the associated VPC.
      */
-    public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a NetworkAcl resource with the given unique name, arguments, and options.
@@ -95,7 +95,7 @@ export class NetworkAcl extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NetworkAclArgs | NetworkAclState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkAclState = argsOrState as NetworkAclState | undefined;
+            const state = argsOrState as NetworkAclState | undefined;
             inputs["egress"] = state ? state.egress : undefined;
             inputs["ingress"] = state ? state.ingress : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
@@ -113,6 +113,13 @@ export class NetworkAcl extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["ownerId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/networkAcl:NetworkAcl", name, inputs, opts);
     }

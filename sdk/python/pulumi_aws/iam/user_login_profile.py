@@ -76,6 +76,10 @@ class UserLoginProfile(pulumi.CustomResource):
         __props__['encrypted_password'] = None
         __props__['key_fingerprint'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(UserLoginProfile, __self__).__init__(
             'aws:iam/userLoginProfile:UserLoginProfile',
             resource_name,

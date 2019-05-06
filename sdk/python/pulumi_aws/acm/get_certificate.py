@@ -50,6 +50,10 @@ async def get_certificate(domain=None,most_recent=None,statuses=None,types=None,
     __args__['mostRecent'] = most_recent
     __args__['statuses'] = statuses
     __args__['types'] = types
+ .   if opts is None:
+         opts = pulumi.ResourceOptions()
+     if opts.version is None:
+         opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:acm/getCertificate:getCertificate', __args__, opts=opts)
 
     return GetCertificateResult(

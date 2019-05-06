@@ -39,27 +39,27 @@ export class SecretVersion extends pulumi.CustomResource {
     /**
      * The ARN of the secret.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
      */
-    public readonly secretBinary: pulumi.Output<string | undefined>;
+    public readonly secretBinary!: pulumi.Output<string | undefined>;
     /**
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      */
-    public readonly secretId: pulumi.Output<string>;
+    public readonly secretId!: pulumi.Output<string>;
     /**
      * Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
      */
-    public readonly secretString: pulumi.Output<string | undefined>;
+    public readonly secretString!: pulumi.Output<string | undefined>;
     /**
      * The unique identifier of the version of the secret.
      */
-    public /*out*/ readonly versionId: pulumi.Output<string>;
+    public /*out*/ readonly versionId!: pulumi.Output<string>;
     /**
      * Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
      */
-    public readonly versionStages: pulumi.Output<string[]>;
+    public readonly versionStages!: pulumi.Output<string[]>;
 
     /**
      * Create a SecretVersion resource with the given unique name, arguments, and options.
@@ -72,7 +72,7 @@ export class SecretVersion extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SecretVersionArgs | SecretVersionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SecretVersionState = argsOrState as SecretVersionState | undefined;
+            const state = argsOrState as SecretVersionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["secretBinary"] = state ? state.secretBinary : undefined;
             inputs["secretId"] = state ? state.secretId : undefined;
@@ -90,6 +90,13 @@ export class SecretVersion extends pulumi.CustomResource {
             inputs["versionStages"] = args ? args.versionStages : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["versionId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:secretsmanager/secretVersion:SecretVersion", name, inputs, opts);
     }

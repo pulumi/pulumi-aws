@@ -24,12 +24,12 @@ export class Trigger extends pulumi.CustomResource {
         return new Trigger(name, <any>state, { ...opts, id: id });
     }
 
-    public /*out*/ readonly configurationId: pulumi.Output<string>;
+    public /*out*/ readonly configurationId!: pulumi.Output<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */
-    public readonly repositoryName: pulumi.Output<string>;
-    public readonly triggers: pulumi.Output<{ branches?: string[], customData?: string, destinationArn: string, events: string[], name: string }[]>;
+    public readonly repositoryName!: pulumi.Output<string>;
+    public readonly triggers!: pulumi.Output<{ branches?: string[], customData?: string, destinationArn: string, events: string[], name: string }[]>;
 
     /**
      * Create a Trigger resource with the given unique name, arguments, and options.
@@ -42,7 +42,7 @@ export class Trigger extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TriggerArgs | TriggerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TriggerState = argsOrState as TriggerState | undefined;
+            const state = argsOrState as TriggerState | undefined;
             inputs["configurationId"] = state ? state.configurationId : undefined;
             inputs["repositoryName"] = state ? state.repositoryName : undefined;
             inputs["triggers"] = state ? state.triggers : undefined;
@@ -57,6 +57,13 @@ export class Trigger extends pulumi.CustomResource {
             inputs["repositoryName"] = args ? args.repositoryName : undefined;
             inputs["triggers"] = args ? args.triggers : undefined;
             inputs["configurationId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:codecommit/trigger:Trigger", name, inputs, opts);
     }

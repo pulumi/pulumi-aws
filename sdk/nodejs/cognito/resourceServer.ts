@@ -55,20 +55,20 @@ export class ResourceServer extends pulumi.CustomResource {
     /**
      * An identifier for the resource server.
      */
-    public readonly identifier: pulumi.Output<string>;
+    public readonly identifier!: pulumi.Output<string>;
     /**
      * A name for the resource server.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A list of Authorization Scope.
      */
-    public readonly scopes: pulumi.Output<{ scopeDescription: string, scopeName: string }[] | undefined>;
+    public readonly scopes!: pulumi.Output<{ scopeDescription: string, scopeName: string }[] | undefined>;
     /**
      * A list of all scopes configured for this resource server in the format identifier/scope_name.
      */
-    public /*out*/ readonly scopeIdentifiers: pulumi.Output<string[]>;
-    public readonly userPoolId: pulumi.Output<string>;
+    public /*out*/ readonly scopeIdentifiers!: pulumi.Output<string[]>;
+    public readonly userPoolId!: pulumi.Output<string>;
 
     /**
      * Create a ResourceServer resource with the given unique name, arguments, and options.
@@ -81,7 +81,7 @@ export class ResourceServer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResourceServerArgs | ResourceServerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ResourceServerState = argsOrState as ResourceServerState | undefined;
+            const state = argsOrState as ResourceServerState | undefined;
             inputs["identifier"] = state ? state.identifier : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["scopes"] = state ? state.scopes : undefined;
@@ -100,6 +100,13 @@ export class ResourceServer extends pulumi.CustomResource {
             inputs["scopes"] = args ? args.scopes : undefined;
             inputs["userPoolId"] = args ? args.userPoolId : undefined;
             inputs["scopeIdentifiers"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cognito/resourceServer:ResourceServer", name, inputs, opts);
     }

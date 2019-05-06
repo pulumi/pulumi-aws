@@ -39,11 +39,11 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
     /**
      * The name or description of the SizeConstraintSet.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
      */
-    public readonly sqlInjectionMatchTuples: pulumi.Output<{ fieldToMatch: { data?: string, type: string }, textTransformation: string }[] | undefined>;
+    public readonly sqlInjectionMatchTuples!: pulumi.Output<{ fieldToMatch: { data?: string, type: string }, textTransformation: string }[] | undefined>;
 
     /**
      * Create a SqlInjectionMatchSet resource with the given unique name, arguments, and options.
@@ -56,13 +56,20 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SqlInjectionMatchSetArgs | SqlInjectionMatchSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SqlInjectionMatchSetState = argsOrState as SqlInjectionMatchSetState | undefined;
+            const state = argsOrState as SqlInjectionMatchSetState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["sqlInjectionMatchTuples"] = state ? state.sqlInjectionMatchTuples : undefined;
         } else {
             const args = argsOrState as SqlInjectionMatchSetArgs | undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["sqlInjectionMatchTuples"] = args ? args.sqlInjectionMatchTuples : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet", name, inputs, opts);
     }

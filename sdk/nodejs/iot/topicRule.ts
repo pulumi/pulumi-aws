@@ -72,38 +72,38 @@ export class TopicRule extends pulumi.CustomResource {
     /**
      * The ARN of the topic rule
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
-    public readonly cloudwatchAlarm: pulumi.Output<{ alarmName: string, roleArn: string, stateReason: string, stateValue: string } | undefined>;
-    public readonly cloudwatchMetric: pulumi.Output<{ metricName: string, metricNamespace: string, metricTimestamp?: string, metricUnit: string, metricValue: string, roleArn: string } | undefined>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly cloudwatchAlarm!: pulumi.Output<{ alarmName: string, roleArn: string, stateReason: string, stateValue: string } | undefined>;
+    public readonly cloudwatchMetric!: pulumi.Output<{ metricName: string, metricNamespace: string, metricTimestamp?: string, metricUnit: string, metricValue: string, roleArn: string } | undefined>;
     /**
      * The description of the rule.
      */
-    public readonly description: pulumi.Output<string | undefined>;
-    public readonly dynamodb: pulumi.Output<{ hashKeyField: string, hashKeyType?: string, hashKeyValue: string, payloadField?: string, rangeKeyField?: string, rangeKeyType?: string, rangeKeyValue?: string, roleArn: string, tableName: string } | undefined>;
-    public readonly elasticsearch: pulumi.Output<{ endpoint: string, id: string, index: string, roleArn: string, type: string } | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly dynamodb!: pulumi.Output<{ hashKeyField: string, hashKeyType?: string, hashKeyValue: string, payloadField?: string, rangeKeyField?: string, rangeKeyType?: string, rangeKeyValue?: string, roleArn: string, tableName: string } | undefined>;
+    public readonly elasticsearch!: pulumi.Output<{ endpoint: string, id: string, index: string, roleArn: string, type: string } | undefined>;
     /**
      * Specifies whether the rule is enabled.
      */
-    public readonly enabled: pulumi.Output<boolean>;
-    public readonly firehose: pulumi.Output<{ deliveryStreamName: string, roleArn: string, separator?: string } | undefined>;
-    public readonly kinesis: pulumi.Output<{ partitionKey?: string, roleArn: string, streamName: string } | undefined>;
-    public readonly lambda: pulumi.Output<{ functionArn: string } | undefined>;
+    public readonly enabled!: pulumi.Output<boolean>;
+    public readonly firehose!: pulumi.Output<{ deliveryStreamName: string, roleArn: string, separator?: string } | undefined>;
+    public readonly kinesis!: pulumi.Output<{ partitionKey?: string, roleArn: string, streamName: string } | undefined>;
+    public readonly lambda!: pulumi.Output<{ functionArn: string } | undefined>;
     /**
      * The name of the rule.
      */
-    public readonly name: pulumi.Output<string>;
-    public readonly republish: pulumi.Output<{ roleArn: string, topic: string } | undefined>;
-    public readonly s3: pulumi.Output<{ bucketName: string, key: string, roleArn: string } | undefined>;
-    public readonly sns: pulumi.Output<{ messageFormat?: string, roleArn: string, targetArn: string } | undefined>;
+    public readonly name!: pulumi.Output<string>;
+    public readonly republish!: pulumi.Output<{ roleArn: string, topic: string } | undefined>;
+    public readonly s3!: pulumi.Output<{ bucketName: string, key: string, roleArn: string } | undefined>;
+    public readonly sns!: pulumi.Output<{ messageFormat?: string, roleArn: string, targetArn: string } | undefined>;
     /**
      * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
      */
-    public readonly sql: pulumi.Output<string>;
+    public readonly sql!: pulumi.Output<string>;
     /**
      * The version of the SQL rules engine to use when evaluating the rule.
      */
-    public readonly sqlVersion: pulumi.Output<string>;
-    public readonly sqs: pulumi.Output<{ queueUrl: string, roleArn: string, useBase64: boolean } | undefined>;
+    public readonly sqlVersion!: pulumi.Output<string>;
+    public readonly sqs!: pulumi.Output<{ queueUrl: string, roleArn: string, useBase64: boolean } | undefined>;
 
     /**
      * Create a TopicRule resource with the given unique name, arguments, and options.
@@ -116,7 +116,7 @@ export class TopicRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TopicRuleArgs | TopicRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TopicRuleState = argsOrState as TopicRuleState | undefined;
+            const state = argsOrState as TopicRuleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cloudwatchAlarm"] = state ? state.cloudwatchAlarm : undefined;
             inputs["cloudwatchMetric"] = state ? state.cloudwatchMetric : undefined;
@@ -162,6 +162,13 @@ export class TopicRule extends pulumi.CustomResource {
             inputs["sqlVersion"] = args ? args.sqlVersion : undefined;
             inputs["sqs"] = args ? args.sqs : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:iot/topicRule:TopicRule", name, inputs, opts);
     }

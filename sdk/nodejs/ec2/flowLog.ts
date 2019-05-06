@@ -94,35 +94,35 @@ export class FlowLog extends pulumi.CustomResource {
     /**
      * Elastic Network Interface ID to attach to
      */
-    public readonly eniId: pulumi.Output<string | undefined>;
+    public readonly eniId!: pulumi.Output<string | undefined>;
     /**
      * The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
      */
-    public readonly iamRoleArn: pulumi.Output<string | undefined>;
+    public readonly iamRoleArn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the logging destination.
      */
-    public readonly logDestination: pulumi.Output<string>;
+    public readonly logDestination!: pulumi.Output<string>;
     /**
      * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
      */
-    public readonly logDestinationType: pulumi.Output<string | undefined>;
+    public readonly logDestinationType!: pulumi.Output<string | undefined>;
     /**
      * *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
      */
-    public readonly logGroupName: pulumi.Output<string>;
+    public readonly logGroupName!: pulumi.Output<string>;
     /**
      * Subnet ID to attach to
      */
-    public readonly subnetId: pulumi.Output<string | undefined>;
+    public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      */
-    public readonly trafficType: pulumi.Output<string>;
+    public readonly trafficType!: pulumi.Output<string>;
     /**
      * VPC ID to attach to
      */
-    public readonly vpcId: pulumi.Output<string | undefined>;
+    public readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a FlowLog resource with the given unique name, arguments, and options.
@@ -135,7 +135,7 @@ export class FlowLog extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FlowLogArgs | FlowLogState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FlowLogState = argsOrState as FlowLogState | undefined;
+            const state = argsOrState as FlowLogState | undefined;
             inputs["eniId"] = state ? state.eniId : undefined;
             inputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
             inputs["logDestination"] = state ? state.logDestination : undefined;
@@ -157,6 +157,13 @@ export class FlowLog extends pulumi.CustomResource {
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["trafficType"] = args ? args.trafficType : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/flowLog:FlowLog", name, inputs, opts);
     }

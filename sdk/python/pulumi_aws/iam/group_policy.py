@@ -67,6 +67,10 @@ class GroupPolicy(pulumi.CustomResource):
             raise TypeError("Missing required property 'policy'")
         __props__['policy'] = policy
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(GroupPolicy, __self__).__init__(
             'aws:iam/groupPolicy:GroupPolicy',
             resource_name,

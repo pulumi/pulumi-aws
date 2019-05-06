@@ -78,27 +78,27 @@ export class StackSetInstance extends pulumi.CustomResource {
     /**
      * Target AWS Account ID to create a Stack based on the Stack Set. Defaults to current account.
      */
-    public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * Key-value map of input parameters to override from the Stack Set for this Instance.
      */
-    public readonly parameterOverrides: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly parameterOverrides!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Target AWS Region to create a Stack based on the Stack Set. Defaults to current region.
      */
-    public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * During Terraform resource destroy, remove Instance from Stack Set while keeping the Stack and its associated resources. Must be enabled in Terraform state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new Stack Set. Defaults to `false`.
      */
-    public readonly retainStack: pulumi.Output<boolean | undefined>;
+    public readonly retainStack!: pulumi.Output<boolean | undefined>;
     /**
      * Stack identifier
      */
-    public /*out*/ readonly stackId: pulumi.Output<string>;
+    public /*out*/ readonly stackId!: pulumi.Output<string>;
     /**
      * Name of the Stack Set.
      */
-    public readonly stackSetName: pulumi.Output<string>;
+    public readonly stackSetName!: pulumi.Output<string>;
 
     /**
      * Create a StackSetInstance resource with the given unique name, arguments, and options.
@@ -111,7 +111,7 @@ export class StackSetInstance extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StackSetInstanceArgs | StackSetInstanceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: StackSetInstanceState = argsOrState as StackSetInstanceState | undefined;
+            const state = argsOrState as StackSetInstanceState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["parameterOverrides"] = state ? state.parameterOverrides : undefined;
             inputs["region"] = state ? state.region : undefined;
@@ -129,6 +129,13 @@ export class StackSetInstance extends pulumi.CustomResource {
             inputs["retainStack"] = args ? args.retainStack : undefined;
             inputs["stackSetName"] = args ? args.stackSetName : undefined;
             inputs["stackId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cloudformation/stackSetInstance:StackSetInstance", name, inputs, opts);
     }

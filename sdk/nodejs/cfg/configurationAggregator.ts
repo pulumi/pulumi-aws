@@ -73,19 +73,19 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
     /**
      * The account(s) to aggregate config data from as documented below.
      */
-    public readonly accountAggregationSource: pulumi.Output<{ accountIds: string[], allRegions?: boolean, regions?: string[] } | undefined>;
+    public readonly accountAggregationSource!: pulumi.Output<{ accountIds: string[], allRegions?: boolean, regions?: string[] } | undefined>;
     /**
      * The ARN of the aggregator
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the configuration aggregator.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The organization to aggregate config data from as documented below.
      */
-    public readonly organizationAggregationSource: pulumi.Output<{ allRegions?: boolean, regions?: string[], roleArn: string } | undefined>;
+    public readonly organizationAggregationSource!: pulumi.Output<{ allRegions?: boolean, regions?: string[], roleArn: string } | undefined>;
 
     /**
      * Create a ConfigurationAggregator resource with the given unique name, arguments, and options.
@@ -98,7 +98,7 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ConfigurationAggregatorArgs | ConfigurationAggregatorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ConfigurationAggregatorState = argsOrState as ConfigurationAggregatorState | undefined;
+            const state = argsOrState as ConfigurationAggregatorState | undefined;
             inputs["accountAggregationSource"] = state ? state.accountAggregationSource : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -109,6 +109,13 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["organizationAggregationSource"] = args ? args.organizationAggregationSource : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cfg/configurationAggregator:ConfigurationAggregator", name, inputs, opts);
     }

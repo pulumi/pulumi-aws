@@ -49,6 +49,10 @@ class VpnConnectionRoute(pulumi.CustomResource):
             raise TypeError("Missing required property 'vpn_connection_id'")
         __props__['vpn_connection_id'] = vpn_connection_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VpnConnectionRoute, __self__).__init__(
             'aws:ec2/vpnConnectionRoute:VpnConnectionRoute',
             resource_name,

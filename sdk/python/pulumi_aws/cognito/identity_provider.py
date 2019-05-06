@@ -81,6 +81,10 @@ class IdentityProvider(pulumi.CustomResource):
             raise TypeError("Missing required property 'user_pool_id'")
         __props__['user_pool_id'] = user_pool_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(IdentityProvider, __self__).__init__(
             'aws:cognito/identityProvider:IdentityProvider',
             resource_name,

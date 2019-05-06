@@ -246,6 +246,10 @@ async def get_instance(db_instance_identifier=None,opts=None):
     __args__ = dict()
 
     __args__['dbInstanceIdentifier'] = db_instance_identifier
+ .   if opts is None:
+         opts = pulumi.ResourceOptions()
+     if opts.version is None:
+         opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:rds/getInstance:getInstance', __args__, opts=opts)
 
     return GetInstanceResult(

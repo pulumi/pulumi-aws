@@ -30,45 +30,45 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
     /**
      * The status of the VPC Peering Connection request.
      */
-    public /*out*/ readonly acceptStatus: pulumi.Output<string>;
+    public /*out*/ readonly acceptStatus!: pulumi.Output<string>;
     /**
      * A configuration block that describes [VPC Peering Connection]
      * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
      */
-    public readonly accepter: pulumi.Output<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }>;
+    public readonly accepter!: pulumi.Output<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }>;
     /**
      * Whether or not to accept the peering request. Defaults to `false`.
      */
-    public readonly autoAccept: pulumi.Output<boolean | undefined>;
+    public readonly autoAccept!: pulumi.Output<boolean | undefined>;
     /**
      * The AWS account ID of the owner of the requester VPC.
      */
-    public /*out*/ readonly peerOwnerId: pulumi.Output<string>;
+    public /*out*/ readonly peerOwnerId!: pulumi.Output<string>;
     /**
      * The region of the accepter VPC.
      */
-    public /*out*/ readonly peerRegion: pulumi.Output<string>;
+    public /*out*/ readonly peerRegion!: pulumi.Output<string>;
     /**
      * The ID of the requester VPC.
      */
-    public /*out*/ readonly peerVpcId: pulumi.Output<string>;
+    public /*out*/ readonly peerVpcId!: pulumi.Output<string>;
     /**
      * A configuration block that describes [VPC Peering Connection]
      * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
      */
-    public readonly requester: pulumi.Output<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }>;
+    public readonly requester!: pulumi.Output<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The ID of the accepter VPC.
      */
-    public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
     /**
      * The VPC Peering Connection ID to manage.
      */
-    public readonly vpcPeeringConnectionId: pulumi.Output<string>;
+    public readonly vpcPeeringConnectionId!: pulumi.Output<string>;
 
     /**
      * Create a VpcPeeringConnectionAccepter resource with the given unique name, arguments, and options.
@@ -81,7 +81,7 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcPeeringConnectionAccepterArgs | VpcPeeringConnectionAccepterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpcPeeringConnectionAccepterState = argsOrState as VpcPeeringConnectionAccepterState | undefined;
+            const state = argsOrState as VpcPeeringConnectionAccepterState | undefined;
             inputs["acceptStatus"] = state ? state.acceptStatus : undefined;
             inputs["accepter"] = state ? state.accepter : undefined;
             inputs["autoAccept"] = state ? state.autoAccept : undefined;
@@ -107,6 +107,13 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
             inputs["peerRegion"] = undefined /*out*/;
             inputs["peerVpcId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter", name, inputs, opts);
     }

@@ -38,11 +38,11 @@ export class Project extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of this project
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the project
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -55,13 +55,20 @@ export class Project extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProjectArgs | ProjectState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ProjectState = argsOrState as ProjectState | undefined;
+            const state = argsOrState as ProjectState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ProjectArgs | undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:devicefarm/project:Project", name, inputs, opts);
     }

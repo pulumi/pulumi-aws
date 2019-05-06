@@ -53,40 +53,40 @@ export class SnapshotCopy extends pulumi.CustomResource {
      * * `source_snapshot_id` The ARN of the copied snapshot.
      * * `source_region` The region of the source snapshot.
      */
-    public /*out*/ readonly dataEncryptionKeyId: pulumi.Output<string>;
+    public /*out*/ readonly dataEncryptionKeyId!: pulumi.Output<string>;
     /**
      * A description of what the snapshot is.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Whether the snapshot is encrypted.
      */
-    public readonly encrypted: pulumi.Output<boolean | undefined>;
+    public readonly encrypted!: pulumi.Output<boolean | undefined>;
     /**
      * The ARN for the KMS encryption key.
      * * `source_snapshot_id` The ARN for the snapshot to be copied.
      * * `source_region` The region of the source snapshot.
      */
-    public readonly kmsKeyId: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      */
-    public /*out*/ readonly ownerAlias: pulumi.Output<string>;
+    public /*out*/ readonly ownerAlias!: pulumi.Output<string>;
     /**
      * The AWS account ID of the snapshot owner.
      */
-    public /*out*/ readonly ownerId: pulumi.Output<string>;
-    public readonly sourceRegion: pulumi.Output<string>;
-    public readonly sourceSnapshotId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public readonly sourceRegion!: pulumi.Output<string>;
+    public readonly sourceSnapshotId!: pulumi.Output<string>;
     /**
      * A mapping of tags for the snapshot.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
-    public /*out*/ readonly volumeId: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public /*out*/ readonly volumeId!: pulumi.Output<string>;
     /**
      * The size of the drive in GiBs.
      */
-    public /*out*/ readonly volumeSize: pulumi.Output<number>;
+    public /*out*/ readonly volumeSize!: pulumi.Output<number>;
 
     /**
      * Create a SnapshotCopy resource with the given unique name, arguments, and options.
@@ -99,7 +99,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SnapshotCopyArgs | SnapshotCopyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SnapshotCopyState = argsOrState as SnapshotCopyState | undefined;
+            const state = argsOrState as SnapshotCopyState | undefined;
             inputs["dataEncryptionKeyId"] = state ? state.dataEncryptionKeyId : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["encrypted"] = state ? state.encrypted : undefined;
@@ -130,6 +130,13 @@ export class SnapshotCopy extends pulumi.CustomResource {
             inputs["ownerId"] = undefined /*out*/;
             inputs["volumeId"] = undefined /*out*/;
             inputs["volumeSize"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ebs/snapshotCopy:SnapshotCopy", name, inputs, opts);
     }

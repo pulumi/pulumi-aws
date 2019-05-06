@@ -36,15 +36,15 @@ export class SecurityGroup extends pulumi.CustomResource {
     /**
      * The description of the Redshift security group. Defaults to "Managed by Terraform".
      */
-    public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * A list of ingress rules.
      */
-    public readonly ingress: pulumi.Output<{ cidr?: string, securityGroupName: string, securityGroupOwnerId: string }[]>;
+    public readonly ingress!: pulumi.Output<{ cidr?: string, securityGroupName: string, securityGroupOwnerId: string }[]>;
     /**
      * The name of the Redshift security group.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a SecurityGroup resource with the given unique name, arguments, and options.
@@ -57,7 +57,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SecurityGroupArgs | SecurityGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SecurityGroupState = argsOrState as SecurityGroupState | undefined;
+            const state = argsOrState as SecurityGroupState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["ingress"] = state ? state.ingress : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -69,6 +69,13 @@ export class SecurityGroup extends pulumi.CustomResource {
             inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";
             inputs["ingress"] = args ? args.ingress : undefined;
             inputs["name"] = args ? args.name : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:redshift/securityGroup:SecurityGroup", name, inputs, opts);
     }

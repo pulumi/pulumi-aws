@@ -53,6 +53,10 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
             raise TypeError("Missing required property 'load_balancer'")
         __props__['load_balancer'] = load_balancer
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ProxyProtocolPolicy, __self__).__init__(
             'aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy',
             resource_name,

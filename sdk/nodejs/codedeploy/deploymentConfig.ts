@@ -97,23 +97,23 @@ export class DeploymentConfig extends pulumi.CustomResource {
     /**
      * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
      */
-    public readonly computePlatform: pulumi.Output<string | undefined>;
+    public readonly computePlatform!: pulumi.Output<string | undefined>;
     /**
      * The AWS Assigned deployment config id
      */
-    public /*out*/ readonly deploymentConfigId: pulumi.Output<string>;
+    public /*out*/ readonly deploymentConfigId!: pulumi.Output<string>;
     /**
      * The name of the deployment config.
      */
-    public readonly deploymentConfigName: pulumi.Output<string>;
+    public readonly deploymentConfigName!: pulumi.Output<string>;
     /**
      * A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
      */
-    public readonly minimumHealthyHosts: pulumi.Output<{ type?: string, value?: number } | undefined>;
+    public readonly minimumHealthyHosts!: pulumi.Output<{ type?: string, value?: number } | undefined>;
     /**
      * A traffic_routing_config block. Traffic Routing Config is documented below.
      */
-    public readonly trafficRoutingConfig: pulumi.Output<{ timeBasedCanary?: { interval?: number, percentage?: number }, timeBasedLinear?: { interval?: number, percentage?: number }, type?: string } | undefined>;
+    public readonly trafficRoutingConfig!: pulumi.Output<{ timeBasedCanary?: { interval?: number, percentage?: number }, timeBasedLinear?: { interval?: number, percentage?: number }, type?: string } | undefined>;
 
     /**
      * Create a DeploymentConfig resource with the given unique name, arguments, and options.
@@ -126,7 +126,7 @@ export class DeploymentConfig extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DeploymentConfigArgs | DeploymentConfigState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DeploymentConfigState = argsOrState as DeploymentConfigState | undefined;
+            const state = argsOrState as DeploymentConfigState | undefined;
             inputs["computePlatform"] = state ? state.computePlatform : undefined;
             inputs["deploymentConfigId"] = state ? state.deploymentConfigId : undefined;
             inputs["deploymentConfigName"] = state ? state.deploymentConfigName : undefined;
@@ -142,6 +142,13 @@ export class DeploymentConfig extends pulumi.CustomResource {
             inputs["minimumHealthyHosts"] = args ? args.minimumHealthyHosts : undefined;
             inputs["trafficRoutingConfig"] = args ? args.trafficRoutingConfig : undefined;
             inputs["deploymentConfigId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:codedeploy/deploymentConfig:DeploymentConfig", name, inputs, opts);
     }

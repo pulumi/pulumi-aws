@@ -162,6 +162,10 @@ class Trail(pulumi.CustomResource):
         __props__['arn'] = None
         __props__['home_region'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Trail, __self__).__init__(
             'aws:cloudtrail/trail:Trail',
             resource_name,

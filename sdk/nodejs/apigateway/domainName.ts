@@ -153,70 +153,70 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
      */
-    public readonly certificateArn: pulumi.Output<string | undefined>;
+    public readonly certificateArn!: pulumi.Output<string | undefined>;
     /**
      * The certificate issued for the domain name
      * being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
      * `regional_certificate_name`.
      */
-    public readonly certificateBody: pulumi.Output<string | undefined>;
+    public readonly certificateBody!: pulumi.Output<string | undefined>;
     /**
      * The certificate for the CA that issued the
      * certificate, along with any intermediate CA certificates required to
      * create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`,
      * `regional_certificate_arn`, and `regional_certificate_name`.
      */
-    public readonly certificateChain: pulumi.Output<string | undefined>;
+    public readonly certificateChain!: pulumi.Output<string | undefined>;
     /**
      * The unique name to use when registering this
      * certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
      * `regional_certificate_name`. Required if `certificate_arn` is not set.
      */
-    public readonly certificateName: pulumi.Output<string | undefined>;
+    public readonly certificateName!: pulumi.Output<string | undefined>;
     /**
      * The private key associated with the
      * domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
      */
-    public readonly certificatePrivateKey: pulumi.Output<string | undefined>;
+    public readonly certificatePrivateKey!: pulumi.Output<string | undefined>;
     /**
      * The upload date associated with the domain certificate.
      */
-    public /*out*/ readonly certificateUploadDate: pulumi.Output<string>;
+    public /*out*/ readonly certificateUploadDate!: pulumi.Output<string>;
     /**
      * The hostname created by Cloudfront to represent
      * the distribution that implements this domain name mapping.
      */
-    public /*out*/ readonly cloudfrontDomainName: pulumi.Output<string>;
+    public /*out*/ readonly cloudfrontDomainName!: pulumi.Output<string>;
     /**
      * For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`)
      * that can be used to create a Route53 alias record for the distribution.
      */
-    public /*out*/ readonly cloudfrontZoneId: pulumi.Output<string>;
+    public /*out*/ readonly cloudfrontZoneId!: pulumi.Output<string>;
     /**
      * The fully-qualified domain name to register
      */
-    public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * Configuration block defining API endpoint information including type. Defined below.
      */
-    public readonly endpointConfiguration: pulumi.Output<{ types: string }>;
+    public readonly endpointConfiguration!: pulumi.Output<{ types: string }>;
     /**
      * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
      */
-    public readonly regionalCertificateArn: pulumi.Output<string | undefined>;
+    public readonly regionalCertificateArn!: pulumi.Output<string | undefined>;
     /**
      * The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
      * `certificate_private_key`.
      */
-    public readonly regionalCertificateName: pulumi.Output<string | undefined>;
+    public readonly regionalCertificateName!: pulumi.Output<string | undefined>;
     /**
      * The hostname for the custom domain's regional endpoint.
      */
-    public /*out*/ readonly regionalDomainName: pulumi.Output<string>;
+    public /*out*/ readonly regionalDomainName!: pulumi.Output<string>;
     /**
      * The hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
      */
-    public /*out*/ readonly regionalZoneId: pulumi.Output<string>;
+    public /*out*/ readonly regionalZoneId!: pulumi.Output<string>;
 
     /**
      * Create a DomainName resource with the given unique name, arguments, and options.
@@ -229,7 +229,7 @@ export class DomainName extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DomainNameArgs | DomainNameState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DomainNameState = argsOrState as DomainNameState | undefined;
+            const state = argsOrState as DomainNameState | undefined;
             inputs["certificateArn"] = state ? state.certificateArn : undefined;
             inputs["certificateBody"] = state ? state.certificateBody : undefined;
             inputs["certificateChain"] = state ? state.certificateChain : undefined;
@@ -263,6 +263,13 @@ export class DomainName extends pulumi.CustomResource {
             inputs["cloudfrontZoneId"] = undefined /*out*/;
             inputs["regionalDomainName"] = undefined /*out*/;
             inputs["regionalZoneId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:apigateway/domainName:DomainName", name, inputs, opts);
     }

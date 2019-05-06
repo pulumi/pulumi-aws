@@ -39,27 +39,27 @@ export class JobQueue extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of the job queue.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies the set of compute environments
      * mapped to a job queue and their order.  The position of the compute environments
      * in the list will dictate the order. You can associate up to 3 compute environments
      * with a job queue.
      */
-    public readonly computeEnvironments: pulumi.Output<string[]>;
+    public readonly computeEnvironments!: pulumi.Output<string[]>;
     /**
      * Specifies the name of the job queue.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The priority of the job queue. Job queues with a higher priority
      * are evaluated first when associated with the same compute environment.
      */
-    public readonly priority: pulumi.Output<number>;
+    public readonly priority!: pulumi.Output<number>;
     /**
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */
-    public readonly state: pulumi.Output<string>;
+    public readonly state!: pulumi.Output<string>;
 
     /**
      * Create a JobQueue resource with the given unique name, arguments, and options.
@@ -72,7 +72,7 @@ export class JobQueue extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: JobQueueArgs | JobQueueState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: JobQueueState = argsOrState as JobQueueState | undefined;
+            const state = argsOrState as JobQueueState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["computeEnvironments"] = state ? state.computeEnvironments : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -94,6 +94,13 @@ export class JobQueue extends pulumi.CustomResource {
             inputs["priority"] = args ? args.priority : undefined;
             inputs["state"] = args ? args.state : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:batch/jobQueue:JobQueue", name, inputs, opts);
     }

@@ -82,11 +82,11 @@ export class ResourceDataSync extends pulumi.CustomResource {
     /**
      * Name for the configuration.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Amazon S3 configuration details for the sync.
      */
-    public readonly s3Destination: pulumi.Output<{ bucketName: string, kmsKeyArn?: string, prefix?: string, region: string, syncFormat?: string }>;
+    public readonly s3Destination!: pulumi.Output<{ bucketName: string, kmsKeyArn?: string, prefix?: string, region: string, syncFormat?: string }>;
 
     /**
      * Create a ResourceDataSync resource with the given unique name, arguments, and options.
@@ -99,7 +99,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResourceDataSyncArgs | ResourceDataSyncState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ResourceDataSyncState = argsOrState as ResourceDataSyncState | undefined;
+            const state = argsOrState as ResourceDataSyncState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["s3Destination"] = state ? state.s3Destination : undefined;
         } else {
@@ -109,6 +109,13 @@ export class ResourceDataSync extends pulumi.CustomResource {
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["s3Destination"] = args ? args.s3Destination : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ssm/resourceDataSync:ResourceDataSync", name, inputs, opts);
     }

@@ -68,25 +68,25 @@ export class DefaultRouteTable extends pulumi.CustomResource {
     /**
      * The ID of the Default Routing Table.
      */
-    public readonly defaultRouteTableId: pulumi.Output<string>;
+    public readonly defaultRouteTableId!: pulumi.Output<string>;
     /**
      * The ID of the AWS account that owns the route table
      */
-    public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * A list of virtual gateways for propagation.
      */
-    public readonly propagatingVgws: pulumi.Output<string[] | undefined>;
+    public readonly propagatingVgws!: pulumi.Output<string[] | undefined>;
     /**
      * A list of route objects. Their keys are documented below.
      * This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
-    public readonly routes: pulumi.Output<{ cidrBlock?: string, egressOnlyGatewayId?: string, gatewayId?: string, instanceId?: string, ipv6CidrBlock?: string, natGatewayId?: string, networkInterfaceId?: string, transitGatewayId?: string, vpcPeeringConnectionId?: string }[]>;
+    public readonly routes!: pulumi.Output<{ cidrBlock?: string, egressOnlyGatewayId?: string, gatewayId?: string, instanceId?: string, ipv6CidrBlock?: string, natGatewayId?: string, networkInterfaceId?: string, transitGatewayId?: string, vpcPeeringConnectionId?: string }[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
-    public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a DefaultRouteTable resource with the given unique name, arguments, and options.
@@ -99,7 +99,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DefaultRouteTableArgs | DefaultRouteTableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DefaultRouteTableState = argsOrState as DefaultRouteTableState | undefined;
+            const state = argsOrState as DefaultRouteTableState | undefined;
             inputs["defaultRouteTableId"] = state ? state.defaultRouteTableId : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["propagatingVgws"] = state ? state.propagatingVgws : undefined;
@@ -117,6 +117,13 @@ export class DefaultRouteTable extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["ownerId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/defaultRouteTable:DefaultRouteTable", name, inputs, opts);
     }

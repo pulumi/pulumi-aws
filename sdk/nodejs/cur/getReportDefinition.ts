@@ -23,6 +23,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getReportDefinition(args: GetReportDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetReportDefinitionResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:cur/getReportDefinition:getReportDefinition", {
         "reportName": args.reportName,
     }, opts);

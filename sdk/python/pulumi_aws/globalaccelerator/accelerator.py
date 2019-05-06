@@ -65,6 +65,10 @@ class Accelerator(pulumi.CustomResource):
 
         __props__['ip_sets'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Accelerator, __self__).__init__(
             'aws:globalaccelerator/accelerator:Accelerator',
             resource_name,

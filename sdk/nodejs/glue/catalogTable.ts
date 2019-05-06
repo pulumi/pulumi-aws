@@ -89,51 +89,51 @@ export class CatalogTable extends pulumi.CustomResource {
     /**
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      */
-    public readonly catalogId: pulumi.Output<string>;
+    public readonly catalogId!: pulumi.Output<string>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      */
-    public readonly databaseName: pulumi.Output<string>;
+    public readonly databaseName!: pulumi.Output<string>;
     /**
      * Description of the table.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Name of the SerDe.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Owner of the table.
      */
-    public readonly owner: pulumi.Output<string | undefined>;
+    public readonly owner!: pulumi.Output<string | undefined>;
     /**
      * A map of initialization parameters for the SerDe, in key-value form.
      */
-    public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
      */
-    public readonly partitionKeys: pulumi.Output<{ comment?: string, name: string, type?: string }[] | undefined>;
+    public readonly partitionKeys!: pulumi.Output<{ comment?: string, name: string, type?: string }[] | undefined>;
     /**
      * Retention time for this table.
      */
-    public readonly retention: pulumi.Output<number | undefined>;
+    public readonly retention!: pulumi.Output<number | undefined>;
     /**
      * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      */
-    public readonly storageDescriptor: pulumi.Output<{ bucketColumns?: string[], columns?: { comment?: string, name: string, type?: string }[], compressed?: boolean, inputFormat?: string, location?: string, numberOfBuckets?: number, outputFormat?: string, parameters?: {[key: string]: string}, serDeInfo?: { name?: string, parameters?: {[key: string]: string}, serializationLibrary?: string }, skewedInfo?: { skewedColumnNames?: string[], skewedColumnValueLocationMaps?: {[key: string]: string}, skewedColumnValues?: string[] }, sortColumns?: { column: string, sortOrder: number }[], storedAsSubDirectories?: boolean } | undefined>;
+    public readonly storageDescriptor!: pulumi.Output<{ bucketColumns?: string[], columns?: { comment?: string, name: string, type?: string }[], compressed?: boolean, inputFormat?: string, location?: string, numberOfBuckets?: number, outputFormat?: string, parameters?: {[key: string]: string}, serDeInfo?: { name?: string, parameters?: {[key: string]: string}, serializationLibrary?: string }, skewedInfo?: { skewedColumnNames?: string[], skewedColumnValueLocationMaps?: {[key: string]: string}, skewedColumnValues?: string[] }, sortColumns?: { column: string, sortOrder: number }[], storedAsSubDirectories?: boolean } | undefined>;
     /**
      * The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
      */
-    public readonly tableType: pulumi.Output<string | undefined>;
+    public readonly tableType!: pulumi.Output<string | undefined>;
     /**
      * If the table is a view, the expanded text of the view; otherwise null.
      */
-    public readonly viewExpandedText: pulumi.Output<string | undefined>;
+    public readonly viewExpandedText!: pulumi.Output<string | undefined>;
     /**
      * If the table is a view, the original text of the view; otherwise null.
      */
-    public readonly viewOriginalText: pulumi.Output<string | undefined>;
+    public readonly viewOriginalText!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CatalogTable resource with the given unique name, arguments, and options.
@@ -146,7 +146,7 @@ export class CatalogTable extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CatalogTableArgs | CatalogTableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CatalogTableState = argsOrState as CatalogTableState | undefined;
+            const state = argsOrState as CatalogTableState | undefined;
             inputs["catalogId"] = state ? state.catalogId : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -176,6 +176,13 @@ export class CatalogTable extends pulumi.CustomResource {
             inputs["tableType"] = args ? args.tableType : undefined;
             inputs["viewExpandedText"] = args ? args.viewExpandedText : undefined;
             inputs["viewOriginalText"] = args ? args.viewOriginalText : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:glue/catalogTable:CatalogTable", name, inputs, opts);
     }

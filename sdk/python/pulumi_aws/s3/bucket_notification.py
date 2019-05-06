@@ -63,6 +63,10 @@ class BucketNotification(pulumi.CustomResource):
 
         __props__['topics'] = topics
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(BucketNotification, __self__).__init__(
             'aws:s3/bucketNotification:BucketNotification',
             resource_name,

@@ -43,23 +43,23 @@ export class Response extends pulumi.CustomResource {
     /**
      * A map specifying the templates used to transform the response body.
      */
-    public readonly responseParameters: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly responseParameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
      */
-    public readonly responseTemplates: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly responseTemplates!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The response type of the associated GatewayResponse.
      */
-    public readonly responseType: pulumi.Output<string>;
+    public readonly responseType!: pulumi.Output<string>;
     /**
      * The string identifier of the associated REST API.
      */
-    public readonly restApiId: pulumi.Output<string>;
+    public readonly restApiId!: pulumi.Output<string>;
     /**
      * The HTTP status code of the Gateway Response.
      */
-    public readonly statusCode: pulumi.Output<string | undefined>;
+    public readonly statusCode!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Response resource with the given unique name, arguments, and options.
@@ -72,7 +72,7 @@ export class Response extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResponseArgs | ResponseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ResponseState = argsOrState as ResponseState | undefined;
+            const state = argsOrState as ResponseState | undefined;
             inputs["responseParameters"] = state ? state.responseParameters : undefined;
             inputs["responseTemplates"] = state ? state.responseTemplates : undefined;
             inputs["responseType"] = state ? state.responseType : undefined;
@@ -91,6 +91,13 @@ export class Response extends pulumi.CustomResource {
             inputs["responseType"] = args ? args.responseType : undefined;
             inputs["restApiId"] = args ? args.restApiId : undefined;
             inputs["statusCode"] = args ? args.statusCode : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:apigateway/response:Response", name, inputs, opts);
     }

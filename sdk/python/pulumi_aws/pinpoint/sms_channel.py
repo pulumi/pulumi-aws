@@ -72,6 +72,10 @@ class SmsChannel(pulumi.CustomResource):
         __props__['promotional_messages_per_second'] = None
         __props__['transactional_messages_per_second'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(SmsChannel, __self__).__init__(
             'aws:pinpoint/smsChannel:SmsChannel',
             resource_name,

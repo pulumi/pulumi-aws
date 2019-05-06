@@ -52,6 +52,10 @@ async def get_invocation(function_name=None,input=None,qualifier=None,opts=None)
     __args__['functionName'] = function_name
     __args__['input'] = input
     __args__['qualifier'] = qualifier
+ .   if opts is None:
+         opts = pulumi.ResourceOptions()
+     if opts.version is None:
+         opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:lambda/getInvocation:getInvocation', __args__, opts=opts)
 
     return GetInvocationResult(

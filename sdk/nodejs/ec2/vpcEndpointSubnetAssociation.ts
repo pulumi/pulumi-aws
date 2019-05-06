@@ -43,11 +43,11 @@ export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
     /**
      * The ID of the subnet to be associated with the VPC endpoint.
      */
-    public readonly subnetId: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string>;
     /**
      * The ID of the VPC endpoint with which the subnet will be associated.
      */
-    public readonly vpcEndpointId: pulumi.Output<string>;
+    public readonly vpcEndpointId!: pulumi.Output<string>;
 
     /**
      * Create a VpcEndpointSubnetAssociation resource with the given unique name, arguments, and options.
@@ -60,7 +60,7 @@ export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcEndpointSubnetAssociationArgs | VpcEndpointSubnetAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpcEndpointSubnetAssociationState = argsOrState as VpcEndpointSubnetAssociationState | undefined;
+            const state = argsOrState as VpcEndpointSubnetAssociationState | undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
             inputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
         } else {
@@ -73,6 +73,13 @@ export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
             }
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation", name, inputs, opts);
     }

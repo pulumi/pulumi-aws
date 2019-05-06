@@ -247,6 +247,10 @@ class Service(pulumi.CustomResource):
 
         __props__['wait_for_steady_state'] = wait_for_steady_state
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Service, __self__).__init__(
             'aws:ecs/service:Service',
             resource_name,

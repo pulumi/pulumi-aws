@@ -227,6 +227,10 @@ class Function(pulumi.CustomResource):
         __props__['source_code_size'] = None
         __props__['version'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Function, __self__).__init__(
             'aws:lambda/function:Function',
             resource_name,

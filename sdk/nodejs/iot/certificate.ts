@@ -36,17 +36,17 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Boolean flag to indicate if the certificate should be active
      */
-    public readonly active: pulumi.Output<boolean>;
+    public readonly active!: pulumi.Output<boolean>;
     /**
      * The ARN of the created AWS IoT certificate
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The certificate signing request. Review the
      * [IoT API Reference Guide] (http://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
      * for more information on creating a certificate from a certificate signing request (CSR).
      */
-    public readonly csr: pulumi.Output<string>;
+    public readonly csr!: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -59,7 +59,7 @@ export class Certificate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CertificateState = argsOrState as CertificateState | undefined;
+            const state = argsOrState as CertificateState | undefined;
             inputs["active"] = state ? state.active : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["csr"] = state ? state.csr : undefined;
@@ -74,6 +74,13 @@ export class Certificate extends pulumi.CustomResource {
             inputs["active"] = args ? args.active : undefined;
             inputs["csr"] = args ? args.csr : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:iot/certificate:Certificate", name, inputs, opts);
     }

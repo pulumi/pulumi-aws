@@ -36,6 +36,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:ec2/getRoute:getRoute", {
         "destinationCidrBlock": args.destinationCidrBlock,
         "destinationIpv6CidrBlock": args.destinationIpv6CidrBlock,

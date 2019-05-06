@@ -47,11 +47,11 @@ export class XssMatchSet extends pulumi.CustomResource {
     /**
      * The name of the set
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      */
-    public readonly xssMatchTuples: pulumi.Output<{ fieldToMatch: { data?: string, type: string }, textTransformation: string }[] | undefined>;
+    public readonly xssMatchTuples!: pulumi.Output<{ fieldToMatch: { data?: string, type: string }, textTransformation: string }[] | undefined>;
 
     /**
      * Create a XssMatchSet resource with the given unique name, arguments, and options.
@@ -64,13 +64,20 @@ export class XssMatchSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: XssMatchSetArgs | XssMatchSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: XssMatchSetState = argsOrState as XssMatchSetState | undefined;
+            const state = argsOrState as XssMatchSetState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["xssMatchTuples"] = state ? state.xssMatchTuples : undefined;
         } else {
             const args = argsOrState as XssMatchSetArgs | undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["xssMatchTuples"] = args ? args.xssMatchTuples : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:wafregional/xssMatchSet:XssMatchSet", name, inputs, opts);
     }

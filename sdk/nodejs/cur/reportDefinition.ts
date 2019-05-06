@@ -48,39 +48,39 @@ export class ReportDefinition extends pulumi.CustomResource {
     /**
      * A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
      */
-    public readonly additionalArtifacts: pulumi.Output<string[] | undefined>;
+    public readonly additionalArtifacts!: pulumi.Output<string[] | undefined>;
     /**
      * A list of schema elements. Valid values are: RESOURCES.
      */
-    public readonly additionalSchemaElements: pulumi.Output<string[]>;
+    public readonly additionalSchemaElements!: pulumi.Output<string[]>;
     /**
      * Compression format for report. Valid values are: GZIP, ZIP.
      */
-    public readonly compression: pulumi.Output<string>;
+    public readonly compression!: pulumi.Output<string>;
     /**
      * Format for report. Valid values are: textORcsv.
      */
-    public readonly format: pulumi.Output<string>;
+    public readonly format!: pulumi.Output<string>;
     /**
      * Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
      */
-    public readonly reportName: pulumi.Output<string>;
+    public readonly reportName!: pulumi.Output<string>;
     /**
      * Name of the existing S3 bucket to hold generated reports.
      */
-    public readonly s3Bucket: pulumi.Output<string>;
+    public readonly s3Bucket!: pulumi.Output<string>;
     /**
      * Report path prefix. Limited to 256 characters.
      */
-    public readonly s3Prefix: pulumi.Output<string | undefined>;
+    public readonly s3Prefix!: pulumi.Output<string | undefined>;
     /**
      * Region of the existing S3 bucket to hold generated reports.
      */
-    public readonly s3Region: pulumi.Output<string>;
+    public readonly s3Region!: pulumi.Output<string>;
     /**
      * The frequency on which report data are measured and displayed.  Valid values are: HOURLY, DAILY.
      */
-    public readonly timeUnit: pulumi.Output<string>;
+    public readonly timeUnit!: pulumi.Output<string>;
 
     /**
      * Create a ReportDefinition resource with the given unique name, arguments, and options.
@@ -93,7 +93,7 @@ export class ReportDefinition extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ReportDefinitionArgs | ReportDefinitionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ReportDefinitionState = argsOrState as ReportDefinitionState | undefined;
+            const state = argsOrState as ReportDefinitionState | undefined;
             inputs["additionalArtifacts"] = state ? state.additionalArtifacts : undefined;
             inputs["additionalSchemaElements"] = state ? state.additionalSchemaElements : undefined;
             inputs["compression"] = state ? state.compression : undefined;
@@ -135,6 +135,13 @@ export class ReportDefinition extends pulumi.CustomResource {
             inputs["s3Prefix"] = args ? args.s3Prefix : undefined;
             inputs["s3Region"] = args ? args.s3Region : undefined;
             inputs["timeUnit"] = args ? args.timeUnit : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cur/reportDefinition:ReportDefinition", name, inputs, opts);
     }

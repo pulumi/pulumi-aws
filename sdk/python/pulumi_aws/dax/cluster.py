@@ -189,6 +189,10 @@ class Cluster(pulumi.CustomResource):
         __props__['nodes'] = None
         __props__['port'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Cluster, __self__).__init__(
             'aws:dax/cluster:Cluster',
             resource_name,

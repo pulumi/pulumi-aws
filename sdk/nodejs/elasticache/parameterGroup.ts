@@ -46,19 +46,19 @@ export class ParameterGroup extends pulumi.CustomResource {
     /**
      * The description of the ElastiCache parameter group. Defaults to "Managed by Terraform".
      */
-    public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * The family of the ElastiCache parameter group.
      */
-    public readonly family: pulumi.Output<string>;
+    public readonly family!: pulumi.Output<string>;
     /**
      * The name of the ElastiCache parameter.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A list of ElastiCache parameters to apply.
      */
-    public readonly parameters: pulumi.Output<{ name: string, value: string }[] | undefined>;
+    public readonly parameters!: pulumi.Output<{ name: string, value: string }[] | undefined>;
 
     /**
      * Create a ParameterGroup resource with the given unique name, arguments, and options.
@@ -71,7 +71,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ParameterGroupArgs | ParameterGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ParameterGroupState = argsOrState as ParameterGroupState | undefined;
+            const state = argsOrState as ParameterGroupState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["family"] = state ? state.family : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -85,6 +85,13 @@ export class ParameterGroup extends pulumi.CustomResource {
             inputs["family"] = args ? args.family : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:elasticache/parameterGroup:ParameterGroup", name, inputs, opts);
     }

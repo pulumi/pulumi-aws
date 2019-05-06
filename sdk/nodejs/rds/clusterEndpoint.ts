@@ -82,31 +82,31 @@ export class ClusterEndpoint extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of cluster
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
      */
-    public readonly clusterEndpointIdentifier: pulumi.Output<string>;
+    public readonly clusterEndpointIdentifier!: pulumi.Output<string>;
     /**
      * The cluster identifier.
      */
-    public readonly clusterIdentifier: pulumi.Output<string>;
+    public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
      * The type of the endpoint. One of: READER , ANY .
      */
-    public readonly customEndpointType: pulumi.Output<string>;
+    public readonly customEndpointType!: pulumi.Output<string>;
     /**
      * A custom endpoint for the Aurora cluster
      */
-    public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
      */
-    public readonly excludedMembers: pulumi.Output<string[] | undefined>;
+    public readonly excludedMembers!: pulumi.Output<string[] | undefined>;
     /**
      * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
      */
-    public readonly staticMembers: pulumi.Output<string[] | undefined>;
+    public readonly staticMembers!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ClusterEndpoint resource with the given unique name, arguments, and options.
@@ -119,7 +119,7 @@ export class ClusterEndpoint extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterEndpointArgs | ClusterEndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ClusterEndpointState = argsOrState as ClusterEndpointState | undefined;
+            const state = argsOrState as ClusterEndpointState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["clusterEndpointIdentifier"] = state ? state.clusterEndpointIdentifier : undefined;
             inputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
@@ -145,6 +145,13 @@ export class ClusterEndpoint extends pulumi.CustomResource {
             inputs["staticMembers"] = args ? args.staticMembers : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:rds/clusterEndpoint:ClusterEndpoint", name, inputs, opts);
     }

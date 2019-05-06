@@ -50,27 +50,27 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * The Allocation ID of the Elastic IP address for the gateway.
      */
-    public readonly allocationId: pulumi.Output<string>;
+    public readonly allocationId!: pulumi.Output<string>;
     /**
      * The ENI ID of the network interface created by the NAT gateway.
      */
-    public /*out*/ readonly networkInterfaceId: pulumi.Output<string>;
+    public /*out*/ readonly networkInterfaceId!: pulumi.Output<string>;
     /**
      * The private IP address of the NAT Gateway.
      */
-    public /*out*/ readonly privateIp: pulumi.Output<string>;
+    public /*out*/ readonly privateIp!: pulumi.Output<string>;
     /**
      * The public IP address of the NAT Gateway.
      */
-    public /*out*/ readonly publicIp: pulumi.Output<string>;
+    public /*out*/ readonly publicIp!: pulumi.Output<string>;
     /**
      * The Subnet ID of the subnet in which to place the gateway.
      */
-    public readonly subnetId: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a NatGateway resource with the given unique name, arguments, and options.
@@ -83,7 +83,7 @@ export class NatGateway extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NatGatewayArgs | NatGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NatGatewayState = argsOrState as NatGatewayState | undefined;
+            const state = argsOrState as NatGatewayState | undefined;
             inputs["allocationId"] = state ? state.allocationId : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             inputs["privateIp"] = state ? state.privateIp : undefined;
@@ -104,6 +104,13 @@ export class NatGateway extends pulumi.CustomResource {
             inputs["networkInterfaceId"] = undefined /*out*/;
             inputs["privateIp"] = undefined /*out*/;
             inputs["publicIp"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/natGateway:NatGateway", name, inputs, opts);
     }

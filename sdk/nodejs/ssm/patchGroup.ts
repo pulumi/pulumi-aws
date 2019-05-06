@@ -38,11 +38,11 @@ export class PatchGroup extends pulumi.CustomResource {
     /**
      * The ID of the patch baseline to register the patch group with.
      */
-    public readonly baselineId: pulumi.Output<string>;
+    public readonly baselineId!: pulumi.Output<string>;
     /**
      * The name of the patch group that should be registered with the patch baseline.
      */
-    public readonly patchGroup: pulumi.Output<string>;
+    public readonly patchGroup!: pulumi.Output<string>;
 
     /**
      * Create a PatchGroup resource with the given unique name, arguments, and options.
@@ -55,7 +55,7 @@ export class PatchGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PatchGroupArgs | PatchGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PatchGroupState = argsOrState as PatchGroupState | undefined;
+            const state = argsOrState as PatchGroupState | undefined;
             inputs["baselineId"] = state ? state.baselineId : undefined;
             inputs["patchGroup"] = state ? state.patchGroup : undefined;
         } else {
@@ -68,6 +68,13 @@ export class PatchGroup extends pulumi.CustomResource {
             }
             inputs["baselineId"] = args ? args.baselineId : undefined;
             inputs["patchGroup"] = args ? args.patchGroup : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ssm/patchGroup:PatchGroup", name, inputs, opts);
     }

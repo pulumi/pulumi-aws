@@ -30,6 +30,10 @@ async def get_secret(secrets=None,opts=None):
     __args__ = dict()
 
     __args__['secrets'] = secrets
+ .   if opts is None:
+         opts = pulumi.ResourceOptions()
+     if opts.version is None:
+         opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:kms/getSecret:getSecret', __args__, opts=opts)
 
     return GetSecretResult(

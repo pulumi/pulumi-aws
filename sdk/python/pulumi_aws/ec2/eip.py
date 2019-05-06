@@ -108,6 +108,10 @@ class Eip(pulumi.CustomResource):
         __props__['public_dns'] = None
         __props__['public_ip'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Eip, __self__).__init__(
             'aws:ec2/eip:Eip',
             resource_name,

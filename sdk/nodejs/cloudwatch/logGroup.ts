@@ -37,30 +37,30 @@ export class LogGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the log group.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
      * AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
      * permissions for the CMK whenever the encrypted data is requested.
      */
-    public readonly kmsKeyId: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * The name of the log group. If omitted, Terraform will assign a random, unique name.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Specifies the number of days
      * you want to retain log events in the specified log group.
      */
-    public readonly retentionInDays: pulumi.Output<number | undefined>;
+    public readonly retentionInDays!: pulumi.Output<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a LogGroup resource with the given unique name, arguments, and options.
@@ -73,7 +73,7 @@ export class LogGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LogGroupArgs | LogGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LogGroupState = argsOrState as LogGroupState | undefined;
+            const state = argsOrState as LogGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -88,6 +88,13 @@ export class LogGroup extends pulumi.CustomResource {
             inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cloudwatch/logGroup:LogGroup", name, inputs, opts);
     }

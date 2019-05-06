@@ -176,6 +176,10 @@ class VpnConnection(pulumi.CustomResource):
         __props__['tunnel2_vgw_inside_address'] = None
         __props__['vgw_telemetries'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VpnConnection, __self__).__init__(
             'aws:ec2/vpnConnection:VpnConnection',
             resource_name,

@@ -50,63 +50,63 @@ export class UserPoolClient extends pulumi.CustomResource {
     /**
      * List of allowed OAuth flows (code, implicit, client_credentials).
      */
-    public readonly allowedOauthFlows: pulumi.Output<string[] | undefined>;
+    public readonly allowedOauthFlows!: pulumi.Output<string[] | undefined>;
     /**
      * Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
      */
-    public readonly allowedOauthFlowsUserPoolClient: pulumi.Output<boolean | undefined>;
+    public readonly allowedOauthFlowsUserPoolClient!: pulumi.Output<boolean | undefined>;
     /**
      * List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
      */
-    public readonly allowedOauthScopes: pulumi.Output<string[] | undefined>;
+    public readonly allowedOauthScopes!: pulumi.Output<string[] | undefined>;
     /**
      * List of allowed callback URLs for the identity providers.
      */
-    public readonly callbackUrls: pulumi.Output<string[] | undefined>;
+    public readonly callbackUrls!: pulumi.Output<string[] | undefined>;
     /**
      * The client secret of the user pool client.
      */
-    public /*out*/ readonly clientSecret: pulumi.Output<string>;
+    public /*out*/ readonly clientSecret!: pulumi.Output<string>;
     /**
      * The default redirect URI. Must be in the list of callback URLs.
      */
-    public readonly defaultRedirectUri: pulumi.Output<string | undefined>;
+    public readonly defaultRedirectUri!: pulumi.Output<string | undefined>;
     /**
      * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH).
      */
-    public readonly explicitAuthFlows: pulumi.Output<string[] | undefined>;
+    public readonly explicitAuthFlows!: pulumi.Output<string[] | undefined>;
     /**
      * Should an application secret be generated.
      */
-    public readonly generateSecret: pulumi.Output<boolean | undefined>;
+    public readonly generateSecret!: pulumi.Output<boolean | undefined>;
     /**
      * List of allowed logout URLs for the identity providers.
      */
-    public readonly logoutUrls: pulumi.Output<string[] | undefined>;
+    public readonly logoutUrls!: pulumi.Output<string[] | undefined>;
     /**
      * The name of the application client.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * List of user pool attributes the application client can read from.
      */
-    public readonly readAttributes: pulumi.Output<string[] | undefined>;
+    public readonly readAttributes!: pulumi.Output<string[] | undefined>;
     /**
      * The time limit in days refresh tokens are valid for.
      */
-    public readonly refreshTokenValidity: pulumi.Output<number | undefined>;
+    public readonly refreshTokenValidity!: pulumi.Output<number | undefined>;
     /**
      * List of provider names for the identity providers that are supported on this client.
      */
-    public readonly supportedIdentityProviders: pulumi.Output<string[] | undefined>;
+    public readonly supportedIdentityProviders!: pulumi.Output<string[] | undefined>;
     /**
      * The user pool the client belongs to.
      */
-    public readonly userPoolId: pulumi.Output<string>;
+    public readonly userPoolId!: pulumi.Output<string>;
     /**
      * List of user pool attributes the application client can write to.
      */
-    public readonly writeAttributes: pulumi.Output<string[] | undefined>;
+    public readonly writeAttributes!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a UserPoolClient resource with the given unique name, arguments, and options.
@@ -119,7 +119,7 @@ export class UserPoolClient extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserPoolClientArgs | UserPoolClientState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserPoolClientState = argsOrState as UserPoolClientState | undefined;
+            const state = argsOrState as UserPoolClientState | undefined;
             inputs["allowedOauthFlows"] = state ? state.allowedOauthFlows : undefined;
             inputs["allowedOauthFlowsUserPoolClient"] = state ? state.allowedOauthFlowsUserPoolClient : undefined;
             inputs["allowedOauthScopes"] = state ? state.allowedOauthScopes : undefined;
@@ -155,6 +155,13 @@ export class UserPoolClient extends pulumi.CustomResource {
             inputs["userPoolId"] = args ? args.userPoolId : undefined;
             inputs["writeAttributes"] = args ? args.writeAttributes : undefined;
             inputs["clientSecret"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cognito/userPoolClient:UserPoolClient", name, inputs, opts);
     }

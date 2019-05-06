@@ -65,35 +65,35 @@ export class LifecycleHook extends pulumi.CustomResource {
     /**
      * The name of the Auto Scaling group to which you want to assign the lifecycle hook
      */
-    public readonly autoscalingGroupName: pulumi.Output<string>;
+    public readonly autoscalingGroupName!: pulumi.Output<string>;
     /**
      * Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
      */
-    public readonly defaultResult: pulumi.Output<string>;
+    public readonly defaultResult!: pulumi.Output<string>;
     /**
      * Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter
      */
-    public readonly heartbeatTimeout: pulumi.Output<number | undefined>;
+    public readonly heartbeatTimeout!: pulumi.Output<number | undefined>;
     /**
      * The instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
      */
-    public readonly lifecycleTransition: pulumi.Output<string>;
+    public readonly lifecycleTransition!: pulumi.Output<string>;
     /**
      * The name of the lifecycle hook.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
      */
-    public readonly notificationMetadata: pulumi.Output<string | undefined>;
+    public readonly notificationMetadata!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
      */
-    public readonly notificationTargetArn: pulumi.Output<string | undefined>;
+    public readonly notificationTargetArn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
      */
-    public readonly roleArn: pulumi.Output<string | undefined>;
+    public readonly roleArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LifecycleHook resource with the given unique name, arguments, and options.
@@ -106,7 +106,7 @@ export class LifecycleHook extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LifecycleHookArgs | LifecycleHookState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LifecycleHookState = argsOrState as LifecycleHookState | undefined;
+            const state = argsOrState as LifecycleHookState | undefined;
             inputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
             inputs["defaultResult"] = state ? state.defaultResult : undefined;
             inputs["heartbeatTimeout"] = state ? state.heartbeatTimeout : undefined;
@@ -131,6 +131,13 @@ export class LifecycleHook extends pulumi.CustomResource {
             inputs["notificationMetadata"] = args ? args.notificationMetadata : undefined;
             inputs["notificationTargetArn"] = args ? args.notificationTargetArn : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:autoscaling/lifecycleHook:LifecycleHook", name, inputs, opts);
     }
