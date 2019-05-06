@@ -1,5 +1,9 @@
 ## 0.18.4 (Unreleased)
 
+### Improvements
+
+- Adds support for AWS Lambda Custom Runtime `aws.lambda.CustomRuntime`.
+
 ## 0.18.3 (Released April 29th, 2019)
 
 ### Improvements
