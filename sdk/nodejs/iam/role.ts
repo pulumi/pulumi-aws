@@ -73,52 +73,52 @@ export class Role extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the role.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The policy that grants an entity permission to assume the role.
      */
-    public readonly assumeRolePolicy: pulumi.Output<string>;
+    public readonly assumeRolePolicy!: pulumi.Output<string>;
     /**
      * The creation date of the IAM role.
      */
-    public /*out*/ readonly createDate: pulumi.Output<string>;
+    public /*out*/ readonly createDate!: pulumi.Output<string>;
     /**
      * The description of the role.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
      */
-    public readonly forceDetachPolicies: pulumi.Output<boolean | undefined>;
+    public readonly forceDetachPolicies!: pulumi.Output<boolean | undefined>;
     /**
      * The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
      */
-    public readonly maxSessionDuration: pulumi.Output<number | undefined>;
+    public readonly maxSessionDuration!: pulumi.Output<number | undefined>;
     /**
      * The name of the role. If omitted, Terraform will assign a random, unique name.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The path to the role.
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
-    public readonly path: pulumi.Output<string | undefined>;
+    public readonly path!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the policy that is used to set the permissions boundary for the role.
      */
-    public readonly permissionsBoundary: pulumi.Output<string | undefined>;
+    public readonly permissionsBoundary!: pulumi.Output<string | undefined>;
     /**
      * Key-value mapping of tags for the IAM role
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The stable and unique string identifying the role.
      */
-    public /*out*/ readonly uniqueId: pulumi.Output<string>;
+    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
 
     /**
      * Create a Role resource with the given unique name, arguments, and options.
@@ -131,7 +131,7 @@ export class Role extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RoleArgs | RoleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RoleState = argsOrState as RoleState | undefined;
+            const state = argsOrState as RoleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["assumeRolePolicy"] = state ? state.assumeRolePolicy : undefined;
             inputs["createDate"] = state ? state.createDate : undefined;
@@ -161,6 +161,13 @@ export class Role extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["createDate"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:iam/role:Role", name, inputs, opts);
     }

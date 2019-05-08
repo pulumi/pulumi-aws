@@ -41,19 +41,19 @@ export class Resource extends pulumi.CustomResource {
     /**
      * The ID of the parent API resource
      */
-    public readonly parentId: pulumi.Output<string>;
+    public readonly parentId!: pulumi.Output<string>;
     /**
      * The complete path for this API resource, including all parent paths.
      */
-    public /*out*/ readonly path: pulumi.Output<string>;
+    public /*out*/ readonly path!: pulumi.Output<string>;
     /**
      * The last path segment of this API resource.
      */
-    public readonly pathPart: pulumi.Output<string>;
+    public readonly pathPart!: pulumi.Output<string>;
     /**
      * The ID of the associated REST API
      */
-    public readonly restApi: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<RestApi>;
 
     /**
      * Create a Resource resource with the given unique name, arguments, and options.
@@ -66,7 +66,7 @@ export class Resource extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResourceArgs | ResourceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ResourceState = argsOrState as ResourceState | undefined;
+            const state = argsOrState as ResourceState | undefined;
             inputs["parentId"] = state ? state.parentId : undefined;
             inputs["path"] = state ? state.path : undefined;
             inputs["pathPart"] = state ? state.pathPart : undefined;
@@ -86,6 +86,13 @@ export class Resource extends pulumi.CustomResource {
             inputs["pathPart"] = args ? args.pathPart : undefined;
             inputs["restApi"] = args ? args.restApi : undefined;
             inputs["path"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:apigateway/resource:Resource", name, inputs, opts);
     }

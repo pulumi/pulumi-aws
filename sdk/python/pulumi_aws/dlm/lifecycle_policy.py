@@ -65,6 +65,10 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         __props__['state'] = state
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(LifecyclePolicy, __self__).__init__(
             'aws:dlm/lifecyclePolicy:LifecyclePolicy',
             resource_name,

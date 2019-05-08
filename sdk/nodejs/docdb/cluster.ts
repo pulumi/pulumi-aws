@@ -53,119 +53,119 @@ export class Cluster extends pulumi.CustomResource {
      * are applied immediately, or during the next maintenance window. Default is
      * `false`.
      */
-    public readonly applyImmediately: pulumi.Output<boolean>;
+    public readonly applyImmediately!: pulumi.Output<boolean>;
     /**
      * Amazon Resource Name (ARN) of cluster
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A list of EC2 Availability Zones that
      * instances in the DB cluster can be created in.
      */
-    public readonly availabilityZones: pulumi.Output<string[]>;
+    public readonly availabilityZones!: pulumi.Output<string[]>;
     /**
      * The days to retain backups for. Default `1`
      */
-    public readonly backupRetentionPeriod: pulumi.Output<number | undefined>;
+    public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
      * The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
      */
-    public readonly clusterIdentifier: pulumi.Output<string>;
+    public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
      */
-    public readonly clusterIdentifierPrefix: pulumi.Output<string>;
+    public readonly clusterIdentifierPrefix!: pulumi.Output<string>;
     /**
      * List of DocDB Instances that are a part of this cluster
      */
-    public readonly clusterMembers: pulumi.Output<string[]>;
+    public readonly clusterMembers!: pulumi.Output<string[]>;
     /**
      * The DocDB Cluster Resource ID
      */
-    public /*out*/ readonly clusterResourceId: pulumi.Output<string>;
+    public /*out*/ readonly clusterResourceId!: pulumi.Output<string>;
     /**
      * A cluster parameter group to associate with the cluster.
      */
-    public readonly dbClusterParameterGroupName: pulumi.Output<string>;
+    public readonly dbClusterParameterGroupName!: pulumi.Output<string>;
     /**
      * A DB subnet group to associate with this DB instance.
      */
-    public readonly dbSubnetGroupName: pulumi.Output<string>;
+    public readonly dbSubnetGroupName!: pulumi.Output<string>;
     /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`.
      */
-    public readonly enabledCloudwatchLogsExports: pulumi.Output<string[] | undefined>;
+    public readonly enabledCloudwatchLogsExports!: pulumi.Output<string[] | undefined>;
     /**
      * The DNS address of the DocDB instance
      */
-    public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
      */
-    public readonly engine: pulumi.Output<string | undefined>;
+    public readonly engine!: pulumi.Output<string | undefined>;
     /**
      * The database engine version. Updating this argument results in an outage.
      */
-    public readonly engineVersion: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string>;
     /**
      * The name of your final DB snapshot
      * when this DB cluster is deleted. If omitted, no final snapshot will be
      * made.
      */
-    public readonly finalSnapshotIdentifier: pulumi.Output<string | undefined>;
+    public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The Route53 Hosted Zone ID of the endpoint
      */
-    public /*out*/ readonly hostedZoneId: pulumi.Output<string>;
+    public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      */
-    public readonly kmsKeyId: pulumi.Output<string>;
+    public readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * Password for the master DB user. Note that this may
      * show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
      */
-    public readonly masterPassword: pulumi.Output<string | undefined>;
+    public readonly masterPassword!: pulumi.Output<string | undefined>;
     /**
      * Username for the master DB user. 
      */
-    public readonly masterUsername: pulumi.Output<string>;
+    public readonly masterUsername!: pulumi.Output<string>;
     /**
      * The port on which the DB accepts connections
      */
-    public readonly port: pulumi.Output<number | undefined>;
+    public readonly port!: pulumi.Output<number | undefined>;
     /**
      * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
      * Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
      */
-    public readonly preferredBackupWindow: pulumi.Output<string>;
-    public readonly preferredMaintenanceWindow: pulumi.Output<string>;
+    public readonly preferredBackupWindow!: pulumi.Output<string>;
+    public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
      * A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
      */
-    public /*out*/ readonly readerEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly readerEndpoint!: pulumi.Output<string>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      */
-    public readonly skipFinalSnapshot: pulumi.Output<boolean | undefined>;
+    public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
      */
-    public readonly snapshotIdentifier: pulumi.Output<string | undefined>;
+    public readonly snapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false`.
      */
-    public readonly storageEncrypted: pulumi.Output<boolean | undefined>;
+    public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags to assign to the DB cluster.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * List of VPC security groups to associate
      * with the Cluster
      */
-    public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
+    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -178,7 +178,7 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ClusterState = argsOrState as ClusterState | undefined;
+            const state = argsOrState as ClusterState | undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
@@ -237,6 +237,13 @@ export class Cluster extends pulumi.CustomResource {
             inputs["endpoint"] = undefined /*out*/;
             inputs["hostedZoneId"] = undefined /*out*/;
             inputs["readerEndpoint"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:docdb/cluster:Cluster", name, inputs, opts);
     }

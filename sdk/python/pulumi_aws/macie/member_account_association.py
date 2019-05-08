@@ -42,6 +42,10 @@ class MemberAccountAssociation(pulumi.CustomResource):
             raise TypeError("Missing required property 'member_account_id'")
         __props__['member_account_id'] = member_account_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(MemberAccountAssociation, __self__).__init__(
             'aws:macie/memberAccountAssociation:MemberAccountAssociation',
             resource_name,

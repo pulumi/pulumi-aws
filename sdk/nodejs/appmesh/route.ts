@@ -78,31 +78,31 @@ export class Route extends pulumi.CustomResource {
     /**
      * The ARN of the route.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The creation date of the route.
      */
-    public /*out*/ readonly createdDate: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
      * The last update date of the route.
      */
-    public /*out*/ readonly lastUpdatedDate: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
      * The name of the service mesh in which to create the route.
      */
-    public readonly meshName: pulumi.Output<string>;
+    public readonly meshName!: pulumi.Output<string>;
     /**
      * The name to use for the route.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The route specification to apply.
      */
-    public readonly spec: pulumi.Output<{ httpRoute?: { action: { weightedTargets: { virtualNode: string, weight: number }[] }, match: { prefix: string } }, tcpRoute?: { action: { weightedTargets: { virtualNode: string, weight: number }[] } } }>;
+    public readonly spec!: pulumi.Output<{ httpRoute?: { action: { weightedTargets: { virtualNode: string, weight: number }[] }, match: { prefix: string } }, tcpRoute?: { action: { weightedTargets: { virtualNode: string, weight: number }[] } } }>;
     /**
      * The name of the virtual router in which to create the route.
      */
-    public readonly virtualRouterName: pulumi.Output<string>;
+    public readonly virtualRouterName!: pulumi.Output<string>;
 
     /**
      * Create a Route resource with the given unique name, arguments, and options.
@@ -115,7 +115,7 @@ export class Route extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RouteState = argsOrState as RouteState | undefined;
+            const state = argsOrState as RouteState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
             inputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
@@ -141,6 +141,13 @@ export class Route extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["createdDate"] = undefined /*out*/;
             inputs["lastUpdatedDate"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:appmesh/route:Route", name, inputs, opts);
     }

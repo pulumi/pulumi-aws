@@ -60,71 +60,71 @@ export class Application extends pulumi.CustomResource {
     /**
      * SCM configuration of the app as described below.
      */
-    public readonly appSources: pulumi.Output<{ password?: string, revision?: string, sshKey?: string, type: string, url?: string, username?: string }[]>;
+    public readonly appSources!: pulumi.Output<{ password?: string, revision?: string, sshKey?: string, type: string, url?: string, username?: string }[]>;
     /**
      * Run bundle install when deploying for application of type `rails`.
      */
-    public readonly autoBundleOnDeploy: pulumi.Output<string | undefined>;
+    public readonly autoBundleOnDeploy!: pulumi.Output<string | undefined>;
     /**
      * Specify activity and workflow workers for your app using the aws-flow gem.
      */
-    public readonly awsFlowRubySettings: pulumi.Output<string | undefined>;
+    public readonly awsFlowRubySettings!: pulumi.Output<string | undefined>;
     /**
      * The data source's ARN.
      */
-    public readonly dataSourceArn: pulumi.Output<string | undefined>;
+    public readonly dataSourceArn!: pulumi.Output<string | undefined>;
     /**
      * The database name.
      */
-    public readonly dataSourceDatabaseName: pulumi.Output<string | undefined>;
+    public readonly dataSourceDatabaseName!: pulumi.Output<string | undefined>;
     /**
      * The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
      */
-    public readonly dataSourceType: pulumi.Output<string | undefined>;
+    public readonly dataSourceType!: pulumi.Output<string | undefined>;
     /**
      * A description of the app.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Subfolder for the document root for application of type `rails`.
      */
-    public readonly documentRoot: pulumi.Output<string | undefined>;
+    public readonly documentRoot!: pulumi.Output<string | undefined>;
     /**
      * A list of virtual host alias.
      */
-    public readonly domains: pulumi.Output<string[] | undefined>;
+    public readonly domains!: pulumi.Output<string[] | undefined>;
     /**
      * Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
      */
-    public readonly enableSsl: pulumi.Output<boolean | undefined>;
+    public readonly enableSsl!: pulumi.Output<boolean | undefined>;
     /**
      * Object to define environment variables.  Object is described below.
      */
-    public readonly environments: pulumi.Output<{ key: string, secure?: boolean, value: string }[] | undefined>;
+    public readonly environments!: pulumi.Output<{ key: string, secure?: boolean, value: string }[] | undefined>;
     /**
      * A human-readable name for the application.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the Rails environment for application of type `rails`.
      */
-    public readonly railsEnv: pulumi.Output<string | undefined>;
+    public readonly railsEnv!: pulumi.Output<string | undefined>;
     /**
      * A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
      */
-    public readonly shortName: pulumi.Output<string>;
+    public readonly shortName!: pulumi.Output<string>;
     /**
      * The SSL configuration of the app. Object is described below.
      */
-    public readonly sslConfigurations: pulumi.Output<{ certificate: string, chain?: string, privateKey: string }[] | undefined>;
+    public readonly sslConfigurations!: pulumi.Output<{ certificate: string, chain?: string, privateKey: string }[] | undefined>;
     /**
      * The id of the stack the application will belong to.
      */
-    public readonly stackId: pulumi.Output<string>;
+    public readonly stackId!: pulumi.Output<string>;
     /**
      * The type of source to use. For example, "archive".
      */
-    public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -137,7 +137,7 @@ export class Application extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ApplicationState = argsOrState as ApplicationState | undefined;
+            const state = argsOrState as ApplicationState | undefined;
             inputs["appSources"] = state ? state.appSources : undefined;
             inputs["autoBundleOnDeploy"] = state ? state.autoBundleOnDeploy : undefined;
             inputs["awsFlowRubySettings"] = state ? state.awsFlowRubySettings : undefined;
@@ -180,6 +180,13 @@ export class Application extends pulumi.CustomResource {
             inputs["sslConfigurations"] = args ? args.sslConfigurations : undefined;
             inputs["stackId"] = args ? args.stackId : undefined;
             inputs["type"] = args ? args.type : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:opsworks/application:Application", name, inputs, opts);
     }

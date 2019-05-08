@@ -82,42 +82,42 @@ export class Preset extends pulumi.CustomResource {
         return new Preset(name, <any>state, { ...opts, id: id });
     }
 
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Audio parameters object (documented below).
      */
-    public readonly audio: pulumi.Output<{ audioPackingMode?: string, bitRate?: string, channels?: string, codec?: string, sampleRate?: string } | undefined>;
+    public readonly audio!: pulumi.Output<{ audioPackingMode?: string, bitRate?: string, channels?: string, codec?: string, sampleRate?: string } | undefined>;
     /**
      * Codec options for the audio parameters (documented below)
      */
-    public readonly audioCodecOptions: pulumi.Output<{ bitDepth?: string, bitOrder?: string, profile?: string, signed?: string } | undefined>;
+    public readonly audioCodecOptions!: pulumi.Output<{ bitDepth?: string, bitOrder?: string, profile?: string, signed?: string } | undefined>;
     /**
      * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
      */
-    public readonly container: pulumi.Output<string>;
+    public readonly container!: pulumi.Output<string>;
     /**
      * A description of the preset (maximum 255 characters)
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the preset. (maximum 40 characters)
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Thumbnail parameters object (documented below)
      */
-    public readonly thumbnails: pulumi.Output<{ aspectRatio?: string, format?: string, interval?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string } | undefined>;
-    public readonly type: pulumi.Output<string>;
+    public readonly thumbnails!: pulumi.Output<{ aspectRatio?: string, format?: string, interval?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string } | undefined>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * Video parameters object (documented below)
      */
-    public readonly video: pulumi.Output<{ aspectRatio?: string, bitRate?: string, codec?: string, displayAspectRatio?: string, fixedGop?: string, frameRate?: string, keyframesMaxDist?: string, maxFrameRate?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string } | undefined>;
-    public readonly videoCodecOptions: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly video!: pulumi.Output<{ aspectRatio?: string, bitRate?: string, codec?: string, displayAspectRatio?: string, fixedGop?: string, frameRate?: string, keyframesMaxDist?: string, maxFrameRate?: string, maxHeight?: string, maxWidth?: string, paddingPolicy?: string, resolution?: string, sizingPolicy?: string } | undefined>;
+    public readonly videoCodecOptions!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Watermark parameters for the video parameters (documented below)
      * * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
      */
-    public readonly videoWatermarks: pulumi.Output<{ horizontalAlign?: string, horizontalOffset?: string, id?: string, maxHeight?: string, maxWidth?: string, opacity?: string, sizingPolicy?: string, target?: string, verticalAlign?: string, verticalOffset?: string }[] | undefined>;
+    public readonly videoWatermarks!: pulumi.Output<{ horizontalAlign?: string, horizontalOffset?: string, id?: string, maxHeight?: string, maxWidth?: string, opacity?: string, sizingPolicy?: string, target?: string, verticalAlign?: string, verticalOffset?: string }[] | undefined>;
 
     /**
      * Create a Preset resource with the given unique name, arguments, and options.
@@ -130,7 +130,7 @@ export class Preset extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PresetArgs | PresetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PresetState = argsOrState as PresetState | undefined;
+            const state = argsOrState as PresetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["audio"] = state ? state.audio : undefined;
             inputs["audioCodecOptions"] = state ? state.audioCodecOptions : undefined;
@@ -158,6 +158,13 @@ export class Preset extends pulumi.CustomResource {
             inputs["videoCodecOptions"] = args ? args.videoCodecOptions : undefined;
             inputs["videoWatermarks"] = args ? args.videoWatermarks : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:elastictranscoder/preset:Preset", name, inputs, opts);
     }

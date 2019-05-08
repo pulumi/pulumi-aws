@@ -49,6 +49,10 @@ class PolicyAttachment(pulumi.CustomResource):
             raise TypeError("Missing required property 'target'")
         __props__['target'] = target
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(PolicyAttachment, __self__).__init__(
             'aws:iot/policyAttachment:PolicyAttachment',
             resource_name,

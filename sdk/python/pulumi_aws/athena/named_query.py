@@ -63,6 +63,10 @@ class NamedQuery(pulumi.CustomResource):
             raise TypeError("Missing required property 'query'")
         __props__['query'] = query
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(NamedQuery, __self__).__init__(
             'aws:athena/namedQuery:NamedQuery',
             resource_name,

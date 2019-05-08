@@ -34,19 +34,19 @@ export class StaticIp extends pulumi.CustomResource {
     /**
      * The ARN of the Lightsail static IP
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The allocated static IP address
      */
-    public /*out*/ readonly ipAddress: pulumi.Output<string>;
+    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
      * The name for the allocated static IP
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The support code.
      */
-    public /*out*/ readonly supportCode: pulumi.Output<string>;
+    public /*out*/ readonly supportCode!: pulumi.Output<string>;
 
     /**
      * Create a StaticIp resource with the given unique name, arguments, and options.
@@ -59,7 +59,7 @@ export class StaticIp extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StaticIpArgs | StaticIpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: StaticIpState = argsOrState as StaticIpState | undefined;
+            const state = argsOrState as StaticIpState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -70,6 +70,13 @@ export class StaticIp extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["ipAddress"] = undefined /*out*/;
             inputs["supportCode"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:lightsail/staticIp:StaticIp", name, inputs, opts);
     }

@@ -44,31 +44,31 @@ export class Alias extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) identifying your Lambda function alias.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Description of the alias.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The function ARN of the Lambda function for which you want to create an alias.
      */
-    public readonly functionName: pulumi.Output<string>;
+    public readonly functionName!: pulumi.Output<string>;
     /**
      * Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
      */
-    public readonly functionVersion: pulumi.Output<string>;
+    public readonly functionVersion!: pulumi.Output<string>;
     /**
      * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
      */
-    public /*out*/ readonly invokeArn: pulumi.Output<string>;
+    public /*out*/ readonly invokeArn!: pulumi.Output<string>;
     /**
      * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The Lambda alias' route configuration settings. Fields documented below
      */
-    public readonly routingConfig: pulumi.Output<{ additionalVersionWeights?: {[key: string]: number} } | undefined>;
+    public readonly routingConfig!: pulumi.Output<{ additionalVersionWeights?: {[key: string]: number} } | undefined>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -81,7 +81,7 @@ export class Alias extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AliasArgs | AliasState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AliasState = argsOrState as AliasState | undefined;
+            const state = argsOrState as AliasState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["functionName"] = state ? state.functionName : undefined;
@@ -104,6 +104,13 @@ export class Alias extends pulumi.CustomResource {
             inputs["routingConfig"] = args ? args.routingConfig : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["invokeArn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:lambda/alias:Alias", name, inputs, opts);
     }

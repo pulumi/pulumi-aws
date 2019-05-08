@@ -46,43 +46,43 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Information about the authentication method to be used to authenticate clients.
      */
-    public readonly authenticationOptions: pulumi.Output<{ activeDirectoryId?: string, rootCertificateChainArn?: string, type: string }>;
+    public readonly authenticationOptions!: pulumi.Output<{ activeDirectoryId?: string, rootCertificateChainArn?: string, type: string }>;
     /**
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
      */
-    public readonly clientCidrBlock: pulumi.Output<string>;
+    public readonly clientCidrBlock!: pulumi.Output<string>;
     /**
      * Information about the client connection logging options.
      */
-    public readonly connectionLogOptions: pulumi.Output<{ cloudwatchLogGroup?: string, cloudwatchLogStream?: string, enabled: boolean }>;
+    public readonly connectionLogOptions!: pulumi.Output<{ cloudwatchLogGroup?: string, cloudwatchLogStream?: string, enabled: boolean }>;
     /**
      * Name of the repository.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The DNS name to be used by clients when establishing their VPN session.
      */
-    public /*out*/ readonly dnsName: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
      * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
      */
-    public readonly dnsServers: pulumi.Output<string[] | undefined>;
+    public readonly dnsServers!: pulumi.Output<string[] | undefined>;
     /**
      * The ARN of the ACM server certificate.
      */
-    public readonly serverCertificateArn: pulumi.Output<string>;
+    public readonly serverCertificateArn!: pulumi.Output<string>;
     /**
      * The current state of the Client VPN endpoint.
      */
-    public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */
-    public readonly transportProtocol: pulumi.Output<string | undefined>;
+    public readonly transportProtocol!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -95,7 +95,7 @@ export class Endpoint extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EndpointState = argsOrState as EndpointState | undefined;
+            const state = argsOrState as EndpointState | undefined;
             inputs["authenticationOptions"] = state ? state.authenticationOptions : undefined;
             inputs["clientCidrBlock"] = state ? state.clientCidrBlock : undefined;
             inputs["connectionLogOptions"] = state ? state.connectionLogOptions : undefined;
@@ -130,6 +130,13 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["transportProtocol"] = args ? args.transportProtocol : undefined;
             inputs["dnsName"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2clientvpn/endpoint:Endpoint", name, inputs, opts);
     }

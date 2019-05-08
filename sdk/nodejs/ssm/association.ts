@@ -34,51 +34,51 @@ export class Association extends pulumi.CustomResource {
         return new Association(name, <any>state, { ...opts, id: id });
     }
 
-    public /*out*/ readonly associationId: pulumi.Output<string>;
+    public /*out*/ readonly associationId!: pulumi.Output<string>;
     /**
      * The descriptive name for the association.
      */
-    public readonly associationName: pulumi.Output<string | undefined>;
+    public readonly associationName!: pulumi.Output<string | undefined>;
     /**
      * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
      */
-    public readonly complianceSeverity: pulumi.Output<string | undefined>;
+    public readonly complianceSeverity!: pulumi.Output<string | undefined>;
     /**
      * The document version you want to associate with the target(s). Can be a specific version or the default version.
      */
-    public readonly documentVersion: pulumi.Output<string>;
+    public readonly documentVersion!: pulumi.Output<string>;
     /**
      * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
      */
-    public readonly instanceId: pulumi.Output<string | undefined>;
+    public readonly instanceId!: pulumi.Output<string | undefined>;
     /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      */
-    public readonly maxConcurrency: pulumi.Output<string | undefined>;
+    public readonly maxConcurrency!: pulumi.Output<string | undefined>;
     /**
      * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      */
-    public readonly maxErrors: pulumi.Output<string | undefined>;
+    public readonly maxErrors!: pulumi.Output<string | undefined>;
     /**
      * The name of the SSM document to apply.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * An output location block. Output Location is documented below.
      */
-    public readonly outputLocation: pulumi.Output<{ s3BucketName: string, s3KeyPrefix?: string } | undefined>;
+    public readonly outputLocation!: pulumi.Output<{ s3BucketName: string, s3KeyPrefix?: string } | undefined>;
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
-    public readonly parameters: pulumi.Output<{[key: string]: any}>;
+    public readonly parameters!: pulumi.Output<{[key: string]: any}>;
     /**
      * A cron expression when the association will be applied to the target(s).
      */
-    public readonly scheduleExpression: pulumi.Output<string | undefined>;
+    public readonly scheduleExpression!: pulumi.Output<string | undefined>;
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
-    public readonly targets: pulumi.Output<{ key: string, values: string[] }[]>;
+    public readonly targets!: pulumi.Output<{ key: string, values: string[] }[]>;
 
     /**
      * Create a Association resource with the given unique name, arguments, and options.
@@ -91,7 +91,7 @@ export class Association extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AssociationArgs | AssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AssociationState = argsOrState as AssociationState | undefined;
+            const state = argsOrState as AssociationState | undefined;
             inputs["associationId"] = state ? state.associationId : undefined;
             inputs["associationName"] = state ? state.associationName : undefined;
             inputs["complianceSeverity"] = state ? state.complianceSeverity : undefined;
@@ -118,6 +118,13 @@ export class Association extends pulumi.CustomResource {
             inputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
             inputs["targets"] = args ? args.targets : undefined;
             inputs["associationId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ssm/association:Association", name, inputs, opts);
     }

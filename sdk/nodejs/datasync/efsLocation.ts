@@ -44,24 +44,24 @@ export class EfsLocation extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Configuration block containing EC2 configurations for connecting to the EFS File System.
      */
-    public readonly ec2Config: pulumi.Output<{ securityGroupArns: string[], subnetArn: string }>;
+    public readonly ec2Config!: pulumi.Output<{ securityGroupArns: string[], subnetArn: string }>;
     /**
      * Amazon Resource Name (ARN) of EFS File System.
      */
-    public readonly efsFileSystemArn: pulumi.Output<ARN>;
+    public readonly efsFileSystemArn!: pulumi.Output<ARN>;
     /**
      * Subdirectory to perform actions as source or destination. Default `/`.
      */
-    public readonly subdirectory: pulumi.Output<string | undefined>;
+    public readonly subdirectory!: pulumi.Output<string | undefined>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly uri: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly uri!: pulumi.Output<string>;
 
     /**
      * Create a EfsLocation resource with the given unique name, arguments, and options.
@@ -74,7 +74,7 @@ export class EfsLocation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EfsLocationArgs | EfsLocationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EfsLocationState = argsOrState as EfsLocationState | undefined;
+            const state = argsOrState as EfsLocationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["ec2Config"] = state ? state.ec2Config : undefined;
             inputs["efsFileSystemArn"] = state ? state.efsFileSystemArn : undefined;
@@ -95,6 +95,13 @@ export class EfsLocation extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["uri"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:datasync/efsLocation:EfsLocation", name, inputs, opts);
     }

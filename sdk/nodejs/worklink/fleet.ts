@@ -62,47 +62,47 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * The ARN of the created WorkLink Fleet.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ARN of the Amazon Kinesis data stream that receives the audit events.
      */
-    public readonly auditStreamArn: pulumi.Output<string | undefined>;
+    public readonly auditStreamArn!: pulumi.Output<string | undefined>;
     /**
      * The identifier used by users to sign in to the Amazon WorkLink app.
      */
-    public /*out*/ readonly companyCode: pulumi.Output<string>;
+    public /*out*/ readonly companyCode!: pulumi.Output<string>;
     /**
      * The time that the fleet was created.
      */
-    public /*out*/ readonly createdTime: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
      * The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
      */
-    public readonly deviceCaCertificate: pulumi.Output<string | undefined>;
+    public readonly deviceCaCertificate!: pulumi.Output<string | undefined>;
     /**
      * The name of the fleet.
      */
-    public readonly displayName: pulumi.Output<string | undefined>;
+    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
      */
-    public readonly identityProvider: pulumi.Output<{ samlMetadata: string, type: string } | undefined>;
+    public readonly identityProvider!: pulumi.Output<{ samlMetadata: string, type: string } | undefined>;
     /**
      * The time that the fleet was last updated.
      */
-    public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
      * A region-unique name for the AMI.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Provide this to allow manage the company network configuration for the fleet. Fields documented below.
      */
-    public readonly network: pulumi.Output<{ securityGroupIds: string[], subnetIds: string[], vpcId: string } | undefined>;
+    public readonly network!: pulumi.Output<{ securityGroupIds: string[], subnetIds: string[], vpcId: string } | undefined>;
     /**
      * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
      */
-    public readonly optimizeForEndUserLocation: pulumi.Output<boolean | undefined>;
+    public readonly optimizeForEndUserLocation!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -115,7 +115,7 @@ export class Fleet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FleetArgs | FleetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FleetState = argsOrState as FleetState | undefined;
+            const state = argsOrState as FleetState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["auditStreamArn"] = state ? state.auditStreamArn : undefined;
             inputs["companyCode"] = state ? state.companyCode : undefined;
@@ -140,6 +140,13 @@ export class Fleet extends pulumi.CustomResource {
             inputs["companyCode"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
             inputs["lastUpdatedTime"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:worklink/fleet:Fleet", name, inputs, opts);
     }

@@ -34,7 +34,7 @@ export class ActiveReceiptRuleSet extends pulumi.CustomResource {
     /**
      * The name of the rule set
      */
-    public readonly ruleSetName: pulumi.Output<string>;
+    public readonly ruleSetName!: pulumi.Output<string>;
 
     /**
      * Create a ActiveReceiptRuleSet resource with the given unique name, arguments, and options.
@@ -47,7 +47,7 @@ export class ActiveReceiptRuleSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ActiveReceiptRuleSetArgs | ActiveReceiptRuleSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ActiveReceiptRuleSetState = argsOrState as ActiveReceiptRuleSetState | undefined;
+            const state = argsOrState as ActiveReceiptRuleSetState | undefined;
             inputs["ruleSetName"] = state ? state.ruleSetName : undefined;
         } else {
             const args = argsOrState as ActiveReceiptRuleSetArgs | undefined;
@@ -55,6 +55,13 @@ export class ActiveReceiptRuleSet extends pulumi.CustomResource {
                 throw new Error("Missing required property 'ruleSetName'");
             }
             inputs["ruleSetName"] = args ? args.ruleSetName : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet", name, inputs, opts);
     }

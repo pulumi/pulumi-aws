@@ -134,11 +134,11 @@ export class CertificateValidation extends pulumi.CustomResource {
     /**
      * The ARN of the certificate that is being validated.
      */
-    public readonly certificateArn: pulumi.Output<string>;
+    public readonly certificateArn!: pulumi.Output<string>;
     /**
      * List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
      */
-    public readonly validationRecordFqdns: pulumi.Output<string[] | undefined>;
+    public readonly validationRecordFqdns!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a CertificateValidation resource with the given unique name, arguments, and options.
@@ -151,7 +151,7 @@ export class CertificateValidation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CertificateValidationArgs | CertificateValidationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CertificateValidationState = argsOrState as CertificateValidationState | undefined;
+            const state = argsOrState as CertificateValidationState | undefined;
             inputs["certificateArn"] = state ? state.certificateArn : undefined;
             inputs["validationRecordFqdns"] = state ? state.validationRecordFqdns : undefined;
         } else {
@@ -161,6 +161,13 @@ export class CertificateValidation extends pulumi.CustomResource {
             }
             inputs["certificateArn"] = args ? args.certificateArn : undefined;
             inputs["validationRecordFqdns"] = args ? args.validationRecordFqdns : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:acm/certificateValidation:CertificateValidation", name, inputs, opts);
     }

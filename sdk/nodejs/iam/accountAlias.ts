@@ -36,7 +36,7 @@ export class AccountAlias extends pulumi.CustomResource {
     /**
      * The account alias
      */
-    public readonly accountAlias: pulumi.Output<string>;
+    public readonly accountAlias!: pulumi.Output<string>;
 
     /**
      * Create a AccountAlias resource with the given unique name, arguments, and options.
@@ -49,7 +49,7 @@ export class AccountAlias extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AccountAliasArgs | AccountAliasState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AccountAliasState = argsOrState as AccountAliasState | undefined;
+            const state = argsOrState as AccountAliasState | undefined;
             inputs["accountAlias"] = state ? state.accountAlias : undefined;
         } else {
             const args = argsOrState as AccountAliasArgs | undefined;
@@ -57,6 +57,13 @@ export class AccountAlias extends pulumi.CustomResource {
                 throw new Error("Missing required property 'accountAlias'");
             }
             inputs["accountAlias"] = args ? args.accountAlias : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:iam/accountAlias:AccountAlias", name, inputs, opts);
     }

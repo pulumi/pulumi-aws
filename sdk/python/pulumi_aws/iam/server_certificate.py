@@ -112,6 +112,10 @@ class ServerCertificate(pulumi.CustomResource):
             raise TypeError("Missing required property 'private_key'")
         __props__['private_key'] = private_key
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ServerCertificate, __self__).__init__(
             'aws:iam/serverCertificate:ServerCertificate',
             resource_name,

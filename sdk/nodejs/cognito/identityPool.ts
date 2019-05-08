@@ -57,36 +57,36 @@ export class IdentityPool extends pulumi.CustomResource {
     /**
      * Whether the identity pool supports unauthenticated logins or not.
      */
-    public readonly allowUnauthenticatedIdentities: pulumi.Output<boolean | undefined>;
+    public readonly allowUnauthenticatedIdentities!: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of the identity pool.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * An array of Amazon Cognito Identity user pools and their client IDs.
      */
-    public readonly cognitoIdentityProviders: pulumi.Output<{ clientId?: string, providerName?: string, serverSideTokenCheck?: boolean }[] | undefined>;
+    public readonly cognitoIdentityProviders!: pulumi.Output<{ clientId?: string, providerName?: string, serverSideTokenCheck?: boolean }[] | undefined>;
     /**
      * The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
      * backend and the Cognito service to communicate about the developer provider.
      */
-    public readonly developerProviderName: pulumi.Output<string | undefined>;
+    public readonly developerProviderName!: pulumi.Output<string | undefined>;
     /**
      * The Cognito Identity Pool name.
      */
-    public readonly identityPoolName: pulumi.Output<string>;
+    public readonly identityPoolName!: pulumi.Output<string>;
     /**
      * A list of OpendID Connect provider ARNs.
      */
-    public readonly openidConnectProviderArns: pulumi.Output<string[] | undefined>;
+    public readonly openidConnectProviderArns!: pulumi.Output<string[] | undefined>;
     /**
      * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
      */
-    public readonly samlProviderArns: pulumi.Output<string[] | undefined>;
+    public readonly samlProviderArns!: pulumi.Output<string[] | undefined>;
     /**
      * Key-Value pairs mapping provider names to provider app IDs.
      */
-    public readonly supportedLoginProviders: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly supportedLoginProviders!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a IdentityPool resource with the given unique name, arguments, and options.
@@ -99,7 +99,7 @@ export class IdentityPool extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: IdentityPoolArgs | IdentityPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: IdentityPoolState = argsOrState as IdentityPoolState | undefined;
+            const state = argsOrState as IdentityPoolState | undefined;
             inputs["allowUnauthenticatedIdentities"] = state ? state.allowUnauthenticatedIdentities : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cognitoIdentityProviders"] = state ? state.cognitoIdentityProviders : undefined;
@@ -121,6 +121,13 @@ export class IdentityPool extends pulumi.CustomResource {
             inputs["samlProviderArns"] = args ? args.samlProviderArns : undefined;
             inputs["supportedLoginProviders"] = args ? args.supportedLoginProviders : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cognito/identityPool:IdentityPool", name, inputs, opts);
     }

@@ -34,23 +34,23 @@ export class Vault extends pulumi.CustomResource {
     /**
      * The ARN of the vault.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The server-side encryption key that is used to protect your backups.
      */
-    public readonly kmsKeyArn: pulumi.Output<string>;
+    public readonly kmsKeyArn!: pulumi.Output<string>;
     /**
      * Name of the backup vault to create.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The number of recovery points that are stored in a backup vault.
      */
-    public /*out*/ readonly recoveryPoints: pulumi.Output<number>;
+    public /*out*/ readonly recoveryPoints!: pulumi.Output<number>;
     /**
      * Metadata that you can assign to help organize the resources that you create.
      */
-    public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Vault resource with the given unique name, arguments, and options.
@@ -63,7 +63,7 @@ export class Vault extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VaultArgs | VaultState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VaultState = argsOrState as VaultState | undefined;
+            const state = argsOrState as VaultState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -76,6 +76,13 @@ export class Vault extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["recoveryPoints"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:backup/vault:Vault", name, inputs, opts);
     }

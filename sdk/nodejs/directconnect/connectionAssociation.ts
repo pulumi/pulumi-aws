@@ -43,11 +43,11 @@ export class ConnectionAssociation extends pulumi.CustomResource {
     /**
      * The ID of the connection.
      */
-    public readonly connectionId: pulumi.Output<string>;
+    public readonly connectionId!: pulumi.Output<string>;
     /**
      * The ID of the LAG with which to associate the connection.
      */
-    public readonly lagId: pulumi.Output<string>;
+    public readonly lagId!: pulumi.Output<string>;
 
     /**
      * Create a ConnectionAssociation resource with the given unique name, arguments, and options.
@@ -60,7 +60,7 @@ export class ConnectionAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ConnectionAssociationArgs | ConnectionAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ConnectionAssociationState = argsOrState as ConnectionAssociationState | undefined;
+            const state = argsOrState as ConnectionAssociationState | undefined;
             inputs["connectionId"] = state ? state.connectionId : undefined;
             inputs["lagId"] = state ? state.lagId : undefined;
         } else {
@@ -73,6 +73,13 @@ export class ConnectionAssociation extends pulumi.CustomResource {
             }
             inputs["connectionId"] = args ? args.connectionId : undefined;
             inputs["lagId"] = args ? args.lagId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:directconnect/connectionAssociation:ConnectionAssociation", name, inputs, opts);
     }

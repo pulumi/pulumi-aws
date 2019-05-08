@@ -71,55 +71,55 @@ export class TargetGroup extends pulumi.CustomResource {
     /**
      * The ARN of the Target Group (matches `id`)
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ARN suffix for use with CloudWatch Metrics.
      */
-    public /*out*/ readonly arnSuffix: pulumi.Output<string>;
+    public /*out*/ readonly arnSuffix!: pulumi.Output<string>;
     /**
      * The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
      */
-    public readonly deregistrationDelay: pulumi.Output<number | undefined>;
+    public readonly deregistrationDelay!: pulumi.Output<number | undefined>;
     /**
      * A Health Check block. Health Check blocks are documented below.
      */
-    public readonly healthCheck: pulumi.Output<{ enabled?: boolean, healthyThreshold?: number, interval?: number, matcher: string, path: string, port?: string, protocol?: string, timeout: number, unhealthyThreshold?: number }>;
+    public readonly healthCheck!: pulumi.Output<{ enabled?: boolean, healthyThreshold?: number, interval?: number, matcher: string, path: string, port?: string, protocol?: string, timeout: number, unhealthyThreshold?: number }>;
     /**
      * Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
      */
-    public readonly lambdaMultiValueHeadersEnabled: pulumi.Output<boolean | undefined>;
+    public readonly lambdaMultiValueHeadersEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the target group. If omitted, Terraform will assign a random, unique name.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
      */
-    public readonly namePrefix: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
      */
-    public readonly port: pulumi.Output<number | undefined>;
+    public readonly port!: pulumi.Output<number | undefined>;
     /**
      * The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
      */
-    public readonly protocol: pulumi.Output<string | undefined>;
+    public readonly protocol!: pulumi.Output<string | undefined>;
     /**
      * Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
      */
-    public readonly proxyProtocolV2: pulumi.Output<boolean | undefined>;
+    public readonly proxyProtocolV2!: pulumi.Output<boolean | undefined>;
     /**
      * The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
      */
-    public readonly slowStart: pulumi.Output<number | undefined>;
+    public readonly slowStart!: pulumi.Output<number | undefined>;
     /**
      * A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
      */
-    public readonly stickiness: pulumi.Output<{ cookieDuration?: number, enabled?: boolean, type: string }>;
+    public readonly stickiness!: pulumi.Output<{ cookieDuration?: number, enabled?: boolean, type: string }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The type of target that you must specify when registering targets with this target group.
      * The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
@@ -128,11 +128,11 @@ export class TargetGroup extends pulumi.CustomResource {
      * the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
      * You can't specify publicly routable IP addresses.
      */
-    public readonly targetType: pulumi.Output<string | undefined>;
+    public readonly targetType!: pulumi.Output<string | undefined>;
     /**
      * The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
      */
-    public readonly vpcId: pulumi.Output<string | undefined>;
+    public readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a TargetGroup resource with the given unique name, arguments, and options.
@@ -145,7 +145,7 @@ export class TargetGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TargetGroupArgs | TargetGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TargetGroupState = argsOrState as TargetGroupState | undefined;
+            const state = argsOrState as TargetGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["arnSuffix"] = state ? state.arnSuffix : undefined;
             inputs["deregistrationDelay"] = state ? state.deregistrationDelay : undefined;
@@ -178,6 +178,13 @@ export class TargetGroup extends pulumi.CustomResource {
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["arnSuffix"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:elasticloadbalancingv2/targetGroup:TargetGroup", name, inputs, opts);
     }

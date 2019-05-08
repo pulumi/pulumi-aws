@@ -24,15 +24,15 @@ export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource 
     /**
      * The ARN of the virtual interface.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The ID of the Direct Connect virtual interface to accept.
      */
-    public readonly virtualInterfaceId: pulumi.Output<string>;
+    public readonly virtualInterfaceId!: pulumi.Output<string>;
 
     /**
      * Create a HostedPublicVirtualInterfaceAccepter resource with the given unique name, arguments, and options.
@@ -45,7 +45,7 @@ export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource 
     constructor(name: string, argsOrState?: HostedPublicVirtualInterfaceAccepterArgs | HostedPublicVirtualInterfaceAccepterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: HostedPublicVirtualInterfaceAccepterState = argsOrState as HostedPublicVirtualInterfaceAccepterState | undefined;
+            const state = argsOrState as HostedPublicVirtualInterfaceAccepterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["virtualInterfaceId"] = state ? state.virtualInterfaceId : undefined;
@@ -57,6 +57,13 @@ export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource 
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualInterfaceId"] = args ? args.virtualInterfaceId : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter", name, inputs, opts);
     }

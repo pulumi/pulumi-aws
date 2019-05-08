@@ -51,6 +51,10 @@ class WorkingStorage(pulumi.CustomResource):
             raise TypeError("Missing required property 'gateway_arn'")
         __props__['gateway_arn'] = gateway_arn
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(WorkingStorage, __self__).__init__(
             'aws:storagegateway/workingStorage:WorkingStorage',
             resource_name,

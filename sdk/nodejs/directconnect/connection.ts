@@ -35,35 +35,35 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The ARN of the connection.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The Direct Connect endpoint on which the physical connection terminates.
      */
-    public /*out*/ readonly awsDevice: pulumi.Output<string>;
+    public /*out*/ readonly awsDevice!: pulumi.Output<string>;
     /**
      * The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
      */
-    public readonly bandwidth: pulumi.Output<string>;
+    public readonly bandwidth!: pulumi.Output<string>;
     /**
      * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      */
-    public /*out*/ readonly hasLogicalRedundancy: pulumi.Output<string>;
+    public /*out*/ readonly hasLogicalRedundancy!: pulumi.Output<string>;
     /**
      * Boolean value representing if jumbo frames have been enabled for this connection.
      */
-    public /*out*/ readonly jumboFrameCapable: pulumi.Output<boolean>;
+    public /*out*/ readonly jumboFrameCapable!: pulumi.Output<boolean>;
     /**
      * The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the connection.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ export class Connection extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ConnectionArgs | ConnectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ConnectionState = argsOrState as ConnectionState | undefined;
+            const state = argsOrState as ConnectionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["awsDevice"] = state ? state.awsDevice : undefined;
             inputs["bandwidth"] = state ? state.bandwidth : undefined;
@@ -101,6 +101,13 @@ export class Connection extends pulumi.CustomResource {
             inputs["awsDevice"] = undefined /*out*/;
             inputs["hasLogicalRedundancy"] = undefined /*out*/;
             inputs["jumboFrameCapable"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:directconnect/connection:Connection", name, inputs, opts);
     }

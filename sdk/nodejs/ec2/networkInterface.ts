@@ -40,37 +40,37 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * Block to define the attachment of the ENI. Documented below.
      */
-    public readonly attachments: pulumi.Output<{ attachmentId: string, deviceIndex: number, instance: string }[]>;
+    public readonly attachments!: pulumi.Output<{ attachmentId: string, deviceIndex: number, instance: string }[]>;
     /**
      * A description for the network interface.
      */
-    public readonly description: pulumi.Output<string | undefined>;
-    public /*out*/ readonly privateDnsName: pulumi.Output<string>;
-    public readonly privateIp: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly privateDnsName!: pulumi.Output<string>;
+    public readonly privateIp!: pulumi.Output<string>;
     /**
      * List of private IPs to assign to the ENI.
      */
-    public readonly privateIps: pulumi.Output<string[]>;
+    public readonly privateIps!: pulumi.Output<string[]>;
     /**
      * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
      */
-    public readonly privateIpsCount: pulumi.Output<number>;
+    public readonly privateIpsCount!: pulumi.Output<number>;
     /**
      * List of security group IDs to assign to the ENI.
      */
-    public readonly securityGroups: pulumi.Output<string[]>;
+    public readonly securityGroups!: pulumi.Output<string[]>;
     /**
      * Whether to enable source destination checking for the ENI. Default true.
      */
-    public readonly sourceDestCheck: pulumi.Output<boolean | undefined>;
+    public readonly sourceDestCheck!: pulumi.Output<boolean | undefined>;
     /**
      * Subnet ID to create the ENI in.
      */
-    public readonly subnetId: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a NetworkInterface resource with the given unique name, arguments, and options.
@@ -83,7 +83,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NetworkInterfaceArgs | NetworkInterfaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkInterfaceState = argsOrState as NetworkInterfaceState | undefined;
+            const state = argsOrState as NetworkInterfaceState | undefined;
             inputs["attachments"] = state ? state.attachments : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["privateDnsName"] = state ? state.privateDnsName : undefined;
@@ -109,6 +109,13 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["privateDnsName"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/networkInterface:NetworkInterface", name, inputs, opts);
     }

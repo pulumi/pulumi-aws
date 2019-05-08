@@ -59,29 +59,29 @@ export class MethodResponse extends pulumi.CustomResource {
     /**
      * The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      */
-    public readonly httpMethod: pulumi.Output<string>;
+    public readonly httpMethod!: pulumi.Output<string>;
     /**
      * The API resource ID
      */
-    public readonly resourceId: pulumi.Output<string>;
+    public readonly resourceId!: pulumi.Output<string>;
     /**
      * A map of the API models used for the response's content type
      */
-    public readonly responseModels: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly responseModels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of response parameters that can be sent to the caller.
      * For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
      * would define that the header `X-Some-Header` can be provided on the response.
      */
-    public readonly responseParameters: pulumi.Output<{[key: string]: boolean} | undefined>;
+    public readonly responseParameters!: pulumi.Output<{[key: string]: boolean} | undefined>;
     /**
      * The ID of the associated REST API
      */
-    public readonly restApi: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<RestApi>;
     /**
      * The HTTP status code
      */
-    public readonly statusCode: pulumi.Output<string>;
+    public readonly statusCode!: pulumi.Output<string>;
 
     /**
      * Create a MethodResponse resource with the given unique name, arguments, and options.
@@ -94,7 +94,7 @@ export class MethodResponse extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MethodResponseArgs | MethodResponseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MethodResponseState = argsOrState as MethodResponseState | undefined;
+            const state = argsOrState as MethodResponseState | undefined;
             inputs["httpMethod"] = state ? state.httpMethod : undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;
             inputs["responseModels"] = state ? state.responseModels : undefined;
@@ -121,6 +121,13 @@ export class MethodResponse extends pulumi.CustomResource {
             inputs["responseParameters"] = args ? args.responseParameters : undefined;
             inputs["restApi"] = args ? args.restApi : undefined;
             inputs["statusCode"] = args ? args.statusCode : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:apigateway/methodResponse:MethodResponse", name, inputs, opts);
     }

@@ -42,11 +42,11 @@ export class ListenerCertificate extends pulumi.CustomResource {
     /**
      * The ARN of the certificate to attach to the listener.
      */
-    public readonly certificateArn: pulumi.Output<string>;
+    public readonly certificateArn!: pulumi.Output<string>;
     /**
      * The ARN of the listener to which to attach the certificate.
      */
-    public readonly listenerArn: pulumi.Output<string>;
+    public readonly listenerArn!: pulumi.Output<string>;
 
     /**
      * Create a ListenerCertificate resource with the given unique name, arguments, and options.
@@ -59,7 +59,7 @@ export class ListenerCertificate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ListenerCertificateArgs | ListenerCertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ListenerCertificateState = argsOrState as ListenerCertificateState | undefined;
+            const state = argsOrState as ListenerCertificateState | undefined;
             inputs["certificateArn"] = state ? state.certificateArn : undefined;
             inputs["listenerArn"] = state ? state.listenerArn : undefined;
         } else {
@@ -72,6 +72,13 @@ export class ListenerCertificate extends pulumi.CustomResource {
             }
             inputs["certificateArn"] = args ? args.certificateArn : undefined;
             inputs["listenerArn"] = args ? args.listenerArn : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate", name, inputs, opts);
     }

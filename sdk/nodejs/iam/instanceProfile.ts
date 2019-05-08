@@ -55,37 +55,37 @@ export class InstanceProfile extends pulumi.CustomResource {
     /**
      * The ARN assigned by AWS to the instance profile.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The creation timestamp of the instance profile.
      */
-    public /*out*/ readonly createDate: pulumi.Output<string>;
+    public /*out*/ readonly createDate!: pulumi.Output<string>;
     /**
      * The profile's name. If omitted, Terraform will assign a random, unique name.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Path in which to create the profile.
      */
-    public readonly path: pulumi.Output<string | undefined>;
+    public readonly path!: pulumi.Output<string | undefined>;
     /**
      * The role name to include in the profile.
      */
-    public readonly role: pulumi.Output<string>;
+    public readonly role!: pulumi.Output<string>;
     /**
      * 
      * A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
      * WARNING: This is deprecated since [version 0.9.3 (April 12, 2017)](https://github.com/hashicorp/terraform/blob/master/CHANGELOG.md#093-april-12-2017), as >= 2 roles are not possible. See [issue #11575](https://github.com/hashicorp/terraform/issues/11575).
      */
-    public readonly roles: pulumi.Output<string[]>;
+    public readonly roles!: pulumi.Output<string[]>;
     /**
      * The [unique ID][1] assigned by AWS.
      */
-    public /*out*/ readonly uniqueId: pulumi.Output<string>;
+    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
 
     /**
      * Create a InstanceProfile resource with the given unique name, arguments, and options.
@@ -98,7 +98,7 @@ export class InstanceProfile extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: InstanceProfileArgs | InstanceProfileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: InstanceProfileState = argsOrState as InstanceProfileState | undefined;
+            const state = argsOrState as InstanceProfileState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["createDate"] = state ? state.createDate : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -117,6 +117,13 @@ export class InstanceProfile extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["createDate"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:iam/instanceProfile:InstanceProfile", name, inputs, opts);
     }

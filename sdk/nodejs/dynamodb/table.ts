@@ -80,83 +80,83 @@ export class Table extends pulumi.CustomResource {
     /**
      * The arn of the table
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
      */
-    public readonly attributes: pulumi.Output<{ name: string, type: string }[]>;
+    public readonly attributes!: pulumi.Output<{ name: string, type: string }[]>;
     /**
      * Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
      */
-    public readonly billingMode: pulumi.Output<string | undefined>;
+    public readonly billingMode!: pulumi.Output<string | undefined>;
     /**
      * Describe a GSI for the table;
      * subject to the normal limits on the number of GSIs, projected
      * attributes, etc.
      */
-    public readonly globalSecondaryIndexes: pulumi.Output<{ hashKey: string, name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey?: string, readCapacity?: number, writeCapacity?: number }[] | undefined>;
+    public readonly globalSecondaryIndexes!: pulumi.Output<{ hashKey: string, name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey?: string, readCapacity?: number, writeCapacity?: number }[] | undefined>;
     /**
      * The name of the hash key in the index; must be
      * defined as an attribute in the resource.
      */
-    public readonly hashKey: pulumi.Output<string>;
+    public readonly hashKey!: pulumi.Output<string>;
     /**
      * Describe an LSI on the table;
      * these can only be allocated *at creation* so you cannot change this
      * definition after you have created the resource.
      */
-    public readonly localSecondaryIndexes: pulumi.Output<{ name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey: string }[] | undefined>;
+    public readonly localSecondaryIndexes!: pulumi.Output<{ name: string, nonKeyAttributes?: string[], projectionType: string, rangeKey: string }[] | undefined>;
     /**
      * The name of the index
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Point-in-time recovery options.
      */
-    public readonly pointInTimeRecovery: pulumi.Output<{ enabled: boolean }>;
+    public readonly pointInTimeRecovery!: pulumi.Output<{ enabled: boolean }>;
     /**
      * The name of the range key; must be defined
      */
-    public readonly rangeKey: pulumi.Output<string | undefined>;
+    public readonly rangeKey!: pulumi.Output<string | undefined>;
     /**
      * The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
      */
-    public readonly readCapacity: pulumi.Output<number | undefined>;
+    public readonly readCapacity!: pulumi.Output<number | undefined>;
     /**
      * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
      */
-    public readonly serverSideEncryption: pulumi.Output<{ enabled: boolean }>;
+    public readonly serverSideEncryption!: pulumi.Output<{ enabled: boolean }>;
     /**
      * The ARN of the Table Stream. Only available when `stream_enabled = true`
      */
-    public /*out*/ readonly streamArn: pulumi.Output<string>;
+    public /*out*/ readonly streamArn!: pulumi.Output<string>;
     /**
      * Indicates whether Streams are to be enabled (true) or disabled (false).
      */
-    public readonly streamEnabled: pulumi.Output<boolean | undefined>;
+    public readonly streamEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
      * a unique identifier for the stream on its own. However, the combination of AWS customer ID,
      * table name and this field is guaranteed to be unique.
      * It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
      */
-    public /*out*/ readonly streamLabel: pulumi.Output<string>;
+    public /*out*/ readonly streamLabel!: pulumi.Output<string>;
     /**
      * When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
      */
-    public readonly streamViewType: pulumi.Output<string>;
+    public readonly streamViewType!: pulumi.Output<string>;
     /**
      * A map of tags to populate on the created table.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Defines ttl, has two properties, and can only be specified once:
      */
-    public readonly ttl: pulumi.Output<{ attributeName: string, enabled?: boolean } | undefined>;
+    public readonly ttl!: pulumi.Output<{ attributeName: string, enabled?: boolean } | undefined>;
     /**
      * The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
      */
-    public readonly writeCapacity: pulumi.Output<number | undefined>;
+    public readonly writeCapacity!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -169,7 +169,7 @@ export class Table extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TableArgs | TableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TableState = argsOrState as TableState | undefined;
+            const state = argsOrState as TableState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["attributes"] = state ? state.attributes : undefined;
             inputs["billingMode"] = state ? state.billingMode : undefined;
@@ -214,6 +214,13 @@ export class Table extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["streamArn"] = undefined /*out*/;
             inputs["streamLabel"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:dynamodb/table:Table", name, inputs, opts);
     }

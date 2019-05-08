@@ -84,6 +84,10 @@ class Connection(pulumi.CustomResource):
         __props__['has_logical_redundancy'] = None
         __props__['jumbo_frame_capable'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Connection, __self__).__init__(
             'aws:directconnect/connection:Connection',
             resource_name,

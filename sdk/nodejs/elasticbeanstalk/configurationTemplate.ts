@@ -49,30 +49,30 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
     /**
      * name of the application to associate with this configuration template
      */
-    public readonly application: pulumi.Output<string>;
+    public readonly application!: pulumi.Output<string>;
     /**
      * Short description of the Template
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The ID of the environment used with this configuration template
      */
-    public readonly environmentId: pulumi.Output<string | undefined>;
+    public readonly environmentId!: pulumi.Output<string | undefined>;
     /**
      * A unique name for this Template.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    public readonly settings: pulumi.Output<{ name: string, namespace: string, resource?: string, value: string }[]>;
+    public readonly settings!: pulumi.Output<{ name: string, namespace: string, resource?: string, value: string }[]>;
     /**
      * A solution stack to base your Template
      * off of. Example stacks can be found in the [Amazon API documentation][1]
      */
-    public readonly solutionStackName: pulumi.Output<string | undefined>;
+    public readonly solutionStackName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ConfigurationTemplate resource with the given unique name, arguments, and options.
@@ -85,7 +85,7 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ConfigurationTemplateArgs | ConfigurationTemplateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ConfigurationTemplateState = argsOrState as ConfigurationTemplateState | undefined;
+            const state = argsOrState as ConfigurationTemplateState | undefined;
             inputs["application"] = state ? state.application : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["environmentId"] = state ? state.environmentId : undefined;
@@ -103,6 +103,13 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["settings"] = args ? args.settings : undefined;
             inputs["solutionStackName"] = args ? args.solutionStackName : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate", name, inputs, opts);
     }

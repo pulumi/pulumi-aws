@@ -36,27 +36,27 @@ export class Thing extends pulumi.CustomResource {
     /**
      * The ARN of the thing.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Map of attributes of the thing.
      */
-    public readonly attributes: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly attributes!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The default client ID.
      */
-    public /*out*/ readonly defaultClientId: pulumi.Output<string>;
+    public /*out*/ readonly defaultClientId!: pulumi.Output<string>;
     /**
      * The name of the thing.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The thing type name.
      */
-    public readonly thingTypeName: pulumi.Output<string | undefined>;
+    public readonly thingTypeName!: pulumi.Output<string | undefined>;
     /**
      * The current version of the thing record in the registry.
      */
-    public /*out*/ readonly version: pulumi.Output<number>;
+    public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
      * Create a Thing resource with the given unique name, arguments, and options.
@@ -69,7 +69,7 @@ export class Thing extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ThingArgs | ThingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ThingState = argsOrState as ThingState | undefined;
+            const state = argsOrState as ThingState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["attributes"] = state ? state.attributes : undefined;
             inputs["defaultClientId"] = state ? state.defaultClientId : undefined;
@@ -84,6 +84,13 @@ export class Thing extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["defaultClientId"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:iot/thing:Thing", name, inputs, opts);
     }

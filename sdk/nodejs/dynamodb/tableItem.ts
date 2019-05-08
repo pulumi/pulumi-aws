@@ -55,20 +55,20 @@ export class TableItem extends pulumi.CustomResource {
     /**
      * Hash key to use for lookups and identification of the item
      */
-    public readonly hashKey: pulumi.Output<string>;
+    public readonly hashKey!: pulumi.Output<string>;
     /**
      * JSON representation of a map of attribute name/value pairs, one for each attribute.
      * Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
      */
-    public readonly item: pulumi.Output<string>;
+    public readonly item!: pulumi.Output<string>;
     /**
      * Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
      */
-    public readonly rangeKey: pulumi.Output<string | undefined>;
+    public readonly rangeKey!: pulumi.Output<string | undefined>;
     /**
      * The name of the table to contain the item.
      */
-    public readonly tableName: pulumi.Output<string>;
+    public readonly tableName!: pulumi.Output<string>;
 
     /**
      * Create a TableItem resource with the given unique name, arguments, and options.
@@ -81,7 +81,7 @@ export class TableItem extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TableItemArgs | TableItemState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TableItemState = argsOrState as TableItemState | undefined;
+            const state = argsOrState as TableItemState | undefined;
             inputs["hashKey"] = state ? state.hashKey : undefined;
             inputs["item"] = state ? state.item : undefined;
             inputs["rangeKey"] = state ? state.rangeKey : undefined;
@@ -101,6 +101,13 @@ export class TableItem extends pulumi.CustomResource {
             inputs["item"] = args ? args.item : undefined;
             inputs["rangeKey"] = args ? args.rangeKey : undefined;
             inputs["tableName"] = args ? args.tableName : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:dynamodb/tableItem:TableItem", name, inputs, opts);
     }

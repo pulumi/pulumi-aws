@@ -73,15 +73,15 @@ export class EventStream extends pulumi.CustomResource {
     /**
      * The application ID.
      */
-    public readonly applicationId: pulumi.Output<string>;
+    public readonly applicationId!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      */
-    public readonly destinationStreamArn: pulumi.Output<string>;
+    public readonly destinationStreamArn!: pulumi.Output<string>;
     /**
      * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
      */
-    public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
 
     /**
      * Create a EventStream resource with the given unique name, arguments, and options.
@@ -94,7 +94,7 @@ export class EventStream extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventStreamArgs | EventStreamState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventStreamState = argsOrState as EventStreamState | undefined;
+            const state = argsOrState as EventStreamState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["destinationStreamArn"] = state ? state.destinationStreamArn : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
@@ -112,6 +112,13 @@ export class EventStream extends pulumi.CustomResource {
             inputs["applicationId"] = args ? args.applicationId : undefined;
             inputs["destinationStreamArn"] = args ? args.destinationStreamArn : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:pinpoint/eventStream:EventStream", name, inputs, opts);
     }

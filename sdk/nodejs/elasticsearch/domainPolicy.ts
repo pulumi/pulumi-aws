@@ -52,11 +52,11 @@ export class DomainPolicy extends pulumi.CustomResource {
     /**
      * IAM policy document specifying the access policies for the domain
      */
-    public readonly accessPolicies: pulumi.Output<string>;
+    public readonly accessPolicies!: pulumi.Output<string>;
     /**
      * Name of the domain.
      */
-    public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
 
     /**
      * Create a DomainPolicy resource with the given unique name, arguments, and options.
@@ -69,7 +69,7 @@ export class DomainPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DomainPolicyArgs | DomainPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DomainPolicyState = argsOrState as DomainPolicyState | undefined;
+            const state = argsOrState as DomainPolicyState | undefined;
             inputs["accessPolicies"] = state ? state.accessPolicies : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
         } else {
@@ -82,6 +82,13 @@ export class DomainPolicy extends pulumi.CustomResource {
             }
             inputs["accessPolicies"] = args ? args.accessPolicies : undefined;
             inputs["domainName"] = args ? args.domainName : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:elasticsearch/domainPolicy:DomainPolicy", name, inputs, opts);
     }

@@ -41,45 +41,45 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
     /**
      * The status of the VPC Peering Connection request.
      */
-    public /*out*/ readonly acceptStatus: pulumi.Output<string>;
+    public /*out*/ readonly acceptStatus!: pulumi.Output<string>;
     /**
      * An optional configuration block that allows for [VPC Peering Connection]
      * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      */
-    public readonly accepter: pulumi.Output<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }>;
+    public readonly accepter!: pulumi.Output<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }>;
     /**
      * Accept the peering (both VPCs need to be in the same AWS account).
      */
-    public readonly autoAccept: pulumi.Output<boolean | undefined>;
+    public readonly autoAccept!: pulumi.Output<boolean | undefined>;
     /**
      * The AWS account ID of the owner of the peer VPC.
      * Defaults to the account ID the [AWS provider][1] is currently connected to.
      */
-    public readonly peerOwnerId: pulumi.Output<string>;
+    public readonly peerOwnerId!: pulumi.Output<string>;
     /**
      * The region of the accepter VPC of the [VPC Peering Connection]. `auto_accept` must be `false`,
      * and use the `aws_vpc_peering_connection_accepter` to manage the accepter side.
      */
-    public readonly peerRegion: pulumi.Output<string>;
+    public readonly peerRegion!: pulumi.Output<string>;
     /**
      * The ID of the VPC with which you are creating the VPC Peering Connection.
      */
-    public readonly peerVpcId: pulumi.Output<string>;
+    public readonly peerVpcId!: pulumi.Output<string>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection]
      * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
-    public readonly requester: pulumi.Output<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }>;
+    public readonly requester!: pulumi.Output<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The ID of the requester VPC.
      */
-    public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a VpcPeeringConnection resource with the given unique name, arguments, and options.
@@ -92,7 +92,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcPeeringConnectionArgs | VpcPeeringConnectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpcPeeringConnectionState = argsOrState as VpcPeeringConnectionState | undefined;
+            const state = argsOrState as VpcPeeringConnectionState | undefined;
             inputs["acceptStatus"] = state ? state.acceptStatus : undefined;
             inputs["accepter"] = state ? state.accepter : undefined;
             inputs["autoAccept"] = state ? state.autoAccept : undefined;
@@ -119,6 +119,13 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["acceptStatus"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/vpcPeeringConnection:VpcPeeringConnection", name, inputs, opts);
     }

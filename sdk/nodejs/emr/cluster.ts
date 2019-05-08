@@ -506,108 +506,108 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore Terraform cannot detect drift from the actual EMR cluster if its value is changed outside Terraform.
      */
-    public readonly additionalInfo: pulumi.Output<string | undefined>;
+    public readonly additionalInfo!: pulumi.Output<string | undefined>;
     /**
      * A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
      */
-    public readonly applications: pulumi.Output<string[] | undefined>;
+    public readonly applications!: pulumi.Output<string[] | undefined>;
     /**
      * An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
      */
-    public readonly autoscalingRole: pulumi.Output<string | undefined>;
+    public readonly autoscalingRole!: pulumi.Output<string | undefined>;
     /**
      * List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
      */
-    public readonly bootstrapActions: pulumi.Output<{ args?: string[], name: string, path: string }[] | undefined>;
-    public /*out*/ readonly clusterState: pulumi.Output<string>;
+    public readonly bootstrapActions!: pulumi.Output<{ args?: string[], name: string, path: string }[] | undefined>;
+    public /*out*/ readonly clusterState!: pulumi.Output<string>;
     /**
      * List of configurations supplied for the EMR cluster you are creating
      */
-    public readonly configurations: pulumi.Output<string | undefined>;
+    public readonly configurations!: pulumi.Output<string | undefined>;
     /**
      * A JSON string for supplying list of configurations for the EMR cluster.
      */
-    public readonly configurationsJson: pulumi.Output<string | undefined>;
+    public readonly configurationsJson!: pulumi.Output<string | undefined>;
     /**
      * Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `instance_groups` is set. Default `1`
      */
-    public readonly coreInstanceCount: pulumi.Output<number>;
+    public readonly coreInstanceCount!: pulumi.Output<number>;
     /**
      * The EC2 instance type of the slave nodes. Cannot be specified if `instance_groups` is set
      */
-    public readonly coreInstanceType: pulumi.Output<string>;
+    public readonly coreInstanceType!: pulumi.Output<string>;
     /**
      * A custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
      */
-    public readonly customAmiId: pulumi.Output<string | undefined>;
+    public readonly customAmiId!: pulumi.Output<string | undefined>;
     /**
      * Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
      */
-    public readonly ebsRootVolumeSize: pulumi.Output<number | undefined>;
+    public readonly ebsRootVolumeSize!: pulumi.Output<number | undefined>;
     /**
      * Attributes for the EC2 instances running the job flow. Defined below
      */
-    public readonly ec2Attributes: pulumi.Output<{ additionalMasterSecurityGroups?: string, additionalSlaveSecurityGroups?: string, emrManagedMasterSecurityGroup?: string, emrManagedSlaveSecurityGroup?: string, instanceProfile: string, keyName?: string, serviceAccessSecurityGroup?: string, subnetId?: string } | undefined>;
+    public readonly ec2Attributes!: pulumi.Output<{ additionalMasterSecurityGroups?: string, additionalSlaveSecurityGroups?: string, emrManagedMasterSecurityGroup?: string, emrManagedSlaveSecurityGroup?: string, instanceProfile: string, keyName?: string, serviceAccessSecurityGroup?: string, subnetId?: string } | undefined>;
     /**
      * A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Defined below
      */
-    public readonly instanceGroups: pulumi.Output<{ autoscalingPolicy?: string, bidPrice?: string, ebsConfigs: { iops?: number, size: number, type: string, volumesPerInstance?: number }[], id: string, instanceCount?: number, instanceRole: string, instanceType: string, name?: string }[]>;
+    public readonly instanceGroups!: pulumi.Output<{ autoscalingPolicy?: string, bidPrice?: string, ebsConfigs: { iops?: number, size: number, type: string, volumesPerInstance?: number }[], id: string, instanceCount?: number, instanceRole: string, instanceType: string, name?: string }[]>;
     /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      */
-    public readonly keepJobFlowAliveWhenNoSteps: pulumi.Output<boolean>;
+    public readonly keepJobFlowAliveWhenNoSteps!: pulumi.Output<boolean>;
     /**
      * Kerberos configuration for the cluster. Defined below
      */
-    public readonly kerberosAttributes: pulumi.Output<{ adDomainJoinPassword?: string, adDomainJoinUser?: string, crossRealmTrustPrincipalPassword?: string, kdcAdminPassword: string, realm: string } | undefined>;
+    public readonly kerberosAttributes!: pulumi.Output<{ adDomainJoinPassword?: string, adDomainJoinUser?: string, crossRealmTrustPrincipalPassword?: string, kdcAdminPassword: string, realm: string } | undefined>;
     /**
      * S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
      */
-    public readonly logUri: pulumi.Output<string | undefined>;
+    public readonly logUri!: pulumi.Output<string | undefined>;
     /**
      * The EC2 instance type of the master node. Exactly one of `master_instance_type` and `instance_group` must be specified.
      */
-    public readonly masterInstanceType: pulumi.Output<string>;
+    public readonly masterInstanceType!: pulumi.Output<string>;
     /**
      * The public DNS name of the master EC2 instance.
      */
-    public /*out*/ readonly masterPublicDns: pulumi.Output<string>;
+    public /*out*/ readonly masterPublicDns!: pulumi.Output<string>;
     /**
      * The name of the job flow
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The release label for the Amazon EMR release
      */
-    public readonly releaseLabel: pulumi.Output<string>;
+    public readonly releaseLabel!: pulumi.Output<string>;
     /**
      * The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
      */
-    public readonly scaleDownBehavior: pulumi.Output<string>;
+    public readonly scaleDownBehavior!: pulumi.Output<string>;
     /**
      * The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater
      */
-    public readonly securityConfiguration: pulumi.Output<string | undefined>;
+    public readonly securityConfiguration!: pulumi.Output<string | undefined>;
     /**
      * IAM role that will be assumed by the Amazon EMR service to access AWS resources
      */
-    public readonly serviceRole: pulumi.Output<string>;
+    public readonly serviceRole!: pulumi.Output<string>;
     /**
      * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of Terraform. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
-    public readonly steps: pulumi.Output<{ actionOnFailure: string, hadoopJarStep: { args?: string[], jar: string, mainClass?: string, properties?: {[key: string]: any} }, name: string }[]>;
+    public readonly steps!: pulumi.Output<{ actionOnFailure: string, hadoopJarStep: { args?: string[], jar: string, mainClass?: string, properties?: {[key: string]: any} }, name: string }[]>;
     /**
      * list of tags to apply to the EMR Cluster
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Switch on/off termination protection (default is off)
      */
-    public readonly terminationProtection: pulumi.Output<boolean>;
+    public readonly terminationProtection!: pulumi.Output<boolean>;
     /**
      * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
      */
-    public readonly visibleToAllUsers: pulumi.Output<boolean | undefined>;
+    public readonly visibleToAllUsers!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -620,7 +620,7 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ClusterState = argsOrState as ClusterState | undefined;
+            const state = argsOrState as ClusterState | undefined;
             inputs["additionalInfo"] = state ? state.additionalInfo : undefined;
             inputs["applications"] = state ? state.applications : undefined;
             inputs["autoscalingRole"] = state ? state.autoscalingRole : undefined;
@@ -683,6 +683,13 @@ export class Cluster extends pulumi.CustomResource {
             inputs["visibleToAllUsers"] = args ? args.visibleToAllUsers : undefined;
             inputs["clusterState"] = undefined /*out*/;
             inputs["masterPublicDns"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:emr/cluster:Cluster", name, inputs, opts);
     }

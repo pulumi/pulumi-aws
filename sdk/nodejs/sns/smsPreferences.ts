@@ -32,27 +32,27 @@ export class SmsPreferences extends pulumi.CustomResource {
     /**
      * A string, such as your business brand, that is displayed as the sender on the receiving device.
      */
-    public readonly defaultSenderId: pulumi.Output<string | undefined>;
+    public readonly defaultSenderId!: pulumi.Output<string | undefined>;
     /**
      * The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
      */
-    public readonly defaultSmsType: pulumi.Output<string | undefined>;
+    public readonly defaultSmsType!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
      */
-    public readonly deliveryStatusIamRoleArn: pulumi.Output<string | undefined>;
+    public readonly deliveryStatusIamRoleArn!: pulumi.Output<string | undefined>;
     /**
      * The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
      */
-    public readonly deliveryStatusSuccessSamplingRate: pulumi.Output<string | undefined>;
+    public readonly deliveryStatusSuccessSamplingRate!: pulumi.Output<string | undefined>;
     /**
      * The maximum amount in USD that you are willing to spend each month to send SMS messages.
      */
-    public readonly monthlySpendLimit: pulumi.Output<string | undefined>;
+    public readonly monthlySpendLimit!: pulumi.Output<string | undefined>;
     /**
      * The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
      */
-    public readonly usageReportS3Bucket: pulumi.Output<string | undefined>;
+    public readonly usageReportS3Bucket!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SmsPreferences resource with the given unique name, arguments, and options.
@@ -65,7 +65,7 @@ export class SmsPreferences extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SmsPreferencesArgs | SmsPreferencesState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SmsPreferencesState = argsOrState as SmsPreferencesState | undefined;
+            const state = argsOrState as SmsPreferencesState | undefined;
             inputs["defaultSenderId"] = state ? state.defaultSenderId : undefined;
             inputs["defaultSmsType"] = state ? state.defaultSmsType : undefined;
             inputs["deliveryStatusIamRoleArn"] = state ? state.deliveryStatusIamRoleArn : undefined;
@@ -80,6 +80,13 @@ export class SmsPreferences extends pulumi.CustomResource {
             inputs["deliveryStatusSuccessSamplingRate"] = args ? args.deliveryStatusSuccessSamplingRate : undefined;
             inputs["monthlySpendLimit"] = args ? args.monthlySpendLimit : undefined;
             inputs["usageReportS3Bucket"] = args ? args.usageReportS3Bucket : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:sns/smsPreferences:SmsPreferences", name, inputs, opts);
     }

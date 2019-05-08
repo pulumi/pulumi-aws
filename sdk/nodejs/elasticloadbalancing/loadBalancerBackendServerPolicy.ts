@@ -77,15 +77,15 @@ export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {
     /**
      * The instance port to apply the policy to.
      */
-    public readonly instancePort: pulumi.Output<number>;
+    public readonly instancePort!: pulumi.Output<number>;
     /**
      * The load balancer to attach the policy to.
      */
-    public readonly loadBalancerName: pulumi.Output<string>;
+    public readonly loadBalancerName!: pulumi.Output<string>;
     /**
      * List of Policy Names to apply to the backend server.
      */
-    public readonly policyNames: pulumi.Output<string[] | undefined>;
+    public readonly policyNames!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a LoadBalancerBackendServerPolicy resource with the given unique name, arguments, and options.
@@ -98,7 +98,7 @@ export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LoadBalancerBackendServerPolicyArgs | LoadBalancerBackendServerPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LoadBalancerBackendServerPolicyState = argsOrState as LoadBalancerBackendServerPolicyState | undefined;
+            const state = argsOrState as LoadBalancerBackendServerPolicyState | undefined;
             inputs["instancePort"] = state ? state.instancePort : undefined;
             inputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
             inputs["policyNames"] = state ? state.policyNames : undefined;
@@ -113,6 +113,13 @@ export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {
             inputs["instancePort"] = args ? args.instancePort : undefined;
             inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
             inputs["policyNames"] = args ? args.policyNames : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy", name, inputs, opts);
     }

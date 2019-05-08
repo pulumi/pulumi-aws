@@ -231,46 +231,46 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the Stream
      */
-    public readonly arn: pulumi.Output<string>;
+    public readonly arn!: pulumi.Output<string>;
     /**
      * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
      */
-    public readonly destination: pulumi.Output<string>;
-    public readonly destinationId: pulumi.Output<string>;
-    public readonly elasticsearchConfiguration: pulumi.Output<{ bufferingInterval?: number, bufferingSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, domainArn: string, indexName: string, indexRotationPeriod?: string, processingConfiguration?: { enabled?: boolean, processors?: { parameters?: { parameterName: string, parameterValue: string }[], type: string }[] }, retryDuration?: number, roleArn: string, s3BackupMode?: string, typeName?: string } | undefined>;
+    public readonly destination!: pulumi.Output<string>;
+    public readonly destinationId!: pulumi.Output<string>;
+    public readonly elasticsearchConfiguration!: pulumi.Output<{ bufferingInterval?: number, bufferingSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, domainArn: string, indexName: string, indexRotationPeriod?: string, processingConfiguration?: { enabled?: boolean, processors?: { parameters?: { parameterName: string, parameterValue: string }[], type: string }[] }, retryDuration?: number, roleArn: string, s3BackupMode?: string, typeName?: string } | undefined>;
     /**
      * Enhanced configuration options for the s3 destination. More details are given below.
      */
-    public readonly extendedS3Configuration: pulumi.Output<{ bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, compressionFormat?: string, dataFormatConversionConfiguration?: { enabled?: boolean, inputFormatConfiguration: { deserializer: { hiveJsonSerDe?: { timestampFormats?: string[] }, openXJsonSerDe?: { caseInsensitive?: boolean, columnToJsonKeyMappings?: {[key: string]: string}, convertDotsInJsonKeysToUnderscores?: boolean } } }, outputFormatConfiguration: { serializer: { orcSerDe?: { blockSizeBytes?: number, bloomFilterColumns?: string[], bloomFilterFalsePositiveProbability?: number, compression?: string, dictionaryKeyThreshold?: number, enablePadding?: boolean, formatVersion?: string, paddingTolerance?: number, rowIndexStride?: number, stripeSizeBytes?: number }, parquetSerDe?: { blockSizeBytes?: number, compression?: string, enableDictionaryCompression?: boolean, maxPaddingBytes?: number, pageSizeBytes?: number, writerVersion?: string } } }, schemaConfiguration: { catalogId: string, databaseName: string, region: string, roleArn: string, tableName: string, versionId?: string } }, errorOutputPrefix?: string, kmsKeyArn?: string, prefix?: string, processingConfiguration?: { enabled?: boolean, processors?: { parameters?: { parameterName: string, parameterValue: string }[], type: string }[] }, roleArn: string, s3BackupConfiguration?: { bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, compressionFormat?: string, kmsKeyArn?: string, prefix?: string, roleArn: string }, s3BackupMode?: string } | undefined>;
+    public readonly extendedS3Configuration!: pulumi.Output<{ bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, compressionFormat?: string, dataFormatConversionConfiguration?: { enabled?: boolean, inputFormatConfiguration: { deserializer: { hiveJsonSerDe?: { timestampFormats?: string[] }, openXJsonSerDe?: { caseInsensitive?: boolean, columnToJsonKeyMappings?: {[key: string]: string}, convertDotsInJsonKeysToUnderscores?: boolean } } }, outputFormatConfiguration: { serializer: { orcSerDe?: { blockSizeBytes?: number, bloomFilterColumns?: string[], bloomFilterFalsePositiveProbability?: number, compression?: string, dictionaryKeyThreshold?: number, enablePadding?: boolean, formatVersion?: string, paddingTolerance?: number, rowIndexStride?: number, stripeSizeBytes?: number }, parquetSerDe?: { blockSizeBytes?: number, compression?: string, enableDictionaryCompression?: boolean, maxPaddingBytes?: number, pageSizeBytes?: number, writerVersion?: string } } }, schemaConfiguration: { catalogId: string, databaseName: string, region: string, roleArn: string, tableName: string, versionId?: string } }, errorOutputPrefix?: string, kmsKeyArn?: string, prefix?: string, processingConfiguration?: { enabled?: boolean, processors?: { parameters?: { parameterName: string, parameterValue: string }[], type: string }[] }, roleArn: string, s3BackupConfiguration?: { bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, compressionFormat?: string, kmsKeyArn?: string, prefix?: string, roleArn: string }, s3BackupMode?: string } | undefined>;
     /**
      * Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
      */
-    public readonly kinesisSourceConfiguration: pulumi.Output<{ kinesisStreamArn: string, roleArn: string } | undefined>;
+    public readonly kinesisSourceConfiguration!: pulumi.Output<{ kinesisStreamArn: string, roleArn: string } | undefined>;
     /**
      * A name to identify the stream. This is unique to the
      * AWS account and region the Stream is created in.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Configuration options if redshift is the destination.
      * Using `redshift_configuration` requires the user to also specify a
      * `s3_configuration` block. More details are given below.
      */
-    public readonly redshiftConfiguration: pulumi.Output<{ cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, clusterJdbcurl: string, copyOptions?: string, dataTableColumns?: string, dataTableName: string, password: string, processingConfiguration?: { enabled?: boolean, processors?: { parameters?: { parameterName: string, parameterValue: string }[], type: string }[] }, retryDuration?: number, roleArn: string, s3BackupConfiguration?: { bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, compressionFormat?: string, kmsKeyArn?: string, prefix?: string, roleArn: string }, s3BackupMode?: string, username: string } | undefined>;
+    public readonly redshiftConfiguration!: pulumi.Output<{ cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, clusterJdbcurl: string, copyOptions?: string, dataTableColumns?: string, dataTableName: string, password: string, processingConfiguration?: { enabled?: boolean, processors?: { parameters?: { parameterName: string, parameterValue: string }[], type: string }[] }, retryDuration?: number, roleArn: string, s3BackupConfiguration?: { bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, compressionFormat?: string, kmsKeyArn?: string, prefix?: string, roleArn: string }, s3BackupMode?: string, username: string } | undefined>;
     /**
      * Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
      * is redshift). More details are given below.
      */
-    public readonly s3Configuration: pulumi.Output<{ bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, compressionFormat?: string, kmsKeyArn?: string, prefix?: string, roleArn: string } | undefined>;
-    public readonly splunkConfiguration: pulumi.Output<{ cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, hecAcknowledgmentTimeout?: number, hecEndpoint: string, hecEndpointType?: string, hecToken: string, processingConfiguration?: { enabled?: boolean, processors?: { parameters?: { parameterName: string, parameterValue: string }[], type: string }[] }, retryDuration?: number, s3BackupMode?: string } | undefined>;
+    public readonly s3Configuration!: pulumi.Output<{ bucketArn: string, bufferInterval?: number, bufferSize?: number, cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, compressionFormat?: string, kmsKeyArn?: string, prefix?: string, roleArn: string } | undefined>;
+    public readonly splunkConfiguration!: pulumi.Output<{ cloudwatchLoggingOptions: { enabled?: boolean, logGroupName?: string, logStreamName?: string }, hecAcknowledgmentTimeout?: number, hecEndpoint: string, hecEndpointType?: string, hecToken: string, processingConfiguration?: { enabled?: boolean, processors?: { parameters?: { parameterName: string, parameterValue: string }[], type: string }[] }, retryDuration?: number, s3BackupMode?: string } | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Specifies the table version for the output data schema. Defaults to `LATEST`.
      */
-    public readonly versionId: pulumi.Output<string>;
+    public readonly versionId!: pulumi.Output<string>;
 
     /**
      * Create a FirehoseDeliveryStream resource with the given unique name, arguments, and options.
@@ -283,7 +283,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FirehoseDeliveryStreamArgs | FirehoseDeliveryStreamState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FirehoseDeliveryStreamState = argsOrState as FirehoseDeliveryStreamState | undefined;
+            const state = argsOrState as FirehoseDeliveryStreamState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["destination"] = state ? state.destination : undefined;
             inputs["destinationId"] = state ? state.destinationId : undefined;
@@ -313,6 +313,13 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             inputs["splunkConfiguration"] = args ? args.splunkConfiguration : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["versionId"] = args ? args.versionId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream", name, inputs, opts);
     }

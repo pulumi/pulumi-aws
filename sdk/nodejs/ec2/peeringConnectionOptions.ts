@@ -64,17 +64,17 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
      * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      */
-    public readonly accepter: pulumi.Output<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }>;
+    public readonly accepter!: pulumi.Output<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection]
      * (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
-    public readonly requester: pulumi.Output<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }>;
+    public readonly requester!: pulumi.Output<{ allowClassicLinkToRemoteVpc?: boolean, allowRemoteVpcDnsResolution?: boolean, allowVpcToRemoteClassicLink?: boolean }>;
     /**
      * The ID of the requester VPC peering connection.
      */
-    public readonly vpcPeeringConnectionId: pulumi.Output<string>;
+    public readonly vpcPeeringConnectionId!: pulumi.Output<string>;
 
     /**
      * Create a PeeringConnectionOptions resource with the given unique name, arguments, and options.
@@ -87,7 +87,7 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PeeringConnectionOptionsArgs | PeeringConnectionOptionsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PeeringConnectionOptionsState = argsOrState as PeeringConnectionOptionsState | undefined;
+            const state = argsOrState as PeeringConnectionOptionsState | undefined;
             inputs["accepter"] = state ? state.accepter : undefined;
             inputs["requester"] = state ? state.requester : undefined;
             inputs["vpcPeeringConnectionId"] = state ? state.vpcPeeringConnectionId : undefined;
@@ -99,6 +99,13 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
             inputs["accepter"] = args ? args.accepter : undefined;
             inputs["requester"] = args ? args.requester : undefined;
             inputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/peeringConnectionOptions:PeeringConnectionOptions", name, inputs, opts);
     }

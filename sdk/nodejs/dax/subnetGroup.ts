@@ -37,19 +37,19 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * A description of the subnet group.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the subnet group.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A list of VPC subnet IDs for the subnet group.
      */
-    public readonly subnetIds: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * VPC ID of the subnet group.
      */
-    public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a SubnetGroup resource with the given unique name, arguments, and options.
@@ -62,7 +62,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SubnetGroupArgs | SubnetGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SubnetGroupState = argsOrState as SubnetGroupState | undefined;
+            const state = argsOrState as SubnetGroupState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -76,6 +76,13 @@ export class SubnetGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["vpcId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:dax/subnetGroup:SubnetGroup", name, inputs, opts);
     }

@@ -127,6 +127,10 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
         __props__['accept_status'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VpcPeeringConnection, __self__).__init__(
             'aws:ec2/vpcPeeringConnection:VpcPeeringConnection',
             resource_name,

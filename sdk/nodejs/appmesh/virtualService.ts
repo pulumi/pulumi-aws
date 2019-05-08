@@ -61,27 +61,27 @@ export class VirtualService extends pulumi.CustomResource {
     /**
      * The ARN of the virtual service.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The creation date of the virtual service.
      */
-    public /*out*/ readonly createdDate: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
      * The last update date of the virtual service.
      */
-    public /*out*/ readonly lastUpdatedDate: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
      * The name of the service mesh in which to create the virtual service.
      */
-    public readonly meshName: pulumi.Output<string>;
+    public readonly meshName!: pulumi.Output<string>;
     /**
      * The name to use for the virtual service.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The virtual service specification to apply.
      */
-    public readonly spec: pulumi.Output<{ provider?: { virtualNode?: { virtualNodeName: string }, virtualRouter?: { virtualRouterName: string } } }>;
+    public readonly spec!: pulumi.Output<{ provider?: { virtualNode?: { virtualNodeName: string }, virtualRouter?: { virtualRouterName: string } } }>;
 
     /**
      * Create a VirtualService resource with the given unique name, arguments, and options.
@@ -94,7 +94,7 @@ export class VirtualService extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VirtualServiceArgs | VirtualServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VirtualServiceState = argsOrState as VirtualServiceState | undefined;
+            const state = argsOrState as VirtualServiceState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
             inputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
@@ -115,6 +115,13 @@ export class VirtualService extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["createdDate"] = undefined /*out*/;
             inputs["lastUpdatedDate"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:appmesh/virtualService:VirtualService", name, inputs, opts);
     }

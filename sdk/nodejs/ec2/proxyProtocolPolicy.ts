@@ -56,12 +56,12 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
      * List of instance ports to which the policy
      * should be applied. This can be specified if the protocol is SSL or TCP.
      */
-    public readonly instancePorts: pulumi.Output<string[]>;
+    public readonly instancePorts!: pulumi.Output<string[]>;
     /**
      * The load balancer to which the policy
      * should be attached.
      */
-    public readonly loadBalancer: pulumi.Output<string>;
+    public readonly loadBalancer!: pulumi.Output<string>;
 
     /**
      * Create a ProxyProtocolPolicy resource with the given unique name, arguments, and options.
@@ -74,7 +74,7 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProxyProtocolPolicyArgs | ProxyProtocolPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ProxyProtocolPolicyState = argsOrState as ProxyProtocolPolicyState | undefined;
+            const state = argsOrState as ProxyProtocolPolicyState | undefined;
             inputs["instancePorts"] = state ? state.instancePorts : undefined;
             inputs["loadBalancer"] = state ? state.loadBalancer : undefined;
         } else {
@@ -87,6 +87,13 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
             }
             inputs["instancePorts"] = args ? args.instancePorts : undefined;
             inputs["loadBalancer"] = args ? args.loadBalancer : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy", name, inputs, opts);
     }

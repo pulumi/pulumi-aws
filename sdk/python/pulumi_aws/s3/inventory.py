@@ -95,6 +95,10 @@ class Inventory(pulumi.CustomResource):
             raise TypeError("Missing required property 'schedule'")
         __props__['schedule'] = schedule
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Inventory, __self__).__init__(
             'aws:s3/inventory:Inventory',
             resource_name,

@@ -34,19 +34,19 @@ export class RouteTable extends pulumi.CustomResource {
     /**
      * Boolean whether this is the default association route table for the EC2 Transit Gateway.
      */
-    public /*out*/ readonly defaultAssociationRouteTable: pulumi.Output<boolean>;
+    public /*out*/ readonly defaultAssociationRouteTable!: pulumi.Output<boolean>;
     /**
      * Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
      */
-    public /*out*/ readonly defaultPropagationRouteTable: pulumi.Output<boolean>;
+    public /*out*/ readonly defaultPropagationRouteTable!: pulumi.Output<boolean>;
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table.
      */
-    public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    public readonly transitGatewayId: pulumi.Output<string>;
+    public readonly transitGatewayId!: pulumi.Output<string>;
 
     /**
      * Create a RouteTable resource with the given unique name, arguments, and options.
@@ -59,7 +59,7 @@ export class RouteTable extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RouteTableArgs | RouteTableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RouteTableState = argsOrState as RouteTableState | undefined;
+            const state = argsOrState as RouteTableState | undefined;
             inputs["defaultAssociationRouteTable"] = state ? state.defaultAssociationRouteTable : undefined;
             inputs["defaultPropagationRouteTable"] = state ? state.defaultPropagationRouteTable : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -73,6 +73,13 @@ export class RouteTable extends pulumi.CustomResource {
             inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             inputs["defaultAssociationRouteTable"] = undefined /*out*/;
             inputs["defaultPropagationRouteTable"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2transitgateway/routeTable:RouteTable", name, inputs, opts);
     }

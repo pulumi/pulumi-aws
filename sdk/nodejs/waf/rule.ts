@@ -45,15 +45,15 @@ export class Rule extends pulumi.CustomResource {
     /**
      * The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
      */
-    public readonly metricName: pulumi.Output<string>;
+    public readonly metricName!: pulumi.Output<string>;
     /**
      * The name or description of the rule.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
      */
-    public readonly predicates: pulumi.Output<{ dataId: string, negated: boolean, type: string }[] | undefined>;
+    public readonly predicates!: pulumi.Output<{ dataId: string, negated: boolean, type: string }[] | undefined>;
 
     /**
      * Create a Rule resource with the given unique name, arguments, and options.
@@ -66,7 +66,7 @@ export class Rule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RuleArgs | RuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RuleState = argsOrState as RuleState | undefined;
+            const state = argsOrState as RuleState | undefined;
             inputs["metricName"] = state ? state.metricName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["predicates"] = state ? state.predicates : undefined;
@@ -78,6 +78,13 @@ export class Rule extends pulumi.CustomResource {
             inputs["metricName"] = args ? args.metricName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["predicates"] = args ? args.predicates : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:waf/rule:Rule", name, inputs, opts);
     }

@@ -50,51 +50,51 @@ export class PlatformApplication extends pulumi.CustomResource {
     /**
      * The ARN of the SNS platform application
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
      */
-    public readonly eventDeliveryFailureTopicArn: pulumi.Output<string | undefined>;
+    public readonly eventDeliveryFailureTopicArn!: pulumi.Output<string | undefined>;
     /**
      * SNS Topic triggered when a new platform endpoint is added to your platform application.
      */
-    public readonly eventEndpointCreatedTopicArn: pulumi.Output<string | undefined>;
+    public readonly eventEndpointCreatedTopicArn!: pulumi.Output<string | undefined>;
     /**
      * SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
      */
-    public readonly eventEndpointDeletedTopicArn: pulumi.Output<string | undefined>;
+    public readonly eventEndpointDeletedTopicArn!: pulumi.Output<string | undefined>;
     /**
      * SNS Topic triggered when an existing platform endpoint is changed from your platform application.
      */
-    public readonly eventEndpointUpdatedTopicArn: pulumi.Output<string | undefined>;
+    public readonly eventEndpointUpdatedTopicArn!: pulumi.Output<string | undefined>;
     /**
      * The IAM role permitted to receive failure feedback for this application.
      */
-    public readonly failureFeedbackRoleArn: pulumi.Output<string | undefined>;
+    public readonly failureFeedbackRoleArn!: pulumi.Output<string | undefined>;
     /**
      * The friendly name for the SNS platform application
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The platform that the app is registered with. See [Platform][1] for supported platforms.
      */
-    public readonly platform: pulumi.Output<string>;
+    public readonly platform!: pulumi.Output<string>;
     /**
      * Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
-    public readonly platformCredential: pulumi.Output<string>;
+    public readonly platformCredential!: pulumi.Output<string>;
     /**
      * Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
-    public readonly platformPrincipal: pulumi.Output<string | undefined>;
+    public readonly platformPrincipal!: pulumi.Output<string | undefined>;
     /**
      * The IAM role permitted to receive success feedback for this application.
      */
-    public readonly successFeedbackRoleArn: pulumi.Output<string | undefined>;
+    public readonly successFeedbackRoleArn!: pulumi.Output<string | undefined>;
     /**
      * The percentage of success to sample (0-100)
      */
-    public readonly successFeedbackSampleRate: pulumi.Output<string | undefined>;
+    public readonly successFeedbackSampleRate!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PlatformApplication resource with the given unique name, arguments, and options.
@@ -107,7 +107,7 @@ export class PlatformApplication extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PlatformApplicationArgs | PlatformApplicationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PlatformApplicationState = argsOrState as PlatformApplicationState | undefined;
+            const state = argsOrState as PlatformApplicationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["eventDeliveryFailureTopicArn"] = state ? state.eventDeliveryFailureTopicArn : undefined;
             inputs["eventEndpointCreatedTopicArn"] = state ? state.eventEndpointCreatedTopicArn : undefined;
@@ -140,6 +140,13 @@ export class PlatformApplication extends pulumi.CustomResource {
             inputs["successFeedbackRoleArn"] = args ? args.successFeedbackRoleArn : undefined;
             inputs["successFeedbackSampleRate"] = args ? args.successFeedbackSampleRate : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:sns/platformApplication:PlatformApplication", name, inputs, opts);
     }

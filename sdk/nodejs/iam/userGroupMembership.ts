@@ -51,11 +51,11 @@ export class UserGroupMembership extends pulumi.CustomResource {
     /**
      * A list of [IAM Groups][1] to add the user to
      */
-    public readonly groups: pulumi.Output<string[]>;
+    public readonly groups!: pulumi.Output<string[]>;
     /**
      * The name of the [IAM User][2] to add to groups
      */
-    public readonly user: pulumi.Output<string>;
+    public readonly user!: pulumi.Output<string>;
 
     /**
      * Create a UserGroupMembership resource with the given unique name, arguments, and options.
@@ -68,7 +68,7 @@ export class UserGroupMembership extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserGroupMembershipArgs | UserGroupMembershipState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserGroupMembershipState = argsOrState as UserGroupMembershipState | undefined;
+            const state = argsOrState as UserGroupMembershipState | undefined;
             inputs["groups"] = state ? state.groups : undefined;
             inputs["user"] = state ? state.user : undefined;
         } else {
@@ -81,6 +81,13 @@ export class UserGroupMembership extends pulumi.CustomResource {
             }
             inputs["groups"] = args ? args.groups : undefined;
             inputs["user"] = args ? args.user : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:iam/userGroupMembership:UserGroupMembership", name, inputs, opts);
     }

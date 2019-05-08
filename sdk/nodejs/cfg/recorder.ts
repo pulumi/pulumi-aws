@@ -52,17 +52,17 @@ export class Recorder extends pulumi.CustomResource {
     /**
      * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Recording group - see below.
      */
-    public readonly recordingGroup: pulumi.Output<{ allSupported?: boolean, includeGlobalResourceTypes?: boolean, resourceTypes?: string[] }>;
+    public readonly recordingGroup!: pulumi.Output<{ allSupported?: boolean, includeGlobalResourceTypes?: boolean, resourceTypes?: string[] }>;
     /**
      * Amazon Resource Name (ARN) of the IAM role.
      * used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
      * See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */
-    public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
 
     /**
      * Create a Recorder resource with the given unique name, arguments, and options.
@@ -75,7 +75,7 @@ export class Recorder extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RecorderArgs | RecorderState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RecorderState = argsOrState as RecorderState | undefined;
+            const state = argsOrState as RecorderState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["recordingGroup"] = state ? state.recordingGroup : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
@@ -87,6 +87,13 @@ export class Recorder extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["recordingGroup"] = args ? args.recordingGroup : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cfg/recorder:Recorder", name, inputs, opts);
     }

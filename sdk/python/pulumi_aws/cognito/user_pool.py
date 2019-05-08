@@ -185,6 +185,10 @@ class UserPool(pulumi.CustomResource):
         __props__['endpoint'] = None
         __props__['last_modified_date'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(UserPool, __self__).__init__(
             'aws:cognito/userPool:UserPool',
             resource_name,

@@ -41,11 +41,11 @@ export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
     /**
      * The additional IPv4 CIDR block to associate with the VPC.
      */
-    public readonly cidrBlock: pulumi.Output<string>;
+    public readonly cidrBlock!: pulumi.Output<string>;
     /**
      * The ID of the VPC to make the association with.
      */
-    public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a VpcIpv4CidrBlockAssociation resource with the given unique name, arguments, and options.
@@ -58,7 +58,7 @@ export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcIpv4CidrBlockAssociationArgs | VpcIpv4CidrBlockAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpcIpv4CidrBlockAssociationState = argsOrState as VpcIpv4CidrBlockAssociationState | undefined;
+            const state = argsOrState as VpcIpv4CidrBlockAssociationState | undefined;
             inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
@@ -71,6 +71,13 @@ export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
             }
             inputs["cidrBlock"] = args ? args.cidrBlock : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation", name, inputs, opts);
     }

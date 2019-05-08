@@ -35,57 +35,57 @@ export class ClusterSnapshot extends pulumi.CustomResource {
     /**
      * Specifies the allocated storage size in gigabytes (GB).
      */
-    public /*out*/ readonly allocatedStorage: pulumi.Output<number>;
+    public /*out*/ readonly allocatedStorage!: pulumi.Output<number>;
     /**
      * List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
      */
-    public /*out*/ readonly availabilityZones: pulumi.Output<string[]>;
+    public /*out*/ readonly availabilityZones!: pulumi.Output<string[]>;
     /**
      * The DB Cluster Identifier from which to take the snapshot.
      */
-    public readonly dbClusterIdentifier: pulumi.Output<string>;
+    public readonly dbClusterIdentifier!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
      */
-    public /*out*/ readonly dbClusterSnapshotArn: pulumi.Output<string>;
+    public /*out*/ readonly dbClusterSnapshotArn!: pulumi.Output<string>;
     /**
      * The Identifier for the snapshot.
      */
-    public readonly dbClusterSnapshotIdentifier: pulumi.Output<string>;
+    public readonly dbClusterSnapshotIdentifier!: pulumi.Output<string>;
     /**
      * Specifies the name of the database engine.
      */
-    public /*out*/ readonly engine: pulumi.Output<string>;
+    public /*out*/ readonly engine!: pulumi.Output<string>;
     /**
      * Version of the database engine for this DB cluster snapshot.
      */
-    public /*out*/ readonly engineVersion: pulumi.Output<string>;
+    public /*out*/ readonly engineVersion!: pulumi.Output<string>;
     /**
      * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      */
-    public /*out*/ readonly kmsKeyId: pulumi.Output<string>;
+    public /*out*/ readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * License model information for the restored DB cluster.
      */
-    public /*out*/ readonly licenseModel: pulumi.Output<string>;
+    public /*out*/ readonly licenseModel!: pulumi.Output<string>;
     /**
      * Port that the DB cluster was listening on at the time of the snapshot.
      */
-    public /*out*/ readonly port: pulumi.Output<number>;
-    public /*out*/ readonly snapshotType: pulumi.Output<string>;
-    public /*out*/ readonly sourceDbClusterSnapshotArn: pulumi.Output<string>;
+    public /*out*/ readonly port!: pulumi.Output<number>;
+    public /*out*/ readonly snapshotType!: pulumi.Output<string>;
+    public /*out*/ readonly sourceDbClusterSnapshotArn!: pulumi.Output<string>;
     /**
      * The status of this DB Cluster Snapshot.
      */
-    public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Specifies whether the DB cluster snapshot is encrypted.
      */
-    public /*out*/ readonly storageEncrypted: pulumi.Output<boolean>;
+    public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
      * The VPC ID associated with the DB cluster snapshot.
      */
-    public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a ClusterSnapshot resource with the given unique name, arguments, and options.
@@ -98,7 +98,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterSnapshotArgs | ClusterSnapshotState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ClusterSnapshotState = argsOrState as ClusterSnapshotState | undefined;
+            const state = argsOrState as ClusterSnapshotState | undefined;
             inputs["allocatedStorage"] = state ? state.allocatedStorage : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             inputs["dbClusterIdentifier"] = state ? state.dbClusterIdentifier : undefined;
@@ -137,6 +137,13 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["storageEncrypted"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:neptune/clusterSnapshot:ClusterSnapshot", name, inputs, opts);
     }

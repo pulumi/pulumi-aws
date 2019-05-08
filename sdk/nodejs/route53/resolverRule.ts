@@ -56,42 +56,42 @@ export class ResolverRule extends pulumi.CustomResource {
     /**
      * The ARN (Amazon Resource Name) for the resolver rule.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
      */
-    public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
      */
-    public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
      * This argument should only be specified for `FORWARD` type rules.
      */
-    public readonly resolverEndpointId: pulumi.Output<string | undefined>;
+    public readonly resolverEndpointId!: pulumi.Output<string | undefined>;
     /**
      * The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
      */
-    public readonly ruleType: pulumi.Output<string>;
+    public readonly ruleType!: pulumi.Output<string>;
     /**
      * Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
      * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      */
-    public /*out*/ readonly shareStatus: pulumi.Output<string>;
+    public /*out*/ readonly shareStatus!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
      * This argument should only be specified for `FORWARD` type rules.
      */
-    public readonly targetIps: pulumi.Output<{ ip: string, port?: number }[] | undefined>;
+    public readonly targetIps!: pulumi.Output<{ ip: string, port?: number }[] | undefined>;
 
     /**
      * Create a ResolverRule resource with the given unique name, arguments, and options.
@@ -104,7 +104,7 @@ export class ResolverRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResolverRuleArgs | ResolverRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ResolverRuleState = argsOrState as ResolverRuleState | undefined;
+            const state = argsOrState as ResolverRuleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -131,6 +131,13 @@ export class ResolverRule extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["shareStatus"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:route53/resolverRule:ResolverRule", name, inputs, opts);
     }

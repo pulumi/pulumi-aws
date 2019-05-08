@@ -35,11 +35,11 @@ export class RouteTableAssociation extends pulumi.CustomResource {
     /**
      * The ID of the routing table to associate with.
      */
-    public readonly routeTableId: pulumi.Output<string>;
+    public readonly routeTableId!: pulumi.Output<string>;
     /**
      * The subnet ID to create an association.
      */
-    public readonly subnetId: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string>;
 
     /**
      * Create a RouteTableAssociation resource with the given unique name, arguments, and options.
@@ -52,7 +52,7 @@ export class RouteTableAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RouteTableAssociationArgs | RouteTableAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RouteTableAssociationState = argsOrState as RouteTableAssociationState | undefined;
+            const state = argsOrState as RouteTableAssociationState | undefined;
             inputs["routeTableId"] = state ? state.routeTableId : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
@@ -65,6 +65,13 @@ export class RouteTableAssociation extends pulumi.CustomResource {
             }
             inputs["routeTableId"] = args ? args.routeTableId : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/routeTableAssociation:RouteTableAssociation", name, inputs, opts);
     }

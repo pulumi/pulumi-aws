@@ -36,23 +36,23 @@ export class NetworkAssociation extends pulumi.CustomResource {
     /**
      * The ID of the Client VPN endpoint.
      */
-    public readonly clientVpnEndpointId: pulumi.Output<string>;
+    public readonly clientVpnEndpointId!: pulumi.Output<string>;
     /**
      * The IDs of the security groups applied to the target network association.
      */
-    public /*out*/ readonly securityGroups: pulumi.Output<string[]>;
+    public /*out*/ readonly securityGroups!: pulumi.Output<string[]>;
     /**
      * The current state of the target network association.
      */
-    public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      */
-    public readonly subnetId: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string>;
     /**
      * The ID of the VPC in which the target network (subnet) is located. 
      */
-    public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a NetworkAssociation resource with the given unique name, arguments, and options.
@@ -65,7 +65,7 @@ export class NetworkAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NetworkAssociationArgs | NetworkAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkAssociationState = argsOrState as NetworkAssociationState | undefined;
+            const state = argsOrState as NetworkAssociationState | undefined;
             inputs["clientVpnEndpointId"] = state ? state.clientVpnEndpointId : undefined;
             inputs["securityGroups"] = state ? state.securityGroups : undefined;
             inputs["status"] = state ? state.status : undefined;
@@ -84,6 +84,13 @@ export class NetworkAssociation extends pulumi.CustomResource {
             inputs["securityGroups"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2clientvpn/networkAssociation:NetworkAssociation", name, inputs, opts);
     }

@@ -37,63 +37,63 @@ export class NfsFileShare extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the NFS File Share.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
      */
-    public readonly clientLists: pulumi.Output<string[]>;
+    public readonly clientLists!: pulumi.Output<string[]>;
     /**
      * The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
      */
-    public readonly defaultStorageClass: pulumi.Output<string | undefined>;
+    public readonly defaultStorageClass!: pulumi.Output<string | undefined>;
     /**
      * ID of the NFS File Share.
      */
-    public /*out*/ readonly fileshareId: pulumi.Output<string>;
+    public /*out*/ readonly fileshareId!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the file gateway.
      */
-    public readonly gatewayArn: pulumi.Output<string>;
+    public readonly gatewayArn!: pulumi.Output<string>;
     /**
      * Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
      */
-    public readonly guessMimeTypeEnabled: pulumi.Output<boolean | undefined>;
+    public readonly guessMimeTypeEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
      */
-    public readonly kmsEncrypted: pulumi.Output<boolean | undefined>;
+    public readonly kmsEncrypted!: pulumi.Output<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
      */
-    public readonly kmsKeyArn: pulumi.Output<string | undefined>;
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the backed storage used for storing file data.
      */
-    public readonly locationArn: pulumi.Output<string>;
+    public readonly locationArn!: pulumi.Output<string>;
     /**
      * Nested argument with file share default values. More information below.
      */
-    public readonly nfsFileShareDefaults: pulumi.Output<{ directoryMode?: string, fileMode?: string, groupId?: number, ownerId?: number } | undefined>;
+    public readonly nfsFileShareDefaults!: pulumi.Output<{ directoryMode?: string, fileMode?: string, groupId?: number, ownerId?: number } | undefined>;
     /**
      * Access Control List permission for S3 bucket objects. Defaults to `private`.
      */
-    public readonly objectAcl: pulumi.Output<string | undefined>;
+    public readonly objectAcl!: pulumi.Output<string | undefined>;
     /**
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      */
-    public readonly readOnly: pulumi.Output<boolean | undefined>;
+    public readonly readOnly!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      */
-    public readonly requesterPays: pulumi.Output<boolean | undefined>;
+    public readonly requesterPays!: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
      */
-    public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
      */
-    public readonly squash: pulumi.Output<string | undefined>;
+    public readonly squash!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NfsFileShare resource with the given unique name, arguments, and options.
@@ -106,7 +106,7 @@ export class NfsFileShare extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NfsFileShareArgs | NfsFileShareState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NfsFileShareState = argsOrState as NfsFileShareState | undefined;
+            const state = argsOrState as NfsFileShareState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["clientLists"] = state ? state.clientLists : undefined;
             inputs["defaultStorageClass"] = state ? state.defaultStorageClass : undefined;
@@ -151,6 +151,13 @@ export class NfsFileShare extends pulumi.CustomResource {
             inputs["squash"] = args ? args.squash : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["fileshareId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:storagegateway/nfsFileShare:NfsFileShare", name, inputs, opts);
     }

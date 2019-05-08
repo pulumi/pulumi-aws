@@ -105,6 +105,10 @@ class RestApi(pulumi.CustomResource):
         __props__['execution_arn'] = None
         __props__['root_resource_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(RestApi, __self__).__init__(
             'aws:apigateway/restApi:RestApi',
             resource_name,

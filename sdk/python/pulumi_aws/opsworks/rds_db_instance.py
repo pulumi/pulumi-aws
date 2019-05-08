@@ -70,6 +70,10 @@ class RdsDbInstance(pulumi.CustomResource):
             raise TypeError("Missing required property 'stack_id'")
         __props__['stack_id'] = stack_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(RdsDbInstance, __self__).__init__(
             'aws:opsworks/rdsDbInstance:RdsDbInstance',
             resource_name,

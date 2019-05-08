@@ -49,19 +49,19 @@ export class Listener extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of your accelerator.
      */
-    public readonly acceleratorArn: pulumi.Output<string>;
+    public readonly acceleratorArn!: pulumi.Output<string>;
     /**
      * Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
      */
-    public readonly clientAffinity: pulumi.Output<string | undefined>;
+    public readonly clientAffinity!: pulumi.Output<string | undefined>;
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      */
-    public readonly portRanges: pulumi.Output<{ fromPort?: number, toPort?: number }[]>;
+    public readonly portRanges!: pulumi.Output<{ fromPort?: number, toPort?: number }[]>;
     /**
      * The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
      */
-    public readonly protocol: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<string>;
 
     /**
      * Create a Listener resource with the given unique name, arguments, and options.
@@ -74,7 +74,7 @@ export class Listener extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ListenerArgs | ListenerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ListenerState = argsOrState as ListenerState | undefined;
+            const state = argsOrState as ListenerState | undefined;
             inputs["acceleratorArn"] = state ? state.acceleratorArn : undefined;
             inputs["clientAffinity"] = state ? state.clientAffinity : undefined;
             inputs["portRanges"] = state ? state.portRanges : undefined;
@@ -94,6 +94,13 @@ export class Listener extends pulumi.CustomResource {
             inputs["clientAffinity"] = args ? args.clientAffinity : undefined;
             inputs["portRanges"] = args ? args.portRanges : undefined;
             inputs["protocol"] = args ? args.protocol : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:globalaccelerator/listener:Listener", name, inputs, opts);
     }

@@ -17,6 +17,7 @@ export * from "./globalCluster";
 export * from "./instance";
 export * from "./optionGroup";
 export * from "./parameterGroup";
+export * from "./roleAssociation";
 export * from "./securityGroup";
 export * from "./snapshot";
 export * from "./subnetGroup";

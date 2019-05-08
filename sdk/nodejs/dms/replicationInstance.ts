@@ -50,71 +50,71 @@ export class ReplicationInstance extends pulumi.CustomResource {
     /**
      * The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      */
-    public readonly allocatedStorage: pulumi.Output<number>;
+    public readonly allocatedStorage!: pulumi.Output<number>;
     /**
      * Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
      */
-    public readonly applyImmediately: pulumi.Output<boolean | undefined>;
+    public readonly applyImmediately!: pulumi.Output<boolean | undefined>;
     /**
      * Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
      */
-    public readonly autoMinorVersionUpgrade: pulumi.Output<boolean>;
+    public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean>;
     /**
      * The EC2 Availability Zone that the replication instance will be created in.
      */
-    public readonly availabilityZone: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string>;
     /**
      * The engine version number of the replication instance.
      */
-    public readonly engineVersion: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
-    public readonly kmsKeyArn: pulumi.Output<string>;
+    public readonly kmsKeyArn!: pulumi.Output<string>;
     /**
      * Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
      */
-    public readonly multiAz: pulumi.Output<boolean>;
+    public readonly multiAz!: pulumi.Output<boolean>;
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      */
-    public readonly preferredMaintenanceWindow: pulumi.Output<string>;
+    public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
      * Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
      */
-    public readonly publiclyAccessible: pulumi.Output<boolean>;
+    public readonly publiclyAccessible!: pulumi.Output<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the replication instance.
      */
-    public /*out*/ readonly replicationInstanceArn: pulumi.Output<string>;
+    public /*out*/ readonly replicationInstanceArn!: pulumi.Output<string>;
     /**
      * The compute and memory capacity of the replication instance as specified by the replication instance class. Can be one of `dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge`
      */
-    public readonly replicationInstanceClass: pulumi.Output<string>;
+    public readonly replicationInstanceClass!: pulumi.Output<string>;
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
      */
-    public readonly replicationInstanceId: pulumi.Output<string>;
+    public readonly replicationInstanceId!: pulumi.Output<string>;
     /**
      * A list of the private IP addresses of the replication instance.
      */
-    public /*out*/ readonly replicationInstancePrivateIps: pulumi.Output<string[]>;
+    public /*out*/ readonly replicationInstancePrivateIps!: pulumi.Output<string[]>;
     /**
      * A list of the public IP addresses of the replication instance.
      */
-    public /*out*/ readonly replicationInstancePublicIps: pulumi.Output<string[]>;
+    public /*out*/ readonly replicationInstancePublicIps!: pulumi.Output<string[]>;
     /**
      * A subnet group to associate with the replication instance.
      */
-    public readonly replicationSubnetGroupId: pulumi.Output<string>;
+    public readonly replicationSubnetGroupId!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
      */
-    public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
+    public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
 
     /**
      * Create a ReplicationInstance resource with the given unique name, arguments, and options.
@@ -127,7 +127,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ReplicationInstanceArgs | ReplicationInstanceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ReplicationInstanceState = argsOrState as ReplicationInstanceState | undefined;
+            const state = argsOrState as ReplicationInstanceState | undefined;
             inputs["allocatedStorage"] = state ? state.allocatedStorage : undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
             inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
@@ -170,6 +170,13 @@ export class ReplicationInstance extends pulumi.CustomResource {
             inputs["replicationInstanceArn"] = undefined /*out*/;
             inputs["replicationInstancePrivateIps"] = undefined /*out*/;
             inputs["replicationInstancePublicIps"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:dms/replicationInstance:ReplicationInstance", name, inputs, opts);
     }

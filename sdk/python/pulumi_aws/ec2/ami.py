@@ -153,6 +153,10 @@ class Ami(pulumi.CustomResource):
         __props__['manage_ebs_snapshots'] = None
         __props__['root_snapshot_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Ami, __self__).__init__(
             'aws:ec2/ami:Ami',
             resource_name,

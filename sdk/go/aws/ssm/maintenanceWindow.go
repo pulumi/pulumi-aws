@@ -36,6 +36,7 @@ func NewMaintenanceWindow(ctx *pulumi.Context,
 		inputs["schedule"] = nil
 		inputs["scheduleTimezone"] = nil
 		inputs["startDate"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["allowUnassociatedTargets"] = args.AllowUnassociatedTargets
 		inputs["cutoff"] = args.Cutoff
@@ -46,6 +47,7 @@ func NewMaintenanceWindow(ctx *pulumi.Context,
 		inputs["schedule"] = args.Schedule
 		inputs["scheduleTimezone"] = args.ScheduleTimezone
 		inputs["startDate"] = args.StartDate
+		inputs["tags"] = args.Tags
 	}
 	s, err := ctx.RegisterResource("aws:ssm/maintenanceWindow:MaintenanceWindow", name, true, inputs, opts...)
 	if err != nil {
@@ -69,6 +71,7 @@ func GetMaintenanceWindow(ctx *pulumi.Context,
 		inputs["schedule"] = state.Schedule
 		inputs["scheduleTimezone"] = state.ScheduleTimezone
 		inputs["startDate"] = state.StartDate
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:ssm/maintenanceWindow:MaintenanceWindow", name, id, inputs, opts...)
 	if err != nil {
@@ -132,6 +135,11 @@ func (r *MaintenanceWindow) StartDate() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["startDate"])
 }
 
+// A mapping of tags to assign to the resource.
+func (r *MaintenanceWindow) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering MaintenanceWindow resources.
 type MaintenanceWindowState struct {
 	// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
@@ -152,6 +160,8 @@ type MaintenanceWindowState struct {
 	ScheduleTimezone interface{}
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
 	StartDate interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }
 
 // The set of arguments for constructing a MaintenanceWindow resource.
@@ -174,4 +184,6 @@ type MaintenanceWindowArgs struct {
 	ScheduleTimezone interface{}
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
 	StartDate interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }

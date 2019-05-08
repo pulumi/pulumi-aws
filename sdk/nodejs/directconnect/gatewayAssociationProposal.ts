@@ -45,19 +45,19 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
     /**
      * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      */
-    public readonly allowedPrefixes: pulumi.Output<string[]>;
+    public readonly allowedPrefixes!: pulumi.Output<string[]>;
     /**
      * Direct Connect Gateway identifier.
      */
-    public readonly dxGatewayId: pulumi.Output<string>;
+    public readonly dxGatewayId!: pulumi.Output<string>;
     /**
      * AWS Account identifier of the Direct Connect Gateway.
      */
-    public readonly dxGatewayOwnerAccountId: pulumi.Output<string>;
+    public readonly dxGatewayOwnerAccountId!: pulumi.Output<string>;
     /**
      * Virtual Gateway identifier to associate with the Direct Connect Gateway.
      */
-    public readonly vpnGatewayId: pulumi.Output<string>;
+    public readonly vpnGatewayId!: pulumi.Output<string>;
 
     /**
      * Create a GatewayAssociationProposal resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GatewayAssociationProposalArgs | GatewayAssociationProposalState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GatewayAssociationProposalState = argsOrState as GatewayAssociationProposalState | undefined;
+            const state = argsOrState as GatewayAssociationProposalState | undefined;
             inputs["allowedPrefixes"] = state ? state.allowedPrefixes : undefined;
             inputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
             inputs["dxGatewayOwnerAccountId"] = state ? state.dxGatewayOwnerAccountId : undefined;
@@ -90,6 +90,13 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
             inputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
             inputs["dxGatewayOwnerAccountId"] = args ? args.dxGatewayOwnerAccountId : undefined;
             inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal", name, inputs, opts);
     }

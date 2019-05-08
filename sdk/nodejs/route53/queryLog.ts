@@ -29,11 +29,11 @@ export class QueryLog extends pulumi.CustomResource {
     /**
      * CloudWatch log group ARN to send query logs.
      */
-    public readonly cloudwatchLogGroupArn: pulumi.Output<string>;
+    public readonly cloudwatchLogGroupArn!: pulumi.Output<string>;
     /**
      * Route53 hosted zone ID to enable query logs.
      */
-    public readonly zoneId: pulumi.Output<string>;
+    public readonly zoneId!: pulumi.Output<string>;
 
     /**
      * Create a QueryLog resource with the given unique name, arguments, and options.
@@ -46,7 +46,7 @@ export class QueryLog extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: QueryLogArgs | QueryLogState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: QueryLogState = argsOrState as QueryLogState | undefined;
+            const state = argsOrState as QueryLogState | undefined;
             inputs["cloudwatchLogGroupArn"] = state ? state.cloudwatchLogGroupArn : undefined;
             inputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
@@ -59,6 +59,13 @@ export class QueryLog extends pulumi.CustomResource {
             }
             inputs["cloudwatchLogGroupArn"] = args ? args.cloudwatchLogGroupArn : undefined;
             inputs["zoneId"] = args ? args.zoneId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:route53/queryLog:QueryLog", name, inputs, opts);
     }

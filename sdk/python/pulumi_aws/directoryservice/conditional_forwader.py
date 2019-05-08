@@ -58,6 +58,10 @@ class ConditionalForwader(pulumi.CustomResource):
             raise TypeError("Missing required property 'remote_domain_name'")
         __props__['remote_domain_name'] = remote_domain_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ConditionalForwader, __self__).__init__(
             'aws:directoryservice/conditionalForwader:ConditionalForwader',
             resource_name,

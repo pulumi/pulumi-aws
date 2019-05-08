@@ -53,11 +53,11 @@ export class DomainDkim extends pulumi.CustomResource {
      * Find out more about verifying domains in Amazon SES
      * in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html).
      */
-    public /*out*/ readonly dkimTokens: pulumi.Output<string[]>;
+    public /*out*/ readonly dkimTokens!: pulumi.Output<string[]>;
     /**
      * Verified domain name to generate DKIM tokens for.
      */
-    public readonly domain: pulumi.Output<string>;
+    public readonly domain!: pulumi.Output<string>;
 
     /**
      * Create a DomainDkim resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ export class DomainDkim extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DomainDkimArgs | DomainDkimState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DomainDkimState = argsOrState as DomainDkimState | undefined;
+            const state = argsOrState as DomainDkimState | undefined;
             inputs["dkimTokens"] = state ? state.dkimTokens : undefined;
             inputs["domain"] = state ? state.domain : undefined;
         } else {
@@ -80,6 +80,13 @@ export class DomainDkim extends pulumi.CustomResource {
             }
             inputs["domain"] = args ? args.domain : undefined;
             inputs["dkimTokens"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ses/domainDkim:DomainDkim", name, inputs, opts);
     }

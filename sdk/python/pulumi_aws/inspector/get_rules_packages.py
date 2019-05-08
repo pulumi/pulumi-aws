@@ -34,6 +34,10 @@ async def get_rules_packages(opts=None):
     """
     __args__ = dict()
 
+ .   if opts is None:
+         opts = pulumi.ResourceOptions()
+     if opts.version is None:
+         opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:inspector/getRulesPackages:getRulesPackages', __args__, opts=opts)
 
     return GetRulesPackagesResult(

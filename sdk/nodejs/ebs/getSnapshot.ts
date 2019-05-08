@@ -31,6 +31,13 @@ import * as utilities from "../utilities";
  */
 export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:ebs/getSnapshot:getSnapshot", {
         "filters": args.filters,
         "mostRecent": args.mostRecent,

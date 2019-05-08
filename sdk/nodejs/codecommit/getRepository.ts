@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:codecommit/getRepository:getRepository", {
         "repositoryName": args.repositoryName,
     }, opts);

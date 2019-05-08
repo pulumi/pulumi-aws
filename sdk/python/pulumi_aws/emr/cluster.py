@@ -302,6 +302,10 @@ class Cluster(pulumi.CustomResource):
         __props__['cluster_state'] = None
         __props__['master_public_dns'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Cluster, __self__).__init__(
             'aws:emr/cluster:Cluster',
             resource_name,

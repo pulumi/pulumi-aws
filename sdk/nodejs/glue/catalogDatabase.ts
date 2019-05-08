@@ -32,23 +32,23 @@ export class CatalogDatabase extends pulumi.CustomResource {
     /**
      * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      */
-    public readonly catalogId: pulumi.Output<string>;
+    public readonly catalogId!: pulumi.Output<string>;
     /**
      * Description of the database.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The location of the database (for example, an HDFS path).
      */
-    public readonly locationUri: pulumi.Output<string | undefined>;
+    public readonly locationUri!: pulumi.Output<string | undefined>;
     /**
      * The name of the database.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A list of key-value pairs that define parameters and properties of the database.
      */
-    public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a CatalogDatabase resource with the given unique name, arguments, and options.
@@ -61,7 +61,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CatalogDatabaseArgs | CatalogDatabaseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CatalogDatabaseState = argsOrState as CatalogDatabaseState | undefined;
+            const state = argsOrState as CatalogDatabaseState | undefined;
             inputs["catalogId"] = state ? state.catalogId : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["locationUri"] = state ? state.locationUri : undefined;
@@ -74,6 +74,13 @@ export class CatalogDatabase extends pulumi.CustomResource {
             inputs["locationUri"] = args ? args.locationUri : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:glue/catalogDatabase:CatalogDatabase", name, inputs, opts);
     }

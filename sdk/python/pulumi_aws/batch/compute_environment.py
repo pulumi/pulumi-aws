@@ -99,6 +99,10 @@ class ComputeEnvironment(pulumi.CustomResource):
         __props__['status'] = None
         __props__['status_reason'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ComputeEnvironment, __self__).__init__(
             'aws:batch/computeEnvironment:ComputeEnvironment',
             resource_name,

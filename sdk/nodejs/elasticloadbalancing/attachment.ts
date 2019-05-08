@@ -43,11 +43,11 @@ export class Attachment extends pulumi.CustomResource {
     /**
      * The name of the ELB.
      */
-    public readonly elb: pulumi.Output<string>;
+    public readonly elb!: pulumi.Output<string>;
     /**
      * Instance ID to place in the ELB pool.
      */
-    public readonly instance: pulumi.Output<string>;
+    public readonly instance!: pulumi.Output<string>;
 
     /**
      * Create a Attachment resource with the given unique name, arguments, and options.
@@ -60,7 +60,7 @@ export class Attachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AttachmentArgs | AttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AttachmentState = argsOrState as AttachmentState | undefined;
+            const state = argsOrState as AttachmentState | undefined;
             inputs["elb"] = state ? state.elb : undefined;
             inputs["instance"] = state ? state.instance : undefined;
         } else {
@@ -73,6 +73,13 @@ export class Attachment extends pulumi.CustomResource {
             }
             inputs["elb"] = args ? args.elb : undefined;
             inputs["instance"] = args ? args.instance : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:elasticloadbalancing/attachment:Attachment", name, inputs, opts);
     }

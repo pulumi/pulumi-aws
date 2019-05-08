@@ -52,71 +52,71 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the certificate.
      */
-    public readonly certificateArn: pulumi.Output<string>;
+    public readonly certificateArn!: pulumi.Output<string>;
     /**
      * The name of the endpoint database.
      */
-    public readonly databaseName: pulumi.Output<string | undefined>;
+    public readonly databaseName!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the endpoint.
      */
-    public /*out*/ readonly endpointArn: pulumi.Output<string>;
+    public /*out*/ readonly endpointArn!: pulumi.Output<string>;
     /**
      * The database endpoint identifier.
      */
-    public readonly endpointId: pulumi.Output<string>;
+    public readonly endpointId!: pulumi.Output<string>;
     /**
      * The type of endpoint. Can be one of `source | target`.
      */
-    public readonly endpointType: pulumi.Output<string>;
+    public readonly endpointType!: pulumi.Output<string>;
     /**
      * The type of engine for the endpoint. Can be one of `aurora | azuredb | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
      */
-    public readonly engineName: pulumi.Output<string>;
+    public readonly engineName!: pulumi.Output<string>;
     /**
      * Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
      */
-    public readonly extraConnectionAttributes: pulumi.Output<string>;
+    public readonly extraConnectionAttributes!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
-    public readonly kmsKeyArn: pulumi.Output<string>;
+    public readonly kmsKeyArn!: pulumi.Output<string>;
     /**
      * Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `PASSWORD`), `auth_mechanism` (default: `DEFAULT`), `nesting_level` (default: `NONE`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
      */
-    public readonly mongodbSettings: pulumi.Output<{ authMechanism?: string, authSource?: string, authType?: string, docsToInvestigate?: string, extractDocId?: string, nestingLevel?: string } | undefined>;
+    public readonly mongodbSettings!: pulumi.Output<{ authMechanism?: string, authSource?: string, authType?: string, docsToInvestigate?: string, extractDocId?: string, nestingLevel?: string } | undefined>;
     /**
      * The password to be used to login to the endpoint database.
      */
-    public readonly password: pulumi.Output<string | undefined>;
+    public readonly password!: pulumi.Output<string | undefined>;
     /**
      * The port used by the endpoint database.
      */
-    public readonly port: pulumi.Output<number | undefined>;
+    public readonly port!: pulumi.Output<number | undefined>;
     /**
      * Settings for the target S3 endpoint. Available settings are `service_access_role_arn`, `external_table_definition`, `csv_row_delimiter` (default: `\\n`), `csv_delimiter` (default: `,`), `bucket_folder`, `bucket_name` and `compression_type` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
      */
-    public readonly s3Settings: pulumi.Output<{ bucketFolder?: string, bucketName?: string, compressionType?: string, csvDelimiter?: string, csvRowDelimiter?: string, externalTableDefinition?: string, serviceAccessRoleArn?: string } | undefined>;
+    public readonly s3Settings!: pulumi.Output<{ bucketFolder?: string, bucketName?: string, compressionType?: string, csvDelimiter?: string, csvRowDelimiter?: string, externalTableDefinition?: string, serviceAccessRoleArn?: string } | undefined>;
     /**
      * The host name of the server.
      */
-    public readonly serverName: pulumi.Output<string | undefined>;
+    public readonly serverName!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
      */
-    public readonly serviceAccessRole: pulumi.Output<string | undefined>;
+    public readonly serviceAccessRole!: pulumi.Output<string | undefined>;
     /**
      * The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
      */
-    public readonly sslMode: pulumi.Output<string>;
+    public readonly sslMode!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The user name to be used to login to the endpoint database.
      */
-    public readonly username: pulumi.Output<string | undefined>;
+    public readonly username!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -129,7 +129,7 @@ export class Endpoint extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EndpointState = argsOrState as EndpointState | undefined;
+            const state = argsOrState as EndpointState | undefined;
             inputs["certificateArn"] = state ? state.certificateArn : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["endpointArn"] = state ? state.endpointArn : undefined;
@@ -175,6 +175,13 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["username"] = args ? args.username : undefined;
             inputs["endpointArn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:dms/endpoint:Endpoint", name, inputs, opts);
     }

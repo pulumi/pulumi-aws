@@ -56,47 +56,47 @@ export class Job extends pulumi.CustomResource {
     /**
      * The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
      */
-    public readonly allocatedCapacity: pulumi.Output<number | undefined>;
+    public readonly allocatedCapacity!: pulumi.Output<number | undefined>;
     /**
      * The command of the job. Defined below.
      */
-    public readonly command: pulumi.Output<{ name?: string, scriptLocation: string }>;
+    public readonly command!: pulumi.Output<{ name?: string, scriptLocation: string }>;
     /**
      * The list of connections used for this job.
      */
-    public readonly connections: pulumi.Output<string[] | undefined>;
+    public readonly connections!: pulumi.Output<string[] | undefined>;
     /**
      * The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
      */
-    public readonly defaultArguments: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly defaultArguments!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Description of the job.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Execution property of the job. Defined below.
      */
-    public readonly executionProperty: pulumi.Output<{ maxConcurrentRuns?: number }>;
+    public readonly executionProperty!: pulumi.Output<{ maxConcurrentRuns?: number }>;
     /**
      * The maximum number of times to retry this job if it fails.
      */
-    public readonly maxRetries: pulumi.Output<number | undefined>;
+    public readonly maxRetries!: pulumi.Output<number | undefined>;
     /**
      * The name of the job command. Defaults to `glueetl`
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ARN of the IAM role associated with this job.
      */
-    public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * The name of the Security Configuration to be associated with the job. 
      */
-    public readonly securityConfiguration: pulumi.Output<string | undefined>;
+    public readonly securityConfiguration!: pulumi.Output<string | undefined>;
     /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
      */
-    public readonly timeout: pulumi.Output<number | undefined>;
+    public readonly timeout!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Job resource with the given unique name, arguments, and options.
@@ -109,7 +109,7 @@ export class Job extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: JobArgs | JobState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: JobState = argsOrState as JobState | undefined;
+            const state = argsOrState as JobState | undefined;
             inputs["allocatedCapacity"] = state ? state.allocatedCapacity : undefined;
             inputs["command"] = state ? state.command : undefined;
             inputs["connections"] = state ? state.connections : undefined;
@@ -140,6 +140,13 @@ export class Job extends pulumi.CustomResource {
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:glue/job:Job", name, inputs, opts);
     }

@@ -38,19 +38,19 @@ export class ApiKey extends pulumi.CustomResource {
     /**
      * The ID of the associated AppSync API
      */
-    public readonly apiId: pulumi.Output<string>;
+    public readonly apiId!: pulumi.Output<string>;
     /**
      * The API key description. Defaults to "Managed by Terraform".
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
      */
-    public readonly expires: pulumi.Output<string | undefined>;
+    public readonly expires!: pulumi.Output<string | undefined>;
     /**
      * The API key
      */
-    public /*out*/ readonly key: pulumi.Output<string>;
+    public /*out*/ readonly key!: pulumi.Output<string>;
 
     /**
      * Create a ApiKey resource with the given unique name, arguments, and options.
@@ -63,7 +63,7 @@ export class ApiKey extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApiKeyArgs | ApiKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ApiKeyState = argsOrState as ApiKeyState | undefined;
+            const state = argsOrState as ApiKeyState | undefined;
             inputs["apiId"] = state ? state.apiId : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["expires"] = state ? state.expires : undefined;
@@ -77,6 +77,13 @@ export class ApiKey extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["expires"] = args ? args.expires : undefined;
             inputs["key"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:appsync/apiKey:ApiKey", name, inputs, opts);
     }

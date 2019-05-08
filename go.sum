@@ -71,6 +71,8 @@ github.com/aws/aws-sdk-go v1.19.10 h1:WHIaUrU98WsWIXxlxeMCmbuB5HowxuUnk8eBH4iGl/
 github.com/aws/aws-sdk-go v1.19.10/go.mod h1:KmX6BPdI08NWTb3/sm4ZGu5ShLoqVDhKgpiN924inxo=
 github.com/aws/aws-sdk-go v1.19.19 h1:2TpFyCjW5A87wxpWZxomEtS3KESIx90uZlWvWVJn3sw=
 github.com/aws/aws-sdk-go v1.19.19/go.mod h1:KmX6BPdI08NWTb3/sm4ZGu5ShLoqVDhKgpiN924inxo=
+github.com/aws/aws-sdk-go v1.19.23 h1:euoy2X3HKkQUtsRXlC9ZuFruesVfKpsAl1brCTphClM=
+github.com/aws/aws-sdk-go v1.19.23/go.mod h1:KmX6BPdI08NWTb3/sm4ZGu5ShLoqVDhKgpiN924inxo=
 github.com/beevik/etree v1.0.1 h1:lWzdj5v/Pj1X360EV7bUudox5SRipy4qZLjY0rhb0ck=
 github.com/beevik/etree v1.0.1/go.mod h1:r8Aw8JqVegEf0w2fDnATrX9VpkMcyFeM0FhwO62wh+A=
 github.com/beevik/etree v1.1.0 h1:T0xke/WvNtMoCqgzPhkX2r4rjY3GDZFi+FjpRZY2Jbs=
@@ -508,12 +510,17 @@ github.com/pulumi/pulumi v0.17.6-0.20190410045519-ef5e148a73c0 h1:NqGT9rxjyADqq2
 github.com/pulumi/pulumi v0.17.6-0.20190410045519-ef5e148a73c0/go.mod h1:RIy1gmz8Vyy7H5w2ffHJ23aZHCOggF2zk2c+KD1GMtY=
 github.com/pulumi/pulumi-terraform v0.14.1-dev.0.20190410060834-0ef064af4d04 h1:iTc5H/fZf/AacCOxFtVef7MvhEgAHTiR8RiZXRKDnZk=
 github.com/pulumi/pulumi-terraform v0.14.1-dev.0.20190410060834-0ef064af4d04/go.mod h1:bJ2tsYQlSMzMCEDb2kP1rDHaadG3O7JUnBUYH/yx2Io=
+github.com/pulumi/pulumi-terraform v0.14.1-dev.0.20190506205940-21108d2d0be2 h1:VdG9S3rFg7tbmsR3gY3pKmTFaKgBw4vyyEdoldHs9aY=
+github.com/pulumi/pulumi-terraform v0.14.1-dev.0.20190506205940-21108d2d0be2/go.mod h1:bJ2tsYQlSMzMCEDb2kP1rDHaadG3O7JUnBUYH/yx2Io=
+github.com/pulumi/pulumi-terraform v0.15.1 h1:y+Xh+lhj+fiPnHzfJb7ajkUuRH+vvwCy7bi304AAJig=
 github.com/pulumi/terraform-provider-aws v1.3.2-0.20190407171755-cf2ef8807a4b h1:2g4TbpkKIzm8wqcvnrvh5FY1I/bO5x0k5iswWSCH6Ek=
 github.com/pulumi/terraform-provider-aws v1.3.2-0.20190407171755-cf2ef8807a4b/go.mod h1:q6jzd2kIAdFH8V10Y8N3NRf4wVQ6DTCN/kjE0L9eHLY=
 github.com/pulumi/terraform-provider-aws v1.3.2-0.20190417135458-30039de05cc7 h1:aac7CF4/uYxKoGIATUPNhdWqrntHMH+pqrODc7ZcBvM=
 github.com/pulumi/terraform-provider-aws v1.3.2-0.20190417135458-30039de05cc7/go.mod h1:+gyaPl/ZXU5W5FUmDZoF88kI3a3CEskkkxw+reQmlbc=
 github.com/pulumi/terraform-provider-aws v1.3.2-0.20190429191616-bbd61f36ba21 h1:wA9av4I38zZ0MHJcfYcNhzEAoQRFUXATCt0blfU+RBo=
 github.com/pulumi/terraform-provider-aws v1.3.2-0.20190429191616-bbd61f36ba21/go.mod h1:P4xolUS6DSk3ybbbyUC58m3y8yW0IUYmNnFFxcaEkR0=
+github.com/pulumi/terraform-provider-aws v1.3.2-0.20190506212555-206db4204c2b h1:Si46D870hOAuI6ZA48YUgiiwvcxIbnEhDNlcXb9Tut4=
+github.com/pulumi/terraform-provider-aws v1.3.2-0.20190506212555-206db4204c2b/go.mod h1:bPkhn1FLIxvSvC60DimQ5HID5QYDh5ez2JYqEUgEmdI=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/reconquest/loreley v0.0.0-20160708080500-2ab6b7470a54 h1:J2RvHxEMIzMV6XbaZIj9s5G4lG3hhqWxS7Cl1Jii44c=
 github.com/reconquest/loreley v0.0.0-20160708080500-2ab6b7470a54/go.mod h1:1NF/j951kWm+ZnRXpOkBqweImgwhlzFVwTA4A0V7TEU=

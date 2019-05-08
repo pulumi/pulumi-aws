@@ -37,11 +37,11 @@ export class Cache extends pulumi.CustomResource {
     /**
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      */
-    public readonly diskId: pulumi.Output<string>;
+    public readonly diskId!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
-    public readonly gatewayArn: pulumi.Output<string>;
+    public readonly gatewayArn!: pulumi.Output<string>;
 
     /**
      * Create a Cache resource with the given unique name, arguments, and options.
@@ -54,7 +54,7 @@ export class Cache extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CacheArgs | CacheState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CacheState = argsOrState as CacheState | undefined;
+            const state = argsOrState as CacheState | undefined;
             inputs["diskId"] = state ? state.diskId : undefined;
             inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
         } else {
@@ -67,6 +67,13 @@ export class Cache extends pulumi.CustomResource {
             }
             inputs["diskId"] = args ? args.diskId : undefined;
             inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:storagegateway/cache:Cache", name, inputs, opts);
     }

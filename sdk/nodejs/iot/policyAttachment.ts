@@ -58,11 +58,11 @@ export class PolicyAttachment extends pulumi.CustomResource {
     /**
      * The name of the policy to attach.
      */
-    public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * The identity to which the policy is attached.
      */
-    public readonly target: pulumi.Output<ARN>;
+    public readonly target!: pulumi.Output<ARN>;
 
     /**
      * Create a PolicyAttachment resource with the given unique name, arguments, and options.
@@ -75,7 +75,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PolicyAttachmentArgs | PolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PolicyAttachmentState = argsOrState as PolicyAttachmentState | undefined;
+            const state = argsOrState as PolicyAttachmentState | undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["target"] = state ? state.target : undefined;
         } else {
@@ -88,6 +88,13 @@ export class PolicyAttachment extends pulumi.CustomResource {
             }
             inputs["policy"] = args ? args.policy : undefined;
             inputs["target"] = args ? args.target : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:iot/policyAttachment:PolicyAttachment", name, inputs, opts);
     }

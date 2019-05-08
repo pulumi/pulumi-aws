@@ -52,11 +52,11 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
     /**
      * The CIDR block associated with the local subnet of the customer network.
      */
-    public readonly destinationCidrBlock: pulumi.Output<string>;
+    public readonly destinationCidrBlock!: pulumi.Output<string>;
     /**
      * The ID of the VPN connection.
      */
-    public readonly vpnConnectionId: pulumi.Output<string>;
+    public readonly vpnConnectionId!: pulumi.Output<string>;
 
     /**
      * Create a VpnConnectionRoute resource with the given unique name, arguments, and options.
@@ -69,7 +69,7 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpnConnectionRouteArgs | VpnConnectionRouteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpnConnectionRouteState = argsOrState as VpnConnectionRouteState | undefined;
+            const state = argsOrState as VpnConnectionRouteState | undefined;
             inputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
             inputs["vpnConnectionId"] = state ? state.vpnConnectionId : undefined;
         } else {
@@ -82,6 +82,13 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
             }
             inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
             inputs["vpnConnectionId"] = args ? args.vpnConnectionId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/vpnConnectionRoute:VpnConnectionRoute", name, inputs, opts);
     }

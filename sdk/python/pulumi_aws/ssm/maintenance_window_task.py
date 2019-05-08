@@ -125,6 +125,10 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             raise TypeError("Missing required property 'window_id'")
         __props__['window_id'] = window_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(MaintenanceWindowTask, __self__).__init__(
             'aws:ssm/maintenanceWindowTask:MaintenanceWindowTask',
             resource_name,

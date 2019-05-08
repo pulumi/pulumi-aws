@@ -35,15 +35,15 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
     /**
      * A name for the association that you're creating between a resolver rule and a VPC.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the resolver rule that you want to associate with the VPC.
      */
-    public readonly resolverRuleId: pulumi.Output<string>;
+    public readonly resolverRuleId!: pulumi.Output<string>;
     /**
      * The ID of the VPC that you want to associate the resolver rule with.
      */
-    public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a ResolverRuleAssociation resource with the given unique name, arguments, and options.
@@ -56,7 +56,7 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResolverRuleAssociationArgs | ResolverRuleAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ResolverRuleAssociationState = argsOrState as ResolverRuleAssociationState | undefined;
+            const state = argsOrState as ResolverRuleAssociationState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resolverRuleId"] = state ? state.resolverRuleId : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
@@ -71,6 +71,13 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resolverRuleId"] = args ? args.resolverRuleId : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:route53/resolverRuleAssociation:ResolverRuleAssociation", name, inputs, opts);
     }

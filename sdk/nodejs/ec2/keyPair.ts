@@ -42,19 +42,19 @@ export class KeyPair extends pulumi.CustomResource {
     /**
      * The MD5 public key fingerprint as specified in section 4 of RFC 4716.
      */
-    public /*out*/ readonly fingerprint: pulumi.Output<string>;
+    public /*out*/ readonly fingerprint!: pulumi.Output<string>;
     /**
      * The name for the key pair.
      */
-    public readonly keyName: pulumi.Output<string>;
+    public readonly keyName!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
      */
-    public readonly keyNamePrefix: pulumi.Output<string | undefined>;
+    public readonly keyNamePrefix!: pulumi.Output<string | undefined>;
     /**
      * The public key material.
      */
-    public readonly publicKey: pulumi.Output<string>;
+    public readonly publicKey!: pulumi.Output<string>;
 
     /**
      * Create a KeyPair resource with the given unique name, arguments, and options.
@@ -67,7 +67,7 @@ export class KeyPair extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: KeyPairArgs | KeyPairState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: KeyPairState = argsOrState as KeyPairState | undefined;
+            const state = argsOrState as KeyPairState | undefined;
             inputs["fingerprint"] = state ? state.fingerprint : undefined;
             inputs["keyName"] = state ? state.keyName : undefined;
             inputs["keyNamePrefix"] = state ? state.keyNamePrefix : undefined;
@@ -81,6 +81,13 @@ export class KeyPair extends pulumi.CustomResource {
             inputs["keyNamePrefix"] = args ? args.keyNamePrefix : undefined;
             inputs["publicKey"] = args ? args.publicKey : undefined;
             inputs["fingerprint"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/keyPair:KeyPair", name, inputs, opts);
     }

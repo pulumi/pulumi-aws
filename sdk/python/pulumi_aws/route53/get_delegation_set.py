@@ -32,6 +32,10 @@ async def get_delegation_set(id=None,opts=None):
     __args__ = dict()
 
     __args__['id'] = id
+ .   if opts is None:
+         opts = pulumi.ResourceOptions()
+     if opts.version is None:
+         opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:route53/getDelegationSet:getDelegationSet', __args__, opts=opts)
 
     return GetDelegationSetResult(

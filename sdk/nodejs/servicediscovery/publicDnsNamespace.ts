@@ -34,19 +34,19 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
     /**
      * The ARN that Amazon Route 53 assigns to the namespace when you create it.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The description that you specify for the namespace when you create it.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
      */
-    public /*out*/ readonly hostedZone: pulumi.Output<string>;
+    public /*out*/ readonly hostedZone!: pulumi.Output<string>;
     /**
      * The name of the namespace.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a PublicDnsNamespace resource with the given unique name, arguments, and options.
@@ -59,7 +59,7 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PublicDnsNamespaceArgs | PublicDnsNamespaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PublicDnsNamespaceState = argsOrState as PublicDnsNamespaceState | undefined;
+            const state = argsOrState as PublicDnsNamespaceState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["hostedZone"] = state ? state.hostedZone : undefined;
@@ -70,6 +70,13 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["hostedZone"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace", name, inputs, opts);
     }

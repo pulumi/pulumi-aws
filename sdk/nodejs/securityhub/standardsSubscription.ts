@@ -37,7 +37,7 @@ export class StandardsSubscription extends pulumi.CustomResource {
     /**
      * The ARN of a standard - see below.
      */
-    public readonly standardsArn: pulumi.Output<string>;
+    public readonly standardsArn!: pulumi.Output<string>;
 
     /**
      * Create a StandardsSubscription resource with the given unique name, arguments, and options.
@@ -50,7 +50,7 @@ export class StandardsSubscription extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StandardsSubscriptionArgs | StandardsSubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: StandardsSubscriptionState = argsOrState as StandardsSubscriptionState | undefined;
+            const state = argsOrState as StandardsSubscriptionState | undefined;
             inputs["standardsArn"] = state ? state.standardsArn : undefined;
         } else {
             const args = argsOrState as StandardsSubscriptionArgs | undefined;
@@ -58,6 +58,13 @@ export class StandardsSubscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'standardsArn'");
             }
             inputs["standardsArn"] = args ? args.standardsArn : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:securityhub/standardsSubscription:StandardsSubscription", name, inputs, opts);
     }

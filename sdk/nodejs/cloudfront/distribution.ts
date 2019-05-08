@@ -221,146 +221,146 @@ export class Distribution extends pulumi.CustomResource {
      * each trusted signer, if the distribution is set up to serve private content
      * with signed URLs.
      */
-    public /*out*/ readonly activeTrustedSigners: pulumi.Output<{[key: string]: any}>;
+    public /*out*/ readonly activeTrustedSigners!: pulumi.Output<{[key: string]: any}>;
     /**
      * Extra CNAMEs (alternate domain names), if any, for
      * this distribution.
      */
-    public readonly aliases: pulumi.Output<string[] | undefined>;
+    public readonly aliases!: pulumi.Output<string[] | undefined>;
     /**
      * The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Internal value used by CloudFront to allow future
      * updates to the distribution configuration.
      */
-    public /*out*/ readonly callerReference: pulumi.Output<string>;
+    public /*out*/ readonly callerReference!: pulumi.Output<string>;
     /**
      * Any comments you want to include about the
      * distribution.
      */
-    public readonly comment: pulumi.Output<string | undefined>;
+    public readonly comment!: pulumi.Output<string | undefined>;
     /**
      * One or more custom error response elements (multiples allowed).
      */
-    public readonly customErrorResponses: pulumi.Output<{ errorCachingMinTtl?: number, errorCode: number, responseCode?: number, responsePagePath?: string }[] | undefined>;
+    public readonly customErrorResponses!: pulumi.Output<{ errorCachingMinTtl?: number, errorCode: number, responseCode?: number, responsePagePath?: string }[] | undefined>;
     /**
      * The default cache behavior for this distribution (maximum
      * one).
      */
-    public readonly defaultCacheBehavior: pulumi.Output<{ allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl?: number, fieldLevelEncryptionId?: string, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }, headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }, lambdaFunctionAssociations?: { eventType: string, includeBody?: boolean, lambdaArn: string }[], maxTtl?: number, minTtl?: number, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string }>;
+    public readonly defaultCacheBehavior!: pulumi.Output<{ allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl?: number, fieldLevelEncryptionId?: string, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }, headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }, lambdaFunctionAssociations?: { eventType: string, includeBody?: boolean, lambdaArn: string }[], maxTtl?: number, minTtl?: number, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string }>;
     /**
      * The object that you want CloudFront to
      * return (for example, index.html) when an end user requests the root URL.
      */
-    public readonly defaultRootObject: pulumi.Output<string | undefined>;
+    public readonly defaultRootObject!: pulumi.Output<string | undefined>;
     /**
      * The DNS domain name of either the S3 bucket, or
      * web site of your custom origin.
      */
-    public /*out*/ readonly domainName: pulumi.Output<string>;
+    public /*out*/ readonly domainName!: pulumi.Output<string>;
     /**
      * Whether the distribution is enabled to accept end
      * user requests for content.
      */
-    public readonly enabled: pulumi.Output<boolean>;
+    public readonly enabled!: pulumi.Output<boolean>;
     /**
      * The current version of the distribution's information. For example:
      * `E2QWRUHAPOMQZL`.
      */
-    public /*out*/ readonly etag: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The CloudFront Route 53 zone ID that can be used to
      * route an [Alias Resource Record Set][7] to. This attribute is simply an
      * alias for the zone ID `Z2FDTNDATAQYW2`.
      */
-    public /*out*/ readonly hostedZoneId: pulumi.Output<string>;
+    public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
     /**
      * The maximum HTTP version to support on the
      * distribution. Allowed values are `http1.1` and `http2`. The default is
      * `http2`.
      */
-    public readonly httpVersion: pulumi.Output<string | undefined>;
+    public readonly httpVersion!: pulumi.Output<string | undefined>;
     /**
      * The number of invalidation batches
      * currently in progress.
      */
-    public /*out*/ readonly inProgressValidationBatches: pulumi.Output<number>;
+    public /*out*/ readonly inProgressValidationBatches!: pulumi.Output<number>;
     /**
      * Whether the IPv6 is enabled for the distribution.
      */
-    public readonly isIpv6Enabled: pulumi.Output<boolean | undefined>;
+    public readonly isIpv6Enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The date and time the distribution was last modified.
      */
-    public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
     /**
      * The logging
      * configuration that controls how logs are written
      * to your distribution (maximum one).
      */
-    public readonly loggingConfig: pulumi.Output<{ bucket: string, includeCookies?: boolean, prefix?: string } | undefined>;
+    public readonly loggingConfig!: pulumi.Output<{ bucket: string, includeCookies?: boolean, prefix?: string } | undefined>;
     /**
      * An ordered list of cache behaviors
      * resource for this distribution. List from top to bottom
      * in order of precedence. The topmost cache behavior will have precedence 0.
      */
-    public readonly orderedCacheBehaviors: pulumi.Output<{ allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl?: number, fieldLevelEncryptionId?: string, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }, headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }, lambdaFunctionAssociations?: { eventType: string, includeBody?: boolean, lambdaArn: string }[], maxTtl?: number, minTtl?: number, pathPattern: string, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string }[] | undefined>;
+    public readonly orderedCacheBehaviors!: pulumi.Output<{ allowedMethods: string[], cachedMethods: string[], compress?: boolean, defaultTtl?: number, fieldLevelEncryptionId?: string, forwardedValues: { cookies: { forward: string, whitelistedNames?: string[] }, headers?: string[], queryString: boolean, queryStringCacheKeys?: string[] }, lambdaFunctionAssociations?: { eventType: string, includeBody?: boolean, lambdaArn: string }[], maxTtl?: number, minTtl?: number, pathPattern: string, smoothStreaming?: boolean, targetOriginId: string, trustedSigners?: string[], viewerProtocolPolicy: string }[] | undefined>;
     /**
      * One or more origins for this
      * distribution (multiples allowed).
      */
-    public readonly origins: pulumi.Output<{ customHeaders?: { name: string, value: string }[], customOriginConfig?: { httpPort: number, httpsPort: number, originKeepaliveTimeout?: number, originProtocolPolicy: string, originReadTimeout?: number, originSslProtocols: string[] }, domainName: string, originId: string, originPath?: string, s3OriginConfig?: { originAccessIdentity: string } }[]>;
+    public readonly origins!: pulumi.Output<{ customHeaders?: { name: string, value: string }[], customOriginConfig?: { httpPort: number, httpsPort: number, originKeepaliveTimeout?: number, originProtocolPolicy: string, originReadTimeout?: number, originSslProtocols: string[] }, domainName: string, originId: string, originPath?: string, s3OriginConfig?: { originAccessIdentity: string } }[]>;
     /**
      * One or more origin_group for this
      * distribution (multiples allowed).
      */
-    public readonly originGroups: pulumi.Output<{ failoverCriteria: { statusCodes: number[] }, members: { originId: string }[], originId: string }[] | undefined>;
+    public readonly originGroups!: pulumi.Output<{ failoverCriteria: { statusCodes: number[] }, members: { originId: string }[], originId: string }[] | undefined>;
     /**
      * The price class for this distribution. One of
      * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
      */
-    public readonly priceClass: pulumi.Output<string | undefined>;
+    public readonly priceClass!: pulumi.Output<string | undefined>;
     /**
      * The restriction
      * configuration for this distribution (maximum one).
      */
-    public readonly restrictions: pulumi.Output<{ geoRestriction: { locations?: string[], restrictionType: string } }>;
+    public readonly restrictions!: pulumi.Output<{ geoRestriction: { locations?: string[], restrictionType: string } }>;
     /**
      * Disables the distribution instead of
      * deleting it when destroying the resource through Terraform. If this is set,
      * the distribution needs to be deleted manually afterwards. Default: `false`.
      */
-    public readonly retainOnDelete: pulumi.Output<boolean | undefined>;
+    public readonly retainOnDelete!: pulumi.Output<boolean | undefined>;
     /**
      * The current status of the distribution. `Deployed` if the
      * distribution's information is fully propagated throughout the Amazon
      * CloudFront system.
      */
-    public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The SSL
      * configuration for this distribution (maximum
      * one).
      */
-    public readonly viewerCertificate: pulumi.Output<{ acmCertificateArn?: string, cloudfrontDefaultCertificate?: boolean, iamCertificateId?: string, minimumProtocolVersion?: string, sslSupportMethod?: string }>;
+    public readonly viewerCertificate!: pulumi.Output<{ acmCertificateArn?: string, cloudfrontDefaultCertificate?: boolean, iamCertificateId?: string, minimumProtocolVersion?: string, sslSupportMethod?: string }>;
     /**
      * If enabled, the resource will wait for
      * the distribution status to change from `InProgress` to `Deployed`. Setting
      * this to`false` will skip the process. Default: `true`.
      */
-    public readonly waitForDeployment: pulumi.Output<boolean | undefined>;
+    public readonly waitForDeployment!: pulumi.Output<boolean | undefined>;
     /**
      * If you're using AWS WAF to filter CloudFront
      * requests, the Id of the AWS WAF web ACL that is associated with the
      * distribution.
      */
-    public readonly webAclId: pulumi.Output<string | undefined>;
+    public readonly webAclId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Distribution resource with the given unique name, arguments, and options.
@@ -373,7 +373,7 @@ export class Distribution extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DistributionArgs | DistributionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DistributionState = argsOrState as DistributionState | undefined;
+            const state = argsOrState as DistributionState | undefined;
             inputs["activeTrustedSigners"] = state ? state.activeTrustedSigners : undefined;
             inputs["aliases"] = state ? state.aliases : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -447,6 +447,13 @@ export class Distribution extends pulumi.CustomResource {
             inputs["inProgressValidationBatches"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cloudfront/distribution:Distribution", name, inputs, opts);
     }

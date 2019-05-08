@@ -80,23 +80,23 @@ export class PolicyAttachment extends pulumi.CustomResource {
     /**
      * The group(s) the policy should be applied to
      */
-    public readonly groups: pulumi.Output<Group[] | undefined>;
+    public readonly groups!: pulumi.Output<Group[] | undefined>;
     /**
      * The name of the attachment. This cannot be an empty string.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ARN of the policy you want to apply
      */
-    public readonly policyArn: pulumi.Output<ARN>;
+    public readonly policyArn!: pulumi.Output<ARN>;
     /**
      * The role(s) the policy should be applied to
      */
-    public readonly roles: pulumi.Output<Role[] | undefined>;
+    public readonly roles!: pulumi.Output<Role[] | undefined>;
     /**
      * The user(s) the policy should be applied to
      */
-    public readonly users: pulumi.Output<User[] | undefined>;
+    public readonly users!: pulumi.Output<User[] | undefined>;
 
     /**
      * Create a PolicyAttachment resource with the given unique name, arguments, and options.
@@ -109,7 +109,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PolicyAttachmentArgs | PolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PolicyAttachmentState = argsOrState as PolicyAttachmentState | undefined;
+            const state = argsOrState as PolicyAttachmentState | undefined;
             inputs["groups"] = state ? state.groups : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["policyArn"] = state ? state.policyArn : undefined;
@@ -125,6 +125,13 @@ export class PolicyAttachment extends pulumi.CustomResource {
             inputs["policyArn"] = args ? args.policyArn : undefined;
             inputs["roles"] = args ? args.roles : undefined;
             inputs["users"] = args ? args.users : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:iam/policyAttachment:PolicyAttachment", name, inputs, opts);
     }

@@ -244,21 +244,21 @@ export class Group extends pulumi.CustomResource {
     /**
      * The ARN for this AutoScaling Group
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A list of one or more availability zones for the group. This parameter should not be specified when using `vpc_zone_identifier`.
      */
-    public readonly availabilityZones: pulumi.Output<string[]>;
+    public readonly availabilityZones!: pulumi.Output<string[]>;
     /**
      * The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
      */
-    public readonly defaultCooldown: pulumi.Output<number>;
+    public readonly defaultCooldown!: pulumi.Output<number>;
     /**
      * The number of Amazon EC2 instances that
      * should be running in the group. (See also Waiting for
      * Capacity below.)
      */
-    public readonly desiredCapacity: pulumi.Output<number>;
+    public readonly desiredCapacity!: pulumi.Output<number>;
     /**
      * A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
      * * `wait_for_capacity_timeout` (Default: "10m") A maximum
@@ -267,7 +267,7 @@ export class Group extends pulumi.CustomResource {
      * for Capacity below.) Setting this to "0" causes
      * Terraform to skip all Capacity Waiting behavior.
      */
-    public readonly enabledMetrics: pulumi.Output<Metric[] | undefined>;
+    public readonly enabledMetrics!: pulumi.Output<Metric[] | undefined>;
     /**
      * Allows deleting the autoscaling group without waiting
      * for all instances in the pool to terminate.  You can force an autoscaling group to delete
@@ -275,15 +275,15 @@ export class Group extends pulumi.CustomResource {
      * drains all the instances before deleting the group.  This bypasses that
      * behavior and potentially leaves resources dangling.
      */
-    public readonly forceDelete: pulumi.Output<boolean | undefined>;
+    public readonly forceDelete!: pulumi.Output<boolean | undefined>;
     /**
      * Time (in seconds) after instance comes into service before checking health.
      */
-    public readonly healthCheckGracePeriod: pulumi.Output<number | undefined>;
+    public readonly healthCheckGracePeriod!: pulumi.Output<number | undefined>;
     /**
      * "EC2" or "ELB". Controls how health checking is done.
      */
-    public readonly healthCheckType: pulumi.Output<string>;
+    public readonly healthCheckType!: pulumi.Output<string>;
     /**
      * One or more
      * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
@@ -293,93 +293,93 @@ export class Group extends pulumi.CustomResource {
      * resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
      * a new autoscaling group. For all other use-cases, please use `aws_autoscaling_lifecycle_hook` resource.
      */
-    public readonly initialLifecycleHooks: pulumi.Output<{ defaultResult: string, heartbeatTimeout?: number, lifecycleTransition: string, name: string, notificationMetadata?: string, notificationTargetArn?: string, roleArn?: string }[] | undefined>;
+    public readonly initialLifecycleHooks!: pulumi.Output<{ defaultResult: string, heartbeatTimeout?: number, lifecycleTransition: string, name: string, notificationMetadata?: string, notificationTargetArn?: string, roleArn?: string }[] | undefined>;
     /**
      * The name of the launch configuration to use.
      */
-    public readonly launchConfiguration: pulumi.Output<string | undefined>;
+    public readonly launchConfiguration!: pulumi.Output<string | undefined>;
     /**
      * Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
      */
-    public readonly launchTemplate: pulumi.Output<{ id: string, name: string, version?: string } | undefined>;
+    public readonly launchTemplate!: pulumi.Output<{ id: string, name: string, version?: string } | undefined>;
     /**
      * A list of elastic load balancer names to add to the autoscaling
      * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
      */
-    public readonly loadBalancers: pulumi.Output<string[]>;
+    public readonly loadBalancers!: pulumi.Output<string[]>;
     /**
      * The maximum size of the auto scale group.
      */
-    public readonly maxSize: pulumi.Output<number>;
+    public readonly maxSize!: pulumi.Output<number>;
     /**
      * The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
      */
-    public readonly metricsGranularity: pulumi.Output<string | undefined>;
+    public readonly metricsGranularity!: pulumi.Output<string | undefined>;
     /**
      * Setting this causes Terraform to wait for
      * this number of instances from this autoscaling group to show up healthy in the
      * ELB only on creation. Updates will not wait on ELB instance number changes.
      * (See also Waiting for Capacity below.)
      */
-    public readonly minElbCapacity: pulumi.Output<number | undefined>;
+    public readonly minElbCapacity!: pulumi.Output<number | undefined>;
     /**
      * The minimum size of the auto scale group.
      * (See also Waiting for Capacity below.)
      */
-    public readonly minSize: pulumi.Output<number>;
+    public readonly minSize!: pulumi.Output<number>;
     /**
      * Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
      */
-    public readonly mixedInstancesPolicy: pulumi.Output<{ instancesDistribution?: { onDemandAllocationStrategy?: string, onDemandBaseCapacity?: number, onDemandPercentageAboveBaseCapacity?: number, spotAllocationStrategy?: string, spotInstancePools: number, spotMaxPrice?: string }, launchTemplate: { launchTemplateSpecification: { launchTemplateId: string, launchTemplateName: string, version?: string }, overrides?: { instanceType?: string }[] } } | undefined>;
+    public readonly mixedInstancesPolicy!: pulumi.Output<{ instancesDistribution?: { onDemandAllocationStrategy?: string, onDemandBaseCapacity?: number, onDemandPercentageAboveBaseCapacity?: number, spotAllocationStrategy?: string, spotInstancePools: number, spotMaxPrice?: string }, launchTemplate: { launchTemplateSpecification: { launchTemplateId: string, launchTemplateName: string, version?: string }, overrides?: { instanceType?: string }[] } } | undefined>;
     /**
      * The name of the auto scaling group. By default generated by Terraform.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    public readonly namePrefix: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The name of the placement group into which you'll launch your instances, if any.
      */
-    public readonly placementGroup: pulumi.Output<string | undefined>;
+    public readonly placementGroup!: pulumi.Output<string | undefined>;
     /**
      * Allows setting instance protection. The
      * autoscaling group will not select instances with this setting for terminination
      * during scale in events.
      */
-    public readonly protectFromScaleIn: pulumi.Output<boolean | undefined>;
+    public readonly protectFromScaleIn!: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of the service-linked role that the ASG will use to call other AWS services
      */
-    public readonly serviceLinkedRoleArn: pulumi.Output<string>;
+    public readonly serviceLinkedRoleArn!: pulumi.Output<string>;
     /**
      * A list of processes to suspend for the AutoScaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
      * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your autoscaling group from functioning properly.
      */
-    public readonly suspendedProcesses: pulumi.Output<string[] | undefined>;
+    public readonly suspendedProcesses!: pulumi.Output<string[] | undefined>;
     /**
      * A list of tag blocks. Tags documented below.
      */
-    public readonly tags: pulumi.Output<{ key: string, propagateAtLaunch: boolean, value: string }[] | undefined>;
+    public readonly tags!: pulumi.Output<{ key: string, propagateAtLaunch: boolean, value: string }[] | undefined>;
     /**
      * A list of tag blocks (maps). Tags documented below.
      */
-    public readonly tagsCollection: pulumi.Output<{[key: string]: any}[] | undefined>;
+    public readonly tagsCollection!: pulumi.Output<{[key: string]: any}[] | undefined>;
     /**
      * A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
      */
-    public readonly targetGroupArns: pulumi.Output<string[]>;
+    public readonly targetGroupArns!: pulumi.Output<string[]>;
     /**
      * A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
      */
-    public readonly terminationPolicies: pulumi.Output<string[] | undefined>;
+    public readonly terminationPolicies!: pulumi.Output<string[] | undefined>;
     /**
      * A list of subnet IDs to launch resources in.
      */
-    public readonly vpcZoneIdentifiers: pulumi.Output<string[]>;
-    public readonly waitForCapacityTimeout: pulumi.Output<string | undefined>;
+    public readonly vpcZoneIdentifiers!: pulumi.Output<string[]>;
+    public readonly waitForCapacityTimeout!: pulumi.Output<string | undefined>;
     /**
      * Setting this will cause Terraform to wait
      * for exactly this number of healthy instances from this autoscaling group in
@@ -387,7 +387,7 @@ export class Group extends pulumi.CustomResource {
      * precedence over `min_elb_capacity` behavior.)
      * (See also Waiting for Capacity below.)
      */
-    public readonly waitForElbCapacity: pulumi.Output<number | undefined>;
+    public readonly waitForElbCapacity!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -400,7 +400,7 @@ export class Group extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GroupState = argsOrState as GroupState | undefined;
+            const state = argsOrState as GroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             inputs["defaultCooldown"] = state ? state.defaultCooldown : undefined;
@@ -469,6 +469,13 @@ export class Group extends pulumi.CustomResource {
             inputs["waitForCapacityTimeout"] = args ? args.waitForCapacityTimeout : undefined;
             inputs["waitForElbCapacity"] = args ? args.waitForElbCapacity : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:autoscaling/group:Group", name, inputs, opts);
     }

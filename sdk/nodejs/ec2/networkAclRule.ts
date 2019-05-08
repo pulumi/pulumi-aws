@@ -53,47 +53,47 @@ export class NetworkAclRule extends pulumi.CustomResource {
     /**
      * The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
      */
-    public readonly cidrBlock: pulumi.Output<string | undefined>;
+    public readonly cidrBlock!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
      */
-    public readonly egress: pulumi.Output<boolean | undefined>;
+    public readonly egress!: pulumi.Output<boolean | undefined>;
     /**
      * The from port to match.
      */
-    public readonly fromPort: pulumi.Output<number | undefined>;
+    public readonly fromPort!: pulumi.Output<number | undefined>;
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
      */
-    public readonly icmpCode: pulumi.Output<string | undefined>;
+    public readonly icmpCode!: pulumi.Output<string | undefined>;
     /**
      * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
      */
-    public readonly icmpType: pulumi.Output<string | undefined>;
+    public readonly icmpType!: pulumi.Output<string | undefined>;
     /**
      * The IPv6 CIDR block to allow or deny.
      */
-    public readonly ipv6CidrBlock: pulumi.Output<string | undefined>;
+    public readonly ipv6CidrBlock!: pulumi.Output<string | undefined>;
     /**
      * The ID of the network ACL.
      */
-    public readonly networkAclId: pulumi.Output<string>;
+    public readonly networkAclId!: pulumi.Output<string>;
     /**
      * The protocol. A value of -1 means all protocols.
      */
-    public readonly protocol: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<string>;
     /**
      * Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
      */
-    public readonly ruleAction: pulumi.Output<string>;
+    public readonly ruleAction!: pulumi.Output<string>;
     /**
      * The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
      */
-    public readonly ruleNumber: pulumi.Output<number>;
+    public readonly ruleNumber!: pulumi.Output<number>;
     /**
      * The to port to match.
      */
-    public readonly toPort: pulumi.Output<number | undefined>;
+    public readonly toPort!: pulumi.Output<number | undefined>;
 
     /**
      * Create a NetworkAclRule resource with the given unique name, arguments, and options.
@@ -106,7 +106,7 @@ export class NetworkAclRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NetworkAclRuleArgs | NetworkAclRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkAclRuleState = argsOrState as NetworkAclRuleState | undefined;
+            const state = argsOrState as NetworkAclRuleState | undefined;
             inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
             inputs["egress"] = state ? state.egress : undefined;
             inputs["fromPort"] = state ? state.fromPort : undefined;
@@ -143,6 +143,13 @@ export class NetworkAclRule extends pulumi.CustomResource {
             inputs["ruleAction"] = args ? args.ruleAction : undefined;
             inputs["ruleNumber"] = args ? args.ruleNumber : undefined;
             inputs["toPort"] = args ? args.toPort : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/networkAclRule:NetworkAclRule", name, inputs, opts);
     }

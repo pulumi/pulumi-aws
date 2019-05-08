@@ -85,44 +85,44 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      */
-    public readonly activationKey: pulumi.Output<string>;
+    public readonly activationKey!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the gateway.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Identifier of the gateway.
      */
-    public /*out*/ readonly gatewayId: pulumi.Output<string>;
+    public /*out*/ readonly gatewayId!: pulumi.Output<string>;
     /**
      * Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where Terraform is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      */
-    public readonly gatewayIpAddress: pulumi.Output<string>;
+    public readonly gatewayIpAddress!: pulumi.Output<string>;
     /**
      * Name of the gateway.
      */
-    public readonly gatewayName: pulumi.Output<string>;
+    public readonly gatewayName!: pulumi.Output<string>;
     /**
      * Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
      */
-    public readonly gatewayTimezone: pulumi.Output<string>;
+    public readonly gatewayTimezone!: pulumi.Output<string>;
     /**
      * Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
      */
-    public readonly gatewayType: pulumi.Output<string | undefined>;
-    public readonly mediumChangerType: pulumi.Output<string | undefined>;
+    public readonly gatewayType!: pulumi.Output<string | undefined>;
+    public readonly mediumChangerType!: pulumi.Output<string | undefined>;
     /**
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      */
-    public readonly smbActiveDirectorySettings: pulumi.Output<{ domainName: string, password: string, username: string } | undefined>;
+    public readonly smbActiveDirectorySettings!: pulumi.Output<{ domainName: string, password: string, username: string } | undefined>;
     /**
      * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. Terraform can only detect drift of the existence of a guest password, not its actual value from the gateway. Terraform can however update the password with changing the argument.
      */
-    public readonly smbGuestPassword: pulumi.Output<string | undefined>;
+    public readonly smbGuestPassword!: pulumi.Output<string | undefined>;
     /**
      * Type of tape drive to use for tape gateway. Terraform cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      */
-    public readonly tapeDriveType: pulumi.Output<string | undefined>;
+    public readonly tapeDriveType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Gateway resource with the given unique name, arguments, and options.
@@ -135,7 +135,7 @@ export class Gateway extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GatewayArgs | GatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GatewayState = argsOrState as GatewayState | undefined;
+            const state = argsOrState as GatewayState | undefined;
             inputs["activationKey"] = state ? state.activationKey : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["gatewayId"] = state ? state.gatewayId : undefined;
@@ -166,6 +166,13 @@ export class Gateway extends pulumi.CustomResource {
             inputs["tapeDriveType"] = args ? args.tapeDriveType : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["gatewayId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:storagegateway/gateway:Gateway", name, inputs, opts);
     }

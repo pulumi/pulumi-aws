@@ -41,15 +41,15 @@ export class Application extends pulumi.CustomResource {
         return new Application(name, <any>state, { ...opts, id: id });
     }
 
-    public readonly appversionLifecycle: pulumi.Output<{ deleteSourceFromS3?: boolean, maxAgeInDays?: number, maxCount?: number, serviceRole: string } | undefined>;
+    public readonly appversionLifecycle!: pulumi.Output<{ deleteSourceFromS3?: boolean, maxAgeInDays?: number, maxCount?: number, serviceRole: string } | undefined>;
     /**
      * Short description of the application
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the application, must be unique within your account
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -62,7 +62,7 @@ export class Application extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ApplicationState = argsOrState as ApplicationState | undefined;
+            const state = argsOrState as ApplicationState | undefined;
             inputs["appversionLifecycle"] = state ? state.appversionLifecycle : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -71,6 +71,13 @@ export class Application extends pulumi.CustomResource {
             inputs["appversionLifecycle"] = args ? args.appversionLifecycle : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:elasticbeanstalk/application:Application", name, inputs, opts);
     }

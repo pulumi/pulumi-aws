@@ -140,75 +140,75 @@ export class Trail extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name of the trail.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies a log group name using an Amazon Resource Name (ARN),
      * that represents the log group to which CloudTrail logs will be delivered.
      */
-    public readonly cloudWatchLogsGroupArn: pulumi.Output<string | undefined>;
+    public readonly cloudWatchLogsGroupArn!: pulumi.Output<string | undefined>;
     /**
      * Specifies the role for the CloudWatch Logs
      * endpoint to assume to write to a user’s log group.
      */
-    public readonly cloudWatchLogsRoleArn: pulumi.Output<string | undefined>;
+    public readonly cloudWatchLogsRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether log file integrity validation is enabled.
      * Defaults to `false`.
      */
-    public readonly enableLogFileValidation: pulumi.Output<boolean | undefined>;
+    public readonly enableLogFileValidation!: pulumi.Output<boolean | undefined>;
     /**
      * Enables logging for the trail. Defaults to `true`.
      * Setting this to `false` will pause logging.
      */
-    public readonly enableLogging: pulumi.Output<boolean | undefined>;
+    public readonly enableLogging!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
      */
-    public readonly eventSelectors: pulumi.Output<{ dataResources?: { type: string, values: string[] }[], includeManagementEvents?: boolean, readWriteType?: string }[] | undefined>;
+    public readonly eventSelectors!: pulumi.Output<{ dataResources?: { type: string, values: string[] }[], includeManagementEvents?: boolean, readWriteType?: string }[] | undefined>;
     /**
      * The region in which the trail was created.
      */
-    public /*out*/ readonly homeRegion: pulumi.Output<string>;
+    public /*out*/ readonly homeRegion!: pulumi.Output<string>;
     /**
      * Specifies whether the trail is publishing events
      * from global services such as IAM to the log files. Defaults to `true`.
      */
-    public readonly includeGlobalServiceEvents: pulumi.Output<boolean | undefined>;
+    public readonly includeGlobalServiceEvents!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the trail is created in the current
      * region or in all regions. Defaults to `false`.
      */
-    public readonly isMultiRegionTrail: pulumi.Output<boolean | undefined>;
+    public readonly isMultiRegionTrail!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
      */
-    public readonly isOrganizationTrail: pulumi.Output<boolean | undefined>;
+    public readonly isOrganizationTrail!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
      */
-    public readonly kmsKeyId: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the trail.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the name of the S3 bucket designated for publishing log files.
      */
-    public readonly s3BucketName: pulumi.Output<string>;
+    public readonly s3BucketName!: pulumi.Output<string>;
     /**
      * Specifies the S3 key prefix that follows
      * the name of the bucket you have designated for log file delivery.
      */
-    public readonly s3KeyPrefix: pulumi.Output<string | undefined>;
+    public readonly s3KeyPrefix!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Amazon SNS topic
      * defined for notification of log file delivery.
      */
-    public readonly snsTopicName: pulumi.Output<string | undefined>;
+    public readonly snsTopicName!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the trail
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Trail resource with the given unique name, arguments, and options.
@@ -221,7 +221,7 @@ export class Trail extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TrailArgs | TrailState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TrailState = argsOrState as TrailState | undefined;
+            const state = argsOrState as TrailState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cloudWatchLogsGroupArn"] = state ? state.cloudWatchLogsGroupArn : undefined;
             inputs["cloudWatchLogsRoleArn"] = state ? state.cloudWatchLogsRoleArn : undefined;
@@ -259,6 +259,13 @@ export class Trail extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["homeRegion"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cloudtrail/trail:Trail", name, inputs, opts);
     }

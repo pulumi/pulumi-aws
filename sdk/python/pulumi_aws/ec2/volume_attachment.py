@@ -91,6 +91,10 @@ class VolumeAttachment(pulumi.CustomResource):
             raise TypeError("Missing required property 'volume_id'")
         __props__['volume_id'] = volume_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VolumeAttachment, __self__).__init__(
             'aws:ec2/volumeAttachment:VolumeAttachment',
             resource_name,

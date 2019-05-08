@@ -92,48 +92,48 @@ export class Authorizer extends pulumi.CustomResource {
      * The credentials required for the authorizer.
      * To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
      */
-    public readonly authorizerCredentials: pulumi.Output<string | undefined>;
+    public readonly authorizerCredentials!: pulumi.Output<string | undefined>;
     /**
      * The TTL of cached authorizer results in seconds.
      * Defaults to `300`.
      */
-    public readonly authorizerResultTtlInSeconds: pulumi.Output<number | undefined>;
+    public readonly authorizerResultTtlInSeconds!: pulumi.Output<number | undefined>;
     /**
      * The authorizer's Uniform Resource Identifier (URI).
      * This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
      * e.g. `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
      */
-    public readonly authorizerUri: pulumi.Output<string | undefined>;
+    public readonly authorizerUri!: pulumi.Output<string | undefined>;
     /**
      * The source of the identity in an incoming request.
      * Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g. `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
      */
-    public readonly identitySource: pulumi.Output<string | undefined>;
+    public readonly identitySource!: pulumi.Output<string | undefined>;
     /**
      * A validation expression for the incoming identity.
      * For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched
      * against this expression, and will proceed if the token matches. If the token doesn't match,
      * the client receives a 401 Unauthorized response.
      */
-    public readonly identityValidationExpression: pulumi.Output<string | undefined>;
+    public readonly identityValidationExpression!: pulumi.Output<string | undefined>;
     /**
      * The name of the authorizer
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A list of the Amazon Cognito user pool ARNs.
      * Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
      */
-    public readonly providerArns: pulumi.Output<string[] | undefined>;
+    public readonly providerArns!: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the associated REST API
      */
-    public readonly restApi: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<RestApi>;
     /**
      * The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool.
      * Defaults to `TOKEN`.
      */
-    public readonly type: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Authorizer resource with the given unique name, arguments, and options.
@@ -146,7 +146,7 @@ export class Authorizer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AuthorizerArgs | AuthorizerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AuthorizerState = argsOrState as AuthorizerState | undefined;
+            const state = argsOrState as AuthorizerState | undefined;
             inputs["authorizerCredentials"] = state ? state.authorizerCredentials : undefined;
             inputs["authorizerResultTtlInSeconds"] = state ? state.authorizerResultTtlInSeconds : undefined;
             inputs["authorizerUri"] = state ? state.authorizerUri : undefined;
@@ -170,6 +170,13 @@ export class Authorizer extends pulumi.CustomResource {
             inputs["providerArns"] = args ? args.providerArns : undefined;
             inputs["restApi"] = args ? args.restApi : undefined;
             inputs["type"] = args ? args.type : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:apigateway/authorizer:Authorizer", name, inputs, opts);
     }

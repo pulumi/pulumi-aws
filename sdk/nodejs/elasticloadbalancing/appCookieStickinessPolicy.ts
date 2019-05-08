@@ -45,22 +45,22 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
     /**
      * The application cookie whose lifetime the ELB's cookie should follow.
      */
-    public readonly cookieName: pulumi.Output<string>;
+    public readonly cookieName!: pulumi.Output<string>;
     /**
      * The load balancer port to which the policy
      * should be applied. This must be an active listener on the load
      * balancer.
      */
-    public readonly lbPort: pulumi.Output<number>;
+    public readonly lbPort!: pulumi.Output<number>;
     /**
      * The name of load balancer to which the policy
      * should be attached.
      */
-    public readonly loadBalancer: pulumi.Output<string>;
+    public readonly loadBalancer!: pulumi.Output<string>;
     /**
      * The name of the stickiness policy.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a AppCookieStickinessPolicy resource with the given unique name, arguments, and options.
@@ -73,7 +73,7 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AppCookieStickinessPolicyArgs | AppCookieStickinessPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AppCookieStickinessPolicyState = argsOrState as AppCookieStickinessPolicyState | undefined;
+            const state = argsOrState as AppCookieStickinessPolicyState | undefined;
             inputs["cookieName"] = state ? state.cookieName : undefined;
             inputs["lbPort"] = state ? state.lbPort : undefined;
             inputs["loadBalancer"] = state ? state.loadBalancer : undefined;
@@ -93,6 +93,13 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
             inputs["lbPort"] = args ? args.lbPort : undefined;
             inputs["loadBalancer"] = args ? args.loadBalancer : undefined;
             inputs["name"] = args ? args.name : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy", name, inputs, opts);
     }

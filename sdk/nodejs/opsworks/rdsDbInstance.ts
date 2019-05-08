@@ -40,19 +40,19 @@ export class RdsDbInstance extends pulumi.CustomResource {
     /**
      * A db password
      */
-    public readonly dbPassword: pulumi.Output<string>;
+    public readonly dbPassword!: pulumi.Output<string>;
     /**
      * A db username
      */
-    public readonly dbUser: pulumi.Output<string>;
+    public readonly dbUser!: pulumi.Output<string>;
     /**
      * The db instance to register for this stack. Changing this will force a new resource.
      */
-    public readonly rdsDbInstanceArn: pulumi.Output<string>;
+    public readonly rdsDbInstanceArn!: pulumi.Output<string>;
     /**
      * The stack to register a db instance for. Changing this will force a new resource.
      */
-    public readonly stackId: pulumi.Output<string>;
+    public readonly stackId!: pulumi.Output<string>;
 
     /**
      * Create a RdsDbInstance resource with the given unique name, arguments, and options.
@@ -65,7 +65,7 @@ export class RdsDbInstance extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RdsDbInstanceArgs | RdsDbInstanceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RdsDbInstanceState = argsOrState as RdsDbInstanceState | undefined;
+            const state = argsOrState as RdsDbInstanceState | undefined;
             inputs["dbPassword"] = state ? state.dbPassword : undefined;
             inputs["dbUser"] = state ? state.dbUser : undefined;
             inputs["rdsDbInstanceArn"] = state ? state.rdsDbInstanceArn : undefined;
@@ -88,6 +88,13 @@ export class RdsDbInstance extends pulumi.CustomResource {
             inputs["dbUser"] = args ? args.dbUser : undefined;
             inputs["rdsDbInstanceArn"] = args ? args.rdsDbInstanceArn : undefined;
             inputs["stackId"] = args ? args.stackId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:opsworks/rdsDbInstance:RdsDbInstance", name, inputs, opts);
     }

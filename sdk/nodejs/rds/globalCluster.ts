@@ -27,32 +27,32 @@ export class GlobalCluster extends pulumi.CustomResource {
     /**
      * RDS Global Cluster Amazon Resource Name (ARN)
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name for an automatically created database on cluster creation.
      */
-    public readonly databaseName: pulumi.Output<string | undefined>;
+    public readonly databaseName!: pulumi.Output<string | undefined>;
     /**
      * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
-    public readonly deletionProtection: pulumi.Output<boolean | undefined>;
+    public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     /**
      * Name of the database engine to be used for this DB cluster. Valid values: `aurora`. Defaults to `aurora`.
      */
-    public readonly engine: pulumi.Output<string | undefined>;
+    public readonly engine!: pulumi.Output<string | undefined>;
     /**
      * Engine version of the Aurora global database.
      */
-    public readonly engineVersion: pulumi.Output<string>;
-    public readonly globalClusterIdentifier: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string>;
+    public readonly globalClusterIdentifier!: pulumi.Output<string>;
     /**
      * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
      */
-    public /*out*/ readonly globalClusterResourceId: pulumi.Output<string>;
+    public /*out*/ readonly globalClusterResourceId!: pulumi.Output<string>;
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false`.
      */
-    public readonly storageEncrypted: pulumi.Output<boolean | undefined>;
+    public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a GlobalCluster resource with the given unique name, arguments, and options.
@@ -65,7 +65,7 @@ export class GlobalCluster extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GlobalClusterArgs | GlobalClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GlobalClusterState = argsOrState as GlobalClusterState | undefined;
+            const state = argsOrState as GlobalClusterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["deletionProtection"] = state ? state.deletionProtection : undefined;
@@ -87,6 +87,13 @@ export class GlobalCluster extends pulumi.CustomResource {
             inputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["globalClusterResourceId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:rds/globalCluster:GlobalCluster", name, inputs, opts);
     }

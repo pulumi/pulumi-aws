@@ -41,47 +41,47 @@ export class CapacityReservation extends pulumi.CustomResource {
     /**
      * The Availability Zone in which to create the Capacity Reservation.
      */
-    public readonly availabilityZone: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string>;
     /**
      * Indicates whether the Capacity Reservation supports EBS-optimized instances.
      */
-    public readonly ebsOptimized: pulumi.Output<boolean | undefined>;
+    public readonly ebsOptimized!: pulumi.Output<boolean | undefined>;
     /**
      * The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
-    public readonly endDate: pulumi.Output<string | undefined>;
+    public readonly endDate!: pulumi.Output<string | undefined>;
     /**
      * Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
      */
-    public readonly endDateType: pulumi.Output<string | undefined>;
+    public readonly endDateType!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
      */
-    public readonly ephemeralStorage: pulumi.Output<boolean | undefined>;
+    public readonly ephemeralStorage!: pulumi.Output<boolean | undefined>;
     /**
      * The number of instances for which to reserve capacity.
      */
-    public readonly instanceCount: pulumi.Output<number>;
+    public readonly instanceCount!: pulumi.Output<number>;
     /**
      * Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
      */
-    public readonly instanceMatchCriteria: pulumi.Output<string | undefined>;
+    public readonly instanceMatchCriteria!: pulumi.Output<string | undefined>;
     /**
      * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
      */
-    public readonly instancePlatform: pulumi.Output<InstancePlatform>;
+    public readonly instancePlatform!: pulumi.Output<InstancePlatform>;
     /**
      * The instance type for which to reserve capacity.
      */
-    public readonly instanceType: pulumi.Output<InstanceType>;
+    public readonly instanceType!: pulumi.Output<InstanceType>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
      */
-    public readonly tenancy: pulumi.Output<Tenancy | undefined>;
+    public readonly tenancy!: pulumi.Output<Tenancy | undefined>;
 
     /**
      * Create a CapacityReservation resource with the given unique name, arguments, and options.
@@ -94,7 +94,7 @@ export class CapacityReservation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CapacityReservationArgs | CapacityReservationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CapacityReservationState = argsOrState as CapacityReservationState | undefined;
+            const state = argsOrState as CapacityReservationState | undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
             inputs["endDate"] = state ? state.endDate : undefined;
@@ -131,6 +131,13 @@ export class CapacityReservation extends pulumi.CustomResource {
             inputs["instanceType"] = args ? args.instanceType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tenancy"] = args ? args.tenancy : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/capacityReservation:CapacityReservation", name, inputs, opts);
     }

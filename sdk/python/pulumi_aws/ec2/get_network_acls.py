@@ -41,6 +41,10 @@ async def get_network_acls(filters=None,tags=None,vpc_id=None,opts=None):
     __args__['filters'] = filters
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
+ .   if opts is None:
+         opts = pulumi.ResourceOptions()
+     if opts.version is None:
+         opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ec2/getNetworkAcls:getNetworkAcls', __args__, opts=opts)
 
     return GetNetworkAclsResult(

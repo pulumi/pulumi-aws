@@ -56,6 +56,10 @@ class SecurityGroup(pulumi.CustomResource):
 
         __props__['name'] = name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(SecurityGroup, __self__).__init__(
             'aws:redshift/securityGroup:SecurityGroup',
             resource_name,

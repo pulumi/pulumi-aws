@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCertificateAuthority(args: GetCertificateAuthorityArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateAuthorityResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:acmpca/getCertificateAuthority:getCertificateAuthority", {
         "arn": args.arn,
         "revocationConfigurations": args.revocationConfigurations,

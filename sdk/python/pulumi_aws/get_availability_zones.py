@@ -12,7 +12,13 @@ class GetAvailabilityZonesResult:
     """
     A collection of values returned by getAvailabilityZones.
     """
-    def __init__(__self__, names=None, state=None, zone_ids=None, id=None):
+    def __init__(__self__, blacklisted_names=None, blacklisted_zone_ids=None, names=None, state=None, zone_ids=None, id=None):
+        if blacklisted_names and not isinstance(blacklisted_names, list):
+            raise TypeError("Expected argument 'blacklisted_names' to be a list")
+        __self__.blacklisted_names = blacklisted_names
+        if blacklisted_zone_ids and not isinstance(blacklisted_zone_ids, list):
+            raise TypeError("Expected argument 'blacklisted_zone_ids' to be a list")
+        __self__.blacklisted_zone_ids = blacklisted_zone_ids
         if names and not isinstance(names, list):
             raise TypeError("Expected argument 'names' to be a list")
         __self__.names = names
@@ -35,7 +41,7 @@ class GetAvailabilityZonesResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_availability_zones(state=None,opts=None):
+async def get_availability_zones(blacklisted_names=None,blacklisted_zone_ids=None,state=None,opts=None):
     """
     The Availability Zones data source allows access to the list of AWS
     Availability Zones which can be accessed by an AWS account within the region
@@ -46,10 +52,18 @@ async def get_availability_zones(state=None,opts=None):
     """
     __args__ = dict()
 
+    __args__['blacklistedNames'] = blacklisted_names
+    __args__['blacklistedZoneIds'] = blacklisted_zone_ids
     __args__['state'] = state
+ .   if opts is None:
+         opts = pulumi.ResourceOptions()
+     if opts.version is None:
+         opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:index/getAvailabilityZones:getAvailabilityZones', __args__, opts=opts)
 
     return GetAvailabilityZonesResult(
+        blacklisted_names=__ret__.get('blacklistedNames'),
+        blacklisted_zone_ids=__ret__.get('blacklistedZoneIds'),
         names=__ret__.get('names'),
         state=__ret__.get('state'),
         zone_ids=__ret__.get('zoneIds'),

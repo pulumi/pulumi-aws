@@ -51,35 +51,35 @@ export class Model extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this model.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
      */
-    public readonly containers: pulumi.Output<{ containerHostname?: string, environment?: {[key: string]: any}, image: string, modelDataUrl?: string }[] | undefined>;
+    public readonly containers!: pulumi.Output<{ containerHostname?: string, environment?: {[key: string]: any}, image: string, modelDataUrl?: string }[] | undefined>;
     /**
      * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
      */
-    public readonly enableNetworkIsolation: pulumi.Output<boolean | undefined>;
+    public readonly enableNetworkIsolation!: pulumi.Output<boolean | undefined>;
     /**
      * A role that SageMaker can assume to access model artifacts and docker images for deployment.
      */
-    public readonly executionRoleArn: pulumi.Output<string>;
+    public readonly executionRoleArn!: pulumi.Output<string>;
     /**
      * The name of the model (must be unique). If omitted, Terraform will assign a random, unique name.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      */
-    public readonly primaryContainer: pulumi.Output<{ containerHostname?: string, environment?: {[key: string]: any}, image: string, modelDataUrl?: string } | undefined>;
+    public readonly primaryContainer!: pulumi.Output<{ containerHostname?: string, environment?: {[key: string]: any}, image: string, modelDataUrl?: string } | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
      */
-    public readonly vpcConfig: pulumi.Output<{ securityGroupIds: string[], subnets: string[] } | undefined>;
+    public readonly vpcConfig!: pulumi.Output<{ securityGroupIds: string[], subnets: string[] } | undefined>;
 
     /**
      * Create a Model resource with the given unique name, arguments, and options.
@@ -92,7 +92,7 @@ export class Model extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ModelArgs | ModelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ModelState = argsOrState as ModelState | undefined;
+            const state = argsOrState as ModelState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["containers"] = state ? state.containers : undefined;
             inputs["enableNetworkIsolation"] = state ? state.enableNetworkIsolation : undefined;
@@ -114,6 +114,13 @@ export class Model extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:sagemaker/model:Model", name, inputs, opts);
     }

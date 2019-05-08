@@ -37,11 +37,11 @@ export class ResourceAssociation extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
      */
-    public readonly resourceArn: pulumi.Output<string>;
+    public readonly resourceArn!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the RAM Resource Share.
      */
-    public readonly resourceShareArn: pulumi.Output<string>;
+    public readonly resourceShareArn!: pulumi.Output<string>;
 
     /**
      * Create a ResourceAssociation resource with the given unique name, arguments, and options.
@@ -54,7 +54,7 @@ export class ResourceAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResourceAssociationArgs | ResourceAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ResourceAssociationState = argsOrState as ResourceAssociationState | undefined;
+            const state = argsOrState as ResourceAssociationState | undefined;
             inputs["resourceArn"] = state ? state.resourceArn : undefined;
             inputs["resourceShareArn"] = state ? state.resourceShareArn : undefined;
         } else {
@@ -67,6 +67,13 @@ export class ResourceAssociation extends pulumi.CustomResource {
             }
             inputs["resourceArn"] = args ? args.resourceArn : undefined;
             inputs["resourceShareArn"] = args ? args.resourceShareArn : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ram/resourceAssociation:ResourceAssociation", name, inputs, opts);
     }

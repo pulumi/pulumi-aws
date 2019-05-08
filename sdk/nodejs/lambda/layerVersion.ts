@@ -53,59 +53,59 @@ export class LayerVersion extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Lambda Layer with version.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A list of [Runtimes][2] this layer is compatible with. Up to 5 runtimes can be specified.
      */
-    public readonly compatibleRuntimes: pulumi.Output<string[] | undefined>;
+    public readonly compatibleRuntimes!: pulumi.Output<string[] | undefined>;
     /**
      * The date this resource was created.
      */
-    public /*out*/ readonly createdDate: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
      * Description of what your Lambda Layer does.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
-    public readonly filename: pulumi.Output<string | undefined>;
+    public readonly filename!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Lambda Layer without version.
      */
-    public /*out*/ readonly layerArn: pulumi.Output<string>;
+    public /*out*/ readonly layerArn!: pulumi.Output<string>;
     /**
      * A unique name for your Lambda Layer
      */
-    public readonly layerName: pulumi.Output<string>;
+    public readonly layerName!: pulumi.Output<string>;
     /**
      * License info for your Lambda Layer. See [License Info][3].
      */
-    public readonly licenseInfo: pulumi.Output<string | undefined>;
+    public readonly licenseInfo!: pulumi.Output<string | undefined>;
     /**
      * The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
      */
-    public readonly s3Bucket: pulumi.Output<string | undefined>;
+    public readonly s3Bucket!: pulumi.Output<string | undefined>;
     /**
      * The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
      */
-    public readonly s3Key: pulumi.Output<string | undefined>;
+    public readonly s3Key!: pulumi.Output<string | undefined>;
     /**
      * The object version containing the function's deployment package. Conflicts with `filename`.
      */
-    public readonly s3ObjectVersion: pulumi.Output<string | undefined>;
+    public readonly s3ObjectVersion!: pulumi.Output<string | undefined>;
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256("file.zip")}` (Terraform 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (Terraform 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
      */
-    public readonly sourceCodeHash: pulumi.Output<string>;
+    public readonly sourceCodeHash!: pulumi.Output<string>;
     /**
      * The size in bytes of the function .zip file.
      */
-    public /*out*/ readonly sourceCodeSize: pulumi.Output<number>;
+    public /*out*/ readonly sourceCodeSize!: pulumi.Output<number>;
     /**
      * This Lamba Layer version.
      */
-    public /*out*/ readonly version: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a LayerVersion resource with the given unique name, arguments, and options.
@@ -118,7 +118,7 @@ export class LayerVersion extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LayerVersionArgs | LayerVersionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LayerVersionState = argsOrState as LayerVersionState | undefined;
+            const state = argsOrState as LayerVersionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["compatibleRuntimes"] = state ? state.compatibleRuntimes : undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
@@ -152,6 +152,13 @@ export class LayerVersion extends pulumi.CustomResource {
             inputs["layerArn"] = undefined /*out*/;
             inputs["sourceCodeSize"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:lambda/layerVersion:LayerVersion", name, inputs, opts);
     }

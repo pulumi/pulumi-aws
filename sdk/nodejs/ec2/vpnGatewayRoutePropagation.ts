@@ -39,11 +39,11 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
     /**
      * The id of the `aws_route_table` to propagate routes into.
      */
-    public readonly routeTableId: pulumi.Output<string>;
+    public readonly routeTableId!: pulumi.Output<string>;
     /**
      * The id of the `aws_vpn_gateway` to propagate routes from.
      */
-    public readonly vpnGatewayId: pulumi.Output<string>;
+    public readonly vpnGatewayId!: pulumi.Output<string>;
 
     /**
      * Create a VpnGatewayRoutePropagation resource with the given unique name, arguments, and options.
@@ -56,7 +56,7 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpnGatewayRoutePropagationArgs | VpnGatewayRoutePropagationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpnGatewayRoutePropagationState = argsOrState as VpnGatewayRoutePropagationState | undefined;
+            const state = argsOrState as VpnGatewayRoutePropagationState | undefined;
             inputs["routeTableId"] = state ? state.routeTableId : undefined;
             inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {
@@ -69,6 +69,13 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
             }
             inputs["routeTableId"] = args ? args.routeTableId : undefined;
             inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation", name, inputs, opts);
     }

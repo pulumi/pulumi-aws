@@ -77,23 +77,23 @@ export class DeliveryChannel extends pulumi.CustomResource {
     /**
      * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the S3 bucket used to store the configuration history.
      */
-    public readonly s3BucketName: pulumi.Output<string>;
+    public readonly s3BucketName!: pulumi.Output<string>;
     /**
      * The prefix for the specified S3 bucket.
      */
-    public readonly s3KeyPrefix: pulumi.Output<string | undefined>;
+    public readonly s3KeyPrefix!: pulumi.Output<string | undefined>;
     /**
      * Options for how AWS Config delivers configuration snapshots. See below
      */
-    public readonly snapshotDeliveryProperties: pulumi.Output<{ deliveryFrequency?: string } | undefined>;
+    public readonly snapshotDeliveryProperties!: pulumi.Output<{ deliveryFrequency?: string } | undefined>;
     /**
      * The ARN of the SNS topic that AWS Config delivers notifications to.
      */
-    public readonly snsTopicArn: pulumi.Output<string | undefined>;
+    public readonly snsTopicArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DeliveryChannel resource with the given unique name, arguments, and options.
@@ -106,7 +106,7 @@ export class DeliveryChannel extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DeliveryChannelArgs | DeliveryChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DeliveryChannelState = argsOrState as DeliveryChannelState | undefined;
+            const state = argsOrState as DeliveryChannelState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["s3BucketName"] = state ? state.s3BucketName : undefined;
             inputs["s3KeyPrefix"] = state ? state.s3KeyPrefix : undefined;
@@ -122,6 +122,13 @@ export class DeliveryChannel extends pulumi.CustomResource {
             inputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
             inputs["snapshotDeliveryProperties"] = args ? args.snapshotDeliveryProperties : undefined;
             inputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cfg/deliveryChannel:DeliveryChannel", name, inputs, opts);
     }

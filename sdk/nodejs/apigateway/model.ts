@@ -45,23 +45,23 @@ export class Model extends pulumi.CustomResource {
     /**
      * The content type of the model
      */
-    public readonly contentType: pulumi.Output<string>;
+    public readonly contentType!: pulumi.Output<string>;
     /**
      * The description of the model
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the model
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the associated REST API
      */
-    public readonly restApi: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<RestApi>;
     /**
      * The schema of the model in a JSON form
      */
-    public readonly schema: pulumi.Output<string | undefined>;
+    public readonly schema!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Model resource with the given unique name, arguments, and options.
@@ -74,7 +74,7 @@ export class Model extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ModelArgs | ModelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ModelState = argsOrState as ModelState | undefined;
+            const state = argsOrState as ModelState | undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -93,6 +93,13 @@ export class Model extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["restApi"] = args ? args.restApi : undefined;
             inputs["schema"] = args ? args.schema : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:apigateway/model:Model", name, inputs, opts);
     }

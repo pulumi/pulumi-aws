@@ -70,43 +70,43 @@ export class Server extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of Transfer Server
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
      */
-    public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
      */
-    public readonly endpointDetails: pulumi.Output<{ vpcEndpointId: string } | undefined>;
+    public readonly endpointDetails!: pulumi.Output<{ vpcEndpointId: string } | undefined>;
     /**
      * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC_ENDPOINT`, your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.
      */
-    public readonly endpointType: pulumi.Output<string | undefined>;
+    public readonly endpointType!: pulumi.Output<string | undefined>;
     /**
      * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
      */
-    public readonly forceDestroy: pulumi.Output<boolean | undefined>;
+    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
      */
-    public readonly identityProviderType: pulumi.Output<string | undefined>;
+    public readonly identityProviderType!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
      */
-    public readonly invocationRole: pulumi.Output<string | undefined>;
+    public readonly invocationRole!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      */
-    public readonly loggingRole: pulumi.Output<string | undefined>;
+    public readonly loggingRole!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
      */
-    public readonly url: pulumi.Output<string | undefined>;
+    public readonly url!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -119,7 +119,7 @@ export class Server extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ServerArgs | ServerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ServerState = argsOrState as ServerState | undefined;
+            const state = argsOrState as ServerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["endpointDetails"] = state ? state.endpointDetails : undefined;
@@ -142,6 +142,13 @@ export class Server extends pulumi.CustomResource {
             inputs["url"] = args ? args.url : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:transfer/server:Server", name, inputs, opts);
     }

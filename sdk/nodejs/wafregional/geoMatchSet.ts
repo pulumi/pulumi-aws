@@ -43,11 +43,11 @@ export class GeoMatchSet extends pulumi.CustomResource {
     /**
      * The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
      */
-    public readonly geoMatchConstraints: pulumi.Output<{ type: string, value: string }[] | undefined>;
+    public readonly geoMatchConstraints!: pulumi.Output<{ type: string, value: string }[] | undefined>;
     /**
      * The name or description of the Geo Match Set.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a GeoMatchSet resource with the given unique name, arguments, and options.
@@ -60,13 +60,20 @@ export class GeoMatchSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GeoMatchSetArgs | GeoMatchSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GeoMatchSetState = argsOrState as GeoMatchSetState | undefined;
+            const state = argsOrState as GeoMatchSetState | undefined;
             inputs["geoMatchConstraints"] = state ? state.geoMatchConstraints : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as GeoMatchSetArgs | undefined;
             inputs["geoMatchConstraints"] = args ? args.geoMatchConstraints : undefined;
             inputs["name"] = args ? args.name : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:wafregional/geoMatchSet:GeoMatchSet", name, inputs, opts);
     }

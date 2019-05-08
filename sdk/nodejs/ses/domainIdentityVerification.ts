@@ -49,11 +49,11 @@ export class DomainIdentityVerification extends pulumi.CustomResource {
     /**
      * The ARN of the domain identity.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The domain name of the SES domain identity to verify.
      */
-    public readonly domain: pulumi.Output<string>;
+    public readonly domain!: pulumi.Output<string>;
 
     /**
      * Create a DomainIdentityVerification resource with the given unique name, arguments, and options.
@@ -66,7 +66,7 @@ export class DomainIdentityVerification extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DomainIdentityVerificationArgs | DomainIdentityVerificationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DomainIdentityVerificationState = argsOrState as DomainIdentityVerificationState | undefined;
+            const state = argsOrState as DomainIdentityVerificationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["domain"] = state ? state.domain : undefined;
         } else {
@@ -76,6 +76,13 @@ export class DomainIdentityVerification extends pulumi.CustomResource {
             }
             inputs["domain"] = args ? args.domain : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ses/domainIdentityVerification:DomainIdentityVerification", name, inputs, opts);
     }

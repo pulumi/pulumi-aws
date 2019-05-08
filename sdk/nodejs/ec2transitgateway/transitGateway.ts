@@ -36,51 +36,51 @@ export class TransitGateway extends pulumi.CustomResource {
     /**
      * Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
      */
-    public readonly amazonSideAsn: pulumi.Output<number | undefined>;
+    public readonly amazonSideAsn!: pulumi.Output<number | undefined>;
     /**
      * EC2 Transit Gateway Amazon Resource Name (ARN)
      */
-    public /*out*/ readonly arn: pulumi.Output<ARN>;
+    public /*out*/ readonly arn!: pulumi.Output<ARN>;
     /**
      * Identifier of the default association route table
      */
-    public /*out*/ readonly associationDefaultRouteTableId: pulumi.Output<string>;
+    public /*out*/ readonly associationDefaultRouteTableId!: pulumi.Output<string>;
     /**
      * Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
      */
-    public readonly autoAcceptSharedAttachments: pulumi.Output<string | undefined>;
+    public readonly autoAcceptSharedAttachments!: pulumi.Output<string | undefined>;
     /**
      * Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
      */
-    public readonly defaultRouteTableAssociation: pulumi.Output<string | undefined>;
+    public readonly defaultRouteTableAssociation!: pulumi.Output<string | undefined>;
     /**
      * Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
      */
-    public readonly defaultRouteTablePropagation: pulumi.Output<string | undefined>;
+    public readonly defaultRouteTablePropagation!: pulumi.Output<string | undefined>;
     /**
      * Description of the EC2 Transit Gateway.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
-    public readonly dnsSupport: pulumi.Output<string | undefined>;
+    public readonly dnsSupport!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway
      */
-    public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * Identifier of the default propagation route table
      */
-    public /*out*/ readonly propagationDefaultRouteTableId: pulumi.Output<string>;
+    public /*out*/ readonly propagationDefaultRouteTableId!: pulumi.Output<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway.
      */
-    public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
-    public readonly vpnEcmpSupport: pulumi.Output<string | undefined>;
+    public readonly vpnEcmpSupport!: pulumi.Output<string | undefined>;
 
     /**
      * Create a TransitGateway resource with the given unique name, arguments, and options.
@@ -93,7 +93,7 @@ export class TransitGateway extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TransitGatewayArgs | TransitGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TransitGatewayState = argsOrState as TransitGatewayState | undefined;
+            const state = argsOrState as TransitGatewayState | undefined;
             inputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["associationDefaultRouteTableId"] = state ? state.associationDefaultRouteTableId : undefined;
@@ -120,6 +120,13 @@ export class TransitGateway extends pulumi.CustomResource {
             inputs["associationDefaultRouteTableId"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["propagationDefaultRouteTableId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2transitgateway/transitGateway:TransitGateway", name, inputs, opts);
     }

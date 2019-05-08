@@ -60,6 +60,10 @@ class Recorder(pulumi.CustomResource):
             raise TypeError("Missing required property 'role_arn'")
         __props__['role_arn'] = role_arn
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Recorder, __self__).__init__(
             'aws:cfg/recorder:Recorder',
             resource_name,

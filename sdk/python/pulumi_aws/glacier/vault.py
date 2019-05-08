@@ -74,6 +74,10 @@ class Vault(pulumi.CustomResource):
         __props__['arn'] = None
         __props__['location'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Vault, __self__).__init__(
             'aws:glacier/vault:Vault',
             resource_name,

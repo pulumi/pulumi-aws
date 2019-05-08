@@ -38,11 +38,11 @@ export class ProductSubscription extends pulumi.CustomResource {
     /**
      * The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ARN of the product that generates findings that you want to import into Security Hub - see below.
      */
-    public readonly productArn: pulumi.Output<string>;
+    public readonly productArn!: pulumi.Output<string>;
 
     /**
      * Create a ProductSubscription resource with the given unique name, arguments, and options.
@@ -55,7 +55,7 @@ export class ProductSubscription extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProductSubscriptionArgs | ProductSubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ProductSubscriptionState = argsOrState as ProductSubscriptionState | undefined;
+            const state = argsOrState as ProductSubscriptionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["productArn"] = state ? state.productArn : undefined;
         } else {
@@ -65,6 +65,13 @@ export class ProductSubscription extends pulumi.CustomResource {
             }
             inputs["productArn"] = args ? args.productArn : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:securityhub/productSubscription:ProductSubscription", name, inputs, opts);
     }

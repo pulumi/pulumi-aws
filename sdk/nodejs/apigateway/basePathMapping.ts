@@ -53,19 +53,19 @@ export class BasePathMapping extends pulumi.CustomResource {
     /**
      * The id of the API to connect.
      */
-    public readonly restApi: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<RestApi>;
     /**
      * Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
      */
-    public readonly basePath: pulumi.Output<string | undefined>;
+    public readonly basePath!: pulumi.Output<string | undefined>;
     /**
      * The already-registered domain name to connect the API to.
      */
-    public readonly domainName: pulumi.Output<string>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
      */
-    public readonly stageName: pulumi.Output<string | undefined>;
+    public readonly stageName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a BasePathMapping resource with the given unique name, arguments, and options.
@@ -78,7 +78,7 @@ export class BasePathMapping extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BasePathMappingArgs | BasePathMappingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: BasePathMappingState = argsOrState as BasePathMappingState | undefined;
+            const state = argsOrState as BasePathMappingState | undefined;
             inputs["restApi"] = state ? state.restApi : undefined;
             inputs["basePath"] = state ? state.basePath : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
@@ -95,6 +95,13 @@ export class BasePathMapping extends pulumi.CustomResource {
             inputs["basePath"] = args ? args.basePath : undefined;
             inputs["domainName"] = args ? args.domainName : undefined;
             inputs["stageName"] = args ? args.stageName : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:apigateway/basePathMapping:BasePathMapping", name, inputs, opts);
     }

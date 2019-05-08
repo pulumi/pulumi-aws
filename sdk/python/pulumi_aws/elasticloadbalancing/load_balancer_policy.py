@@ -65,6 +65,10 @@ class LoadBalancerPolicy(pulumi.CustomResource):
             raise TypeError("Missing required property 'policy_type_name'")
         __props__['policy_type_name'] = policy_type_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(LoadBalancerPolicy, __self__).__init__(
             'aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy',
             resource_name,

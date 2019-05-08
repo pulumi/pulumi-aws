@@ -80,36 +80,36 @@ export class Zone extends pulumi.CustomResource {
     /**
      * A comment for the hosted zone. Defaults to 'Managed by Terraform'.
      */
-    public readonly comment: pulumi.Output<string>;
+    public readonly comment!: pulumi.Output<string>;
     /**
      * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
      */
-    public readonly delegationSetId: pulumi.Output<string | undefined>;
+    public readonly delegationSetId!: pulumi.Output<string | undefined>;
     /**
      * Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone.
      */
-    public readonly forceDestroy: pulumi.Output<boolean | undefined>;
+    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * This is the name of the hosted zone.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A list of name servers in associated (or default) delegation set.
      * Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
      */
-    public /*out*/ readonly nameServers: pulumi.Output<string[]>;
+    public /*out*/ readonly nameServers!: pulumi.Output<string[]>;
     /**
      * A mapping of tags to assign to the zone.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
      */
-    public readonly vpcs: pulumi.Output<{ vpcId: string, vpcRegion: string }[] | undefined>;
+    public readonly vpcs!: pulumi.Output<{ vpcId: string, vpcRegion: string }[] | undefined>;
     /**
      * The Hosted Zone ID. This can be referenced by zone records.
      */
-    public /*out*/ readonly zoneId: pulumi.Output<string>;
+    public /*out*/ readonly zoneId!: pulumi.Output<string>;
 
     /**
      * Create a Zone resource with the given unique name, arguments, and options.
@@ -122,7 +122,7 @@ export class Zone extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ZoneArgs | ZoneState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ZoneState = argsOrState as ZoneState | undefined;
+            const state = argsOrState as ZoneState | undefined;
             inputs["comment"] = state ? state.comment : undefined;
             inputs["delegationSetId"] = state ? state.delegationSetId : undefined;
             inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
@@ -141,6 +141,13 @@ export class Zone extends pulumi.CustomResource {
             inputs["vpcs"] = args ? args.vpcs : undefined;
             inputs["nameServers"] = undefined /*out*/;
             inputs["zoneId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:route53/zone:Zone", name, inputs, opts);
     }

@@ -145,21 +145,21 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * The codepipeline ARN.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * An artifact_store block. Artifact stores are documented below.
      * * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
      */
-    public readonly artifactStore: pulumi.Output<{ encryptionKey?: { id: string, type: string }, location: string, type: string }>;
+    public readonly artifactStore!: pulumi.Output<{ encryptionKey?: { id: string, type: string }, location: string, type: string }>;
     /**
      * The name of the pipeline.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
-    public readonly roleArn: pulumi.Output<string>;
-    public readonly stages: pulumi.Output<{ actions: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder: number, version: string }[], name: string }[]>;
+    public readonly roleArn!: pulumi.Output<string>;
+    public readonly stages!: pulumi.Output<{ actions: { category: string, configuration?: {[key: string]: any}, inputArtifacts?: string[], name: string, outputArtifacts?: string[], owner: string, provider: string, roleArn?: string, runOrder: number, version: string }[], name: string }[]>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -172,7 +172,7 @@ export class Pipeline extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PipelineArgs | PipelineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PipelineState = argsOrState as PipelineState | undefined;
+            const state = argsOrState as PipelineState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["artifactStore"] = state ? state.artifactStore : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -194,6 +194,13 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["stages"] = args ? args.stages : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:codepipeline/pipeline:Pipeline", name, inputs, opts);
     }

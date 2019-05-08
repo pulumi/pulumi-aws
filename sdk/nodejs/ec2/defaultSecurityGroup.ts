@@ -112,36 +112,36 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
         return new DefaultSecurityGroup(name, <any>state, { ...opts, id: id });
     }
 
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Can be specified multiple times for each
      * egress rule. Each egress block supports fields documented below.
      */
-    public readonly egress: pulumi.Output<{ cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[] | undefined>;
+    public readonly egress!: pulumi.Output<{ cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[] | undefined>;
     /**
      * Can be specified multiple times for each
      * ingress rule. Each ingress block supports fields documented below.
      */
-    public readonly ingress: pulumi.Output<{ cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[] | undefined>;
+    public readonly ingress!: pulumi.Output<{ cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[] | undefined>;
     /**
      * The name of the security group
      */
-    public /*out*/ readonly name: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The owner ID.
      */
-    public /*out*/ readonly ownerId: pulumi.Output<string>;
-    public readonly revokeRulesOnDelete: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public readonly revokeRulesOnDelete!: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The VPC ID. **Note that changing
      * the `vpc_id` will _not_ restore any default security group rules that were
      * modified, added, or removed.** It will be left in its current state
      */
-    public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a DefaultSecurityGroup resource with the given unique name, arguments, and options.
@@ -154,7 +154,7 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DefaultSecurityGroupArgs | DefaultSecurityGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DefaultSecurityGroupState = argsOrState as DefaultSecurityGroupState | undefined;
+            const state = argsOrState as DefaultSecurityGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["egress"] = state ? state.egress : undefined;
             inputs["ingress"] = state ? state.ingress : undefined;
@@ -173,6 +173,13 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup", name, inputs, opts);
     }

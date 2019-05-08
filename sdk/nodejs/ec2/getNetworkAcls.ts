@@ -53,6 +53,13 @@ import * as utilities from "../utilities";
  */
 export function getNetworkAcls(args?: GetNetworkAclsArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAclsResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:ec2/getNetworkAcls:getNetworkAcls", {
         "filters": args.filters,
         "tags": args.tags,

@@ -23,19 +23,19 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the lifecycle configuration (must be unique). If omitted, Terraform will assign a random, unique name.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
      */
-    public readonly onCreate: pulumi.Output<string | undefined>;
+    public readonly onCreate!: pulumi.Output<string | undefined>;
     /**
      * A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
      */
-    public readonly onStart: pulumi.Output<string | undefined>;
+    public readonly onStart!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NotebookInstanceLifecycleConfiguration resource with the given unique name, arguments, and options.
@@ -48,7 +48,7 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
     constructor(name: string, argsOrState?: NotebookInstanceLifecycleConfigurationArgs | NotebookInstanceLifecycleConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NotebookInstanceLifecycleConfigurationState = argsOrState as NotebookInstanceLifecycleConfigurationState | undefined;
+            const state = argsOrState as NotebookInstanceLifecycleConfigurationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["onCreate"] = state ? state.onCreate : undefined;
@@ -59,6 +59,13 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
             inputs["onCreate"] = args ? args.onCreate : undefined;
             inputs["onStart"] = args ? args.onStart : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration", name, inputs, opts);
     }

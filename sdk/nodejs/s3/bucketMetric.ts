@@ -56,15 +56,15 @@ export class BucketMetric extends pulumi.CustomResource {
     /**
      * The name of the bucket to put metric configuration.
      */
-    public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      */
-    public readonly filter: pulumi.Output<{ prefix?: string, tags?: {[key: string]: any} } | undefined>;
+    public readonly filter!: pulumi.Output<{ prefix?: string, tags?: {[key: string]: any} } | undefined>;
     /**
      * Unique identifier of the metrics configuration for the bucket.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a BucketMetric resource with the given unique name, arguments, and options.
@@ -77,7 +77,7 @@ export class BucketMetric extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BucketMetricArgs | BucketMetricState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: BucketMetricState = argsOrState as BucketMetricState | undefined;
+            const state = argsOrState as BucketMetricState | undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
             inputs["filter"] = state ? state.filter : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -89,6 +89,13 @@ export class BucketMetric extends pulumi.CustomResource {
             inputs["bucket"] = args ? args.bucket : undefined;
             inputs["filter"] = args ? args.filter : undefined;
             inputs["name"] = args ? args.name : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:s3/bucketMetric:BucketMetric", name, inputs, opts);
     }
