@@ -27,7 +27,8 @@ export type Runtime =
     "nodejs8.10"     |
     "nodejs"         |
     "python2.7"      |
-    "python3.6"      ;
+    "python3.6"      |
+    "provided"       ;
 
 export let DotnetCore1d0Runtime: Runtime = "dotnetcore1.0";
 export let DotnetCore2d0Runtime: Runtime = "dotnetcore2.0";
@@ -41,3 +42,4 @@ export let NodeJS8d10Runtime: Runtime = "nodejs8.10";
 export let NodeJSRuntime: Runtime = "nodejs";
 export let Python2d7Runtime: Runtime = "python2.7";
 export let Python3d6Runtime: Runtime = "python3.6";
+export let CustomRuntime: Runtime = "provided";
