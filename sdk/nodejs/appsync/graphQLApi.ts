@@ -127,35 +127,35 @@ export class GraphQLApi extends pulumi.CustomResource {
     /**
      * The ARN
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
      */
-    public readonly authenticationType: pulumi.Output<string>;
+    public readonly authenticationType!: pulumi.Output<string>;
     /**
      * Nested argument containing logging configuration. Defined below.
      */
-    public readonly logConfig: pulumi.Output<{ cloudwatchLogsRoleArn: string, fieldLogLevel: string } | undefined>;
+    public readonly logConfig!: pulumi.Output<{ cloudwatchLogsRoleArn: string, fieldLogLevel: string } | undefined>;
     /**
      * A user-supplied name for the GraphqlApi.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Nested argument containing OpenID Connect configuration. Defined below.
      */
-    public readonly openidConnectConfig: pulumi.Output<{ authTtl?: number, clientId?: string, iatTtl?: number, issuer: string } | undefined>;
+    public readonly openidConnectConfig!: pulumi.Output<{ authTtl?: number, clientId?: string, iatTtl?: number, issuer: string } | undefined>;
     /**
      * The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration.
      */
-    public readonly schema: pulumi.Output<string | undefined>;
+    public readonly schema!: pulumi.Output<string | undefined>;
     /**
      * Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      */
-    public /*out*/ readonly uris: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly uris!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Amazon Cognito User Pool configuration. Defined below.
      */
-    public readonly userPoolConfig: pulumi.Output<{ appIdClientRegex?: string, awsRegion: string, defaultAction: string, userPoolId: string } | undefined>;
+    public readonly userPoolConfig!: pulumi.Output<{ appIdClientRegex?: string, awsRegion: string, defaultAction: string, userPoolId: string } | undefined>;
 
     /**
      * Create a GraphQLApi resource with the given unique name, arguments, and options.
@@ -168,7 +168,7 @@ export class GraphQLApi extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GraphQLApiArgs | GraphQLApiState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GraphQLApiState = argsOrState as GraphQLApiState | undefined;
+            const state = argsOrState as GraphQLApiState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["authenticationType"] = state ? state.authenticationType : undefined;
             inputs["logConfig"] = state ? state.logConfig : undefined;
@@ -190,6 +190,13 @@ export class GraphQLApi extends pulumi.CustomResource {
             inputs["userPoolConfig"] = args ? args.userPoolConfig : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["uris"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:appsync/graphQLApi:GraphQLApi", name, inputs, opts);
     }

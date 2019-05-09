@@ -87,104 +87,104 @@ export class Environment extends pulumi.CustomResource {
      * are a combination of default settings and their overrides from `setting` in
      * the configuration.
      */
-    public /*out*/ readonly allSettings: pulumi.Output<{ name: string, namespace: string, resource?: string, value: string }[]>;
+    public /*out*/ readonly allSettings!: pulumi.Output<{ name: string, namespace: string, resource?: string, value: string }[]>;
     /**
      * Name of the application that contains the version
      * to be deployed
      */
-    public readonly application: pulumi.Output<Application>;
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public readonly application!: pulumi.Output<Application>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The autoscaling groups used by this environment.
      */
-    public /*out*/ readonly autoscalingGroups: pulumi.Output<string[]>;
+    public /*out*/ readonly autoscalingGroups!: pulumi.Output<string[]>;
     /**
      * Fully qualified DNS name for the Environment.
      */
-    public /*out*/ readonly cname: pulumi.Output<string>;
+    public /*out*/ readonly cname!: pulumi.Output<string>;
     /**
      * Prefix to use for the fully qualified DNS name of
      * the Environment.
      */
-    public readonly cnamePrefix: pulumi.Output<string>;
+    public readonly cnamePrefix!: pulumi.Output<string>;
     /**
      * Short description of the Environment
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Instances used by this environment.
      */
-    public /*out*/ readonly instances: pulumi.Output<string[]>;
+    public /*out*/ readonly instances!: pulumi.Output<string[]>;
     /**
      * Launch configurations in use by this environment.
      */
-    public /*out*/ readonly launchConfigurations: pulumi.Output<string[]>;
+    public /*out*/ readonly launchConfigurations!: pulumi.Output<string[]>;
     /**
      * Elastic load balancers in use by this environment.
      */
-    public /*out*/ readonly loadBalancers: pulumi.Output<string[]>;
+    public /*out*/ readonly loadBalancers!: pulumi.Output<string[]>;
     /**
      * A unique name for this Environment. This name is used
      * in the application URL
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The [ARN][2] of the Elastic Beanstalk [Platform][3]
      * to use in deployment
      */
-    public readonly platformArn: pulumi.Output<string>;
+    public readonly platformArn!: pulumi.Output<string>;
     /**
      * The time between polling the AWS API to
      * check if changes have been applied. Use this to adjust the rate of API calls
      * for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
      * use the default behavior, which is an exponential backoff
      */
-    public readonly pollInterval: pulumi.Output<string | undefined>;
+    public readonly pollInterval!: pulumi.Output<string | undefined>;
     /**
      * SQS queues in use by this environment.
      */
-    public /*out*/ readonly queues: pulumi.Output<string[]>;
+    public /*out*/ readonly queues!: pulumi.Output<string[]>;
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    public readonly settings: pulumi.Output<{ name: string, namespace: string, resource?: string, value: string }[] | undefined>;
+    public readonly settings!: pulumi.Output<{ name: string, namespace: string, resource?: string, value: string }[] | undefined>;
     /**
      * A solution stack to base your environment
      * off of. Example stacks can be found in the [Amazon API documentation][1]
      */
-    public readonly solutionStackName: pulumi.Output<string>;
+    public readonly solutionStackName!: pulumi.Output<string>;
     /**
      * A set of tags to apply to the Environment.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment
      */
-    public readonly templateName: pulumi.Output<string | undefined>;
+    public readonly templateName!: pulumi.Output<string | undefined>;
     /**
      * Elastic Beanstalk Environment tier. Valid values are `Worker`
      * or `WebServer`. If tier is left blank `WebServer` will be used.
      */
-    public readonly tier: pulumi.Output<string | undefined>;
+    public readonly tier!: pulumi.Output<string | undefined>;
     /**
      * Autoscaling triggers in use by this environment.
      */
-    public /*out*/ readonly triggers: pulumi.Output<string[]>;
+    public /*out*/ readonly triggers!: pulumi.Output<string[]>;
     /**
      * The name of the Elastic Beanstalk Application Version
      * to use in deployment.
      */
-    public readonly version: pulumi.Output<ApplicationVersion>;
+    public readonly version!: pulumi.Output<ApplicationVersion>;
     /**
      * The maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that Terraform should
      * wait for an Elastic Beanstalk Environment to be in a ready state before timing
      * out.
      */
-    public readonly waitForReadyTimeout: pulumi.Output<string | undefined>;
+    public readonly waitForReadyTimeout!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -197,7 +197,7 @@ export class Environment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EnvironmentArgs | EnvironmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EnvironmentState = argsOrState as EnvironmentState | undefined;
+            const state = argsOrState as EnvironmentState | undefined;
             inputs["allSettings"] = state ? state.allSettings : undefined;
             inputs["application"] = state ? state.application : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -247,6 +247,13 @@ export class Environment extends pulumi.CustomResource {
             inputs["loadBalancers"] = undefined /*out*/;
             inputs["queues"] = undefined /*out*/;
             inputs["triggers"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:elasticbeanstalk/environment:Environment", name, inputs, opts);
     }

@@ -58,48 +58,48 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
     /**
      * The description of the maintenance window task.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
      */
-    public readonly loggingInfo: pulumi.Output<{ s3BucketName: string, s3BucketPrefix?: string, s3Region: string } | undefined>;
+    public readonly loggingInfo!: pulumi.Output<{ s3BucketName: string, s3BucketPrefix?: string, s3Region: string } | undefined>;
     /**
      * The maximum number of targets this task can be run for in parallel.
      */
-    public readonly maxConcurrency: pulumi.Output<string>;
+    public readonly maxConcurrency!: pulumi.Output<string>;
     /**
      * The maximum number of errors allowed before this task stops being scheduled.
      */
-    public readonly maxErrors: pulumi.Output<string>;
-    public readonly name: pulumi.Output<string>;
+    public readonly maxErrors!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
      */
-    public readonly priority: pulumi.Output<number | undefined>;
+    public readonly priority!: pulumi.Output<number | undefined>;
     /**
      * The role that should be assumed when executing the task.
      */
-    public readonly serviceRoleArn: pulumi.Output<string>;
+    public readonly serviceRoleArn!: pulumi.Output<string>;
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
-    public readonly targets: pulumi.Output<{ key: string, values: string[] }[]>;
+    public readonly targets!: pulumi.Output<{ key: string, values: string[] }[]>;
     /**
      * The ARN of the task to execute.
      */
-    public readonly taskArn: pulumi.Output<string>;
+    public readonly taskArn!: pulumi.Output<string>;
     /**
      * A structure containing information about parameters required by the particular `task_arn`. Documented below.
      */
-    public readonly taskParameters: pulumi.Output<{ name: string, values: string[] }[] | undefined>;
+    public readonly taskParameters!: pulumi.Output<{ name: string, values: string[] }[] | undefined>;
     /**
      * The type of task being registered. The only allowed value is `RUN_COMMAND`.
      */
-    public readonly taskType: pulumi.Output<string>;
+    public readonly taskType!: pulumi.Output<string>;
     /**
      * The Id of the maintenance window to register the task with.
      */
-    public readonly windowId: pulumi.Output<string>;
+    public readonly windowId!: pulumi.Output<string>;
 
     /**
      * Create a MaintenanceWindowTask resource with the given unique name, arguments, and options.
@@ -112,7 +112,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MaintenanceWindowTaskArgs | MaintenanceWindowTaskState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MaintenanceWindowTaskState = argsOrState as MaintenanceWindowTaskState | undefined;
+            const state = argsOrState as MaintenanceWindowTaskState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["loggingInfo"] = state ? state.loggingInfo : undefined;
             inputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
@@ -160,6 +160,13 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
             inputs["taskParameters"] = args ? args.taskParameters : undefined;
             inputs["taskType"] = args ? args.taskType : undefined;
             inputs["windowId"] = args ? args.windowId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ssm/maintenanceWindowTask:MaintenanceWindowTask", name, inputs, opts);
     }

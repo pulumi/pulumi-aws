@@ -41,23 +41,23 @@ export class AssessmentTemplate extends pulumi.CustomResource {
     /**
      * The template assessment ARN.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The duration of the inspector run.
      */
-    public readonly duration: pulumi.Output<number>;
+    public readonly duration!: pulumi.Output<number>;
     /**
      * The name of the assessment template.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The rules to be used during the run.
      */
-    public readonly rulesPackageArns: pulumi.Output<string[]>;
+    public readonly rulesPackageArns!: pulumi.Output<string[]>;
     /**
      * The assessment target ARN to attach the template to.
      */
-    public readonly targetArn: pulumi.Output<string>;
+    public readonly targetArn!: pulumi.Output<string>;
 
     /**
      * Create a AssessmentTemplate resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ export class AssessmentTemplate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AssessmentTemplateArgs | AssessmentTemplateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AssessmentTemplateState = argsOrState as AssessmentTemplateState | undefined;
+            const state = argsOrState as AssessmentTemplateState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["duration"] = state ? state.duration : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -92,6 +92,13 @@ export class AssessmentTemplate extends pulumi.CustomResource {
             inputs["rulesPackageArns"] = args ? args.rulesPackageArns : undefined;
             inputs["targetArn"] = args ? args.targetArn : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:inspector/assessmentTemplate:AssessmentTemplate", name, inputs, opts);
     }

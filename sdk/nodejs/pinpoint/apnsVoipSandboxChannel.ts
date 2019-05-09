@@ -41,42 +41,42 @@ export class ApnsVoipSandboxChannel extends pulumi.CustomResource {
     /**
      * The application ID.
      */
-    public readonly applicationId: pulumi.Output<string>;
+    public readonly applicationId!: pulumi.Output<string>;
     /**
      * The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
      */
-    public readonly bundleId: pulumi.Output<string | undefined>;
+    public readonly bundleId!: pulumi.Output<string | undefined>;
     /**
      * The pem encoded TLS Certificate from Apple.
      */
-    public readonly certificate: pulumi.Output<string | undefined>;
+    public readonly certificate!: pulumi.Output<string | undefined>;
     /**
      * The default authentication method used for APNs. 
      * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
      * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
      * If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
      */
-    public readonly defaultAuthenticationMethod: pulumi.Output<string | undefined>;
+    public readonly defaultAuthenticationMethod!: pulumi.Output<string | undefined>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The Certificate Private Key file (ie. `.key` file).
      */
-    public readonly privateKey: pulumi.Output<string | undefined>;
+    public readonly privateKey!: pulumi.Output<string | undefined>;
     /**
      * The ID assigned to your Apple developer account team. This value is provided on the Membership page.
      */
-    public readonly teamId: pulumi.Output<string | undefined>;
+    public readonly teamId!: pulumi.Output<string | undefined>;
     /**
      * The `.p8` file that you download from your Apple developer account when you create an authentication key. 
      */
-    public readonly tokenKey: pulumi.Output<string | undefined>;
+    public readonly tokenKey!: pulumi.Output<string | undefined>;
     /**
      * The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
      */
-    public readonly tokenKeyId: pulumi.Output<string | undefined>;
+    public readonly tokenKeyId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApnsVoipSandboxChannel resource with the given unique name, arguments, and options.
@@ -89,7 +89,7 @@ export class ApnsVoipSandboxChannel extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApnsVoipSandboxChannelArgs | ApnsVoipSandboxChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ApnsVoipSandboxChannelState = argsOrState as ApnsVoipSandboxChannelState | undefined;
+            const state = argsOrState as ApnsVoipSandboxChannelState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["bundleId"] = state ? state.bundleId : undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
@@ -113,6 +113,13 @@ export class ApnsVoipSandboxChannel extends pulumi.CustomResource {
             inputs["teamId"] = args ? args.teamId : undefined;
             inputs["tokenKey"] = args ? args.tokenKey : undefined;
             inputs["tokenKeyId"] = args ? args.tokenKeyId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel", name, inputs, opts);
     }

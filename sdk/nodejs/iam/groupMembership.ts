@@ -48,15 +48,15 @@ export class GroupMembership extends pulumi.CustomResource {
     /**
      * The IAM Group name to attach the list of `users` to
      */
-    public readonly group: pulumi.Output<string>;
+    public readonly group!: pulumi.Output<string>;
     /**
      * The name to identify the Group Membership
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A list of IAM User names to associate with the Group
      */
-    public readonly users: pulumi.Output<string[]>;
+    public readonly users!: pulumi.Output<string[]>;
 
     /**
      * Create a GroupMembership resource with the given unique name, arguments, and options.
@@ -69,7 +69,7 @@ export class GroupMembership extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GroupMembershipArgs | GroupMembershipState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GroupMembershipState = argsOrState as GroupMembershipState | undefined;
+            const state = argsOrState as GroupMembershipState | undefined;
             inputs["group"] = state ? state.group : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["users"] = state ? state.users : undefined;
@@ -84,6 +84,13 @@ export class GroupMembership extends pulumi.CustomResource {
             inputs["group"] = args ? args.group : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["users"] = args ? args.users : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:iam/groupMembership:GroupMembership", name, inputs, opts);
     }

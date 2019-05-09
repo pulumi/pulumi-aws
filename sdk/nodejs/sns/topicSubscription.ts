@@ -36,39 +36,39 @@ export class TopicSubscription extends pulumi.CustomResource {
     /**
      * The ARN of the subscription stored as a more user-friendly property
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols (default is 1 minute).
      */
-    public readonly confirmationTimeoutInMinutes: pulumi.Output<number | undefined>;
+    public readonly confirmationTimeoutInMinutes!: pulumi.Output<number | undefined>;
     /**
      * JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
      */
-    public readonly deliveryPolicy: pulumi.Output<string | undefined>;
+    public readonly deliveryPolicy!: pulumi.Output<string | undefined>;
     /**
      * The endpoint to send data to, the contents will vary with the protocol. (see below for more information)
      */
-    public readonly endpoint: pulumi.Output<string>;
+    public readonly endpoint!: pulumi.Output<string>;
     /**
      * Boolean indicating whether the end point is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) e.g., PagerDuty (default is false)
      */
-    public readonly endpointAutoConfirms: pulumi.Output<boolean | undefined>;
+    public readonly endpointAutoConfirms!: pulumi.Output<boolean | undefined>;
     /**
      * JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
      */
-    public readonly filterPolicy: pulumi.Output<string | undefined>;
+    public readonly filterPolicy!: pulumi.Output<string | undefined>;
     /**
      * The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is option but unsupported, see below).
      */
-    public readonly protocol: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<string>;
     /**
      * Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
      */
-    public readonly rawMessageDelivery: pulumi.Output<boolean | undefined>;
+    public readonly rawMessageDelivery!: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of the SNS topic to subscribe to
      */
-    public readonly topic: pulumi.Output<Topic>;
+    public readonly topic!: pulumi.Output<Topic>;
 
     /**
      * Create a TopicSubscription resource with the given unique name, arguments, and options.
@@ -81,7 +81,7 @@ export class TopicSubscription extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TopicSubscriptionArgs | TopicSubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TopicSubscriptionState = argsOrState as TopicSubscriptionState | undefined;
+            const state = argsOrState as TopicSubscriptionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["confirmationTimeoutInMinutes"] = state ? state.confirmationTimeoutInMinutes : undefined;
             inputs["deliveryPolicy"] = state ? state.deliveryPolicy : undefined;
@@ -111,6 +111,13 @@ export class TopicSubscription extends pulumi.CustomResource {
             inputs["rawMessageDelivery"] = args ? args.rawMessageDelivery : undefined;
             inputs["topic"] = args ? args.topic : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:sns/topicSubscription:TopicSubscription", name, inputs, opts);
     }

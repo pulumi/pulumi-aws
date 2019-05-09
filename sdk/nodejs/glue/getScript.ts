@@ -200,6 +200,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:glue/getScript:getScript", {
         "dagEdges": args.dagEdges,
         "dagNodes": args.dagNodes,

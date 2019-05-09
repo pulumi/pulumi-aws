@@ -65,6 +65,10 @@ class BasePathMapping(pulumi.CustomResource):
 
         __props__['stage_name'] = stage_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(BasePathMapping, __self__).__init__(
             'aws:apigateway/basePathMapping:BasePathMapping',
             resource_name,

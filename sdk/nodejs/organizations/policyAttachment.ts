@@ -61,11 +61,11 @@ export class PolicyAttachment extends pulumi.CustomResource {
     /**
      * The unique identifier (ID) of the policy that you want to attach to the target.
      */
-    public readonly policyId: pulumi.Output<string>;
+    public readonly policyId!: pulumi.Output<string>;
     /**
      * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
      */
-    public readonly targetId: pulumi.Output<string>;
+    public readonly targetId!: pulumi.Output<string>;
 
     /**
      * Create a PolicyAttachment resource with the given unique name, arguments, and options.
@@ -78,7 +78,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PolicyAttachmentArgs | PolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PolicyAttachmentState = argsOrState as PolicyAttachmentState | undefined;
+            const state = argsOrState as PolicyAttachmentState | undefined;
             inputs["policyId"] = state ? state.policyId : undefined;
             inputs["targetId"] = state ? state.targetId : undefined;
         } else {
@@ -91,6 +91,13 @@ export class PolicyAttachment extends pulumi.CustomResource {
             }
             inputs["policyId"] = args ? args.policyId : undefined;
             inputs["targetId"] = args ? args.targetId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:organizations/policyAttachment:PolicyAttachment", name, inputs, opts);
     }

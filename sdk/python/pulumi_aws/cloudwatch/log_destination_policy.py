@@ -49,6 +49,10 @@ class LogDestinationPolicy(pulumi.CustomResource):
             raise TypeError("Missing required property 'destination_name'")
         __props__['destination_name'] = destination_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(LogDestinationPolicy, __self__).__init__(
             'aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy',
             resource_name,

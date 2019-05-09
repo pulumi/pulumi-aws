@@ -48,27 +48,27 @@ export class IdentityProvider extends pulumi.CustomResource {
     /**
      * The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
      */
-    public readonly attributeMapping: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly attributeMapping!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The list of identity providers.
      */
-    public readonly idpIdentifiers: pulumi.Output<string[] | undefined>;
+    public readonly idpIdentifiers!: pulumi.Output<string[] | undefined>;
     /**
      * The map of identity details, such as access token
      */
-    public readonly providerDetails: pulumi.Output<{[key: string]: any}>;
+    public readonly providerDetails!: pulumi.Output<{[key: string]: any}>;
     /**
      * The provider name
      */
-    public readonly providerName: pulumi.Output<string>;
+    public readonly providerName!: pulumi.Output<string>;
     /**
      * The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
      */
-    public readonly providerType: pulumi.Output<string>;
+    public readonly providerType!: pulumi.Output<string>;
     /**
      * The user pool id
      */
-    public readonly userPoolId: pulumi.Output<string>;
+    public readonly userPoolId!: pulumi.Output<string>;
 
     /**
      * Create a IdentityProvider resource with the given unique name, arguments, and options.
@@ -81,7 +81,7 @@ export class IdentityProvider extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: IdentityProviderArgs | IdentityProviderState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: IdentityProviderState = argsOrState as IdentityProviderState | undefined;
+            const state = argsOrState as IdentityProviderState | undefined;
             inputs["attributeMapping"] = state ? state.attributeMapping : undefined;
             inputs["idpIdentifiers"] = state ? state.idpIdentifiers : undefined;
             inputs["providerDetails"] = state ? state.providerDetails : undefined;
@@ -108,6 +108,13 @@ export class IdentityProvider extends pulumi.CustomResource {
             inputs["providerName"] = args ? args.providerName : undefined;
             inputs["providerType"] = args ? args.providerType : undefined;
             inputs["userPoolId"] = args ? args.userPoolId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cognito/identityProvider:IdentityProvider", name, inputs, opts);
     }

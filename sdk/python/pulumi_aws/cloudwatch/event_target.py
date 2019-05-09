@@ -121,6 +121,10 @@ class EventTarget(pulumi.CustomResource):
 
         __props__['target_id'] = target_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(EventTarget, __self__).__init__(
             'aws:cloudwatch/eventTarget:EventTarget',
             resource_name,

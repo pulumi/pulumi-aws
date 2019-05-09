@@ -49,19 +49,19 @@ export class Ciphertext extends pulumi.CustomResource {
     /**
      * Base64 encoded ciphertext
      */
-    public /*out*/ readonly ciphertextBlob: pulumi.Output<string>;
+    public /*out*/ readonly ciphertextBlob!: pulumi.Output<string>;
     /**
      * An optional mapping that makes up the encryption context.
      */
-    public readonly context: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly context!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Globally unique key ID for the customer master key.
      */
-    public readonly keyId: pulumi.Output<string>;
+    public readonly keyId!: pulumi.Output<string>;
     /**
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      */
-    public readonly plaintext: pulumi.Output<string>;
+    public readonly plaintext!: pulumi.Output<string>;
 
     /**
      * Create a Ciphertext resource with the given unique name, arguments, and options.
@@ -74,7 +74,7 @@ export class Ciphertext extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CiphertextArgs | CiphertextState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CiphertextState = argsOrState as CiphertextState | undefined;
+            const state = argsOrState as CiphertextState | undefined;
             inputs["ciphertextBlob"] = state ? state.ciphertextBlob : undefined;
             inputs["context"] = state ? state.context : undefined;
             inputs["keyId"] = state ? state.keyId : undefined;
@@ -91,6 +91,13 @@ export class Ciphertext extends pulumi.CustomResource {
             inputs["keyId"] = args ? args.keyId : undefined;
             inputs["plaintext"] = args ? args.plaintext : undefined;
             inputs["ciphertextBlob"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:kms/ciphertext:Ciphertext", name, inputs, opts);
     }

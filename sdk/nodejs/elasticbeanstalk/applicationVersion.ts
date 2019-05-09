@@ -64,28 +64,28 @@ export class ApplicationVersion extends pulumi.CustomResource {
     /**
      * Name of the Beanstalk Application the version is associated with.
      */
-    public readonly application: pulumi.Output<Application>;
+    public readonly application!: pulumi.Output<Application>;
     /**
      * S3 bucket that contains the Application Version source bundle.
      */
-    public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * Short description of the Application Version.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * On delete, force an Application Version to be deleted when it may be in use
      * by multiple Elastic Beanstalk Environments.
      */
-    public readonly forceDelete: pulumi.Output<boolean | undefined>;
+    public readonly forceDelete!: pulumi.Output<boolean | undefined>;
     /**
      * S3 object that is the Application Version source bundle.
      */
-    public readonly key: pulumi.Output<string>;
+    public readonly key!: pulumi.Output<string>;
     /**
      * A unique name for the this Application Version.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a ApplicationVersion resource with the given unique name, arguments, and options.
@@ -98,7 +98,7 @@ export class ApplicationVersion extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApplicationVersionArgs | ApplicationVersionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ApplicationVersionState = argsOrState as ApplicationVersionState | undefined;
+            const state = argsOrState as ApplicationVersionState | undefined;
             inputs["application"] = state ? state.application : undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -122,6 +122,13 @@ export class ApplicationVersion extends pulumi.CustomResource {
             inputs["forceDelete"] = args ? args.forceDelete : undefined;
             inputs["key"] = args ? args.key : undefined;
             inputs["name"] = args ? args.name : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:elasticbeanstalk/applicationVersion:ApplicationVersion", name, inputs, opts);
     }

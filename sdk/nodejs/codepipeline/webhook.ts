@@ -23,31 +23,31 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
      */
-    public readonly authentication: pulumi.Output<string>;
+    public readonly authentication!: pulumi.Output<string>;
     /**
      * An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
      */
-    public readonly authenticationConfiguration: pulumi.Output<{ allowedIpRange?: string, secretToken?: string } | undefined>;
+    public readonly authenticationConfiguration!: pulumi.Output<{ allowedIpRange?: string, secretToken?: string } | undefined>;
     /**
      * One or more `filter` blocks. Filter blocks are documented below.
      */
-    public readonly filters: pulumi.Output<{ jsonPath: string, matchEquals: string }[]>;
+    public readonly filters!: pulumi.Output<{ jsonPath: string, matchEquals: string }[]>;
     /**
      * The name of the webhook.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
      */
-    public readonly targetAction: pulumi.Output<string>;
+    public readonly targetAction!: pulumi.Output<string>;
     /**
      * The name of the pipeline.
      */
-    public readonly targetPipeline: pulumi.Output<string>;
+    public readonly targetPipeline!: pulumi.Output<string>;
     /**
      * The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
      */
-    public /*out*/ readonly url: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
      * Create a Webhook resource with the given unique name, arguments, and options.
@@ -60,7 +60,7 @@ export class Webhook extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: WebhookArgs | WebhookState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: WebhookState = argsOrState as WebhookState | undefined;
+            const state = argsOrState as WebhookState | undefined;
             inputs["authentication"] = state ? state.authentication : undefined;
             inputs["authenticationConfiguration"] = state ? state.authenticationConfiguration : undefined;
             inputs["filters"] = state ? state.filters : undefined;
@@ -89,6 +89,13 @@ export class Webhook extends pulumi.CustomResource {
             inputs["targetAction"] = args ? args.targetAction : undefined;
             inputs["targetPipeline"] = args ? args.targetPipeline : undefined;
             inputs["url"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:codepipeline/webhook:Webhook", name, inputs, opts);
     }

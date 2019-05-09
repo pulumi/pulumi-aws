@@ -49,23 +49,23 @@ export class Mesh extends pulumi.CustomResource {
     /**
      * The ARN of the service mesh.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The creation date of the service mesh.
      */
-    public /*out*/ readonly createdDate: pulumi.Output<string>;
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
      * The last update date of the service mesh.
      */
-    public /*out*/ readonly lastUpdatedDate: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
      * The name to use for the service mesh.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The service mesh specification to apply.
      */
-    public readonly spec: pulumi.Output<{ egressFilter?: { type?: string } } | undefined>;
+    public readonly spec!: pulumi.Output<{ egressFilter?: { type?: string } } | undefined>;
 
     /**
      * Create a Mesh resource with the given unique name, arguments, and options.
@@ -78,7 +78,7 @@ export class Mesh extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MeshArgs | MeshState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MeshState = argsOrState as MeshState | undefined;
+            const state = argsOrState as MeshState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
             inputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
@@ -91,6 +91,13 @@ export class Mesh extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["createdDate"] = undefined /*out*/;
             inputs["lastUpdatedDate"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:appmesh/mesh:Mesh", name, inputs, opts);
     }

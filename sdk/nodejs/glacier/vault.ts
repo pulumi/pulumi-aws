@@ -63,27 +63,27 @@ export class Vault extends pulumi.CustomResource {
      * The policy document. This is a JSON formatted string.
      * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
      */
-    public readonly accessPolicy: pulumi.Output<string | undefined>;
+    public readonly accessPolicy!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the vault.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The URI of the vault that was created.
      */
-    public /*out*/ readonly location: pulumi.Output<string>;
+    public /*out*/ readonly location!: pulumi.Output<string>;
     /**
      * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The notifications for the Vault. Fields documented below.
      */
-    public readonly notifications: pulumi.Output<{ events: string[], snsTopic: string }[] | undefined>;
+    public readonly notifications!: pulumi.Output<{ events: string[], snsTopic: string }[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Vault resource with the given unique name, arguments, and options.
@@ -96,7 +96,7 @@ export class Vault extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VaultArgs | VaultState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VaultState = argsOrState as VaultState | undefined;
+            const state = argsOrState as VaultState | undefined;
             inputs["accessPolicy"] = state ? state.accessPolicy : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -111,6 +111,13 @@ export class Vault extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:glacier/vault:Vault", name, inputs, opts);
     }

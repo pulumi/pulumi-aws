@@ -19,6 +19,13 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getArn(args: GetArnArgs, opts?: pulumi.InvokeOptions): Promise<GetArnResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:index/getArn:getArn", {
         "arn": args.arn,
     }, opts);

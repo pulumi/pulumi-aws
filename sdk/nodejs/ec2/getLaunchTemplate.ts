@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLaunchTemplate(args: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:ec2/getLaunchTemplate:getLaunchTemplate", {
         "name": args.name,
         "tags": args.tags,

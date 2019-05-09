@@ -93,59 +93,59 @@ export class CertificateAuthority extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the certificate authority.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
      */
-    public /*out*/ readonly certificate: pulumi.Output<string>;
+    public /*out*/ readonly certificate!: pulumi.Output<string>;
     /**
      * Nested argument containing algorithms and certificate subject information. Defined below.
      */
-    public readonly certificateAuthorityConfiguration: pulumi.Output<{ keyAlgorithm: string, signingAlgorithm: string, subject: { commonName?: string, country?: string, distinguishedNameQualifier?: string, generationQualifier?: string, givenName?: string, initials?: string, locality?: string, organization?: string, organizationalUnit?: string, pseudonym?: string, state?: string, surname?: string, title?: string } }>;
+    public readonly certificateAuthorityConfiguration!: pulumi.Output<{ keyAlgorithm: string, signingAlgorithm: string, subject: { commonName?: string, country?: string, distinguishedNameQualifier?: string, generationQualifier?: string, givenName?: string, initials?: string, locality?: string, organization?: string, organizationalUnit?: string, pseudonym?: string, state?: string, surname?: string, title?: string } }>;
     /**
      * Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
      */
-    public /*out*/ readonly certificateChain: pulumi.Output<string>;
+    public /*out*/ readonly certificateChain!: pulumi.Output<string>;
     /**
      * The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
      */
-    public /*out*/ readonly certificateSigningRequest: pulumi.Output<string>;
+    public /*out*/ readonly certificateSigningRequest!: pulumi.Output<string>;
     /**
      * Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      */
-    public /*out*/ readonly notAfter: pulumi.Output<string>;
+    public /*out*/ readonly notAfter!: pulumi.Output<string>;
     /**
      * Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      */
-    public /*out*/ readonly notBefore: pulumi.Output<string>;
+    public /*out*/ readonly notBefore!: pulumi.Output<string>;
     /**
      * The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
      */
-    public readonly permanentDeletionTimeInDays: pulumi.Output<number | undefined>;
+    public readonly permanentDeletionTimeInDays!: pulumi.Output<number | undefined>;
     /**
      * Nested argument containing revocation configuration. Defined below.
      */
-    public readonly revocationConfiguration: pulumi.Output<{ crlConfiguration?: { customCname?: string, enabled?: boolean, expirationInDays: number, s3BucketName?: string } } | undefined>;
+    public readonly revocationConfiguration!: pulumi.Output<{ crlConfiguration?: { customCname?: string, enabled?: boolean, expirationInDays: number, s3BucketName?: string } } | undefined>;
     /**
      * Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
      */
-    public /*out*/ readonly serial: pulumi.Output<string>;
+    public /*out*/ readonly serial!: pulumi.Output<string>;
     /**
      * Status of the certificate authority.
      */
-    public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Specifies a key-value map of user-defined tags that are attached to the certificate authority.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The type of the certificate authority. Currently, this must be `SUBORDINATE`.
      */
-    public readonly type: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CertificateAuthority resource with the given unique name, arguments, and options.
@@ -158,7 +158,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CertificateAuthorityArgs | CertificateAuthorityState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CertificateAuthorityState = argsOrState as CertificateAuthorityState | undefined;
+            const state = argsOrState as CertificateAuthorityState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
             inputs["certificateAuthorityConfiguration"] = state ? state.certificateAuthorityConfiguration : undefined;
@@ -192,6 +192,13 @@ export class CertificateAuthority extends pulumi.CustomResource {
             inputs["notBefore"] = undefined /*out*/;
             inputs["serial"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:acmpca/certificateAuthority:CertificateAuthority", name, inputs, opts);
     }

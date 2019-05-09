@@ -56,11 +56,11 @@ export class BucketPolicy extends pulumi.CustomResource {
     /**
      * The name of the bucket to which to apply the policy.
      */
-    public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * The text of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
 
     /**
      * Create a BucketPolicy resource with the given unique name, arguments, and options.
@@ -73,7 +73,7 @@ export class BucketPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BucketPolicyArgs | BucketPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: BucketPolicyState = argsOrState as BucketPolicyState | undefined;
+            const state = argsOrState as BucketPolicyState | undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
             inputs["policy"] = state ? state.policy : undefined;
         } else {
@@ -86,6 +86,13 @@ export class BucketPolicy extends pulumi.CustomResource {
             }
             inputs["bucket"] = args ? args.bucket : undefined;
             inputs["policy"] = args ? args.policy : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:s3/bucketPolicy:BucketPolicy", name, inputs, opts);
     }

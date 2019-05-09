@@ -83,27 +83,27 @@ export class WebAcl extends pulumi.CustomResource {
         return new WebAcl(name, <any>state, { ...opts, id: id });
     }
 
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
      */
-    public readonly defaultAction: pulumi.Output<{ type: string }>;
+    public readonly defaultAction!: pulumi.Output<{ type: string }>;
     /**
      * Configuration block to enable WAF logging. Detailed below.
      */
-    public readonly loggingConfiguration: pulumi.Output<{ logDestination: string, redactedFields?: { fieldToMatches: { data?: string, type: string }[] } } | undefined>;
+    public readonly loggingConfiguration!: pulumi.Output<{ logDestination: string, redactedFields?: { fieldToMatches: { data?: string, type: string }[] } } | undefined>;
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
-    public readonly metricName: pulumi.Output<string>;
+    public readonly metricName!: pulumi.Output<string>;
     /**
      * The name or description of the web ACL.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
      */
-    public readonly rules: pulumi.Output<{ action?: { type: string }, overrideAction?: { type: string }, priority: number, ruleId: string, type?: string }[] | undefined>;
+    public readonly rules!: pulumi.Output<{ action?: { type: string }, overrideAction?: { type: string }, priority: number, ruleId: string, type?: string }[] | undefined>;
 
     /**
      * Create a WebAcl resource with the given unique name, arguments, and options.
@@ -116,7 +116,7 @@ export class WebAcl extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: WebAclArgs | WebAclState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: WebAclState = argsOrState as WebAclState | undefined;
+            const state = argsOrState as WebAclState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["defaultAction"] = state ? state.defaultAction : undefined;
             inputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;
@@ -137,6 +137,13 @@ export class WebAcl extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["rules"] = args ? args.rules : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:waf/webAcl:WebAcl", name, inputs, opts);
     }

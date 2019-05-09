@@ -45,100 +45,100 @@ export class Stack extends pulumi.CustomResource {
     /**
      * If set to `"LATEST"`, OpsWorks will automatically install the latest version.
      */
-    public readonly agentVersion: pulumi.Output<string>;
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public readonly agentVersion!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * If `manage_berkshelf` is enabled, the version of Berkshelf to use.
      */
-    public readonly berkshelfVersion: pulumi.Output<string | undefined>;
+    public readonly berkshelfVersion!: pulumi.Output<string | undefined>;
     /**
      * Color to paint next to the stack's resources in the OpsWorks console.
      */
-    public readonly color: pulumi.Output<string | undefined>;
+    public readonly color!: pulumi.Output<string | undefined>;
     /**
      * Name of the configuration manager to use. Defaults to "Chef".
      */
-    public readonly configurationManagerName: pulumi.Output<string | undefined>;
+    public readonly configurationManagerName!: pulumi.Output<string | undefined>;
     /**
      * Version of the configuration manager to use. Defaults to "11.4".
      */
-    public readonly configurationManagerVersion: pulumi.Output<string | undefined>;
+    public readonly configurationManagerVersion!: pulumi.Output<string | undefined>;
     /**
      * When `use_custom_cookbooks` is set, provide this sub-object as
      * described below.
      */
-    public readonly customCookbooksSources: pulumi.Output<{ password?: string, revision?: string, sshKey?: string, type: string, url: string, username?: string }[]>;
+    public readonly customCookbooksSources!: pulumi.Output<{ password?: string, revision?: string, sshKey?: string, type: string, url: string, username?: string }[]>;
     /**
      * Custom JSON attributes to apply to the entire stack.
      */
-    public readonly customJson: pulumi.Output<string | undefined>;
+    public readonly customJson!: pulumi.Output<string | undefined>;
     /**
      * Name of the availability zone where instances will be created
      * by default. This is required unless you set `vpc_id`.
      */
-    public readonly defaultAvailabilityZone: pulumi.Output<string>;
+    public readonly defaultAvailabilityZone!: pulumi.Output<string>;
     /**
      * The ARN of an IAM Instance Profile that created instances
      * will have by default.
      */
-    public readonly defaultInstanceProfileArn: pulumi.Output<string>;
+    public readonly defaultInstanceProfileArn!: pulumi.Output<string>;
     /**
      * Name of OS that will be installed on instances by default.
      */
-    public readonly defaultOs: pulumi.Output<string | undefined>;
+    public readonly defaultOs!: pulumi.Output<string | undefined>;
     /**
      * Name of the type of root device instances will have by default.
      */
-    public readonly defaultRootDeviceType: pulumi.Output<string | undefined>;
+    public readonly defaultRootDeviceType!: pulumi.Output<string | undefined>;
     /**
      * Name of the SSH keypair that instances will have by default.
      */
-    public readonly defaultSshKeyName: pulumi.Output<string | undefined>;
+    public readonly defaultSshKeyName!: pulumi.Output<string | undefined>;
     /**
      * Id of the subnet in which instances will be created by default. Mandatory
      * if `vpc_id` is set, and forbidden if it isn't.
      */
-    public readonly defaultSubnetId: pulumi.Output<string>;
+    public readonly defaultSubnetId!: pulumi.Output<string>;
     /**
      * Keyword representing the naming scheme that will be used for instance hostnames
      * within this stack.
      */
-    public readonly hostnameTheme: pulumi.Output<string | undefined>;
+    public readonly hostnameTheme!: pulumi.Output<string | undefined>;
     /**
      * Boolean value controlling whether Opsworks will run Berkshelf for this stack.
      */
-    public readonly manageBerkshelf: pulumi.Output<boolean | undefined>;
+    public readonly manageBerkshelf!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the stack.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the region where the stack will exist.
      */
-    public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ARN of an IAM role that the OpsWorks service will act as.
      */
-    public readonly serviceRoleArn: pulumi.Output<string>;
-    public /*out*/ readonly stackEndpoint: pulumi.Output<string>;
+    public readonly serviceRoleArn!: pulumi.Output<string>;
+    public /*out*/ readonly stackEndpoint!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Boolean value controlling whether the custom cookbook settings are
      * enabled.
      */
-    public readonly useCustomCookbooks: pulumi.Output<boolean | undefined>;
+    public readonly useCustomCookbooks!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean value controlling whether the standard OpsWorks
      * security groups apply to created instances.
      */
-    public readonly useOpsworksSecurityGroups: pulumi.Output<boolean | undefined>;
+    public readonly useOpsworksSecurityGroups!: pulumi.Output<boolean | undefined>;
     /**
      * The id of the VPC that this stack belongs to.
      */
-    public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a Stack resource with the given unique name, arguments, and options.
@@ -151,7 +151,7 @@ export class Stack extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StackArgs | StackState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: StackState = argsOrState as StackState | undefined;
+            const state = argsOrState as StackState | undefined;
             inputs["agentVersion"] = state ? state.agentVersion : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["berkshelfVersion"] = state ? state.berkshelfVersion : undefined;
@@ -211,6 +211,13 @@ export class Stack extends pulumi.CustomResource {
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["stackEndpoint"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:opsworks/stack:Stack", name, inputs, opts);
     }

@@ -159,6 +159,10 @@ class AmiFromInstance(pulumi.CustomResource):
         __props__['sriov_net_support'] = None
         __props__['virtualization_type'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(AmiFromInstance, __self__).__init__(
             'aws:ec2/amiFromInstance:AmiFromInstance',
             resource_name,

@@ -44,15 +44,15 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * A list of activated rules, see below
      */
-    public readonly activatedRules: pulumi.Output<{ action: { type: string }, priority: number, ruleId: string, type?: string }[] | undefined>;
+    public readonly activatedRules!: pulumi.Output<{ action: { type: string }, priority: number, ruleId: string, type?: string }[] | undefined>;
     /**
      * A friendly name for the metrics from the rule group
      */
-    public readonly metricName: pulumi.Output<string>;
+    public readonly metricName!: pulumi.Output<string>;
     /**
      * A friendly name of the rule group
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a RuleGroup resource with the given unique name, arguments, and options.
@@ -65,7 +65,7 @@ export class RuleGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RuleGroupArgs | RuleGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RuleGroupState = argsOrState as RuleGroupState | undefined;
+            const state = argsOrState as RuleGroupState | undefined;
             inputs["activatedRules"] = state ? state.activatedRules : undefined;
             inputs["metricName"] = state ? state.metricName : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -77,6 +77,13 @@ export class RuleGroup extends pulumi.CustomResource {
             inputs["activatedRules"] = args ? args.activatedRules : undefined;
             inputs["metricName"] = args ? args.metricName : undefined;
             inputs["name"] = args ? args.name : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:waf/ruleGroup:RuleGroup", name, inputs, opts);
     }

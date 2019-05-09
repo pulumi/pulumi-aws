@@ -74,31 +74,31 @@ export class Trigger extends pulumi.CustomResource {
     /**
      * List of actions initiated by this trigger when it fires. Defined below.
      */
-    public readonly actions: pulumi.Output<{ arguments?: {[key: string]: any}, jobName: string, timeout?: number }[]>;
+    public readonly actions!: pulumi.Output<{ arguments?: {[key: string]: any}, jobName: string, timeout?: number }[]>;
     /**
      * A description of the new trigger.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the trigger.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
      */
-    public readonly predicate: pulumi.Output<{ conditions: { jobName: string, logicalOperator?: string, state: string }[], logical?: string } | undefined>;
+    public readonly predicate!: pulumi.Output<{ conditions: { jobName: string, logicalOperator?: string, state: string }[], logical?: string } | undefined>;
     /**
      * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      */
-    public readonly schedule: pulumi.Output<string | undefined>;
+    public readonly schedule!: pulumi.Output<string | undefined>;
     /**
      * The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
      */
-    public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a Trigger resource with the given unique name, arguments, and options.
@@ -111,7 +111,7 @@ export class Trigger extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TriggerArgs | TriggerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TriggerState = argsOrState as TriggerState | undefined;
+            const state = argsOrState as TriggerState | undefined;
             inputs["actions"] = state ? state.actions : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -134,6 +134,13 @@ export class Trigger extends pulumi.CustomResource {
             inputs["predicate"] = args ? args.predicate : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
             inputs["type"] = args ? args.type : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:glue/trigger:Trigger", name, inputs, opts);
     }

@@ -41,7 +41,11 @@ class Activation(pulumi.CustomResource):
     """
     The maximum number of managed instances you want to register. The default value is 1 instance.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, expiration_date=None, iam_role=None, name=None, registration_limit=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the object.
+    """
+    def __init__(__self__, resource_name, opts=None, description=None, expiration_date=None, iam_role=None, name=None, registration_limit=None, tags=None, __name__=None, __opts__=None):
         """
         Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
         
@@ -52,6 +56,7 @@ class Activation(pulumi.CustomResource):
         :param pulumi.Input[str] iam_role: The IAM Role to attach to the managed instance.
         :param pulumi.Input[str] name: The default name of the registered managed instance.
         :param pulumi.Input[float] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -80,10 +85,16 @@ class Activation(pulumi.CustomResource):
 
         __props__['registration_limit'] = registration_limit
 
+        __props__['tags'] = tags
+
         __props__['activation_code'] = None
         __props__['expired'] = None
         __props__['registration_count'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Activation, __self__).__init__(
             'aws:ssm/activation:Activation',
             resource_name,

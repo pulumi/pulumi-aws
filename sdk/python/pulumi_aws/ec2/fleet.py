@@ -105,6 +105,10 @@ class Fleet(pulumi.CustomResource):
 
         __props__['type'] = type
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Fleet, __self__).__init__(
             'aws:ec2/fleet:Fleet',
             resource_name,

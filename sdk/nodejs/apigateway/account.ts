@@ -76,11 +76,11 @@ export class Account extends pulumi.CustomResource {
      * See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console).
      * Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
      */
-    public readonly cloudwatchRoleArn: pulumi.Output<string | undefined>;
+    public readonly cloudwatchRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Account-Level throttle settings. See exported fields below.
      */
-    public /*out*/ readonly throttleSettings: pulumi.Output<{ burstLimit: number, rateLimit: number }>;
+    public /*out*/ readonly throttleSettings!: pulumi.Output<{ burstLimit: number, rateLimit: number }>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -93,13 +93,20 @@ export class Account extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AccountState = argsOrState as AccountState | undefined;
+            const state = argsOrState as AccountState | undefined;
             inputs["cloudwatchRoleArn"] = state ? state.cloudwatchRoleArn : undefined;
             inputs["throttleSettings"] = state ? state.throttleSettings : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
             inputs["cloudwatchRoleArn"] = args ? args.cloudwatchRoleArn : undefined;
             inputs["throttleSettings"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:apigateway/account:Account", name, inputs, opts);
     }

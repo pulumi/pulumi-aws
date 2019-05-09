@@ -58,27 +58,27 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
     /**
      * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
      */
-    public readonly connectionEvents: pulumi.Output<string[]>;
+    public readonly connectionEvents!: pulumi.Output<string[]>;
     /**
      * The ARN of the SNS topic for the notifications.
      */
-    public readonly connectionNotificationArn: pulumi.Output<string>;
+    public readonly connectionNotificationArn!: pulumi.Output<string>;
     /**
      * The type of notification.
      */
-    public /*out*/ readonly notificationType: pulumi.Output<string>;
+    public /*out*/ readonly notificationType!: pulumi.Output<string>;
     /**
      * The state of the notification.
      */
-    public /*out*/ readonly state: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * The ID of the VPC Endpoint to receive notifications for.
      */
-    public readonly vpcEndpointId: pulumi.Output<string | undefined>;
+    public readonly vpcEndpointId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the VPC Endpoint Service to receive notifications for.
      */
-    public readonly vpcEndpointServiceId: pulumi.Output<string | undefined>;
+    public readonly vpcEndpointServiceId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VpcEndpointConnectionNotification resource with the given unique name, arguments, and options.
@@ -91,7 +91,7 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcEndpointConnectionNotificationArgs | VpcEndpointConnectionNotificationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpcEndpointConnectionNotificationState = argsOrState as VpcEndpointConnectionNotificationState | undefined;
+            const state = argsOrState as VpcEndpointConnectionNotificationState | undefined;
             inputs["connectionEvents"] = state ? state.connectionEvents : undefined;
             inputs["connectionNotificationArn"] = state ? state.connectionNotificationArn : undefined;
             inputs["notificationType"] = state ? state.notificationType : undefined;
@@ -112,6 +112,13 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
             inputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
             inputs["notificationType"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification", name, inputs, opts);
     }

@@ -58,63 +58,63 @@ export class Stack extends pulumi.CustomResource {
      * A list of capabilities.
      * Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
      */
-    public readonly capabilities: pulumi.Output<string[] | undefined>;
+    public readonly capabilities!: pulumi.Output<string[] | undefined>;
     /**
      * Set to true to disable rollback of the stack if stack creation failed.
      * Conflicts with `on_failure`.
      */
-    public readonly disableRollback: pulumi.Output<boolean | undefined>;
+    public readonly disableRollback!: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
      */
-    public readonly iamRoleArn: pulumi.Output<string | undefined>;
+    public readonly iamRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Stack name.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A list of SNS topic ARNs to publish stack related events.
      */
-    public readonly notificationArns: pulumi.Output<string[] | undefined>;
+    public readonly notificationArns!: pulumi.Output<string[] | undefined>;
     /**
      * Action to be taken if stack creation fails. This must be
      * one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
      */
-    public readonly onFailure: pulumi.Output<string | undefined>;
+    public readonly onFailure!: pulumi.Output<string | undefined>;
     /**
      * A map of outputs from the stack.
      */
-    public /*out*/ readonly outputs: pulumi.Output<{[key: string]: any}>;
+    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: any}>;
     /**
      * A map of Parameter structures that specify input parameters for the stack.
      */
-    public readonly parameters: pulumi.Output<{[key: string]: any}>;
+    public readonly parameters!: pulumi.Output<{[key: string]: any}>;
     /**
      * Structure containing the stack policy body.
      * Conflicts w/ `policy_url`.
      */
-    public readonly policyBody: pulumi.Output<string>;
+    public readonly policyBody!: pulumi.Output<string>;
     /**
      * Location of a file containing the stack policy.
      * Conflicts w/ `policy_body`.
      */
-    public readonly policyUrl: pulumi.Output<string | undefined>;
+    public readonly policyUrl!: pulumi.Output<string | undefined>;
     /**
      * A list of tags to associate with this stack.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Structure containing the template body (max size: 51,200 bytes).
      */
-    public readonly templateBody: pulumi.Output<string>;
+    public readonly templateBody!: pulumi.Output<string>;
     /**
      * Location of a file containing the template body (max size: 460,800 bytes).
      */
-    public readonly templateUrl: pulumi.Output<string | undefined>;
+    public readonly templateUrl!: pulumi.Output<string | undefined>;
     /**
      * The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
      */
-    public readonly timeoutInMinutes: pulumi.Output<number | undefined>;
+    public readonly timeoutInMinutes!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Stack resource with the given unique name, arguments, and options.
@@ -127,7 +127,7 @@ export class Stack extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StackArgs | StackState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: StackState = argsOrState as StackState | undefined;
+            const state = argsOrState as StackState | undefined;
             inputs["capabilities"] = state ? state.capabilities : undefined;
             inputs["disableRollback"] = state ? state.disableRollback : undefined;
             inputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
@@ -158,6 +158,13 @@ export class Stack extends pulumi.CustomResource {
             inputs["templateUrl"] = args ? args.templateUrl : undefined;
             inputs["timeoutInMinutes"] = args ? args.timeoutInMinutes : undefined;
             inputs["outputs"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cloudformation/stack:Stack", name, inputs, opts);
     }

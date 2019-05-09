@@ -31,6 +31,13 @@ import * as utilities from "../utilities";
  */
 export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:applicationloadbalancing/getTargetGroup:getTargetGroup", {
         "arn": args.arn,
         "name": args.name,

@@ -35,19 +35,19 @@ export class LogDestination extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the log destination.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A name for the log destination
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
      */
-    public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * The ARN of the target Amazon Kinesis stream or Amazon Lambda resource for the destination
      */
-    public readonly targetArn: pulumi.Output<string>;
+    public readonly targetArn!: pulumi.Output<string>;
 
     /**
      * Create a LogDestination resource with the given unique name, arguments, and options.
@@ -60,7 +60,7 @@ export class LogDestination extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LogDestinationArgs | LogDestinationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LogDestinationState = argsOrState as LogDestinationState | undefined;
+            const state = argsOrState as LogDestinationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
@@ -77,6 +77,13 @@ export class LogDestination extends pulumi.CustomResource {
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["targetArn"] = args ? args.targetArn : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cloudwatch/logDestination:LogDestination", name, inputs, opts);
     }

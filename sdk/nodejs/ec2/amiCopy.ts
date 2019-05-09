@@ -49,83 +49,83 @@ export class AmiCopy extends pulumi.CustomResource {
     /**
      * Machine architecture for created instances. Defaults to "x86_64".
      */
-    public /*out*/ readonly architecture: pulumi.Output<string>;
+    public /*out*/ readonly architecture!: pulumi.Output<string>;
     /**
      * A longer, human-readable description for the AMI.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    public readonly ebsBlockDevices: pulumi.Output<{ deleteOnTermination: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[]>;
+    public readonly ebsBlockDevices!: pulumi.Output<{ deleteOnTermination: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[]>;
     /**
      * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
-    public /*out*/ readonly enaSupport: pulumi.Output<boolean>;
+    public /*out*/ readonly enaSupport!: pulumi.Output<boolean>;
     /**
      * Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
      */
-    public readonly encrypted: pulumi.Output<boolean | undefined>;
+    public readonly encrypted!: pulumi.Output<boolean | undefined>;
     /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    public readonly ephemeralBlockDevices: pulumi.Output<{ deviceName: string, virtualName: string }[]>;
+    public readonly ephemeralBlockDevices!: pulumi.Output<{ deviceName: string, virtualName: string }[]>;
     /**
      * Path to an S3 object containing an image manifest, e.g. created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      */
-    public /*out*/ readonly imageLocation: pulumi.Output<string>;
+    public /*out*/ readonly imageLocation!: pulumi.Output<string>;
     /**
      * The id of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      */
-    public /*out*/ readonly kernelId: pulumi.Output<string>;
+    public /*out*/ readonly kernelId!: pulumi.Output<string>;
     /**
      * The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
      */
-    public readonly kmsKeyId: pulumi.Output<string>;
-    public /*out*/ readonly manageEbsSnapshots: pulumi.Output<boolean>;
+    public readonly kmsKeyId!: pulumi.Output<string>;
+    public /*out*/ readonly manageEbsSnapshots!: pulumi.Output<boolean>;
     /**
      * A region-unique name for the AMI.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The id of an initrd image (ARI) that will be used when booting the
      * created instances.
      */
-    public /*out*/ readonly ramdiskId: pulumi.Output<string>;
+    public /*out*/ readonly ramdiskId!: pulumi.Output<string>;
     /**
      * The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      */
-    public /*out*/ readonly rootDeviceName: pulumi.Output<string>;
-    public /*out*/ readonly rootSnapshotId: pulumi.Output<string>;
+    public /*out*/ readonly rootDeviceName!: pulumi.Output<string>;
+    public /*out*/ readonly rootSnapshotId!: pulumi.Output<string>;
     /**
      * The id of the AMI to copy. This id must be valid in the region
      * given by `source_ami_region`.
      */
-    public readonly sourceAmiId: pulumi.Output<string>;
+    public readonly sourceAmiId!: pulumi.Output<string>;
     /**
      * The region from which the AMI will be copied. This may be the
      * same as the AWS provider region in order to create a copy within the same region.
      */
-    public readonly sourceAmiRegion: pulumi.Output<string>;
+    public readonly sourceAmiRegion!: pulumi.Output<string>;
     /**
      * When set to "simple" (the default), enables enhanced networking
      * for created instances. No other value is supported at this time.
      */
-    public /*out*/ readonly sriovNetSupport: pulumi.Output<string>;
+    public /*out*/ readonly sriovNetSupport!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
      * changes the set of further arguments that are required, as described below.
      */
-    public /*out*/ readonly virtualizationType: pulumi.Output<string>;
+    public /*out*/ readonly virtualizationType!: pulumi.Output<string>;
 
     /**
      * Create a AmiCopy resource with the given unique name, arguments, and options.
@@ -138,7 +138,7 @@ export class AmiCopy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AmiCopyArgs | AmiCopyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AmiCopyState = argsOrState as AmiCopyState | undefined;
+            const state = argsOrState as AmiCopyState | undefined;
             inputs["architecture"] = state ? state.architecture : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
@@ -185,6 +185,13 @@ export class AmiCopy extends pulumi.CustomResource {
             inputs["rootSnapshotId"] = undefined /*out*/;
             inputs["sriovNetSupport"] = undefined /*out*/;
             inputs["virtualizationType"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/amiCopy:AmiCopy", name, inputs, opts);
     }

@@ -44,15 +44,15 @@ export class DocumentationVersion extends pulumi.CustomResource {
     /**
      * The description of the API documentation version.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The ID of the associated Rest API
      */
-    public readonly restApiId: pulumi.Output<string>;
+    public readonly restApiId!: pulumi.Output<string>;
     /**
      * The version identifier of the API documentation snapshot.
      */
-    public readonly version: pulumi.Output<string>;
+    public readonly version!: pulumi.Output<string>;
 
     /**
      * Create a DocumentationVersion resource with the given unique name, arguments, and options.
@@ -65,7 +65,7 @@ export class DocumentationVersion extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DocumentationVersionArgs | DocumentationVersionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DocumentationVersionState = argsOrState as DocumentationVersionState | undefined;
+            const state = argsOrState as DocumentationVersionState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["restApiId"] = state ? state.restApiId : undefined;
             inputs["version"] = state ? state.version : undefined;
@@ -80,6 +80,13 @@ export class DocumentationVersion extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["restApiId"] = args ? args.restApiId : undefined;
             inputs["version"] = args ? args.version : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:apigateway/documentationVersion:DocumentationVersion", name, inputs, opts);
     }

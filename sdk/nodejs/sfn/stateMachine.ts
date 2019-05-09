@@ -46,27 +46,27 @@ export class StateMachine extends pulumi.CustomResource {
     /**
      * The date the state machine was created.
      */
-    public /*out*/ readonly creationDate: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * The Amazon States Language definition of the state machine.
      */
-    public readonly definition: pulumi.Output<string>;
+    public readonly definition!: pulumi.Output<string>;
     /**
      * The name of the state machine.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
-    public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * The current status of the state machine. Either "ACTIVE" or "DELETING".
      */
-    public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a StateMachine resource with the given unique name, arguments, and options.
@@ -79,7 +79,7 @@ export class StateMachine extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StateMachineArgs | StateMachineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: StateMachineState = argsOrState as StateMachineState | undefined;
+            const state = argsOrState as StateMachineState | undefined;
             inputs["creationDate"] = state ? state.creationDate : undefined;
             inputs["definition"] = state ? state.definition : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -100,6 +100,13 @@ export class StateMachine extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["creationDate"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:sfn/stateMachine:StateMachine", name, inputs, opts);
     }

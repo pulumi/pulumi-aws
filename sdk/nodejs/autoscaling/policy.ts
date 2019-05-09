@@ -52,47 +52,47 @@ export class Policy extends pulumi.CustomResource {
     /**
      * Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
      */
-    public readonly adjustmentType: pulumi.Output<string | undefined>;
+    public readonly adjustmentType!: pulumi.Output<string | undefined>;
     /**
      * The ARN assigned by AWS to the scaling policy.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the autoscaling group.
      */
-    public readonly autoscalingGroupName: pulumi.Output<string>;
+    public readonly autoscalingGroupName!: pulumi.Output<string>;
     /**
      * The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      */
-    public readonly cooldown: pulumi.Output<number | undefined>;
+    public readonly cooldown!: pulumi.Output<number | undefined>;
     /**
      * The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
      */
-    public readonly estimatedInstanceWarmup: pulumi.Output<number | undefined>;
+    public readonly estimatedInstanceWarmup!: pulumi.Output<number | undefined>;
     /**
      * The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
      */
-    public readonly metricAggregationType: pulumi.Output<string>;
-    public readonly minAdjustmentMagnitude: pulumi.Output<number | undefined>;
+    public readonly metricAggregationType!: pulumi.Output<string>;
+    public readonly minAdjustmentMagnitude!: pulumi.Output<number | undefined>;
     /**
      * The name of the dimension.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
      */
-    public readonly policyType: pulumi.Output<string | undefined>;
+    public readonly policyType!: pulumi.Output<string | undefined>;
     /**
      * The number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
      * up. A negative value scales down.
      */
-    public readonly scalingAdjustment: pulumi.Output<number | undefined>;
-    public readonly stepAdjustments: pulumi.Output<{ metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[] | undefined>;
+    public readonly scalingAdjustment!: pulumi.Output<number | undefined>;
+    public readonly stepAdjustments!: pulumi.Output<{ metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[] | undefined>;
     /**
      * A target tracking policy. These have the following structure:
      */
-    public readonly targetTrackingConfiguration: pulumi.Output<{ customizedMetricSpecification?: { metricDimensions?: { name: string, value: string }[], metricName: string, namespace: string, statistic: string, unit?: string }, disableScaleIn?: boolean, predefinedMetricSpecification?: { predefinedMetricType: string, resourceLabel?: string }, targetValue: number } | undefined>;
+    public readonly targetTrackingConfiguration!: pulumi.Output<{ customizedMetricSpecification?: { metricDimensions?: { name: string, value: string }[], metricName: string, namespace: string, statistic: string, unit?: string }, disableScaleIn?: boolean, predefinedMetricSpecification?: { predefinedMetricType: string, resourceLabel?: string }, targetValue: number } | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -105,7 +105,7 @@ export class Policy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PolicyState = argsOrState as PolicyState | undefined;
+            const state = argsOrState as PolicyState | undefined;
             inputs["adjustmentType"] = state ? state.adjustmentType : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
@@ -135,6 +135,13 @@ export class Policy extends pulumi.CustomResource {
             inputs["stepAdjustments"] = args ? args.stepAdjustments : undefined;
             inputs["targetTrackingConfiguration"] = args ? args.targetTrackingConfiguration : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:autoscaling/policy:Policy", name, inputs, opts);
     }

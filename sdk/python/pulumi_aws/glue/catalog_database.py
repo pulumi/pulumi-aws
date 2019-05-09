@@ -66,6 +66,10 @@ class CatalogDatabase(pulumi.CustomResource):
 
         __props__['parameters'] = parameters
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(CatalogDatabase, __self__).__init__(
             'aws:glue/catalogDatabase:CatalogDatabase',
             resource_name,

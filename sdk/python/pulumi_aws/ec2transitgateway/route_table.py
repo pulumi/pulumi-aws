@@ -58,6 +58,10 @@ class RouteTable(pulumi.CustomResource):
         __props__['default_association_route_table'] = None
         __props__['default_propagation_route_table'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(RouteTable, __self__).__init__(
             'aws:ec2transitgateway/routeTable:RouteTable',
             resource_name,

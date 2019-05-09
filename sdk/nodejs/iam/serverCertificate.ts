@@ -100,39 +100,39 @@ export class ServerCertificate extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) specifying the server certificate.
      */
-    public readonly arn: pulumi.Output<string>;
+    public readonly arn!: pulumi.Output<string>;
     /**
      * The contents of the public key certificate in
      * PEM-encoded format.
      */
-    public readonly certificateBody: pulumi.Output<string>;
+    public readonly certificateBody!: pulumi.Output<string>;
     /**
      * The contents of the certificate chain.
      * This is typically a concatenation of the PEM-encoded public key certificates
      * of the chain.
      */
-    public readonly certificateChain: pulumi.Output<string | undefined>;
+    public readonly certificateChain!: pulumi.Output<string | undefined>;
     /**
      * The name of the Server Certificate. Do not include the
      * path in this value. If omitted, Terraform will assign a random, unique name.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    public readonly namePrefix: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The IAM path for the server certificate.  If it is not
      * included, it defaults to a slash (/). If this certificate is for use with
      * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
      * See [IAM Identifiers][1] for more details on IAM Paths.
      */
-    public readonly path: pulumi.Output<string | undefined>;
+    public readonly path!: pulumi.Output<string | undefined>;
     /**
      * The contents of the private key in PEM-encoded format.
      */
-    public readonly privateKey: pulumi.Output<string>;
+    public readonly privateKey!: pulumi.Output<string>;
 
     /**
      * Create a ServerCertificate resource with the given unique name, arguments, and options.
@@ -145,7 +145,7 @@ export class ServerCertificate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ServerCertificateArgs | ServerCertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ServerCertificateState = argsOrState as ServerCertificateState | undefined;
+            const state = argsOrState as ServerCertificateState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["certificateBody"] = state ? state.certificateBody : undefined;
             inputs["certificateChain"] = state ? state.certificateChain : undefined;
@@ -168,6 +168,13 @@ export class ServerCertificate extends pulumi.CustomResource {
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["path"] = args ? args.path : undefined;
             inputs["privateKey"] = args ? args.privateKey : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:iam/serverCertificate:ServerCertificate", name, inputs, opts);
     }

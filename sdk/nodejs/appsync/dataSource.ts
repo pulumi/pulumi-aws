@@ -84,43 +84,43 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * The API ID for the GraphQL API for the DataSource.
      */
-    public readonly apiId: pulumi.Output<string>;
+    public readonly apiId!: pulumi.Output<string>;
     /**
      * The ARN
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A description of the DataSource.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * DynamoDB settings. See below
      */
-    public readonly dynamodbConfig: pulumi.Output<{ region: string, tableName: string, useCallerCredentials?: boolean } | undefined>;
+    public readonly dynamodbConfig!: pulumi.Output<{ region: string, tableName: string, useCallerCredentials?: boolean } | undefined>;
     /**
      * Amazon Elasticsearch settings. See below
      */
-    public readonly elasticsearchConfig: pulumi.Output<{ endpoint: string, region: string } | undefined>;
+    public readonly elasticsearchConfig!: pulumi.Output<{ endpoint: string, region: string } | undefined>;
     /**
      * HTTP settings. See below
      */
-    public readonly httpConfig: pulumi.Output<{ endpoint: string } | undefined>;
+    public readonly httpConfig!: pulumi.Output<{ endpoint: string } | undefined>;
     /**
      * AWS Lambda settings. See below
      */
-    public readonly lambdaConfig: pulumi.Output<{ functionArn: string } | undefined>;
+    public readonly lambdaConfig!: pulumi.Output<{ functionArn: string } | undefined>;
     /**
      * A user-supplied name for the DataSource.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The IAM service role ARN for the data source.
      */
-    public readonly serviceRoleArn: pulumi.Output<string | undefined>;
+    public readonly serviceRoleArn!: pulumi.Output<string | undefined>;
     /**
      * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
      */
-    public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a DataSource resource with the given unique name, arguments, and options.
@@ -133,7 +133,7 @@ export class DataSource extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DataSourceArgs | DataSourceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DataSourceState = argsOrState as DataSourceState | undefined;
+            const state = argsOrState as DataSourceState | undefined;
             inputs["apiId"] = state ? state.apiId : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -162,6 +162,13 @@ export class DataSource extends pulumi.CustomResource {
             inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:appsync/dataSource:DataSource", name, inputs, opts);
     }

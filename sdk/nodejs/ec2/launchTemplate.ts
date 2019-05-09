@@ -23,132 +23,132 @@ export class LaunchTemplate extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the launch template.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
      * See Block Devices below for details.
      */
-    public readonly blockDeviceMappings: pulumi.Output<{ deviceName?: string, ebs?: { deleteOnTermination?: string, encrypted?: string, iops: number, kmsKeyId?: string, snapshotId?: string, volumeSize: number, volumeType: string }, noDevice?: string, virtualName?: string }[] | undefined>;
+    public readonly blockDeviceMappings!: pulumi.Output<{ deviceName?: string, ebs?: { deleteOnTermination?: string, encrypted?: string, iops: number, kmsKeyId?: string, snapshotId?: string, volumeSize: number, volumeType: string }, noDevice?: string, virtualName?: string }[] | undefined>;
     /**
      * Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
      */
-    public readonly capacityReservationSpecification: pulumi.Output<{ capacityReservationPreference?: string, capacityReservationTarget?: { capacityReservationId?: string } } | undefined>;
+    public readonly capacityReservationSpecification!: pulumi.Output<{ capacityReservationPreference?: string, capacityReservationTarget?: { capacityReservationId?: string } } | undefined>;
     /**
      * Customize the credit specification of the instance. See Credit
      * Specification below for more details.
      */
-    public readonly creditSpecification: pulumi.Output<{ cpuCredits?: string } | undefined>;
+    public readonly creditSpecification!: pulumi.Output<{ cpuCredits?: string } | undefined>;
     /**
      * The default version of the launch template.
      */
-    public /*out*/ readonly defaultVersion: pulumi.Output<number>;
+    public /*out*/ readonly defaultVersion!: pulumi.Output<number>;
     /**
      * Description of the launch template.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * If `true`, enables [EC2 Instance
      * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
      */
-    public readonly disableApiTermination: pulumi.Output<boolean | undefined>;
+    public readonly disableApiTermination!: pulumi.Output<boolean | undefined>;
     /**
      * If `true`, the launched EC2 instance will be EBS-optimized.
      */
-    public readonly ebsOptimized: pulumi.Output<string | undefined>;
+    public readonly ebsOptimized!: pulumi.Output<string | undefined>;
     /**
      * The elastic GPU to attach to the instance. See Elastic GPU
      * below for more details.
      */
-    public readonly elasticGpuSpecifications: pulumi.Output<{ type: string }[] | undefined>;
+    public readonly elasticGpuSpecifications!: pulumi.Output<{ type: string }[] | undefined>;
     /**
      * Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
      */
-    public readonly elasticInferenceAccelerator: pulumi.Output<{ type: string } | undefined>;
+    public readonly elasticInferenceAccelerator!: pulumi.Output<{ type: string } | undefined>;
     /**
      * The IAM Instance Profile to launch the instance with. See Instance Profile
      * below for more details.
      */
-    public readonly iamInstanceProfile: pulumi.Output<{ arn?: string, name?: string } | undefined>;
+    public readonly iamInstanceProfile!: pulumi.Output<{ arn?: string, name?: string } | undefined>;
     /**
      * The AMI from which to launch the instance.
      */
-    public readonly imageId: pulumi.Output<string | undefined>;
+    public readonly imageId!: pulumi.Output<string | undefined>;
     /**
      * Shutdown behavior for the instance. Can be `stop` or `terminate`.
      * (Default: `stop`).
      */
-    public readonly instanceInitiatedShutdownBehavior: pulumi.Output<string | undefined>;
+    public readonly instanceInitiatedShutdownBehavior!: pulumi.Output<string | undefined>;
     /**
      * The market (purchasing) option for the instance. See Market Options
      * below for details.
      */
-    public readonly instanceMarketOptions: pulumi.Output<{ marketType?: string, spotOptions?: { blockDurationMinutes?: number, instanceInterruptionBehavior?: string, maxPrice?: string, spotInstanceType?: string, validUntil: string } } | undefined>;
+    public readonly instanceMarketOptions!: pulumi.Output<{ marketType?: string, spotOptions?: { blockDurationMinutes?: number, instanceInterruptionBehavior?: string, maxPrice?: string, spotInstanceType?: string, validUntil: string } } | undefined>;
     /**
      * The type of the instance.
      */
-    public readonly instanceType: pulumi.Output<string | undefined>;
+    public readonly instanceType!: pulumi.Output<string | undefined>;
     /**
      * The kernel ID.
      */
-    public readonly kernelId: pulumi.Output<string | undefined>;
+    public readonly kernelId!: pulumi.Output<string | undefined>;
     /**
      * The key name to use for the instance.
      */
-    public readonly keyName: pulumi.Output<string | undefined>;
+    public readonly keyName!: pulumi.Output<string | undefined>;
     /**
      * The latest version of the launch template.
      */
-    public /*out*/ readonly latestVersion: pulumi.Output<number>;
+    public /*out*/ readonly latestVersion!: pulumi.Output<number>;
     /**
      * A list of license specifications to associate with. See License Specification below for more details.
      */
-    public readonly licenseSpecifications: pulumi.Output<{ licenseConfigurationArn: string }[] | undefined>;
+    public readonly licenseSpecifications!: pulumi.Output<{ licenseConfigurationArn: string }[] | undefined>;
     /**
      * The monitoring option for the instance. See Monitoring below for more details.
      */
-    public readonly monitoring: pulumi.Output<{ enabled?: boolean } | undefined>;
+    public readonly monitoring!: pulumi.Output<{ enabled?: boolean } | undefined>;
     /**
      * The name of the launch template. If you leave this blank, Terraform will auto-generate a unique name.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network
      * Interfaces below for more details.
      */
-    public readonly networkInterfaces: pulumi.Output<{ associatePublicIpAddress?: boolean, deleteOnTermination?: boolean, description?: string, deviceIndex?: number, ipv4AddressCount?: number, ipv4Addresses?: string[], ipv6AddressCount?: number, ipv6Addresses?: string[], networkInterfaceId?: string, privateIpAddress?: string, securityGroups?: string[], subnetId?: string }[] | undefined>;
+    public readonly networkInterfaces!: pulumi.Output<{ associatePublicIpAddress?: boolean, deleteOnTermination?: boolean, description?: string, deviceIndex?: number, ipv4AddressCount?: number, ipv4Addresses?: string[], ipv6AddressCount?: number, ipv6Addresses?: string[], networkInterfaceId?: string, privateIpAddress?: string, securityGroups?: string[], subnetId?: string }[] | undefined>;
     /**
      * The placement of the instance. See Placement below for more details.
      */
-    public readonly placement: pulumi.Output<{ affinity?: string, availabilityZone?: string, groupName?: string, hostId?: string, spreadDomain?: string, tenancy?: string } | undefined>;
+    public readonly placement!: pulumi.Output<{ affinity?: string, availabilityZone?: string, groupName?: string, hostId?: string, spreadDomain?: string, tenancy?: string } | undefined>;
     /**
      * The ID of the RAM disk.
      */
-    public readonly ramDiskId: pulumi.Output<string | undefined>;
+    public readonly ramDiskId!: pulumi.Output<string | undefined>;
     /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
      * `vpc_security_group_ids` instead.
      */
-    public readonly securityGroupNames: pulumi.Output<string[] | undefined>;
+    public readonly securityGroupNames!: pulumi.Output<string[] | undefined>;
     /**
      * The tags to apply to the resources during launch. See Tag Specifications below for more details.
      */
-    public readonly tagSpecifications: pulumi.Output<{ resourceType?: string, tags?: {[key: string]: any} }[] | undefined>;
+    public readonly tagSpecifications!: pulumi.Output<{ resourceType?: string, tags?: {[key: string]: any} }[] | undefined>;
     /**
      * A mapping of tags to assign to the launch template.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The Base64-encoded user data to provide when launching the instance.
      */
-    public readonly userData: pulumi.Output<string | undefined>;
+    public readonly userData!: pulumi.Output<string | undefined>;
     /**
      * A list of security group IDs to associate with.
      */
-    public readonly vpcSecurityGroupIds: pulumi.Output<string[] | undefined>;
+    public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a LaunchTemplate resource with the given unique name, arguments, and options.
@@ -161,7 +161,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LaunchTemplateArgs | LaunchTemplateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LaunchTemplateState = argsOrState as LaunchTemplateState | undefined;
+            const state = argsOrState as LaunchTemplateState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["blockDeviceMappings"] = state ? state.blockDeviceMappings : undefined;
             inputs["capacityReservationSpecification"] = state ? state.capacityReservationSpecification : undefined;
@@ -224,6 +224,13 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["defaultVersion"] = undefined /*out*/;
             inputs["latestVersion"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/launchTemplate:LaunchTemplate", name, inputs, opts);
     }

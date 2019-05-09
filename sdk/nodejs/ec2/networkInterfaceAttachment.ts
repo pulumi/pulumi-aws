@@ -36,23 +36,23 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
     /**
      * The ENI Attachment ID.
      */
-    public /*out*/ readonly attachmentId: pulumi.Output<string>;
+    public /*out*/ readonly attachmentId!: pulumi.Output<string>;
     /**
      * Network interface index (int).
      */
-    public readonly deviceIndex: pulumi.Output<number>;
+    public readonly deviceIndex!: pulumi.Output<number>;
     /**
      * Instance ID to attach.
      */
-    public readonly instanceId: pulumi.Output<string>;
+    public readonly instanceId!: pulumi.Output<string>;
     /**
      * ENI ID to attach.
      */
-    public readonly networkInterfaceId: pulumi.Output<string>;
+    public readonly networkInterfaceId!: pulumi.Output<string>;
     /**
      * The status of the Network Interface Attachment.
      */
-    public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
      * Create a NetworkInterfaceAttachment resource with the given unique name, arguments, and options.
@@ -65,7 +65,7 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NetworkInterfaceAttachmentArgs | NetworkInterfaceAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkInterfaceAttachmentState = argsOrState as NetworkInterfaceAttachmentState | undefined;
+            const state = argsOrState as NetworkInterfaceAttachmentState | undefined;
             inputs["attachmentId"] = state ? state.attachmentId : undefined;
             inputs["deviceIndex"] = state ? state.deviceIndex : undefined;
             inputs["instanceId"] = state ? state.instanceId : undefined;
@@ -87,6 +87,13 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             inputs["attachmentId"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment", name, inputs, opts);
     }

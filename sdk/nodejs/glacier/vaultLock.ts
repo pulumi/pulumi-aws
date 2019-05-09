@@ -68,19 +68,19 @@ export class VaultLock extends pulumi.CustomResource {
     /**
      * Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the Terraform resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
      */
-    public readonly completeLock: pulumi.Output<boolean>;
+    public readonly completeLock!: pulumi.Output<boolean>;
     /**
      * Allow Terraform to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via Terraform, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
      */
-    public readonly ignoreDeletionError: pulumi.Output<boolean | undefined>;
+    public readonly ignoreDeletionError!: pulumi.Output<boolean | undefined>;
     /**
      * JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
      */
-    public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * The name of the Glacier Vault.
      */
-    public readonly vaultName: pulumi.Output<string>;
+    public readonly vaultName!: pulumi.Output<string>;
 
     /**
      * Create a VaultLock resource with the given unique name, arguments, and options.
@@ -93,7 +93,7 @@ export class VaultLock extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VaultLockArgs | VaultLockState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VaultLockState = argsOrState as VaultLockState | undefined;
+            const state = argsOrState as VaultLockState | undefined;
             inputs["completeLock"] = state ? state.completeLock : undefined;
             inputs["ignoreDeletionError"] = state ? state.ignoreDeletionError : undefined;
             inputs["policy"] = state ? state.policy : undefined;
@@ -113,6 +113,13 @@ export class VaultLock extends pulumi.CustomResource {
             inputs["ignoreDeletionError"] = args ? args.ignoreDeletionError : undefined;
             inputs["policy"] = args ? args.policy : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:glacier/vaultLock:VaultLock", name, inputs, opts);
     }

@@ -47,23 +47,23 @@ export class GameSessionQueue extends pulumi.CustomResource {
     /**
      * Game Session Queue ARN.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * List of fleet/alias ARNs used by session queue for placing game sessions.
      */
-    public readonly destinations: pulumi.Output<string[] | undefined>;
+    public readonly destinations!: pulumi.Output<string[] | undefined>;
     /**
      * Name of the session queue.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * One or more policies used to choose fleet based on player latency. See below.
      */
-    public readonly playerLatencyPolicies: pulumi.Output<{ maximumIndividualPlayerLatencyMilliseconds: number, policyDurationSeconds?: number }[] | undefined>;
+    public readonly playerLatencyPolicies!: pulumi.Output<{ maximumIndividualPlayerLatencyMilliseconds: number, policyDurationSeconds?: number }[] | undefined>;
     /**
      * Maximum time a game session request can remain in the queue.
      */
-    public readonly timeoutInSeconds: pulumi.Output<number | undefined>;
+    public readonly timeoutInSeconds!: pulumi.Output<number | undefined>;
 
     /**
      * Create a GameSessionQueue resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GameSessionQueueArgs | GameSessionQueueState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GameSessionQueueState = argsOrState as GameSessionQueueState | undefined;
+            const state = argsOrState as GameSessionQueueState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["destinations"] = state ? state.destinations : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -89,6 +89,13 @@ export class GameSessionQueue extends pulumi.CustomResource {
             inputs["playerLatencyPolicies"] = args ? args.playerLatencyPolicies : undefined;
             inputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:gamelift/gameSessionQueue:GameSessionQueue", name, inputs, opts);
     }

@@ -55,19 +55,19 @@ export class UserPolicy extends pulumi.CustomResource {
     /**
      * The name of the policy. If omitted, Terraform will assign a random, unique name.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
-    public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * IAM user to which to attach this policy.
      */
-    public readonly user: pulumi.Output<string>;
+    public readonly user!: pulumi.Output<string>;
 
     /**
      * Create a UserPolicy resource with the given unique name, arguments, and options.
@@ -80,7 +80,7 @@ export class UserPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserPolicyArgs | UserPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserPolicyState = argsOrState as UserPolicyState | undefined;
+            const state = argsOrState as UserPolicyState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
             inputs["policy"] = state ? state.policy : undefined;
@@ -97,6 +97,13 @@ export class UserPolicy extends pulumi.CustomResource {
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["policy"] = args ? args.policy : undefined;
             inputs["user"] = args ? args.user : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:iam/userPolicy:UserPolicy", name, inputs, opts);
     }

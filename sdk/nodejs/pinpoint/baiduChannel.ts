@@ -41,19 +41,19 @@ export class BaiduChannel extends pulumi.CustomResource {
     /**
      * Platform credential API key from Baidu.
      */
-    public readonly apiKey: pulumi.Output<string>;
+    public readonly apiKey!: pulumi.Output<string>;
     /**
      * The application ID.
      */
-    public readonly applicationId: pulumi.Output<string>;
+    public readonly applicationId!: pulumi.Output<string>;
     /**
      * Specifies whether to enable the channel. Defaults to `true`.
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Platform credential Secret key from Baidu.
      */
-    public readonly secretKey: pulumi.Output<string>;
+    public readonly secretKey!: pulumi.Output<string>;
 
     /**
      * Create a BaiduChannel resource with the given unique name, arguments, and options.
@@ -66,7 +66,7 @@ export class BaiduChannel extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BaiduChannelArgs | BaiduChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: BaiduChannelState = argsOrState as BaiduChannelState | undefined;
+            const state = argsOrState as BaiduChannelState | undefined;
             inputs["apiKey"] = state ? state.apiKey : undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -86,6 +86,13 @@ export class BaiduChannel extends pulumi.CustomResource {
             inputs["applicationId"] = args ? args.applicationId : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["secretKey"] = args ? args.secretKey : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:pinpoint/baiduChannel:BaiduChannel", name, inputs, opts);
     }

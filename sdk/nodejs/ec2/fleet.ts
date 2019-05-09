@@ -43,43 +43,43 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
      */
-    public readonly excessCapacityTerminationPolicy: pulumi.Output<string | undefined>;
+    public readonly excessCapacityTerminationPolicy!: pulumi.Output<string | undefined>;
     /**
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      */
-    public readonly launchTemplateConfig: pulumi.Output<{ launchTemplateSpecification: { launchTemplateId?: string, launchTemplateName?: string, version: string }, overrides?: { availabilityZone?: string, instanceType?: string, maxPrice?: string, priority?: number, subnetId?: string, weightedCapacity?: number }[] }>;
+    public readonly launchTemplateConfig!: pulumi.Output<{ launchTemplateSpecification: { launchTemplateId?: string, launchTemplateName?: string, version: string }, overrides?: { availabilityZone?: string, instanceType?: string, maxPrice?: string, priority?: number, subnetId?: string, weightedCapacity?: number }[] }>;
     /**
      * Nested argument containing On-Demand configurations. Defined below.
      */
-    public readonly onDemandOptions: pulumi.Output<{ allocationStrategy?: string } | undefined>;
+    public readonly onDemandOptions!: pulumi.Output<{ allocationStrategy?: string } | undefined>;
     /**
      * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
      */
-    public readonly replaceUnhealthyInstances: pulumi.Output<boolean | undefined>;
+    public readonly replaceUnhealthyInstances!: pulumi.Output<boolean | undefined>;
     /**
      * Nested argument containing Spot configurations. Defined below.
      */
-    public readonly spotOptions: pulumi.Output<{ allocationStrategy?: string, instanceInterruptionBehavior?: string, instancePoolsToUseCount?: number } | undefined>;
+    public readonly spotOptions!: pulumi.Output<{ allocationStrategy?: string, instanceInterruptionBehavior?: string, instancePoolsToUseCount?: number } | undefined>;
     /**
      * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
      */
-    public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */
-    public readonly targetCapacitySpecification: pulumi.Output<{ defaultTargetCapacityType: string, onDemandTargetCapacity?: number, spotTargetCapacity?: number, totalTargetCapacity: number }>;
+    public readonly targetCapacitySpecification!: pulumi.Output<{ defaultTargetCapacityType: string, onDemandTargetCapacity?: number, spotTargetCapacity?: number, totalTargetCapacity: number }>;
     /**
      * Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
      */
-    public readonly terminateInstances: pulumi.Output<boolean | undefined>;
+    public readonly terminateInstances!: pulumi.Output<boolean | undefined>;
     /**
      * Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
      */
-    public readonly terminateInstancesWithExpiration: pulumi.Output<boolean | undefined>;
+    public readonly terminateInstancesWithExpiration!: pulumi.Output<boolean | undefined>;
     /**
      * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
      */
-    public readonly type: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -92,7 +92,7 @@ export class Fleet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FleetArgs | FleetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FleetState = argsOrState as FleetState | undefined;
+            const state = argsOrState as FleetState | undefined;
             inputs["excessCapacityTerminationPolicy"] = state ? state.excessCapacityTerminationPolicy : undefined;
             inputs["launchTemplateConfig"] = state ? state.launchTemplateConfig : undefined;
             inputs["onDemandOptions"] = state ? state.onDemandOptions : undefined;
@@ -121,6 +121,13 @@ export class Fleet extends pulumi.CustomResource {
             inputs["terminateInstances"] = args ? args.terminateInstances : undefined;
             inputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
             inputs["type"] = args ? args.type : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/fleet:Fleet", name, inputs, opts);
     }

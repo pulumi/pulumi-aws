@@ -61,35 +61,35 @@ export class OptionGroup extends pulumi.CustomResource {
     /**
      * The ARN of the db option group.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies the name of the engine that this option group should be associated with.
      */
-    public readonly engineName: pulumi.Output<string>;
+    public readonly engineName!: pulumi.Output<string>;
     /**
      * Specifies the major version of the engine that this option group should be associated with.
      */
-    public readonly majorEngineVersion: pulumi.Output<string>;
+    public readonly majorEngineVersion!: pulumi.Output<string>;
     /**
      * The Name of the setting.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
      */
-    public readonly namePrefix: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * A list of Options to apply.
      */
-    public readonly options: pulumi.Output<{ dbSecurityGroupMemberships?: string[], optionName: string, optionSettings?: { name: string, value: string }[], port?: number, version?: string, vpcSecurityGroupMemberships?: string[] }[] | undefined>;
+    public readonly options!: pulumi.Output<{ dbSecurityGroupMemberships?: string[], optionName: string, optionSettings?: { name: string, value: string }[], port?: number, version?: string, vpcSecurityGroupMemberships?: string[] }[] | undefined>;
     /**
      * The description of the option group. Defaults to "Managed by Terraform".
      */
-    public readonly optionGroupDescription: pulumi.Output<string>;
+    public readonly optionGroupDescription!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a OptionGroup resource with the given unique name, arguments, and options.
@@ -102,7 +102,7 @@ export class OptionGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: OptionGroupArgs | OptionGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: OptionGroupState = argsOrState as OptionGroupState | undefined;
+            const state = argsOrState as OptionGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["engineName"] = state ? state.engineName : undefined;
             inputs["majorEngineVersion"] = state ? state.majorEngineVersion : undefined;
@@ -127,6 +127,13 @@ export class OptionGroup extends pulumi.CustomResource {
             inputs["optionGroupDescription"] = (args ? args.optionGroupDescription : undefined) || "Managed by Pulumi";
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:rds/optionGroup:OptionGroup", name, inputs, opts);
     }

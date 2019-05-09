@@ -37,11 +37,11 @@ export class PlacementGroup extends pulumi.CustomResource {
     /**
      * The name of the placement group.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The placement strategy.
      */
-    public readonly strategy: pulumi.Output<PlacementStrategy>;
+    public readonly strategy!: pulumi.Output<PlacementStrategy>;
 
     /**
      * Create a PlacementGroup resource with the given unique name, arguments, and options.
@@ -54,7 +54,7 @@ export class PlacementGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PlacementGroupArgs | PlacementGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PlacementGroupState = argsOrState as PlacementGroupState | undefined;
+            const state = argsOrState as PlacementGroupState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["strategy"] = state ? state.strategy : undefined;
         } else {
@@ -64,6 +64,13 @@ export class PlacementGroup extends pulumi.CustomResource {
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["strategy"] = args ? args.strategy : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/placementGroup:PlacementGroup", name, inputs, opts);
     }

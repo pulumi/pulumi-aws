@@ -92,6 +92,10 @@ class ConfigurationTemplate(pulumi.CustomResource):
 
         __props__['solution_stack_name'] = solution_stack_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ConfigurationTemplate, __self__).__init__(
             'aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate',
             resource_name,

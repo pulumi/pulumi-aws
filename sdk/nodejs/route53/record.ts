@@ -100,63 +100,63 @@ export class Record extends pulumi.CustomResource {
      * An alias block. Conflicts with `ttl` & `records`.
      * Alias record documented below.
      */
-    public readonly aliases: pulumi.Output<{ evaluateTargetHealth: boolean, name: string, zoneId: string }[] | undefined>;
+    public readonly aliases!: pulumi.Output<{ evaluateTargetHealth: boolean, name: string, zoneId: string }[] | undefined>;
     /**
      * Allow creation of this record in Terraform to overwrite an existing record, if any. This does not affect the ability to update the record in Terraform and does not prevent other resources within Terraform or manual Route 53 changes outside Terraform from overwriting this record. `false` by default. This configuration is not recommended for most environments.
      */
-    public readonly allowOverwrite: pulumi.Output<boolean>;
+    public readonly allowOverwrite!: pulumi.Output<boolean>;
     /**
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      */
-    public readonly failoverRoutingPolicies: pulumi.Output<{ type: string }[] | undefined>;
+    public readonly failoverRoutingPolicies!: pulumi.Output<{ type: string }[] | undefined>;
     /**
      * [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
      */
-    public /*out*/ readonly fqdn: pulumi.Output<string>;
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
      * A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
      */
-    public readonly geolocationRoutingPolicies: pulumi.Output<{ continent?: string, country?: string, subdivision?: string }[] | undefined>;
+    public readonly geolocationRoutingPolicies!: pulumi.Output<{ continent?: string, country?: string, subdivision?: string }[] | undefined>;
     /**
      * The health check the record should be associated with.
      */
-    public readonly healthCheckId: pulumi.Output<string | undefined>;
+    public readonly healthCheckId!: pulumi.Output<string | undefined>;
     /**
      * A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
      */
-    public readonly latencyRoutingPolicies: pulumi.Output<{ region: string }[] | undefined>;
+    public readonly latencyRoutingPolicies!: pulumi.Output<{ region: string }[] | undefined>;
     /**
      * Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
      */
-    public readonly multivalueAnswerRoutingPolicy: pulumi.Output<boolean | undefined>;
+    public readonly multivalueAnswerRoutingPolicy!: pulumi.Output<boolean | undefined>;
     /**
      * DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the Terraform configuration string (e.g. `"first255characters\"\"morecharacters"`).
      */
-    public readonly records: pulumi.Output<string[] | undefined>;
+    public readonly records!: pulumi.Output<string[] | undefined>;
     /**
      * Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
      */
-    public readonly setIdentifier: pulumi.Output<string | undefined>;
+    public readonly setIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The TTL of the record.
      */
-    public readonly ttl: pulumi.Output<number | undefined>;
+    public readonly ttl!: pulumi.Output<number | undefined>;
     /**
      * `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
      */
-    public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      */
-    public readonly weightedRoutingPolicies: pulumi.Output<{ weight: number }[] | undefined>;
+    public readonly weightedRoutingPolicies!: pulumi.Output<{ weight: number }[] | undefined>;
     /**
      * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
      */
-    public readonly zoneId: pulumi.Output<string>;
+    public readonly zoneId!: pulumi.Output<string>;
 
     /**
      * Create a Record resource with the given unique name, arguments, and options.
@@ -169,7 +169,7 @@ export class Record extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RecordArgs | RecordState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RecordState = argsOrState as RecordState | undefined;
+            const state = argsOrState as RecordState | undefined;
             inputs["aliases"] = state ? state.aliases : undefined;
             inputs["allowOverwrite"] = state ? state.allowOverwrite : undefined;
             inputs["failoverRoutingPolicies"] = state ? state.failoverRoutingPolicies : undefined;
@@ -208,6 +208,13 @@ export class Record extends pulumi.CustomResource {
             inputs["weightedRoutingPolicies"] = args ? args.weightedRoutingPolicies : undefined;
             inputs["zoneId"] = args ? args.zoneId : undefined;
             inputs["fqdn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:route53/record:Record", name, inputs, opts);
     }

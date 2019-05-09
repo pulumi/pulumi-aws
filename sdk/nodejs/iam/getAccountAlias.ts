@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAccountAlias(opts?: pulumi.InvokeOptions): Promise<GetAccountAliasResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:iam/getAccountAlias:getAccountAlias", {
     }, opts);
 }

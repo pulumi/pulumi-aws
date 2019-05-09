@@ -16,6 +16,8 @@ import (
 func LookupAvailabilityZones(ctx *pulumi.Context, args *GetAvailabilityZonesArgs) (*GetAvailabilityZonesResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
+		inputs["blacklistedNames"] = args.BlacklistedNames
+		inputs["blacklistedZoneIds"] = args.BlacklistedZoneIds
 		inputs["state"] = args.State
 	}
 	outputs, err := ctx.Invoke("aws:index/getAvailabilityZones:getAvailabilityZones", inputs)
@@ -23,6 +25,8 @@ func LookupAvailabilityZones(ctx *pulumi.Context, args *GetAvailabilityZonesArgs
 		return nil, err
 	}
 	return &GetAvailabilityZonesResult{
+		BlacklistedNames: outputs["blacklistedNames"],
+		BlacklistedZoneIds: outputs["blacklistedZoneIds"],
 		Names: outputs["names"],
 		State: outputs["state"],
 		ZoneIds: outputs["zoneIds"],
@@ -32,6 +36,10 @@ func LookupAvailabilityZones(ctx *pulumi.Context, args *GetAvailabilityZonesArgs
 
 // A collection of arguments for invoking getAvailabilityZones.
 type GetAvailabilityZonesArgs struct {
+	// List of blacklisted Availability Zone names.
+	BlacklistedNames interface{}
+	// List of blacklisted Availability Zone IDs.
+	BlacklistedZoneIds interface{}
 	// Allows to filter list of Availability Zones based on their
 	// current state. Can be either `"available"`, `"information"`, `"impaired"` or
 	// `"unavailable"`. By default the list includes a complete set of Availability Zones
@@ -41,6 +49,8 @@ type GetAvailabilityZonesArgs struct {
 
 // A collection of values returned by getAvailabilityZones.
 type GetAvailabilityZonesResult struct {
+	BlacklistedNames interface{}
+	BlacklistedZoneIds interface{}
 	// A list of the Availability Zone names available to the account.
 	Names interface{}
 	State interface{}

@@ -55,101 +55,101 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * The hostname of the instance. See also `endpoint` and `port`.
      */
-    public /*out*/ readonly address: pulumi.Output<string>;
+    public /*out*/ readonly address!: pulumi.Output<string>;
     /**
      * Specifies whether any instance modifications
      * are applied immediately, or during the next maintenance window. Default is`false`.
      */
-    public readonly applyImmediately: pulumi.Output<boolean>;
+    public readonly applyImmediately!: pulumi.Output<boolean>;
     /**
      * Amazon Resource Name (ARN) of neptune instance
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
      */
-    public readonly autoMinorVersionUpgrade: pulumi.Output<boolean | undefined>;
+    public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     /**
      * The EC2 Availability Zone that the neptune instance is created in.
      */
-    public readonly availabilityZone: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string>;
     /**
      * The identifier of the [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
      */
-    public readonly clusterIdentifier: pulumi.Output<string>;
+    public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
      * The region-unique, immutable identifier for the neptune instance.
      */
-    public /*out*/ readonly dbiResourceId: pulumi.Output<string>;
+    public /*out*/ readonly dbiResourceId!: pulumi.Output<string>;
     /**
      * The connection endpoint in `address:port` format.
      */
-    public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
      */
-    public readonly engine: pulumi.Output<string | undefined>;
+    public readonly engine!: pulumi.Output<string | undefined>;
     /**
      * The neptune engine version.
      */
-    public readonly engineVersion: pulumi.Output<string>;
+    public readonly engineVersion!: pulumi.Output<string>;
     /**
      * The indentifier for the neptune instance, if omitted, Terraform will assign a random, unique identifier.
      */
-    public readonly identifier: pulumi.Output<string>;
+    public readonly identifier!: pulumi.Output<string>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
-    public readonly identifierPrefix: pulumi.Output<string>;
+    public readonly identifierPrefix!: pulumi.Output<string>;
     /**
      * The instance class to use.
      */
-    public readonly instanceClass: pulumi.Output<string>;
+    public readonly instanceClass!: pulumi.Output<string>;
     /**
      * The ARN for the KMS encryption key if one is set to the neptune cluster.
      */
-    public /*out*/ readonly kmsKeyArn: pulumi.Output<string>;
+    public /*out*/ readonly kmsKeyArn!: pulumi.Output<string>;
     /**
      * The name of the neptune parameter group to associate with this instance.
      */
-    public readonly neptuneParameterGroupName: pulumi.Output<string | undefined>;
+    public readonly neptuneParameterGroupName!: pulumi.Output<string | undefined>;
     /**
      * A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
      */
-    public readonly neptuneSubnetGroupName: pulumi.Output<string>;
+    public readonly neptuneSubnetGroupName!: pulumi.Output<string>;
     /**
      * The port on which the DB accepts connections. Defaults to `8182`.
      */
-    public readonly port: pulumi.Output<number | undefined>;
+    public readonly port!: pulumi.Output<number | undefined>;
     /**
      * The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
      */
-    public readonly preferredBackupWindow: pulumi.Output<string>;
+    public readonly preferredBackupWindow!: pulumi.Output<string>;
     /**
      * The window to perform maintenance in.
      * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
      */
-    public readonly preferredMaintenanceWindow: pulumi.Output<string>;
+    public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
      */
-    public readonly promotionTier: pulumi.Output<number | undefined>;
+    public readonly promotionTier!: pulumi.Output<number | undefined>;
     /**
      * Bool to control if instance is publicly accessible. Default is `false`.
      */
-    public readonly publiclyAccessible: pulumi.Output<boolean | undefined>;
+    public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the neptune cluster is encrypted.
      */
-    public /*out*/ readonly storageEncrypted: pulumi.Output<boolean>;
+    public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
      * A mapping of tags to assign to the instance.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      */
-    public /*out*/ readonly writer: pulumi.Output<boolean>;
+    public /*out*/ readonly writer!: pulumi.Output<boolean>;
 
     /**
      * Create a ClusterInstance resource with the given unique name, arguments, and options.
@@ -162,7 +162,7 @@ export class ClusterInstance extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterInstanceArgs | ClusterInstanceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ClusterInstanceState = argsOrState as ClusterInstanceState | undefined;
+            const state = argsOrState as ClusterInstanceState | undefined;
             inputs["address"] = state ? state.address : undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -219,6 +219,13 @@ export class ClusterInstance extends pulumi.CustomResource {
             inputs["kmsKeyArn"] = undefined /*out*/;
             inputs["storageEncrypted"] = undefined /*out*/;
             inputs["writer"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:neptune/clusterInstance:ClusterInstance", name, inputs, opts);
     }

@@ -130,42 +130,42 @@ export class Instance extends pulumi.CustomResource {
      * * `key_pair_name`
      * * `user_data`
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The Availability Zone in which to create your
      * instance (see list below)
      */
-    public readonly availabilityZone: pulumi.Output<string>;
+    public readonly availabilityZone!: pulumi.Output<string>;
     /**
      * The ID for a virtual private server image
      * (see list below)
      */
-    public readonly blueprintId: pulumi.Output<string>;
+    public readonly blueprintId!: pulumi.Output<string>;
     /**
      * The bundle of specification information (see list below)
      */
-    public readonly bundleId: pulumi.Output<string>;
-    public /*out*/ readonly cpuCount: pulumi.Output<number>;
-    public /*out*/ readonly createdAt: pulumi.Output<string>;
-    public /*out*/ readonly ipv6Address: pulumi.Output<string>;
-    public /*out*/ readonly isStaticIp: pulumi.Output<boolean>;
+    public readonly bundleId!: pulumi.Output<string>;
+    public /*out*/ readonly cpuCount!: pulumi.Output<number>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly ipv6Address!: pulumi.Output<string>;
+    public /*out*/ readonly isStaticIp!: pulumi.Output<boolean>;
     /**
      * The name of your key pair. Created in the
      * Lightsail console (cannot use `aws_key_pair` at this time)
      */
-    public readonly keyPairName: pulumi.Output<string | undefined>;
+    public readonly keyPairName!: pulumi.Output<string | undefined>;
     /**
      * The name of the Lightsail Instance
      */
-    public readonly name: pulumi.Output<string>;
-    public /*out*/ readonly privateIpAddress: pulumi.Output<string>;
-    public /*out*/ readonly publicIpAddress: pulumi.Output<string>;
-    public /*out*/ readonly ramSize: pulumi.Output<number>;
+    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly privateIpAddress!: pulumi.Output<string>;
+    public /*out*/ readonly publicIpAddress!: pulumi.Output<string>;
+    public /*out*/ readonly ramSize!: pulumi.Output<number>;
     /**
      * launch script to configure server with additional user data
      */
-    public readonly userData: pulumi.Output<string | undefined>;
-    public /*out*/ readonly username: pulumi.Output<string>;
+    public readonly userData!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly username!: pulumi.Output<string>;
 
     /**
      * Create a Instance resource with the given unique name, arguments, and options.
@@ -178,7 +178,7 @@ export class Instance extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: InstanceArgs | InstanceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: InstanceState = argsOrState as InstanceState | undefined;
+            const state = argsOrState as InstanceState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["blueprintId"] = state ? state.blueprintId : undefined;
@@ -220,6 +220,13 @@ export class Instance extends pulumi.CustomResource {
             inputs["publicIpAddress"] = undefined /*out*/;
             inputs["ramSize"] = undefined /*out*/;
             inputs["username"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:lightsail/instance:Instance", name, inputs, opts);
     }

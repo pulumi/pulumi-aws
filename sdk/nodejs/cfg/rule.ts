@@ -73,37 +73,37 @@ export class Rule extends pulumi.CustomResource {
     /**
      * The ARN of the config rule
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Description of the rule
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      */
-    public readonly inputParameters: pulumi.Output<string | undefined>;
+    public readonly inputParameters!: pulumi.Output<string | undefined>;
     /**
      * The frequency that you want AWS Config to run evaluations for a rule that
      * is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
      */
-    public readonly maximumExecutionFrequency: pulumi.Output<string | undefined>;
+    public readonly maximumExecutionFrequency!: pulumi.Output<string | undefined>;
     /**
      * The name of the rule
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the config rule
      */
-    public /*out*/ readonly ruleId: pulumi.Output<string>;
+    public /*out*/ readonly ruleId!: pulumi.Output<string>;
     /**
      * Scope defines which resources can trigger an evaluation for the rule as documented below.
      */
-    public readonly scope: pulumi.Output<{ complianceResourceId?: string, complianceResourceTypes?: string[], tagKey?: string, tagValue?: string } | undefined>;
+    public readonly scope!: pulumi.Output<{ complianceResourceId?: string, complianceResourceTypes?: string[], tagKey?: string, tagValue?: string } | undefined>;
     /**
      * Source specifies the rule owner, the rule identifier, and the notifications that cause
      * the function to evaluate your AWS resources as documented below.
      */
-    public readonly source: pulumi.Output<{ owner: string, sourceDetails?: { eventSource?: string, maximumExecutionFrequency?: string, messageType?: string }[], sourceIdentifier: string }>;
+    public readonly source!: pulumi.Output<{ owner: string, sourceDetails?: { eventSource?: string, maximumExecutionFrequency?: string, messageType?: string }[], sourceIdentifier: string }>;
 
     /**
      * Create a Rule resource with the given unique name, arguments, and options.
@@ -116,7 +116,7 @@ export class Rule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RuleArgs | RuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RuleState = argsOrState as RuleState | undefined;
+            const state = argsOrState as RuleState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["inputParameters"] = state ? state.inputParameters : undefined;
@@ -138,6 +138,13 @@ export class Rule extends pulumi.CustomResource {
             inputs["source"] = args ? args.source : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["ruleId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cfg/rule:Rule", name, inputs, opts);
     }

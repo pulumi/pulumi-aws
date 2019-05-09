@@ -56,33 +56,33 @@ export class User extends pulumi.CustomResource {
     /**
      * The ARN assigned by AWS for this user.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * When destroying this user, destroy even if it
      * has non-Terraform-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
      * a user with non-Terraform-managed access keys and login profile will fail to be destroyed.
      */
-    public readonly forceDestroy: pulumi.Output<boolean | undefined>;
+    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Path in which to create the user.
      */
-    public readonly path: pulumi.Output<string | undefined>;
+    public readonly path!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the policy that is used to set the permissions boundary for the user.
      */
-    public readonly permissionsBoundary: pulumi.Output<string | undefined>;
+    public readonly permissionsBoundary!: pulumi.Output<string | undefined>;
     /**
      * Key-value mapping of tags for the IAM user
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The [unique ID][1] assigned by AWS.
      */
-    public /*out*/ readonly uniqueId: pulumi.Output<string>;
+    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -95,7 +95,7 @@ export class User extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserState = argsOrState as UserState | undefined;
+            const state = argsOrState as UserState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -112,6 +112,13 @@ export class User extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:iam/user:User", name, inputs, opts);
     }

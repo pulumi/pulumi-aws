@@ -187,87 +187,87 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     /**
      * Associate a public ip address with an instance in a VPC.
      */
-    public readonly associatePublicIpAddress: pulumi.Output<boolean | undefined>;
+    public readonly associatePublicIpAddress!: pulumi.Output<boolean | undefined>;
     /**
      * Additional EBS block devices to attach to the
      * instance.  See Block Devices below for details.
      */
-    public readonly ebsBlockDevices: pulumi.Output<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, noDevice?: boolean, snapshotId: string, volumeSize: number, volumeType: string }[]>;
+    public readonly ebsBlockDevices!: pulumi.Output<{ deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, noDevice?: boolean, snapshotId: string, volumeSize: number, volumeType: string }[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      */
-    public readonly ebsOptimized: pulumi.Output<boolean>;
+    public readonly ebsOptimized!: pulumi.Output<boolean>;
     /**
      * Enables/disables detailed monitoring. This is enabled by default.
      */
-    public readonly enableMonitoring: pulumi.Output<boolean | undefined>;
+    public readonly enableMonitoring!: pulumi.Output<boolean | undefined>;
     /**
      * Customize Ephemeral (also known as
      * "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    public readonly ephemeralBlockDevices: pulumi.Output<{ deviceName: string, virtualName: string }[] | undefined>;
+    public readonly ephemeralBlockDevices!: pulumi.Output<{ deviceName: string, virtualName: string }[] | undefined>;
     /**
      * The name attribute of the IAM instance profile to associate
      * with launched instances.
      */
-    public readonly iamInstanceProfile: pulumi.Output<string | undefined>;
+    public readonly iamInstanceProfile!: pulumi.Output<string | undefined>;
     /**
      * The EC2 image ID to launch.
      */
-    public readonly imageId: pulumi.Output<string>;
+    public readonly imageId!: pulumi.Output<string>;
     /**
      * The size of instance to launch.
      */
-    public readonly instanceType: pulumi.Output<string>;
+    public readonly instanceType!: pulumi.Output<string>;
     /**
      * The key name that should be used for the instance.
      */
-    public readonly keyName: pulumi.Output<string>;
+    public readonly keyName!: pulumi.Output<string>;
     /**
      * The name of the launch configuration. If you leave
      * this blank, Terraform will auto-generate a unique name.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    public readonly namePrefix: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The tenancy of the instance. Valid values are
      * `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
      * for more details
      */
-    public readonly placementTenancy: pulumi.Output<string | undefined>;
+    public readonly placementTenancy!: pulumi.Output<string | undefined>;
     /**
      * Customize details about the root block
      * device of the instance. See Block Devices below for details.
      */
-    public readonly rootBlockDevice: pulumi.Output<{ deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }>;
+    public readonly rootBlockDevice!: pulumi.Output<{ deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }>;
     /**
      * A list of associated security group IDS.
      */
-    public readonly securityGroups: pulumi.Output<string[] | undefined>;
+    public readonly securityGroups!: pulumi.Output<string[] | undefined>;
     /**
      * The maximum price to use for reserving spot instances.
      */
-    public readonly spotPrice: pulumi.Output<string | undefined>;
+    public readonly spotPrice!: pulumi.Output<string | undefined>;
     /**
      * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
      */
-    public readonly userData: pulumi.Output<string | undefined>;
+    public readonly userData!: pulumi.Output<string | undefined>;
     /**
      * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      */
-    public readonly userDataBase64: pulumi.Output<string | undefined>;
+    public readonly userDataBase64!: pulumi.Output<string | undefined>;
     /**
      * The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
      */
-    public readonly vpcClassicLinkId: pulumi.Output<string | undefined>;
+    public readonly vpcClassicLinkId!: pulumi.Output<string | undefined>;
     /**
      * The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
      */
-    public readonly vpcClassicLinkSecurityGroups: pulumi.Output<string[] | undefined>;
+    public readonly vpcClassicLinkSecurityGroups!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a LaunchConfiguration resource with the given unique name, arguments, and options.
@@ -280,7 +280,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LaunchConfigurationArgs | LaunchConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LaunchConfigurationState = argsOrState as LaunchConfigurationState | undefined;
+            const state = argsOrState as LaunchConfigurationState | undefined;
             inputs["associatePublicIpAddress"] = state ? state.associatePublicIpAddress : undefined;
             inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
             inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
@@ -327,6 +327,13 @@ export class LaunchConfiguration extends pulumi.CustomResource {
             inputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
             inputs["vpcClassicLinkId"] = args ? args.vpcClassicLinkId : undefined;
             inputs["vpcClassicLinkSecurityGroups"] = args ? args.vpcClassicLinkSecurityGroups : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/launchConfiguration:LaunchConfiguration", name, inputs, opts);
     }

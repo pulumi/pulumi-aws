@@ -47,40 +47,40 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the cluster.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Nested attribute containing `certificate-authority-data` for your cluster.
      */
-    public /*out*/ readonly certificateAuthority: pulumi.Output<{ data: string }>;
-    public /*out*/ readonly createdAt: pulumi.Output<string>;
+    public /*out*/ readonly certificateAuthority!: pulumi.Output<{ data: string }>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
      */
-    public readonly enabledClusterLogTypes: pulumi.Output<string[] | undefined>;
+    public readonly enabledClusterLogTypes!: pulumi.Output<string[] | undefined>;
     /**
      * The endpoint for your Kubernetes API server.
      */
-    public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * Name of the cluster.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The platform version for the cluster.
      */
-    public /*out*/ readonly platformVersion: pulumi.Output<string>;
+    public /*out*/ readonly platformVersion!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */
-    public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */
-    public readonly version: pulumi.Output<string>;
+    public readonly version!: pulumi.Output<string>;
     /**
      * Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
      */
-    public readonly vpcConfig: pulumi.Output<{ endpointPrivateAccess?: boolean, endpointPublicAccess?: boolean, securityGroupIds?: string[], subnetIds: string[], vpcId: string }>;
+    public readonly vpcConfig!: pulumi.Output<{ endpointPrivateAccess?: boolean, endpointPublicAccess?: boolean, securityGroupIds?: string[], subnetIds: string[], vpcId: string }>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -93,7 +93,7 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ClusterState = argsOrState as ClusterState | undefined;
+            const state = argsOrState as ClusterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
             inputs["createdAt"] = state ? state.createdAt : undefined;
@@ -122,6 +122,13 @@ export class Cluster extends pulumi.CustomResource {
             inputs["createdAt"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
             inputs["platformVersion"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:eks/cluster:Cluster", name, inputs, opts);
     }

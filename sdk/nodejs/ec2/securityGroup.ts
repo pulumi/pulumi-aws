@@ -99,40 +99,40 @@ export class SecurityGroup extends pulumi.CustomResource {
     /**
      * The ARN of the security group
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The security group description. Defaults to
      * "Managed by Terraform". Cannot be "". __NOTE__: This field maps to the AWS
      * `GroupDescription` attribute, for which there is no Update API. If you'd like
      * to classify your security groups in a way that can be updated, use `tags`.
      */
-    public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * Can be specified multiple times for each
      * egress rule. Each egress block supports fields documented below.
      * This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
-    public readonly egress: pulumi.Output<{ cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[]>;
+    public readonly egress!: pulumi.Output<{ cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[]>;
     /**
      * Can be specified multiple times for each
      * ingress rule. Each ingress block supports fields documented below.
      * This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
-    public readonly ingress: pulumi.Output<{ cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[]>;
+    public readonly ingress!: pulumi.Output<{ cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[]>;
     /**
      * The name of the security group. If omitted, Terraform will
      * assign a random, unique name
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    public readonly namePrefix: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The owner ID.
      */
-    public /*out*/ readonly ownerId: pulumi.Output<string>;
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * Instruct Terraform to revoke all of the
      * Security Groups attached ingress and egress rules before deleting the rule
@@ -142,15 +142,15 @@ export class SecurityGroup extends pulumi.CustomResource {
      * the security groups from being destroyed without removing the dependency first.
      * Default `false`
      */
-    public readonly revokeRulesOnDelete: pulumi.Output<boolean | undefined>;
+    public readonly revokeRulesOnDelete!: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The VPC ID.
      */
-    public readonly vpcId: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a SecurityGroup resource with the given unique name, arguments, and options.
@@ -163,7 +163,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SecurityGroupArgs | SecurityGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SecurityGroupState = argsOrState as SecurityGroupState | undefined;
+            const state = argsOrState as SecurityGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["egress"] = state ? state.egress : undefined;
@@ -186,6 +186,13 @@ export class SecurityGroup extends pulumi.CustomResource {
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/securityGroup:SecurityGroup", name, inputs, opts);
     }

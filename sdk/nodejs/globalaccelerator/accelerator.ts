@@ -40,23 +40,23 @@ export class Accelerator extends pulumi.CustomResource {
     /**
      * The attributes of the accelerator. Fields documented below.
      */
-    public readonly attributes: pulumi.Output<{ flowLogsEnabled?: boolean, flowLogsS3Bucket?: string, flowLogsS3Prefix?: string } | undefined>;
+    public readonly attributes!: pulumi.Output<{ flowLogsEnabled?: boolean, flowLogsS3Bucket?: string, flowLogsS3Prefix?: string } | undefined>;
     /**
      * Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The value for the address type must be `IPV4`.
      */
-    public readonly ipAddressType: pulumi.Output<string | undefined>;
+    public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
      * IP address set associated with the accelerator.
      */
-    public /*out*/ readonly ipSets: pulumi.Output<{ ipAddresses: string[], ipFamily: string }[]>;
+    public /*out*/ readonly ipSets!: pulumi.Output<{ ipAddresses: string[], ipFamily: string }[]>;
     /**
      * The name of the accelerator.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a Accelerator resource with the given unique name, arguments, and options.
@@ -69,7 +69,7 @@ export class Accelerator extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AcceleratorArgs | AcceleratorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AcceleratorState = argsOrState as AcceleratorState | undefined;
+            const state = argsOrState as AcceleratorState | undefined;
             inputs["attributes"] = state ? state.attributes : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["ipAddressType"] = state ? state.ipAddressType : undefined;
@@ -82,6 +82,13 @@ export class Accelerator extends pulumi.CustomResource {
             inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["ipSets"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:globalaccelerator/accelerator:Accelerator", name, inputs, opts);
     }

@@ -35,15 +35,15 @@ export class ReceiptFilter extends pulumi.CustomResource {
     /**
      * The IP address or address range to filter, in CIDR notation
      */
-    public readonly cidr: pulumi.Output<string>;
+    public readonly cidr!: pulumi.Output<string>;
     /**
      * The name of the filter
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Block or Allow
      */
-    public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
 
     /**
      * Create a ReceiptFilter resource with the given unique name, arguments, and options.
@@ -56,7 +56,7 @@ export class ReceiptFilter extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ReceiptFilterArgs | ReceiptFilterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ReceiptFilterState = argsOrState as ReceiptFilterState | undefined;
+            const state = argsOrState as ReceiptFilterState | undefined;
             inputs["cidr"] = state ? state.cidr : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["policy"] = state ? state.policy : undefined;
@@ -71,6 +71,13 @@ export class ReceiptFilter extends pulumi.CustomResource {
             inputs["cidr"] = args ? args.cidr : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["policy"] = args ? args.policy : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ses/receiptFilter:ReceiptFilter", name, inputs, opts);
     }

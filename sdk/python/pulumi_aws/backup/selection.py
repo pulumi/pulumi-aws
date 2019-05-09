@@ -70,6 +70,10 @@ class Selection(pulumi.CustomResource):
 
         __props__['selection_tags'] = selection_tags
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Selection, __self__).__init__(
             'aws:backup/selection:Selection',
             resource_name,

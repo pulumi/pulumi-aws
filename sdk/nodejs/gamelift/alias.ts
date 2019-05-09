@@ -38,19 +38,19 @@ export class Alias extends pulumi.CustomResource {
     /**
      * Alias ARN.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Description of the alias.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Name of the alias.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the fleet and/or routing type to use for the alias.
      */
-    public readonly routingStrategy: pulumi.Output<{ fleetId?: string, message?: string, type: string }>;
+    public readonly routingStrategy!: pulumi.Output<{ fleetId?: string, message?: string, type: string }>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -63,7 +63,7 @@ export class Alias extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AliasArgs | AliasState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AliasState = argsOrState as AliasState | undefined;
+            const state = argsOrState as AliasState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -77,6 +77,13 @@ export class Alias extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["routingStrategy"] = args ? args.routingStrategy : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:gamelift/alias:Alias", name, inputs, opts);
     }

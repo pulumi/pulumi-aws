@@ -70,6 +70,10 @@ class TableItem(pulumi.CustomResource):
             raise TypeError("Missing required property 'table_name'")
         __props__['table_name'] = table_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(TableItem, __self__).__init__(
             'aws:dynamodb/tableItem:TableItem',
             resource_name,

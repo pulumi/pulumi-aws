@@ -41,12 +41,12 @@ export class DelegationSet extends pulumi.CustomResource {
      * A list of authoritative name servers for the hosted zone
      * (effectively a list of NS records).
      */
-    public /*out*/ readonly nameServers: pulumi.Output<string[]>;
+    public /*out*/ readonly nameServers!: pulumi.Output<string[]>;
     /**
      * This is a reference name used in Caller Reference
      * (helpful for identifying single delegation set amongst others)
      */
-    public readonly referenceName: pulumi.Output<string | undefined>;
+    public readonly referenceName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DelegationSet resource with the given unique name, arguments, and options.
@@ -59,13 +59,20 @@ export class DelegationSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DelegationSetArgs | DelegationSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DelegationSetState = argsOrState as DelegationSetState | undefined;
+            const state = argsOrState as DelegationSetState | undefined;
             inputs["nameServers"] = state ? state.nameServers : undefined;
             inputs["referenceName"] = state ? state.referenceName : undefined;
         } else {
             const args = argsOrState as DelegationSetArgs | undefined;
             inputs["referenceName"] = args ? args.referenceName : undefined;
             inputs["nameServers"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:route53/delegationSet:DelegationSet", name, inputs, opts);
     }

@@ -40,39 +40,39 @@ export class NotebookInstance extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of ML compute instance type.
      */
-    public readonly instanceType: pulumi.Output<string>;
+    public readonly instanceType!: pulumi.Output<string>;
     /**
      * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      */
-    public readonly kmsKeyId: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * The name of a lifecycle configuration to associate with the notebook instance.
      */
-    public readonly lifecycleConfigName: pulumi.Output<string | undefined>;
+    public readonly lifecycleConfigName!: pulumi.Output<string | undefined>;
     /**
      * The name of the notebook instance (must be unique).
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
      */
-    public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * The associated security groups.
      */
-    public readonly securityGroups: pulumi.Output<string[]>;
+    public readonly securityGroups!: pulumi.Output<string[]>;
     /**
      * The VPC subnet ID.
      */
-    public readonly subnetId: pulumi.Output<string | undefined>;
+    public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a NotebookInstance resource with the given unique name, arguments, and options.
@@ -85,7 +85,7 @@ export class NotebookInstance extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NotebookInstanceArgs | NotebookInstanceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NotebookInstanceState = argsOrState as NotebookInstanceState | undefined;
+            const state = argsOrState as NotebookInstanceState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["instanceType"] = state ? state.instanceType : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
@@ -112,6 +112,13 @@ export class NotebookInstance extends pulumi.CustomResource {
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:sagemaker/notebookInstance:NotebookInstance", name, inputs, opts);
     }

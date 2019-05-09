@@ -69,6 +69,10 @@ class LogMetricFilter(pulumi.CustomResource):
             raise TypeError("Missing required property 'pattern'")
         __props__['pattern'] = pattern
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(LogMetricFilter, __self__).__init__(
             'aws:cloudwatch/logMetricFilter:LogMetricFilter',
             resource_name,

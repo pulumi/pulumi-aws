@@ -88,28 +88,28 @@ export class Target extends pulumi.CustomResource {
     /**
      * The max capacity of the scalable target.
      */
-    public readonly maxCapacity: pulumi.Output<number>;
+    public readonly maxCapacity!: pulumi.Output<number>;
     /**
      * The min capacity of the scalable target.
      */
-    public readonly minCapacity: pulumi.Output<number>;
+    public readonly minCapacity!: pulumi.Output<number>;
     /**
      * The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    public readonly resourceId: pulumi.Output<string>;
+    public readonly resourceId!: pulumi.Output<string>;
     /**
      * The ARN of the IAM role that allows Application
      * AutoScaling to modify your scalable target on your behalf.
      */
-    public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
     /**
      * The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    public readonly scalableDimension: pulumi.Output<string>;
+    public readonly scalableDimension!: pulumi.Output<string>;
     /**
      * The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    public readonly serviceNamespace: pulumi.Output<string>;
+    public readonly serviceNamespace!: pulumi.Output<string>;
 
     /**
      * Create a Target resource with the given unique name, arguments, and options.
@@ -122,7 +122,7 @@ export class Target extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TargetArgs | TargetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TargetState = argsOrState as TargetState | undefined;
+            const state = argsOrState as TargetState | undefined;
             inputs["maxCapacity"] = state ? state.maxCapacity : undefined;
             inputs["minCapacity"] = state ? state.minCapacity : undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;
@@ -152,6 +152,13 @@ export class Target extends pulumi.CustomResource {
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["scalableDimension"] = args ? args.scalableDimension : undefined;
             inputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:appautoscaling/target:Target", name, inputs, opts);
     }

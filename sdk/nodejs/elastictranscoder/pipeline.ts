@@ -40,47 +40,47 @@ export class Pipeline extends pulumi.CustomResource {
         return new Pipeline(name, <any>state, { ...opts, id: id });
     }
 
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
      */
-    public readonly awsKmsKeyArn: pulumi.Output<string | undefined>;
+    public readonly awsKmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
      */
-    public readonly contentConfig: pulumi.Output<{ bucket: string, storageClass?: string }>;
+    public readonly contentConfig!: pulumi.Output<{ bucket: string, storageClass?: string }>;
     /**
      * The permissions for the `content_config` object. (documented below)
      */
-    public readonly contentConfigPermissions: pulumi.Output<{ accesses?: string[], grantee?: string, granteeType?: string }[] | undefined>;
+    public readonly contentConfigPermissions!: pulumi.Output<{ accesses?: string[], grantee?: string, granteeType?: string }[] | undefined>;
     /**
      * The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
      */
-    public readonly inputBucket: pulumi.Output<string>;
+    public readonly inputBucket!: pulumi.Output<string>;
     /**
      * The name of the pipeline. Maximum 40 characters
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
      */
-    public readonly notifications: pulumi.Output<{ completed?: string, error?: string, progressing?: string, warning?: string } | undefined>;
+    public readonly notifications!: pulumi.Output<{ completed?: string, error?: string, progressing?: string, warning?: string } | undefined>;
     /**
      * The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
      */
-    public readonly outputBucket: pulumi.Output<string>;
+    public readonly outputBucket!: pulumi.Output<string>;
     /**
      * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      */
-    public readonly role: pulumi.Output<string>;
+    public readonly role!: pulumi.Output<string>;
     /**
      * The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
      */
-    public readonly thumbnailConfig: pulumi.Output<{ bucket: string, storageClass?: string }>;
+    public readonly thumbnailConfig!: pulumi.Output<{ bucket: string, storageClass?: string }>;
     /**
      * The permissions for the `thumbnail_config` object. (documented below)
      */
-    public readonly thumbnailConfigPermissions: pulumi.Output<{ accesses?: string[], grantee?: string, granteeType?: string }[] | undefined>;
+    public readonly thumbnailConfigPermissions!: pulumi.Output<{ accesses?: string[], grantee?: string, granteeType?: string }[] | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -93,7 +93,7 @@ export class Pipeline extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PipelineArgs | PipelineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PipelineState = argsOrState as PipelineState | undefined;
+            const state = argsOrState as PipelineState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["awsKmsKeyArn"] = state ? state.awsKmsKeyArn : undefined;
             inputs["contentConfig"] = state ? state.contentConfig : undefined;
@@ -124,6 +124,13 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["thumbnailConfig"] = args ? args.thumbnailConfig : undefined;
             inputs["thumbnailConfigPermissions"] = args ? args.thumbnailConfigPermissions : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:elastictranscoder/pipeline:Pipeline", name, inputs, opts);
     }

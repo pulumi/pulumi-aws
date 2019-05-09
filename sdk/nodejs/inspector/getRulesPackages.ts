@@ -34,6 +34,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRulesPackages(opts?: pulumi.InvokeOptions): Promise<GetRulesPackagesResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:inspector/getRulesPackages:getRulesPackages", {
     }, opts);
 }

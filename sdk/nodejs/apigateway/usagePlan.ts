@@ -63,27 +63,27 @@ export class UsagePlan extends pulumi.CustomResource {
     /**
      * The associated API stages of the usage plan.
      */
-    public readonly apiStages: pulumi.Output<{ apiId: string, stage: string }[] | undefined>;
+    public readonly apiStages!: pulumi.Output<{ apiId: string, stage: string }[] | undefined>;
     /**
      * The description of a usage plan.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the usage plan.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      */
-    public readonly productCode: pulumi.Output<string | undefined>;
+    public readonly productCode!: pulumi.Output<string | undefined>;
     /**
      * The quota settings of the usage plan.
      */
-    public readonly quotaSettings: pulumi.Output<{ limit: number, offset?: number, period: string } | undefined>;
+    public readonly quotaSettings!: pulumi.Output<{ limit: number, offset?: number, period: string } | undefined>;
     /**
      * The throttling limits of the usage plan.
      */
-    public readonly throttleSettings: pulumi.Output<{ burstLimit?: number, rateLimit?: number } | undefined>;
+    public readonly throttleSettings!: pulumi.Output<{ burstLimit?: number, rateLimit?: number } | undefined>;
 
     /**
      * Create a UsagePlan resource with the given unique name, arguments, and options.
@@ -96,7 +96,7 @@ export class UsagePlan extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UsagePlanArgs | UsagePlanState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UsagePlanState = argsOrState as UsagePlanState | undefined;
+            const state = argsOrState as UsagePlanState | undefined;
             inputs["apiStages"] = state ? state.apiStages : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -111,6 +111,13 @@ export class UsagePlan extends pulumi.CustomResource {
             inputs["productCode"] = args ? args.productCode : undefined;
             inputs["quotaSettings"] = args ? args.quotaSettings : undefined;
             inputs["throttleSettings"] = args ? args.throttleSettings : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:apigateway/usagePlan:UsagePlan", name, inputs, opts);
     }

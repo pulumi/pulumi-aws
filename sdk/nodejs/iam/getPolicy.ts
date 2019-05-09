@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:iam/getPolicy:getPolicy", {
         "arn": args.arn,
     }, opts);

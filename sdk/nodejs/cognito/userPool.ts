@@ -34,95 +34,95 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * The configuration for AdminCreateUser requests.
      */
-    public readonly adminCreateUserConfig: pulumi.Output<{ allowAdminCreateUserOnly?: boolean, inviteMessageTemplate?: { emailMessage?: string, emailSubject?: string, smsMessage?: string }, unusedAccountValidityDays?: number }>;
+    public readonly adminCreateUserConfig!: pulumi.Output<{ allowAdminCreateUserOnly?: boolean, inviteMessageTemplate?: { emailMessage?: string, emailSubject?: string, smsMessage?: string }, unusedAccountValidityDays?: number }>;
     /**
      * Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `username_attributes`.
      */
-    public readonly aliasAttributes: pulumi.Output<string[] | undefined>;
+    public readonly aliasAttributes!: pulumi.Output<string[] | undefined>;
     /**
      * The ARN of the user pool.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The attributes to be auto-verified. Possible values: email, phone_number.
      */
-    public readonly autoVerifiedAttributes: pulumi.Output<string[] | undefined>;
+    public readonly autoVerifiedAttributes!: pulumi.Output<string[] | undefined>;
     /**
      * The date the user pool was created.
      */
-    public /*out*/ readonly creationDate: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * The configuration for the user pool's device tracking.
      */
-    public readonly deviceConfiguration: pulumi.Output<{ challengeRequiredOnNewDevice?: boolean, deviceOnlyRememberedOnUserPrompt?: boolean } | undefined>;
+    public readonly deviceConfiguration!: pulumi.Output<{ challengeRequiredOnNewDevice?: boolean, deviceOnlyRememberedOnUserPrompt?: boolean } | undefined>;
     /**
      * The Email Configuration.
      */
-    public readonly emailConfiguration: pulumi.Output<{ replyToEmailAddress?: string, sourceArn?: string } | undefined>;
+    public readonly emailConfiguration!: pulumi.Output<{ replyToEmailAddress?: string, sourceArn?: string } | undefined>;
     /**
      * A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
      */
-    public readonly emailVerificationMessage: pulumi.Output<string>;
+    public readonly emailVerificationMessage!: pulumi.Output<string>;
     /**
      * A string representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
      */
-    public readonly emailVerificationSubject: pulumi.Output<string>;
+    public readonly emailVerificationSubject!: pulumi.Output<string>;
     /**
      * The endpoint name of the user pool. Example format: cognito-idp.REGION.amazonaws.com/xxxx_yyyyy
      */
-    public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * A container for the AWS Lambda triggers associated with the user pool.
      */
-    public readonly lambdaConfig: pulumi.Output<{ createAuthChallenge?: string, customMessage?: string, defineAuthChallenge?: string, postAuthentication?: string, postConfirmation?: string, preAuthentication?: string, preSignUp?: string, preTokenGeneration?: string, userMigration?: string, verifyAuthChallengeResponse?: string }>;
+    public readonly lambdaConfig!: pulumi.Output<{ createAuthChallenge?: string, customMessage?: string, defineAuthChallenge?: string, postAuthentication?: string, postConfirmation?: string, preAuthentication?: string, preSignUp?: string, preTokenGeneration?: string, userMigration?: string, verifyAuthChallengeResponse?: string }>;
     /**
      * The date the user pool was last modified.
      */
-    public /*out*/ readonly lastModifiedDate: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedDate!: pulumi.Output<string>;
     /**
      * Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
      */
-    public readonly mfaConfiguration: pulumi.Output<string | undefined>;
+    public readonly mfaConfiguration!: pulumi.Output<string | undefined>;
     /**
      * The name of the attribute.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A container for information about the user pool password policy.
      */
-    public readonly passwordPolicy: pulumi.Output<{ minimumLength?: number, requireLowercase?: boolean, requireNumbers?: boolean, requireSymbols?: boolean, requireUppercase?: boolean }>;
+    public readonly passwordPolicy!: pulumi.Output<{ minimumLength?: number, requireLowercase?: boolean, requireNumbers?: boolean, requireSymbols?: boolean, requireUppercase?: boolean }>;
     /**
      * A container with the schema attributes of a user pool. Maximum of 50 attributes.
      */
-    public readonly schemas: pulumi.Output<{ attributeDataType: string, developerOnlyAttribute?: boolean, mutable?: boolean, name: string, numberAttributeConstraints?: { maxValue?: string, minValue?: string }, required?: boolean, stringAttributeConstraints?: { maxLength?: string, minLength?: string } }[] | undefined>;
+    public readonly schemas!: pulumi.Output<{ attributeDataType: string, developerOnlyAttribute?: boolean, mutable?: boolean, name: string, numberAttributeConstraints?: { maxValue?: string, minValue?: string }, required?: boolean, stringAttributeConstraints?: { maxLength?: string, minLength?: string } }[] | undefined>;
     /**
      * A string representing the SMS authentication message.
      */
-    public readonly smsAuthenticationMessage: pulumi.Output<string | undefined>;
+    public readonly smsAuthenticationMessage!: pulumi.Output<string | undefined>;
     /**
      * The SMS Configuration.
      */
-    public readonly smsConfiguration: pulumi.Output<{ externalId: string, snsCallerArn: string } | undefined>;
+    public readonly smsConfiguration!: pulumi.Output<{ externalId: string, snsCallerArn: string } | undefined>;
     /**
      * A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
      */
-    public readonly smsVerificationMessage: pulumi.Output<string | undefined>;
+    public readonly smsVerificationMessage!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the User Pool.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features.
      */
-    public readonly userPoolAddOns: pulumi.Output<{ advancedSecurityMode: string } | undefined>;
+    public readonly userPoolAddOns!: pulumi.Output<{ advancedSecurityMode: string } | undefined>;
     /**
      * Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
      */
-    public readonly usernameAttributes: pulumi.Output<string[] | undefined>;
+    public readonly usernameAttributes!: pulumi.Output<string[] | undefined>;
     /**
      * The verification message templates configuration.
      */
-    public readonly verificationMessageTemplate: pulumi.Output<{ defaultEmailOption?: string, emailMessage: string, emailMessageByLink: string, emailSubject: string, emailSubjectByLink: string, smsMessage: string }>;
+    public readonly verificationMessageTemplate!: pulumi.Output<{ defaultEmailOption?: string, emailMessage: string, emailMessageByLink: string, emailSubject: string, emailSubjectByLink: string, smsMessage: string }>;
 
     /**
      * Create a UserPool resource with the given unique name, arguments, and options.
@@ -135,7 +135,7 @@ export class UserPool extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserPoolArgs | UserPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserPoolState = argsOrState as UserPoolState | undefined;
+            const state = argsOrState as UserPoolState | undefined;
             inputs["adminCreateUserConfig"] = state ? state.adminCreateUserConfig : undefined;
             inputs["aliasAttributes"] = state ? state.aliasAttributes : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -184,6 +184,13 @@ export class UserPool extends pulumi.CustomResource {
             inputs["creationDate"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
             inputs["lastModifiedDate"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cognito/userPool:UserPool", name, inputs, opts);
     }

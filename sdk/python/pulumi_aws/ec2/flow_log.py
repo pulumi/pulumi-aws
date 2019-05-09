@@ -90,6 +90,10 @@ class FlowLog(pulumi.CustomResource):
 
         __props__['vpc_id'] = vpc_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(FlowLog, __self__).__init__(
             'aws:ec2/flowLog:FlowLog',
             resource_name,

@@ -41,11 +41,11 @@ export class SizeConstraintSet extends pulumi.CustomResource {
     /**
      * The name or description of the Size Constraint Set.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the parts of web requests that you want to inspect the size of.
      */
-    public readonly sizeConstraints: pulumi.Output<{ comparisonOperator: string, fieldToMatch: { data?: string, type: string }, size: number, textTransformation: string }[] | undefined>;
+    public readonly sizeConstraints!: pulumi.Output<{ comparisonOperator: string, fieldToMatch: { data?: string, type: string }, size: number, textTransformation: string }[] | undefined>;
 
     /**
      * Create a SizeConstraintSet resource with the given unique name, arguments, and options.
@@ -58,13 +58,20 @@ export class SizeConstraintSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SizeConstraintSetArgs | SizeConstraintSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SizeConstraintSetState = argsOrState as SizeConstraintSetState | undefined;
+            const state = argsOrState as SizeConstraintSetState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["sizeConstraints"] = state ? state.sizeConstraints : undefined;
         } else {
             const args = argsOrState as SizeConstraintSetArgs | undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["sizeConstraints"] = args ? args.sizeConstraints : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:waf/sizeConstraintSet:SizeConstraintSet", name, inputs, opts);
     }

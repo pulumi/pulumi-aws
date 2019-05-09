@@ -40,31 +40,31 @@ export class Task extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the DataSync Task.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      */
-    public readonly cloudwatchLogGroupArn: pulumi.Output<ARN | undefined>;
+    public readonly cloudwatchLogGroupArn!: pulumi.Output<ARN | undefined>;
     /**
      * Amazon Resource Name (ARN) of destination DataSync Location.
      */
-    public readonly destinationLocationArn: pulumi.Output<ARN>;
+    public readonly destinationLocationArn!: pulumi.Output<ARN>;
     /**
      * Name of the DataSync Task.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      */
-    public readonly options: pulumi.Output<{ atime?: string, bytesPerSecond?: number, gid?: string, mtime?: string, posixPermissions?: string, preserveDeletedFiles?: string, preserveDevices?: string, uid?: string, verifyMode?: string } | undefined>;
+    public readonly options!: pulumi.Output<{ atime?: string, bytesPerSecond?: number, gid?: string, mtime?: string, posixPermissions?: string, preserveDeletedFiles?: string, preserveDevices?: string, uid?: string, verifyMode?: string } | undefined>;
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */
-    public readonly sourceLocationArn: pulumi.Output<ARN>;
+    public readonly sourceLocationArn!: pulumi.Output<ARN>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task.
      */
-    public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Task resource with the given unique name, arguments, and options.
@@ -77,7 +77,7 @@ export class Task extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TaskArgs | TaskState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TaskState = argsOrState as TaskState | undefined;
+            const state = argsOrState as TaskState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cloudwatchLogGroupArn"] = state ? state.cloudwatchLogGroupArn : undefined;
             inputs["destinationLocationArn"] = state ? state.destinationLocationArn : undefined;
@@ -100,6 +100,13 @@ export class Task extends pulumi.CustomResource {
             inputs["sourceLocationArn"] = args ? args.sourceLocationArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:datasync/task:Task", name, inputs, opts);
     }

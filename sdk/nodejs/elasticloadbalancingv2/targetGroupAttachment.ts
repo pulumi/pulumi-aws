@@ -62,19 +62,19 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
     /**
      * The Availability Zone where the IP address of the target is to be registered.
      */
-    public readonly availabilityZone: pulumi.Output<string | undefined>;
+    public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
      * The port on which targets receive traffic.
      */
-    public readonly port: pulumi.Output<number | undefined>;
+    public readonly port!: pulumi.Output<number | undefined>;
     /**
      * The ARN of the target group with which to register targets
      */
-    public readonly targetGroupArn: pulumi.Output<string>;
+    public readonly targetGroupArn!: pulumi.Output<string>;
     /**
      * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
      */
-    public readonly targetId: pulumi.Output<string>;
+    public readonly targetId!: pulumi.Output<string>;
 
     /**
      * Create a TargetGroupAttachment resource with the given unique name, arguments, and options.
@@ -87,7 +87,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TargetGroupAttachmentArgs | TargetGroupAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TargetGroupAttachmentState = argsOrState as TargetGroupAttachmentState | undefined;
+            const state = argsOrState as TargetGroupAttachmentState | undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["port"] = state ? state.port : undefined;
             inputs["targetGroupArn"] = state ? state.targetGroupArn : undefined;
@@ -104,6 +104,13 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
             inputs["port"] = args ? args.port : undefined;
             inputs["targetGroupArn"] = args ? args.targetGroupArn : undefined;
             inputs["targetId"] = args ? args.targetId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment", name, inputs, opts);
     }

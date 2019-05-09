@@ -32,15 +32,15 @@ export class HttpNamespace extends pulumi.CustomResource {
     /**
      * The ARN that Amazon Route 53 assigns to the namespace when you create it.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The description that you specify for the namespace when you create it.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the http namespace.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a HttpNamespace resource with the given unique name, arguments, and options.
@@ -53,7 +53,7 @@ export class HttpNamespace extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: HttpNamespaceArgs | HttpNamespaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: HttpNamespaceState = argsOrState as HttpNamespaceState | undefined;
+            const state = argsOrState as HttpNamespaceState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -62,6 +62,13 @@ export class HttpNamespace extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:servicediscovery/httpNamespace:HttpNamespace", name, inputs, opts);
     }

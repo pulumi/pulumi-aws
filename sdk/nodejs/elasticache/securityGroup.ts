@@ -40,16 +40,16 @@ export class SecurityGroup extends pulumi.CustomResource {
     /**
      * description for the cache security group. Defaults to "Managed by Terraform".
      */
-    public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * Name for the cache security group. This value is stored as a lowercase string.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * List of EC2 security group names to be
      * authorized for ingress to the cache security group
      */
-    public readonly securityGroupNames: pulumi.Output<string[]>;
+    public readonly securityGroupNames!: pulumi.Output<string[]>;
 
     /**
      * Create a SecurityGroup resource with the given unique name, arguments, and options.
@@ -62,7 +62,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SecurityGroupArgs | SecurityGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SecurityGroupState = argsOrState as SecurityGroupState | undefined;
+            const state = argsOrState as SecurityGroupState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
@@ -74,6 +74,13 @@ export class SecurityGroup extends pulumi.CustomResource {
             inputs["description"] = (args ? args.description : undefined) || "Managed by Pulumi";
             inputs["name"] = args ? args.name : undefined;
             inputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:elasticache/securityGroup:SecurityGroup", name, inputs, opts);
     }

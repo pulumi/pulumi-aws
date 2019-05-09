@@ -328,6 +328,10 @@ class Cluster(pulumi.CustomResource):
         __props__['hosted_zone_id'] = None
         __props__['reader_endpoint'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Cluster, __self__).__init__(
             'aws:rds/cluster:Cluster',
             resource_name,

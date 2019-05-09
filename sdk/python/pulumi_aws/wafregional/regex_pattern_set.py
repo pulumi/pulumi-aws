@@ -45,6 +45,10 @@ class RegexPatternSet(pulumi.CustomResource):
 
         __props__['regex_pattern_strings'] = regex_pattern_strings
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(RegexPatternSet, __self__).__init__(
             'aws:wafregional/regexPatternSet:RegexPatternSet',
             resource_name,

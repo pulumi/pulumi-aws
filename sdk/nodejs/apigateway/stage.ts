@@ -72,63 +72,63 @@ export class Stage extends pulumi.CustomResource {
     /**
      * Enables access logs for the API stage. Detailed below.
      */
-    public readonly accessLogSettings: pulumi.Output<{ destinationArn: string, format: string } | undefined>;
+    public readonly accessLogSettings!: pulumi.Output<{ destinationArn: string, format: string } | undefined>;
     /**
      * Specifies whether a cache cluster is enabled for the stage
      */
-    public readonly cacheClusterEnabled: pulumi.Output<boolean | undefined>;
+    public readonly cacheClusterEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The size of the cache cluster for the stage, if enabled.
      * Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      */
-    public readonly cacheClusterSize: pulumi.Output<string | undefined>;
+    public readonly cacheClusterSize!: pulumi.Output<string | undefined>;
     /**
      * The identifier of a client certificate for the stage.
      */
-    public readonly clientCertificateId: pulumi.Output<string | undefined>;
+    public readonly clientCertificateId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the deployment that the stage points to
      */
-    public readonly deployment: pulumi.Output<Deployment>;
+    public readonly deployment!: pulumi.Output<Deployment>;
     /**
      * The description of the stage
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The version of the associated API documentation
      */
-    public readonly documentationVersion: pulumi.Output<string | undefined>;
+    public readonly documentationVersion!: pulumi.Output<string | undefined>;
     /**
      * The execution ARN to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
-    public /*out*/ readonly executionArn: pulumi.Output<string>;
+    public /*out*/ readonly executionArn!: pulumi.Output<string>;
     /**
      * The URL to invoke the API pointing to the stage,
      * e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      */
-    public /*out*/ readonly invokeUrl: pulumi.Output<string>;
+    public /*out*/ readonly invokeUrl!: pulumi.Output<string>;
     /**
      * The ID of the associated REST API
      */
-    public readonly restApi: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<RestApi>;
     /**
      * The name of the stage
      */
-    public readonly stageName: pulumi.Output<string>;
+    public readonly stageName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * A map that defines the stage variables
      */
-    public readonly variables: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly variables!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Whether active tracing with X-ray is enabled. Defaults to `false`.
      */
-    public readonly xrayTracingEnabled: pulumi.Output<boolean | undefined>;
+    public readonly xrayTracingEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Stage resource with the given unique name, arguments, and options.
@@ -141,7 +141,7 @@ export class Stage extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StageArgs | StageState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: StageState = argsOrState as StageState | undefined;
+            const state = argsOrState as StageState | undefined;
             inputs["accessLogSettings"] = state ? state.accessLogSettings : undefined;
             inputs["cacheClusterEnabled"] = state ? state.cacheClusterEnabled : undefined;
             inputs["cacheClusterSize"] = state ? state.cacheClusterSize : undefined;
@@ -181,6 +181,13 @@ export class Stage extends pulumi.CustomResource {
             inputs["xrayTracingEnabled"] = args ? args.xrayTracingEnabled : undefined;
             inputs["executionArn"] = undefined /*out*/;
             inputs["invokeUrl"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:apigateway/stage:Stage", name, inputs, opts);
     }

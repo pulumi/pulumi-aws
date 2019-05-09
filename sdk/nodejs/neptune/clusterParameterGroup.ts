@@ -39,31 +39,31 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
     /**
      * The ARN of the neptune cluster parameter group.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The description of the neptune cluster parameter group. Defaults to "Managed by Terraform".
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The family of the neptune cluster parameter group.
      */
-    public readonly family: pulumi.Output<string>;
+    public readonly family!: pulumi.Output<string>;
     /**
      * The name of the neptune parameter.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * A list of neptune parameters to apply.
      */
-    public readonly parameters: pulumi.Output<{ applyMethod?: string, name: string, value: string }[] | undefined>;
+    public readonly parameters!: pulumi.Output<{ applyMethod?: string, name: string, value: string }[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a ClusterParameterGroup resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterParameterGroupArgs | ClusterParameterGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ClusterParameterGroupState = argsOrState as ClusterParameterGroupState | undefined;
+            const state = argsOrState as ClusterParameterGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["family"] = state ? state.family : undefined;
@@ -96,6 +96,13 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:neptune/clusterParameterGroup:ClusterParameterGroup", name, inputs, opts);
     }

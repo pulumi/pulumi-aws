@@ -41,7 +41,8 @@ class PatchBaseline(pulumi.CustomResource):
     """
     A list of rejected patches.
     """
-    def __init__(__self__, resource_name, opts=None, approval_rules=None, approved_patches=None, approved_patches_compliance_level=None, description=None, global_filters=None, name=None, operating_system=None, rejected_patches=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    def __init__(__self__, resource_name, opts=None, approval_rules=None, approved_patches=None, approved_patches_compliance_level=None, description=None, global_filters=None, name=None, operating_system=None, rejected_patches=None, tags=None, __name__=None, __opts__=None):
         """
         Provides an SSM Patch Baseline resource
         
@@ -91,6 +92,12 @@ class PatchBaseline(pulumi.CustomResource):
 
         __props__['rejected_patches'] = rejected_patches
 
+        __props__['tags'] = tags
+
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(PatchBaseline, __self__).__init__(
             'aws:ssm/patchBaseline:PatchBaseline',
             resource_name,

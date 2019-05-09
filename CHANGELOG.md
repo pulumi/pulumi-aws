@@ -2,7 +2,8 @@
 
 ### Improvements
 
-- Adds support for AWS Lambda Custom Runtime `aws.lambda.CustomRuntime`.
+- Add support for AWS Lambda Custom Runtime `aws.lambda.CustomRuntime`.
+- Update to v2.9.0 of the AWS Terraform Provider.
 
 ## 0.18.3 (Released April 29th, 2019)
 

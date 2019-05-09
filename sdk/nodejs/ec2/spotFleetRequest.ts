@@ -97,32 +97,32 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      * the Spot pools specified by the Spot fleet request. The default is
      * `lowestPrice`.
      */
-    public readonly allocationStrategy: pulumi.Output<string | undefined>;
-    public /*out*/ readonly clientToken: pulumi.Output<string>;
+    public readonly allocationStrategy!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly clientToken!: pulumi.Output<string>;
     /**
      * Indicates whether running Spot
      * instances should be terminated if the target capacity of the Spot fleet
      * request is decreased below the current size of the Spot fleet.
      */
-    public readonly excessCapacityTerminationPolicy: pulumi.Output<string | undefined>;
+    public readonly excessCapacityTerminationPolicy!: pulumi.Output<string | undefined>;
     /**
      * The type of fleet request. Indicates whether the Spot Fleet only requests the target
      * capacity or also attempts to maintain it. Default is `maintain`.
      */
-    public readonly fleetType: pulumi.Output<string | undefined>;
+    public readonly fleetType!: pulumi.Output<string | undefined>;
     /**
      * Grants the Spot fleet permission to terminate
      * Spot instances on your behalf when you cancel its Spot fleet request using
      * CancelSpotFleetRequests or when the Spot fleet request expires, if you set
      * terminateInstancesWithExpiration.
      */
-    public readonly iamFleetRole: pulumi.Output<string>;
+    public readonly iamFleetRole!: pulumi.Output<string>;
     /**
      * Indicates whether a Spot
      * instance stops or terminates when it is interrupted. Default is
      * `terminate`.
      */
-    public readonly instanceInterruptionBehaviour: pulumi.Output<string | undefined>;
+    public readonly instanceInterruptionBehaviour!: pulumi.Output<string | undefined>;
     /**
      * 
      * The number of Spot pools across which to allocate your target Spot capacity.
@@ -130,58 +130,58 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      * the cheapest Spot pools and evenly allocates your target Spot capacity across
      * the number of Spot pools that you specify.
      */
-    public readonly instancePoolsToUseCount: pulumi.Output<number | undefined>;
+    public readonly instancePoolsToUseCount!: pulumi.Output<number | undefined>;
     /**
      * Used to define the launch configuration of the
      * spot-fleet request. Can be specified multiple times to define different bids
      * across different markets and instance types.
      */
-    public readonly launchSpecifications: pulumi.Output<{ ami: string, associatePublicIpAddress?: boolean, availabilityZone: string, ebsBlockDevices: { deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[], ebsOptimized?: boolean, ephemeralBlockDevices: { deviceName: string, virtualName: string }[], iamInstanceProfile?: string, iamInstanceProfileArn?: string, instanceType: string, keyName: string, monitoring?: boolean, placementGroup: string, placementTenancy?: string, rootBlockDevices: { deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }[], spotPrice?: string, subnetId: string, tags?: {[key: string]: any}, userData?: string, vpcSecurityGroupIds: string[], weightedCapacity?: string }[]>;
+    public readonly launchSpecifications!: pulumi.Output<{ ami: string, associatePublicIpAddress?: boolean, availabilityZone: string, ebsBlockDevices: { deleteOnTermination?: boolean, deviceName: string, encrypted: boolean, iops: number, snapshotId: string, volumeSize: number, volumeType: string }[], ebsOptimized?: boolean, ephemeralBlockDevices: { deviceName: string, virtualName: string }[], iamInstanceProfile?: string, iamInstanceProfileArn?: string, instanceType: string, keyName: string, monitoring?: boolean, placementGroup: string, placementTenancy?: string, rootBlockDevices: { deleteOnTermination?: boolean, iops: number, volumeSize: number, volumeType: string }[], spotPrice?: string, subnetId: string, tags?: {[key: string]: any}, userData?: string, vpcSecurityGroupIds: string[], weightedCapacity?: string }[]>;
     /**
      * A list of elastic load balancer names to add to the Spot fleet.
      */
-    public readonly loadBalancers: pulumi.Output<string[]>;
+    public readonly loadBalancers!: pulumi.Output<string[]>;
     /**
      * Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
      */
-    public readonly replaceUnhealthyInstances: pulumi.Output<boolean | undefined>;
+    public readonly replaceUnhealthyInstances!: pulumi.Output<boolean | undefined>;
     /**
      * The maximum bid price per unit hour.
      */
-    public readonly spotPrice: pulumi.Output<string | undefined>;
+    public readonly spotPrice!: pulumi.Output<string | undefined>;
     /**
      * The state of the Spot fleet request.
      */
-    public /*out*/ readonly spotRequestState: pulumi.Output<string>;
+    public /*out*/ readonly spotRequestState!: pulumi.Output<string>;
     /**
      * The number of units to request. You can choose to set the
      * target capacity in terms of instances or a performance characteristic that is
      * important to your application workload, such as vCPUs, memory, or I/O.
      */
-    public readonly targetCapacity: pulumi.Output<number>;
+    public readonly targetCapacity!: pulumi.Output<number>;
     /**
      * A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
      */
-    public readonly targetGroupArns: pulumi.Output<string[]>;
+    public readonly targetGroupArns!: pulumi.Output<string[]>;
     /**
      * Indicates whether running Spot
      * instances should be terminated when the Spot fleet request expires.
      */
-    public readonly terminateInstancesWithExpiration: pulumi.Output<boolean | undefined>;
+    public readonly terminateInstancesWithExpiration!: pulumi.Output<boolean | undefined>;
     /**
      * The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
      */
-    public readonly validFrom: pulumi.Output<string | undefined>;
+    public readonly validFrom!: pulumi.Output<string | undefined>;
     /**
      * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
      */
-    public readonly validUntil: pulumi.Output<string | undefined>;
+    public readonly validUntil!: pulumi.Output<string | undefined>;
     /**
      * If set, Terraform will
      * wait for the Spot Request to be fulfilled, and will throw an error if the
      * timeout of 10m is reached.
      */
-    public readonly waitForFulfillment: pulumi.Output<boolean | undefined>;
+    public readonly waitForFulfillment!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SpotFleetRequest resource with the given unique name, arguments, and options.
@@ -194,7 +194,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SpotFleetRequestArgs | SpotFleetRequestState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SpotFleetRequestState = argsOrState as SpotFleetRequestState | undefined;
+            const state = argsOrState as SpotFleetRequestState | undefined;
             inputs["allocationStrategy"] = state ? state.allocationStrategy : undefined;
             inputs["clientToken"] = state ? state.clientToken : undefined;
             inputs["excessCapacityTerminationPolicy"] = state ? state.excessCapacityTerminationPolicy : undefined;
@@ -242,6 +242,13 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["waitForFulfillment"] = args ? args.waitForFulfillment : undefined;
             inputs["clientToken"] = undefined /*out*/;
             inputs["spotRequestState"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/spotFleetRequest:SpotFleetRequest", name, inputs, opts);
     }

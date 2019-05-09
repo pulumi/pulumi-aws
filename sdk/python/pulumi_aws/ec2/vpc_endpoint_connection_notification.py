@@ -75,6 +75,10 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         __props__['notification_type'] = None
         __props__['state'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VpcEndpointConnectionNotification, __self__).__init__(
             'aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification',
             resource_name,

@@ -38,19 +38,19 @@ export class RequestValidator extends pulumi.CustomResource {
     /**
      * The name of the request validator
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the associated Rest API
      */
-    public readonly restApi: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<RestApi>;
     /**
      * Boolean whether to validate request body. Defaults to `false`.
      */
-    public readonly validateRequestBody: pulumi.Output<boolean | undefined>;
+    public readonly validateRequestBody!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean whether to validate request parameters. Defaults to `false`.
      */
-    public readonly validateRequestParameters: pulumi.Output<boolean | undefined>;
+    public readonly validateRequestParameters!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a RequestValidator resource with the given unique name, arguments, and options.
@@ -63,7 +63,7 @@ export class RequestValidator extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RequestValidatorArgs | RequestValidatorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RequestValidatorState = argsOrState as RequestValidatorState | undefined;
+            const state = argsOrState as RequestValidatorState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["restApi"] = state ? state.restApi : undefined;
             inputs["validateRequestBody"] = state ? state.validateRequestBody : undefined;
@@ -77,6 +77,13 @@ export class RequestValidator extends pulumi.CustomResource {
             inputs["restApi"] = args ? args.restApi : undefined;
             inputs["validateRequestBody"] = args ? args.validateRequestBody : undefined;
             inputs["validateRequestParameters"] = args ? args.validateRequestParameters : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:apigateway/requestValidator:RequestValidator", name, inputs, opts);
     }

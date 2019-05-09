@@ -52,6 +52,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:s3/getBucket:getBucket", {
         "bucket": args.bucket,
     }, opts);

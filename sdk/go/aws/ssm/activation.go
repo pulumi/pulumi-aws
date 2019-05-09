@@ -26,12 +26,14 @@ func NewActivation(ctx *pulumi.Context,
 		inputs["iamRole"] = nil
 		inputs["name"] = nil
 		inputs["registrationLimit"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["description"] = args.Description
 		inputs["expirationDate"] = args.ExpirationDate
 		inputs["iamRole"] = args.IamRole
 		inputs["name"] = args.Name
 		inputs["registrationLimit"] = args.RegistrationLimit
+		inputs["tags"] = args.Tags
 	}
 	inputs["activationCode"] = nil
 	inputs["expired"] = nil
@@ -57,6 +59,7 @@ func GetActivation(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["registrationCount"] = state.RegistrationCount
 		inputs["registrationLimit"] = state.RegistrationLimit
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:ssm/activation:Activation", name, id, inputs, opts...)
 	if err != nil {
@@ -115,6 +118,11 @@ func (r *Activation) RegistrationLimit() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["registrationLimit"])
 }
 
+// A mapping of tags to assign to the object.
+func (r *Activation) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering Activation resources.
 type ActivationState struct {
 	// The code the system generates when it processes the activation.
@@ -133,6 +141,8 @@ type ActivationState struct {
 	RegistrationCount interface{}
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit interface{}
+	// A mapping of tags to assign to the object.
+	Tags interface{}
 }
 
 // The set of arguments for constructing a Activation resource.
@@ -147,4 +157,6 @@ type ActivationArgs struct {
 	Name interface{}
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit interface{}
+	// A mapping of tags to assign to the object.
+	Tags interface{}
 }

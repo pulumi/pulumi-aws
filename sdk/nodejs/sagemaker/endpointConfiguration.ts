@@ -45,23 +45,23 @@ export class EndpointConfiguration extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      */
-    public readonly kmsKeyArn: pulumi.Output<string | undefined>;
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * The name of the endpoint configuration. If omitted, Terraform will assign a random, unique name.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Fields are documented below.
      */
-    public readonly productionVariants: pulumi.Output<{ acceleratorType?: string, initialInstanceCount: number, initialVariantWeight?: number, instanceType: string, modelName: string, variantName: string }[]>;
+    public readonly productionVariants!: pulumi.Output<{ acceleratorType?: string, initialInstanceCount: number, initialVariantWeight?: number, instanceType: string, modelName: string, variantName: string }[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a EndpointConfiguration resource with the given unique name, arguments, and options.
@@ -74,7 +74,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EndpointConfigurationArgs | EndpointConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EndpointConfigurationState = argsOrState as EndpointConfigurationState | undefined;
+            const state = argsOrState as EndpointConfigurationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -90,6 +90,13 @@ export class EndpointConfiguration extends pulumi.CustomResource {
             inputs["productionVariants"] = args ? args.productionVariants : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:sagemaker/endpointConfiguration:EndpointConfiguration", name, inputs, opts);
     }

@@ -24,23 +24,23 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
     /**
      * The ARN of the virtual interface.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ID of the Direct Connect gateway to which to connect the virtual interface.
      */
-    public readonly dxGatewayId: pulumi.Output<string | undefined>;
+    public readonly dxGatewayId!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The ID of the Direct Connect virtual interface to accept.
      */
-    public readonly virtualInterfaceId: pulumi.Output<string>;
+    public readonly virtualInterfaceId!: pulumi.Output<string>;
     /**
      * The ID of the virtual private gateway to which to connect the virtual interface.
      */
-    public readonly vpnGatewayId: pulumi.Output<string | undefined>;
+    public readonly vpnGatewayId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a HostedPrivateVirtualInterfaceAccepter resource with the given unique name, arguments, and options.
@@ -53,7 +53,7 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
     constructor(name: string, argsOrState?: HostedPrivateVirtualInterfaceAccepterArgs | HostedPrivateVirtualInterfaceAccepterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: HostedPrivateVirtualInterfaceAccepterState = argsOrState as HostedPrivateVirtualInterfaceAccepterState | undefined;
+            const state = argsOrState as HostedPrivateVirtualInterfaceAccepterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -69,6 +69,13 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
             inputs["virtualInterfaceId"] = args ? args.virtualInterfaceId : undefined;
             inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter", name, inputs, opts);
     }

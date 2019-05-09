@@ -5,7 +5,12 @@
         "module": "commonjs",
         "moduleResolution": "node",
         "declaration": true,
-        "sourceMap": true
+        "sourceMap": true,
+        "stripInternal": true,
+        "experimentalDecorators": true,
+        "noFallthroughCasesInSwitch": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true
     },
     "files": [
         "acm/certificate.ts",
@@ -603,6 +608,7 @@
         "rds/instance.ts",
         "rds/optionGroup.ts",
         "rds/parameterGroup.ts",
+        "rds/roleAssociation.ts",
         "rds/securityGroup.ts",
         "rds/snapshot.ts",
         "rds/subnetGroup.ts",

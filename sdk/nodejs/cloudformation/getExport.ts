@@ -27,6 +27,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:cloudformation/getExport:getExport", {
         "name": args.name,
     }, opts);

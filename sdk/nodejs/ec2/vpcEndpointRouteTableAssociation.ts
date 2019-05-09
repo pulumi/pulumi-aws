@@ -35,11 +35,11 @@ export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
     /**
      * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
      */
-    public readonly routeTableId: pulumi.Output<string>;
+    public readonly routeTableId!: pulumi.Output<string>;
     /**
      * Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
      */
-    public readonly vpcEndpointId: pulumi.Output<string>;
+    public readonly vpcEndpointId!: pulumi.Output<string>;
 
     /**
      * Create a VpcEndpointRouteTableAssociation resource with the given unique name, arguments, and options.
@@ -52,7 +52,7 @@ export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpcEndpointRouteTableAssociationArgs | VpcEndpointRouteTableAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpcEndpointRouteTableAssociationState = argsOrState as VpcEndpointRouteTableAssociationState | undefined;
+            const state = argsOrState as VpcEndpointRouteTableAssociationState | undefined;
             inputs["routeTableId"] = state ? state.routeTableId : undefined;
             inputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
         } else {
@@ -65,6 +65,13 @@ export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
             }
             inputs["routeTableId"] = args ? args.routeTableId : undefined;
             inputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation", name, inputs, opts);
     }

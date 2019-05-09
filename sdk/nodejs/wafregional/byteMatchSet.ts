@@ -42,11 +42,11 @@ export class ByteMatchSet extends pulumi.CustomResource {
     /**
      * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
      */
-    public readonly byteMatchTuples: pulumi.Output<{ fieldToMatch: { data?: string, type: string }, positionalConstraint: string, targetString?: string, textTransformation: string }[] | undefined>;
+    public readonly byteMatchTuples!: pulumi.Output<{ fieldToMatch: { data?: string, type: string }, positionalConstraint: string, targetString?: string, textTransformation: string }[] | undefined>;
     /**
      * The name or description of the ByteMatchSet.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a ByteMatchSet resource with the given unique name, arguments, and options.
@@ -59,13 +59,20 @@ export class ByteMatchSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ByteMatchSetArgs | ByteMatchSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ByteMatchSetState = argsOrState as ByteMatchSetState | undefined;
+            const state = argsOrState as ByteMatchSetState | undefined;
             inputs["byteMatchTuples"] = state ? state.byteMatchTuples : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ByteMatchSetArgs | undefined;
             inputs["byteMatchTuples"] = args ? args.byteMatchTuples : undefined;
             inputs["name"] = args ? args.name : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:wafregional/byteMatchSet:ByteMatchSet", name, inputs, opts);
     }

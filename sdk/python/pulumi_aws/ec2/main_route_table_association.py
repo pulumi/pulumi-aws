@@ -66,6 +66,10 @@ class MainRouteTableAssociation(pulumi.CustomResource):
 
         __props__['original_route_table_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(MainRouteTableAssociation, __self__).__init__(
             'aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation',
             resource_name,

@@ -36,23 +36,23 @@ export class Repository extends pulumi.CustomResource {
     /**
      * Full ARN of the repository.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name of the repository.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The registry ID where the repository was created.
      */
-    public /*out*/ readonly registryId: pulumi.Output<string>;
+    public /*out*/ readonly registryId!: pulumi.Output<string>;
     /**
      * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
      */
-    public /*out*/ readonly repositoryUrl: pulumi.Output<string>;
+    public /*out*/ readonly repositoryUrl!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -65,7 +65,7 @@ export class Repository extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RepositoryArgs | RepositoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RepositoryState = argsOrState as RepositoryState | undefined;
+            const state = argsOrState as RepositoryState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["registryId"] = state ? state.registryId : undefined;
@@ -78,6 +78,13 @@ export class Repository extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["registryId"] = undefined /*out*/;
             inputs["repositoryUrl"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ecr/repository:Repository", name, inputs, opts);
     }

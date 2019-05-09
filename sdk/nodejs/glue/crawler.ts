@@ -71,59 +71,59 @@ export class Crawler extends pulumi.CustomResource {
     /**
      * The ARN of the crawler 
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
      */
-    public readonly classifiers: pulumi.Output<string[] | undefined>;
+    public readonly classifiers!: pulumi.Output<string[] | undefined>;
     /**
      * JSON string of configuration information.
      */
-    public readonly configuration: pulumi.Output<string | undefined>;
+    public readonly configuration!: pulumi.Output<string | undefined>;
     /**
      * Glue database where results are written.
      */
-    public readonly databaseName: pulumi.Output<string>;
+    public readonly databaseName!: pulumi.Output<string>;
     /**
      * Description of the crawler.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * List of nested DynamoDB target arguments. See below.
      */
-    public readonly dynamodbTargets: pulumi.Output<{ path: string }[] | undefined>;
+    public readonly dynamodbTargets!: pulumi.Output<{ path: string }[] | undefined>;
     /**
      * List of nested JBDC target arguments. See below.
      */
-    public readonly jdbcTargets: pulumi.Output<{ connectionName: string, exclusions?: string[], path: string }[] | undefined>;
+    public readonly jdbcTargets!: pulumi.Output<{ connectionName: string, exclusions?: string[], path: string }[] | undefined>;
     /**
      * Name of the crawler.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */
-    public readonly role: pulumi.Output<string>;
+    public readonly role!: pulumi.Output<string>;
     /**
      * List nested Amazon S3 target arguments. See below.
      */
-    public readonly s3Targets: pulumi.Output<{ exclusions?: string[], path: string }[] | undefined>;
+    public readonly s3Targets!: pulumi.Output<{ exclusions?: string[], path: string }[] | undefined>;
     /**
      * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      */
-    public readonly schedule: pulumi.Output<string | undefined>;
+    public readonly schedule!: pulumi.Output<string | undefined>;
     /**
      * Policy for the crawler's update and deletion behavior.
      */
-    public readonly schemaChangePolicy: pulumi.Output<{ deleteBehavior?: string, updateBehavior?: string } | undefined>;
+    public readonly schemaChangePolicy!: pulumi.Output<{ deleteBehavior?: string, updateBehavior?: string } | undefined>;
     /**
      * The name of Security Configuration to be used by the crawler
      */
-    public readonly securityConfiguration: pulumi.Output<string | undefined>;
+    public readonly securityConfiguration!: pulumi.Output<string | undefined>;
     /**
      * The table prefix used for catalog tables that are created.
      */
-    public readonly tablePrefix: pulumi.Output<string | undefined>;
+    public readonly tablePrefix!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Crawler resource with the given unique name, arguments, and options.
@@ -136,7 +136,7 @@ export class Crawler extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CrawlerArgs | CrawlerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CrawlerState = argsOrState as CrawlerState | undefined;
+            const state = argsOrState as CrawlerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["classifiers"] = state ? state.classifiers : undefined;
             inputs["configuration"] = state ? state.configuration : undefined;
@@ -173,6 +173,13 @@ export class Crawler extends pulumi.CustomResource {
             inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
             inputs["tablePrefix"] = args ? args.tablePrefix : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:glue/crawler:Crawler", name, inputs, opts);
     }

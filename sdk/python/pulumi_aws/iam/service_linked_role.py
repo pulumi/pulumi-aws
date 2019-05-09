@@ -80,6 +80,10 @@ class ServiceLinkedRole(pulumi.CustomResource):
         __props__['path'] = None
         __props__['unique_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ServiceLinkedRole, __self__).__init__(
             'aws:iam/serviceLinkedRole:ServiceLinkedRole',
             resource_name,

@@ -34,15 +34,15 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
      */
-    public readonly amazonSideAsn: pulumi.Output<string>;
+    public readonly amazonSideAsn!: pulumi.Output<string>;
     /**
      * The name of the connection.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * AWS Account ID of the gateway.
      */
-    public /*out*/ readonly ownerAccountId: pulumi.Output<string>;
+    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
 
     /**
      * Create a Gateway resource with the given unique name, arguments, and options.
@@ -55,7 +55,7 @@ export class Gateway extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GatewayArgs | GatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GatewayState = argsOrState as GatewayState | undefined;
+            const state = argsOrState as GatewayState | undefined;
             inputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
@@ -67,6 +67,13 @@ export class Gateway extends pulumi.CustomResource {
             inputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["ownerAccountId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:directconnect/gateway:Gateway", name, inputs, opts);
     }

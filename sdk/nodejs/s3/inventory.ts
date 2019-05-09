@@ -75,35 +75,35 @@ export class Inventory extends pulumi.CustomResource {
     /**
      * The S3 bucket configuration where inventory results are published (documented below).
      */
-    public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * Destination bucket where inventory list files are written (documented below).
      */
-    public readonly destination: pulumi.Output<{ bucket: { accountId?: string, bucketArn: string, encryption?: { sseKms?: { keyId: string }, sseS3?: {  } }, format: string, prefix?: string } }>;
+    public readonly destination!: pulumi.Output<{ bucket: { accountId?: string, bucketArn: string, encryption?: { sseKms?: { keyId: string }, sseS3?: {  } }, format: string, prefix?: string } }>;
     /**
      * Specifies whether the inventory is enabled or disabled.
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Object filtering that accepts a prefix (documented below).
      */
-    public readonly filter: pulumi.Output<{ prefix?: string } | undefined>;
+    public readonly filter!: pulumi.Output<{ prefix?: string } | undefined>;
     /**
      * Object filtering that accepts a prefix (documented below). Can be `All` or `Current`.
      */
-    public readonly includedObjectVersions: pulumi.Output<string>;
+    public readonly includedObjectVersions!: pulumi.Output<string>;
     /**
      * Unique identifier of the inventory configuration for the bucket.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Contains the optional fields that are included in the inventory results.
      */
-    public readonly optionalFields: pulumi.Output<string[] | undefined>;
+    public readonly optionalFields!: pulumi.Output<string[] | undefined>;
     /**
      * Contains the frequency for generating inventory results (documented below).
      */
-    public readonly schedule: pulumi.Output<{ frequency: string }>;
+    public readonly schedule!: pulumi.Output<{ frequency: string }>;
 
     /**
      * Create a Inventory resource with the given unique name, arguments, and options.
@@ -116,7 +116,7 @@ export class Inventory extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: InventoryArgs | InventoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: InventoryState = argsOrState as InventoryState | undefined;
+            const state = argsOrState as InventoryState | undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
             inputs["destination"] = state ? state.destination : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -147,6 +147,13 @@ export class Inventory extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["optionalFields"] = args ? args.optionalFields : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:s3/inventory:Inventory", name, inputs, opts);
     }

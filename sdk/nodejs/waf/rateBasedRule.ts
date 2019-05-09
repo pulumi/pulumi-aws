@@ -47,23 +47,23 @@ export class RateBasedRule extends pulumi.CustomResource {
     /**
      * The name or description for the Amazon CloudWatch metric of this rule.
      */
-    public readonly metricName: pulumi.Output<string>;
+    public readonly metricName!: pulumi.Output<string>;
     /**
      * The name or description of the rule.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
      */
-    public readonly predicates: pulumi.Output<{ dataId: string, negated: boolean, type: string }[] | undefined>;
+    public readonly predicates!: pulumi.Output<{ dataId: string, negated: boolean, type: string }[] | undefined>;
     /**
      * Valid value is IP.
      */
-    public readonly rateKey: pulumi.Output<string>;
+    public readonly rateKey!: pulumi.Output<string>;
     /**
      * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
      */
-    public readonly rateLimit: pulumi.Output<number>;
+    public readonly rateLimit!: pulumi.Output<number>;
 
     /**
      * Create a RateBasedRule resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ export class RateBasedRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RateBasedRuleArgs | RateBasedRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RateBasedRuleState = argsOrState as RateBasedRuleState | undefined;
+            const state = argsOrState as RateBasedRuleState | undefined;
             inputs["metricName"] = state ? state.metricName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["predicates"] = state ? state.predicates : undefined;
@@ -98,6 +98,13 @@ export class RateBasedRule extends pulumi.CustomResource {
             inputs["predicates"] = args ? args.predicates : undefined;
             inputs["rateKey"] = args ? args.rateKey : undefined;
             inputs["rateLimit"] = args ? args.rateLimit : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:waf/rateBasedRule:RateBasedRule", name, inputs, opts);
     }

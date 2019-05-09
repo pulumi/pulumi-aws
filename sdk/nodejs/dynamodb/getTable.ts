@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:dynamodb/getTable:getTable", {
         "name": args.name,
         "serverSideEncryption": args.serverSideEncryption,

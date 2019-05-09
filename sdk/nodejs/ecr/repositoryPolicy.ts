@@ -68,15 +68,15 @@ export class RepositoryPolicy extends pulumi.CustomResource {
     /**
      * The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
-    public readonly policy: pulumi.Output<string>;
+    public readonly policy!: pulumi.Output<string>;
     /**
      * The registry ID where the repository was created.
      */
-    public /*out*/ readonly registryId: pulumi.Output<string>;
+    public /*out*/ readonly registryId!: pulumi.Output<string>;
     /**
      * Name of the repository to apply the policy.
      */
-    public readonly repository: pulumi.Output<string>;
+    public readonly repository!: pulumi.Output<string>;
 
     /**
      * Create a RepositoryPolicy resource with the given unique name, arguments, and options.
@@ -89,7 +89,7 @@ export class RepositoryPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RepositoryPolicyArgs | RepositoryPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RepositoryPolicyState = argsOrState as RepositoryPolicyState | undefined;
+            const state = argsOrState as RepositoryPolicyState | undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["registryId"] = state ? state.registryId : undefined;
             inputs["repository"] = state ? state.repository : undefined;
@@ -104,6 +104,13 @@ export class RepositoryPolicy extends pulumi.CustomResource {
             inputs["policy"] = args ? args.policy : undefined;
             inputs["repository"] = args ? args.repository : undefined;
             inputs["registryId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ecr/repositoryPolicy:RepositoryPolicy", name, inputs, opts);
     }

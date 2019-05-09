@@ -39,11 +39,11 @@ export class SpotDatafeedSubscription extends pulumi.CustomResource {
     /**
      * The Amazon S3 bucket in which to store the Spot instance data feed.
      */
-    public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * Path of folder inside bucket to place spot pricing data.
      */
-    public readonly prefix: pulumi.Output<string | undefined>;
+    public readonly prefix!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SpotDatafeedSubscription resource with the given unique name, arguments, and options.
@@ -56,7 +56,7 @@ export class SpotDatafeedSubscription extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SpotDatafeedSubscriptionArgs | SpotDatafeedSubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SpotDatafeedSubscriptionState = argsOrState as SpotDatafeedSubscriptionState | undefined;
+            const state = argsOrState as SpotDatafeedSubscriptionState | undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
             inputs["prefix"] = state ? state.prefix : undefined;
         } else {
@@ -66,6 +66,13 @@ export class SpotDatafeedSubscription extends pulumi.CustomResource {
             }
             inputs["bucket"] = args ? args.bucket : undefined;
             inputs["prefix"] = args ? args.prefix : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription", name, inputs, opts);
     }

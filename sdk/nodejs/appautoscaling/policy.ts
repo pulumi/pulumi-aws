@@ -147,39 +147,39 @@ export class Policy extends pulumi.CustomResource {
         return new Policy(name, <any>state, { ...opts, id: id });
     }
 
-    public readonly alarms: pulumi.Output<string[] | undefined>;
+    public readonly alarms!: pulumi.Output<string[] | undefined>;
     /**
      * The ARN assigned by AWS to the scaling policy.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the policy.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * For DynamoDB, only `TargetTrackingScaling` is supported. For Amazon ECS, Spot Fleet, and Amazon RDS, both `StepScaling` and `TargetTrackingScaling` are supported. For any other service, only `StepScaling` is supported. Defaults to `StepScaling`.
      */
-    public readonly policyType: pulumi.Output<string | undefined>;
+    public readonly policyType!: pulumi.Output<string | undefined>;
     /**
      * The resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    public readonly resourceId: pulumi.Output<string>;
+    public readonly resourceId!: pulumi.Output<string>;
     /**
      * The scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    public readonly scalableDimension: pulumi.Output<string>;
+    public readonly scalableDimension!: pulumi.Output<string>;
     /**
      * The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
-    public readonly serviceNamespace: pulumi.Output<string>;
+    public readonly serviceNamespace!: pulumi.Output<string>;
     /**
      * Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
      */
-    public readonly stepScalingPolicyConfiguration: pulumi.Output<{ adjustmentType?: string, cooldown?: number, metricAggregationType?: string, minAdjustmentMagnitude?: number, stepAdjustments?: { metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[] } | undefined>;
+    public readonly stepScalingPolicyConfiguration!: pulumi.Output<{ adjustmentType?: string, cooldown?: number, metricAggregationType?: string, minAdjustmentMagnitude?: number, stepAdjustments?: { metricIntervalLowerBound?: string, metricIntervalUpperBound?: string, scalingAdjustment: number }[] } | undefined>;
     /**
      * A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
      */
-    public readonly targetTrackingScalingPolicyConfiguration: pulumi.Output<{ customizedMetricSpecification?: { dimensions?: { name: string, value: string }[], metricName: string, namespace: string, statistic: string, unit?: string }, disableScaleIn?: boolean, predefinedMetricSpecification?: { predefinedMetricType: string, resourceLabel?: string }, scaleInCooldown?: number, scaleOutCooldown?: number, targetValue: number } | undefined>;
+    public readonly targetTrackingScalingPolicyConfiguration!: pulumi.Output<{ customizedMetricSpecification?: { dimensions?: { name: string, value: string }[], metricName: string, namespace: string, statistic: string, unit?: string }, disableScaleIn?: boolean, predefinedMetricSpecification?: { predefinedMetricType: string, resourceLabel?: string }, scaleInCooldown?: number, scaleOutCooldown?: number, targetValue: number } | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -192,7 +192,7 @@ export class Policy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PolicyState = argsOrState as PolicyState | undefined;
+            const state = argsOrState as PolicyState | undefined;
             inputs["alarms"] = state ? state.alarms : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -222,6 +222,13 @@ export class Policy extends pulumi.CustomResource {
             inputs["stepScalingPolicyConfiguration"] = args ? args.stepScalingPolicyConfiguration : undefined;
             inputs["targetTrackingScalingPolicyConfiguration"] = args ? args.targetTrackingScalingPolicyConfiguration : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:appautoscaling/policy:Policy", name, inputs, opts);
     }

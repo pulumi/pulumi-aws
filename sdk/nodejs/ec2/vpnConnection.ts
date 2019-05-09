@@ -75,93 +75,93 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * The configuration information for the VPN connection's customer gateway (in the native XML format).
      */
-    public /*out*/ readonly customerGatewayConfiguration: pulumi.Output<string>;
+    public /*out*/ readonly customerGatewayConfiguration!: pulumi.Output<string>;
     /**
      * The ID of the customer gateway.
      */
-    public readonly customerGatewayId: pulumi.Output<string>;
-    public /*out*/ readonly routes: pulumi.Output<{ destinationCidrBlock: string, source: string, state: string }[]>;
+    public readonly customerGatewayId!: pulumi.Output<string>;
+    public /*out*/ readonly routes!: pulumi.Output<{ destinationCidrBlock: string, source: string, state: string }[]>;
     /**
      * Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
      */
-    public readonly staticRoutesOnly: pulumi.Output<boolean>;
+    public readonly staticRoutesOnly!: pulumi.Output<boolean>;
     /**
      * Tags to apply to the connection.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID.
      */
-    public /*out*/ readonly transitGatewayAttachmentId: pulumi.Output<string>;
+    public /*out*/ readonly transitGatewayAttachmentId!: pulumi.Output<string>;
     /**
      * The ID of the EC2 Transit Gateway.
      */
-    public readonly transitGatewayId: pulumi.Output<string | undefined>;
+    public readonly transitGatewayId!: pulumi.Output<string | undefined>;
     /**
      * The public IP address of the first VPN tunnel.
      */
-    public /*out*/ readonly tunnel1Address: pulumi.Output<string>;
+    public /*out*/ readonly tunnel1Address!: pulumi.Output<string>;
     /**
      * The bgp asn number of the first VPN tunnel.
      */
-    public /*out*/ readonly tunnel1BgpAsn: pulumi.Output<string>;
+    public /*out*/ readonly tunnel1BgpAsn!: pulumi.Output<string>;
     /**
      * The bgp holdtime of the first VPN tunnel.
      */
-    public /*out*/ readonly tunnel1BgpHoldtime: pulumi.Output<number>;
+    public /*out*/ readonly tunnel1BgpHoldtime!: pulumi.Output<number>;
     /**
      * The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
      */
-    public /*out*/ readonly tunnel1CgwInsideAddress: pulumi.Output<string>;
+    public /*out*/ readonly tunnel1CgwInsideAddress!: pulumi.Output<string>;
     /**
      * The CIDR block of the inside IP addresses for the first VPN tunnel.
      */
-    public readonly tunnel1InsideCidr: pulumi.Output<string>;
+    public readonly tunnel1InsideCidr!: pulumi.Output<string>;
     /**
      * The preshared key of the first VPN tunnel.
      */
-    public readonly tunnel1PresharedKey: pulumi.Output<string>;
+    public readonly tunnel1PresharedKey!: pulumi.Output<string>;
     /**
      * The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
      */
-    public /*out*/ readonly tunnel1VgwInsideAddress: pulumi.Output<string>;
+    public /*out*/ readonly tunnel1VgwInsideAddress!: pulumi.Output<string>;
     /**
      * The public IP address of the second VPN tunnel.
      */
-    public /*out*/ readonly tunnel2Address: pulumi.Output<string>;
+    public /*out*/ readonly tunnel2Address!: pulumi.Output<string>;
     /**
      * The bgp asn number of the second VPN tunnel.
      */
-    public /*out*/ readonly tunnel2BgpAsn: pulumi.Output<string>;
+    public /*out*/ readonly tunnel2BgpAsn!: pulumi.Output<string>;
     /**
      * The bgp holdtime of the second VPN tunnel.
      */
-    public /*out*/ readonly tunnel2BgpHoldtime: pulumi.Output<number>;
+    public /*out*/ readonly tunnel2BgpHoldtime!: pulumi.Output<number>;
     /**
      * The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
      */
-    public /*out*/ readonly tunnel2CgwInsideAddress: pulumi.Output<string>;
+    public /*out*/ readonly tunnel2CgwInsideAddress!: pulumi.Output<string>;
     /**
      * The CIDR block of the second IP addresses for the first VPN tunnel.
      */
-    public readonly tunnel2InsideCidr: pulumi.Output<string>;
+    public readonly tunnel2InsideCidr!: pulumi.Output<string>;
     /**
      * The preshared key of the second VPN tunnel.
      */
-    public readonly tunnel2PresharedKey: pulumi.Output<string>;
+    public readonly tunnel2PresharedKey!: pulumi.Output<string>;
     /**
      * The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
      */
-    public /*out*/ readonly tunnel2VgwInsideAddress: pulumi.Output<string>;
+    public /*out*/ readonly tunnel2VgwInsideAddress!: pulumi.Output<string>;
     /**
      * The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
      */
-    public readonly type: pulumi.Output<string>;
-    public /*out*/ readonly vgwTelemetries: pulumi.Output<{ acceptedRouteCount: number, lastStatusChange: string, outsideIpAddress: string, status: string, statusMessage: string }[]>;
+    public readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly vgwTelemetries!: pulumi.Output<{ acceptedRouteCount: number, lastStatusChange: string, outsideIpAddress: string, status: string, statusMessage: string }[]>;
     /**
      * The ID of the Virtual Private Gateway.
      */
-    public readonly vpnGatewayId: pulumi.Output<string | undefined>;
+    public readonly vpnGatewayId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VpnConnection resource with the given unique name, arguments, and options.
@@ -174,7 +174,7 @@ export class VpnConnection extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VpnConnectionArgs | VpnConnectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VpnConnectionState = argsOrState as VpnConnectionState | undefined;
+            const state = argsOrState as VpnConnectionState | undefined;
             inputs["customerGatewayConfiguration"] = state ? state.customerGatewayConfiguration : undefined;
             inputs["customerGatewayId"] = state ? state.customerGatewayId : undefined;
             inputs["routes"] = state ? state.routes : undefined;
@@ -231,6 +231,13 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["tunnel2CgwInsideAddress"] = undefined /*out*/;
             inputs["tunnel2VgwInsideAddress"] = undefined /*out*/;
             inputs["vgwTelemetries"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ec2/vpnConnection:VpnConnection", name, inputs, opts);
     }

@@ -1416,6 +1416,9 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_db_instance_role_association": {
+				Tok: awsResource(rdsMod, "RoleAssociation"),
+			},
 			"aws_db_security_group": {
 				Tok: awsResource(rdsMod, "SecurityGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{

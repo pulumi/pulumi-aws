@@ -88,82 +88,82 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * An Access Logs block. Access Logs documented below.
      */
-    public readonly accessLogs: pulumi.Output<{ bucket: string, enabled?: boolean, prefix?: string } | undefined>;
+    public readonly accessLogs!: pulumi.Output<{ bucket: string, enabled?: boolean, prefix?: string } | undefined>;
     /**
      * The ARN of the load balancer (matches `id`).
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The ARN suffix for use with CloudWatch Metrics.
      */
-    public /*out*/ readonly arnSuffix: pulumi.Output<string>;
+    public /*out*/ readonly arnSuffix!: pulumi.Output<string>;
     /**
      * The DNS name of the load balancer.
      */
-    public /*out*/ readonly dnsName: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
      * If true, cross-zone load balancing of the load balancer will be enabled.
      * This is a `network` load balancer feature. Defaults to `false`.
      */
-    public readonly enableCrossZoneLoadBalancing: pulumi.Output<boolean | undefined>;
+    public readonly enableCrossZoneLoadBalancing!: pulumi.Output<boolean | undefined>;
     /**
      * If true, deletion of the load balancer will be disabled via
      * the AWS API. This will prevent Terraform from deleting the load balancer. Defaults to `false`.
      */
-    public readonly enableDeletionProtection: pulumi.Output<boolean | undefined>;
+    public readonly enableDeletionProtection!: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      */
-    public readonly enableHttp2: pulumi.Output<boolean | undefined>;
+    public readonly enableHttp2!: pulumi.Output<boolean | undefined>;
     /**
      * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      */
-    public readonly idleTimeout: pulumi.Output<number | undefined>;
+    public readonly idleTimeout!: pulumi.Output<number | undefined>;
     /**
      * If true, the LB will be internal.
      */
-    public readonly internal: pulumi.Output<boolean>;
+    public readonly internal!: pulumi.Output<boolean>;
     /**
      * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
      */
-    public readonly ipAddressType: pulumi.Output<string>;
+    public readonly ipAddressType!: pulumi.Output<string>;
     /**
      * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
      */
-    public readonly loadBalancerType: pulumi.Output<string | undefined>;
+    public readonly loadBalancerType!: pulumi.Output<string | undefined>;
     /**
      * The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
      * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
      * Terraform will autogenerate a name beginning with `tf-lb`.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
      */
-    public readonly securityGroups: pulumi.Output<string[]>;
+    public readonly securityGroups!: pulumi.Output<string[]>;
     /**
      * A subnet mapping block as documented below.
      */
-    public readonly subnetMappings: pulumi.Output<{ allocationId?: string, subnetId: string }[]>;
+    public readonly subnetMappings!: pulumi.Output<{ allocationId?: string, subnetId: string }[]>;
     /**
      * A list of subnet IDs to attach to the LB. Subnets
      * cannot be updated for Load Balancers of type `network`. Changing this value
      * for load balancers of type `network` will force a recreation of the resource.
      */
-    public readonly subnets: pulumi.Output<string[]>;
+    public readonly subnets!: pulumi.Output<string[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
-    public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
     /**
      * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
      */
-    public /*out*/ readonly zoneId: pulumi.Output<string>;
+    public /*out*/ readonly zoneId!: pulumi.Output<string>;
 
     /**
      * Create a LoadBalancer resource with the given unique name, arguments, and options.
@@ -176,7 +176,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LoadBalancerArgs | LoadBalancerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LoadBalancerState = argsOrState as LoadBalancerState | undefined;
+            const state = argsOrState as LoadBalancerState | undefined;
             inputs["accessLogs"] = state ? state.accessLogs : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["arnSuffix"] = state ? state.arnSuffix : undefined;
@@ -217,6 +217,13 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["dnsName"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
             inputs["zoneId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:applicationloadbalancing/loadBalancer:LoadBalancer", name, inputs, opts);
     }

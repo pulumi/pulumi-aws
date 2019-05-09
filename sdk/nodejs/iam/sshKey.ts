@@ -39,27 +39,27 @@ export class SshKey extends pulumi.CustomResource {
     /**
      * Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
      */
-    public readonly encoding: pulumi.Output<string>;
+    public readonly encoding!: pulumi.Output<string>;
     /**
      * The MD5 message digest of the SSH public key.
      */
-    public /*out*/ readonly fingerprint: pulumi.Output<string>;
+    public /*out*/ readonly fingerprint!: pulumi.Output<string>;
     /**
      * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
      */
-    public readonly publicKey: pulumi.Output<string>;
+    public readonly publicKey!: pulumi.Output<string>;
     /**
      * The unique identifier for the SSH public key.
      */
-    public /*out*/ readonly sshPublicKeyId: pulumi.Output<string>;
+    public /*out*/ readonly sshPublicKeyId!: pulumi.Output<string>;
     /**
      * The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
      */
-    public readonly status: pulumi.Output<string>;
+    public readonly status!: pulumi.Output<string>;
     /**
      * The name of the IAM user to associate the SSH public key with.
      */
-    public readonly username: pulumi.Output<string>;
+    public readonly username!: pulumi.Output<string>;
 
     /**
      * Create a SshKey resource with the given unique name, arguments, and options.
@@ -72,7 +72,7 @@ export class SshKey extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SshKeyArgs | SshKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SshKeyState = argsOrState as SshKeyState | undefined;
+            const state = argsOrState as SshKeyState | undefined;
             inputs["encoding"] = state ? state.encoding : undefined;
             inputs["fingerprint"] = state ? state.fingerprint : undefined;
             inputs["publicKey"] = state ? state.publicKey : undefined;
@@ -96,6 +96,13 @@ export class SshKey extends pulumi.CustomResource {
             inputs["username"] = args ? args.username : undefined;
             inputs["fingerprint"] = undefined /*out*/;
             inputs["sshPublicKeyId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:iam/sshKey:SshKey", name, inputs, opts);
     }

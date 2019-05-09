@@ -30,7 +30,16 @@ import * as utilities from "./utilities";
  */
 export function getAvailabilityZones(args?: GetAvailabilityZonesArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityZonesResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:index/getAvailabilityZones:getAvailabilityZones", {
+        "blacklistedNames": args.blacklistedNames,
+        "blacklistedZoneIds": args.blacklistedZoneIds,
         "state": args.state,
     }, opts);
 }
@@ -39,6 +48,14 @@ export function getAvailabilityZones(args?: GetAvailabilityZonesArgs, opts?: pul
  * A collection of arguments for invoking getAvailabilityZones.
  */
 export interface GetAvailabilityZonesArgs {
+    /**
+     * List of blacklisted Availability Zone names.
+     */
+    readonly blacklistedNames?: string[];
+    /**
+     * List of blacklisted Availability Zone IDs.
+     */
+    readonly blacklistedZoneIds?: string[];
     /**
      * Allows to filter list of Availability Zones based on their
      * current state. Can be either `"available"`, `"information"`, `"impaired"` or
@@ -52,6 +69,8 @@ export interface GetAvailabilityZonesArgs {
  * A collection of values returned by getAvailabilityZones.
  */
 export interface GetAvailabilityZonesResult {
+    readonly blacklistedNames?: string[];
+    readonly blacklistedZoneIds?: string[];
     /**
      * A list of the Availability Zone names available to the account.
      */

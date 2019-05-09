@@ -42,23 +42,23 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * A regular expression used to determine which branches get built. Default is all branches are built.
      */
-    public readonly branchFilter: pulumi.Output<string | undefined>;
+    public readonly branchFilter!: pulumi.Output<string | undefined>;
     /**
      * The CodeBuild endpoint where webhook events are sent.
      */
-    public /*out*/ readonly payloadUrl: pulumi.Output<string>;
+    public /*out*/ readonly payloadUrl!: pulumi.Output<string>;
     /**
      * The name of the build project.
      */
-    public readonly projectName: pulumi.Output<string>;
+    public readonly projectName!: pulumi.Output<string>;
     /**
      * The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
      */
-    public /*out*/ readonly secret: pulumi.Output<string>;
+    public /*out*/ readonly secret!: pulumi.Output<string>;
     /**
      * The URL to the webhook.
      */
-    public /*out*/ readonly url: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
      * Create a Webhook resource with the given unique name, arguments, and options.
@@ -71,7 +71,7 @@ export class Webhook extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: WebhookArgs | WebhookState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: WebhookState = argsOrState as WebhookState | undefined;
+            const state = argsOrState as WebhookState | undefined;
             inputs["branchFilter"] = state ? state.branchFilter : undefined;
             inputs["payloadUrl"] = state ? state.payloadUrl : undefined;
             inputs["projectName"] = state ? state.projectName : undefined;
@@ -87,6 +87,13 @@ export class Webhook extends pulumi.CustomResource {
             inputs["payloadUrl"] = undefined /*out*/;
             inputs["secret"] = undefined /*out*/;
             inputs["url"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:codebuild/webhook:Webhook", name, inputs, opts);
     }

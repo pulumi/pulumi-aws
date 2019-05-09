@@ -74,27 +74,27 @@ export class EmailChannel extends pulumi.CustomResource {
     /**
      * The application ID.
      */
-    public readonly applicationId: pulumi.Output<string>;
+    public readonly applicationId!: pulumi.Output<string>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The email address used to send emails from.
      */
-    public readonly fromAddress: pulumi.Output<string>;
+    public readonly fromAddress!: pulumi.Output<string>;
     /**
      * The ARN of an identity verified with SES.
      */
-    public readonly identity: pulumi.Output<string>;
+    public readonly identity!: pulumi.Output<string>;
     /**
      * Messages per second that can be sent.
      */
-    public /*out*/ readonly messagesPerSecond: pulumi.Output<number>;
+    public /*out*/ readonly messagesPerSecond!: pulumi.Output<number>;
     /**
      * The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
      */
-    public readonly roleArn: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
 
     /**
      * Create a EmailChannel resource with the given unique name, arguments, and options.
@@ -107,7 +107,7 @@ export class EmailChannel extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EmailChannelArgs | EmailChannelState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EmailChannelState = argsOrState as EmailChannelState | undefined;
+            const state = argsOrState as EmailChannelState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["fromAddress"] = state ? state.fromAddress : undefined;
@@ -134,6 +134,13 @@ export class EmailChannel extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["messagesPerSecond"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:pinpoint/emailChannel:EmailChannel", name, inputs, opts);
     }

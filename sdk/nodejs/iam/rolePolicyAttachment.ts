@@ -72,11 +72,11 @@ export class RolePolicyAttachment extends pulumi.CustomResource {
     /**
      * The ARN of the policy you want to apply
      */
-    public readonly policyArn: pulumi.Output<ARN>;
+    public readonly policyArn!: pulumi.Output<ARN>;
     /**
      * The role the policy should be applied to
      */
-    public readonly role: pulumi.Output<string>;
+    public readonly role!: pulumi.Output<string>;
 
     /**
      * Create a RolePolicyAttachment resource with the given unique name, arguments, and options.
@@ -89,7 +89,7 @@ export class RolePolicyAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RolePolicyAttachmentArgs | RolePolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RolePolicyAttachmentState = argsOrState as RolePolicyAttachmentState | undefined;
+            const state = argsOrState as RolePolicyAttachmentState | undefined;
             inputs["policyArn"] = state ? state.policyArn : undefined;
             inputs["role"] = state ? state.role : undefined;
         } else {
@@ -102,6 +102,13 @@ export class RolePolicyAttachment extends pulumi.CustomResource {
             }
             inputs["policyArn"] = args ? args.policyArn : undefined;
             inputs["role"] = args ? args.role : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:iam/rolePolicyAttachment:RolePolicyAttachment", name, inputs, opts);
     }

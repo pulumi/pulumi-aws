@@ -38,55 +38,55 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
     /**
      * The address family for the BGP peer. `ipv4 ` or `ipv6`.
      */
-    public readonly addressFamily: pulumi.Output<string>;
+    public readonly addressFamily!: pulumi.Output<string>;
     /**
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      */
-    public readonly amazonAddress: pulumi.Output<string>;
+    public readonly amazonAddress!: pulumi.Output<string>;
     /**
      * The ARN of the virtual interface.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The Direct Connect endpoint on which the virtual interface terminates.
      */
-    public /*out*/ readonly awsDevice: pulumi.Output<string>;
+    public /*out*/ readonly awsDevice!: pulumi.Output<string>;
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      */
-    public readonly bgpAsn: pulumi.Output<number>;
+    public readonly bgpAsn!: pulumi.Output<number>;
     /**
      * The authentication key for BGP configuration.
      */
-    public readonly bgpAuthKey: pulumi.Output<string>;
+    public readonly bgpAuthKey!: pulumi.Output<string>;
     /**
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      */
-    public readonly connectionId: pulumi.Output<string>;
+    public readonly connectionId!: pulumi.Output<string>;
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      */
-    public readonly customerAddress: pulumi.Output<string>;
+    public readonly customerAddress!: pulumi.Output<string>;
     /**
      * Indicates whether jumbo frames (9001 MTU) are supported.
      */
-    public /*out*/ readonly jumboFrameCapable: pulumi.Output<boolean>;
+    public /*out*/ readonly jumboFrameCapable!: pulumi.Output<boolean>;
     /**
      * The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
      */
-    public readonly mtu: pulumi.Output<number | undefined>;
+    public readonly mtu!: pulumi.Output<number | undefined>;
     /**
      * The name for the virtual interface.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The AWS account that will own the new virtual interface.
      */
-    public readonly ownerAccountId: pulumi.Output<string>;
+    public readonly ownerAccountId!: pulumi.Output<string>;
     /**
      * The VLAN ID.
      */
-    public readonly vlan: pulumi.Output<number>;
+    public readonly vlan!: pulumi.Output<number>;
 
     /**
      * Create a HostedPrivateVirtualInterface resource with the given unique name, arguments, and options.
@@ -99,7 +99,7 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: HostedPrivateVirtualInterfaceArgs | HostedPrivateVirtualInterfaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: HostedPrivateVirtualInterfaceState = argsOrState as HostedPrivateVirtualInterfaceState | undefined;
+            const state = argsOrState as HostedPrivateVirtualInterfaceState | undefined;
             inputs["addressFamily"] = state ? state.addressFamily : undefined;
             inputs["amazonAddress"] = state ? state.amazonAddress : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -143,6 +143,13 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["awsDevice"] = undefined /*out*/;
             inputs["jumboFrameCapable"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface", name, inputs, opts);
     }

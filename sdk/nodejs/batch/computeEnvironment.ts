@@ -100,39 +100,39 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the compute environment.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
      */
-    public readonly computeEnvironmentName: pulumi.Output<string>;
+    public readonly computeEnvironmentName!: pulumi.Output<string>;
     /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
-    public readonly computeResources: pulumi.Output<{ bidPercentage?: number, desiredVcpus?: number, ec2KeyPair?: string, imageId?: string, instanceRole: string, instanceTypes: string[], launchTemplate?: { launchTemplateId?: string, launchTemplateName?: string, version?: string }, maxVcpus: number, minVcpus: number, securityGroupIds: string[], spotIamFleetRole?: string, subnets: string[], tags?: {[key: string]: any}, type: string } | undefined>;
+    public readonly computeResources!: pulumi.Output<{ bidPercentage?: number, desiredVcpus?: number, ec2KeyPair?: string, imageId?: string, instanceRole: string, instanceTypes: string[], launchTemplate?: { launchTemplateId?: string, launchTemplateName?: string, version?: string }, maxVcpus: number, minVcpus: number, securityGroupIds: string[], spotIamFleetRole?: string, subnets: string[], tags?: {[key: string]: any}, type: string } | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
      */
-    public /*out*/ readonly ecsClusterArn: pulumi.Output<string>;
+    public /*out*/ readonly ecsClusterArn!: pulumi.Output<string>;
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
-    public readonly serviceRole: pulumi.Output<string>;
+    public readonly serviceRole!: pulumi.Output<string>;
     /**
      * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
-    public readonly state: pulumi.Output<string | undefined>;
+    public readonly state!: pulumi.Output<string | undefined>;
     /**
      * The current status of the compute environment (for example, CREATING or VALID).
      */
-    public /*out*/ readonly status: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * A short, human-readable string to provide additional details about the current status of the compute environment.
      */
-    public /*out*/ readonly statusReason: pulumi.Output<string>;
+    public /*out*/ readonly statusReason!: pulumi.Output<string>;
     /**
      * The type of compute environment. Valid items are `EC2` or `SPOT`.
      */
-    public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a ComputeEnvironment resource with the given unique name, arguments, and options.
@@ -145,7 +145,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ComputeEnvironmentArgs | ComputeEnvironmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ComputeEnvironmentState = argsOrState as ComputeEnvironmentState | undefined;
+            const state = argsOrState as ComputeEnvironmentState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["computeEnvironmentName"] = state ? state.computeEnvironmentName : undefined;
             inputs["computeResources"] = state ? state.computeResources : undefined;
@@ -175,6 +175,13 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             inputs["ecsClusterArn"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["statusReason"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:batch/computeEnvironment:ComputeEnvironment", name, inputs, opts);
     }

@@ -51,6 +51,10 @@ class GroupPolicyAttachment(pulumi.CustomResource):
             raise TypeError("Missing required property 'policy_arn'")
         __props__['policy_arn'] = policy_arn
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(GroupPolicyAttachment, __self__).__init__(
             'aws:iam/groupPolicyAttachment:GroupPolicyAttachment',
             resource_name,

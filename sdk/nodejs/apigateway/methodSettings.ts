@@ -77,19 +77,19 @@ export class MethodSettings extends pulumi.CustomResource {
     /**
      * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage.
      */
-    public readonly methodPath: pulumi.Output<string>;
+    public readonly methodPath!: pulumi.Output<string>;
     /**
      * The ID of the REST API
      */
-    public readonly restApi: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<RestApi>;
     /**
      * The settings block, see below.
      */
-    public readonly settings: pulumi.Output<{ cacheDataEncrypted?: boolean, cacheTtlInSeconds?: number, cachingEnabled?: boolean, dataTraceEnabled?: boolean, loggingLevel?: string, metricsEnabled?: boolean, requireAuthorizationForCacheControl?: boolean, throttlingBurstLimit?: number, throttlingRateLimit?: number, unauthorizedCacheControlHeaderStrategy?: string }>;
+    public readonly settings!: pulumi.Output<{ cacheDataEncrypted?: boolean, cacheTtlInSeconds?: number, cachingEnabled?: boolean, dataTraceEnabled?: boolean, loggingLevel?: string, metricsEnabled?: boolean, requireAuthorizationForCacheControl?: boolean, throttlingBurstLimit?: number, throttlingRateLimit?: number, unauthorizedCacheControlHeaderStrategy?: string }>;
     /**
      * The name of the stage
      */
-    public readonly stageName: pulumi.Output<string>;
+    public readonly stageName!: pulumi.Output<string>;
 
     /**
      * Create a MethodSettings resource with the given unique name, arguments, and options.
@@ -102,7 +102,7 @@ export class MethodSettings extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MethodSettingsArgs | MethodSettingsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MethodSettingsState = argsOrState as MethodSettingsState | undefined;
+            const state = argsOrState as MethodSettingsState | undefined;
             inputs["methodPath"] = state ? state.methodPath : undefined;
             inputs["restApi"] = state ? state.restApi : undefined;
             inputs["settings"] = state ? state.settings : undefined;
@@ -125,6 +125,13 @@ export class MethodSettings extends pulumi.CustomResource {
             inputs["restApi"] = args ? args.restApi : undefined;
             inputs["settings"] = args ? args.settings : undefined;
             inputs["stageName"] = args ? args.stageName : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:apigateway/methodSettings:MethodSettings", name, inputs, opts);
     }

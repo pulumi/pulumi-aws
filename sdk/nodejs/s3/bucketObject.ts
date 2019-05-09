@@ -102,81 +102,81 @@ export class BucketObject extends pulumi.CustomResource {
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
      */
-    public readonly acl: pulumi.Output<string | undefined>;
+    public readonly acl!: pulumi.Output<string | undefined>;
     /**
      * The name of the bucket to put the file in.
      */
-    public readonly bucket: pulumi.Output<string>;
+    public readonly bucket!: pulumi.Output<string>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
-    public readonly cacheControl: pulumi.Output<string | undefined>;
+    public readonly cacheControl!: pulumi.Output<string | undefined>;
     /**
      * Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
      */
-    public readonly content: pulumi.Output<string | undefined>;
+    public readonly content!: pulumi.Output<string | undefined>;
     /**
      * Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
      */
-    public readonly contentBase64: pulumi.Output<string | undefined>;
+    public readonly contentBase64!: pulumi.Output<string | undefined>;
     /**
      * Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
-    public readonly contentDisposition: pulumi.Output<string | undefined>;
+    public readonly contentDisposition!: pulumi.Output<string | undefined>;
     /**
      * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      */
-    public readonly contentEncoding: pulumi.Output<string | undefined>;
+    public readonly contentEncoding!: pulumi.Output<string | undefined>;
     /**
      * The language the content is in e.g. en-US or en-GB.
      */
-    public readonly contentLanguage: pulumi.Output<string | undefined>;
+    public readonly contentLanguage!: pulumi.Output<string | undefined>;
     /**
      * A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
      */
-    public readonly contentType: pulumi.Output<string>;
+    public readonly contentType!: pulumi.Output<string>;
     /**
      * Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (Terraform 0.11.12 or later) or `${md5(file("path/to/file"))}` (Terraform 0.11.11 or earlier).
      * This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
      */
-    public readonly etag: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string>;
     /**
      * The name of the object once it is in the bucket.
      */
-    public readonly key: pulumi.Output<string>;
+    public readonly key!: pulumi.Output<string>;
     /**
      * Specifies the AWS KMS Key ARN to use for object encryption.
      * This value is a fully qualified **ARN** of the KMS Key. If using `aws_kms_key`,
      * use the exported `arn` attribute:
      * `kms_key_id = "${aws_kms_key.foo.arn}"`
      */
-    public readonly kmsKeyId: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */
-    public readonly serverSideEncryption: pulumi.Output<string>;
+    public readonly serverSideEncryption!: pulumi.Output<string>;
     /**
      * The path to a file that will be read and uploaded as raw bytes for the object content.
      */
-    public readonly source: pulumi.Output<pulumi.asset.Asset | undefined>;
+    public readonly source!: pulumi.Output<pulumi.asset.Asset | undefined>;
     /**
      * Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
      * for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
      */
-    public readonly storageClass: pulumi.Output<string>;
+    public readonly storageClass!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the object.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * A unique version ID value for the object, if bucket versioning
      * is enabled.
      */
-    public /*out*/ readonly versionId: pulumi.Output<string>;
+    public /*out*/ readonly versionId!: pulumi.Output<string>;
     /**
      * Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      */
-    public readonly websiteRedirect: pulumi.Output<string | undefined>;
+    public readonly websiteRedirect!: pulumi.Output<string | undefined>;
 
     /**
      * Create a BucketObject resource with the given unique name, arguments, and options.
@@ -189,7 +189,7 @@ export class BucketObject extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BucketObjectArgs | BucketObjectState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: BucketObjectState = argsOrState as BucketObjectState | undefined;
+            const state = argsOrState as BucketObjectState | undefined;
             inputs["acl"] = state ? state.acl : undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
             inputs["cacheControl"] = state ? state.cacheControl : undefined;
@@ -231,6 +231,13 @@ export class BucketObject extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["websiteRedirect"] = args ? args.websiteRedirect : undefined;
             inputs["versionId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:s3/bucketObject:BucketObject", name, inputs, opts);
     }

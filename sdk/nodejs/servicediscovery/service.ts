@@ -76,27 +76,27 @@ export class Service extends pulumi.CustomResource {
     /**
      * The ARN of the service.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The description of the service.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      */
-    public readonly dnsConfig: pulumi.Output<{ dnsRecords: { ttl: number, type: string }[], namespaceId: string, routingPolicy?: string }>;
+    public readonly dnsConfig!: pulumi.Output<{ dnsRecords: { ttl: number, type: string }[], namespaceId: string, routingPolicy?: string }>;
     /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      */
-    public readonly healthCheckConfig: pulumi.Output<{ failureThreshold?: number, resourcePath?: string, type?: string } | undefined>;
+    public readonly healthCheckConfig!: pulumi.Output<{ failureThreshold?: number, resourcePath?: string, type?: string } | undefined>;
     /**
      * A complex type that contains settings for ECS managed health checks.
      */
-    public readonly healthCheckCustomConfig: pulumi.Output<{ failureThreshold?: number } | undefined>;
+    public readonly healthCheckCustomConfig!: pulumi.Output<{ failureThreshold?: number } | undefined>;
     /**
      * The name of the service.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -109,7 +109,7 @@ export class Service extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ServiceState = argsOrState as ServiceState | undefined;
+            const state = argsOrState as ServiceState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["dnsConfig"] = state ? state.dnsConfig : undefined;
@@ -127,6 +127,13 @@ export class Service extends pulumi.CustomResource {
             inputs["healthCheckCustomConfig"] = args ? args.healthCheckCustomConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:servicediscovery/service:Service", name, inputs, opts);
     }

@@ -105,19 +105,19 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
     /**
      * The load balancer on which the policy is defined.
      */
-    public readonly loadBalancerName: pulumi.Output<string>;
+    public readonly loadBalancerName!: pulumi.Output<string>;
     /**
      * Policy attribute to apply to the policy.
      */
-    public readonly policyAttributes: pulumi.Output<{ name?: string, value?: string }[] | undefined>;
+    public readonly policyAttributes!: pulumi.Output<{ name?: string, value?: string }[] | undefined>;
     /**
      * The name of the load balancer policy.
      */
-    public readonly policyName: pulumi.Output<string>;
+    public readonly policyName!: pulumi.Output<string>;
     /**
      * The policy type.
      */
-    public readonly policyTypeName: pulumi.Output<string>;
+    public readonly policyTypeName!: pulumi.Output<string>;
 
     /**
      * Create a LoadBalancerPolicy resource with the given unique name, arguments, and options.
@@ -130,7 +130,7 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LoadBalancerPolicyArgs | LoadBalancerPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LoadBalancerPolicyState = argsOrState as LoadBalancerPolicyState | undefined;
+            const state = argsOrState as LoadBalancerPolicyState | undefined;
             inputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
             inputs["policyAttributes"] = state ? state.policyAttributes : undefined;
             inputs["policyName"] = state ? state.policyName : undefined;
@@ -150,6 +150,13 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
             inputs["policyAttributes"] = args ? args.policyAttributes : undefined;
             inputs["policyName"] = args ? args.policyName : undefined;
             inputs["policyTypeName"] = args ? args.policyTypeName : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy", name, inputs, opts);
     }

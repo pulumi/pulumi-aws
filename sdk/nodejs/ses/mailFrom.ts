@@ -55,15 +55,15 @@ export class MailFrom extends pulumi.CustomResource {
     /**
      * The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
      */
-    public readonly behaviorOnMxFailure: pulumi.Output<string | undefined>;
+    public readonly behaviorOnMxFailure!: pulumi.Output<string | undefined>;
     /**
      * Verified domain name to generate DKIM tokens for.
      */
-    public readonly domain: pulumi.Output<string>;
+    public readonly domain!: pulumi.Output<string>;
     /**
      * Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
      */
-    public readonly mailFromDomain: pulumi.Output<string>;
+    public readonly mailFromDomain!: pulumi.Output<string>;
 
     /**
      * Create a MailFrom resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ export class MailFrom extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MailFromArgs | MailFromState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MailFromState = argsOrState as MailFromState | undefined;
+            const state = argsOrState as MailFromState | undefined;
             inputs["behaviorOnMxFailure"] = state ? state.behaviorOnMxFailure : undefined;
             inputs["domain"] = state ? state.domain : undefined;
             inputs["mailFromDomain"] = state ? state.mailFromDomain : undefined;
@@ -91,6 +91,13 @@ export class MailFrom extends pulumi.CustomResource {
             inputs["behaviorOnMxFailure"] = args ? args.behaviorOnMxFailure : undefined;
             inputs["domain"] = args ? args.domain : undefined;
             inputs["mailFromDomain"] = args ? args.mailFromDomain : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:ses/mailFrom:MailFrom", name, inputs, opts);
     }

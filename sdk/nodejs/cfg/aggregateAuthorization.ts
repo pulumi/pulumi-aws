@@ -35,15 +35,15 @@ export class AggregateAuthorization extends pulumi.CustomResource {
     /**
      * Account ID
      */
-    public readonly accountId: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string>;
     /**
      * The ARN of the authorization
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Region
      */
-    public readonly region: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a AggregateAuthorization resource with the given unique name, arguments, and options.
@@ -56,7 +56,7 @@ export class AggregateAuthorization extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AggregateAuthorizationArgs | AggregateAuthorizationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AggregateAuthorizationState = argsOrState as AggregateAuthorizationState | undefined;
+            const state = argsOrState as AggregateAuthorizationState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["region"] = state ? state.region : undefined;
@@ -71,6 +71,13 @@ export class AggregateAuthorization extends pulumi.CustomResource {
             inputs["accountId"] = args ? args.accountId : undefined;
             inputs["region"] = args ? args.region : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:cfg/aggregateAuthorization:AggregateAuthorization", name, inputs, opts);
     }

@@ -39,9 +39,7 @@ class Member(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, account_id=None, detector_id=None, disable_email_notification=None, email=None, invitation_message=None, invite=None, __name__=None, __opts__=None):
         """
-        Provides a resource to manage a GuardDuty member.
-        
-        > **NOTE:** Currently after using this resource, you must manually accept member account invitations before GuardDuty will begin sending cross-account events. More information for how to accomplish this via the AWS Console or API can be found in the [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_accounts.html). Terraform implementation of the member acceptance resource can be tracked in [Github](https://github.com/terraform-providers/terraform-provider-aws/issues/2489).
+        Provides a resource to manage a GuardDuty member. To accept invitations in member accounts, see the [`aws_guardduty_invite_accepter` resource](https://www.terraform.io/docs/providers/aws/r/guardduty_invite_accepter.html).
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -87,6 +85,10 @@ class Member(pulumi.CustomResource):
 
         __props__['relationship_status'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Member, __self__).__init__(
             'aws:guardduty/member:Member',
             resource_name,

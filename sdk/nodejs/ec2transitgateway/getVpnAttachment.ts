@@ -22,6 +22,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVpnAttachment(args: GetVpnAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnAttachmentResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", {
         "tags": args.tags,
         "transitGatewayId": args.transitGatewayId,

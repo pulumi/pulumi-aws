@@ -130,109 +130,109 @@ export class Function extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) identifying your Lambda Function.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Nested block to configure the function's *dead letter queue*. See details below.
      */
-    public readonly deadLetterConfig: pulumi.Output<{ targetArn: string } | undefined>;
+    public readonly deadLetterConfig!: pulumi.Output<{ targetArn: string } | undefined>;
     /**
      * Description of what your Lambda Function does.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The Lambda environment's configuration settings. Fields documented below.
      */
-    public readonly environment: pulumi.Output<{ variables?: {[key: string]: string} } | undefined>;
+    public readonly environment!: pulumi.Output<{ variables?: {[key: string]: string} } | undefined>;
     /**
      * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
-    public readonly code: pulumi.Output<pulumi.asset.Archive | undefined>;
+    public readonly code!: pulumi.Output<pulumi.asset.Archive | undefined>;
     /**
      * A unique name for your Lambda Function.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The function [entrypoint][3] in your code.
      */
-    public readonly handler: pulumi.Output<string>;
+    public readonly handler!: pulumi.Output<string>;
     /**
      * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
      */
-    public /*out*/ readonly invokeArn: pulumi.Output<string>;
+    public /*out*/ readonly invokeArn!: pulumi.Output<string>;
     /**
      * The ARN for the KMS encryption key.
      */
-    public readonly kmsKeyArn: pulumi.Output<string | undefined>;
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * The date this resource was last modified.
      */
-    public /*out*/ readonly lastModified: pulumi.Output<string>;
+    public /*out*/ readonly lastModified!: pulumi.Output<string>;
     /**
      * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
      */
-    public readonly layers: pulumi.Output<string[] | undefined>;
+    public readonly layers!: pulumi.Output<string[] | undefined>;
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
      */
-    public readonly memorySize: pulumi.Output<number | undefined>;
+    public readonly memorySize!: pulumi.Output<number | undefined>;
     /**
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      */
-    public readonly publish: pulumi.Output<boolean | undefined>;
+    public readonly publish!: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) identifying your Lambda Function Version
      * (if versioning is enabled via `publish = true`).
      */
-    public /*out*/ readonly qualifiedArn: pulumi.Output<string>;
+    public /*out*/ readonly qualifiedArn!: pulumi.Output<string>;
     /**
      * The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
      */
-    public readonly reservedConcurrentExecutions: pulumi.Output<number | undefined>;
+    public readonly reservedConcurrentExecutions!: pulumi.Output<number | undefined>;
     /**
      * IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
      */
-    public readonly role: pulumi.Output<ARN>;
+    public readonly role!: pulumi.Output<ARN>;
     /**
      * See [Runtimes][6] for valid values.
      */
-    public readonly runtime: pulumi.Output<string>;
+    public readonly runtime!: pulumi.Output<string>;
     /**
      * The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
      */
-    public readonly s3Bucket: pulumi.Output<string | undefined>;
+    public readonly s3Bucket!: pulumi.Output<string | undefined>;
     /**
      * The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
      */
-    public readonly s3Key: pulumi.Output<string | undefined>;
+    public readonly s3Key!: pulumi.Output<string | undefined>;
     /**
      * The object version containing the function's deployment package. Conflicts with `filename`.
      */
-    public readonly s3ObjectVersion: pulumi.Output<string | undefined>;
+    public readonly s3ObjectVersion!: pulumi.Output<string | undefined>;
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${base64sha256(file("file.zip"))}`, where "file.zip" is the local filename of the lambda function source archive.
      */
-    public readonly sourceCodeHash: pulumi.Output<string>;
+    public readonly sourceCodeHash!: pulumi.Output<string>;
     /**
      * The size in bytes of the function .zip file.
      */
-    public /*out*/ readonly sourceCodeSize: pulumi.Output<number>;
+    public /*out*/ readonly sourceCodeSize!: pulumi.Output<number>;
     /**
      * A mapping of tags to assign to the object.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
      */
-    public readonly timeout: pulumi.Output<number | undefined>;
-    public readonly tracingConfig: pulumi.Output<{ mode: string }>;
+    public readonly timeout!: pulumi.Output<number | undefined>;
+    public readonly tracingConfig!: pulumi.Output<{ mode: string }>;
     /**
      * Latest published version of your Lambda Function.
      */
-    public /*out*/ readonly version: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string>;
     /**
      * Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
      */
-    public readonly vpcConfig: pulumi.Output<{ securityGroupIds: string[], subnetIds: string[], vpcId: string } | undefined>;
+    public readonly vpcConfig!: pulumi.Output<{ securityGroupIds: string[], subnetIds: string[], vpcId: string } | undefined>;
 
     /**
      * Create a Function resource with the given unique name, arguments, and options.
@@ -245,7 +245,7 @@ export class Function extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FunctionArgs | FunctionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FunctionState = argsOrState as FunctionState | undefined;
+            const state = argsOrState as FunctionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["deadLetterConfig"] = state ? state.deadLetterConfig : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -311,6 +311,13 @@ export class Function extends pulumi.CustomResource {
             inputs["qualifiedArn"] = undefined /*out*/;
             inputs["sourceCodeSize"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:lambda/function:Function", name, inputs, opts);
     }

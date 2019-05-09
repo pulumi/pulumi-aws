@@ -22,6 +22,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:kinesis/getStream:getStream", {
         "name": args.name,
     }, opts);

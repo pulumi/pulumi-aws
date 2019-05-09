@@ -45,11 +45,11 @@ export class UserPolicyAttachment extends pulumi.CustomResource {
     /**
      * The ARN of the policy you want to apply
      */
-    public readonly policyArn: pulumi.Output<ARN>;
+    public readonly policyArn!: pulumi.Output<ARN>;
     /**
      * The user the policy should be applied to
      */
-    public readonly user: pulumi.Output<User>;
+    public readonly user!: pulumi.Output<User>;
 
     /**
      * Create a UserPolicyAttachment resource with the given unique name, arguments, and options.
@@ -62,7 +62,7 @@ export class UserPolicyAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserPolicyAttachmentArgs | UserPolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserPolicyAttachmentState = argsOrState as UserPolicyAttachmentState | undefined;
+            const state = argsOrState as UserPolicyAttachmentState | undefined;
             inputs["policyArn"] = state ? state.policyArn : undefined;
             inputs["user"] = state ? state.user : undefined;
         } else {
@@ -75,6 +75,13 @@ export class UserPolicyAttachment extends pulumi.CustomResource {
             }
             inputs["policyArn"] = args ? args.policyArn : undefined;
             inputs["user"] = args ? args.user : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:iam/userPolicyAttachment:UserPolicyAttachment", name, inputs, opts);
     }

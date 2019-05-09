@@ -41,15 +41,15 @@ export class DocumentationPart extends pulumi.CustomResource {
     /**
      * The location of the targeted API entity of the to-be-created documentation part. See below.
      */
-    public readonly location: pulumi.Output<{ method?: string, name?: string, path?: string, statusCode?: string, type: string }>;
+    public readonly location!: pulumi.Output<{ method?: string, name?: string, path?: string, statusCode?: string, type: string }>;
     /**
      * A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
      */
-    public readonly properties: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<string>;
     /**
      * The ID of the associated Rest API
      */
-    public readonly restApiId: pulumi.Output<string>;
+    public readonly restApiId!: pulumi.Output<string>;
 
     /**
      * Create a DocumentationPart resource with the given unique name, arguments, and options.
@@ -62,7 +62,7 @@ export class DocumentationPart extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DocumentationPartArgs | DocumentationPartState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DocumentationPartState = argsOrState as DocumentationPartState | undefined;
+            const state = argsOrState as DocumentationPartState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["properties"] = state ? state.properties : undefined;
             inputs["restApiId"] = state ? state.restApiId : undefined;
@@ -80,6 +80,13 @@ export class DocumentationPart extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["restApiId"] = args ? args.restApiId : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:apigateway/documentationPart:DocumentationPart", name, inputs, opts);
     }

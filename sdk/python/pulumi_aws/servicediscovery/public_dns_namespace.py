@@ -56,6 +56,10 @@ class PublicDnsNamespace(pulumi.CustomResource):
         __props__['arn'] = None
         __props__['hosted_zone'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(PublicDnsNamespace, __self__).__init__(
             'aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace',
             resource_name,

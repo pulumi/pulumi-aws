@@ -37,27 +37,27 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
         return new ReplicationSubnetGroup(name, <any>state, { ...opts, id: id });
     }
 
-    public /*out*/ readonly replicationSubnetGroupArn: pulumi.Output<string>;
+    public /*out*/ readonly replicationSubnetGroupArn!: pulumi.Output<string>;
     /**
      * The description for the subnet group.
      */
-    public readonly replicationSubnetGroupDescription: pulumi.Output<string>;
+    public readonly replicationSubnetGroupDescription!: pulumi.Output<string>;
     /**
      * The name for the replication subnet group. This value is stored as a lowercase string.
      */
-    public readonly replicationSubnetGroupId: pulumi.Output<string>;
+    public readonly replicationSubnetGroupId!: pulumi.Output<string>;
     /**
      * A list of the EC2 subnet IDs for the subnet group.
      */
-    public readonly subnetIds: pulumi.Output<string[]>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The ID of the VPC the subnet group is in.
      */
-    public /*out*/ readonly vpcId: pulumi.Output<string>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a ReplicationSubnetGroup resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ReplicationSubnetGroupArgs | ReplicationSubnetGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ReplicationSubnetGroupState = argsOrState as ReplicationSubnetGroupState | undefined;
+            const state = argsOrState as ReplicationSubnetGroupState | undefined;
             inputs["replicationSubnetGroupArn"] = state ? state.replicationSubnetGroupArn : undefined;
             inputs["replicationSubnetGroupDescription"] = state ? state.replicationSubnetGroupDescription : undefined;
             inputs["replicationSubnetGroupId"] = state ? state.replicationSubnetGroupId : undefined;
@@ -94,6 +94,13 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["replicationSubnetGroupArn"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup", name, inputs, opts);
     }

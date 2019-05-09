@@ -44,23 +44,23 @@ export class UsagePlanKey extends pulumi.CustomResource {
     /**
      * The identifier of the API key resource.
      */
-    public readonly keyId: pulumi.Output<string>;
+    public readonly keyId!: pulumi.Output<string>;
     /**
      * The type of the API key resource. Currently, the valid key type is API_KEY.
      */
-    public readonly keyType: pulumi.Output<string>;
+    public readonly keyType!: pulumi.Output<string>;
     /**
      * The name of a usage plan key.
      */
-    public /*out*/ readonly name: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The Id of the usage plan resource representing to associate the key to.
      */
-    public readonly usagePlanId: pulumi.Output<string>;
+    public readonly usagePlanId!: pulumi.Output<string>;
     /**
      * The value of a usage plan key.
      */
-    public /*out*/ readonly value: pulumi.Output<string>;
+    public /*out*/ readonly value!: pulumi.Output<string>;
 
     /**
      * Create a UsagePlanKey resource with the given unique name, arguments, and options.
@@ -73,7 +73,7 @@ export class UsagePlanKey extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UsagePlanKeyArgs | UsagePlanKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UsagePlanKeyState = argsOrState as UsagePlanKeyState | undefined;
+            const state = argsOrState as UsagePlanKeyState | undefined;
             inputs["keyId"] = state ? state.keyId : undefined;
             inputs["keyType"] = state ? state.keyType : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -95,6 +95,13 @@ export class UsagePlanKey extends pulumi.CustomResource {
             inputs["usagePlanId"] = args ? args.usagePlanId : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["value"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:apigateway/usagePlanKey:UsagePlanKey", name, inputs, opts);
     }

@@ -32,24 +32,24 @@ export class Portfolio extends pulumi.CustomResource {
         return new Portfolio(name, <any>state, { ...opts, id: id });
     }
 
-    public /*out*/ readonly arn: pulumi.Output<string>;
-    public /*out*/ readonly createdTime: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
      * Description of the portfolio
      */
-    public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * The name of the portfolio.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Name of the person or organization who owns the portfolio.
      */
-    public readonly providerName: pulumi.Output<string | undefined>;
+    public readonly providerName!: pulumi.Output<string | undefined>;
     /**
      * Tags to apply to the connection.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Portfolio resource with the given unique name, arguments, and options.
@@ -62,7 +62,7 @@ export class Portfolio extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PortfolioArgs | PortfolioState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PortfolioState = argsOrState as PortfolioState | undefined;
+            const state = argsOrState as PortfolioState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["createdTime"] = state ? state.createdTime : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -77,6 +77,13 @@ export class Portfolio extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:servicecatalog/portfolio:Portfolio", name, inputs, opts);
     }

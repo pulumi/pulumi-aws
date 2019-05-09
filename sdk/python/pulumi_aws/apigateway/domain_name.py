@@ -164,6 +164,10 @@ class DomainName(pulumi.CustomResource):
         __props__['regional_domain_name'] = None
         __props__['regional_zone_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(DomainName, __self__).__init__(
             'aws:apigateway/domainName:DomainName',
             resource_name,

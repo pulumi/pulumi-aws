@@ -35,80 +35,80 @@ export class GangliaLayer extends pulumi.CustomResource {
     /**
      * Whether to automatically assign an elastic IP address to the layer's instances.
      */
-    public readonly autoAssignElasticIps: pulumi.Output<boolean | undefined>;
+    public readonly autoAssignElasticIps!: pulumi.Output<boolean | undefined>;
     /**
      * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
      */
-    public readonly autoAssignPublicIps: pulumi.Output<boolean | undefined>;
+    public readonly autoAssignPublicIps!: pulumi.Output<boolean | undefined>;
     /**
      * Whether to enable auto-healing for the layer.
      */
-    public readonly autoHealing: pulumi.Output<boolean | undefined>;
-    public readonly customConfigureRecipes: pulumi.Output<string[] | undefined>;
-    public readonly customDeployRecipes: pulumi.Output<string[] | undefined>;
+    public readonly autoHealing!: pulumi.Output<boolean | undefined>;
+    public readonly customConfigureRecipes!: pulumi.Output<string[] | undefined>;
+    public readonly customDeployRecipes!: pulumi.Output<string[] | undefined>;
     /**
      * The ARN of an IAM profile that will be used for the layer's instances.
      */
-    public readonly customInstanceProfileArn: pulumi.Output<string | undefined>;
+    public readonly customInstanceProfileArn!: pulumi.Output<string | undefined>;
     /**
      * Custom JSON attributes to apply to the layer.
      */
-    public readonly customJson: pulumi.Output<string | undefined>;
+    public readonly customJson!: pulumi.Output<string | undefined>;
     /**
      * Ids for a set of security groups to apply to the layer's instances.
      */
-    public readonly customSecurityGroupIds: pulumi.Output<string[] | undefined>;
-    public readonly customSetupRecipes: pulumi.Output<string[] | undefined>;
-    public readonly customShutdownRecipes: pulumi.Output<string[] | undefined>;
-    public readonly customUndeployRecipes: pulumi.Output<string[] | undefined>;
+    public readonly customSecurityGroupIds!: pulumi.Output<string[] | undefined>;
+    public readonly customSetupRecipes!: pulumi.Output<string[] | undefined>;
+    public readonly customShutdownRecipes!: pulumi.Output<string[] | undefined>;
+    public readonly customUndeployRecipes!: pulumi.Output<string[] | undefined>;
     /**
      * Whether to enable Elastic Load Balancing connection draining.
      */
-    public readonly drainElbOnShutdown: pulumi.Output<boolean | undefined>;
+    public readonly drainElbOnShutdown!: pulumi.Output<boolean | undefined>;
     /**
      * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    public readonly ebsVolumes: pulumi.Output<{ iops?: number, mountPoint: string, numberOfDisks: number, raidLevel?: string, size: number, type?: string }[] | undefined>;
+    public readonly ebsVolumes!: pulumi.Output<{ iops?: number, mountPoint: string, numberOfDisks: number, raidLevel?: string, size: number, type?: string }[] | undefined>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
-    public readonly elasticLoadBalancer: pulumi.Output<string | undefined>;
+    public readonly elasticLoadBalancer!: pulumi.Output<string | undefined>;
     /**
      * Whether to install OS and package updates on each instance when it boots.
      */
-    public readonly installUpdatesOnBoot: pulumi.Output<boolean | undefined>;
+    public readonly installUpdatesOnBoot!: pulumi.Output<boolean | undefined>;
     /**
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
-    public readonly instanceShutdownTimeout: pulumi.Output<number | undefined>;
+    public readonly instanceShutdownTimeout!: pulumi.Output<number | undefined>;
     /**
      * A human-readable name for the layer.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The password to use for Ganglia.
      */
-    public readonly password: pulumi.Output<string>;
+    public readonly password!: pulumi.Output<string>;
     /**
      * The id of the stack the layer will belong to.
      */
-    public readonly stackId: pulumi.Output<string>;
+    public readonly stackId!: pulumi.Output<string>;
     /**
      * Names of a set of system packages to install on the layer's instances.
      */
-    public readonly systemPackages: pulumi.Output<string[] | undefined>;
+    public readonly systemPackages!: pulumi.Output<string[] | undefined>;
     /**
      * The URL path to use for Ganglia. Defaults to "/ganglia".
      */
-    public readonly url: pulumi.Output<string | undefined>;
+    public readonly url!: pulumi.Output<string | undefined>;
     /**
      * Whether to use EBS-optimized instances.
      */
-    public readonly useEbsOptimizedInstances: pulumi.Output<boolean | undefined>;
+    public readonly useEbsOptimizedInstances!: pulumi.Output<boolean | undefined>;
     /**
      * The username to use for Ganglia. Defaults to "opsworks".
      */
-    public readonly username: pulumi.Output<string | undefined>;
+    public readonly username!: pulumi.Output<string | undefined>;
 
     /**
      * Create a GangliaLayer resource with the given unique name, arguments, and options.
@@ -121,7 +121,7 @@ export class GangliaLayer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GangliaLayerArgs | GangliaLayerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GangliaLayerState = argsOrState as GangliaLayerState | undefined;
+            const state = argsOrState as GangliaLayerState | undefined;
             inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
             inputs["autoAssignPublicIps"] = state ? state.autoAssignPublicIps : undefined;
             inputs["autoHealing"] = state ? state.autoHealing : undefined;
@@ -176,6 +176,13 @@ export class GangliaLayer extends pulumi.CustomResource {
             inputs["url"] = args ? args.url : undefined;
             inputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
             inputs["username"] = args ? args.username : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:opsworks/gangliaLayer:GangliaLayer", name, inputs, opts);
     }

@@ -79,6 +79,10 @@ class LogSubscriptionFilter(pulumi.CustomResource):
 
         __props__['role_arn'] = role_arn
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(LogSubscriptionFilter, __self__).__init__(
             'aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter',
             resource_name,

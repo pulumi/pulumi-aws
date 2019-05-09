@@ -49,6 +49,10 @@ class RecorderStatus(pulumi.CustomResource):
 
         __props__['name'] = name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(RecorderStatus, __self__).__init__(
             'aws:cfg/recorderStatus:RecorderStatus',
             resource_name,

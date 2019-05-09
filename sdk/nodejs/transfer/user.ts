@@ -73,31 +73,31 @@ export class User extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of Transfer User
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
      */
-    public readonly homeDirectory: pulumi.Output<string | undefined>;
+    public readonly homeDirectory!: pulumi.Output<string | undefined>;
     /**
      * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).  These are evaluated on-the-fly when navigating the bucket.
      */
-    public readonly policy: pulumi.Output<string | undefined>;
+    public readonly policy!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
      */
-    public readonly role: pulumi.Output<string>;
+    public readonly role!: pulumi.Output<string>;
     /**
      * The Server ID of the Transfer Server (e.g. `s-12345678`)
      */
-    public readonly serverId: pulumi.Output<string>;
+    public readonly serverId!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The name used for log in to your SFTP server.
      */
-    public readonly userName: pulumi.Output<string>;
+    public readonly userName!: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -110,7 +110,7 @@ export class User extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserState = argsOrState as UserState | undefined;
+            const state = argsOrState as UserState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["homeDirectory"] = state ? state.homeDirectory : undefined;
             inputs["policy"] = state ? state.policy : undefined;
@@ -136,6 +136,13 @@ export class User extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userName"] = args ? args.userName : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:transfer/user:User", name, inputs, opts);
     }

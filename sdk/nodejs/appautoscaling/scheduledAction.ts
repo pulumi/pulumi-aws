@@ -77,39 +77,39 @@ export class ScheduledAction extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the scheduled action.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The date and time for the scheduled action to end. Specify the following format: 2006-01-02T15:04:05Z
      */
-    public readonly endTime: pulumi.Output<string | undefined>;
+    public readonly endTime!: pulumi.Output<string | undefined>;
     /**
      * The name of the scheduled action.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The identifier of the resource associated with the scheduled action. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ResourceId)
      */
-    public readonly resourceId: pulumi.Output<string>;
+    public readonly resourceId!: pulumi.Output<string>;
     /**
      * The scalable dimension. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ScalableDimension) Example: ecs:service:DesiredCount
      */
-    public readonly scalableDimension: pulumi.Output<string | undefined>;
+    public readonly scalableDimension!: pulumi.Output<string | undefined>;
     /**
      * The new minimum and maximum capacity. You can set both values or just one. See below
      */
-    public readonly scalableTargetAction: pulumi.Output<{ maxCapacity?: number, minCapacity?: number } | undefined>;
+    public readonly scalableTargetAction!: pulumi.Output<{ maxCapacity?: number, minCapacity?: number } | undefined>;
     /**
      * The schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). In UTC. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-Schedule)
      */
-    public readonly schedule: pulumi.Output<string | undefined>;
+    public readonly schedule!: pulumi.Output<string | undefined>;
     /**
      * The namespace of the AWS service. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ServiceNamespace) Example: ecs
      */
-    public readonly serviceNamespace: pulumi.Output<string>;
+    public readonly serviceNamespace!: pulumi.Output<string>;
     /**
      * The date and time for the scheduled action to start. Specify the following format: 2006-01-02T15:04:05Z
      */
-    public readonly startTime: pulumi.Output<string | undefined>;
+    public readonly startTime!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ScheduledAction resource with the given unique name, arguments, and options.
@@ -122,7 +122,7 @@ export class ScheduledAction extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ScheduledActionArgs | ScheduledActionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ScheduledActionState = argsOrState as ScheduledActionState | undefined;
+            const state = argsOrState as ScheduledActionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["endTime"] = state ? state.endTime : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -149,6 +149,13 @@ export class ScheduledAction extends pulumi.CustomResource {
             inputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:appautoscaling/scheduledAction:ScheduledAction", name, inputs, opts);
     }

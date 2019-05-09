@@ -37,6 +37,13 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getAmi(args: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("aws:index/getAmi:getAmi", {
         "executableUsers": args.executableUsers,
         "filters": args.filters,

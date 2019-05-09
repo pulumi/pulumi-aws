@@ -83,6 +83,10 @@ class MountTarget(pulumi.CustomResource):
         __props__['file_system_arn'] = None
         __props__['network_interface_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(MountTarget, __self__).__init__(
             'aws:efs/mountTarget:MountTarget',
             resource_name,

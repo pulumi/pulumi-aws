@@ -43,51 +43,51 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
     /**
      * The address family for the BGP peer. `ipv4 ` or `ipv6`.
      */
-    public readonly addressFamily: pulumi.Output<string>;
+    public readonly addressFamily!: pulumi.Output<string>;
     /**
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      */
-    public readonly amazonAddress: pulumi.Output<string>;
+    public readonly amazonAddress!: pulumi.Output<string>;
     /**
      * The ARN of the virtual interface.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The Direct Connect endpoint on which the virtual interface terminates.
      */
-    public /*out*/ readonly awsDevice: pulumi.Output<string>;
+    public /*out*/ readonly awsDevice!: pulumi.Output<string>;
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      */
-    public readonly bgpAsn: pulumi.Output<number>;
+    public readonly bgpAsn!: pulumi.Output<number>;
     /**
      * The authentication key for BGP configuration.
      */
-    public readonly bgpAuthKey: pulumi.Output<string>;
+    public readonly bgpAuthKey!: pulumi.Output<string>;
     /**
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      */
-    public readonly connectionId: pulumi.Output<string>;
+    public readonly connectionId!: pulumi.Output<string>;
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      */
-    public readonly customerAddress: pulumi.Output<string>;
+    public readonly customerAddress!: pulumi.Output<string>;
     /**
      * The name for the virtual interface.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A list of routes to be advertised to the AWS network in this region.
      */
-    public readonly routeFilterPrefixes: pulumi.Output<string[]>;
+    public readonly routeFilterPrefixes!: pulumi.Output<string[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The VLAN ID.
      */
-    public readonly vlan: pulumi.Output<number>;
+    public readonly vlan!: pulumi.Output<number>;
 
     /**
      * Create a PublicVirtualInterface resource with the given unique name, arguments, and options.
@@ -100,7 +100,7 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PublicVirtualInterfaceArgs | PublicVirtualInterfaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PublicVirtualInterfaceState = argsOrState as PublicVirtualInterfaceState | undefined;
+            const state = argsOrState as PublicVirtualInterfaceState | undefined;
             inputs["addressFamily"] = state ? state.addressFamily : undefined;
             inputs["amazonAddress"] = state ? state.amazonAddress : undefined;
             inputs["arn"] = state ? state.arn : undefined;
@@ -142,6 +142,13 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
             inputs["vlan"] = args ? args.vlan : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["awsDevice"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:directconnect/publicVirtualInterface:PublicVirtualInterface", name, inputs, opts);
     }

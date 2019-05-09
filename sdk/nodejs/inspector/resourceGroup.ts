@@ -37,11 +37,11 @@ export class ResourceGroup extends pulumi.CustomResource {
     /**
      * The resource group ARN.
      */
-    public /*out*/ readonly arn: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The tags on your EC2 Instance.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a ResourceGroup resource with the given unique name, arguments, and options.
@@ -54,7 +54,7 @@ export class ResourceGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResourceGroupArgs | ResourceGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ResourceGroupState = argsOrState as ResourceGroupState | undefined;
+            const state = argsOrState as ResourceGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -64,6 +64,13 @@ export class ResourceGroup extends pulumi.CustomResource {
             }
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super("aws:inspector/resourceGroup:ResourceGroup", name, inputs, opts);
     }
