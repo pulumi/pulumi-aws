@@ -56,10 +56,10 @@ async def get_document(document_format=None,document_version=None,name=None,opts
     __args__['documentFormat'] = document_format
     __args__['documentVersion'] = document_version
     __args__['name'] = name
- .   if opts is None:
-         opts = pulumi.ResourceOptions()
-     if opts.version is None:
-         opts.version = utilities.get_version()
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ssm/getDocument:getDocument', __args__, opts=opts)
 
     return GetDocumentResult(

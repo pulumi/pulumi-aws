@@ -42,10 +42,10 @@ async def get_snapshot_ids(filters=None,owners=None,restorable_by_user_ids=None,
     __args__['filters'] = filters
     __args__['owners'] = owners
     __args__['restorableByUserIds'] = restorable_by_user_ids
- .   if opts is None:
-         opts = pulumi.ResourceOptions()
-     if opts.version is None:
-         opts.version = utilities.get_version()
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ebs/getSnapshotIds:getSnapshotIds', __args__, opts=opts)
 
     return GetSnapshotIdsResult(

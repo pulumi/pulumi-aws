@@ -63,10 +63,10 @@ async def get_ip_ranges(regions=None,services=None,url=None,opts=None):
     __args__['regions'] = regions
     __args__['services'] = services
     __args__['url'] = url
- .   if opts is None:
-         opts = pulumi.ResourceOptions()
-     if opts.version is None:
-         opts.version = utilities.get_version()
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:index/getIpRanges:getIpRanges', __args__, opts=opts)
 
     return GetIpRangesResult(

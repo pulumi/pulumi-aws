@@ -152,10 +152,10 @@ async def get_snapshot(db_instance_identifier=None,db_snapshot_identifier=None,i
     __args__['includeShared'] = include_shared
     __args__['mostRecent'] = most_recent
     __args__['snapshotType'] = snapshot_type
- .   if opts is None:
-         opts = pulumi.ResourceOptions()
-     if opts.version is None:
-         opts.version = utilities.get_version()
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:rds/getSnapshot:getSnapshot', __args__, opts=opts)
 
     return GetSnapshotResult(

@@ -72,10 +72,10 @@ async def get_job_queue(name=None,opts=None):
     __args__ = dict()
 
     __args__['name'] = name
- .   if opts is None:
-         opts = pulumi.ResourceOptions()
-     if opts.version is None:
-         opts.version = utilities.get_version()
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:batch/getJobQueue:getJobQueue', __args__, opts=opts)
 
     return GetJobQueueResult(

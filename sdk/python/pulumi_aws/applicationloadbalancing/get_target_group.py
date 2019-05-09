@@ -77,10 +77,10 @@ async def get_target_group(arn=None,name=None,tags=None,opts=None):
     __args__['arn'] = arn
     __args__['name'] = name
     __args__['tags'] = tags
- .   if opts is None:
-         opts = pulumi.ResourceOptions()
-     if opts.version is None:
-         opts.version = utilities.get_version()
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:applicationloadbalancing/getTargetGroup:getTargetGroup', __args__, opts=opts)
 
     return GetTargetGroupResult(

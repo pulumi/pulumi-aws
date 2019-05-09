@@ -83,10 +83,10 @@ async def get_table(name=None,server_side_encryption=None,tags=None,opts=None):
     __args__['name'] = name
     __args__['serverSideEncryption'] = server_side_encryption
     __args__['tags'] = tags
- .   if opts is None:
-         opts = pulumi.ResourceOptions()
-     if opts.version is None:
-         opts.version = utilities.get_version()
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:dynamodb/getTable:getTable', __args__, opts=opts)
 
     return GetTableResult(

@@ -219,10 +219,10 @@ async def get_ami(executable_users=None,filters=None,most_recent=None,name_regex
     __args__['nameRegex'] = name_regex
     __args__['owners'] = owners
     __args__['tags'] = tags
- .   if opts is None:
-         opts = pulumi.ResourceOptions()
-     if opts.version is None:
-         opts.version = utilities.get_version()
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:index/getAmi:getAmi', __args__, opts=opts)
 
     return GetAmiResult(
