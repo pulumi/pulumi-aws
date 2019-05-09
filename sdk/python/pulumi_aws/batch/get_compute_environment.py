@@ -73,10 +73,10 @@ async def get_compute_environment(compute_environment_name=None,opts=None):
     __args__ = dict()
 
     __args__['computeEnvironmentName'] = compute_environment_name
- .   if opts is None:
-         opts = pulumi.ResourceOptions()
-     if opts.version is None:
-         opts.version = utilities.get_version()
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:batch/getComputeEnvironment:getComputeEnvironment', __args__, opts=opts)
 
     return GetComputeEnvironmentResult(

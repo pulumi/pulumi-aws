@@ -70,10 +70,10 @@ async def get_route(destination_cidr_block=None,destination_ipv6_cidr_block=None
     __args__['routeTableId'] = route_table_id
     __args__['transitGatewayId'] = transit_gateway_id
     __args__['vpcPeeringConnectionId'] = vpc_peering_connection_id
- .   if opts is None:
-         opts = pulumi.ResourceOptions()
-     if opts.version is None:
-         opts.version = utilities.get_version()
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ec2/getRoute:getRoute', __args__, opts=opts)
 
     return GetRouteResult(

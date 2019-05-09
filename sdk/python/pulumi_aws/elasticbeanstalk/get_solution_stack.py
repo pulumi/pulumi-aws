@@ -40,10 +40,10 @@ async def get_solution_stack(most_recent=None,name_regex=None,opts=None):
 
     __args__['mostRecent'] = most_recent
     __args__['nameRegex'] = name_regex
- .   if opts is None:
-         opts = pulumi.ResourceOptions()
-     if opts.version is None:
-         opts.version = utilities.get_version()
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:elasticbeanstalk/getSolutionStack:getSolutionStack', __args__, opts=opts)
 
     return GetSolutionStackResult(

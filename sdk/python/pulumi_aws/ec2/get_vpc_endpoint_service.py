@@ -77,10 +77,10 @@ async def get_vpc_endpoint_service(service=None,service_name=None,opts=None):
 
     __args__['service'] = service
     __args__['serviceName'] = service_name
- .   if opts is None:
-         opts = pulumi.ResourceOptions()
-     if opts.version is None:
-         opts.version = utilities.get_version()
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpcEndpointService:getVpcEndpointService', __args__, opts=opts)
 
     return GetVpcEndpointServiceResult(

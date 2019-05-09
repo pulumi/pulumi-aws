@@ -50,10 +50,10 @@ async def get_prefix_list(name=None,prefix_list_id=None,opts=None):
 
     __args__['name'] = name
     __args__['prefixListId'] = prefix_list_id
- .   if opts is None:
-         opts = pulumi.ResourceOptions()
-     if opts.version is None:
-         opts.version = utilities.get_version()
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:index/getPrefixList:getPrefixList', __args__, opts=opts)
 
     return GetPrefixListResult(

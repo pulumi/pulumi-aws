@@ -41,10 +41,10 @@ async def get_product(filters=None,service_code=None,opts=None):
 
     __args__['filters'] = filters
     __args__['serviceCode'] = service_code
- .   if opts is None:
-         opts = pulumi.ResourceOptions()
-     if opts.version is None:
-         opts.version = utilities.get_version()
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:pricing/getProduct:getProduct', __args__, opts=opts)
 
     return GetProductResult(
