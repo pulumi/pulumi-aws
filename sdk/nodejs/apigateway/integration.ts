@@ -103,14 +103,14 @@ import {RestApi} from "./restApi";
  *     resourceId: resource.id,
  *     restApi: api.id,
  *     type: "AWS_PROXY",
- *     uri: lambda.arn.apply(arn => `arn:aws:apigateway:${myregion}:lambda:path/2015-03-31/functions/${arn}/invocations`),
+ *     uri: pulumi.interpolate`arn:aws:apigateway:${myregion}:lambda:path/2015-03-31/functions/${lambda.arn}/invocations`,
  * });
  * // Lambda
  * const apigwLambda = new aws.lambda.Permission("apigw_lambda", {
  *     action: "lambda:InvokeFunction",
  *     function: lambda.arn,
  *     principal: "apigateway.amazonaws.com",
- *     sourceArn: pulumi.all([api.id, method.httpMethod, resource.path]).apply(([id, httpMethod, path]) => `arn:aws:execute-api:${myregion}:${accountId}:${id}/*&#47;${httpMethod}/${path}`),
+ *     sourceArn: pulumi.interpolate`arn:aws:execute-api:${myregion}:${accountId}:${api.id}/*&#47;${method.httpMethod}/${resource.path}`,
  * });
  * ```
  * 

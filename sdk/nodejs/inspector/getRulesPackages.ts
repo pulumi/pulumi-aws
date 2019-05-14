@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * });
  * const assessmentAssessmentTemplate = new aws.inspector.AssessmentTemplate("assessment", {
  *     duration: 60,
- *     rulesPackageArns: rules.apply(rules => rules.arns),
+ *     rulesPackageArns: rules.arns,
  *     targetArn: assessmentAssessmentTarget.arn,
  * });
  * ```

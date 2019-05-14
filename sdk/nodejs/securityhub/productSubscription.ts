@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const exampleAccount = new aws.securityhub.Account("example", {});
  * const current = pulumi.output(aws.getRegion({}));
  * const exampleProductSubscription = new aws.securityhub.ProductSubscription("example", {
- *     productArn: current.apply(current => `arn:aws:securityhub:${current.name}:733251395267:product/alertlogic/althreatmanagement`),
+ *     productArn: pulumi.interpolate`arn:aws:securityhub:${current.name}:733251395267:product/alertlogic/althreatmanagement`,
  * }, {dependsOn: [exampleAccount]});
  * ```
  */

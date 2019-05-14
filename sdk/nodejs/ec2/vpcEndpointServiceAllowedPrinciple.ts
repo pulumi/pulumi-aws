@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * 
  * const current = pulumi.output(aws.getCallerIdentity({}));
  * const allowMeToFoo = new aws.ec2.VpcEndpointServiceAllowedPrinciple("allow_me_to_foo", {
- *     principalArn: current.apply(current => current.arn),
+ *     principalArn: current.arn,
  *     vpcEndpointServiceId: aws_vpc_endpoint_service_foo.id,
  * });
  * ```

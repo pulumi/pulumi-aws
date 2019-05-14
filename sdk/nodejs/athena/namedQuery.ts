@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * });
  * const foo = new aws.athena.NamedQuery("foo", {
  *     database: hogeDatabase.name,
- *     query: hogeDatabase.name.apply(name => `SELECT * FROM ${name} limit 10;`),
+ *     query: pulumi.interpolate`SELECT * FROM ${hogeDatabase.name} limit 10;`,
  * });
  * ```
  */

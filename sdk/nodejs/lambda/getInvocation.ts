@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * `,
  * }));
  * 
- * export const result = example.apply(example => example.result);
+ * export const result = example.result;
  * export const resultEntry = example.apply(example => example.resultMap["key1"]);
  * ```
  */

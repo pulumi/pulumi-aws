@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *     maxMessageSize: 2048,
  *     messageRetentionSeconds: 86400,
  *     receiveWaitTimeSeconds: 10,
- *     redrivePolicy: aws_sqs_queue_terraform_queue_deadletter.arn.apply(arn => `{"deadLetterTargetArn":"${arn}","maxReceiveCount":4}`),
+ *     redrivePolicy: pulumi.interpolate`{"deadLetterTargetArn":"${aws_sqs_queue_terraform_queue_deadletter.arn}","maxReceiveCount":4}`,
  *     tags: {
  *         Environment: "production",
  *     },

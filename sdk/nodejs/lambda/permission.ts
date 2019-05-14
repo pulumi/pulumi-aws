@@ -107,7 +107,7 @@ import {Function} from "./function";
  *     action: "lambda:InvokeFunction",
  *     function: "MyDemoFunction",
  *     principal: "apigateway.amazonaws.com",
- *     sourceArn: myDemoAPI.executionArn.apply(executionArn => `${executionArn}/*&#47;*&#47;*`),
+ *     sourceArn: pulumi.interpolate`${myDemoAPI.executionArn}/*&#47;*&#47;*`,
  * });
  * ```
  */

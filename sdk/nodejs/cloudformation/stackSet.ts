@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     }],
  * }));
  * const aWSCloudFormationStackSetAdministrationRole = new aws.iam.Role("AWSCloudFormationStackSetAdministrationRole", {
- *     assumeRolePolicy: aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.apply(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy => aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.json),
+ *     assumeRolePolicy: aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.json,
  * });
  * const example = new aws.cloudformation.StackSet("example", {
  *     administrationRoleArn: aWSCloudFormationStackSetAdministrationRole.arn,
@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  *     }],
  * }));
  * const aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy = new aws.iam.RolePolicy("AWSCloudFormationStackSetAdministrationRole_ExecutionPolicy", {
- *     policy: aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.apply(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument => aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.json),
+ *     policy: aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.json,
  *     role: aWSCloudFormationStackSetAdministrationRole.name,
  * });
  * ```

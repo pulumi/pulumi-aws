@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *     isEnabled: true,
  * }, {dependsOn: [fooDeliveryChannel]});
  * const rolePolicy = new aws.iam.RolePolicy("p", {
- *     policy: pulumi.all([bucket.arn, bucket.arn]).apply(([bucketArn, bucketArn1]) => `{
+ *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -51,13 +51,13 @@ import * as utilities from "../utilities";
  *       ],
  *       "Effect": "Allow",
  *       "Resource": [
- *         "${bucketArn}",
- *         "${bucketArn1}/*"
+ *         "${bucket.arn}",
+ *         "${bucket.arn}/*"
  *       ]
  *     }
  *   ]
  * }
- * `),
+ * `,
  *     role: role.id,
  * });
  * const rolePolicyAttachment = new aws.iam.RolePolicyAttachment("a", {

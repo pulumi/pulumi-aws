@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * });
  * const mytopic = new aws.sns.Topic("mytopic", {});
  * const iamPolicyForLambda = new aws.iam.RolePolicy("iam_policy_for_lambda", {
- *     policy: mytopic.arn.apply(arn => `{
+ *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -36,11 +36,11 @@ import * as utilities from "../utilities";
  *         "Action": [
  *             "sns:Publish"
  *         ],
- *         "Resource": "${arn}"
+ *         "Resource": "${mytopic.arn}"
  *     }
  *   ]
  * }
- * `),
+ * `,
  *     role: role.id,
  * });
  * const rule = new aws.iot.TopicRule("rule", {

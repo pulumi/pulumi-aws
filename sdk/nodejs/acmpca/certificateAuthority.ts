@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  * }));
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
  *     bucket: exampleBucket.id,
- *     policy: acmpcaBucketAccess.apply(acmpcaBucketAccess => acmpcaBucketAccess.json),
+ *     policy: acmpcaBucketAccess.json,
  * });
  * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("example", {
  *     certificateAuthorityConfiguration: {

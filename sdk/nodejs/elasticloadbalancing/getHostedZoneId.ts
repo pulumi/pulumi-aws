@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     aliases: [{
  *         evaluateTargetHealth: true,
  *         name: aws_elb_main.dnsName,
- *         zoneId: main.apply(main => main.id),
+ *         zoneId: main.id,
  *     }],
  *     type: "A",
  *     zoneId: aws_route53_zone_primary.zoneId,

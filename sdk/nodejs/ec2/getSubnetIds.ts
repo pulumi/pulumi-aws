@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *         id: exampleSubnetIds.ids[i],
  *     })))}
  * 
- * export const subnetCidrBlocks = pulumi.all(exampleSubnet).apply(exampleSubnet => exampleSubnet.map(v => v.cidrBlock));
+ * export const subnetCidrBlocks = exampleSubnet.map(v => v.cidrBlock);
  * ```
  * 
  * The following example retrieves a list of all subnets in a VPC with a custom

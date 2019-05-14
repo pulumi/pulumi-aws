@@ -25,9 +25,9 @@ import * as utilities from "../utilities";
  * }));
  * // Create a route
  * const route = new aws.ec2.Route("r", {
- *     destinationCidrBlock: pc.apply(pc => pc.peerCidrBlock),
+ *     destinationCidrBlock: pc.peerCidrBlock,
  *     routeTableId: rt.id,
- *     vpcPeeringConnectionId: pc.apply(pc => pc.id),
+ *     vpcPeeringConnectionId: pc.id,
  * });
  * ```
  */

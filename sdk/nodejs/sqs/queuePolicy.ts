@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * 
  * const queue = new aws.sqs.Queue("q", {});
  * const test = new aws.sqs.QueuePolicy("test", {
- *     policy: pulumi.all([queue.arn, queue.arn]).apply(([queueArn, queueArn1]) => `{
+ *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Id": "sqspolicy",
  *   "Statement": [
@@ -25,16 +25,16 @@ import * as utilities from "../utilities";
  *       "Effect": "Allow",
  *       "Principal": "*",
  *       "Action": "sqs:SendMessage",
- *       "Resource": "${queueArn}",
+ *       "Resource": "${queue.arn}",
  *       "Condition": {
  *         "ArnEquals": {
- *           "aws:SourceArn": "${queueArn1}"
+ *           "aws:SourceArn": "${queue.arn}"
  *         }
  *       }
  *     }
  *   ]
  * }
- * `),
+ * `,
  *     queueUrl: queue.id,
  * });
  * ```

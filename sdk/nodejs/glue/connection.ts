@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.glue.Connection("example", {
  *     connectionProperties: {
- *         JDBC_CONNECTION_URL: aws_rds_cluster_example.endpoint.apply(endpoint => `jdbc:mysql://${endpoint}/exampledatabase`),
+ *         JDBC_CONNECTION_URL: pulumi.interpolate`jdbc:mysql://${aws_rds_cluster_example.endpoint}/exampledatabase`,
  *         PASSWORD: "examplepassword",
  *         USERNAME: "exampleusername",
  *     },

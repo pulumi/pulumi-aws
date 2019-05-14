@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * const example = new aws.ec2.Instance("example", {
  *     ami: "ami-2757f631",
  *     instanceType: "t2.micro",
- *     userData: bootstrapScript.apply(bootstrapScript => bootstrapScript.body),
+ *     userData: bootstrapScript.body,
  * });
  * ```
  * 
@@ -47,9 +47,9 @@ import * as utilities from "../utilities";
  * const testLambda = new aws.lambda.Function("test_lambda", {
  *     handler: "exports.test",
  *     role: aws_iam_role_iam_for_lambda.arn, // (not shown)
- *     s3Bucket: lambda.apply(lambda => lambda.bucket),
- *     s3Key: lambda.apply(lambda => lambda.key),
- *     s3ObjectVersion: lambda.apply(lambda => lambda.versionId),
+ *     s3Bucket: lambda.bucket,
+ *     s3Key: lambda.key,
+ *     s3ObjectVersion: lambda.versionId,
  * });
  * ```
  */

@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  * }));
  * const example = new aws.s3.BucketPolicy("example", {
  *     bucket: aws_s3_bucket_example.id,
- *     policy: s3Policy.apply(s3Policy => s3Policy.json),
+ *     policy: s3Policy.json,
  * });
  * ```
  * 

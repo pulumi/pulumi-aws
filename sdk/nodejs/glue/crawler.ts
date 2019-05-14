@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *     databaseName: aws_glue_catalog_database_example.name,
  *     role: aws_iam_role_example.arn,
  *     s3Targets: [{
- *         path: aws_s3_bucket_example.bucket.apply(bucket => `s3://${bucket}`),
+ *         path: pulumi.interpolate`s3://${aws_s3_bucket_example.bucket}`,
  *     }],
  * });
  * ```

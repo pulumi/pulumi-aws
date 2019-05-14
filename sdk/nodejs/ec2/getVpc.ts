@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *         throw "tf2pulumi error: NYI: call to cidrsubnet";
  *         return (() => { throw "NYI: call to cidrsubnet"; })();
  *     })()),
- *     vpcId: selected.apply(selected => selected.id),
+ *     vpcId: selected.id,
  * });
  * ```
  */

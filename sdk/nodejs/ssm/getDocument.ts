@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     name: "AWS-GatherSoftwareInventory",
  * }));
  * 
- * export const content = foo.apply(foo => foo.content);
+ * export const content = foo.content;
  * ```
  * To get the contents of the custom document.
  * 

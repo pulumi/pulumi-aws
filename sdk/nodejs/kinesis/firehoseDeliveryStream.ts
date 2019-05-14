@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *             processors: [{
  *                 parameters: [{
  *                     parameterName: "LambdaArn",
- *                     parameterValue: lambdaProcessor.arn.apply(arn => `${arn}:$LATEST`),
+ *                     parameterValue: pulumi.interpolate`${lambdaProcessor.arn}:$LATEST`,
  *                 }],
  *                 type: "Lambda",
  *             }],
@@ -128,7 +128,7 @@ import * as utilities from "../utilities";
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
  *     destination: "redshift",
  *     redshiftConfiguration: {
- *         clusterJdbcurl: pulumi.all([testCluster.endpoint, testCluster.databaseName]).apply(([endpoint, databaseName]) => `jdbc:redshift://${endpoint}/${databaseName}`),
+ *         clusterJdbcurl: pulumi.interpolate`jdbc:redshift://${testCluster.endpoint}/${testCluster.databaseName}`,
  *         copyOptions: "delimiter '|'", // the default delimiter
  *         dataTableColumns: "test-col",
  *         dataTableName: "test-table",
@@ -171,7 +171,7 @@ import * as utilities from "../utilities";
  *             processors: [{
  *                 parameters: [{
  *                     parameterName: "LambdaArn",
- *                     parameterValue: aws_lambda_function_lambda_processor.arn.apply(arn => `${arn}:$LATEST`),
+ *                     parameterValue: pulumi.interpolate`${aws_lambda_function_lambda_processor.arn}:$LATEST`,
  *                 }],
  *                 type: "Lambda",
  *             }],

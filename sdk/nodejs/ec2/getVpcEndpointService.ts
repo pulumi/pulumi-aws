@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * }));
  * // Create a VPC endpoint
  * const ep = new aws.ec2.VpcEndpoint("ep", {
- *     serviceName: s3.apply(s3 => s3.serviceName),
+ *     serviceName: s3.serviceName,
  *     vpcId: foo.id,
  * });
  * ```

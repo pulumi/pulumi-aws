@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     }],
  * }));
  * const elasticsearch_log_publishing_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("elasticsearch-log-publishing-policy", {
- *     policyDocument: elasticsearch_log_publishing_policyPolicyDocument.apply(elasticsearch_log_publishing_policyPolicyDocument => elasticsearch_log_publishing_policyPolicyDocument.json),
+ *     policyDocument: elasticsearch_log_publishing_policyPolicyDocument.json,
  *     policyName: "elasticsearch-log-publishing-policy",
  * });
  * ```
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *     }],
  * }));
  * const route53_query_logging_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("route53-query-logging-policy", {
- *     policyDocument: route53_query_logging_policyPolicyDocument.apply(route53_query_logging_policyPolicyDocument => route53_query_logging_policyPolicyDocument.json),
+ *     policyDocument: route53_query_logging_policyPolicyDocument.json,
  *     policyName: "route53-query-logging-policy",
  * });
  * ```

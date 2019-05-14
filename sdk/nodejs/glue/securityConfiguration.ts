@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *             jobBookmarksEncryptionMode: "DISABLED",
  *         },
  *         s3Encryption: {
- *             kmsKeyArn: aws_kms_key_example.arn.apply(arn => arn),
+ *             kmsKeyArn: aws_kms_key_example.arn,
  *             s3EncryptionMode: "SSE-KMS",
  *         },
  *     },

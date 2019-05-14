@@ -22,15 +22,15 @@ import * as utilities from "./utilities";
  * }));
  * const fromEurope = new aws.ec2.SecurityGroup("from_europe", {
  *     ingress: [{
- *         cidrBlocks: europeanEc2.apply(europeanEc2 => europeanEc2.cidrBlocks),
+ *         cidrBlocks: europeanEc2.cidrBlocks,
  *         fromPort: 443,
- *         ipv6CidrBlocks: europeanEc2.apply(europeanEc2 => europeanEc2.ipv6CidrBlocks),
+ *         ipv6CidrBlocks: europeanEc2.ipv6CidrBlocks,
  *         protocol: "tcp",
  *         toPort: 443,
  *     }],
  *     tags: {
- *         CreateDate: europeanEc2.apply(europeanEc2 => europeanEc2.createDate),
- *         SyncToken: europeanEc2.apply(europeanEc2 => europeanEc2.syncToken),
+ *         CreateDate: europeanEc2.createDate,
+ *         SyncToken: europeanEc2.syncToken,
  *     },
  * });
  * ```

@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *         instanceProtocol: "https",
  *         lbPort: 443,
  *         lbProtocol: "https",
- *         sslCertificateId: my_domain.apply(my_domain => my_domain.arn),
+ *         sslCertificateId: my_domain.arn,
  *     }],
  * });
  * ```

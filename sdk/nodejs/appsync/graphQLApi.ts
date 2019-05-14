@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * const example = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "AMAZON_COGNITO_USER_POOLS",
  *     userPoolConfig: {
- *         awsRegion: aws_region_current.name.apply(name => name),
+ *         awsRegion: aws_region_current.name,
  *         defaultAction: "DENY",
  *         userPoolId: aws_cognito_user_pool_example.id,
  *     },

@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     clusterId: var_cloudhsm_cluster_id,
  * }));
  * const cloudhsmV2Hsm = new aws.cloudhsmv2.Hsm("cloudhsm_v2_hsm", {
- *     clusterId: cluster.apply(cluster => cluster.clusterId),
+ *     clusterId: cluster.clusterId,
  *     subnetId: cluster.apply(cluster => cluster.subnetIds[0]),
  * });
  * ```

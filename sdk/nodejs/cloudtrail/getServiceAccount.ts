@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const main = pulumi.output(aws.cloudtrail.getServiceAccount({}));
  * const bucket = new aws.s3.Bucket("bucket", {
  *     forceDestroy: true,
- *     policy: pulumi.all([main, main]).apply(([main, main1]) => `{
+ *     policy: pulumi.interpolate`{
  *   "Version": "2008-10-17",
  *   "Statement": [
  *     {
@@ -33,14 +33,14 @@ import * as utilities from "../utilities";
  *       "Sid": "Get bucket policy needed for trails",
  *       "Effect": "Allow",
  *       "Principal": {
- *         "AWS": "${main1.arn}"
+ *         "AWS": "${main.arn}"
  *       },
  *       "Action": "s3:GetBucketAcl",
  *       "Resource": "arn:aws:s3:::tf-cloudtrail-logging-test-bucket"
  *     }
  *   ]
  * }
- * `),
+ * `,
  * });
  * ```
  */

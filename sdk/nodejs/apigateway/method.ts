@@ -45,7 +45,7 @@ import {RestApi} from "./restApi";
  *     name: cognitoUserPoolName,
  * }));
  * const thisAuthorizer = new aws.apigateway.Authorizer("this", {
- *     providerArns: thisUserPools.apply(thisUserPools => thisUserPools.arns),
+ *     providerArns: thisUserPools.arns,
  *     restApi: thisRestApi.id,
  *     type: "COGNITO_USER_POOLS",
  * });

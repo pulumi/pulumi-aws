@@ -95,7 +95,7 @@ import {Metric, MetricsGranularity} from "./metrics";
  * import * as aws from "@pulumi/aws";
  * 
  * const exampleLaunchTemplate = new aws.ec2.LaunchTemplate("example", {
- *     imageId: aws_ami_example.id.apply(id => id),
+ *     imageId: aws_ami_example.id,
  *     instanceType: "c5.large",
  *     namePrefix: "example",
  * });

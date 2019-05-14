@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * 
  * const current = pulumi.output(aws.getCanonicalUserId({}));
  * 
- * export const canonicalUserId = current.apply(current => current.id);
+ * export const canonicalUserId = current.id;
  * ```
  */
 export function getCanonicalUserId(opts?: pulumi.InvokeOptions): Promise<GetCanonicalUserIdResult> {

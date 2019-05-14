@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * });
  * 
  * export const endpoint = example.endpoint;
- * export const kubeconfig_certificate_authority_data = example.certificateAuthority.apply(certificateAuthority => certificateAuthority.data);
+ * export const kubeconfig_certificate_authority_data = example.certificateAuthority.data;
  * ```
  */
 export class Cluster extends pulumi.CustomResource {

@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * const dev = new aws.rds.Instance("dev", {
  *     instanceClass: "db.t2.micro",
  *     name: "mydbdev",
- *     snapshotIdentifier: latestProdSnapshot.apply(latestProdSnapshot => latestProdSnapshot.id),
+ *     snapshotIdentifier: latestProdSnapshot.id,
  * });
  * ```
  */

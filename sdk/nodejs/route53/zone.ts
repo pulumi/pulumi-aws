@@ -36,10 +36,10 @@ import * as utilities from "../utilities";
  * const main = new aws.route53.Zone("main", {});
  * const dev_ns = new aws.route53.Record("dev-ns", {
  *     records: [
- *         dev.nameServers.apply(nameServers => nameServers[0]),
- *         dev.nameServers.apply(nameServers => nameServers[1]),
- *         dev.nameServers.apply(nameServers => nameServers[2]),
- *         dev.nameServers.apply(nameServers => nameServers[3]),
+ *         dev.nameServers[0],
+ *         dev.nameServers[1],
+ *         dev.nameServers[2],
+ *         dev.nameServers[3],
  *     ],
  *     ttl: 30,
  *     type: "NS",

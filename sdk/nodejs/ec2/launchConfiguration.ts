@@ -30,7 +30,7 @@ import {InstanceProfile} from "../iam";
  *     owners: ["099720109477"], // Canonical
  * }));
  * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {
- *     imageId: ubuntu.apply(ubuntu => ubuntu.id),
+ *     imageId: ubuntu.id,
  *     instanceType: "t2.micro",
  * });
  * ```
@@ -64,7 +64,7 @@ import {InstanceProfile} from "../iam";
  *     owners: ["099720109477"], // Canonical
  * }));
  * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {
- *     imageId: ubuntu.apply(ubuntu => ubuntu.id),
+ *     imageId: ubuntu.id,
  *     instanceType: "t2.micro",
  *     namePrefix: "terraform-lc-example-",
  * });
@@ -107,7 +107,7 @@ import {InstanceProfile} from "../iam";
  *     owners: ["099720109477"], // Canonical
  * }));
  * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {
- *     imageId: ubuntu.apply(ubuntu => ubuntu.id),
+ *     imageId: ubuntu.id,
  *     instanceType: "m4.large",
  *     spotPrice: "0.001",
  * });
