@@ -38,7 +38,7 @@ profile = __config__.get('profile')
 The profile for API operations. If not set, the default profile created with `aws configure` will be used.
 """
 
-region = utilities.require_with_default(lambda: __config__.require('region'), utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION'))
+region = __config__.get('region') or utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
 """
 The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
 """

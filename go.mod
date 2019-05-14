@@ -20,6 +20,7 @@ require (
 	github.com/pkg/errors v0.8.0
 	github.com/pulumi/pulumi v0.17.6-0.20190410045519-ef5e148a73c0
 	github.com/pulumi/pulumi-terraform v0.14.1-dev.0.20190509163942-bb2ed14fff5e
+	github.com/pulumi/scripts v0.0.0-20190429182152-004908c7b5db // indirect
 	github.com/sirupsen/logrus v1.4.0 // indirect
 	github.com/smartystreets/assertions v0.0.0-20190116191733-b6c0e53d7304 // indirect
 	github.com/stretchr/testify v1.3.0
@@ -29,5 +30,6 @@ require (
 replace (
 	github.com/Nvveen/Gotty => github.com/ijc25/Gotty v0.0.0-20170406111628-a8b993ba6abd
 	github.com/golang/glog => github.com/pulumi/glog v0.0.0-20180820174630-7eaa6ffb71e4
+	github.com/pulumi/pulumi-terraform => ../pulumi-terraform/
 	github.com/terraform-providers/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.3.2-0.20190506212555-206db4204c2b
 )
