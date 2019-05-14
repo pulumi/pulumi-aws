@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * }));
  * const exampleVaultLock = new aws.glacier.VaultLock("example", {
  *     completeLock: false,
- *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: examplePolicyDocument.json,
  *     vaultName: exampleVault.name,
  * });
  * ```
@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.glacier.VaultLock("example", {
  *     completeLock: true,
- *     policy: aws_iam_policy_document_example.json.apply(json => json),
+ *     policy: aws_iam_policy_document_example.json,
  *     vaultName: aws_glacier_vault_example.name,
  * });
  * ```

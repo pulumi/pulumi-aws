@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleMailFrom = new aws.ses.MailFrom("example", {
  *     domain: exampleDomainIdentity.domain,
- *     mailFromDomain: exampleDomainIdentity.domain.apply(domain => `bounce.${domain}`),
+ *     mailFromDomain: pulumi.interpolate`bounce.${exampleDomainIdentity.domain}`,
  * });
  * // Example Route53 MX record
  * const exampleSesDomainMailFromMx = new aws.route53.Record("example_ses_domain_mail_from_mx", {

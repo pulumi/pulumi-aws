@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * }));
  * const defaultTopicPolicy = new aws.sns.TopicPolicy("default", {
  *     arn: test.arn,
- *     policy: sns_topic_policy.apply(sns_topic_policy => sns_topic_policy.json),
+ *     policy: sns_topic_policy.json,
  * });
  * ```
  */

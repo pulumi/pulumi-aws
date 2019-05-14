@@ -51,7 +51,7 @@ import {RestApi} from "./restApi";
  *     stageName: "prod",
  * });
  * const methodSettings = new aws.apigateway.MethodSettings("s", {
- *     methodPath: pulumi.all([testResource.pathPart, testMethod.httpMethod]).apply(([pathPart, httpMethod]) => `${pathPart}/${httpMethod}`),
+ *     methodPath: pulumi.interpolate`${testResource.pathPart}/${testMethod.httpMethod}`,
  *     restApi: testRestApi.id,
  *     settings: {
  *         loggingLevel: "INFO",

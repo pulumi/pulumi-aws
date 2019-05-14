@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const exampleNetworkInterfaces = pulumi.output(aws.ec2.getNetworkInterfaces({}));
  * 
- * export const example = exampleNetworkInterfaces.apply(exampleNetworkInterfaces => exampleNetworkInterfaces.ids);
+ * export const example = exampleNetworkInterfaces.ids;
  * ```
  * 
  * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     },
  * }));
  * 
- * export const example1 = example.apply(example => example.ids);
+ * export const example1 = example.ids;
  * ```
  * 
  * The following example retrieves a network interface ids which associated
@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *     }],
  * }));
  * 
- * export const example = exampleNetworkInterfaces.apply(exampleNetworkInterfaces => exampleNetworkInterfaces.ids);
+ * export const example = exampleNetworkInterfaces.ids;
  * ```
  */
 export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfacesResult> {

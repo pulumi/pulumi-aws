@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     records: ["10.0.0.1"],
  *     ttl: 300,
  *     type: "A",
- *     zoneId: selected.apply(selected => selected.zoneId),
+ *     zoneId: selected.zoneId,
  * });
  * ```
  */

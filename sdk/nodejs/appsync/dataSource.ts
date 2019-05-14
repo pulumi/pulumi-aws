@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  *     type: "AMAZON_DYNAMODB",
  * });
  * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
- *     policy: exampleTable.arn.apply(arn => `{
+ *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -58,12 +58,12 @@ import * as utilities from "../utilities";
  *       ],
  *       "Effect": "Allow",
  *       "Resource": [
- *         "${arn}"
+ *         "${exampleTable.arn}"
  *       ]
  *     }
  *   ]
  * }
- * `),
+ * `,
  *     role: exampleRole.id,
  * });
  * ```

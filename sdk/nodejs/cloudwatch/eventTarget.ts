@@ -88,7 +88,7 @@ import * as utilities from "../utilities";
  *     }],
  * }));
  * const ssmLifecycleRole = new aws.iam.Role("ssm_lifecycle", {
- *     assumeRolePolicy: ssmLifecycleTrust.apply(ssmLifecycleTrust => ssmLifecycleTrust.json),
+ *     assumeRolePolicy: ssmLifecycleTrust.json,
  * });
  * const stopInstancesEventTarget = new aws.cloudwatch.EventTarget("stop_instances", {
  *     arn: stopInstance.arn,
@@ -119,7 +119,7 @@ import * as utilities from "../utilities";
  *     ],
  * }));
  * const ssmLifecyclePolicy = new aws.iam.Policy("ssm_lifecycle", {
- *     policy: ssmLifecyclePolicyDocument.apply(ssmLifecyclePolicyDocument => ssmLifecyclePolicyDocument.json),
+ *     policy: ssmLifecyclePolicyDocument.json,
  * });
  * ```
  * 

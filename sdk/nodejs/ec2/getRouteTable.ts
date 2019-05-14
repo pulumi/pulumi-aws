@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * }));
  * const route = new aws.ec2.Route("route", {
  *     destinationCidrBlock: "10.0.1.0/22",
- *     routeTableId: selected.apply(selected => selected.id),
+ *     routeTableId: selected.id,
  *     vpcPeeringConnectionId: "pcx-45ff3dc1",
  * });
  * ```

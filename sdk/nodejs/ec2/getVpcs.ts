@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     },
  * }));
  * 
- * export const foo = fooVpcs.apply(fooVpcs => fooVpcs.ids);
+ * export const foo = fooVpcs.ids;
  * ```
  * 
  * An example use case would be interpolate the `aws_vpcs` output into `count` of an aws_flow_log resource.
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * 
- * export const foo = fooVpcs.apply(fooVpcs => fooVpcs.ids);
+ * export const foo = fooVpcs.ids;
  * ```
  */
 export function getVpcs(args?: GetVpcsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcsResult> {

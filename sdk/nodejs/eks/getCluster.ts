@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  *     name: "example",
  * }));
  * 
- * export const endpoint = example.apply(example => example.endpoint);
- * export const kubeconfig_certificate_authority_data = example.apply(example => example.certificateAuthority.data);
+ * export const endpoint = example.endpoint;
+ * export const kubeconfig_certificate_authority_data = example.certificateAuthority.data;
  * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {

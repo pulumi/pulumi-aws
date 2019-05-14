@@ -16,9 +16,9 @@ import * as utilities from "./utilities";
  * 
  * const current = pulumi.output(aws.getCallerIdentity({}));
  * 
- * export const accountId = current.apply(current => current.accountId);
- * export const callerArn = current.apply(current => current.arn);
- * export const callerUser = current.apply(current => current.userId);
+ * export const accountId = current.accountId;
+ * export const callerArn = current.arn;
+ * export const callerUser = current.userId;
  * ```
  */
 export function getCallerIdentity(opts?: pulumi.InvokeOptions): Promise<GetCallerIdentityResult> {

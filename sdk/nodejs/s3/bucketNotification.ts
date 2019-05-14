@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * 
  * const bucket = new aws.s3.Bucket("bucket", {});
  * const topic = new aws.sns.Topic("topic", {
- *     policy: bucket.arn.apply(arn => `{
+ *     policy: pulumi.interpolate`{
  *     "Version":"2012-10-17",
  *     "Statement":[{
  *         "Effect": "Allow",
@@ -27,11 +27,11 @@ import * as utilities from "../utilities";
  *         "Action": "SNS:Publish",
  *         "Resource": "arn:aws:sns:*:*:s3-event-notification-topic",
  *         "Condition":{
- *             "ArnLike":{"aws:SourceArn":"${arn}"}
+ *             "ArnLike":{"aws:SourceArn":"${bucket.arn}"}
  *         }
  *     }]
  * }
- * `),
+ * `,
  * });
  * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
  *     bucket: bucket.id,
@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * 
  * const bucket = new aws.s3.Bucket("bucket", {});
  * const queue = new aws.sqs.Queue("queue", {
- *     policy: bucket.arn.apply(arn => `{
+ *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -60,12 +60,12 @@ import * as utilities from "../utilities";
  *       "Action": "sqs:SendMessage",
  * 	  "Resource": "arn:aws:sqs:*:*:s3-event-notification-queue",
  *       "Condition": {
- *         "ArnEquals": { "aws:SourceArn": "${arn}" }
+ *         "ArnEquals": { "aws:SourceArn": "${bucket.arn}" }
  *       }
  *     }
  *   ]
  * }
- * `),
+ * `,
  * });
  * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
  *     bucket: bucket.id,
@@ -194,7 +194,7 @@ import * as utilities from "../utilities";
  * 
  * const bucket = new aws.s3.Bucket("bucket", {});
  * const queue = new aws.sqs.Queue("queue", {
- *     policy: bucket.arn.apply(arn => `{
+ *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -203,12 +203,12 @@ import * as utilities from "../utilities";
  *       "Action": "sqs:SendMessage",
  * 	  "Resource": "arn:aws:sqs:*:*:s3-event-notification-queue",
  *       "Condition": {
- *         "ArnEquals": { "aws:SourceArn": "${arn}" }
+ *         "ArnEquals": { "aws:SourceArn": "${bucket.arn}" }
  *       }
  *     }
  *   ]
  * }
- * `),
+ * `,
  * });
  * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
  *     bucket: bucket.id,

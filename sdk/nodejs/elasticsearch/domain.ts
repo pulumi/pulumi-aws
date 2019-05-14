@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({}));
  * const currentRegion = pulumi.output(aws.getRegion({}));
  * const example = new aws.elasticsearch.Domain("example", {
- *     accessPolicies: pulumi.all([currentRegion, currentCallerIdentity]).apply(([currentRegion, currentCallerIdentity]) => `{
+ *     accessPolicies: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `),
+ * `,
  * });
  * ```
  * 
@@ -123,7 +123,7 @@ import * as utilities from "../utilities";
  *     vpcId: selectedVpc.id,
  * }));
  * const esDomain = new aws.elasticsearch.Domain("es", {
- *     accessPolicies: pulumi.all([currentRegion, currentCallerIdentity]).apply(([currentRegion, currentCallerIdentity]) => `{
+ *     accessPolicies: pulumi.interpolate`{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
  * 		{
@@ -134,7 +134,7 @@ import * as utilities from "../utilities";
  * 		}
  * 	]
  * }
- * `),
+ * `,
  *     advancedOptions: {
  *         "rest.action.multi.allow_explicit_index": "true",
  *     },
@@ -159,12 +159,12 @@ import * as utilities from "../utilities";
  * const esSecurityGroup = new aws.ec2.SecurityGroup("es", {
  *     description: "Managed by Terraform",
  *     ingress: [{
- *         cidrBlocks: [selectedVpc.apply(selectedVpc => selectedVpc.cidrBlocks)],
+ *         cidrBlocks: [selectedVpc.cidrBlocks],
  *         fromPort: 443,
  *         protocol: "tcp",
  *         toPort: 443,
  *     }],
- *     vpcId: selectedVpc.apply(selectedVpc => selectedVpc.id),
+ *     vpcId: selectedVpc.id,
  * });
  * ```
  */

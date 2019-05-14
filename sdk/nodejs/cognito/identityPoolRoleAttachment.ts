@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const authenticatedRole = new aws.iam.Role("authenticated", {
- *     assumeRolePolicy: mainIdentityPool.id.apply(id => `{
+ *     assumeRolePolicy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *       "Action": "sts:AssumeRoleWithWebIdentity",
  *       "Condition": {
  *         "StringEquals": {
- *           "cognito-identity.amazonaws.com:aud": "${id}"
+ *           "cognito-identity.amazonaws.com:aud": "${mainIdentityPool.id}"
  *         },
  *         "ForAnyValue:StringLike": {
  *           "cognito-identity.amazonaws.com:amr": "authenticated"
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `),
+ * `,
  * });
  * const mainIdentityPoolRoleAttachment = new aws.cognito.IdentityPoolRoleAttachment("main", {
  *     identityPoolId: mainIdentityPool.id,

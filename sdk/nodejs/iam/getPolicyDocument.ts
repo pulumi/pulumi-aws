@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * }));
  * const examplePolicy = new aws.iam.Policy("example", {
  *     path: "/",
- *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
+ *     policy: examplePolicyDocument.json,
  * });
  * ```
  * 

@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     maxCapacity: 100,
  *     minCapacity: 5,
  *     resourceId: "table/tableName",
- *     roleArn: aws_iam_role_DynamoDBAutoscaleRole.arn.apply(arn => arn),
+ *     roleArn: aws_iam_role_DynamoDBAutoscaleRole.arn,
  *     scalableDimension: "dynamodb:table:ReadCapacityUnits",
  *     serviceNamespace: "dynamodb",
  * });

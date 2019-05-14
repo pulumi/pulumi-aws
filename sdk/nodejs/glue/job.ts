@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.glue.Job("example", {
  *     command: {
- *         scriptLocation: aws_s3_bucket_example.bucket.apply(bucket => `s3://${bucket}/example.py`),
+ *         scriptLocation: pulumi.interpolate`s3://${aws_s3_bucket_example.bucket}/example.py`,
  *     },
  *     roleArn: aws_iam_role_example.arn,
  * });
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.glue.Job("example", {
  *     command: {
- *         scriptLocation: aws_s3_bucket_example.bucket.apply(bucket => `s3://${bucket}/example.scala`),
+ *         scriptLocation: pulumi.interpolate`s3://${aws_s3_bucket_example.bucket}/example.scala`,
  *     },
  *     defaultArguments: {
  *         "--job-language": "scala",

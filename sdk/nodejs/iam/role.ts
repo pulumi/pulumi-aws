@@ -52,7 +52,7 @@ import {PolicyDocument} from "./documents";
  *     }],
  * }));
  * const instance = new aws.iam.Role("instance", {
- *     assumeRolePolicy: instance_assume_role_policy.apply(instance_assume_role_policy => instance_assume_role_policy.json),
+ *     assumeRolePolicy: instance_assume_role_policy.json,
  *     path: "/system/",
  * });
  * ```

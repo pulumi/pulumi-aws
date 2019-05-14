@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     }],
  * }));
  * const role = new aws.iam.Role("r", {
- *     assumeRolePolicy: assumeRole.apply(assumeRole => assumeRole.json),
+ *     assumeRolePolicy: assumeRole.json,
  * });
  * ```
  */

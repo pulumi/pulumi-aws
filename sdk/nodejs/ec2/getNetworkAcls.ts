@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     vpcId: var_vpc_id,
  * }));
  * 
- * export const example = exampleNetworkAcls.apply(exampleNetworkAcls => exampleNetworkAcls.ids);
+ * export const example = exampleNetworkAcls.ids;
  * ```
  * 
  * The following example retrieves a list of all network ACL ids in a VPC with a custom

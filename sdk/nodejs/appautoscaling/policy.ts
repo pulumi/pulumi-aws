@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     maxCapacity: 100,
  *     minCapacity: 5,
  *     resourceId: "table/tableName",
- *     roleArn: aws_iam_role_DynamoDBAutoscaleRole.arn.apply(arn => arn),
+ *     roleArn: aws_iam_role_DynamoDBAutoscaleRole.arn,
  *     scalableDimension: "dynamodb:table:ReadCapacityUnits",
  *     serviceNamespace: "dynamodb",
  * });
@@ -90,7 +90,7 @@ import * as utilities from "../utilities";
  * const replicasTarget = new aws.appautoscaling.Target("replicas", {
  *     maxCapacity: 15,
  *     minCapacity: 1,
- *     resourceId: aws_rds_cluster_example.id.apply(id => `cluster:${id}`),
+ *     resourceId: pulumi.interpolate`cluster:${aws_rds_cluster_example.id}`,
  *     scalableDimension: "rds:cluster:ReadReplicaCount",
  *     serviceNamespace: "rds",
  * });

@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const web = new aws.ec2.Instance("web", {
  *     ami: "ami-abb07bcb",
  *     instanceType: "t1.micro",
- *     subnetId: subnetId.apply(subnetId => subnetId.value),
+ *     subnetId: subnetId.value,
  * });
  * ```
  */

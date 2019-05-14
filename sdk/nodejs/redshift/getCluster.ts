@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
  *     destination: "redshift",
  *     redshiftConfiguration: {
- *         clusterJdbcurl: pulumi.all([testCluster, testCluster]).apply(([testCluster, testCluster1]) => `jdbc:redshift://${testCluster.endpoint}/${testCluster1.databaseName}`),
+ *         clusterJdbcurl: pulumi.interpolate`jdbc:redshift://${testCluster.endpoint}/${testCluster.databaseName}`,
  *         copyOptions: "delimiter '|'", // the default delimiter
  *         dataTableColumns: "test-col",
  *         dataTableName: "test-table",
