@@ -175,6 +175,10 @@ export interface GetInstanceResult {
      */
     readonly replicateSourceDb: string;
     /**
+     * The RDS Resource ID of this instance.
+     */
+    readonly resourceId: string;
+    /**
      * Specifies whether the DB instance is encrypted.
      */
     readonly storageEncrypted: boolean;

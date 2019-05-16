@@ -7,6 +7,7 @@ export * from "./eventSourceMapping";
 export * from "./function";
 export * from "./getFunction";
 export * from "./getInvocation";
+export * from "./getLayerVersion";
 export * from "./lambdaMixins";
 export * from "./layerVersion";
 export * from "./permission";

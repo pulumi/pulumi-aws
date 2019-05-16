@@ -36,13 +36,21 @@ export class Organization extends pulumi.CustomResource {
     }
 
     /**
-     * ARN of the organization
+     * List of organization accounts (including the master account). All elements have these attributes:
+     */
+    public /*out*/ readonly accounts!: pulumi.Output<{ arn: string, email: string, id: string, name: string }[]>;
+    /**
+     * ARN of the root
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
      */
     public readonly awsServiceAccessPrincipals!: pulumi.Output<string[] | undefined>;
+    /**
+     * List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
+     */
+    public readonly enabledPolicyTypes!: pulumi.Output<string[] | undefined>;
     /**
      * Specify "ALL" (default) or "CONSOLIDATED_BILLING".
      */
@@ -59,6 +67,10 @@ export class Organization extends pulumi.CustomResource {
      * Identifier of the master account
      */
     public /*out*/ readonly masterAccountId!: pulumi.Output<string>;
+    /**
+     * List of organization roots. All elements have these attributes:
+     */
+    public /*out*/ readonly roots!: pulumi.Output<{ arn: string, id: string, name: string, policyTypes: { status: string, type: string }[] }[]>;
 
     /**
      * Create a Organization resource with the given unique name, arguments, and options.
@@ -72,20 +84,26 @@ export class Organization extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as OrganizationState | undefined;
+            inputs["accounts"] = state ? state.accounts : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["awsServiceAccessPrincipals"] = state ? state.awsServiceAccessPrincipals : undefined;
+            inputs["enabledPolicyTypes"] = state ? state.enabledPolicyTypes : undefined;
             inputs["featureSet"] = state ? state.featureSet : undefined;
             inputs["masterAccountArn"] = state ? state.masterAccountArn : undefined;
             inputs["masterAccountEmail"] = state ? state.masterAccountEmail : undefined;
             inputs["masterAccountId"] = state ? state.masterAccountId : undefined;
+            inputs["roots"] = state ? state.roots : undefined;
         } else {
             const args = argsOrState as OrganizationArgs | undefined;
             inputs["awsServiceAccessPrincipals"] = args ? args.awsServiceAccessPrincipals : undefined;
+            inputs["enabledPolicyTypes"] = args ? args.enabledPolicyTypes : undefined;
             inputs["featureSet"] = args ? args.featureSet : undefined;
+            inputs["accounts"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
             inputs["masterAccountArn"] = undefined /*out*/;
             inputs["masterAccountEmail"] = undefined /*out*/;
             inputs["masterAccountId"] = undefined /*out*/;
+            inputs["roots"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -103,13 +121,21 @@ export class Organization extends pulumi.CustomResource {
  */
 export interface OrganizationState {
     /**
-     * ARN of the organization
+     * List of organization accounts (including the master account). All elements have these attributes:
+     */
+    readonly accounts?: pulumi.Input<pulumi.Input<{ arn?: pulumi.Input<string>, email?: pulumi.Input<string>, id?: pulumi.Input<string>, name?: pulumi.Input<string> }>[]>;
+    /**
+     * ARN of the root
      */
     readonly arn?: pulumi.Input<string>;
     /**
      * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
      */
     readonly awsServiceAccessPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
+     */
+    readonly enabledPolicyTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specify "ALL" (default) or "CONSOLIDATED_BILLING".
      */
@@ -126,6 +152,10 @@ export interface OrganizationState {
      * Identifier of the master account
      */
     readonly masterAccountId?: pulumi.Input<string>;
+    /**
+     * List of organization roots. All elements have these attributes:
+     */
+    readonly roots?: pulumi.Input<pulumi.Input<{ arn?: pulumi.Input<string>, id?: pulumi.Input<string>, name?: pulumi.Input<string>, policyTypes?: pulumi.Input<pulumi.Input<{ status?: pulumi.Input<string>, type?: pulumi.Input<string> }>[]> }>[]>;
 }
 
 /**
@@ -136,6 +166,10 @@ export interface OrganizationArgs {
      * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
      */
     readonly awsServiceAccessPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
+     */
+    readonly enabledPolicyTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specify "ALL" (default) or "CONSOLIDATED_BILLING".
      */

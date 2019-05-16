@@ -51,6 +51,7 @@ func LookupInstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceRes
 		PreferredMaintenanceWindow: outputs["preferredMaintenanceWindow"],
 		PubliclyAccessible: outputs["publiclyAccessible"],
 		ReplicateSourceDb: outputs["replicateSourceDb"],
+		ResourceId: outputs["resourceId"],
 		StorageEncrypted: outputs["storageEncrypted"],
 		StorageType: outputs["storageType"],
 		Timezone: outputs["timezone"],
@@ -132,6 +133,8 @@ type GetInstanceResult struct {
 	PubliclyAccessible interface{}
 	// The identifier of the source DB that this is a replica of.
 	ReplicateSourceDb interface{}
+	// The RDS Resource ID of this instance.
+	ResourceId interface{}
 	// Specifies whether the DB instance is encrypted.
 	StorageEncrypted interface{}
 	// Specifies the storage type associated with DB instance.

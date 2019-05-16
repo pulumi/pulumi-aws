@@ -94,6 +94,10 @@ export class Parameter extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
+     * The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+     */
+    public readonly tier!: pulumi.Output<string | undefined>;
+    /**
      * The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      */
     public readonly type!: pulumi.Output<string>;
@@ -121,6 +125,7 @@ export class Parameter extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["overwrite"] = state ? state.overwrite : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tier"] = state ? state.tier : undefined;
             inputs["type"] = state ? state.type : undefined;
             inputs["value"] = state ? state.value : undefined;
         } else {
@@ -138,6 +143,7 @@ export class Parameter extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["overwrite"] = args ? args.overwrite : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tier"] = args ? args.tier : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["value"] = args ? args.value : undefined;
         }
@@ -185,6 +191,10 @@ export interface ParameterState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
+     * The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+     */
+    readonly tier?: pulumi.Input<string>;
+    /**
      * The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      */
     readonly type?: pulumi.Input<string>;
@@ -226,6 +236,10 @@ export interface ParameterArgs {
      * A mapping of tags to assign to the object.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+     */
+    readonly tier?: pulumi.Input<string>;
     /**
      * The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      */

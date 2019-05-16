@@ -116,8 +116,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A list of EC2 Availability Zones that
-     * instances in the DB cluster can be created in
+     * A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next Terraform apply. It is recommended to specify 3 AZs or use [the `lifecycle` configuration block `ignore_changes` argument](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) if necessary.
      */
     public readonly availabilityZones!: pulumi.Output<string[]>;
     /**
@@ -144,6 +143,10 @@ export class Cluster extends pulumi.CustomResource {
      * The RDS Cluster Resource ID
      */
     public /*out*/ readonly clusterResourceId!: pulumi.Output<string>;
+    /**
+     * Copy all Cluster `tags` to snapshots. Default is `false`.
+     */
+    public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
     /**
      * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints][5]
      */
@@ -290,6 +293,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterIdentifierPrefix"] = state ? state.clusterIdentifierPrefix : undefined;
             inputs["clusterMembers"] = state ? state.clusterMembers : undefined;
             inputs["clusterResourceId"] = state ? state.clusterResourceId : undefined;
+            inputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["dbClusterParameterGroupName"] = state ? state.dbClusterParameterGroupName : undefined;
             inputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
@@ -329,6 +333,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             inputs["clusterIdentifierPrefix"] = args ? args.clusterIdentifierPrefix : undefined;
             inputs["clusterMembers"] = args ? args.clusterMembers : undefined;
+            inputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["dbClusterParameterGroupName"] = args ? args.dbClusterParameterGroupName : undefined;
             inputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
@@ -388,8 +393,7 @@ export interface ClusterState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * A list of EC2 Availability Zones that
-     * instances in the DB cluster can be created in
+     * A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next Terraform apply. It is recommended to specify 3 AZs or use [the `lifecycle` configuration block `ignore_changes` argument](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) if necessary.
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -416,6 +420,10 @@ export interface ClusterState {
      * The RDS Cluster Resource ID
      */
     readonly clusterResourceId?: pulumi.Input<string>;
+    /**
+     * Copy all Cluster `tags` to snapshots. Default is `false`.
+     */
+    readonly copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
      * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints][5]
      */
@@ -553,8 +561,7 @@ export interface ClusterArgs {
      */
     readonly applyImmediately?: pulumi.Input<boolean>;
     /**
-     * A list of EC2 Availability Zones that
-     * instances in the DB cluster can be created in
+     * A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next Terraform apply. It is recommended to specify 3 AZs or use [the `lifecycle` configuration block `ignore_changes` argument](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) if necessary.
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -577,6 +584,10 @@ export interface ClusterArgs {
      * List of RDS Instances that are a part of this cluster
      */
     readonly clusterMembers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Copy all Cluster `tags` to snapshots. Default is `false`.
+     */
+    readonly copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
      * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints][5]
      */

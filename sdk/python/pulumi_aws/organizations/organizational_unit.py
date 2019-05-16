@@ -8,25 +8,31 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class DelegationSet(pulumi.CustomResource):
-    name_servers: pulumi.Output[list]
+class OrganizationalUnit(pulumi.CustomResource):
+    accounts: pulumi.Output[list]
     """
-    A list of authoritative name servers for the hosted zone
-    (effectively a list of NS records).
+    List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
     """
-    reference_name: pulumi.Output[str]
+    arn: pulumi.Output[str]
     """
-    This is a reference name used in Caller Reference
-    (helpful for identifying single delegation set amongst others)
+    ARN of the organizational unit
     """
-    def __init__(__self__, resource_name, opts=None, reference_name=None, __name__=None, __opts__=None):
+    name: pulumi.Output[str]
+    """
+    The name for the organizational unit
+    """
+    parent_id: pulumi.Output[str]
+    """
+    ID of the parent organizational unit, which may be the root
+    """
+    def __init__(__self__, resource_name, opts=None, name=None, parent_id=None, __name__=None, __opts__=None):
         """
-        Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API-actions-by-function.html#actions-by-function-reusable-delegation-sets) resource.
+        Provides a resource to create an organizational unit.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] reference_name: This is a reference name used in Caller Reference
-               (helpful for identifying single delegation set amongst others)
+        :param pulumi.Input[str] name: The name for the organizational unit
+        :param pulumi.Input[str] parent_id: ID of the parent organizational unit, which may be the root
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -43,16 +49,21 @@ class DelegationSet(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['reference_name'] = reference_name
+        __props__['name'] = name
 
-        __props__['name_servers'] = None
+        if parent_id is None:
+            raise TypeError("Missing required property 'parent_id'")
+        __props__['parent_id'] = parent_id
+
+        __props__['accounts'] = None
+        __props__['arn'] = None
 
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
             opts.version = utilities.get_version()
-        super(DelegationSet, __self__).__init__(
-            'aws:route53/delegationSet:DelegationSet',
+        super(OrganizationalUnit, __self__).__init__(
+            'aws:organizations/organizationalUnit:OrganizationalUnit',
             resource_name,
             __props__,
             opts)

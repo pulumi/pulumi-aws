@@ -149,6 +149,10 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public readonly schema!: pulumi.Output<string | undefined>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      */
     public /*out*/ readonly uris!: pulumi.Output<{[key: string]: string}>;
@@ -175,6 +179,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["openidConnectConfig"] = state ? state.openidConnectConfig : undefined;
             inputs["schema"] = state ? state.schema : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["uris"] = state ? state.uris : undefined;
             inputs["userPoolConfig"] = state ? state.userPoolConfig : undefined;
         } else {
@@ -187,6 +192,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["openidConnectConfig"] = args ? args.openidConnectConfig : undefined;
             inputs["schema"] = args ? args.schema : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["userPoolConfig"] = args ? args.userPoolConfig : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["uris"] = undefined /*out*/;
@@ -231,6 +237,10 @@ export interface GraphQLApiState {
      */
     readonly schema?: pulumi.Input<string>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      */
     readonly uris?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -264,6 +274,10 @@ export interface GraphQLApiArgs {
      * The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration.
      */
     readonly schema?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The Amazon Cognito User Pool configuration. Defined below.
      */

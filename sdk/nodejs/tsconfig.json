@@ -517,6 +517,7 @@
         "lambda/function.ts",
         "lambda/getFunction.ts",
         "lambda/getInvocation.ts",
+        "lambda/getLayerVersion.ts",
         "lambda/index.ts",
         "lambda/lambdaMixins.ts",
         "lambda/layerVersion.ts",
@@ -571,6 +572,7 @@
         "organizations/account.ts",
         "organizations/index.ts",
         "organizations/organization.ts",
+        "organizations/organizationalUnit.ts",
         "organizations/policy.ts",
         "organizations/policyAttachment.ts",
         "pinpoint/admChannel.ts",
@@ -768,7 +770,9 @@
         "worklink/index.ts",
         "worklink/websiteCertificateAuthorityAssociation.ts",
         "workspaces/getBundle.ts",
-        "workspaces/index.ts"
+        "workspaces/index.ts",
+        "xray/index.ts",
+        "xray/samplingRule.ts"
     ]
 }
 

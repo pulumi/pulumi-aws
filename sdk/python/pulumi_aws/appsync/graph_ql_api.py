@@ -33,6 +33,10 @@ class GraphQLApi(pulumi.CustomResource):
     """
     The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration.
     """
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
     uris: pulumi.Output[dict]
     """
     Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
@@ -41,7 +45,7 @@ class GraphQLApi(pulumi.CustomResource):
     """
     The Amazon Cognito User Pool configuration. Defined below.
     """
-    def __init__(__self__, resource_name, opts=None, authentication_type=None, log_config=None, name=None, openid_connect_config=None, schema=None, user_pool_config=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authentication_type=None, log_config=None, name=None, openid_connect_config=None, schema=None, tags=None, user_pool_config=None, __name__=None, __opts__=None):
         """
         Provides an AppSync GraphQL API.
         
@@ -52,6 +56,7 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[str] name: A user-supplied name for the GraphqlApi.
         :param pulumi.Input[dict] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
         :param pulumi.Input[str] schema: The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] user_pool_config: The Amazon Cognito User Pool configuration. Defined below.
         """
         if __name__ is not None:
@@ -80,6 +85,8 @@ class GraphQLApi(pulumi.CustomResource):
         __props__['openid_connect_config'] = openid_connect_config
 
         __props__['schema'] = schema
+
+        __props__['tags'] = tags
 
         __props__['user_pool_config'] = user_pool_config
 

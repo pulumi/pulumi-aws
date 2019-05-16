@@ -12,7 +12,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, iops=None, kms_key_id=None, license_model=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, storage_encrypted=None, storage_type=None, timezone=None, vpc_security_groups=None, id=None):
+    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, iops=None, kms_key_id=None, license_model=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_type=None, timezone=None, vpc_security_groups=None, id=None):
         if address and not isinstance(address, str):
             raise TypeError("Expected argument 'address' to be a str")
         __self__.address = address
@@ -208,6 +208,12 @@ class GetInstanceResult:
         """
         The identifier of the source DB that this is a replica of.
         """
+        if resource_id and not isinstance(resource_id, str):
+            raise TypeError("Expected argument 'resource_id' to be a str")
+        __self__.resource_id = resource_id
+        """
+        The RDS Resource ID of this instance.
+        """
         if storage_encrypted and not isinstance(storage_encrypted, bool):
             raise TypeError("Expected argument 'storage_encrypted' to be a bool")
         __self__.storage_encrypted = storage_encrypted
@@ -286,6 +292,7 @@ async def get_instance(db_instance_identifier=None,opts=None):
         preferred_maintenance_window=__ret__.get('preferredMaintenanceWindow'),
         publicly_accessible=__ret__.get('publiclyAccessible'),
         replicate_source_db=__ret__.get('replicateSourceDb'),
+        resource_id=__ret__.get('resourceId'),
         storage_encrypted=__ret__.get('storageEncrypted'),
         storage_type=__ret__.get('storageType'),
         timezone=__ret__.get('timezone'),
