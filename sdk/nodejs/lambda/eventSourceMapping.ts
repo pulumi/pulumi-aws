@@ -5,9 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB and SQS
+ * Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB and SQS.
  * 
- * For information about Lambda and how to use it, see [What is AWS Lambda?][1]
+ * For information about Lambda and how to use it, see [What is AWS Lambda?][1].
  * For information about event source mappings, see [CreateEventSourceMapping][2] in the API docs.
  * 
  * ## Example Usage

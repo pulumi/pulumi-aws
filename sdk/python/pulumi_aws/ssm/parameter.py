@@ -37,6 +37,10 @@ class Parameter(pulumi.CustomResource):
     """
     A mapping of tags to assign to the object.
     """
+    tier: pulumi.Output[str]
+    """
+    The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+    """
     type: pulumi.Output[str]
     """
     The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
@@ -45,7 +49,7 @@ class Parameter(pulumi.CustomResource):
     """
     The value of the parameter.
     """
-    def __init__(__self__, resource_name, opts=None, allowed_pattern=None, arn=None, description=None, key_id=None, name=None, overwrite=None, tags=None, type=None, value=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allowed_pattern=None, arn=None, description=None, key_id=None, name=None, overwrite=None, tags=None, tier=None, type=None, value=None, __name__=None, __opts__=None):
         """
         Provides an SSM Parameter resource.
         
@@ -58,6 +62,7 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
         :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by terraform to avoid overwrite of existing resource and will default to `true` otherwise (terraform lifecycle rules should then be used to manage the update behavior).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
+        :param pulumi.Input[str] tier: The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         :param pulumi.Input[str] type: The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
         :param pulumi.Input[str] value: The value of the parameter.
         """
@@ -89,6 +94,8 @@ class Parameter(pulumi.CustomResource):
         __props__['overwrite'] = overwrite
 
         __props__['tags'] = tags
+
+        __props__['tier'] = tier
 
         if type is None:
             raise TypeError("Missing required property 'type'")

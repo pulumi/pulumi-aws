@@ -31,6 +31,7 @@ func NewParameter(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["overwrite"] = nil
 		inputs["tags"] = nil
+		inputs["tier"] = nil
 		inputs["type"] = nil
 		inputs["value"] = nil
 	} else {
@@ -41,6 +42,7 @@ func NewParameter(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["overwrite"] = args.Overwrite
 		inputs["tags"] = args.Tags
+		inputs["tier"] = args.Tier
 		inputs["type"] = args.Type
 		inputs["value"] = args.Value
 	}
@@ -64,6 +66,7 @@ func GetParameter(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["overwrite"] = state.Overwrite
 		inputs["tags"] = state.Tags
+		inputs["tier"] = state.Tier
 		inputs["type"] = state.Type
 		inputs["value"] = state.Value
 	}
@@ -119,6 +122,11 @@ func (r *Parameter) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
+// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+func (r *Parameter) Tier() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["tier"])
+}
+
 // The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
 func (r *Parameter) Type() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["type"])
@@ -145,6 +153,8 @@ type ParameterState struct {
 	Overwrite interface{}
 	// A mapping of tags to assign to the object.
 	Tags interface{}
+	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+	Tier interface{}
 	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
 	Type interface{}
 	// The value of the parameter.
@@ -167,6 +177,8 @@ type ParameterArgs struct {
 	Overwrite interface{}
 	// A mapping of tags to assign to the object.
 	Tags interface{}
+	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+	Tier interface{}
 	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
 	Type interface{}
 	// The value of the parameter.

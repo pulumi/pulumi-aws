@@ -42,6 +42,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["clusterIdentifier"] = nil
 		inputs["clusterIdentifierPrefix"] = nil
 		inputs["clusterMembers"] = nil
+		inputs["copyTagsToSnapshot"] = nil
 		inputs["databaseName"] = nil
 		inputs["dbClusterParameterGroupName"] = nil
 		inputs["dbSubnetGroupName"] = nil
@@ -77,6 +78,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["clusterIdentifier"] = args.ClusterIdentifier
 		inputs["clusterIdentifierPrefix"] = args.ClusterIdentifierPrefix
 		inputs["clusterMembers"] = args.ClusterMembers
+		inputs["copyTagsToSnapshot"] = args.CopyTagsToSnapshot
 		inputs["databaseName"] = args.DatabaseName
 		inputs["dbClusterParameterGroupName"] = args.DbClusterParameterGroupName
 		inputs["dbSubnetGroupName"] = args.DbSubnetGroupName
@@ -132,6 +134,7 @@ func GetCluster(ctx *pulumi.Context,
 		inputs["clusterIdentifierPrefix"] = state.ClusterIdentifierPrefix
 		inputs["clusterMembers"] = state.ClusterMembers
 		inputs["clusterResourceId"] = state.ClusterResourceId
+		inputs["copyTagsToSnapshot"] = state.CopyTagsToSnapshot
 		inputs["databaseName"] = state.DatabaseName
 		inputs["dbClusterParameterGroupName"] = state.DbClusterParameterGroupName
 		inputs["dbSubnetGroupName"] = state.DbSubnetGroupName
@@ -192,8 +195,7 @@ func (r *Cluster) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// A list of EC2 Availability Zones that
-// instances in the DB cluster can be created in
+// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next Terraform apply. It is recommended to specify 3 AZs or use [the `lifecycle` configuration block `ignore_changes` argument](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) if necessary.
 func (r *Cluster) AvailabilityZones() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["availabilityZones"])
 }
@@ -226,6 +228,11 @@ func (r *Cluster) ClusterMembers() *pulumi.ArrayOutput {
 // The RDS Cluster Resource ID
 func (r *Cluster) ClusterResourceId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterResourceId"])
+}
+
+// Copy all Cluster `tags` to snapshots. Default is `false`.
+func (r *Cluster) CopyTagsToSnapshot() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["copyTagsToSnapshot"])
 }
 
 // Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints][5]
@@ -392,8 +399,7 @@ type ClusterState struct {
 	ApplyImmediately interface{}
 	// Amazon Resource Name (ARN) of cluster
 	Arn interface{}
-	// A list of EC2 Availability Zones that
-	// instances in the DB cluster can be created in
+	// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next Terraform apply. It is recommended to specify 3 AZs or use [the `lifecycle` configuration block `ignore_changes` argument](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) if necessary.
 	AvailabilityZones interface{}
 	// The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow interface{}
@@ -407,6 +413,8 @@ type ClusterState struct {
 	ClusterMembers interface{}
 	// The RDS Cluster Resource ID
 	ClusterResourceId interface{}
+	// Copy all Cluster `tags` to snapshots. Default is `false`.
+	CopyTagsToSnapshot interface{}
 	// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints][5]
 	DatabaseName interface{}
 	// A cluster parameter group to associate with the cluster.
@@ -481,8 +489,7 @@ type ClusterArgs struct {
 	// are applied immediately, or during the next maintenance window. Default is
 	// `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
 	ApplyImmediately interface{}
-	// A list of EC2 Availability Zones that
-	// instances in the DB cluster can be created in
+	// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next Terraform apply. It is recommended to specify 3 AZs or use [the `lifecycle` configuration block `ignore_changes` argument](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) if necessary.
 	AvailabilityZones interface{}
 	// The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow interface{}
@@ -494,6 +501,8 @@ type ClusterArgs struct {
 	ClusterIdentifierPrefix interface{}
 	// List of RDS Instances that are a part of this cluster
 	ClusterMembers interface{}
+	// Copy all Cluster `tags` to snapshots. Default is `false`.
+	CopyTagsToSnapshot interface{}
 	// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints][5]
 	DatabaseName interface{}
 	// A cluster parameter group to associate with the cluster.

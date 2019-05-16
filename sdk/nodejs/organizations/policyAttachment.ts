@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * 
  * const root = new aws.organizations.PolicyAttachment("root", {
  *     policyId: aws_organizations_policy_example.id,
- *     targetId: "r-12345678",
+ *     targetId: aws_organizations_organization_example.roots.0.id,
  * });
  * ```
  * 
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * 
  * const unit = new aws.organizations.PolicyAttachment("unit", {
  *     policyId: aws_organizations_policy_example.id,
- *     targetId: "ou-12345678",
+ *     targetId: aws_organizations_organizational_unit_example.id,
  * });
  * ```
  */

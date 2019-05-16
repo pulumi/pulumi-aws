@@ -26,6 +26,7 @@ func NewGraphQLApi(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["openidConnectConfig"] = nil
 		inputs["schema"] = nil
+		inputs["tags"] = nil
 		inputs["userPoolConfig"] = nil
 	} else {
 		inputs["authenticationType"] = args.AuthenticationType
@@ -33,6 +34,7 @@ func NewGraphQLApi(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["openidConnectConfig"] = args.OpenidConnectConfig
 		inputs["schema"] = args.Schema
+		inputs["tags"] = args.Tags
 		inputs["userPoolConfig"] = args.UserPoolConfig
 	}
 	inputs["arn"] = nil
@@ -56,6 +58,7 @@ func GetGraphQLApi(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["openidConnectConfig"] = state.OpenidConnectConfig
 		inputs["schema"] = state.Schema
+		inputs["tags"] = state.Tags
 		inputs["uris"] = state.Uris
 		inputs["userPoolConfig"] = state.UserPoolConfig
 	}
@@ -106,6 +109,11 @@ func (r *GraphQLApi) Schema() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["schema"])
 }
 
+// A mapping of tags to assign to the resource.
+func (r *GraphQLApi) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 func (r *GraphQLApi) Uris() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["uris"])
@@ -130,6 +138,8 @@ type GraphQLApiState struct {
 	OpenidConnectConfig interface{}
 	// The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration.
 	Schema interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 	Uris interface{}
 	// The Amazon Cognito User Pool configuration. Defined below.
@@ -148,6 +158,8 @@ type GraphQLApiArgs struct {
 	OpenidConnectConfig interface{}
 	// The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration.
 	Schema interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// The Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig interface{}
 }

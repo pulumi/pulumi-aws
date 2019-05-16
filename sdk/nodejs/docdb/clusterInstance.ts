@@ -67,7 +67,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     /**
-     * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonDocDB/latest/APIReference/API_CreateDBInstance.html) about the details.
+     * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
@@ -242,7 +242,7 @@ export interface ClusterInstanceState {
      */
     readonly autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
-     * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonDocDB/latest/APIReference/API_CreateDBInstance.html) about the details.
+     * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
      */
     readonly availabilityZone?: pulumi.Input<string>;
     /**
@@ -338,7 +338,7 @@ export interface ClusterInstanceArgs {
      */
     readonly autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
-     * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonDocDB/latest/APIReference/API_CreateDBInstance.html) about the details.
+     * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
      */
     readonly availabilityZone?: pulumi.Input<string>;
     /**

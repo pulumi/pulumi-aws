@@ -54,9 +54,9 @@ export class Job extends pulumi.CustomResource {
     }
 
     /**
-     * The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+     * **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
      */
-    public readonly allocatedCapacity!: pulumi.Output<number | undefined>;
+    public readonly allocatedCapacity!: pulumi.Output<number>;
     /**
      * The command of the job. Defined below.
      */
@@ -77,6 +77,10 @@ export class Job extends pulumi.CustomResource {
      * Execution property of the job. Defined below.
      */
     public readonly executionProperty!: pulumi.Output<{ maxConcurrentRuns?: number }>;
+    /**
+     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+     */
+    public readonly maxCapacity!: pulumi.Output<number>;
     /**
      * The maximum number of times to retry this job if it fails.
      */
@@ -116,6 +120,7 @@ export class Job extends pulumi.CustomResource {
             inputs["defaultArguments"] = state ? state.defaultArguments : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["executionProperty"] = state ? state.executionProperty : undefined;
+            inputs["maxCapacity"] = state ? state.maxCapacity : undefined;
             inputs["maxRetries"] = state ? state.maxRetries : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
@@ -135,6 +140,7 @@ export class Job extends pulumi.CustomResource {
             inputs["defaultArguments"] = args ? args.defaultArguments : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["executionProperty"] = args ? args.executionProperty : undefined;
+            inputs["maxCapacity"] = args ? args.maxCapacity : undefined;
             inputs["maxRetries"] = args ? args.maxRetries : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
@@ -157,7 +163,7 @@ export class Job extends pulumi.CustomResource {
  */
 export interface JobState {
     /**
-     * The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+     * **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
      */
     readonly allocatedCapacity?: pulumi.Input<number>;
     /**
@@ -180,6 +186,10 @@ export interface JobState {
      * Execution property of the job. Defined below.
      */
     readonly executionProperty?: pulumi.Input<{ maxConcurrentRuns?: pulumi.Input<number> }>;
+    /**
+     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+     */
+    readonly maxCapacity?: pulumi.Input<number>;
     /**
      * The maximum number of times to retry this job if it fails.
      */
@@ -207,7 +217,7 @@ export interface JobState {
  */
 export interface JobArgs {
     /**
-     * The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+     * **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
      */
     readonly allocatedCapacity?: pulumi.Input<number>;
     /**
@@ -230,6 +240,10 @@ export interface JobArgs {
      * Execution property of the job. Defined below.
      */
     readonly executionProperty?: pulumi.Input<{ maxConcurrentRuns?: pulumi.Input<number> }>;
+    /**
+     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+     */
+    readonly maxCapacity?: pulumi.Input<number>;
     /**
      * The maximum number of times to retry this job if it fails.
      */

@@ -30,6 +30,7 @@ func NewJob(ctx *pulumi.Context,
 		inputs["defaultArguments"] = nil
 		inputs["description"] = nil
 		inputs["executionProperty"] = nil
+		inputs["maxCapacity"] = nil
 		inputs["maxRetries"] = nil
 		inputs["name"] = nil
 		inputs["roleArn"] = nil
@@ -42,6 +43,7 @@ func NewJob(ctx *pulumi.Context,
 		inputs["defaultArguments"] = args.DefaultArguments
 		inputs["description"] = args.Description
 		inputs["executionProperty"] = args.ExecutionProperty
+		inputs["maxCapacity"] = args.MaxCapacity
 		inputs["maxRetries"] = args.MaxRetries
 		inputs["name"] = args.Name
 		inputs["roleArn"] = args.RoleArn
@@ -67,6 +69,7 @@ func GetJob(ctx *pulumi.Context,
 		inputs["defaultArguments"] = state.DefaultArguments
 		inputs["description"] = state.Description
 		inputs["executionProperty"] = state.ExecutionProperty
+		inputs["maxCapacity"] = state.MaxCapacity
 		inputs["maxRetries"] = state.MaxRetries
 		inputs["name"] = state.Name
 		inputs["roleArn"] = state.RoleArn
@@ -90,7 +93,7 @@ func (r *Job) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+// **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
 func (r *Job) AllocatedCapacity() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["allocatedCapacity"])
 }
@@ -120,6 +123,11 @@ func (r *Job) ExecutionProperty() *pulumi.Output {
 	return r.s.State["executionProperty"]
 }
 
+// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+func (r *Job) MaxCapacity() *pulumi.Float64Output {
+	return (*pulumi.Float64Output)(r.s.State["maxCapacity"])
+}
+
 // The maximum number of times to retry this job if it fails.
 func (r *Job) MaxRetries() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["maxRetries"])
@@ -147,7 +155,7 @@ func (r *Job) Timeout() *pulumi.IntOutput {
 
 // Input properties used for looking up and filtering Job resources.
 type JobState struct {
-	// The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+	// **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
 	AllocatedCapacity interface{}
 	// The command of the job. Defined below.
 	Command interface{}
@@ -159,6 +167,8 @@ type JobState struct {
 	Description interface{}
 	// Execution property of the job. Defined below.
 	ExecutionProperty interface{}
+	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+	MaxCapacity interface{}
 	// The maximum number of times to retry this job if it fails.
 	MaxRetries interface{}
 	// The name of the job command. Defaults to `glueetl`
@@ -173,7 +183,7 @@ type JobState struct {
 
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
-	// The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+	// **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
 	AllocatedCapacity interface{}
 	// The command of the job. Defined below.
 	Command interface{}
@@ -185,6 +195,8 @@ type JobArgs struct {
 	Description interface{}
 	// Execution property of the job. Defined below.
 	ExecutionProperty interface{}
+	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+	MaxCapacity interface{}
 	// The maximum number of times to retry this job if it fails.
 	MaxRetries interface{}
 	// The name of the job command. Defaults to `glueetl`

@@ -130,6 +130,7 @@ const (
 	wafregionalMod       = "wafregional"              // Web Application Firewall (WAF) Regional
 	worklinkMod          = "worklink"                 // Worklink
 	workspacesMod        = "workspaces"               // Workspaces
+	xrayMod              = "xray"                     // X-Ray
 )
 
 // awsMember manufactures a type token for the AWS package and the given module and type.
@@ -1345,10 +1346,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_opsworks_permission":       {Tok: awsResource(opsworksMod, "Permission")},
 			"aws_opsworks_rds_db_instance":  {Tok: awsResource(opsworksMod, "RdsDbInstance")},
 			// Organizations
-			"aws_organizations_account":           {Tok: awsResource(organizationsMod, "Account")},
-			"aws_organizations_organization":      {Tok: awsResource(organizationsMod, "Organization")},
-			"aws_organizations_policy":            {Tok: awsResource(organizationsMod, "Policy")},
-			"aws_organizations_policy_attachment": {Tok: awsResource(organizationsMod, "PolicyAttachment")},
+			"aws_organizations_account":             {Tok: awsResource(organizationsMod, "Account")},
+			"aws_organizations_organization":        {Tok: awsResource(organizationsMod, "Organization")},
+			"aws_organizations_organizational_unit": {Tok: awsResource(organizationsMod, "OrganizationalUnit")},
+			"aws_organizations_policy":              {Tok: awsResource(organizationsMod, "Policy")},
+			"aws_organizations_policy_attachment":   {Tok: awsResource(organizationsMod, "PolicyAttachment")},
 			// Pinpoint
 			"aws_pinpoint_adm_channel":               {Tok: awsResource(pinpointMod, "AdmChannel")},
 			"aws_pinpoint_apns_channel":              {Tok: awsResource(pinpointMod, "ApnsChannel")},
@@ -1666,6 +1668,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_worklink_website_certificate_authority_association": {
 				Tok: awsResource(worklinkMod, "WebsiteCertificateAuthorityAssociation"),
 			},
+			"aws_xray_sampling_rule": {Tok: awsResource(xrayMod, "SamplingRule")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// AWS
@@ -1805,8 +1808,9 @@ func Provider() tfbridge.ProviderInfo {
 			// IOT
 			"aws_iot_endpoint": {Tok: awsDataSource(iotMod, "getEndpoint")},
 			// Lambda
-			"aws_lambda_function":   {Tok: awsDataSource(lambdaMod, "getFunction")},
-			"aws_lambda_invocation": {Tok: awsDataSource(lambdaMod, "getInvocation")},
+			"aws_lambda_function":      {Tok: awsDataSource(lambdaMod, "getFunction")},
+			"aws_lambda_invocation":    {Tok: awsDataSource(lambdaMod, "getInvocation")},
+			"aws_lambda_layer_version": {Tok: awsDataSource(lambdaMod, "getLayerVersion")},
 			// Load Balancing (Application and Network)
 			"aws_lb":              {Tok: awsDataSource(elbv2Mod, "getLoadBalancer")},
 			"aws_lb_listener":     {Tok: awsDataSource(elbv2Mod, "getListener")},

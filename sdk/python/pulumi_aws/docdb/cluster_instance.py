@@ -24,7 +24,7 @@ class ClusterInstance(pulumi.CustomResource):
     """
     availability_zone: pulumi.Output[str]
     """
-    The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonDocDB/latest/APIReference/API_CreateDBInstance.html) about the details.
+    The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
     """
     cluster_identifier: pulumi.Output[str]
     """
@@ -119,7 +119,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] apply_immediately: Specifies whether any database modifications
                are applied immediately, or during the next maintenance window. Default is`false`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
-        :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonDocDB/latest/APIReference/API_CreateDBInstance.html) about the details.
+        :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
         :param pulumi.Input[str] cluster_identifier: The identifier of the [`aws_docdb_cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
         :param pulumi.Input[str] identifier: The indentifier for the DocDB instance, if omitted, Terraform will assign a random, unique identifier.

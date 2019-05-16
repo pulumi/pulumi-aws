@@ -2,8 +2,4 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./account";
-export * from "./organization";
-export * from "./organizationalUnit";
-export * from "./policy";
-export * from "./policyAttachment";
+export * from "./samplingRule";
