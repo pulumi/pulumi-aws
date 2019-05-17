@@ -29,6 +29,6 @@ setup(name='pulumi_aws',
       license='Apache-2.0',
       packages=find_packages(),
       install_requires=[
-          'pulumi>=0.17.8,<0.18.0'
+          'pulumi>=0.17.12,<0.18.0'
       ],
       zip_safe=False)
