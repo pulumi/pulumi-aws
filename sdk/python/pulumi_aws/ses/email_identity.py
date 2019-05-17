@@ -8,38 +8,22 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class Application(pulumi.CustomResource):
-    appversion_lifecycle: pulumi.Output[dict]
+class EmailIdentity(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
-    The ARN assigned by AWS for this Elastic Beanstalk Application.
+    The ARN of the email identity.
     """
-    description: pulumi.Output[str]
+    email: pulumi.Output[str]
     """
-    Short description of the application
+    The email address to assign to SES
     """
-    name: pulumi.Output[str]
-    """
-    The name of the application, must be unique within your account
-    """
-    tags: pulumi.Output[dict]
-    """
-    Key-value mapping of tags for the Elastic Beanstalk Application.
-    """
-    def __init__(__self__, resource_name, opts=None, appversion_lifecycle=None, description=None, name=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, email=None, __name__=None, __opts__=None):
         """
-        Provides an Elastic Beanstalk Application Resource. Elastic Beanstalk allows
-        you to deploy and manage applications in the AWS cloud without worrying about
-        the infrastructure that runs those applications.
-        
-        This resource creates an application that has one configuration template named
-        `default`, and no application versions
+        Provides an SES email identity resource
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Short description of the application
-        :param pulumi.Input[str] name: The name of the application, must be unique within your account
-        :param pulumi.Input[dict] tags: Key-value mapping of tags for the Elastic Beanstalk Application.
+        :param pulumi.Input[str] email: The email address to assign to SES
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -56,13 +40,9 @@ class Application(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['appversion_lifecycle'] = appversion_lifecycle
-
-        __props__['description'] = description
-
-        __props__['name'] = name
-
-        __props__['tags'] = tags
+        if email is None:
+            raise TypeError("Missing required property 'email'")
+        __props__['email'] = email
 
         __props__['arn'] = None
 
@@ -70,8 +50,8 @@ class Application(pulumi.CustomResource):
             opts = pulumi.ResourceOptions()
         if opts.version is None:
             opts.version = utilities.get_version()
-        super(Application, __self__).__init__(
-            'aws:elasticbeanstalk/application:Application',
+        super(EmailIdentity, __self__).__init__(
+            'aws:ses/emailIdentity:EmailIdentity',
             resource_name,
             __props__,
             opts)

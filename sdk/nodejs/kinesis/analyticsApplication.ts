@@ -110,6 +110,10 @@ export class AnalyticsApplication extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
+     * Key-value mapping of tags for the Kinesis Analytics Application.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The Version of the application.
      */
     public /*out*/ readonly version!: pulumi.Output<number>;
@@ -137,6 +141,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
             inputs["outputs"] = state ? state.outputs : undefined;
             inputs["referenceDataSources"] = state ? state.referenceDataSources : undefined;
             inputs["status"] = state ? state.status : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as AnalyticsApplicationArgs | undefined;
@@ -147,6 +152,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["outputs"] = args ? args.outputs : undefined;
             inputs["referenceDataSources"] = args ? args.referenceDataSources : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createTimestamp"] = undefined /*out*/;
             inputs["lastUpdateTimestamp"] = undefined /*out*/;
@@ -215,6 +221,10 @@ export interface AnalyticsApplicationState {
      */
     readonly status?: pulumi.Input<string>;
     /**
+     * Key-value mapping of tags for the Kinesis Analytics Application.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The Version of the application.
      */
     readonly version?: pulumi.Input<number>;
@@ -254,4 +264,8 @@ export interface AnalyticsApplicationArgs {
      * See Reference Data Sources below for more details.
      */
     readonly referenceDataSources?: pulumi.Input<{ id?: pulumi.Input<string>, s3: pulumi.Input<{ bucketArn: pulumi.Input<string>, fileKey: pulumi.Input<string>, roleArn: pulumi.Input<string> }>, schema: pulumi.Input<{ recordColumns: pulumi.Input<pulumi.Input<{ mapping?: pulumi.Input<string>, name: pulumi.Input<string>, sqlType: pulumi.Input<string> }>[]>, recordEncoding?: pulumi.Input<string>, recordFormat: pulumi.Input<{ mappingParameters?: pulumi.Input<{ csv?: pulumi.Input<{ recordColumnDelimiter: pulumi.Input<string>, recordRowDelimiter: pulumi.Input<string> }>, json?: pulumi.Input<{ recordRowPath: pulumi.Input<string> }> }>, recordFormatType?: pulumi.Input<string> }> }>, tableName: pulumi.Input<string> }>;
+    /**
+     * Key-value mapping of tags for the Kinesis Analytics Application.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

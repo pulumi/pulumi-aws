@@ -43,6 +43,10 @@ export class Application extends pulumi.CustomResource {
 
     public readonly appversionLifecycle!: pulumi.Output<{ deleteSourceFromS3?: boolean, maxAgeInDays?: number, maxCount?: number, serviceRole: string } | undefined>;
     /**
+     * The ARN assigned by AWS for this Elastic Beanstalk Application.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Short description of the application
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -50,6 +54,10 @@ export class Application extends pulumi.CustomResource {
      * The name of the application, must be unique within your account
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Key-value mapping of tags for the Elastic Beanstalk Application.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -64,13 +72,17 @@ export class Application extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ApplicationState | undefined;
             inputs["appversionLifecycle"] = state ? state.appversionLifecycle : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
             inputs["appversionLifecycle"] = args ? args.appversionLifecycle : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -89,6 +101,10 @@ export class Application extends pulumi.CustomResource {
 export interface ApplicationState {
     readonly appversionLifecycle?: pulumi.Input<{ deleteSourceFromS3?: pulumi.Input<boolean>, maxAgeInDays?: pulumi.Input<number>, maxCount?: pulumi.Input<number>, serviceRole: pulumi.Input<string> }>;
     /**
+     * The ARN assigned by AWS for this Elastic Beanstalk Application.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * Short description of the application
      */
     readonly description?: pulumi.Input<string>;
@@ -96,6 +112,10 @@ export interface ApplicationState {
      * The name of the application, must be unique within your account
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of tags for the Elastic Beanstalk Application.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -111,4 +131,8 @@ export interface ApplicationArgs {
      * The name of the application, must be unique within your account
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of tags for the Elastic Beanstalk Application.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

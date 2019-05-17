@@ -48,6 +48,7 @@ func NewApplicationVersion(ctx *pulumi.Context,
 		inputs["forceDelete"] = nil
 		inputs["key"] = nil
 		inputs["name"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["application"] = args.Application
 		inputs["bucket"] = args.Bucket
@@ -55,7 +56,9 @@ func NewApplicationVersion(ctx *pulumi.Context,
 		inputs["forceDelete"] = args.ForceDelete
 		inputs["key"] = args.Key
 		inputs["name"] = args.Name
+		inputs["tags"] = args.Tags
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:elasticbeanstalk/applicationVersion:ApplicationVersion", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -70,11 +73,13 @@ func GetApplicationVersion(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["application"] = state.Application
+		inputs["arn"] = state.Arn
 		inputs["bucket"] = state.Bucket
 		inputs["description"] = state.Description
 		inputs["forceDelete"] = state.ForceDelete
 		inputs["key"] = state.Key
 		inputs["name"] = state.Name
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:elasticbeanstalk/applicationVersion:ApplicationVersion", name, id, inputs, opts...)
 	if err != nil {
@@ -96,6 +101,11 @@ func (r *ApplicationVersion) ID() *pulumi.IDOutput {
 // Name of the Beanstalk Application the version is associated with.
 func (r *ApplicationVersion) Application() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["application"])
+}
+
+// The ARN assigned by AWS for this Elastic Beanstalk Application.
+func (r *ApplicationVersion) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // S3 bucket that contains the Application Version source bundle.
@@ -124,10 +134,17 @@ func (r *ApplicationVersion) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// Key-value mapping of tags for the Elastic Beanstalk Application Version.
+func (r *ApplicationVersion) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering ApplicationVersion resources.
 type ApplicationVersionState struct {
 	// Name of the Beanstalk Application the version is associated with.
 	Application interface{}
+	// The ARN assigned by AWS for this Elastic Beanstalk Application.
+	Arn interface{}
 	// S3 bucket that contains the Application Version source bundle.
 	Bucket interface{}
 	// Short description of the Application Version.
@@ -139,6 +156,8 @@ type ApplicationVersionState struct {
 	Key interface{}
 	// A unique name for the this Application Version.
 	Name interface{}
+	// Key-value mapping of tags for the Elastic Beanstalk Application Version.
+	Tags interface{}
 }
 
 // The set of arguments for constructing a ApplicationVersion resource.
@@ -156,4 +175,6 @@ type ApplicationVersionArgs struct {
 	Key interface{}
 	// A unique name for the this Application Version.
 	Name interface{}
+	// Key-value mapping of tags for the Elastic Beanstalk Application Version.
+	Tags interface{}
 }

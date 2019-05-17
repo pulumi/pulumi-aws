@@ -328,8 +328,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * One of "standard" (magnetic), "gp2" (general
      * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-     * specified, "standard" if not. Note that this behaviour is different from the AWS
-     * web console, where the default is "gp2".
+     * specified, "gp2" if not.
      */
     public readonly storageType!: pulumi.Output<string>;
     /**
@@ -758,8 +757,7 @@ export interface InstanceState {
     /**
      * One of "standard" (magnetic), "gp2" (general
      * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-     * specified, "standard" if not. Note that this behaviour is different from the AWS
-     * web console, where the default is "gp2".
+     * specified, "gp2" if not.
      */
     readonly storageType?: pulumi.Input<string>;
     /**
@@ -1023,8 +1021,7 @@ export interface InstanceArgs {
     /**
      * One of "standard" (magnetic), "gp2" (general
      * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-     * specified, "standard" if not. Note that this behaviour is different from the AWS
-     * web console, where the default is "gp2".
+     * specified, "gp2" if not.
      */
     readonly storageType?: pulumi.Input<string>;
     /**

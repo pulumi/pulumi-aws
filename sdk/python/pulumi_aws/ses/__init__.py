@@ -9,6 +9,7 @@ from .domain_dkim import *
 from .domain_identity import *
 from .domain_identity_verification import *
 from .mail_from import *
+from .email_identity import *
 from .event_destination import *
 from .identity_notification_topic import *
 from .receipt_filter import *

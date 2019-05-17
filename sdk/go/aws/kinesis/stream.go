@@ -91,7 +91,7 @@ func (r *Stream) EncryptionType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["encryptionType"])
 }
 
-// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias aws/kinesis.
+// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
 func (r *Stream) KmsKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
@@ -130,7 +130,7 @@ type StreamState struct {
 	Arn interface{}
 	// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
 	EncryptionType interface{}
-	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias aws/kinesis.
+	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
 	KmsKeyId interface{}
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
@@ -153,7 +153,7 @@ type StreamArgs struct {
 	Arn interface{}
 	// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
 	EncryptionType interface{}
-	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias aws/kinesis.
+	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
 	KmsKeyId interface{}
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.

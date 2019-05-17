@@ -39,6 +39,7 @@ func NewTopic(ctx *pulumi.Context,
 		inputs["sqsFailureFeedbackRoleArn"] = nil
 		inputs["sqsSuccessFeedbackRoleArn"] = nil
 		inputs["sqsSuccessFeedbackSampleRate"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["applicationFailureFeedbackRoleArn"] = args.ApplicationFailureFeedbackRoleArn
 		inputs["applicationSuccessFeedbackRoleArn"] = args.ApplicationSuccessFeedbackRoleArn
@@ -58,6 +59,7 @@ func NewTopic(ctx *pulumi.Context,
 		inputs["sqsFailureFeedbackRoleArn"] = args.SqsFailureFeedbackRoleArn
 		inputs["sqsSuccessFeedbackRoleArn"] = args.SqsSuccessFeedbackRoleArn
 		inputs["sqsSuccessFeedbackSampleRate"] = args.SqsSuccessFeedbackSampleRate
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:sns/topic:Topic", name, true, inputs, opts...)
@@ -92,6 +94,7 @@ func GetTopic(ctx *pulumi.Context,
 		inputs["sqsFailureFeedbackRoleArn"] = state.SqsFailureFeedbackRoleArn
 		inputs["sqsSuccessFeedbackRoleArn"] = state.SqsSuccessFeedbackRoleArn
 		inputs["sqsSuccessFeedbackSampleRate"] = state.SqsSuccessFeedbackSampleRate
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:sns/topic:Topic", name, id, inputs, opts...)
 	if err != nil {
@@ -205,6 +208,11 @@ func (r *Topic) SqsSuccessFeedbackSampleRate() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["sqsSuccessFeedbackSampleRate"])
 }
 
+// Key-value mapping of resource tags
+func (r *Topic) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering Topic resources.
 type TopicState struct {
 	// IAM role for failure feedback
@@ -245,6 +253,8 @@ type TopicState struct {
 	SqsSuccessFeedbackRoleArn interface{}
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }
 
 // The set of arguments for constructing a Topic resource.
@@ -285,4 +295,6 @@ type TopicArgs struct {
 	SqsSuccessFeedbackRoleArn interface{}
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }

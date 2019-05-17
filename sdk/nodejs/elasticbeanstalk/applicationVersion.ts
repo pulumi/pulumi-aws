@@ -66,6 +66,10 @@ export class ApplicationVersion extends pulumi.CustomResource {
      */
     public readonly application!: pulumi.Output<Application>;
     /**
+     * The ARN assigned by AWS for this Elastic Beanstalk Application.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * S3 bucket that contains the Application Version source bundle.
      */
     public readonly bucket!: pulumi.Output<string>;
@@ -86,6 +90,10 @@ export class ApplicationVersion extends pulumi.CustomResource {
      * A unique name for the this Application Version.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Key-value mapping of tags for the Elastic Beanstalk Application Version.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a ApplicationVersion resource with the given unique name, arguments, and options.
@@ -100,11 +108,13 @@ export class ApplicationVersion extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ApplicationVersionState | undefined;
             inputs["application"] = state ? state.application : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["forceDelete"] = state ? state.forceDelete : undefined;
             inputs["key"] = state ? state.key : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ApplicationVersionArgs | undefined;
             if (!args || args.application === undefined) {
@@ -122,6 +132,8 @@ export class ApplicationVersion extends pulumi.CustomResource {
             inputs["forceDelete"] = args ? args.forceDelete : undefined;
             inputs["key"] = args ? args.key : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -143,6 +155,10 @@ export interface ApplicationVersionState {
      */
     readonly application?: pulumi.Input<Application>;
     /**
+     * The ARN assigned by AWS for this Elastic Beanstalk Application.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * S3 bucket that contains the Application Version source bundle.
      */
     readonly bucket?: pulumi.Input<string | Bucket>;
@@ -163,6 +179,10 @@ export interface ApplicationVersionState {
      * A unique name for the this Application Version.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of tags for the Elastic Beanstalk Application Version.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -194,4 +214,8 @@ export interface ApplicationVersionArgs {
      * A unique name for the this Application Version.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of tags for the Elastic Beanstalk Application Version.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

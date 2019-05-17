@@ -150,6 +150,10 @@ export class Topic extends pulumi.CustomResource {
      * Percentage of success to sample
      */
     public readonly sqsSuccessFeedbackSampleRate!: pulumi.Output<number | undefined>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Topic resource with the given unique name, arguments, and options.
@@ -182,6 +186,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["sqsFailureFeedbackRoleArn"] = state ? state.sqsFailureFeedbackRoleArn : undefined;
             inputs["sqsSuccessFeedbackRoleArn"] = state ? state.sqsSuccessFeedbackRoleArn : undefined;
             inputs["sqsSuccessFeedbackSampleRate"] = state ? state.sqsSuccessFeedbackSampleRate : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as TopicArgs | undefined;
             inputs["applicationFailureFeedbackRoleArn"] = args ? args.applicationFailureFeedbackRoleArn : undefined;
@@ -202,6 +207,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["sqsFailureFeedbackRoleArn"] = args ? args.sqsFailureFeedbackRoleArn : undefined;
             inputs["sqsSuccessFeedbackRoleArn"] = args ? args.sqsSuccessFeedbackRoleArn : undefined;
             inputs["sqsSuccessFeedbackSampleRate"] = args ? args.sqsSuccessFeedbackSampleRate : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
@@ -295,6 +301,10 @@ export interface TopicState {
      * Percentage of success to sample
      */
     readonly sqsSuccessFeedbackSampleRate?: pulumi.Input<number>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -373,4 +383,8 @@ export interface TopicArgs {
      * Percentage of success to sample
      */
     readonly sqsSuccessFeedbackSampleRate?: pulumi.Input<number>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

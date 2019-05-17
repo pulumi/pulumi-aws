@@ -29,6 +29,8 @@ func NewInstanceGroup(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["autoscalingPolicy"] = nil
+		inputs["bidPrice"] = nil
 		inputs["clusterId"] = nil
 		inputs["ebsConfigs"] = nil
 		inputs["ebsOptimized"] = nil
@@ -36,6 +38,8 @@ func NewInstanceGroup(ctx *pulumi.Context,
 		inputs["instanceType"] = nil
 		inputs["name"] = nil
 	} else {
+		inputs["autoscalingPolicy"] = args.AutoscalingPolicy
+		inputs["bidPrice"] = args.BidPrice
 		inputs["clusterId"] = args.ClusterId
 		inputs["ebsConfigs"] = args.EbsConfigs
 		inputs["ebsOptimized"] = args.EbsOptimized
@@ -58,6 +62,8 @@ func GetInstanceGroup(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *InstanceGroupState, opts ...pulumi.ResourceOpt) (*InstanceGroup, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["autoscalingPolicy"] = state.AutoscalingPolicy
+		inputs["bidPrice"] = state.BidPrice
 		inputs["clusterId"] = state.ClusterId
 		inputs["ebsConfigs"] = state.EbsConfigs
 		inputs["ebsOptimized"] = state.EbsOptimized
@@ -84,6 +90,16 @@ func (r *InstanceGroup) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+func (r *InstanceGroup) AutoscalingPolicy() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["autoscalingPolicy"])
+}
+
+// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+func (r *InstanceGroup) BidPrice() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["bidPrice"])
+}
+
 // ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 func (r *InstanceGroup) ClusterId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterId"])
@@ -99,7 +115,7 @@ func (r *InstanceGroup) EbsOptimized() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["ebsOptimized"])
 }
 
-// Target number of instances for the instance group. Defaults to 0.
+// target number of instances for the instance group. defaults to 0.
 func (r *InstanceGroup) InstanceCount() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["instanceCount"])
 }
@@ -124,13 +140,17 @@ func (r *InstanceGroup) Status() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering InstanceGroup resources.
 type InstanceGroupState struct {
+	// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+	AutoscalingPolicy interface{}
+	// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+	BidPrice interface{}
 	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 	ClusterId interface{}
 	// One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
 	EbsConfigs interface{}
 	// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
 	EbsOptimized interface{}
-	// Target number of instances for the instance group. Defaults to 0.
+	// target number of instances for the instance group. defaults to 0.
 	InstanceCount interface{}
 	// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
 	InstanceType interface{}
@@ -142,13 +162,17 @@ type InstanceGroupState struct {
 
 // The set of arguments for constructing a InstanceGroup resource.
 type InstanceGroupArgs struct {
+	// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+	AutoscalingPolicy interface{}
+	// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+	BidPrice interface{}
 	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 	ClusterId interface{}
 	// One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
 	EbsConfigs interface{}
 	// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
 	EbsOptimized interface{}
-	// Target number of instances for the instance group. Defaults to 0.
+	// target number of instances for the instance group. defaults to 0.
 	InstanceCount interface{}
 	// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
 	InstanceType interface{}

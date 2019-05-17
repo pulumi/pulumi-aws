@@ -13,6 +13,10 @@ class ApplicationVersion(pulumi.CustomResource):
     """
     Name of the Beanstalk Application the version is associated with.
     """
+    arn: pulumi.Output[str]
+    """
+    The ARN assigned by AWS for this Elastic Beanstalk Application.
+    """
     bucket: pulumi.Output[str]
     """
     S3 bucket that contains the Application Version source bundle.
@@ -34,7 +38,11 @@ class ApplicationVersion(pulumi.CustomResource):
     """
     A unique name for the this Application Version.
     """
-    def __init__(__self__, resource_name, opts=None, application=None, bucket=None, description=None, force_delete=None, key=None, name=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of tags for the Elastic Beanstalk Application Version.
+    """
+    def __init__(__self__, resource_name, opts=None, application=None, bucket=None, description=None, force_delete=None, key=None, name=None, tags=None, __name__=None, __opts__=None):
         """
         Provides an Elastic Beanstalk Application Version Resource. Elastic Beanstalk allows
         you to deploy and manage applications in the AWS cloud without worrying about
@@ -62,6 +70,7 @@ class ApplicationVersion(pulumi.CustomResource):
                by multiple Elastic Beanstalk Environments.
         :param pulumi.Input[str] key: S3 object that is the Application Version source bundle.
         :param pulumi.Input[str] name: A unique name for the this Application Version.
+        :param pulumi.Input[dict] tags: Key-value mapping of tags for the Elastic Beanstalk Application Version.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -95,6 +104,10 @@ class ApplicationVersion(pulumi.CustomResource):
         __props__['key'] = key
 
         __props__['name'] = name
+
+        __props__['tags'] = tags
+
+        __props__['arn'] = None
 
         if opts is None:
             opts = pulumi.ResourceOptions()

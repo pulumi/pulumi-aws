@@ -51,7 +51,7 @@ export class Stream extends pulumi.CustomResource {
      */
     public readonly encryptionType!: pulumi.Output<string | undefined>;
     /**
-     * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias aws/kinesis.
+     * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
@@ -136,7 +136,7 @@ export interface StreamState {
      */
     readonly encryptionType?: pulumi.Input<string>;
     /**
-     * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias aws/kinesis.
+     * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
@@ -177,7 +177,7 @@ export interface StreamArgs {
      */
     readonly encryptionType?: pulumi.Input<string>;
     /**
-     * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias aws/kinesis.
+     * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**

@@ -274,8 +274,7 @@ class Instance(pulumi.CustomResource):
     """
     One of "standard" (magnetic), "gp2" (general
     purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-    specified, "standard" if not. Note that this behaviour is different from the AWS
-    web console, where the default is "gp2".
+    specified, "gp2" if not.
     """
     tags: pulumi.Output[dict]
     """
@@ -442,8 +441,7 @@ class Instance(pulumi.CustomResource):
                default is `false` if not specified.
         :param pulumi.Input[str] storage_type: One of "standard" (magnetic), "gp2" (general
                purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-               specified, "standard" if not. Note that this behaviour is different from the AWS
-               web console, where the default is "gp2".
+               specified, "gp2" if not.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone: Time zone of the DB instance. `timezone` is currently
                only supported by Microsoft SQL Server. The `timezone` can only be set on

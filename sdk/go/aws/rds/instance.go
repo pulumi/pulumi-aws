@@ -543,8 +543,7 @@ func (r *Instance) StorageEncrypted() *pulumi.BoolOutput {
 
 // One of "standard" (magnetic), "gp2" (general
 // purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-// specified, "standard" if not. Note that this behaviour is different from the AWS
-// web console, where the default is "gp2".
+// specified, "gp2" if not.
 func (r *Instance) StorageType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["storageType"])
 }
@@ -746,8 +745,7 @@ type InstanceState struct {
 	StorageEncrypted interface{}
 	// One of "standard" (magnetic), "gp2" (general
 	// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-	// specified, "standard" if not. Note that this behaviour is different from the AWS
-	// web console, where the default is "gp2".
+	// specified, "gp2" if not.
 	StorageType interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -919,8 +917,7 @@ type InstanceArgs struct {
 	StorageEncrypted interface{}
 	// One of "standard" (magnetic), "gp2" (general
 	// purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
-	// specified, "standard" if not. Note that this behaviour is different from the AWS
-	// web console, where the default is "gp2".
+	// specified, "gp2" if not.
 	StorageType interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
