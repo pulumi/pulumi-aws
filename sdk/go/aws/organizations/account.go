@@ -28,11 +28,13 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["email"] = nil
 		inputs["iamUserAccessToBilling"] = nil
 		inputs["name"] = nil
+		inputs["parentId"] = nil
 		inputs["roleName"] = nil
 	} else {
 		inputs["email"] = args.Email
 		inputs["iamUserAccessToBilling"] = args.IamUserAccessToBilling
 		inputs["name"] = args.Name
+		inputs["parentId"] = args.ParentId
 		inputs["roleName"] = args.RoleName
 	}
 	inputs["arn"] = nil
@@ -58,6 +60,7 @@ func GetAccount(ctx *pulumi.Context,
 		inputs["joinedMethod"] = state.JoinedMethod
 		inputs["joinedTimestamp"] = state.JoinedTimestamp
 		inputs["name"] = state.Name
+		inputs["parentId"] = state.ParentId
 		inputs["roleName"] = state.RoleName
 		inputs["status"] = state.Status
 	}
@@ -106,6 +109,11 @@ func (r *Account) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
+func (r *Account) ParentId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["parentId"])
+}
+
 // The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account.
 func (r *Account) RoleName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["roleName"])
@@ -127,6 +135,8 @@ type AccountState struct {
 	JoinedTimestamp interface{}
 	// A friendly name for the member account.
 	Name interface{}
+	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
+	ParentId interface{}
 	// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account.
 	RoleName interface{}
 	Status interface{}
@@ -140,6 +150,8 @@ type AccountArgs struct {
 	IamUserAccessToBilling interface{}
 	// A friendly name for the member account.
 	Name interface{}
+	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
+	ParentId interface{}
 	// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account.
 	RoleName interface{}
 }

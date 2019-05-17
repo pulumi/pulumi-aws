@@ -36,11 +36,15 @@ class Cluster(pulumi.CustomResource):
     """
     core_instance_count: pulumi.Output[float]
     """
-    Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `instance_groups` is set. Default `1`
+    Use the `core_instance_group` configuration block `instance_count` argument instead. Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `core_instance_group` or `instance_group` configuration blocks are set. Default `1`
+    """
+    core_instance_group: pulumi.Output[dict]
+    """
+    Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core). Cannot be specified if `core_instance_count` argument, `core_instance_type` argument, or `instance_group` configuration blocks are set. Detailed below.
     """
     core_instance_type: pulumi.Output[str]
     """
-    The EC2 instance type of the slave nodes. Cannot be specified if `instance_groups` is set
+    Use the `core_instance_group` configuration block `instance_type` argument instead. The EC2 instance type of the slave nodes. Cannot be specified if `core_instance_group` or `instance_group` configuration blocks are set.
     """
     custom_ami_id: pulumi.Output[str]
     """
@@ -56,7 +60,7 @@ class Cluster(pulumi.CustomResource):
     """
     instance_groups: pulumi.Output[list]
     """
-    A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Defined below
+    Use the `master_instance_group` configuration block, `core_instance_group` configuration block and [`aws_emr_instance_group` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `master_instance_group` or `core_instance_group` configuration blocks are set. Defined below
     """
     keep_job_flow_alive_when_no_steps: pulumi.Output[bool]
     """
@@ -70,13 +74,18 @@ class Cluster(pulumi.CustomResource):
     """
     S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
     """
+    master_instance_group: pulumi.Output[dict]
+    """
+    Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master). Cannot be specified if `master_instance_type` argument or `instance_group` configuration blocks are set. Detailed below.
+    """
     master_instance_type: pulumi.Output[str]
     """
-    The EC2 instance type of the master node. Exactly one of `master_instance_type` and `instance_group` must be specified.
+    Use the `master_instance_group` configuration block `instance_type` argument instead. The EC2 instance type of the master node. Cannot be specified if `master_instance_group` or `instance_group` configuration blocks are set.
     """
     master_public_dns: pulumi.Output[str]
     """
     The public DNS name of the master EC2 instance.
+    * `core_instance_group.0.id` - Core node type Instance Group ID, if using Instance Group for this node type.
     """
     name: pulumi.Output[str]
     """
@@ -114,11 +123,26 @@ class Cluster(pulumi.CustomResource):
     """
     Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
     """
-    def __init__(__self__, resource_name, opts=None, additional_info=None, applications=None, autoscaling_role=None, bootstrap_actions=None, configurations=None, configurations_json=None, core_instance_count=None, core_instance_type=None, custom_ami_id=None, ebs_root_volume_size=None, ec2_attributes=None, instance_groups=None, keep_job_flow_alive_when_no_steps=None, kerberos_attributes=None, log_uri=None, master_instance_type=None, name=None, release_label=None, scale_down_behavior=None, security_configuration=None, service_role=None, steps=None, tags=None, termination_protection=None, visible_to_all_users=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, additional_info=None, applications=None, autoscaling_role=None, bootstrap_actions=None, configurations=None, configurations_json=None, core_instance_count=None, core_instance_group=None, core_instance_type=None, custom_ami_id=None, ebs_root_volume_size=None, ec2_attributes=None, instance_groups=None, keep_job_flow_alive_when_no_steps=None, kerberos_attributes=None, log_uri=None, master_instance_group=None, master_instance_type=None, name=None, release_label=None, scale_down_behavior=None, security_configuration=None, service_role=None, steps=None, tags=None, termination_protection=None, visible_to_all_users=None, __name__=None, __opts__=None):
         """
         Provides an Elastic MapReduce Cluster, a web service that makes it easy to
         process large amounts of data efficiently. See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/elastic-mapreduce/)
         for more information.
+        
+        To configure [Instance Groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for [task nodes](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-task), see the [`aws_emr_instance_group` resource](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html).
+        
+        > Support for [Instance Fleets](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-fleets) will be made available in an upcoming release.
+        
+        ## core_instance_group Configuration Block
+        
+        Supported arguments for the `core_instance_group` configuration block:
+        
+        * `instance_type` - (Required) EC2 instance type for all instances in the instance group.
+        * `autoscaling_policy` - (Optional) String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
+        * `bid_price` - (Optional) Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+        * `ebs_config` - (Optional) Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        * `instance_count` - (Optional) Target number of instances for the instance group. Must be at least 1. Defaults to 1.
+        * `name` - (Optional) Friendly name given to the instance group.
         
         ## ec2_attributes
         
@@ -170,6 +194,15 @@ class Cluster(pulumi.CustomResource):
         * `ebs_config` - (Optional) A list of attributes for the EBS volumes attached to each instance in the instance group. Each `ebs_config` defined will result in additional EBS volumes being attached to _each_ instance in the instance group. Defined below
         * `autoscaling_policy` - (Optional) The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
         
+        ## master_instance_group Configuration Block
+        
+        Supported nested arguments for the `master_instance_group` configuration block:
+        
+        * `instance_type` - (Required) EC2 instance type for all instances in the instance group.
+        * `bid_price` - (Optional) Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+        * `ebs_config` - (Optional) Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        * `name` - (Optional) Friendly name given to the instance group.
+        
         ## ebs_config
         
         Attributes for the EBS volumes attached to each EC2 instance in the `instance_group`
@@ -210,16 +243,18 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[list] bootstrap_actions: List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
         :param pulumi.Input[str] configurations: List of configurations supplied for the EMR cluster you are creating
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations for the EMR cluster.
-        :param pulumi.Input[float] core_instance_count: Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `instance_groups` is set. Default `1`
-        :param pulumi.Input[str] core_instance_type: The EC2 instance type of the slave nodes. Cannot be specified if `instance_groups` is set
+        :param pulumi.Input[float] core_instance_count: Use the `core_instance_group` configuration block `instance_count` argument instead. Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`core_instance_count`-1) as core nodes. Cannot be specified if `core_instance_group` or `instance_group` configuration blocks are set. Default `1`
+        :param pulumi.Input[dict] core_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core). Cannot be specified if `core_instance_count` argument, `core_instance_type` argument, or `instance_group` configuration blocks are set. Detailed below.
+        :param pulumi.Input[str] core_instance_type: Use the `core_instance_group` configuration block `instance_type` argument instead. The EC2 instance type of the slave nodes. Cannot be specified if `core_instance_group` or `instance_group` configuration blocks are set.
         :param pulumi.Input[str] custom_ami_id: A custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
         :param pulumi.Input[float] ebs_root_volume_size: Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
         :param pulumi.Input[dict] ec2_attributes: Attributes for the EC2 instances running the job flow. Defined below
-        :param pulumi.Input[list] instance_groups: A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Defined below
+        :param pulumi.Input[list] instance_groups: Use the `master_instance_group` configuration block, `core_instance_group` configuration block and [`aws_emr_instance_group` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `master_instance_group` or `core_instance_group` configuration blocks are set. Defined below
         :param pulumi.Input[bool] keep_job_flow_alive_when_no_steps: Switch on/off run cluster with no steps or when all steps are complete (default is on)
         :param pulumi.Input[dict] kerberos_attributes: Kerberos configuration for the cluster. Defined below
         :param pulumi.Input[str] log_uri: S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
-        :param pulumi.Input[str] master_instance_type: The EC2 instance type of the master node. Exactly one of `master_instance_type` and `instance_group` must be specified.
+        :param pulumi.Input[dict] master_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master). Cannot be specified if `master_instance_type` argument or `instance_group` configuration blocks are set. Detailed below.
+        :param pulumi.Input[str] master_instance_type: Use the `master_instance_group` configuration block `instance_type` argument instead. The EC2 instance type of the master node. Cannot be specified if `master_instance_group` or `instance_group` configuration blocks are set.
         :param pulumi.Input[str] name: The name of the job flow
         :param pulumi.Input[str] release_label: The release label for the Amazon EMR release
         :param pulumi.Input[str] scale_down_behavior: The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
@@ -259,6 +294,8 @@ class Cluster(pulumi.CustomResource):
 
         __props__['core_instance_count'] = core_instance_count
 
+        __props__['core_instance_group'] = core_instance_group
+
         __props__['core_instance_type'] = core_instance_type
 
         __props__['custom_ami_id'] = custom_ami_id
@@ -274,6 +311,8 @@ class Cluster(pulumi.CustomResource):
         __props__['kerberos_attributes'] = kerberos_attributes
 
         __props__['log_uri'] = log_uri
+
+        __props__['master_instance_group'] = master_instance_group
 
         __props__['master_instance_type'] = master_instance_type
 

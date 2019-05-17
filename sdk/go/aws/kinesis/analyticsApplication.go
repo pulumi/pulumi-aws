@@ -27,6 +27,7 @@ func NewAnalyticsApplication(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["outputs"] = nil
 		inputs["referenceDataSources"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["cloudwatchLoggingOptions"] = args.CloudwatchLoggingOptions
 		inputs["code"] = args.Code
@@ -35,6 +36,7 @@ func NewAnalyticsApplication(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["outputs"] = args.Outputs
 		inputs["referenceDataSources"] = args.ReferenceDataSources
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	inputs["createTimestamp"] = nil
@@ -65,6 +67,7 @@ func GetAnalyticsApplication(ctx *pulumi.Context,
 		inputs["outputs"] = state.Outputs
 		inputs["referenceDataSources"] = state.ReferenceDataSources
 		inputs["status"] = state.Status
+		inputs["tags"] = state.Tags
 		inputs["version"] = state.Version
 	}
 	s, err := ctx.ReadResource("aws:kinesis/analyticsApplication:AnalyticsApplication", name, id, inputs, opts...)
@@ -141,6 +144,11 @@ func (r *AnalyticsApplication) Status() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["status"])
 }
 
+// Key-value mapping of tags for the Kinesis Analytics Application.
+func (r *AnalyticsApplication) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // The Version of the application.
 func (r *AnalyticsApplication) Version() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["version"])
@@ -172,6 +180,8 @@ type AnalyticsApplicationState struct {
 	ReferenceDataSources interface{}
 	// The Status of the application.
 	Status interface{}
+	// Key-value mapping of tags for the Kinesis Analytics Application.
+	Tags interface{}
 	// The Version of the application.
 	Version interface{}
 }
@@ -194,4 +204,6 @@ type AnalyticsApplicationArgs struct {
 	// An S3 Reference Data Source for the application.
 	// See Reference Data Sources below for more details.
 	ReferenceDataSources interface{}
+	// Key-value mapping of tags for the Kinesis Analytics Application.
+	Tags interface{}
 }

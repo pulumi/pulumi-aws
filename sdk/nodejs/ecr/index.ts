@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./getCredentials";
+export * from "./getImage";
 export * from "./getRepository";
 export * from "./lifecyclePolicy";
 export * from "./repository";

@@ -55,11 +55,15 @@ class AnalyticsApplication(pulumi.CustomResource):
     """
     The Status of the application.
     """
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of tags for the Kinesis Analytics Application.
+    """
     version: pulumi.Output[float]
     """
     The Version of the application.
     """
-    def __init__(__self__, resource_name, opts=None, cloudwatch_logging_options=None, code=None, description=None, inputs=None, name=None, outputs=None, reference_data_sources=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cloudwatch_logging_options=None, code=None, description=None, inputs=None, name=None, outputs=None, reference_data_sources=None, tags=None, __name__=None, __opts__=None):
         """
         Provides a Kinesis Analytics Application resource. Kinesis Analytics is a managed service that
         allows processing and analyzing streaming data using standard SQL.
@@ -77,6 +81,7 @@ class AnalyticsApplication(pulumi.CustomResource):
         :param pulumi.Input[list] outputs: Output destination configuration of the application. See Outputs below for more details.
         :param pulumi.Input[dict] reference_data_sources: An S3 Reference Data Source for the application.
                See Reference Data Sources below for more details.
+        :param pulumi.Input[dict] tags: Key-value mapping of tags for the Kinesis Analytics Application.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -106,6 +111,8 @@ class AnalyticsApplication(pulumi.CustomResource):
         __props__['outputs'] = outputs
 
         __props__['reference_data_sources'] = reference_data_sources
+
+        __props__['tags'] = tags
 
         __props__['arn'] = None
         __props__['create_timestamp'] = None

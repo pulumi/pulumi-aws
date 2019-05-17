@@ -39,19 +39,27 @@ export class InstanceGroup extends pulumi.CustomResource {
     }
 
     /**
+     * The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+     */
+    public readonly autoscalingPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+     */
+    public readonly bidPrice!: pulumi.Output<string | undefined>;
+    /**
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      */
     public readonly clusterId!: pulumi.Output<string>;
     /**
      * One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly ebsConfigs!: pulumi.Output<{ iops?: number, size: number, type: string, volumesPerInstance?: number }[] | undefined>;
+    public readonly ebsConfigs!: pulumi.Output<{ iops?: number, size: number, type: string, volumesPerInstance?: number }[]>;
     /**
      * Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
      */
     public readonly ebsOptimized!: pulumi.Output<boolean | undefined>;
     /**
-     * Target number of instances for the instance group. Defaults to 0.
+     * target number of instances for the instance group. defaults to 0.
      */
     public readonly instanceCount!: pulumi.Output<number | undefined>;
     /**
@@ -77,6 +85,8 @@ export class InstanceGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as InstanceGroupState | undefined;
+            inputs["autoscalingPolicy"] = state ? state.autoscalingPolicy : undefined;
+            inputs["bidPrice"] = state ? state.bidPrice : undefined;
             inputs["clusterId"] = state ? state.clusterId : undefined;
             inputs["ebsConfigs"] = state ? state.ebsConfigs : undefined;
             inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
@@ -93,6 +103,8 @@ export class InstanceGroup extends pulumi.CustomResource {
             if (!args || args.instanceType === undefined) {
                 throw new Error("Missing required property 'instanceType'");
             }
+            inputs["autoscalingPolicy"] = args ? args.autoscalingPolicy : undefined;
+            inputs["bidPrice"] = args ? args.bidPrice : undefined;
             inputs["clusterId"] = args ? args.clusterId : undefined;
             inputs["ebsConfigs"] = args ? args.ebsConfigs : undefined;
             inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
@@ -118,6 +130,14 @@ export class InstanceGroup extends pulumi.CustomResource {
  */
 export interface InstanceGroupState {
     /**
+     * The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+     */
+    readonly autoscalingPolicy?: pulumi.Input<string>;
+    /**
+     * If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+     */
+    readonly bidPrice?: pulumi.Input<string>;
+    /**
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      */
     readonly clusterId?: pulumi.Input<string>;
@@ -130,7 +150,7 @@ export interface InstanceGroupState {
      */
     readonly ebsOptimized?: pulumi.Input<boolean>;
     /**
-     * Target number of instances for the instance group. Defaults to 0.
+     * target number of instances for the instance group. defaults to 0.
      */
     readonly instanceCount?: pulumi.Input<number>;
     /**
@@ -150,6 +170,14 @@ export interface InstanceGroupState {
  */
 export interface InstanceGroupArgs {
     /**
+     * The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+     */
+    readonly autoscalingPolicy?: pulumi.Input<string>;
+    /**
+     * If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+     */
+    readonly bidPrice?: pulumi.Input<string>;
+    /**
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      */
     readonly clusterId: pulumi.Input<string>;
@@ -162,7 +190,7 @@ export interface InstanceGroupArgs {
      */
     readonly ebsOptimized?: pulumi.Input<boolean>;
     /**
-     * Target number of instances for the instance group. Defaults to 0.
+     * target number of instances for the instance group. defaults to 0.
      */
     readonly instanceCount?: pulumi.Input<number>;
     /**

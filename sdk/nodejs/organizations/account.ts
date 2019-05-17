@@ -54,6 +54,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
+     */
+    public readonly parentId!: pulumi.Output<string>;
+    /**
      * The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account.
      */
     public readonly roleName!: pulumi.Output<string | undefined>;
@@ -77,6 +81,7 @@ export class Account extends pulumi.CustomResource {
             inputs["joinedMethod"] = state ? state.joinedMethod : undefined;
             inputs["joinedTimestamp"] = state ? state.joinedTimestamp : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["parentId"] = state ? state.parentId : undefined;
             inputs["roleName"] = state ? state.roleName : undefined;
             inputs["status"] = state ? state.status : undefined;
         } else {
@@ -87,6 +92,7 @@ export class Account extends pulumi.CustomResource {
             inputs["email"] = args ? args.email : undefined;
             inputs["iamUserAccessToBilling"] = args ? args.iamUserAccessToBilling : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["parentId"] = args ? args.parentId : undefined;
             inputs["roleName"] = args ? args.roleName : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["joinedMethod"] = undefined /*out*/;
@@ -127,6 +133,10 @@ export interface AccountState {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
+     */
+    readonly parentId?: pulumi.Input<string>;
+    /**
      * The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account.
      */
     readonly roleName?: pulumi.Input<string>;
@@ -149,6 +159,10 @@ export interface AccountArgs {
      * A friendly name for the member account.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
+     */
+    readonly parentId?: pulumi.Input<string>;
     /**
      * The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account.
      */

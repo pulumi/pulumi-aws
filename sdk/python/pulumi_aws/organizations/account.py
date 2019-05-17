@@ -27,12 +27,16 @@ class Account(pulumi.CustomResource):
     """
     A friendly name for the member account.
     """
+    parent_id: pulumi.Output[str]
+    """
+    Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
+    """
     role_name: pulumi.Output[str]
     """
     The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account.
     """
     status: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, email=None, iam_user_access_to_billing=None, name=None, role_name=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, email=None, iam_user_access_to_billing=None, name=None, parent_id=None, role_name=None, __name__=None, __opts__=None):
         """
         Provides a resource to create a member account in the current organization.
         
@@ -45,6 +49,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] email: The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         :param pulumi.Input[str] iam_user_access_to_billing: If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
         :param pulumi.Input[str] name: A friendly name for the member account.
+        :param pulumi.Input[str] parent_id: Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
         :param pulumi.Input[str] role_name: The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account.
         """
         if __name__ is not None:
@@ -69,6 +74,8 @@ class Account(pulumi.CustomResource):
         __props__['iam_user_access_to_billing'] = iam_user_access_to_billing
 
         __props__['name'] = name
+
+        __props__['parent_id'] = parent_id
 
         __props__['role_name'] = role_name
 

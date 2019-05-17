@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * const clusterName = config.get("clusterName") || "example";
  * 
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {
- *     retentionPeriod: 7,
+ *     retentionInDays: 7,
  * });
  * const exampleCluster = new aws.eks.Cluster("example", {
  *     enabledClusterLogTypes: [

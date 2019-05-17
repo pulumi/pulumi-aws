@@ -7,6 +7,7 @@ export * from "./confgurationSet";
 export * from "./domainDkim";
 export * from "./domainIdentity";
 export * from "./domainIdentityVerification";
+export * from "./emailIdentity";
 export * from "./eventDestination";
 export * from "./identityNotificationTopic";
 export * from "./mailFrom";

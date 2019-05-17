@@ -85,7 +85,11 @@ class Topic(pulumi.CustomResource):
     """
     Percentage of success to sample
     """
-    def __init__(__self__, resource_name, opts=None, application_failure_feedback_role_arn=None, application_success_feedback_role_arn=None, application_success_feedback_sample_rate=None, delivery_policy=None, display_name=None, http_failure_feedback_role_arn=None, http_success_feedback_role_arn=None, http_success_feedback_sample_rate=None, kms_master_key_id=None, lambda_failure_feedback_role_arn=None, lambda_success_feedback_role_arn=None, lambda_success_feedback_sample_rate=None, name=None, name_prefix=None, policy=None, sqs_failure_feedback_role_arn=None, sqs_success_feedback_role_arn=None, sqs_success_feedback_sample_rate=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags
+    """
+    def __init__(__self__, resource_name, opts=None, application_failure_feedback_role_arn=None, application_success_feedback_role_arn=None, application_success_feedback_sample_rate=None, delivery_policy=None, display_name=None, http_failure_feedback_role_arn=None, http_success_feedback_role_arn=None, http_success_feedback_sample_rate=None, kms_master_key_id=None, lambda_failure_feedback_role_arn=None, lambda_success_feedback_role_arn=None, lambda_success_feedback_sample_rate=None, name=None, name_prefix=None, policy=None, sqs_failure_feedback_role_arn=None, sqs_success_feedback_role_arn=None, sqs_success_feedback_sample_rate=None, tags=None, __name__=None, __opts__=None):
         """
         Provides an SNS topic resource
         
@@ -113,6 +117,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] sqs_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] sqs_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[float] sqs_success_feedback_sample_rate: Percentage of success to sample
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -164,6 +169,8 @@ class Topic(pulumi.CustomResource):
         __props__['sqs_success_feedback_role_arn'] = sqs_success_feedback_role_arn
 
         __props__['sqs_success_feedback_sample_rate'] = sqs_success_feedback_sample_rate
+
+        __props__['tags'] = tags
 
         __props__['arn'] = None
 

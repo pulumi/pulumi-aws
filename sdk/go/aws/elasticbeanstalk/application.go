@@ -25,11 +25,14 @@ func NewApplication(ctx *pulumi.Context,
 		inputs["appversionLifecycle"] = nil
 		inputs["description"] = nil
 		inputs["name"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["appversionLifecycle"] = args.AppversionLifecycle
 		inputs["description"] = args.Description
 		inputs["name"] = args.Name
+		inputs["tags"] = args.Tags
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:elasticbeanstalk/application:Application", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -44,8 +47,10 @@ func GetApplication(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["appversionLifecycle"] = state.AppversionLifecycle
+		inputs["arn"] = state.Arn
 		inputs["description"] = state.Description
 		inputs["name"] = state.Name
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:elasticbeanstalk/application:Application", name, id, inputs, opts...)
 	if err != nil {
@@ -68,6 +73,11 @@ func (r *Application) AppversionLifecycle() *pulumi.Output {
 	return r.s.State["appversionLifecycle"]
 }
 
+// The ARN assigned by AWS for this Elastic Beanstalk Application.
+func (r *Application) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
+}
+
 // Short description of the application
 func (r *Application) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
@@ -78,13 +88,22 @@ func (r *Application) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// Key-value mapping of tags for the Elastic Beanstalk Application.
+func (r *Application) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering Application resources.
 type ApplicationState struct {
 	AppversionLifecycle interface{}
+	// The ARN assigned by AWS for this Elastic Beanstalk Application.
+	Arn interface{}
 	// Short description of the application
 	Description interface{}
 	// The name of the application, must be unique within your account
 	Name interface{}
+	// Key-value mapping of tags for the Elastic Beanstalk Application.
+	Tags interface{}
 }
 
 // The set of arguments for constructing a Application resource.
@@ -94,4 +113,6 @@ type ApplicationArgs struct {
 	Description interface{}
 	// The name of the application, must be unique within your account
 	Name interface{}
+	// Key-value mapping of tags for the Elastic Beanstalk Application.
+	Tags interface{}
 }

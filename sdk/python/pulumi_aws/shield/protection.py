@@ -8,38 +8,24 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class Application(pulumi.CustomResource):
-    appversion_lifecycle: pulumi.Output[dict]
-    arn: pulumi.Output[str]
-    """
-    The ARN assigned by AWS for this Elastic Beanstalk Application.
-    """
-    description: pulumi.Output[str]
-    """
-    Short description of the application
-    """
+class Protection(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
-    The name of the application, must be unique within your account
+    A friendly name for the Protection you are creating.
     """
-    tags: pulumi.Output[dict]
+    resource_arn: pulumi.Output[str]
     """
-    Key-value mapping of tags for the Elastic Beanstalk Application.
+    The ARN (Amazon Resource Name) of the resource to be protected.
     """
-    def __init__(__self__, resource_name, opts=None, appversion_lifecycle=None, description=None, name=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, resource_arn=None, __name__=None, __opts__=None):
         """
-        Provides an Elastic Beanstalk Application Resource. Elastic Beanstalk allows
-        you to deploy and manage applications in the AWS cloud without worrying about
-        the infrastructure that runs those applications.
-        
-        This resource creates an application that has one configuration template named
-        `default`, and no application versions
+        Enables AWS Shield Advanced for a specific AWS resource.
+        The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Short description of the application
-        :param pulumi.Input[str] name: The name of the application, must be unique within your account
-        :param pulumi.Input[dict] tags: Key-value mapping of tags for the Elastic Beanstalk Application.
+        :param pulumi.Input[str] name: A friendly name for the Protection you are creating.
+        :param pulumi.Input[str] resource_arn: The ARN (Amazon Resource Name) of the resource to be protected.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -56,22 +42,18 @@ class Application(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['appversion_lifecycle'] = appversion_lifecycle
-
-        __props__['description'] = description
-
         __props__['name'] = name
 
-        __props__['tags'] = tags
-
-        __props__['arn'] = None
+        if resource_arn is None:
+            raise TypeError("Missing required property 'resource_arn'")
+        __props__['resource_arn'] = resource_arn
 
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
             opts.version = utilities.get_version()
-        super(Application, __self__).__init__(
-            'aws:elasticbeanstalk/application:Application',
+        super(Protection, __self__).__init__(
+            'aws:shield/protection:Protection',
             resource_name,
             __props__,
             opts)

@@ -120,6 +120,7 @@ const (
 	servicecatalogMod    = "servicecatalog"           // Service Catalog
 	servicediscoveryMod  = "servicediscovery"         // Service Discovery
 	sfnMod               = "sfn"                      // Step Functions (SFN)
+	shieldMod            = "shield"                   // Shield
 	simpledbMod          = "simpledb"                 // Simple DB
 	snsMod               = "sns"                      // Simple Notification Service (SNS)
 	sqsMod               = "sqs"                      // Simple Queueing Service (SQS)
@@ -1506,6 +1507,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ses_domain_identity":              {Tok: awsResource(sesMod, "DomainIdentity")},
 			"aws_ses_domain_identity_verification": {Tok: awsResource(sesMod, "DomainIdentityVerification")},
 			"aws_ses_domain_mail_from":             {Tok: awsResource(sesMod, "MailFrom")},
+			"aws_ses_email_identity":               {Tok: awsResource(sesMod, "EmailIdentity")},
 			"aws_ses_identity_notification_topic":  {Tok: awsResource(sesMod, "IdentityNotificationTopic")},
 			"aws_ses_receipt_filter":               {Tok: awsResource(sesMod, "ReceiptFilter")},
 			"aws_ses_receipt_rule":                 {Tok: awsResource(sesMod, "ReceiptRule")},
@@ -1513,6 +1515,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ses_configuration_set":            {Tok: awsResource(sesMod, "ConfgurationSet")},
 			"aws_ses_event_destination":            {Tok: awsResource(sesMod, "EventDestination")},
 			"aws_ses_template":                     {Tok: awsResource(sesMod, "Template")},
+			// Shield
+			"aws_shield_protection": {Tok: awsResource(shieldMod, "Protection")},
 			// S3
 			"aws_s3_account_public_access_block": {Tok: awsResource(s3Mod, "AccountPublicAccessBlock")},
 			"aws_s3_bucket": {
@@ -1762,6 +1766,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ebs_volume":       {Tok: awsDataSource(ebsMod, "getVolume")},
 			// Elastic Container Registry
 			"aws_ecr_credentials": {Tok: awsDataSource(ecrMod, "getCredentials")},
+			"aws_ecr_image":       {Tok: awsDataSource(ecrMod, "getImage")},
 			"aws_ecr_repository":  {Tok: awsDataSource(ecrMod, "getRepository")},
 			// Elastic Container Service
 			"aws_ecs_cluster":              {Tok: awsDataSource(ecsMod, "getCluster")},
@@ -1844,6 +1849,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_db_event_categories": {Tok: awsDataSource(rdsMod, "getEventCategories")},
 			"aws_db_instance":         {Tok: awsDataSource(rdsMod, "getInstance")},
 			"aws_db_snapshot":         {Tok: awsDataSource(rdsMod, "getSnapshot")},
+			// Ram
+			"aws_ram_resource_share": {Tok: awsDataSource(ramMod, "getResourceShare")},
 			// RedShift
 			"aws_redshift_cluster":         {Tok: awsDataSource(redshiftMod, "getCluster")},
 			"aws_redshift_service_account": {Tok: awsDataSource(redshiftMod, "getServiceAccount")},
