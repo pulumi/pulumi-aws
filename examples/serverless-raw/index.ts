@@ -37,7 +37,7 @@ let lambda = new aws.lambda.Function("mylambda", {
     }),
     role: role.arn,
     handler: "index.handler",
-    runtime: aws.lambda.NodeJS6d10Runtime,
+    runtime: aws.lambda.NodeJS8d10Runtime,
 });
 
 ///////////////////
@@ -55,7 +55,7 @@ let logcollector = new aws.lambda.Function("mylambda-logcollector", {
     }),
     role: role.arn,
     handler: "index.handler",
-    runtime: aws.lambda.NodeJS6d10Runtime,
+    runtime: aws.lambda.NodeJS8d10Runtime,
 });
 
 let permission = new aws.lambda.Permission("logcollector-permission", {
