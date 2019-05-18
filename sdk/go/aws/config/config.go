@@ -53,7 +53,6 @@ func GetRegion(ctx *pulumi.Context) string {
 	if dv, ok := getEnvOrDefault("", nil, "AWS_REGION", "AWS_DEFAULT_REGION").(string); ok {
 		return dv
 	}
-	panic(err.Error())
 	return v
 }
 
