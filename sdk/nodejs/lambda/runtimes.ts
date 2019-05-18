@@ -25,6 +25,7 @@ export type Runtime =
     "nodejs4.3"      |
     "nodejs6.10"     |
     "nodejs8.10"     |
+    "nodejs10.x"     |
     "nodejs"         |
     "python2.7"      |
     "python3.6"      |
@@ -39,6 +40,7 @@ export let NodeJS4d3EdgeRuntime: Runtime = "nodejs4.3-edge";
 export let NodeJS4d3Runtime: Runtime = "nodejs4.3";
 export let NodeJS6d10Runtime: Runtime = "nodejs6.10";
 export let NodeJS8d10Runtime: Runtime = "nodejs8.10";
+export let NodeJS10dXRuntime: Runtime = "nodejs10.x";
 export let NodeJSRuntime: Runtime = "nodejs";
 export let Python2d7Runtime: Runtime = "python2.7";
 export let Python3d6Runtime: Runtime = "python3.6";
