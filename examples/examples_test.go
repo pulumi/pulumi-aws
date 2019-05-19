@@ -105,6 +105,13 @@ func TestExamples(t *testing.T) {
 				}
 			},
 		}),
+		// Python tests:
+		base.With(integration.ProgramTestOptions{
+			Dir: path.Join(cwd, "webserver-py"),
+			Dependencies: []string{
+				filepath.Join("..", "sdk", "python", "bin"),
+			},
+		}),
 	}
 
 	longTests := []integration.ProgramTestOptions{
@@ -140,13 +147,6 @@ func TestExamples(t *testing.T) {
 		}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless")}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "multiple-regions")}),
-		// Python tests:
-		base.With(integration.ProgramTestOptions{
-			Dir: path.Join(cwd, "webserver-py"),
-			Dependencies: []string{
-				filepath.Join("..", "sdk", "python", "bin"),
-			},
-		}),
 		// Go tests:
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-go")}),
 	}

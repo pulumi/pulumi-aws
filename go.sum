@@ -334,6 +334,8 @@ github.com/hashicorp/terraform v0.12.0-beta2 h1:3kHXjX/GgmH3dSvVN2MX5arBfYaykSZ4
 github.com/hashicorp/terraform v0.12.0-beta2/go.mod h1:A3NsI7WT87OMgpcD15cu6dK2YNpihchZp5fxUf8EHBg=
 github.com/hashicorp/terraform v0.12.0-rc1 h1:sTOrvFeoklMBsEHNhu25APyMyATTOeUUiuXm+PpLjDg=
 github.com/hashicorp/terraform v0.12.0-rc1/go.mod h1:mLbSyFcATc332aCwDeX9cziNg/dUb6ZJzRVd1KgrDOk=
+github.com/hashicorp/terraform v0.12.0-rc1.0.20190509225429-28b2383eacae h1:kfNM9o46g5NkRChK5BlD4mtStjo8WuDxsL74Qwwq2/A=
+github.com/hashicorp/terraform v0.12.0-rc1.0.20190509225429-28b2383eacae/go.mod h1:mLbSyFcATc332aCwDeX9cziNg/dUb6ZJzRVd1KgrDOk=
 github.com/hashicorp/terraform-config-inspect v0.0.0-20190327195015-8022a2663a70 h1:oZm5nE11yhzsTRz/YrUyDMSvixePqjoZihwn8ipuOYI=
 github.com/hashicorp/terraform-config-inspect v0.0.0-20190327195015-8022a2663a70/go.mod h1:ItvqtvbC3K23FFET62ZwnkwtpbKZm8t8eMcWjmVVjD8=
 github.com/hashicorp/vault v0.0.0-20161029210149-9a60bf2a50e4/go.mod h1:KfSyffbKxoVyspOdlaGVjIuwLobi07qD1bAbosPMpP0=
@@ -528,6 +530,8 @@ github.com/pulumi/pulumi-terraform v0.14.1-dev.0.20190506205940-21108d2d0be2/go.
 github.com/pulumi/pulumi-terraform v0.14.1-dev.0.20190509163942-bb2ed14fff5e h1:Ir3RzlFsbB4pzN4cVqa88B+G2KSIoIrWnVNzkdAkC84=
 github.com/pulumi/pulumi-terraform v0.14.1-dev.0.20190509163942-bb2ed14fff5e/go.mod h1:bJ2tsYQlSMzMCEDb2kP1rDHaadG3O7JUnBUYH/yx2Io=
 github.com/pulumi/pulumi-terraform v0.15.1 h1:y+Xh+lhj+fiPnHzfJb7ajkUuRH+vvwCy7bi304AAJig=
+github.com/pulumi/pulumi-terraform v0.18.1 h1:uk3YZEC+OJndQLBhBKP2LE31vw1c1vyE6skIhNcS88I=
+github.com/pulumi/pulumi-terraform v0.18.1/go.mod h1:YHwPNWOBnQTnkibhfiyeShuSxwZnu7ZnKkqIvl0t2C0=
 github.com/pulumi/terraform-provider-aws v1.3.2-0.20190407171755-cf2ef8807a4b h1:2g4TbpkKIzm8wqcvnrvh5FY1I/bO5x0k5iswWSCH6Ek=
 github.com/pulumi/terraform-provider-aws v1.3.2-0.20190407171755-cf2ef8807a4b/go.mod h1:q6jzd2kIAdFH8V10Y8N3NRf4wVQ6DTCN/kjE0L9eHLY=
 github.com/pulumi/terraform-provider-aws v1.3.2-0.20190417135458-30039de05cc7 h1:aac7CF4/uYxKoGIATUPNhdWqrntHMH+pqrODc7ZcBvM=
@@ -621,6 +625,8 @@ github.com/stretchr/objx v0.1.1/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+
 github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
 github.com/stretchr/testify v1.3.0 h1:TivCn/peBQ7UY8ooIcPgZFpTNSz0Q2U6UrFlUfqbe0Q=
 github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
+github.com/stretchr/testify v1.3.1-0.20190311161405-34c6fa2dc709 h1:Ko2LQMrRU+Oy/+EDBwX7eZ2jp3C47eDBB8EIhKTun+I=
+github.com/stretchr/testify v1.3.1-0.20190311161405-34c6fa2dc709/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
 github.com/svanharmelen/jsonapi v0.0.0-20180618144545-0c0828c3f16d/go.mod h1:BSTlc8jOjh0niykqEGVXOLXdi9o0r0kR8tCYiMvjFgw=
 github.com/tarm/serial v0.0.0-20180830185346-98f6abe2eb07/go.mod h1:kDXzergiv9cbyO7IOYJZWg1U88JhDg3PB6klq9Hg2pA=
 github.com/terraform-providers/terraform-provider-openstack v1.15.0/go.mod h1:2aQ6n/BtChAl1y2S60vebhyJyZXBsuAI5G4+lHrT1Ew=

@@ -31,7 +31,7 @@ export let profile: string | undefined = __config.get("profile");
 /**
  * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
  */
-export let region: Region = <any>utilities.requireWithDefault(() => __config.require("region"), utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION"));
+export let region: Region | undefined = <any>__config.get("region") || utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
 /**
  * Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
  * default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).
