@@ -3,8 +3,8 @@
 import * as aws from "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
 
-let size: aws.ec2.InstanceType = "t2.micro";
-let amiParamName = "/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-ebs";
+const size: aws.ec2.InstanceType = "t2.micro";
+const amiParamName = "/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-ebs";
 
 function createServer(region: aws.Region): aws.ec2.Instance {
     const provider = new aws.Provider(`provider-${region}`, { region: region });
@@ -26,7 +26,7 @@ function createServer(region: aws.Region): aws.ec2.Instance {
 }
 
 export const servers: any = {};
-for (const region of [ aws.config.region, "us-east-1" ]) {
+for (const region of [ "us-west-2", "us-east-1" ]) {
     const server = createServer(<aws.Region>region);
     servers[region] = { publicIp: server.publicIp, publicDns: server.publicDns };
 }
