@@ -7,6 +7,7 @@
 - Add support for AWS Lambda Custom Runtime `aws.lambda.CustomRuntime`.
 - Update to v2.11.0 of the AWS Terraform Provider.
 - Increase create timeout for `aws.eks.Cluster` to 30 minutes.
+- Add constant for Node 10.X runtime.
 
 ## 0.18.3 (Released April 29th, 2019)
 
