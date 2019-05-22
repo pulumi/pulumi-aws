@@ -82,13 +82,6 @@ export class ContainerPolicy extends pulumi.CustomResource {
             inputs["containerName"] = args ? args.containerName : undefined;
             inputs["policy"] = args ? args.policy : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:mediastore/containerPolicy:ContainerPolicy", name, inputs, opts);
     }
 }

@@ -315,13 +315,6 @@ export class Integration extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["uri"] = args ? args.uri : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:apigateway/integration:Integration", name, inputs, opts);
     }
 }

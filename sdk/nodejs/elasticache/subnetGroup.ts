@@ -86,13 +86,6 @@ export class SubnetGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:elasticache/subnetGroup:SubnetGroup", name, inputs, opts);
     }
 }

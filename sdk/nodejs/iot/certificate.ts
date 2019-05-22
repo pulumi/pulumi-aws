@@ -75,13 +75,6 @@ export class Certificate extends pulumi.CustomResource {
             inputs["csr"] = args ? args.csr : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:iot/certificate:Certificate", name, inputs, opts);
     }
 }

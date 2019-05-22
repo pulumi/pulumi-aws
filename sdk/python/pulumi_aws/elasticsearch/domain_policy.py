@@ -49,10 +49,6 @@ class DomainPolicy(pulumi.CustomResource):
             raise TypeError("Missing required property 'domain_name'")
         __props__['domain_name'] = domain_name
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(DomainPolicy, __self__).__init__(
             'aws:elasticsearch/domainPolicy:DomainPolicy',
             resource_name,

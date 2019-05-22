@@ -74,13 +74,6 @@ export class Template extends pulumi.CustomResource {
             inputs["subject"] = args ? args.subject : undefined;
             inputs["text"] = args ? args.text : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ses/template:Template", name, inputs, opts);
     }
 }

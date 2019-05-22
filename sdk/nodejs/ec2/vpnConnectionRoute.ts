@@ -83,13 +83,6 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
             inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
             inputs["vpnConnectionId"] = args ? args.vpnConnectionId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/vpnConnectionRoute:VpnConnectionRoute", name, inputs, opts);
     }
 }

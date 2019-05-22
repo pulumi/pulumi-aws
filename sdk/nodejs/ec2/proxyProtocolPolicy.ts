@@ -88,13 +88,6 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
             inputs["instancePorts"] = args ? args.instancePorts : undefined;
             inputs["loadBalancer"] = args ? args.loadBalancer : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy", name, inputs, opts);
     }
 }

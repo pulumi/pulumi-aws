@@ -115,10 +115,6 @@ class Method(pulumi.CustomResource):
             raise TypeError("Missing required property 'rest_api'")
         __props__['rest_api'] = rest_api
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Method, __self__).__init__(
             'aws:apigateway/method:Method',
             resource_name,

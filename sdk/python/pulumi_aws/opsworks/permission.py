@@ -68,10 +68,6 @@ class Permission(pulumi.CustomResource):
             raise TypeError("Missing required property 'user_arn'")
         __props__['user_arn'] = user_arn
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Permission, __self__).__init__(
             'aws:opsworks/permission:Permission',
             resource_name,

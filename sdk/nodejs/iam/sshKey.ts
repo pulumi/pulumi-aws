@@ -97,13 +97,6 @@ export class SshKey extends pulumi.CustomResource {
             inputs["fingerprint"] = undefined /*out*/;
             inputs["sshPublicKeyId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:iam/sshKey:SshKey", name, inputs, opts);
     }
 }

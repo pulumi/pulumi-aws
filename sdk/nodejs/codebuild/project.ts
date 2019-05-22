@@ -261,13 +261,6 @@ export class Project extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["badgeUrl"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:codebuild/project:Project", name, inputs, opts);
     }
 }

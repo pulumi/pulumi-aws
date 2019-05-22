@@ -102,13 +102,6 @@ export class TableItem extends pulumi.CustomResource {
             inputs["rangeKey"] = args ? args.rangeKey : undefined;
             inputs["tableName"] = args ? args.tableName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:dynamodb/tableItem:TableItem", name, inputs, opts);
     }
 }

@@ -145,13 +145,6 @@ export class Cluster extends pulumi.CustomResource {
             inputs["endpoint"] = undefined /*out*/;
             inputs["platformVersion"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:eks/cluster:Cluster", name, inputs, opts);
     }
 }

@@ -141,13 +141,6 @@ export class Fleet extends pulumi.CustomResource {
             inputs["createdTime"] = undefined /*out*/;
             inputs["lastUpdatedTime"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:worklink/fleet:Fleet", name, inputs, opts);
     }
 }

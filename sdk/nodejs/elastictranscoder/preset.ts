@@ -159,13 +159,6 @@ export class Preset extends pulumi.CustomResource {
             inputs["videoWatermarks"] = args ? args.videoWatermarks : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:elastictranscoder/preset:Preset", name, inputs, opts);
     }
 }

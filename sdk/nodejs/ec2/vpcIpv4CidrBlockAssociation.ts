@@ -72,13 +72,6 @@ export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
             inputs["cidrBlock"] = args ? args.cidrBlock : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation", name, inputs, opts);
     }
 }

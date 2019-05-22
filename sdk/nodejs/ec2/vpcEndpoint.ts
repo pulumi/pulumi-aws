@@ -192,13 +192,6 @@ export class VpcEndpoint extends pulumi.CustomResource {
             inputs["prefixListId"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/vpcEndpoint:VpcEndpoint", name, inputs, opts);
     }
 }

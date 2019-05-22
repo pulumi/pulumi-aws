@@ -74,13 +74,6 @@ export class OrganizationalUnit extends pulumi.CustomResource {
             inputs["accounts"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:organizations/organizationalUnit:OrganizationalUnit", name, inputs, opts);
     }
 }

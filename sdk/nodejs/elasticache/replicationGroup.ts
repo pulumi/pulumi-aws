@@ -311,13 +311,6 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["memberClusters"] = undefined /*out*/;
             inputs["primaryEndpointAddress"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:elasticache/replicationGroup:ReplicationGroup", name, inputs, opts);
     }
 }

@@ -105,10 +105,6 @@ class ApnsVoipChannel(pulumi.CustomResource):
 
         __props__['token_key_id'] = token_key_id
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(ApnsVoipChannel, __self__).__init__(
             'aws:pinpoint/apnsVoipChannel:ApnsVoipChannel',
             resource_name,

@@ -122,10 +122,6 @@ class NetworkAclRule(pulumi.CustomResource):
 
         __props__['to_port'] = to_port
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(NetworkAclRule, __self__).__init__(
             'aws:ec2/networkAclRule:NetworkAclRule',
             resource_name,

@@ -105,13 +105,6 @@ export class RepositoryPolicy extends pulumi.CustomResource {
             inputs["repository"] = args ? args.repository : undefined;
             inputs["registryId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ecr/repositoryPolicy:RepositoryPolicy", name, inputs, opts);
     }
 }

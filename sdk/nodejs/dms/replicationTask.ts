@@ -136,13 +136,6 @@ export class ReplicationTask extends pulumi.CustomResource {
             inputs["targetEndpointArn"] = args ? args.targetEndpointArn : undefined;
             inputs["replicationTaskArn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:dms/replicationTask:ReplicationTask", name, inputs, opts);
     }
 }

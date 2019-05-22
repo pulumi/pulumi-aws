@@ -83,13 +83,6 @@ export class Accelerator extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["ipSets"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:globalaccelerator/accelerator:Accelerator", name, inputs, opts);
     }
 }

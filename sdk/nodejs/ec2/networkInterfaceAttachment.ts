@@ -88,13 +88,6 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
             inputs["attachmentId"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment", name, inputs, opts);
     }
 }

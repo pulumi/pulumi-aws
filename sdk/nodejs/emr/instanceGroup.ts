@@ -114,13 +114,6 @@ export class InstanceGroup extends pulumi.CustomResource {
             inputs["runningInstanceCount"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:emr/instanceGroup:InstanceGroup", name, inputs, opts);
     }
 }

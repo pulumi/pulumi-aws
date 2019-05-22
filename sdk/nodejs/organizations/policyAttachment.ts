@@ -92,13 +92,6 @@ export class PolicyAttachment extends pulumi.CustomResource {
             inputs["policyId"] = args ? args.policyId : undefined;
             inputs["targetId"] = args ? args.targetId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:organizations/policyAttachment:PolicyAttachment", name, inputs, opts);
     }
 }

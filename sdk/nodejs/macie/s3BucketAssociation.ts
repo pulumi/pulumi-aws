@@ -80,13 +80,6 @@ export class S3BucketAssociation extends pulumi.CustomResource {
             inputs["memberAccountId"] = args ? args.memberAccountId : undefined;
             inputs["prefix"] = args ? args.prefix : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:macie/s3BucketAssociation:S3BucketAssociation", name, inputs, opts);
     }
 }

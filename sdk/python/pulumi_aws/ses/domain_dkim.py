@@ -53,10 +53,6 @@ class DomainDkim(pulumi.CustomResource):
 
         __props__['dkim_tokens'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(DomainDkim, __self__).__init__(
             'aws:ses/domainDkim:DomainDkim',
             resource_name,

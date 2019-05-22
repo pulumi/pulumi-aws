@@ -58,10 +58,6 @@ class ResourceShare(pulumi.CustomResource):
 
         __props__['arn'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(ResourceShare, __self__).__init__(
             'aws:ram/resourceShare:ResourceShare',
             resource_name,

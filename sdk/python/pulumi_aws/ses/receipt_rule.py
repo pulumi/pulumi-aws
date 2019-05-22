@@ -131,10 +131,6 @@ class ReceiptRule(pulumi.CustomResource):
 
         __props__['workmail_actions'] = workmail_actions
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(ReceiptRule, __self__).__init__(
             'aws:ses/receiptRule:ReceiptRule',
             resource_name,

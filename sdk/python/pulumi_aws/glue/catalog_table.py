@@ -117,10 +117,6 @@ class CatalogTable(pulumi.CustomResource):
 
         __props__['view_original_text'] = view_original_text
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(CatalogTable, __self__).__init__(
             'aws:glue/catalogTable:CatalogTable',
             resource_name,

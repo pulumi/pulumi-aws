@@ -22,13 +22,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getCallerIdentity(opts?: pulumi.InvokeOptions): Promise<GetCallerIdentityResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:index/getCallerIdentity:getCallerIdentity", {
     }, opts);
 }

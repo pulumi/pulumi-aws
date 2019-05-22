@@ -197,10 +197,6 @@ class Bucket(pulumi.CustomResource):
         __props__['bucket_domain_name'] = None
         __props__['bucket_regional_domain_name'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Bucket, __self__).__init__(
             'aws:s3/bucket:Bucket',
             resource_name,

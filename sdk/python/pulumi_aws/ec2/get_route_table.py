@@ -68,10 +68,6 @@ async def get_route_table(filters=None,route_table_id=None,subnet_id=None,tags=N
     __args__['subnetId'] = subnet_id
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ec2/getRouteTable:getRouteTable', __args__, opts=opts)
 
     return GetRouteTableResult(

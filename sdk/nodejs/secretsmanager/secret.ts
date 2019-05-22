@@ -133,13 +133,6 @@ export class Secret extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["rotationEnabled"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:secretsmanager/secret:Secret", name, inputs, opts);
     }
 }

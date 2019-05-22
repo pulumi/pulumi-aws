@@ -327,13 +327,6 @@ export class Instance extends pulumi.CustomResource {
             inputs["publicDns"] = undefined /*out*/;
             inputs["publicIp"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/instance:Instance", name, inputs, opts);
     }
 }

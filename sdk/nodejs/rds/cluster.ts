@@ -367,13 +367,6 @@ export class Cluster extends pulumi.CustomResource {
             inputs["hostedZoneId"] = undefined /*out*/;
             inputs["readerEndpoint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:rds/cluster:Cluster", name, inputs, opts);
     }
 }

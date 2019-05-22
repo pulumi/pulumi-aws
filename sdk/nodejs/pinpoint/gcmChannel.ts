@@ -76,13 +76,6 @@ export class GcmChannel extends pulumi.CustomResource {
             inputs["applicationId"] = args ? args.applicationId : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:pinpoint/gcmChannel:GcmChannel", name, inputs, opts);
     }
 }

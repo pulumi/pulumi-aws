@@ -470,13 +470,6 @@ export class Group extends pulumi.CustomResource {
             inputs["waitForElbCapacity"] = args ? args.waitForElbCapacity : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:autoscaling/group:Group", name, inputs, opts);
     }
 }

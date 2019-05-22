@@ -112,13 +112,6 @@ export class Vault extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:glacier/vault:Vault", name, inputs, opts);
     }
 }

@@ -85,13 +85,6 @@ export class RoleAlias extends pulumi.CustomResource {
             inputs["credentialDuration"] = args ? args.credentialDuration : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:iot/roleAlias:RoleAlias", name, inputs, opts);
     }
 }

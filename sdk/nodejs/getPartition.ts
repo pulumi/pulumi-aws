@@ -24,13 +24,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getPartition(opts?: pulumi.InvokeOptions): Promise<GetPartitionResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:index/getPartition:getPartition", {
     }, opts);
 }

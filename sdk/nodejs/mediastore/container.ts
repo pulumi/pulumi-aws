@@ -63,13 +63,6 @@ export class Container extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:mediastore/container:Container", name, inputs, opts);
     }
 }

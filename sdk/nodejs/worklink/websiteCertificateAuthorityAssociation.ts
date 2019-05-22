@@ -78,13 +78,6 @@ export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResourc
             inputs["fleetArn"] = args ? args.fleetArn : undefined;
             inputs["websiteCaId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation", name, inputs, opts);
     }
 }

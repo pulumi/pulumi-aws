@@ -85,13 +85,6 @@ export class Thing extends pulumi.CustomResource {
             inputs["defaultClientId"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:iot/thing:Thing", name, inputs, opts);
     }
 }

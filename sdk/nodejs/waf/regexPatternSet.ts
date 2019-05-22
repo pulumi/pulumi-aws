@@ -62,13 +62,6 @@ export class RegexPatternSet extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["regexPatternStrings"] = args ? args.regexPatternStrings : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:waf/regexPatternSet:RegexPatternSet", name, inputs, opts);
     }
 }

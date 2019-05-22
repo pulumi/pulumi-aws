@@ -58,10 +58,6 @@ class Route(pulumi.CustomResource):
             raise TypeError("Missing required property 'transit_gateway_route_table_id'")
         __props__['transit_gateway_route_table_id'] = transit_gateway_route_table_id
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Route, __self__).__init__(
             'aws:ec2transitgateway/route:Route',
             resource_name,

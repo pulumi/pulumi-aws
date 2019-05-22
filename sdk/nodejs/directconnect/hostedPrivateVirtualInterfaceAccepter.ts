@@ -70,13 +70,6 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
             inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter", name, inputs, opts);
     }
 }

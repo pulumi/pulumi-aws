@@ -121,13 +121,6 @@ export class SshKey extends pulumi.CustomResource {
             inputs["serverId"] = args ? args.serverId : undefined;
             inputs["userName"] = args ? args.userName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:transfer/sshKey:SshKey", name, inputs, opts);
     }
 }

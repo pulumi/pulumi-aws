@@ -131,10 +131,6 @@ async def get_cluster_snapshot(db_cluster_identifier=None,db_cluster_snapshot_id
     __args__['includeShared'] = include_shared
     __args__['mostRecent'] = most_recent
     __args__['snapshotType'] = snapshot_type
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:rds/getClusterSnapshot:getClusterSnapshot', __args__, opts=opts)
 
     return GetClusterSnapshotResult(

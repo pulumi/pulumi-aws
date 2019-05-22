@@ -23,13 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:acm/getCertificate:getCertificate", {
         "domain": args.domain,
         "mostRecent": args.mostRecent,

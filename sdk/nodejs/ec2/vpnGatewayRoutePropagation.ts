@@ -70,13 +70,6 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
             inputs["routeTableId"] = args ? args.routeTableId : undefined;
             inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation", name, inputs, opts);
     }
 }

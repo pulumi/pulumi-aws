@@ -74,13 +74,6 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
             inputs["principal"] = args ? args.principal : undefined;
             inputs["thing"] = args ? args.thing : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment", name, inputs, opts);
     }
 }

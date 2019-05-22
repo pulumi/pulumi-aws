@@ -85,13 +85,6 @@ export class NetworkAssociation extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2clientvpn/networkAssociation:NetworkAssociation", name, inputs, opts);
     }
 }

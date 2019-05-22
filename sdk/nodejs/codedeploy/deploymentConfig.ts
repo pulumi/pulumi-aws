@@ -143,13 +143,6 @@ export class DeploymentConfig extends pulumi.CustomResource {
             inputs["trafficRoutingConfig"] = args ? args.trafficRoutingConfig : undefined;
             inputs["deploymentConfigId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:codedeploy/deploymentConfig:DeploymentConfig", name, inputs, opts);
     }
 }

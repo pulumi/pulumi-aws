@@ -128,13 +128,6 @@ export class EventSubscription extends pulumi.CustomResource {
             inputs["customerAwsId"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:redshift/eventSubscription:EventSubscription", name, inputs, opts);
     }
 }

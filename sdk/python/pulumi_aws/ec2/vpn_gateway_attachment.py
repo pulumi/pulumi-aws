@@ -54,10 +54,6 @@ class VpnGatewayAttachment(pulumi.CustomResource):
             raise TypeError("Missing required property 'vpn_gateway_id'")
         __props__['vpn_gateway_id'] = vpn_gateway_id
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(VpnGatewayAttachment, __self__).__init__(
             'aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment',
             resource_name,

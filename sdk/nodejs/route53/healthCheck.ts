@@ -232,13 +232,6 @@ export class HealthCheck extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:route53/healthCheck:HealthCheck", name, inputs, opts);
     }
 }

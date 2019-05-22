@@ -83,13 +83,6 @@ export class NamedQuery extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["query"] = args ? args.query : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:athena/namedQuery:NamedQuery", name, inputs, opts);
     }
 }

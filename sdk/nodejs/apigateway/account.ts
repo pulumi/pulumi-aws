@@ -101,13 +101,6 @@ export class Account extends pulumi.CustomResource {
             inputs["cloudwatchRoleArn"] = args ? args.cloudwatchRoleArn : undefined;
             inputs["throttleSettings"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:apigateway/account:Account", name, inputs, opts);
     }
 }

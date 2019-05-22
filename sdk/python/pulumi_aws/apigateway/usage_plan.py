@@ -73,10 +73,6 @@ class UsagePlan(pulumi.CustomResource):
 
         __props__['throttle_settings'] = throttle_settings
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(UsagePlan, __self__).__init__(
             'aws:apigateway/usagePlan:UsagePlan',
             resource_name,

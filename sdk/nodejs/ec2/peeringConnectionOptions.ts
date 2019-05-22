@@ -100,13 +100,6 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
             inputs["requester"] = args ? args.requester : undefined;
             inputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/peeringConnectionOptions:PeeringConnectionOptions", name, inputs, opts);
     }
 }

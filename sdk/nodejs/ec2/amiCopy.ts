@@ -186,13 +186,6 @@ export class AmiCopy extends pulumi.CustomResource {
             inputs["sriovNetSupport"] = undefined /*out*/;
             inputs["virtualizationType"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/amiCopy:AmiCopy", name, inputs, opts);
     }
 }

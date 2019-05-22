@@ -87,13 +87,6 @@ export class BaiduChannel extends pulumi.CustomResource {
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["secretKey"] = args ? args.secretKey : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:pinpoint/baiduChannel:BaiduChannel", name, inputs, opts);
     }
 }

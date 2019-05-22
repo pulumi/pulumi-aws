@@ -98,13 +98,6 @@ export class UserLoginProfile extends pulumi.CustomResource {
             inputs["encryptedPassword"] = undefined /*out*/;
             inputs["keyFingerprint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:iam/userLoginProfile:UserLoginProfile", name, inputs, opts);
     }
 }

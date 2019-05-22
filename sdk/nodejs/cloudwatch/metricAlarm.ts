@@ -286,13 +286,6 @@ export class MetricAlarm extends pulumi.CustomResource {
             inputs["unit"] = args ? args.unit : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:cloudwatch/metricAlarm:MetricAlarm", name, inputs, opts);
     }
 }

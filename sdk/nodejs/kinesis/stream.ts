@@ -112,13 +112,6 @@ export class Stream extends pulumi.CustomResource {
             inputs["shardLevelMetrics"] = args ? args.shardLevelMetrics : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:kinesis/stream:Stream", name, inputs, opts);
     }
 }

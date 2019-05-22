@@ -423,10 +423,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__['spot_instance_id'] = None
         __props__['spot_request_state'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(SpotInstanceRequest, __self__).__init__(
             'aws:ec2/spotInstanceRequest:SpotInstanceRequest',
             resource_name,

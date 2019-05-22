@@ -86,10 +86,6 @@ class AccessKey(pulumi.CustomResource):
         __props__['secret'] = None
         __props__['ses_smtp_password'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(AccessKey, __self__).__init__(
             'aws:iam/accessKey:AccessKey',
             resource_name,

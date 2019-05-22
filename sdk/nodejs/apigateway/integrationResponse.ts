@@ -154,13 +154,6 @@ export class IntegrationResponse extends pulumi.CustomResource {
             inputs["selectionPattern"] = args ? args.selectionPattern : undefined;
             inputs["statusCode"] = args ? args.statusCode : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:apigateway/integrationResponse:IntegrationResponse", name, inputs, opts);
     }
 }

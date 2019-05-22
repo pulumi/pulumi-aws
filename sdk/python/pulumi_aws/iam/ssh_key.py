@@ -76,10 +76,6 @@ class SshKey(pulumi.CustomResource):
         __props__['fingerprint'] = None
         __props__['ssh_public_key_id'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(SshKey, __self__).__init__(
             'aws:iam/sshKey:SshKey',
             resource_name,

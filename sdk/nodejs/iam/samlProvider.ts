@@ -75,13 +75,6 @@ export class SamlProvider extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["validUntil"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:iam/samlProvider:SamlProvider", name, inputs, opts);
     }
 }

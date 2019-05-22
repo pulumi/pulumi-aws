@@ -197,13 +197,6 @@ export class GraphQLApi extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["uris"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:appsync/graphQLApi:GraphQLApi", name, inputs, opts);
     }
 }

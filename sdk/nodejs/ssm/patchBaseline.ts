@@ -169,13 +169,6 @@ export class PatchBaseline extends pulumi.CustomResource {
             inputs["rejectedPatches"] = args ? args.rejectedPatches : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ssm/patchBaseline:PatchBaseline", name, inputs, opts);
     }
 }

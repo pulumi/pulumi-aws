@@ -146,13 +146,6 @@ export class EventDestination extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["snsDestination"] = args ? args.snsDestination : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ses/eventDestination:EventDestination", name, inputs, opts);
     }
 }

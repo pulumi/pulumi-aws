@@ -98,13 +98,6 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter", name, inputs, opts);
     }
 }

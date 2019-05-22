@@ -274,13 +274,6 @@ export class Function extends pulumi.CustomResource {
             inputs["sourceCodeSize"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:lambda/function:Function", name, inputs, opts);
     }
 }

@@ -121,13 +121,6 @@ export class TransitGateway extends pulumi.CustomResource {
             inputs["ownerId"] = undefined /*out*/;
             inputs["propagationDefaultRouteTableId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2transitgateway/transitGateway:TransitGateway", name, inputs, opts);
     }
 }

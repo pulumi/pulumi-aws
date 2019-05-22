@@ -138,10 +138,6 @@ class SecurityGroupRule(pulumi.CustomResource):
             raise TypeError("Missing required property 'type'")
         __props__['type'] = type
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(SecurityGroupRule, __self__).__init__(
             'aws:ec2/securityGroupRule:SecurityGroupRule',
             resource_name,

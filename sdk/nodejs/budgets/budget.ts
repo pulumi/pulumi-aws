@@ -177,13 +177,6 @@ export class Budget extends pulumi.CustomResource {
             inputs["timePeriodStart"] = args ? args.timePeriodStart : undefined;
             inputs["timeUnit"] = args ? args.timeUnit : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:budgets/budget:Budget", name, inputs, opts);
     }
 }

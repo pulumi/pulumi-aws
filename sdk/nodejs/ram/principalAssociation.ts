@@ -86,13 +86,6 @@ export class PrincipalAssociation extends pulumi.CustomResource {
             inputs["principal"] = args ? args.principal : undefined;
             inputs["resourceShareArn"] = args ? args.resourceShareArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ram/principalAssociation:PrincipalAssociation", name, inputs, opts);
     }
 }

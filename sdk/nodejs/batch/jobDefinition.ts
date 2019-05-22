@@ -144,13 +144,6 @@ export class JobDefinition extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["revision"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:batch/jobDefinition:JobDefinition", name, inputs, opts);
     }
 }

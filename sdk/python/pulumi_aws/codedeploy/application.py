@@ -48,10 +48,6 @@ class Application(pulumi.CustomResource):
 
         __props__['unique_id'] = unique_id
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Application, __self__).__init__(
             'aws:codedeploy/application:Application',
             resource_name,

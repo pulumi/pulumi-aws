@@ -63,10 +63,6 @@ class Webhook(pulumi.CustomResource):
         __props__['secret'] = None
         __props__['url'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Webhook, __self__).__init__(
             'aws:codebuild/webhook:Webhook',
             resource_name,

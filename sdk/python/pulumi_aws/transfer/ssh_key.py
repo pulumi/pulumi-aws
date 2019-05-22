@@ -58,10 +58,6 @@ class SshKey(pulumi.CustomResource):
             raise TypeError("Missing required property 'user_name'")
         __props__['user_name'] = user_name
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(SshKey, __self__).__init__(
             'aws:transfer/sshKey:SshKey',
             resource_name,

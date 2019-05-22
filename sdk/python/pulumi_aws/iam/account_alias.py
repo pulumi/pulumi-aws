@@ -42,10 +42,6 @@ class AccountAlias(pulumi.CustomResource):
             raise TypeError("Missing required property 'account_alias'")
         __props__['account_alias'] = account_alias
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(AccountAlias, __self__).__init__(
             'aws:iam/accountAlias:AccountAlias',
             resource_name,

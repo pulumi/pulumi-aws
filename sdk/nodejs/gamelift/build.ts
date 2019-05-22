@@ -66,13 +66,6 @@ export class Build extends pulumi.CustomResource {
             inputs["storageLocation"] = args ? args.storageLocation : undefined;
             inputs["version"] = args ? args.version : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:gamelift/build:Build", name, inputs, opts);
     }
 }

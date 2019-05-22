@@ -58,10 +58,6 @@ class DocumentationPart(pulumi.CustomResource):
             raise TypeError("Missing required property 'rest_api_id'")
         __props__['rest_api_id'] = rest_api_id
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(DocumentationPart, __self__).__init__(
             'aws:apigateway/documentationPart:DocumentationPart',
             resource_name,

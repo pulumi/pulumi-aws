@@ -173,13 +173,6 @@ export class Vpc extends pulumi.CustomResource {
             inputs["mainRouteTableId"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/vpc:Vpc", name, inputs, opts);
     }
 }

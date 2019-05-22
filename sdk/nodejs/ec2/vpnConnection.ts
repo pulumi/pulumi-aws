@@ -232,13 +232,6 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["tunnel2VgwInsideAddress"] = undefined /*out*/;
             inputs["vgwTelemetries"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/vpnConnection:VpnConnection", name, inputs, opts);
     }
 }

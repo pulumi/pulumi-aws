@@ -131,13 +131,6 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["dnsName"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2clientvpn/endpoint:Endpoint", name, inputs, opts);
     }
 }

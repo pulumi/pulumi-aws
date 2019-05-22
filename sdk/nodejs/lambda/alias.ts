@@ -105,13 +105,6 @@ export class Alias extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["invokeArn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:lambda/alias:Alias", name, inputs, opts);
     }
 }

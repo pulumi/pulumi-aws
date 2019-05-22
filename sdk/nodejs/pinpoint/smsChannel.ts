@@ -87,13 +87,6 @@ export class SmsChannel extends pulumi.CustomResource {
             inputs["promotionalMessagesPerSecond"] = undefined /*out*/;
             inputs["transactionalMessagesPerSecond"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:pinpoint/smsChannel:SmsChannel", name, inputs, opts);
     }
 }

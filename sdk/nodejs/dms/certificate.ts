@@ -79,13 +79,6 @@ export class Certificate extends pulumi.CustomResource {
             inputs["certificateWallet"] = args ? args.certificateWallet : undefined;
             inputs["certificateArn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:dms/certificate:Certificate", name, inputs, opts);
     }
 }

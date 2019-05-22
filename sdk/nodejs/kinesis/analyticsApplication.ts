@@ -159,13 +159,6 @@ export class AnalyticsApplication extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:kinesis/analyticsApplication:AnalyticsApplication", name, inputs, opts);
     }
 }

@@ -73,13 +73,6 @@ export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
             inputs["accountId"] = args ? args.accountId : undefined;
             inputs["snapshotId"] = args ? args.snapshotId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission", name, inputs, opts);
     }
 }

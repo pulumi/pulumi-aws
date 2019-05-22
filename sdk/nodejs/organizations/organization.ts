@@ -105,13 +105,6 @@ export class Organization extends pulumi.CustomResource {
             inputs["masterAccountId"] = undefined /*out*/;
             inputs["roots"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:organizations/organization:Organization", name, inputs, opts);
     }
 }

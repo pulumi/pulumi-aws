@@ -61,10 +61,6 @@ class Attachment(pulumi.CustomResource):
 
         __props__['elb'] = elb
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Attachment, __self__).__init__(
             'aws:autoscaling/attachment:Attachment',
             resource_name,

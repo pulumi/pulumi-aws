@@ -54,10 +54,6 @@ class CertificateValidation(pulumi.CustomResource):
 
         __props__['validation_record_fqdns'] = validation_record_fqdns
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(CertificateValidation, __self__).__init__(
             'aws:acm/certificateValidation:CertificateValidation',
             resource_name,

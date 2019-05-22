@@ -60,10 +60,6 @@ async def get_image(image_digest=None,image_tag=None,registry_id=None,repository
     __args__['imageTag'] = image_tag
     __args__['registryId'] = registry_id
     __args__['repositoryName'] = repository_name
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ecr/getImage:getImage', __args__, opts=opts)
 
     return GetImageResult(

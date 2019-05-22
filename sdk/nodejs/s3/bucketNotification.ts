@@ -291,13 +291,6 @@ export class BucketNotification extends pulumi.CustomResource {
             inputs["queues"] = args ? args.queues : undefined;
             inputs["topics"] = args ? args.topics : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:s3/bucketNotification:BucketNotification", name, inputs, opts);
     }
 }

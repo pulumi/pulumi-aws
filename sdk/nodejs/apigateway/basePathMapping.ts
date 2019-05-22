@@ -96,13 +96,6 @@ export class BasePathMapping extends pulumi.CustomResource {
             inputs["domainName"] = args ? args.domainName : undefined;
             inputs["stageName"] = args ? args.stageName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:apigateway/basePathMapping:BasePathMapping", name, inputs, opts);
     }
 }

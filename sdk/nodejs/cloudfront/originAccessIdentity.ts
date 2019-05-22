@@ -151,13 +151,6 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
             inputs["iamArn"] = undefined /*out*/;
             inputs["s3CanonicalUserId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", name, inputs, opts);
     }
 }

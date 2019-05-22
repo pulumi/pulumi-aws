@@ -100,10 +100,6 @@ class Grant(pulumi.CustomResource):
         __props__['grant_id'] = None
         __props__['grant_token'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Grant, __self__).__init__(
             'aws:kms/grant:Grant',
             resource_name,

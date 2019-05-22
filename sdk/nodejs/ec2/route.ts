@@ -117,13 +117,6 @@ export class Route extends pulumi.CustomResource {
             inputs["origin"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/route:Route", name, inputs, opts);
     }
 }

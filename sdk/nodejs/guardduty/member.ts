@@ -87,13 +87,6 @@ export class Member extends pulumi.CustomResource {
             inputs["invite"] = args ? args.invite : undefined;
             inputs["relationshipStatus"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:guardduty/member:Member", name, inputs, opts);
     }
 }

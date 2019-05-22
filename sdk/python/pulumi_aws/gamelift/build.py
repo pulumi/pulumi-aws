@@ -63,10 +63,6 @@ class Build(pulumi.CustomResource):
 
         __props__['version'] = version
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Build, __self__).__init__(
             'aws:gamelift/build:Build',
             resource_name,

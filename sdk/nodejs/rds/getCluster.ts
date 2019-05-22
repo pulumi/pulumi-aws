@@ -19,13 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:rds/getCluster:getCluster", {
         "clusterIdentifier": args.clusterIdentifier,
         "tags": args.tags,

@@ -156,13 +156,6 @@ export class UserPoolClient extends pulumi.CustomResource {
             inputs["writeAttributes"] = args ? args.writeAttributes : undefined;
             inputs["clientSecret"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:cognito/userPoolClient:UserPoolClient", name, inputs, opts);
     }
 }

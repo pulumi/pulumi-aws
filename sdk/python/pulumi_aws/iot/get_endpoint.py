@@ -41,10 +41,6 @@ async def get_endpoint(endpoint_type=None,opts=None):
     __args__ = dict()
 
     __args__['endpointType'] = endpoint_type
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:iot/getEndpoint:getEndpoint', __args__, opts=opts)
 
     return GetEndpointResult(

@@ -122,13 +122,6 @@ export class Fleet extends pulumi.CustomResource {
             inputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/fleet:Fleet", name, inputs, opts);
     }
 }

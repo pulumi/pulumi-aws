@@ -116,13 +116,6 @@ export class VirtualService extends pulumi.CustomResource {
             inputs["createdDate"] = undefined /*out*/;
             inputs["lastUpdatedDate"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:appmesh/virtualService:VirtualService", name, inputs, opts);
     }
 }

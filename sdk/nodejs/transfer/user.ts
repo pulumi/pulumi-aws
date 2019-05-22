@@ -137,13 +137,6 @@ export class User extends pulumi.CustomResource {
             inputs["userName"] = args ? args.userName : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:transfer/user:User", name, inputs, opts);
     }
 }

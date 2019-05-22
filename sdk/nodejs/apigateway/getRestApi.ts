@@ -22,13 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): Promise<GetRestApiResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:apigateway/getRestApi:getRestApi", {
         "name": args.name,
     }, opts);

@@ -278,13 +278,6 @@ export class Cluster extends pulumi.CustomResource {
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             inputs["dnsName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:redshift/cluster:Cluster", name, inputs, opts);
     }
 }

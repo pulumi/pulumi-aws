@@ -99,10 +99,6 @@ class VpcAttachment(pulumi.CustomResource):
 
         __props__['vpc_owner_id'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(VpcAttachment, __self__).__init__(
             'aws:ec2transitgateway/vpcAttachment:VpcAttachment',
             resource_name,

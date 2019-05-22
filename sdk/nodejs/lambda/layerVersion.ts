@@ -153,13 +153,6 @@ export class LayerVersion extends pulumi.CustomResource {
             inputs["sourceCodeSize"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:lambda/layerVersion:LayerVersion", name, inputs, opts);
     }
 }

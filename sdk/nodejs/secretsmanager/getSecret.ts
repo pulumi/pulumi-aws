@@ -33,13 +33,6 @@ import * as utilities from "../utilities";
  */
 export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:secretsmanager/getSecret:getSecret", {
         "arn": args.arn,
         "name": args.name,

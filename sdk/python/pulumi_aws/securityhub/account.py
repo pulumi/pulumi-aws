@@ -35,10 +35,6 @@ class Account(pulumi.CustomResource):
 
         __props__ = dict()
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Account, __self__).__init__(
             'aws:securityhub/account:Account',
             resource_name,

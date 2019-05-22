@@ -195,13 +195,6 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["stages"] = args ? args.stages : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:codepipeline/pipeline:Pipeline", name, inputs, opts);
     }
 }

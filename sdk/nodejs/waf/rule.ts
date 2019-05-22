@@ -79,13 +79,6 @@ export class Rule extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["predicates"] = args ? args.predicates : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:waf/rule:Rule", name, inputs, opts);
     }
 }

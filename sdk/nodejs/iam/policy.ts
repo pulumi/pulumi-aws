@@ -101,13 +101,6 @@ export class Policy extends pulumi.CustomResource {
             inputs["policy"] = args ? args.policy : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:iam/policy:Policy", name, inputs, opts);
     }
 }

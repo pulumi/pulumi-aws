@@ -47,10 +47,6 @@ class RegexMatchSet(pulumi.CustomResource):
 
         __props__['regex_match_tuples'] = regex_match_tuples
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(RegexMatchSet, __self__).__init__(
             'aws:wafregional/regexMatchSet:RegexMatchSet',
             resource_name,

@@ -145,13 +145,6 @@ export class LifecyclePolicy extends pulumi.CustomResource {
             inputs["policyDetails"] = args ? args.policyDetails : undefined;
             inputs["state"] = args ? args.state : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, inputs, opts);
     }
 }

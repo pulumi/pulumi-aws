@@ -188,13 +188,6 @@ export class Cluster extends pulumi.CustomResource {
             inputs["nodes"] = undefined /*out*/;
             inputs["port"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:dax/cluster:Cluster", name, inputs, opts);
     }
 }

@@ -49,13 +49,6 @@ export class Account extends pulumi.CustomResource {
         } else {
             const args = argsOrState as AccountArgs | undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:securityhub/account:Account", name, inputs, opts);
     }
 }

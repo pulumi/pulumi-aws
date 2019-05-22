@@ -116,10 +116,6 @@ class Authorizer(pulumi.CustomResource):
 
         __props__['type'] = type
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Authorizer, __self__).__init__(
             'aws:apigateway/authorizer:Authorizer',
             resource_name,

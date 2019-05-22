@@ -91,13 +91,6 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
             inputs["dxGatewayOwnerAccountId"] = args ? args.dxGatewayOwnerAccountId : undefined;
             inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal", name, inputs, opts);
     }
 }

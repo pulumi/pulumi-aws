@@ -63,10 +63,6 @@ class Certificate(pulumi.CustomResource):
 
         __props__['certificate_arn'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Certificate, __self__).__init__(
             'aws:dms/certificate:Certificate',
             resource_name,

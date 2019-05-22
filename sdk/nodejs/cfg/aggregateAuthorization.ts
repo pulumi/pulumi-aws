@@ -72,13 +72,6 @@ export class AggregateAuthorization extends pulumi.CustomResource {
             inputs["region"] = args ? args.region : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:cfg/aggregateAuthorization:AggregateAuthorization", name, inputs, opts);
     }
 }

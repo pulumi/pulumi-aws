@@ -61,10 +61,6 @@ async def get_task_definition(task_definition=None,opts=None):
     __args__ = dict()
 
     __args__['taskDefinition'] = task_definition
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ecs/getTaskDefinition:getTaskDefinition', __args__, opts=opts)
 
     return GetTaskDefinitionResult(

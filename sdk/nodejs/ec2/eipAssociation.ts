@@ -110,13 +110,6 @@ export class EipAssociation extends pulumi.CustomResource {
             inputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
             inputs["publicIp"] = args ? args.publicIp : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/eipAssociation:EipAssociation", name, inputs, opts);
     }
 }

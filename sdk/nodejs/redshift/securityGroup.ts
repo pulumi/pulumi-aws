@@ -70,13 +70,6 @@ export class SecurityGroup extends pulumi.CustomResource {
             inputs["ingress"] = args ? args.ingress : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:redshift/securityGroup:SecurityGroup", name, inputs, opts);
     }
 }

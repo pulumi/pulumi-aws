@@ -62,13 +62,6 @@ export class EmailIdentity extends pulumi.CustomResource {
             inputs["email"] = args ? args.email : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ses/emailIdentity:EmailIdentity", name, inputs, opts);
     }
 }

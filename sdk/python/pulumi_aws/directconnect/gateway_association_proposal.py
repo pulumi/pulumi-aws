@@ -65,10 +65,6 @@ class GatewayAssociationProposal(pulumi.CustomResource):
             raise TypeError("Missing required property 'vpn_gateway_id'")
         __props__['vpn_gateway_id'] = vpn_gateway_id
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(GatewayAssociationProposal, __self__).__init__(
             'aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal',
             resource_name,

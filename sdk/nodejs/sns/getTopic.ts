@@ -21,13 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:sns/getTopic:getTopic", {
         "name": args.name,
     }, opts);

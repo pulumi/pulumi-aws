@@ -296,10 +296,6 @@ class Cluster(pulumi.CustomResource):
 
         __props__['dns_name'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Cluster, __self__).__init__(
             'aws:redshift/cluster:Cluster',
             resource_name,

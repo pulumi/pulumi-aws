@@ -126,13 +126,6 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             inputs["storageEncrypted"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:docdb/clusterSnapshot:ClusterSnapshot", name, inputs, opts);
     }
 }

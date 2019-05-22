@@ -314,13 +314,6 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["versionId"] = args ? args.versionId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream", name, inputs, opts);
     }
 }

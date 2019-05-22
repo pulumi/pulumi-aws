@@ -88,13 +88,6 @@ export class Webhook extends pulumi.CustomResource {
             inputs["secret"] = undefined /*out*/;
             inputs["url"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:codebuild/webhook:Webhook", name, inputs, opts);
     }
 }

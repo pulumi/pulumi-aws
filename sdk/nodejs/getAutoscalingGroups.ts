@@ -40,13 +40,6 @@ import * as utilities from "./utilities";
  */
 export function getAutoscalingGroups(args?: GetAutoscalingGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoscalingGroupsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:index/getAutoscalingGroups:getAutoscalingGroups", {
         "filters": args.filters,
     }, opts);

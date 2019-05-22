@@ -66,13 +66,6 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
             inputs["accountId"] = args ? args.accountId : undefined;
             inputs["imageId"] = args ? args.imageId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/amiLaunchPermission:AmiLaunchPermission", name, inputs, opts);
     }
 }

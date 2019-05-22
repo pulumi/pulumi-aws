@@ -248,13 +248,6 @@ export class Environment extends pulumi.CustomResource {
             inputs["queues"] = undefined /*out*/;
             inputs["triggers"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:elasticbeanstalk/environment:Environment", name, inputs, opts);
     }
 }

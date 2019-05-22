@@ -135,13 +135,6 @@ export class EmailChannel extends pulumi.CustomResource {
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["messagesPerSecond"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:pinpoint/emailChannel:EmailChannel", name, inputs, opts);
     }
 }

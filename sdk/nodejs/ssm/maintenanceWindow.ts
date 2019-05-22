@@ -118,13 +118,6 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             inputs["startDate"] = args ? args.startDate : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ssm/maintenanceWindow:MaintenanceWindow", name, inputs, opts);
     }
 }

@@ -181,13 +181,6 @@ export class Application extends pulumi.CustomResource {
             inputs["stackId"] = args ? args.stackId : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:opsworks/application:Application", name, inputs, opts);
     }
 }

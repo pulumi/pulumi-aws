@@ -63,10 +63,6 @@ class S3BucketAssociation(pulumi.CustomResource):
 
         __props__['prefix'] = prefix
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(S3BucketAssociation, __self__).__init__(
             'aws:macie/s3BucketAssociation:S3BucketAssociation',
             resource_name,

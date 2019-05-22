@@ -130,13 +130,6 @@ export class NetworkInterfaceSecurityGroupAttachment extends pulumi.CustomResour
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             inputs["securityGroupId"] = args ? args.securityGroupId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", name, inputs, opts);
     }
 }

@@ -19,13 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:rds/getInstance:getInstance", {
         "dbInstanceIdentifier": args.dbInstanceIdentifier,
     }, opts);

@@ -395,13 +395,6 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["spotInstanceId"] = undefined /*out*/;
             inputs["spotRequestState"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/spotInstanceRequest:SpotInstanceRequest", name, inputs, opts);
     }
 }

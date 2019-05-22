@@ -135,13 +135,6 @@ export class Trigger extends pulumi.CustomResource {
             inputs["schedule"] = args ? args.schedule : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:glue/trigger:Trigger", name, inputs, opts);
     }
 }

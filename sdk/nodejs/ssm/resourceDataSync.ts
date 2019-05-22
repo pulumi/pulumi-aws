@@ -110,13 +110,6 @@ export class ResourceDataSync extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["s3Destination"] = args ? args.s3Destination : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ssm/resourceDataSync:ResourceDataSync", name, inputs, opts);
     }
 }

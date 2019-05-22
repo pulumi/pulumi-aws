@@ -111,10 +111,6 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__['state_transition_reason'] = None
         __props__['uuid'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(EventSourceMapping, __self__).__init__(
             'aws:lambda/eventSourceMapping:EventSourceMapping',
             resource_name,

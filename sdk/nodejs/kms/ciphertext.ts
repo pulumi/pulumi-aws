@@ -92,13 +92,6 @@ export class Ciphertext extends pulumi.CustomResource {
             inputs["plaintext"] = args ? args.plaintext : undefined;
             inputs["ciphertextBlob"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:kms/ciphertext:Ciphertext", name, inputs, opts);
     }
 }

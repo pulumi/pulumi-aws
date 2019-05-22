@@ -71,13 +71,6 @@ export class ClientCertificate extends pulumi.CustomResource {
             inputs["expirationDate"] = undefined /*out*/;
             inputs["pemEncodedCertificate"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:apigateway/clientCertificate:ClientCertificate", name, inputs, opts);
     }
 }

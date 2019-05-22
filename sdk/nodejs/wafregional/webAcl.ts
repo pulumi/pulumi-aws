@@ -164,13 +164,6 @@ export class WebAcl extends pulumi.CustomResource {
             inputs["rules"] = args ? args.rules : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:wafregional/webAcl:WebAcl", name, inputs, opts);
     }
 }

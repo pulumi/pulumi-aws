@@ -81,10 +81,6 @@ async def get_policy_document(override_json=None,policy_id=None,source_json=None
     __args__['sourceJson'] = source_json
     __args__['statements'] = statements
     __args__['version'] = version
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:iam/getPolicyDocument:getPolicyDocument', __args__, opts=opts)
 
     return GetPolicyDocumentResult(

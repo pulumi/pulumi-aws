@@ -101,10 +101,6 @@ class EventSubscription(pulumi.CustomResource):
         __props__['customer_aws_id'] = None
         __props__['status'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(EventSubscription, __self__).__init__(
             'aws:redshift/eventSubscription:EventSubscription',
             resource_name,

@@ -69,10 +69,6 @@ class SslNegotiationPolicy(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(SslNegotiationPolicy, __self__).__init__(
             'aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy',
             resource_name,

@@ -87,13 +87,6 @@ export class Group extends pulumi.CustomResource {
             inputs["resourceQuery"] = args ? args.resourceQuery : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:resourcegroups/group:Group", name, inputs, opts);
     }
 }

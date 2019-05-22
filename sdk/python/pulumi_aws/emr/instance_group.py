@@ -101,10 +101,6 @@ class InstanceGroup(pulumi.CustomResource):
         __props__['running_instance_count'] = None
         __props__['status'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(InstanceGroup, __self__).__init__(
             'aws:emr/instanceGroup:InstanceGroup',
             resource_name,

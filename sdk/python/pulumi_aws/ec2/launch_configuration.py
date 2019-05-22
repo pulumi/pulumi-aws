@@ -239,10 +239,6 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         __props__['vpc_classic_link_security_groups'] = vpc_classic_link_security_groups
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(LaunchConfiguration, __self__).__init__(
             'aws:ec2/launchConfiguration:LaunchConfiguration',
             resource_name,

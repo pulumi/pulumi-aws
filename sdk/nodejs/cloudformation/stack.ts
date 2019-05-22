@@ -159,13 +159,6 @@ export class Stack extends pulumi.CustomResource {
             inputs["timeoutInMinutes"] = args ? args.timeoutInMinutes : undefined;
             inputs["outputs"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:cloudformation/stack:Stack", name, inputs, opts);
     }
 }

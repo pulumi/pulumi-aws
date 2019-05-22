@@ -103,10 +103,6 @@ class LifecycleHook(pulumi.CustomResource):
 
         __props__['role_arn'] = role_arn
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(LifecycleHook, __self__).__init__(
             'aws:autoscaling/lifecycleHook:LifecycleHook',
             resource_name,

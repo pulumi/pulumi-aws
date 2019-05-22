@@ -130,13 +130,6 @@ export class Deployment extends pulumi.CustomResource {
             inputs["executionArn"] = undefined /*out*/;
             inputs["invokeUrl"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:apigateway/deployment:Deployment", name, inputs, opts);
     }
 }

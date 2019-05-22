@@ -82,13 +82,6 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             inputs["url"] = args ? args.url : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:iam/openIdConnectProvider:OpenIdConnectProvider", name, inputs, opts);
     }
 }

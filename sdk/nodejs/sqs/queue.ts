@@ -166,13 +166,6 @@ export class Queue extends pulumi.CustomResource {
             inputs["visibilityTimeoutSeconds"] = args ? args.visibilityTimeoutSeconds : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:sqs/queue:Queue", name, inputs, opts);
     }
 }

@@ -89,13 +89,6 @@ export class App extends pulumi.CustomResource {
             inputs["quietTime"] = args ? args.quietTime : undefined;
             inputs["applicationId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:pinpoint/app:App", name, inputs, opts);
     }
 }

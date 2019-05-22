@@ -82,13 +82,6 @@ export class KeyPair extends pulumi.CustomResource {
             inputs["publicKey"] = args ? args.publicKey : undefined;
             inputs["fingerprint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/keyPair:KeyPair", name, inputs, opts);
     }
 }

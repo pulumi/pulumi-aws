@@ -77,13 +77,6 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
             inputs["snapshotCopyGrantName"] = args ? args.snapshotCopyGrantName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:redshift/snapshotCopyGrant:SnapshotCopyGrant", name, inputs, opts);
     }
 }

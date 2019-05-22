@@ -176,10 +176,6 @@ class GangliaLayer(pulumi.CustomResource):
 
         __props__['username'] = username
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(GangliaLayer, __self__).__init__(
             'aws:opsworks/gangliaLayer:GangliaLayer',
             resource_name,

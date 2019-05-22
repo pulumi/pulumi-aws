@@ -105,10 +105,6 @@ class Parameter(pulumi.CustomResource):
             raise TypeError("Missing required property 'value'")
         __props__['value'] = value
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Parameter, __self__).__init__(
             'aws:ssm/parameter:Parameter',
             resource_name,

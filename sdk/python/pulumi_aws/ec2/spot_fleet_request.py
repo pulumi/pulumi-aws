@@ -200,10 +200,6 @@ class SpotFleetRequest(pulumi.CustomResource):
         __props__['client_token'] = None
         __props__['spot_request_state'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(SpotFleetRequest, __self__).__init__(
             'aws:ec2/spotFleetRequest:SpotFleetRequest',
             resource_name,

@@ -176,13 +176,6 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["username"] = args ? args.username : undefined;
             inputs["endpointArn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:dms/endpoint:Endpoint", name, inputs, opts);
     }
 }
