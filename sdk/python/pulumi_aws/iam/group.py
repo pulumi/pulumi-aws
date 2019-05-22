@@ -56,10 +56,6 @@ class Group(pulumi.CustomResource):
         __props__['arn'] = None
         __props__['unique_id'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Group, __self__).__init__(
             'aws:iam/group:Group',
             resource_name,

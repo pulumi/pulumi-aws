@@ -68,13 +68,6 @@ export class WorkingStorage extends pulumi.CustomResource {
             inputs["diskId"] = args ? args.diskId : undefined;
             inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:storagegateway/workingStorage:WorkingStorage", name, inputs, opts);
     }
 }

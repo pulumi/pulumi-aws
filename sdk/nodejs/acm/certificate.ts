@@ -130,13 +130,6 @@ export class Certificate extends pulumi.CustomResource {
             inputs["domainValidationOptions"] = undefined /*out*/;
             inputs["validationEmails"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:acm/certificate:Certificate", name, inputs, opts);
     }
 }

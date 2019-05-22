@@ -78,13 +78,6 @@ export class Alias extends pulumi.CustomResource {
             inputs["routingStrategy"] = args ? args.routingStrategy : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:gamelift/alias:Alias", name, inputs, opts);
     }
 }

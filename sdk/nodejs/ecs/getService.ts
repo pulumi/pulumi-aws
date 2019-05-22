@@ -21,13 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:ecs/getService:getService", {
         "clusterArn": args.clusterArn,
         "serviceName": args.serviceName,

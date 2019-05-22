@@ -478,13 +478,6 @@ export class Instance extends pulumi.CustomResource {
             inputs["resourceId"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:rds/instance:Instance", name, inputs, opts);
     }
 }

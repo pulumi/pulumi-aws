@@ -135,13 +135,6 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
             inputs["roleMappings"] = args ? args.roleMappings : undefined;
             inputs["roles"] = args ? args.roles : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment", name, inputs, opts);
     }
 }

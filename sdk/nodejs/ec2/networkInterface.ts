@@ -110,13 +110,6 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["privateDnsName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/networkInterface:NetworkInterface", name, inputs, opts);
     }
 }

@@ -106,13 +106,6 @@ export class FileSystem extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["dnsName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:efs/fileSystem:FileSystem", name, inputs, opts);
     }
 }

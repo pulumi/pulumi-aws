@@ -112,13 +112,6 @@ export class UsagePlan extends pulumi.CustomResource {
             inputs["quotaSettings"] = args ? args.quotaSettings : undefined;
             inputs["throttleSettings"] = args ? args.throttleSettings : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:apigateway/usagePlan:UsagePlan", name, inputs, opts);
     }
 }

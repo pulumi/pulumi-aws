@@ -51,10 +51,6 @@ class PrincipalAssociation(pulumi.CustomResource):
             raise TypeError("Missing required property 'resource_share_arn'")
         __props__['resource_share_arn'] = resource_share_arn
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(PrincipalAssociation, __self__).__init__(
             'aws:ram/principalAssociation:PrincipalAssociation',
             resource_name,

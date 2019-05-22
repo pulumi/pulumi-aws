@@ -60,10 +60,6 @@ class ZoneAssociation(pulumi.CustomResource):
             raise TypeError("Missing required property 'zone_id'")
         __props__['zone_id'] = zone_id
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(ZoneAssociation, __self__).__init__(
             'aws:route53/zoneAssociation:ZoneAssociation',
             resource_name,

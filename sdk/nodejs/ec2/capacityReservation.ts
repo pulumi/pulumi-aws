@@ -132,13 +132,6 @@ export class CapacityReservation extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tenancy"] = args ? args.tenancy : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/capacityReservation:CapacityReservation", name, inputs, opts);
     }
 }

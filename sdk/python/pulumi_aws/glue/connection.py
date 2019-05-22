@@ -82,10 +82,6 @@ class Connection(pulumi.CustomResource):
 
         __props__['physical_connection_requirements'] = physical_connection_requirements
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Connection, __self__).__init__(
             'aws:glue/connection:Connection',
             resource_name,

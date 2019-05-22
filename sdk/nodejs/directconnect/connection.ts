@@ -102,13 +102,6 @@ export class Connection extends pulumi.CustomResource {
             inputs["hasLogicalRedundancy"] = undefined /*out*/;
             inputs["jumboFrameCapable"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:directconnect/connection:Connection", name, inputs, opts);
     }
 }

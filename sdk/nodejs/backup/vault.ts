@@ -77,13 +77,6 @@ export class Vault extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["recoveryPoints"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:backup/vault:Vault", name, inputs, opts);
     }
 }

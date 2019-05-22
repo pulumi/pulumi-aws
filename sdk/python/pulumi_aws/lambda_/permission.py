@@ -119,10 +119,6 @@ class Permission(pulumi.CustomResource):
 
         __props__['statement_id_prefix'] = statement_id_prefix
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Permission, __self__).__init__(
             'aws:lambda/permission:Permission',
             resource_name,

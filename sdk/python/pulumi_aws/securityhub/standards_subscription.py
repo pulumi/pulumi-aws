@@ -42,10 +42,6 @@ class StandardsSubscription(pulumi.CustomResource):
             raise TypeError("Missing required property 'standards_arn'")
         __props__['standards_arn'] = standards_arn
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(StandardsSubscription, __self__).__init__(
             'aws:securityhub/standardsSubscription:StandardsSubscription',
             resource_name,

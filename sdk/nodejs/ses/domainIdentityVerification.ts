@@ -77,13 +77,6 @@ export class DomainIdentityVerification extends pulumi.CustomResource {
             inputs["domain"] = args ? args.domain : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ses/domainIdentityVerification:DomainIdentityVerification", name, inputs, opts);
     }
 }

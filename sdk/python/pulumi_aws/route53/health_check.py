@@ -168,10 +168,6 @@ class HealthCheck(pulumi.CustomResource):
             raise TypeError("Missing required property 'type'")
         __props__['type'] = type
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(HealthCheck, __self__).__init__(
             'aws:route53/healthCheck:HealthCheck',
             resource_name,

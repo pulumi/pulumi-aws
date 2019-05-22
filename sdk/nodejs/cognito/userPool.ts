@@ -185,13 +185,6 @@ export class UserPool extends pulumi.CustomResource {
             inputs["endpoint"] = undefined /*out*/;
             inputs["lastModifiedDate"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:cognito/userPool:UserPool", name, inputs, opts);
     }
 }

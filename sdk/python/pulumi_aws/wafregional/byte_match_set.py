@@ -45,10 +45,6 @@ class ByteMatchSet(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(ByteMatchSet, __self__).__init__(
             'aws:wafregional/byteMatchSet:ByteMatchSet',
             resource_name,

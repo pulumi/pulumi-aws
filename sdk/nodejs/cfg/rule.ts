@@ -139,13 +139,6 @@ export class Rule extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["ruleId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:cfg/rule:Rule", name, inputs, opts);
     }
 }

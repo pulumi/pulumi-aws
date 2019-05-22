@@ -79,13 +79,6 @@ export class Repository extends pulumi.CustomResource {
             inputs["registryId"] = undefined /*out*/;
             inputs["repositoryUrl"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ecr/repository:Repository", name, inputs, opts);
     }
 }

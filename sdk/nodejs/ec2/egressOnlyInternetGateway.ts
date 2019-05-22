@@ -63,13 +63,6 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
             }
             inputs["vpcId"] = args ? args.vpcId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway", name, inputs, opts);
     }
 }

@@ -55,10 +55,6 @@ async def get_availability_zones(blacklisted_names=None,blacklisted_zone_ids=Non
     __args__['blacklistedNames'] = blacklisted_names
     __args__['blacklistedZoneIds'] = blacklisted_zone_ids
     __args__['state'] = state
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:index/getAvailabilityZones:getAvailabilityZones', __args__, opts=opts)
 
     return GetAvailabilityZonesResult(

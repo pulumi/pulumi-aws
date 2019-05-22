@@ -98,13 +98,6 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
             inputs["path"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:iam/serviceLinkedRole:ServiceLinkedRole", name, inputs, opts);
     }
 }

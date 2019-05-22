@@ -75,13 +75,6 @@ export class SecurityGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:elasticache/securityGroup:SecurityGroup", name, inputs, opts);
     }
 }

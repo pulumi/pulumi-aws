@@ -162,13 +162,6 @@ export class Role extends pulumi.CustomResource {
             inputs["createDate"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:iam/role:Role", name, inputs, opts);
     }
 }

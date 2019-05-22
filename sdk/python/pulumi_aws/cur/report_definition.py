@@ -112,10 +112,6 @@ class ReportDefinition(pulumi.CustomResource):
             raise TypeError("Missing required property 'time_unit'")
         __props__['time_unit'] = time_unit
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(ReportDefinition, __self__).__init__(
             'aws:cur/reportDefinition:ReportDefinition',
             resource_name,

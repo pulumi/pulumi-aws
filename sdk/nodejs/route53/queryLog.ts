@@ -60,13 +60,6 @@ export class QueryLog extends pulumi.CustomResource {
             inputs["cloudwatchLogGroupArn"] = args ? args.cloudwatchLogGroupArn : undefined;
             inputs["zoneId"] = args ? args.zoneId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:route53/queryLog:QueryLog", name, inputs, opts);
     }
 }

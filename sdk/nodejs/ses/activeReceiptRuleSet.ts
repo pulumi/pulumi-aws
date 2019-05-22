@@ -56,13 +56,6 @@ export class ActiveReceiptRuleSet extends pulumi.CustomResource {
             }
             inputs["ruleSetName"] = args ? args.ruleSetName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet", name, inputs, opts);
     }
 }

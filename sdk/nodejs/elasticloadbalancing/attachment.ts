@@ -74,13 +74,6 @@ export class Attachment extends pulumi.CustomResource {
             inputs["elb"] = args ? args.elb : undefined;
             inputs["instance"] = args ? args.instance : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:elasticloadbalancing/attachment:Attachment", name, inputs, opts);
     }
 }

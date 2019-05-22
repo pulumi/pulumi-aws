@@ -167,13 +167,6 @@ export class Gateway extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["gatewayId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:storagegateway/gateway:Gateway", name, inputs, opts);
     }
 }

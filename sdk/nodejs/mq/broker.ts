@@ -203,13 +203,6 @@ export class Broker extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["instances"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:mq/broker:Broker", name, inputs, opts);
     }
 }

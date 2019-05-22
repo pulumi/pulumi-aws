@@ -121,13 +121,6 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
             inputs["loadBalancer"] = args ? args.loadBalancer : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy", name, inputs, opts);
     }
 }

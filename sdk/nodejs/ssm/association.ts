@@ -119,13 +119,6 @@ export class Association extends pulumi.CustomResource {
             inputs["targets"] = args ? args.targets : undefined;
             inputs["associationId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ssm/association:Association", name, inputs, opts);
     }
 }

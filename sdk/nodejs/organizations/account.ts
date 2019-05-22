@@ -99,13 +99,6 @@ export class Account extends pulumi.CustomResource {
             inputs["joinedTimestamp"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:organizations/account:Account", name, inputs, opts);
     }
 }

@@ -72,13 +72,6 @@ export class ReceiptFilter extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["policy"] = args ? args.policy : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ses/receiptFilter:ReceiptFilter", name, inputs, opts);
     }
 }

@@ -31,13 +31,6 @@ import * as utilities from "../utilities";
  */
 export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:elasticloadbalancingv2/getLoadBalancer:getLoadBalancer", {
         "arn": args.arn,
         "name": args.name,

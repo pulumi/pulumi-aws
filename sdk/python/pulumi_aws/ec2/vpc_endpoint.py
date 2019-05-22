@@ -133,10 +133,6 @@ class VpcEndpoint(pulumi.CustomResource):
         __props__['prefix_list_id'] = None
         __props__['state'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(VpcEndpoint, __self__).__init__(
             'aws:ec2/vpcEndpoint:VpcEndpoint',
             resource_name,

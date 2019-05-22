@@ -78,13 +78,6 @@ export class RequestValidator extends pulumi.CustomResource {
             inputs["validateRequestBody"] = args ? args.validateRequestBody : undefined;
             inputs["validateRequestParameters"] = args ? args.validateRequestParameters : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:apigateway/requestValidator:RequestValidator", name, inputs, opts);
     }
 }

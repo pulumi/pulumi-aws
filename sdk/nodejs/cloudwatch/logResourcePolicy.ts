@@ -107,13 +107,6 @@ export class LogResourcePolicy extends pulumi.CustomResource {
             inputs["policyDocument"] = args ? args.policyDocument : undefined;
             inputs["policyName"] = args ? args.policyName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:cloudwatch/logResourcePolicy:LogResourcePolicy", name, inputs, opts);
     }
 }

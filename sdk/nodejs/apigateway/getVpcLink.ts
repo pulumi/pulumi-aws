@@ -22,13 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcLinkResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:apigateway/getVpcLink:getVpcLink", {
         "name": args.name,
     }, opts);

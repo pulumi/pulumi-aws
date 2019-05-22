@@ -90,13 +90,6 @@ export class Webhook extends pulumi.CustomResource {
             inputs["targetPipeline"] = args ? args.targetPipeline : undefined;
             inputs["url"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:codepipeline/webhook:Webhook", name, inputs, opts);
     }
 }

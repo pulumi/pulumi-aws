@@ -140,13 +140,6 @@ export class Grant extends pulumi.CustomResource {
             inputs["grantId"] = undefined /*out*/;
             inputs["grantToken"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:kms/grant:Grant", name, inputs, opts);
     }
 }

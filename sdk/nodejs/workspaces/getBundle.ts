@@ -19,13 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBundle(args: GetBundleArgs, opts?: pulumi.InvokeOptions): Promise<GetBundleResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:workspaces/getBundle:getBundle", {
         "bundleId": args.bundleId,
     }, opts);

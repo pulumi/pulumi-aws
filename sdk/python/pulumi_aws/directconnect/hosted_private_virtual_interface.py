@@ -128,10 +128,6 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
         __props__['aws_device'] = None
         __props__['jumbo_frame_capable'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(HostedPrivateVirtualInterface, __self__).__init__(
             'aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface',
             resource_name,

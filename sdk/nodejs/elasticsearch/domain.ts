@@ -301,13 +301,6 @@ export class Domain extends pulumi.CustomResource {
             inputs["endpoint"] = undefined /*out*/;
             inputs["kibanaEndpoint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:elasticsearch/domain:Domain", name, inputs, opts);
     }
 }

@@ -168,13 +168,6 @@ export class StackSet extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["stackSetId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:cloudformation/stackSet:StackSet", name, inputs, opts);
     }
 }

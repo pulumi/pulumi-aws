@@ -157,13 +157,6 @@ export class EventSourceMapping extends pulumi.CustomResource {
             inputs["stateTransitionReason"] = undefined /*out*/;
             inputs["uuid"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:lambda/eventSourceMapping:EventSourceMapping", name, inputs, opts);
     }
 }

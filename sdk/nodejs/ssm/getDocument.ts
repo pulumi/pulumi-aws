@@ -35,13 +35,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDocument(args: GetDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:ssm/getDocument:getDocument", {
         "documentFormat": args.documentFormat,
         "documentVersion": args.documentVersion,

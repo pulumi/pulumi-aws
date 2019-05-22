@@ -65,10 +65,6 @@ class Channel(pulumi.CustomResource):
         __props__['arn'] = None
         __props__['hls_ingests'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Channel, __self__).__init__(
             'aws:mediapackage/channel:Channel',
             resource_name,

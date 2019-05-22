@@ -77,10 +77,6 @@ class UserPoolDomain(pulumi.CustomResource):
         __props__['s3_bucket'] = None
         __props__['version'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(UserPoolDomain, __self__).__init__(
             'aws:cognito/userPoolDomain:UserPoolDomain',
             resource_name,

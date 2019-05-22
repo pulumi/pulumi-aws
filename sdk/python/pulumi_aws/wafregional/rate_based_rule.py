@@ -72,10 +72,6 @@ class RateBasedRule(pulumi.CustomResource):
             raise TypeError("Missing required property 'rate_limit'")
         __props__['rate_limit'] = rate_limit
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(RateBasedRule, __self__).__init__(
             'aws:wafregional/rateBasedRule:RateBasedRule',
             resource_name,

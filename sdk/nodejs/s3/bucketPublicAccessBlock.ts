@@ -88,13 +88,6 @@ export class BucketPublicAccessBlock extends pulumi.CustomResource {
             inputs["ignorePublicAcls"] = args ? args.ignorePublicAcls : undefined;
             inputs["restrictPublicBuckets"] = args ? args.restrictPublicBuckets : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock", name, inputs, opts);
     }
 }

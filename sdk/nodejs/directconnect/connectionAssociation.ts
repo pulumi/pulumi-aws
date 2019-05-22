@@ -74,13 +74,6 @@ export class ConnectionAssociation extends pulumi.CustomResource {
             inputs["connectionId"] = args ? args.connectionId : undefined;
             inputs["lagId"] = args ? args.lagId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:directconnect/connectionAssociation:ConnectionAssociation", name, inputs, opts);
     }
 }

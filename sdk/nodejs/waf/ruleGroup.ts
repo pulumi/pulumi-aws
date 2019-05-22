@@ -78,13 +78,6 @@ export class RuleGroup extends pulumi.CustomResource {
             inputs["metricName"] = args ? args.metricName : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:waf/ruleGroup:RuleGroup", name, inputs, opts);
     }
 }

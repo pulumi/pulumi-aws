@@ -90,13 +90,6 @@ export class GameSessionQueue extends pulumi.CustomResource {
             inputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:gamelift/gameSessionQueue:GameSessionQueue", name, inputs, opts);
     }
 }

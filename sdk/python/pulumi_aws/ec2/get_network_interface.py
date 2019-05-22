@@ -122,10 +122,6 @@ async def get_network_interface(filters=None,id=None,tags=None,opts=None):
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['tags'] = tags
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ec2/getNetworkInterface:getNetworkInterface', __args__, opts=opts)
 
     return GetNetworkInterfaceResult(

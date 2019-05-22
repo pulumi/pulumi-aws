@@ -68,13 +68,6 @@ export class ResourceAssociation extends pulumi.CustomResource {
             inputs["resourceArn"] = args ? args.resourceArn : undefined;
             inputs["resourceShareArn"] = args ? args.resourceShareArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ram/resourceAssociation:ResourceAssociation", name, inputs, opts);
     }
 }

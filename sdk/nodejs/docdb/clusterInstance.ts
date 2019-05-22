@@ -213,13 +213,6 @@ export class ClusterInstance extends pulumi.CustomResource {
             inputs["storageEncrypted"] = undefined /*out*/;
             inputs["writer"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:docdb/clusterInstance:ClusterInstance", name, inputs, opts);
     }
 }

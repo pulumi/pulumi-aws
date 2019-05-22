@@ -260,13 +260,6 @@ export class Trail extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["homeRegion"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:cloudtrail/trail:Trail", name, inputs, opts);
     }
 }

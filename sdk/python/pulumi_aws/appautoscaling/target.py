@@ -85,10 +85,6 @@ class Target(pulumi.CustomResource):
             raise TypeError("Missing required property 'service_namespace'")
         __props__['service_namespace'] = service_namespace
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Target, __self__).__init__(
             'aws:appautoscaling/target:Target',
             resource_name,

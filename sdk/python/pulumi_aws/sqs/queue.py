@@ -135,10 +135,6 @@ class Queue(pulumi.CustomResource):
 
         __props__['arn'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Queue, __self__).__init__(
             'aws:sqs/queue:Queue',
             resource_name,

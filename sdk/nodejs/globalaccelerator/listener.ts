@@ -95,13 +95,6 @@ export class Listener extends pulumi.CustomResource {
             inputs["portRanges"] = args ? args.portRanges : undefined;
             inputs["protocol"] = args ? args.protocol : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:globalaccelerator/listener:Listener", name, inputs, opts);
     }
 }

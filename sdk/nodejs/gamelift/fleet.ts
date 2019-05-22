@@ -129,13 +129,6 @@ export class Fleet extends pulumi.CustomResource {
             inputs["logPaths"] = undefined /*out*/;
             inputs["operatingSystem"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:gamelift/fleet:Fleet", name, inputs, opts);
     }
 }

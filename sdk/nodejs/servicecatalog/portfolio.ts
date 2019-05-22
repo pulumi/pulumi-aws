@@ -78,13 +78,6 @@ export class Portfolio extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:servicecatalog/portfolio:Portfolio", name, inputs, opts);
     }
 }

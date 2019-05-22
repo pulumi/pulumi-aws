@@ -225,13 +225,6 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["defaultVersion"] = undefined /*out*/;
             inputs["latestVersion"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/launchTemplate:LaunchTemplate", name, inputs, opts);
     }
 }

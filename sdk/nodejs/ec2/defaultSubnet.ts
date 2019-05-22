@@ -113,13 +113,6 @@ export class DefaultSubnet extends pulumi.CustomResource {
             inputs["ownerId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/defaultSubnet:DefaultSubnet", name, inputs, opts);
     }
 }

@@ -74,13 +74,6 @@ export class RouteTable extends pulumi.CustomResource {
             inputs["defaultAssociationRouteTable"] = undefined /*out*/;
             inputs["defaultPropagationRouteTable"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2transitgateway/routeTable:RouteTable", name, inputs, opts);
     }
 }

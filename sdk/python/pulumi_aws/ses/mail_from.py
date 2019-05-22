@@ -58,10 +58,6 @@ class MailFrom(pulumi.CustomResource):
             raise TypeError("Missing required property 'mail_from_domain'")
         __props__['mail_from_domain'] = mail_from_domain
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(MailFrom, __self__).__init__(
             'aws:ses/mailFrom:MailFrom',
             resource_name,

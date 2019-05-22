@@ -89,13 +89,6 @@ export class RdsDbInstance extends pulumi.CustomResource {
             inputs["rdsDbInstanceArn"] = args ? args.rdsDbInstanceArn : undefined;
             inputs["stackId"] = args ? args.stackId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:opsworks/rdsDbInstance:RdsDbInstance", name, inputs, opts);
     }
 }

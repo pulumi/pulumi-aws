@@ -104,13 +104,6 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
             inputs["settings"] = args ? args.settings : undefined;
             inputs["solutionStackName"] = args ? args.solutionStackName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate", name, inputs, opts);
     }
 }

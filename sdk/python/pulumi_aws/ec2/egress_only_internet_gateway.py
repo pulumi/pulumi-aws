@@ -43,10 +43,6 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
             raise TypeError("Missing required property 'vpc_id'")
         __props__['vpc_id'] = vpc_id
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(EgressOnlyInternetGateway, __self__).__init__(
             'aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway',
             resource_name,

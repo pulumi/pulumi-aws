@@ -20,13 +20,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getCanonicalUserId(opts?: pulumi.InvokeOptions): Promise<GetCanonicalUserIdResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:index/getCanonicalUserId:getCanonicalUserId", {
     }, opts);
 }

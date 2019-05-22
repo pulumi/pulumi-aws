@@ -84,13 +84,6 @@ export class Permission extends pulumi.CustomResource {
             inputs["stackId"] = args ? args.stackId : undefined;
             inputs["userArn"] = args ? args.userArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:opsworks/permission:Permission", name, inputs, opts);
     }
 }

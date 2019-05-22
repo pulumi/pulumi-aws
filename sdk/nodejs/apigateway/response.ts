@@ -92,13 +92,6 @@ export class Response extends pulumi.CustomResource {
             inputs["restApiId"] = args ? args.restApiId : undefined;
             inputs["statusCode"] = args ? args.statusCode : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:apigateway/response:Response", name, inputs, opts);
     }
 }

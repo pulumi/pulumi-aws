@@ -118,13 +118,6 @@ export class DefaultRouteTable extends pulumi.CustomResource {
             inputs["ownerId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/defaultRouteTable:DefaultRouteTable", name, inputs, opts);
     }
 }

@@ -60,13 +60,6 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
             inputs["onStart"] = args ? args.onStart : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration", name, inputs, opts);
     }
 }

@@ -93,13 +93,6 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
             inputs["ntpServers"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions", name, inputs, opts);
     }
 }

@@ -73,13 +73,6 @@ export class RegexMatchSet extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["regexMatchTuples"] = args ? args.regexMatchTuples : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:wafregional/regexMatchSet:RegexMatchSet", name, inputs, opts);
     }
 }

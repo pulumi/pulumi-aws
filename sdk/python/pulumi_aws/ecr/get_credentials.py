@@ -36,10 +36,6 @@ async def get_credentials(registry_id=None,opts=None):
     __args__ = dict()
 
     __args__['registryId'] = registry_id
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ecr/getCredentials:getCredentials', __args__, opts=opts)
 
     return GetCredentialsResult(

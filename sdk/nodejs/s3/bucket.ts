@@ -364,13 +364,6 @@ export class Bucket extends pulumi.CustomResource {
             inputs["bucketDomainName"] = undefined /*out*/;
             inputs["bucketRegionalDomainName"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:s3/bucket:Bucket", name, inputs, opts);
     }
 }

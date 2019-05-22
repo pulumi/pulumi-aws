@@ -106,13 +106,6 @@ export class MountTarget extends pulumi.CustomResource {
             inputs["fileSystemArn"] = undefined /*out*/;
             inputs["networkInterfaceId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:efs/mountTarget:MountTarget", name, inputs, opts);
     }
 }

@@ -54,10 +54,6 @@ class ClientCertificate(pulumi.CustomResource):
         __props__['expiration_date'] = None
         __props__['pem_encoded_certificate'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(ClientCertificate, __self__).__init__(
             'aws:apigateway/clientCertificate:ClientCertificate',
             resource_name,

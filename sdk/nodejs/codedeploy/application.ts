@@ -86,13 +86,6 @@ export class Application extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["uniqueId"] = args ? args.uniqueId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:codedeploy/application:Application", name, inputs, opts);
     }
 }

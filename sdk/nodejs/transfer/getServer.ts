@@ -20,13 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:transfer/getServer:getServer", {
         "serverId": args.serverId,
     }, opts);

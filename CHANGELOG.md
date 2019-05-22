@@ -1,4 +1,13 @@
-## 0.18.5 (Unreleased) 
+## 0.18.4 (Unreleased)
+
+### Improvements
+
+## 0.18.5 (Released May 22nd, 2019)
+
+### Improvements
+
+- Fixed an issue where when upgrading to 0.18.4 from a previous version of
+  `@pulumi/aws` would cause all resources to need replacement
 
 ## 0.18.4 (Released May 21st, 2019)
 

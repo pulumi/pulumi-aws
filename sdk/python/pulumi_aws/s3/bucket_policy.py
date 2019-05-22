@@ -49,10 +49,6 @@ class BucketPolicy(pulumi.CustomResource):
             raise TypeError("Missing required property 'policy'")
         __props__['policy'] = policy
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(BucketPolicy, __self__).__init__(
             'aws:s3/bucketPolicy:BucketPolicy',
             resource_name,

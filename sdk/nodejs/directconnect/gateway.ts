@@ -68,13 +68,6 @@ export class Gateway extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["ownerAccountId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:directconnect/gateway:Gateway", name, inputs, opts);
     }
 }

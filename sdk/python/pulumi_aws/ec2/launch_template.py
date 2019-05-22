@@ -254,10 +254,6 @@ class LaunchTemplate(pulumi.CustomResource):
         __props__['default_version'] = None
         __props__['latest_version'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(LaunchTemplate, __self__).__init__(
             'aws:ec2/launchTemplate:LaunchTemplate',
             resource_name,

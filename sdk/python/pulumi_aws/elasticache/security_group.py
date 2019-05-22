@@ -63,10 +63,6 @@ class SecurityGroup(pulumi.CustomResource):
             raise TypeError("Missing required property 'security_group_names'")
         __props__['security_group_names'] = security_group_names
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(SecurityGroup, __self__).__init__(
             'aws:elasticache/securityGroup:SecurityGroup',
             resource_name,

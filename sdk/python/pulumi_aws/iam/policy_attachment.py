@@ -72,10 +72,6 @@ class PolicyAttachment(pulumi.CustomResource):
 
         __props__['users'] = users
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(PolicyAttachment, __self__).__init__(
             'aws:iam/policyAttachment:PolicyAttachment',
             resource_name,

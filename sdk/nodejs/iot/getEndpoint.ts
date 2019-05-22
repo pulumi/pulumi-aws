@@ -9,13 +9,6 @@ import * as utilities from "../utilities";
  */
 export function getEndpoint(args?: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:iot/getEndpoint:getEndpoint", {
         "endpointType": args.endpointType,
     }, opts);

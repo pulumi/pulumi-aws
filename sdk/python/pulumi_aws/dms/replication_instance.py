@@ -149,10 +149,6 @@ class ReplicationInstance(pulumi.CustomResource):
         __props__['replication_instance_private_ips'] = None
         __props__['replication_instance_public_ips'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(ReplicationInstance, __self__).__init__(
             'aws:dms/replicationInstance:ReplicationInstance',
             resource_name,

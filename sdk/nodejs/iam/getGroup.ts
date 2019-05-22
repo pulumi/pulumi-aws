@@ -21,13 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:iam/getGroup:getGroup", {
         "groupName": args.groupName,
     }, opts);

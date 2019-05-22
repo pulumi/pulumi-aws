@@ -13,13 +13,6 @@ import * as utilities from "../utilities";
  * server configured.
  */
 export function getClusterAuth(args: GetClusterAuthArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterAuthResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:eks/getClusterAuth:getClusterAuth", {
         "name": args.name,
     }, opts);

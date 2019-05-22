@@ -161,13 +161,6 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
             inputs["taskType"] = args ? args.taskType : undefined;
             inputs["windowId"] = args ? args.windowId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ssm/maintenanceWindowTask:MaintenanceWindowTask", name, inputs, opts);
     }
 }

@@ -62,10 +62,6 @@ class SecurityConfiguration(pulumi.CustomResource):
 
         __props__['creation_date'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(SecurityConfiguration, __self__).__init__(
             'aws:emr/securityConfiguration:SecurityConfiguration',
             resource_name,

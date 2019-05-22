@@ -171,13 +171,6 @@ export class ReplicationInstance extends pulumi.CustomResource {
             inputs["replicationInstancePrivateIps"] = undefined /*out*/;
             inputs["replicationInstancePublicIps"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:dms/replicationInstance:ReplicationInstance", name, inputs, opts);
     }
 }

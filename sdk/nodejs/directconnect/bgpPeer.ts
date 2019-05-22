@@ -114,13 +114,6 @@ export class BgpPeer extends pulumi.CustomResource {
             inputs["bgpPeerId"] = undefined /*out*/;
             inputs["bgpStatus"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:directconnect/bgpPeer:BgpPeer", name, inputs, opts);
     }
 }

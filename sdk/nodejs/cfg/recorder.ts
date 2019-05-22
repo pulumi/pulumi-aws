@@ -88,13 +88,6 @@ export class Recorder extends pulumi.CustomResource {
             inputs["recordingGroup"] = args ? args.recordingGroup : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:cfg/recorder:Recorder", name, inputs, opts);
     }
 }

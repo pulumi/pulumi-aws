@@ -55,13 +55,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSubnetIds(args: GetSubnetIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetIdsResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:ec2/getSubnetIds:getSubnetIds", {
         "filters": args.filters,
         "tags": args.tags,

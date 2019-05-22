@@ -75,13 +75,6 @@ export class CatalogDatabase extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:glue/catalogDatabase:CatalogDatabase", name, inputs, opts);
     }
 }

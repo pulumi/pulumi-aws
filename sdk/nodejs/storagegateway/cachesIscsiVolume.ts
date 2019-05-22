@@ -178,13 +178,6 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
             inputs["volumeArn"] = undefined /*out*/;
             inputs["volumeId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume", name, inputs, opts);
     }
 }

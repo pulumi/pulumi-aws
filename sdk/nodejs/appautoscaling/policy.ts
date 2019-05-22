@@ -223,13 +223,6 @@ export class Policy extends pulumi.CustomResource {
             inputs["targetTrackingScalingPolicyConfiguration"] = args ? args.targetTrackingScalingPolicyConfiguration : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:appautoscaling/policy:Policy", name, inputs, opts);
     }
 }

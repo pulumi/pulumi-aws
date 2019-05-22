@@ -98,10 +98,6 @@ class SnapshotCopy(pulumi.CustomResource):
         __props__['volume_id'] = None
         __props__['volume_size'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(SnapshotCopy, __self__).__init__(
             'aws:ebs/snapshotCopy:SnapshotCopy',
             resource_name,

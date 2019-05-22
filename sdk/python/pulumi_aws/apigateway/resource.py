@@ -64,10 +64,6 @@ class Resource(pulumi.CustomResource):
 
         __props__['path'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Resource, __self__).__init__(
             'aws:apigateway/resource:Resource',
             resource_name,

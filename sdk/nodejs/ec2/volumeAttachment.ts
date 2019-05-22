@@ -111,13 +111,6 @@ export class VolumeAttachment extends pulumi.CustomResource {
             inputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             inputs["volumeId"] = args ? args.volumeId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/volumeAttachment:VolumeAttachment", name, inputs, opts);
     }
 }

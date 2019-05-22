@@ -66,13 +66,6 @@ export class ProductSubscription extends pulumi.CustomResource {
             inputs["productArn"] = args ? args.productArn : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:securityhub/productSubscription:ProductSubscription", name, inputs, opts);
     }
 }

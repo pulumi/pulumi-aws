@@ -243,13 +243,6 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["clientToken"] = undefined /*out*/;
             inputs["spotRequestState"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/spotFleetRequest:SpotFleetRequest", name, inputs, opts);
     }
 }

@@ -114,13 +114,6 @@ export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {
             inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
             inputs["policyNames"] = args ? args.policyNames : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy", name, inputs, opts);
     }
 }

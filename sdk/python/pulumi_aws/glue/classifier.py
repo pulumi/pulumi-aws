@@ -61,10 +61,6 @@ class Classifier(pulumi.CustomResource):
 
         __props__['xml_classifier'] = xml_classifier
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Classifier, __self__).__init__(
             'aws:glue/classifier:Classifier',
             resource_name,

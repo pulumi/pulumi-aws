@@ -78,10 +78,6 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
 
         __props__['restrict_public_buckets'] = restrict_public_buckets
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(BucketPublicAccessBlock, __self__).__init__(
             'aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock',
             resource_name,

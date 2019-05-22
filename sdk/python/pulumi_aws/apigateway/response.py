@@ -70,10 +70,6 @@ class Response(pulumi.CustomResource):
 
         __props__['status_code'] = status_code
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Response, __self__).__init__(
             'aws:apigateway/response:Response',
             resource_name,

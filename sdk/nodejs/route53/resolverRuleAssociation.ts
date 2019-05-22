@@ -72,13 +72,6 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
             inputs["resolverRuleId"] = args ? args.resolverRuleId : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:route53/resolverRuleAssociation:ResolverRuleAssociation", name, inputs, opts);
     }
 }

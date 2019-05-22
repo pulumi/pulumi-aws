@@ -123,13 +123,6 @@ export class DeliveryChannel extends pulumi.CustomResource {
             inputs["snapshotDeliveryProperties"] = args ? args.snapshotDeliveryProperties : undefined;
             inputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:cfg/deliveryChannel:DeliveryChannel", name, inputs, opts);
     }
 }

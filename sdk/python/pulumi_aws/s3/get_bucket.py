@@ -75,10 +75,6 @@ async def get_bucket(bucket=None,opts=None):
     __args__ = dict()
 
     __args__['bucket'] = bucket
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:s3/getBucket:getBucket', __args__, opts=opts)
 
     return GetBucketResult(

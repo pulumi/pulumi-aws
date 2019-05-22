@@ -66,13 +66,6 @@ export class RouteTableAssociation extends pulumi.CustomResource {
             inputs["routeTableId"] = args ? args.routeTableId : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/routeTableAssociation:RouteTableAssociation", name, inputs, opts);
     }
 }

@@ -86,13 +86,6 @@ export class QueuePolicy extends pulumi.CustomResource {
             inputs["policy"] = args ? args.policy : undefined;
             inputs["queueUrl"] = args ? args.queueUrl : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:sqs/queuePolicy:QueuePolicy", name, inputs, opts);
     }
 }

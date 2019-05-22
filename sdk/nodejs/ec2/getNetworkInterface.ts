@@ -20,13 +20,6 @@ import * as utilities from "../utilities";
  */
 export function getNetworkInterface(args?: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:ec2/getNetworkInterface:getNetworkInterface", {
         "filters": args.filters,
         "id": args.id,

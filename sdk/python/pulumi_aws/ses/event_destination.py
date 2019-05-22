@@ -84,10 +84,6 @@ class EventDestination(pulumi.CustomResource):
 
         __props__['sns_destination'] = sns_destination
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(EventDestination, __self__).__init__(
             'aws:ses/eventDestination:EventDestination',
             resource_name,

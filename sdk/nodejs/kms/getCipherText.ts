@@ -34,13 +34,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCipherText(args: GetCipherTextArgs, opts?: pulumi.InvokeOptions): Promise<GetCipherTextResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:kms/getCipherText:getCipherText", {
         "context": args.context,
         "keyId": args.keyId,

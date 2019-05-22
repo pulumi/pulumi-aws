@@ -65,10 +65,6 @@ async def get_server_certificate(latest=None,name=None,name_prefix=None,path_pre
     __args__['name'] = name
     __args__['namePrefix'] = name_prefix
     __args__['pathPrefix'] = path_prefix
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:iam/getServerCertificate:getServerCertificate', __args__, opts=opts)
 
     return GetServerCertificateResult(

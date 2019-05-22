@@ -147,13 +147,6 @@ export class Job extends pulumi.CustomResource {
             inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:glue/job:Job", name, inputs, opts);
     }
 }

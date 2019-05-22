@@ -73,13 +73,6 @@ export class SecurityConfiguration extends pulumi.CustomResource {
             inputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:glue/securityConfiguration:SecurityConfiguration", name, inputs, opts);
     }
 }

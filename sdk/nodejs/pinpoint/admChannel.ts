@@ -88,13 +88,6 @@ export class AdmChannel extends pulumi.CustomResource {
             inputs["clientSecret"] = args ? args.clientSecret : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:pinpoint/admChannel:AdmChannel", name, inputs, opts);
     }
 }

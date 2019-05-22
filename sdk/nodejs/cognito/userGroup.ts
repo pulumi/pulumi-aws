@@ -108,13 +108,6 @@ export class UserGroup extends pulumi.CustomResource {
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["userPoolId"] = args ? args.userPoolId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:cognito/userGroup:UserGroup", name, inputs, opts);
     }
 }

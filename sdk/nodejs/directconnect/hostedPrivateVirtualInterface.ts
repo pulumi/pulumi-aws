@@ -144,13 +144,6 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
             inputs["awsDevice"] = undefined /*out*/;
             inputs["jumboFrameCapable"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface", name, inputs, opts);
     }
 }

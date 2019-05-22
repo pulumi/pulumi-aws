@@ -28,13 +28,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promise<GetStackResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:cloudformation/getStack:getStack", {
         "name": args.name,
     }, opts);

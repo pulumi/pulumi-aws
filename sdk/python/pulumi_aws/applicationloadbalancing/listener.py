@@ -87,10 +87,6 @@ class Listener(pulumi.CustomResource):
 
         __props__['arn'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Listener, __self__).__init__(
             'aws:applicationloadbalancing/listener:Listener',
             resource_name,

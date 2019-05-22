@@ -50,10 +50,6 @@ async def get_cipher_text(context=None,key_id=None,plaintext=None,opts=None):
     __args__['context'] = context
     __args__['keyId'] = key_id
     __args__['plaintext'] = plaintext
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:kms/getCipherText:getCipherText', __args__, opts=opts)
 
     return GetCipherTextResult(

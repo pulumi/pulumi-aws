@@ -99,13 +99,6 @@ export class SubnetGroup extends pulumi.CustomResource {
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:redshift/subnetGroup:SubnetGroup", name, inputs, opts);
     }
 }

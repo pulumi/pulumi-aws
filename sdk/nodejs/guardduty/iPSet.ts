@@ -106,13 +106,6 @@ export class IPSet extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:guardduty/iPSet:IPSet", name, inputs, opts);
     }
 }

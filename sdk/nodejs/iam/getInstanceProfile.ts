@@ -21,13 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:iam/getInstanceProfile:getInstanceProfile", {
         "name": args.name,
     }, opts);

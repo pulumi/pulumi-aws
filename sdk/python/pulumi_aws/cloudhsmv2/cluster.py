@@ -103,10 +103,6 @@ class Cluster(pulumi.CustomResource):
         __props__['security_group_id'] = None
         __props__['vpc_id'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Cluster, __self__).__init__(
             'aws:cloudhsmv2/cluster:Cluster',
             resource_name,

@@ -109,13 +109,6 @@ export class IdentityProvider extends pulumi.CustomResource {
             inputs["providerType"] = args ? args.providerType : undefined;
             inputs["userPoolId"] = args ? args.userPoolId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:cognito/identityProvider:IdentityProvider", name, inputs, opts);
     }
 }

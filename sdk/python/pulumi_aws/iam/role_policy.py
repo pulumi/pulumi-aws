@@ -67,10 +67,6 @@ class RolePolicy(pulumi.CustomResource):
             raise TypeError("Missing required property 'role'")
         __props__['role'] = role
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(RolePolicy, __self__).__init__(
             'aws:iam/rolePolicy:RolePolicy',
             resource_name,

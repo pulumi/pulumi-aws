@@ -27,13 +27,6 @@ import * as utilities from "../utilities";
  */
 export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", {
         "id": args.id,
         "serviceName": args.serviceName,

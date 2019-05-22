@@ -335,13 +335,6 @@ export class Instance extends pulumi.CustomResource {
             inputs["virtualizationType"] = args ? args.virtualizationType : undefined;
             inputs["ec2InstanceId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:opsworks/instance:Instance", name, inputs, opts);
     }
 }

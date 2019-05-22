@@ -146,13 +146,6 @@ export class Cluster extends pulumi.CustomResource {
             inputs["securityGroupId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:cloudhsmv2/cluster:Cluster", name, inputs, opts);
     }
 }

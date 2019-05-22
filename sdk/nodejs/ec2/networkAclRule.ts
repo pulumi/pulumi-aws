@@ -144,13 +144,6 @@ export class NetworkAclRule extends pulumi.CustomResource {
             inputs["ruleNumber"] = args ? args.ruleNumber : undefined;
             inputs["toPort"] = args ? args.toPort : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/networkAclRule:NetworkAclRule", name, inputs, opts);
     }
 }

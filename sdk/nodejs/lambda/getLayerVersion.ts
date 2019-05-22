@@ -22,13 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerVersionResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:lambda/getLayerVersion:getLayerVersion", {
         "compatibleRuntime": args.compatibleRuntime,
         "layerName": args.layerName,

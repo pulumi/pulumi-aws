@@ -132,13 +132,6 @@ export class ResolverRule extends pulumi.CustomResource {
             inputs["ownerId"] = undefined /*out*/;
             inputs["shareStatus"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:route53/resolverRule:ResolverRule", name, inputs, opts);
     }
 }

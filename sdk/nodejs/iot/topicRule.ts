@@ -163,13 +163,6 @@ export class TopicRule extends pulumi.CustomResource {
             inputs["sqs"] = args ? args.sqs : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:iot/topicRule:TopicRule", name, inputs, opts);
     }
 }

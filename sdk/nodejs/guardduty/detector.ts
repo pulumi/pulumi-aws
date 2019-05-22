@@ -67,13 +67,6 @@ export class Detector extends pulumi.CustomResource {
             inputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
             inputs["accountId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:guardduty/detector:Detector", name, inputs, opts);
     }
 }

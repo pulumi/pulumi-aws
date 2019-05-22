@@ -83,13 +83,6 @@ export class Association extends pulumi.CustomResource {
             inputs["licenseConfigurationArn"] = args ? args.licenseConfigurationArn : undefined;
             inputs["resourceArn"] = args ? args.resourceArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:licensemanager/association:Association", name, inputs, opts);
     }
 }

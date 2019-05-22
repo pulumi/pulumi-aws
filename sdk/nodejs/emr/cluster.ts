@@ -720,13 +720,6 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterState"] = undefined /*out*/;
             inputs["masterPublicDns"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:emr/cluster:Cluster", name, inputs, opts);
     }
 }

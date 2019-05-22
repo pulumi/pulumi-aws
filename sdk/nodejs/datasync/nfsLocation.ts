@@ -95,13 +95,6 @@ export class NfsLocation extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["uri"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:datasync/nfsLocation:NfsLocation", name, inputs, opts);
     }
 }

@@ -60,10 +60,6 @@ class ApiKey(pulumi.CustomResource):
 
         __props__['key'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(ApiKey, __self__).__init__(
             'aws:appsync/apiKey:ApiKey',
             resource_name,

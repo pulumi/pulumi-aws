@@ -92,13 +92,6 @@ export class MailFrom extends pulumi.CustomResource {
             inputs["domain"] = args ? args.domain : undefined;
             inputs["mailFromDomain"] = args ? args.mailFromDomain : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ses/mailFrom:MailFrom", name, inputs, opts);
     }
 }

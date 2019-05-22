@@ -19,13 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:directconnect/getGateway:getGateway", {
         "name": args.name,
     }, opts);

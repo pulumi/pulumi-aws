@@ -56,10 +56,6 @@ class SnapshotCopyGrant(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(SnapshotCopyGrant, __self__).__init__(
             'aws:redshift/snapshotCopyGrant:SnapshotCopyGrant',
             resource_name,

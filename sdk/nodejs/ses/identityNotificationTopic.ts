@@ -73,13 +73,6 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
             inputs["notificationType"] = args ? args.notificationType : undefined;
             inputs["topicArn"] = args ? args.topicArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ses/identityNotificationTopic:IdentityNotificationTopic", name, inputs, opts);
     }
 }

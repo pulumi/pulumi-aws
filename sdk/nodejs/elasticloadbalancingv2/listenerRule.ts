@@ -181,13 +181,6 @@ export class ListenerRule extends pulumi.CustomResource {
             inputs["priority"] = args ? args.priority : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:elasticloadbalancingv2/listenerRule:ListenerRule", name, inputs, opts);
     }
 }

@@ -76,13 +76,6 @@ export class VpcLink extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["targetArn"] = args ? args.targetArn : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:apigateway/vpcLink:VpcLink", name, inputs, opts);
     }
 }

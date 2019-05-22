@@ -118,10 +118,6 @@ class Route(pulumi.CustomResource):
         __props__['origin'] = None
         __props__['state'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Route, __self__).__init__(
             'aws:ec2/route:Route',
             resource_name,

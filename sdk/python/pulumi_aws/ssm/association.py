@@ -111,10 +111,6 @@ class Association(pulumi.CustomResource):
 
         __props__['association_id'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Association, __self__).__init__(
             'aws:ssm/association:Association',
             resource_name,

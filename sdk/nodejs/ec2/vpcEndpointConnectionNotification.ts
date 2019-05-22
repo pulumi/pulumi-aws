@@ -113,13 +113,6 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
             inputs["notificationType"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification", name, inputs, opts);
     }
 }

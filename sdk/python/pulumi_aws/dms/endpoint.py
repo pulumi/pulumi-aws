@@ -158,10 +158,6 @@ class Endpoint(pulumi.CustomResource):
 
         __props__['endpoint_arn'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Endpoint, __self__).__init__(
             'aws:dms/endpoint:Endpoint',
             resource_name,

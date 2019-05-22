@@ -73,10 +73,6 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         __props__['replication_subnet_group_arn'] = None
         __props__['vpc_id'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(ReplicationSubnetGroup, __self__).__init__(
             'aws:dms/replicationSubnetGroup:ReplicationSubnetGroup',
             resource_name,

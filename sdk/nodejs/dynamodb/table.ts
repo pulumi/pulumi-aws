@@ -215,13 +215,6 @@ export class Table extends pulumi.CustomResource {
             inputs["streamArn"] = undefined /*out*/;
             inputs["streamLabel"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:dynamodb/table:Table", name, inputs, opts);
     }
 }

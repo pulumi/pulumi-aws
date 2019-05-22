@@ -101,13 +101,6 @@ export class StateMachine extends pulumi.CustomResource {
             inputs["creationDate"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:sfn/stateMachine:StateMachine", name, inputs, opts);
     }
 }

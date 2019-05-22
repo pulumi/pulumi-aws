@@ -74,13 +74,6 @@ export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation", name, inputs, opts);
     }
 }

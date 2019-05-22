@@ -91,13 +91,6 @@ export class SecretVersion extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["versionId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:secretsmanager/secretVersion:SecretVersion", name, inputs, opts);
     }
 }

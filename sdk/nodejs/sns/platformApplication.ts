@@ -141,13 +141,6 @@ export class PlatformApplication extends pulumi.CustomResource {
             inputs["successFeedbackSampleRate"] = args ? args.successFeedbackSampleRate : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:sns/platformApplication:PlatformApplication", name, inputs, opts);
     }
 }

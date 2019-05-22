@@ -177,13 +177,6 @@ export class CatalogTable extends pulumi.CustomResource {
             inputs["viewExpandedText"] = args ? args.viewExpandedText : undefined;
             inputs["viewOriginalText"] = args ? args.viewOriginalText : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:glue/catalogTable:CatalogTable", name, inputs, opts);
     }
 }

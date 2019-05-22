@@ -35,13 +35,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResourceShare(args: GetResourceShareArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceShareResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("aws:ram/getResourceShare:getResourceShare", {
         "filters": args.filters,
         "name": args.name,

@@ -240,13 +240,6 @@ export class Directory extends pulumi.CustomResource {
             inputs["dnsIpAddresses"] = undefined /*out*/;
             inputs["securityGroupId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("aws:directoryservice/directory:Directory", name, inputs, opts);
     }
 }
