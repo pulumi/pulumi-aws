@@ -17,6 +17,10 @@ class Stream(pulumi.CustomResource):
     """
     The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
     """
+    enforce_consumer_deletion: pulumi.Output[bool]
+    """
+    A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+    """
     kms_key_id: pulumi.Output[str]
     """
     The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
@@ -44,7 +48,7 @@ class Stream(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, arn=None, encryption_type=None, kms_key_id=None, name=None, retention_period=None, shard_count=None, shard_level_metrics=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, arn=None, encryption_type=None, enforce_consumer_deletion=None, kms_key_id=None, name=None, retention_period=None, shard_count=None, shard_level_metrics=None, tags=None, __name__=None, __opts__=None):
         """
         Provides a Kinesis Stream resource. Amazon Kinesis is a managed service that
         scales elastically for real-time processing of streaming big data.
@@ -55,6 +59,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
         :param pulumi.Input[str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
+        :param pulumi.Input[bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         :param pulumi.Input[str] kms_key_id: The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
         :param pulumi.Input[str] name: A name to identify the stream. This is unique to the
                AWS account and region the Stream is created in.
@@ -83,6 +88,8 @@ class Stream(pulumi.CustomResource):
         __props__['arn'] = arn
 
         __props__['encryption_type'] = encryption_type
+
+        __props__['enforce_consumer_deletion'] = enforce_consumer_deletion
 
         __props__['kms_key_id'] = kms_key_id
 

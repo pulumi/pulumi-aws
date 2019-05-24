@@ -22,21 +22,22 @@ func NewGatewayAssociationProposal(ctx *pulumi.Context,
 	if args == nil || args.DxGatewayOwnerAccountId == nil {
 		return nil, errors.New("missing required argument 'DxGatewayOwnerAccountId'")
 	}
-	if args == nil || args.VpnGatewayId == nil {
-		return nil, errors.New("missing required argument 'VpnGatewayId'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["allowedPrefixes"] = nil
+		inputs["associatedGatewayId"] = nil
 		inputs["dxGatewayId"] = nil
 		inputs["dxGatewayOwnerAccountId"] = nil
 		inputs["vpnGatewayId"] = nil
 	} else {
 		inputs["allowedPrefixes"] = args.AllowedPrefixes
+		inputs["associatedGatewayId"] = args.AssociatedGatewayId
 		inputs["dxGatewayId"] = args.DxGatewayId
 		inputs["dxGatewayOwnerAccountId"] = args.DxGatewayOwnerAccountId
 		inputs["vpnGatewayId"] = args.VpnGatewayId
 	}
+	inputs["associatedGatewayOwnerAccountId"] = nil
+	inputs["associatedGatewayType"] = nil
 	s, err := ctx.RegisterResource("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -51,6 +52,9 @@ func GetGatewayAssociationProposal(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["allowedPrefixes"] = state.AllowedPrefixes
+		inputs["associatedGatewayId"] = state.AssociatedGatewayId
+		inputs["associatedGatewayOwnerAccountId"] = state.AssociatedGatewayOwnerAccountId
+		inputs["associatedGatewayType"] = state.AssociatedGatewayType
 		inputs["dxGatewayId"] = state.DxGatewayId
 		inputs["dxGatewayOwnerAccountId"] = state.DxGatewayOwnerAccountId
 		inputs["vpnGatewayId"] = state.VpnGatewayId
@@ -77,17 +81,32 @@ func (r *GatewayAssociationProposal) AllowedPrefixes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["allowedPrefixes"])
 }
 
+// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
+func (r *GatewayAssociationProposal) AssociatedGatewayId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["associatedGatewayId"])
+}
+
+// The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
+func (r *GatewayAssociationProposal) AssociatedGatewayOwnerAccountId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["associatedGatewayOwnerAccountId"])
+}
+
+// The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
+func (r *GatewayAssociationProposal) AssociatedGatewayType() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["associatedGatewayType"])
+}
+
 // Direct Connect Gateway identifier.
 func (r *GatewayAssociationProposal) DxGatewayId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dxGatewayId"])
 }
 
-// AWS Account identifier of the Direct Connect Gateway.
+// AWS Account identifier of the Direct Connect Gateway's owner.
 func (r *GatewayAssociationProposal) DxGatewayOwnerAccountId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dxGatewayOwnerAccountId"])
 }
 
-// Virtual Gateway identifier to associate with the Direct Connect Gateway.
+// *Deprecated:* Use `associated_gateway_id` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
 func (r *GatewayAssociationProposal) VpnGatewayId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vpnGatewayId"])
 }
@@ -96,11 +115,17 @@ func (r *GatewayAssociationProposal) VpnGatewayId() *pulumi.StringOutput {
 type GatewayAssociationProposalState struct {
 	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
 	AllowedPrefixes interface{}
+	// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
+	AssociatedGatewayId interface{}
+	// The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
+	AssociatedGatewayOwnerAccountId interface{}
+	// The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
+	AssociatedGatewayType interface{}
 	// Direct Connect Gateway identifier.
 	DxGatewayId interface{}
-	// AWS Account identifier of the Direct Connect Gateway.
+	// AWS Account identifier of the Direct Connect Gateway's owner.
 	DxGatewayOwnerAccountId interface{}
-	// Virtual Gateway identifier to associate with the Direct Connect Gateway.
+	// *Deprecated:* Use `associated_gateway_id` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
 	VpnGatewayId interface{}
 }
 
@@ -108,10 +133,12 @@ type GatewayAssociationProposalState struct {
 type GatewayAssociationProposalArgs struct {
 	// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
 	AllowedPrefixes interface{}
+	// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
+	AssociatedGatewayId interface{}
 	// Direct Connect Gateway identifier.
 	DxGatewayId interface{}
-	// AWS Account identifier of the Direct Connect Gateway.
+	// AWS Account identifier of the Direct Connect Gateway's owner.
 	DxGatewayOwnerAccountId interface{}
-	// Virtual Gateway identifier to associate with the Direct Connect Gateway.
+	// *Deprecated:* Use `associated_gateway_id` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
 	VpnGatewayId interface{}
 }

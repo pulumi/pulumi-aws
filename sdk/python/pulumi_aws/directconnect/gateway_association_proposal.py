@@ -13,28 +13,41 @@ class GatewayAssociationProposal(pulumi.CustomResource):
     """
     VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
     """
+    associated_gateway_id: pulumi.Output[str]
+    """
+    The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
+    """
+    associated_gateway_owner_account_id: pulumi.Output[str]
+    """
+    The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
+    """
+    associated_gateway_type: pulumi.Output[str]
+    """
+    The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
+    """
     dx_gateway_id: pulumi.Output[str]
     """
     Direct Connect Gateway identifier.
     """
     dx_gateway_owner_account_id: pulumi.Output[str]
     """
-    AWS Account identifier of the Direct Connect Gateway.
+    AWS Account identifier of the Direct Connect Gateway's owner.
     """
     vpn_gateway_id: pulumi.Output[str]
     """
-    Virtual Gateway identifier to associate with the Direct Connect Gateway.
+    *Deprecated:* Use `associated_gateway_id` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
     """
-    def __init__(__self__, resource_name, opts=None, allowed_prefixes=None, dx_gateway_id=None, dx_gateway_owner_account_id=None, vpn_gateway_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allowed_prefixes=None, associated_gateway_id=None, dx_gateway_id=None, dx_gateway_owner_account_id=None, vpn_gateway_id=None, __name__=None, __opts__=None):
         """
         Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the [`aws_dx_gateway_association` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association.html).
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] allowed_prefixes: VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+        :param pulumi.Input[str] associated_gateway_id: The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
         :param pulumi.Input[str] dx_gateway_id: Direct Connect Gateway identifier.
-        :param pulumi.Input[str] dx_gateway_owner_account_id: AWS Account identifier of the Direct Connect Gateway.
-        :param pulumi.Input[str] vpn_gateway_id: Virtual Gateway identifier to associate with the Direct Connect Gateway.
+        :param pulumi.Input[str] dx_gateway_owner_account_id: AWS Account identifier of the Direct Connect Gateway's owner.
+        :param pulumi.Input[str] vpn_gateway_id: *Deprecated:* Use `associated_gateway_id` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,6 +66,8 @@ class GatewayAssociationProposal(pulumi.CustomResource):
 
         __props__['allowed_prefixes'] = allowed_prefixes
 
+        __props__['associated_gateway_id'] = associated_gateway_id
+
         if dx_gateway_id is None:
             raise TypeError("Missing required property 'dx_gateway_id'")
         __props__['dx_gateway_id'] = dx_gateway_id
@@ -61,9 +76,10 @@ class GatewayAssociationProposal(pulumi.CustomResource):
             raise TypeError("Missing required property 'dx_gateway_owner_account_id'")
         __props__['dx_gateway_owner_account_id'] = dx_gateway_owner_account_id
 
-        if vpn_gateway_id is None:
-            raise TypeError("Missing required property 'vpn_gateway_id'")
         __props__['vpn_gateway_id'] = vpn_gateway_id
+
+        __props__['associated_gateway_owner_account_id'] = None
+        __props__['associated_gateway_type'] = None
 
         super(GatewayAssociationProposal, __self__).__init__(
             'aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal',

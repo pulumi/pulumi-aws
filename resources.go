@@ -101,6 +101,7 @@ const (
 	mediapackageMod      = "mediapackage"             // Elemental MediaPackage
 	mediastoreMod        = "mediastore"               // Elemental MediaStore
 	mqMod                = "mq"                       // MQ
+	mskMod               = "msk"                      // MSK
 	neptuneMod           = "neptune"                  // Neptune
 	opsworksMod          = "opsworks"                 // OpsWorks
 	organizationsMod     = "organizations"            // Organizations
@@ -1673,6 +1674,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(worklinkMod, "WebsiteCertificateAuthorityAssociation"),
 			},
 			"aws_xray_sampling_rule": {Tok: awsResource(xrayMod, "SamplingRule")},
+			// MSK
+			"aws_msk_cluster":       {Tok: awsResource(mskMod, "Cluster")},
+			"aws_msk_configuration": {Tok: awsResource(mskMod, "Configuration")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// AWS
@@ -1876,6 +1880,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_transfer_server": {Tok: awsDataSource(transferMod, "getServer")},
 			// Workspaces
 			"aws_workspaces_bundle": {Tok: awsDataSource(workspacesMod, "getBundle")},
+			// MSK
+			"aws_msk_cluster": {Tok: awsDataSource(mskMod, "getCluster")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
