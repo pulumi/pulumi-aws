@@ -51,6 +51,10 @@ export class Stream extends pulumi.CustomResource {
      */
     public readonly encryptionType!: pulumi.Output<string | undefined>;
     /**
+     * A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+     */
+    public readonly enforceConsumerDeletion!: pulumi.Output<boolean | undefined>;
+    /**
      * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
@@ -92,6 +96,7 @@ export class Stream extends pulumi.CustomResource {
             const state = argsOrState as StreamState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["encryptionType"] = state ? state.encryptionType : undefined;
+            inputs["enforceConsumerDeletion"] = state ? state.enforceConsumerDeletion : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["retentionPeriod"] = state ? state.retentionPeriod : undefined;
@@ -105,6 +110,7 @@ export class Stream extends pulumi.CustomResource {
             }
             inputs["arn"] = args ? args.arn : undefined;
             inputs["encryptionType"] = args ? args.encryptionType : undefined;
+            inputs["enforceConsumerDeletion"] = args ? args.enforceConsumerDeletion : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
@@ -128,6 +134,10 @@ export interface StreamState {
      * The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
      */
     readonly encryptionType?: pulumi.Input<string>;
+    /**
+     * A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+     */
+    readonly enforceConsumerDeletion?: pulumi.Input<boolean>;
     /**
      * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
      */
@@ -169,6 +179,10 @@ export interface StreamArgs {
      * The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
      */
     readonly encryptionType?: pulumi.Input<string>;
+    /**
+     * A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+     */
+    readonly enforceConsumerDeletion?: pulumi.Input<boolean>;
     /**
      * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
      */

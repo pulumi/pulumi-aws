@@ -211,6 +211,18 @@ class Instance(pulumi.CustomResource):
     is provided) Password for the master DB user. Note that this may show up in
     logs, and it will be stored in the state file.
     """
+    performance_insights_enabled: pulumi.Output[bool]
+    """
+    Specifies whether Performance Insights are enabled. Defaults to false.
+    """
+    performance_insights_kms_key_id: pulumi.Output[str]
+    """
+    The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+    """
+    performance_insights_retention_period: pulumi.Output[float]
+    """
+    The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+    """
     port: pulumi.Output[float]
     """
     The port on which the DB accepts connections.
@@ -298,7 +310,7 @@ class Instance(pulumi.CustomResource):
     List of VPC security groups to
     associate.
     """
-    def __init__(__self__, resource_name, opts=None, allocated_storage=None, allow_major_version_upgrade=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, backup_window=None, character_set_name=None, copy_tags_to_snapshot=None, db_subnet_group_name=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, identifier=None, identifier_prefix=None, instance_class=None, iops=None, kms_key_id=None, license_model=None, maintenance_window=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, name=None, option_group_name=None, parameter_group_name=None, password=None, port=None, publicly_accessible=None, replicate_source_db=None, s3_import=None, security_group_names=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, username=None, vpc_security_group_ids=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allocated_storage=None, allow_major_version_upgrade=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, backup_window=None, character_set_name=None, copy_tags_to_snapshot=None, db_subnet_group_name=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, identifier=None, identifier_prefix=None, instance_class=None, iops=None, kms_key_id=None, license_model=None, maintenance_window=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, name=None, option_group_name=None, parameter_group_name=None, password=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, publicly_accessible=None, replicate_source_db=None, s3_import=None, security_group_names=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, username=None, vpc_security_group_ids=None, __name__=None, __opts__=None):
         """
         Provides an RDS instance resource.  A DB instance is an isolated database
         environment in the cloud.  A DB instance can contain multiple user-created
@@ -413,6 +425,9 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] password: (Required unless a `snapshot_identifier` or `replicate_source_db`
                is provided) Password for the master DB user. Note that this may show up in
                logs, and it will be stored in the state file.
+        :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights are enabled. Defaults to false.
+        :param pulumi.Input[str] performance_insights_kms_key_id: The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+        :param pulumi.Input[float] performance_insights_retention_period: The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         :param pulumi.Input[float] port: The port on which the DB accepts connections.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly
                accessible. Default is `false`.
@@ -533,6 +548,12 @@ class Instance(pulumi.CustomResource):
         __props__['parameter_group_name'] = parameter_group_name
 
         __props__['password'] = password
+
+        __props__['performance_insights_enabled'] = performance_insights_enabled
+
+        __props__['performance_insights_kms_key_id'] = performance_insights_kms_key_id
+
+        __props__['performance_insights_retention_period'] = performance_insights_retention_period
 
         __props__['port'] = port
 

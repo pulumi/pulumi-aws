@@ -9,6 +9,14 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class MaintenanceWindowTarget(pulumi.CustomResource):
+    description: pulumi.Output[str]
+    """
+    The description of the maintenance window target.
+    """
+    name: pulumi.Output[str]
+    """
+    The name of the maintenance window target.
+    """
     owner_information: pulumi.Output[str]
     """
     User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
@@ -25,12 +33,14 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
     """
     The Id of the maintenance window to register the target with.
     """
-    def __init__(__self__, resource_name, opts=None, owner_information=None, resource_type=None, targets=None, window_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, name=None, owner_information=None, resource_type=None, targets=None, window_id=None, __name__=None, __opts__=None):
         """
         Provides an SSM Maintenance Window Target resource
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the maintenance window target.
+        :param pulumi.Input[str] name: The name of the maintenance window target.
         :param pulumi.Input[str] owner_information: User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
         :param pulumi.Input[str] resource_type: The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
         :param pulumi.Input[list] targets: The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value.
@@ -50,6 +60,10 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
+
+        __props__['description'] = description
+
+        __props__['name'] = name
 
         __props__['owner_information'] = owner_information
 

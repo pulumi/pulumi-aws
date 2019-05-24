@@ -26,6 +26,7 @@ func NewStream(ctx *pulumi.Context,
 	if args == nil {
 		inputs["arn"] = nil
 		inputs["encryptionType"] = nil
+		inputs["enforceConsumerDeletion"] = nil
 		inputs["kmsKeyId"] = nil
 		inputs["name"] = nil
 		inputs["retentionPeriod"] = nil
@@ -35,6 +36,7 @@ func NewStream(ctx *pulumi.Context,
 	} else {
 		inputs["arn"] = args.Arn
 		inputs["encryptionType"] = args.EncryptionType
+		inputs["enforceConsumerDeletion"] = args.EnforceConsumerDeletion
 		inputs["kmsKeyId"] = args.KmsKeyId
 		inputs["name"] = args.Name
 		inputs["retentionPeriod"] = args.RetentionPeriod
@@ -57,6 +59,7 @@ func GetStream(ctx *pulumi.Context,
 	if state != nil {
 		inputs["arn"] = state.Arn
 		inputs["encryptionType"] = state.EncryptionType
+		inputs["enforceConsumerDeletion"] = state.EnforceConsumerDeletion
 		inputs["kmsKeyId"] = state.KmsKeyId
 		inputs["name"] = state.Name
 		inputs["retentionPeriod"] = state.RetentionPeriod
@@ -89,6 +92,11 @@ func (r *Stream) Arn() *pulumi.StringOutput {
 // The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
 func (r *Stream) EncryptionType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["encryptionType"])
+}
+
+// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+func (r *Stream) EnforceConsumerDeletion() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["enforceConsumerDeletion"])
 }
 
 // The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
@@ -130,6 +138,8 @@ type StreamState struct {
 	Arn interface{}
 	// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
 	EncryptionType interface{}
+	// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+	EnforceConsumerDeletion interface{}
 	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
 	KmsKeyId interface{}
 	// A name to identify the stream. This is unique to the
@@ -153,6 +163,8 @@ type StreamArgs struct {
 	Arn interface{}
 	// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
 	EncryptionType interface{}
+	// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+	EnforceConsumerDeletion interface{}
 	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
 	KmsKeyId interface{}
 	// A name to identify the stream. This is unique to the

@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *     schedule: "cron(0 16 ? * TUE *)",
  * });
  * const target1 = new aws.ssm.MaintenanceWindowTarget("target1", {
+ *     description: "This is a maintenance window target",
  *     resourceType: "INSTANCE",
  *     targets: [{
  *         key: "tag:Name",
@@ -41,6 +42,14 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
         return new MaintenanceWindowTarget(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * The description of the maintenance window target.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the maintenance window target.
+     */
+    public readonly name!: pulumi.Output<string>;
     /**
      * User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
      */
@@ -70,6 +79,8 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as MaintenanceWindowTargetState | undefined;
+            inputs["description"] = state ? state.description : undefined;
+            inputs["name"] = state ? state.name : undefined;
             inputs["ownerInformation"] = state ? state.ownerInformation : undefined;
             inputs["resourceType"] = state ? state.resourceType : undefined;
             inputs["targets"] = state ? state.targets : undefined;
@@ -85,6 +96,8 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
             if (!args || args.windowId === undefined) {
                 throw new Error("Missing required property 'windowId'");
             }
+            inputs["description"] = args ? args.description : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["ownerInformation"] = args ? args.ownerInformation : undefined;
             inputs["resourceType"] = args ? args.resourceType : undefined;
             inputs["targets"] = args ? args.targets : undefined;
@@ -98,6 +111,14 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MaintenanceWindowTarget resources.
  */
 export interface MaintenanceWindowTargetState {
+    /**
+     * The description of the maintenance window target.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * The name of the maintenance window target.
+     */
+    readonly name?: pulumi.Input<string>;
     /**
      * User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
      */
@@ -120,6 +141,14 @@ export interface MaintenanceWindowTargetState {
  * The set of arguments for constructing a MaintenanceWindowTarget resource.
  */
 export interface MaintenanceWindowTargetArgs {
+    /**
+     * The description of the maintenance window target.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * The name of the maintenance window target.
+     */
+    readonly name?: pulumi.Input<string>;
     /**
      * User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
      */

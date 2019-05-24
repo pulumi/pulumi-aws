@@ -78,6 +78,9 @@ func NewInstance(ctx *pulumi.Context,
 		inputs["optionGroupName"] = nil
 		inputs["parameterGroupName"] = nil
 		inputs["password"] = nil
+		inputs["performanceInsightsEnabled"] = nil
+		inputs["performanceInsightsKmsKeyId"] = nil
+		inputs["performanceInsightsRetentionPeriod"] = nil
 		inputs["port"] = nil
 		inputs["publiclyAccessible"] = nil
 		inputs["replicateSourceDb"] = nil
@@ -124,6 +127,9 @@ func NewInstance(ctx *pulumi.Context,
 		inputs["optionGroupName"] = args.OptionGroupName
 		inputs["parameterGroupName"] = args.ParameterGroupName
 		inputs["password"] = args.Password
+		inputs["performanceInsightsEnabled"] = args.PerformanceInsightsEnabled
+		inputs["performanceInsightsKmsKeyId"] = args.PerformanceInsightsKmsKeyId
+		inputs["performanceInsightsRetentionPeriod"] = args.PerformanceInsightsRetentionPeriod
 		inputs["port"] = args.Port
 		inputs["publiclyAccessible"] = args.PubliclyAccessible
 		inputs["replicateSourceDb"] = args.ReplicateSourceDb
@@ -196,6 +202,9 @@ func GetInstance(ctx *pulumi.Context,
 		inputs["optionGroupName"] = state.OptionGroupName
 		inputs["parameterGroupName"] = state.ParameterGroupName
 		inputs["password"] = state.Password
+		inputs["performanceInsightsEnabled"] = state.PerformanceInsightsEnabled
+		inputs["performanceInsightsKmsKeyId"] = state.PerformanceInsightsKmsKeyId
+		inputs["performanceInsightsRetentionPeriod"] = state.PerformanceInsightsRetentionPeriod
 		inputs["port"] = state.Port
 		inputs["publiclyAccessible"] = state.PubliclyAccessible
 		inputs["replicas"] = state.Replicas
@@ -469,6 +478,21 @@ func (r *Instance) Password() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["password"])
 }
 
+// Specifies whether Performance Insights are enabled. Defaults to false.
+func (r *Instance) PerformanceInsightsEnabled() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["performanceInsightsEnabled"])
+}
+
+// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+func (r *Instance) PerformanceInsightsKmsKeyId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["performanceInsightsKmsKeyId"])
+}
+
+// The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+func (r *Instance) PerformanceInsightsRetentionPeriod() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["performanceInsightsRetentionPeriod"])
+}
+
 // The port on which the DB accepts connections.
 func (r *Instance) Port() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["port"])
@@ -704,6 +728,12 @@ type InstanceState struct {
 	// is provided) Password for the master DB user. Note that this may show up in
 	// logs, and it will be stored in the state file.
 	Password interface{}
+	// Specifies whether Performance Insights are enabled. Defaults to false.
+	PerformanceInsightsEnabled interface{}
+	// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+	PerformanceInsightsKmsKeyId interface{}
+	// The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+	PerformanceInsightsRetentionPeriod interface{}
 	// The port on which the DB accepts connections.
 	Port interface{}
 	// Bool to control if instance is publicly
@@ -881,6 +911,12 @@ type InstanceArgs struct {
 	// is provided) Password for the master DB user. Note that this may show up in
 	// logs, and it will be stored in the state file.
 	Password interface{}
+	// Specifies whether Performance Insights are enabled. Defaults to false.
+	PerformanceInsightsEnabled interface{}
+	// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+	PerformanceInsightsKmsKeyId interface{}
+	// The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+	PerformanceInsightsRetentionPeriod interface{}
 	// The port on which the DB accepts connections.
 	Port interface{}
 	// Bool to control if instance is publicly

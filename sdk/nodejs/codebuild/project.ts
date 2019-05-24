@@ -79,6 +79,39 @@ import * as utilities from "../utilities";
  *         vpcId: "vpc-725fca",
  *     },
  * });
+ * const project_with_cache = new aws.codebuild.Project("project-with-cache", {
+ *     artifacts: {
+ *         type: "NO_ARTIFACTS",
+ *     },
+ *     buildTimeout: 5,
+ *     cache: {
+ *         modes: [
+ *             "LOCAL_DOCKER_LAYER_CACHE",
+ *             "LOCAL_SOURCE_CACHE",
+ *         ],
+ *         type: "LOCAL",
+ *     },
+ *     description: "test_codebuild_project_cache",
+ *     environment: {
+ *         computeType: "BUILD_GENERAL1_SMALL",
+ *         environmentVariables: [{
+ *             name: "SOME_KEY1",
+ *             value: "SOME_VALUE1",
+ *         }],
+ *         image: "aws/codebuild/standard:1.0",
+ *         imagePullCredentialsType: "CODEBUILD",
+ *         type: "LINUX_CONTAINER",
+ *     },
+ *     serviceRole: exampleRole.arn,
+ *     source: {
+ *         gitCloneDepth: 1,
+ *         location: "https://github.com/mitchellh/packer.git",
+ *         type: "GITHUB",
+ *     },
+ *     tags: {
+ *         Environment: "Test",
+ *     },
+ * });
  * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
@@ -160,7 +193,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Information about the cache storage for the project. Cache blocks are documented below.
      */
-    public readonly cache!: pulumi.Output<{ location?: string, type?: string } | undefined>;
+    public readonly cache!: pulumi.Output<{ location?: string, modes?: string[], type?: string } | undefined>;
     /**
      * A short description of the project.
      */
@@ -292,7 +325,7 @@ export interface ProjectState {
     /**
      * Information about the cache storage for the project. Cache blocks are documented below.
      */
-    readonly cache?: pulumi.Input<{ location?: pulumi.Input<string>, type?: pulumi.Input<string> }>;
+    readonly cache?: pulumi.Input<{ location?: pulumi.Input<string>, modes?: pulumi.Input<pulumi.Input<string>[]>, type?: pulumi.Input<string> }>;
     /**
      * A short description of the project.
      */
@@ -354,7 +387,7 @@ export interface ProjectArgs {
     /**
      * Information about the cache storage for the project. Cache blocks are documented below.
      */
-    readonly cache?: pulumi.Input<{ location?: pulumi.Input<string>, type?: pulumi.Input<string> }>;
+    readonly cache?: pulumi.Input<{ location?: pulumi.Input<string>, modes?: pulumi.Input<pulumi.Input<string>[]>, type?: pulumi.Input<string> }>;
     /**
      * A short description of the project.
      */

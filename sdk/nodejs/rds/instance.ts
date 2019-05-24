@@ -267,6 +267,18 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
+     * Specifies whether Performance Insights are enabled. Defaults to false.
+     */
+    public readonly performanceInsightsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+     */
+    public readonly performanceInsightsKmsKeyId!: pulumi.Output<string>;
+    /**
+     * The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+     */
+    public readonly performanceInsightsRetentionPeriod!: pulumi.Output<number>;
+    /**
      * The port on which the DB accepts connections.
      */
     public readonly port!: pulumi.Output<number>;
@@ -403,6 +415,9 @@ export class Instance extends pulumi.CustomResource {
             inputs["optionGroupName"] = state ? state.optionGroupName : undefined;
             inputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
             inputs["password"] = state ? state.password : undefined;
+            inputs["performanceInsightsEnabled"] = state ? state.performanceInsightsEnabled : undefined;
+            inputs["performanceInsightsKmsKeyId"] = state ? state.performanceInsightsKmsKeyId : undefined;
+            inputs["performanceInsightsRetentionPeriod"] = state ? state.performanceInsightsRetentionPeriod : undefined;
             inputs["port"] = state ? state.port : undefined;
             inputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
             inputs["replicas"] = state ? state.replicas : undefined;
@@ -456,6 +471,9 @@ export class Instance extends pulumi.CustomResource {
             inputs["optionGroupName"] = args ? args.optionGroupName : undefined;
             inputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
             inputs["password"] = args ? args.password : undefined;
+            inputs["performanceInsightsEnabled"] = args ? args.performanceInsightsEnabled : undefined;
+            inputs["performanceInsightsKmsKeyId"] = args ? args.performanceInsightsKmsKeyId : undefined;
+            inputs["performanceInsightsRetentionPeriod"] = args ? args.performanceInsightsRetentionPeriod : undefined;
             inputs["port"] = args ? args.port : undefined;
             inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             inputs["replicateSourceDb"] = args ? args.replicateSourceDb : undefined;
@@ -688,6 +706,18 @@ export interface InstanceState {
      * logs, and it will be stored in the state file.
      */
     readonly password?: pulumi.Input<string>;
+    /**
+     * Specifies whether Performance Insights are enabled. Defaults to false.
+     */
+    readonly performanceInsightsEnabled?: pulumi.Input<boolean>;
+    /**
+     * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+     */
+    readonly performanceInsightsKmsKeyId?: pulumi.Input<string>;
+    /**
+     * The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+     */
+    readonly performanceInsightsRetentionPeriod?: pulumi.Input<number>;
     /**
      * The port on which the DB accepts connections.
      */
@@ -961,6 +991,18 @@ export interface InstanceArgs {
      * logs, and it will be stored in the state file.
      */
     readonly password?: pulumi.Input<string>;
+    /**
+     * Specifies whether Performance Insights are enabled. Defaults to false.
+     */
+    readonly performanceInsightsEnabled?: pulumi.Input<boolean>;
+    /**
+     * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+     */
+    readonly performanceInsightsKmsKeyId?: pulumi.Input<string>;
+    /**
+     * The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+     */
+    readonly performanceInsightsRetentionPeriod?: pulumi.Input<number>;
     /**
      * The port on which the DB accepts connections.
      */

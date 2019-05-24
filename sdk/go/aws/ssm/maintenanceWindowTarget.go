@@ -27,11 +27,15 @@ func NewMaintenanceWindowTarget(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["description"] = nil
+		inputs["name"] = nil
 		inputs["ownerInformation"] = nil
 		inputs["resourceType"] = nil
 		inputs["targets"] = nil
 		inputs["windowId"] = nil
 	} else {
+		inputs["description"] = args.Description
+		inputs["name"] = args.Name
 		inputs["ownerInformation"] = args.OwnerInformation
 		inputs["resourceType"] = args.ResourceType
 		inputs["targets"] = args.Targets
@@ -50,6 +54,8 @@ func GetMaintenanceWindowTarget(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *MaintenanceWindowTargetState, opts ...pulumi.ResourceOpt) (*MaintenanceWindowTarget, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["description"] = state.Description
+		inputs["name"] = state.Name
 		inputs["ownerInformation"] = state.OwnerInformation
 		inputs["resourceType"] = state.ResourceType
 		inputs["targets"] = state.Targets
@@ -70,6 +76,16 @@ func (r *MaintenanceWindowTarget) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *MaintenanceWindowTarget) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// The description of the maintenance window target.
+func (r *MaintenanceWindowTarget) Description() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["description"])
+}
+
+// The name of the maintenance window target.
+func (r *MaintenanceWindowTarget) Name() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
 // User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
@@ -94,6 +110,10 @@ func (r *MaintenanceWindowTarget) WindowId() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering MaintenanceWindowTarget resources.
 type MaintenanceWindowTargetState struct {
+	// The description of the maintenance window target.
+	Description interface{}
+	// The name of the maintenance window target.
+	Name interface{}
 	// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
 	OwnerInformation interface{}
 	// The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
@@ -106,6 +126,10 @@ type MaintenanceWindowTargetState struct {
 
 // The set of arguments for constructing a MaintenanceWindowTarget resource.
 type MaintenanceWindowTargetArgs struct {
+	// The description of the maintenance window target.
+	Description interface{}
+	// The name of the maintenance window target.
+	Name interface{}
 	// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
 	OwnerInformation interface{}
 	// The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
