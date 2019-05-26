@@ -1,5 +1,8 @@
 ## 0.18.7 (Unreleased)
 
+### Improvements
+
+- Addition of enums for SSM Parameter Types 
 
 ## 0.18.6 (Released May 24th, 2019)
 

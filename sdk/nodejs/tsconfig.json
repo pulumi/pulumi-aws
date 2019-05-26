@@ -726,6 +726,7 @@
         "ssm/maintenanceWindowTarget.ts",
         "ssm/maintenanceWindowTask.ts",
         "ssm/parameter.ts",
+        "ssm/parameterType.ts",
         "ssm/patchBaseline.ts",
         "ssm/patchGroup.ts",
         "ssm/resourceDataSync.ts",
