@@ -11,6 +11,7 @@ export * from "./maintenanceWindow";
 export * from "./maintenanceWindowTarget";
 export * from "./maintenanceWindowTask";
 export * from "./parameter";
+export * from "./parameterType";
 export * from "./patchBaseline";
 export * from "./patchGroup";
 export * from "./resourceDataSync";

@@ -1581,8 +1581,15 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ssm_maintenance_window_task":   {Tok: awsResource(ssmMod, "MaintenanceWindowTask")},
 			"aws_ssm_patch_baseline":            {Tok: awsResource(ssmMod, "PatchBaseline")},
 			"aws_ssm_patch_group":               {Tok: awsResource(ssmMod, "PatchGroup")},
-			"aws_ssm_parameter":                 {Tok: awsResource(ssmMod, "Parameter")},
-			"aws_ssm_resource_data_sync":        {Tok: awsResource(ssmMod, "ResourceDataSync")},
+			"aws_ssm_parameter": {
+				Tok: awsResource(ssmMod, "Parameter"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"type": {
+						Type: awsType(ssmMod+"/parameterType", "ParameterType"),
+					},
+				},
+			},
+			"aws_ssm_resource_data_sync": {Tok: awsResource(ssmMod, "ResourceDataSync")},
 			// SimpleDB
 			"aws_simpledb_domain": {Tok: awsResource(simpledbMod, "Domain")},
 			// Simple Queuing Service (SQS)
@@ -1978,6 +1985,11 @@ func Provider() tfbridge.ProviderInfo {
 						DestFiles: []string{
 							"redrive.ts", // schema definitions for SQS redrive policies.
 							"sqsMixins.ts",
+						},
+					},
+					"ssm": {
+						DestFiles: []string{
+							"parameterType.ts",
 						},
 					},
 				},

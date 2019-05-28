@@ -55,6 +55,7 @@ func TestExamples(t *testing.T) {
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "stream"), ExpectRefreshChanges: true}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "table"), ExpectRefreshChanges: true}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "topic"), ExpectRefreshChanges: true}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "ssmparameter"), ExpectRefreshChanges: true}),
 		baseJS.With(integration.ProgramTestOptions{
 			Dir: path.Join(cwd, "delete_before_create", "mount_target", "step1"),
 			EditDirs: []integration.EditDir{
