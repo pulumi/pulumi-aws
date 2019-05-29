@@ -193,13 +193,7 @@ func preConfigureCallback(vars resource.PropertyMap, c *terraform.ResourceConfig
 	// TODO[pulumi/pulumi-terraform#48] We should also be setting `config.AssumeRole*` here, but we are currently
 	// blocked on not being able to read out list-valued provider config.
 
-	creds, err := awsbase.GetCredentials(config)
-	if err != nil {
-		return errors.New("unable to discover AWS AccessKeyID and/or SecretAccessKey " +
-			"- see https://pulumi.io/install/aws.html for details on configuration")
-	}
-
-	_, err = creds.Get()
+	_, err = awsbase.GetCredentials(config)
 	if err != nil {
 		return errors.New("unable to discover AWS AccessKeyID and/or SecretAccessKey " +
 			"- see https://pulumi.io/install/aws.html for details on configuration")
