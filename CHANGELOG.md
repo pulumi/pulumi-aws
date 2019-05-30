@@ -2,7 +2,8 @@
 
 ### Improvements
 
-- Addition of enums for SSM Parameter Types 
+- Add an enumeration for SSM Parameter Types
+- Fixed a bug where `AWS_PROFILE` and the ~/.aws/config files were not honoured.
 
 ## 0.18.6 (Released May 24th, 2019)
 
