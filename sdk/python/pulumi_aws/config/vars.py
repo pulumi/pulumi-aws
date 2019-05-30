@@ -33,7 +33,7 @@ max_retries = __config__.get('maxRetries')
 The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
 """
 
-profile = __config__.get('profile')
+profile = __config__.get('profile') or utilities.get_env('AWS_PROFILE')
 """
 The profile for API operations. If not set, the default profile created with `aws configure` will be used.
 """

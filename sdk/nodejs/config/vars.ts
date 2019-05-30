@@ -27,7 +27,7 @@ export let maxRetries: number | undefined = __config.getObject<number>("maxRetri
 /**
  * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
  */
-export let profile: string | undefined = __config.get("profile");
+export let profile: string | undefined = __config.get("profile") || utilities.getEnv("AWS_PROFILE");
 /**
  * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
  */
