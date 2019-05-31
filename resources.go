@@ -1,4 +1,4 @@
-// Copyright 2016-2018, Pulumi Corporation.(
+// Copyright 2016-2018, Pulumi Corporation.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -191,17 +191,7 @@ func preConfigureCallback(vars resource.PropertyMap, c *terraform.ResourceConfig
 	}
 	config.CredsFilename = credsPath
 
-	// TODO[pulumi/pulumi-terraform#48] We should also be setting `config.AssumeRole*` here, but we are currently
-	// blocked on not being able to read out list-valued provider config.
-
-	creds, err := awsbase.GetCredentials(config)
-	if err != nil {
-		return errors.New("unable to discover AWS AccessKeyID and/or SecretAccessKey " +
-			"- see https://pulumi.io/install/aws.html for details on configuration")
-	}
-
-	_, err = creds.Get()
-	if err != nil {
+	if _, err := awsbase.GetCredentials(config); err != nil {
 		return errors.New("unable to discover AWS AccessKeyID and/or SecretAccessKey " +
 			"- see https://pulumi.io/install/aws.html for details on configuration")
 	}
@@ -228,6 +218,11 @@ func Provider() tfbridge.ProviderInfo {
 				Type: awsType("region", "Region"),
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
+				},
+			},
+			"profile": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"AWS_PROFILE"},
 				},
 			},
 		},

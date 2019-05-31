@@ -48,6 +48,8 @@ class Provider(pulumi.ProviderResource):
 
         __props__['max_retries'] = pulumi.Output.from_input(max_retries).apply(json.dumps) if max_retries is not None else None
 
+        if profile is None:
+            profile = utilities.get_env('AWS_PROFILE')
         __props__['profile'] = profile
 
         if region is None:

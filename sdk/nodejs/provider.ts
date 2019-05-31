@@ -31,7 +31,7 @@ export class Provider extends pulumi.ProviderResource {
             inputs["forbiddenAccountIds"] = pulumi.output(args ? args.forbiddenAccountIds : undefined).apply(JSON.stringify);
             inputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
             inputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
-            inputs["profile"] = args ? args.profile : undefined;
+            inputs["profile"] = (args ? args.profile : undefined) || utilities.getEnv("AWS_PROFILE");
             inputs["region"] = (args ? args.region : undefined) || utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
             inputs["s3ForcePathStyle"] = pulumi.output(args ? args.s3ForcePathStyle : undefined).apply(JSON.stringify);
             inputs["secretKey"] = args ? args.secretKey : undefined;
