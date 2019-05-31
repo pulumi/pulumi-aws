@@ -195,7 +195,6 @@ export class Service extends pulumi.CustomResource {
     public readonly taskDefinition!: pulumi.Output<string>;
     /**
      * If `true`, Terraform will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-     * =======
      */
     public readonly waitForSteadyState!: pulumi.Output<boolean | undefined>;
 
@@ -350,7 +349,6 @@ export interface ServiceState {
     readonly taskDefinition?: pulumi.Input<string>;
     /**
      * If `true`, Terraform will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-     * =======
      */
     readonly waitForSteadyState?: pulumi.Input<boolean>;
 }
@@ -442,7 +440,6 @@ export interface ServiceArgs {
     readonly taskDefinition: pulumi.Input<string>;
     /**
      * If `true`, Terraform will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-     * =======
      */
     readonly waitForSteadyState?: pulumi.Input<boolean>;
 }

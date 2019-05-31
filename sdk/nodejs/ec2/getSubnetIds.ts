@@ -66,6 +66,9 @@ export function getSubnetIds(args: GetSubnetIdsArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getSubnetIds.
  */
 export interface GetSubnetIdsArgs {
+    /**
+     * Custom filter block as described below.
+     */
     readonly filters?: { name: string, values: string[] }[];
     /**
      * A mapping of tags, each pair of which must exactly match

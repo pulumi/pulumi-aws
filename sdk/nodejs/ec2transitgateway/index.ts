@@ -12,3 +12,4 @@ export * from "./routeTableAssociation";
 export * from "./routeTablePropagation";
 export * from "./transitGateway";
 export * from "./vpcAttachment";
+export * from "./vpcAttachmentAccepter";

@@ -12,7 +12,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_members=None, cluster_resource_id=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, replication_source_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None, id=None):
+    def __init__(__self__, arn=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_members=None, cluster_resource_id=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, replication_source_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None, id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -55,6 +55,9 @@ class GetClusterResult:
         if final_snapshot_identifier and not isinstance(final_snapshot_identifier, str):
             raise TypeError("Expected argument 'final_snapshot_identifier' to be a str")
         __self__.final_snapshot_identifier = final_snapshot_identifier
+        if hosted_zone_id and not isinstance(hosted_zone_id, str):
+            raise TypeError("Expected argument 'hosted_zone_id' to be a str")
+        __self__.hosted_zone_id = hosted_zone_id
         if iam_database_authentication_enabled and not isinstance(iam_database_authentication_enabled, bool):
             raise TypeError("Expected argument 'iam_database_authentication_enabled' to be a bool")
         __self__.iam_database_authentication_enabled = iam_database_authentication_enabled
@@ -123,6 +126,7 @@ async def get_cluster(cluster_identifier=None,tags=None,opts=None):
         engine=__ret__.get('engine'),
         engine_version=__ret__.get('engineVersion'),
         final_snapshot_identifier=__ret__.get('finalSnapshotIdentifier'),
+        hosted_zone_id=__ret__.get('hostedZoneId'),
         iam_database_authentication_enabled=__ret__.get('iamDatabaseAuthenticationEnabled'),
         iam_roles=__ret__.get('iamRoles'),
         kms_key_id=__ret__.get('kmsKeyId'),

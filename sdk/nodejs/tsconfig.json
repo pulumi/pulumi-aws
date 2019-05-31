@@ -331,6 +331,7 @@
         "ec2transitgateway/routeTablePropagation.ts",
         "ec2transitgateway/transitGateway.ts",
         "ec2transitgateway/vpcAttachment.ts",
+        "ec2transitgateway/vpcAttachmentAccepter.ts",
         "ecr/getCredentials.ts",
         "ecr/getImage.ts",
         "ecr/getRepository.ts",

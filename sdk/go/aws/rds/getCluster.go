@@ -33,6 +33,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 		Engine: outputs["engine"],
 		EngineVersion: outputs["engineVersion"],
 		FinalSnapshotIdentifier: outputs["finalSnapshotIdentifier"],
+		HostedZoneId: outputs["hostedZoneId"],
 		IamDatabaseAuthenticationEnabled: outputs["iamDatabaseAuthenticationEnabled"],
 		IamRoles: outputs["iamRoles"],
 		KmsKeyId: outputs["kmsKeyId"],
@@ -72,6 +73,7 @@ type GetClusterResult struct {
 	Engine interface{}
 	EngineVersion interface{}
 	FinalSnapshotIdentifier interface{}
+	HostedZoneId interface{}
 	IamDatabaseAuthenticationEnabled interface{}
 	IamRoles interface{}
 	KmsKeyId interface{}

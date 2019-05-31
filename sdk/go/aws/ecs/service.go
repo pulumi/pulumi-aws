@@ -282,7 +282,6 @@ func (r *Service) TaskDefinition() *pulumi.StringOutput {
 }
 
 // If `true`, Terraform will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-// =======
 func (r *Service) WaitForSteadyState() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["waitForSteadyState"])
 }
@@ -331,7 +330,6 @@ type ServiceState struct {
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	TaskDefinition interface{}
 	// If `true`, Terraform will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-	// =======
 	WaitForSteadyState interface{}
 }
 
@@ -379,6 +377,5 @@ type ServiceArgs struct {
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	TaskDefinition interface{}
 	// If `true`, Terraform will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-	// =======
 	WaitForSteadyState interface{}
 }

@@ -43,6 +43,7 @@ import * as utilities from "../utilities";
  *     clusterIdentifier: "aurora-cluster-demo",
  *     databaseName: "mydb",
  *     engine: "aurora-mysql",
+ *     engineVersion: "5.7.mysql_aurora.2.03.2",
  *     masterPassword: "bar",
  *     masterUsername: "foo",
  *     preferredBackupWindow: "07:00-09:00",
@@ -181,7 +182,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly engineMode!: pulumi.Output<string | undefined>;
     /**
-     * The database engine version. Updating this argument results in an outage.
+     * The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -451,7 +452,7 @@ export interface ClusterState {
      */
     readonly engineMode?: pulumi.Input<string>;
     /**
-     * The database engine version. Updating this argument results in an outage.
+     * The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
@@ -611,7 +612,7 @@ export interface ClusterArgs {
      */
     readonly engineMode?: pulumi.Input<string>;
     /**
-     * The database engine version. Updating this argument results in an outage.
+     * The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
