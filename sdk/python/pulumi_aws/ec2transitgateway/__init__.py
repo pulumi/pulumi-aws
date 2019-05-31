@@ -9,6 +9,7 @@ from .route_table import *
 from .route_table_association import *
 from .route_table_propagation import *
 from .vpc_attachment import *
+from .vpc_attachment_accepter import *
 from .get_transit_gateway import *
 from .get_route_table import *
 from .get_vpc_attachment import *

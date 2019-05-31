@@ -32,6 +32,7 @@ func NewRoleAlias(ctx *pulumi.Context,
 		inputs["credentialDuration"] = args.CredentialDuration
 		inputs["roleArn"] = args.RoleArn
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:iot/roleAlias:RoleAlias", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -46,6 +47,7 @@ func GetRoleAlias(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["alias"] = state.Alias
+		inputs["arn"] = state.Arn
 		inputs["credentialDuration"] = state.CredentialDuration
 		inputs["roleArn"] = state.RoleArn
 	}
@@ -71,6 +73,11 @@ func (r *RoleAlias) Alias() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["alias"])
 }
 
+// The ARN assigned by AWS to this role alias.
+func (r *RoleAlias) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
+}
+
 // The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
 func (r *RoleAlias) CredentialDuration() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["credentialDuration"])
@@ -85,6 +92,8 @@ func (r *RoleAlias) RoleArn() *pulumi.StringOutput {
 type RoleAliasState struct {
 	// The name of the role alias.
 	Alias interface{}
+	// The ARN assigned by AWS to this role alias.
+	Arn interface{}
 	// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
 	CredentialDuration interface{}
 	// The identity of the role to which the alias refers.

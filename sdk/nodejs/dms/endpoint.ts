@@ -82,7 +82,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly kmsKeyArn!: pulumi.Output<string>;
     /**
-     * Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `PASSWORD`), `auth_mechanism` (default: `DEFAULT`), `nesting_level` (default: `NONE`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+     * Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `password`), `auth_mechanism` (default: `default`), `nesting_level` (default: `none`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
      */
     public readonly mongodbSettings!: pulumi.Output<{ authMechanism?: string, authSource?: string, authType?: string, docsToInvestigate?: string, extractDocId?: string, nestingLevel?: string } | undefined>;
     /**
@@ -217,7 +217,7 @@ export interface EndpointState {
      */
     readonly kmsKeyArn?: pulumi.Input<string>;
     /**
-     * Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `PASSWORD`), `auth_mechanism` (default: `DEFAULT`), `nesting_level` (default: `NONE`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+     * Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `password`), `auth_mechanism` (default: `default`), `nesting_level` (default: `none`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
      */
     readonly mongodbSettings?: pulumi.Input<{ authMechanism?: pulumi.Input<string>, authSource?: pulumi.Input<string>, authType?: pulumi.Input<string>, docsToInvestigate?: pulumi.Input<string>, extractDocId?: pulumi.Input<string>, nestingLevel?: pulumi.Input<string> }>;
     /**
@@ -287,7 +287,7 @@ export interface EndpointArgs {
      */
     readonly kmsKeyArn?: pulumi.Input<string>;
     /**
-     * Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `PASSWORD`), `auth_mechanism` (default: `DEFAULT`), `nesting_level` (default: `NONE`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+     * Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `password`), `auth_mechanism` (default: `default`), `nesting_level` (default: `none`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
      */
     readonly mongodbSettings?: pulumi.Input<{ authMechanism?: pulumi.Input<string>, authSource?: pulumi.Input<string>, authType?: pulumi.Input<string>, docsToInvestigate?: pulumi.Input<string>, extractDocId?: pulumi.Input<string>, nestingLevel?: pulumi.Input<string> }>;
     /**

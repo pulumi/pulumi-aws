@@ -916,7 +916,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway_route_table_propagation": {
 				Tok: awsResource(ec2TransitGatewayMod, "RouteTablePropagation"),
 			},
-			"aws_ec2_transit_gateway_vpc_attachment": {Tok: awsResource(ec2TransitGatewayMod, "VpcAttachment")},
+			"aws_ec2_transit_gateway_vpc_attachment":          {Tok: awsResource(ec2TransitGatewayMod, "VpcAttachment")},
+			"aws_ec2_transit_gateway_vpc_attachment_accepter": {Tok: awsResource(ec2TransitGatewayMod, "VpcAttachmentAccepter")},
 			// Elastic Container Registry
 			"aws_ecr_repository":        {Tok: awsResource(ecrMod, "Repository")},
 			"aws_ecr_repository_policy": {Tok: awsResource(ecrMod, "RepositoryPolicy")},

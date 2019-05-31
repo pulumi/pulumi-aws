@@ -54,6 +54,7 @@ export interface GetClusterResult {
     readonly engine: string;
     readonly engineVersion: string;
     readonly finalSnapshotIdentifier: string;
+    readonly hostedZoneId: string;
     readonly iamDatabaseAuthenticationEnabled: boolean;
     readonly iamRoles: string[];
     readonly kmsKeyId: string;

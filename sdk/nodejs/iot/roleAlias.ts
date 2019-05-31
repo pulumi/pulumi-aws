@@ -50,6 +50,10 @@ export class RoleAlias extends pulumi.CustomResource {
      */
     public readonly alias!: pulumi.Output<string>;
     /**
+     * The ARN assigned by AWS to this role alias.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
      */
     public readonly credentialDuration!: pulumi.Output<number | undefined>;
@@ -71,6 +75,7 @@ export class RoleAlias extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as RoleAliasState | undefined;
             inputs["alias"] = state ? state.alias : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["credentialDuration"] = state ? state.credentialDuration : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
@@ -84,6 +89,7 @@ export class RoleAlias extends pulumi.CustomResource {
             inputs["alias"] = args ? args.alias : undefined;
             inputs["credentialDuration"] = args ? args.credentialDuration : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         super("aws:iot/roleAlias:RoleAlias", name, inputs, opts);
     }
@@ -97,6 +103,10 @@ export interface RoleAliasState {
      * The name of the role alias.
      */
     readonly alias?: pulumi.Input<string>;
+    /**
+     * The ARN assigned by AWS to this role alias.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
      */

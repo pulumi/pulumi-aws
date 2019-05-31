@@ -13,6 +13,10 @@ class RoleAlias(pulumi.CustomResource):
     """
     The name of the role alias.
     """
+    arn: pulumi.Output[str]
+    """
+    The ARN assigned by AWS to this role alias.
+    """
     credential_duration: pulumi.Output[float]
     """
     The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
@@ -55,6 +59,8 @@ class RoleAlias(pulumi.CustomResource):
         if role_arn is None:
             raise TypeError("Missing required property 'role_arn'")
         __props__['role_arn'] = role_arn
+
+        __props__['arn'] = None
 
         super(RoleAlias, __self__).__init__(
             'aws:iot/roleAlias:RoleAlias',
