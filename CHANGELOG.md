@@ -1,9 +1,12 @@
-## 0.18.7 (Unreleased)
+## 0.18.8 (Unreleased)
+
+## 0.18.7 (Released May 31st, 2019)
 
 ### Improvements
 
 - Add an enumeration for SSM Parameter Types
-- Fixed a bug where `AWS_PROFILE` and the ~/.aws/config files were not honoured.
+- Fix a bug where `AWS_PROFILE` and the ~/.aws/config files were not honoured.
+- Update to v2.13.0 of the AWS Terraform Provider.
 
 ## 0.18.6 (Released May 24th, 2019)
 
