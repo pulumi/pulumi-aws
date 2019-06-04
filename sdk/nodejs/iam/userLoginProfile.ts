@@ -40,6 +40,20 @@ export class UserLoginProfile extends pulumi.CustomResource {
         return new UserLoginProfile(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:iam/userLoginProfile:UserLoginProfile';
+
+    /**
+     * Returns true if the given object is an instance of UserLoginProfile.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is UserLoginProfile {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === UserLoginProfile.__pulumiType;
+    }
+
     /**
      * The encrypted password, base64 encoded. Only available if password was handled on Terraform resource creation, not import.
      */
@@ -98,7 +112,7 @@ export class UserLoginProfile extends pulumi.CustomResource {
             inputs["encryptedPassword"] = undefined /*out*/;
             inputs["keyFingerprint"] = undefined /*out*/;
         }
-        super("aws:iam/userLoginProfile:UserLoginProfile", name, inputs, opts);
+        super(UserLoginProfile.__pulumiType, name, inputs, opts);
     }
 }
 

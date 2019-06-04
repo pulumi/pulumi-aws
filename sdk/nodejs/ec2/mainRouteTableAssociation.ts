@@ -41,6 +41,20 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
         return new MainRouteTableAssociation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation';
+
+    /**
+     * Returns true if the given object is an instance of MainRouteTableAssociation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is MainRouteTableAssociation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === MainRouteTableAssociation.__pulumiType;
+    }
+
     /**
      * Used internally, see __Notes__ below
      */
@@ -82,7 +96,7 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["originalRouteTableId"] = undefined /*out*/;
         }
-        super("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation", name, inputs, opts);
+        super(MainRouteTableAssociation.__pulumiType, name, inputs, opts);
     }
 }
 

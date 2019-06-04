@@ -37,6 +37,20 @@ export class NetworkInterface extends pulumi.CustomResource {
         return new NetworkInterface(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/networkInterface:NetworkInterface';
+
+    /**
+     * Returns true if the given object is an instance of NetworkInterface.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NetworkInterface {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NetworkInterface.__pulumiType;
+    }
+
     /**
      * Block to define the attachment of the ENI. Documented below.
      */
@@ -110,7 +124,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["privateDnsName"] = undefined /*out*/;
         }
-        super("aws:ec2/networkInterface:NetworkInterface", name, inputs, opts);
+        super(NetworkInterface.__pulumiType, name, inputs, opts);
     }
 }
 

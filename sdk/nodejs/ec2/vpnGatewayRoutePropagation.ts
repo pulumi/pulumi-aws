@@ -36,6 +36,20 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
         return new VpnGatewayRoutePropagation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation';
+
+    /**
+     * Returns true if the given object is an instance of VpnGatewayRoutePropagation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VpnGatewayRoutePropagation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VpnGatewayRoutePropagation.__pulumiType;
+    }
+
     /**
      * The id of the `aws_route_table` to propagate routes into.
      */
@@ -70,7 +84,7 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
             inputs["routeTableId"] = args ? args.routeTableId : undefined;
             inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
         }
-        super("aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation", name, inputs, opts);
+        super(VpnGatewayRoutePropagation.__pulumiType, name, inputs, opts);
     }
 }
 

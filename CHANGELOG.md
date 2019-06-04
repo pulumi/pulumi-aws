@@ -1,5 +1,9 @@
 ## 0.18.8 (Unreleased)
 
+### Improvements
+
+- Add `isInstance` type guards for all AWS resources.
+
 ## 0.18.7 (Released May 31st, 2019)
 
 ### Improvements

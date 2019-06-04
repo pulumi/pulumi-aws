@@ -38,6 +38,20 @@ export class CapacityReservation extends pulumi.CustomResource {
         return new CapacityReservation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/capacityReservation:CapacityReservation';
+
+    /**
+     * Returns true if the given object is an instance of CapacityReservation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is CapacityReservation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === CapacityReservation.__pulumiType;
+    }
+
     /**
      * The Availability Zone in which to create the Capacity Reservation.
      */
@@ -132,7 +146,7 @@ export class CapacityReservation extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tenancy"] = args ? args.tenancy : undefined;
         }
-        super("aws:ec2/capacityReservation:CapacityReservation", name, inputs, opts);
+        super(CapacityReservation.__pulumiType, name, inputs, opts);
     }
 }
 

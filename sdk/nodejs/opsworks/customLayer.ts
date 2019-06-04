@@ -32,6 +32,20 @@ export class CustomLayer extends pulumi.CustomResource {
         return new CustomLayer(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:opsworks/customLayer:CustomLayer';
+
+    /**
+     * Returns true if the given object is an instance of CustomLayer.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is CustomLayer {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === CustomLayer.__pulumiType;
+    }
+
     /**
      * Whether to automatically assign an elastic IP address to the layer's instances.
      */
@@ -165,7 +179,7 @@ export class CustomLayer extends pulumi.CustomResource {
             inputs["systemPackages"] = args ? args.systemPackages : undefined;
             inputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
         }
-        super("aws:opsworks/customLayer:CustomLayer", name, inputs, opts);
+        super(CustomLayer.__pulumiType, name, inputs, opts);
     }
 }
 

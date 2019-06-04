@@ -52,6 +52,20 @@ export class PrincipalAssociation extends pulumi.CustomResource {
         return new PrincipalAssociation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ram/principalAssociation:PrincipalAssociation';
+
+    /**
+     * Returns true if the given object is an instance of PrincipalAssociation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is PrincipalAssociation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === PrincipalAssociation.__pulumiType;
+    }
+
     /**
      * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
      */
@@ -86,7 +100,7 @@ export class PrincipalAssociation extends pulumi.CustomResource {
             inputs["principal"] = args ? args.principal : undefined;
             inputs["resourceShareArn"] = args ? args.resourceShareArn : undefined;
         }
-        super("aws:ram/principalAssociation:PrincipalAssociation", name, inputs, opts);
+        super(PrincipalAssociation.__pulumiType, name, inputs, opts);
     }
 }
 

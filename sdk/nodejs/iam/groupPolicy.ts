@@ -49,6 +49,20 @@ export class GroupPolicy extends pulumi.CustomResource {
         return new GroupPolicy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:iam/groupPolicy:GroupPolicy';
+
+    /**
+     * Returns true if the given object is an instance of GroupPolicy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is GroupPolicy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === GroupPolicy.__pulumiType;
+    }
+
     /**
      * The IAM group to attach to the policy.
      */
@@ -97,7 +111,7 @@ export class GroupPolicy extends pulumi.CustomResource {
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["policy"] = args ? args.policy : undefined;
         }
-        super("aws:iam/groupPolicy:GroupPolicy", name, inputs, opts);
+        super(GroupPolicy.__pulumiType, name, inputs, opts);
     }
 }
 

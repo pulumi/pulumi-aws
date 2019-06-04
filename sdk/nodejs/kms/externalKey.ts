@@ -33,6 +33,20 @@ export class ExternalKey extends pulumi.CustomResource {
         return new ExternalKey(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:kms/externalKey:ExternalKey';
+
+    /**
+     * Returns true if the given object is an instance of ExternalKey.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ExternalKey {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ExternalKey.__pulumiType;
+    }
+
     /**
      * The Amazon Resource Name (ARN) of the key.
      */
@@ -115,7 +129,7 @@ export class ExternalKey extends pulumi.CustomResource {
             inputs["keyState"] = undefined /*out*/;
             inputs["keyUsage"] = undefined /*out*/;
         }
-        super("aws:kms/externalKey:ExternalKey", name, inputs, opts);
+        super(ExternalKey.__pulumiType, name, inputs, opts);
     }
 }
 

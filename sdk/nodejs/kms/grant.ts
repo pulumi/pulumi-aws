@@ -59,6 +59,20 @@ export class Grant extends pulumi.CustomResource {
         return new Grant(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:kms/grant:Grant';
+
+    /**
+     * Returns true if the given object is an instance of Grant.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Grant {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Grant.__pulumiType;
+    }
+
     /**
      * A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
      */
@@ -140,7 +154,7 @@ export class Grant extends pulumi.CustomResource {
             inputs["grantId"] = undefined /*out*/;
             inputs["grantToken"] = undefined /*out*/;
         }
-        super("aws:kms/grant:Grant", name, inputs, opts);
+        super(Grant.__pulumiType, name, inputs, opts);
     }
 }
 

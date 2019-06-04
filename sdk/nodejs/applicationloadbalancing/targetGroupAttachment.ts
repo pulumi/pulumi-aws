@@ -59,6 +59,20 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
         return new TargetGroupAttachment(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:applicationloadbalancing/targetGroupAttachment:TargetGroupAttachment';
+
+    /**
+     * Returns true if the given object is an instance of TargetGroupAttachment.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is TargetGroupAttachment {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === TargetGroupAttachment.__pulumiType;
+    }
+
     /**
      * The Availability Zone where the IP address of the target is to be registered.
      */
@@ -105,7 +119,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
             inputs["targetGroupArn"] = args ? args.targetGroupArn : undefined;
             inputs["targetId"] = args ? args.targetId : undefined;
         }
-        super("aws:applicationloadbalancing/targetGroupAttachment:TargetGroupAttachment", name, inputs, opts);
+        super(TargetGroupAttachment.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -52,6 +52,20 @@ export class InstanceProfile extends pulumi.CustomResource {
         return new InstanceProfile(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:iam/instanceProfile:InstanceProfile';
+
+    /**
+     * Returns true if the given object is an instance of InstanceProfile.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is InstanceProfile {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === InstanceProfile.__pulumiType;
+    }
+
     /**
      * The ARN assigned by AWS to the instance profile.
      */
@@ -118,7 +132,7 @@ export class InstanceProfile extends pulumi.CustomResource {
             inputs["createDate"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
         }
-        super("aws:iam/instanceProfile:InstanceProfile", name, inputs, opts);
+        super(InstanceProfile.__pulumiType, name, inputs, opts);
     }
 }
 

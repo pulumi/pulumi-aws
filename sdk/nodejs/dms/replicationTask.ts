@@ -42,6 +42,20 @@ export class ReplicationTask extends pulumi.CustomResource {
         return new ReplicationTask(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:dms/replicationTask:ReplicationTask';
+
+    /**
+     * Returns true if the given object is an instance of ReplicationTask.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ReplicationTask {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ReplicationTask.__pulumiType;
+    }
+
     /**
      * The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
      */
@@ -136,7 +150,7 @@ export class ReplicationTask extends pulumi.CustomResource {
             inputs["targetEndpointArn"] = args ? args.targetEndpointArn : undefined;
             inputs["replicationTaskArn"] = undefined /*out*/;
         }
-        super("aws:dms/replicationTask:ReplicationTask", name, inputs, opts);
+        super(ReplicationTask.__pulumiType, name, inputs, opts);
     }
 }
 

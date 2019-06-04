@@ -90,6 +90,20 @@ export class CertificateAuthority extends pulumi.CustomResource {
         return new CertificateAuthority(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:acmpca/certificateAuthority:CertificateAuthority';
+
+    /**
+     * Returns true if the given object is an instance of CertificateAuthority.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is CertificateAuthority {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === CertificateAuthority.__pulumiType;
+    }
+
     /**
      * Amazon Resource Name (ARN) of the certificate authority.
      */
@@ -193,7 +207,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
             inputs["serial"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        super("aws:acmpca/certificateAuthority:CertificateAuthority", name, inputs, opts);
+        super(CertificateAuthority.__pulumiType, name, inputs, opts);
     }
 }
 

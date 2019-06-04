@@ -59,6 +59,20 @@ export class UserGroup extends pulumi.CustomResource {
         return new UserGroup(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cognito/userGroup:UserGroup';
+
+    /**
+     * Returns true if the given object is an instance of UserGroup.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is UserGroup {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === UserGroup.__pulumiType;
+    }
+
     /**
      * The description of the user group.
      */
@@ -108,7 +122,7 @@ export class UserGroup extends pulumi.CustomResource {
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["userPoolId"] = args ? args.userPoolId : undefined;
         }
-        super("aws:cognito/userGroup:UserGroup", name, inputs, opts);
+        super(UserGroup.__pulumiType, name, inputs, opts);
     }
 }
 

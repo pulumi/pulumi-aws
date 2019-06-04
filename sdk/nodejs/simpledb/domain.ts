@@ -29,6 +29,20 @@ export class Domain extends pulumi.CustomResource {
         return new Domain(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:simpledb/domain:Domain';
+
+    /**
+     * Returns true if the given object is an instance of Domain.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Domain {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Domain.__pulumiType;
+    }
+
     /**
      * The name of the SimpleDB domain
      */
@@ -51,7 +65,7 @@ export class Domain extends pulumi.CustomResource {
             const args = argsOrState as DomainArgs | undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        super("aws:simpledb/domain:Domain", name, inputs, opts);
+        super(Domain.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -54,6 +54,20 @@ export class SmbFileShare extends pulumi.CustomResource {
         return new SmbFileShare(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:storagegateway/smbFileShare:SmbFileShare';
+
+    /**
+     * Returns true if the given object is an instance of SmbFileShare.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SmbFileShare {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SmbFileShare.__pulumiType;
+    }
+
     /**
      * Amazon Resource Name (ARN) of the SMB File Share.
      */
@@ -169,7 +183,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["fileshareId"] = undefined /*out*/;
         }
-        super("aws:storagegateway/smbFileShare:SmbFileShare", name, inputs, opts);
+        super(SmbFileShare.__pulumiType, name, inputs, opts);
     }
 }
 

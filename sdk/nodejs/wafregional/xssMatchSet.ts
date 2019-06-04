@@ -44,6 +44,20 @@ export class XssMatchSet extends pulumi.CustomResource {
         return new XssMatchSet(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:wafregional/xssMatchSet:XssMatchSet';
+
+    /**
+     * Returns true if the given object is an instance of XssMatchSet.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is XssMatchSet {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === XssMatchSet.__pulumiType;
+    }
+
     /**
      * The name of the set
      */
@@ -72,7 +86,7 @@ export class XssMatchSet extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["xssMatchTuples"] = args ? args.xssMatchTuples : undefined;
         }
-        super("aws:wafregional/xssMatchSet:XssMatchSet", name, inputs, opts);
+        super(XssMatchSet.__pulumiType, name, inputs, opts);
     }
 }
 

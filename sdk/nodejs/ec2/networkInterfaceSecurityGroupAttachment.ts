@@ -96,6 +96,20 @@ export class NetworkInterfaceSecurityGroupAttachment extends pulumi.CustomResour
         return new NetworkInterfaceSecurityGroupAttachment(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment';
+
+    /**
+     * Returns true if the given object is an instance of NetworkInterfaceSecurityGroupAttachment.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NetworkInterfaceSecurityGroupAttachment {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NetworkInterfaceSecurityGroupAttachment.__pulumiType;
+    }
+
     /**
      * The ID of the network interface to attach to.
      */
@@ -130,7 +144,7 @@ export class NetworkInterfaceSecurityGroupAttachment extends pulumi.CustomResour
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             inputs["securityGroupId"] = args ? args.securityGroupId : undefined;
         }
-        super("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", name, inputs, opts);
+        super(NetworkInterfaceSecurityGroupAttachment.__pulumiType, name, inputs, opts);
     }
 }
 

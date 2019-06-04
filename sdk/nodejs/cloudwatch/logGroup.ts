@@ -34,6 +34,20 @@ export class LogGroup extends pulumi.CustomResource {
         return new LogGroup(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cloudwatch/logGroup:LogGroup';
+
+    /**
+     * Returns true if the given object is an instance of LogGroup.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is LogGroup {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === LogGroup.__pulumiType;
+    }
+
     /**
      * The Amazon Resource Name (ARN) specifying the log group.
      */
@@ -89,7 +103,7 @@ export class LogGroup extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:cloudwatch/logGroup:LogGroup", name, inputs, opts);
+        super(LogGroup.__pulumiType, name, inputs, opts);
     }
 }
 

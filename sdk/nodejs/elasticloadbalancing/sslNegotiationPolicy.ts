@@ -72,6 +72,20 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
         return new SslNegotiationPolicy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy';
+
+    /**
+     * Returns true if the given object is an instance of SslNegotiationPolicy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SslNegotiationPolicy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SslNegotiationPolicy.__pulumiType;
+    }
+
     /**
      * An SSL Negotiation policy attribute. Each has two properties:
      */
@@ -121,7 +135,7 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
             inputs["loadBalancer"] = args ? args.loadBalancer : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        super("aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy", name, inputs, opts);
+        super(SslNegotiationPolicy.__pulumiType, name, inputs, opts);
     }
 }
 

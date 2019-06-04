@@ -34,6 +34,20 @@ export class WorkingStorage extends pulumi.CustomResource {
         return new WorkingStorage(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:storagegateway/workingStorage:WorkingStorage';
+
+    /**
+     * Returns true if the given object is an instance of WorkingStorage.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is WorkingStorage {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === WorkingStorage.__pulumiType;
+    }
+
     /**
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      */
@@ -68,7 +82,7 @@ export class WorkingStorage extends pulumi.CustomResource {
             inputs["diskId"] = args ? args.diskId : undefined;
             inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
         }
-        super("aws:storagegateway/workingStorage:WorkingStorage", name, inputs, opts);
+        super(WorkingStorage.__pulumiType, name, inputs, opts);
     }
 }
 

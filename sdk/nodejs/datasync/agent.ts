@@ -33,6 +33,20 @@ export class Agent extends pulumi.CustomResource {
         return new Agent(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:datasync/agent:Agent';
+
+    /**
+     * Returns true if the given object is an instance of Agent.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Agent {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Agent.__pulumiType;
+    }
+
     /**
      * DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, Terraform will retrieve the `activation_key` as part of the resource creation.
      */
@@ -79,7 +93,7 @@ export class Agent extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:datasync/agent:Agent", name, inputs, opts);
+        super(Agent.__pulumiType, name, inputs, opts);
     }
 }
 

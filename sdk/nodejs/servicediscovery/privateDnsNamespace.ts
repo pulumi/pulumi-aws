@@ -35,6 +35,20 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
         return new PrivateDnsNamespace(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace';
+
+    /**
+     * Returns true if the given object is an instance of PrivateDnsNamespace.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is PrivateDnsNamespace {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === PrivateDnsNamespace.__pulumiType;
+    }
+
     /**
      * The ARN that Amazon Route 53 assigns to the namespace when you create it.
      */
@@ -84,7 +98,7 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["hostedZone"] = undefined /*out*/;
         }
-        super("aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace", name, inputs, opts);
+        super(PrivateDnsNamespace.__pulumiType, name, inputs, opts);
     }
 }
 

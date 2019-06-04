@@ -29,6 +29,20 @@ export class ConfgurationSet extends pulumi.CustomResource {
         return new ConfgurationSet(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ses/confgurationSet:ConfgurationSet';
+
+    /**
+     * Returns true if the given object is an instance of ConfgurationSet.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ConfgurationSet {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ConfgurationSet.__pulumiType;
+    }
+
     /**
      * The name of the configuration set
      */
@@ -51,7 +65,7 @@ export class ConfgurationSet extends pulumi.CustomResource {
             const args = argsOrState as ConfgurationSetArgs | undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        super("aws:ses/confgurationSet:ConfgurationSet", name, inputs, opts);
+        super(ConfgurationSet.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -63,6 +63,20 @@ export class TopicPolicy extends pulumi.CustomResource {
         return new TopicPolicy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:sns/topicPolicy:TopicPolicy';
+
+    /**
+     * Returns true if the given object is an instance of TopicPolicy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is TopicPolicy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === TopicPolicy.__pulumiType;
+    }
+
     /**
      * The ARN of the SNS topic
      */
@@ -97,7 +111,7 @@ export class TopicPolicy extends pulumi.CustomResource {
             inputs["arn"] = args ? args.arn : undefined;
             inputs["policy"] = args ? args.policy : undefined;
         }
-        super("aws:sns/topicPolicy:TopicPolicy", name, inputs, opts);
+        super(TopicPolicy.__pulumiType, name, inputs, opts);
     }
 }
 

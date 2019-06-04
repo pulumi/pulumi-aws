@@ -24,6 +24,20 @@ export class Trigger extends pulumi.CustomResource {
         return new Trigger(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:codecommit/trigger:Trigger';
+
+    /**
+     * Returns true if the given object is an instance of Trigger.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Trigger {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Trigger.__pulumiType;
+    }
+
     public /*out*/ readonly configurationId!: pulumi.Output<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
@@ -58,7 +72,7 @@ export class Trigger extends pulumi.CustomResource {
             inputs["triggers"] = args ? args.triggers : undefined;
             inputs["configurationId"] = undefined /*out*/;
         }
-        super("aws:codecommit/trigger:Trigger", name, inputs, opts);
+        super(Trigger.__pulumiType, name, inputs, opts);
     }
 }
 

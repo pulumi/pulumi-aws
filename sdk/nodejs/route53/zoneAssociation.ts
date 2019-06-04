@@ -56,6 +56,20 @@ export class ZoneAssociation extends pulumi.CustomResource {
         return new ZoneAssociation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:route53/zoneAssociation:ZoneAssociation';
+
+    /**
+     * Returns true if the given object is an instance of ZoneAssociation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ZoneAssociation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ZoneAssociation.__pulumiType;
+    }
+
     /**
      * The VPC to associate with the private hosted zone.
      */
@@ -96,7 +110,7 @@ export class ZoneAssociation extends pulumi.CustomResource {
             inputs["vpcRegion"] = args ? args.vpcRegion : undefined;
             inputs["zoneId"] = args ? args.zoneId : undefined;
         }
-        super("aws:route53/zoneAssociation:ZoneAssociation", name, inputs, opts);
+        super(ZoneAssociation.__pulumiType, name, inputs, opts);
     }
 }
 

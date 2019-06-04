@@ -37,6 +37,20 @@ export class Domain extends pulumi.CustomResource {
         return new Domain(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:lightsail/domain:Domain';
+
+    /**
+     * Returns true if the given object is an instance of Domain.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Domain {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Domain.__pulumiType;
+    }
+
     /**
      * The ARN of the Lightsail domain
      */
@@ -68,7 +82,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["domainName"] = args ? args.domainName : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:lightsail/domain:Domain", name, inputs, opts);
+        super(Domain.__pulumiType, name, inputs, opts);
     }
 }
 

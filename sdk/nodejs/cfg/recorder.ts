@@ -49,6 +49,20 @@ export class Recorder extends pulumi.CustomResource {
         return new Recorder(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cfg/recorder:Recorder';
+
+    /**
+     * Returns true if the given object is an instance of Recorder.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Recorder {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Recorder.__pulumiType;
+    }
+
     /**
      * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
      */
@@ -88,7 +102,7 @@ export class Recorder extends pulumi.CustomResource {
             inputs["recordingGroup"] = args ? args.recordingGroup : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
         }
-        super("aws:cfg/recorder:Recorder", name, inputs, opts);
+        super(Recorder.__pulumiType, name, inputs, opts);
     }
 }
 

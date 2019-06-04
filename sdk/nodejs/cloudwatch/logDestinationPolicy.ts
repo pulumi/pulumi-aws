@@ -47,6 +47,20 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
         return new LogDestinationPolicy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy';
+
+    /**
+     * Returns true if the given object is an instance of LogDestinationPolicy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is LogDestinationPolicy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === LogDestinationPolicy.__pulumiType;
+    }
+
     /**
      * The policy document. This is a JSON formatted string.
      */
@@ -81,7 +95,7 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
             inputs["accessPolicy"] = args ? args.accessPolicy : undefined;
             inputs["destinationName"] = args ? args.destinationName : undefined;
         }
-        super("aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy", name, inputs, opts);
+        super(LogDestinationPolicy.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -45,6 +45,20 @@ export class IdentityProvider extends pulumi.CustomResource {
         return new IdentityProvider(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cognito/identityProvider:IdentityProvider';
+
+    /**
+     * Returns true if the given object is an instance of IdentityProvider.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is IdentityProvider {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === IdentityProvider.__pulumiType;
+    }
+
     /**
      * The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
      */
@@ -109,7 +123,7 @@ export class IdentityProvider extends pulumi.CustomResource {
             inputs["providerType"] = args ? args.providerType : undefined;
             inputs["userPoolId"] = args ? args.userPoolId : undefined;
         }
-        super("aws:cognito/identityProvider:IdentityProvider", name, inputs, opts);
+        super(IdentityProvider.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -53,6 +53,20 @@ export class BucketPolicy extends pulumi.CustomResource {
         return new BucketPolicy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:s3/bucketPolicy:BucketPolicy';
+
+    /**
+     * Returns true if the given object is an instance of BucketPolicy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is BucketPolicy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === BucketPolicy.__pulumiType;
+    }
+
     /**
      * The name of the bucket to which to apply the policy.
      */
@@ -87,7 +101,7 @@ export class BucketPolicy extends pulumi.CustomResource {
             inputs["bucket"] = args ? args.bucket : undefined;
             inputs["policy"] = args ? args.policy : undefined;
         }
-        super("aws:s3/bucketPolicy:BucketPolicy", name, inputs, opts);
+        super(BucketPolicy.__pulumiType, name, inputs, opts);
     }
 }
 

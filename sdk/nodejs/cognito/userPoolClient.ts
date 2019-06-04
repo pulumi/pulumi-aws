@@ -47,6 +47,20 @@ export class UserPoolClient extends pulumi.CustomResource {
         return new UserPoolClient(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cognito/userPoolClient:UserPoolClient';
+
+    /**
+     * Returns true if the given object is an instance of UserPoolClient.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is UserPoolClient {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === UserPoolClient.__pulumiType;
+    }
+
     /**
      * List of allowed OAuth flows (code, implicit, client_credentials).
      */
@@ -156,7 +170,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             inputs["writeAttributes"] = args ? args.writeAttributes : undefined;
             inputs["clientSecret"] = undefined /*out*/;
         }
-        super("aws:cognito/userPoolClient:UserPoolClient", name, inputs, opts);
+        super(UserPoolClient.__pulumiType, name, inputs, opts);
     }
 }
 

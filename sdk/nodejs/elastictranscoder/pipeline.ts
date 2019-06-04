@@ -40,6 +40,20 @@ export class Pipeline extends pulumi.CustomResource {
         return new Pipeline(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:elastictranscoder/pipeline:Pipeline';
+
+    /**
+     * Returns true if the given object is an instance of Pipeline.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Pipeline {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Pipeline.__pulumiType;
+    }
+
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
@@ -125,7 +139,7 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["thumbnailConfigPermissions"] = args ? args.thumbnailConfigPermissions : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:elastictranscoder/pipeline:Pipeline", name, inputs, opts);
+        super(Pipeline.__pulumiType, name, inputs, opts);
     }
 }
 

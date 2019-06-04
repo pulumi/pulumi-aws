@@ -216,6 +216,20 @@ export class Distribution extends pulumi.CustomResource {
         return new Distribution(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cloudfront/distribution:Distribution';
+
+    /**
+     * Returns true if the given object is an instance of Distribution.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Distribution {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Distribution.__pulumiType;
+    }
+
     /**
      * The key pair IDs that CloudFront is aware of for
      * each trusted signer, if the distribution is set up to serve private content
@@ -448,7 +462,7 @@ export class Distribution extends pulumi.CustomResource {
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        super("aws:cloudfront/distribution:Distribution", name, inputs, opts);
+        super(Distribution.__pulumiType, name, inputs, opts);
     }
 }
 

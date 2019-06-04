@@ -65,6 +65,20 @@ export class Cluster extends pulumi.CustomResource {
         return new Cluster(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cloudhsmv2/cluster:Cluster';
+
+    /**
+     * Returns true if the given object is an instance of Cluster.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Cluster {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Cluster.__pulumiType;
+    }
+
     /**
      * The list of cluster certificates.
      * * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
@@ -146,7 +160,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["securityGroupId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        super("aws:cloudhsmv2/cluster:Cluster", name, inputs, opts);
+        super(Cluster.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -72,6 +72,20 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
         return new CachesIscsiVolume(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume';
+
+    /**
+     * Returns true if the given object is an instance of CachesIscsiVolume.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is CachesIscsiVolume {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === CachesIscsiVolume.__pulumiType;
+    }
+
     /**
      * Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      */
@@ -178,7 +192,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
             inputs["volumeArn"] = undefined /*out*/;
             inputs["volumeId"] = undefined /*out*/;
         }
-        super("aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume", name, inputs, opts);
+        super(CachesIscsiVolume.__pulumiType, name, inputs, opts);
     }
 }
 

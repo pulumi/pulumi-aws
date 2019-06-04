@@ -24,6 +24,20 @@ export class GlobalCluster extends pulumi.CustomResource {
         return new GlobalCluster(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:rds/globalCluster:GlobalCluster';
+
+    /**
+     * Returns true if the given object is an instance of GlobalCluster.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is GlobalCluster {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === GlobalCluster.__pulumiType;
+    }
+
     /**
      * RDS Global Cluster Amazon Resource Name (ARN)
      */
@@ -88,7 +102,7 @@ export class GlobalCluster extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["globalClusterResourceId"] = undefined /*out*/;
         }
-        super("aws:rds/globalCluster:GlobalCluster", name, inputs, opts);
+        super(GlobalCluster.__pulumiType, name, inputs, opts);
     }
 }
 

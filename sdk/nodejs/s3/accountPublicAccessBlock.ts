@@ -36,6 +36,20 @@ export class AccountPublicAccessBlock extends pulumi.CustomResource {
         return new AccountPublicAccessBlock(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock';
+
+    /**
+     * Returns true if the given object is an instance of AccountPublicAccessBlock.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AccountPublicAccessBlock {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AccountPublicAccessBlock.__pulumiType;
+    }
+
     /**
      * AWS account ID to configure. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
@@ -87,7 +101,7 @@ export class AccountPublicAccessBlock extends pulumi.CustomResource {
             inputs["ignorePublicAcls"] = args ? args.ignorePublicAcls : undefined;
             inputs["restrictPublicBuckets"] = args ? args.restrictPublicBuckets : undefined;
         }
-        super("aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock", name, inputs, opts);
+        super(AccountPublicAccessBlock.__pulumiType, name, inputs, opts);
     }
 }
 

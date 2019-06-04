@@ -67,6 +67,20 @@ export class Dashboard extends pulumi.CustomResource {
         return new Dashboard(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cloudwatch/dashboard:Dashboard';
+
+    /**
+     * Returns true if the given object is an instance of Dashboard.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Dashboard {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Dashboard.__pulumiType;
+    }
+
     /**
      * The Amazon Resource Name (ARN) of the dashboard.
      */
@@ -107,7 +121,7 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["dashboardName"] = args ? args.dashboardName : undefined;
             inputs["dashboardArn"] = undefined /*out*/;
         }
-        super("aws:cloudwatch/dashboard:Dashboard", name, inputs, opts);
+        super(Dashboard.__pulumiType, name, inputs, opts);
     }
 }
 

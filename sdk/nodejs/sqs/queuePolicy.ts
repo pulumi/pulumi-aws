@@ -52,6 +52,20 @@ export class QueuePolicy extends pulumi.CustomResource {
         return new QueuePolicy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:sqs/queuePolicy:QueuePolicy';
+
+    /**
+     * Returns true if the given object is an instance of QueuePolicy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is QueuePolicy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === QueuePolicy.__pulumiType;
+    }
+
     /**
      * The JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
@@ -86,7 +100,7 @@ export class QueuePolicy extends pulumi.CustomResource {
             inputs["policy"] = args ? args.policy : undefined;
             inputs["queueUrl"] = args ? args.queueUrl : undefined;
         }
-        super("aws:sqs/queuePolicy:QueuePolicy", name, inputs, opts);
+        super(QueuePolicy.__pulumiType, name, inputs, opts);
     }
 }
 

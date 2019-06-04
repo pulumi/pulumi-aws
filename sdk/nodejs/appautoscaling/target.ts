@@ -85,6 +85,20 @@ export class Target extends pulumi.CustomResource {
         return new Target(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:appautoscaling/target:Target';
+
+    /**
+     * Returns true if the given object is an instance of Target.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Target {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Target.__pulumiType;
+    }
+
     /**
      * The max capacity of the scalable target.
      */
@@ -153,7 +167,7 @@ export class Target extends pulumi.CustomResource {
             inputs["scalableDimension"] = args ? args.scalableDimension : undefined;
             inputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
         }
-        super("aws:appautoscaling/target:Target", name, inputs, opts);
+        super(Target.__pulumiType, name, inputs, opts);
     }
 }
 

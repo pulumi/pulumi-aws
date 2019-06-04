@@ -40,6 +40,20 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
         return new SnapshotCopyGrant(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:redshift/snapshotCopyGrant:SnapshotCopyGrant';
+
+    /**
+     * Returns true if the given object is an instance of SnapshotCopyGrant.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SnapshotCopyGrant {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SnapshotCopyGrant.__pulumiType;
+    }
+
     /**
      * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
      */
@@ -77,7 +91,7 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
             inputs["snapshotCopyGrantName"] = args ? args.snapshotCopyGrantName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        super("aws:redshift/snapshotCopyGrant:SnapshotCopyGrant", name, inputs, opts);
+        super(SnapshotCopyGrant.__pulumiType, name, inputs, opts);
     }
 }
 

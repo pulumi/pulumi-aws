@@ -51,6 +51,20 @@ export class EventPermission extends pulumi.CustomResource {
         return new EventPermission(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cloudwatch/eventPermission:EventPermission';
+
+    /**
+     * Returns true if the given object is an instance of EventPermission.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is EventPermission {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === EventPermission.__pulumiType;
+    }
+
     /**
      * The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
      */
@@ -97,7 +111,7 @@ export class EventPermission extends pulumi.CustomResource {
             inputs["principal"] = args ? args.principal : undefined;
             inputs["statementId"] = args ? args.statementId : undefined;
         }
-        super("aws:cloudwatch/eventPermission:EventPermission", name, inputs, opts);
+        super(EventPermission.__pulumiType, name, inputs, opts);
     }
 }
 

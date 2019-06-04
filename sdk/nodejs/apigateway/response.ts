@@ -40,6 +40,20 @@ export class Response extends pulumi.CustomResource {
         return new Response(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:apigateway/response:Response';
+
+    /**
+     * Returns true if the given object is an instance of Response.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Response {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Response.__pulumiType;
+    }
+
     /**
      * A map specifying the templates used to transform the response body.
      */
@@ -92,7 +106,7 @@ export class Response extends pulumi.CustomResource {
             inputs["restApiId"] = args ? args.restApiId : undefined;
             inputs["statusCode"] = args ? args.statusCode : undefined;
         }
-        super("aws:apigateway/response:Response", name, inputs, opts);
+        super(Response.__pulumiType, name, inputs, opts);
     }
 }
 

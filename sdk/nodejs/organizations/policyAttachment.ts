@@ -58,6 +58,20 @@ export class PolicyAttachment extends pulumi.CustomResource {
         return new PolicyAttachment(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:organizations/policyAttachment:PolicyAttachment';
+
+    /**
+     * Returns true if the given object is an instance of PolicyAttachment.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is PolicyAttachment {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === PolicyAttachment.__pulumiType;
+    }
+
     /**
      * The unique identifier (ID) of the policy that you want to attach to the target.
      */
@@ -92,7 +106,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
             inputs["policyId"] = args ? args.policyId : undefined;
             inputs["targetId"] = args ? args.targetId : undefined;
         }
-        super("aws:organizations/policyAttachment:PolicyAttachment", name, inputs, opts);
+        super(PolicyAttachment.__pulumiType, name, inputs, opts);
     }
 }
 

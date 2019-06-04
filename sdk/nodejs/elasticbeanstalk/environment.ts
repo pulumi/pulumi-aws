@@ -82,6 +82,20 @@ export class Environment extends pulumi.CustomResource {
         return new Environment(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:elasticbeanstalk/environment:Environment';
+
+    /**
+     * Returns true if the given object is an instance of Environment.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Environment {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Environment.__pulumiType;
+    }
+
     /**
      * List of all option settings configured in the Environment. These
      * are a combination of default settings and their overrides from `setting` in
@@ -248,7 +262,7 @@ export class Environment extends pulumi.CustomResource {
             inputs["queues"] = undefined /*out*/;
             inputs["triggers"] = undefined /*out*/;
         }
-        super("aws:elasticbeanstalk/environment:Environment", name, inputs, opts);
+        super(Environment.__pulumiType, name, inputs, opts);
     }
 }
 

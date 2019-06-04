@@ -52,6 +52,20 @@ export class LicenseConfiguration extends pulumi.CustomResource {
         return new LicenseConfiguration(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:licensemanager/licenseConfiguration:LicenseConfiguration';
+
+    /**
+     * Returns true if the given object is an instance of LicenseConfiguration.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is LicenseConfiguration {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === LicenseConfiguration.__pulumiType;
+    }
+
     /**
      * Description of the license configuration.
      */
@@ -113,7 +127,7 @@ export class LicenseConfiguration extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        super("aws:licensemanager/licenseConfiguration:LicenseConfiguration", name, inputs, opts);
+        super(LicenseConfiguration.__pulumiType, name, inputs, opts);
     }
 }
 

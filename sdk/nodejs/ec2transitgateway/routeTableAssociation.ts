@@ -32,6 +32,20 @@ export class RouteTableAssociation extends pulumi.CustomResource {
         return new RouteTableAssociation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation';
+
+    /**
+     * Returns true if the given object is an instance of RouteTableAssociation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is RouteTableAssociation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === RouteTableAssociation.__pulumiType;
+    }
+
     /**
      * Identifier of the resource
      */
@@ -78,7 +92,7 @@ export class RouteTableAssociation extends pulumi.CustomResource {
             inputs["resourceId"] = undefined /*out*/;
             inputs["resourceType"] = undefined /*out*/;
         }
-        super("aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation", name, inputs, opts);
+        super(RouteTableAssociation.__pulumiType, name, inputs, opts);
     }
 }
 

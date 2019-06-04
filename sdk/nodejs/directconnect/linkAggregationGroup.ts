@@ -35,6 +35,20 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
         return new LinkAggregationGroup(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:directconnect/linkAggregationGroup:LinkAggregationGroup';
+
+    /**
+     * Returns true if the given object is an instance of LinkAggregationGroup.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is LinkAggregationGroup {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === LinkAggregationGroup.__pulumiType;
+    }
+
     /**
      * The ARN of the LAG.
      * * `jumbo_frame_capable` -Indicates whether jumbo frames (9001 MTU) are supported.
@@ -103,7 +117,7 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
             inputs["hasLogicalRedundancy"] = undefined /*out*/;
             inputs["jumboFrameCapable"] = undefined /*out*/;
         }
-        super("aws:directconnect/linkAggregationGroup:LinkAggregationGroup", name, inputs, opts);
+        super(LinkAggregationGroup.__pulumiType, name, inputs, opts);
     }
 }
 

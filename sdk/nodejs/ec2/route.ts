@@ -26,6 +26,20 @@ export class Route extends pulumi.CustomResource {
         return new Route(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/route:Route';
+
+    /**
+     * Returns true if the given object is an instance of Route.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Route {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Route.__pulumiType;
+    }
+
     /**
      * The destination CIDR block.
      */
@@ -117,7 +131,7 @@ export class Route extends pulumi.CustomResource {
             inputs["origin"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
         }
-        super("aws:ec2/route:Route", name, inputs, opts);
+        super(Route.__pulumiType, name, inputs, opts);
     }
 }
 

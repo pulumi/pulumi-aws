@@ -60,6 +60,20 @@ export class Deployment extends pulumi.CustomResource {
         return new Deployment(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:apigateway/deployment:Deployment';
+
+    /**
+     * Returns true if the given object is an instance of Deployment.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Deployment {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Deployment.__pulumiType;
+    }
+
     /**
      * The creation date of the deployment
      */
@@ -130,7 +144,7 @@ export class Deployment extends pulumi.CustomResource {
             inputs["executionArn"] = undefined /*out*/;
             inputs["invokeUrl"] = undefined /*out*/;
         }
-        super("aws:apigateway/deployment:Deployment", name, inputs, opts);
+        super(Deployment.__pulumiType, name, inputs, opts);
     }
 }
 

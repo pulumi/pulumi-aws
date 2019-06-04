@@ -35,6 +35,20 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
         return new HostedPrivateVirtualInterface(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface';
+
+    /**
+     * Returns true if the given object is an instance of HostedPrivateVirtualInterface.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is HostedPrivateVirtualInterface {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === HostedPrivateVirtualInterface.__pulumiType;
+    }
+
     /**
      * The address family for the BGP peer. `ipv4 ` or `ipv6`.
      */
@@ -144,7 +158,7 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
             inputs["awsDevice"] = undefined /*out*/;
             inputs["jumboFrameCapable"] = undefined /*out*/;
         }
-        super("aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface", name, inputs, opts);
+        super(HostedPrivateVirtualInterface.__pulumiType, name, inputs, opts);
     }
 }
 

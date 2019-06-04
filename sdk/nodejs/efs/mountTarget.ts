@@ -40,6 +40,20 @@ export class MountTarget extends pulumi.CustomResource {
         return new MountTarget(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:efs/mountTarget:MountTarget';
+
+    /**
+     * Returns true if the given object is an instance of MountTarget.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is MountTarget {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === MountTarget.__pulumiType;
+    }
+
     /**
      * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      */
@@ -106,7 +120,7 @@ export class MountTarget extends pulumi.CustomResource {
             inputs["fileSystemArn"] = undefined /*out*/;
             inputs["networkInterfaceId"] = undefined /*out*/;
         }
-        super("aws:efs/mountTarget:MountTarget", name, inputs, opts);
+        super(MountTarget.__pulumiType, name, inputs, opts);
     }
 }
 

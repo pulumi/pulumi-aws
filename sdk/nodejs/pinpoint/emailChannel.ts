@@ -71,6 +71,20 @@ export class EmailChannel extends pulumi.CustomResource {
         return new EmailChannel(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:pinpoint/emailChannel:EmailChannel';
+
+    /**
+     * Returns true if the given object is an instance of EmailChannel.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is EmailChannel {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === EmailChannel.__pulumiType;
+    }
+
     /**
      * The application ID.
      */
@@ -135,7 +149,7 @@ export class EmailChannel extends pulumi.CustomResource {
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["messagesPerSecond"] = undefined /*out*/;
         }
-        super("aws:pinpoint/emailChannel:EmailChannel", name, inputs, opts);
+        super(EmailChannel.__pulumiType, name, inputs, opts);
     }
 }
 

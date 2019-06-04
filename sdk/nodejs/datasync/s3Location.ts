@@ -37,6 +37,20 @@ export class S3Location extends pulumi.CustomResource {
         return new S3Location(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:datasync/s3Location:S3Location';
+
+    /**
+     * Returns true if the given object is an instance of S3Location.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is S3Location {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === S3Location.__pulumiType;
+    }
+
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
@@ -95,7 +109,7 @@ export class S3Location extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["uri"] = undefined /*out*/;
         }
-        super("aws:datasync/s3Location:S3Location", name, inputs, opts);
+        super(S3Location.__pulumiType, name, inputs, opts);
     }
 }
 

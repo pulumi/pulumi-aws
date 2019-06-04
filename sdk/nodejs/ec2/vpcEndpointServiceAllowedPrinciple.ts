@@ -41,6 +41,20 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
         return new VpcEndpointServiceAllowedPrinciple(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple';
+
+    /**
+     * Returns true if the given object is an instance of VpcEndpointServiceAllowedPrinciple.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VpcEndpointServiceAllowedPrinciple {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VpcEndpointServiceAllowedPrinciple.__pulumiType;
+    }
+
     /**
      * The ARN of the principal to allow permissions.
      */
@@ -75,7 +89,7 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
             inputs["principalArn"] = args ? args.principalArn : undefined;
             inputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
         }
-        super("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple", name, inputs, opts);
+        super(VpcEndpointServiceAllowedPrinciple.__pulumiType, name, inputs, opts);
     }
 }
 

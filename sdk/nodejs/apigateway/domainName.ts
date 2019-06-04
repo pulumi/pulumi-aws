@@ -150,6 +150,20 @@ export class DomainName extends pulumi.CustomResource {
         return new DomainName(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:apigateway/domainName:DomainName';
+
+    /**
+     * Returns true if the given object is an instance of DomainName.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is DomainName {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === DomainName.__pulumiType;
+    }
+
     /**
      * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
      */
@@ -264,7 +278,7 @@ export class DomainName extends pulumi.CustomResource {
             inputs["regionalDomainName"] = undefined /*out*/;
             inputs["regionalZoneId"] = undefined /*out*/;
         }
-        super("aws:apigateway/domainName:DomainName", name, inputs, opts);
+        super(DomainName.__pulumiType, name, inputs, opts);
     }
 }
 

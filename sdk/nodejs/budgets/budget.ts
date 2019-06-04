@@ -74,6 +74,20 @@ export class Budget extends pulumi.CustomResource {
         return new Budget(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:budgets/budget:Budget';
+
+    /**
+     * Returns true if the given object is an instance of Budget.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Budget {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Budget.__pulumiType;
+    }
+
     /**
      * The ID of the target account for budget. Will use current user's account_id by default if omitted.
      */
@@ -177,7 +191,7 @@ export class Budget extends pulumi.CustomResource {
             inputs["timePeriodStart"] = args ? args.timePeriodStart : undefined;
             inputs["timeUnit"] = args ? args.timeUnit : undefined;
         }
-        super("aws:budgets/budget:Budget", name, inputs, opts);
+        super(Budget.__pulumiType, name, inputs, opts);
     }
 }
 

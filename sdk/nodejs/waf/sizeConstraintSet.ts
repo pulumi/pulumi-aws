@@ -38,6 +38,20 @@ export class SizeConstraintSet extends pulumi.CustomResource {
         return new SizeConstraintSet(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:waf/sizeConstraintSet:SizeConstraintSet';
+
+    /**
+     * Returns true if the given object is an instance of SizeConstraintSet.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SizeConstraintSet {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SizeConstraintSet.__pulumiType;
+    }
+
     /**
      * The name or description of the Size Constraint Set.
      */
@@ -66,7 +80,7 @@ export class SizeConstraintSet extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["sizeConstraints"] = args ? args.sizeConstraints : undefined;
         }
-        super("aws:waf/sizeConstraintSet:SizeConstraintSet", name, inputs, opts);
+        super(SizeConstraintSet.__pulumiType, name, inputs, opts);
     }
 }
 

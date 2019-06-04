@@ -36,6 +36,20 @@ export class CustomerGateway extends pulumi.CustomResource {
         return new CustomerGateway(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/customerGateway:CustomerGateway';
+
+    /**
+     * Returns true if the given object is an instance of CustomerGateway.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is CustomerGateway {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === CustomerGateway.__pulumiType;
+    }
+
     /**
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
@@ -86,7 +100,7 @@ export class CustomerGateway extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        super("aws:ec2/customerGateway:CustomerGateway", name, inputs, opts);
+        super(CustomerGateway.__pulumiType, name, inputs, opts);
     }
 }
 

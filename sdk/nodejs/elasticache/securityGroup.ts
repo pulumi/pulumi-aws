@@ -37,6 +37,20 @@ export class SecurityGroup extends pulumi.CustomResource {
         return new SecurityGroup(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:elasticache/securityGroup:SecurityGroup';
+
+    /**
+     * Returns true if the given object is an instance of SecurityGroup.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SecurityGroup {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SecurityGroup.__pulumiType;
+    }
+
     /**
      * description for the cache security group. Defaults to "Managed by Terraform".
      */
@@ -75,7 +89,7 @@ export class SecurityGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
         }
-        super("aws:elasticache/securityGroup:SecurityGroup", name, inputs, opts);
+        super(SecurityGroup.__pulumiType, name, inputs, opts);
     }
 }
 

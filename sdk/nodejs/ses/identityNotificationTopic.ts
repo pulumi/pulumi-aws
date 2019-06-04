@@ -33,6 +33,20 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
         return new IdentityNotificationTopic(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ses/identityNotificationTopic:IdentityNotificationTopic';
+
+    /**
+     * Returns true if the given object is an instance of IdentityNotificationTopic.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is IdentityNotificationTopic {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === IdentityNotificationTopic.__pulumiType;
+    }
+
     /**
      * The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
      */
@@ -73,7 +87,7 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
             inputs["notificationType"] = args ? args.notificationType : undefined;
             inputs["topicArn"] = args ? args.topicArn : undefined;
         }
-        super("aws:ses/identityNotificationTopic:IdentityNotificationTopic", name, inputs, opts);
+        super(IdentityNotificationTopic.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -49,6 +49,20 @@ export class EipAssociation extends pulumi.CustomResource {
         return new EipAssociation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/eipAssociation:EipAssociation';
+
+    /**
+     * Returns true if the given object is an instance of EipAssociation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is EipAssociation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === EipAssociation.__pulumiType;
+    }
+
     /**
      * The allocation ID. This is required for EC2-VPC.
      */
@@ -110,7 +124,7 @@ export class EipAssociation extends pulumi.CustomResource {
             inputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
             inputs["publicIp"] = args ? args.publicIp : undefined;
         }
-        super("aws:ec2/eipAssociation:EipAssociation", name, inputs, opts);
+        super(EipAssociation.__pulumiType, name, inputs, opts);
     }
 }
 

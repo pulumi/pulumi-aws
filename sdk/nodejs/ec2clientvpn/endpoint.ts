@@ -43,6 +43,20 @@ export class Endpoint extends pulumi.CustomResource {
         return new Endpoint(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2clientvpn/endpoint:Endpoint';
+
+    /**
+     * Returns true if the given object is an instance of Endpoint.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Endpoint {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Endpoint.__pulumiType;
+    }
+
     /**
      * Information about the authentication method to be used to authenticate clients.
      */
@@ -131,7 +145,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["dnsName"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        super("aws:ec2clientvpn/endpoint:Endpoint", name, inputs, opts);
+        super(Endpoint.__pulumiType, name, inputs, opts);
     }
 }
 

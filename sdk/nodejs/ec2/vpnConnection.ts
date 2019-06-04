@@ -72,6 +72,20 @@ export class VpnConnection extends pulumi.CustomResource {
         return new VpnConnection(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/vpnConnection:VpnConnection';
+
+    /**
+     * Returns true if the given object is an instance of VpnConnection.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VpnConnection {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VpnConnection.__pulumiType;
+    }
+
     /**
      * The configuration information for the VPN connection's customer gateway (in the native XML format).
      */
@@ -232,7 +246,7 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["tunnel2VgwInsideAddress"] = undefined /*out*/;
             inputs["vgwTelemetries"] = undefined /*out*/;
         }
-        super("aws:ec2/vpnConnection:VpnConnection", name, inputs, opts);
+        super(VpnConnection.__pulumiType, name, inputs, opts);
     }
 }
 

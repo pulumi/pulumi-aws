@@ -41,6 +41,20 @@ export class DocumentationVersion extends pulumi.CustomResource {
         return new DocumentationVersion(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:apigateway/documentationVersion:DocumentationVersion';
+
+    /**
+     * Returns true if the given object is an instance of DocumentationVersion.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is DocumentationVersion {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === DocumentationVersion.__pulumiType;
+    }
+
     /**
      * The description of the API documentation version.
      */
@@ -81,7 +95,7 @@ export class DocumentationVersion extends pulumi.CustomResource {
             inputs["restApiId"] = args ? args.restApiId : undefined;
             inputs["version"] = args ? args.version : undefined;
         }
-        super("aws:apigateway/documentationVersion:DocumentationVersion", name, inputs, opts);
+        super(DocumentationVersion.__pulumiType, name, inputs, opts);
     }
 }
 

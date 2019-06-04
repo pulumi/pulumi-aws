@@ -83,6 +83,20 @@ export class StackSet extends pulumi.CustomResource {
         return new StackSet(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cloudformation/stackSet:StackSet';
+
+    /**
+     * Returns true if the given object is an instance of StackSet.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is StackSet {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === StackSet.__pulumiType;
+    }
+
     /**
      * Amazon Resource Number (ARN) of the IAM Role in the administrator account.
      */
@@ -168,7 +182,7 @@ export class StackSet extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["stackSetId"] = undefined /*out*/;
         }
-        super("aws:cloudformation/stackSet:StackSet", name, inputs, opts);
+        super(StackSet.__pulumiType, name, inputs, opts);
     }
 }
 

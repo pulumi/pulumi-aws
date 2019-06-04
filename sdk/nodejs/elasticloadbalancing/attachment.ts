@@ -40,6 +40,20 @@ export class Attachment extends pulumi.CustomResource {
         return new Attachment(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:elasticloadbalancing/attachment:Attachment';
+
+    /**
+     * Returns true if the given object is an instance of Attachment.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Attachment {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Attachment.__pulumiType;
+    }
+
     /**
      * The name of the ELB.
      */
@@ -74,7 +88,7 @@ export class Attachment extends pulumi.CustomResource {
             inputs["elb"] = args ? args.elb : undefined;
             inputs["instance"] = args ? args.instance : undefined;
         }
-        super("aws:elasticloadbalancing/attachment:Attachment", name, inputs, opts);
+        super(Attachment.__pulumiType, name, inputs, opts);
     }
 }
 

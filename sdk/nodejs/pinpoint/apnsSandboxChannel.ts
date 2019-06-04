@@ -38,6 +38,20 @@ export class ApnsSandboxChannel extends pulumi.CustomResource {
         return new ApnsSandboxChannel(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel';
+
+    /**
+     * Returns true if the given object is an instance of ApnsSandboxChannel.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ApnsSandboxChannel {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ApnsSandboxChannel.__pulumiType;
+    }
+
     /**
      * The application ID.
      */
@@ -114,7 +128,7 @@ export class ApnsSandboxChannel extends pulumi.CustomResource {
             inputs["tokenKey"] = args ? args.tokenKey : undefined;
             inputs["tokenKeyId"] = args ? args.tokenKeyId : undefined;
         }
-        super("aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel", name, inputs, opts);
+        super(ApnsSandboxChannel.__pulumiType, name, inputs, opts);
     }
 }
 

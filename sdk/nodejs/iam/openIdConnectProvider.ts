@@ -33,6 +33,20 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
         return new OpenIdConnectProvider(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:iam/openIdConnectProvider:OpenIdConnectProvider';
+
+    /**
+     * Returns true if the given object is an instance of OpenIdConnectProvider.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is OpenIdConnectProvider {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === OpenIdConnectProvider.__pulumiType;
+    }
+
     /**
      * The ARN assigned by AWS for this provider.
      */
@@ -82,7 +96,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             inputs["url"] = args ? args.url : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:iam/openIdConnectProvider:OpenIdConnectProvider", name, inputs, opts);
+        super(OpenIdConnectProvider.__pulumiType, name, inputs, opts);
     }
 }
 

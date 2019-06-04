@@ -45,6 +45,20 @@ export class GroupMembership extends pulumi.CustomResource {
         return new GroupMembership(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:iam/groupMembership:GroupMembership';
+
+    /**
+     * Returns true if the given object is an instance of GroupMembership.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is GroupMembership {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === GroupMembership.__pulumiType;
+    }
+
     /**
      * The IAM Group name to attach the list of `users` to
      */
@@ -85,7 +99,7 @@ export class GroupMembership extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["users"] = args ? args.users : undefined;
         }
-        super("aws:iam/groupMembership:GroupMembership", name, inputs, opts);
+        super(GroupMembership.__pulumiType, name, inputs, opts);
     }
 }
 

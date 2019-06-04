@@ -44,6 +44,20 @@ export class GameSessionQueue extends pulumi.CustomResource {
         return new GameSessionQueue(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:gamelift/gameSessionQueue:GameSessionQueue';
+
+    /**
+     * Returns true if the given object is an instance of GameSessionQueue.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is GameSessionQueue {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === GameSessionQueue.__pulumiType;
+    }
+
     /**
      * Game Session Queue ARN.
      */
@@ -90,7 +104,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
             inputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:gamelift/gameSessionQueue:GameSessionQueue", name, inputs, opts);
+        super(GameSessionQueue.__pulumiType, name, inputs, opts);
     }
 }
 

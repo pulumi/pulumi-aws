@@ -95,6 +95,20 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
         return new IdentityPoolRoleAttachment(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment';
+
+    /**
+     * Returns true if the given object is an instance of IdentityPoolRoleAttachment.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is IdentityPoolRoleAttachment {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === IdentityPoolRoleAttachment.__pulumiType;
+    }
+
     /**
      * An identity pool ID in the format REGION:GUID.
      */
@@ -135,7 +149,7 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
             inputs["roleMappings"] = args ? args.roleMappings : undefined;
             inputs["roles"] = args ? args.roles : undefined;
         }
-        super("aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment", name, inputs, opts);
+        super(IdentityPoolRoleAttachment.__pulumiType, name, inputs, opts);
     }
 }
 

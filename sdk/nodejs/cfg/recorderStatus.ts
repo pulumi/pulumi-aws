@@ -79,6 +79,20 @@ export class RecorderStatus extends pulumi.CustomResource {
         return new RecorderStatus(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cfg/recorderStatus:RecorderStatus';
+
+    /**
+     * Returns true if the given object is an instance of RecorderStatus.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is RecorderStatus {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === RecorderStatus.__pulumiType;
+    }
+
     /**
      * Whether the configuration recorder should be enabled or disabled.
      */
@@ -110,7 +124,7 @@ export class RecorderStatus extends pulumi.CustomResource {
             inputs["isEnabled"] = args ? args.isEnabled : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        super("aws:cfg/recorderStatus:RecorderStatus", name, inputs, opts);
+        super(RecorderStatus.__pulumiType, name, inputs, opts);
     }
 }
 

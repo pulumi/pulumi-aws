@@ -44,6 +44,20 @@ export class Group extends pulumi.CustomResource {
         return new Group(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:resourcegroups/group:Group';
+
+    /**
+     * Returns true if the given object is an instance of Group.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Group {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Group.__pulumiType;
+    }
+
     /**
      * The ARN assigned by AWS for this resource group.
      */
@@ -87,7 +101,7 @@ export class Group extends pulumi.CustomResource {
             inputs["resourceQuery"] = args ? args.resourceQuery : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:resourcegroups/group:Group", name, inputs, opts);
+        super(Group.__pulumiType, name, inputs, opts);
     }
 }
 

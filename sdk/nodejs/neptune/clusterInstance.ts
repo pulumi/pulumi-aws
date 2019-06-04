@@ -52,6 +52,20 @@ export class ClusterInstance extends pulumi.CustomResource {
         return new ClusterInstance(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:neptune/clusterInstance:ClusterInstance';
+
+    /**
+     * Returns true if the given object is an instance of ClusterInstance.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ClusterInstance {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ClusterInstance.__pulumiType;
+    }
+
     /**
      * The hostname of the instance. See also `endpoint` and `port`.
      */
@@ -220,7 +234,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             inputs["storageEncrypted"] = undefined /*out*/;
             inputs["writer"] = undefined /*out*/;
         }
-        super("aws:neptune/clusterInstance:ClusterInstance", name, inputs, opts);
+        super(ClusterInstance.__pulumiType, name, inputs, opts);
     }
 }
 
