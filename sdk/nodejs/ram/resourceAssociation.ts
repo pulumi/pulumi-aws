@@ -34,6 +34,20 @@ export class ResourceAssociation extends pulumi.CustomResource {
         return new ResourceAssociation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ram/resourceAssociation:ResourceAssociation';
+
+    /**
+     * Returns true if the given object is an instance of ResourceAssociation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ResourceAssociation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ResourceAssociation.__pulumiType;
+    }
+
     /**
      * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
      */
@@ -68,7 +82,7 @@ export class ResourceAssociation extends pulumi.CustomResource {
             inputs["resourceArn"] = args ? args.resourceArn : undefined;
             inputs["resourceShareArn"] = args ? args.resourceShareArn : undefined;
         }
-        super("aws:ram/resourceAssociation:ResourceAssociation", name, inputs, opts);
+        super(ResourceAssociation.__pulumiType, name, inputs, opts);
     }
 }
 

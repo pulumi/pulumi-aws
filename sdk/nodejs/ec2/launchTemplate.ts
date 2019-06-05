@@ -20,6 +20,20 @@ export class LaunchTemplate extends pulumi.CustomResource {
         return new LaunchTemplate(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/launchTemplate:LaunchTemplate';
+
+    /**
+     * Returns true if the given object is an instance of LaunchTemplate.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is LaunchTemplate {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === LaunchTemplate.__pulumiType;
+    }
+
     /**
      * Amazon Resource Name (ARN) of the launch template.
      */
@@ -225,7 +239,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["defaultVersion"] = undefined /*out*/;
             inputs["latestVersion"] = undefined /*out*/;
         }
-        super("aws:ec2/launchTemplate:LaunchTemplate", name, inputs, opts);
+        super(LaunchTemplate.__pulumiType, name, inputs, opts);
     }
 }
 

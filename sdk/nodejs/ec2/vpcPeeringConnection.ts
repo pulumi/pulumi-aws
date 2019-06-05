@@ -38,6 +38,20 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
         return new VpcPeeringConnection(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/vpcPeeringConnection:VpcPeeringConnection';
+
+    /**
+     * Returns true if the given object is an instance of VpcPeeringConnection.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VpcPeeringConnection {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VpcPeeringConnection.__pulumiType;
+    }
+
     /**
      * The status of the VPC Peering Connection request.
      */
@@ -120,7 +134,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["acceptStatus"] = undefined /*out*/;
         }
-        super("aws:ec2/vpcPeeringConnection:VpcPeeringConnection", name, inputs, opts);
+        super(VpcPeeringConnection.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -33,6 +33,20 @@ export class Route extends pulumi.CustomResource {
         return new Route(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2transitgateway/route:Route';
+
+    /**
+     * Returns true if the given object is an instance of Route.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Route {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Route.__pulumiType;
+    }
+
     /**
      * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
      */
@@ -76,7 +90,7 @@ export class Route extends pulumi.CustomResource {
             inputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
             inputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
         }
-        super("aws:ec2transitgateway/route:Route", name, inputs, opts);
+        super(Route.__pulumiType, name, inputs, opts);
     }
 }
 

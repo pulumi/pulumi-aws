@@ -74,6 +74,20 @@ export class DeliveryChannel extends pulumi.CustomResource {
         return new DeliveryChannel(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cfg/deliveryChannel:DeliveryChannel';
+
+    /**
+     * Returns true if the given object is an instance of DeliveryChannel.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is DeliveryChannel {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === DeliveryChannel.__pulumiType;
+    }
+
     /**
      * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
      */
@@ -123,7 +137,7 @@ export class DeliveryChannel extends pulumi.CustomResource {
             inputs["snapshotDeliveryProperties"] = args ? args.snapshotDeliveryProperties : undefined;
             inputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
         }
-        super("aws:cfg/deliveryChannel:DeliveryChannel", name, inputs, opts);
+        super(DeliveryChannel.__pulumiType, name, inputs, opts);
     }
 }
 

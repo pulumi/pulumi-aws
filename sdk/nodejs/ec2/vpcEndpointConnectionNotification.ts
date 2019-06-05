@@ -55,6 +55,20 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
         return new VpcEndpointConnectionNotification(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification';
+
+    /**
+     * Returns true if the given object is an instance of VpcEndpointConnectionNotification.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VpcEndpointConnectionNotification {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VpcEndpointConnectionNotification.__pulumiType;
+    }
+
     /**
      * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
      */
@@ -113,7 +127,7 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
             inputs["notificationType"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
         }
-        super("aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification", name, inputs, opts);
+        super(VpcEndpointConnectionNotification.__pulumiType, name, inputs, opts);
     }
 }
 

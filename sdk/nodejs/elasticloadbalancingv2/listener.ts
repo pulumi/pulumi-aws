@@ -153,6 +153,20 @@ export class Listener extends pulumi.CustomResource {
         return new Listener(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:elasticloadbalancingv2/listener:Listener';
+
+    /**
+     * Returns true if the given object is an instance of Listener.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Listener {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Listener.__pulumiType;
+    }
+
     /**
      * The ARN of the listener (matches `id`)
      */
@@ -220,7 +234,7 @@ export class Listener extends pulumi.CustomResource {
             inputs["sslPolicy"] = args ? args.sslPolicy : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:elasticloadbalancingv2/listener:Listener", name, inputs, opts);
+        super(Listener.__pulumiType, name, inputs, opts);
     }
 }
 

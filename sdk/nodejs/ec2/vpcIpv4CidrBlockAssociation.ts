@@ -38,6 +38,20 @@ export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
         return new VpcIpv4CidrBlockAssociation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation';
+
+    /**
+     * Returns true if the given object is an instance of VpcIpv4CidrBlockAssociation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VpcIpv4CidrBlockAssociation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VpcIpv4CidrBlockAssociation.__pulumiType;
+    }
+
     /**
      * The additional IPv4 CIDR block to associate with the VPC.
      */
@@ -72,7 +86,7 @@ export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
             inputs["cidrBlock"] = args ? args.cidrBlock : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
         }
-        super("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation", name, inputs, opts);
+        super(VpcIpv4CidrBlockAssociation.__pulumiType, name, inputs, opts);
     }
 }
 

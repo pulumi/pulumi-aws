@@ -38,6 +38,20 @@ export class ApnsVoipChannel extends pulumi.CustomResource {
         return new ApnsVoipChannel(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:pinpoint/apnsVoipChannel:ApnsVoipChannel';
+
+    /**
+     * Returns true if the given object is an instance of ApnsVoipChannel.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ApnsVoipChannel {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ApnsVoipChannel.__pulumiType;
+    }
+
     /**
      * The application ID.
      */
@@ -114,7 +128,7 @@ export class ApnsVoipChannel extends pulumi.CustomResource {
             inputs["tokenKey"] = args ? args.tokenKey : undefined;
             inputs["tokenKeyId"] = args ? args.tokenKeyId : undefined;
         }
-        super("aws:pinpoint/apnsVoipChannel:ApnsVoipChannel", name, inputs, opts);
+        super(ApnsVoipChannel.__pulumiType, name, inputs, opts);
     }
 }
 

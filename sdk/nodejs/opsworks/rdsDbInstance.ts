@@ -37,6 +37,20 @@ export class RdsDbInstance extends pulumi.CustomResource {
         return new RdsDbInstance(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:opsworks/rdsDbInstance:RdsDbInstance';
+
+    /**
+     * Returns true if the given object is an instance of RdsDbInstance.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is RdsDbInstance {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === RdsDbInstance.__pulumiType;
+    }
+
     /**
      * A db password
      */
@@ -89,7 +103,7 @@ export class RdsDbInstance extends pulumi.CustomResource {
             inputs["rdsDbInstanceArn"] = args ? args.rdsDbInstanceArn : undefined;
             inputs["stackId"] = args ? args.stackId : undefined;
         }
-        super("aws:opsworks/rdsDbInstance:RdsDbInstance", name, inputs, opts);
+        super(RdsDbInstance.__pulumiType, name, inputs, opts);
     }
 }
 

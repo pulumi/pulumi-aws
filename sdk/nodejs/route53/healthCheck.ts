@@ -98,6 +98,20 @@ export class HealthCheck extends pulumi.CustomResource {
         return new HealthCheck(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:route53/healthCheck:HealthCheck';
+
+    /**
+     * Returns true if the given object is an instance of HealthCheck.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is HealthCheck {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === HealthCheck.__pulumiType;
+    }
+
     /**
      * The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
      */
@@ -232,7 +246,7 @@ export class HealthCheck extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        super("aws:route53/healthCheck:HealthCheck", name, inputs, opts);
+        super(HealthCheck.__pulumiType, name, inputs, opts);
     }
 }
 

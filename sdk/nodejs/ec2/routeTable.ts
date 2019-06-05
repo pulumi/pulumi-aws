@@ -63,6 +63,20 @@ export class RouteTable extends pulumi.CustomResource {
         return new RouteTable(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/routeTable:RouteTable';
+
+    /**
+     * Returns true if the given object is an instance of RouteTable.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is RouteTable {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === RouteTable.__pulumiType;
+    }
+
     /**
      * The ID of the AWS account that owns the route table
      */
@@ -112,7 +126,7 @@ export class RouteTable extends pulumi.CustomResource {
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["ownerId"] = undefined /*out*/;
         }
-        super("aws:ec2/routeTable:RouteTable", name, inputs, opts);
+        super(RouteTable.__pulumiType, name, inputs, opts);
     }
 }
 

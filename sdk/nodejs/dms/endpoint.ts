@@ -49,6 +49,20 @@ export class Endpoint extends pulumi.CustomResource {
         return new Endpoint(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:dms/endpoint:Endpoint';
+
+    /**
+     * Returns true if the given object is an instance of Endpoint.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Endpoint {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Endpoint.__pulumiType;
+    }
+
     /**
      * The Amazon Resource Name (ARN) for the certificate.
      */
@@ -176,7 +190,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["username"] = args ? args.username : undefined;
             inputs["endpointArn"] = undefined /*out*/;
         }
-        super("aws:dms/endpoint:Endpoint", name, inputs, opts);
+        super(Endpoint.__pulumiType, name, inputs, opts);
     }
 }
 

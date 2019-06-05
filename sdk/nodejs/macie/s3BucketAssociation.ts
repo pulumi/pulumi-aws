@@ -37,6 +37,20 @@ export class S3BucketAssociation extends pulumi.CustomResource {
         return new S3BucketAssociation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:macie/s3BucketAssociation:S3BucketAssociation';
+
+    /**
+     * Returns true if the given object is an instance of S3BucketAssociation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is S3BucketAssociation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === S3BucketAssociation.__pulumiType;
+    }
+
     /**
      * The name of the S3 bucket that you want to associate with Amazon Macie.
      */
@@ -80,7 +94,7 @@ export class S3BucketAssociation extends pulumi.CustomResource {
             inputs["memberAccountId"] = args ? args.memberAccountId : undefined;
             inputs["prefix"] = args ? args.prefix : undefined;
         }
-        super("aws:macie/s3BucketAssociation:S3BucketAssociation", name, inputs, opts);
+        super(S3BucketAssociation.__pulumiType, name, inputs, opts);
     }
 }
 

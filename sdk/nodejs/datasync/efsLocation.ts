@@ -41,6 +41,20 @@ export class EfsLocation extends pulumi.CustomResource {
         return new EfsLocation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:datasync/efsLocation:EfsLocation';
+
+    /**
+     * Returns true if the given object is an instance of EfsLocation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is EfsLocation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === EfsLocation.__pulumiType;
+    }
+
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
@@ -96,7 +110,7 @@ export class EfsLocation extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["uri"] = undefined /*out*/;
         }
-        super("aws:datasync/efsLocation:EfsLocation", name, inputs, opts);
+        super(EfsLocation.__pulumiType, name, inputs, opts);
     }
 }
 

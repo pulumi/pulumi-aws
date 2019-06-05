@@ -65,6 +65,20 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
         return new VpcDhcpOptions(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/vpcDhcpOptions:VpcDhcpOptions';
+
+    /**
+     * Returns true if the given object is an instance of VpcDhcpOptions.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VpcDhcpOptions {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VpcDhcpOptions.__pulumiType;
+    }
+
     /**
      * the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
      */
@@ -123,7 +137,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["ownerId"] = undefined /*out*/;
         }
-        super("aws:ec2/vpcDhcpOptions:VpcDhcpOptions", name, inputs, opts);
+        super(VpcDhcpOptions.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -61,6 +61,20 @@ export class ApplicationVersion extends pulumi.CustomResource {
         return new ApplicationVersion(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:elasticbeanstalk/applicationVersion:ApplicationVersion';
+
+    /**
+     * Returns true if the given object is an instance of ApplicationVersion.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ApplicationVersion {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ApplicationVersion.__pulumiType;
+    }
+
     /**
      * Name of the Beanstalk Application the version is associated with.
      */
@@ -135,7 +149,7 @@ export class ApplicationVersion extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:elasticbeanstalk/applicationVersion:ApplicationVersion", name, inputs, opts);
+        super(ApplicationVersion.__pulumiType, name, inputs, opts);
     }
 }
 

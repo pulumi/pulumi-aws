@@ -69,6 +69,20 @@ export class TopicRule extends pulumi.CustomResource {
         return new TopicRule(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:iot/topicRule:TopicRule';
+
+    /**
+     * Returns true if the given object is an instance of TopicRule.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is TopicRule {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === TopicRule.__pulumiType;
+    }
+
     /**
      * The ARN of the topic rule
      */
@@ -163,7 +177,7 @@ export class TopicRule extends pulumi.CustomResource {
             inputs["sqs"] = args ? args.sqs : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:iot/topicRule:TopicRule", name, inputs, opts);
+        super(TopicRule.__pulumiType, name, inputs, opts);
     }
 }
 

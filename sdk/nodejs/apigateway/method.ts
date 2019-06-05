@@ -79,6 +79,20 @@ export class Method extends pulumi.CustomResource {
         return new Method(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:apigateway/method:Method';
+
+    /**
+     * Returns true if the given object is an instance of Method.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Method {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Method.__pulumiType;
+    }
+
     /**
      * Specify if the method requires an API key
      */
@@ -170,7 +184,7 @@ export class Method extends pulumi.CustomResource {
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["restApi"] = args ? args.restApi : undefined;
         }
-        super("aws:apigateway/method:Method", name, inputs, opts);
+        super(Method.__pulumiType, name, inputs, opts);
     }
 }
 

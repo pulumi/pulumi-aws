@@ -20,6 +20,20 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
         return new NotebookInstanceLifecycleConfiguration(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration';
+
+    /**
+     * Returns true if the given object is an instance of NotebookInstanceLifecycleConfiguration.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NotebookInstanceLifecycleConfiguration {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NotebookInstanceLifecycleConfiguration.__pulumiType;
+    }
+
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
      */
@@ -60,7 +74,7 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
             inputs["onStart"] = args ? args.onStart : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration", name, inputs, opts);
+        super(NotebookInstanceLifecycleConfiguration.__pulumiType, name, inputs, opts);
     }
 }
 

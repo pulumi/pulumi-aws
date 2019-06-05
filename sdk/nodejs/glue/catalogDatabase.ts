@@ -29,6 +29,20 @@ export class CatalogDatabase extends pulumi.CustomResource {
         return new CatalogDatabase(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:glue/catalogDatabase:CatalogDatabase';
+
+    /**
+     * Returns true if the given object is an instance of CatalogDatabase.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is CatalogDatabase {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === CatalogDatabase.__pulumiType;
+    }
+
     /**
      * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      */
@@ -75,7 +89,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
         }
-        super("aws:glue/catalogDatabase:CatalogDatabase", name, inputs, opts);
+        super(CatalogDatabase.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -73,6 +73,20 @@ export class LogResourcePolicy extends pulumi.CustomResource {
         return new LogResourcePolicy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cloudwatch/logResourcePolicy:LogResourcePolicy';
+
+    /**
+     * Returns true if the given object is an instance of LogResourcePolicy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is LogResourcePolicy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === LogResourcePolicy.__pulumiType;
+    }
+
     /**
      * Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
      */
@@ -107,7 +121,7 @@ export class LogResourcePolicy extends pulumi.CustomResource {
             inputs["policyDocument"] = args ? args.policyDocument : undefined;
             inputs["policyName"] = args ? args.policyName : undefined;
         }
-        super("aws:cloudwatch/logResourcePolicy:LogResourcePolicy", name, inputs, opts);
+        super(LogResourcePolicy.__pulumiType, name, inputs, opts);
     }
 }
 

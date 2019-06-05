@@ -58,6 +58,20 @@ export class VirtualService extends pulumi.CustomResource {
         return new VirtualService(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:appmesh/virtualService:VirtualService';
+
+    /**
+     * Returns true if the given object is an instance of VirtualService.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VirtualService {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VirtualService.__pulumiType;
+    }
+
     /**
      * The ARN of the virtual service.
      */
@@ -116,7 +130,7 @@ export class VirtualService extends pulumi.CustomResource {
             inputs["createdDate"] = undefined /*out*/;
             inputs["lastUpdatedDate"] = undefined /*out*/;
         }
-        super("aws:appmesh/virtualService:VirtualService", name, inputs, opts);
+        super(VirtualService.__pulumiType, name, inputs, opts);
     }
 }
 

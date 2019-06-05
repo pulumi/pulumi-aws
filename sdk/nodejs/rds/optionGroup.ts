@@ -58,6 +58,20 @@ export class OptionGroup extends pulumi.CustomResource {
         return new OptionGroup(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:rds/optionGroup:OptionGroup';
+
+    /**
+     * Returns true if the given object is an instance of OptionGroup.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is OptionGroup {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === OptionGroup.__pulumiType;
+    }
+
     /**
      * The ARN of the db option group.
      */
@@ -128,7 +142,7 @@ export class OptionGroup extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:rds/optionGroup:OptionGroup", name, inputs, opts);
+        super(OptionGroup.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -69,6 +69,20 @@ export class Stage extends pulumi.CustomResource {
         return new Stage(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:apigateway/stage:Stage';
+
+    /**
+     * Returns true if the given object is an instance of Stage.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Stage {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Stage.__pulumiType;
+    }
+
     /**
      * Enables access logs for the API stage. Detailed below.
      */
@@ -182,7 +196,7 @@ export class Stage extends pulumi.CustomResource {
             inputs["executionArn"] = undefined /*out*/;
             inputs["invokeUrl"] = undefined /*out*/;
         }
-        super("aws:apigateway/stage:Stage", name, inputs, opts);
+        super(Stage.__pulumiType, name, inputs, opts);
     }
 }
 

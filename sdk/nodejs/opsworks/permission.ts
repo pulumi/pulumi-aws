@@ -35,6 +35,20 @@ export class Permission extends pulumi.CustomResource {
         return new Permission(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:opsworks/permission:Permission';
+
+    /**
+     * Returns true if the given object is an instance of Permission.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Permission {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Permission.__pulumiType;
+    }
+
     /**
      * Whether the user is allowed to use SSH to communicate with the instance
      */
@@ -84,7 +98,7 @@ export class Permission extends pulumi.CustomResource {
             inputs["stackId"] = args ? args.stackId : undefined;
             inputs["userArn"] = args ? args.userArn : undefined;
         }
-        super("aws:opsworks/permission:Permission", name, inputs, opts);
+        super(Permission.__pulumiType, name, inputs, opts);
     }
 }
 

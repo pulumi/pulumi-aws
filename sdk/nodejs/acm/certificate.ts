@@ -53,6 +53,20 @@ export class Certificate extends pulumi.CustomResource {
         return new Certificate(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:acm/certificate:Certificate';
+
+    /**
+     * Returns true if the given object is an instance of Certificate.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Certificate {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Certificate.__pulumiType;
+    }
+
     /**
      * The ARN of the certificate
      */
@@ -130,7 +144,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["domainValidationOptions"] = undefined /*out*/;
             inputs["validationEmails"] = undefined /*out*/;
         }
-        super("aws:acm/certificate:Certificate", name, inputs, opts);
+        super(Certificate.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -57,6 +57,20 @@ export class KeyPair extends pulumi.CustomResource {
         return new KeyPair(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:lightsail/keyPair:KeyPair';
+
+    /**
+     * Returns true if the given object is an instance of KeyPair.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is KeyPair {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === KeyPair.__pulumiType;
+    }
+
     /**
      * The ARN of the Lightsail key pair
      */
@@ -131,7 +145,7 @@ export class KeyPair extends pulumi.CustomResource {
             inputs["fingerprint"] = undefined /*out*/;
             inputs["privateKey"] = undefined /*out*/;
         }
-        super("aws:lightsail/keyPair:KeyPair", name, inputs, opts);
+        super(KeyPair.__pulumiType, name, inputs, opts);
     }
 }
 

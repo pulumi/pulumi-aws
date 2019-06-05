@@ -37,6 +37,20 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
         return new ReplicationSubnetGroup(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:dms/replicationSubnetGroup:ReplicationSubnetGroup';
+
+    /**
+     * Returns true if the given object is an instance of ReplicationSubnetGroup.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ReplicationSubnetGroup {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ReplicationSubnetGroup.__pulumiType;
+    }
+
     public /*out*/ readonly replicationSubnetGroupArn!: pulumi.Output<string>;
     /**
      * The description for the subnet group.
@@ -95,7 +109,7 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
             inputs["replicationSubnetGroupArn"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        super("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup", name, inputs, opts);
+        super(ReplicationSubnetGroup.__pulumiType, name, inputs, opts);
     }
 }
 

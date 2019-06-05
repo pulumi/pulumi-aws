@@ -96,6 +96,20 @@ export class SecurityGroup extends pulumi.CustomResource {
         return new SecurityGroup(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/securityGroup:SecurityGroup';
+
+    /**
+     * Returns true if the given object is an instance of SecurityGroup.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SecurityGroup {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SecurityGroup.__pulumiType;
+    }
+
     /**
      * The ARN of the security group
      */
@@ -187,7 +201,7 @@ export class SecurityGroup extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
-        super("aws:ec2/securityGroup:SecurityGroup", name, inputs, opts);
+        super(SecurityGroup.__pulumiType, name, inputs, opts);
     }
 }
 

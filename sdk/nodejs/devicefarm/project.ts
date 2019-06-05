@@ -35,6 +35,20 @@ export class Project extends pulumi.CustomResource {
         return new Project(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:devicefarm/project:Project';
+
+    /**
+     * Returns true if the given object is an instance of Project.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Project {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Project.__pulumiType;
+    }
+
     /**
      * The Amazon Resource Name of this project
      */
@@ -63,7 +77,7 @@ export class Project extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:devicefarm/project:Project", name, inputs, opts);
+        super(Project.__pulumiType, name, inputs, opts);
     }
 }
 

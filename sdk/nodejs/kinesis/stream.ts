@@ -42,6 +42,20 @@ export class Stream extends pulumi.CustomResource {
         return new Stream(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:kinesis/stream:Stream';
+
+    /**
+     * Returns true if the given object is an instance of Stream.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Stream {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Stream.__pulumiType;
+    }
+
     /**
      * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
      */
@@ -118,7 +132,7 @@ export class Stream extends pulumi.CustomResource {
             inputs["shardLevelMetrics"] = args ? args.shardLevelMetrics : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        super("aws:kinesis/stream:Stream", name, inputs, opts);
+        super(Stream.__pulumiType, name, inputs, opts);
     }
 }
 

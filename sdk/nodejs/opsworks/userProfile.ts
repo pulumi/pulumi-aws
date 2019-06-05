@@ -32,6 +32,20 @@ export class UserProfile extends pulumi.CustomResource {
         return new UserProfile(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:opsworks/userProfile:UserProfile';
+
+    /**
+     * Returns true if the given object is an instance of UserProfile.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is UserProfile {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === UserProfile.__pulumiType;
+    }
+
     /**
      * Whether users can specify their own SSH public key through the My Settings page
      */
@@ -78,7 +92,7 @@ export class UserProfile extends pulumi.CustomResource {
             inputs["sshUsername"] = args ? args.sshUsername : undefined;
             inputs["userArn"] = args ? args.userArn : undefined;
         }
-        super("aws:opsworks/userProfile:UserProfile", name, inputs, opts);
+        super(UserProfile.__pulumiType, name, inputs, opts);
     }
 }
 

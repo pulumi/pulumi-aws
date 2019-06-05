@@ -74,6 +74,20 @@ export class ScheduledAction extends pulumi.CustomResource {
         return new ScheduledAction(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:appautoscaling/scheduledAction:ScheduledAction';
+
+    /**
+     * Returns true if the given object is an instance of ScheduledAction.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ScheduledAction {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ScheduledAction.__pulumiType;
+    }
+
     /**
      * The Amazon Resource Name (ARN) of the scheduled action.
      */
@@ -150,7 +164,7 @@ export class ScheduledAction extends pulumi.CustomResource {
             inputs["startTime"] = args ? args.startTime : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:appautoscaling/scheduledAction:ScheduledAction", name, inputs, opts);
+        super(ScheduledAction.__pulumiType, name, inputs, opts);
     }
 }
 

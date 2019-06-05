@@ -33,6 +33,20 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
         return new NetworkInterfaceAttachment(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment';
+
+    /**
+     * Returns true if the given object is an instance of NetworkInterfaceAttachment.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NetworkInterfaceAttachment {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NetworkInterfaceAttachment.__pulumiType;
+    }
+
     /**
      * The ENI Attachment ID.
      */
@@ -88,7 +102,7 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
             inputs["attachmentId"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        super("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment", name, inputs, opts);
+        super(NetworkInterfaceAttachment.__pulumiType, name, inputs, opts);
     }
 }
 

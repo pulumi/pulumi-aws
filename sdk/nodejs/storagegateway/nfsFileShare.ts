@@ -34,6 +34,20 @@ export class NfsFileShare extends pulumi.CustomResource {
         return new NfsFileShare(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:storagegateway/nfsFileShare:NfsFileShare';
+
+    /**
+     * Returns true if the given object is an instance of NfsFileShare.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NfsFileShare {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NfsFileShare.__pulumiType;
+    }
+
     /**
      * Amazon Resource Name (ARN) of the NFS File Share.
      */
@@ -152,7 +166,7 @@ export class NfsFileShare extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["fileshareId"] = undefined /*out*/;
         }
-        super("aws:storagegateway/nfsFileShare:NfsFileShare", name, inputs, opts);
+        super(NfsFileShare.__pulumiType, name, inputs, opts);
     }
 }
 

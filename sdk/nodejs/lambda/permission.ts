@@ -124,6 +124,20 @@ export class Permission extends pulumi.CustomResource {
         return new Permission(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:lambda/permission:Permission';
+
+    /**
+     * Returns true if the given object is an instance of Permission.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Permission {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Permission.__pulumiType;
+    }
+
     /**
      * The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
      */
@@ -212,7 +226,7 @@ export class Permission extends pulumi.CustomResource {
             inputs["statementId"] = args ? args.statementId : undefined;
             inputs["statementIdPrefix"] = args ? args.statementIdPrefix : undefined;
         }
-        super("aws:lambda/permission:Permission", name, inputs, opts);
+        super(Permission.__pulumiType, name, inputs, opts);
     }
 }
 

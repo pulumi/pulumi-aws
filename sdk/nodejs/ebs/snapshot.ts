@@ -41,6 +41,20 @@ export class Snapshot extends pulumi.CustomResource {
         return new Snapshot(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ebs/snapshot:Snapshot';
+
+    /**
+     * Returns true if the given object is an instance of Snapshot.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Snapshot {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Snapshot.__pulumiType;
+    }
+
     /**
      * The data encryption key identifier for the snapshot.
      */
@@ -114,7 +128,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["ownerId"] = undefined /*out*/;
             inputs["volumeSize"] = undefined /*out*/;
         }
-        super("aws:ebs/snapshot:Snapshot", name, inputs, opts);
+        super(Snapshot.__pulumiType, name, inputs, opts);
     }
 }
 

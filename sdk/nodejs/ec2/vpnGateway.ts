@@ -34,6 +34,20 @@ export class VpnGateway extends pulumi.CustomResource {
         return new VpnGateway(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/vpnGateway:VpnGateway';
+
+    /**
+     * Returns true if the given object is an instance of VpnGateway.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VpnGateway {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VpnGateway.__pulumiType;
+    }
+
     /**
      * The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
      */
@@ -74,7 +88,7 @@ export class VpnGateway extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
         }
-        super("aws:ec2/vpnGateway:VpnGateway", name, inputs, opts);
+        super(VpnGateway.__pulumiType, name, inputs, opts);
     }
 }
 

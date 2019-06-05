@@ -131,6 +131,20 @@ export class Directory extends pulumi.CustomResource {
         return new Directory(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:directoryservice/directory:Directory';
+
+    /**
+     * Returns true if the given object is an instance of Directory.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Directory {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Directory.__pulumiType;
+    }
+
     /**
      * The access URL for the directory, such as `http://alias.awsapps.com`.
      */
@@ -240,7 +254,7 @@ export class Directory extends pulumi.CustomResource {
             inputs["dnsIpAddresses"] = undefined /*out*/;
             inputs["securityGroupId"] = undefined /*out*/;
         }
-        super("aws:directoryservice/directory:Directory", name, inputs, opts);
+        super(Directory.__pulumiType, name, inputs, opts);
     }
 }
 

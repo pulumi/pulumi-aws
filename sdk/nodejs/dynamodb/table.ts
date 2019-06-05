@@ -77,6 +77,20 @@ export class Table extends pulumi.CustomResource {
         return new Table(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:dynamodb/table:Table';
+
+    /**
+     * Returns true if the given object is an instance of Table.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Table {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Table.__pulumiType;
+    }
+
     /**
      * The arn of the table
      */
@@ -215,7 +229,7 @@ export class Table extends pulumi.CustomResource {
             inputs["streamArn"] = undefined /*out*/;
             inputs["streamLabel"] = undefined /*out*/;
         }
-        super("aws:dynamodb/table:Table", name, inputs, opts);
+        super(Table.__pulumiType, name, inputs, opts);
     }
 }
 

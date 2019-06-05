@@ -101,6 +101,20 @@ export class ListenerPolicy extends pulumi.CustomResource {
         return new ListenerPolicy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:elasticloadbalancing/listenerPolicy:ListenerPolicy';
+
+    /**
+     * Returns true if the given object is an instance of ListenerPolicy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ListenerPolicy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ListenerPolicy.__pulumiType;
+    }
+
     /**
      * The load balancer to attach the policy to.
      */
@@ -141,7 +155,7 @@ export class ListenerPolicy extends pulumi.CustomResource {
             inputs["loadBalancerPort"] = args ? args.loadBalancerPort : undefined;
             inputs["policyNames"] = args ? args.policyNames : undefined;
         }
-        super("aws:elasticloadbalancing/listenerPolicy:ListenerPolicy", name, inputs, opts);
+        super(ListenerPolicy.__pulumiType, name, inputs, opts);
     }
 }
 

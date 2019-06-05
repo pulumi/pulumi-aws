@@ -39,6 +39,20 @@ export class Webhook extends pulumi.CustomResource {
         return new Webhook(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:codebuild/webhook:Webhook';
+
+    /**
+     * Returns true if the given object is an instance of Webhook.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Webhook {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Webhook.__pulumiType;
+    }
+
     /**
      * A regular expression used to determine which branches get built. Default is all branches are built.
      */
@@ -88,7 +102,7 @@ export class Webhook extends pulumi.CustomResource {
             inputs["secret"] = undefined /*out*/;
             inputs["url"] = undefined /*out*/;
         }
-        super("aws:codebuild/webhook:Webhook", name, inputs, opts);
+        super(Webhook.__pulumiType, name, inputs, opts);
     }
 }
 

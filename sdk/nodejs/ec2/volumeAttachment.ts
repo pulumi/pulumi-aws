@@ -48,6 +48,20 @@ export class VolumeAttachment extends pulumi.CustomResource {
         return new VolumeAttachment(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/volumeAttachment:VolumeAttachment';
+
+    /**
+     * Returns true if the given object is an instance of VolumeAttachment.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VolumeAttachment {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VolumeAttachment.__pulumiType;
+    }
+
     /**
      * The device name to expose to the instance (for
      * example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
@@ -111,7 +125,7 @@ export class VolumeAttachment extends pulumi.CustomResource {
             inputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             inputs["volumeId"] = args ? args.volumeId : undefined;
         }
-        super("aws:ec2/volumeAttachment:VolumeAttachment", name, inputs, opts);
+        super(VolumeAttachment.__pulumiType, name, inputs, opts);
     }
 }
 

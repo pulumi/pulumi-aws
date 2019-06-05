@@ -37,6 +37,20 @@ export class Accelerator extends pulumi.CustomResource {
         return new Accelerator(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:globalaccelerator/accelerator:Accelerator';
+
+    /**
+     * Returns true if the given object is an instance of Accelerator.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Accelerator {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Accelerator.__pulumiType;
+    }
+
     /**
      * The attributes of the accelerator. Fields documented below.
      */
@@ -83,7 +97,7 @@ export class Accelerator extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["ipSets"] = undefined /*out*/;
         }
-        super("aws:globalaccelerator/accelerator:Accelerator", name, inputs, opts);
+        super(Accelerator.__pulumiType, name, inputs, opts);
     }
 }
 

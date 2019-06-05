@@ -37,6 +37,20 @@ export class Hsm extends pulumi.CustomResource {
         return new Hsm(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cloudhsmv2/hsm:Hsm';
+
+    /**
+     * Returns true if the given object is an instance of Hsm.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Hsm {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Hsm.__pulumiType;
+    }
+
     /**
      * The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
      */
@@ -98,7 +112,7 @@ export class Hsm extends pulumi.CustomResource {
             inputs["hsmId"] = undefined /*out*/;
             inputs["hsmState"] = undefined /*out*/;
         }
-        super("aws:cloudhsmv2/hsm:Hsm", name, inputs, opts);
+        super(Hsm.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -47,6 +47,20 @@ export class ResolverEndpoint extends pulumi.CustomResource {
         return new ResolverEndpoint(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:route53/resolverEndpoint:ResolverEndpoint';
+
+    /**
+     * Returns true if the given object is an instance of ResolverEndpoint.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ResolverEndpoint {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ResolverEndpoint.__pulumiType;
+    }
+
     /**
      * The ARN of the Route 53 Resolver endpoint.
      */
@@ -117,7 +131,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["hostVpcId"] = undefined /*out*/;
         }
-        super("aws:route53/resolverEndpoint:ResolverEndpoint", name, inputs, opts);
+        super(ResolverEndpoint.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -37,6 +37,20 @@ export class NfsLocation extends pulumi.CustomResource {
         return new NfsLocation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:datasync/nfsLocation:NfsLocation';
+
+    /**
+     * Returns true if the given object is an instance of NfsLocation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NfsLocation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NfsLocation.__pulumiType;
+    }
+
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
@@ -95,7 +109,7 @@ export class NfsLocation extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["uri"] = undefined /*out*/;
         }
-        super("aws:datasync/nfsLocation:NfsLocation", name, inputs, opts);
+        super(NfsLocation.__pulumiType, name, inputs, opts);
     }
 }
 

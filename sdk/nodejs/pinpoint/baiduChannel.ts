@@ -38,6 +38,20 @@ export class BaiduChannel extends pulumi.CustomResource {
         return new BaiduChannel(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:pinpoint/baiduChannel:BaiduChannel';
+
+    /**
+     * Returns true if the given object is an instance of BaiduChannel.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is BaiduChannel {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === BaiduChannel.__pulumiType;
+    }
+
     /**
      * Platform credential API key from Baidu.
      */
@@ -87,7 +101,7 @@ export class BaiduChannel extends pulumi.CustomResource {
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["secretKey"] = args ? args.secretKey : undefined;
         }
-        super("aws:pinpoint/baiduChannel:BaiduChannel", name, inputs, opts);
+        super(BaiduChannel.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -46,6 +46,20 @@ export class RestApi extends pulumi.CustomResource {
         return new RestApi(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:apigateway/restApi:RestApi';
+
+    /**
+     * Returns true if the given object is an instance of RestApi.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is RestApi {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === RestApi.__pulumiType;
+    }
+
     /**
      * The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
      */
@@ -130,7 +144,7 @@ export class RestApi extends pulumi.CustomResource {
             inputs["executionArn"] = undefined /*out*/;
             inputs["rootResourceId"] = undefined /*out*/;
         }
-        super("aws:apigateway/restApi:RestApi", name, inputs, opts);
+        super(RestApi.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -39,6 +39,20 @@ export class Cluster extends pulumi.CustomResource {
         return new Cluster(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:redshift/cluster:Cluster';
+
+    /**
+     * Returns true if the given object is an instance of Cluster.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Cluster {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Cluster.__pulumiType;
+    }
+
     /**
      * If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
      */
@@ -278,7 +292,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             inputs["dnsName"] = undefined /*out*/;
         }
-        super("aws:redshift/cluster:Cluster", name, inputs, opts);
+        super(Cluster.__pulumiType, name, inputs, opts);
     }
 }
 

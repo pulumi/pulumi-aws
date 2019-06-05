@@ -64,6 +64,20 @@ export class Instance extends pulumi.CustomResource {
         return new Instance(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:rds/instance:Instance';
+
+    /**
+     * Returns true if the given object is an instance of Instance.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Instance {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Instance.__pulumiType;
+    }
+
     /**
      * The hostname of the RDS instance. See also `endpoint` and `port`.
      */
@@ -496,7 +510,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["resourceId"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        super("aws:rds/instance:Instance", name, inputs, opts);
+        super(Instance.__pulumiType, name, inputs, opts);
     }
 }
 

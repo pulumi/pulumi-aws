@@ -33,6 +33,20 @@ export class TopicSubscription extends pulumi.CustomResource {
         return new TopicSubscription(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:sns/topicSubscription:TopicSubscription';
+
+    /**
+     * Returns true if the given object is an instance of TopicSubscription.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is TopicSubscription {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === TopicSubscription.__pulumiType;
+    }
+
     /**
      * The ARN of the subscription stored as a more user-friendly property
      */
@@ -112,7 +126,7 @@ export class TopicSubscription extends pulumi.CustomResource {
             inputs["topic"] = args ? args.topic : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:sns/topicSubscription:TopicSubscription", name, inputs, opts);
+        super(TopicSubscription.__pulumiType, name, inputs, opts);
     }
 }
 

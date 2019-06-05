@@ -48,6 +48,20 @@ export class SnapshotCopy extends pulumi.CustomResource {
         return new SnapshotCopy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ebs/snapshotCopy:SnapshotCopy';
+
+    /**
+     * Returns true if the given object is an instance of SnapshotCopy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SnapshotCopy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SnapshotCopy.__pulumiType;
+    }
+
     /**
      * The data encryption key identifier for the snapshot.
      * * `source_snapshot_id` The ARN of the copied snapshot.
@@ -131,7 +145,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
             inputs["volumeId"] = undefined /*out*/;
             inputs["volumeSize"] = undefined /*out*/;
         }
-        super("aws:ebs/snapshotCopy:SnapshotCopy", name, inputs, opts);
+        super(SnapshotCopy.__pulumiType, name, inputs, opts);
     }
 }
 

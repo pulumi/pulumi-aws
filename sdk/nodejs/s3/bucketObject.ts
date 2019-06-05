@@ -99,6 +99,20 @@ export class BucketObject extends pulumi.CustomResource {
         return new BucketObject(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:s3/bucketObject:BucketObject';
+
+    /**
+     * Returns true if the given object is an instance of BucketObject.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is BucketObject {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === BucketObject.__pulumiType;
+    }
+
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
      */
@@ -232,7 +246,7 @@ export class BucketObject extends pulumi.CustomResource {
             inputs["websiteRedirect"] = args ? args.websiteRedirect : undefined;
             inputs["versionId"] = undefined /*out*/;
         }
-        super("aws:s3/bucketObject:BucketObject", name, inputs, opts);
+        super(BucketObject.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -45,6 +45,20 @@ export class ReportDefinition extends pulumi.CustomResource {
         return new ReportDefinition(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cur/reportDefinition:ReportDefinition';
+
+    /**
+     * Returns true if the given object is an instance of ReportDefinition.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ReportDefinition {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ReportDefinition.__pulumiType;
+    }
+
     /**
      * A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
      */
@@ -136,7 +150,7 @@ export class ReportDefinition extends pulumi.CustomResource {
             inputs["s3Region"] = args ? args.s3Region : undefined;
             inputs["timeUnit"] = args ? args.timeUnit : undefined;
         }
-        super("aws:cur/reportDefinition:ReportDefinition", name, inputs, opts);
+        super(ReportDefinition.__pulumiType, name, inputs, opts);
     }
 }
 

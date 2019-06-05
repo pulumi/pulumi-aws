@@ -82,6 +82,20 @@ export class Gateway extends pulumi.CustomResource {
         return new Gateway(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:storagegateway/gateway:Gateway';
+
+    /**
+     * Returns true if the given object is an instance of Gateway.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Gateway {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Gateway.__pulumiType;
+    }
+
     /**
      * Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      */
@@ -167,7 +181,7 @@ export class Gateway extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["gatewayId"] = undefined /*out*/;
         }
-        super("aws:storagegateway/gateway:Gateway", name, inputs, opts);
+        super(Gateway.__pulumiType, name, inputs, opts);
     }
 }
 

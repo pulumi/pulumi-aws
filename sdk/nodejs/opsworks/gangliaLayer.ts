@@ -32,6 +32,20 @@ export class GangliaLayer extends pulumi.CustomResource {
         return new GangliaLayer(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:opsworks/gangliaLayer:GangliaLayer';
+
+    /**
+     * Returns true if the given object is an instance of GangliaLayer.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is GangliaLayer {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === GangliaLayer.__pulumiType;
+    }
+
     /**
      * Whether to automatically assign an elastic IP address to the layer's instances.
      */
@@ -177,7 +191,7 @@ export class GangliaLayer extends pulumi.CustomResource {
             inputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
             inputs["username"] = args ? args.username : undefined;
         }
-        super("aws:opsworks/gangliaLayer:GangliaLayer", name, inputs, opts);
+        super(GangliaLayer.__pulumiType, name, inputs, opts);
     }
 }
 

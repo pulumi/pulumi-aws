@@ -70,6 +70,20 @@ export class EventStream extends pulumi.CustomResource {
         return new EventStream(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:pinpoint/eventStream:EventStream';
+
+    /**
+     * Returns true if the given object is an instance of EventStream.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is EventStream {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === EventStream.__pulumiType;
+    }
+
     /**
      * The application ID.
      */
@@ -113,7 +127,7 @@ export class EventStream extends pulumi.CustomResource {
             inputs["destinationStreamArn"] = args ? args.destinationStreamArn : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
         }
-        super("aws:pinpoint/eventStream:EventStream", name, inputs, opts);
+        super(EventStream.__pulumiType, name, inputs, opts);
     }
 }
 

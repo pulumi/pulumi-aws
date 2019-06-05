@@ -51,6 +51,20 @@ export class Attachment extends pulumi.CustomResource {
         return new Attachment(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:autoscaling/attachment:Attachment';
+
+    /**
+     * Returns true if the given object is an instance of Attachment.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Attachment {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Attachment.__pulumiType;
+    }
+
     /**
      * The ARN of an ALB Target Group.
      */
@@ -88,7 +102,7 @@ export class Attachment extends pulumi.CustomResource {
             inputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
             inputs["elb"] = args ? args.elb : undefined;
         }
-        super("aws:autoscaling/attachment:Attachment", name, inputs, opts);
+        super(Attachment.__pulumiType, name, inputs, opts);
     }
 }
 

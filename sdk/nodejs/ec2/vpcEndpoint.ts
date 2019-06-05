@@ -85,6 +85,20 @@ export class VpcEndpoint extends pulumi.CustomResource {
         return new VpcEndpoint(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/vpcEndpoint:VpcEndpoint';
+
+    /**
+     * Returns true if the given object is an instance of VpcEndpoint.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VpcEndpoint {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VpcEndpoint.__pulumiType;
+    }
+
     /**
      * Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
      */
@@ -192,7 +206,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
             inputs["prefixListId"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
         }
-        super("aws:ec2/vpcEndpoint:VpcEndpoint", name, inputs, opts);
+        super(VpcEndpoint.__pulumiType, name, inputs, opts);
     }
 }
 

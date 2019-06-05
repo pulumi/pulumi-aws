@@ -64,6 +64,20 @@ export class Document extends pulumi.CustomResource {
         return new Document(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ssm/document:Document';
+
+    /**
+     * Returns true if the given object is an instance of Document.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Document {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Document.__pulumiType;
+    }
+
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The JSON or YAML content of the document.
@@ -191,7 +205,7 @@ export class Document extends pulumi.CustomResource {
             inputs["schemaVersion"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
-        super("aws:ssm/document:Document", name, inputs, opts);
+        super(Document.__pulumiType, name, inputs, opts);
     }
 }
 

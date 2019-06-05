@@ -75,6 +75,20 @@ export class JobDefinition extends pulumi.CustomResource {
         return new JobDefinition(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:batch/jobDefinition:JobDefinition';
+
+    /**
+     * Returns true if the given object is an instance of JobDefinition.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is JobDefinition {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === JobDefinition.__pulumiType;
+    }
+
     /**
      * The Amazon Resource Name of the job definition.
      */
@@ -144,7 +158,7 @@ export class JobDefinition extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["revision"] = undefined /*out*/;
         }
-        super("aws:batch/jobDefinition:JobDefinition", name, inputs, opts);
+        super(JobDefinition.__pulumiType, name, inputs, opts);
     }
 }
 

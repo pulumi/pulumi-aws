@@ -91,6 +91,20 @@ export class FlowLog extends pulumi.CustomResource {
         return new FlowLog(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/flowLog:FlowLog';
+
+    /**
+     * Returns true if the given object is an instance of FlowLog.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is FlowLog {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === FlowLog.__pulumiType;
+    }
+
     /**
      * Elastic Network Interface ID to attach to
      */
@@ -158,7 +172,7 @@ export class FlowLog extends pulumi.CustomResource {
             inputs["trafficType"] = args ? args.trafficType : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
         }
-        super("aws:ec2/flowLog:FlowLog", name, inputs, opts);
+        super(FlowLog.__pulumiType, name, inputs, opts);
     }
 }
 

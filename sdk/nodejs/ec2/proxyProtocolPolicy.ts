@@ -52,6 +52,20 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
         return new ProxyProtocolPolicy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy';
+
+    /**
+     * Returns true if the given object is an instance of ProxyProtocolPolicy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ProxyProtocolPolicy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ProxyProtocolPolicy.__pulumiType;
+    }
+
     /**
      * List of instance ports to which the policy
      * should be applied. This can be specified if the protocol is SSL or TCP.
@@ -88,7 +102,7 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
             inputs["instancePorts"] = args ? args.instancePorts : undefined;
             inputs["loadBalancer"] = args ? args.loadBalancer : undefined;
         }
-        super("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy", name, inputs, opts);
+        super(ProxyProtocolPolicy.__pulumiType, name, inputs, opts);
     }
 }
 
