@@ -39,8 +39,6 @@ class Configuration(pulumi.CustomResource):
         
         > **NOTE:** The API does not support deleting MSK configurations. Removing this Terraform resource will only remove the Terraform state for it.
         
-        > **NOTE:** This AWS service is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between Terraform AWS Provider releases.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the configuration.

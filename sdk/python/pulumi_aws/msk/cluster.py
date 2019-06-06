@@ -11,24 +11,40 @@ from .. import utilities, tables
 class Cluster(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
-    Amazon Resource Name (ARN) of the MSK cluster.
+    Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
     """
     bootstrap_brokers: pulumi.Output[str]
     """
     A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster.
-    * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
+    """
+    bootstrap_brokers_tls: pulumi.Output[str]
+    """
+    A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster.
     """
     broker_node_group_info: pulumi.Output[dict]
     """
-    Nested data for configuring the broker nodes of the Kafka cluster.
+    Configuration block for the broker nodes of the Kafka cluster.
+    """
+    client_authentication: pulumi.Output[dict]
+    """
+    Configuration block for specifying a client authentication. See below.
     """
     cluster_name: pulumi.Output[str]
     """
     Name of the MSK cluster.
     """
+    configuration_info: pulumi.Output[dict]
+    """
+    Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+    """
+    current_version: pulumi.Output[str]
+    """
+    Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
+    * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
+    """
     encryption_info: pulumi.Output[dict]
     """
-    Nested data for specifying encryption at rest info.  See below.
+    Configuration block for specifying encryption. See below.
     """
     enhanced_monitoring: pulumi.Output[str]
     """
@@ -50,17 +66,17 @@ class Cluster(pulumi.CustomResource):
     """
     A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
     """
-    def __init__(__self__, resource_name, opts=None, broker_node_group_info=None, cluster_name=None, encryption_info=None, enhanced_monitoring=None, kafka_version=None, number_of_broker_nodes=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, broker_node_group_info=None, client_authentication=None, cluster_name=None, configuration_info=None, encryption_info=None, enhanced_monitoring=None, kafka_version=None, number_of_broker_nodes=None, tags=None, __name__=None, __opts__=None):
         """
         Manages AWS Managed Streaming for Kafka cluster
         
-        > **NOTE:** This AWS service is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between Terraform AWS Provider releases.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] broker_node_group_info: Nested data for configuring the broker nodes of the Kafka cluster.
+        :param pulumi.Input[dict] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster.
+        :param pulumi.Input[dict] client_authentication: Configuration block for specifying a client authentication. See below.
         :param pulumi.Input[str] cluster_name: Name of the MSK cluster.
-        :param pulumi.Input[dict] encryption_info: Nested data for specifying encryption at rest info.  See below.
+        :param pulumi.Input[dict] configuration_info: Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+        :param pulumi.Input[dict] encryption_info: Configuration block for specifying encryption. See below.
         :param pulumi.Input[str] enhanced_monitoring: Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
         :param pulumi.Input[str] kafka_version: Specify the desired Kafka software version.
         :param pulumi.Input[float] number_of_broker_nodes: The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
@@ -85,9 +101,13 @@ class Cluster(pulumi.CustomResource):
             raise TypeError("Missing required property 'broker_node_group_info'")
         __props__['broker_node_group_info'] = broker_node_group_info
 
+        __props__['client_authentication'] = client_authentication
+
         if cluster_name is None:
             raise TypeError("Missing required property 'cluster_name'")
         __props__['cluster_name'] = cluster_name
+
+        __props__['configuration_info'] = configuration_info
 
         __props__['encryption_info'] = encryption_info
 
@@ -105,6 +125,8 @@ class Cluster(pulumi.CustomResource):
 
         __props__['arn'] = None
         __props__['bootstrap_brokers'] = None
+        __props__['bootstrap_brokers_tls'] = None
+        __props__['current_version'] = None
         __props__['zookeeper_connect_string'] = None
 
         super(Cluster, __self__).__init__(

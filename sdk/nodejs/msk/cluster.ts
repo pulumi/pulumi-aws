@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages AWS Managed Streaming for Kafka cluster
- * 
- * > **NOTE:** This AWS service is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between Terraform AWS Provider releases.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -37,26 +35,42 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
+     * Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster.
-     * * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
      */
     public /*out*/ readonly bootstrapBrokers!: pulumi.Output<string>;
     /**
-     * Nested data for configuring the broker nodes of the Kafka cluster.
+     * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster.
+     */
+    public /*out*/ readonly bootstrapBrokersTls!: pulumi.Output<string>;
+    /**
+     * Configuration block for the broker nodes of the Kafka cluster.
      */
     public readonly brokerNodeGroupInfo!: pulumi.Output<{ azDistribution?: string, clientSubnets: string[], ebsVolumeSize: number, instanceType: string, securityGroups: string[] }>;
+    /**
+     * Configuration block for specifying a client authentication. See below.
+     */
+    public readonly clientAuthentication!: pulumi.Output<{ tls?: { certificateAuthorityArns?: string[] } } | undefined>;
     /**
      * Name of the MSK cluster.
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
-     * Nested data for specifying encryption at rest info.  See below.
+     * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      */
-    public readonly encryptionInfo!: pulumi.Output<{ encryptionAtRestKmsKeyArn: string }>;
+    public readonly configurationInfo!: pulumi.Output<{ arn: string, revision: number } | undefined>;
+    /**
+     * Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
+     * * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
+     */
+    public /*out*/ readonly currentVersion!: pulumi.Output<string>;
+    /**
+     * Configuration block for specifying encryption. See below.
+     */
+    public readonly encryptionInfo!: pulumi.Output<{ encryptionAtRestKmsKeyArn: string, encryptionInTransit?: { clientBroker?: string, inCluster?: boolean } } | undefined>;
     /**
      * Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
      */
@@ -92,8 +106,12 @@ export class Cluster extends pulumi.CustomResource {
             const state = argsOrState as ClusterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["bootstrapBrokers"] = state ? state.bootstrapBrokers : undefined;
+            inputs["bootstrapBrokersTls"] = state ? state.bootstrapBrokersTls : undefined;
             inputs["brokerNodeGroupInfo"] = state ? state.brokerNodeGroupInfo : undefined;
+            inputs["clientAuthentication"] = state ? state.clientAuthentication : undefined;
             inputs["clusterName"] = state ? state.clusterName : undefined;
+            inputs["configurationInfo"] = state ? state.configurationInfo : undefined;
+            inputs["currentVersion"] = state ? state.currentVersion : undefined;
             inputs["encryptionInfo"] = state ? state.encryptionInfo : undefined;
             inputs["enhancedMonitoring"] = state ? state.enhancedMonitoring : undefined;
             inputs["kafkaVersion"] = state ? state.kafkaVersion : undefined;
@@ -115,7 +133,9 @@ export class Cluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'numberOfBrokerNodes'");
             }
             inputs["brokerNodeGroupInfo"] = args ? args.brokerNodeGroupInfo : undefined;
+            inputs["clientAuthentication"] = args ? args.clientAuthentication : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
+            inputs["configurationInfo"] = args ? args.configurationInfo : undefined;
             inputs["encryptionInfo"] = args ? args.encryptionInfo : undefined;
             inputs["enhancedMonitoring"] = args ? args.enhancedMonitoring : undefined;
             inputs["kafkaVersion"] = args ? args.kafkaVersion : undefined;
@@ -123,6 +143,8 @@ export class Cluster extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["bootstrapBrokers"] = undefined /*out*/;
+            inputs["bootstrapBrokersTls"] = undefined /*out*/;
+            inputs["currentVersion"] = undefined /*out*/;
             inputs["zookeeperConnectString"] = undefined /*out*/;
         }
         super(Cluster.__pulumiType, name, inputs, opts);
@@ -134,26 +156,42 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterState {
     /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
+     * Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
      */
     readonly arn?: pulumi.Input<string>;
     /**
      * A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster.
-     * * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
      */
     readonly bootstrapBrokers?: pulumi.Input<string>;
     /**
-     * Nested data for configuring the broker nodes of the Kafka cluster.
+     * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster.
+     */
+    readonly bootstrapBrokersTls?: pulumi.Input<string>;
+    /**
+     * Configuration block for the broker nodes of the Kafka cluster.
      */
     readonly brokerNodeGroupInfo?: pulumi.Input<{ azDistribution?: pulumi.Input<string>, clientSubnets: pulumi.Input<pulumi.Input<string>[]>, ebsVolumeSize: pulumi.Input<number>, instanceType: pulumi.Input<string>, securityGroups: pulumi.Input<pulumi.Input<string>[]> }>;
+    /**
+     * Configuration block for specifying a client authentication. See below.
+     */
+    readonly clientAuthentication?: pulumi.Input<{ tls?: pulumi.Input<{ certificateAuthorityArns?: pulumi.Input<pulumi.Input<string>[]> }> }>;
     /**
      * Name of the MSK cluster.
      */
     readonly clusterName?: pulumi.Input<string>;
     /**
-     * Nested data for specifying encryption at rest info.  See below.
+     * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      */
-    readonly encryptionInfo?: pulumi.Input<{ encryptionAtRestKmsKeyArn?: pulumi.Input<string> }>;
+    readonly configurationInfo?: pulumi.Input<{ arn: pulumi.Input<string>, revision: pulumi.Input<number> }>;
+    /**
+     * Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
+     * * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
+     */
+    readonly currentVersion?: pulumi.Input<string>;
+    /**
+     * Configuration block for specifying encryption. See below.
+     */
+    readonly encryptionInfo?: pulumi.Input<{ encryptionAtRestKmsKeyArn?: pulumi.Input<string>, encryptionInTransit?: pulumi.Input<{ clientBroker?: pulumi.Input<string>, inCluster?: pulumi.Input<boolean> }> }>;
     /**
      * Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
      */
@@ -181,17 +219,25 @@ export interface ClusterState {
  */
 export interface ClusterArgs {
     /**
-     * Nested data for configuring the broker nodes of the Kafka cluster.
+     * Configuration block for the broker nodes of the Kafka cluster.
      */
     readonly brokerNodeGroupInfo: pulumi.Input<{ azDistribution?: pulumi.Input<string>, clientSubnets: pulumi.Input<pulumi.Input<string>[]>, ebsVolumeSize: pulumi.Input<number>, instanceType: pulumi.Input<string>, securityGroups: pulumi.Input<pulumi.Input<string>[]> }>;
+    /**
+     * Configuration block for specifying a client authentication. See below.
+     */
+    readonly clientAuthentication?: pulumi.Input<{ tls?: pulumi.Input<{ certificateAuthorityArns?: pulumi.Input<pulumi.Input<string>[]> }> }>;
     /**
      * Name of the MSK cluster.
      */
     readonly clusterName: pulumi.Input<string>;
     /**
-     * Nested data for specifying encryption at rest info.  See below.
+     * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      */
-    readonly encryptionInfo?: pulumi.Input<{ encryptionAtRestKmsKeyArn?: pulumi.Input<string> }>;
+    readonly configurationInfo?: pulumi.Input<{ arn: pulumi.Input<string>, revision: pulumi.Input<number> }>;
+    /**
+     * Configuration block for specifying encryption. See below.
+     */
+    readonly encryptionInfo?: pulumi.Input<{ encryptionAtRestKmsKeyArn?: pulumi.Input<string>, encryptionInTransit?: pulumi.Input<{ clientBroker?: pulumi.Input<string>, inCluster?: pulumi.Input<boolean> }> }>;
     /**
      * Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
      */

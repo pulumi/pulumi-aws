@@ -51,7 +51,7 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
     }
 
     /**
-     * The name or description of the SizeConstraintSet.
+     * The name or description of the SQL Injection Match Set.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -87,7 +87,7 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
  */
 export interface SqlInjectionMatchSetState {
     /**
-     * The name or description of the SizeConstraintSet.
+     * The name or description of the SQL Injection Match Set.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -101,7 +101,7 @@ export interface SqlInjectionMatchSetState {
  */
 export interface SqlInjectionMatchSetArgs {
     /**
-     * The name or description of the SizeConstraintSet.
+     * The name or description of the SQL Injection Match Set.
      */
     readonly name?: pulumi.Input<string>;
     /**

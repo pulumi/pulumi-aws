@@ -22,9 +22,11 @@ func NewWebhook(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["branchFilter"] = nil
+		inputs["filterGroups"] = nil
 		inputs["projectName"] = nil
 	} else {
 		inputs["branchFilter"] = args.BranchFilter
+		inputs["filterGroups"] = args.FilterGroups
 		inputs["projectName"] = args.ProjectName
 	}
 	inputs["payloadUrl"] = nil
@@ -44,6 +46,7 @@ func GetWebhook(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["branchFilter"] = state.BranchFilter
+		inputs["filterGroups"] = state.FilterGroups
 		inputs["payloadUrl"] = state.PayloadUrl
 		inputs["projectName"] = state.ProjectName
 		inputs["secret"] = state.Secret
@@ -66,9 +69,14 @@ func (r *Webhook) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// A regular expression used to determine which branches get built. Default is all branches are built.
+// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
 func (r *Webhook) BranchFilter() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["branchFilter"])
+}
+
+// Information about the webhook's trigger. Filter group blocks are documented below.
+func (r *Webhook) FilterGroups() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["filterGroups"])
 }
 
 // The CodeBuild endpoint where webhook events are sent.
@@ -93,8 +101,10 @@ func (r *Webhook) Url() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Webhook resources.
 type WebhookState struct {
-	// A regular expression used to determine which branches get built. Default is all branches are built.
+	// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
 	BranchFilter interface{}
+	// Information about the webhook's trigger. Filter group blocks are documented below.
+	FilterGroups interface{}
 	// The CodeBuild endpoint where webhook events are sent.
 	PayloadUrl interface{}
 	// The name of the build project.
@@ -107,8 +117,10 @@ type WebhookState struct {
 
 // The set of arguments for constructing a Webhook resource.
 type WebhookArgs struct {
-	// A regular expression used to determine which branches get built. Default is all branches are built.
+	// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
 	BranchFilter interface{}
+	// Information about the webhook's trigger. Filter group blocks are documented below.
+	FilterGroups interface{}
 	// The name of the build project.
 	ProjectName interface{}
 }

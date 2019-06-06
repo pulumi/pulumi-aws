@@ -11,7 +11,7 @@ from .. import utilities, tables
 class SqlInjectionMatchSet(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
-    The name or description of the SizeConstraintSet.
+    The name or description of the SQL Injection Match Set.
     """
     sql_injection_match_tuples: pulumi.Output[list]
     """
@@ -23,7 +23,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name or description of the SizeConstraintSet.
+        :param pulumi.Input[str] name: The name or description of the SQL Injection Match Set.
         :param pulumi.Input[list] sql_injection_match_tuples: The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
         """
         if __name__ is not None:

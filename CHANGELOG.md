@@ -2,9 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add TypeScript type guards for each resource class ([7ace3e9b5f](https://github.com/pulumi/pulumi-terraform/commit/7ace3e9b5f2dcd4692b029ba4b80360582d7949a))
+_(none)_
 
 ---
+
+## 0.18.8 (2019-06-06)
+* Add TypeScript type guards for each resource class ([7ace3e9b5f](https://github.com/pulumi/pulumi-terraform/commit/7ace3e9b5f2dcd4692b029ba4b80360582d7949a))
+* Update to v2.14.0 of the AWS Terraform provider
 
 ## 0.18.7 (2019-05-31)
 * Add an enumeration for SSM Parameter Types
