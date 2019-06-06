@@ -56,7 +56,7 @@ func (r *SqlInjectionMatchSet) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The name or description of the SizeConstraintSet.
+// The name or description of the SQL Injection Match Set.
 func (r *SqlInjectionMatchSet) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -68,7 +68,7 @@ func (r *SqlInjectionMatchSet) SqlInjectionMatchTuples() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering SqlInjectionMatchSet resources.
 type SqlInjectionMatchSetState struct {
-	// The name or description of the SizeConstraintSet.
+	// The name or description of the SQL Injection Match Set.
 	Name interface{}
 	// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
 	SqlInjectionMatchTuples interface{}
@@ -76,7 +76,7 @@ type SqlInjectionMatchSetState struct {
 
 // The set of arguments for constructing a SqlInjectionMatchSet resource.
 type SqlInjectionMatchSetArgs struct {
-	// The name or description of the SizeConstraintSet.
+	// The name or description of the SQL Injection Match Set.
 	Name interface{}
 	// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
 	SqlInjectionMatchTuples interface{}

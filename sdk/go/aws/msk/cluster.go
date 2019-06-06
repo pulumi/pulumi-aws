@@ -9,8 +9,6 @@ import (
 )
 
 // Manages AWS Managed Streaming for Kafka cluster
-// 
-// > **NOTE:** This AWS service is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between Terraform AWS Provider releases.
 type Cluster struct {
 	s *pulumi.ResourceState
 }
@@ -33,7 +31,9 @@ func NewCluster(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["brokerNodeGroupInfo"] = nil
+		inputs["clientAuthentication"] = nil
 		inputs["clusterName"] = nil
+		inputs["configurationInfo"] = nil
 		inputs["encryptionInfo"] = nil
 		inputs["enhancedMonitoring"] = nil
 		inputs["kafkaVersion"] = nil
@@ -41,7 +41,9 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["tags"] = nil
 	} else {
 		inputs["brokerNodeGroupInfo"] = args.BrokerNodeGroupInfo
+		inputs["clientAuthentication"] = args.ClientAuthentication
 		inputs["clusterName"] = args.ClusterName
+		inputs["configurationInfo"] = args.ConfigurationInfo
 		inputs["encryptionInfo"] = args.EncryptionInfo
 		inputs["enhancedMonitoring"] = args.EnhancedMonitoring
 		inputs["kafkaVersion"] = args.KafkaVersion
@@ -50,6 +52,8 @@ func NewCluster(ctx *pulumi.Context,
 	}
 	inputs["arn"] = nil
 	inputs["bootstrapBrokers"] = nil
+	inputs["bootstrapBrokersTls"] = nil
+	inputs["currentVersion"] = nil
 	inputs["zookeeperConnectString"] = nil
 	s, err := ctx.RegisterResource("aws:msk/cluster:Cluster", name, true, inputs, opts...)
 	if err != nil {
@@ -66,8 +70,12 @@ func GetCluster(ctx *pulumi.Context,
 	if state != nil {
 		inputs["arn"] = state.Arn
 		inputs["bootstrapBrokers"] = state.BootstrapBrokers
+		inputs["bootstrapBrokersTls"] = state.BootstrapBrokersTls
 		inputs["brokerNodeGroupInfo"] = state.BrokerNodeGroupInfo
+		inputs["clientAuthentication"] = state.ClientAuthentication
 		inputs["clusterName"] = state.ClusterName
+		inputs["configurationInfo"] = state.ConfigurationInfo
+		inputs["currentVersion"] = state.CurrentVersion
 		inputs["encryptionInfo"] = state.EncryptionInfo
 		inputs["enhancedMonitoring"] = state.EnhancedMonitoring
 		inputs["kafkaVersion"] = state.KafkaVersion
@@ -92,20 +100,29 @@ func (r *Cluster) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Amazon Resource Name (ARN) of the MSK cluster.
+// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
 func (r *Cluster) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster.
-// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
 func (r *Cluster) BootstrapBrokers() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["bootstrapBrokers"])
 }
 
-// Nested data for configuring the broker nodes of the Kafka cluster.
+// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster.
+func (r *Cluster) BootstrapBrokersTls() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["bootstrapBrokersTls"])
+}
+
+// Configuration block for the broker nodes of the Kafka cluster.
 func (r *Cluster) BrokerNodeGroupInfo() *pulumi.Output {
 	return r.s.State["brokerNodeGroupInfo"]
+}
+
+// Configuration block for specifying a client authentication. See below.
+func (r *Cluster) ClientAuthentication() *pulumi.Output {
+	return r.s.State["clientAuthentication"]
 }
 
 // Name of the MSK cluster.
@@ -113,7 +130,18 @@ func (r *Cluster) ClusterName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterName"])
 }
 
-// Nested data for specifying encryption at rest info.  See below.
+// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+func (r *Cluster) ConfigurationInfo() *pulumi.Output {
+	return r.s.State["configurationInfo"]
+}
+
+// Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
+// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
+func (r *Cluster) CurrentVersion() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["currentVersion"])
+}
+
+// Configuration block for specifying encryption. See below.
 func (r *Cluster) EncryptionInfo() *pulumi.Output {
 	return r.s.State["encryptionInfo"]
 }
@@ -145,16 +173,24 @@ func (r *Cluster) ZookeeperConnectString() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Cluster resources.
 type ClusterState struct {
-	// Amazon Resource Name (ARN) of the MSK cluster.
+	// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
 	Arn interface{}
 	// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster.
-	// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
 	BootstrapBrokers interface{}
-	// Nested data for configuring the broker nodes of the Kafka cluster.
+	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster.
+	BootstrapBrokersTls interface{}
+	// Configuration block for the broker nodes of the Kafka cluster.
 	BrokerNodeGroupInfo interface{}
+	// Configuration block for specifying a client authentication. See below.
+	ClientAuthentication interface{}
 	// Name of the MSK cluster.
 	ClusterName interface{}
-	// Nested data for specifying encryption at rest info.  See below.
+	// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+	ConfigurationInfo interface{}
+	// Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
+	// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
+	CurrentVersion interface{}
+	// Configuration block for specifying encryption. See below.
 	EncryptionInfo interface{}
 	// Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
 	EnhancedMonitoring interface{}
@@ -170,11 +206,15 @@ type ClusterState struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// Nested data for configuring the broker nodes of the Kafka cluster.
+	// Configuration block for the broker nodes of the Kafka cluster.
 	BrokerNodeGroupInfo interface{}
+	// Configuration block for specifying a client authentication. See below.
+	ClientAuthentication interface{}
 	// Name of the MSK cluster.
 	ClusterName interface{}
-	// Nested data for specifying encryption at rest info.  See below.
+	// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+	ConfigurationInfo interface{}
+	// Configuration block for specifying encryption. See below.
 	EncryptionInfo interface{}
 	// Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
 	EnhancedMonitoring interface{}

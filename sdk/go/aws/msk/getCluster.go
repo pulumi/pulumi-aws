@@ -21,6 +21,7 @@ func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult
 	return &GetClusterResult{
 		Arn: outputs["arn"],
 		BootstrapBrokers: outputs["bootstrapBrokers"],
+		BootstrapBrokersTls: outputs["bootstrapBrokersTls"],
 		ClusterName: outputs["clusterName"],
 		KafkaVersion: outputs["kafkaVersion"],
 		NumberOfBrokerNodes: outputs["numberOfBrokerNodes"],
@@ -43,6 +44,8 @@ type GetClusterResult struct {
 	Arn interface{}
 	// A comma separated list of one or more hostname:port pairs of Kafka brokers suitable to boostrap connectivity to the Kafka cluster.
 	BootstrapBrokers interface{}
+	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster.
+	BootstrapBrokersTls interface{}
 	ClusterName interface{}
 	// Apache Kafka version.
 	KafkaVersion interface{}

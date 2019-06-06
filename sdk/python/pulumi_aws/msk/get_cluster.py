@@ -12,7 +12,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, bootstrap_brokers=None, cluster_name=None, kafka_version=None, number_of_broker_nodes=None, tags=None, zookeeper_connect_string=None, id=None):
+    def __init__(__self__, arn=None, bootstrap_brokers=None, bootstrap_brokers_tls=None, cluster_name=None, kafka_version=None, number_of_broker_nodes=None, tags=None, zookeeper_connect_string=None, id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -24,6 +24,12 @@ class GetClusterResult:
         __self__.bootstrap_brokers = bootstrap_brokers
         """
         A comma separated list of one or more hostname:port pairs of Kafka brokers suitable to boostrap connectivity to the Kafka cluster.
+        """
+        if bootstrap_brokers_tls and not isinstance(bootstrap_brokers_tls, str):
+            raise TypeError("Expected argument 'bootstrap_brokers_tls' to be a str")
+        __self__.bootstrap_brokers_tls = bootstrap_brokers_tls
+        """
+        A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster.
         """
         if cluster_name and not isinstance(cluster_name, str):
             raise TypeError("Expected argument 'cluster_name' to be a str")
@@ -72,6 +78,7 @@ async def get_cluster(cluster_name=None,tags=None,opts=None):
     return GetClusterResult(
         arn=__ret__.get('arn'),
         bootstrap_brokers=__ret__.get('bootstrapBrokers'),
+        bootstrap_brokers_tls=__ret__.get('bootstrapBrokersTls'),
         cluster_name=__ret__.get('clusterName'),
         kafka_version=__ret__.get('kafkaVersion'),
         number_of_broker_nodes=__ret__.get('numberOfBrokerNodes'),

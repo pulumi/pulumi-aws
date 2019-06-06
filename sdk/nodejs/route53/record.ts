@@ -82,6 +82,29 @@ import * as utilities from "../utilities";
  *     zoneId: aws_route53_zone_primary.zoneId,
  * });
  * ```
+ * 
+ * ### NS and SOA Record Management
+ * 
+ * When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allow_overwrite` argument will allow managing these records in a single Terraform run without the requirement for `terraform import`.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const exampleZone = new aws.route53.Zone("example", {});
+ * const exampleRecord = new aws.route53.Record("example", {
+ *     allowOverwrite: true,
+ *     records: [
+ *         exampleZone.nameServers[0],
+ *         exampleZone.nameServers[1],
+ *         exampleZone.nameServers[2],
+ *         exampleZone.nameServers[3],
+ *     ],
+ *     ttl: 30,
+ *     type: "NS",
+ *     zoneId: exampleZone.zoneId,
+ * });
+ * ```
  */
 export class Record extends pulumi.CustomResource {
     /**

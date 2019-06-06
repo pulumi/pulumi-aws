@@ -22,6 +22,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const example = new aws.codebuild.Webhook("example", {
+ *     filterGroups: [{
+ *         filters: [
+ *             {
+ *                 pattern: "PUSH",
+ *                 type: "EVENT",
+ *             },
+ *             {
+ *                 pattern: "master",
+ *                 type: "HEAD_REF",
+ *             },
+ *         ],
+ *     }],
  *     projectName: aws_codebuild_project_example.name,
  * });
  * ```
@@ -54,9 +66,13 @@ export class Webhook extends pulumi.CustomResource {
     }
 
     /**
-     * A regular expression used to determine which branches get built. Default is all branches are built.
+     * A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
      */
     public readonly branchFilter!: pulumi.Output<string | undefined>;
+    /**
+     * Information about the webhook's trigger. Filter group blocks are documented below.
+     */
+    public readonly filterGroups!: pulumi.Output<{ filters?: { excludeMatchedPattern?: boolean, pattern: string, type: string }[] }[] | undefined>;
     /**
      * The CodeBuild endpoint where webhook events are sent.
      */
@@ -87,6 +103,7 @@ export class Webhook extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as WebhookState | undefined;
             inputs["branchFilter"] = state ? state.branchFilter : undefined;
+            inputs["filterGroups"] = state ? state.filterGroups : undefined;
             inputs["payloadUrl"] = state ? state.payloadUrl : undefined;
             inputs["projectName"] = state ? state.projectName : undefined;
             inputs["secret"] = state ? state.secret : undefined;
@@ -97,6 +114,7 @@ export class Webhook extends pulumi.CustomResource {
                 throw new Error("Missing required property 'projectName'");
             }
             inputs["branchFilter"] = args ? args.branchFilter : undefined;
+            inputs["filterGroups"] = args ? args.filterGroups : undefined;
             inputs["projectName"] = args ? args.projectName : undefined;
             inputs["payloadUrl"] = undefined /*out*/;
             inputs["secret"] = undefined /*out*/;
@@ -111,9 +129,13 @@ export class Webhook extends pulumi.CustomResource {
  */
 export interface WebhookState {
     /**
-     * A regular expression used to determine which branches get built. Default is all branches are built.
+     * A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
      */
     readonly branchFilter?: pulumi.Input<string>;
+    /**
+     * Information about the webhook's trigger. Filter group blocks are documented below.
+     */
+    readonly filterGroups?: pulumi.Input<pulumi.Input<{ filters?: pulumi.Input<pulumi.Input<{ excludeMatchedPattern?: pulumi.Input<boolean>, pattern: pulumi.Input<string>, type: pulumi.Input<string> }>[]> }>[]>;
     /**
      * The CodeBuild endpoint where webhook events are sent.
      */
@@ -137,9 +159,13 @@ export interface WebhookState {
  */
 export interface WebhookArgs {
     /**
-     * A regular expression used to determine which branches get built. Default is all branches are built.
+     * A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
      */
     readonly branchFilter?: pulumi.Input<string>;
+    /**
+     * Information about the webhook's trigger. Filter group blocks are documented below.
+     */
+    readonly filterGroups?: pulumi.Input<pulumi.Input<{ filters?: pulumi.Input<pulumi.Input<{ excludeMatchedPattern?: pulumi.Input<boolean>, pattern: pulumi.Input<string>, type: pulumi.Input<string> }>[]> }>[]>;
     /**
      * The name of the build project.
      */

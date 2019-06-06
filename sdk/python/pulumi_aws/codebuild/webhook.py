@@ -11,7 +11,11 @@ from .. import utilities, tables
 class Webhook(pulumi.CustomResource):
     branch_filter: pulumi.Output[str]
     """
-    A regular expression used to determine which branches get built. Default is all branches are built.
+    A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
+    """
+    filter_groups: pulumi.Output[list]
+    """
+    Information about the webhook's trigger. Filter group blocks are documented below.
     """
     payload_url: pulumi.Output[str]
     """
@@ -29,13 +33,14 @@ class Webhook(pulumi.CustomResource):
     """
     The URL to the webhook.
     """
-    def __init__(__self__, resource_name, opts=None, branch_filter=None, project_name=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, branch_filter=None, filter_groups=None, project_name=None, __name__=None, __opts__=None):
         """
         Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] branch_filter: A regular expression used to determine which branches get built. Default is all branches are built.
+        :param pulumi.Input[str] branch_filter: A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
+        :param pulumi.Input[list] filter_groups: Information about the webhook's trigger. Filter group blocks are documented below.
         :param pulumi.Input[str] project_name: The name of the build project.
         """
         if __name__ is not None:
@@ -54,6 +59,8 @@ class Webhook(pulumi.CustomResource):
         __props__ = dict()
 
         __props__['branch_filter'] = branch_filter
+
+        __props__['filter_groups'] = filter_groups
 
         if project_name is None:
             raise TypeError("Missing required property 'project_name'")

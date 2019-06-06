@@ -48,6 +48,10 @@ export interface GetClusterResult {
      * A comma separated list of one or more hostname:port pairs of Kafka brokers suitable to boostrap connectivity to the Kafka cluster.
      */
     readonly bootstrapBrokers: string;
+    /**
+     * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster.
+     */
+    readonly bootstrapBrokersTls: string;
     readonly clusterName: string;
     /**
      * Apache Kafka version.
