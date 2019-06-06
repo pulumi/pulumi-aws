@@ -86,6 +86,20 @@ export class CatalogTable extends pulumi.CustomResource {
         return new CatalogTable(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:glue/catalogTable:CatalogTable';
+
+    /**
+     * Returns true if the given object is an instance of CatalogTable.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is CatalogTable {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === CatalogTable.__pulumiType;
+    }
+
     /**
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      */
@@ -177,7 +191,7 @@ export class CatalogTable extends pulumi.CustomResource {
             inputs["viewExpandedText"] = args ? args.viewExpandedText : undefined;
             inputs["viewOriginalText"] = args ? args.viewOriginalText : undefined;
         }
-        super("aws:glue/catalogTable:CatalogTable", name, inputs, opts);
+        super(CatalogTable.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -248,6 +248,20 @@ export class BucketNotification extends pulumi.CustomResource {
         return new BucketNotification(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:s3/bucketNotification:BucketNotification';
+
+    /**
+     * Returns true if the given object is an instance of BucketNotification.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is BucketNotification {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === BucketNotification.__pulumiType;
+    }
+
     /**
      * The name of the bucket to put notification configuration.
      */
@@ -291,7 +305,7 @@ export class BucketNotification extends pulumi.CustomResource {
             inputs["queues"] = args ? args.queues : undefined;
             inputs["topics"] = args ? args.topics : undefined;
         }
-        super("aws:s3/bucketNotification:BucketNotification", name, inputs, opts);
+        super(BucketNotification.__pulumiType, name, inputs, opts);
     }
 }
 

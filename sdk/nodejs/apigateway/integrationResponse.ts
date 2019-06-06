@@ -74,6 +74,20 @@ export class IntegrationResponse extends pulumi.CustomResource {
         return new IntegrationResponse(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:apigateway/integrationResponse:IntegrationResponse';
+
+    /**
+     * Returns true if the given object is an instance of IntegrationResponse.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is IntegrationResponse {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === IntegrationResponse.__pulumiType;
+    }
+
     /**
      * Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
      */
@@ -154,7 +168,7 @@ export class IntegrationResponse extends pulumi.CustomResource {
             inputs["selectionPattern"] = args ? args.selectionPattern : undefined;
             inputs["statusCode"] = args ? args.statusCode : undefined;
         }
-        super("aws:apigateway/integrationResponse:IntegrationResponse", name, inputs, opts);
+        super(IntegrationResponse.__pulumiType, name, inputs, opts);
     }
 }
 

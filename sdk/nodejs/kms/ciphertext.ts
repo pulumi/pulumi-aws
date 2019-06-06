@@ -46,6 +46,20 @@ export class Ciphertext extends pulumi.CustomResource {
         return new Ciphertext(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:kms/ciphertext:Ciphertext';
+
+    /**
+     * Returns true if the given object is an instance of Ciphertext.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Ciphertext {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Ciphertext.__pulumiType;
+    }
+
     /**
      * Base64 encoded ciphertext
      */
@@ -92,7 +106,7 @@ export class Ciphertext extends pulumi.CustomResource {
             inputs["plaintext"] = args ? args.plaintext : undefined;
             inputs["ciphertextBlob"] = undefined /*out*/;
         }
-        super("aws:kms/ciphertext:Ciphertext", name, inputs, opts);
+        super(Ciphertext.__pulumiType, name, inputs, opts);
     }
 }
 

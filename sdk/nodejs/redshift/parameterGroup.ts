@@ -45,6 +45,20 @@ export class ParameterGroup extends pulumi.CustomResource {
         return new ParameterGroup(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:redshift/parameterGroup:ParameterGroup';
+
+    /**
+     * Returns true if the given object is an instance of ParameterGroup.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ParameterGroup {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ParameterGroup.__pulumiType;
+    }
+
     /**
      * The description of the Redshift parameter group. Defaults to "Managed by Terraform".
      */
@@ -88,7 +102,7 @@ export class ParameterGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
         }
-        super("aws:redshift/parameterGroup:ParameterGroup", name, inputs, opts);
+        super(ParameterGroup.__pulumiType, name, inputs, opts);
     }
 }
 

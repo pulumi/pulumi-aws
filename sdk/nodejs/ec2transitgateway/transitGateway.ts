@@ -33,6 +33,20 @@ export class TransitGateway extends pulumi.CustomResource {
         return new TransitGateway(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2transitgateway/transitGateway:TransitGateway';
+
+    /**
+     * Returns true if the given object is an instance of TransitGateway.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is TransitGateway {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === TransitGateway.__pulumiType;
+    }
+
     /**
      * Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
      */
@@ -121,7 +135,7 @@ export class TransitGateway extends pulumi.CustomResource {
             inputs["ownerId"] = undefined /*out*/;
             inputs["propagationDefaultRouteTableId"] = undefined /*out*/;
         }
-        super("aws:ec2transitgateway/transitGateway:TransitGateway", name, inputs, opts);
+        super(TransitGateway.__pulumiType, name, inputs, opts);
     }
 }
 

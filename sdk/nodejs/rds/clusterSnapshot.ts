@@ -32,6 +32,20 @@ export class ClusterSnapshot extends pulumi.CustomResource {
         return new ClusterSnapshot(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:rds/clusterSnapshot:ClusterSnapshot';
+
+    /**
+     * Returns true if the given object is an instance of ClusterSnapshot.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ClusterSnapshot {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ClusterSnapshot.__pulumiType;
+    }
+
     /**
      * Specifies the allocated storage size in gigabytes (GB).
      */
@@ -138,7 +152,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             inputs["storageEncrypted"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
-        super("aws:rds/clusterSnapshot:ClusterSnapshot", name, inputs, opts);
+        super(ClusterSnapshot.__pulumiType, name, inputs, opts);
     }
 }
 

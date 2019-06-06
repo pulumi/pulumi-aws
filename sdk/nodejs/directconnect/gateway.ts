@@ -31,6 +31,20 @@ export class Gateway extends pulumi.CustomResource {
         return new Gateway(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:directconnect/gateway:Gateway';
+
+    /**
+     * Returns true if the given object is an instance of Gateway.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Gateway {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Gateway.__pulumiType;
+    }
+
     /**
      * The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
      */
@@ -68,7 +82,7 @@ export class Gateway extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["ownerAccountId"] = undefined /*out*/;
         }
-        super("aws:directconnect/gateway:Gateway", name, inputs, opts);
+        super(Gateway.__pulumiType, name, inputs, opts);
     }
 }
 

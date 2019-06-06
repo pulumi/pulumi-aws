@@ -74,6 +74,20 @@ export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {
         return new LoadBalancerBackendServerPolicy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy';
+
+    /**
+     * Returns true if the given object is an instance of LoadBalancerBackendServerPolicy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is LoadBalancerBackendServerPolicy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === LoadBalancerBackendServerPolicy.__pulumiType;
+    }
+
     /**
      * The instance port to apply the policy to.
      */
@@ -114,7 +128,7 @@ export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {
             inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
             inputs["policyNames"] = args ? args.policyNames : undefined;
         }
-        super("aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy", name, inputs, opts);
+        super(LoadBalancerBackendServerPolicy.__pulumiType, name, inputs, opts);
     }
 }
 

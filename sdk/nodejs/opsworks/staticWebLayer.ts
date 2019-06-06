@@ -31,6 +31,20 @@ export class StaticWebLayer extends pulumi.CustomResource {
         return new StaticWebLayer(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:opsworks/staticWebLayer:StaticWebLayer';
+
+    /**
+     * Returns true if the given object is an instance of StaticWebLayer.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is StaticWebLayer {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === StaticWebLayer.__pulumiType;
+    }
+
     /**
      * Whether to automatically assign an elastic IP address to the layer's instances.
      */
@@ -152,7 +166,7 @@ export class StaticWebLayer extends pulumi.CustomResource {
             inputs["systemPackages"] = args ? args.systemPackages : undefined;
             inputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
         }
-        super("aws:opsworks/staticWebLayer:StaticWebLayer", name, inputs, opts);
+        super(StaticWebLayer.__pulumiType, name, inputs, opts);
     }
 }
 

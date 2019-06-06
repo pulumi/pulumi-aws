@@ -34,6 +34,20 @@ export class Cache extends pulumi.CustomResource {
         return new Cache(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:storagegateway/cache:Cache';
+
+    /**
+     * Returns true if the given object is an instance of Cache.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Cache {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Cache.__pulumiType;
+    }
+
     /**
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      */
@@ -68,7 +82,7 @@ export class Cache extends pulumi.CustomResource {
             inputs["diskId"] = args ? args.diskId : undefined;
             inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
         }
-        super("aws:storagegateway/cache:Cache", name, inputs, opts);
+        super(Cache.__pulumiType, name, inputs, opts);
     }
 }
 

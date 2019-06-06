@@ -142,6 +142,20 @@ export class Pipeline extends pulumi.CustomResource {
         return new Pipeline(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:codepipeline/pipeline:Pipeline';
+
+    /**
+     * Returns true if the given object is an instance of Pipeline.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Pipeline {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Pipeline.__pulumiType;
+    }
+
     /**
      * The codepipeline ARN.
      */
@@ -195,7 +209,7 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["stages"] = args ? args.stages : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:codepipeline/pipeline:Pipeline", name, inputs, opts);
+        super(Pipeline.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -92,6 +92,20 @@ export class SpotFleetRequest extends pulumi.CustomResource {
         return new SpotFleetRequest(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/spotFleetRequest:SpotFleetRequest';
+
+    /**
+     * Returns true if the given object is an instance of SpotFleetRequest.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SpotFleetRequest {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SpotFleetRequest.__pulumiType;
+    }
+
     /**
      * Indicates how to allocate the target capacity across
      * the Spot pools specified by the Spot fleet request. The default is
@@ -243,7 +257,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["clientToken"] = undefined /*out*/;
             inputs["spotRequestState"] = undefined /*out*/;
         }
-        super("aws:ec2/spotFleetRequest:SpotFleetRequest", name, inputs, opts);
+        super(SpotFleetRequest.__pulumiType, name, inputs, opts);
     }
 }
 

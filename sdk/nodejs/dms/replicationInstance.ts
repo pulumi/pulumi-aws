@@ -47,6 +47,20 @@ export class ReplicationInstance extends pulumi.CustomResource {
         return new ReplicationInstance(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:dms/replicationInstance:ReplicationInstance';
+
+    /**
+     * Returns true if the given object is an instance of ReplicationInstance.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ReplicationInstance {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ReplicationInstance.__pulumiType;
+    }
+
     /**
      * The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      */
@@ -171,7 +185,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
             inputs["replicationInstancePrivateIps"] = undefined /*out*/;
             inputs["replicationInstancePublicIps"] = undefined /*out*/;
         }
-        super("aws:dms/replicationInstance:ReplicationInstance", name, inputs, opts);
+        super(ReplicationInstance.__pulumiType, name, inputs, opts);
     }
 }
 

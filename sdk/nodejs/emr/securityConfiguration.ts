@@ -46,6 +46,20 @@ export class SecurityConfiguration extends pulumi.CustomResource {
         return new SecurityConfiguration(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:emr/securityConfiguration:SecurityConfiguration';
+
+    /**
+     * Returns true if the given object is an instance of SecurityConfiguration.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SecurityConfiguration {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SecurityConfiguration.__pulumiType;
+    }
+
     /**
      * A JSON formatted Security Configuration
      */
@@ -90,7 +104,7 @@ export class SecurityConfiguration extends pulumi.CustomResource {
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["creationDate"] = undefined /*out*/;
         }
-        super("aws:emr/securityConfiguration:SecurityConfiguration", name, inputs, opts);
+        super(SecurityConfiguration.__pulumiType, name, inputs, opts);
     }
 }
 

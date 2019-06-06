@@ -39,6 +39,20 @@ export class KeyPair extends pulumi.CustomResource {
         return new KeyPair(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/keyPair:KeyPair';
+
+    /**
+     * Returns true if the given object is an instance of KeyPair.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is KeyPair {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === KeyPair.__pulumiType;
+    }
+
     /**
      * The MD5 public key fingerprint as specified in section 4 of RFC 4716.
      */
@@ -82,7 +96,7 @@ export class KeyPair extends pulumi.CustomResource {
             inputs["publicKey"] = args ? args.publicKey : undefined;
             inputs["fingerprint"] = undefined /*out*/;
         }
-        super("aws:ec2/keyPair:KeyPair", name, inputs, opts);
+        super(KeyPair.__pulumiType, name, inputs, opts);
     }
 }
 

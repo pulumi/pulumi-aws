@@ -20,6 +20,20 @@ export class TaskDefinition extends pulumi.CustomResource {
         return new TaskDefinition(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ecs/taskDefinition:TaskDefinition';
+
+    /**
+     * Returns true if the given object is an instance of TaskDefinition.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is TaskDefinition {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === TaskDefinition.__pulumiType;
+    }
+
     /**
      * Full ARN of the Task Definition (including both `family` and `revision`).
      */
@@ -137,7 +151,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["revision"] = undefined /*out*/;
         }
-        super("aws:ecs/taskDefinition:TaskDefinition", name, inputs, opts);
+        super(TaskDefinition.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -40,6 +40,20 @@ export class GeoMatchSet extends pulumi.CustomResource {
         return new GeoMatchSet(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:wafregional/geoMatchSet:GeoMatchSet';
+
+    /**
+     * Returns true if the given object is an instance of GeoMatchSet.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is GeoMatchSet {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === GeoMatchSet.__pulumiType;
+    }
+
     /**
      * The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
      */
@@ -68,7 +82,7 @@ export class GeoMatchSet extends pulumi.CustomResource {
             inputs["geoMatchConstraints"] = args ? args.geoMatchConstraints : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        super("aws:wafregional/geoMatchSet:GeoMatchSet", name, inputs, opts);
+        super(GeoMatchSet.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -49,6 +49,20 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
         return new VpnConnectionRoute(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/vpnConnectionRoute:VpnConnectionRoute';
+
+    /**
+     * Returns true if the given object is an instance of VpnConnectionRoute.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VpnConnectionRoute {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VpnConnectionRoute.__pulumiType;
+    }
+
     /**
      * The CIDR block associated with the local subnet of the customer network.
      */
@@ -83,7 +97,7 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
             inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
             inputs["vpnConnectionId"] = args ? args.vpnConnectionId : undefined;
         }
-        super("aws:ec2/vpnConnectionRoute:VpnConnectionRoute", name, inputs, opts);
+        super(VpnConnectionRoute.__pulumiType, name, inputs, opts);
     }
 }
 

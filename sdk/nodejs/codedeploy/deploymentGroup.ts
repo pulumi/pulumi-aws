@@ -172,6 +172,20 @@ export class DeploymentGroup extends pulumi.CustomResource {
         return new DeploymentGroup(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:codedeploy/deploymentGroup:DeploymentGroup';
+
+    /**
+     * Returns true if the given object is an instance of DeploymentGroup.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is DeploymentGroup {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === DeploymentGroup.__pulumiType;
+    }
+
     /**
      * Configuration block of alarms associated with the deployment group (documented below).
      */
@@ -287,7 +301,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
             inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             inputs["triggerConfigurations"] = args ? args.triggerConfigurations : undefined;
         }
-        super("aws:codedeploy/deploymentGroup:DeploymentGroup", name, inputs, opts);
+        super(DeploymentGroup.__pulumiType, name, inputs, opts);
     }
 }
 

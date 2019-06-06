@@ -137,6 +137,20 @@ export class Trail extends pulumi.CustomResource {
         return new Trail(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cloudtrail/trail:Trail';
+
+    /**
+     * Returns true if the given object is an instance of Trail.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Trail {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Trail.__pulumiType;
+    }
+
     /**
      * The Amazon Resource Name of the trail.
      */
@@ -260,7 +274,7 @@ export class Trail extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["homeRegion"] = undefined /*out*/;
         }
-        super("aws:cloudtrail/trail:Trail", name, inputs, opts);
+        super(Trail.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -35,6 +35,20 @@ export class Plan extends pulumi.CustomResource {
         return new Plan(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:backup/plan:Plan';
+
+    /**
+     * Returns true if the given object is an instance of Plan.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Plan {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Plan.__pulumiType;
+    }
+
     /**
      * The ARN of the backup plan.
      */
@@ -84,7 +98,7 @@ export class Plan extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        super("aws:backup/plan:Plan", name, inputs, opts);
+        super(Plan.__pulumiType, name, inputs, opts);
     }
 }
 

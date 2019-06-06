@@ -89,6 +89,20 @@ export class Instance extends pulumi.CustomResource {
         return new Instance(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:opsworks/instance:Instance';
+
+    /**
+     * Returns true if the given object is an instance of Instance.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Instance {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Instance.__pulumiType;
+    }
+
     /**
      * The AWS OpsWorks agent to install.  Defaults to `"INHERIT"`.
      */
@@ -335,7 +349,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["virtualizationType"] = args ? args.virtualizationType : undefined;
             inputs["ec2InstanceId"] = undefined /*out*/;
         }
-        super("aws:opsworks/instance:Instance", name, inputs, opts);
+        super(Instance.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -34,6 +34,20 @@ export class StandardsSubscription extends pulumi.CustomResource {
         return new StandardsSubscription(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:securityhub/standardsSubscription:StandardsSubscription';
+
+    /**
+     * Returns true if the given object is an instance of StandardsSubscription.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is StandardsSubscription {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === StandardsSubscription.__pulumiType;
+    }
+
     /**
      * The ARN of a standard - see below.
      */
@@ -59,7 +73,7 @@ export class StandardsSubscription extends pulumi.CustomResource {
             }
             inputs["standardsArn"] = args ? args.standardsArn : undefined;
         }
-        super("aws:securityhub/standardsSubscription:StandardsSubscription", name, inputs, opts);
+        super(StandardsSubscription.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -29,6 +29,20 @@ export class Activity extends pulumi.CustomResource {
         return new Activity(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:sfn/activity:Activity';
+
+    /**
+     * Returns true if the given object is an instance of Activity.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Activity {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Activity.__pulumiType;
+    }
+
     /**
      * The date the activity was created.
      */
@@ -63,7 +77,7 @@ export class Activity extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["creationDate"] = undefined /*out*/;
         }
-        super("aws:sfn/activity:Activity", name, inputs, opts);
+        super(Activity.__pulumiType, name, inputs, opts);
     }
 }
 

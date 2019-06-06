@@ -36,6 +36,20 @@ export class Certificate extends pulumi.CustomResource {
         return new Certificate(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:dms/certificate:Certificate';
+
+    /**
+     * Returns true if the given object is an instance of Certificate.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Certificate {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Certificate.__pulumiType;
+    }
+
     /**
      * The Amazon Resource Name (ARN) for the certificate.
      */
@@ -79,7 +93,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["certificateWallet"] = args ? args.certificateWallet : undefined;
             inputs["certificateArn"] = undefined /*out*/;
         }
-        super("aws:dms/certificate:Certificate", name, inputs, opts);
+        super(Certificate.__pulumiType, name, inputs, opts);
     }
 }
 

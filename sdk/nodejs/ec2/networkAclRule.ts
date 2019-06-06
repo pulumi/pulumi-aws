@@ -50,6 +50,20 @@ export class NetworkAclRule extends pulumi.CustomResource {
         return new NetworkAclRule(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/networkAclRule:NetworkAclRule';
+
+    /**
+     * Returns true if the given object is an instance of NetworkAclRule.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NetworkAclRule {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NetworkAclRule.__pulumiType;
+    }
+
     /**
      * The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
      */
@@ -144,7 +158,7 @@ export class NetworkAclRule extends pulumi.CustomResource {
             inputs["ruleNumber"] = args ? args.ruleNumber : undefined;
             inputs["toPort"] = args ? args.toPort : undefined;
         }
-        super("aws:ec2/networkAclRule:NetworkAclRule", name, inputs, opts);
+        super(NetworkAclRule.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -68,6 +68,20 @@ export class TargetGroup extends pulumi.CustomResource {
         return new TargetGroup(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:elasticloadbalancingv2/targetGroup:TargetGroup';
+
+    /**
+     * Returns true if the given object is an instance of TargetGroup.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is TargetGroup {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === TargetGroup.__pulumiType;
+    }
+
     /**
      * The ARN of the Target Group (matches `id`)
      */
@@ -179,7 +193,7 @@ export class TargetGroup extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["arnSuffix"] = undefined /*out*/;
         }
-        super("aws:elasticloadbalancingv2/targetGroup:TargetGroup", name, inputs, opts);
+        super(TargetGroup.__pulumiType, name, inputs, opts);
     }
 }
 

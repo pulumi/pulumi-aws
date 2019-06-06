@@ -40,6 +40,20 @@ export class AccountPasswordPolicy extends pulumi.CustomResource {
         return new AccountPasswordPolicy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:iam/accountPasswordPolicy:AccountPasswordPolicy';
+
+    /**
+     * Returns true if the given object is an instance of AccountPasswordPolicy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AccountPasswordPolicy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AccountPasswordPolicy.__pulumiType;
+    }
+
     /**
      * Whether to allow users to change their own password
      */
@@ -119,7 +133,7 @@ export class AccountPasswordPolicy extends pulumi.CustomResource {
             inputs["requireUppercaseCharacters"] = args ? args.requireUppercaseCharacters : undefined;
             inputs["expirePasswords"] = undefined /*out*/;
         }
-        super("aws:iam/accountPasswordPolicy:AccountPasswordPolicy", name, inputs, opts);
+        super(AccountPasswordPolicy.__pulumiType, name, inputs, opts);
     }
 }
 

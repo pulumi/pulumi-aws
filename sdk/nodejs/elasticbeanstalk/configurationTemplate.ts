@@ -46,6 +46,20 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
         return new ConfigurationTemplate(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate';
+
+    /**
+     * Returns true if the given object is an instance of ConfigurationTemplate.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ConfigurationTemplate {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ConfigurationTemplate.__pulumiType;
+    }
+
     /**
      * name of the application to associate with this configuration template
      */
@@ -104,7 +118,7 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
             inputs["settings"] = args ? args.settings : undefined;
             inputs["solutionStackName"] = args ? args.solutionStackName : undefined;
         }
-        super("aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate", name, inputs, opts);
+        super(ConfigurationTemplate.__pulumiType, name, inputs, opts);
     }
 }
 

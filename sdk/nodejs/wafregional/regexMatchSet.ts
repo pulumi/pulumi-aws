@@ -44,6 +44,20 @@ export class RegexMatchSet extends pulumi.CustomResource {
         return new RegexMatchSet(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:wafregional/regexMatchSet:RegexMatchSet';
+
+    /**
+     * Returns true if the given object is an instance of RegexMatchSet.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is RegexMatchSet {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === RegexMatchSet.__pulumiType;
+    }
+
     /**
      * The name or description of the Regex Match Set.
      */
@@ -73,7 +87,7 @@ export class RegexMatchSet extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["regexMatchTuples"] = args ? args.regexMatchTuples : undefined;
         }
-        super("aws:wafregional/regexMatchSet:RegexMatchSet", name, inputs, opts);
+        super(RegexMatchSet.__pulumiType, name, inputs, opts);
     }
 }
 

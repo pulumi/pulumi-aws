@@ -33,6 +33,20 @@ export class Account extends pulumi.CustomResource {
         return new Account(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:securityhub/account:Account';
+
+    /**
+     * Returns true if the given object is an instance of Account.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Account {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Account.__pulumiType;
+    }
+
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -49,7 +63,7 @@ export class Account extends pulumi.CustomResource {
         } else {
             const args = argsOrState as AccountArgs | undefined;
         }
-        super("aws:securityhub/account:Account", name, inputs, opts);
+        super(Account.__pulumiType, name, inputs, opts);
     }
 }
 

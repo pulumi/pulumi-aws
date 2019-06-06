@@ -44,6 +44,20 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
         return new DefaultVpcDhcpOptions(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions';
+
+    /**
+     * Returns true if the given object is an instance of DefaultVpcDhcpOptions.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is DefaultVpcDhcpOptions {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === DefaultVpcDhcpOptions.__pulumiType;
+    }
+
     public /*out*/ readonly domainName!: pulumi.Output<string>;
     public /*out*/ readonly domainNameServers!: pulumi.Output<string>;
     /**
@@ -93,7 +107,7 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
             inputs["ntpServers"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
-        super("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions", name, inputs, opts);
+        super(DefaultVpcDhcpOptions.__pulumiType, name, inputs, opts);
     }
 }
 

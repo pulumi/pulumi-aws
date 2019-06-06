@@ -74,6 +74,20 @@ export class MethodSettings extends pulumi.CustomResource {
         return new MethodSettings(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:apigateway/methodSettings:MethodSettings';
+
+    /**
+     * Returns true if the given object is an instance of MethodSettings.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is MethodSettings {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === MethodSettings.__pulumiType;
+    }
+
     /**
      * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage.
      */
@@ -126,7 +140,7 @@ export class MethodSettings extends pulumi.CustomResource {
             inputs["settings"] = args ? args.settings : undefined;
             inputs["stageName"] = args ? args.stageName : undefined;
         }
-        super("aws:apigateway/methodSettings:MethodSettings", name, inputs, opts);
+        super(MethodSettings.__pulumiType, name, inputs, opts);
     }
 }
 

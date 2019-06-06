@@ -72,6 +72,20 @@ export class Inventory extends pulumi.CustomResource {
         return new Inventory(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:s3/inventory:Inventory';
+
+    /**
+     * Returns true if the given object is an instance of Inventory.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Inventory {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Inventory.__pulumiType;
+    }
+
     /**
      * The S3 bucket configuration where inventory results are published (documented below).
      */
@@ -148,7 +162,7 @@ export class Inventory extends pulumi.CustomResource {
             inputs["optionalFields"] = args ? args.optionalFields : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
         }
-        super("aws:s3/inventory:Inventory", name, inputs, opts);
+        super(Inventory.__pulumiType, name, inputs, opts);
     }
 }
 

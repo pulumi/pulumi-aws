@@ -65,6 +65,20 @@ export class VaultLock extends pulumi.CustomResource {
         return new VaultLock(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:glacier/vaultLock:VaultLock';
+
+    /**
+     * Returns true if the given object is an instance of VaultLock.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VaultLock {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VaultLock.__pulumiType;
+    }
+
     /**
      * Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the Terraform resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
      */
@@ -114,7 +128,7 @@ export class VaultLock extends pulumi.CustomResource {
             inputs["policy"] = args ? args.policy : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
         }
-        super("aws:glacier/vaultLock:VaultLock", name, inputs, opts);
+        super(VaultLock.__pulumiType, name, inputs, opts);
     }
 }
 

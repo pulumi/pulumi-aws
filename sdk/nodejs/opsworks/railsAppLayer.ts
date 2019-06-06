@@ -31,6 +31,20 @@ export class RailsAppLayer extends pulumi.CustomResource {
         return new RailsAppLayer(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:opsworks/railsAppLayer:RailsAppLayer';
+
+    /**
+     * Returns true if the given object is an instance of RailsAppLayer.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is RailsAppLayer {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === RailsAppLayer.__pulumiType;
+    }
+
     /**
      * Keyword for the app server to use. Defaults to "apache_passenger".
      */
@@ -191,7 +205,7 @@ export class RailsAppLayer extends pulumi.CustomResource {
             inputs["systemPackages"] = args ? args.systemPackages : undefined;
             inputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
         }
-        super("aws:opsworks/railsAppLayer:RailsAppLayer", name, inputs, opts);
+        super(RailsAppLayer.__pulumiType, name, inputs, opts);
     }
 }
 

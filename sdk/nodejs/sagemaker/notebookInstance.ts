@@ -37,6 +37,20 @@ export class NotebookInstance extends pulumi.CustomResource {
         return new NotebookInstance(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:sagemaker/notebookInstance:NotebookInstance';
+
+    /**
+     * Returns true if the given object is an instance of NotebookInstance.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NotebookInstance {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NotebookInstance.__pulumiType;
+    }
+
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
      */
@@ -113,7 +127,7 @@ export class NotebookInstance extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:sagemaker/notebookInstance:NotebookInstance", name, inputs, opts);
+        super(NotebookInstance.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -42,6 +42,20 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
         return new AppCookieStickinessPolicy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy';
+
+    /**
+     * Returns true if the given object is an instance of AppCookieStickinessPolicy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AppCookieStickinessPolicy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AppCookieStickinessPolicy.__pulumiType;
+    }
+
     /**
      * The application cookie whose lifetime the ELB's cookie should follow.
      */
@@ -94,7 +108,7 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
             inputs["loadBalancer"] = args ? args.loadBalancer : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        super("aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy", name, inputs, opts);
+        super(AppCookieStickinessPolicy.__pulumiType, name, inputs, opts);
     }
 }
 

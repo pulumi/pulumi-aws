@@ -36,6 +36,20 @@ export class SshKey extends pulumi.CustomResource {
         return new SshKey(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:iam/sshKey:SshKey';
+
+    /**
+     * Returns true if the given object is an instance of SshKey.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SshKey {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SshKey.__pulumiType;
+    }
+
     /**
      * Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
      */
@@ -97,7 +111,7 @@ export class SshKey extends pulumi.CustomResource {
             inputs["fingerprint"] = undefined /*out*/;
             inputs["sshPublicKeyId"] = undefined /*out*/;
         }
-        super("aws:iam/sshKey:SshKey", name, inputs, opts);
+        super(SshKey.__pulumiType, name, inputs, opts);
     }
 }
 

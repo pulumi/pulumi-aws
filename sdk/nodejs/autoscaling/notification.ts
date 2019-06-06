@@ -50,6 +50,20 @@ export class Notification extends pulumi.CustomResource {
         return new Notification(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:autoscaling/notification:Notification';
+
+    /**
+     * Returns true if the given object is an instance of Notification.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Notification {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Notification.__pulumiType;
+    }
+
     /**
      * A list of AutoScaling Group Names
      */
@@ -94,7 +108,7 @@ export class Notification extends pulumi.CustomResource {
             inputs["notifications"] = args ? args.notifications : undefined;
             inputs["topicArn"] = args ? args.topicArn : undefined;
         }
-        super("aws:autoscaling/notification:Notification", name, inputs, opts);
+        super(Notification.__pulumiType, name, inputs, opts);
     }
 }
 

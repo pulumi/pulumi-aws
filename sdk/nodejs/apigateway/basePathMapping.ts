@@ -50,6 +50,20 @@ export class BasePathMapping extends pulumi.CustomResource {
         return new BasePathMapping(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:apigateway/basePathMapping:BasePathMapping';
+
+    /**
+     * Returns true if the given object is an instance of BasePathMapping.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is BasePathMapping {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === BasePathMapping.__pulumiType;
+    }
+
     /**
      * The id of the API to connect.
      */
@@ -96,7 +110,7 @@ export class BasePathMapping extends pulumi.CustomResource {
             inputs["domainName"] = args ? args.domainName : undefined;
             inputs["stageName"] = args ? args.stageName : undefined;
         }
-        super("aws:apigateway/basePathMapping:BasePathMapping", name, inputs, opts);
+        super(BasePathMapping.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -32,6 +32,20 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
         return new AmiLaunchPermission(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/amiLaunchPermission:AmiLaunchPermission';
+
+    /**
+     * Returns true if the given object is an instance of AmiLaunchPermission.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AmiLaunchPermission {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AmiLaunchPermission.__pulumiType;
+    }
+
     /**
      * An AWS Account ID to add launch permissions.
      */
@@ -66,7 +80,7 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
             inputs["accountId"] = args ? args.accountId : undefined;
             inputs["imageId"] = args ? args.imageId : undefined;
         }
-        super("aws:ec2/amiLaunchPermission:AmiLaunchPermission", name, inputs, opts);
+        super(AmiLaunchPermission.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -35,6 +35,20 @@ export class Alias extends pulumi.CustomResource {
         return new Alias(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:gamelift/alias:Alias';
+
+    /**
+     * Returns true if the given object is an instance of Alias.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Alias {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Alias.__pulumiType;
+    }
+
     /**
      * Alias ARN.
      */
@@ -78,7 +92,7 @@ export class Alias extends pulumi.CustomResource {
             inputs["routingStrategy"] = args ? args.routingStrategy : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:gamelift/alias:Alias", name, inputs, opts);
+        super(Alias.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -46,6 +46,20 @@ export class Listener extends pulumi.CustomResource {
         return new Listener(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:globalaccelerator/listener:Listener';
+
+    /**
+     * Returns true if the given object is an instance of Listener.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Listener {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Listener.__pulumiType;
+    }
+
     /**
      * The Amazon Resource Name (ARN) of your accelerator.
      */
@@ -95,7 +109,7 @@ export class Listener extends pulumi.CustomResource {
             inputs["portRanges"] = args ? args.portRanges : undefined;
             inputs["protocol"] = args ? args.protocol : undefined;
         }
-        super("aws:globalaccelerator/listener:Listener", name, inputs, opts);
+        super(Listener.__pulumiType, name, inputs, opts);
     }
 }
 

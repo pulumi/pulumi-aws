@@ -70,6 +70,20 @@ export class Rule extends pulumi.CustomResource {
         return new Rule(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cfg/rule:Rule';
+
+    /**
+     * Returns true if the given object is an instance of Rule.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Rule {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Rule.__pulumiType;
+    }
+
     /**
      * The ARN of the config rule
      */
@@ -139,7 +153,7 @@ export class Rule extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["ruleId"] = undefined /*out*/;
         }
-        super("aws:cfg/rule:Rule", name, inputs, opts);
+        super(Rule.__pulumiType, name, inputs, opts);
     }
 }
 

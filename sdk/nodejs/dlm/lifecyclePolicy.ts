@@ -96,6 +96,20 @@ export class LifecyclePolicy extends pulumi.CustomResource {
         return new LifecyclePolicy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:dlm/lifecyclePolicy:LifecyclePolicy';
+
+    /**
+     * Returns true if the given object is an instance of LifecyclePolicy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is LifecyclePolicy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === LifecyclePolicy.__pulumiType;
+    }
+
     /**
      * A description for the DLM lifecycle policy.
      */
@@ -145,7 +159,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
             inputs["policyDetails"] = args ? args.policyDetails : undefined;
             inputs["state"] = args ? args.state : undefined;
         }
-        super("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, inputs, opts);
+        super(LifecyclePolicy.__pulumiType, name, inputs, opts);
     }
 }
 

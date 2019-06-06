@@ -53,6 +53,20 @@ export class ResolverRule extends pulumi.CustomResource {
         return new ResolverRule(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:route53/resolverRule:ResolverRule';
+
+    /**
+     * Returns true if the given object is an instance of ResolverRule.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ResolverRule {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ResolverRule.__pulumiType;
+    }
+
     /**
      * The ARN (Amazon Resource Name) for the resolver rule.
      */
@@ -132,7 +146,7 @@ export class ResolverRule extends pulumi.CustomResource {
             inputs["ownerId"] = undefined /*out*/;
             inputs["shareStatus"] = undefined /*out*/;
         }
-        super("aws:route53/resolverRule:ResolverRule", name, inputs, opts);
+        super(ResolverRule.__pulumiType, name, inputs, opts);
     }
 }
 

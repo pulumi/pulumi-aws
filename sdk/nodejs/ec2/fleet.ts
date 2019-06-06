@@ -40,6 +40,20 @@ export class Fleet extends pulumi.CustomResource {
         return new Fleet(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/fleet:Fleet';
+
+    /**
+     * Returns true if the given object is an instance of Fleet.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Fleet {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Fleet.__pulumiType;
+    }
+
     /**
      * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
      */
@@ -122,7 +136,7 @@ export class Fleet extends pulumi.CustomResource {
             inputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        super("aws:ec2/fleet:Fleet", name, inputs, opts);
+        super(Fleet.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -38,6 +38,20 @@ export class Selection extends pulumi.CustomResource {
         return new Selection(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:backup/selection:Selection';
+
+    /**
+     * Returns true if the given object is an instance of Selection.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Selection {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Selection.__pulumiType;
+    }
+
     /**
      * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      */
@@ -90,7 +104,7 @@ export class Selection extends pulumi.CustomResource {
             inputs["resources"] = args ? args.resources : undefined;
             inputs["selectionTags"] = args ? args.selectionTags : undefined;
         }
-        super("aws:backup/selection:Selection", name, inputs, opts);
+        super(Selection.__pulumiType, name, inputs, opts);
     }
 }
 

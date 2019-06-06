@@ -92,6 +92,20 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
         return new OriginAccessIdentity(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:cloudfront/originAccessIdentity:OriginAccessIdentity';
+
+    /**
+     * Returns true if the given object is an instance of OriginAccessIdentity.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is OriginAccessIdentity {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === OriginAccessIdentity.__pulumiType;
+    }
+
     /**
      * Internal value used by CloudFront to allow future
      * updates to the origin access identity.
@@ -151,7 +165,7 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
             inputs["iamArn"] = undefined /*out*/;
             inputs["s3CanonicalUserId"] = undefined /*out*/;
         }
-        super("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", name, inputs, opts);
+        super(OriginAccessIdentity.__pulumiType, name, inputs, opts);
     }
 }
 

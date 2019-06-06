@@ -37,6 +37,20 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
         return new VpcDhcpOptionsAssociation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation';
+
+    /**
+     * Returns true if the given object is an instance of VpcDhcpOptionsAssociation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VpcDhcpOptionsAssociation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VpcDhcpOptionsAssociation.__pulumiType;
+    }
+
     /**
      * The ID of the DHCP Options Set to associate to the VPC.
      */
@@ -71,7 +85,7 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
             inputs["dhcpOptionsId"] = args ? args.dhcpOptionsId : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
         }
-        super("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation", name, inputs, opts);
+        super(VpcDhcpOptionsAssociation.__pulumiType, name, inputs, opts);
     }
 }
 

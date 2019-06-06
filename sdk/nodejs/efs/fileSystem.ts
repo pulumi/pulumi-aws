@@ -33,6 +33,20 @@ export class FileSystem extends pulumi.CustomResource {
         return new FileSystem(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:efs/fileSystem:FileSystem';
+
+    /**
+     * Returns true if the given object is an instance of FileSystem.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is FileSystem {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === FileSystem.__pulumiType;
+    }
+
     /**
      * Amazon Resource Name of the file system.
      */
@@ -106,7 +120,7 @@ export class FileSystem extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["dnsName"] = undefined /*out*/;
         }
-        super("aws:efs/fileSystem:FileSystem", name, inputs, opts);
+        super(FileSystem.__pulumiType, name, inputs, opts);
     }
 }
 

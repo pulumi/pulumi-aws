@@ -42,6 +42,20 @@ export class SecurityConfiguration extends pulumi.CustomResource {
         return new SecurityConfiguration(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:glue/securityConfiguration:SecurityConfiguration';
+
+    /**
+     * Returns true if the given object is an instance of SecurityConfiguration.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SecurityConfiguration {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SecurityConfiguration.__pulumiType;
+    }
+
     /**
      * Configuration block containing encryption configuration. Detailed below.
      */
@@ -73,7 +87,7 @@ export class SecurityConfiguration extends pulumi.CustomResource {
             inputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        super("aws:glue/securityConfiguration:SecurityConfiguration", name, inputs, opts);
+        super(SecurityConfiguration.__pulumiType, name, inputs, opts);
     }
 }
 

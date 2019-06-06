@@ -48,6 +48,20 @@ export class IPSet extends pulumi.CustomResource {
         return new IPSet(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:guardduty/iPSet:IPSet';
+
+    /**
+     * Returns true if the given object is an instance of IPSet.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is IPSet {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === IPSet.__pulumiType;
+    }
+
     /**
      * Specifies whether GuardDuty is to start using the uploaded IPSet.
      */
@@ -106,7 +120,7 @@ export class IPSet extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        super("aws:guardduty/iPSet:IPSet", name, inputs, opts);
+        super(IPSet.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -46,6 +46,20 @@ export class Mesh extends pulumi.CustomResource {
         return new Mesh(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:appmesh/mesh:Mesh';
+
+    /**
+     * Returns true if the given object is an instance of Mesh.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Mesh {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Mesh.__pulumiType;
+    }
+
     /**
      * The ARN of the service mesh.
      */
@@ -92,7 +106,7 @@ export class Mesh extends pulumi.CustomResource {
             inputs["createdDate"] = undefined /*out*/;
             inputs["lastUpdatedDate"] = undefined /*out*/;
         }
-        super("aws:appmesh/mesh:Mesh", name, inputs, opts);
+        super(Mesh.__pulumiType, name, inputs, opts);
     }
 }
 

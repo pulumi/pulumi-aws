@@ -67,6 +67,20 @@ export class Server extends pulumi.CustomResource {
         return new Server(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:transfer/server:Server';
+
+    /**
+     * Returns true if the given object is an instance of Server.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Server {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Server.__pulumiType;
+    }
+
     /**
      * Amazon Resource Name (ARN) of Transfer Server
      */
@@ -143,7 +157,7 @@ export class Server extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
         }
-        super("aws:transfer/server:Server", name, inputs, opts);
+        super(Server.__pulumiType, name, inputs, opts);
     }
 }
 

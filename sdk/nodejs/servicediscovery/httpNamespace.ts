@@ -29,6 +29,20 @@ export class HttpNamespace extends pulumi.CustomResource {
         return new HttpNamespace(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:servicediscovery/httpNamespace:HttpNamespace';
+
+    /**
+     * Returns true if the given object is an instance of HttpNamespace.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is HttpNamespace {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === HttpNamespace.__pulumiType;
+    }
+
     /**
      * The ARN that Amazon Route 53 assigns to the namespace when you create it.
      */
@@ -63,7 +77,7 @@ export class HttpNamespace extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:servicediscovery/httpNamespace:HttpNamespace", name, inputs, opts);
+        super(HttpNamespace.__pulumiType, name, inputs, opts);
     }
 }
 

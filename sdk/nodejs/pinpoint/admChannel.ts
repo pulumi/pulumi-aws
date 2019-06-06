@@ -39,6 +39,20 @@ export class AdmChannel extends pulumi.CustomResource {
         return new AdmChannel(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:pinpoint/admChannel:AdmChannel';
+
+    /**
+     * Returns true if the given object is an instance of AdmChannel.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AdmChannel {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AdmChannel.__pulumiType;
+    }
+
     /**
      * The application ID.
      */
@@ -88,7 +102,7 @@ export class AdmChannel extends pulumi.CustomResource {
             inputs["clientSecret"] = args ? args.clientSecret : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
         }
-        super("aws:pinpoint/admChannel:AdmChannel", name, inputs, opts);
+        super(AdmChannel.__pulumiType, name, inputs, opts);
     }
 }
 

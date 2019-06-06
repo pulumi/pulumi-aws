@@ -37,6 +37,20 @@ export class DomainIdentity extends pulumi.CustomResource {
         return new DomainIdentity(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ses/domainIdentity:DomainIdentity';
+
+    /**
+     * Returns true if the given object is an instance of DomainIdentity.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is DomainIdentity {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === DomainIdentity.__pulumiType;
+    }
+
     /**
      * The ARN of the domain identity.
      */
@@ -80,7 +94,7 @@ export class DomainIdentity extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["verificationToken"] = undefined /*out*/;
         }
-        super("aws:ses/domainIdentity:DomainIdentity", name, inputs, opts);
+        super(DomainIdentity.__pulumiType, name, inputs, opts);
     }
 }
 

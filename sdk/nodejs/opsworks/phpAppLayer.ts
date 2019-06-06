@@ -31,6 +31,20 @@ export class PhpAppLayer extends pulumi.CustomResource {
         return new PhpAppLayer(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:opsworks/phpAppLayer:PhpAppLayer';
+
+    /**
+     * Returns true if the given object is an instance of PhpAppLayer.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is PhpAppLayer {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === PhpAppLayer.__pulumiType;
+    }
+
     /**
      * Whether to automatically assign an elastic IP address to the layer's instances.
      */
@@ -155,7 +169,7 @@ export class PhpAppLayer extends pulumi.CustomResource {
             inputs["systemPackages"] = args ? args.systemPackages : undefined;
             inputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
         }
-        super("aws:opsworks/phpAppLayer:PhpAppLayer", name, inputs, opts);
+        super(PhpAppLayer.__pulumiType, name, inputs, opts);
     }
 }
 

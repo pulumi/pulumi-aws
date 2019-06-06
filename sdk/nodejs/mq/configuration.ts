@@ -44,6 +44,20 @@ export class Configuration extends pulumi.CustomResource {
         return new Configuration(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:mq/configuration:Configuration';
+
+    /**
+     * Returns true if the given object is an instance of Configuration.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Configuration {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Configuration.__pulumiType;
+    }
+
     /**
      * The ARN of the configuration.
      */
@@ -119,7 +133,7 @@ export class Configuration extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["latestRevision"] = undefined /*out*/;
         }
-        super("aws:mq/configuration:Configuration", name, inputs, opts);
+        super(Configuration.__pulumiType, name, inputs, opts);
     }
 }
 

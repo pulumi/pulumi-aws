@@ -39,6 +39,20 @@ export class ListenerCertificate extends pulumi.CustomResource {
         return new ListenerCertificate(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate';
+
+    /**
+     * Returns true if the given object is an instance of ListenerCertificate.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ListenerCertificate {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ListenerCertificate.__pulumiType;
+    }
+
     /**
      * The ARN of the certificate to attach to the listener.
      */
@@ -73,7 +87,7 @@ export class ListenerCertificate extends pulumi.CustomResource {
             inputs["certificateArn"] = args ? args.certificateArn : undefined;
             inputs["listenerArn"] = args ? args.listenerArn : undefined;
         }
-        super("aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate", name, inputs, opts);
+        super(ListenerCertificate.__pulumiType, name, inputs, opts);
     }
 }
 

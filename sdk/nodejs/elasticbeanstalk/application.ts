@@ -41,6 +41,20 @@ export class Application extends pulumi.CustomResource {
         return new Application(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:elasticbeanstalk/application:Application';
+
+    /**
+     * Returns true if the given object is an instance of Application.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Application {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Application.__pulumiType;
+    }
+
     public readonly appversionLifecycle!: pulumi.Output<{ deleteSourceFromS3?: boolean, maxAgeInDays?: number, maxCount?: number, serviceRole: string } | undefined>;
     /**
      * The ARN assigned by AWS for this Elastic Beanstalk Application.
@@ -84,7 +98,7 @@ export class Application extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:elasticbeanstalk/application:Application", name, inputs, opts);
+        super(Application.__pulumiType, name, inputs, opts);
     }
 }
 

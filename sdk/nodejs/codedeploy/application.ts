@@ -55,6 +55,20 @@ export class Application extends pulumi.CustomResource {
         return new Application(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:codedeploy/application:Application';
+
+    /**
+     * Returns true if the given object is an instance of Application.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Application {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Application.__pulumiType;
+    }
+
     /**
      * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
      */
@@ -86,7 +100,7 @@ export class Application extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["uniqueId"] = args ? args.uniqueId : undefined;
         }
-        super("aws:codedeploy/application:Application", name, inputs, opts);
+        super(Application.__pulumiType, name, inputs, opts);
     }
 }
 

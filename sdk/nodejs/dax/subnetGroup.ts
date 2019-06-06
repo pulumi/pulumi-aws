@@ -34,6 +34,20 @@ export class SubnetGroup extends pulumi.CustomResource {
         return new SubnetGroup(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:dax/subnetGroup:SubnetGroup';
+
+    /**
+     * Returns true if the given object is an instance of SubnetGroup.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SubnetGroup {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SubnetGroup.__pulumiType;
+    }
+
     /**
      * A description of the subnet group.
      */
@@ -77,7 +91,7 @@ export class SubnetGroup extends pulumi.CustomResource {
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["vpcId"] = undefined /*out*/;
         }
-        super("aws:dax/subnetGroup:SubnetGroup", name, inputs, opts);
+        super(SubnetGroup.__pulumiType, name, inputs, opts);
     }
 }
 

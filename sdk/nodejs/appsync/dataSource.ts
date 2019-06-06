@@ -81,6 +81,20 @@ export class DataSource extends pulumi.CustomResource {
         return new DataSource(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:appsync/dataSource:DataSource';
+
+    /**
+     * Returns true if the given object is an instance of DataSource.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is DataSource {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === DataSource.__pulumiType;
+    }
+
     /**
      * The API ID for the GraphQL API for the DataSource.
      */
@@ -163,7 +177,7 @@ export class DataSource extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:appsync/dataSource:DataSource", name, inputs, opts);
+        super(DataSource.__pulumiType, name, inputs, opts);
     }
 }
 

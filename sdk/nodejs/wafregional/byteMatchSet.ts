@@ -39,6 +39,20 @@ export class ByteMatchSet extends pulumi.CustomResource {
         return new ByteMatchSet(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:wafregional/byteMatchSet:ByteMatchSet';
+
+    /**
+     * Returns true if the given object is an instance of ByteMatchSet.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ByteMatchSet {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ByteMatchSet.__pulumiType;
+    }
+
     /**
      * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
      */
@@ -67,7 +81,7 @@ export class ByteMatchSet extends pulumi.CustomResource {
             inputs["byteMatchTuples"] = args ? args.byteMatchTuples : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        super("aws:wafregional/byteMatchSet:ByteMatchSet", name, inputs, opts);
+        super(ByteMatchSet.__pulumiType, name, inputs, opts);
     }
 }
 

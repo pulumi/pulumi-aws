@@ -526,6 +526,20 @@ export class Cluster extends pulumi.CustomResource {
         return new Cluster(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:emr/cluster:Cluster';
+
+    /**
+     * Returns true if the given object is an instance of Cluster.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Cluster {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Cluster.__pulumiType;
+    }
+
     /**
      * A JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore Terraform cannot detect drift from the actual EMR cluster if its value is changed outside Terraform.
      */
@@ -720,7 +734,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterState"] = undefined /*out*/;
             inputs["masterPublicDns"] = undefined /*out*/;
         }
-        super("aws:emr/cluster:Cluster", name, inputs, opts);
+        super(Cluster.__pulumiType, name, inputs, opts);
     }
 }
 

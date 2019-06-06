@@ -47,6 +47,20 @@ export class AmiFromInstance extends pulumi.CustomResource {
         return new AmiFromInstance(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/amiFromInstance:AmiFromInstance';
+
+    /**
+     * Returns true if the given object is an instance of AmiFromInstance.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AmiFromInstance {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AmiFromInstance.__pulumiType;
+    }
+
     /**
      * Machine architecture for created instances. Defaults to "x86_64".
      */
@@ -173,7 +187,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
             inputs["sriovNetSupport"] = undefined /*out*/;
             inputs["virtualizationType"] = undefined /*out*/;
         }
-        super("aws:ec2/amiFromInstance:AmiFromInstance", name, inputs, opts);
+        super(AmiFromInstance.__pulumiType, name, inputs, opts);
     }
 }
 

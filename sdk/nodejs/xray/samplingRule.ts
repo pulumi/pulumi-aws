@@ -44,6 +44,20 @@ export class SamplingRule extends pulumi.CustomResource {
         return new SamplingRule(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:xray/samplingRule:SamplingRule';
+
+    /**
+     * Returns true if the given object is an instance of SamplingRule.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SamplingRule {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SamplingRule.__pulumiType;
+    }
+
     /**
      * The ARN of the sampling rule.
      */
@@ -168,7 +182,7 @@ export class SamplingRule extends pulumi.CustomResource {
             inputs["version"] = args ? args.version : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:xray/samplingRule:SamplingRule", name, inputs, opts);
+        super(SamplingRule.__pulumiType, name, inputs, opts);
     }
 }
 

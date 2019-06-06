@@ -58,6 +58,20 @@ export class Broker extends pulumi.CustomResource {
         return new Broker(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:mq/broker:Broker';
+
+    /**
+     * Returns true if the given object is an instance of Broker.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Broker {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Broker.__pulumiType;
+    }
+
     /**
      * Specifies whether any broker modifications
      * are applied immediately, or during the next maintenance window. Default is `false`.
@@ -203,7 +217,7 @@ export class Broker extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["instances"] = undefined /*out*/;
         }
-        super("aws:mq/broker:Broker", name, inputs, opts);
+        super(Broker.__pulumiType, name, inputs, opts);
     }
 }
 

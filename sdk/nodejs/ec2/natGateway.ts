@@ -47,6 +47,20 @@ export class NatGateway extends pulumi.CustomResource {
         return new NatGateway(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/natGateway:NatGateway';
+
+    /**
+     * Returns true if the given object is an instance of NatGateway.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NatGateway {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NatGateway.__pulumiType;
+    }
+
     /**
      * The Allocation ID of the Elastic IP address for the gateway.
      */
@@ -105,7 +119,7 @@ export class NatGateway extends pulumi.CustomResource {
             inputs["privateIp"] = undefined /*out*/;
             inputs["publicIp"] = undefined /*out*/;
         }
-        super("aws:ec2/natGateway:NatGateway", name, inputs, opts);
+        super(NatGateway.__pulumiType, name, inputs, opts);
     }
 }
 

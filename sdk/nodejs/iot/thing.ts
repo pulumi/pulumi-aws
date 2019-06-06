@@ -33,6 +33,20 @@ export class Thing extends pulumi.CustomResource {
         return new Thing(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:iot/thing:Thing';
+
+    /**
+     * Returns true if the given object is an instance of Thing.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Thing {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Thing.__pulumiType;
+    }
+
     /**
      * The ARN of the thing.
      */
@@ -85,7 +99,7 @@ export class Thing extends pulumi.CustomResource {
             inputs["defaultClientId"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        super("aws:iot/thing:Thing", name, inputs, opts);
+        super(Thing.__pulumiType, name, inputs, opts);
     }
 }
 

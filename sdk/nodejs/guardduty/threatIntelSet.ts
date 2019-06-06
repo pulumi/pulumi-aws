@@ -48,6 +48,20 @@ export class ThreatIntelSet extends pulumi.CustomResource {
         return new ThreatIntelSet(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:guardduty/threatIntelSet:ThreatIntelSet';
+
+    /**
+     * Returns true if the given object is an instance of ThreatIntelSet.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ThreatIntelSet {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ThreatIntelSet.__pulumiType;
+    }
+
     /**
      * Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
      */
@@ -106,7 +120,7 @@ export class ThreatIntelSet extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        super("aws:guardduty/threatIntelSet:ThreatIntelSet", name, inputs, opts);
+        super(ThreatIntelSet.__pulumiType, name, inputs, opts);
     }
 }
 

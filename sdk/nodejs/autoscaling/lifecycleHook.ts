@@ -62,6 +62,20 @@ export class LifecycleHook extends pulumi.CustomResource {
         return new LifecycleHook(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:autoscaling/lifecycleHook:LifecycleHook';
+
+    /**
+     * Returns true if the given object is an instance of LifecycleHook.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is LifecycleHook {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === LifecycleHook.__pulumiType;
+    }
+
     /**
      * The name of the Auto Scaling group to which you want to assign the lifecycle hook
      */
@@ -132,7 +146,7 @@ export class LifecycleHook extends pulumi.CustomResource {
             inputs["notificationTargetArn"] = args ? args.notificationTargetArn : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
         }
-        super("aws:autoscaling/lifecycleHook:LifecycleHook", name, inputs, opts);
+        super(LifecycleHook.__pulumiType, name, inputs, opts);
     }
 }
 

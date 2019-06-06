@@ -32,6 +32,20 @@ export class SamlProvider extends pulumi.CustomResource {
         return new SamlProvider(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:iam/samlProvider:SamlProvider';
+
+    /**
+     * Returns true if the given object is an instance of SamlProvider.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SamlProvider {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SamlProvider.__pulumiType;
+    }
+
     /**
      * The ARN assigned by AWS for this provider.
      */
@@ -75,7 +89,7 @@ export class SamlProvider extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["validUntil"] = undefined /*out*/;
         }
-        super("aws:iam/samlProvider:SamlProvider", name, inputs, opts);
+        super(SamlProvider.__pulumiType, name, inputs, opts);
     }
 }
 

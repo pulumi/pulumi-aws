@@ -38,6 +38,20 @@ export class DocumentationPart extends pulumi.CustomResource {
         return new DocumentationPart(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:apigateway/documentationPart:DocumentationPart';
+
+    /**
+     * Returns true if the given object is an instance of DocumentationPart.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is DocumentationPart {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === DocumentationPart.__pulumiType;
+    }
+
     /**
      * The location of the targeted API entity of the to-be-created documentation part. See below.
      */
@@ -81,7 +95,7 @@ export class DocumentationPart extends pulumi.CustomResource {
             inputs["properties"] = args ? args.properties : undefined;
             inputs["restApiId"] = args ? args.restApiId : undefined;
         }
-        super("aws:apigateway/documentationPart:DocumentationPart", name, inputs, opts);
+        super(DocumentationPart.__pulumiType, name, inputs, opts);
     }
 }
 

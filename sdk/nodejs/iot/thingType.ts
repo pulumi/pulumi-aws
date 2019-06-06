@@ -29,6 +29,20 @@ export class ThingType extends pulumi.CustomResource {
         return new ThingType(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:iot/thingType:ThingType';
+
+    /**
+     * Returns true if the given object is an instance of ThingType.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ThingType {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ThingType.__pulumiType;
+    }
+
     /**
      * The ARN of the created AWS IoT Thing Type.
      */
@@ -66,7 +80,7 @@ export class ThingType extends pulumi.CustomResource {
             inputs["properties"] = args ? args.properties : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:iot/thingType:ThingType", name, inputs, opts);
+        super(ThingType.__pulumiType, name, inputs, opts);
     }
 }
 

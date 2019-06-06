@@ -53,6 +53,20 @@ export class AccessKey extends pulumi.CustomResource {
         return new AccessKey(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:iam/accessKey:AccessKey';
+
+    /**
+     * Returns true if the given object is an instance of AccessKey.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AccessKey {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AccessKey.__pulumiType;
+    }
+
     /**
      * The encrypted secret, base64 encoded.
      * > **NOTE:** The encrypted secret may be decrypted using the command line,
@@ -123,7 +137,7 @@ export class AccessKey extends pulumi.CustomResource {
             inputs["secret"] = undefined /*out*/;
             inputs["sesSmtpPassword"] = undefined /*out*/;
         }
-        super("aws:iam/accessKey:AccessKey", name, inputs, opts);
+        super(AccessKey.__pulumiType, name, inputs, opts);
     }
 }
 

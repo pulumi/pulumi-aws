@@ -86,6 +86,20 @@ export class LifecyclePolicy extends pulumi.CustomResource {
         return new LifecyclePolicy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ecr/lifecyclePolicy:LifecyclePolicy';
+
+    /**
+     * Returns true if the given object is an instance of LifecyclePolicy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is LifecyclePolicy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === LifecyclePolicy.__pulumiType;
+    }
+
     /**
      * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
@@ -126,7 +140,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
             inputs["repository"] = args ? args.repository : undefined;
             inputs["registryId"] = undefined /*out*/;
         }
-        super("aws:ecr/lifecyclePolicy:LifecyclePolicy", name, inputs, opts);
+        super(LifecyclePolicy.__pulumiType, name, inputs, opts);
     }
 }
 

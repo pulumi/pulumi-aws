@@ -35,6 +35,20 @@ export class ParameterGroup extends pulumi.CustomResource {
         return new ParameterGroup(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:neptune/parameterGroup:ParameterGroup';
+
+    /**
+     * Returns true if the given object is an instance of ParameterGroup.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ParameterGroup {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ParameterGroup.__pulumiType;
+    }
+
     /**
      * The Neptune parameter group Amazon Resource Name (ARN).
      */
@@ -90,7 +104,7 @@ export class ParameterGroup extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        super("aws:neptune/parameterGroup:ParameterGroup", name, inputs, opts);
+        super(ParameterGroup.__pulumiType, name, inputs, opts);
     }
 }
 

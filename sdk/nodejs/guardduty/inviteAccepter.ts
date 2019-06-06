@@ -20,6 +20,20 @@ export class InviteAccepter extends pulumi.CustomResource {
         return new InviteAccepter(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:guardduty/inviteAccepter:InviteAccepter';
+
+    /**
+     * Returns true if the given object is an instance of InviteAccepter.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is InviteAccepter {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === InviteAccepter.__pulumiType;
+    }
+
     /**
      * The detector ID of the member GuardDuty account.
      */
@@ -54,7 +68,7 @@ export class InviteAccepter extends pulumi.CustomResource {
             inputs["detectorId"] = args ? args.detectorId : undefined;
             inputs["masterAccountId"] = args ? args.masterAccountId : undefined;
         }
-        super("aws:guardduty/inviteAccepter:InviteAccepter", name, inputs, opts);
+        super(InviteAccepter.__pulumiType, name, inputs, opts);
     }
 }
 

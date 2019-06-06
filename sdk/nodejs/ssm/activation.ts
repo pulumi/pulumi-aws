@@ -48,6 +48,20 @@ export class Activation extends pulumi.CustomResource {
         return new Activation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ssm/activation:Activation';
+
+    /**
+     * Returns true if the given object is an instance of Activation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Activation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Activation.__pulumiType;
+    }
+
     /**
      * The code the system generates when it processes the activation.
      */
@@ -121,7 +135,7 @@ export class Activation extends pulumi.CustomResource {
             inputs["expired"] = undefined /*out*/;
             inputs["registrationCount"] = undefined /*out*/;
         }
-        super("aws:ssm/activation:Activation", name, inputs, opts);
+        super(Activation.__pulumiType, name, inputs, opts);
     }
 }
 

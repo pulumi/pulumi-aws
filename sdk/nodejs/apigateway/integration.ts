@@ -183,6 +183,20 @@ export class Integration extends pulumi.CustomResource {
         return new Integration(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:apigateway/integration:Integration';
+
+    /**
+     * Returns true if the given object is an instance of Integration.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Integration {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Integration.__pulumiType;
+    }
+
     /**
      * A list of cache key parameters for the integration.
      */
@@ -315,7 +329,7 @@ export class Integration extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["uri"] = args ? args.uri : undefined;
         }
-        super("aws:apigateway/integration:Integration", name, inputs, opts);
+        super(Integration.__pulumiType, name, inputs, opts);
     }
 }
 

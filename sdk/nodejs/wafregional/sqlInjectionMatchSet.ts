@@ -36,6 +36,20 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
         return new SqlInjectionMatchSet(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet';
+
+    /**
+     * Returns true if the given object is an instance of SqlInjectionMatchSet.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SqlInjectionMatchSet {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SqlInjectionMatchSet.__pulumiType;
+    }
+
     /**
      * The name or description of the SizeConstraintSet.
      */
@@ -64,7 +78,7 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["sqlInjectionMatchTuples"] = args ? args.sqlInjectionMatchTuples : undefined;
         }
-        super("aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet", name, inputs, opts);
+        super(SqlInjectionMatchSet.__pulumiType, name, inputs, opts);
     }
 }
 

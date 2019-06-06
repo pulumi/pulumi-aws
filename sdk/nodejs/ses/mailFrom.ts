@@ -52,6 +52,20 @@ export class MailFrom extends pulumi.CustomResource {
         return new MailFrom(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ses/mailFrom:MailFrom';
+
+    /**
+     * Returns true if the given object is an instance of MailFrom.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is MailFrom {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === MailFrom.__pulumiType;
+    }
+
     /**
      * The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
      */
@@ -92,7 +106,7 @@ export class MailFrom extends pulumi.CustomResource {
             inputs["domain"] = args ? args.domain : undefined;
             inputs["mailFromDomain"] = args ? args.mailFromDomain : undefined;
         }
-        super("aws:ses/mailFrom:MailFrom", name, inputs, opts);
+        super(MailFrom.__pulumiType, name, inputs, opts);
     }
 }
 

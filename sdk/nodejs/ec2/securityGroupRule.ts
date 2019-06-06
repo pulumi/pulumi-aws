@@ -74,6 +74,20 @@ export class SecurityGroupRule extends pulumi.CustomResource {
         return new SecurityGroupRule(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'aws:ec2/securityGroupRule:SecurityGroupRule';
+
+    /**
+     * Returns true if the given object is an instance of SecurityGroupRule.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SecurityGroupRule {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SecurityGroupRule.__pulumiType;
+    }
+
     /**
      * List of CIDR blocks. Cannot be specified with `source_security_group_id`.
      */
@@ -175,7 +189,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
             inputs["toPort"] = args ? args.toPort : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        super("aws:ec2/securityGroupRule:SecurityGroupRule", name, inputs, opts);
+        super(SecurityGroupRule.__pulumiType, name, inputs, opts);
     }
 }
 
