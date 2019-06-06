@@ -1761,7 +1761,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_vpcs":                   {Tok: awsDataSource(ec2Mod, "getVpcs")},
 			"aws_vpn_gateway":            {Tok: awsDataSource(ec2Mod, "getVpnGateway")},
 			// EC2 Transit Gateway
-			"aws_ec2_transit_gateway":                {Tok: awsDataSource(ec2TransitGatewayMod, "getTransitGateway")},
+			"aws_ec2_transit_gateway": {Tok: awsDataSource(ec2TransitGatewayMod, "getTransitGateway")},
+			"aws_ec2_transit_gateway_dx_gateway_attachment": {
+				Tok: awsDataSource(ec2TransitGatewayMod, "getDirectConnectGatewayAttachment"),
+			},
 			"aws_ec2_transit_gateway_route_table":    {Tok: awsDataSource(ec2TransitGatewayMod, "getRouteTable")},
 			"aws_ec2_transit_gateway_vpc_attachment": {Tok: awsDataSource(ec2TransitGatewayMod, "getVpcAttachment")},
 			"aws_ec2_transit_gateway_vpn_attachment": {Tok: awsDataSource(ec2TransitGatewayMod, "getVpnAttachment")},

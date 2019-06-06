@@ -320,6 +320,7 @@
         "ec2clientvpn/endpoint.ts",
         "ec2clientvpn/index.ts",
         "ec2clientvpn/networkAssociation.ts",
+        "ec2transitgateway/getDirectConnectGatewayAttachment.ts",
         "ec2transitgateway/getRouteTable.ts",
         "ec2transitgateway/getTransitGateway.ts",
         "ec2transitgateway/getVpcAttachment.ts",
