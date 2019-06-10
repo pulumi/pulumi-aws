@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {IpAddressType} from "./ipAddressType";
+import {LoadBalancerType} from "./loadBalancerType";
+
 /**
  * Provides a Load Balancer resource.
  * 
@@ -140,11 +143,11 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
      */
-    public readonly ipAddressType!: pulumi.Output<string>;
+    public readonly ipAddressType!: pulumi.Output<IpAddressType>;
     /**
      * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
      */
-    public readonly loadBalancerType!: pulumi.Output<string | undefined>;
+    public readonly loadBalancerType!: pulumi.Output<LoadBalancerType | undefined>;
     /**
      * The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
      * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
@@ -281,11 +284,11 @@ export interface LoadBalancerState {
     /**
      * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
      */
-    readonly ipAddressType?: pulumi.Input<string>;
+    readonly ipAddressType?: pulumi.Input<IpAddressType>;
     /**
      * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
      */
-    readonly loadBalancerType?: pulumi.Input<string>;
+    readonly loadBalancerType?: pulumi.Input<LoadBalancerType>;
     /**
      * The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
      * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
@@ -354,11 +357,11 @@ export interface LoadBalancerArgs {
     /**
      * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
      */
-    readonly ipAddressType?: pulumi.Input<string>;
+    readonly ipAddressType?: pulumi.Input<IpAddressType>;
     /**
      * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
      */
-    readonly loadBalancerType?: pulumi.Input<string>;
+    readonly loadBalancerType?: pulumi.Input<LoadBalancerType>;
     /**
      * The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
      * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,

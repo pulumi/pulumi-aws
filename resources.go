@@ -959,6 +959,14 @@ func Provider() tfbridge.ProviderInfo {
 			// Elastic Load Balancing (V2: Application)
 			"aws_alb": {
 				Tok: awsResource(albMod, "LoadBalancer"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"load_balancer_type": {
+						Type: awsResource(albMod, "LoadBalancerType"),
+					},
+					"ip_address_type": {
+						Type: awsResource(albMod, "IpAddressType"),
+					},
+				},
 				Docs: &tfbridge.DocInfo{
 					Source: "lb.html.markdown",
 				},
@@ -1931,6 +1939,12 @@ func Provider() tfbridge.ProviderInfo {
 						DestFiles: []string{
 							"metrics.ts",          // Metric and MetricsGranularity union types and constants
 							"notificationType.ts", // NotificationType union type and constants
+						},
+					},
+					"applicationloadbalancing": {
+						DestFiles: []string{
+							"ipAddressType.ts",
+							"loadBalancerType.ts",
 						},
 					},
 					"cloudwatch": {
