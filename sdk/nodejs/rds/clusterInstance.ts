@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {EngineType} from "./engineType";
+
 /**
  * Provides an RDS Cluster Instance Resource. A Cluster Instance Resource defines
  * attributes that are specific to a single instance in a [RDS Cluster][3],
@@ -121,7 +123,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
      * in the Amazon RDS User Guide.
      */
-    public readonly engine!: pulumi.Output<string | undefined>;
+    public readonly engine!: pulumi.Output<EngineType | undefined>;
     /**
      * The database engine version.
      */
@@ -330,7 +332,7 @@ export interface ClusterInstanceState {
      * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
      * in the Amazon RDS User Guide.
      */
-    readonly engine?: pulumi.Input<string>;
+    readonly engine?: pulumi.Input<EngineType>;
     /**
      * The database engine version.
      */
@@ -447,7 +449,7 @@ export interface ClusterInstanceArgs {
      * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
      * in the Amazon RDS User Guide.
      */
-    readonly engine?: pulumi.Input<string>;
+    readonly engine?: pulumi.Input<EngineType>;
     /**
      * The database engine version.
      */

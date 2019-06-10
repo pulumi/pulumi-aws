@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add constants for RDS Cluster EngineType and Engine Mode
 
 ---
 
