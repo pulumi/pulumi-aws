@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add constants for RDS Cluster EngineType and Engine Mode
+* Add constants for Aurora-based RDS Cluster `EngineType` and `EngineMode`
 
 ---
 
