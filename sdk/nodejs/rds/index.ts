@@ -7,6 +7,8 @@ export * from "./clusterEndpoint";
 export * from "./clusterInstance";
 export * from "./clusterParameterGroup";
 export * from "./clusterSnapshot";
+export * from "./engineMode";
+export * from "./engineType";
 export * from "./eventSubscription";
 export * from "./getCluster";
 export * from "./getClusterSnapshot";

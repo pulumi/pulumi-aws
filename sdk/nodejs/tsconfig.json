@@ -607,6 +607,8 @@
         "rds/clusterInstance.ts",
         "rds/clusterParameterGroup.ts",
         "rds/clusterSnapshot.ts",
+        "rds/engineMode.ts",
+        "rds/engineType.ts",
         "rds/eventSubscription.ts",
         "rds/getCluster.ts",
         "rds/getClusterSnapshot.ts",
