@@ -8,6 +8,7 @@ export * from "./getZone";
 export * from "./healthCheck";
 export * from "./queryLog";
 export * from "./record";
+export * from "./recordType";
 export * from "./resolverEndpoint";
 export * from "./resolverRule";
 export * from "./resolverRuleAssociation";
