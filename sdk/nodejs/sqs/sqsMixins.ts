@@ -66,7 +66,14 @@ export class QueueEventSubscription extends lambda.EventSubscription {
         name: string, queue: queue.Queue, handler: QueueEventHandler,
         args: QueueEventSubscriptionArgs = {}, opts: pulumi.ComponentResourceOptions = {}) {
 
-        super("aws:sqs:QueueEventSubscription", name, { parent: queue, ...opts });
+        // We previously did not parent the subscription to the queue. We now do. Provide an alias
+        // so this doesn't cause resources to be destroyed/recreated for existing stacks.
+        const type = "aws:sqs:QueueEventSubscription";
+        super(type, name, {
+            parent: queue,
+            aliases: [pulumi.createUrn(name, type, opts.parent)],
+            ...opts,
+        });
 
         const parentOpts = { parent: this };
         this.func = createFunctionFromEventHandler(name, handler, parentOpts);

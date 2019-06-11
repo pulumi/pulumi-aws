@@ -128,9 +128,16 @@ export class BucketEventSubscription extends lambda.EventSubscription {
 
     public constructor(
         name: string, bucket: Bucket, handler: BucketEventHandler,
-        args: BucketEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
+        args: BucketEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
 
-        super("aws:s3:BucketEventSubscription", name, { parent: bucket, ...opts });
+        // We previously did not parent the subscription to the queue. We now do. Provide an alias
+        // so this doesn't cause resources to be destroyed/recreated for existing stacks.
+        const type = "aws:s3:BucketEventSubscription";
+        super(type, name, {
+            parent: bucket,
+            aliases: [pulumi.createUrn(name, type, opts.parent)],
+            ...opts,
+        });
 
         const parentOpts = { parent: this };
         this.func = lambda.createFunctionFromEventHandler(name, handler, parentOpts);

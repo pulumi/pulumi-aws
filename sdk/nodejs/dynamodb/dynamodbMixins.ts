@@ -67,7 +67,14 @@ export class TableEventSubscription extends lambda.EventSubscription {
         name: string, table: table.Table, handler: TableEventHandler,
         args: TableEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
 
-        super("aws:dynamodb:TableEventSubscription", name, { parent: table, ...opts });
+        // We previously did not parent the subscription to the table. We now do. Provide an alias
+        // so this doesn't cause resources to be destroyed/recreated for existing stacks.
+        const type = "aws:dynamodb:TableEventSubscription";
+        super(type, name, {
+            parent: table,
+            aliases: [pulumi.createUrn(name, type, opts.parent)],
+            ...opts,
+        });
 
         const parentOpts = { parent: this };
         this.func = lambda.createFunctionFromEventHandler(name, handler, parentOpts);
