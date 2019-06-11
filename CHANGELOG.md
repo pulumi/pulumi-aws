@@ -5,6 +5,7 @@ CHANGELOG
 * Add constants for Aurora-based RDS Cluster `EngineType` and `EngineMode`
 * Add constants for EC2 Seurity Group Protocols
 * Add constants for ALB IpAddressType and LoadBalancer type
+* Add constants for Route53 record types
 
 ---
 

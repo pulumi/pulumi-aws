@@ -1485,8 +1485,15 @@ func Provider() tfbridge.ProviderInfo {
 			// Resource Groups
 			"aws_resourcegroups_group": {Tok: awsResource(resourcegroupsMod, "Group")},
 			// Route53
-			"aws_route53_delegation_set":            {Tok: awsResource(route53Mod, "DelegationSet")},
-			"aws_route53_record":                    {Tok: awsResource(route53Mod, "Record")},
+			"aws_route53_delegation_set": {Tok: awsResource(route53Mod, "DelegationSet")},
+			"aws_route53_record": {
+				Tok: awsResource(route53Mod, "Record"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"type": {
+						Type: awsResource(route53Mod, "RecordType"),
+					},
+				},
+			},
 			"aws_route53_resolver_endpoint":         {Tok: awsResource(route53Mod, "ResolverEndpoint")},
 			"aws_route53_resolver_rule":             {Tok: awsResource(route53Mod, "ResolverRule")},
 			"aws_route53_resolver_rule_association": {Tok: awsResource(route53Mod, "ResolverRuleAssociation")},
@@ -2000,6 +2007,11 @@ func Provider() tfbridge.ProviderInfo {
 						DestFiles: []string{
 							"engineMode.ts",
 							"engineType.ts",
+						},
+					},
+					"route53": {
+						DestFiles: []string{
+							"recordType.ts",
 						},
 					},
 					"s3": {
