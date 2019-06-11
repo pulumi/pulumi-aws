@@ -69,9 +69,16 @@ export class StreamEventSubscription extends lambda.EventSubscription {
 
     constructor(
         name: string, stream: stream.Stream, handler: StreamEventHandler,
-        args: StreamEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
+        args: StreamEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
 
-        super("aws:kinesis:StreamEventSubscription", name, opts);
+        // We previously did not parent the subscription to the stream. We now do. Provide an alias
+        // so this doesn't cause resources to be destroyed/recreated for existing stacks.
+        const type = "aws:kinesis:StreamEventSubscription";
+        super(type, name, {
+            parent: stream,
+            aliases: [pulumi.createUrn(name, type, opts.parent)],
+            ...opts,
+        });
 
         const parentOpts = { parent: this };
         this.func = createFunctionFromEventHandler(name, handler, parentOpts);

@@ -67,7 +67,14 @@ export class TopicEventSubscription extends lambda.EventSubscription {
         name: string, topic: topic.Topic, handler: TopicEventHandler,
         args: TopicEventSubscriptionArgs = {}, opts: pulumi.ComponentResourceOptions = {}) {
 
-        super("aws:sns:TopicEventSubscription", name, opts);
+        // We previously did not parent the subscription to the topic. We now do. Provide an alias
+        // so this doesn't cause resources to be destroyed/recreated for existing stacks.
+        const type = "aws:sns:TopicEventSubscription";
+        super(type, name, {
+            parent: topic,
+            aliases: [pulumi.createUrn(name, type, opts.parent)],
+            ...opts,
+        });
 
         this.topic = topic;
 
