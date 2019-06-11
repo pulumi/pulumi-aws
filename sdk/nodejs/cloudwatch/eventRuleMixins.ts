@@ -73,7 +73,10 @@ export class EventRuleEventSubscription extends lambda.EventSubscription {
         name: string, eventRuleOrSchedule: eventRule.EventRule | string, handler: EventRuleEventHandler,
         args?: EventRuleEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
 
-        super("aws:cloudwatch:EventRuleEventSubscription", name, opts);
+        super("aws:cloudwatch:EventRuleEventSubscription", name, {
+            parent: typeof eventRuleOrSchedule === "string" ? undefined : eventRuleOrSchedule,
+            ...opts
+        });
 
         const parentOpts = { parent: this };
         if (typeof eventRuleOrSchedule === "string") {

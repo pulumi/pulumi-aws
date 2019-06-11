@@ -67,7 +67,7 @@ export class TopicEventSubscription extends lambda.EventSubscription {
         name: string, topic: topic.Topic, handler: TopicEventHandler,
         args: TopicEventSubscriptionArgs = {}, opts: pulumi.ComponentResourceOptions = {}) {
 
-        super("aws:sns:TopicEventSubscription", name, opts);
+        super("aws:sns:TopicEventSubscription", name, { parent: topic, ...opts });
 
         this.topic = topic;
 
