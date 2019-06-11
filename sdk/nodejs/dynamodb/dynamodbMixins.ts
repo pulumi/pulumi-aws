@@ -65,7 +65,7 @@ export class TableEventSubscription extends lambda.EventSubscription {
 
     constructor(
         name: string, table: table.Table, handler: TableEventHandler,
-        args: TableEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
+        args: TableEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
 
         // We previously did not parent the subscription to the table. We now do. Provide an alias
         // so this doesn't cause resources to be destroyed/recreated for existing stacks.
