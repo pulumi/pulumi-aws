@@ -71,11 +71,16 @@ export class EventRuleEventSubscription extends lambda.EventSubscription {
 
     public constructor(
         name: string, eventRuleOrSchedule: eventRule.EventRule | string, handler: EventRuleEventHandler,
-        args?: EventRuleEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions) {
+        args?: EventRuleEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
 
-        super("aws:cloudwatch:EventRuleEventSubscription", name, {
-            parent: typeof eventRuleOrSchedule === "string" ? undefined : eventRuleOrSchedule,
-            ...opts
+        // We previously did not parent the subscription to the eventRule. We now do. Provide an alias
+        // so this doesn't cause resources to be destroyed/recreated for existing stacks.
+        const type = "aws:cloudwatch:EventRuleEventSubscription";
+        const parent = typeof eventRuleOrSchedule === "string" ? undefined : eventRuleOrSchedule;
+        super(type, name, {
+            parent: parent,
+            aliases: [pulumi.createUrn(name, type, opts.parent)],
+            ...opts,
         });
 
         const parentOpts = { parent: this };
