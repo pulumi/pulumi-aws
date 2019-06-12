@@ -38,7 +38,7 @@ let music = new aws.dynamodb.Table("music", {
 let hello = "Hello, world!";
 let lambda = new aws.serverless.Function(
   "mylambda",
-  { policies: [aws.iam.AWSLambdaFullAccess] },
+  { policies: [aws.iam.ManagedPolicies.AWSLambdaFullAccess] },
   (event, context, callback) => {
     console.log("Music table hash key is: " + music.hashKey);
     console.log("Invoked function: " + context.invokedFunctionArn);
