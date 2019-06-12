@@ -21,7 +21,7 @@
 
 /* tslint:disable:max-line-length ordered-imports variable-name */
 
-module InstanceTypes {
+export module InstanceTypes {
     export const A1_2XLarge: InstanceType = "a1.2xlarge";
     export const A1_4XLarge: InstanceType = "a1.4xlarge";
     export const A1_Large: InstanceType = "a1.large";
