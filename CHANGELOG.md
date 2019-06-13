@@ -2,10 +2,18 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+
+## 0.18.9 (2019-06-13)
+
 * Add constants for Aurora-based RDS Cluster `EngineType` and `EngineMode`
 * Add constants for EC2 Seurity Group Protocols
 * Add constants for ALB IpAddressType and LoadBalancer type
 * Add constants for Route53 record types
+
+Note: these constants may cause existing code to break due to the types being narrower in TypeScript.
+If you run into issues, you can cast to the specific type (i.e. `<EngineType>someStr`) if TypeScript
+complains.
+
 * Subscription resources will now be parented by default by the resource they were created off of.
   This has been implemented using 'aliases' so this will not have any effect on existing stacks.
 * Add the ability to pass a `PolicyDocument` to the `policy` field in `aws.iam.Policy`
