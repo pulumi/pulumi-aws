@@ -18,6 +18,11 @@ complains.
   This has been implemented using 'aliases' so this will not have any effect on existing stacks.
 * Add the ability to pass a `PolicyDocument` to the `policy` field in `aws.iam.Policy`
 * Add the ability to pass a `PolicyDocument` to the `policy` field in `aws.s3.Bucket`
+* Add module containing constants for `aws.ec2.InstancePlatforms`, and marked existing InstancePlatform constants as deprecated
+* Add module containing constants for `aws.ec2.InstanceTypes`, and marked existing InstanceType constants as deprecated
+* Add module containing constants for `aws.ec2.Tenancies`, and marked existing Tenancy constants as deprecated
+* Add module containing constants for `aws.iam.ManagedPolicies`, and marked existing managed policy constants as deprecated
+* Add module containing constants for `aws.iam.Principals`, and marked existing managed Principal constants as deprecated
 
 ---
 

@@ -19,22 +19,57 @@
 //
 // These just give a better developer experience and are just sugared strings.
 
-export const LinuxUnixPlatform:                      InstancePlatform = "Linux/UNIX";
-export const RedHatEnterpriseLinuxPlatform:          InstancePlatform = "Red Hat Enterprise Linux";
-export const SuseLinuxPlatform:                      InstancePlatform = "SUSE Linux";
-export const WindowsPlatform:                        InstancePlatform = "Windows";
-export const WindowsWithSqlServerPlatform:           InstancePlatform = "Windows with SQL Server";
-export const WindowsWithSqlServerEnterprisePlatform: InstancePlatform = "Windows with SQL Server Enterprise";
-export const WindowsWithSqlServerStandardPlatform:   InstancePlatform = "Windows with SQL Server Standard";
-export const WindowsWithSqlServerWebPlatform:        InstancePlatform = "Windows with SQL Server Web";
+export module InstancePlatforms {
+    export const LinuxUnixPlatform: InstancePlatform = "Linux/UNIX";
+    export const RedHatEnterpriseLinuxPlatform: InstancePlatform = "Red Hat Enterprise Linux";
+    export const SuseLinuxPlatform: InstancePlatform = "SUSE Linux";
+    export const WindowsPlatform: InstancePlatform = "Windows";
+    export const WindowsWithSqlServerPlatform: InstancePlatform = "Windows with SQL Server";
+    export const WindowsWithSqlServerEnterprisePlatform: InstancePlatform = "Windows with SQL Server Enterprise";
+    export const WindowsWithSqlServerStandardPlatform: InstancePlatform = "Windows with SQL Server Standard";
+    export const WindowsWithSqlServerWebPlatform: InstancePlatform = "Windows with SQL Server Web";
+}
 
 export type InstancePlatform =
-    "Linux/UNIX"                         |
-    "Red Hat Enterprise Linux"           |
-    "SUSE Linux"                         |
-    "Windows"                            |
-    "Windows with SQL Server"            |
+    "Linux/UNIX" |
+    "Red Hat Enterprise Linux" |
+    "SUSE Linux" |
+    "Windows" |
+    "Windows with SQL Server" |
     "Windows with SQL Server Enterprise" |
-    "Windows with SQL Server Standard"   |
+    "Windows with SQL Server Standard" |
     "Windows with SQL Server Web"        ;
+
+/**
+ * @deprecated Use the equivalent constant in module `InstancePlatforms` instead
+ */
+export const LinuxUnixPlatform: InstancePlatform = "Linux/UNIX";
+/**
+ *@deprecated Use the equivalent constant in module `InstancePlatforms` instead
+ */
+export const RedHatEnterpriseLinuxPlatform: InstancePlatform = "Red Hat Enterprise Linux";
+/**
+ *@deprecated Use the equivalent constant in module `InstancePlatforms` instead
+ */
+export const SuseLinuxPlatform: InstancePlatform = "SUSE Linux";
+/**
+ *@deprecated Use the equivalent constant in module `InstancePlatforms` instead
+ */
+export const WindowsPlatform: InstancePlatform = "Windows";
+/**
+ *@deprecated Use the equivalent constant in module `InstancePlatforms` instead
+ */
+export const WindowsWithSqlServerPlatform: InstancePlatform = "Windows with SQL Server";
+/**
+ *@deprecated Use the equivalent constant in module `InstancePlatforms` instead
+ */
+export const WindowsWithSqlServerEnterprisePlatform: InstancePlatform = "Windows with SQL Server Enterprise";
+/**
+ *@deprecated Use the equivalent constant in module `InstancePlatforms` instead
+ */
+export const WindowsWithSqlServerStandardPlatform: InstancePlatform = "Windows with SQL Server Standard";
+/**
+ *@deprecated Use the equivalent constant in module `InstancePlatforms` instead
+ */
+export const WindowsWithSqlServerWebPlatform: InstancePlatform = "Windows with SQL Server Web";
 

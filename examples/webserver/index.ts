@@ -4,7 +4,7 @@ import * as aws from "@pulumi/aws";
 import { Output } from "@pulumi/pulumi";
 import { getLinuxAMI } from "./linuxAmi";
 
-let size: aws.ec2.InstanceType = "t2.micro";
+let size = aws.ec2.InstanceTypes.T2_Micro;
 
 let group = new aws.ec2.SecurityGroup("web-secgrp-2", {
     description: "Enable HTTP access",

@@ -8,7 +8,7 @@ import * as middleware from "aws-serverless-express/middleware";
 let hello = "Hello, world!";
 let lambda = new aws.serverless.Function(
   "mylambda", {
-    policies: [aws.iam.AWSLambdaFullAccess],
+    policies: [aws.iam.ManagedPolicies.AWSLambdaFullAccess],
     factoryFunc: () => {
       const app = express();
       app.use(middleware.eventContext());
