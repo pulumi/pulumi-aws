@@ -24,13 +24,13 @@ export class Server {
 
 export class Micro extends Server {
     constructor(name: string) {
-        super(name, "t2.micro");
+        super(name, aws.ec2.InstanceTypes.T2_Micro);
     }
 }
 
 export class Nano extends Server {
     constructor(name: string) {
-        super(name, "t2.nano");
+        super(name, aws.ec2.InstanceTypes.T2_Nano);
     }
 }
 

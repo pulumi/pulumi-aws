@@ -19,9 +19,21 @@
 //
 // These just give a better developer experience and are just sugared strings.
 
-export const DefaultTenancy  : Tenancy = "default";
-export const DedicatedTenancy: Tenancy = "dedicated";
+export module Tenancies {
+    export const DefaultTenancy: Tenancy = "default";
+    export const DedicatedTenancy: Tenancy = "dedicated";
+}
 
 export type Tenancy =
-    "default"   |
+    "default" |
     "dedicated" ;
+
+/**
+ * @deprecated Use the equivalent constant in module `Tenancies` instead
+ */
+export const DefaultTenancy: Tenancy = "default";
+/**
+ * @deprecated Use the equivalent constant in module `Tenancies` instead
+ */
+export const DedicatedTenancy: Tenancy = "dedicated";
+
