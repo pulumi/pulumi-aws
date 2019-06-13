@@ -1111,7 +1111,16 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_iam_openid_connect_provider": {Tok: awsResource(iamMod, "OpenIdConnectProvider")},
-			"aws_iam_policy":                  {Tok: awsResource(iamMod, "Policy")},
+			"aws_iam_policy": {
+				Tok: awsResource(iamMod, "Policy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod+"/documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
+					},
+				},
+			},
 			"aws_iam_policy_attachment": {
 				Tok: awsResource(iamMod, "PolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
