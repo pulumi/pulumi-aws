@@ -8,7 +8,8 @@ CHANGELOG
 * Add constants for Route53 record types
 * Subscription resources will now be parented by default by the resource they were created off of.
   This has been implemented using 'aliases' so this will not have any effect on existing stacks.
-* Adding the ability to specify `PolicyDocument` type as the `policy` field in `aws.iam.Policy`
+* Add the ability to pass a `PolicyDocument` to the `policy` field in `aws.iam.Policy`
+* Add the ability to pass a `PolicyDocument` to the `policy` field in `aws.s3.Bucket`
 
 ---
 
