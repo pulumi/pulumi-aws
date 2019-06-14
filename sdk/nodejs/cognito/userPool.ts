@@ -72,7 +72,7 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * The Email Configuration.
      */
-    public readonly emailConfiguration!: pulumi.Output<{ replyToEmailAddress?: string, sourceArn?: string } | undefined>;
+    public readonly emailConfiguration!: pulumi.Output<{ emailSendingAccount?: string, replyToEmailAddress?: string, sourceArn?: string } | undefined>;
     /**
      * A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
      */
@@ -234,7 +234,7 @@ export interface UserPoolState {
     /**
      * The Email Configuration.
      */
-    readonly emailConfiguration?: pulumi.Input<{ replyToEmailAddress?: pulumi.Input<string>, sourceArn?: pulumi.Input<string> }>;
+    readonly emailConfiguration?: pulumi.Input<{ emailSendingAccount?: pulumi.Input<string>, replyToEmailAddress?: pulumi.Input<string>, sourceArn?: pulumi.Input<string> }>;
     /**
      * A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
      */
@@ -324,7 +324,7 @@ export interface UserPoolArgs {
     /**
      * The Email Configuration.
      */
-    readonly emailConfiguration?: pulumi.Input<{ replyToEmailAddress?: pulumi.Input<string>, sourceArn?: pulumi.Input<string> }>;
+    readonly emailConfiguration?: pulumi.Input<{ emailSendingAccount?: pulumi.Input<string>, replyToEmailAddress?: pulumi.Input<string>, sourceArn?: pulumi.Input<string> }>;
     /**
      * A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
      */

@@ -1783,6 +1783,7 @@ func Provider() tfbridge.ProviderInfo {
 			// DX
 			"aws_dx_gateway": {Tok: awsDataSource(dxMod, "getGateway")},
 			// EC2
+			"aws_customer_gateway":       {Tok: awsDataSource(ec2Mod, "getCustomerGateway")},
 			"aws_instance":               {Tok: awsDataSource(ec2Mod, "getInstance")},
 			"aws_instances":              {Tok: awsDataSource(ec2Mod, "getInstances")},
 			"aws_internet_gateway":       {Tok: awsDataSource(ec2Mod, "getInternetGateway")},

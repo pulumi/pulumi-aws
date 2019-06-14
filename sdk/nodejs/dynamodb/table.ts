@@ -57,12 +57,6 @@ import * as utilities from "../utilities";
  *     writeCapacity: 20,
  * });
  * ```
- * 
- * Notes: `attribute` can be lists
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
  */
 export class Table extends pulumi.CustomResource {
     /**

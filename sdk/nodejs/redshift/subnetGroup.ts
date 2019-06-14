@@ -71,6 +71,10 @@ export class SubnetGroup extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of the Redshift Subnet group name
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The description of the Redshift Subnet group. Defaults to "Managed by Terraform".
      */
     public readonly description!: pulumi.Output<string>;
@@ -99,6 +103,7 @@ export class SubnetGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as SubnetGroupState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -112,6 +117,7 @@ export class SubnetGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         super(SubnetGroup.__pulumiType, name, inputs, opts);
     }
@@ -121,6 +127,10 @@ export class SubnetGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SubnetGroup resources.
  */
 export interface SubnetGroupState {
+    /**
+     * Amazon Resource Name (ARN) of the Redshift Subnet group name
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The description of the Redshift Subnet group. Defaults to "Managed by Terraform".
      */

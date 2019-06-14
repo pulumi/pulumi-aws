@@ -9,6 +9,10 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class ParameterGroup(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN) of parameter group
+    """
     description: pulumi.Output[str]
     """
     The description of the Redshift parameter group. Defaults to "Managed by Terraform".
@@ -25,7 +29,11 @@ class ParameterGroup(pulumi.CustomResource):
     """
     A list of Redshift parameters to apply.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, family=None, name=None, parameters=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
+    def __init__(__self__, resource_name, opts=None, description=None, family=None, name=None, parameters=None, tags=None, __name__=None, __opts__=None):
         """
         Provides a Redshift Cluster parameter group resource.
         
@@ -35,6 +43,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] family: The family of the Redshift parameter group.
         :param pulumi.Input[str] name: The name of the Redshift parameter.
         :param pulumi.Input[list] parameters: A list of Redshift parameters to apply.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -62,6 +71,10 @@ class ParameterGroup(pulumi.CustomResource):
         __props__['name'] = name
 
         __props__['parameters'] = parameters
+
+        __props__['tags'] = tags
+
+        __props__['arn'] = None
 
         super(ParameterGroup, __self__).__init__(
             'aws:redshift/parameterGroup:ParameterGroup',

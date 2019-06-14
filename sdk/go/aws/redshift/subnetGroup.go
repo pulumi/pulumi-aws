@@ -31,6 +31,7 @@ func NewSubnetGroup(ctx *pulumi.Context,
 		inputs["subnetIds"] = args.SubnetIds
 		inputs["tags"] = args.Tags
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:redshift/subnetGroup:SubnetGroup", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -44,6 +45,7 @@ func GetSubnetGroup(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *SubnetGroupState, opts ...pulumi.ResourceOpt) (*SubnetGroup, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["description"] = state.Description
 		inputs["name"] = state.Name
 		inputs["subnetIds"] = state.SubnetIds
@@ -64,6 +66,11 @@ func (r *SubnetGroup) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *SubnetGroup) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// Amazon Resource Name (ARN) of the Redshift Subnet group name
+func (r *SubnetGroup) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The description of the Redshift Subnet group. Defaults to "Managed by Terraform".
@@ -88,6 +95,8 @@ func (r *SubnetGroup) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering SubnetGroup resources.
 type SubnetGroupState struct {
+	// Amazon Resource Name (ARN) of the Redshift Subnet group name
+	Arn interface{}
 	// The description of the Redshift Subnet group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// The name of the Redshift Subnet group.

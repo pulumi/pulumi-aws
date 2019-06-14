@@ -19,6 +19,7 @@ export * from "./eip";
 export * from "./eipAssociation";
 export * from "./fleet";
 export * from "./flowLog";
+export * from "./getCustomerGateway";
 export * from "./getInstance";
 export * from "./getInstances";
 export * from "./getInternetGateway";

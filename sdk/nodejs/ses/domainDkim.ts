@@ -21,9 +21,9 @@ import * as utilities from "../utilities";
  * const exampleDomainDkim = new aws.ses.DomainDkim("example", {
  *     domain: exampleDomainIdentity.domain,
  * });
- * const exampleAmazonsesVerificationRecord: aws.route53.Record[] = [];
+ * const exampleAmazonsesDkimRecord: aws.route53.Record[] = [];
  * for (let i = 0; i < 3; i++) {
- *     exampleAmazonsesVerificationRecord.push(new aws.route53.Record(`example_amazonses_verification_record-${i}`, {
+ *     exampleAmazonsesDkimRecord.push(new aws.route53.Record(`example_amazonses_dkim_record-${i}`, {
  *         records: [exampleDomainDkim.dkimTokens.apply(dkimTokens => `${dkimTokens[i]}.dkim.amazonses.com`)],
  *         ttl: 600,
  *         type: "CNAME",

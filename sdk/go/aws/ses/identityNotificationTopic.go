@@ -25,10 +25,12 @@ func NewIdentityNotificationTopic(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["identity"] = nil
+		inputs["includeOriginalHeaders"] = nil
 		inputs["notificationType"] = nil
 		inputs["topicArn"] = nil
 	} else {
 		inputs["identity"] = args.Identity
+		inputs["includeOriginalHeaders"] = args.IncludeOriginalHeaders
 		inputs["notificationType"] = args.NotificationType
 		inputs["topicArn"] = args.TopicArn
 	}
@@ -46,6 +48,7 @@ func GetIdentityNotificationTopic(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["identity"] = state.Identity
+		inputs["includeOriginalHeaders"] = state.IncludeOriginalHeaders
 		inputs["notificationType"] = state.NotificationType
 		inputs["topicArn"] = state.TopicArn
 	}
@@ -71,6 +74,11 @@ func (r *IdentityNotificationTopic) Identity() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["identity"])
 }
 
+// Whether SES should include original email headers in SNS notifications of this type. *false* by default.
+func (r *IdentityNotificationTopic) IncludeOriginalHeaders() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["includeOriginalHeaders"])
+}
+
 // The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
 func (r *IdentityNotificationTopic) NotificationType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["notificationType"])
@@ -85,6 +93,8 @@ func (r *IdentityNotificationTopic) TopicArn() *pulumi.StringOutput {
 type IdentityNotificationTopicState struct {
 	// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
 	Identity interface{}
+	// Whether SES should include original email headers in SNS notifications of this type. *false* by default.
+	IncludeOriginalHeaders interface{}
 	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
 	NotificationType interface{}
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
@@ -95,6 +105,8 @@ type IdentityNotificationTopicState struct {
 type IdentityNotificationTopicArgs struct {
 	// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
 	Identity interface{}
+	// Whether SES should include original email headers in SNS notifications of this type. *false* by default.
+	IncludeOriginalHeaders interface{}
 	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
 	NotificationType interface{}
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.

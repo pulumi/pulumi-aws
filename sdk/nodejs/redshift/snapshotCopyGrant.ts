@@ -55,6 +55,10 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of snapshot copy grant
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
@@ -79,6 +83,7 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as SnapshotCopyGrantState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             inputs["snapshotCopyGrantName"] = state ? state.snapshotCopyGrantName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -90,6 +95,7 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["snapshotCopyGrantName"] = args ? args.snapshotCopyGrantName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         super(SnapshotCopyGrant.__pulumiType, name, inputs, opts);
     }
@@ -99,6 +105,10 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SnapshotCopyGrant resources.
  */
 export interface SnapshotCopyGrantState {
+    /**
+     * Amazon Resource Name (ARN) of snapshot copy grant
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
      */

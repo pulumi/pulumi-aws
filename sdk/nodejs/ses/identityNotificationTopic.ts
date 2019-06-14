@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const test = new aws.ses.IdentityNotificationTopic("test", {
  *     identity: aws_ses_domain_identity_example.domain,
+ *     includeOriginalHeaders: true,
  *     notificationType: "Bounce",
  *     topicArn: aws_sns_topic_example.arn,
  * });
@@ -52,6 +53,10 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<string>;
     /**
+     * Whether SES should include original email headers in SNS notifications of this type. *false* by default.
+     */
+    public readonly includeOriginalHeaders!: pulumi.Output<boolean | undefined>;
+    /**
      * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
      */
     public readonly notificationType!: pulumi.Output<string>;
@@ -73,6 +78,7 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as IdentityNotificationTopicState | undefined;
             inputs["identity"] = state ? state.identity : undefined;
+            inputs["includeOriginalHeaders"] = state ? state.includeOriginalHeaders : undefined;
             inputs["notificationType"] = state ? state.notificationType : undefined;
             inputs["topicArn"] = state ? state.topicArn : undefined;
         } else {
@@ -84,6 +90,7 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
                 throw new Error("Missing required property 'notificationType'");
             }
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["includeOriginalHeaders"] = args ? args.includeOriginalHeaders : undefined;
             inputs["notificationType"] = args ? args.notificationType : undefined;
             inputs["topicArn"] = args ? args.topicArn : undefined;
         }
@@ -99,6 +106,10 @@ export interface IdentityNotificationTopicState {
      * The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
      */
     readonly identity?: pulumi.Input<string>;
+    /**
+     * Whether SES should include original email headers in SNS notifications of this type. *false* by default.
+     */
+    readonly includeOriginalHeaders?: pulumi.Input<boolean>;
     /**
      * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
      */
@@ -117,6 +128,10 @@ export interface IdentityNotificationTopicArgs {
      * The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
      */
     readonly identity: pulumi.Input<string>;
+    /**
+     * Whether SES should include original email headers in SNS notifications of this type. *false* by default.
+     */
+    readonly includeOriginalHeaders?: pulumi.Input<boolean>;
     /**
      * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
      */
