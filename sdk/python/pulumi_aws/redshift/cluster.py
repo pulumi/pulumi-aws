@@ -13,6 +13,10 @@ class Cluster(pulumi.CustomResource):
     """
     If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
     """
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN) of cluster
+    """
     automated_snapshot_retention_period: pulumi.Output[float]
     """
     The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
@@ -294,6 +298,7 @@ class Cluster(pulumi.CustomResource):
 
         __props__['vpc_security_group_ids'] = vpc_security_group_ids
 
+        __props__['arn'] = None
         __props__['dns_name'] = None
 
         super(Cluster, __self__).__init__(

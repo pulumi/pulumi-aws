@@ -25,12 +25,15 @@ func NewParameterGroup(ctx *pulumi.Context,
 		inputs["family"] = nil
 		inputs["name"] = nil
 		inputs["parameters"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["description"] = args.Description
 		inputs["family"] = args.Family
 		inputs["name"] = args.Name
 		inputs["parameters"] = args.Parameters
+		inputs["tags"] = args.Tags
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:redshift/parameterGroup:ParameterGroup", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -44,10 +47,12 @@ func GetParameterGroup(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *ParameterGroupState, opts ...pulumi.ResourceOpt) (*ParameterGroup, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["description"] = state.Description
 		inputs["family"] = state.Family
 		inputs["name"] = state.Name
 		inputs["parameters"] = state.Parameters
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:redshift/parameterGroup:ParameterGroup", name, id, inputs, opts...)
 	if err != nil {
@@ -64,6 +69,11 @@ func (r *ParameterGroup) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *ParameterGroup) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// Amazon Resource Name (ARN) of parameter group
+func (r *ParameterGroup) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The description of the Redshift parameter group. Defaults to "Managed by Terraform".
@@ -86,8 +96,15 @@ func (r *ParameterGroup) Parameters() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["parameters"])
 }
 
+// A mapping of tags to assign to the resource.
+func (r *ParameterGroup) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering ParameterGroup resources.
 type ParameterGroupState struct {
+	// Amazon Resource Name (ARN) of parameter group
+	Arn interface{}
 	// The description of the Redshift parameter group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// The family of the Redshift parameter group.
@@ -96,6 +113,8 @@ type ParameterGroupState struct {
 	Name interface{}
 	// A list of Redshift parameters to apply.
 	Parameters interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }
 
 // The set of arguments for constructing a ParameterGroup resource.
@@ -108,4 +127,6 @@ type ParameterGroupArgs struct {
 	Name interface{}
 	// A list of Redshift parameters to apply.
 	Parameters interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }

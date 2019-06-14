@@ -6,6 +6,64 @@ import * as utilities from "../utilities";
 
 /**
  * Manages AWS Managed Streaming for Kafka cluster
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const kms = new aws.kms.Key("kms", {
+ *     description: "example",
+ * });
+ * const vpc = new aws.ec2.Vpc("vpc", {
+ *     cidrBlock: "192.168.0.0/22",
+ * });
+ * const azs = pulumi.output(aws.getAvailabilityZones({
+ *     state: "available",
+ * }));
+ * const sg = new aws.ec2.SecurityGroup("sg", {
+ *     vpcId: vpc.id,
+ * });
+ * const subnetAz1 = new aws.ec2.Subnet("subnet_az1", {
+ *     availabilityZone: azs.apply(azs => azs.names[0]),
+ *     cidrBlock: "192.168.0.0/24",
+ *     vpcId: vpc.id,
+ * });
+ * const subnetAz2 = new aws.ec2.Subnet("subnet_az2", {
+ *     availabilityZone: azs.apply(azs => azs.names[1]),
+ *     cidrBlock: "192.168.1.0/24",
+ *     vpcId: vpc.id,
+ * });
+ * const subnetAz3 = new aws.ec2.Subnet("subnet_az3", {
+ *     availabilityZone: azs.apply(azs => azs.names[2]),
+ *     cidrBlock: "192.168.2.0/24",
+ *     vpcId: vpc.id,
+ * });
+ * const example = new aws.msk.Cluster("example", {
+ *     brokerNodeGroupInfo: {
+ *         clientSubnets: [
+ *             subnetAz1.id,
+ *             subnetAz2.id,
+ *             subnetAz3.id,
+ *         ],
+ *         instanceType: "kafka.m5.large",
+ *         securityGroups: [sg.id],
+ *     },
+ *     clusterName: "example",
+ *     encryptionInfo: {
+ *         encryptionAtRestKmsKeyArn: kms.arn,
+ *     },
+ *     kafkaVersion: "2.1.0",
+ *     numberOfBrokerNodes: 3,
+ *     tags: {
+ *         foo: "bar",
+ *     },
+ * });
+ * 
+ * export const bootstrapBrokers = example.bootstrapBrokers;
+ * export const zookeeperConnectString = example.zookeeperConnectString;
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

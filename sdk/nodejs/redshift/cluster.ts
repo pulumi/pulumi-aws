@@ -58,6 +58,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly allowVersionUpgrade!: pulumi.Output<boolean | undefined>;
     /**
+     * Amazon Resource Name (ARN) of cluster
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
      */
     public readonly automatedSnapshotRetentionPeriod!: pulumi.Output<number | undefined>;
@@ -214,6 +218,7 @@ export class Cluster extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ClusterState | undefined;
             inputs["allowVersionUpgrade"] = state ? state.allowVersionUpgrade : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["automatedSnapshotRetentionPeriod"] = state ? state.automatedSnapshotRetentionPeriod : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
@@ -290,6 +295,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["dnsName"] = undefined /*out*/;
         }
         super(Cluster.__pulumiType, name, inputs, opts);
@@ -304,6 +310,10 @@ export interface ClusterState {
      * If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
      */
     readonly allowVersionUpgrade?: pulumi.Input<boolean>;
+    /**
+     * Amazon Resource Name (ARN) of cluster
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
      */

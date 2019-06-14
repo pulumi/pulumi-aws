@@ -14,6 +14,7 @@ import (
 // 
 // The following additional atttributes are provided:
 // 
+// * `arn` - Amazon Resource Name (ARN) of the Redshift event notification subscription
 // * `id` - The name of the Redshift event notification subscription
 // * `customer_aws_id` - The AWS customer account associated with the Redshift event notification subscription
 type EventSubscription struct {
@@ -46,6 +47,7 @@ func NewEventSubscription(ctx *pulumi.Context,
 		inputs["sourceType"] = args.SourceType
 		inputs["tags"] = args.Tags
 	}
+	inputs["arn"] = nil
 	inputs["customerAwsId"] = nil
 	inputs["status"] = nil
 	s, err := ctx.RegisterResource("aws:redshift/eventSubscription:EventSubscription", name, true, inputs, opts...)
@@ -61,6 +63,7 @@ func GetEventSubscription(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *EventSubscriptionState, opts ...pulumi.ResourceOpt) (*EventSubscription, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["customerAwsId"] = state.CustomerAwsId
 		inputs["enabled"] = state.Enabled
 		inputs["eventCategories"] = state.EventCategories
@@ -87,6 +90,10 @@ func (r *EventSubscription) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *EventSubscription) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+func (r *EventSubscription) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 func (r *EventSubscription) CustomerAwsId() *pulumi.StringOutput {
@@ -139,6 +146,7 @@ func (r *EventSubscription) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering EventSubscription resources.
 type EventSubscriptionState struct {
+	Arn interface{}
 	CustomerAwsId interface{}
 	// A boolean flag to enable/disable the subscription. Defaults to true.
 	Enabled interface{}

@@ -97,6 +97,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 		inputs["vpcSecurityGroupIds"] = args.VpcSecurityGroupIds
 	}
+	inputs["arn"] = nil
 	inputs["dnsName"] = nil
 	s, err := ctx.RegisterResource("aws:redshift/cluster:Cluster", name, true, inputs, opts...)
 	if err != nil {
@@ -112,6 +113,7 @@ func GetCluster(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["allowVersionUpgrade"] = state.AllowVersionUpgrade
+		inputs["arn"] = state.Arn
 		inputs["automatedSnapshotRetentionPeriod"] = state.AutomatedSnapshotRetentionPeriod
 		inputs["availabilityZone"] = state.AvailabilityZone
 		inputs["clusterIdentifier"] = state.ClusterIdentifier
@@ -167,6 +169,11 @@ func (r *Cluster) ID() *pulumi.IDOutput {
 // If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
 func (r *Cluster) AllowVersionUpgrade() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["allowVersionUpgrade"])
+}
+
+// Amazon Resource Name (ARN) of cluster
+func (r *Cluster) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
@@ -350,6 +357,8 @@ func (r *Cluster) VpcSecurityGroupIds() *pulumi.ArrayOutput {
 type ClusterState struct {
 	// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
 	AllowVersionUpgrade interface{}
+	// Amazon Resource Name (ARN) of cluster
+	Arn interface{}
 	// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
 	AutomatedSnapshotRetentionPeriod interface{}
 	// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.

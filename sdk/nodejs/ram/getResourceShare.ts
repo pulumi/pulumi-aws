@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const example = pulumi.output(aws.ram.getResourceShare({
  *     name: "example",
+ *     resourceOwner: "SELF",
  * }));
  * ```
  * 

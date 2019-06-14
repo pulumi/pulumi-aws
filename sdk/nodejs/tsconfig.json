@@ -248,6 +248,7 @@
         "ec2/eipAssociation.ts",
         "ec2/fleet.ts",
         "ec2/flowLog.ts",
+        "ec2/getCustomerGateway.ts",
         "ec2/getInstance.ts",
         "ec2/getInstances.ts",
         "ec2/getInternetGateway.ts",

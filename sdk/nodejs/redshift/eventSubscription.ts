@@ -39,6 +39,7 @@ import * as utilities from "../utilities";
  * 
  * The following additional atttributes are provided:
  * 
+ * * `arn` - Amazon Resource Name (ARN) of the Redshift event notification subscription
  * * `id` - The name of the Redshift event notification subscription
  * * `customer_aws_id` - The AWS customer account associated with the Redshift event notification subscription
  */
@@ -69,6 +70,7 @@ export class EventSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventSubscription.__pulumiType;
     }
 
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly customerAwsId!: pulumi.Output<string>;
     /**
      * A boolean flag to enable/disable the subscription. Defaults to true.
@@ -116,6 +118,7 @@ export class EventSubscription extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as EventSubscriptionState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["customerAwsId"] = state ? state.customerAwsId : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["eventCategories"] = state ? state.eventCategories : undefined;
@@ -139,6 +142,7 @@ export class EventSubscription extends pulumi.CustomResource {
             inputs["sourceIds"] = args ? args.sourceIds : undefined;
             inputs["sourceType"] = args ? args.sourceType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["customerAwsId"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
@@ -150,6 +154,7 @@ export class EventSubscription extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventSubscription resources.
  */
 export interface EventSubscriptionState {
+    readonly arn?: pulumi.Input<string>;
     readonly customerAwsId?: pulumi.Input<string>;
     /**
      * A boolean flag to enable/disable the subscription. Defaults to true.

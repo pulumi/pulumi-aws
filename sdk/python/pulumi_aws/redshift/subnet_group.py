@@ -9,6 +9,10 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class SubnetGroup(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN) of the Redshift Subnet group name
+    """
     description: pulumi.Output[str]
     """
     The description of the Redshift Subnet group. Defaults to "Managed by Terraform".
@@ -62,6 +66,8 @@ class SubnetGroup(pulumi.CustomResource):
         __props__['subnet_ids'] = subnet_ids
 
         __props__['tags'] = tags
+
+        __props__['arn'] = None
 
         super(SubnetGroup, __self__).__init__(
             'aws:redshift/subnetGroup:SubnetGroup',

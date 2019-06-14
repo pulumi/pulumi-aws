@@ -9,6 +9,7 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class EventSubscription(pulumi.CustomResource):
+    arn: pulumi.Output[str]
     customer_aws_id: pulumi.Output[str]
     enabled: pulumi.Output[bool]
     """
@@ -51,6 +52,7 @@ class EventSubscription(pulumi.CustomResource):
         
         The following additional atttributes are provided:
         
+        * `arn` - Amazon Resource Name (ARN) of the Redshift event notification subscription
         * `id` - The name of the Redshift event notification subscription
         * `customer_aws_id` - The AWS customer account associated with the Redshift event notification subscription
         
@@ -98,6 +100,7 @@ class EventSubscription(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
+        __props__['arn'] = None
         __props__['customer_aws_id'] = None
         __props__['status'] = None
 

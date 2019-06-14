@@ -60,6 +60,10 @@ export class ParameterGroup extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of parameter group
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The description of the Redshift parameter group. Defaults to "Managed by Terraform".
      */
     public readonly description!: pulumi.Output<string>;
@@ -75,6 +79,10 @@ export class ParameterGroup extends pulumi.CustomResource {
      * A list of Redshift parameters to apply.
      */
     public readonly parameters!: pulumi.Output<{ name: string, value: string }[] | undefined>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a ParameterGroup resource with the given unique name, arguments, and options.
@@ -88,10 +96,12 @@ export class ParameterGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ParameterGroupState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["family"] = state ? state.family : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ParameterGroupArgs | undefined;
             if (!args || args.family === undefined) {
@@ -101,6 +111,8 @@ export class ParameterGroup extends pulumi.CustomResource {
             inputs["family"] = args ? args.family : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         super(ParameterGroup.__pulumiType, name, inputs, opts);
     }
@@ -110,6 +122,10 @@ export class ParameterGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ParameterGroup resources.
  */
 export interface ParameterGroupState {
+    /**
+     * Amazon Resource Name (ARN) of parameter group
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The description of the Redshift parameter group. Defaults to "Managed by Terraform".
      */
@@ -126,6 +142,10 @@ export interface ParameterGroupState {
      * A list of Redshift parameters to apply.
      */
     readonly parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -148,4 +168,8 @@ export interface ParameterGroupArgs {
      * A list of Redshift parameters to apply.
      */
     readonly parameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
