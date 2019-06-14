@@ -3,7 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-## 0.18.9 (2019-06-13)
+## 0.18.10 (2019-06-13)
 
 Note: new constants may cause existing code to break due to the types being narrower in TypeScript.
 If you run into issues, you can cast to the specific type (i.e. `<EngineType>someStr`) if the TypeScript
