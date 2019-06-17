@@ -233,6 +233,10 @@ export class EventSubscription extends pulumi.ComponentResource {
     }
 }
 
+export function isEventHandler(obj: any): obj is EventHandler<any, any> {
+    return LambdaFunction.isInstance(obj) || obj instanceof Function;
+}
+
 export function createFunctionFromEventHandler<E, R>(
     name: string, handler: EventHandler<E, R>, opts?: pulumi.ResourceOptions): LambdaFunction {
 
