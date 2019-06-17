@@ -61,7 +61,6 @@ install::
 		yarn install --offline --production && \
 		(yarn unlink > /dev/null 2>&1 || true) && \
 		yarn link
-	cd ${PACKDIR}/python/bin && $(PIP) install --user -e .
 
 test_fast::
 	$(GO_TEST_FAST) ./examples
