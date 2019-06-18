@@ -3,6 +3,8 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+* Fix an issue where the pulumi_aws Python package would fail to install install in some cases
+
 ## 0.18.10 (2019-06-13)
 
 Note: new constants may cause existing code to break due to the types being narrower in TypeScript.
