@@ -33,7 +33,7 @@ build:: provider tfgen
 		sed -i.bak "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 	cd ${PACKDIR}/python/ && \
 		if [ $$(command -v pandoc) ]; then \
-			pandoc --from=markdown --to=rst --output=README.rst ../../README.md; \
+			pandoc --from=markdown-smart --to=rst-smart --output=README.rst ../../README.md; \
 		else \
 			echo "warning: pandoc not found, not generating README.rst"; \
 			echo "" > README.rst; \
