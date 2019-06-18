@@ -3,6 +3,8 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+## 0.18.11 (2019-06-17)
+
 * Fix an issue where the pulumi_aws Python package would fail to install install in some cases
 
 ## 0.18.10 (2019-06-13)
