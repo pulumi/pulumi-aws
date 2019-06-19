@@ -12,7 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
+
+const config = new pulumi.Config("aws");
+const providerOpts = { provider: new aws.Provider("prov", { region: config.require("envRegion") }) };
 
 const table = new aws.dynamodb.Table("testtable", {
     attributes: [{
@@ -24,7 +28,7 @@ const table = new aws.dynamodb.Table("testtable", {
     writeCapacity: 5,
     streamEnabled: true,
     streamViewType: "NEW_AND_OLD_IMAGES",
-});
+}, providerOpts);
 
 table.onEvent("test", async (event) => {
     console.log("Received event: " + JSON.stringify(event, null, 2));
