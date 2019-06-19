@@ -5,7 +5,7 @@ import * as aws from "@pulumi/aws";
 import { asset } from "@pulumi/pulumi";
 
 const config = new pulumi.Config("aws");
-const providerOpts = { provider: new aws.Provider("prov", { region: config.require("envRegion") }) };
+const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
 let region = config.require("envRegion");
 

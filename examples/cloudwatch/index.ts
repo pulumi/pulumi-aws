@@ -16,7 +16,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 
 const config = new pulumi.Config("aws");
-const providerOpts = { provider: new aws.Provider("prov", { region: config.require("envRegion") }) };
+const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
 const event = aws.cloudwatch.onSchedule("everyMinute", "rate(1 minute)", async (event) => {
     console.log("Received event: " + JSON.stringify(event, null, 2));

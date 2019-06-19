@@ -4,7 +4,7 @@ import { getLinuxAMI } from "./linuxAmi";
 
 const config = new pulumi.Config("aws");
 const region = config.require("envRegion");
-const providerOpts = { provider: new aws.Provider("prov", { region }) };
+const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>region }) };
 
 const vpc = new aws.ec2.Vpc("vpc", {
     cidrBlock: "10.0.0.0/16",

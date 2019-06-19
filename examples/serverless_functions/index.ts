@@ -10,7 +10,7 @@ import * as slack from "@slack/client";
 import * as mime from "mime-types";
 
 const config = new pulumi.Config("aws");
-const providerOpts = { provider: new aws.Provider("prov", { region: config.require("envRegion") }) };
+const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
 // Validate that 'require'd packages are captured correctly.
 function getContentType() {

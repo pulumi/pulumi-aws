@@ -2,7 +2,7 @@ const pulumi = require("@pulumi/pulumi");
 const aws = require("@pulumi/aws");
 
 const config = new pulumi.Config("aws");
-const providerOpts = { provider: new aws.Provider("prov", { region: config.require("envRegion") }) };
+const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
 const apiKey = new aws.apigateway.ApiKey("key", {}, providerOpts);
 const usagePlan = new aws.apigateway.UsagePlan("plan", {}, providerOpts);

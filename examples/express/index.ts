@@ -7,7 +7,7 @@ import * as serverlessExpress from "aws-serverless-express";
 import * as middleware from "aws-serverless-express/middleware";
 
 const config = new pulumi.Config("aws");
-const providerOpts = { provider: new aws.Provider("prov", { region: config.require("envRegion") }) };
+const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
 let hello = "Hello, world!";
 let lambda = new aws.serverless.Function(
