@@ -3,7 +3,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import { asset } from "@pulumi/pulumi";
-let region = aws.config.requireRegion();
+
+const config = new pulumi.Config("aws");
+const providerOpts = { provider: new aws.Provider("prov", { region: config.require("envRegion") }) };
+
+let region = config.require("envRegion");
 
 ///////////////////
 // Lambda Function
@@ -24,11 +28,11 @@ let policy = {
 
 let role = new aws.iam.Role("mylambda-role", {
     assumeRolePolicy: JSON.stringify(policy),
-});
+}, providerOpts);
 let fullAccess = new aws.iam.RolePolicyAttachment("mylambda-access", {
     role: role,
     policyArn: aws.iam.ManagedPolicies.AWSLambdaFullAccess,
-});
+}, providerOpts);
 let lambda = new aws.lambda.Function("mylambda", {
     code: new asset.AssetArchive({
         "index.js": new asset.StringAsset(
@@ -38,14 +42,14 @@ let lambda = new aws.lambda.Function("mylambda", {
     role: role.arn,
     handler: "index.handler",
     runtime: aws.lambda.NodeJS8d10Runtime,
-});
+}, providerOpts);
 
 ///////////////////
 // Logging
 ///////////////////
 let logGroup = new aws.cloudwatch.LogGroup("/aws/lambda/mylambda", {
     retentionInDays: 7,
-});
+}, providerOpts);
 
 let logcollector = new aws.lambda.Function("mylambda-logcollector", {
     code: new asset.AssetArchive({
@@ -56,20 +60,20 @@ let logcollector = new aws.lambda.Function("mylambda-logcollector", {
     role: role.arn,
     handler: "index.handler",
     runtime: aws.lambda.NodeJS8d10Runtime,
-});
+}, providerOpts);
 
 let permission = new aws.lambda.Permission("logcollector-permission", {
     action: "lambda:InvokeFunction",
     principal: "logs." + region + ".amazonaws.com",
     sourceArn: logGroup.arn,
     function: logcollector,
-});
+}, providerOpts);
 
 let logSubscription = new aws.cloudwatch.LogSubscriptionFilter("logsubscription", {
     destinationArn: logcollector.arn,
     logGroup: logGroup,
     filterPattern: "",
-});
+}, providerOpts);
 
 ///////////////////
 // DynamoDB Table
@@ -83,7 +87,7 @@ let music = new aws.dynamodb.Table("music", {
     rangeKey: "Artist",
     readCapacity: 1,
     writeCapacity: 1,
-});
+}, providerOpts);
 
 ///////////////////
 // APIGateway RestAPI
@@ -108,20 +112,20 @@ let music = new aws.dynamodb.Table("music", {
 //      },
 //    };
 
-let restApi = new aws.apigateway.RestApi("myrestapi", {});
+let restApi = new aws.apigateway.RestApi("myrestapi", {}, providerOpts);
 
 let resource = new aws.apigateway.Resource("myrestapi-resource", {
     restApi: restApi,
     pathPart: "bambam",
     parentId: restApi.rootResourceId!,
-});
+}, providerOpts);
 
 let method = new aws.apigateway.Method("myrestapi-method", {
     restApi: restApi,
     resourceId: resource.id,
     httpMethod: "ANY",
     authorization: "NONE",
-});
+}, providerOpts);
 
 let integration = new aws.apigateway.Integration("myrestapi-integration", {
     restApi: restApi,
@@ -131,10 +135,10 @@ let integration = new aws.apigateway.Integration("myrestapi-integration", {
     integrationHttpMethod: "POST",
     passthroughBehavior: "WHEN_NO_MATCH",
     uri: pulumi.interpolate `arn:aws:apigateway:${region}:lambda:path/2015-03-31/functions/${lambda.arn}/invocations`,
-}, { dependsOn: [ method ] });
+}, { dependsOn: [method], provider: providerOpts.provider });
 
 let deployment = new aws.apigateway.Deployment("myrestapi-deployment-prod", {
     restApi: restApi,
     description: "my deployment",
     stageName: "prod",
-}, { dependsOn: [ integration ] });
+}, { dependsOn: [integration], provider: providerOpts.provider });
