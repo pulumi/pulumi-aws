@@ -25,7 +25,7 @@ let server = new aws.ec2.Instance("web-server-www", {
 }, providerOpts);
 
 // Look up the server just created, using the get method.  And then export its properties.
-let server2 = aws.ec2.Instance.get("web-server-www-2", server.id, providerOpts);
+let server2 = aws.ec2.Instance.get("web-server-www-2", server.id, {}, providerOpts);
 
 export let publicIp: Output<string> = server2.publicIp;
 export let publicDns: Output<string> = server2.publicDns;
