@@ -1938,7 +1938,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
-				"@pulumi/pulumi":    "^0.17.16",
+				"@pulumi/pulumi":    "^0.17.17",
 				"aws-sdk":           "^2.0.0",
 				"mime":              "^2.0.0",
 				"builtin-modules":   "3.0.0",

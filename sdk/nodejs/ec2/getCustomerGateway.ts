@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_main.id,
  * });
  * const foo = pulumi.output(aws.ec2.getCustomerGateway({
- *     filters: [{
+ *     filter: [{
  *         Name: "foo-prod",
  *     }],
  * }));
