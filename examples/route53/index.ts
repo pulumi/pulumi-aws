@@ -12,9 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 
-const example_zone = new aws.route53.Zone("example.com", {});
+const config = new pulumi.Config("aws");
+const providerOpts = { provider: new aws.Provider("prov", { region: config.require("envRegion") }) };
+
+const example_zone = new aws.route53.Zone("example.com", {}, providerOpts);
 
 const www_dev = new aws.route53.Record("www-dev", {
      records: ["dev.example.com"],
@@ -25,6 +29,4 @@ const www_dev = new aws.route53.Record("www-dev", {
          weight: 10,
      }],
      zoneId: example_zone.zoneId,
-});
-
-
+}, providerOpts);
