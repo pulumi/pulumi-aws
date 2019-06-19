@@ -33,4 +33,4 @@ let lambda = new aws.serverless.Function(
         serverlessExpress.proxy(server, event, <any>context);
       }
     }
-  }, providerOpts);
+  }, undefined, providerOpts);
