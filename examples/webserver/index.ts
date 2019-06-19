@@ -1,5 +1,6 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
+import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import { Output } from "@pulumi/pulumi";
 import { getLinuxAMI } from "./linuxAmi";
