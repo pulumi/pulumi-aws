@@ -25,6 +25,10 @@ func TestExamples(t *testing.T) {
 	if region == "" {
 		t.Skipf("Skipping test due to missing AWS_REGION environment variable")
 	}
+
+	// Explicitly set region to an invalid value to ensure that we're only using the region given by
+	// an explicit provider in code.
+	region = "INVALID_REGION"
 	cwd, err := os.Getwd()
 	if !assert.NoError(t, err, "expected a valid working directory: %v", err) {
 		return
