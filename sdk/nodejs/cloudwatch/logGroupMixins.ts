@@ -88,10 +88,14 @@ export class LogGroupEventSubscription extends lambda.EventSubscription {
         const parentOpts = { parent: this };
         this.func = lambda.createFunctionFromEventHandler(name, handler, parentOpts);
 
+        const provider: any = this.getProvider("aws::");
+        let region = provider ? provider.region : undefined;
+        region = region || config.region;
+
         this.permission = new lambda.Permission(name, {
             action: "lambda:invokeFunction",
             function: this.func,
-            principal: `logs.${config.requireRegion()}.amazonaws.com`,
+            principal: `logs.${region}.amazonaws.com`,
             sourceArn: logGroup.arn,
         }, parentOpts);
 

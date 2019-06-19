@@ -5,7 +5,8 @@ import * as aws from "@pulumi/aws";
 import { getLinuxAMI } from "./linuxAmi";
 
 const config = new pulumi.Config("aws");
-const providerOpts = { provider: new aws.Provider("prov", { region: config.require("envRegion") }) };
+const region = config.require("envRegion");
+const providerOpts = { provider: new aws.Provider("prov", { region }) };
 
 export let size: aws.ec2.InstanceType = "t2.micro";
 
@@ -20,5 +21,5 @@ let group = new aws.ec2.SecurityGroup("web-secgrp", {
 let server = new aws.ec2.Instance("web-server-www", {
     instanceType: size,
     securityGroups: [ group.name ],
-    ami: getLinuxAMI(size),
+    ami: getLinuxAMI(size, region),
 }, providerOpts);

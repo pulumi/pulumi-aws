@@ -3,7 +3,8 @@ import * as aws from "@pulumi/aws";
 import { getLinuxAMI } from "./linuxAmi";
 
 const config = new pulumi.Config("aws");
-const providerOpts = { provider: new aws.Provider("prov", { region: config.require("envRegion") }) };
+const region = config.require("envRegion");
+const providerOpts = { provider: new aws.Provider("prov", { region }) };
 
 const vpc = new aws.ec2.Vpc("vpc", {
     cidrBlock: "10.0.0.0/16",
@@ -24,7 +25,7 @@ const size = aws.ec2.InstanceTypes.T2_Micro;
 const instance = new aws.ec2.Instance("dummy-instance", {
     userData: pulumi.interpolate `#!/bin/bash
 echo ${mountTarget.dnsName}`,
-    ami: getLinuxAMI(size),
+    ami: getLinuxAMI(size, region),
     instanceType: size,
 }, providerOpts);
 

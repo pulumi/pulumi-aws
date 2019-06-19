@@ -5,7 +5,8 @@ import * as aws from "@pulumi/aws";
 import { getLinuxAMI } from "./linuxAmi";
 
 const config = new pulumi.Config("aws");
-const providerOpts = { provider: new aws.Provider("prov", { region: config.require("envRegion") }) };
+const region = config.require("envRegion");
+const providerOpts = { provider: new aws.Provider("prov", { region }) };
 
 let group = new aws.ec2.SecurityGroup("web-secgrp", {
     description: "Enable HTTP access",
@@ -21,7 +22,7 @@ export class Server {
         this.instance = new aws.ec2.Instance("web-server-" + name, {
             instanceType: size,
             securityGroups: [ group.name ],
-            ami: getLinuxAMI(size),
+            ami: getLinuxAMI(size, region),
         }, providerOpts);
     }
 }
