@@ -15,6 +15,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 
+const config = new pulumi.Config("aws");
+const providerOpts = { provider: new aws.Provider("prov", { region: config.require("envRegion") }) };
+
 const bucket = new aws.s3.Bucket("testbucket", {
     serverSideEncryptionConfiguration: {
         rule: {
@@ -24,7 +27,7 @@ const bucket = new aws.s3.Bucket("testbucket", {
         },
     },
     forceDestroy: true,
-});
+}, providerOpts);
 
 bucket.onObjectCreated("bucket-callback", async (event) => {
     const awssdk = await import("aws-sdk");

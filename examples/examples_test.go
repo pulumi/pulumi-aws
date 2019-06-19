@@ -21,23 +21,22 @@ import (
 )
 
 func TestExamples(t *testing.T) {
-	region := os.Getenv("AWS_REGION")
-	if region == "" {
+	envRegion := os.Getenv("AWS_REGION")
+	if envRegion == "" {
 		t.Skipf("Skipping test due to missing AWS_REGION environment variable")
 	}
 
-	// Explicitly set region to an invalid value to ensure that we're only using the region given by
-	// an explicit provider in code.
-	region = "INVALID_REGION"
 	cwd, err := os.Getwd()
 	if !assert.NoError(t, err, "expected a valid working directory: %v", err) {
 		return
 	}
 
-	// base options shared amongst all tests.
+	// base options shared amongst all tests. Explicitly set region to an invalid value to ensure
+	// that we're only using the region given by an explicit provider in code.
 	base := integration.ProgramTestOptions{
 		Config: map[string]string{
-			"aws:region": region,
+			"aws:region":    "INVALID_REGION",
+			"aws:envRegion": envRegion,
 		},
 	}
 
