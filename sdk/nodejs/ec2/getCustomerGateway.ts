@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Get an existing AWS Customer Gateway.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const main = new aws.ec2.VpnGateway("main", {
  *     amazonSideAsn: "7224",
  *     vpcId: aws_vpc_main.id,
