@@ -15,7 +15,10 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 
+const config = new pulumi.Config("aws");
+const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
+
 const foo = new aws.ssm.Parameter("foo", {
     type: aws.ssm.StringParameter,
     value: "bar",
-});
+}, providerOpts);

@@ -1,6 +1,10 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
+import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
+
+const config = new pulumi.Config("aws");
+const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
 let music = new aws.dynamodb.Table("music", {
   attributes: [
@@ -33,7 +37,7 @@ let music = new aws.dynamodb.Table("music", {
       writeCapacity: 2,
     },
   ],
-});
+}, providerOpts);
 
 let hello = "Hello, world!";
 let lambda = new aws.serverless.Function(
@@ -47,4 +51,4 @@ let lambda = new aws.serverless.Function(
       body: hello + "\n\nSucceeed with " + context.getRemainingTimeInMillis() + "ms remaining.\n",
     });
   },
-);
+  providerOpts);

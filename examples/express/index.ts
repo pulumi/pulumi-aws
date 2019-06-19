@@ -1,9 +1,13 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
+import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import * as express from "express";
 import * as serverlessExpress from "aws-serverless-express";
 import * as middleware from "aws-serverless-express/middleware";
+
+const config = new pulumi.Config("aws");
+const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
 let hello = "Hello, world!";
 let lambda = new aws.serverless.Function(
@@ -29,4 +33,4 @@ let lambda = new aws.serverless.Function(
         serverlessExpress.proxy(server, event, <any>context);
       }
     }
-  });
+  }, undefined, providerOpts);

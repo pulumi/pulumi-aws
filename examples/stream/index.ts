@@ -12,11 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
+
+const config = new pulumi.Config("aws");
+const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
 const stream = new aws.kinesis.Stream("teststream", {
     shardCount: 2,
-});
+}, providerOpts);
 
 stream.onEvent("test", async (event) => {
     console.log("Received event: " + JSON.stringify(event, null, 2));

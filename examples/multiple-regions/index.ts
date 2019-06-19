@@ -7,22 +7,22 @@ const size = aws.ec2.InstanceTypes.T2_Micro;
 const amiParamName = "/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-ebs";
 
 function createServer(region: aws.Region): aws.ec2.Instance {
-    const provider = new aws.Provider(`provider-${region}`, { region: region });
+    const provider = new aws.Provider(`provider-${region}`, { region });
 
-    const amiParam = aws.ssm.getParameter({ name: amiParamName }, { provider: provider });
+    const amiParam = aws.ssm.getParameter({ name: amiParamName }, { provider });
 
     const group = new aws.ec2.SecurityGroup(`secgrp-${region}`, {
         description: "Enable HTTP access",
         ingress: [
             { protocol: "tcp", fromPort: 80, toPort: 80, cidrBlocks: ["0.0.0.0/0"] },
         ],
-    }, { provider: provider });
+    }, { provider });
 
     return new aws.ec2.Instance(`web-server-www-${region}`, {
         instanceType: size,
         securityGroups: [ group.name ],
         ami: amiParam.then(p => p.value ),
-    }, { provider: provider });
+    }, { provider });
 }
 
 export const servers: any = {};

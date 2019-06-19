@@ -12,9 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 
-const logGroup = new aws.cloudwatch.LogGroup("test");
+const config = new pulumi.Config("aws");
+const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
+
+const logGroup = new aws.cloudwatch.LogGroup("test", {}, providerOpts);
 
 logGroup.onDecodedEvent("decodedEvent", async (event) => {
     console.log("Decoded event: " + JSON.stringify(event, null, 2));

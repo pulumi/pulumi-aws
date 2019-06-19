@@ -12,8 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
+
+const config = new pulumi.Config("aws");
+const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
 const event = aws.cloudwatch.onSchedule("everyMinute", "rate(1 minute)", async (event) => {
     console.log("Received event: " + JSON.stringify(event, null, 2));
-});
+}, {}, providerOpts);

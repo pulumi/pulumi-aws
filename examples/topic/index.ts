@@ -12,10 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import * as fetch from "node-fetch";
 
-const topic = new aws.sns.Topic("sites-to-process-topic");
+const config = new pulumi.Config("aws");
+const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
+
+const topic = new aws.sns.Topic("sites-to-process-topic", {}, providerOpts);
 topic.onEvent("for-each-url", async (event) => {
     const records = event.Records || [];
     for (const record of records) {

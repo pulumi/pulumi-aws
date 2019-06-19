@@ -154,8 +154,7 @@ export let regionArchLinuxAMI: {
 /**
  * getLinuxAMI gets the recommended Linux AMI for the given instance in the current AWS region.
  */
-export function getLinuxAMI(instanceType: string): string {
-    let region = aws.config.requireRegion();
+export function getLinuxAMI(instanceType: string, region: string): string {
     let arch = instanceTypeArch[instanceType];
     return regionArchLinuxAMI[region][arch];
 }
