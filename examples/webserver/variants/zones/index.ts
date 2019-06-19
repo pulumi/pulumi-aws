@@ -1,7 +1,11 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
+import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import { getLinuxAMI } from "./linuxAmi";
+
+const config = new pulumi.Config("aws");
+const providerOpts = { provider: new aws.Provider("prov", { region: config.require("envRegion") }) };
 
 export let size: aws.ec2.InstanceType = "t2.micro";
 
@@ -10,7 +14,7 @@ let group = new aws.ec2.SecurityGroup("web-secgrp", {
     ingress: [
         { protocol: "tcp", fromPort: 80, toPort: 80, cidrBlocks: ["0.0.0.0/0"] },
     ],
-});
+}, providerOpts);
 
 // start an instance in each availability zone:
 (async () => {
@@ -22,6 +26,6 @@ let group = new aws.ec2.SecurityGroup("web-secgrp", {
             instanceType: size,
             securityGroups: [ group.name ],
             ami: getLinuxAMI(size),
-        });
+        }, providerOpts);
     }
 })();
