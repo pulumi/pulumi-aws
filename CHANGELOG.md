@@ -2,6 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Update the list of supported Lambda function versions.
 
 ## 0.18.11 (2019-06-17)
 
