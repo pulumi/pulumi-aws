@@ -622,6 +622,7 @@
         "rds/globalCluster.ts",
         "rds/index.ts",
         "rds/instance.ts",
+        "rds/instanceType.ts",
         "rds/optionGroup.ts",
         "rds/parameterGroup.ts",
         "rds/roleAssociation.ts",

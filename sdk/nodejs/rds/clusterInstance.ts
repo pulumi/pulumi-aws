@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 import {EngineType} from "./engineType";
+import {InstanceType} from "./instanceType";
 
 /**
  * Provides an RDS Cluster Instance Resource. A Cluster Instance Resource defines
@@ -349,7 +350,7 @@ export interface ClusterInstanceState {
      * The instance class to use. For details on CPU
      * and memory, see [Scaling Aurora DB Instances][4]. Aurora uses `db.*` instance classes/types. Please see [AWS Documentation][7] for currently available instance classes and complete details.
      */
-    readonly instanceClass?: pulumi.Input<string>;
+    readonly instanceClass?: pulumi.Input<string | InstanceType>;
     /**
      * The ARN for the KMS encryption key if one is set to the cluster.
      */
@@ -466,7 +467,7 @@ export interface ClusterInstanceArgs {
      * The instance class to use. For details on CPU
      * and memory, see [Scaling Aurora DB Instances][4]. Aurora uses `db.*` instance classes/types. Please see [AWS Documentation][7] for currently available instance classes and complete details.
      */
-    readonly instanceClass: pulumi.Input<string>;
+    readonly instanceClass: pulumi.Input<string | InstanceType>;
     /**
      * The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
      */

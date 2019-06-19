@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {InstanceType} from "./instanceType";
+
 /**
  * Provides an RDS instance resource.  A DB instance is an isolated database
  * environment in the cloud.  A DB instance can contain multiple user-created
@@ -658,7 +660,7 @@ export interface InstanceState {
     /**
      * The instance type of the RDS instance.
      */
-    readonly instanceClass?: pulumi.Input<string>;
+    readonly instanceClass?: pulumi.Input<string | InstanceType>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
      * storage_type of "io1".
@@ -943,7 +945,7 @@ export interface InstanceArgs {
     /**
      * The instance type of the RDS instance.
      */
-    readonly instanceClass: pulumi.Input<string>;
+    readonly instanceClass: pulumi.Input<string | InstanceType>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
      * storage_type of "io1".
