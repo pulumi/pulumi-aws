@@ -20,4 +20,4 @@ const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>
 
 const event = aws.cloudwatch.onSchedule("everyMinute", "rate(1 minute)", async (event) => {
     console.log("Received event: " + JSON.stringify(event, null, 2));
-}, providerOpts);
+}, {}, providerOpts);

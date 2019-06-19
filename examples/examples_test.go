@@ -111,13 +111,13 @@ func TestExamples(t *testing.T) {
 			},
 		}),
 		// Python tests:
-		base.With(integration.ProgramTestOptions{
+		integration.ProgramTestOptions{
 			Dir:    path.Join(cwd, "webserver-py"),
 			Config: map[string]string{"aws:region": envRegion},
 			Dependencies: []string{
 				filepath.Join("..", "sdk", "python", "bin"),
 			},
-		}),
+		},
 	}
 
 	longTests := []integration.ProgramTestOptions{
