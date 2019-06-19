@@ -5,8 +5,8 @@ import { Output } from "@pulumi/pulumi";
 import { getLinuxAMI } from "./linuxAmi";
 
 const config = new pulumi.Config("aws");
-const region = config.require("envRegion");
-const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>region }) };
+const region = <aws.Region>config.require("envRegion");
+const providerOpts = { provider: new aws.Provider("prov", { region }) };
 
 let size = aws.ec2.InstanceTypes.T2_Micro;
 
