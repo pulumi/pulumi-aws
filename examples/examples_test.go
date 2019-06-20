@@ -154,10 +154,10 @@ func TestExamples(t *testing.T) {
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "serverless")}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "multiple-regions")}),
 		// Go tests:
-		base.With(integration.ProgramTestOptions{
+		integration.ProgramTestOptions{
 			Dir:    path.Join(cwd, "webserver-go"),
 			Config: map[string]string{"aws:region": envRegion},
-		}),
+		},
 	}
 
 	tests := shortTests
