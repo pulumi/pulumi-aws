@@ -43,3 +43,27 @@ export function ifUndefined<T>(input: pulumi.Input<T> | undefined, value: pulumi
   return pulumi.all([input, value])
                .apply(([input, value]) => input !== undefined ? input : value);
 }
+
+interface HasAliases { aliases?: pulumi.Input<pulumi.URN | pulumi.Alias>[] };
+
+/** @internal */
+export function withAlias<T extends HasAliases>(opts: T, alias: pulumi.Input<pulumi.URN | pulumi.Alias>): T {
+  return withAliases(opts, [alias]);
+}
+
+/** @internal */
+export function withAliases<T extends HasAliases>(opts: T, aliases: pulumi.Input<pulumi.URN | pulumi.Alias>[]): T {
+    const allAliases: pulumi.Input<pulumi.URN | pulumi.Alias>[] = [];
+    if (opts.aliases) {
+        for (const alias of opts.aliases) {
+            allAliases.push(alias);
+        }
+    }
+
+
+    for (const alias of aliases) {
+        allAliases.push(alias);
+    }
+
+    return { ...opts, aliases };
+}

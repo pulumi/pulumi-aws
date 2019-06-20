@@ -17,6 +17,8 @@ import * as lambda from "../lambda";
 import * as eventRule from "./eventRule";
 import * as eventTarget from "./eventTarget";
 
+import * as utils from "../utils";
+
 /**
  * Arguments to control the event rule subscription.  Currently empty, but still defined in case of
  * future need.
@@ -79,8 +81,7 @@ export class EventRuleEventSubscription extends lambda.EventSubscription {
         const parent = typeof eventRuleOrSchedule === "string" ? undefined : eventRuleOrSchedule;
         super(type, name, {
             parent: parent,
-            aliases: [pulumi.createUrn(name, type, opts.parent)],
-            ...opts,
+            ...utils.withAlias(opts, pulumi.createUrn(name, type, opts.parent)),
         });
 
         const parentOpts = { parent: this };

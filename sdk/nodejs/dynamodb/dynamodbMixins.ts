@@ -16,6 +16,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as table from "./table";
 import * as lambda from "../lambda";
 
+import * as utils from "../utils";
+
 /**
  * Arguments to control the event rule subscription.  Currently empty, but still defined in case of
  * future need.
@@ -72,8 +74,7 @@ export class TableEventSubscription extends lambda.EventSubscription {
         const type = "aws:dynamodb:TableEventSubscription";
         super(type, name, {
             parent: table,
-            aliases: [pulumi.createUrn(name, type, opts.parent)],
-            ...opts,
+            ...utils.withAlias(opts, pulumi.createUrn(name, type, opts.parent)),
         });
 
         const parentOpts = { parent: this };
