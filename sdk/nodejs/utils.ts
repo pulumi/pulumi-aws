@@ -60,7 +60,6 @@ export function withAliases<T extends HasAliases>(opts: T, aliases: pulumi.Input
         }
     }
 
-
     for (const alias of aliases) {
         allAliases.push(alias);
     }
