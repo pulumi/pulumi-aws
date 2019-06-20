@@ -17,6 +17,8 @@ import { Bucket } from "./bucket";
 import { BucketNotification } from "./bucketNotification";
 import * as lambda from "../lambda"
 
+import * as utils from "../utils";
+
 /**
  * Arguments to help customize a notification subscription for a bucket.
  */
@@ -135,8 +137,7 @@ export class BucketEventSubscription extends lambda.EventSubscription {
         const type = "aws:s3:BucketEventSubscription";
         super(type, name, {
             parent: bucket,
-            aliases: [pulumi.createUrn(name, type, opts.parent)],
-            ...opts,
+            ...utils.withAlias(opts, pulumi.createUrn(name, type, opts.parent)),
         });
 
         const parentOpts = { parent: this };

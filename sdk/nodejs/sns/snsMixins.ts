@@ -17,6 +17,8 @@ import * as lambda from "../lambda";
 import * as topic from "./topic";
 import * as topicSubscription from "./topicSubscription";
 
+import * as utils from "../utils";
+
 export interface TopicEvent {
     Records: TopicRecord[];
 }
@@ -72,8 +74,7 @@ export class TopicEventSubscription extends lambda.EventSubscription {
         const type = "aws:sns:TopicEventSubscription";
         super(type, name, {
             parent: topic,
-            aliases: [pulumi.createUrn(name, type, opts.parent)],
-            ...opts,
+            ...utils.withAlias(opts, pulumi.createUrn(name, type, opts.parent)),
         });
 
         this.topic = topic;

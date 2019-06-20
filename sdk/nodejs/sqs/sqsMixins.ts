@@ -17,6 +17,8 @@ import * as iam from "../iam";
 import * as lambda from "../lambda";
 import * as queue from "./queue";
 
+import * as utils from "../utils";
+
 export interface QueueEvent {
     Records: QueueRecord[];
 }
@@ -71,8 +73,7 @@ export class QueueEventSubscription extends lambda.EventSubscription {
         const type = "aws:sqs:QueueEventSubscription";
         super(type, name, {
             parent: queue,
-            aliases: [pulumi.createUrn(name, type, opts.parent)],
-            ...opts,
+            ...utils.withAlias(opts, pulumi.createUrn(name, type, opts.parent)),
         });
 
         const parentOpts = { parent: this };

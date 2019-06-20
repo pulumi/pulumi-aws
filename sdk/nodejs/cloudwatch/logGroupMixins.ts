@@ -18,6 +18,8 @@ import * as lambda from "../lambda";
 import * as logGroup from "./logGroup";
 import * as logSubscriptionFilter from "./logSubscriptionFilter";
 
+import * as utils from "../utils";
+
 /**
  * Arguments to control the event rule subscription.  Currently empty, but still defined in case of
  * future need.
@@ -81,8 +83,7 @@ export class LogGroupEventSubscription extends lambda.EventSubscription {
         const type = "aws:cloudwatch:LogGroupEventSubscription";
         super(type, name, {
             parent: logGroup,
-            aliases: [pulumi.createUrn(name, type, opts.parent)],
-            ...opts,
+            ...utils.withAlias(opts, pulumi.createUrn(name, type, opts.parent)),
         });
 
         const parentOpts = { parent: this };

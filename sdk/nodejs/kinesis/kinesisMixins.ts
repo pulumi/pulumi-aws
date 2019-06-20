@@ -17,6 +17,8 @@ import * as iam from "../iam";
 import * as stream from "./stream";
 import * as lambda from "../lambda";
 
+import * as utils from "../utils";
+
 export interface StreamEventSubscriptionArgs {
     /**
      * The largest number of records that Lambda will retrieve from your event source at the time of
@@ -76,8 +78,7 @@ export class StreamEventSubscription extends lambda.EventSubscription {
         const type = "aws:kinesis:StreamEventSubscription";
         super(type, name, {
             parent: stream,
-            aliases: [pulumi.createUrn(name, type, opts.parent)],
-            ...opts,
+            ...utils.withAlias(opts, pulumi.createUrn(name, type, opts.parent)),
         });
 
         const parentOpts = { parent: this };
