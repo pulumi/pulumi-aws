@@ -73,7 +73,7 @@ func (r *Rule) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
+// The objects to include in a rule (documented below).
 func (r *Rule) Predicates() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["predicates"])
 }
@@ -84,7 +84,7 @@ type RuleState struct {
 	MetricName interface{}
 	// The name or description of the rule.
 	Name interface{}
-	// One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
+	// The objects to include in a rule (documented below).
 	Predicates interface{}
 }
 
@@ -94,6 +94,6 @@ type RuleArgs struct {
 	MetricName interface{}
 	// The name or description of the rule.
 	Name interface{}
-	// One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
+	// The objects to include in a rule (documented below).
 	Predicates interface{}
 }

@@ -47,6 +47,7 @@ export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: p
     return pulumi.runtime.invoke("aws:ec2/getVpcEndpointService:getVpcEndpointService", {
         "service": args.service,
         "serviceName": args.serviceName,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -62,6 +63,7 @@ export interface GetVpcEndpointServiceArgs {
      * The service name that can be specified when creating a VPC endpoint.
      */
     readonly serviceName?: string;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -81,6 +83,10 @@ export interface GetVpcEndpointServiceResult {
      */
     readonly baseEndpointDnsNames: string[];
     /**
+     * Whether or not the service manages its VPC endpoints - `true` or `false`.
+     */
+    readonly managesVpcEndpoints: boolean;
+    /**
      * The AWS account ID of the service owner or `amazon`.
      */
     readonly owner: string;
@@ -89,11 +95,19 @@ export interface GetVpcEndpointServiceResult {
      */
     readonly privateDnsName: string;
     readonly service?: string;
+    /**
+     * The ID of the endpoint service.
+     */
+    readonly serviceId: string;
     readonly serviceName: string;
     /**
      * The service type, `Gateway` or `Interface`.
      */
     readonly serviceType: string;
+    /**
+     * A mapping of tags assigned to the resource.
+     */
+    readonly tags: {[key: string]: any};
     /**
      * Whether or not the service supports endpoint policies - `true` or `false`.
      */

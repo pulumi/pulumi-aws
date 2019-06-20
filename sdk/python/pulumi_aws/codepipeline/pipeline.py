@@ -27,7 +27,11 @@ class Pipeline(pulumi.CustomResource):
     A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
     """
     stages: pulumi.Output[list]
-    def __init__(__self__, resource_name, opts=None, artifact_store=None, name=None, role_arn=None, stages=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
+    def __init__(__self__, resource_name, opts=None, artifact_store=None, name=None, role_arn=None, stages=None, tags=None, __name__=None, __opts__=None):
         """
         Provides a CodePipeline.
         
@@ -39,6 +43,7 @@ class Pipeline(pulumi.CustomResource):
                * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -68,6 +73,8 @@ class Pipeline(pulumi.CustomResource):
         if stages is None:
             raise TypeError("Missing required property 'stages'")
         __props__['stages'] = stages
+
+        __props__['tags'] = tags
 
         __props__['arn'] = None
 

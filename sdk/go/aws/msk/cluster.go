@@ -105,12 +105,12 @@ func (r *Cluster) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster.
+// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
 func (r *Cluster) BootstrapBrokers() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["bootstrapBrokers"])
 }
 
-// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster.
+// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
 func (r *Cluster) BootstrapBrokersTls() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["bootstrapBrokersTls"])
 }
@@ -175,9 +175,9 @@ func (r *Cluster) ZookeeperConnectString() *pulumi.StringOutput {
 type ClusterState struct {
 	// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
 	Arn interface{}
-	// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster.
+	// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
 	BootstrapBrokers interface{}
-	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster.
+	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
 	BootstrapBrokersTls interface{}
 	// Configuration block for the broker nodes of the Kafka cluster.
 	BrokerNodeGroupInfo interface{}

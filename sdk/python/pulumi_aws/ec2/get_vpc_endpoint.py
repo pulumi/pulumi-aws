@@ -12,7 +12,7 @@ class GetVpcEndpointResult:
     """
     A collection of values returned by getVpcEndpoint.
     """
-    def __init__(__self__, cidr_blocks=None, dns_entries=None, id=None, network_interface_ids=None, policy=None, prefix_list_id=None, private_dns_enabled=None, route_table_ids=None, security_group_ids=None, service_name=None, state=None, subnet_ids=None, vpc_endpoint_type=None, vpc_id=None):
+    def __init__(__self__, cidr_blocks=None, dns_entries=None, id=None, network_interface_ids=None, owner_id=None, policy=None, prefix_list_id=None, private_dns_enabled=None, requester_managed=None, route_table_ids=None, security_group_ids=None, service_name=None, state=None, subnet_ids=None, tags=None, vpc_endpoint_type=None, vpc_id=None):
         if cidr_blocks and not isinstance(cidr_blocks, list):
             raise TypeError("Expected argument 'cidr_blocks' to be a list")
         __self__.cidr_blocks = cidr_blocks
@@ -34,6 +34,12 @@ class GetVpcEndpointResult:
         """
         One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
         """
+        if owner_id and not isinstance(owner_id, str):
+            raise TypeError("Expected argument 'owner_id' to be a str")
+        __self__.owner_id = owner_id
+        """
+        The ID of the AWS account that owns the VPC endpoint.
+        """
         if policy and not isinstance(policy, str):
             raise TypeError("Expected argument 'policy' to be a str")
         __self__.policy = policy
@@ -51,6 +57,12 @@ class GetVpcEndpointResult:
         __self__.private_dns_enabled = private_dns_enabled
         """
         Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
+        """
+        if requester_managed and not isinstance(requester_managed, bool):
+            raise TypeError("Expected argument 'requester_managed' to be a bool")
+        __self__.requester_managed = requester_managed
+        """
+        Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
         """
         if route_table_ids and not isinstance(route_table_ids, list):
             raise TypeError("Expected argument 'route_table_ids' to be a list")
@@ -76,6 +88,12 @@ class GetVpcEndpointResult:
         """
         One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
         """
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        __self__.tags = tags
+        """
+        A mapping of tags assigned to the resource.
+        """
         if vpc_endpoint_type and not isinstance(vpc_endpoint_type, str):
             raise TypeError("Expected argument 'vpc_endpoint_type' to be a str")
         __self__.vpc_endpoint_type = vpc_endpoint_type
@@ -86,7 +104,7 @@ class GetVpcEndpointResult:
             raise TypeError("Expected argument 'vpc_id' to be a str")
         __self__.vpc_id = vpc_id
 
-async def get_vpc_endpoint(id=None,service_name=None,state=None,vpc_id=None,opts=None):
+async def get_vpc_endpoint(id=None,service_name=None,state=None,tags=None,vpc_id=None,opts=None):
     """
     The VPC Endpoint data source provides details about
     a specific VPC endpoint.
@@ -96,6 +114,7 @@ async def get_vpc_endpoint(id=None,service_name=None,state=None,vpc_id=None,opts
     __args__['id'] = id
     __args__['serviceName'] = service_name
     __args__['state'] = state
+    __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
     __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpcEndpoint:getVpcEndpoint', __args__, opts=opts)
 
@@ -104,13 +123,16 @@ async def get_vpc_endpoint(id=None,service_name=None,state=None,vpc_id=None,opts
         dns_entries=__ret__.get('dnsEntries'),
         id=__ret__.get('id'),
         network_interface_ids=__ret__.get('networkInterfaceIds'),
+        owner_id=__ret__.get('ownerId'),
         policy=__ret__.get('policy'),
         prefix_list_id=__ret__.get('prefixListId'),
         private_dns_enabled=__ret__.get('privateDnsEnabled'),
+        requester_managed=__ret__.get('requesterManaged'),
         route_table_ids=__ret__.get('routeTableIds'),
         security_group_ids=__ret__.get('securityGroupIds'),
         service_name=__ret__.get('serviceName'),
         state=__ret__.get('state'),
         subnet_ids=__ret__.get('subnetIds'),
+        tags=__ret__.get('tags'),
         vpc_endpoint_type=__ret__.get('vpcEndpointType'),
         vpc_id=__ret__.get('vpcId'))

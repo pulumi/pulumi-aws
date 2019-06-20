@@ -6,6 +6,32 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a revision of an ECS task definition to be used in `aws_ecs_service`.
+ * 
+ * ## Example Usage
+ * 
+ * ### With AppMesh Proxy
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ * 
+ * const service = new aws.ecs.TaskDefinition("service", {
+ *     containerDefinitions: fs.readFileSync("task-definitions/service.json", "utf-8"),
+ *     family: "service",
+ *     proxyConfiguration: {
+ *         containerName: "applicationContainerName",
+ *         properties: {
+ *             AppPorts: "8080",
+ *             EgressIgnoredIPs: "169.254.170.2,169.254.169.254",
+ *             IgnoredUID: "1337",
+ *             ProxyEgressPort: 15001,
+ *             ProxyIngressPort: 15000,
+ *         },
+ *         type: "APPMESH",
+ *     },
+ * });
+ * ```
  */
 export class TaskDefinition extends pulumi.CustomResource {
     /**
@@ -80,6 +106,10 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public readonly placementConstraints!: pulumi.Output<{ expression?: string, type: string }[] | undefined>;
     /**
+     * The proxy configuration details for the App Mesh proxy.
+     */
+    public readonly proxyConfiguration!: pulumi.Output<{ containerName: string, properties?: {[key: string]: string}, type?: string } | undefined>;
+    /**
      * A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
     public readonly requiresCompatibilities!: pulumi.Output<string[] | undefined>;
@@ -122,6 +152,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["networkMode"] = state ? state.networkMode : undefined;
             inputs["pidMode"] = state ? state.pidMode : undefined;
             inputs["placementConstraints"] = state ? state.placementConstraints : undefined;
+            inputs["proxyConfiguration"] = state ? state.proxyConfiguration : undefined;
             inputs["requiresCompatibilities"] = state ? state.requiresCompatibilities : undefined;
             inputs["revision"] = state ? state.revision : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -144,6 +175,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["networkMode"] = args ? args.networkMode : undefined;
             inputs["pidMode"] = args ? args.pidMode : undefined;
             inputs["placementConstraints"] = args ? args.placementConstraints : undefined;
+            inputs["proxyConfiguration"] = args ? args.proxyConfiguration : undefined;
             inputs["requiresCompatibilities"] = args ? args.requiresCompatibilities : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["taskRoleArn"] = args ? args.taskRoleArn : undefined;
@@ -204,6 +236,10 @@ export interface TaskDefinitionState {
      * A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
      */
     readonly placementConstraints?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    /**
+     * The proxy configuration details for the App Mesh proxy.
+     */
+    readonly proxyConfiguration?: pulumi.Input<{ containerName: pulumi.Input<string>, properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, type?: pulumi.Input<string> }>;
     /**
      * A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
@@ -271,6 +307,10 @@ export interface TaskDefinitionArgs {
      * A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
      */
     readonly placementConstraints?: pulumi.Input<pulumi.Input<{ expression?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    /**
+     * The proxy configuration details for the App Mesh proxy.
+     */
+    readonly proxyConfiguration?: pulumi.Input<{ containerName: pulumi.Input<string>, properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, type?: pulumi.Input<string> }>;
     /**
      * A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */

@@ -19,7 +19,7 @@ class RateBasedRule(pulumi.CustomResource):
     """
     predicates: pulumi.Output[list]
     """
-    One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
+    The objects to include in a rule (documented below).
     """
     rate_key: pulumi.Output[str]
     """
@@ -37,7 +37,7 @@ class RateBasedRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[str] name: The name or description of the rule.
-        :param pulumi.Input[list] predicates: One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
+        :param pulumi.Input[list] predicates: The objects to include in a rule (documented below).
         :param pulumi.Input[str] rate_key: Valid value is IP.
         :param pulumi.Input[float] rate_limit: The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 2000.
         """

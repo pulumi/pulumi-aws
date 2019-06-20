@@ -11,7 +11,7 @@ from .. import utilities, tables
 class Organization(pulumi.CustomResource):
     accounts: pulumi.Output[list]
     """
-    List of organization accounts (including the master account). All elements have these attributes:
+    List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
     """
     arn: pulumi.Output[str]
     """
@@ -40,6 +40,10 @@ class Organization(pulumi.CustomResource):
     master_account_id: pulumi.Output[str]
     """
     Identifier of the master account
+    """
+    non_master_accounts: pulumi.Output[list]
+    """
+    List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
     """
     roots: pulumi.Output[list]
     """
@@ -81,6 +85,7 @@ class Organization(pulumi.CustomResource):
         __props__['master_account_arn'] = None
         __props__['master_account_email'] = None
         __props__['master_account_id'] = None
+        __props__['non_master_accounts'] = None
         __props__['roots'] = None
 
         super(Organization, __self__).__init__(

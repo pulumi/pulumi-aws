@@ -31,6 +31,7 @@ export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOp
         "id": args.id,
         "serviceName": args.serviceName,
         "state": args.state,
+        "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
 }
@@ -51,6 +52,7 @@ export interface GetVpcEndpointArgs {
      * The state of the specific VPC Endpoint to retrieve.
      */
     readonly state?: string;
+    readonly tags?: {[key: string]: any};
     /**
      * The ID of the VPC in which the specific VPC Endpoint is used.
      */
@@ -75,6 +77,10 @@ export interface GetVpcEndpointResult {
      */
     readonly networkInterfaceIds: string[];
     /**
+     * The ID of the AWS account that owns the VPC endpoint.
+     */
+    readonly ownerId: string;
+    /**
      * The policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
      */
     readonly policy: string;
@@ -86,6 +92,10 @@ export interface GetVpcEndpointResult {
      * Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
      */
     readonly privateDnsEnabled: boolean;
+    /**
+     * Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
+     */
+    readonly requesterManaged: boolean;
     /**
      * One or more route tables associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
      */
@@ -100,6 +110,10 @@ export interface GetVpcEndpointResult {
      * One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
      */
     readonly subnetIds: string[];
+    /**
+     * A mapping of tags assigned to the resource.
+     */
+    readonly tags: {[key: string]: any};
     /**
      * The VPC Endpoint type, `Gateway` or `Interface`.
      */

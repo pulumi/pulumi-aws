@@ -15,11 +15,11 @@ class Cluster(pulumi.CustomResource):
     """
     bootstrap_brokers: pulumi.Output[str]
     """
-    A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster.
+    A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
     """
     bootstrap_brokers_tls: pulumi.Output[str]
     """
-    A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster.
+    A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
     """
     broker_node_group_info: pulumi.Output[dict]
     """

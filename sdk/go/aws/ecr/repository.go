@@ -7,11 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides an EC2 Container Registry Repository.
-// 
-// > **NOTE on ECR Availability**: The EC2 Container Registry is not yet rolled out
-// in all regions - available regions are listed
-// [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#ecr_region).
+// Provides an Elastic Container Registry Repository.
 type Repository struct {
 	s *pulumi.ResourceState
 }

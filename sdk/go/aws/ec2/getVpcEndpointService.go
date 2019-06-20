@@ -14,6 +14,7 @@ func LookupVpcEndpointService(ctx *pulumi.Context, args *GetVpcEndpointServiceAr
 	if args != nil {
 		inputs["service"] = args.Service
 		inputs["serviceName"] = args.ServiceName
+		inputs["tags"] = args.Tags
 	}
 	outputs, err := ctx.Invoke("aws:ec2/getVpcEndpointService:getVpcEndpointService", inputs)
 	if err != nil {
@@ -23,11 +24,14 @@ func LookupVpcEndpointService(ctx *pulumi.Context, args *GetVpcEndpointServiceAr
 		AcceptanceRequired: outputs["acceptanceRequired"],
 		AvailabilityZones: outputs["availabilityZones"],
 		BaseEndpointDnsNames: outputs["baseEndpointDnsNames"],
+		ManagesVpcEndpoints: outputs["managesVpcEndpoints"],
 		Owner: outputs["owner"],
 		PrivateDnsName: outputs["privateDnsName"],
 		Service: outputs["service"],
+		ServiceId: outputs["serviceId"],
 		ServiceName: outputs["serviceName"],
 		ServiceType: outputs["serviceType"],
+		Tags: outputs["tags"],
 		VpcEndpointPolicySupported: outputs["vpcEndpointPolicySupported"],
 		Id: outputs["id"],
 	}, nil
@@ -39,6 +43,7 @@ type GetVpcEndpointServiceArgs struct {
 	Service interface{}
 	// The service name that can be specified when creating a VPC endpoint.
 	ServiceName interface{}
+	Tags interface{}
 }
 
 // A collection of values returned by getVpcEndpointService.
@@ -49,14 +54,20 @@ type GetVpcEndpointServiceResult struct {
 	AvailabilityZones interface{}
 	// The DNS names for the service.
 	BaseEndpointDnsNames interface{}
+	// Whether or not the service manages its VPC endpoints - `true` or `false`.
+	ManagesVpcEndpoints interface{}
 	// The AWS account ID of the service owner or `amazon`.
 	Owner interface{}
 	// The private DNS name for the service.
 	PrivateDnsName interface{}
 	Service interface{}
+	// The ID of the endpoint service.
+	ServiceId interface{}
 	ServiceName interface{}
 	// The service type, `Gateway` or `Interface`.
 	ServiceType interface{}
+	// A mapping of tags assigned to the resource.
+	Tags interface{}
 	// Whether or not the service supports endpoint policies - `true` or `false`.
 	VpcEndpointPolicySupported interface{}
 	// id is the provider-assigned unique ID for this managed resource.

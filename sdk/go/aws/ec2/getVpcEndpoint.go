@@ -15,6 +15,7 @@ func LookupVpcEndpoint(ctx *pulumi.Context, args *GetVpcEndpointArgs) (*GetVpcEn
 		inputs["id"] = args.Id
 		inputs["serviceName"] = args.ServiceName
 		inputs["state"] = args.State
+		inputs["tags"] = args.Tags
 		inputs["vpcId"] = args.VpcId
 	}
 	outputs, err := ctx.Invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", inputs)
@@ -26,14 +27,17 @@ func LookupVpcEndpoint(ctx *pulumi.Context, args *GetVpcEndpointArgs) (*GetVpcEn
 		DnsEntries: outputs["dnsEntries"],
 		Id: outputs["id"],
 		NetworkInterfaceIds: outputs["networkInterfaceIds"],
+		OwnerId: outputs["ownerId"],
 		Policy: outputs["policy"],
 		PrefixListId: outputs["prefixListId"],
 		PrivateDnsEnabled: outputs["privateDnsEnabled"],
+		RequesterManaged: outputs["requesterManaged"],
 		RouteTableIds: outputs["routeTableIds"],
 		SecurityGroupIds: outputs["securityGroupIds"],
 		ServiceName: outputs["serviceName"],
 		State: outputs["state"],
 		SubnetIds: outputs["subnetIds"],
+		Tags: outputs["tags"],
 		VpcEndpointType: outputs["vpcEndpointType"],
 		VpcId: outputs["vpcId"],
 	}, nil
@@ -47,6 +51,7 @@ type GetVpcEndpointArgs struct {
 	ServiceName interface{}
 	// The state of the specific VPC Endpoint to retrieve.
 	State interface{}
+	Tags interface{}
 	// The ID of the VPC in which the specific VPC Endpoint is used.
 	VpcId interface{}
 }
@@ -60,12 +65,16 @@ type GetVpcEndpointResult struct {
 	Id interface{}
 	// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
 	NetworkInterfaceIds interface{}
+	// The ID of the AWS account that owns the VPC endpoint.
+	OwnerId interface{}
 	// The policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
 	Policy interface{}
 	// The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
 	PrefixListId interface{}
 	// Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
 	PrivateDnsEnabled interface{}
+	// Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
+	RequesterManaged interface{}
 	// One or more route tables associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
 	RouteTableIds interface{}
 	// One or more security groups associated with the network interfaces. Applicable for endpoints of type `Interface`.
@@ -74,6 +83,8 @@ type GetVpcEndpointResult struct {
 	State interface{}
 	// One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
 	SubnetIds interface{}
+	// A mapping of tags assigned to the resource.
+	Tags interface{}
 	// The VPC Endpoint type, `Gateway` or `Interface`.
 	VpcEndpointType interface{}
 	VpcId interface{}

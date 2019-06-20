@@ -25,6 +25,10 @@ class VpcEndpoint(pulumi.CustomResource):
     """
     One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
     """
+    owner_id: pulumi.Output[str]
+    """
+    The ID of the AWS account that owns the VPC endpoint.
+    """
     policy: pulumi.Output[str]
     """
     A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
@@ -37,6 +41,10 @@ class VpcEndpoint(pulumi.CustomResource):
     """
     Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
     Defaults to `false`.
+    """
+    requester_managed: pulumi.Output[bool]
+    """
+    Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
     """
     route_table_ids: pulumi.Output[list]
     """
@@ -58,6 +66,10 @@ class VpcEndpoint(pulumi.CustomResource):
     """
     The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
     """
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
     vpc_endpoint_type: pulumi.Output[str]
     """
     The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
@@ -66,7 +78,7 @@ class VpcEndpoint(pulumi.CustomResource):
     """
     The ID of the VPC in which the endpoint will be used.
     """
-    def __init__(__self__, resource_name, opts=None, auto_accept=None, policy=None, private_dns_enabled=None, route_table_ids=None, security_group_ids=None, service_name=None, subnet_ids=None, vpc_endpoint_type=None, vpc_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_accept=None, policy=None, private_dns_enabled=None, route_table_ids=None, security_group_ids=None, service_name=None, subnet_ids=None, tags=None, vpc_endpoint_type=None, vpc_id=None, __name__=None, __opts__=None):
         """
         Provides a VPC Endpoint resource.
         
@@ -87,6 +99,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[list] security_group_ids: The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
         :param pulumi.Input[str] service_name: The service name, in the form `com.amazonaws.region.service` for AWS services.
         :param pulumi.Input[list] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_endpoint_type: The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
         :param pulumi.Input[str] vpc_id: The ID of the VPC in which the endpoint will be used.
         """
@@ -121,6 +134,8 @@ class VpcEndpoint(pulumi.CustomResource):
 
         __props__['subnet_ids'] = subnet_ids
 
+        __props__['tags'] = tags
+
         __props__['vpc_endpoint_type'] = vpc_endpoint_type
 
         if vpc_id is None:
@@ -130,7 +145,9 @@ class VpcEndpoint(pulumi.CustomResource):
         __props__['cidr_blocks'] = None
         __props__['dns_entries'] = None
         __props__['network_interface_ids'] = None
+        __props__['owner_id'] = None
         __props__['prefix_list_id'] = None
+        __props__['requester_managed'] = None
         __props__['state'] = None
 
         super(VpcEndpoint, __self__).__init__(

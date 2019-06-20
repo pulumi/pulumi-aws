@@ -8,35 +8,25 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class Repository(pulumi.CustomResource):
-    arn: pulumi.Output[str]
+class DefaultKmsKey(pulumi.CustomResource):
+    key_arn: pulumi.Output[str]
     """
-    Full ARN of the repository.
+    The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
     """
-    name: pulumi.Output[str]
-    """
-    Name of the repository.
-    """
-    registry_id: pulumi.Output[str]
-    """
-    The registry ID where the repository was created.
-    """
-    repository_url: pulumi.Output[str]
-    """
-    The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, key_arn=None, __name__=None, __opts__=None):
         """
-        Provides an Elastic Container Registry Repository.
+        Provides a resource to manage the default customer master key (CMK) that your AWS account uses to encrypt EBS volumes.
+        
+        Your AWS account has an AWS-managed default CMK that is used for encrypting an EBS volume when no CMK is specified in the API call that creates the volume.
+        By using the `aws_ebs_default_kms_key` resource, you can specify a customer-managed CMK to use in place of the AWS-managed default CMK.
+        
+        > **NOTE:** Creating an `aws_ebs_default_kms_key` resource does not enable default EBS encryption. Use the `aws_ebs_encryption_by_default` to enable default EBS encryption.
+        
+        > **NOTE:** Destroying this resource will reset the default CMK to the account's AWS-managed default CMK for EBS.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the repository.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] key_arn: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,16 +43,12 @@ class Repository(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['name'] = name
+        if key_arn is None:
+            raise TypeError("Missing required property 'key_arn'")
+        __props__['key_arn'] = key_arn
 
-        __props__['tags'] = tags
-
-        __props__['arn'] = None
-        __props__['registry_id'] = None
-        __props__['repository_url'] = None
-
-        super(Repository, __self__).__init__(
-            'aws:ecr/repository:Repository',
+        super(DefaultKmsKey, __self__).__init__(
+            'aws:ebs/defaultKmsKey:DefaultKmsKey',
             resource_name,
             __props__,
             opts)

@@ -8,35 +8,20 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class Repository(pulumi.CustomResource):
-    arn: pulumi.Output[str]
+class EncryptionByDefault(pulumi.CustomResource):
+    enabled: pulumi.Output[bool]
     """
-    Full ARN of the repository.
+    Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
     """
-    name: pulumi.Output[str]
-    """
-    Name of the repository.
-    """
-    registry_id: pulumi.Output[str]
-    """
-    The registry ID where the repository was created.
-    """
-    repository_url: pulumi.Output[str]
-    """
-    The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, enabled=None, __name__=None, __opts__=None):
         """
-        Provides an Elastic Container Registry Repository.
+        Provides a resource to manage whether default EBS encryption is enabled for your AWS account in the current AWS region. To manage the default KMS key for the region, see the [`aws_ebs_default_kms_key` resource](https://www.terraform.io/docs/providers/aws/r/ebs_default_kms_key.html).
+        
+        > **NOTE:** Removing this Terraform resource disables default EBS encryption.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the repository.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] enabled: Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,16 +38,10 @@ class Repository(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['name'] = name
+        __props__['enabled'] = enabled
 
-        __props__['tags'] = tags
-
-        __props__['arn'] = None
-        __props__['registry_id'] = None
-        __props__['repository_url'] = None
-
-        super(Repository, __self__).__init__(
-            'aws:ecr/repository:Repository',
+        super(EncryptionByDefault, __self__).__init__(
+            'aws:ebs/encryptionByDefault:EncryptionByDefault',
             resource_name,
             __props__,
             opts)

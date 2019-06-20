@@ -19,7 +19,9 @@ import * as utilities from "./utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * // Declare the data source
- * const available = pulumi.output(aws.getAvailabilityZones({}));
+ * const available = pulumi.output(aws.getAvailabilityZones({
+ *     state: "available",
+ * }));
  * const primary = new aws.ec2.Subnet("primary", {
  *     availabilityZone: available.apply(available => available.names[0]),
  * });

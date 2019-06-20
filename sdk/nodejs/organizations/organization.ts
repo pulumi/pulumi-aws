@@ -50,7 +50,7 @@ export class Organization extends pulumi.CustomResource {
     }
 
     /**
-     * List of organization accounts (including the master account). All elements have these attributes:
+     * List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
      */
     public /*out*/ readonly accounts!: pulumi.Output<{ arn: string, email: string, id: string, name: string }[]>;
     /**
@@ -82,6 +82,10 @@ export class Organization extends pulumi.CustomResource {
      */
     public /*out*/ readonly masterAccountId!: pulumi.Output<string>;
     /**
+     * List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
+     */
+    public /*out*/ readonly nonMasterAccounts!: pulumi.Output<{ arn: string, email: string, id: string, name: string }[]>;
+    /**
      * List of organization roots. All elements have these attributes:
      */
     public /*out*/ readonly roots!: pulumi.Output<{ arn: string, id: string, name: string, policyTypes: { status: string, type: string }[] }[]>;
@@ -106,6 +110,7 @@ export class Organization extends pulumi.CustomResource {
             inputs["masterAccountArn"] = state ? state.masterAccountArn : undefined;
             inputs["masterAccountEmail"] = state ? state.masterAccountEmail : undefined;
             inputs["masterAccountId"] = state ? state.masterAccountId : undefined;
+            inputs["nonMasterAccounts"] = state ? state.nonMasterAccounts : undefined;
             inputs["roots"] = state ? state.roots : undefined;
         } else {
             const args = argsOrState as OrganizationArgs | undefined;
@@ -117,6 +122,7 @@ export class Organization extends pulumi.CustomResource {
             inputs["masterAccountArn"] = undefined /*out*/;
             inputs["masterAccountEmail"] = undefined /*out*/;
             inputs["masterAccountId"] = undefined /*out*/;
+            inputs["nonMasterAccounts"] = undefined /*out*/;
             inputs["roots"] = undefined /*out*/;
         }
         super(Organization.__pulumiType, name, inputs, opts);
@@ -128,7 +134,7 @@ export class Organization extends pulumi.CustomResource {
  */
 export interface OrganizationState {
     /**
-     * List of organization accounts (including the master account). All elements have these attributes:
+     * List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
      */
     readonly accounts?: pulumi.Input<pulumi.Input<{ arn?: pulumi.Input<string>, email?: pulumi.Input<string>, id?: pulumi.Input<string>, name?: pulumi.Input<string> }>[]>;
     /**
@@ -159,6 +165,10 @@ export interface OrganizationState {
      * Identifier of the master account
      */
     readonly masterAccountId?: pulumi.Input<string>;
+    /**
+     * List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
+     */
+    readonly nonMasterAccounts?: pulumi.Input<pulumi.Input<{ arn?: pulumi.Input<string>, email?: pulumi.Input<string>, id?: pulumi.Input<string>, name?: pulumi.Input<string> }>[]>;
     /**
      * List of organization roots. All elements have these attributes:
      */

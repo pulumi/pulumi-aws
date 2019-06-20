@@ -85,7 +85,7 @@ func (r *RateBasedRule) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
+// The objects to include in a rule (documented below).
 func (r *RateBasedRule) Predicates() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["predicates"])
 }
@@ -106,7 +106,7 @@ type RateBasedRuleState struct {
 	MetricName interface{}
 	// The name or description of the rule.
 	Name interface{}
-	// One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
+	// The objects to include in a rule (documented below).
 	Predicates interface{}
 	// Valid value is IP.
 	RateKey interface{}
@@ -120,7 +120,7 @@ type RateBasedRuleArgs struct {
 	MetricName interface{}
 	// The name or description of the rule.
 	Name interface{}
-	// One of ByteMatchSet, IPSet, SizeConstraintSet, SqlInjectionMatchSet, or XssMatchSet objects to include in a rule.
+	// The objects to include in a rule (documented below).
 	Predicates interface{}
 	// Valid value is IP.
 	RateKey interface{}
