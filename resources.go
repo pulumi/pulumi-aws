@@ -1401,6 +1401,10 @@ func Provider() tfbridge.ProviderInfo {
 					"engine": {
 						Type: awsResource(rdsMod, "EngineType"),
 					},
+					"instance_class": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(rdsMod+"/instanceType", "InstanceType")},
+					},
 				},
 			},
 			"aws_rds_cluster_parameter_group": {
@@ -1432,6 +1436,10 @@ func Provider() tfbridge.ProviderInfo {
 						},
 					},
 					"name": {Name: "name"},
+					"instance_class": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(rdsMod+"/instanceType", "InstanceType")},
+					},
 				},
 			},
 			"aws_db_option_group": {
@@ -2022,6 +2030,7 @@ func Provider() tfbridge.ProviderInfo {
 						DestFiles: []string{
 							"engineMode.ts",
 							"engineType.ts",
+							"instanceType.ts",
 						},
 					},
 					"route53": {
