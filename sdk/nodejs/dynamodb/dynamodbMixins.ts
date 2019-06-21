@@ -71,10 +71,9 @@ export class TableEventSubscription extends lambda.EventSubscription {
 
         // We previously did not parent the subscription to the table. We now do. Provide an alias
         // so this doesn't cause resources to be destroyed/recreated for existing stacks.
-        const type = "aws:dynamodb:TableEventSubscription";
-        super(type, name, {
+        super("aws:dynamodb:TableEventSubscription", name, {
             parent: table,
-            ...utils.withAlias(opts, pulumi.createUrn(name, type, opts.parent)),
+            ...utils.withAlias(opts, { parent: pulumi.rootStackResource }),
         });
 
         const parentOpts = { parent: this };
