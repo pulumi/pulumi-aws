@@ -137,7 +137,7 @@ class Group(pulumi.CustomResource):
     """
     target_group_arns: pulumi.Output[list]
     """
-    A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
+    A list of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing.
     """
     termination_policies: pulumi.Output[list]
     """
@@ -276,7 +276,7 @@ class Group(pulumi.CustomResource):
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your autoscaling group from functioning properly.
         :param pulumi.Input[list] tags: A list of tag blocks. Tags documented below.
         :param pulumi.Input[list] tags_collection: A list of tag blocks (maps). Tags documented below.
-        :param pulumi.Input[list] target_group_arns: A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
+        :param pulumi.Input[list] target_group_arns: A list of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing.
         :param pulumi.Input[list] termination_policies: A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
         :param pulumi.Input[list] vpc_zone_identifiers: A list of subnet IDs to launch resources in.
         :param pulumi.Input[float] wait_for_elb_capacity: Setting this will cause Terraform to wait

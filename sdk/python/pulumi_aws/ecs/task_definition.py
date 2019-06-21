@@ -54,6 +54,10 @@ class TaskDefinition(pulumi.CustomResource):
     """
     A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
     """
+    proxy_configuration: pulumi.Output[dict]
+    """
+    The proxy configuration details for the App Mesh proxy.
+    """
     requires_compatibilities: pulumi.Output[list]
     """
     A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
@@ -74,7 +78,7 @@ class TaskDefinition(pulumi.CustomResource):
     """
     A set of volume blocks that containers in your task may use.
     """
-    def __init__(__self__, resource_name, opts=None, container_definitions=None, cpu=None, execution_role_arn=None, family=None, ipc_mode=None, memory=None, network_mode=None, pid_mode=None, placement_constraints=None, requires_compatibilities=None, tags=None, task_role_arn=None, volumes=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, container_definitions=None, cpu=None, execution_role_arn=None, family=None, ipc_mode=None, memory=None, network_mode=None, pid_mode=None, placement_constraints=None, proxy_configuration=None, requires_compatibilities=None, tags=None, task_role_arn=None, volumes=None, __name__=None, __opts__=None):
         """
         Manages a revision of an ECS task definition to be used in `aws_ecs_service`.
         
@@ -94,6 +98,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] network_mode: The Docker networking mode to use for the containers in the task. The valid values are `none`, `bridge`, `awsvpc`, and `host`.
         :param pulumi.Input[str] pid_mode: The process namespace to use for the containers in the task. The valid values are `host` and `task`.
         :param pulumi.Input[list] placement_constraints: A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
+        :param pulumi.Input[dict] proxy_configuration: The proxy configuration details for the App Mesh proxy.
         :param pulumi.Input[list] requires_compatibilities: A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] task_role_arn: The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
@@ -135,6 +140,8 @@ class TaskDefinition(pulumi.CustomResource):
         __props__['pid_mode'] = pid_mode
 
         __props__['placement_constraints'] = placement_constraints
+
+        __props__['proxy_configuration'] = proxy_configuration
 
         __props__['requires_compatibilities'] = requires_compatibilities
 

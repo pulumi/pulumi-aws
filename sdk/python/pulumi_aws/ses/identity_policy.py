@@ -8,29 +8,28 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class RepositoryPolicy(pulumi.CustomResource):
+class IdentityPolicy(pulumi.CustomResource):
+    identity: pulumi.Output[str]
+    """
+    Name or Amazon Resource Name (ARN) of the SES Identity.
+    """
+    name: pulumi.Output[str]
+    """
+    Name of the policy.
+    """
     policy: pulumi.Output[str]
     """
-    The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
+    JSON string of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
     """
-    registry_id: pulumi.Output[str]
-    """
-    The registry ID where the repository was created.
-    """
-    repository: pulumi.Output[str]
-    """
-    Name of the repository to apply the policy.
-    """
-    def __init__(__self__, resource_name, opts=None, policy=None, repository=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, identity=None, name=None, policy=None, __name__=None, __opts__=None):
         """
-        Provides an Elastic Container Registry Repository Policy.
-        
-        Note that currently only one policy may be applied to a repository.
+        Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
-        :param pulumi.Input[str] repository: Name of the repository to apply the policy.
+        :param pulumi.Input[str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
+        :param pulumi.Input[str] name: Name of the policy.
+        :param pulumi.Input[str] policy: JSON string of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -47,18 +46,18 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        if identity is None:
+            raise TypeError("Missing required property 'identity'")
+        __props__['identity'] = identity
+
+        __props__['name'] = name
+
         if policy is None:
             raise TypeError("Missing required property 'policy'")
         __props__['policy'] = policy
 
-        if repository is None:
-            raise TypeError("Missing required property 'repository'")
-        __props__['repository'] = repository
-
-        __props__['registry_id'] = None
-
-        super(RepositoryPolicy, __self__).__init__(
-            'aws:ecr/repositoryPolicy:RepositoryPolicy',
+        super(IdentityPolicy, __self__).__init__(
+            'aws:ses/identityPolicy:IdentityPolicy',
             resource_name,
             __props__,
             opts)

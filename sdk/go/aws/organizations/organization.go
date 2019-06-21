@@ -30,6 +30,7 @@ func NewOrganization(ctx *pulumi.Context,
 	inputs["masterAccountArn"] = nil
 	inputs["masterAccountEmail"] = nil
 	inputs["masterAccountId"] = nil
+	inputs["nonMasterAccounts"] = nil
 	inputs["roots"] = nil
 	s, err := ctx.RegisterResource("aws:organizations/organization:Organization", name, true, inputs, opts...)
 	if err != nil {
@@ -52,6 +53,7 @@ func GetOrganization(ctx *pulumi.Context,
 		inputs["masterAccountArn"] = state.MasterAccountArn
 		inputs["masterAccountEmail"] = state.MasterAccountEmail
 		inputs["masterAccountId"] = state.MasterAccountId
+		inputs["nonMasterAccounts"] = state.NonMasterAccounts
 		inputs["roots"] = state.Roots
 	}
 	s, err := ctx.ReadResource("aws:organizations/organization:Organization", name, id, inputs, opts...)
@@ -71,7 +73,7 @@ func (r *Organization) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// List of organization accounts (including the master account). All elements have these attributes:
+// List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
 func (r *Organization) Accounts() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["accounts"])
 }
@@ -111,6 +113,11 @@ func (r *Organization) MasterAccountId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["masterAccountId"])
 }
 
+// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
+func (r *Organization) NonMasterAccounts() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["nonMasterAccounts"])
+}
+
 // List of organization roots. All elements have these attributes:
 func (r *Organization) Roots() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["roots"])
@@ -118,7 +125,7 @@ func (r *Organization) Roots() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering Organization resources.
 type OrganizationState struct {
-	// List of organization accounts (including the master account). All elements have these attributes:
+	// List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
 	Accounts interface{}
 	// ARN of the root
 	Arn interface{}
@@ -134,6 +141,8 @@ type OrganizationState struct {
 	MasterAccountEmail interface{}
 	// Identifier of the master account
 	MasterAccountId interface{}
+	// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
+	NonMasterAccounts interface{}
 	// List of organization roots. All elements have these attributes:
 	Roots interface{}
 }

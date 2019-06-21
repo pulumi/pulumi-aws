@@ -38,6 +38,7 @@ func NewVpcEndpoint(ctx *pulumi.Context,
 		inputs["securityGroupIds"] = nil
 		inputs["serviceName"] = nil
 		inputs["subnetIds"] = nil
+		inputs["tags"] = nil
 		inputs["vpcEndpointType"] = nil
 		inputs["vpcId"] = nil
 	} else {
@@ -48,13 +49,16 @@ func NewVpcEndpoint(ctx *pulumi.Context,
 		inputs["securityGroupIds"] = args.SecurityGroupIds
 		inputs["serviceName"] = args.ServiceName
 		inputs["subnetIds"] = args.SubnetIds
+		inputs["tags"] = args.Tags
 		inputs["vpcEndpointType"] = args.VpcEndpointType
 		inputs["vpcId"] = args.VpcId
 	}
 	inputs["cidrBlocks"] = nil
 	inputs["dnsEntries"] = nil
 	inputs["networkInterfaceIds"] = nil
+	inputs["ownerId"] = nil
 	inputs["prefixListId"] = nil
+	inputs["requesterManaged"] = nil
 	inputs["state"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/vpcEndpoint:VpcEndpoint", name, true, inputs, opts...)
 	if err != nil {
@@ -73,14 +77,17 @@ func GetVpcEndpoint(ctx *pulumi.Context,
 		inputs["cidrBlocks"] = state.CidrBlocks
 		inputs["dnsEntries"] = state.DnsEntries
 		inputs["networkInterfaceIds"] = state.NetworkInterfaceIds
+		inputs["ownerId"] = state.OwnerId
 		inputs["policy"] = state.Policy
 		inputs["prefixListId"] = state.PrefixListId
 		inputs["privateDnsEnabled"] = state.PrivateDnsEnabled
+		inputs["requesterManaged"] = state.RequesterManaged
 		inputs["routeTableIds"] = state.RouteTableIds
 		inputs["securityGroupIds"] = state.SecurityGroupIds
 		inputs["serviceName"] = state.ServiceName
 		inputs["state"] = state.State
 		inputs["subnetIds"] = state.SubnetIds
+		inputs["tags"] = state.Tags
 		inputs["vpcEndpointType"] = state.VpcEndpointType
 		inputs["vpcId"] = state.VpcId
 	}
@@ -121,6 +128,11 @@ func (r *VpcEndpoint) NetworkInterfaceIds() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["networkInterfaceIds"])
 }
 
+// The ID of the AWS account that owns the VPC endpoint.
+func (r *VpcEndpoint) OwnerId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["ownerId"])
+}
+
 // A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 func (r *VpcEndpoint) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
@@ -135,6 +147,11 @@ func (r *VpcEndpoint) PrefixListId() *pulumi.StringOutput {
 // Defaults to `false`.
 func (r *VpcEndpoint) PrivateDnsEnabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["privateDnsEnabled"])
+}
+
+// Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
+func (r *VpcEndpoint) RequesterManaged() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["requesterManaged"])
 }
 
 // One or more route table IDs. Applicable for endpoints of type `Gateway`.
@@ -162,6 +179,11 @@ func (r *VpcEndpoint) SubnetIds() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["subnetIds"])
 }
 
+// A mapping of tags to assign to the resource.
+func (r *VpcEndpoint) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
 func (r *VpcEndpoint) VpcEndpointType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vpcEndpointType"])
@@ -182,6 +204,8 @@ type VpcEndpointState struct {
 	DnsEntries interface{}
 	// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
 	NetworkInterfaceIds interface{}
+	// The ID of the AWS account that owns the VPC endpoint.
+	OwnerId interface{}
 	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 	Policy interface{}
 	// The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
@@ -189,6 +213,8 @@ type VpcEndpointState struct {
 	// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
 	// Defaults to `false`.
 	PrivateDnsEnabled interface{}
+	// Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
+	RequesterManaged interface{}
 	// One or more route table IDs. Applicable for endpoints of type `Gateway`.
 	RouteTableIds interface{}
 	// The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
@@ -199,6 +225,8 @@ type VpcEndpointState struct {
 	State interface{}
 	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
 	SubnetIds interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
 	VpcEndpointType interface{}
 	// The ID of the VPC in which the endpoint will be used.
@@ -222,6 +250,8 @@ type VpcEndpointArgs struct {
 	ServiceName interface{}
 	// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
 	SubnetIds interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
 	VpcEndpointType interface{}
 	// The ID of the VPC in which the endpoint will be used.

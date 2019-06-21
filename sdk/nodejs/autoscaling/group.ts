@@ -382,7 +382,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly tagsCollection!: pulumi.Output<{[key: string]: any}[] | undefined>;
     /**
-     * A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
+     * A list of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing.
      */
     public readonly targetGroupArns!: pulumi.Output<string[]>;
     /**
@@ -619,7 +619,7 @@ export interface GroupState {
      */
     readonly tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
     /**
-     * A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
+     * A list of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing.
      */
     readonly targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -768,7 +768,7 @@ export interface GroupArgs {
      */
     readonly tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
     /**
-     * A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
+     * A list of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing.
      */
     readonly targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**

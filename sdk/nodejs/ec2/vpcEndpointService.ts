@@ -16,15 +16,30 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
- * Basic usage:
+ * ### Basic
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const foo = new aws.ec2.VpcEndpointService("foo", {
+ * const example = new aws.ec2.VpcEndpointService("example", {
  *     acceptanceRequired: false,
- *     networkLoadBalancerArns: [aws_lb_test.arn],
+ *     networkLoadBalancerArns: [aws_lb_example.arn],
+ * });
+ * ```
+ * 
+ * ### Basic w/ Tags
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.ec2.VpcEndpointService("example", {
+ *     acceptanceRequired: false,
+ *     networkLoadBalancerArns: [aws_lb_example.arn],
+ *     tags: {
+ *         Environment: "test",
+ *     },
  * });
  * ```
  */
@@ -72,6 +87,10 @@ export class VpcEndpointService extends pulumi.CustomResource {
      */
     public /*out*/ readonly baseEndpointDnsNames!: pulumi.Output<string[]>;
     /**
+     * Whether or not the service manages its VPC endpoints - `true` or `false`.
+     */
+    public /*out*/ readonly managesVpcEndpoints!: pulumi.Output<boolean>;
+    /**
      * The ARNs of one or more Network Load Balancers for the endpoint service.
      */
     public readonly networkLoadBalancerArns!: pulumi.Output<string[]>;
@@ -91,6 +110,10 @@ export class VpcEndpointService extends pulumi.CustomResource {
      * The state of the VPC endpoint service.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a VpcEndpointService resource with the given unique name, arguments, and options.
@@ -108,11 +131,13 @@ export class VpcEndpointService extends pulumi.CustomResource {
             inputs["allowedPrincipals"] = state ? state.allowedPrincipals : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             inputs["baseEndpointDnsNames"] = state ? state.baseEndpointDnsNames : undefined;
+            inputs["managesVpcEndpoints"] = state ? state.managesVpcEndpoints : undefined;
             inputs["networkLoadBalancerArns"] = state ? state.networkLoadBalancerArns : undefined;
             inputs["privateDnsName"] = state ? state.privateDnsName : undefined;
             inputs["serviceName"] = state ? state.serviceName : undefined;
             inputs["serviceType"] = state ? state.serviceType : undefined;
             inputs["state"] = state ? state.state : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as VpcEndpointServiceArgs | undefined;
             if (!args || args.acceptanceRequired === undefined) {
@@ -124,8 +149,10 @@ export class VpcEndpointService extends pulumi.CustomResource {
             inputs["acceptanceRequired"] = args ? args.acceptanceRequired : undefined;
             inputs["allowedPrincipals"] = args ? args.allowedPrincipals : undefined;
             inputs["networkLoadBalancerArns"] = args ? args.networkLoadBalancerArns : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["availabilityZones"] = undefined /*out*/;
             inputs["baseEndpointDnsNames"] = undefined /*out*/;
+            inputs["managesVpcEndpoints"] = undefined /*out*/;
             inputs["privateDnsName"] = undefined /*out*/;
             inputs["serviceName"] = undefined /*out*/;
             inputs["serviceType"] = undefined /*out*/;
@@ -156,6 +183,10 @@ export interface VpcEndpointServiceState {
      */
     readonly baseEndpointDnsNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Whether or not the service manages its VPC endpoints - `true` or `false`.
+     */
+    readonly managesVpcEndpoints?: pulumi.Input<boolean>;
+    /**
      * The ARNs of one or more Network Load Balancers for the endpoint service.
      */
     readonly networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
@@ -175,6 +206,10 @@ export interface VpcEndpointServiceState {
      * The state of the VPC endpoint service.
      */
     readonly state?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -193,4 +228,8 @@ export interface VpcEndpointServiceArgs {
      * The ARNs of one or more Network Load Balancers for the endpoint service.
      */
     readonly networkLoadBalancerArns: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

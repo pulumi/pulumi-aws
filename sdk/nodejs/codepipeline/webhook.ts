@@ -51,6 +51,10 @@ export class Webhook extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
      */
     public readonly targetAction!: pulumi.Output<string>;
@@ -79,6 +83,7 @@ export class Webhook extends pulumi.CustomResource {
             inputs["authenticationConfiguration"] = state ? state.authenticationConfiguration : undefined;
             inputs["filters"] = state ? state.filters : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["targetAction"] = state ? state.targetAction : undefined;
             inputs["targetPipeline"] = state ? state.targetPipeline : undefined;
             inputs["url"] = state ? state.url : undefined;
@@ -100,6 +105,7 @@ export class Webhook extends pulumi.CustomResource {
             inputs["authenticationConfiguration"] = args ? args.authenticationConfiguration : undefined;
             inputs["filters"] = args ? args.filters : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["targetAction"] = args ? args.targetAction : undefined;
             inputs["targetPipeline"] = args ? args.targetPipeline : undefined;
             inputs["url"] = undefined /*out*/;
@@ -128,6 +134,10 @@ export interface WebhookState {
      * The name of the webhook.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
      */
@@ -162,6 +172,10 @@ export interface WebhookArgs {
      * The name of the webhook.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
      */

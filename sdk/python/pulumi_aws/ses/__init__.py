@@ -12,6 +12,7 @@ from .mail_from import *
 from .email_identity import *
 from .event_destination import *
 from .identity_notification_topic import *
+from .identity_policy import *
 from .receipt_filter import *
 from .receipt_rule import *
 from .receipt_rule_set import *

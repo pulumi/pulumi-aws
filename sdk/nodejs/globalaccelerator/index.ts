@@ -3,4 +3,5 @@
 
 // Export members:
 export * from "./accelerator";
+export * from "./endpointGroup";
 export * from "./listener";

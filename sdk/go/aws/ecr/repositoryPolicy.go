@@ -8,13 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides an ECR repository policy.
+// Provides an Elastic Container Registry Repository Policy.
 // 
 // Note that currently only one policy may be applied to a repository.
-// 
-// > **NOTE on ECR Availability**: The EC2 Container Registry is not yet rolled out
-// in all regions - available regions are listed
-// [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#ecr_region).
 type RepositoryPolicy struct {
 	s *pulumi.ResourceState
 }

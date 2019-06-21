@@ -361,7 +361,7 @@ func (r *Group) TagsCollection() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["tagsCollection"])
 }
 
-// A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
+// A list of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing.
 func (r *Group) TargetGroupArns() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["targetGroupArns"])
 }
@@ -467,7 +467,7 @@ type GroupState struct {
 	Tags interface{}
 	// A list of tag blocks (maps). Tags documented below.
 	TagsCollection interface{}
-	// A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
+	// A list of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing.
 	TargetGroupArns interface{}
 	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
 	TerminationPolicies interface{}
@@ -558,7 +558,7 @@ type GroupArgs struct {
 	Tags interface{}
 	// A list of tag blocks (maps). Tags documented below.
 	TagsCollection interface{}
-	// A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
+	// A list of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing.
 	TargetGroupArns interface{}
 	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
 	TerminationPolicies interface{}

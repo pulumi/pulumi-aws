@@ -4,4 +4,5 @@
 
 # Export this package's modules as members:
 from .accelerator import *
+from .endpoint_group import *
 from .listener import *

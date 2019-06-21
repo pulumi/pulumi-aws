@@ -10,6 +10,7 @@ export * from "./domainIdentityVerification";
 export * from "./emailIdentity";
 export * from "./eventDestination";
 export * from "./identityNotificationTopic";
+export * from "./identityPolicy";
 export * from "./mailFrom";
 export * from "./receiptFilter";
 export * from "./receiptRule";

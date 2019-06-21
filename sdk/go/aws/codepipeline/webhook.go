@@ -34,6 +34,7 @@ func NewWebhook(ctx *pulumi.Context,
 		inputs["authenticationConfiguration"] = nil
 		inputs["filters"] = nil
 		inputs["name"] = nil
+		inputs["tags"] = nil
 		inputs["targetAction"] = nil
 		inputs["targetPipeline"] = nil
 	} else {
@@ -41,6 +42,7 @@ func NewWebhook(ctx *pulumi.Context,
 		inputs["authenticationConfiguration"] = args.AuthenticationConfiguration
 		inputs["filters"] = args.Filters
 		inputs["name"] = args.Name
+		inputs["tags"] = args.Tags
 		inputs["targetAction"] = args.TargetAction
 		inputs["targetPipeline"] = args.TargetPipeline
 	}
@@ -62,6 +64,7 @@ func GetWebhook(ctx *pulumi.Context,
 		inputs["authenticationConfiguration"] = state.AuthenticationConfiguration
 		inputs["filters"] = state.Filters
 		inputs["name"] = state.Name
+		inputs["tags"] = state.Tags
 		inputs["targetAction"] = state.TargetAction
 		inputs["targetPipeline"] = state.TargetPipeline
 		inputs["url"] = state.Url
@@ -103,6 +106,11 @@ func (r *Webhook) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// A mapping of tags to assign to the resource.
+func (r *Webhook) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 func (r *Webhook) TargetAction() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["targetAction"])
@@ -128,6 +136,8 @@ type WebhookState struct {
 	Filters interface{}
 	// The name of the webhook.
 	Name interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 	TargetAction interface{}
 	// The name of the pipeline.
@@ -146,6 +156,8 @@ type WebhookArgs struct {
 	Filters interface{}
 	// The name of the webhook.
 	Name interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 	TargetAction interface{}
 	// The name of the pipeline.

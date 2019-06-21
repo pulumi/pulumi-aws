@@ -682,9 +682,11 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Elastic Block Store
-			"aws_ebs_snapshot":      {Tok: awsResource(ebsMod, "Snapshot")},
-			"aws_ebs_snapshot_copy": {Tok: awsResource(ebsMod, "SnapshotCopy")},
-			"aws_ebs_volume":        {Tok: awsResource(ebsMod, "Volume")},
+			"aws_ebs_default_kms_key":       {Tok: awsResource(ebsMod, "DefaultKmsKey")},
+			"aws_ebs_encryption_by_default": {Tok: awsResource(ebsMod, "EncryptionByDefault")},
+			"aws_ebs_snapshot":              {Tok: awsResource(ebsMod, "Snapshot")},
+			"aws_ebs_snapshot_copy":         {Tok: awsResource(ebsMod, "SnapshotCopy")},
+			"aws_ebs_volume":                {Tok: awsResource(ebsMod, "Volume")},
 			// ElastiCache
 			"aws_elasticache_cluster": {
 				Tok: awsResource(elasticacheMod, "Cluster"),
@@ -1049,8 +1051,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_glacier_vault":      {Tok: awsResource(glacierMod, "Vault")},
 			"aws_glacier_vault_lock": {Tok: awsResource(glacierMod, "VaultLock")},
 			// Global Accelerator
-			"aws_globalaccelerator_accelerator": {Tok: awsResource(globalacceleratorMod, "Accelerator")},
-			"aws_globalaccelerator_listener":    {Tok: awsResource(globalacceleratorMod, "Listener")},
+			"aws_globalaccelerator_accelerator":    {Tok: awsResource(globalacceleratorMod, "Accelerator")},
+			"aws_globalaccelerator_endpoint_group": {Tok: awsResource(globalacceleratorMod, "EndpointGroup")},
+			"aws_globalaccelerator_listener":       {Tok: awsResource(globalacceleratorMod, "Listener")},
 			// Glue
 			"aws_glue_catalog_database":       {Tok: awsResource(glueMod, "CatalogDatabase")},
 			"aws_glue_catalog_table":          {Tok: awsResource(glueMod, "CatalogTable")},
@@ -1555,6 +1558,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ses_domain_mail_from":             {Tok: awsResource(sesMod, "MailFrom")},
 			"aws_ses_email_identity":               {Tok: awsResource(sesMod, "EmailIdentity")},
 			"aws_ses_identity_notification_topic":  {Tok: awsResource(sesMod, "IdentityNotificationTopic")},
+			"aws_ses_identity_policy":              {Tok: awsResource(sesMod, "IdentityPolicy")},
 			"aws_ses_receipt_filter":               {Tok: awsResource(sesMod, "ReceiptFilter")},
 			"aws_ses_receipt_rule":                 {Tok: awsResource(sesMod, "ReceiptRule")},
 			"aws_ses_receipt_rule_set":             {Tok: awsResource(sesMod, "ReceiptRuleSet")},

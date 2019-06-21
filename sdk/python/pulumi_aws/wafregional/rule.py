@@ -19,7 +19,7 @@ class Rule(pulumi.CustomResource):
     """
     predicates: pulumi.Output[list]
     """
-    The objects to include in a rule.
+    The objects to include in a rule (documented below).
     """
     def __init__(__self__, resource_name, opts=None, metric_name=None, name=None, predicates=None, __name__=None, __opts__=None):
         """
@@ -41,7 +41,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[str] name: The name or description of the rule.
-        :param pulumi.Input[list] predicates: The objects to include in a rule.
+        :param pulumi.Input[list] predicates: The objects to include in a rule (documented below).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

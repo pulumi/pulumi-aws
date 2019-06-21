@@ -25,6 +25,10 @@ class Webhook(pulumi.CustomResource):
     """
     The name of the webhook.
     """
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
     target_action: pulumi.Output[str]
     """
     The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
@@ -37,7 +41,7 @@ class Webhook(pulumi.CustomResource):
     """
     The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
     """
-    def __init__(__self__, resource_name, opts=None, authentication=None, authentication_configuration=None, filters=None, name=None, target_action=None, target_pipeline=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authentication=None, authentication_configuration=None, filters=None, name=None, tags=None, target_action=None, target_pipeline=None, __name__=None, __opts__=None):
         """
         Provides a CodePipeline Webhook.
         
@@ -47,6 +51,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[dict] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         :param pulumi.Input[list] filters: One or more `filter` blocks. Filter blocks are documented below.
         :param pulumi.Input[str] name: The name of the webhook.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_action: The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
         :param pulumi.Input[str] target_pipeline: The name of the pipeline.
         """
@@ -76,6 +81,8 @@ class Webhook(pulumi.CustomResource):
         __props__['filters'] = filters
 
         __props__['name'] = name
+
+        __props__['tags'] = tags
 
         if target_action is None:
             raise TypeError("Missing required property 'target_action'")

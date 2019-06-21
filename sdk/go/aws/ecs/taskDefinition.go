@@ -33,6 +33,7 @@ func NewTaskDefinition(ctx *pulumi.Context,
 		inputs["networkMode"] = nil
 		inputs["pidMode"] = nil
 		inputs["placementConstraints"] = nil
+		inputs["proxyConfiguration"] = nil
 		inputs["requiresCompatibilities"] = nil
 		inputs["tags"] = nil
 		inputs["taskRoleArn"] = nil
@@ -47,6 +48,7 @@ func NewTaskDefinition(ctx *pulumi.Context,
 		inputs["networkMode"] = args.NetworkMode
 		inputs["pidMode"] = args.PidMode
 		inputs["placementConstraints"] = args.PlacementConstraints
+		inputs["proxyConfiguration"] = args.ProxyConfiguration
 		inputs["requiresCompatibilities"] = args.RequiresCompatibilities
 		inputs["tags"] = args.Tags
 		inputs["taskRoleArn"] = args.TaskRoleArn
@@ -77,6 +79,7 @@ func GetTaskDefinition(ctx *pulumi.Context,
 		inputs["networkMode"] = state.NetworkMode
 		inputs["pidMode"] = state.PidMode
 		inputs["placementConstraints"] = state.PlacementConstraints
+		inputs["proxyConfiguration"] = state.ProxyConfiguration
 		inputs["requiresCompatibilities"] = state.RequiresCompatibilities
 		inputs["revision"] = state.Revision
 		inputs["tags"] = state.Tags
@@ -155,6 +158,11 @@ func (r *TaskDefinition) PlacementConstraints() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["placementConstraints"])
 }
 
+// The proxy configuration details for the App Mesh proxy.
+func (r *TaskDefinition) ProxyConfiguration() *pulumi.Output {
+	return r.s.State["proxyConfiguration"]
+}
+
 // A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 func (r *TaskDefinition) RequiresCompatibilities() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["requiresCompatibilities"])
@@ -207,6 +215,8 @@ type TaskDefinitionState struct {
 	PidMode interface{}
 	// A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
 	PlacementConstraints interface{}
+	// The proxy configuration details for the App Mesh proxy.
+	ProxyConfiguration interface{}
 	// A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities interface{}
 	// The revision of the task in a particular family.
@@ -244,6 +254,8 @@ type TaskDefinitionArgs struct {
 	PidMode interface{}
 	// A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
 	PlacementConstraints interface{}
+	// The proxy configuration details for the App Mesh proxy.
+	ProxyConfiguration interface{}
 	// A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities interface{}
 	// Key-value mapping of resource tags

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
- * Basic usage:
+ * ### Basic
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -28,7 +28,22 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * Interface type usage:
+ * ### Basic w/ Tags
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const s3 = new aws.ec2.VpcEndpoint("s3", {
+ *     serviceName: "com.amazonaws.us-west-2.s3",
+ *     tags: {
+ *         Environment: "test",
+ *     },
+ *     vpcId: aws_vpc_main.id,
+ * });
+ * ```
+ * 
+ * ### Interface Endpoint Type
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -43,7 +58,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * Custom Service Usage:
+ * ### Custom Service
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -116,6 +131,10 @@ export class VpcEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
     /**
+     * The ID of the AWS account that owns the VPC endpoint.
+     */
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
      * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
     public readonly policy!: pulumi.Output<string>;
@@ -128,6 +147,10 @@ export class VpcEndpoint extends pulumi.CustomResource {
      * Defaults to `false`.
      */
     public readonly privateDnsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
+     */
+    public /*out*/ readonly requesterManaged!: pulumi.Output<boolean>;
     /**
      * One or more route table IDs. Applicable for endpoints of type `Gateway`.
      */
@@ -148,6 +171,10 @@ export class VpcEndpoint extends pulumi.CustomResource {
      * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
      */
@@ -173,14 +200,17 @@ export class VpcEndpoint extends pulumi.CustomResource {
             inputs["cidrBlocks"] = state ? state.cidrBlocks : undefined;
             inputs["dnsEntries"] = state ? state.dnsEntries : undefined;
             inputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
+            inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["prefixListId"] = state ? state.prefixListId : undefined;
             inputs["privateDnsEnabled"] = state ? state.privateDnsEnabled : undefined;
+            inputs["requesterManaged"] = state ? state.requesterManaged : undefined;
             inputs["routeTableIds"] = state ? state.routeTableIds : undefined;
             inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             inputs["serviceName"] = state ? state.serviceName : undefined;
             inputs["state"] = state ? state.state : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["vpcEndpointType"] = state ? state.vpcEndpointType : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
@@ -198,12 +228,15 @@ export class VpcEndpoint extends pulumi.CustomResource {
             inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcEndpointType"] = args ? args.vpcEndpointType : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["cidrBlocks"] = undefined /*out*/;
             inputs["dnsEntries"] = undefined /*out*/;
             inputs["networkInterfaceIds"] = undefined /*out*/;
+            inputs["ownerId"] = undefined /*out*/;
             inputs["prefixListId"] = undefined /*out*/;
+            inputs["requesterManaged"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
         }
         super(VpcEndpoint.__pulumiType, name, inputs, opts);
@@ -231,6 +264,10 @@ export interface VpcEndpointState {
      */
     readonly networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The ID of the AWS account that owns the VPC endpoint.
+     */
+    readonly ownerId?: pulumi.Input<string>;
+    /**
      * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
      */
     readonly policy?: pulumi.Input<string>;
@@ -243,6 +280,10 @@ export interface VpcEndpointState {
      * Defaults to `false`.
      */
     readonly privateDnsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
+     */
+    readonly requesterManaged?: pulumi.Input<boolean>;
     /**
      * One or more route table IDs. Applicable for endpoints of type `Gateway`.
      */
@@ -263,6 +304,10 @@ export interface VpcEndpointState {
      * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
      */
@@ -306,6 +351,10 @@ export interface VpcEndpointArgs {
      * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `Interface`.
      */
     readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
      */

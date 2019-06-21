@@ -33,11 +33,13 @@ func NewPipeline(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["roleArn"] = nil
 		inputs["stages"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["artifactStore"] = args.ArtifactStore
 		inputs["name"] = args.Name
 		inputs["roleArn"] = args.RoleArn
 		inputs["stages"] = args.Stages
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:codepipeline/pipeline:Pipeline", name, true, inputs, opts...)
@@ -58,6 +60,7 @@ func GetPipeline(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["roleArn"] = state.RoleArn
 		inputs["stages"] = state.Stages
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:codepipeline/pipeline:Pipeline", name, id, inputs, opts...)
 	if err != nil {
@@ -101,6 +104,11 @@ func (r *Pipeline) Stages() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["stages"])
 }
 
+// A mapping of tags to assign to the resource.
+func (r *Pipeline) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering Pipeline resources.
 type PipelineState struct {
 	// The codepipeline ARN.
@@ -113,6 +121,8 @@ type PipelineState struct {
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn interface{}
 	Stages interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }
 
 // The set of arguments for constructing a Pipeline resource.
@@ -125,4 +135,6 @@ type PipelineArgs struct {
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn interface{}
 	Stages interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }

@@ -25,6 +25,10 @@ class VpcEndpointService(pulumi.CustomResource):
     """
     The DNS names for the service.
     """
+    manages_vpc_endpoints: pulumi.Output[bool]
+    """
+    Whether or not the service manages its VPC endpoints - `true` or `false`.
+    """
     network_load_balancer_arns: pulumi.Output[list]
     """
     The ARNs of one or more Network Load Balancers for the endpoint service.
@@ -45,7 +49,11 @@ class VpcEndpointService(pulumi.CustomResource):
     """
     The state of the VPC endpoint service.
     """
-    def __init__(__self__, resource_name, opts=None, acceptance_required=None, allowed_principals=None, network_load_balancer_arns=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
+    def __init__(__self__, resource_name, opts=None, acceptance_required=None, allowed_principals=None, network_load_balancer_arns=None, tags=None, __name__=None, __opts__=None):
         """
         Provides a VPC Endpoint Service resource.
         Service consumers can create an _Interface_ VPC Endpoint to connect to the service.
@@ -61,6 +69,7 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.Input[bool] acceptance_required: Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
         :param pulumi.Input[list] allowed_principals: The ARNs of one or more principals allowed to discover the endpoint service.
         :param pulumi.Input[list] network_load_balancer_arns: The ARNs of one or more Network Load Balancers for the endpoint service.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,8 +96,11 @@ class VpcEndpointService(pulumi.CustomResource):
             raise TypeError("Missing required property 'network_load_balancer_arns'")
         __props__['network_load_balancer_arns'] = network_load_balancer_arns
 
+        __props__['tags'] = tags
+
         __props__['availability_zones'] = None
         __props__['base_endpoint_dns_names'] = None
+        __props__['manages_vpc_endpoints'] = None
         __props__['private_dns_name'] = None
         __props__['service_name'] = None
         __props__['service_type'] = None
