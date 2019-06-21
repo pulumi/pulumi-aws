@@ -2,6 +2,10 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+___NULL___
+
+
+## 0.18.3 (2019-06-21)
 * Update to pulumi-terraform@3635bed3a5 which stops maps containing `.` being treated as nested maps.
 * Upgrade to v2.16.0 of the AWS Terraform Provider
 
