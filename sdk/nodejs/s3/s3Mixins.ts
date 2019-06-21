@@ -136,7 +136,7 @@ export class BucketEventSubscription extends lambda.EventSubscription {
         // so this doesn't cause resources to be destroyed/recreated for existing stacks.
         super("aws:s3:BucketEventSubscription", name, {
             parent: bucket,
-            ...utils.withAlias(opts, { parent: pulumi.rootStackResource }),
+            ...utils.withAlias(opts, { parent: opts.parent }),
         });
 
         const parentOpts = { parent: this };

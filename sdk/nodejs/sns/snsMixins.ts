@@ -73,7 +73,7 @@ export class TopicEventSubscription extends lambda.EventSubscription {
         // so this doesn't cause resources to be destroyed/recreated for existing stacks.
         super("aws:sns:TopicEventSubscription", name, {
             parent: topic,
-            ...utils.withAlias(opts, { parent: pulumi.rootStackResource }),
+            ...utils.withAlias(opts, { parent: opts.parent }),
         });
 
         this.topic = topic;
