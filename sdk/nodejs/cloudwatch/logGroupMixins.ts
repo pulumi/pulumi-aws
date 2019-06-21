@@ -80,10 +80,9 @@ export class LogGroupEventSubscription extends lambda.EventSubscription {
 
         // We previously did not parent the subscription to the logGroup. We now do. Provide an alias
         // so this doesn't cause resources to be destroyed/recreated for existing stacks.
-        const type = "aws:cloudwatch:LogGroupEventSubscription";
-        super(type, name, {
+        super("aws:cloudwatch:LogGroupEventSubscription", name, {
             parent: logGroup,
-            ...utils.withAlias(opts, pulumi.createUrn(name, type, opts.parent)),
+            ...utils.withAlias(opts, { parent: pulumi.rootStackResource }),
         });
 
         const parentOpts = { parent: this };
