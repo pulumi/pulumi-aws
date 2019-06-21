@@ -72,7 +72,7 @@ export class QueueEventSubscription extends lambda.EventSubscription {
         // so this doesn't cause resources to be destroyed/recreated for existing stacks.
         super("aws:sqs:QueueEventSubscription", name, {
             parent: queue,
-            ...utils.withAlias(opts, { parent: pulumi.rootStackResource }),
+            ...utils.withAlias(opts, { parent: opts.parent }),
         });
 
         const parentOpts = { parent: this };

@@ -73,7 +73,7 @@ export class TableEventSubscription extends lambda.EventSubscription {
         // so this doesn't cause resources to be destroyed/recreated for existing stacks.
         super("aws:dynamodb:TableEventSubscription", name, {
             parent: table,
-            ...utils.withAlias(opts, { parent: pulumi.rootStackResource }),
+            ...utils.withAlias(opts, { parent: opts.parent }),
         });
 
         const parentOpts = { parent: this };

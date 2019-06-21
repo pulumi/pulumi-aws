@@ -80,7 +80,7 @@ export class EventRuleEventSubscription extends lambda.EventSubscription {
         const parent = typeof eventRuleOrSchedule === "string" ? undefined : eventRuleOrSchedule;
         super("aws:cloudwatch:EventRuleEventSubscription", name, {
             parent: parent,
-            ...utils.withAlias(opts, { parent: pulumi.rootStackResource }),
+            ...utils.withAlias(opts, { parent: opts.parent }),
         });
 
         const parentOpts = { parent: this };
