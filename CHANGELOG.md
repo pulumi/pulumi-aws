@@ -3,7 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-## 0.18.11 (2019-06-20)
+## 0.18.12 (2019-06-20)
 
 * Update the list of supported Lambda function versions.
 * Add module containing constants for `aws.rds.InstanceTypes`
