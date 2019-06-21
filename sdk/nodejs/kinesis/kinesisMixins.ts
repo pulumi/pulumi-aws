@@ -77,7 +77,7 @@ export class StreamEventSubscription extends lambda.EventSubscription {
         // so this doesn't cause resources to be destroyed/recreated for existing stacks.
         super("aws:kinesis:StreamEventSubscription", name, {
             parent: stream,
-            ...utils.withAlias(opts, { parent: pulumi.rootStackResource }),
+            ...utils.withAlias(opts, { parent: opts.parent }),
         });
 
         const parentOpts = { parent: this };
