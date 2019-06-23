@@ -126,3 +126,4 @@ compiler complains.
 * Update to v1.42.0 of the AWS Terraform provider
 * Expose the AWS JavaScript SDK from `@pulumi/aws`. After importing `@pulumi/aws` the SDK can be accessed via `aws.sdk`
 * Support Python 3.6 and higher, instead of only Python 3.7
+
