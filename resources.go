@@ -1022,9 +1022,23 @@ func Provider() tfbridge.ProviderInfo {
 					"cluster_config":   {Name: "clusterConfig"},
 					"ebs_options":      {Name: "ebsOptions"},
 					"snapshot_options": {Name: "snapshotOptions"},
+					"access_policies": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod+"/documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
+					},
 				},
 			},
-			"aws_elasticsearch_domain_policy": {Tok: awsResource(elasticsearchMod, "DomainPolicy")},
+			"aws_elasticsearch_domain_policy": {
+				Tok: awsResource(elasticsearchMod, "DomainPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"access_policies": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod+"/documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
+					},
+				},
+			},
 			// Elastic Transcoder
 			"aws_elastictranscoder_pipeline": {
 				Tok: awsResource(elastictranscoderMod, "Pipeline"),

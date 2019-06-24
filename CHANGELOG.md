@@ -2,8 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-___NULL___
-
+* Add the ability to specify `elastic_search_*` `access_policies` as iam.PolicyDocument
 
 ## 0.18.14 (2019-06-24)
 
