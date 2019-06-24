@@ -5,7 +5,12 @@ CHANGELOG
 ___NULL___
 
 
-## 0.18.3 (2019-06-21)
+## 0.18.14 (2019-06-24)
+
+* Update to v0.17.20 of @pulumi/pulumi.  This pulls in a fix related to crashing with aliases.
+
+
+## 0.18.13 (2019-06-21)
 * Update to pulumi-terraform@3635bed3a5 which stops maps containing `.` being treated as nested maps.
 * Upgrade to v2.16.0 of the AWS Terraform Provider
 
