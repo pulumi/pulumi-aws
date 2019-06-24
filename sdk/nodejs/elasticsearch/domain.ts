@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {PolicyDocument} from "../iam/documents";
+
 /**
  * Manages an AWS Elasticsearch Domain.
  * 
@@ -326,7 +328,7 @@ export interface DomainState {
     /**
      * IAM policy document specifying the access policies for the domain
      */
-    readonly accessPolicies?: pulumi.Input<string>;
+    readonly accessPolicies?: pulumi.Input<string | PolicyDocument>;
     /**
      * Key-value string pairs to specify advanced configuration options.
      * Note that the values for these configuration options must be strings (wrapped in quotes) or they
@@ -402,7 +404,7 @@ export interface DomainArgs {
     /**
      * IAM policy document specifying the access policies for the domain
      */
-    readonly accessPolicies?: pulumi.Input<string>;
+    readonly accessPolicies?: pulumi.Input<string | PolicyDocument>;
     /**
      * Key-value string pairs to specify advanced configuration options.
      * Note that the values for these configuration options must be strings (wrapped in quotes) or they

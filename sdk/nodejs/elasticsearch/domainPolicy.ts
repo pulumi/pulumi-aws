@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {PolicyDocument} from "../iam/documents";
+
 /**
  * Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g. ARN)
  * 
@@ -108,7 +110,7 @@ export interface DomainPolicyState {
     /**
      * IAM policy document specifying the access policies for the domain
      */
-    readonly accessPolicies?: pulumi.Input<string>;
+    readonly accessPolicies?: pulumi.Input<string | PolicyDocument>;
     /**
      * Name of the domain.
      */
@@ -122,7 +124,7 @@ export interface DomainPolicyArgs {
     /**
      * IAM policy document specifying the access policies for the domain
      */
-    readonly accessPolicies: pulumi.Input<string>;
+    readonly accessPolicies: pulumi.Input<string | PolicyDocument>;
     /**
      * Name of the domain.
      */
