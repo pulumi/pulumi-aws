@@ -69,4 +69,4 @@ const websiteBucket = new aws.s3.Bucket("websiteBucket", {
             }
         }]
     }
-});
+}, providerOpts);
