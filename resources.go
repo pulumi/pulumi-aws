@@ -921,9 +921,18 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway_vpc_attachment":          {Tok: awsResource(ec2TransitGatewayMod, "VpcAttachment")},
 			"aws_ec2_transit_gateway_vpc_attachment_accepter": {Tok: awsResource(ec2TransitGatewayMod, "VpcAttachmentAccepter")},
 			// Elastic Container Registry
-			"aws_ecr_repository":        {Tok: awsResource(ecrMod, "Repository")},
-			"aws_ecr_repository_policy": {Tok: awsResource(ecrMod, "RepositoryPolicy")},
-			"aws_ecr_lifecycle_policy":  {Tok: awsResource(ecrMod, "LifecyclePolicy")},
+			"aws_ecr_repository": {Tok: awsResource(ecrMod, "Repository")},
+			"aws_ecr_repository_policy": {
+				Tok: awsResource(ecrMod, "RepositoryPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod+"/documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
+					},
+				},
+			},
+			"aws_ecr_lifecycle_policy": {Tok: awsResource(ecrMod, "LifecyclePolicy")},
 			// Elastic Container Service
 			"aws_ecs_cluster": {Tok: awsResource(ecsMod, "Cluster")},
 			"aws_ecs_service": {

@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {PolicyDocument} from "../iam/documents";
+
 /**
  * Provides an Elastic Container Registry Repository Policy.
  * 
@@ -126,7 +128,7 @@ export interface RepositoryPolicyState {
     /**
      * The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
-    readonly policy?: pulumi.Input<string>;
+    readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * The registry ID where the repository was created.
      */
@@ -144,7 +146,7 @@ export interface RepositoryPolicyArgs {
     /**
      * The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
      */
-    readonly policy: pulumi.Input<string>;
+    readonly policy: pulumi.Input<string | PolicyDocument>;
     /**
      * Name of the repository to apply the policy.
      */
