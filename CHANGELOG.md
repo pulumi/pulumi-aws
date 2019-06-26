@@ -2,14 +2,22 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* BREAKING: The `filename` parameter of `aws.lambda.layerVersion` has been renamed to `code`.
+  We can now pass an `AssetArchive` to this parameter as follows:
+  ```
+  code: new asset.AssetArchive({
+    "index.js": new asset.StringAsset(
+        "exports.handler = (e, c, cb) => cb(null, {statusCode: 200, body: 'Hello, world!'});",
+    ),
+  })
+  ```
 * Add the ability to specify `elastic_search_*` `access_policies` as iam.PolicyDocument
 * Add the ability to pass a `RoutingRule` array to the `routingRules` field in `aws.s3.Bucket`'s `website` field
 * Add the ability to specify ecr_repository `policy` as iam.PolicyDocument
 
+
 ## 0.18.14 (2019-06-24)
-
 * Update to v0.17.20 of @pulumi/pulumi.  This pulls in a fix related to crashing with aliases.
-
 
 ## 0.18.13 (2019-06-21)
 * Update to pulumi-terraform@3635bed3a5 which stops maps containing `.` being treated as nested maps.
@@ -20,8 +28,7 @@ CHANGELOG
 * Add module containing constants for `aws.rds.InstanceTypes`
 
 ## 0.18.11 (2019-06-17)
-
-* Fix an issue where the pulumi_aws Python package would fail to install install in some cases
+* Fix an issue where the pulumi_aws Python package would fail to install in some cases
 
 ## 0.18.10 (2019-06-13)
 

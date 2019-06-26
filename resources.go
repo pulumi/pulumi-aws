@@ -1328,7 +1328,22 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_lambda_alias":                {Tok: awsResource(lambdaMod, "Alias")},
 			"aws_lambda_event_source_mapping": {Tok: awsResource(lambdaMod, "EventSourceMapping")},
-			"aws_lambda_layer_version":        {Tok: awsResource(lambdaMod, "LayerVersion")},
+			"aws_lambda_layer_version": {
+				Tok: awsResource(lambdaMod, "LayerVersion"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// We will hijack the filename property. A Pulumi archive is passed in its stead and we will turn
+					// around and emit the archive as a temp file that Terraform can read. We also automatically
+					// populate the asset hash property as this is used in diffs/updates/etc.
+					"filename": {
+						Name: "code",
+						Asset: &tfbridge.AssetTranslation{
+							Kind:      tfbridge.FileArchive,
+							Format:    resource.ZIPArchive,
+							HashField: "source_code_hash",
+						},
+					},
+				},
+			},
 			"aws_lambda_permission": {
 				Tok:      awsResource(lambdaMod, "Permission"),
 				IDFields: []string{"statement_id"},

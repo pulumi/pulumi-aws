@@ -25,7 +25,7 @@ class LayerVersion(pulumi.CustomResource):
     """
     Description of what your Lambda Layer does.
     """
-    filename: pulumi.Output[str]
+    code: pulumi.Output[pulumi.Archive]
     """
     The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
     """
@@ -65,7 +65,7 @@ class LayerVersion(pulumi.CustomResource):
     """
     This Lamba Layer version.
     """
-    def __init__(__self__, resource_name, opts=None, compatible_runtimes=None, description=None, filename=None, layer_name=None, license_info=None, s3_bucket=None, s3_key=None, s3_object_version=None, source_code_hash=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, compatible_runtimes=None, description=None, code=None, layer_name=None, license_info=None, s3_bucket=None, s3_key=None, s3_object_version=None, source_code_hash=None, __name__=None, __opts__=None):
         """
         Provides a Lambda Layer Version resource. Lambda Layers allow you to reuse shared bits of code across multiple lambda functions.
         
@@ -87,7 +87,7 @@ class LayerVersion(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] compatible_runtimes: A list of [Runtimes][2] this layer is compatible with. Up to 5 runtimes can be specified.
         :param pulumi.Input[str] description: Description of what your Lambda Layer does.
-        :param pulumi.Input[str] filename: The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        :param pulumi.Input[pulumi.Archive] code: The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
         :param pulumi.Input[str] layer_name: A unique name for your Lambda Layer
         :param pulumi.Input[str] license_info: License info for your Lambda Layer. See [License Info][3].
         :param pulumi.Input[str] s3_bucket: The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
@@ -114,7 +114,7 @@ class LayerVersion(pulumi.CustomResource):
 
         __props__['description'] = description
 
-        __props__['filename'] = filename
+        __props__['code'] = code
 
         if layer_name is None:
             raise TypeError("Missing required property 'layer_name'")

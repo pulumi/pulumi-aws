@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *         "nodejs8.10",
  *         "nodejs6.10",
  *     ],
- *     filename: "lambda_layer_payload.zip",
+ *     code: new pulumi.asset.FileArchive("lambda_layer_payload.zip"),
  *     layerName: "lambda_layer_name",
  * });
  * ```
@@ -83,7 +83,7 @@ export class LayerVersion extends pulumi.CustomResource {
     /**
      * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
-    public readonly filename!: pulumi.Output<string | undefined>;
+    public readonly code!: pulumi.Output<pulumi.asset.Archive | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Lambda Layer without version.
      */
@@ -137,7 +137,7 @@ export class LayerVersion extends pulumi.CustomResource {
             inputs["compatibleRuntimes"] = state ? state.compatibleRuntimes : undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
             inputs["description"] = state ? state.description : undefined;
-            inputs["filename"] = state ? state.filename : undefined;
+            inputs["code"] = state ? state.code : undefined;
             inputs["layerArn"] = state ? state.layerArn : undefined;
             inputs["layerName"] = state ? state.layerName : undefined;
             inputs["licenseInfo"] = state ? state.licenseInfo : undefined;
@@ -154,7 +154,7 @@ export class LayerVersion extends pulumi.CustomResource {
             }
             inputs["compatibleRuntimes"] = args ? args.compatibleRuntimes : undefined;
             inputs["description"] = args ? args.description : undefined;
-            inputs["filename"] = args ? args.filename : undefined;
+            inputs["code"] = args ? args.code : undefined;
             inputs["layerName"] = args ? args.layerName : undefined;
             inputs["licenseInfo"] = args ? args.licenseInfo : undefined;
             inputs["s3Bucket"] = args ? args.s3Bucket : undefined;
@@ -194,7 +194,7 @@ export interface LayerVersionState {
     /**
      * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
-    readonly filename?: pulumi.Input<string>;
+    readonly code?: pulumi.Input<pulumi.asset.Archive>;
     /**
      * The Amazon Resource Name (ARN) of the Lambda Layer without version.
      */
@@ -248,7 +248,7 @@ export interface LayerVersionArgs {
     /**
      * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
-    readonly filename?: pulumi.Input<string>;
+    readonly code?: pulumi.Input<pulumi.asset.Archive>;
     /**
      * A unique name for your Lambda Layer
      */

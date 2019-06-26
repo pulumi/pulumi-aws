@@ -37,7 +37,7 @@ func NewLayerVersion(ctx *pulumi.Context,
 	if args == nil {
 		inputs["compatibleRuntimes"] = nil
 		inputs["description"] = nil
-		inputs["filename"] = nil
+		inputs["code"] = nil
 		inputs["layerName"] = nil
 		inputs["licenseInfo"] = nil
 		inputs["s3Bucket"] = nil
@@ -47,7 +47,7 @@ func NewLayerVersion(ctx *pulumi.Context,
 	} else {
 		inputs["compatibleRuntimes"] = args.CompatibleRuntimes
 		inputs["description"] = args.Description
-		inputs["filename"] = args.Filename
+		inputs["code"] = args.Code
 		inputs["layerName"] = args.LayerName
 		inputs["licenseInfo"] = args.LicenseInfo
 		inputs["s3Bucket"] = args.S3Bucket
@@ -77,7 +77,7 @@ func GetLayerVersion(ctx *pulumi.Context,
 		inputs["compatibleRuntimes"] = state.CompatibleRuntimes
 		inputs["createdDate"] = state.CreatedDate
 		inputs["description"] = state.Description
-		inputs["filename"] = state.Filename
+		inputs["code"] = state.Code
 		inputs["layerArn"] = state.LayerArn
 		inputs["layerName"] = state.LayerName
 		inputs["licenseInfo"] = state.LicenseInfo
@@ -126,8 +126,8 @@ func (r *LayerVersion) Description() *pulumi.StringOutput {
 }
 
 // The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-func (r *LayerVersion) Filename() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["filename"])
+func (r *LayerVersion) Code() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["code"])
 }
 
 // The Amazon Resource Name (ARN) of the Lambda Layer without version.
@@ -186,7 +186,7 @@ type LayerVersionState struct {
 	// Description of what your Lambda Layer does.
 	Description interface{}
 	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-	Filename interface{}
+	Code interface{}
 	// The Amazon Resource Name (ARN) of the Lambda Layer without version.
 	LayerArn interface{}
 	// A unique name for your Lambda Layer
@@ -214,7 +214,7 @@ type LayerVersionArgs struct {
 	// Description of what your Lambda Layer does.
 	Description interface{}
 	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-	Filename interface{}
+	Code interface{}
 	// A unique name for your Lambda Layer
 	LayerName interface{}
 	// License info for your Lambda Layer. See [License Info][3].
