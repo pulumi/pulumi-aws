@@ -2,6 +2,10 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+___NULL___
+
+
+## 0.19.0 (2019-06-26)
 * BREAKING: The `filename` parameter of `aws.lambda.layerVersion` has been renamed to `code`.
   We can now pass an `AssetArchive` to this parameter as follows:
   ```
@@ -14,7 +18,6 @@ CHANGELOG
 * Add the ability to specify `elastic_search_*` `access_policies` as iam.PolicyDocument
 * Add the ability to pass a `RoutingRule` array to the `routingRules` field in `aws.s3.Bucket`'s `website` field
 * Add the ability to specify ecr_repository `policy` as iam.PolicyDocument
-
 
 ## 0.18.14 (2019-06-24)
 * Update to v0.17.20 of @pulumi/pulumi.  This pulls in a fix related to crashing with aliases.
