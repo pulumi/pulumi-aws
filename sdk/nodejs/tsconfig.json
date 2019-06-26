@@ -669,6 +669,7 @@
         "s3/getBucketObject.ts",
         "s3/index.ts",
         "s3/inventory.ts",
+        "s3/routingRules.ts",
         "s3/s3Mixins.ts",
         "sagemaker/endpoint.ts",
         "sagemaker/endpointConfiguration.ts",

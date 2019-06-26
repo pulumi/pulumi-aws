@@ -55,3 +55,18 @@ bucket.onObjectCreated("bucket-callback", async (event) => {
         }
     }
 });
+
+// Another bucket with some strongly-typed routingRules.
+const websiteBucket = new aws.s3.Bucket("websiteBucket", {
+    website: {
+        indexDocument: "index.html",
+        routingRules: [{
+            Condition: {
+                KeyPrefixEquals: "docs/",
+            },
+            Redirect: {
+                ReplaceKeyPrefixWith: "documents/",
+            }
+        }]
+    }
+}, providerOpts);

@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 import {PolicyDocument} from "../iam/documents";
 import {CannedAcl} from "./cannedAcl";
+import {RoutingRule} from "./routingRules";
 
 /**
  * Provides a S3 bucket resource.
@@ -474,7 +475,7 @@ export interface BucketState {
     /**
      * A website object (documented below).
      */
-    readonly website?: pulumi.Input<{ errorDocument?: pulumi.Input<string>, indexDocument?: pulumi.Input<string>, redirectAllRequestsTo?: pulumi.Input<string>, routingRules?: pulumi.Input<string> }>;
+    readonly website?: pulumi.Input<{ errorDocument?: pulumi.Input<string>, indexDocument?: pulumi.Input<string>, redirectAllRequestsTo?: pulumi.Input<string>, routingRules?: pulumi.Input<string | RoutingRule[]> }>;
     /**
      * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
      */
@@ -568,7 +569,7 @@ export interface BucketArgs {
     /**
      * A website object (documented below).
      */
-    readonly website?: pulumi.Input<{ errorDocument?: pulumi.Input<string>, indexDocument?: pulumi.Input<string>, redirectAllRequestsTo?: pulumi.Input<string>, routingRules?: pulumi.Input<string> }>;
+    readonly website?: pulumi.Input<{ errorDocument?: pulumi.Input<string>, indexDocument?: pulumi.Input<string>, redirectAllRequestsTo?: pulumi.Input<string>, routingRules?: pulumi.Input<string | RoutingRule[]> }>;
     /**
      * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
      */

@@ -1595,7 +1595,19 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 					// Website only accepts a single value in the AWS API but is not marked MaxItems==1 in the TF
 					// provider.
-					"website": {Name: "website"},
+					"website": {
+						Name: "website",
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"routing_rules": {
+									Name:      "routingRules",
+									Type:      "string",
+									AltTypes:  []tokens.Type{awsType(s3Mod+"/routingRules", "RoutingRule[]")},
+									Transform: tfbridge.TransformJSONDocument,
+								},
+							},
+						},
+					},
 					"policy": {
 						Type:      "string",
 						AltTypes:  []tokens.Type{awsType(iamMod+"/documents", "PolicyDocument")},
@@ -2059,6 +2071,7 @@ func Provider() tfbridge.ProviderInfo {
 					"s3": {
 						DestFiles: []string{
 							"cannedAcl.ts", // a union type and constants for canned ACL names.
+							"routingRules.ts",
 							"s3Mixins.ts",
 						},
 					},
