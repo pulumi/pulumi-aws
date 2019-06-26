@@ -5,7 +5,7 @@ CHANGELOG
 ___NULL___
 
 
-## 0.19.0 (2019-06-26)
+## 0.18.5 (2019-06-26)
 * BREAKING: The `filename` parameter of `aws.lambda.layerVersion` has been renamed to `code`.
   We can now pass an `AssetArchive` to this parameter as follows:
   ```
