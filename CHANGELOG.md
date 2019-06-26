@@ -4,6 +4,7 @@ CHANGELOG
 ## HEAD (Unreleased)
 * Add the ability to specify `elastic_search_*` `access_policies` as iam.PolicyDocument
 * Add the ability to pass a `RoutingRule` array to the `routingRules` field in `aws.s3.Bucket`'s `website` field
+* Add the ability to specify ecr_repository `policy` as iam.PolicyDocument
 
 ## 0.18.14 (2019-06-24)
 
