@@ -25,6 +25,14 @@ class Resolver(pulumi.CustomResource):
     """
     The field name from the schema defined in the GraphQL API.
     """
+    kind: pulumi.Output[str]
+    """
+    The resolver type. Valid values are `UNIT` and `PIPELINE`.
+    """
+    pipeline_config: pulumi.Output[dict]
+    """
+    The PipelineConfig. A `pipeline_config` block is documented below.
+    """
     request_template: pulumi.Output[str]
     """
     The request mapping template for this resolver.
@@ -37,7 +45,7 @@ class Resolver(pulumi.CustomResource):
     """
     The type name from the schema defined in the GraphQL API.
     """
-    def __init__(__self__, resource_name, opts=None, api_id=None, data_source=None, field=None, request_template=None, response_template=None, type=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_id=None, data_source=None, field=None, kind=None, pipeline_config=None, request_template=None, response_template=None, type=None, __name__=None, __opts__=None):
         """
         Provides an AppSync Resolver.
         
@@ -46,6 +54,8 @@ class Resolver(pulumi.CustomResource):
         :param pulumi.Input[str] api_id: The API ID for the GraphQL API.
         :param pulumi.Input[str] data_source: The DataSource name.
         :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
+        :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
+        :param pulumi.Input[dict] pipeline_config: The PipelineConfig. A `pipeline_config` block is documented below.
         :param pulumi.Input[str] request_template: The request mapping template for this resolver.
         :param pulumi.Input[str] response_template: The response mapping template for this resolver.
         :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
@@ -69,13 +79,15 @@ class Resolver(pulumi.CustomResource):
             raise TypeError("Missing required property 'api_id'")
         __props__['api_id'] = api_id
 
-        if data_source is None:
-            raise TypeError("Missing required property 'data_source'")
         __props__['data_source'] = data_source
 
         if field is None:
             raise TypeError("Missing required property 'field'")
         __props__['field'] = field
+
+        __props__['kind'] = kind
+
+        __props__['pipeline_config'] = pipeline_config
 
         if request_template is None:
             raise TypeError("Missing required property 'request_template'")

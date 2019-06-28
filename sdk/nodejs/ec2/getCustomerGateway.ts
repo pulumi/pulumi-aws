@@ -19,7 +19,8 @@ import * as utilities from "../utilities";
  * });
  * const foo = pulumi.output(aws.ec2.getCustomerGateway({
  *     filters: [{
- *         Name: "foo-prod",
+ *         name: "tag:Name",
+ *         values: ["foo-prod"],
  *     }],
  * }));
  * const transit = new aws.ec2.VpnConnection("transit", {

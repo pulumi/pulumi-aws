@@ -27,8 +27,7 @@ class Stream(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    A name to identify the stream. This is unique to the
-    AWS account and region the Stream is created in.
+    A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
     """
     retention_period: pulumi.Output[float]
     """
@@ -37,8 +36,7 @@ class Stream(pulumi.CustomResource):
     shard_count: pulumi.Output[float]
     """
     The number of shards that the stream will use.
-    Amazon has guidlines for specifying the Stream size that should be referenced
-    when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
+    Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
     """
     shard_level_metrics: pulumi.Output[list]
     """
@@ -61,12 +59,10 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         :param pulumi.Input[bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         :param pulumi.Input[str] kms_key_id: The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
-        :param pulumi.Input[str] name: A name to identify the stream. This is unique to the
-               AWS account and region the Stream is created in.
+        :param pulumi.Input[str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         :param pulumi.Input[float] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
         :param pulumi.Input[float] shard_count: The number of shards that the stream will use.
-               Amazon has guidlines for specifying the Stream size that should be referenced
-               when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
+               Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
         :param pulumi.Input[list] shard_level_metrics: A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """

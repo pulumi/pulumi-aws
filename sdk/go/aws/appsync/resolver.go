@@ -19,9 +19,6 @@ func NewResolver(ctx *pulumi.Context,
 	if args == nil || args.ApiId == nil {
 		return nil, errors.New("missing required argument 'ApiId'")
 	}
-	if args == nil || args.DataSource == nil {
-		return nil, errors.New("missing required argument 'DataSource'")
-	}
 	if args == nil || args.Field == nil {
 		return nil, errors.New("missing required argument 'Field'")
 	}
@@ -39,6 +36,8 @@ func NewResolver(ctx *pulumi.Context,
 		inputs["apiId"] = nil
 		inputs["dataSource"] = nil
 		inputs["field"] = nil
+		inputs["kind"] = nil
+		inputs["pipelineConfig"] = nil
 		inputs["requestTemplate"] = nil
 		inputs["responseTemplate"] = nil
 		inputs["type"] = nil
@@ -46,6 +45,8 @@ func NewResolver(ctx *pulumi.Context,
 		inputs["apiId"] = args.ApiId
 		inputs["dataSource"] = args.DataSource
 		inputs["field"] = args.Field
+		inputs["kind"] = args.Kind
+		inputs["pipelineConfig"] = args.PipelineConfig
 		inputs["requestTemplate"] = args.RequestTemplate
 		inputs["responseTemplate"] = args.ResponseTemplate
 		inputs["type"] = args.Type
@@ -68,6 +69,8 @@ func GetResolver(ctx *pulumi.Context,
 		inputs["arn"] = state.Arn
 		inputs["dataSource"] = state.DataSource
 		inputs["field"] = state.Field
+		inputs["kind"] = state.Kind
+		inputs["pipelineConfig"] = state.PipelineConfig
 		inputs["requestTemplate"] = state.RequestTemplate
 		inputs["responseTemplate"] = state.ResponseTemplate
 		inputs["type"] = state.Type
@@ -109,6 +112,16 @@ func (r *Resolver) Field() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["field"])
 }
 
+// The resolver type. Valid values are `UNIT` and `PIPELINE`.
+func (r *Resolver) Kind() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["kind"])
+}
+
+// The PipelineConfig. A `pipeline_config` block is documented below.
+func (r *Resolver) PipelineConfig() *pulumi.Output {
+	return r.s.State["pipelineConfig"]
+}
+
 // The request mapping template for this resolver.
 func (r *Resolver) RequestTemplate() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["requestTemplate"])
@@ -134,6 +147,10 @@ type ResolverState struct {
 	DataSource interface{}
 	// The field name from the schema defined in the GraphQL API.
 	Field interface{}
+	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
+	Kind interface{}
+	// The PipelineConfig. A `pipeline_config` block is documented below.
+	PipelineConfig interface{}
 	// The request mapping template for this resolver.
 	RequestTemplate interface{}
 	// The response mapping template for this resolver.
@@ -150,6 +167,10 @@ type ResolverArgs struct {
 	DataSource interface{}
 	// The field name from the schema defined in the GraphQL API.
 	Field interface{}
+	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
+	Kind interface{}
+	// The PipelineConfig. A `pipeline_config` block is documented below.
+	PipelineConfig interface{}
 	// The request mapping template for this resolver.
 	RequestTemplate interface{}
 	// The response mapping template for this resolver.

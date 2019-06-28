@@ -49,6 +49,10 @@ class Parameter(pulumi.CustomResource):
     """
     The value of the parameter.
     """
+    version: pulumi.Output[float]
+    """
+    The version of the parameter.
+    """
     def __init__(__self__, resource_name, opts=None, allowed_pattern=None, arn=None, description=None, key_id=None, name=None, overwrite=None, tags=None, tier=None, type=None, value=None, __name__=None, __opts__=None):
         """
         Provides an SSM Parameter resource.
@@ -104,6 +108,8 @@ class Parameter(pulumi.CustomResource):
         if value is None:
             raise TypeError("Missing required property 'value'")
         __props__['value'] = value
+
+        __props__['version'] = None
 
         super(Parameter, __self__).__init__(
             'aws:ssm/parameter:Parameter',

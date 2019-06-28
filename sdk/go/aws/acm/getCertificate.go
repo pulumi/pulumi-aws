@@ -14,6 +14,7 @@ func LookupCertificate(ctx *pulumi.Context, args *GetCertificateArgs) (*GetCerti
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["domain"] = args.Domain
+		inputs["keyTypes"] = args.KeyTypes
 		inputs["mostRecent"] = args.MostRecent
 		inputs["statuses"] = args.Statuses
 		inputs["types"] = args.Types
@@ -25,6 +26,7 @@ func LookupCertificate(ctx *pulumi.Context, args *GetCertificateArgs) (*GetCerti
 	return &GetCertificateResult{
 		Arn: outputs["arn"],
 		Domain: outputs["domain"],
+		KeyTypes: outputs["keyTypes"],
 		MostRecent: outputs["mostRecent"],
 		Statuses: outputs["statuses"],
 		Types: outputs["types"],
@@ -36,6 +38,8 @@ func LookupCertificate(ctx *pulumi.Context, args *GetCertificateArgs) (*GetCerti
 type GetCertificateArgs struct {
 	// The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
 	Domain interface{}
+	// A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. Valid values are `RSA_1024`, `RSA_2048`, `RSA_4096`, `EC_prime256v1`, `EC_secp384r1`, and `EC_secp521r1`.
+	KeyTypes interface{}
 	// If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
 	MostRecent interface{}
 	// A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
@@ -51,6 +55,7 @@ type GetCertificateResult struct {
 	// Set to the ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
 	Arn interface{}
 	Domain interface{}
+	KeyTypes interface{}
 	MostRecent interface{}
 	Statuses interface{}
 	Types interface{}

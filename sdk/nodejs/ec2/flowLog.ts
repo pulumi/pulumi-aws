@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {});
- * const testRole = new aws.iam.Role("test_role", {
+ * const exampleRole = new aws.iam.Role("example", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -32,6 +32,12 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
+ * });
+ * const exampleFlowLog = new aws.ec2.FlowLog("example", {
+ *     iamRoleArn: exampleRole.arn,
+ *     logDestination: exampleLogGroup.arn,
+ *     trafficType: "ALL",
+ *     vpcId: aws_vpc_example.id,
  * });
  * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
  *     policy: `{
@@ -51,13 +57,7 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     role: aws_iam_role_example.id,
- * });
- * const exampleFlowLog = new aws.ec2.FlowLog("example", {
- *     iamRoleArn: aws_iam_role_example.arn,
- *     logDestination: exampleLogGroup.arn,
- *     trafficType: "ALL",
- *     vpcId: aws_vpc_example.id,
+ *     role: exampleRole.id,
  * });
  * ```
  * 

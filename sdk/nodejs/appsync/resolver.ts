@@ -102,11 +102,19 @@ export class Resolver extends pulumi.CustomResource {
     /**
      * The DataSource name.
      */
-    public readonly dataSource!: pulumi.Output<string>;
+    public readonly dataSource!: pulumi.Output<string | undefined>;
     /**
      * The field name from the schema defined in the GraphQL API.
      */
     public readonly field!: pulumi.Output<string>;
+    /**
+     * The resolver type. Valid values are `UNIT` and `PIPELINE`.
+     */
+    public readonly kind!: pulumi.Output<string | undefined>;
+    /**
+     * The PipelineConfig. A `pipeline_config` block is documented below.
+     */
+    public readonly pipelineConfig!: pulumi.Output<{ functions?: string[] } | undefined>;
     /**
      * The request mapping template for this resolver.
      */
@@ -136,6 +144,8 @@ export class Resolver extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["dataSource"] = state ? state.dataSource : undefined;
             inputs["field"] = state ? state.field : undefined;
+            inputs["kind"] = state ? state.kind : undefined;
+            inputs["pipelineConfig"] = state ? state.pipelineConfig : undefined;
             inputs["requestTemplate"] = state ? state.requestTemplate : undefined;
             inputs["responseTemplate"] = state ? state.responseTemplate : undefined;
             inputs["type"] = state ? state.type : undefined;
@@ -143,9 +153,6 @@ export class Resolver extends pulumi.CustomResource {
             const args = argsOrState as ResolverArgs | undefined;
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
-            }
-            if (!args || args.dataSource === undefined) {
-                throw new Error("Missing required property 'dataSource'");
             }
             if (!args || args.field === undefined) {
                 throw new Error("Missing required property 'field'");
@@ -162,6 +169,8 @@ export class Resolver extends pulumi.CustomResource {
             inputs["apiId"] = args ? args.apiId : undefined;
             inputs["dataSource"] = args ? args.dataSource : undefined;
             inputs["field"] = args ? args.field : undefined;
+            inputs["kind"] = args ? args.kind : undefined;
+            inputs["pipelineConfig"] = args ? args.pipelineConfig : undefined;
             inputs["requestTemplate"] = args ? args.requestTemplate : undefined;
             inputs["responseTemplate"] = args ? args.responseTemplate : undefined;
             inputs["type"] = args ? args.type : undefined;
@@ -192,6 +201,14 @@ export interface ResolverState {
      */
     readonly field?: pulumi.Input<string>;
     /**
+     * The resolver type. Valid values are `UNIT` and `PIPELINE`.
+     */
+    readonly kind?: pulumi.Input<string>;
+    /**
+     * The PipelineConfig. A `pipeline_config` block is documented below.
+     */
+    readonly pipelineConfig?: pulumi.Input<{ functions?: pulumi.Input<pulumi.Input<string>[]> }>;
+    /**
      * The request mapping template for this resolver.
      */
     readonly requestTemplate?: pulumi.Input<string>;
@@ -216,11 +233,19 @@ export interface ResolverArgs {
     /**
      * The DataSource name.
      */
-    readonly dataSource: pulumi.Input<string>;
+    readonly dataSource?: pulumi.Input<string>;
     /**
      * The field name from the schema defined in the GraphQL API.
      */
     readonly field: pulumi.Input<string>;
+    /**
+     * The resolver type. Valid values are `UNIT` and `PIPELINE`.
+     */
+    readonly kind?: pulumi.Input<string>;
+    /**
+     * The PipelineConfig. A `pipeline_config` block is documented below.
+     */
+    readonly pipelineConfig?: pulumi.Input<{ functions?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
      * The request mapping template for this resolver.
      */

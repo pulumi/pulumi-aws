@@ -4,6 +4,8 @@
 // Export members:
 export * from "./defaultKmsKey";
 export * from "./encryptionByDefault";
+export * from "./getDefaultKmsKey";
+export * from "./getEncryptionByDefault";
 export * from "./getSnapshot";
 export * from "./getSnapshotIds";
 export * from "./getVolume";

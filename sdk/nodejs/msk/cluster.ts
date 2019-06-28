@@ -47,6 +47,7 @@ import * as utilities from "../utilities";
  *             subnetAz2.id,
  *             subnetAz3.id,
  *         ],
+ *         ebsVolumeSize: 1000,
  *         instanceType: "kafka.m5.large",
  *         securityGroups: [sg.id],
  *     },

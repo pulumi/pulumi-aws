@@ -15,16 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * // Find a RSA 4096 bit certificate
  * const example = pulumi.output(aws.acm.getCertificate({
  *     domain: "tf.example.com",
- *     mostRecent: true,
- *     types: ["AMAZON_ISSUED"],
+ *     keyTypes: ["RSA_4096"],
  * }));
  * ```
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     return pulumi.runtime.invoke("aws:acm/getCertificate:getCertificate", {
         "domain": args.domain,
+        "keyTypes": args.keyTypes,
         "mostRecent": args.mostRecent,
         "statuses": args.statuses,
         "types": args.types,
@@ -39,6 +40,10 @@ export interface GetCertificateArgs {
      * The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
      */
     readonly domain: string;
+    /**
+     * A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. Valid values are `RSA_1024`, `RSA_2048`, `RSA_4096`, `EC_prime256v1`, `EC_secp384r1`, and `EC_secp521r1`.
+     */
+    readonly keyTypes?: string[];
     /**
      * If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
      */
@@ -64,6 +69,7 @@ export interface GetCertificateResult {
      */
     readonly arn: string;
     readonly domain: string;
+    readonly keyTypes?: string[];
     readonly mostRecent?: boolean;
     readonly statuses?: string[];
     readonly types?: string[];

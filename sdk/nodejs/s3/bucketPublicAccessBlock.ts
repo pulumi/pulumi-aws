@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const exampleBucketPublicAccessBlock = new aws.s3.BucketPublicAccessBlock("example", {
  *     blockPublicAcls: true,
  *     blockPublicPolicy: true,
- *     bucket: aws_s3_bucket_bucket.id,
+ *     bucket: exampleBucket.id,
  * });
  * ```
  */

@@ -32,6 +32,36 @@ import * as utilities from "../utilities";
  *     },
  *     vpcSecurityGroupIds: ["sg-12345678"],
  * });
+ * const dmsAssumeRole = pulumi.output(aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sts:AssumeRole"],
+ *         principals: [{
+ *             identifiers: ["dms.amazonaws.com"],
+ *             type: "Service",
+ *         }],
+ *     }],
+ * }));
+ * const dms_access_for_endpoint = new aws.iam.Role("dms-access-for-endpoint", {
+ *     assumeRolePolicy: dmsAssumeRole.json,
+ * });
+ * const dms_cloudwatch_logs_role = new aws.iam.Role("dms-cloudwatch-logs-role", {
+ *     assumeRolePolicy: dmsAssumeRole.json,
+ * });
+ * const dms_vpc_role = new aws.iam.Role("dms-vpc-role", {
+ *     assumeRolePolicy: dmsAssumeRole.json,
+ * });
+ * const dms_access_for_endpoint_AmazonDMSRedshiftS3Role = new aws.iam.RolePolicyAttachment("dms-access-for-endpoint-AmazonDMSRedshiftS3Role", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role",
+ *     role: dms_access_for_endpoint.name,
+ * });
+ * const dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole = new aws.iam.RolePolicyAttachment("dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole",
+ *     role: dms_cloudwatch_logs_role.name,
+ * });
+ * const dms_vpc_role_AmazonDMSVPCManagementRole = new aws.iam.RolePolicyAttachment("dms-vpc-role-AmazonDMSVPCManagementRole", {
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
+ *     role: dms_vpc_role.name,
+ * });
  * ```
  */
 export class ReplicationInstance extends pulumi.CustomResource {
