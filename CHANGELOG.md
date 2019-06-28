@@ -2,8 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.17.0 of the AWS Terraform Provider
+___NULL___
 
+
+## 0.18.16 (2019-06-28)
+* Upgrade to v2.17.0 of the AWS Terraform Provider
 
 ## 0.18.15 (2019-06-26)
 * BREAKING: The `filename` parameter of `aws.lambda.layerVersion` has been renamed to `code`.
