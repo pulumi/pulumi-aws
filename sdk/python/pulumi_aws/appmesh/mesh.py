@@ -29,7 +29,11 @@ class Mesh(pulumi.CustomResource):
     """
     The service mesh specification to apply.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, spec=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
+    def __init__(__self__, resource_name, opts=None, name=None, spec=None, tags=None, __name__=None, __opts__=None):
         """
         Provides an AWS App Mesh service mesh resource.
         
@@ -37,6 +41,7 @@ class Mesh(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name to use for the service mesh.
         :param pulumi.Input[dict] spec: The service mesh specification to apply.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -56,6 +61,8 @@ class Mesh(pulumi.CustomResource):
         __props__['name'] = name
 
         __props__['spec'] = spec
+
+        __props__['tags'] = tags
 
         __props__['arn'] = None
         __props__['created_date'] = None

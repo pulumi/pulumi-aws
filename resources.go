@@ -235,6 +235,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_acmpca_certificate_authority": {Tok: awsResource(acmpcaMod, "CertificateAuthority")},
 			// AppSync
 			"aws_appsync_api_key":     {Tok: awsResource(appsyncMod, "ApiKey")},
+			"aws_appsync_function":    {Tok: awsResource(appsyncMod, "Function")},
 			"aws_appsync_graphql_api": {Tok: awsResource(appsyncMod, "GraphQLApi")},
 			"aws_appsync_datasource":  {Tok: awsResource(appsyncMod, "DataSource")},
 			"aws_appsync_resolver":    {Tok: awsResource(appsyncMod, "Resolver")},
@@ -1880,9 +1881,11 @@ func Provider() tfbridge.ProviderInfo {
 			// Elastic Beanstalk
 			"aws_elastic_beanstalk_application": {Tok: awsDataSource(elasticbeanstalkMod, "getApplication")},
 			// Elastic Block Storage
-			"aws_ebs_snapshot":     {Tok: awsDataSource(ebsMod, "getSnapshot")},
-			"aws_ebs_snapshot_ids": {Tok: awsDataSource(ebsMod, "getSnapshotIds")},
-			"aws_ebs_volume":       {Tok: awsDataSource(ebsMod, "getVolume")},
+			"aws_ebs_default_kms_key":       {Tok: awsDataSource(ebsMod, "getDefaultKmsKey")},
+			"aws_ebs_encryption_by_default": {Tok: awsDataSource(ebsMod, "getEncryptionByDefault")},
+			"aws_ebs_snapshot":              {Tok: awsDataSource(ebsMod, "getSnapshot")},
+			"aws_ebs_snapshot_ids":          {Tok: awsDataSource(ebsMod, "getSnapshotIds")},
+			"aws_ebs_volume":                {Tok: awsDataSource(ebsMod, "getVolume")},
 			// Elastic Container Registry
 			"aws_ecr_credentials": {Tok: awsDataSource(ecrMod, "getCredentials")},
 			"aws_ecr_image":       {Tok: awsDataSource(ecrMod, "getImage")},

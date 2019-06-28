@@ -121,6 +121,10 @@ export class Parameter extends pulumi.CustomResource {
      * The value of the parameter.
      */
     public readonly value!: pulumi.Output<string>;
+    /**
+     * The version of the parameter.
+     */
+    public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
      * Create a Parameter resource with the given unique name, arguments, and options.
@@ -144,6 +148,7 @@ export class Parameter extends pulumi.CustomResource {
             inputs["tier"] = state ? state.tier : undefined;
             inputs["type"] = state ? state.type : undefined;
             inputs["value"] = state ? state.value : undefined;
+            inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ParameterArgs | undefined;
             if (!args || args.type === undefined) {
@@ -162,6 +167,7 @@ export class Parameter extends pulumi.CustomResource {
             inputs["tier"] = args ? args.tier : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["value"] = args ? args.value : undefined;
+            inputs["version"] = undefined /*out*/;
         }
         super(Parameter.__pulumiType, name, inputs, opts);
     }
@@ -211,6 +217,10 @@ export interface ParameterState {
      * The value of the parameter.
      */
     readonly value?: pulumi.Input<string>;
+    /**
+     * The version of the parameter.
+     */
+    readonly version?: pulumi.Input<number>;
 }
 
 /**

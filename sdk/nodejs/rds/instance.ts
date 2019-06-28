@@ -36,6 +36,8 @@ import {InstanceType} from "./instanceType";
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -85,8 +87,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public /*out*/ readonly address!: pulumi.Output<string>;
     /**
-     * (Required unless a `snapshot_identifier` or
-     * `replicate_source_db` is provided) The allocated storage in gibibytes.
+     * The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
      */
     public readonly allocatedStorage!: pulumi.Output<number>;
     /**
@@ -244,6 +245,10 @@ export class Instance extends pulumi.CustomResource {
      * for more information.
      */
     public readonly maintenanceWindow!: pulumi.Output<string>;
+    /**
+     * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
+     */
+    public readonly maxAllocatedStorage!: pulumi.Output<number | undefined>;
     /**
      * The interval, in seconds, between points
      * when Enhanced Monitoring metrics are collected for the DB instance. To disable
@@ -424,6 +429,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             inputs["licenseModel"] = state ? state.licenseModel : undefined;
             inputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
+            inputs["maxAllocatedStorage"] = state ? state.maxAllocatedStorage : undefined;
             inputs["monitoringInterval"] = state ? state.monitoringInterval : undefined;
             inputs["monitoringRoleArn"] = state ? state.monitoringRoleArn : undefined;
             inputs["multiAz"] = state ? state.multiAz : undefined;
@@ -480,6 +486,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["licenseModel"] = args ? args.licenseModel : undefined;
             inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
+            inputs["maxAllocatedStorage"] = args ? args.maxAllocatedStorage : undefined;
             inputs["monitoringInterval"] = args ? args.monitoringInterval : undefined;
             inputs["monitoringRoleArn"] = args ? args.monitoringRoleArn : undefined;
             inputs["multiAz"] = args ? args.multiAz : undefined;
@@ -525,8 +532,7 @@ export interface InstanceState {
      */
     readonly address?: pulumi.Input<string>;
     /**
-     * (Required unless a `snapshot_identifier` or
-     * `replicate_source_db` is provided) The allocated storage in gibibytes.
+     * The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
      */
     readonly allocatedStorage?: pulumi.Input<number>;
     /**
@@ -685,6 +691,10 @@ export interface InstanceState {
      */
     readonly maintenanceWindow?: pulumi.Input<string>;
     /**
+     * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
+     */
+    readonly maxAllocatedStorage?: pulumi.Input<number>;
+    /**
      * The interval, in seconds, between points
      * when Enhanced Monitoring metrics are collected for the DB instance. To disable
      * collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid
@@ -828,8 +838,7 @@ export interface InstanceState {
  */
 export interface InstanceArgs {
     /**
-     * (Required unless a `snapshot_identifier` or
-     * `replicate_source_db` is provided) The allocated storage in gibibytes.
+     * The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
      */
     readonly allocatedStorage?: pulumi.Input<number>;
     /**
@@ -969,6 +978,10 @@ export interface InstanceArgs {
      * for more information.
      */
     readonly maintenanceWindow?: pulumi.Input<string>;
+    /**
+     * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
+     */
+    readonly maxAllocatedStorage?: pulumi.Input<number>;
     /**
      * The interval, in seconds, between points
      * when Enhanced Monitoring metrics are collected for the DB instance. To disable

@@ -84,7 +84,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly endpointType!: pulumi.Output<string>;
     /**
-     * The type of engine for the endpoint. Can be one of `aurora | azuredb | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+     * The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
      */
     public readonly engineName!: pulumi.Output<string>;
     /**
@@ -219,7 +219,7 @@ export interface EndpointState {
      */
     readonly endpointType?: pulumi.Input<string>;
     /**
-     * The type of engine for the endpoint. Can be one of `aurora | azuredb | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+     * The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
      */
     readonly engineName?: pulumi.Input<string>;
     /**
@@ -289,7 +289,7 @@ export interface EndpointArgs {
      */
     readonly endpointType: pulumi.Input<string>;
     /**
-     * The type of engine for the endpoint. Can be one of `aurora | azuredb | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+     * The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
      */
     readonly engineName: pulumi.Input<string>;
     /**

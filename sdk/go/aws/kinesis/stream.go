@@ -104,8 +104,7 @@ func (r *Stream) KmsKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
-// A name to identify the stream. This is unique to the
-// AWS account and region the Stream is created in.
+// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 func (r *Stream) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -116,8 +115,7 @@ func (r *Stream) RetentionPeriod() *pulumi.IntOutput {
 }
 
 // The number of shards that the stream will use.
-// Amazon has guidlines for specifying the Stream size that should be referenced
-// when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
+// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
 func (r *Stream) ShardCount() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["shardCount"])
 }
@@ -142,14 +140,12 @@ type StreamState struct {
 	EnforceConsumerDeletion interface{}
 	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
 	KmsKeyId interface{}
-	// A name to identify the stream. This is unique to the
-	// AWS account and region the Stream is created in.
+	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name interface{}
 	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod interface{}
 	// The number of shards that the stream will use.
-	// Amazon has guidlines for specifying the Stream size that should be referenced
-	// when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
+	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
 	ShardCount interface{}
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
 	ShardLevelMetrics interface{}
@@ -167,14 +163,12 @@ type StreamArgs struct {
 	EnforceConsumerDeletion interface{}
 	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
 	KmsKeyId interface{}
-	// A name to identify the stream. This is unique to the
-	// AWS account and region the Stream is created in.
+	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name interface{}
 	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod interface{}
 	// The number of shards that the stream will use.
-	// Amazon has guidlines for specifying the Stream size that should be referenced
-	// when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
+	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
 	ShardCount interface{}
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
 	ShardLevelMetrics interface{}

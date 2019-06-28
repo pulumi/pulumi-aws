@@ -4,5 +4,6 @@
 // Export members:
 export * from "./apiKey";
 export * from "./dataSource";
+export * from "./function";
 export * from "./graphQLApi";
 export * from "./resolver";

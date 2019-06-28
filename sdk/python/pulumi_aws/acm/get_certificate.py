@@ -12,7 +12,7 @@ class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
     """
-    def __init__(__self__, arn=None, domain=None, most_recent=None, statuses=None, types=None, id=None):
+    def __init__(__self__, arn=None, domain=None, key_types=None, most_recent=None, statuses=None, types=None, id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -22,6 +22,9 @@ class GetCertificateResult:
         if domain and not isinstance(domain, str):
             raise TypeError("Expected argument 'domain' to be a str")
         __self__.domain = domain
+        if key_types and not isinstance(key_types, list):
+            raise TypeError("Expected argument 'key_types' to be a list")
+        __self__.key_types = key_types
         if most_recent and not isinstance(most_recent, bool):
             raise TypeError("Expected argument 'most_recent' to be a bool")
         __self__.most_recent = most_recent
@@ -38,7 +41,7 @@ class GetCertificateResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_certificate(domain=None,most_recent=None,statuses=None,types=None,opts=None):
+async def get_certificate(domain=None,key_types=None,most_recent=None,statuses=None,types=None,opts=None):
     """
     Use this data source to get the ARN of a certificate in AWS Certificate
     Manager (ACM), you can reference
@@ -47,6 +50,7 @@ async def get_certificate(domain=None,most_recent=None,statuses=None,types=None,
     __args__ = dict()
 
     __args__['domain'] = domain
+    __args__['keyTypes'] = key_types
     __args__['mostRecent'] = most_recent
     __args__['statuses'] = statuses
     __args__['types'] = types
@@ -55,6 +59,7 @@ async def get_certificate(domain=None,most_recent=None,statuses=None,types=None,
     return GetCertificateResult(
         arn=__ret__.get('arn'),
         domain=__ret__.get('domain'),
+        key_types=__ret__.get('keyTypes'),
         most_recent=__ret__.get('mostRecent'),
         statuses=__ret__.get('statuses'),
         types=__ret__.get('types'),

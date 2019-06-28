@@ -53,6 +53,7 @@ export interface GetParameterResult {
     readonly name: string;
     readonly type: string;
     readonly value: string;
+    readonly version: number;
     readonly withDecryption?: boolean;
     /**
      * id is the provider-assigned unique ID for this managed resource.

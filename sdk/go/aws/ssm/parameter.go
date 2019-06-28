@@ -46,6 +46,7 @@ func NewParameter(ctx *pulumi.Context,
 		inputs["type"] = args.Type
 		inputs["value"] = args.Value
 	}
+	inputs["version"] = nil
 	s, err := ctx.RegisterResource("aws:ssm/parameter:Parameter", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -69,6 +70,7 @@ func GetParameter(ctx *pulumi.Context,
 		inputs["tier"] = state.Tier
 		inputs["type"] = state.Type
 		inputs["value"] = state.Value
+		inputs["version"] = state.Version
 	}
 	s, err := ctx.ReadResource("aws:ssm/parameter:Parameter", name, id, inputs, opts...)
 	if err != nil {
@@ -137,6 +139,11 @@ func (r *Parameter) Value() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["value"])
 }
 
+// The version of the parameter.
+func (r *Parameter) Version() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["version"])
+}
+
 // Input properties used for looking up and filtering Parameter resources.
 type ParameterState struct {
 	// A regular expression used to validate the parameter value.
@@ -159,6 +166,8 @@ type ParameterState struct {
 	Type interface{}
 	// The value of the parameter.
 	Value interface{}
+	// The version of the parameter.
+	Version interface{}
 }
 
 // The set of arguments for constructing a Parameter resource.

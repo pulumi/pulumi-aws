@@ -71,6 +71,7 @@ func NewInstance(ctx *pulumi.Context,
 		inputs["kmsKeyId"] = nil
 		inputs["licenseModel"] = nil
 		inputs["maintenanceWindow"] = nil
+		inputs["maxAllocatedStorage"] = nil
 		inputs["monitoringInterval"] = nil
 		inputs["monitoringRoleArn"] = nil
 		inputs["multiAz"] = nil
@@ -120,6 +121,7 @@ func NewInstance(ctx *pulumi.Context,
 		inputs["kmsKeyId"] = args.KmsKeyId
 		inputs["licenseModel"] = args.LicenseModel
 		inputs["maintenanceWindow"] = args.MaintenanceWindow
+		inputs["maxAllocatedStorage"] = args.MaxAllocatedStorage
 		inputs["monitoringInterval"] = args.MonitoringInterval
 		inputs["monitoringRoleArn"] = args.MonitoringRoleArn
 		inputs["multiAz"] = args.MultiAz
@@ -195,6 +197,7 @@ func GetInstance(ctx *pulumi.Context,
 		inputs["kmsKeyId"] = state.KmsKeyId
 		inputs["licenseModel"] = state.LicenseModel
 		inputs["maintenanceWindow"] = state.MaintenanceWindow
+		inputs["maxAllocatedStorage"] = state.MaxAllocatedStorage
 		inputs["monitoringInterval"] = state.MonitoringInterval
 		inputs["monitoringRoleArn"] = state.MonitoringRoleArn
 		inputs["multiAz"] = state.MultiAz
@@ -244,8 +247,7 @@ func (r *Instance) Address() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["address"])
 }
 
-// (Required unless a `snapshot_identifier` or
-// `replicate_source_db` is provided) The allocated storage in gibibytes.
+// The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
 func (r *Instance) AllocatedStorage() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["allocatedStorage"])
 }
@@ -433,6 +435,11 @@ func (r *Instance) MaintenanceWindow() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["maintenanceWindow"])
 }
 
+// When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
+func (r *Instance) MaxAllocatedStorage() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["maxAllocatedStorage"])
+}
+
 // The interval, in seconds, between points
 // when Enhanced Monitoring metrics are collected for the DB instance. To disable
 // collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid
@@ -602,8 +609,7 @@ func (r *Instance) VpcSecurityGroupIds() *pulumi.ArrayOutput {
 type InstanceState struct {
 	// The hostname of the RDS instance. See also `endpoint` and `port`.
 	Address interface{}
-	// (Required unless a `snapshot_identifier` or
-	// `replicate_source_db` is provided) The allocated storage in gibibytes.
+	// The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
 	AllocatedStorage interface{}
 	// Indicates that major version
 	// upgrades are allowed. Changing this parameter does not result in an outage and
@@ -704,6 +710,8 @@ type InstanceState struct {
 	// docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
 	// for more information.
 	MaintenanceWindow interface{}
+	// When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
+	MaxAllocatedStorage interface{}
 	// The interval, in seconds, between points
 	// when Enhanced Monitoring metrics are collected for the DB instance. To disable
 	// collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid
@@ -795,8 +803,7 @@ type InstanceState struct {
 
 // The set of arguments for constructing a Instance resource.
 type InstanceArgs struct {
-	// (Required unless a `snapshot_identifier` or
-	// `replicate_source_db` is provided) The allocated storage in gibibytes.
+	// The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
 	AllocatedStorage interface{}
 	// Indicates that major version
 	// upgrades are allowed. Changing this parameter does not result in an outage and
@@ -887,6 +894,8 @@ type InstanceArgs struct {
 	// docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
 	// for more information.
 	MaintenanceWindow interface{}
+	// When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
+	MaxAllocatedStorage interface{}
 	// The interval, in seconds, between points
 	// when Enhanced Monitoring metrics are collected for the DB instance. To disable
 	// collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid

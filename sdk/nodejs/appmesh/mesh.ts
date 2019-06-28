@@ -80,6 +80,10 @@ export class Mesh extends pulumi.CustomResource {
      * The service mesh specification to apply.
      */
     public readonly spec!: pulumi.Output<{ egressFilter?: { type?: string } } | undefined>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Mesh resource with the given unique name, arguments, and options.
@@ -98,10 +102,12 @@ export class Mesh extends pulumi.CustomResource {
             inputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["spec"] = state ? state.spec : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as MeshArgs | undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["spec"] = args ? args.spec : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createdDate"] = undefined /*out*/;
             inputs["lastUpdatedDate"] = undefined /*out*/;
@@ -134,6 +140,10 @@ export interface MeshState {
      * The service mesh specification to apply.
      */
     readonly spec?: pulumi.Input<{ egressFilter?: pulumi.Input<{ type?: pulumi.Input<string> }> }>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -148,4 +158,8 @@ export interface MeshArgs {
      * The service mesh specification to apply.
      */
     readonly spec?: pulumi.Input<{ egressFilter?: pulumi.Input<{ type?: pulumi.Input<string> }> }>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

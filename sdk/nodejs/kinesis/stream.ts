@@ -73,8 +73,7 @@ export class Stream extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
-     * A name to identify the stream. This is unique to the
-     * AWS account and region the Stream is created in.
+     * A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -83,8 +82,7 @@ export class Stream extends pulumi.CustomResource {
     public readonly retentionPeriod!: pulumi.Output<number | undefined>;
     /**
      * The number of shards that the stream will use.
-     * Amazon has guidlines for specifying the Stream size that should be referenced
-     * when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
+     * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
      */
     public readonly shardCount!: pulumi.Output<number>;
     /**
@@ -157,8 +155,7 @@ export interface StreamState {
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
-     * A name to identify the stream. This is unique to the
-     * AWS account and region the Stream is created in.
+     * A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -167,8 +164,7 @@ export interface StreamState {
     readonly retentionPeriod?: pulumi.Input<number>;
     /**
      * The number of shards that the stream will use.
-     * Amazon has guidlines for specifying the Stream size that should be referenced
-     * when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
+     * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
      */
     readonly shardCount?: pulumi.Input<number>;
     /**
@@ -202,8 +198,7 @@ export interface StreamArgs {
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
-     * A name to identify the stream. This is unique to the
-     * AWS account and region the Stream is created in.
+     * A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -212,8 +207,7 @@ export interface StreamArgs {
     readonly retentionPeriod?: pulumi.Input<number>;
     /**
      * The number of shards that the stream will use.
-     * Amazon has guidlines for specifying the Stream size that should be referenced
-     * when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
+     * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
      */
     readonly shardCount: pulumi.Input<number>;
     /**
