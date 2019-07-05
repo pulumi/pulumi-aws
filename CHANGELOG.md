@@ -2,8 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.18.0 of the AWS Terraform Provider
+___NULL___
 
+
+## 0.18.18 (2019-07-05)
+* Upgrade to v2.18.0 of the AWS Terraform Provider
 
 ## 0.18.17 (2019-07-05)
 * Add the ability for Route53 record types to use a string *or* a RecordType constant
