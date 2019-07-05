@@ -2,8 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add the ability for Route53 record types to use a string *or* a RecordType constant
+___NULL___
 
+
+## 0.18.17 (2019-07-05)
+* Add the ability for Route53 record types to use a string *or* a RecordType constant
 
 ## 0.18.16 (2019-06-28)
 * Upgrade to v2.17.0 of the AWS Terraform Provider
