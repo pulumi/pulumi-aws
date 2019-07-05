@@ -9,26 +9,31 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class Route(pulumi.CustomResource):
+    blackhole: pulumi.Output[bool]
+    """
+    Indicates whether to drop traffic that matches this route (default to `false`).
+    """
     destination_cidr_block: pulumi.Output[str]
     """
     IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
     """
     transit_gateway_attachment_id: pulumi.Output[str]
     """
-    Identifier of EC2 Transit Gateway Attachment.
+    Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
     """
     transit_gateway_route_table_id: pulumi.Output[str]
     """
     Identifier of EC2 Transit Gateway Route Table.
     """
-    def __init__(__self__, resource_name, opts=None, destination_cidr_block=None, transit_gateway_attachment_id=None, transit_gateway_route_table_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, blackhole=None, destination_cidr_block=None, transit_gateway_attachment_id=None, transit_gateway_route_table_id=None, __name__=None, __opts__=None):
         """
         Manages an EC2 Transit Gateway Route.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] blackhole: Indicates whether to drop traffic that matches this route (default to `false`).
         :param pulumi.Input[str] destination_cidr_block: IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
+        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
         :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
         if __name__ is not None:
@@ -46,12 +51,12 @@ class Route(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__['blackhole'] = blackhole
+
         if destination_cidr_block is None:
             raise TypeError("Missing required property 'destination_cidr_block'")
         __props__['destination_cidr_block'] = destination_cidr_block
 
-        if transit_gateway_attachment_id is None:
-            raise TypeError("Missing required property 'transit_gateway_attachment_id'")
         __props__['transit_gateway_attachment_id'] = transit_gateway_attachment_id
 
         if transit_gateway_route_table_id is None:

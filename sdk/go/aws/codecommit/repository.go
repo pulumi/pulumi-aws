@@ -28,10 +28,12 @@ func NewRepository(ctx *pulumi.Context,
 		inputs["defaultBranch"] = nil
 		inputs["description"] = nil
 		inputs["repositoryName"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["defaultBranch"] = args.DefaultBranch
 		inputs["description"] = args.Description
 		inputs["repositoryName"] = args.RepositoryName
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	inputs["cloneUrlHttp"] = nil
@@ -57,6 +59,7 @@ func GetRepository(ctx *pulumi.Context,
 		inputs["description"] = state.Description
 		inputs["repositoryId"] = state.RepositoryId
 		inputs["repositoryName"] = state.RepositoryName
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:codecommit/repository:Repository", name, id, inputs, opts...)
 	if err != nil {
@@ -110,6 +113,11 @@ func (r *Repository) RepositoryName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["repositoryName"])
 }
 
+// Key-value mapping of resource tags
+func (r *Repository) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering Repository resources.
 type RepositoryState struct {
 	// The ARN of the repository
@@ -126,6 +134,8 @@ type RepositoryState struct {
 	RepositoryId interface{}
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }
 
 // The set of arguments for constructing a Repository resource.
@@ -136,4 +146,6 @@ type RepositoryArgs struct {
 	Description interface{}
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }

@@ -38,7 +38,7 @@ import {RestApi} from "./restApi";
  *     restApi: myDemoAPI.id,
  *     type: "MOCK",
  * });
- * const _200 = new aws.apigateway.MethodResponse("200", {
+ * const response200 = new aws.apigateway.MethodResponse("response_200", {
  *     httpMethod: myDemoMethod.httpMethod,
  *     resourceId: myDemoResource.id,
  *     restApi: myDemoAPI.id,
@@ -57,7 +57,7 @@ import {RestApi} from "./restApi";
  * `,
  *     },
  *     restApi: myDemoAPI.id,
- *     statusCode: _200.statusCode,
+ *     statusCode: response200.statusCode,
  * });
  * ```
  */

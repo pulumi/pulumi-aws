@@ -20,35 +20,18 @@ import * as utilities from "../utilities";
  * const domain = new aws.cognito.UserPoolDomain("domain", {});
  * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
  * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {});
- * const adminListener = new aws.elasticloadbalancingv2.Listener("admin", {
- *     action: [
+ * const admin = new aws.elasticloadbalancingv2.ListenerRule("admin", {
+ *     actions: [
  *         {
- *             authenticateOidc: [{
+ *             authenticateOidc: {
  *                 authorizationEndpoint: "https://example.com/authorization_endpoint",
  *                 clientId: "client_id",
  *                 clientSecret: "client_secret",
  *                 issuer: "https://example.com",
  *                 tokenEndpoint: "https://example.com/token_endpoint",
  *                 userInfoEndpoint: "https://example.com/user_info_endpoint",
- *             }],
- *             type: "authenticate-oidc",
- *         },
- *         {
- *             targetGroupArn: aws_lb_target_group_static.arn,
- *             type: "forward",
- *         },
- *     ],
- *     listenerArn: frontEndListener.arn,
- * });
- * const adminListenerRule = new aws.elasticloadbalancingv2.ListenerRule("admin", {
- *     actions: [
- *         {
- *             authenticateCognito: {
- *                 userPoolArn: pool.arn,
- *                 userPoolClientId: client.id,
- *                 userPoolDomain: domain.domain,
  *             },
- *             type: "authenticate-cognito",
+ *             type: "authenticate-oidc",
  *         },
  *         {
  *             targetGroupArn: aws_lb_target_group_static.arn,

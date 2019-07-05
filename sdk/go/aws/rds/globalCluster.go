@@ -105,6 +105,7 @@ func (r *GlobalCluster) EngineVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
 }
 
+// The global cluster identifier.
 func (r *GlobalCluster) GlobalClusterIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["globalClusterIdentifier"])
 }
@@ -131,6 +132,7 @@ type GlobalClusterState struct {
 	Engine interface{}
 	// Engine version of the Aurora global database.
 	EngineVersion interface{}
+	// The global cluster identifier.
 	GlobalClusterIdentifier interface{}
 	// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
 	GlobalClusterResourceId interface{}
@@ -148,6 +150,7 @@ type GlobalClusterArgs struct {
 	Engine interface{}
 	// Engine version of the Aurora global database.
 	EngineVersion interface{}
+	// The global cluster identifier.
 	GlobalClusterIdentifier interface{}
 	// Specifies whether the DB cluster is encrypted. The default is `false`.
 	StorageEncrypted interface{}

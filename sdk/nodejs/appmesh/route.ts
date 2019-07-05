@@ -114,6 +114,10 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly spec!: pulumi.Output<{ httpRoute?: { action: { weightedTargets: { virtualNode: string, weight: number }[] }, match: { prefix: string } }, tcpRoute?: { action: { weightedTargets: { virtualNode: string, weight: number }[] } } }>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The name of the virtual router in which to create the route.
      */
     public readonly virtualRouterName!: pulumi.Output<string>;
@@ -136,6 +140,7 @@ export class Route extends pulumi.CustomResource {
             inputs["meshName"] = state ? state.meshName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["spec"] = state ? state.spec : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["virtualRouterName"] = state ? state.virtualRouterName : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
@@ -151,6 +156,7 @@ export class Route extends pulumi.CustomResource {
             inputs["meshName"] = args ? args.meshName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["spec"] = args ? args.spec : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualRouterName"] = args ? args.virtualRouterName : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createdDate"] = undefined /*out*/;
@@ -189,6 +195,10 @@ export interface RouteState {
      */
     readonly spec?: pulumi.Input<{ httpRoute?: pulumi.Input<{ action: pulumi.Input<{ weightedTargets: pulumi.Input<pulumi.Input<{ virtualNode: pulumi.Input<string>, weight: pulumi.Input<number> }>[]> }>, match: pulumi.Input<{ prefix: pulumi.Input<string> }> }>, tcpRoute?: pulumi.Input<{ action: pulumi.Input<{ weightedTargets: pulumi.Input<pulumi.Input<{ virtualNode: pulumi.Input<string>, weight: pulumi.Input<number> }>[]> }> }> }>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The name of the virtual router in which to create the route.
      */
     readonly virtualRouterName?: pulumi.Input<string>;
@@ -210,6 +220,10 @@ export interface RouteArgs {
      * The route specification to apply.
      */
     readonly spec: pulumi.Input<{ httpRoute?: pulumi.Input<{ action: pulumi.Input<{ weightedTargets: pulumi.Input<pulumi.Input<{ virtualNode: pulumi.Input<string>, weight: pulumi.Input<number> }>[]> }>, match: pulumi.Input<{ prefix: pulumi.Input<string> }> }>, tcpRoute?: pulumi.Input<{ action: pulumi.Input<{ weightedTargets: pulumi.Input<pulumi.Input<{ virtualNode: pulumi.Input<string>, weight: pulumi.Input<number> }>[]> }> }> }>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the virtual router in which to create the route.
      */

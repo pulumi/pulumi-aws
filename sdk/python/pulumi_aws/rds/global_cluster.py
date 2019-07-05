@@ -30,6 +30,9 @@ class GlobalCluster(pulumi.CustomResource):
     Engine version of the Aurora global database.
     """
     global_cluster_identifier: pulumi.Output[str]
+    """
+    The global cluster identifier.
+    """
     global_cluster_resource_id: pulumi.Output[str]
     """
     AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
@@ -52,6 +55,7 @@ class GlobalCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[str] engine: Name of the database engine to be used for this DB cluster. Valid values: `aurora`. Defaults to `aurora`.
         :param pulumi.Input[str] engine_version: Engine version of the Aurora global database.
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.
         """
         if __name__ is not None:

@@ -47,7 +47,7 @@ class Instance(pulumi.CustomResource):
     backup_retention_period: pulumi.Output[float]
     """
     The days to retain backups for. Must be
-    between `0` and `35`. When creating a Read Replica the value must be greater than `0`. [See Read Replica][1].
+    between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
     """
     backup_window: pulumi.Output[str]
     """
@@ -77,7 +77,7 @@ class Instance(pulumi.CustomResource):
     Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
     be created in the VPC associated with the DB subnet group. If unspecified, will
     be created in the `default` VPC, or in EC2 Classic, if available. When working
-    with read replicas, it needs to be specified only if the source database
+    with read replicas, it should be specified only if the source database
     specifies an instance in another AWS Region. See [DBSubnetGroupName in API
     action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
     for additional read replica contraints.
@@ -357,7 +357,7 @@ class Instance(pulumi.CustomResource):
                Defaults to true.
         :param pulumi.Input[str] availability_zone: The AZ for the RDS instance.
         :param pulumi.Input[float] backup_retention_period: The days to retain backups for. Must be
-               between `0` and `35`. When creating a Read Replica the value must be greater than `0`. [See Read Replica][1].
+               between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
         :param pulumi.Input[str] backup_window: The daily time range (in UTC) during which
                automated backups are created if they are enabled. Example: "09:46-10:16". Must
                not overlap with `maintenance_window`.
@@ -370,7 +370,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] db_subnet_group_name: Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
                be created in the VPC associated with the DB subnet group. If unspecified, will
                be created in the `default` VPC, or in EC2 Classic, if available. When working
-               with read replicas, it needs to be specified only if the source database
+               with read replicas, it should be specified only if the source database
                specifies an instance in another AWS Region. See [DBSubnetGroupName in API
                action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
                for additional read replica contraints.

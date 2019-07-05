@@ -37,7 +37,11 @@ class Repository(pulumi.CustomResource):
     """
     The name for the repository. This needs to be less than 100 characters.
     """
-    def __init__(__self__, resource_name, opts=None, default_branch=None, description=None, repository_name=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags
+    """
+    def __init__(__self__, resource_name, opts=None, default_branch=None, description=None, repository_name=None, tags=None, __name__=None, __opts__=None):
         """
         Provides a CodeCommit Repository Resource.
         
@@ -50,6 +54,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] default_branch: The default branch of the repository. The branch specified here needs to exist.
         :param pulumi.Input[str] description: The description of the repository. This needs to be less than 1000 characters
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,6 +78,8 @@ class Repository(pulumi.CustomResource):
         if repository_name is None:
             raise TypeError("Missing required property 'repository_name'")
         __props__['repository_name'] = repository_name
+
+        __props__['tags'] = tags
 
         __props__['arn'] = None
         __props__['clone_url_http'] = None

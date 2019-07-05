@@ -27,7 +27,7 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
     """
     targets: pulumi.Output[list]
     """
-    The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value.
+    The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
     """
     window_id: pulumi.Output[str]
     """
@@ -43,7 +43,7 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the maintenance window target.
         :param pulumi.Input[str] owner_information: User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
         :param pulumi.Input[str] resource_type: The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
-        :param pulumi.Input[list] targets: The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value.
+        :param pulumi.Input[list] targets: The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
         :param pulumi.Input[str] window_id: The Id of the maintenance window to register the target with.
         """
         if __name__ is not None:

@@ -73,7 +73,7 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
      */
     public readonly resourceType!: pulumi.Output<string>;
     /**
-     * The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value.
+     * The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
      */
     public readonly targets!: pulumi.Output<{ key: string, values: string[] }[]>;
     /**
@@ -142,7 +142,7 @@ export interface MaintenanceWindowTargetState {
      */
     readonly resourceType?: pulumi.Input<string>;
     /**
-     * The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value.
+     * The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
      */
     readonly targets?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
@@ -172,7 +172,7 @@ export interface MaintenanceWindowTargetArgs {
      */
     readonly resourceType: pulumi.Input<string>;
     /**
-     * The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value.
+     * The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
      */
     readonly targets: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**

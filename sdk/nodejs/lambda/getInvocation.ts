@@ -8,25 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to invoke custom lambda functions as data source.
  * The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
  * invocation type.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = aws_lambda_function_lambda_function_test.functionName.apply(functionName => aws.lambda.getInvocation({
- *     functionName: functionName,
- *     input: `{
- *   "key1": "value1",
- *   "key2": "value2"
- * }
- * `,
- * }));
- * 
- * export const result = example.result;
- * export const resultEntry = example.apply(example => example.resultMap["key1"]);
- * ```
  */
 export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvocationResult> {
     return pulumi.runtime.invoke("aws:lambda/getInvocation:getInvocation", {
@@ -63,11 +44,11 @@ export interface GetInvocationResult {
     readonly input: string;
     readonly qualifier?: string;
     /**
-     * A result of the lambda function invocation.
+     * String result of the lambda function invocation.
      */
     readonly result: string;
     /**
-     * This field is set only if result is a map of primitive types.
+     * This field is set only if result is a map of primitive types, where the map is string keys and string values. In Terraform 0.12 and later, use the [`jsondecode()` function](https://www.terraform.io/docs/configuration/functions/jsondecode.html) with the `result` attribute instead to convert the result to all supported native Terraform types.
      */
     readonly resultMap: {[key: string]: string};
     /**

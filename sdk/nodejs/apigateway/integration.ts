@@ -110,7 +110,7 @@ import {RestApi} from "./restApi";
  *     action: "lambda:InvokeFunction",
  *     function: lambda.functionName,
  *     principal: "apigateway.amazonaws.com",
- *     sourceArn: pulumi.interpolate`arn:aws:execute-api:${myregion}:${accountId}:${api.id}/*&#47;${method.httpMethod}/${resource.path}`,
+ *     sourceArn: pulumi.interpolate`arn:aws:execute-api:${myregion}:${accountId}:${api.id}/*&#47;${method.httpMethod}${resource.path}`,
  * });
  * ```
  * 

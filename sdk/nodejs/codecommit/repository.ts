@@ -78,6 +78,10 @@ export class Repository extends pulumi.CustomResource {
      * The name for the repository. This needs to be less than 100 characters.
      */
     public readonly repositoryName!: pulumi.Output<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -98,6 +102,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["repositoryId"] = state ? state.repositoryId : undefined;
             inputs["repositoryName"] = state ? state.repositoryName : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
             if (!args || args.repositoryName === undefined) {
@@ -106,6 +111,7 @@ export class Repository extends pulumi.CustomResource {
             inputs["defaultBranch"] = args ? args.defaultBranch : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["repositoryName"] = args ? args.repositoryName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["cloneUrlHttp"] = undefined /*out*/;
             inputs["cloneUrlSsh"] = undefined /*out*/;
@@ -147,6 +153,10 @@ export interface RepositoryState {
      * The name for the repository. This needs to be less than 100 characters.
      */
     readonly repositoryName?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -165,4 +175,8 @@ export interface RepositoryArgs {
      * The name for the repository. This needs to be less than 100 characters.
      */
     readonly repositoryName: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

@@ -33,11 +33,15 @@ class Route(pulumi.CustomResource):
     """
     The route specification to apply.
     """
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
     virtual_router_name: pulumi.Output[str]
     """
     The name of the virtual router in which to create the route.
     """
-    def __init__(__self__, resource_name, opts=None, mesh_name=None, name=None, spec=None, virtual_router_name=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, mesh_name=None, name=None, spec=None, tags=None, virtual_router_name=None, __name__=None, __opts__=None):
         """
         Provides an AWS App Mesh route resource.
         
@@ -46,6 +50,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the route.
         :param pulumi.Input[str] name: The name to use for the route.
         :param pulumi.Input[dict] spec: The route specification to apply.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_router_name: The name of the virtual router in which to create the route.
         """
         if __name__ is not None:
@@ -72,6 +77,8 @@ class Route(pulumi.CustomResource):
         if spec is None:
             raise TypeError("Missing required property 'spec'")
         __props__['spec'] = spec
+
+        __props__['tags'] = tags
 
         if virtual_router_name is None:
             raise TypeError("Missing required property 'virtual_router_name'")
