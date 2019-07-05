@@ -1549,7 +1549,8 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(route53Mod, "Record"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"type": {
-						Type: awsResource(route53Mod, "RecordType"),
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(route53Mod+"/recordType", "RecordType")},
 					},
 				},
 			},

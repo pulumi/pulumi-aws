@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-___NULL___
+* Add the ability for Route53 record types to use a string *or* a RecordType constant
 
 
 ## 0.18.16 (2019-06-28)
