@@ -58,6 +58,9 @@ export class GlobalCluster extends pulumi.CustomResource {
      * Engine version of the Aurora global database.
      */
     public readonly engineVersion!: pulumi.Output<string>;
+    /**
+     * The global cluster identifier.
+     */
     public readonly globalClusterIdentifier!: pulumi.Output<string>;
     /**
      * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
@@ -130,6 +133,9 @@ export interface GlobalClusterState {
      * Engine version of the Aurora global database.
      */
     readonly engineVersion?: pulumi.Input<string>;
+    /**
+     * The global cluster identifier.
+     */
     readonly globalClusterIdentifier?: pulumi.Input<string>;
     /**
      * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
@@ -161,6 +167,9 @@ export interface GlobalClusterArgs {
      * Engine version of the Aurora global database.
      */
     readonly engineVersion?: pulumi.Input<string>;
+    /**
+     * The global cluster identifier.
+     */
     readonly globalClusterIdentifier: pulumi.Input<string>;
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false`.

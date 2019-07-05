@@ -120,6 +120,7 @@ const (
 	secretsmanagerMod    = "secretsmanager"           // Secrets Manager
 	servicecatalogMod    = "servicecatalog"           // Service Catalog
 	servicediscoveryMod  = "servicediscovery"         // Service Discovery
+	servicequotasMod     = "servicequotas"            // Service Quotas
 	sfnMod               = "sfn"                      // Step Functions (SFN)
 	shieldMod            = "shield"                   // Shield
 	simpledbMod          = "simpledb"                 // Simple DB
@@ -2001,6 +2002,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_workspaces_bundle": {Tok: awsDataSource(workspacesMod, "getBundle")},
 			// MSK
 			"aws_msk_cluster": {Tok: awsDataSource(mskMod, "getCluster")},
+			// Service Quotas
+			"aws_servicequotas_service":       {Tok: awsDataSource(servicequotasMod, "getService")},
+			"aws_servicequotas_service_quota": {Tok: awsDataSource(servicequotasMod, "getServiceQuota")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

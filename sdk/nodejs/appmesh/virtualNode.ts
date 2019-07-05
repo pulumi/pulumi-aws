@@ -173,6 +173,10 @@ export class VirtualNode extends pulumi.CustomResource {
      * The virtual node specification to apply.
      */
     public readonly spec!: pulumi.Output<{ backends?: { virtualService?: { virtualServiceName: string } }[], listener?: { healthCheck?: { healthyThreshold: number, intervalMillis: number, path?: string, port: number, protocol: string, timeoutMillis: number, unhealthyThreshold: number }, portMapping: { port: number, protocol: string } }, logging?: { accessLog?: { file?: { path: string } } }, serviceDiscovery?: { dns: { hostname: string } } }>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a VirtualNode resource with the given unique name, arguments, and options.
@@ -192,6 +196,7 @@ export class VirtualNode extends pulumi.CustomResource {
             inputs["meshName"] = state ? state.meshName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["spec"] = state ? state.spec : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as VirtualNodeArgs | undefined;
             if (!args || args.meshName === undefined) {
@@ -203,6 +208,7 @@ export class VirtualNode extends pulumi.CustomResource {
             inputs["meshName"] = args ? args.meshName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["spec"] = args ? args.spec : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createdDate"] = undefined /*out*/;
             inputs["lastUpdatedDate"] = undefined /*out*/;
@@ -239,6 +245,10 @@ export interface VirtualNodeState {
      * The virtual node specification to apply.
      */
     readonly spec?: pulumi.Input<{ backends?: pulumi.Input<pulumi.Input<{ virtualService?: pulumi.Input<{ virtualServiceName: pulumi.Input<string> }> }>[]>, listener?: pulumi.Input<{ healthCheck?: pulumi.Input<{ healthyThreshold: pulumi.Input<number>, intervalMillis: pulumi.Input<number>, path?: pulumi.Input<string>, port?: pulumi.Input<number>, protocol: pulumi.Input<string>, timeoutMillis: pulumi.Input<number>, unhealthyThreshold: pulumi.Input<number> }>, portMapping: pulumi.Input<{ port: pulumi.Input<number>, protocol: pulumi.Input<string> }> }>, logging?: pulumi.Input<{ accessLog?: pulumi.Input<{ file?: pulumi.Input<{ path: pulumi.Input<string> }> }> }>, serviceDiscovery?: pulumi.Input<{ dns: pulumi.Input<{ hostname: pulumi.Input<string> }> }> }>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -257,4 +267,8 @@ export interface VirtualNodeArgs {
      * The virtual node specification to apply.
      */
     readonly spec: pulumi.Input<{ backends?: pulumi.Input<pulumi.Input<{ virtualService?: pulumi.Input<{ virtualServiceName: pulumi.Input<string> }> }>[]>, listener?: pulumi.Input<{ healthCheck?: pulumi.Input<{ healthyThreshold: pulumi.Input<number>, intervalMillis: pulumi.Input<number>, path?: pulumi.Input<string>, port?: pulumi.Input<number>, protocol: pulumi.Input<string>, timeoutMillis: pulumi.Input<number>, unhealthyThreshold: pulumi.Input<number> }>, portMapping: pulumi.Input<{ port: pulumi.Input<number>, protocol: pulumi.Input<string> }> }>, logging?: pulumi.Input<{ accessLog?: pulumi.Input<{ file?: pulumi.Input<{ path: pulumi.Input<string> }> }> }>, serviceDiscovery?: pulumi.Input<{ dns: pulumi.Input<{ hostname: pulumi.Input<string> }> }> }>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

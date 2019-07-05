@@ -35,11 +35,11 @@ class Resolver(pulumi.CustomResource):
     """
     request_template: pulumi.Output[str]
     """
-    The request mapping template for this resolver.
+    The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
     """
     response_template: pulumi.Output[str]
     """
-    The response mapping template for this resolver.
+    The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
     """
     type: pulumi.Output[str]
     """
@@ -56,8 +56,8 @@ class Resolver(pulumi.CustomResource):
         :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
         :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input[dict] pipeline_config: The PipelineConfig. A `pipeline_config` block is documented below.
-        :param pulumi.Input[str] request_template: The request mapping template for this resolver.
-        :param pulumi.Input[str] response_template: The response mapping template for this resolver.
+        :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
+        :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
         :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
         """
         if __name__ is not None:

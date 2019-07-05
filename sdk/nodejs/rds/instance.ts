@@ -119,7 +119,7 @@ export class Instance extends pulumi.CustomResource {
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
      * The days to retain backups for. Must be
-     * between `0` and `35`. When creating a Read Replica the value must be greater than `0`. [See Read Replica][1].
+     * between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
      */
     public readonly backupRetentionPeriod!: pulumi.Output<number>;
     /**
@@ -149,7 +149,7 @@ export class Instance extends pulumi.CustomResource {
      * Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
      * be created in the VPC associated with the DB subnet group. If unspecified, will
      * be created in the `default` VPC, or in EC2 Classic, if available. When working
-     * with read replicas, it needs to be specified only if the source database
+     * with read replicas, it should be specified only if the source database
      * specifies an instance in another AWS Region. See [DBSubnetGroupName in API
      * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
      * for additional read replica contraints.
@@ -564,7 +564,7 @@ export interface InstanceState {
     readonly availabilityZone?: pulumi.Input<string>;
     /**
      * The days to retain backups for. Must be
-     * between `0` and `35`. When creating a Read Replica the value must be greater than `0`. [See Read Replica][1].
+     * between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
      */
     readonly backupRetentionPeriod?: pulumi.Input<number>;
     /**
@@ -594,7 +594,7 @@ export interface InstanceState {
      * Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
      * be created in the VPC associated with the DB subnet group. If unspecified, will
      * be created in the `default` VPC, or in EC2 Classic, if available. When working
-     * with read replicas, it needs to be specified only if the source database
+     * with read replicas, it should be specified only if the source database
      * specifies an instance in another AWS Region. See [DBSubnetGroupName in API
      * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
      * for additional read replica contraints.
@@ -866,7 +866,7 @@ export interface InstanceArgs {
     readonly availabilityZone?: pulumi.Input<string>;
     /**
      * The days to retain backups for. Must be
-     * between `0` and `35`. When creating a Read Replica the value must be greater than `0`. [See Read Replica][1].
+     * between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
      */
     readonly backupRetentionPeriod?: pulumi.Input<number>;
     /**
@@ -891,7 +891,7 @@ export interface InstanceArgs {
      * Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
      * be created in the VPC associated with the DB subnet group. If unspecified, will
      * be created in the `default` VPC, or in EC2 Classic, if available. When working
-     * with read replicas, it needs to be specified only if the source database
+     * with read replicas, it should be specified only if the source database
      * specifies an instance in another AWS Region. See [DBSubnetGroupName in API
      * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
      * for additional read replica contraints.

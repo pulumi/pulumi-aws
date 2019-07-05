@@ -98,7 +98,7 @@ func (r *MaintenanceWindowTarget) ResourceType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceType"])
 }
 
-// The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value.
+// The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
 func (r *MaintenanceWindowTarget) Targets() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["targets"])
 }
@@ -118,7 +118,7 @@ type MaintenanceWindowTargetState struct {
 	OwnerInformation interface{}
 	// The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
 	ResourceType interface{}
-	// The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value.
+	// The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
 	Targets interface{}
 	// The Id of the maintenance window to register the target with.
 	WindowId interface{}
@@ -134,7 +134,7 @@ type MaintenanceWindowTargetArgs struct {
 	OwnerInformation interface{}
 	// The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
 	ResourceType interface{}
-	// The targets (either instances or tags). Instances are specified using Key=instanceids,Values=instanceid1,instanceid2. Tags are specified using Key=tag name,Values=tag value.
+	// The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
 	Targets interface{}
 	// The Id of the maintenance window to register the target with.
 	WindowId interface{}

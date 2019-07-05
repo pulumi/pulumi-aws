@@ -122,12 +122,12 @@ func (r *Resolver) PipelineConfig() *pulumi.Output {
 	return r.s.State["pipelineConfig"]
 }
 
-// The request mapping template for this resolver.
+// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
 func (r *Resolver) RequestTemplate() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["requestTemplate"])
 }
 
-// The response mapping template for this resolver.
+// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
 func (r *Resolver) ResponseTemplate() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["responseTemplate"])
 }
@@ -151,9 +151,9 @@ type ResolverState struct {
 	Kind interface{}
 	// The PipelineConfig. A `pipeline_config` block is documented below.
 	PipelineConfig interface{}
-	// The request mapping template for this resolver.
+	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
 	RequestTemplate interface{}
-	// The response mapping template for this resolver.
+	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
 	ResponseTemplate interface{}
 	// The type name from the schema defined in the GraphQL API.
 	Type interface{}
@@ -171,9 +171,9 @@ type ResolverArgs struct {
 	Kind interface{}
 	// The PipelineConfig. A `pipeline_config` block is documented below.
 	PipelineConfig interface{}
-	// The request mapping template for this resolver.
+	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
 	RequestTemplate interface{}
-	// The response mapping template for this resolver.
+	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
 	ResponseTemplate interface{}
 	// The type name from the schema defined in the GraphQL API.
 	Type interface{}

@@ -47,9 +47,9 @@ type GetInvocationResult struct {
 	FunctionName interface{}
 	Input interface{}
 	Qualifier interface{}
-	// A result of the lambda function invocation.
+	// String result of the lambda function invocation.
 	Result interface{}
-	// This field is set only if result is a map of primitive types.
+	// This field is set only if result is a map of primitive types, where the map is string keys and string values. In Terraform 0.12 and later, use the [`jsondecode()` function](https://www.terraform.io/docs/configuration/functions/jsondecode.html) with the `result` attribute instead to convert the result to all supported native Terraform types.
 	ResultMap interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

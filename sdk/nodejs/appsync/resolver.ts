@@ -41,6 +41,23 @@ import * as utilities from "../utilities";
  *     },
  *     type: "HTTP",
  * });
+ * // PIPELINE type resolver
+ * const mutationPipelineTest = new aws.appsync.Resolver("Mutation_pipelineTest", {
+ *     apiId: testGraphQLApi.id,
+ *     field: "pipelineTest",
+ *     kind: "PIPELINE",
+ *     pipelineConfig: {
+ *         functions: [
+ *             aws_appsync_function_test1.functionId,
+ *             aws_appsync_function_test2.functionId,
+ *             aws_appsync_function_test3.functionId,
+ *         ],
+ *     },
+ *     requestTemplate: "{}",
+ *     responseTemplate: "$util.toJson($ctx.result)",
+ *     type: "Mutation",
+ * });
+ * // UNIT type resolver (default)
  * const testResolver = new aws.appsync.Resolver("test", {
  *     apiId: testGraphQLApi.id,
  *     dataSource: testDataSource.name,
@@ -116,11 +133,11 @@ export class Resolver extends pulumi.CustomResource {
      */
     public readonly pipelineConfig!: pulumi.Output<{ functions?: string[] } | undefined>;
     /**
-     * The request mapping template for this resolver.
+     * The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
      */
     public readonly requestTemplate!: pulumi.Output<string>;
     /**
-     * The response mapping template for this resolver.
+     * The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
      */
     public readonly responseTemplate!: pulumi.Output<string>;
     /**
@@ -209,11 +226,11 @@ export interface ResolverState {
      */
     readonly pipelineConfig?: pulumi.Input<{ functions?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
-     * The request mapping template for this resolver.
+     * The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
      */
     readonly requestTemplate?: pulumi.Input<string>;
     /**
-     * The response mapping template for this resolver.
+     * The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
      */
     readonly responseTemplate?: pulumi.Input<string>;
     /**
@@ -247,11 +264,11 @@ export interface ResolverArgs {
      */
     readonly pipelineConfig?: pulumi.Input<{ functions?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
-     * The request mapping template for this resolver.
+     * The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
      */
     readonly requestTemplate: pulumi.Input<string>;
     /**
-     * The response mapping template for this resolver.
+     * The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
      */
     readonly responseTemplate: pulumi.Input<string>;
     /**

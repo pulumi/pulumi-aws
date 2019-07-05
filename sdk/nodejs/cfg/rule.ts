@@ -11,6 +11,10 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * ### AWS Managed Rules
+ * 
+ * AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -55,6 +59,29 @@ import * as utilities from "../utilities";
  * `,
  *     role: role.id,
  * });
+ * ```
+ * 
+ * ### Custom Rules
+ * 
+ * Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g. via the [`aws_lambda_permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html). More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const exampleRecorder = new aws.cfg.Recorder("example", {});
+ * const exampleFunction = new aws.lambda.Function("example", {});
+ * const examplePermission = new aws.lambda.Permission("example", {
+ *     action: "lambda:InvokeFunction",
+ *     function: exampleFunction.arn,
+ *     principal: "config.amazonaws.com",
+ * });
+ * const exampleRule = new aws.cfg.Rule("example", {
+ *     source: {
+ *         owner: "CUSTOM_LAMBDA",
+ *         sourceIdentifier: exampleFunction.arn,
+ *     },
+ * }, {dependsOn: [exampleRecorder, examplePermission]});
  * ```
  */
 export class Rule extends pulumi.CustomResource {

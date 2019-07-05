@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-___NULL___
+* Upgrade to v2.18.0 of the AWS Terraform Provider
 
 
 ## 0.18.17 (2019-07-05)

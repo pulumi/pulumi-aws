@@ -30,11 +30,13 @@ func NewRoute(ctx *pulumi.Context,
 		inputs["meshName"] = nil
 		inputs["name"] = nil
 		inputs["spec"] = nil
+		inputs["tags"] = nil
 		inputs["virtualRouterName"] = nil
 	} else {
 		inputs["meshName"] = args.MeshName
 		inputs["name"] = args.Name
 		inputs["spec"] = args.Spec
+		inputs["tags"] = args.Tags
 		inputs["virtualRouterName"] = args.VirtualRouterName
 	}
 	inputs["arn"] = nil
@@ -59,6 +61,7 @@ func GetRoute(ctx *pulumi.Context,
 		inputs["meshName"] = state.MeshName
 		inputs["name"] = state.Name
 		inputs["spec"] = state.Spec
+		inputs["tags"] = state.Tags
 		inputs["virtualRouterName"] = state.VirtualRouterName
 	}
 	s, err := ctx.ReadResource("aws:appmesh/route:Route", name, id, inputs, opts...)
@@ -108,6 +111,11 @@ func (r *Route) Spec() *pulumi.Output {
 	return r.s.State["spec"]
 }
 
+// A mapping of tags to assign to the resource.
+func (r *Route) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // The name of the virtual router in which to create the route.
 func (r *Route) VirtualRouterName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["virtualRouterName"])
@@ -127,6 +135,8 @@ type RouteState struct {
 	Name interface{}
 	// The route specification to apply.
 	Spec interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// The name of the virtual router in which to create the route.
 	VirtualRouterName interface{}
 }
@@ -139,6 +149,8 @@ type RouteArgs struct {
 	Name interface{}
 	// The route specification to apply.
 	Spec interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// The name of the virtual router in which to create the route.
 	VirtualRouterName interface{}
 }
