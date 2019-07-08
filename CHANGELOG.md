@@ -4,6 +4,8 @@ CHANGELOG
 ## HEAD (Unreleased)
 ___NULL___
 
+## 0.18.19 (2019-07-08)
+* Communicate detailed information about the difference between a resource's desired and actual state during a Pulumi update
 
 ## 0.18.18 (2019-07-05)
 * Upgrade to v2.18.0 of the AWS Terraform Provider
