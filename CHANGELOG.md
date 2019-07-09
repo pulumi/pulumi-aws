@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-___NULL___
+* Add Lambda runtime constants to the Go SDK.
 
 ## 0.18.20 (2019-07-09)
 * Fix detailed diffs with nested computed values.
