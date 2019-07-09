@@ -4,6 +4,9 @@ CHANGELOG
 ## HEAD (Unreleased)
 ___NULL___
 
+## 0.18.20 (2019-07-09)
+* Fix detailed diffs with nested computed values.
+
 ## 0.18.19 (2019-07-08)
 * Communicate detailed information about the difference between a resource's desired and actual state during a Pulumi update
 
