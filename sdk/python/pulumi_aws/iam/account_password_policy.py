@@ -72,6 +72,8 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] require_numbers: Whether to require numbers for user passwords.
         :param pulumi.Input[bool] require_symbols: Whether to require symbols for user passwords.
         :param pulumi.Input[bool] require_uppercase_characters: Whether to require uppercase characters for user passwords.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_account_password_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

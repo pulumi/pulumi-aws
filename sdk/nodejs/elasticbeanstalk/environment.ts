@@ -68,6 +68,8 @@ import {ApplicationVersion} from "./applicationVersion";
  *     solutionStackName: "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_environment.html.markdown.
  */
 export class Environment extends pulumi.CustomResource {
     /**
@@ -192,12 +194,6 @@ export class Environment extends pulumi.CustomResource {
      * to use in deployment.
      */
     public readonly version!: pulumi.Output<ApplicationVersion>;
-    /**
-     * The maximum
-     * [duration](https://golang.org/pkg/time/#ParseDuration) that Terraform should
-     * wait for an Elastic Beanstalk Environment to be in a ready state before timing
-     * out.
-     */
     public readonly waitForReadyTimeout!: pulumi.Output<string | undefined>;
 
     /**
@@ -366,12 +362,6 @@ export interface EnvironmentState {
      * to use in deployment.
      */
     readonly version?: pulumi.Input<ApplicationVersion>;
-    /**
-     * The maximum
-     * [duration](https://golang.org/pkg/time/#ParseDuration) that Terraform should
-     * wait for an Elastic Beanstalk Environment to be in a ready state before timing
-     * out.
-     */
     readonly waitForReadyTimeout?: pulumi.Input<string>;
 }
 
@@ -440,11 +430,5 @@ export interface EnvironmentArgs {
      * to use in deployment.
      */
     readonly version?: pulumi.Input<ApplicationVersion>;
-    /**
-     * The maximum
-     * [duration](https://golang.org/pkg/time/#ParseDuration) that Terraform should
-     * wait for an Elastic Beanstalk Environment to be in a ready state before timing
-     * out.
-     */
     readonly waitForReadyTimeout?: pulumi.Input<string>;
 }

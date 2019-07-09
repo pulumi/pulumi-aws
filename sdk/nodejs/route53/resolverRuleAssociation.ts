@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_foo.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_rule_association.html.markdown.
  */
 export class ResolverRuleAssociation extends pulumi.CustomResource {
     /**

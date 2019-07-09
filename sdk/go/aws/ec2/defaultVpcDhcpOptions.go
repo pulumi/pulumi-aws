@@ -7,16 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides a resource to manage the [default AWS DHCP Options Set](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html#AmazonDNS)
-// in the current region.
-// 
-// Each AWS region comes with a default set of DHCP options.
-// **This is an advanced resource**, and has special caveats to be aware of when
-// using it. Please read this document in its entirety before using this resource.
-// 
-// The `aws_default_vpc_dhcp_options` behaves differently from normal resources, in that
-// Terraform does not _create_ this resource, but instead "adopts" it
-// into management.
 type DefaultVpcDhcpOptions struct {
 	s *pulumi.ResourceState
 }

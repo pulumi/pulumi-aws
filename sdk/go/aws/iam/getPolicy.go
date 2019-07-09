@@ -9,6 +9,8 @@ import (
 
 // This data source can be used to fetch information about a specific
 // IAM policy.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy.html.markdown.
 func LookupPolicy(ctx *pulumi.Context, args *GetPolicyArgs) (*GetPolicyResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

@@ -72,6 +72,8 @@ import (
 // * `port` - (Optional) The port value used if your Service Discovery service specified an SRV record.
 // * `container_port` - (Optional) The port value, already specified in the task definition, to be used for your service discovery service.
 // * `container_name` - (Optional) The container name value, already specified in the task definition, to be used for your service discovery service.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_service.html.markdown.
 type Service struct {
 	s *pulumi.ResourceState
 }
@@ -281,7 +283,6 @@ func (r *Service) TaskDefinition() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["taskDefinition"])
 }
 
-// If `true`, Terraform will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
 func (r *Service) WaitForSteadyState() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["waitForSteadyState"])
 }
@@ -329,7 +330,6 @@ type ServiceState struct {
 	Tags interface{}
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	TaskDefinition interface{}
-	// If `true`, Terraform will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
 	WaitForSteadyState interface{}
 }
 
@@ -376,6 +376,5 @@ type ServiceArgs struct {
 	Tags interface{}
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	TaskDefinition interface{}
-	// If `true`, Terraform will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
 	WaitForSteadyState interface{}
 }

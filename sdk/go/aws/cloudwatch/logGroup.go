@@ -8,6 +8,8 @@ import (
 )
 
 // Provides a CloudWatch Log Group resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_group.html.markdown.
 type LogGroup struct {
 	s *pulumi.ResourceState
 }
@@ -79,7 +81,6 @@ func (r *LogGroup) KmsKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
-// The name of the log group. If omitted, Terraform will assign a random, unique name.
 func (r *LogGroup) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -108,7 +109,6 @@ type LogGroupState struct {
 	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
 	// permissions for the CMK whenever the encrypted data is requested.
 	KmsKeyId interface{}
-	// The name of the log group. If omitted, Terraform will assign a random, unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
@@ -125,7 +125,6 @@ type LogGroupArgs struct {
 	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
 	// permissions for the CMK whenever the encrypted data is requested.
 	KmsKeyId interface{}
-	// The name of the log group. If omitted, Terraform will assign a random, unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}

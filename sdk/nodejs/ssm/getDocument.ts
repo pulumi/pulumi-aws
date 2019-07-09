@@ -33,6 +33,8 @@ import * as utilities from "../utilities";
  *     name: name,
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_document.html.markdown.
  */
 export function getDocument(args: GetDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentResult> {
     return pulumi.runtime.invoke("aws:ssm/getDocument:getDocument", {

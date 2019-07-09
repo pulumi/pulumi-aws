@@ -23,6 +23,8 @@ import * as utilities from "../utilities";
  *     subdirectory: "/exported/path",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_nfs.html.markdown.
  */
 export class NfsLocation extends pulumi.CustomResource {
     /**

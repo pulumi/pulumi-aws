@@ -8,6 +8,8 @@ import (
 )
 
 // This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_tables.html.markdown.
 func LookupRouteTables(ctx *pulumi.Context, args *GetRouteTablesArgs) (*GetRouteTablesResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

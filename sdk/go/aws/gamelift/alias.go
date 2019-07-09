@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a Gamelift Alias resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_alias.html.markdown.
 type Alias struct {
 	s *pulumi.ResourceState
 }

@@ -16,6 +16,8 @@ import (
 // 
 // > **Note:** `aws_iam_group_membership` will conflict with itself if used more than once with the same group. To non-exclusively manage the users in a group, see the
 // [`aws_iam_user_group_membership` resource][3].
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_membership.html.markdown.
 type GroupMembership struct {
 	s *pulumi.ResourceState
 }

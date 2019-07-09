@@ -4,81 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
- * instances to be requested on the Spot market.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * // Request a Spot fleet
- * const cheapCompute = new aws.ec2.SpotFleetRequest("cheap_compute", {
- *     allocationStrategy: "diversified",
- *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
- *     launchSpecifications: [
- *         {
- *             ami: "ami-1234",
- *             iamInstanceProfileArn: aws_iam_instance_profile_example.arn,
- *             instanceType: "m4.10xlarge",
- *             placementTenancy: "dedicated",
- *             spotPrice: "2.793",
- *         },
- *         {
- *             ami: "ami-5678",
- *             availabilityZone: "us-west-1a",
- *             iamInstanceProfileArn: aws_iam_instance_profile_example.arn,
- *             instanceType: "m4.4xlarge",
- *             keyName: "my-key",
- *             rootBlockDevices: [{
- *                 volumeSize: 300,
- *                 volumeType: "gp2",
- *             }],
- *             spotPrice: "1.117",
- *             subnetId: "subnet-1234",
- *             tags: {
- *                 Name: "spot-fleet-example",
- *             },
- *             weightedCapacity: "35",
- *         },
- *     ],
- *     spotPrice: "0.03",
- *     targetCapacity: 6,
- *     validUntil: "2019-11-04T20:44:20Z",
- * });
- * ```
- * 
- * > **NOTE:** Terraform does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
- * launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const foo = new aws.ec2.SpotFleetRequest("foo", {
- *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
- *     launchSpecifications: [
- *         {
- *             ami: "ami-d06a90b0",
- *             availabilityZone: "us-west-2a",
- *             instanceType: "m1.small",
- *             keyName: "my-key",
- *         },
- *         {
- *             ami: "ami-d06a90b0",
- *             availabilityZone: "us-west-2a",
- *             instanceType: "m5.large",
- *             keyName: "my-key",
- *         },
- *     ],
- *     spotPrice: "0.005",
- *     targetCapacity: 2,
- *     validUntil: "2019-11-04T20:44:20Z",
- * });
- * ```
- */
 export class SpotFleetRequest extends pulumi.CustomResource {
     /**
      * Get an existing SpotFleetRequest resource's state with the given name, ID, and optional extra
@@ -190,11 +115,6 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
      */
     public readonly validUntil!: pulumi.Output<string | undefined>;
-    /**
-     * If set, Terraform will
-     * wait for the Spot Request to be fulfilled, and will throw an error if the
-     * timeout of 10m is reached.
-     */
     public readonly waitForFulfillment!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -349,11 +269,6 @@ export interface SpotFleetRequestState {
      * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
      */
     readonly validUntil?: pulumi.Input<string>;
-    /**
-     * If set, Terraform will
-     * wait for the Spot Request to be fulfilled, and will throw an error if the
-     * timeout of 10m is reached.
-     */
     readonly waitForFulfillment?: pulumi.Input<boolean>;
 }
 
@@ -440,10 +355,5 @@ export interface SpotFleetRequestArgs {
      * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
      */
     readonly validUntil?: pulumi.Input<string>;
-    /**
-     * If set, Terraform will
-     * wait for the Spot Request to be fulfilled, and will throw an error if the
-     * timeout of 10m is reached.
-     */
     readonly waitForFulfillment?: pulumi.Input<boolean>;
 }

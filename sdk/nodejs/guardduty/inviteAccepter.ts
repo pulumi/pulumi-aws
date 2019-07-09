@@ -6,6 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct master account on read, and disassociate with the master account upon removal.
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/guardduty_invite_accepter.html.markdown.
  */
 export class InviteAccepter extends pulumi.CustomResource {
     /**

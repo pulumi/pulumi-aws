@@ -13,6 +13,8 @@ import (
 // * [Microsoft SQL Server Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.Options.html)
 // * [MySQL Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.Options.html)
 // * [Oracle Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.html)
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_option_group.html.markdown.
 type OptionGroup struct {
 	s *pulumi.ResourceState
 }
@@ -114,7 +116,6 @@ func (r *OptionGroup) Options() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["options"])
 }
 
-// The description of the option group. Defaults to "Managed by Terraform".
 func (r *OptionGroup) OptionGroupDescription() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["optionGroupDescription"])
 }
@@ -138,7 +139,6 @@ type OptionGroupState struct {
 	NamePrefix interface{}
 	// A list of Options to apply.
 	Options interface{}
-	// The description of the option group. Defaults to "Managed by Terraform".
 	OptionGroupDescription interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -156,7 +156,6 @@ type OptionGroupArgs struct {
 	NamePrefix interface{}
 	// A list of Options to apply.
 	Options interface{}
-	// The description of the option group. Defaults to "Managed by Terraform".
 	OptionGroupDescription interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

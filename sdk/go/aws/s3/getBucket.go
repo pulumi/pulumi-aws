@@ -11,6 +11,8 @@ import (
 // 
 // This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
 // Distribution.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket.html.markdown.
 func LookupBucket(ctx *pulumi.Context, args *GetBucketArgs) (*GetBucketResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  *     serverId: "s-1234567",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/transfer_server.html.markdown.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     return pulumi.runtime.invoke("aws:transfer/getServer:getServer", {

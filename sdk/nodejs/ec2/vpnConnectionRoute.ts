@@ -35,6 +35,8 @@ import * as utilities from "../utilities";
  *     vpnConnectionId: main.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_connection_route.html.markdown.
  */
 export class VpnConnectionRoute extends pulumi.CustomResource {
     /**

@@ -25,6 +25,8 @@ class AmiLaunchPermission(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: An AWS Account ID to add launch permissions.
         :param pulumi.Input[str] image_id: A region-unique name for the AMI.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_launch_permission.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

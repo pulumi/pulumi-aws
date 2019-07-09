@@ -18,6 +18,8 @@ import (
 // this original table as the Main Route Table for the VPC. You'll see this
 // additional Route Table in the AWS console; it must remain intact in order for
 // the `main_route_table_association` delete to work properly.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/main_route_table_association.html.markdown.
 type MainRouteTableAssociation struct {
 	s *pulumi.ResourceState
 }

@@ -8,6 +8,8 @@ import (
 )
 
 // The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_image.html.markdown.
 func LookupImage(ctx *pulumi.Context, args *GetImageArgs) (*GetImageResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

@@ -58,6 +58,8 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] stage_description: The description of the stage
         :param pulumi.Input[str] stage_name: The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
         :param pulumi.Input[dict] variables: A map that defines variables for the stage
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_deployment.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -84,6 +84,8 @@ import * as utilities from "../utilities";
  *     type: "CLOUDWATCH_METRIC",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_health_check.html.markdown.
  */
 export class HealthCheck extends pulumi.CustomResource {
     /**

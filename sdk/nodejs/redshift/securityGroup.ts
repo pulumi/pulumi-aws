@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_security_group.html.markdown.
  */
 export class SecurityGroup extends pulumi.CustomResource {
     /**
@@ -47,9 +49,6 @@ export class SecurityGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityGroup.__pulumiType;
     }
 
-    /**
-     * The description of the Redshift security group. Defaults to "Managed by Terraform".
-     */
     public readonly description!: pulumi.Output<string>;
     /**
      * A list of ingress rules.
@@ -92,9 +91,6 @@ export class SecurityGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SecurityGroup resources.
  */
 export interface SecurityGroupState {
-    /**
-     * The description of the Redshift security group. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * A list of ingress rules.
@@ -110,9 +106,6 @@ export interface SecurityGroupState {
  * The set of arguments for constructing a SecurityGroup resource.
  */
 export interface SecurityGroupArgs {
-    /**
-     * The description of the Redshift security group. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * A list of ingress rules.

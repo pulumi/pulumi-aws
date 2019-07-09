@@ -82,6 +82,8 @@ class AnalyticsApplication(pulumi.CustomResource):
         :param pulumi.Input[dict] reference_data_sources: An S3 Reference Data Source for the application.
                See Reference Data Sources below for more details.
         :param pulumi.Input[dict] tags: Key-value mapping of tags for the Kinesis Analytics Application.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_analytics_application.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

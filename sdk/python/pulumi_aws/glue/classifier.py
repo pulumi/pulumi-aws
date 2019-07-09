@@ -37,6 +37,8 @@ class Classifier(pulumi.CustomResource):
         :param pulumi.Input[dict] json_classifier: A classifier for JSON content. Defined below.
         :param pulumi.Input[str] name: The name of the classifier.
         :param pulumi.Input[dict] xml_classifier: A classifier for XML content. Defined below.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_classifier.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

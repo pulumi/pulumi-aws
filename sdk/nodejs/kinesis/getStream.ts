@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  *     name: "stream-name",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kinesis_stream.html.markdown.
  */
 export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamResult> {
     return pulumi.runtime.invoke("aws:kinesis/getStream:getStream", {

@@ -21,6 +21,8 @@ import {RestApi} from "./restApi";
  *     validateRequestParameters: true,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_request_validator.html.markdown.
  */
 export class RequestValidator extends pulumi.CustomResource {
     /**

@@ -8,6 +8,8 @@ import (
 )
 
 // `aws_eip` provides details about a specific Elastic IP.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eip.html.markdown.
 func LookupElasticIp(ctx *pulumi.Context, args *GetElasticIpArgs) (*GetElasticIpResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

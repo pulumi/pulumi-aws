@@ -29,6 +29,8 @@ class ByteMatchSet(pulumi.CustomResource):
                with ASCII characters) that you want to search for in web requests,
                the location in requests that you want to search, and other settings.
         :param pulumi.Input[str] name: The name or description of the Byte Match Set.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_byte_match_set.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

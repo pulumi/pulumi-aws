@@ -37,6 +37,8 @@ class GroupMembership(pulumi.CustomResource):
         :param pulumi.Input[str] group: The IAM Group name to attach the list of `users` to
         :param pulumi.Input[str] name: The name to identify the Group Membership
         :param pulumi.Input[list] users: A list of IAM User names to associate with the Group
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_membership.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

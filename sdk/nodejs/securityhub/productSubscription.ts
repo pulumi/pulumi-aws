@@ -4,24 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Subscribes to a Security Hub product.
- * 
- * > **NOTE:** This AWS service is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between Terraform AWS Provider releases.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleAccount = new aws.securityhub.Account("example", {});
- * const current = pulumi.output(aws.getRegion({}));
- * const exampleProductSubscription = new aws.securityhub.ProductSubscription("example", {
- *     productArn: pulumi.interpolate`arn:aws:securityhub:${current.name}:733251395267:product/alertlogic/althreatmanagement`,
- * }, {dependsOn: [exampleAccount]});
- * ```
- */
 export class ProductSubscription extends pulumi.CustomResource {
     /**
      * Get an existing ProductSubscription resource's state with the given name, ID, and optional extra

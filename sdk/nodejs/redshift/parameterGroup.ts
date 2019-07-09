@@ -31,6 +31,8 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_parameter_group.html.markdown.
  */
 export class ParameterGroup extends pulumi.CustomResource {
     /**
@@ -63,9 +65,6 @@ export class ParameterGroup extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of parameter group
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The description of the Redshift parameter group. Defaults to "Managed by Terraform".
-     */
     public readonly description!: pulumi.Output<string>;
     /**
      * The family of the Redshift parameter group.
@@ -126,9 +125,6 @@ export interface ParameterGroupState {
      * Amazon Resource Name (ARN) of parameter group
      */
     readonly arn?: pulumi.Input<string>;
-    /**
-     * The description of the Redshift parameter group. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * The family of the Redshift parameter group.
@@ -152,9 +148,6 @@ export interface ParameterGroupState {
  * The set of arguments for constructing a ParameterGroup resource.
  */
 export interface ParameterGroupArgs {
-    /**
-     * The description of the Redshift parameter group. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * The family of the Redshift parameter group.

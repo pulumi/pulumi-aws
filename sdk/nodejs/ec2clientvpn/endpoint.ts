@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
- * [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ec2clientvpn.Endpoint("example", {
- *     authenticationOptions: {
- *         rootCertificateChainArn: aws_acm_certificate_root_cert.arn,
- *         type: "certificate-authentication",
- *     },
- *     clientCidrBlock: "10.0.0.0/16",
- *     connectionLogOptions: {
- *         cloudwatchLogGroup: aws_cloudwatch_log_group_lg.name,
- *         cloudwatchLogStream: aws_cloudwatch_log_stream_ls.name,
- *         enabled: true,
- *     },
- *     description: "terraform-clientvpn-example",
- *     serverCertificateArn: aws_acm_certificate_cert.arn,
- * });
- * ```
- */
 export class Endpoint extends pulumi.CustomResource {
     /**
      * Get an existing Endpoint resource's state with the given name, ID, and optional extra

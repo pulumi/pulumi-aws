@@ -9,6 +9,8 @@ import (
 
 // The VPC Endpoint data source provides details about
 // a specific VPC endpoint.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint.html.markdown.
 func LookupVpcEndpoint(ctx *pulumi.Context, args *GetVpcEndpointArgs) (*GetVpcEndpointResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

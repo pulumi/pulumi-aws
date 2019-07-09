@@ -41,6 +41,8 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] load_balancer: The name of load balancer to which the policy
                should be attached.
         :param pulumi.Input[str] name: The name of the stickiness policy.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/app_cookie_stickiness_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

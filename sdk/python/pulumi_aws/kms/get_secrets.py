@@ -30,11 +30,6 @@ class GetSecretsResult:
         """
 
 async def get_secrets(secrets=None,opts=None):
-    """
-    Decrypt multiple secrets from data encrypted with the AWS KMS service.
-    
-    > **NOTE**: Using this data provider will allow you to conceal secret data within your resource definitions but does not take care of protecting that data in all Terraform logging and state output. Please take care to secure your secret data beyond just the Terraform configuration.
-    """
     __args__ = dict()
 
     __args__['secrets'] = secrets

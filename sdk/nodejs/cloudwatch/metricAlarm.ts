@@ -107,6 +107,8 @@ import {Topic} from "../sns/topic";
  * 
  * > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
  * You must choose one or the other
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_metric_alarm.html.markdown.
  */
 export class MetricAlarm extends pulumi.CustomResource {
     /**

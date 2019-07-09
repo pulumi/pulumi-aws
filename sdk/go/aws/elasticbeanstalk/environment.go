@@ -26,6 +26,8 @@ import (
 // * `name` - name of the configuration option
 // * `value` - value for the configuration option
 // * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_environment.html.markdown.
 type Environment struct {
 	s *pulumi.ResourceState
 }
@@ -247,10 +249,6 @@ func (r *Environment) Version() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["version"])
 }
 
-// The maximum
-// [duration](https://golang.org/pkg/time/#ParseDuration) that Terraform should
-// wait for an Elastic Beanstalk Environment to be in a ready state before timing
-// out.
 func (r *Environment) WaitForReadyTimeout() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["waitForReadyTimeout"])
 }
@@ -313,10 +311,6 @@ type EnvironmentState struct {
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
 	Version interface{}
-	// The maximum
-	// [duration](https://golang.org/pkg/time/#ParseDuration) that Terraform should
-	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
-	// out.
 	WaitForReadyTimeout interface{}
 }
 
@@ -359,9 +353,5 @@ type EnvironmentArgs struct {
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
 	Version interface{}
-	// The maximum
-	// [duration](https://golang.org/pkg/time/#ParseDuration) that Terraform should
-	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
-	// out.
 	WaitForReadyTimeout interface{}
 }

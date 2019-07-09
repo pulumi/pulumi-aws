@@ -35,25 +35,15 @@ class VirtualRouter(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, mesh_name=None, name=None, spec=None, __name__=None, __opts__=None):
         """
-        Provides an AWS App Mesh virtual router resource.
-        
-        ## Breaking Changes
-        
-        Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92) and [here](https://github.com/awslabs/aws-app-mesh-examples/issues/94)), `aws_appmesh_virtual_router` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
-        
-        * Remove service `service_names` from the `spec` argument.
-        AWS has created a `aws_appmesh_virtual_service` resource for each of service names.
-        These resource can be imported using `terraform import`.
-        
-        * Add a `listener` configuration block to the `spec` argument.
-        
-        The Terraform state associated with existing resources will automatically be migrated.
+        Create a VirtualRouter resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the virtual router.
         :param pulumi.Input[str] name: The name to use for the virtual router.
         :param pulumi.Input[dict] spec: The virtual router specification to apply.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_virtual_router.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

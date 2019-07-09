@@ -15,6 +15,8 @@ import * as utilities from "../utilities";
  * 
  * const foo = new aws.ecr.Repository("foo", {});
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_repository.html.markdown.
  */
 export class Repository extends pulumi.CustomResource {
     /**

@@ -113,6 +113,8 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[str] sns_topic_name: Specifies the name of the Amazon SNS topic
                defined for notification of log file delivery.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the trail
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudtrail.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

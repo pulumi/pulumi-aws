@@ -61,6 +61,8 @@ import * as utilities from "../utilities";
  *     virtualRouterName: aws_appmesh_virtual_router_serviceb.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_route.html.markdown.
  */
 export class Route extends pulumi.CustomResource {
     /**

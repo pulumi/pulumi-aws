@@ -10,6 +10,8 @@ import (
 // Provides a Target Group resource for use with Load Balancer resources.
 // 
 // > **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group.html.markdown.
 type TargetGroup struct {
 	s *pulumi.ResourceState
 }
@@ -120,7 +122,7 @@ func (r *TargetGroup) LambdaMultiValueHeadersEnabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["lambdaMultiValueHeadersEnabled"])
 }
 
-// The name of the target group. If omitted, Terraform will assign a random, unique name.
+// The name of the Target Group
 func (r *TargetGroup) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -187,7 +189,7 @@ type TargetGroupState struct {
 	HealthCheck interface{}
 	// Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
 	LambdaMultiValueHeadersEnabled interface{}
-	// The name of the target group. If omitted, Terraform will assign a random, unique name.
+	// The name of the Target Group
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
 	NamePrefix interface{}
@@ -222,7 +224,7 @@ type TargetGroupArgs struct {
 	HealthCheck interface{}
 	// Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
 	LambdaMultiValueHeadersEnabled interface{}
-	// The name of the target group. If omitted, Terraform will assign a random, unique name.
+	// The name of the Target Group
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
 	NamePrefix interface{}

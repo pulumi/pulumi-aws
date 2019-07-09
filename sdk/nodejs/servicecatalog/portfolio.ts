@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  *     providerName: "Brett",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/servicecatalog_portfolio.html.markdown.
  */
 export class Portfolio extends pulumi.CustomResource {
     /**

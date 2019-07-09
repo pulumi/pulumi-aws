@@ -8,6 +8,8 @@ import (
 )
 
 // Provides a resource to create a Service Catalog Portfolio.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/servicecatalog_portfolio.html.markdown.
 type Portfolio struct {
 	s *pulumi.ResourceState
 }

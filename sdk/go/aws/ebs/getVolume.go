@@ -9,6 +9,8 @@ import (
 
 // Use this data source to get information about an EBS volume for use in other
 // resources.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.
 func LookupVolume(ctx *pulumi.Context, args *GetVolumeArgs) (*GetVolumeResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

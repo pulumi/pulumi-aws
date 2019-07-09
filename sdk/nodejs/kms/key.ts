@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  *     description: "KMS key 1",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_key.html.markdown.
  */
 export class Key extends pulumi.CustomResource {
     /**
@@ -77,9 +79,6 @@ export class Key extends pulumi.CustomResource {
      * Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
      */
     public readonly keyUsage!: pulumi.Output<string>;
-    /**
-     * A valid policy JSON document. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the object.
@@ -158,9 +157,6 @@ export interface KeyState {
      * Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
      */
     readonly keyUsage?: pulumi.Input<string>;
-    /**
-     * A valid policy JSON document. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     readonly policy?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the object.
@@ -195,9 +191,6 @@ export interface KeyArgs {
      * Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
      */
     readonly keyUsage?: pulumi.Input<string>;
-    /**
-     * A valid policy JSON document. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     readonly policy?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the object.

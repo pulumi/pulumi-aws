@@ -14,9 +14,6 @@ class SecurityGroup(pulumi.CustomResource):
     The arn of the DB security group.
     """
     description: pulumi.Output[str]
-    """
-    The description of the DB security group. Defaults to "Managed by Terraform".
-    """
     ingress: pulumi.Output[list]
     """
     A list of ingress rules.
@@ -38,10 +35,11 @@ class SecurityGroup(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the DB security group. Defaults to "Managed by Terraform".
         :param pulumi.Input[list] ingress: A list of ingress rules.
         :param pulumi.Input[str] name: The name of the DB security group.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_security_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

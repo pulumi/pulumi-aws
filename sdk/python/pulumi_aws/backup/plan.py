@@ -38,6 +38,8 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[str] name: The display name of a backup plan.
         :param pulumi.Input[list] rules: A rule object that specifies a scheduled task that is used to back up a selection of resources.
         :param pulumi.Input[dict] tags: Metadata that you can assign to help organize the plans you create.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_plan.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

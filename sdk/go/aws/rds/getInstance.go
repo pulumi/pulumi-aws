@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to get information about an RDS instance
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_instance.html.markdown.
 func LookupInstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

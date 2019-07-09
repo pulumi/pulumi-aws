@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_security_group.html.markdown.
  */
 export class SecurityGroup extends pulumi.CustomResource {
     /**
@@ -54,9 +56,6 @@ export class SecurityGroup extends pulumi.CustomResource {
      * The arn of the DB security group.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The description of the DB security group. Defaults to "Managed by Terraform".
-     */
     public readonly description!: pulumi.Output<string>;
     /**
      * A list of ingress rules.
@@ -111,9 +110,6 @@ export interface SecurityGroupState {
      * The arn of the DB security group.
      */
     readonly arn?: pulumi.Input<string>;
-    /**
-     * The description of the DB security group. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * A list of ingress rules.
@@ -133,9 +129,6 @@ export interface SecurityGroupState {
  * The set of arguments for constructing a SecurityGroup resource.
  */
 export interface SecurityGroupArgs {
-    /**
-     * The description of the DB security group. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * A list of ingress rules.

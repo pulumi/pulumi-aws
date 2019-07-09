@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an API Gateway VPC Link.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_vpc_link.html.markdown.
 type VpcLink struct {
 	s *pulumi.ResourceState
 }

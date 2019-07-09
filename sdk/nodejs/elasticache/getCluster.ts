@@ -17,6 +17,8 @@ import * as utilities from "../utilities";
  *     clusterId: "my-cluster-id",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_cluster.html.markdown.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     return pulumi.runtime.invoke("aws:elasticache/getCluster:getCluster", {

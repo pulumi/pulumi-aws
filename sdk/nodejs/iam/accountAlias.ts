@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  *     accountAlias: "my-account-alias",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_account_alias.html.markdown.
  */
 export class AccountAlias extends pulumi.CustomResource {
     /**

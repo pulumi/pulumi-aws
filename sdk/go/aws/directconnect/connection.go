@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a Connection of Direct Connect.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_connection.html.markdown.
 type Connection struct {
 	s *pulumi.ResourceState
 }

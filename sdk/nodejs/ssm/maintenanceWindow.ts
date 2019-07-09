@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  *     schedule: "cron(0 16 ? * TUE *)",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window.html.markdown.
  */
 export class MaintenanceWindow extends pulumi.CustomResource {
     /**

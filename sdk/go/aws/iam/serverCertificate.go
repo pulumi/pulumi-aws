@@ -21,6 +21,8 @@ import (
 // 
 // > **Note:** All arguments including the private key will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_server_certificate.html.markdown.
 type ServerCertificate struct {
 	s *pulumi.ResourceState
 }
@@ -108,8 +110,7 @@ func (r *ServerCertificate) CertificateChain() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["certificateChain"])
 }
 
-// The name of the Server Certificate. Do not include the
-// path in this value. If omitted, Terraform will assign a random, unique name.
+// The name of the Server Certificate
 func (r *ServerCertificate) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -144,8 +145,7 @@ type ServerCertificateState struct {
 	// This is typically a concatenation of the PEM-encoded public key certificates
 	// of the chain.
 	CertificateChain interface{}
-	// The name of the Server Certificate. Do not include the
-	// path in this value. If omitted, Terraform will assign a random, unique name.
+	// The name of the Server Certificate
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -170,8 +170,7 @@ type ServerCertificateArgs struct {
 	// This is typically a concatenation of the PEM-encoded public key certificates
 	// of the chain.
 	CertificateChain interface{}
-	// The name of the Server Certificate. Do not include the
-	// path in this value. If omitted, Terraform will assign a random, unique name.
+	// The name of the Server Certificate
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.

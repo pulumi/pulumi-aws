@@ -85,6 +85,8 @@ class ReceiptRule(pulumi.CustomResource):
         :param pulumi.Input[list] stop_actions: A list of Stop Action blocks. Documented below.
         :param pulumi.Input[str] tls_policy: Require or Optional
         :param pulumi.Input[list] workmail_actions: A list of WorkMail Action blocks. Documented below.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_receipt_rule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

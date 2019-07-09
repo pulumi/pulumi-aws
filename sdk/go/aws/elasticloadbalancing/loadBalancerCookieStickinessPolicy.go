@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a load balancer cookie stickiness policy, which allows an ELB to control the sticky session lifetime of the browser.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_cookie_stickiness_policy.html.markdown.
 type LoadBalancerCookieStickinessPolicy struct {
 	s *pulumi.ResourceState
 }

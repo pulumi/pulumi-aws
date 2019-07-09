@@ -37,6 +37,8 @@ class CustomerGateway(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: Tags to apply to the gateway.
         :param pulumi.Input[str] type: The type of customer gateway. The only type AWS
                supports at this time is "ipsec.1".
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/customer_gateway.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

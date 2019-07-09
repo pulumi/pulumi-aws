@@ -11,6 +11,8 @@ import (
 // Manages an association with WAF Regional Web ACL.
 // 
 // > **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_web_acl_association.html.markdown.
 type WebAclAssociation struct {
 	s *pulumi.ResourceState
 }

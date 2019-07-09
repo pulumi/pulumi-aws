@@ -17,6 +17,8 @@ import * as utilities from "../utilities";
  *     path: "/users/",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group.html.markdown.
  */
 export class Group extends pulumi.CustomResource {
     /**

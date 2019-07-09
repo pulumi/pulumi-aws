@@ -9,6 +9,8 @@ import (
 )
 
 // Manages an AWS Config Aggregate Authorization
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_aggregate_authorization.html.markdown.
 type AggregateAuthorization struct {
 	s *pulumi.ResourceState
 }

@@ -205,6 +205,8 @@ import * as utilities from "../utilities";
  *     role: ecsEvents.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_event_target.html.markdown.
  */
 export class EventTarget extends pulumi.CustomResource {
     /**

@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to get information about a CloudHSM v2 cluster
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudhsm_v2_cluster.html.markdown.
 func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

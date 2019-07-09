@@ -44,6 +44,8 @@ class EmailChannel(pulumi.CustomResource):
         :param pulumi.Input[str] from_address: The email address used to send emails from.
         :param pulumi.Input[str] identity: The ARN of an identity verified with SES.
         :param pulumi.Input[str] role_arn: The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_email_channel.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -40,6 +40,8 @@ async def get_queue(name=None,opts=None):
     Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
     By using this data source, you can reference SQS queues without having to hardcode
     the ARNs as input.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sqs_queue.html.markdown.
     """
     __args__ = dict()
 

@@ -19,14 +19,14 @@ class Cache(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, disk_id=None, gateway_arn=None, __name__=None, __opts__=None):
         """
-        Manages an AWS Storage Gateway cache.
-        
-        > **NOTE:** The Storage Gateway API provides no method to remove a cache disk. Destroying this Terraform resource does not perform any Storage Gateway actions.
+        Create a Cache resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_cache.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

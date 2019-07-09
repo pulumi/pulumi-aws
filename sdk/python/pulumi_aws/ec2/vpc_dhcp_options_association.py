@@ -30,6 +30,8 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
         :param pulumi.Input[str] vpc_id: The ID of the VPC to which we would like to associate a DHCP Options Set.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_dhcp_options_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

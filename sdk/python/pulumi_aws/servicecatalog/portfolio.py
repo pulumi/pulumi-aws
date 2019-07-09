@@ -37,6 +37,8 @@ class Portfolio(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the portfolio.
         :param pulumi.Input[str] provider_name: Name of the person or organization who owns the portfolio.
         :param pulumi.Input[dict] tags: Tags to apply to the connection.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/servicecatalog_portfolio.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

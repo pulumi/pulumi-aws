@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  *     logGroupName: yada.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_stream.html.markdown.
  */
 export class LogStream extends pulumi.CustomResource {
     /**

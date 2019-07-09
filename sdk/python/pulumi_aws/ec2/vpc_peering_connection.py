@@ -53,25 +53,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, accepter=None, auto_accept=None, peer_owner_id=None, peer_region=None, peer_vpc_id=None, requester=None, tags=None, vpc_id=None, __name__=None, __opts__=None):
         """
-        Provides a resource to manage a VPC peering connection.
-        
-        > **NOTE on VPC Peering Connections and VPC Peering Connection Options:** Terraform provides
-        both a standalone VPC Peering Connection Options and a VPC Peering Connection
-        resource with `accepter` and `requester` attributes. Do not manage options for the same VPC peering
-        connection in both a VPC Peering Connection resource and a VPC Peering Connection Options resource.
-        Doing so will cause a conflict of options and will overwrite the options.
-        Using a VPC Peering Connection Options resource decouples management of the connection options from
-        management of the VPC Peering Connection and allows options to be set correctly in cross-account scenarios.
-        
-        > **Note:** For cross-account (requester's AWS account differs from the accepter's AWS account) or inter-region
-        VPC Peering Connections use the `aws_vpc_peering_connection` resource to manage the requester's side of the
-        connection and use the `aws_vpc_peering_connection_accepter` resource to manage the accepter's side of the connection.
-        
-        ## Notes
-        
-        If both VPCs are not in the same AWS account do not enable the `auto_accept` attribute.
-        The accepter can manage its side of the connection using the `aws_vpc_peering_connection_accepter` resource
-        or accept the connection manually using the AWS Management Console, AWS CLI, through SDKs, etc.
+        Create a VpcPeeringConnection resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -89,6 +71,8 @@ class VpcPeeringConnection(pulumi.CustomResource):
                the peering connection (a maximum of one).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the requester VPC.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

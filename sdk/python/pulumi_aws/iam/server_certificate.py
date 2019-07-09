@@ -26,8 +26,7 @@ class ServerCertificate(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    The name of the Server Certificate. Do not include the
-    path in this value. If omitted, Terraform will assign a random, unique name.
+    The name of the Server Certificate
     """
     name_prefix: pulumi.Output[str]
     """
@@ -69,8 +68,7 @@ class ServerCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_chain: The contents of the certificate chain.
                This is typically a concatenation of the PEM-encoded public key certificates
                of the chain.
-        :param pulumi.Input[str] name: The name of the Server Certificate. Do not include the
-               path in this value. If omitted, Terraform will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the Server Certificate
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: The IAM path for the server certificate.  If it is not
@@ -78,6 +76,8 @@ class ServerCertificate(pulumi.CustomResource):
                AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
                See [IAM Identifiers][1] for more details on IAM Paths.
         :param pulumi.Input[str] private_key: The contents of the private key in PEM-encoded format.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_server_certificate.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

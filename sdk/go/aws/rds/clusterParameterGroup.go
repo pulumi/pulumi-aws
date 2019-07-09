@@ -12,6 +12,8 @@ import (
 // 
 // * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
 // * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_parameter_group.html.markdown.
 type ClusterParameterGroup struct {
 	s *pulumi.ResourceState
 }
@@ -82,7 +84,6 @@ func (r *ClusterParameterGroup) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The description of the DB cluster parameter group. Defaults to "Managed by Terraform".
 func (r *ClusterParameterGroup) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -116,7 +117,6 @@ func (r *ClusterParameterGroup) Tags() *pulumi.MapOutput {
 type ClusterParameterGroupState struct {
 	// The ARN of the db cluster parameter group.
 	Arn interface{}
-	// The description of the DB cluster parameter group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// The family of the DB cluster parameter group.
 	Family interface{}
@@ -132,7 +132,6 @@ type ClusterParameterGroupState struct {
 
 // The set of arguments for constructing a ClusterParameterGroup resource.
 type ClusterParameterGroupArgs struct {
-	// The description of the DB cluster parameter group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// The family of the DB cluster parameter group.
 	Family interface{}

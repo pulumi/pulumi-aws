@@ -35,6 +35,8 @@ class VpnGateway(pulumi.CustomResource):
         :param pulumi.Input[str] availability_zone: The Availability Zone for the virtual private gateway.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID to create in.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -63,6 +63,8 @@ import * as utilities from "../utilities";
  *     serviceCode: "AmazonRedshift",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/pricing_product.html.markdown.
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
     return pulumi.runtime.invoke("aws:pricing/getProduct:getProduct", {

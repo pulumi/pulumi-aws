@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a MediaStore Container Policy.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/media_store_container_policy.html.markdown.
 type ContainerPolicy struct {
 	s *pulumi.ResourceState
 }
@@ -68,7 +70,6 @@ func (r *ContainerPolicy) ContainerName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["containerName"])
 }
 
-// The contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 func (r *ContainerPolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -77,7 +78,6 @@ func (r *ContainerPolicy) Policy() *pulumi.StringOutput {
 type ContainerPolicyState struct {
 	// The name of the container.
 	ContainerName interface{}
-	// The contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 	Policy interface{}
 }
 
@@ -85,6 +85,5 @@ type ContainerPolicyState struct {
 type ContainerPolicyArgs struct {
 	// The name of the container.
 	ContainerName interface{}
-	// The contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 	Policy interface{}
 }

@@ -34,6 +34,8 @@ class SubnetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the subnet group.
         :param pulumi.Input[str] name: The name of the subnet group.
         :param pulumi.Input[list] subnet_ids: A list of VPC subnet IDs for the subnet group.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_subnet_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

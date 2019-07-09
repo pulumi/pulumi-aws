@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an IAM User Login Profile with limited support for password creation during Terraform resource creation. Uses PGP to encrypt the password for safe transport to the user. PGP keys can be obtained from Keybase.
- * 
- * > To reset an IAM User login password via Terraform, you can use the [`terraform taint` command](https://www.terraform.io/docs/commands/taint.html) or change any of the arguments.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleUser = new aws.iam.User("example", {
- *     forceDestroy: true,
- *     path: "/",
- * });
- * const exampleUserLoginProfile = new aws.iam.UserLoginProfile("example", {
- *     pgpKey: "keybase:some_person_that_exists",
- *     user: exampleUser.name,
- * });
- * 
- * export const password = exampleUserLoginProfile.encryptedPassword;
- * ```
- */
 export class UserLoginProfile extends pulumi.CustomResource {
     /**
      * Get an existing UserLoginProfile resource's state with the given name, ID, and optional extra
@@ -54,13 +31,7 @@ export class UserLoginProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserLoginProfile.__pulumiType;
     }
 
-    /**
-     * The encrypted password, base64 encoded. Only available if password was handled on Terraform resource creation, not import.
-     */
     public /*out*/ readonly encryptedPassword!: pulumi.Output<string>;
-    /**
-     * The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on Terraform resource creation, not import.
-     */
     public /*out*/ readonly keyFingerprint!: pulumi.Output<string>;
     /**
      * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
@@ -120,13 +91,7 @@ export class UserLoginProfile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserLoginProfile resources.
  */
 export interface UserLoginProfileState {
-    /**
-     * The encrypted password, base64 encoded. Only available if password was handled on Terraform resource creation, not import.
-     */
     readonly encryptedPassword?: pulumi.Input<string>;
-    /**
-     * The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on Terraform resource creation, not import.
-     */
     readonly keyFingerprint?: pulumi.Input<string>;
     /**
      * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.

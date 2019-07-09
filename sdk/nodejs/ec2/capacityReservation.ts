@@ -24,6 +24,8 @@ import {Tenancy} from "./tenancy";
  *     instanceType: "t2.micro",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_capacity_reservation.html.markdown.
  */
 export class CapacityReservation extends pulumi.CustomResource {
     /**

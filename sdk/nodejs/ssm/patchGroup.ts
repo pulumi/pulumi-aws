@@ -21,6 +21,8 @@ import * as utilities from "../utilities";
  *     patchGroup: "patch-group-name",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_patch_group.html.markdown.
  */
 export class PatchGroup extends pulumi.CustomResource {
     /**

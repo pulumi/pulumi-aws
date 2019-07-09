@@ -88,22 +88,7 @@ class Broker(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, apply_immediately=None, auto_minor_version_upgrade=None, broker_name=None, configuration=None, deployment_mode=None, engine_type=None, engine_version=None, host_instance_type=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, tags=None, users=None, __name__=None, __opts__=None):
         """
-        Provides an MQ Broker Resource. This resources also manages users for the broker.
-        
-        For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
-        
-        Changes to an MQ Broker can occur when you change a
-        parameter, such as `configuration` or `user`, and are reflected in the next maintenance
-        window. Because of this, Terraform may report a difference in its planning
-        phase because a modification has not yet taken place. You can use the
-        `apply_immediately` flag to instruct the service to apply the change immediately
-        (see documentation below).
-        
-        > **Note:** using `apply_immediately` can result in a
-        brief downtime as the broker reboots.
-        
-        > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
-        [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+        Create a Broker resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,6 +108,8 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[list] subnet_ids: The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[list] users: The list of all ActiveMQ usernames for the specified broker. See below.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/mq_broker.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

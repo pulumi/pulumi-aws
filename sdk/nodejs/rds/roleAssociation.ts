@@ -24,6 +24,8 @@ import * as utilities from "../utilities";
  *     roleArn: aws_iam_role_example.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_instance_role_association.html.markdown.
  */
 export class RoleAssociation extends pulumi.CustomResource {
     /**

@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  *     restApiId: myRestApi.id,
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_resource.html.markdown.
  */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
     return pulumi.runtime.invoke("aws:apigateway/getResource:getResource", {

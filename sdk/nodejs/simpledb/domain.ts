@@ -15,6 +15,8 @@ import * as utilities from "../utilities";
  * 
  * const users = new aws.simpledb.Domain("users", {});
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/simpledb_domain.html.markdown.
  */
 export class Domain extends pulumi.CustomResource {
     /**

@@ -19,18 +19,14 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, principal_arn=None, vpc_endpoint_service_id=None, __name__=None, __opts__=None):
         """
-        Provides a resource to allow a principal to discover a VPC endpoint service.
-        
-        > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** Terraform provides
-        both a standalone VPC Endpoint Service Allowed Principal resource
-        and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
-        a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
-        and will overwrite the association.
+        Create a VpcEndpointServiceAllowedPrinciple resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] principal_arn: The ARN of the principal to allow permissions.
         :param pulumi.Input[str] vpc_endpoint_service_id: The ID of the VPC endpoint service to allow permission.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_service_allowed_principal.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

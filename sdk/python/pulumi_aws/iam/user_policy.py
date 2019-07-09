@@ -11,16 +11,13 @@ from .. import utilities, tables
 class UserPolicy(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
-    The name of the policy. If omitted, Terraform will assign a random, unique name.
+    The name of the policy (always set).
     """
     name_prefix: pulumi.Output[str]
     """
     Creates a unique name beginning with the specified prefix. Conflicts with `name`.
     """
     policy: pulumi.Output[str]
-    """
-    The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-    """
     user: pulumi.Output[str]
     """
     IAM user to which to attach this policy.
@@ -31,10 +28,11 @@ class UserPolicy(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the policy. If omitted, Terraform will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the policy (always set).
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
         :param pulumi.Input[str] user: IAM user to which to attach this policy.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

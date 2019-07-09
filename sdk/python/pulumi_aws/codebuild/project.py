@@ -93,6 +93,8 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[dict] source: Information about the project's input source code. Source blocks are documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] vpc_config: Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codebuild_project.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

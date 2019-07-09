@@ -89,6 +89,8 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[list] supported_identity_providers: List of provider names for the identity providers that are supported on this client.
         :param pulumi.Input[str] user_pool_id: The user pool the client belongs to.
         :param pulumi.Input[list] write_attributes: List of user pool attributes the application client can write to.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_client.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

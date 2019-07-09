@@ -8,6 +8,8 @@ import (
 )
 
 // Provides information about a RDS cluster.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/rds_cluster.html.markdown.
 func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

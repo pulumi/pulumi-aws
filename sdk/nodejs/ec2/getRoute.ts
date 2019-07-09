@@ -34,6 +34,8 @@ import * as utilities from "../utilities";
  *     subnetId: subnetId,
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route.html.markdown.
  */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
     return pulumi.runtime.invoke("aws:ec2/getRoute:getRoute", {

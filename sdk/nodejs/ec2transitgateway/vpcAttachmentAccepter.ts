@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages the accepter's side of an EC2 Transit Gateway VPC Attachment.
- * 
- * When a cross-account (requester's AWS account differs from the accepter's AWS account) EC2 Transit Gateway VPC Attachment
- * is created, an EC2 Transit Gateway VPC Attachment resource is automatically created in the accepter's account.
- * The requester can use the `aws_ec2_transit_gateway_vpc_attachment` resource to manage its side of the connection
- * and the accepter can use the `aws_ec2_transit_gateway_vpc_attachment_accepter` resource to "adopt" its side of the
- * connection into management.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ec2transitgateway.VpcAttachmentAccepter("example", {
- *     tags: {
- *         Name: "Example cross-account attachment",
- *     },
- *     transitGatewayAttachmentId: aws_ec2_transit_gateway_vpc_attachment_example.id,
- * });
- * ```
- * 
- * A full example of how to how to create a Transit Gateway in one AWS account, share it with a second AWS account, and attach a VPC in the second account to the Transit Gateway via the `aws_ec2_transit_gateway_vpc_attachment` and `aws_ec2_transit_gateway_vpc_attachment_accepter` resources can be found in [the `./examples/transit-gateway-cross-account-vpc-attachment` directory within the Github Repository](https://github.com/terraform-providers/terraform-provider-aws/tree/master/examples/transit-gateway-cross-account-vpc-attachment).
- */
 export class VpcAttachmentAccepter extends pulumi.CustomResource {
     /**
      * Get an existing VpcAttachmentAccepter resource's state with the given name, ID, and optional extra

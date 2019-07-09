@@ -11,6 +11,8 @@ import (
 // Attaches a Managed IAM Policy to an IAM group
 // 
 // > **NOTE:** The usage of this resource conflicts with the `aws_iam_policy_attachment` resource and will permanently show a difference if both are defined.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_policy_attachment.html.markdown.
 type GroupPolicyAttachment struct {
 	s *pulumi.ResourceState
 }

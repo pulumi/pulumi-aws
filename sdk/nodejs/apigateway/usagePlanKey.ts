@@ -27,6 +27,8 @@ import * as utilities from "../utilities";
  *     usagePlanId: myusageplan.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_usage_plan_key.html.markdown.
  */
 export class UsagePlanKey extends pulumi.CustomResource {
     /**

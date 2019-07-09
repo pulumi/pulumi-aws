@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
  * > **NOTE on CodeCommit**: The CodeCommit is not yet rolled out
  * in all regions - available regions are listed
  * [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region).
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codecommit_trigger.html.markdown.
  */
 export class Trigger extends pulumi.CustomResource {
     /**

@@ -27,6 +27,8 @@ class RegexMatchSet(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name or description of the Regex Match Set.
         :param pulumi.Input[list] regex_match_tuples: The regular expression pattern that you want AWS WAF to search for in web requests,
                the location in requests that you want AWS WAF to search, and other settings. See below.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_regex_match_set.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

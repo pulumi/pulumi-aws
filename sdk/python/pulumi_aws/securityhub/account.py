@@ -11,14 +11,12 @@ from .. import utilities, tables
 class Account(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, __name__=None, __opts__=None):
         """
-        Enables Security Hub for this AWS account.
-        
-        > **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
-        
-        > **NOTE:** This AWS service is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between Terraform AWS Provider releases.
+        Create a Account resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_account.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

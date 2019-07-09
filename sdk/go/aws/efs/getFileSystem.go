@@ -8,6 +8,8 @@ import (
 )
 
 // Provides information about an Elastic File System (EFS).
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_file_system.html.markdown.
 func LookupFileSystem(ctx *pulumi.Context, args *GetFileSystemArgs) (*GetFileSystemResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

@@ -35,6 +35,8 @@ import * as utilities from "../utilities";
  *     instanceId: web.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eip_association.html.markdown.
  */
 export class EipAssociation extends pulumi.CustomResource {
     /**

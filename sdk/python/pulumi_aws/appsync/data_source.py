@@ -64,6 +64,8 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[str] name: A user-supplied name for the DataSource.
         :param pulumi.Input[str] service_role_arn: The IAM service role ARN for the data source.
         :param pulumi.Input[str] type: The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_datasource.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

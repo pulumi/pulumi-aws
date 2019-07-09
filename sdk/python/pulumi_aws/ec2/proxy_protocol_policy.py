@@ -29,6 +29,8 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
                should be applied. This can be specified if the protocol is SSL or TCP.
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy
                should be attached.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/proxy_protocol_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

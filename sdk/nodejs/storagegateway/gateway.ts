@@ -68,6 +68,8 @@ import * as utilities from "../utilities";
  *     gatewayType: "STORED",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_gateway.html.markdown.
  */
 export class Gateway extends pulumi.CustomResource {
     /**
@@ -108,9 +110,6 @@ export class Gateway extends pulumi.CustomResource {
      * Identifier of the gateway.
      */
     public /*out*/ readonly gatewayId!: pulumi.Output<string>;
-    /**
-     * Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where Terraform is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
-     */
     public readonly gatewayIpAddress!: pulumi.Output<string>;
     /**
      * Name of the gateway.
@@ -129,13 +128,7 @@ export class Gateway extends pulumi.CustomResource {
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      */
     public readonly smbActiveDirectorySettings!: pulumi.Output<{ domainName: string, password: string, username: string } | undefined>;
-    /**
-     * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. Terraform can only detect drift of the existence of a guest password, not its actual value from the gateway. Terraform can however update the password with changing the argument.
-     */
     public readonly smbGuestPassword!: pulumi.Output<string | undefined>;
-    /**
-     * Type of tape drive to use for tape gateway. Terraform cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
-     */
     public readonly tapeDriveType!: pulumi.Output<string | undefined>;
 
     /**
@@ -201,9 +194,6 @@ export interface GatewayState {
      * Identifier of the gateway.
      */
     readonly gatewayId?: pulumi.Input<string>;
-    /**
-     * Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where Terraform is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
-     */
     readonly gatewayIpAddress?: pulumi.Input<string>;
     /**
      * Name of the gateway.
@@ -222,13 +212,7 @@ export interface GatewayState {
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      */
     readonly smbActiveDirectorySettings?: pulumi.Input<{ domainName: pulumi.Input<string>, password: pulumi.Input<string>, username: pulumi.Input<string> }>;
-    /**
-     * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. Terraform can only detect drift of the existence of a guest password, not its actual value from the gateway. Terraform can however update the password with changing the argument.
-     */
     readonly smbGuestPassword?: pulumi.Input<string>;
-    /**
-     * Type of tape drive to use for tape gateway. Terraform cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
-     */
     readonly tapeDriveType?: pulumi.Input<string>;
 }
 
@@ -240,9 +224,6 @@ export interface GatewayArgs {
      * Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      */
     readonly activationKey?: pulumi.Input<string>;
-    /**
-     * Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where Terraform is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
-     */
     readonly gatewayIpAddress?: pulumi.Input<string>;
     /**
      * Name of the gateway.
@@ -261,12 +242,6 @@ export interface GatewayArgs {
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      */
     readonly smbActiveDirectorySettings?: pulumi.Input<{ domainName: pulumi.Input<string>, password: pulumi.Input<string>, username: pulumi.Input<string> }>;
-    /**
-     * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. Terraform can only detect drift of the existence of a guest password, not its actual value from the gateway. Terraform can however update the password with changing the argument.
-     */
     readonly smbGuestPassword?: pulumi.Input<string>;
-    /**
-     * Type of tape drive to use for tape gateway. Terraform cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
-     */
     readonly tapeDriveType?: pulumi.Input<string>;
 }

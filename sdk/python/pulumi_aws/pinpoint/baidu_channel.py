@@ -38,6 +38,8 @@ class BaiduChannel(pulumi.CustomResource):
         :param pulumi.Input[str] application_id: The application ID.
         :param pulumi.Input[bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
         :param pulumi.Input[str] secret_key: Platform credential Secret key from Baidu.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_baidu_channel.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

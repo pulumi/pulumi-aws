@@ -8,6 +8,8 @@ import (
 )
 
 // Manages a Route53 Hosted Zone.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone.html.markdown.
 type Zone struct {
 	s *pulumi.ResourceState
 }
@@ -72,7 +74,6 @@ func (r *Zone) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// A comment for the hosted zone. Defaults to 'Managed by Terraform'.
 func (r *Zone) Comment() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["comment"])
 }
@@ -82,7 +83,6 @@ func (r *Zone) DelegationSetId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["delegationSetId"])
 }
 
-// Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone.
 func (r *Zone) ForceDestroy() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["forceDestroy"])
 }
@@ -115,11 +115,9 @@ func (r *Zone) ZoneId() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Zone resources.
 type ZoneState struct {
-	// A comment for the hosted zone. Defaults to 'Managed by Terraform'.
 	Comment interface{}
 	// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
 	DelegationSetId interface{}
-	// Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone.
 	ForceDestroy interface{}
 	// This is the name of the hosted zone.
 	Name interface{}
@@ -136,11 +134,9 @@ type ZoneState struct {
 
 // The set of arguments for constructing a Zone resource.
 type ZoneArgs struct {
-	// A comment for the hosted zone. Defaults to 'Managed by Terraform'.
 	Comment interface{}
 	// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
 	DelegationSetId interface{}
-	// Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone.
 	ForceDestroy interface{}
 	// This is the name of the hosted zone.
 	Name interface{}

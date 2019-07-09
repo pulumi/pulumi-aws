@@ -9,6 +9,8 @@ import (
 
 // The CloudFormation Stack data source allows access to stack
 // outputs and other useful data including the template body.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudformation_stack.html.markdown.
 func LookupStack(ctx *pulumi.Context, args *GetStackArgs) (*GetStackResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

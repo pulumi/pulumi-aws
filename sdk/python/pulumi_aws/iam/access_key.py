@@ -10,11 +10,6 @@ from .. import utilities, tables
 
 class AccessKey(pulumi.CustomResource):
     encrypted_secret: pulumi.Output[str]
-    """
-    The encrypted secret, base64 encoded.
-    > **NOTE:** The encrypted secret may be decrypted using the command line,
-    for example: `terraform output encrypted_secret | base64 --decode | keybase pgp decrypt`.
-    """
     key_fingerprint: pulumi.Output[str]
     """
     The fingerprint of the PGP key used to encrypt
@@ -57,6 +52,8 @@ class AccessKey(pulumi.CustomResource):
         :param pulumi.Input[str] status: The access key status to apply. Defaults to `Active`.
                Valid values are `Active` and `Inactive`.
         :param pulumi.Input[str] user: The IAM user to associate with this access key.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_access_key.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

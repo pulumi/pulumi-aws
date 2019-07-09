@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  *     layerName: layerName,
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_layer_version.html.markdown.
  */
 export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerVersionResult> {
     return pulumi.runtime.invoke("aws:lambda/getLayerVersion:getLayerVersion", {

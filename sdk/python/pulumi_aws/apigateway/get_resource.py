@@ -42,6 +42,8 @@ async def get_resource(path=None,rest_api_id=None,opts=None):
     """
     Use this data source to get the id of a Resource in API Gateway. 
     To fetch the Resource, you must provide the REST API id as well as the full path.  
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_resource.html.markdown.
     """
     __args__ = dict()
 

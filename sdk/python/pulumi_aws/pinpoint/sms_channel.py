@@ -43,6 +43,8 @@ class SmsChannel(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
         :param pulumi.Input[str] sender_id: Sender identifier of your messages.
         :param pulumi.Input[str] short_code: The Short Code registered with the phone provider.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_sms_channel.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

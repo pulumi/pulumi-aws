@@ -44,6 +44,8 @@ import * as utilities from "../utilities";
  *     targetId: aws_organizations_organizational_unit_example.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_policy_attachment.html.markdown.
  */
 export class PolicyAttachment extends pulumi.CustomResource {
     /**

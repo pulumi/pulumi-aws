@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an IoT policy attachment.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_policy_attachment.html.markdown.
 type PolicyAttachment struct {
 	s *pulumi.ResourceState
 }

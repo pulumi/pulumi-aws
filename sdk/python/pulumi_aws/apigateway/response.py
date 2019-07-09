@@ -40,6 +40,8 @@ class Response(pulumi.CustomResource):
         :param pulumi.Input[str] response_type: The response type of the associated GatewayResponse.
         :param pulumi.Input[str] rest_api_id: The string identifier of the associated REST API.
         :param pulumi.Input[str] status_code: The HTTP status code of the Gateway Response.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_gateway_response.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

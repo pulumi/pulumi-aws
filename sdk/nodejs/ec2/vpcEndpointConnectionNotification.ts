@@ -41,6 +41,8 @@ import * as utilities from "../utilities";
  *     vpcEndpointServiceId: fooVpcEndpointService.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_connection_notification.html.markdown.
  */
 export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
     /**

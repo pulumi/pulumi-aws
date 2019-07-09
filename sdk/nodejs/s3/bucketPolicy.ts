@@ -39,6 +39,8 @@ import {PolicyDocument} from "../iam/documents";
  * `,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_policy.html.markdown.
  */
 export class BucketPolicy extends pulumi.CustomResource {
     /**
@@ -71,9 +73,6 @@ export class BucketPolicy extends pulumi.CustomResource {
      * The name of the bucket to which to apply the policy.
      */
     public readonly bucket!: pulumi.Output<string>;
-    /**
-     * The text of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -113,9 +112,6 @@ export interface BucketPolicyState {
      * The name of the bucket to which to apply the policy.
      */
     readonly bucket?: pulumi.Input<string>;
-    /**
-     * The text of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
 }
 
@@ -127,8 +123,5 @@ export interface BucketPolicyArgs {
      * The name of the bucket to which to apply the policy.
      */
     readonly bucket: pulumi.Input<string>;
-    /**
-     * The text of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     readonly policy: pulumi.Input<string | PolicyDocument>;
 }

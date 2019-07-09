@@ -21,6 +21,8 @@ import * as utilities from "../utilities";
  *     userArn: aws_iam_user_user.arn,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_permission.html.markdown.
  */
 export class Permission extends pulumi.CustomResource {
     /**

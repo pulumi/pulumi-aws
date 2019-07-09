@@ -30,6 +30,8 @@ class UserGroupMembership(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] groups: A list of [IAM Groups][1] to add the user to
         :param pulumi.Input[str] user: The name of the [IAM User][2] to add to groups
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_group_membership.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

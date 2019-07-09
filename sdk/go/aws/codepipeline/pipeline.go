@@ -11,6 +11,8 @@ import (
 // Provides a CodePipeline.
 // 
 // > **NOTE on `aws_codepipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline.html.markdown.
 type Pipeline struct {
 	s *pulumi.ResourceState
 }

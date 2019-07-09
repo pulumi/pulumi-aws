@@ -13,6 +13,8 @@ import (
 // > **NOTE:** ElastiCache Subnet Groups are only for use when working with an
 // ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
 // ElastiCache Security Group resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_subnet_group.html.markdown.
 type SubnetGroup struct {
 	s *pulumi.ResourceState
 }
@@ -67,7 +69,6 @@ func (r *SubnetGroup) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Description for the cache subnet group. Defaults to "Managed by Terraform".
 func (r *SubnetGroup) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -84,7 +85,6 @@ func (r *SubnetGroup) SubnetIds() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering SubnetGroup resources.
 type SubnetGroupState struct {
-	// Description for the cache subnet group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// Name for the cache subnet group. Elasticache converts this name to lowercase.
 	Name interface{}
@@ -94,7 +94,6 @@ type SubnetGroupState struct {
 
 // The set of arguments for constructing a SubnetGroup resource.
 type SubnetGroupArgs struct {
-	// Description for the cache subnet group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// Name for the cache subnet group. Elasticache converts this name to lowercase.
 	Name interface{}

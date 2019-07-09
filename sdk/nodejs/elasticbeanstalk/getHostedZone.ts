@@ -15,6 +15,8 @@ import * as utilities from "../utilities";
  * 
  * const current = pulumi.output(aws.elasticbeanstalk.getHostedZone({}));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_hosted_zone.html.markdown.
  */
 export function getHostedZone(args?: GetHostedZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneResult> {
     args = args || {};

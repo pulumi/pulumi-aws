@@ -15,13 +15,13 @@ class EncryptionByDefault(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, enabled=None, __name__=None, __opts__=None):
         """
-        Provides a resource to manage whether default EBS encryption is enabled for your AWS account in the current AWS region. To manage the default KMS key for the region, see the [`aws_ebs_default_kms_key` resource](https://www.terraform.io/docs/providers/aws/r/ebs_default_kms_key.html).
-        
-        > **NOTE:** Removing this Terraform resource disables default EBS encryption.
+        Create a EncryptionByDefault resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_encryption_by_default.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

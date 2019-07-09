@@ -57,6 +57,8 @@ async def get_route(destination_cidr_block=None,destination_ipv6_cidr_block=None
     This resource can prove useful when finding the resource
     associated with a CIDR. For example, finding the peering
     connection associated with a CIDR value.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route.html.markdown.
     """
     __args__ = dict()
 

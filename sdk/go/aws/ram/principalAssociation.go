@@ -11,6 +11,8 @@ import (
 // Provides a Resource Access Manager (RAM) principal association.
 // 
 // > *NOTE:* For an AWS Account ID principal, the target account must accept the RAM association invitation after resource creation.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ram_principal_association.html.markdown.
 type PrincipalAssociation struct {
 	s *pulumi.ResourceState
 }

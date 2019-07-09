@@ -8,6 +8,8 @@ import (
 )
 
 // Provides information about an Elastic File System Mount Target (EFS).
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_mount_target.html.markdown.
 func LookupMountTarget(ctx *pulumi.Context, args *GetMountTargetArgs) (*GetMountTargetResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

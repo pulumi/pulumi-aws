@@ -71,6 +71,8 @@ class ApplicationVersion(pulumi.CustomResource):
         :param pulumi.Input[str] key: S3 object that is the Application Version source bundle.
         :param pulumi.Input[str] name: A unique name for the this Application Version.
         :param pulumi.Input[dict] tags: Key-value mapping of tags for the Elastic Beanstalk Application Version.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application_version.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

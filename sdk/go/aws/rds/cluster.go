@@ -7,25 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a [RDS Aurora Cluster][2]. To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the [`aws_rds_cluster_instance` resource](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html). To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the [`aws_db_instance` resource](https://www.terraform.io/docs/providers/aws/r/db_instance.html).
-// 
-// For information on the difference between the available Aurora MySQL engines
-// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
-// in the Amazon RDS User Guide.
-// 
-// Changes to a RDS Cluster can occur when you manually change a
-// parameter, such as `port`, and are reflected in the next maintenance
-// window. Because of this, Terraform may report a difference in its planning
-// phase because a modification has not yet taken place. You can use the
-// `apply_immediately` flag to instruct the service to apply the change immediately
-// (see documentation below).
-// 
-// > **Note:** using `apply_immediately` can result in a
-// brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance][4]
-// for more information.
-// 
-// > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 type Cluster struct {
 	s *pulumi.ResourceState
 }
@@ -195,7 +176,7 @@ func (r *Cluster) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next Terraform apply. It is recommended to specify 3 AZs or use [the `lifecycle` configuration block `ignore_changes` argument](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) if necessary.
+// The availability zone of the instance
 func (r *Cluster) AvailabilityZones() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["availabilityZones"])
 }
@@ -210,7 +191,7 @@ func (r *Cluster) BackupRetentionPeriod() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["backupRetentionPeriod"])
 }
 
-// The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+// The RDS Cluster Identifier
 func (r *Cluster) ClusterIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterIdentifier"])
 }
@@ -399,13 +380,13 @@ type ClusterState struct {
 	ApplyImmediately interface{}
 	// Amazon Resource Name (ARN) of cluster
 	Arn interface{}
-	// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next Terraform apply. It is recommended to specify 3 AZs or use [the `lifecycle` configuration block `ignore_changes` argument](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) if necessary.
+	// The availability zone of the instance
 	AvailabilityZones interface{}
 	// The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow interface{}
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod interface{}
-	// The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+	// The RDS Cluster Identifier
 	ClusterIdentifier interface{}
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
 	ClusterIdentifierPrefix interface{}
@@ -489,13 +470,13 @@ type ClusterArgs struct {
 	// are applied immediately, or during the next maintenance window. Default is
 	// `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
 	ApplyImmediately interface{}
-	// A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next Terraform apply. It is recommended to specify 3 AZs or use [the `lifecycle` configuration block `ignore_changes` argument](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) if necessary.
+	// The availability zone of the instance
 	AvailabilityZones interface{}
 	// The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow interface{}
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod interface{}
-	// The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+	// The RDS Cluster Identifier
 	ClusterIdentifier interface{}
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
 	ClusterIdentifierPrefix interface{}

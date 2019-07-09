@@ -21,6 +21,8 @@ import (
 // `timeout` supports the following:
 // 
 // * `attempt_duration_seconds` - (Optional) The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_job_definition.html.markdown.
 type JobDefinition struct {
 	s *pulumi.ResourceState
 }

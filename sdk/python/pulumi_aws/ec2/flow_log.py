@@ -56,6 +56,8 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_id: Subnet ID to attach to
         :param pulumi.Input[str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
         :param pulumi.Input[str] vpc_id: VPC ID to attach to
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/flow_log.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

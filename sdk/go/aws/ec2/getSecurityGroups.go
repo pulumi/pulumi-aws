@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to get IDs and VPC membership of Security Groups that are created
-// outside of Terraform.
 func LookupSecurityGroups(ctx *pulumi.Context, args *GetSecurityGroupsArgs) (*GetSecurityGroupsResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

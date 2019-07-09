@@ -35,6 +35,8 @@ class MethodSettings(pulumi.CustomResource):
         :param pulumi.Input[str] rest_api: The ID of the REST API
         :param pulumi.Input[dict] settings: The settings block, see below.
         :param pulumi.Input[str] stage_name: The name of the stage
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method_settings.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

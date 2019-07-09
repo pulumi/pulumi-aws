@@ -10,6 +10,8 @@ import (
 // `aws_route53_zone` provides details about a specific Route 53 Hosted Zone.
 // 
 // This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_zone.html.markdown.
 func LookupZone(ctx *pulumi.Context, args *GetZoneArgs) (*GetZoneResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

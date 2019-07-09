@@ -71,6 +71,8 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[list] task_parameters: A structure containing information about parameters required by the particular `task_arn`. Documented below.
         :param pulumi.Input[str] task_type: The type of task being registered. The only allowed value is `RUN_COMMAND`.
         :param pulumi.Input[str] window_id: The Id of the maintenance window to register the task with.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window_task.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

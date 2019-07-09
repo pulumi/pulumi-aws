@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a resource to manage a GuardDuty member. To accept invitations in member accounts, see the [`aws_guardduty_invite_accepter` resource](https://www.terraform.io/docs/providers/aws/r/guardduty_invite_accepter.html).
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/guardduty_member.html.markdown.
 type Member struct {
 	s *pulumi.ResourceState
 }
@@ -105,7 +107,6 @@ func (r *Member) InvitationMessage() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["invitationMessage"])
 }
 
-// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the Terraform state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
 func (r *Member) Invite() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["invite"])
 }
@@ -127,7 +128,6 @@ type MemberState struct {
 	Email interface{}
 	// Message for invitation.
 	InvitationMessage interface{}
-	// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the Terraform state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
 	Invite interface{}
 	// The status of the relationship between the member account and its master account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
 	RelationshipStatus interface{}
@@ -145,6 +145,5 @@ type MemberArgs struct {
 	Email interface{}
 	// Message for invitation.
 	InvitationMessage interface{}
-	// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the Terraform state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
 	Invite interface{}
 }

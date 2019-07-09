@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an IAM role.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role.html.markdown.
 type Role struct {
 	s *pulumi.ResourceState
 }
@@ -117,7 +119,7 @@ func (r *Role) MaxSessionDuration() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["maxSessionDuration"])
 }
 
-// The name of the role. If omitted, Terraform will assign a random, unique name.
+// The name of the role.
 func (r *Role) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -162,7 +164,7 @@ type RoleState struct {
 	ForceDetachPolicies interface{}
 	// The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	MaxSessionDuration interface{}
-	// The name of the role. If omitted, Terraform will assign a random, unique name.
+	// The name of the role.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
@@ -187,7 +189,7 @@ type RoleArgs struct {
 	ForceDetachPolicies interface{}
 	// The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	MaxSessionDuration interface{}
-	// The name of the role. If omitted, Terraform will assign a random, unique name.
+	// The name of the role.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}

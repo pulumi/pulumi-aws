@@ -9,6 +9,8 @@ import (
 
 // Use this data source to get the pricing information of all products in AWS.
 // This data source is only available in a us-east-1 or ap-south-1 provider.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/pricing_product.html.markdown.
 func LookupProduct(ctx *pulumi.Context, args *GetProductArgs) (*GetProductResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

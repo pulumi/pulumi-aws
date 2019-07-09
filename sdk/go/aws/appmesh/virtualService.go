@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an AWS App Mesh virtual service resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_virtual_service.html.markdown.
 type VirtualService struct {
 	s *pulumi.ResourceState
 }

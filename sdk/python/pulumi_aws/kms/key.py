@@ -41,9 +41,6 @@ class Key(pulumi.CustomResource):
     Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
     """
     policy: pulumi.Output[str]
-    """
-    A valid policy JSON document. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the object.
@@ -62,8 +59,9 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[bool] is_enabled: Specifies whether the key is enabled. Defaults to true.
         :param pulumi.Input[str] key_usage: Specifies the intended use of the key.
                Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
-        :param pulumi.Input[str] policy: A valid policy JSON document. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_key.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

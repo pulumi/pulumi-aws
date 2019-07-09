@@ -45,12 +45,7 @@ class InstanceGroup(pulumi.CustomResource):
     status: pulumi.Output[str]
     def __init__(__self__, resource_name, opts=None, autoscaling_policy=None, bid_price=None, cluster_id=None, ebs_configs=None, ebs_optimized=None, instance_count=None, instance_type=None, name=None, __name__=None, __opts__=None):
         """
-        Provides an Elastic MapReduce Cluster Instance Group configuration.
-        See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
-        
-        > **NOTE:** At this time, Instance Groups cannot be destroyed through the API nor
-        web interface. Instance Groups are destroyed when the EMR Cluster is destroyed.
-        Terraform will resize any Instance Group to zero when destroying the resource.
+        Create a InstanceGroup resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -62,6 +57,8 @@ class InstanceGroup(pulumi.CustomResource):
         :param pulumi.Input[float] instance_count: target number of instances for the instance group. defaults to 0.
         :param pulumi.Input[str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Human friendly name given to the instance group. Changing this forces a new resource to be created.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/emr_instance_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -17,6 +17,8 @@ import * as utilities from "../utilities";
  *     name: "tableName",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dynamodb_table.html.markdown.
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
     return pulumi.runtime.invoke("aws:dynamodb/getTable:getTable", {

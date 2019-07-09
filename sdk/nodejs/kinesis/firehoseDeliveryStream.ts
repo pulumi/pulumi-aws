@@ -214,6 +214,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_firehose_delivery_stream.html.markdown.
  */
 export class FirehoseDeliveryStream extends pulumi.CustomResource {
     /**

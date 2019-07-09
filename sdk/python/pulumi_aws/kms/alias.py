@@ -32,9 +32,7 @@ class Alias(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, name=None, name_prefix=None, target_key_id=None, __name__=None, __opts__=None):
         """
-        Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases & keys,
-        but API (hence Terraform too) allows you to create as many aliases as
-        the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
+        Create a Alias resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -42,6 +40,8 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates an unique alias beginning with the specified prefix.
                The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
         :param pulumi.Input[str] target_key_id: Identifier for the key for which the alias is for, can be either an ARN or key_id.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_alias.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

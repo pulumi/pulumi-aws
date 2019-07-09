@@ -33,6 +33,8 @@ import * as utilities from "../utilities";
  *     userPoolId: pool.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_client.html.markdown.
  */
 export class UserPoolClient extends pulumi.CustomResource {
     /**

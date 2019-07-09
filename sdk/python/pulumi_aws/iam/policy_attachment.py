@@ -31,11 +31,7 @@ class PolicyAttachment(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, groups=None, name=None, policy_arn=None, roles=None, users=None, __name__=None, __opts__=None):
         """
-        Attaches a Managed IAM Policy to user(s), role(s), and/or group(s)
-        
-        !> **WARNING:** The aws_iam_policy_attachment resource creates **exclusive** attachments of IAM policies. Across the entire AWS account, all of the users/roles/groups to which a single policy is attached must be declared by a single aws_iam_policy_attachment resource. This means that even any users/roles/groups that have the attached policy via any other mechanism (including other Terraform resources) will have that attached policy revoked by this resource. Consider `aws_iam_role_policy_attachment`, `aws_iam_user_policy_attachment`, or `aws_iam_group_policy_attachment` instead. These resources do not enforce exclusive attachment of an IAM policy.
-        
-        > **NOTE:** The usage of this resource conflicts with the `aws_iam_group_policy_attachment`, `aws_iam_role_policy_attachment`, and `aws_iam_user_policy_attachment` resources and will permanently show a difference if both are defined.
+        Create a PolicyAttachment resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -44,6 +40,8 @@ class PolicyAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
         :param pulumi.Input[list] roles: The role(s) the policy should be applied to
         :param pulumi.Input[list] users: The user(s) the policy should be applied to
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_policy_attachment.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

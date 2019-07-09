@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  *     repositoryName: "my/service",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_image.html.markdown.
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
     return pulumi.runtime.invoke("aws:ecr/getImage:getImage", {

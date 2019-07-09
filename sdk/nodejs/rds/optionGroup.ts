@@ -4,47 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an RDS DB option group resource. Documentation of the available options for various RDS engines can be found at:
- * * [MariaDB Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Options.html)
- * * [Microsoft SQL Server Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.Options.html)
- * * [MySQL Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.Options.html)
- * * [Oracle Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.html)
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.rds.OptionGroup("example", {
- *     engineName: "sqlserver-ee",
- *     majorEngineVersion: "11.00",
- *     options: [
- *         {
- *             optionName: "Timezone",
- *             optionSettings: [{
- *                 name: "TIME_ZONE",
- *                 value: "UTC",
- *             }],
- *         },
- *         {
- *             optionName: "SQLSERVER_BACKUP_RESTORE",
- *             optionSettings: [{
- *                 name: "IAM_ROLE_ARN",
- *                 value: aws_iam_role_example.arn,
- *             }],
- *         },
- *         {
- *             optionName: "TDE",
- *         },
- *     ],
- *     optionGroupDescription: "Terraform Option Group",
- * });
- * ```
- * 
- * > **Note**: Any modifications to the `db_option_group` are set to happen immediately as we default to applying immediately.
- */
 export class OptionGroup extends pulumi.CustomResource {
     /**
      * Get an existing OptionGroup resource's state with the given name, ID, and optional extra
@@ -96,9 +55,6 @@ export class OptionGroup extends pulumi.CustomResource {
      * A list of Options to apply.
      */
     public readonly options!: pulumi.Output<{ dbSecurityGroupMemberships?: string[], optionName: string, optionSettings?: { name: string, value: string }[], port?: number, version?: string, vpcSecurityGroupMemberships?: string[] }[] | undefined>;
-    /**
-     * The description of the option group. Defaults to "Managed by Terraform".
-     */
     public readonly optionGroupDescription!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
@@ -174,9 +130,6 @@ export interface OptionGroupState {
      * A list of Options to apply.
      */
     readonly options?: pulumi.Input<pulumi.Input<{ dbSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]>, optionName: pulumi.Input<string>, optionSettings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, port?: pulumi.Input<number>, version?: pulumi.Input<string>, vpcSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
-    /**
-     * The description of the option group. Defaults to "Managed by Terraform".
-     */
     readonly optionGroupDescription?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
@@ -208,9 +161,6 @@ export interface OptionGroupArgs {
      * A list of Options to apply.
      */
     readonly options?: pulumi.Input<pulumi.Input<{ dbSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]>, optionName: pulumi.Input<string>, optionSettings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, port?: pulumi.Input<number>, version?: pulumi.Input<string>, vpcSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
-    /**
-     * The description of the option group. Defaults to "Managed by Terraform".
-     */
     readonly optionGroupDescription?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.

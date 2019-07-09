@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a CloudWatch Metric Alarm resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_metric_alarm.html.markdown.
 type MetricAlarm struct {
 	s *pulumi.ResourceState
 }

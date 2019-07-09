@@ -4,23 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an SWF Domain resource.
- * 
- * ## Example Usage
- * 
- * To register a basic SWF domain:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const foo = new aws.swf.Domain("foo", {
- *     description: "Terraform SWF Domain",
- *     workflowExecutionRetentionPeriodInDays: "30",
- * });
- * ```
- */
 export class Domain extends pulumi.CustomResource {
     /**
      * Get an existing Domain resource's state with the given name, ID, and optional extra
@@ -52,9 +35,6 @@ export class Domain extends pulumi.CustomResource {
      * The domain description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the domain. If omitted, Terraform will assign a random, unique name.
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -103,9 +83,6 @@ export interface DomainState {
      * The domain description.
      */
     readonly description?: pulumi.Input<string>;
-    /**
-     * The name of the domain. If omitted, Terraform will assign a random, unique name.
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -125,9 +102,6 @@ export interface DomainArgs {
      * The domain description.
      */
     readonly description?: pulumi.Input<string>;
-    /**
-     * The name of the domain. If omitted, Terraform will assign a random, unique name.
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.

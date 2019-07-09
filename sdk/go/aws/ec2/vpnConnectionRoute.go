@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a static route between a VPN connection and a customer gateway.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_connection_route.html.markdown.
 type VpnConnectionRoute struct {
 	s *pulumi.ResourceState
 }

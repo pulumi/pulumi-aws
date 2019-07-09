@@ -8,6 +8,8 @@ import (
 )
 
 // `aws_internet_gateway` provides details about a specific Internet Gateway.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/internet_gateway.html.markdown.
 func LookupInternetGateway(ctx *pulumi.Context, args *GetInternetGatewayArgs) (*GetInternetGatewayResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

@@ -9,6 +9,8 @@ import (
 )
 
 // Manages an EC2 Transit Gateway VPC Attachment. For examples of custom route table association and propagation, see the EC2 Transit Gateway Networking Examples Guide.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_vpc_attachment.html.markdown.
 type VpcAttachment struct {
 	s *pulumi.ResourceState
 }

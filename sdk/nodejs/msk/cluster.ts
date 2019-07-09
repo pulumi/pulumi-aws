@@ -66,6 +66,8 @@ import * as utilities from "../utilities";
  * export const bootstrapBrokersTls = example.bootstrapBrokersTls;
  * export const zookeeperConnectString = example.zookeeperConnectString;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/msk_cluster.html.markdown.
  */
 export class Cluster extends pulumi.CustomResource {
     /**

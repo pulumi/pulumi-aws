@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an AppSync API Key.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_api_key.html.markdown.
 type ApiKey struct {
 	s *pulumi.ResourceState
 }
@@ -70,7 +72,6 @@ func (r *ApiKey) ApiId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["apiId"])
 }
 
-// The API key description. Defaults to "Managed by Terraform".
 func (r *ApiKey) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -89,7 +90,6 @@ func (r *ApiKey) Key() *pulumi.StringOutput {
 type ApiKeyState struct {
 	// The ID of the associated AppSync API
 	ApiId interface{}
-	// The API key description. Defaults to "Managed by Terraform".
 	Description interface{}
 	// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
 	Expires interface{}
@@ -101,7 +101,6 @@ type ApiKeyState struct {
 type ApiKeyArgs struct {
 	// The ID of the associated AppSync API
 	ApiId interface{}
-	// The API key description. Defaults to "Managed by Terraform".
 	Description interface{}
 	// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
 	Expires interface{}

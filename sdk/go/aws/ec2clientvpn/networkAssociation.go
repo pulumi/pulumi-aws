@@ -10,6 +10,8 @@ import (
 
 // Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the 
 // [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_client_vpn_network_association.html.markdown.
 type NetworkAssociation struct {
 	s *pulumi.ResourceState
 }

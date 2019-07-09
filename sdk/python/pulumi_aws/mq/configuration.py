@@ -59,6 +59,8 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version: The version of the broker engine.
         :param pulumi.Input[str] name: The name of the configuration
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/mq_configuration.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

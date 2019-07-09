@@ -18,6 +18,8 @@ import (
 // Practically no single attribute can be updated except TAGS.
 // If you need to delete a cluster, you have to remove its HSM modules first.
 // To initialize cluster you have to sign CSR and upload it.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudhsm_v2_cluster.html.markdown.
 type Cluster struct {
 	s *pulumi.ResourceState
 }

@@ -4,49 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const terraformQueue = new aws.sqs.Queue("terraform_queue", {
- *     delaySeconds: 90,
- *     maxMessageSize: 2048,
- *     messageRetentionSeconds: 86400,
- *     receiveWaitTimeSeconds: 10,
- *     redrivePolicy: pulumi.interpolate`{"deadLetterTargetArn":"${aws_sqs_queue_terraform_queue_deadletter.arn}","maxReceiveCount":4}`,
- *     tags: {
- *         Environment: "production",
- *     },
- * });
- * ```
- * 
- * ## FIFO queue
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const terraformQueue = new aws.sqs.Queue("terraform_queue", {
- *     contentBasedDeduplication: true,
- *     fifoQueue: true,
- * });
- * ```
- * 
- * ## Server-side encryption (SSE)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const terraformQueue = new aws.sqs.Queue("terraform_queue", {
- *     kmsDataKeyReusePeriodSeconds: 300,
- *     kmsMasterKeyId: "alias/aws/sqs",
- * });
- * ```
- */
 export class Queue extends pulumi.CustomResource {
     /**
      * Get an existing Queue resource's state with the given name, ID, and optional extra
@@ -106,17 +63,11 @@ export class Queue extends pulumi.CustomResource {
      * The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
      */
     public readonly messageRetentionSeconds!: pulumi.Output<number | undefined>;
-    /**
-     * This is the human-readable name of the queue. If omitted, Terraform will assign a random name.
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
-    /**
-     * The JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
@@ -220,17 +171,11 @@ export interface QueueState {
      * The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
      */
     readonly messageRetentionSeconds?: pulumi.Input<number>;
-    /**
-     * This is the human-readable name of the queue. If omitted, Terraform will assign a random name.
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
-    /**
-     * The JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     readonly policy?: pulumi.Input<string>;
     /**
      * The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
@@ -282,17 +227,11 @@ export interface QueueArgs {
      * The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
      */
     readonly messageRetentionSeconds?: pulumi.Input<number>;
-    /**
-     * This is the human-readable name of the queue. If omitted, Terraform will assign a random name.
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
-    /**
-     * The JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     readonly policy?: pulumi.Input<string>;
     /**
      * The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.

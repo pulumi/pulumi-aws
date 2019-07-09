@@ -41,6 +41,8 @@ import {ARN} from "../index";
  *     target: cert.arn,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_policy_attachment.html.markdown.
  */
 export class PolicyAttachment extends pulumi.CustomResource {
     /**

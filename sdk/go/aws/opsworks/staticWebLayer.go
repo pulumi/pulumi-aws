@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an OpsWorks static web server layer resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_static_web_layer.html.markdown.
 type StaticWebLayer struct {
 	s *pulumi.ResourceState
 }

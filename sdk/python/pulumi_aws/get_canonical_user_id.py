@@ -27,10 +27,6 @@ class GetCanonicalUserIdResult:
         """
 
 async def get_canonical_user_id(opts=None):
-    """
-    The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
-    for the effective account in which Terraform is working.  
-    """
     __args__ = dict()
 
     __ret__ = await pulumi.runtime.invoke('aws:index/getCanonicalUserId:getCanonicalUserId', __args__, opts=opts)

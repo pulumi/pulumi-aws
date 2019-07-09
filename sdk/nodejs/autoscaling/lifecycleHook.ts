@@ -4,51 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AutoScaling Lifecycle Hook resource.
- * 
- * > **NOTE:** Terraform has two types of ways you can add lifecycle hooks - via
- * the `initial_lifecycle_hook` attribute from the
- * [`aws_autoscaling_group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html)
- * resource, or via this one. Hooks added via this resource will not be added
- * until the autoscaling group has been created, and depending on your
- * [capacity](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html#waiting-for-capacity)
- * settings, after the initial instances have been launched, creating unintended
- * behavior. If you need hooks to run on all instances, add them with
- * `initial_lifecycle_hook` in
- * [`aws_autoscaling_group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
- * but take care to not duplicate those hooks with this resource.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const foobarGroup = new aws.autoscaling.Group("foobar", {
- *     availabilityZones: ["us-west-2a"],
- *     healthCheckType: "EC2",
- *     tags: [{
- *         key: "Foo",
- *         propagateAtLaunch: true,
- *         value: "foo-bar",
- *     }],
- *     terminationPolicies: ["OldestInstance"],
- * });
- * const foobarLifecycleHook = new aws.autoscaling.LifecycleHook("foobar", {
- *     autoscalingGroupName: foobarGroup.name,
- *     defaultResult: "CONTINUE",
- *     heartbeatTimeout: 2000,
- *     lifecycleTransition: "autoscaling:EC2_INSTANCE_LAUNCHING",
- *     notificationMetadata: `{
- *   "foo": "bar"
- * }
- * `,
- *     notificationTargetArn: "arn:aws:sqs:us-east-1:444455556666:queue1*",
- *     roleArn: "arn:aws:iam::123456789012:role/S3Access",
- * });
- * ```
- */
 export class LifecycleHook extends pulumi.CustomResource {
     /**
      * Get an existing LifecycleHook resource's state with the given name, ID, and optional extra

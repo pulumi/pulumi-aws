@@ -12,6 +12,8 @@ import (
 // 
 // > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_apns_voip_sandbox_channel.html.markdown.
 type ApnsVoipSandboxChannel struct {
 	s *pulumi.ResourceState
 }

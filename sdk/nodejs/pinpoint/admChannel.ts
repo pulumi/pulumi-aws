@@ -25,6 +25,8 @@ import * as utilities from "../utilities";
  *     enabled: true,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_adm_channel.html.markdown.
  */
 export class AdmChannel extends pulumi.CustomResource {
     /**

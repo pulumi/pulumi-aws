@@ -38,6 +38,8 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster_instance.html.markdown.
  */
 export class ClusterInstance extends pulumi.CustomResource {
     /**
@@ -107,9 +109,6 @@ export class ClusterInstance extends pulumi.CustomResource {
      * The neptune engine version.
      */
     public readonly engineVersion!: pulumi.Output<string>;
-    /**
-     * The indentifier for the neptune instance, if omitted, Terraform will assign a random, unique identifier.
-     */
     public readonly identifier!: pulumi.Output<string>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -283,9 +282,6 @@ export interface ClusterInstanceState {
      * The neptune engine version.
      */
     readonly engineVersion?: pulumi.Input<string>;
-    /**
-     * The indentifier for the neptune instance, if omitted, Terraform will assign a random, unique identifier.
-     */
     readonly identifier?: pulumi.Input<string>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -371,9 +367,6 @@ export interface ClusterInstanceArgs {
      * The neptune engine version.
      */
     readonly engineVersion?: pulumi.Input<string>;
-    /**
-     * The indentifier for the neptune instance, if omitted, Terraform will assign a random, unique identifier.
-     */
     readonly identifier?: pulumi.Input<string>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.

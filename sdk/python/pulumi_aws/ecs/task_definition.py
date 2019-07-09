@@ -103,6 +103,8 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] task_role_arn: The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         :param pulumi.Input[list] volumes: A set of volume blocks that containers in your task may use.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_task_definition.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

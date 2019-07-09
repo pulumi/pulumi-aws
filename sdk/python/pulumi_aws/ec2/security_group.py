@@ -15,10 +15,7 @@ class SecurityGroup(pulumi.CustomResource):
     """
     description: pulumi.Output[str]
     """
-    The security group description. Defaults to
-    "Managed by Terraform". Cannot be "". __NOTE__: This field maps to the AWS
-    `GroupDescription` attribute, for which there is no Update API. If you'd like
-    to classify your security groups in a way that can be updated, use `tags`.
+    The description of the security group
     """
     egress: pulumi.Output[list]
     """
@@ -34,8 +31,7 @@ class SecurityGroup(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    The name of the security group. If omitted, Terraform will
-    assign a random, unique name
+    The name of the security group
     """
     name_prefix: pulumi.Output[str]
     """
@@ -47,15 +43,6 @@ class SecurityGroup(pulumi.CustomResource):
     The owner ID.
     """
     revoke_rules_on_delete: pulumi.Output[bool]
-    """
-    Instruct Terraform to revoke all of the
-    Security Groups attached ingress and egress rules before deleting the rule
-    itself. This is normally not needed, however certain AWS services such as
-    Elastic Map Reduce may automatically add required rules to security groups used
-    with the service, and those rules may contain a cyclic dependency that prevent
-    the security groups from being destroyed without removing the dependency first.
-    Default `false`
-    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
@@ -66,42 +53,24 @@ class SecurityGroup(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, description=None, egress=None, ingress=None, name=None, name_prefix=None, revoke_rules_on_delete=None, tags=None, vpc_id=None, __name__=None, __opts__=None):
         """
-        Provides a security group resource.
-        
-        > **NOTE on Security Groups and Security Group Rules:** Terraform currently
-        provides both a standalone Security Group Rule resource (a single `ingress` or
-        `egress` rule), and a Security Group resource with `ingress` and `egress` rules
-        defined in-line. At this time you cannot use a Security Group with in-line rules
-        in conjunction with any Security Group Rule resources. Doing so will cause
-        a conflict of rule settings and will overwrite rules.
-        
-        > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
+        Create a SecurityGroup resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The security group description. Defaults to
-               "Managed by Terraform". Cannot be "". __NOTE__: This field maps to the AWS
-               `GroupDescription` attribute, for which there is no Update API. If you'd like
-               to classify your security groups in a way that can be updated, use `tags`.
+        :param pulumi.Input[str] description: The description of the security group
         :param pulumi.Input[list] egress: Can be specified multiple times for each
                egress rule. Each egress block supports fields documented below.
                This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[list] ingress: Can be specified multiple times for each
                ingress rule. Each ingress block supports fields documented below.
                This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-        :param pulumi.Input[str] name: The name of the security group. If omitted, Terraform will
-               assign a random, unique name
+        :param pulumi.Input[str] name: The name of the security group
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
-        :param pulumi.Input[bool] revoke_rules_on_delete: Instruct Terraform to revoke all of the
-               Security Groups attached ingress and egress rules before deleting the rule
-               itself. This is normally not needed, however certain AWS services such as
-               Elastic Map Reduce may automatically add required rules to security groups used
-               with the service, and those rules may contain a cyclic dependency that prevent
-               the security groups from being destroyed without removing the dependency first.
-               Default `false`
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -23,6 +23,8 @@ import * as utilities from "../utilities";
  *     subnetId: cluster.apply(cluster => cluster.subnetIds[0]),
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudhsm_v2_hsm.html.markdown.
  */
 export class Hsm extends pulumi.CustomResource {
     /**

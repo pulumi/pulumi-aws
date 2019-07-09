@@ -24,6 +24,8 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_size_constraint_set.html.markdown.
  */
 export class SizeConstraintSet extends pulumi.CustomResource {
     /**

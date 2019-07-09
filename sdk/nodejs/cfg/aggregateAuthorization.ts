@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  *     region: "eu-west-2",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_aggregate_authorization.html.markdown.
  */
 export class AggregateAuthorization extends pulumi.CustomResource {
     /**

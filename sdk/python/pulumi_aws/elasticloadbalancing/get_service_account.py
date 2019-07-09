@@ -33,6 +33,8 @@ async def get_service_account(region=None,opts=None):
     """
     Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
     in a given region for the purpose of whitelisting in S3 bucket policy.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_service_account.html.markdown.
     """
     __args__ = dict()
 

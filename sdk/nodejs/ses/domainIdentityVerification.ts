@@ -32,6 +32,8 @@ import * as utilities from "../utilities";
  *     domain: example.id,
  * }, {dependsOn: [exampleAmazonsesVerificationRecord]});
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_identity_verification.html.markdown.
  */
 export class DomainIdentityVerification extends pulumi.CustomResource {
     /**

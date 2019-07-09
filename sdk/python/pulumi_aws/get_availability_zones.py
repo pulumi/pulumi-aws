@@ -49,6 +49,8 @@ async def get_availability_zones(blacklisted_names=None,blacklisted_zone_ids=Non
     
     This is different from the `aws_availability_zone` (singular) data source,
     which provides some details about a specific availability zone.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
     """
     __args__ = dict()
 

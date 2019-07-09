@@ -8,6 +8,8 @@ import (
 )
 
 // Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_encryption_by_default.html.markdown.
 func LookupEncryptionByDefault(ctx *pulumi.Context) (*GetEncryptionByDefaultResult, error) {
 	outputs, err := ctx.Invoke("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", nil)
 	if err != nil {

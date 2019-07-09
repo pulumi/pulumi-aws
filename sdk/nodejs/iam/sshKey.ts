@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  *     username: userUser.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_ssh_key.html.markdown.
  */
 export class SshKey extends pulumi.CustomResource {
     /**

@@ -38,6 +38,8 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_arn: The server-side encryption key that is used to protect your backups.
         :param pulumi.Input[str] name: Name of the backup vault to create.
         :param pulumi.Input[dict] tags: Metadata that you can assign to help organize the resources that you create.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_vault.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

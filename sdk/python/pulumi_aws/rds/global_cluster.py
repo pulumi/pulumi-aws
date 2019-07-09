@@ -57,6 +57,8 @@ class GlobalCluster(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version: Engine version of the Aurora global database.
         :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_global_cluster.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

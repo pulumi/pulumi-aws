@@ -125,6 +125,8 @@ class GetGroupResult:
 async def get_group(name=None,opts=None):
     """
     Use this data source to get information on an existing autoscaling group.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_group.html.markdown.
     """
     __args__ = dict()
 

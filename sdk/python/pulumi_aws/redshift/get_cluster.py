@@ -200,6 +200,8 @@ class GetClusterResult:
 async def get_cluster(cluster_identifier=None,tags=None,opts=None):
     """
     Provides details about a specific redshift cluster.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/redshift_cluster.html.markdown.
     """
     __args__ = dict()
 

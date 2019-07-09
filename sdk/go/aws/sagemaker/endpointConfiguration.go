@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a SageMaker endpoint configuration resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_endpoint_configuration.html.markdown.
 type EndpointConfiguration struct {
 	s *pulumi.ResourceState
 }
@@ -78,7 +80,7 @@ func (r *EndpointConfiguration) KmsKeyArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyArn"])
 }
 
-// The name of the endpoint configuration. If omitted, Terraform will assign a random, unique name.
+// The name of the endpoint configuration.
 func (r *EndpointConfiguration) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -99,7 +101,7 @@ type EndpointConfigurationState struct {
 	Arn interface{}
 	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKeyArn interface{}
-	// The name of the endpoint configuration. If omitted, Terraform will assign a random, unique name.
+	// The name of the endpoint configuration.
 	Name interface{}
 	// Fields are documented below.
 	ProductionVariants interface{}
@@ -111,7 +113,7 @@ type EndpointConfigurationState struct {
 type EndpointConfigurationArgs struct {
 	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKeyArn interface{}
-	// The name of the endpoint configuration. If omitted, Terraform will assign a random, unique name.
+	// The name of the endpoint configuration.
 	Name interface{}
 	// Fields are documented below.
 	ProductionVariants interface{}

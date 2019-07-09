@@ -117,6 +117,8 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A map of tags to populate on the created table.
         :param pulumi.Input[dict] ttl: Defines ttl, has two properties, and can only be specified once:
         :param pulumi.Input[float] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_table.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

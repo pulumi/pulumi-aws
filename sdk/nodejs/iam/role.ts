@@ -56,6 +56,8 @@ import {PolicyDocument} from "./documents";
  *     path: "/system/",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role.html.markdown.
  */
 export class Role extends pulumi.CustomResource {
     /**
@@ -109,7 +111,7 @@ export class Role extends pulumi.CustomResource {
      */
     public readonly maxSessionDuration!: pulumi.Output<number | undefined>;
     /**
-     * The name of the role. If omitted, Terraform will assign a random, unique name.
+     * The name of the role.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -209,7 +211,7 @@ export interface RoleState {
      */
     readonly maxSessionDuration?: pulumi.Input<number>;
     /**
-     * The name of the role. If omitted, Terraform will assign a random, unique name.
+     * The name of the role.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -256,7 +258,7 @@ export interface RoleArgs {
      */
     readonly maxSessionDuration?: pulumi.Input<number>;
     /**
-     * The name of the role. If omitted, Terraform will assign a random, unique name.
+     * The name of the role.
      */
     readonly name?: pulumi.Input<string>;
     /**

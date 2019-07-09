@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to get the access to the effective Account ID, User ID, and ARN in
-// which Terraform is authorized.
 func LookupCallerIdentity(ctx *pulumi.Context) (*GetCallerIdentityResult, error) {
 	outputs, err := ctx.Invoke("aws:index/getCallerIdentity:getCallerIdentity", nil)
 	if err != nil {

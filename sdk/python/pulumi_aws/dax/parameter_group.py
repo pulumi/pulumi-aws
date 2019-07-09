@@ -37,6 +37,8 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the parameter group.
         :param pulumi.Input[str] name: The name of the parameter group.
         :param pulumi.Input[list] parameters: The parameters of the parameter group.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_parameter_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

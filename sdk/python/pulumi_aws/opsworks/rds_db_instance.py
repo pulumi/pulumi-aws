@@ -38,6 +38,8 @@ class RdsDbInstance(pulumi.CustomResource):
         :param pulumi.Input[str] db_user: A db username
         :param pulumi.Input[str] rds_db_instance_arn: The db instance to register for this stack. Changing this will force a new resource.
         :param pulumi.Input[str] stack_id: The stack to register a db instance for. Changing this will force a new resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_rds_db_instance.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

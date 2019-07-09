@@ -14,13 +14,7 @@ class SubnetGroup(pulumi.CustomResource):
     The ARN of the neptune subnet group.
     """
     description: pulumi.Output[str]
-    """
-    The description of the neptune subnet group. Defaults to "Managed by Terraform".
-    """
     name: pulumi.Output[str]
-    """
-    The name of the neptune subnet group. If omitted, Terraform will assign a random, unique name.
-    """
     name_prefix: pulumi.Output[str]
     """
     Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -39,11 +33,11 @@ class SubnetGroup(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the neptune subnet group. Defaults to "Managed by Terraform".
-        :param pulumi.Input[str] name: The name of the neptune subnet group. If omitted, Terraform will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[list] subnet_ids: A list of VPC subnet IDs.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_subnet_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -14,9 +14,6 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
     The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
     """
     name: pulumi.Output[str]
-    """
-    The name of the lifecycle configuration (must be unique). If omitted, Terraform will assign a random, unique name.
-    """
     on_create: pulumi.Output[str]
     """
     A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
@@ -31,9 +28,10 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the lifecycle configuration (must be unique). If omitted, Terraform will assign a random, unique name.
         :param pulumi.Input[str] on_create: A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
         :param pulumi.Input[str] on_start: A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_notebook_instance_lifecycle_configuration.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

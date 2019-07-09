@@ -8,6 +8,8 @@ import (
 )
 
 // Provides information about a Launch Configuration.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_configuration.html.markdown.
 func LookupLaunchConfiguration(ctx *pulumi.Context, args *GetLaunchConfigurationArgs) (*GetLaunchConfigurationResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

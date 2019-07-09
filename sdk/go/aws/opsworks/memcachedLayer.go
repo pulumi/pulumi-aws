@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an OpsWorks memcached layer resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_memcached_layer.html.markdown.
 type MemcachedLayer struct {
 	s *pulumi.ResourceState
 }

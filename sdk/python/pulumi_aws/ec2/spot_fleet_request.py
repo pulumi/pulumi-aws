@@ -94,11 +94,6 @@ class SpotFleetRequest(pulumi.CustomResource):
     The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
     """
     wait_for_fulfillment: pulumi.Output[bool]
-    """
-    If set, Terraform will
-    wait for the Spot Request to be fulfilled, and will throw an error if the
-    timeout of 10m is reached.
-    """
     def __init__(__self__, resource_name, opts=None, allocation_strategy=None, excess_capacity_termination_policy=None, fleet_type=None, iam_fleet_role=None, instance_interruption_behaviour=None, instance_pools_to_use_count=None, launch_specifications=None, load_balancers=None, replace_unhealthy_instances=None, spot_price=None, target_capacity=None, target_group_arns=None, terminate_instances_with_expiration=None, valid_from=None, valid_until=None, wait_for_fulfillment=None, __name__=None, __opts__=None):
         """
         Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
@@ -140,9 +135,8 @@ class SpotFleetRequest(pulumi.CustomResource):
                instances should be terminated when the Spot fleet request expires.
         :param pulumi.Input[str] valid_from: The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
         :param pulumi.Input[str] valid_until: The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
-        :param pulumi.Input[bool] wait_for_fulfillment: If set, Terraform will
-               wait for the Spot Request to be fulfilled, and will throw an error if the
-               timeout of 10m is reached.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_fleet_request.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

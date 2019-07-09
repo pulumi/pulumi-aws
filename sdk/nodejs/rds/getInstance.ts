@@ -17,6 +17,8 @@ import * as utilities from "../utilities";
  *     dbInstanceIdentifier: "my-test-database",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_instance.html.markdown.
  */
 export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
     return pulumi.runtime.invoke("aws:rds/getInstance:getInstance", {

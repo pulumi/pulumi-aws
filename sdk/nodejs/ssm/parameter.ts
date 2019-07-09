@@ -53,6 +53,8 @@ import {ParameterType} from "./parameterType";
  * 
  * > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_parameter.html.markdown.
  */
 export class Parameter extends pulumi.CustomResource {
     /**
@@ -101,9 +103,6 @@ export class Parameter extends pulumi.CustomResource {
      * The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by terraform to avoid overwrite of existing resource and will default to `true` otherwise (terraform lifecycle rules should then be used to manage the update behavior).
-     */
     public readonly overwrite!: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags to assign to the object.
@@ -197,9 +196,6 @@ export interface ParameterState {
      * The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by terraform to avoid overwrite of existing resource and will default to `true` otherwise (terraform lifecycle rules should then be used to manage the update behavior).
-     */
     readonly overwrite?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the object.
@@ -247,9 +243,6 @@ export interface ParameterArgs {
      * The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by terraform to avoid overwrite of existing resource and will default to `true` otherwise (terraform lifecycle rules should then be used to manage the update behavior).
-     */
     readonly overwrite?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the object.

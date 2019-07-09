@@ -8,6 +8,8 @@ import (
 )
 
 // Get information on an EC2 Transit Gateway Route Table.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_route_table.html.markdown.
 func LookupRouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTableResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

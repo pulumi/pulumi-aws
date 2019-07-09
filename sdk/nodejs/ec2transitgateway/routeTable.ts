@@ -17,6 +17,8 @@ import * as utilities from "../utilities";
  *     transitGatewayId: aws_ec2_transit_gateway_example.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_route_table.html.markdown.
  */
 export class RouteTable extends pulumi.CustomResource {
     /**

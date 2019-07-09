@@ -17,6 +17,8 @@ import * as utilities from "../utilities";
  *     awsServiceName: "elasticbeanstalk.amazonaws.com",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_service_linked_role.html.markdown.
  */
 export class ServiceLinkedRole extends pulumi.CustomResource {
     /**

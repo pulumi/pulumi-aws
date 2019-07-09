@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an AppSync GraphQL API.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_graphql_api.html.markdown.
 type GraphQLApi struct {
 	s *pulumi.ResourceState
 }
@@ -104,7 +106,6 @@ func (r *GraphQLApi) OpenidConnectConfig() *pulumi.Output {
 	return r.s.State["openidConnectConfig"]
 }
 
-// The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration.
 func (r *GraphQLApi) Schema() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["schema"])
 }
@@ -136,7 +137,6 @@ type GraphQLApiState struct {
 	Name interface{}
 	// Nested argument containing OpenID Connect configuration. Defined below.
 	OpenidConnectConfig interface{}
-	// The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration.
 	Schema interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -156,7 +156,6 @@ type GraphQLApiArgs struct {
 	Name interface{}
 	// Nested argument containing OpenID Connect configuration. Defined below.
 	OpenidConnectConfig interface{}
-	// The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration.
 	Schema interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

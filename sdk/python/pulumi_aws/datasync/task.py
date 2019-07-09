@@ -39,7 +39,7 @@ class Task(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, cloudwatch_log_group_arn=None, destination_location_arn=None, name=None, options=None, source_location_arn=None, tags=None, __name__=None, __opts__=None):
         """
-        Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this Terraform resource.
+        Create a Task resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -49,6 +49,8 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[dict] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
         :param pulumi.Input[str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
         :param pulumi.Input[dict] tags: Key-value pairs of resource tags to assign to the DataSync Task.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_task.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

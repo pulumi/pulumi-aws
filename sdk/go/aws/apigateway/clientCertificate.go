@@ -8,6 +8,8 @@ import (
 )
 
 // Provides an API Gateway Client Certificate.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_client_certificate.html.markdown.
 type ClientCertificate struct {
 	s *pulumi.ResourceState
 }

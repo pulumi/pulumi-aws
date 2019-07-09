@@ -32,6 +32,8 @@ import * as utilities from "../utilities";
  *     startTime: "2016-12-11T18:00:00Z",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_schedule.html.markdown.
  */
 export class Schedule extends pulumi.CustomResource {
     /**

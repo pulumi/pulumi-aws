@@ -23,6 +23,8 @@ import * as utilities from "../utilities";
  *     prefix: "data",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/macie_s3_bucket_association.html.markdown.
  */
 export class S3BucketAssociation extends pulumi.CustomResource {
     /**

@@ -8,6 +8,8 @@ import (
 )
 
 // Gets the contents of the specified Systems Manager document.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_document.html.markdown.
 func LookupDocument(ctx *pulumi.Context, args *GetDocumentArgs) (*GetDocumentResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

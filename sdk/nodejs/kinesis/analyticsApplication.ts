@@ -49,6 +49,8 @@ import {ARN} from "../index";
  *     },
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_analytics_application.html.markdown.
  */
 export class AnalyticsApplication extends pulumi.CustomResource {
     /**

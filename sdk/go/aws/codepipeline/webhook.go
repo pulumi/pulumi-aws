@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a CodePipeline Webhook.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline_webhook.html.markdown.
 type Webhook struct {
 	s *pulumi.ResourceState
 }

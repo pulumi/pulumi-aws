@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a WAF Rate Based Rule Resource
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_rate_based_rule.html.markdown.
 type RateBasedRule struct {
 	s *pulumi.ResourceState
 }

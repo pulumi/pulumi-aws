@@ -28,6 +28,8 @@ import {Group} from "./group";
  *     policyArn: policy.arn,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_policy_attachment.html.markdown.
  */
 export class GroupPolicyAttachment extends pulumi.CustomResource {
     /**

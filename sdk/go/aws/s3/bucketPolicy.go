@@ -9,6 +9,8 @@ import (
 )
 
 // Attaches a policy to an S3 bucket resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_policy.html.markdown.
 type BucketPolicy struct {
 	s *pulumi.ResourceState
 }
@@ -68,7 +70,6 @@ func (r *BucketPolicy) Bucket() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["bucket"])
 }
 
-// The text of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 func (r *BucketPolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -77,7 +78,6 @@ func (r *BucketPolicy) Policy() *pulumi.StringOutput {
 type BucketPolicyState struct {
 	// The name of the bucket to which to apply the policy.
 	Bucket interface{}
-	// The text of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 	Policy interface{}
 }
 
@@ -85,6 +85,5 @@ type BucketPolicyState struct {
 type BucketPolicyArgs struct {
 	// The name of the bucket to which to apply the policy.
 	Bucket interface{}
-	// The text of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 	Policy interface{}
 }

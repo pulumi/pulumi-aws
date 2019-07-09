@@ -30,22 +30,15 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, netbios_name_servers=None, netbios_node_type=None, tags=None, __name__=None, __opts__=None):
         """
-        Provides a resource to manage the [default AWS DHCP Options Set](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html#AmazonDNS)
-        in the current region.
-        
-        Each AWS region comes with a default set of DHCP options.
-        **This is an advanced resource**, and has special caveats to be aware of when
-        using it. Please read this document in its entirety before using this resource.
-        
-        The `aws_default_vpc_dhcp_options` behaves differently from normal resources, in that
-        Terraform does not _create_ this resource, but instead "adopts" it
-        into management.
+        Create a DefaultVpcDhcpOptions resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] netbios_name_servers: List of NETBIOS name servers.
         :param pulumi.Input[str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_vpc_dhcp_options.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

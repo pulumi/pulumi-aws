@@ -37,6 +37,8 @@ import {PolicyDocument} from "../iam/documents";
  *     domainName: example.domainName,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticsearch_domain_policy.html.markdown.
  */
 export class DomainPolicy extends pulumi.CustomResource {
     /**

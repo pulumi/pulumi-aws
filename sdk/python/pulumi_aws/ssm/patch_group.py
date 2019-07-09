@@ -25,6 +25,8 @@ class PatchGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] baseline_id: The ID of the patch baseline to register the patch group with.
         :param pulumi.Input[str] patch_group: The name of the patch group that should be registered with the patch baseline.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_patch_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

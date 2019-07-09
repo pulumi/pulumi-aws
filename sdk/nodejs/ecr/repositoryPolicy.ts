@@ -49,6 +49,8 @@ import {PolicyDocument} from "../iam/documents";
  *     repository: foo.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_repository_policy.html.markdown.
  */
 export class RepositoryPolicy extends pulumi.CustomResource {
     /**
@@ -77,9 +79,6 @@ export class RepositoryPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RepositoryPolicy.__pulumiType;
     }
 
-    /**
-     * The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
-     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * The registry ID where the repository was created.
@@ -125,9 +124,6 @@ export class RepositoryPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RepositoryPolicy resources.
  */
 export interface RepositoryPolicyState {
-    /**
-     * The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
-     */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * The registry ID where the repository was created.
@@ -143,9 +139,6 @@ export interface RepositoryPolicyState {
  * The set of arguments for constructing a RepositoryPolicy resource.
  */
 export interface RepositoryPolicyArgs {
-    /**
-     * The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
-     */
     readonly policy: pulumi.Input<string | PolicyDocument>;
     /**
      * Name of the repository to apply the policy.

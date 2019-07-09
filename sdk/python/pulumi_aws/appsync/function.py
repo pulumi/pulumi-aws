@@ -58,6 +58,8 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] name: The Function name. The function name does not have to be unique.
         :param pulumi.Input[str] request_mapping_template: The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         :param pulumi.Input[str] response_mapping_template: The Function response mapping template.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_function.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

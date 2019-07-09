@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/customer_gateway.html.markdown.
 type CustomerGateway struct {
 	s *pulumi.ResourceState
 }

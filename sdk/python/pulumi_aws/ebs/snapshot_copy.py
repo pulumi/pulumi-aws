@@ -60,6 +60,8 @@ class SnapshotCopy(pulumi.CustomResource):
                * `source_snapshot_id` The ARN for the snapshot to be copied.
                * `source_region` The region of the source snapshot.
         :param pulumi.Input[dict] tags: A mapping of tags for the snapshot.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_snapshot_copy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

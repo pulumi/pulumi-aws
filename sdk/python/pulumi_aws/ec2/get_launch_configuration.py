@@ -125,6 +125,8 @@ class GetLaunchConfigurationResult:
 async def get_launch_configuration(name=None,opts=None):
     """
     Provides information about a Launch Configuration.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_configuration.html.markdown.
     """
     __args__ = dict()
 

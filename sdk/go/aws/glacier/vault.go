@@ -10,6 +10,8 @@ import (
 // Provides a Glacier Vault Resource. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-vaults.html) for a full explanation of the Glacier Vault functionality
 // 
 // > **NOTE:** When removing a Glacier Vault, the Vault must be empty.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glacier_vault.html.markdown.
 type Vault struct {
 	s *pulumi.ResourceState
 }

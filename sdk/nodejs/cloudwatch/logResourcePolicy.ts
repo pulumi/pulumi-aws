@@ -59,6 +59,8 @@ import * as utilities from "../utilities";
  *     policyName: "route53-query-logging-policy",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_resource_policy.html.markdown.
  */
 export class LogResourcePolicy extends pulumi.CustomResource {
     /**

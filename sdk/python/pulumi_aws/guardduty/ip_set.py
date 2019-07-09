@@ -42,6 +42,8 @@ class IPSet(pulumi.CustomResource):
         :param pulumi.Input[str] format: The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
         :param pulumi.Input[str] location: The URI of the file that contains the IPSet.
         :param pulumi.Input[str] name: The friendly name to identify the IPSet.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/guardduty_ipset.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

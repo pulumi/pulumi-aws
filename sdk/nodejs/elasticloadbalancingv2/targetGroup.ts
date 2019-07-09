@@ -54,6 +54,8 @@ import * as utilities from "../utilities";
  *     targetType: "lambda",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group.html.markdown.
  */
 export class TargetGroup extends pulumi.CustomResource {
     /**
@@ -103,7 +105,7 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly lambdaMultiValueHeadersEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the target group. If omitted, Terraform will assign a random, unique name.
+     * The name of the Target Group
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -222,7 +224,7 @@ export interface TargetGroupState {
      */
     readonly lambdaMultiValueHeadersEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the target group. If omitted, Terraform will assign a random, unique name.
+     * The name of the Target Group
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -285,7 +287,7 @@ export interface TargetGroupArgs {
      */
     readonly lambdaMultiValueHeadersEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the target group. If omitted, Terraform will assign a random, unique name.
+     * The name of the Target Group
      */
     readonly name?: pulumi.Input<string>;
     /**

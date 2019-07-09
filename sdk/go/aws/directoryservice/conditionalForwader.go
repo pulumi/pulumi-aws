@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a conditional forwarder for managed Microsoft AD in AWS Directory Service.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/directory_service_conditional_forwarder.html.markdown.
 type ConditionalForwader struct {
 	s *pulumi.ResourceState
 }

@@ -8,20 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides an RDS Cluster Instance Resource. A Cluster Instance Resource defines
-// attributes that are specific to a single instance in a [RDS Cluster][3],
-// specifically running Amazon Aurora.
-// 
-// Unlike other RDS resources that support replication, with Amazon Aurora you do
-// not designate a primary and subsequent replicas. Instead, you simply add RDS
-// Instances and Aurora manages the replication. You can use the [count][5]
-// meta-parameter to make multiple instances and join them all to the same RDS
-// Cluster, or you may specify different Cluster Instance resources with various
-// `instance_class` sizes.
-// 
-// For more information on Amazon Aurora, see [Aurora on Amazon RDS][2] in the Amazon RDS User Guide.
-// 
-// > **NOTE:** Deletion Protection from the RDS service can only be enabled at the cluster level, not for individual cluster instances. You can still add the [`prevent_destroy` lifecycle behavior](https://www.terraform.io/docs/configuration/resources.html#prevent_destroy) to your Terraform resource configuration if you desire protection from accidental deletion.
 type ClusterInstance struct {
 	s *pulumi.ResourceState
 }
@@ -211,7 +197,7 @@ func (r *ClusterInstance) EngineVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
 }
 
-// The indentifier for the RDS instance, if omitted, Terraform will assign a random, unique identifier.
+// The Instance identifier
 func (r *ClusterInstance) Identifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["identifier"])
 }
@@ -328,7 +314,7 @@ type ClusterInstanceState struct {
 	Engine interface{}
 	// The database engine version.
 	EngineVersion interface{}
-	// The indentifier for the RDS instance, if omitted, Terraform will assign a random, unique identifier.
+	// The Instance identifier
 	Identifier interface{}
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix interface{}
@@ -393,7 +379,7 @@ type ClusterInstanceArgs struct {
 	Engine interface{}
 	// The database engine version.
 	EngineVersion interface{}
-	// The indentifier for the RDS instance, if omitted, Terraform will assign a random, unique identifier.
+	// The Instance identifier
 	Identifier interface{}
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix interface{}

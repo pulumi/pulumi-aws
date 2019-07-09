@@ -35,6 +35,8 @@ import * as utilities from "./utilities";
  *     owners: ["self"],
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami.html.markdown.
  */
 export function getAmi(args: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiResult> {
     return pulumi.runtime.invoke("aws:index/getAmi:getAmi", {

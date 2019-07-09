@@ -10,6 +10,8 @@ import (
 // Use this data source to invoke custom lambda functions as data source.
 // The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
 // invocation type.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_invocation.html.markdown.
 func LookupInvocation(ctx *pulumi.Context, args *GetInvocationArgs) (*GetInvocationResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
@@ -49,7 +51,6 @@ type GetInvocationResult struct {
 	Qualifier interface{}
 	// String result of the lambda function invocation.
 	Result interface{}
-	// This field is set only if result is a map of primitive types, where the map is string keys and string values. In Terraform 0.12 and later, use the [`jsondecode()` function](https://www.terraform.io/docs/configuration/functions/jsondecode.html) with the `result` attribute instead to convert the result to all supported native Terraform types.
 	ResultMap interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

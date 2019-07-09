@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:iam::123456789012:policy/UsersManageOwnCredentials",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy.html.markdown.
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
     return pulumi.runtime.invoke("aws:iam/getPolicy:getPolicy", {

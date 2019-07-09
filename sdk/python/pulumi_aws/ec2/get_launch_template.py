@@ -184,6 +184,8 @@ class GetLaunchTemplateResult:
 async def get_launch_template(name=None,tags=None,opts=None):
     """
     Provides information about a Launch Template.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_template.html.markdown.
     """
     __args__ = dict()
 

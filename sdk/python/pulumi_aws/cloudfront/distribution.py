@@ -121,11 +121,6 @@ class Distribution(pulumi.CustomResource):
     configuration for this distribution (maximum one).
     """
     retain_on_delete: pulumi.Output[bool]
-    """
-    Disables the distribution instead of
-    deleting it when destroying the resource through Terraform. If this is set,
-    the distribution needs to be deleted manually afterwards. Default: `false`.
-    """
     status: pulumi.Output[str]
     """
     The current status of the distribution. `Deployed` if the
@@ -201,9 +196,6 @@ class Distribution(pulumi.CustomResource):
                `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
         :param pulumi.Input[dict] restrictions: The restriction
                configuration for this distribution (maximum one).
-        :param pulumi.Input[bool] retain_on_delete: Disables the distribution instead of
-               deleting it when destroying the resource through Terraform. If this is set,
-               the distribution needs to be deleted manually afterwards. Default: `false`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] viewer_certificate: The SSL
                configuration for this distribution (maximum
@@ -216,6 +208,8 @@ class Distribution(pulumi.CustomResource):
                distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
                region and the credentials configuring this argument must have
                `waf:GetWebACL` permissions assigned.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudfront_distribution.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

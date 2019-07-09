@@ -8,6 +8,8 @@ import (
 )
 
 // Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/storagegateway_local_disk.html.markdown.
 func LookupLocalDisk(ctx *pulumi.Context, args *GetLocalDiskArgs) (*GetLocalDiskResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

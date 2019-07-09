@@ -40,6 +40,8 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] route_table_id: The ID of the Route Table to set as the new
                main route table for the target VPC
         :param pulumi.Input[str] vpc_id: The ID of the VPC whose main route table should be set
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/main_route_table_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

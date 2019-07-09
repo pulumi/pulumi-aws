@@ -8,6 +8,8 @@ import (
 )
 
 // Provides a WAF Regional Geo Match Set Resource
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_geo_match_set.html.markdown.
 type GeoMatchSet struct {
 	s *pulumi.ResourceState
 }

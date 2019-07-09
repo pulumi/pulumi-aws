@@ -133,7 +133,6 @@ func (r *Queue) MessageRetentionSeconds() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["messageRetentionSeconds"])
 }
 
-// This is the human-readable name of the queue. If omitted, Terraform will assign a random name.
 func (r *Queue) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -143,7 +142,6 @@ func (r *Queue) NamePrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
-// The JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 func (r *Queue) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -186,11 +184,9 @@ type QueueState struct {
 	MaxMessageSize interface{}
 	// The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
 	MessageRetentionSeconds interface{}
-	// This is the human-readable name of the queue. If omitted, Terraform will assign a random name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// The JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 	Policy interface{}
 	// The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
 	ReceiveWaitTimeSeconds interface{}
@@ -218,11 +214,9 @@ type QueueArgs struct {
 	MaxMessageSize interface{}
 	// The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
 	MessageRetentionSeconds interface{}
-	// This is the human-readable name of the queue. If omitted, Terraform will assign a random name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// The JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 	Policy interface{}
 	// The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
 	ReceiveWaitTimeSeconds interface{}

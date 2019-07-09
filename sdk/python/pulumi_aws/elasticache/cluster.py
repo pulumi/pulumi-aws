@@ -139,16 +139,7 @@ class Cluster(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, apply_immediately=None, availability_zone=None, az_mode=None, cluster_id=None, engine=None, engine_version=None, maintenance_window=None, node_type=None, notification_topic_arn=None, num_cache_nodes=None, parameter_group_name=None, port=None, preferred_availability_zones=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_arns=None, snapshot_name=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None, __name__=None, __opts__=None):
         """
-        Provides an ElastiCache Cluster resource, which manages a Memcached cluster or Redis instance.
-        For working with Redis (Cluster Mode Enabled) replication groups, see the
-        [`aws_elasticache_replication_group` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group.html).
-        
-        > **Note:** When you change an attribute, such as `node_type`, by default
-        it is applied in the next maintenance window. Because of this, Terraform may report
-        a difference in its planning phase because the actual modification has not yet taken
-        place. You can use the `apply_immediately` flag to instruct the service to apply the
-        change immediately. Using `apply_immediately` can result in a brief downtime as the server reboots.
-        See the AWS Docs on [Modifying an ElastiCache Cache Cluster][2] for more information.
+        Create a Cluster resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,6 +192,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used
                for the cache cluster.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_cluster.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

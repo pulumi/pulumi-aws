@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * The CloudFormation Export data source allows access to stack
- * exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
- * 
- *  > Note: If you are trying to use a value from a Cloudformation Stack in the same Terraform run please use normal interpolation or Cloudformation Outputs. 
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const subnetId = pulumi.output(aws.cloudformation.getExport({
- *     name: "mySubnetIdExportName",
- * }));
- * const web = new aws.ec2.Instance("web", {
- *     ami: "ami-abb07bcb",
- *     instanceType: "t1.micro",
- *     subnetId: subnetId.value,
- * });
- * ```
- */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
     return pulumi.runtime.invoke("aws:cloudformation/getExport:getExport", {
         "name": args.name,

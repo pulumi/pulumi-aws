@@ -35,6 +35,8 @@ class UserProfile(pulumi.CustomResource):
         :param pulumi.Input[str] ssh_public_key: The users public key
         :param pulumi.Input[str] ssh_username: The ssh username, with witch this user wants to log in
         :param pulumi.Input[str] user_arn: The user's IAM ARN
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_user_profile.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

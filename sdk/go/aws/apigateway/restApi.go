@@ -8,6 +8,8 @@ import (
 )
 
 // Provides an API Gateway REST API.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_rest_api.html.markdown.
 type RestApi struct {
 	s *pulumi.ResourceState
 }
@@ -127,7 +129,6 @@ func (r *RestApi) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
 func (r *RestApi) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -159,7 +160,6 @@ type RestApiState struct {
 	MinimumCompressionSize interface{}
 	// The name of the REST API
 	Name interface{}
-	// JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
 	Policy interface{}
 	// The resource ID of the REST API's root
 	RootResourceId interface{}
@@ -181,6 +181,5 @@ type RestApiArgs struct {
 	MinimumCompressionSize interface{}
 	// The name of the REST API
 	Name interface{}
-	// JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
 	Policy interface{}
 }

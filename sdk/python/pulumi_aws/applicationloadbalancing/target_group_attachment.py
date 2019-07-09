@@ -37,6 +37,8 @@ class TargetGroupAttachment(pulumi.CustomResource):
         :param pulumi.Input[float] port: The port on which targets receive traffic.
         :param pulumi.Input[str] target_group_arn: The ARN of the target group with which to register targets
         :param pulumi.Input[str] target_id: The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_target_group_attachment.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

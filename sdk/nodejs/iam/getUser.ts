@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  *     userName: "an_example_user_name",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_user.html.markdown.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     return pulumi.runtime.invoke("aws:iam/getUser:getUser", {

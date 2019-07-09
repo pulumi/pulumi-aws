@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_inventory.html.markdown.
 type Inventory struct {
 	s *pulumi.ResourceState
 }

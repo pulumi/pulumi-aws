@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  *     serviceCode: "vpc",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/servicequotas_service_quota.html.markdown.
  */
 export function getServiceQuota(args: GetServiceQuotaArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceQuotaResult> {
     return pulumi.runtime.invoke("aws:servicequotas/getServiceQuota:getServiceQuota", {

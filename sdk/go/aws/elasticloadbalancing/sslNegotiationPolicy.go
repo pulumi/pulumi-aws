@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_ssl_negotiation_policy.html.markdown.
 type SslNegotiationPolicy struct {
 	s *pulumi.ResourceState
 }

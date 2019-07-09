@@ -41,6 +41,8 @@ import * as utilities from "../utilities";
  *     windowId: window.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window_task.html.markdown.
  */
 export class MaintenanceWindowTask extends pulumi.CustomResource {
     /**

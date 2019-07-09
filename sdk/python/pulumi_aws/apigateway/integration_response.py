@@ -66,6 +66,8 @@ class IntegrationResponse(pulumi.CustomResource):
                If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
                For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
         :param pulumi.Input[str] status_code: The HTTP status code
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_integration_response.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -8,6 +8,8 @@ import (
 )
 
 // Provides an ECS cluster.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_cluster.html.markdown.
 type Cluster struct {
 	s *pulumi.ResourceState
 }

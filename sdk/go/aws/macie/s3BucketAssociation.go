@@ -11,6 +11,8 @@ import (
 // Associates an S3 resource with Amazon Macie for monitoring and data classification.
 // 
 // > **NOTE:** Before using Amazon Macie for the first time it must be enabled manually. Instructions are [here](https://docs.aws.amazon.com/macie/latest/userguide/macie-setting-up.html#macie-setting-up-enable).
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/macie_s3_bucket_association.html.markdown.
 type S3BucketAssociation struct {
 	s *pulumi.ResourceState
 }

@@ -30,6 +30,8 @@ class SshKey(pulumi.CustomResource):
         :param pulumi.Input[str] body: The public key portion of an SSH key pair.
         :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g. `s-12345678`)
         :param pulumi.Input[str] user_name: The name of the user account that is assigned to one or more servers.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/transfer_ssh_key.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

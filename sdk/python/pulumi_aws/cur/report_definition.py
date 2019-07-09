@@ -64,6 +64,8 @@ class ReportDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] s3_prefix: Report path prefix. Limited to 256 characters.
         :param pulumi.Input[str] s3_region: Region of the existing S3 bucket to hold generated reports.
         :param pulumi.Input[str] time_unit: The frequency on which report data are measured and displayed.  Valid values are: HOURLY, DAILY.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cur_report_definition.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

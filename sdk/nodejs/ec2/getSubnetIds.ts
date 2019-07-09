@@ -53,6 +53,8 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet_ids.html.markdown.
  */
 export function getSubnetIds(args: GetSubnetIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetIdsResult> {
     return pulumi.runtime.invoke("aws:ec2/getSubnetIds:getSubnetIds", {

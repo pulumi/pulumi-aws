@@ -6,171 +6,6 @@ import * as utilities from "../utilities";
 
 import {InstanceProfile} from "../iam";
 
-/**
- * Provides a resource to create a new launch configuration, used for autoscaling groups.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const ubuntu = pulumi.output(aws.getAmi({
- *     filters: [
- *         {
- *             name: "name",
- *             values: ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
- *         },
- *         {
- *             name: "virtualization-type",
- *             values: ["hvm"],
- *         },
- *     ],
- *     mostRecent: true,
- *     owners: ["099720109477"], // Canonical
- * }));
- * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {
- *     imageId: ubuntu.id,
- *     instanceType: "t2.micro",
- * });
- * ```
- * 
- * ## Using with AutoScaling Groups
- * 
- * Launch Configurations cannot be updated after creation with the Amazon
- * Web Service API. In order to update a Launch Configuration, Terraform will
- * destroy the existing resource and create a replacement. In order to effectively
- * use a Launch Configuration resource with an [AutoScaling Group resource][1],
- * it's recommended to specify `create_before_destroy` in a [lifecycle][2] block.
- * Either omit the Launch Configuration `name` attribute, or specify a partial name
- * with `name_prefix`.  Example:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const ubuntu = pulumi.output(aws.getAmi({
- *     filters: [
- *         {
- *             name: "name",
- *             values: ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
- *         },
- *         {
- *             name: "virtualization-type",
- *             values: ["hvm"],
- *         },
- *     ],
- *     mostRecent: true,
- *     owners: ["099720109477"], // Canonical
- * }));
- * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {
- *     imageId: ubuntu.id,
- *     instanceType: "t2.micro",
- *     namePrefix: "terraform-lc-example-",
- * });
- * const bar = new aws.autoscaling.Group("bar", {
- *     launchConfiguration: asConf.name,
- *     maxSize: 2,
- *     minSize: 1,
- * });
- * ```
- * 
- * With this setup Terraform generates a unique name for your Launch
- * Configuration and can then update the AutoScaling Group without conflict before
- * destroying the previous Launch Configuration.
- * 
- * ## Using with Spot Instances
- * 
- * Launch configurations can set the spot instance pricing to be used for the
- * Auto Scaling Group to reserve instances. Simply specifying the `spot_price`
- * parameter will set the price on the Launch Configuration which will attempt to
- * reserve your instances at this price.  See the [AWS Spot Instance
- * documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
- * for more information or how to launch [Spot Instances][3] with Terraform.
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const ubuntu = pulumi.output(aws.getAmi({
- *     filters: [
- *         {
- *             name: "name",
- *             values: ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
- *         },
- *         {
- *             name: "virtualization-type",
- *             values: ["hvm"],
- *         },
- *     ],
- *     mostRecent: true,
- *     owners: ["099720109477"], // Canonical
- * }));
- * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {
- *     imageId: ubuntu.id,
- *     instanceType: "m4.large",
- *     spotPrice: "0.001",
- * });
- * const bar = new aws.autoscaling.Group("bar", {
- *     launchConfiguration: asConf.name,
- * });
- * ```
- * 
- * ## Block devices
- * 
- * Each of the `*_block_device` attributes controls a portion of the AWS
- * Launch Configuration's "Block Device Mapping". It's a good idea to familiarize yourself with [AWS's Block Device
- * Mapping docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)
- * to understand the implications of using these attributes.
- * 
- * The `root_block_device` mapping supports the following:
- * 
- * * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
- *   or `"io1"`. (Default: `"standard"`).
- * * `volume_size` - (Optional) The size of the volume in gigabytes.
- * * `iops` - (Optional) The amount of provisioned
- *   [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
- *   This must be set with a `volume_type` of `"io1"`.
- * * `delete_on_termination` - (Optional) Whether the volume should be destroyed
- *   on instance termination (Default: `true`).
- * 
- * Modifying any of the `root_block_device` settings requires resource
- * replacement.
- * 
- * Each `ebs_block_device` supports the following:
- * 
- * * `device_name` - (Required) The name of the device to mount.
- * * `snapshot_id` - (Optional) The Snapshot ID to mount.
- * * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
- *   or `"io1"`. (Default: `"standard"`).
- * * `volume_size` - (Optional) The size of the volume in gigabytes.
- * * `iops` - (Optional) The amount of provisioned
- *   [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
- *   This must be set with a `volume_type` of `"io1"`.
- * * `delete_on_termination` - (Optional) Whether the volume should be destroyed
- *   on instance termination (Default: `true`).
- * * `encrypted` - (Optional) Whether the volume should be encrypted or not. Do not use this option if you are using `snapshot_id` as the encrypted flag will be determined by the snapshot. (Default: `false`).
- * 
- * Modifying any `ebs_block_device` currently requires resource replacement.
- * 
- * Each `ephemeral_block_device` supports the following:
- * 
- * * `device_name` - The name of the block device to mount on the instance.
- * * `virtual_name` - The [Instance Store Device
- *   Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
- *   (e.g. `"ephemeral0"`)
- * 
- * Each AWS Instance type has a different set of Instance Store block devices
- * available for attachment. AWS [publishes a
- * list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes)
- * of which ephemeral devices are available on each type. The devices are always
- * identified by the `virtual_name` in the format `"ephemeral{0..N}"`.
- * 
- * > **NOTE:** Changes to `*_block_device` configuration of _existing_ resources
- * cannot currently be detected by Terraform. After updating to block device
- * configuration, resource recreation can be manually triggered by using the
- * [`taint` command](https://www.terraform.io/docs/commands/taint.html).
- */
 export class LaunchConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing LaunchConfiguration resource's state with the given name, ID, and optional extra
@@ -238,8 +73,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      */
     public readonly keyName!: pulumi.Output<string>;
     /**
-     * The name of the launch configuration. If you leave
-     * this blank, Terraform will auto-generate a unique name.
+     * The name of the launch configuration.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -390,8 +224,7 @@ export interface LaunchConfigurationState {
      */
     readonly keyName?: pulumi.Input<string>;
     /**
-     * The name of the launch configuration. If you leave
-     * this blank, Terraform will auto-generate a unique name.
+     * The name of the launch configuration.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -480,8 +313,7 @@ export interface LaunchConfigurationArgs {
      */
     readonly keyName?: pulumi.Input<string>;
     /**
-     * The name of the launch configuration. If you leave
-     * this blank, Terraform will auto-generate a unique name.
+     * The name of the launch configuration.
      */
     readonly name?: pulumi.Input<string>;
     /**

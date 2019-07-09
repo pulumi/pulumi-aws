@@ -78,16 +78,7 @@ class DefaultVpc(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, enable_classiclink=None, enable_classiclink_dns_support=None, enable_dns_hostnames=None, enable_dns_support=None, tags=None, __name__=None, __opts__=None):
         """
-        Provides a resource to manage the [default AWS VPC](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html)
-        in the current region.
-        
-        For AWS accounts created after 2013-12-04, each region comes with a Default VPC.
-        **This is an advanced resource**, and has special caveats to be aware of when
-        using it. Please read this document in its entirety before using this resource.
-        
-        The `aws_default_vpc` behaves differently from normal resources, in that
-        Terraform does not _create_ this resource, but instead "adopts" it
-        into management.
+        Create a DefaultVpc resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -97,6 +88,8 @@ class DefaultVpc(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
         :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults true.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_vpc.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

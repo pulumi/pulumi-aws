@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an OpsWorks stack resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_stack.html.markdown.
 type Stack struct {
 	s *pulumi.ResourceState
 }

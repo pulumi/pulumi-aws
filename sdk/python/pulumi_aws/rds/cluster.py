@@ -21,7 +21,7 @@ class Cluster(pulumi.CustomResource):
     """
     availability_zones: pulumi.Output[list]
     """
-    A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next Terraform apply. It is recommended to specify 3 AZs or use [the `lifecycle` configuration block `ignore_changes` argument](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) if necessary.
+    The availability zone of the instance
     """
     backtrack_window: pulumi.Output[float]
     """
@@ -33,7 +33,7 @@ class Cluster(pulumi.CustomResource):
     """
     cluster_identifier: pulumi.Output[str]
     """
-    The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+    The RDS Cluster Identifier
     """
     cluster_identifier_prefix: pulumi.Output[str]
     """
@@ -177,35 +177,17 @@ class Cluster(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, apply_immediately=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, copy_tags_to_snapshot=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, deletion_protection=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, global_cluster_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, master_password=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, replication_source_identifier=None, s3_import=None, scaling_configuration=None, skip_final_snapshot=None, snapshot_identifier=None, source_region=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None, __name__=None, __opts__=None):
         """
-        Manages a [RDS Aurora Cluster][2]. To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the [`aws_rds_cluster_instance` resource](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html). To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the [`aws_db_instance` resource](https://www.terraform.io/docs/providers/aws/r/db_instance.html).
-        
-        For information on the difference between the available Aurora MySQL engines
-        see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
-        in the Amazon RDS User Guide.
-        
-        Changes to a RDS Cluster can occur when you manually change a
-        parameter, such as `port`, and are reflected in the next maintenance
-        window. Because of this, Terraform may report a difference in its planning
-        phase because a modification has not yet taken place. You can use the
-        `apply_immediately` flag to instruct the service to apply the change immediately
-        (see documentation below).
-        
-        > **Note:** using `apply_immediately` can result in a
-        brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance][4]
-        for more information.
-        
-        > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
-        [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+        Create a Cluster resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications
                are applied immediately, or during the next maintenance window. Default is
                `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
-        :param pulumi.Input[list] availability_zones: A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next Terraform apply. It is recommended to specify 3 AZs or use [the `lifecycle` configuration block `ignore_changes` argument](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) if necessary.
+        :param pulumi.Input[list] availability_zones: The availability zone of the instance
         :param pulumi.Input[float] backtrack_window: The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
         :param pulumi.Input[float] backup_retention_period: The days to retain backups for. Default `1`
-        :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+        :param pulumi.Input[str] cluster_identifier: The RDS Cluster Identifier
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[list] cluster_members: List of RDS Instances that are a part of this cluster
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Cluster `tags` to snapshots. Default is `false`.
@@ -241,6 +223,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the DB cluster.
         :param pulumi.Input[list] vpc_security_group_ids: List of VPC security groups to associate
                with the Cluster
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

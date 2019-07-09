@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  *     bucket: exampleBucket.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_public_access_block.html.markdown.
  */
 export class BucketPublicAccessBlock extends pulumi.CustomResource {
     /**

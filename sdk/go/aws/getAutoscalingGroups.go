@@ -9,6 +9,8 @@ import (
 
 // The Autoscaling Groups data source allows access to the list of AWS
 // ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_groups.html.markdown.
 func LookupAutoscalingGroups(ctx *pulumi.Context, args *GetAutoscalingGroupsArgs) (*GetAutoscalingGroupsResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

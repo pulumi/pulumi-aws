@@ -27,6 +27,8 @@ import * as utilities from "../utilities";
  *     description: "tf-test-desc",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application.html.markdown.
  */
 export class Application extends pulumi.CustomResource {
     /**

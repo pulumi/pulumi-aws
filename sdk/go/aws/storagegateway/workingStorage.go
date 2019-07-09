@@ -8,9 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages an AWS Storage Gateway working storage.
-// 
-// > **NOTE:** The Storage Gateway API provides no method to remove a working storage disk. Destroying this Terraform resource does not perform any Storage Gateway actions.
 type WorkingStorage struct {
 	s *pulumi.ResourceState
 }

@@ -4,52 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an SNS topic policy resource
- * 
- * > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future terraform plans to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const test = new aws.sns.Topic("test", {});
- * const sns_topic_policy = test.arn.apply(arn => aws.iam.getPolicyDocument({
- *     policyId: "__default_policy_ID",
- *     statements: [{
- *         actions: [
- *             "SNS:Subscribe",
- *             "SNS:SetTopicAttributes",
- *             "SNS:RemovePermission",
- *             "SNS:Receive",
- *             "SNS:Publish",
- *             "SNS:ListSubscriptionsByTopic",
- *             "SNS:GetTopicAttributes",
- *             "SNS:DeleteTopic",
- *             "SNS:AddPermission",
- *         ],
- *         conditions: [{
- *             test: "StringEquals",
- *             values: [var_account_id],
- *             variable: "AWS:SourceOwner",
- *         }],
- *         effect: "Allow",
- *         principals: [{
- *             identifiers: ["*"],
- *             type: "AWS",
- *         }],
- *         resources: [arn],
- *         sid: "__default_statement_ID",
- *     }],
- * }));
- * const defaultTopicPolicy = new aws.sns.TopicPolicy("default", {
- *     arn: test.arn,
- *     policy: sns_topic_policy.json,
- * });
- * ```
- */
 export class TopicPolicy extends pulumi.CustomResource {
     /**
      * Get an existing TopicPolicy resource's state with the given name, ID, and optional extra
@@ -81,9 +35,6 @@ export class TopicPolicy extends pulumi.CustomResource {
      * The ARN of the SNS topic
      */
     public readonly arn!: pulumi.Output<string>;
-    /**
-     * The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -123,9 +74,6 @@ export interface TopicPolicyState {
      * The ARN of the SNS topic
      */
     readonly arn?: pulumi.Input<string>;
-    /**
-     * The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     readonly policy?: pulumi.Input<string>;
 }
 
@@ -137,8 +85,5 @@ export interface TopicPolicyArgs {
      * The ARN of the SNS topic
      */
     readonly arn: pulumi.Input<string>;
-    /**
-     * The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     readonly policy: pulumi.Input<string>;
 }

@@ -40,6 +40,8 @@ async def get_subnet_ids(filters=None,tags=None,vpc_id=None,opts=None):
     `aws_subnet_ids` provides a list of ids for a vpc_id
     
     This resource can be useful for getting back a list of subnet ids for a vpc.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet_ids.html.markdown.
     """
     __args__ = dict()
 

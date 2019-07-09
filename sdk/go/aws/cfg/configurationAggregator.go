@@ -8,6 +8,8 @@ import (
 )
 
 // Manages an AWS Config Configuration Aggregator
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_aggregator.html.markdown.
 type ConfigurationAggregator struct {
 	s *pulumi.ResourceState
 }

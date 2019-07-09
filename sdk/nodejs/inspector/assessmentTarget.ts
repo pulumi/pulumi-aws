@@ -23,6 +23,8 @@ import * as utilities from "../utilities";
  *     resourceGroupArn: bar.arn,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/inspector_assessment_target.html.markdown.
  */
 export class AssessmentTarget extends pulumi.CustomResource {
     /**

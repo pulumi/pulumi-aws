@@ -10,9 +10,6 @@ from .. import utilities, tables
 
 class ParameterGroup(pulumi.CustomResource):
     description: pulumi.Output[str]
-    """
-    The description of the ElastiCache parameter group. Defaults to "Managed by Terraform".
-    """
     family: pulumi.Output[str]
     """
     The family of the ElastiCache parameter group.
@@ -27,16 +24,15 @@ class ParameterGroup(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, description=None, family=None, name=None, parameters=None, __name__=None, __opts__=None):
         """
-        Provides an ElastiCache parameter group resource.
-        
-        > **NOTE:** Attempting to remove the `reserved-memory` parameter when `family` is set to `redis2.6` or `redis2.8` may show a perpetual difference in Terraform due to an Elasticache API limitation. Leave that parameter configured with any value to workaround the issue.
+        Create a ParameterGroup resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the ElastiCache parameter group. Defaults to "Managed by Terraform".
         :param pulumi.Input[str] family: The family of the ElastiCache parameter group.
         :param pulumi.Input[str] name: The name of the ElastiCache parameter.
         :param pulumi.Input[list] parameters: A list of ElastiCache parameters to apply.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_parameter_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

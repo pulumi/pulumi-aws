@@ -34,6 +34,8 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/media_store_container_policy.html.markdown.
  */
 export class ContainerPolicy extends pulumi.CustomResource {
     /**
@@ -66,9 +68,6 @@ export class ContainerPolicy extends pulumi.CustomResource {
      * The name of the container.
      */
     public readonly containerName!: pulumi.Output<string>;
-    /**
-     * The contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -108,9 +107,6 @@ export interface ContainerPolicyState {
      * The name of the container.
      */
     readonly containerName?: pulumi.Input<string>;
-    /**
-     * The contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     readonly policy?: pulumi.Input<string>;
 }
 
@@ -122,8 +118,5 @@ export interface ContainerPolicyArgs {
      * The name of the container.
      */
     readonly containerName: pulumi.Input<string>;
-    /**
-     * The contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     readonly policy: pulumi.Input<string>;
 }

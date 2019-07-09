@@ -8,6 +8,8 @@ import (
 )
 
 // Provides an Gamelift Game Session Queue resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_game_session_queue.html.markdown.
 type GameSessionQueue struct {
 	s *pulumi.ResourceState
 }

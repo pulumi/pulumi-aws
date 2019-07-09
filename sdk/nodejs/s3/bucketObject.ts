@@ -6,86 +6,6 @@ import * as utilities from "../utilities";
 
 import {Bucket} from "./bucket";
 
-/**
- * Provides a S3 bucket object resource.
- * 
- * ## Example Usage
- * 
- * ### Uploading a file to a bucket
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const object = new aws.s3.BucketObject("object", {
- *     bucket: "your_bucket_name",
- *     // The filemd5() function is available in Terraform 0.11.12 and later
- *     // For Terraform 0.11.11 and earlier, use the md5() function and the file() function:
- *     // etag = "${md5(file("path/to/file"))}"
- *     etag: (() => {
- *         throw "tf2pulumi error: NYI: call to filemd5";
- *         return (() => { throw "NYI: call to filemd5"; })();
- *     })(),
- *     key: "new_object_key",
- *     source: new pulumi.asset.FileAsset("path/to/file"),
- * });
- * ```
- * 
- * ### Encrypting with KMS Key
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const examplekms = new aws.kms.Key("examplekms", {
- *     deletionWindowInDays: 7,
- *     description: "KMS key 1",
- * });
- * const examplebucket = new aws.s3.Bucket("examplebucket", {
- *     acl: "private",
- * });
- * const examplebucketObject = new aws.s3.BucketObject("examplebucket_object", {
- *     bucket: examplebucket.id,
- *     key: "someobject",
- *     kmsKeyId: examplekms.arn,
- *     source: new pulumi.asset.FileAsset("index.html"),
- * });
- * ```
- * 
- * ### Server Side Encryption with S3 Default Master Key
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const examplebucket = new aws.s3.Bucket("examplebucket", {
- *     acl: "private",
- * });
- * const examplebucketObject = new aws.s3.BucketObject("examplebucket_object", {
- *     bucket: examplebucket.id,
- *     key: "someobject",
- *     serverSideEncryption: "aws:kms",
- *     source: new pulumi.asset.FileAsset("index.html"),
- * });
- * ```
- * 
- * ### Server Side Encryption with AWS-Managed Key
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const examplebucket = new aws.s3.Bucket("examplebucket", {
- *     acl: "private",
- * });
- * const examplebucketObject = new aws.s3.BucketObject("examplebucket_object", {
- *     bucket: examplebucket.id,
- *     key: "someobject",
- *     serverSideEncryption: "AES256",
- *     source: new pulumi.asset.FileAsset("index.html"),
- * });
- * ```
- */
 export class BucketObject extends pulumi.CustomResource {
     /**
      * Get an existing BucketObject resource's state with the given name, ID, and optional extra
@@ -150,8 +70,7 @@ export class BucketObject extends pulumi.CustomResource {
      */
     public readonly contentType!: pulumi.Output<string>;
     /**
-     * Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (Terraform 0.11.12 or later) or `${md5(file("path/to/file"))}` (Terraform 0.11.11 or earlier).
-     * This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
+     * the ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
      */
     public readonly etag!: pulumi.Output<string>;
     /**
@@ -291,8 +210,7 @@ export interface BucketObjectState {
      */
     readonly contentType?: pulumi.Input<string>;
     /**
-     * Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (Terraform 0.11.12 or later) or `${md5(file("path/to/file"))}` (Terraform 0.11.11 or earlier).
-     * This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
+     * the ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
      */
     readonly etag?: pulumi.Input<string>;
     /**
@@ -375,8 +293,7 @@ export interface BucketObjectArgs {
      */
     readonly contentType?: pulumi.Input<string>;
     /**
-     * Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (Terraform 0.11.12 or later) or `${md5(file("path/to/file"))}` (Terraform 0.11.11 or earlier).
-     * This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
+     * the ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
      */
     readonly etag?: pulumi.Input<string>;
     /**

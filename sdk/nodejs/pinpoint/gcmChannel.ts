@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  *     applicationId: app.applicationId,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_gcm_channel.html.markdown.
  */
 export class GcmChannel extends pulumi.CustomResource {
     /**

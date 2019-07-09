@@ -4,27 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Elastic MapReduce Cluster Instance Group configuration.
- * See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
- * 
- * > **NOTE:** At this time, Instance Groups cannot be destroyed through the API nor
- * web interface. Instance Groups are destroyed when the EMR Cluster is destroyed.
- * Terraform will resize any Instance Group to zero when destroying the resource.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const task = new aws.emr.InstanceGroup("task", {
- *     clusterId: aws_emr_cluster_tf_test_cluster.id,
- *     instanceCount: 1,
- *     instanceType: "m5.xlarge",
- * });
- * ```
- */
 export class InstanceGroup extends pulumi.CustomResource {
     /**
      * Get an existing InstanceGroup resource's state with the given name, ID, and optional extra

@@ -8,13 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides a resource to allow a principal to discover a VPC endpoint service.
-// 
-// > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** Terraform provides
-// both a standalone VPC Endpoint Service Allowed Principal resource
-// and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
-// a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
-// and will overwrite the association.
 type VpcEndpointServiceAllowedPrinciple struct {
 	s *pulumi.ResourceState
 }

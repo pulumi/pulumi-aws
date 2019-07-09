@@ -106,12 +106,6 @@ class Environment(pulumi.CustomResource):
     to use in deployment.
     """
     wait_for_ready_timeout: pulumi.Output[str]
-    """
-    The maximum
-    [duration](https://golang.org/pkg/time/#ParseDuration) that Terraform should
-    wait for an Elastic Beanstalk Environment to be in a ready state before timing
-    out.
-    """
     def __init__(__self__, resource_name, opts=None, application=None, cname_prefix=None, description=None, name=None, platform_arn=None, poll_interval=None, settings=None, solution_stack_name=None, tags=None, template_name=None, tier=None, version=None, wait_for_ready_timeout=None, __name__=None, __opts__=None):
         """
         Provides an Elastic Beanstalk Environment Resource. Elastic Beanstalk allows
@@ -160,10 +154,8 @@ class Environment(pulumi.CustomResource):
                or `WebServer`. If tier is left blank `WebServer` will be used.
         :param pulumi.Input[str] version: The name of the Elastic Beanstalk Application Version
                to use in deployment.
-        :param pulumi.Input[str] wait_for_ready_timeout: The maximum
-               [duration](https://golang.org/pkg/time/#ParseDuration) that Terraform should
-               wait for an Elastic Beanstalk Environment to be in a ready state before timing
-               out.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_environment.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

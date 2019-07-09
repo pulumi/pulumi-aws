@@ -42,6 +42,8 @@ class Thing(pulumi.CustomResource):
         :param pulumi.Input[dict] attributes: Map of attributes of the thing.
         :param pulumi.Input[str] name: The name of the thing.
         :param pulumi.Input[str] thing_type_name: The thing type name.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_thing.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

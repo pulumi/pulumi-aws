@@ -8,22 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides an MQ Broker Resource. This resources also manages users for the broker.
-// 
-// For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
-// 
-// Changes to an MQ Broker can occur when you change a
-// parameter, such as `configuration` or `user`, and are reflected in the next maintenance
-// window. Because of this, Terraform may report a difference in its planning
-// phase because a modification has not yet taken place. You can use the
-// `apply_immediately` flag to instruct the service to apply the change immediately
-// (see documentation below).
-// 
-// > **Note:** using `apply_immediately` can result in a
-// brief downtime as the broker reboots.
-// 
-// > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 type Broker struct {
 	s *pulumi.ResourceState
 }

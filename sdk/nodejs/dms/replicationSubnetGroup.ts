@@ -23,6 +23,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_replication_subnet_group.html.markdown.
  */
 export class ReplicationSubnetGroup extends pulumi.CustomResource {
     /**

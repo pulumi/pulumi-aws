@@ -4,89 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a VPC Endpoint resource.
- * 
- * > **NOTE on VPC Endpoints and VPC Endpoint Associations:** Terraform provides both standalone VPC Endpoint Associations for
- * Route Tables - (an association between a VPC endpoint and a single `route_table_id`) and
- * Subnets - (an association between a VPC endpoint and a single `subnet_id`) and
- * a VPC Endpoint resource with `route_table_ids` and `subnet_ids` attributes.
- * Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
- * Doing so will cause a conflict of associations and will overwrite the association.
- * 
- * ## Example Usage
- * 
- * ### Basic
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const s3 = new aws.ec2.VpcEndpoint("s3", {
- *     serviceName: "com.amazonaws.us-west-2.s3",
- *     vpcId: aws_vpc_main.id,
- * });
- * ```
- * 
- * ### Basic w/ Tags
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const s3 = new aws.ec2.VpcEndpoint("s3", {
- *     serviceName: "com.amazonaws.us-west-2.s3",
- *     tags: {
- *         Environment: "test",
- *     },
- *     vpcId: aws_vpc_main.id,
- * });
- * ```
- * 
- * ### Interface Endpoint Type
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const ec2 = new aws.ec2.VpcEndpoint("ec2", {
- *     privateDnsEnabled: true,
- *     securityGroupIds: [aws_security_group_sg1.id],
- *     serviceName: "com.amazonaws.us-west-2.ec2",
- *     vpcEndpointType: "Interface",
- *     vpcId: aws_vpc_main.id,
- * });
- * ```
- * 
- * ### Custom Service
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const ptfeServiceVpcEndpoint = new aws.ec2.VpcEndpoint("ptfe_service", {
- *     privateDnsEnabled: false,
- *     securityGroupIds: [aws_security_group_ptfe_service.id],
- *     serviceName: var_ptfe_service,
- *     subnetIds: [local_subnet_ids],
- *     vpcEndpointType: "Interface",
- *     vpcId: var_vpc_id,
- * });
- * const internal = pulumi.output(aws.route53.getZone({
- *     name: "vpc.internal.",
- *     privateZone: true,
- *     vpcId: var_vpc_id,
- * }));
- * const ptfeServiceRecord = new aws.route53.Record("ptfe_service", {
- *     records: [ptfeServiceVpcEndpoint.dnsEntries.apply(dnsEntries => (<any>dnsEntries[0])["dns_name"])],
- *     ttl: 300,
- *     type: "CNAME",
- *     zoneId: internal.zoneId,
- * });
- * ```
- * 
- * > **NOTE The `dns_entry` output is a list of maps:** Terraform interpolation support for lists of maps requires the `lookup` and `[]` until full support of lists of maps is available
- */
 export class VpcEndpoint extends pulumi.CustomResource {
     /**
      * Get an existing VpcEndpoint resource's state with the given name, ID, and optional extra
@@ -134,9 +51,6 @@ export class VpcEndpoint extends pulumi.CustomResource {
      * The ID of the AWS account that owns the VPC endpoint.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
-    /**
-     * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
@@ -267,9 +181,6 @@ export interface VpcEndpointState {
      * The ID of the AWS account that owns the VPC endpoint.
      */
     readonly ownerId?: pulumi.Input<string>;
-    /**
-     * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     readonly policy?: pulumi.Input<string>;
     /**
      * The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
@@ -326,9 +237,6 @@ export interface VpcEndpointArgs {
      * Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
      */
     readonly autoAccept?: pulumi.Input<boolean>;
-    /**
-     * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     readonly policy?: pulumi.Input<string>;
     /**
      * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.

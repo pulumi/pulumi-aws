@@ -8,6 +8,8 @@ import (
 )
 
 // Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_template.html.markdown.
 type LaunchTemplate struct {
 	s *pulumi.ResourceState
 }
@@ -244,7 +246,6 @@ func (r *LaunchTemplate) Monitoring() *pulumi.Output {
 	return r.s.State["monitoring"]
 }
 
-// The name of the launch template. If you leave this blank, Terraform will auto-generate a unique name.
 func (r *LaunchTemplate) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -345,7 +346,6 @@ type LaunchTemplateState struct {
 	LicenseSpecifications interface{}
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring interface{}
-	// The name of the launch template. If you leave this blank, Terraform will auto-generate a unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
@@ -412,7 +412,6 @@ type LaunchTemplateArgs struct {
 	LicenseSpecifications interface{}
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring interface{}
-	// The name of the launch template. If you leave this blank, Terraform will auto-generate a unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}

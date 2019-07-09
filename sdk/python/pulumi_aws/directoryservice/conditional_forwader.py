@@ -30,6 +30,8 @@ class ConditionalForwader(pulumi.CustomResource):
         :param pulumi.Input[str] directory_id: The id of directory.
         :param pulumi.Input[list] dns_ips: A list of forwarder IP addresses.
         :param pulumi.Input[str] remote_domain_name: The fully qualified domain name of the remote domain for which forwarders will be used.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/directory_service_conditional_forwarder.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

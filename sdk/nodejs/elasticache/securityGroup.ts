@@ -23,6 +23,8 @@ import * as utilities from "../utilities";
  *     securityGroupNames: [barEc2SecurityGroup.name],
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_security_group.html.markdown.
  */
 export class SecurityGroup extends pulumi.CustomResource {
     /**
@@ -51,9 +53,6 @@ export class SecurityGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityGroup.__pulumiType;
     }
 
-    /**
-     * description for the cache security group. Defaults to "Managed by Terraform".
-     */
     public readonly description!: pulumi.Output<string>;
     /**
      * Name for the cache security group. This value is stored as a lowercase string.
@@ -97,9 +96,6 @@ export class SecurityGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SecurityGroup resources.
  */
 export interface SecurityGroupState {
-    /**
-     * description for the cache security group. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * Name for the cache security group. This value is stored as a lowercase string.
@@ -116,9 +112,6 @@ export interface SecurityGroupState {
  * The set of arguments for constructing a SecurityGroup resource.
  */
 export interface SecurityGroupArgs {
-    /**
-     * description for the cache security group. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * Name for the cache security group. This value is stored as a lowercase string.

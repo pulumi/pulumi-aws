@@ -31,6 +31,8 @@ async def get_rules_packages(opts=None):
     The AWS Inspector Rules Packages data source allows access to the list of AWS
     Inspector Rules Packages which can be used by AWS Inspector within the region
     configured in the provider.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/inspector_rules_packages.html.markdown.
     """
     __args__ = dict()
 

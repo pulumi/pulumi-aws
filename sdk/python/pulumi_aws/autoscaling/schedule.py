@@ -67,6 +67,8 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] scheduled_action_name: The name of this scaling action.
         :param pulumi.Input[str] start_time: The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
                If you try to schedule your action in the past, Auto Scaling returns an error message.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_schedule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

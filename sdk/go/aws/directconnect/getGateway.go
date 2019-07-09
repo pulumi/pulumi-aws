@@ -8,6 +8,8 @@ import (
 )
 
 // Retrieve information about a Direct Connect Gateway.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dx_gateway.html.markdown.
 func LookupGateway(ctx *pulumi.Context, args *GetGatewayArgs) (*GetGatewayResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  *     vpcEndpointId: aws_vpc_endpoint_example.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_route_table_association.html.markdown.
  */
 export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
     /**

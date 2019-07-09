@@ -97,9 +97,6 @@ class LaunchTemplate(pulumi.CustomResource):
     The monitoring option for the instance. See Monitoring below for more details.
     """
     name: pulumi.Output[str]
-    """
-    The name of the launch template. If you leave this blank, Terraform will auto-generate a unique name.
-    """
     name_prefix: pulumi.Output[str]
     """
     Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -168,7 +165,6 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: The key name to use for the instance.
         :param pulumi.Input[list] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
         :param pulumi.Input[dict] monitoring: The monitoring option for the instance. See Monitoring below for more details.
-        :param pulumi.Input[str] name: The name of the launch template. If you leave this blank, Terraform will auto-generate a unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[list] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network
                Interfaces below for more details.
@@ -180,6 +176,8 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the launch template.
         :param pulumi.Input[str] user_data: The Base64-encoded user data to provide when launching the instance.
         :param pulumi.Input[list] vpc_security_group_ids: A list of security group IDs to associate with.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_template.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

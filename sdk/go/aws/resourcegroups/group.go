@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a Resource Group.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/resourcegroups_group.html.markdown.
 type Group struct {
 	s *pulumi.ResourceState
 }

@@ -12,6 +12,8 @@ import (
 // scales elastically for real-time processing of streaming big data.
 // 
 // For more details, see the [Amazon Kinesis Documentation][1].
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_stream.html.markdown.
 type Stream struct {
 	s *pulumi.ResourceState
 }

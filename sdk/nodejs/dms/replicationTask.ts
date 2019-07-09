@@ -28,6 +28,8 @@ import * as utilities from "../utilities";
  *     targetEndpointArn: aws_dms_endpoint_test_dms_target_endpoint_tf.endpointArn,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_replication_task.html.markdown.
  */
 export class ReplicationTask extends pulumi.CustomResource {
     /**

@@ -10,6 +10,8 @@ import (
 // Use this data source to get the ARN of a KMS key alias.
 // By using this data source, you can reference key alias
 // without having to hard code the ARN as input.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_alias.html.markdown.
 func LookupAlias(ctx *pulumi.Context, args *GetAliasArgs) (*GetAliasResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

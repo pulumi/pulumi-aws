@@ -78,6 +78,8 @@ async def get_container_definition(container_name=None,task_definition=None,opts
     """
     The ECS container definition data source allows access to details of
     a specific container within an AWS ECS service.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_container_definition.html.markdown.
     """
     __args__ = dict()
 

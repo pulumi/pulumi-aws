@@ -34,6 +34,8 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         :param pulumi.Input[list] client_id_lists: A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
         :param pulumi.Input[list] thumbprint_lists: A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
         :param pulumi.Input[str] url: The URL of the identity provider. Corresponds to the _iss_ claim.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_openid_connect_provider.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -58,6 +58,8 @@ class GetArnResult:
 async def get_arn(arn=None,opts=None):
     """
     Parses an Amazon Resource Name (ARN) into its constituent parts.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/arn.html.markdown.
     """
     __args__ = dict()
 

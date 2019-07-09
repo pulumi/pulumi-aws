@@ -10,6 +10,8 @@ import (
 
 // Provides an EC2 instance resource. This allows instances to be created, updated,
 // and deleted. Instances also support [provisioning](https://www.terraform.io/docs/provisioners/index.html).
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/instance.html.markdown.
 type Instance struct {
 	s *pulumi.ResourceState
 }

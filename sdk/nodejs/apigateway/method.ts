@@ -65,6 +65,8 @@ import {RestApi} from "./restApi";
  *     restApi: thisRestApi.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method.html.markdown.
  */
 export class Method extends pulumi.CustomResource {
     /**

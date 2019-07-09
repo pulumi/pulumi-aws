@@ -34,6 +34,8 @@ import * as utilities from "../utilities";
  *     registrationLimit: 5,
  * }, {dependsOn: [testAttach]});
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_activation.html.markdown.
  */
 export class Activation extends pulumi.CustomResource {
     /**

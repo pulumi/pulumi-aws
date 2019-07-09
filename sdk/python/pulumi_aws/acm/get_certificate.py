@@ -46,6 +46,8 @@ async def get_certificate(domain=None,key_types=None,most_recent=None,statuses=N
     Use this data source to get the ARN of a certificate in AWS Certificate
     Manager (ACM), you can reference
     it by domain without having to hard code the ARNs as input.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acm_certificate.html.markdown.
     """
     __args__ = dict()
 

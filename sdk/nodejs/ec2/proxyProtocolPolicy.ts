@@ -38,6 +38,8 @@ import * as utilities from "../utilities";
  *     loadBalancer: lb.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/proxy_protocol_policy.html.markdown.
  */
 export class ProxyProtocolPolicy extends pulumi.CustomResource {
     /**

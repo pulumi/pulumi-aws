@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  *     groupName: "an_example_group_name",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_group.html.markdown.
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
     return pulumi.runtime.invoke("aws:iam/getGroup:getGroup", {
