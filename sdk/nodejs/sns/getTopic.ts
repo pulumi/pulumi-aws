@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  *     name: "an_example_topic",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sns_topic.html.markdown.
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
     return pulumi.runtime.invoke("aws:sns/getTopic:getTopic", {

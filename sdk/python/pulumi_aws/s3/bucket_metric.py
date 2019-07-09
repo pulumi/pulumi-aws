@@ -30,6 +30,8 @@ class BucketMetric(pulumi.CustomResource):
         :param pulumi.Input[str] bucket: The name of the bucket to put metric configuration.
         :param pulumi.Input[dict] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[str] name: Unique identifier of the metrics configuration for the bucket.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_metric.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

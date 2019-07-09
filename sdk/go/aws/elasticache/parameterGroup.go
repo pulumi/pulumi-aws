@@ -8,9 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides an ElastiCache parameter group resource.
-// 
-// > **NOTE:** Attempting to remove the `reserved-memory` parameter when `family` is set to `redis2.6` or `redis2.8` may show a perpetual difference in Terraform due to an Elasticache API limitation. Leave that parameter configured with any value to workaround the issue.
 type ParameterGroup struct {
 	s *pulumi.ResourceState
 }
@@ -68,7 +65,6 @@ func (r *ParameterGroup) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The description of the ElastiCache parameter group. Defaults to "Managed by Terraform".
 func (r *ParameterGroup) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -90,7 +86,6 @@ func (r *ParameterGroup) Parameters() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering ParameterGroup resources.
 type ParameterGroupState struct {
-	// The description of the ElastiCache parameter group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// The family of the ElastiCache parameter group.
 	Family interface{}
@@ -102,7 +97,6 @@ type ParameterGroupState struct {
 
 // The set of arguments for constructing a ParameterGroup resource.
 type ParameterGroupArgs struct {
-	// The description of the ElastiCache parameter group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// The family of the ElastiCache parameter group.
 	Family interface{}

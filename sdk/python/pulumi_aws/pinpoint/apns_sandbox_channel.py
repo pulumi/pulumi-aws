@@ -69,6 +69,8 @@ class ApnsSandboxChannel(pulumi.CustomResource):
         :param pulumi.Input[str] team_id: The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         :param pulumi.Input[str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key. 
         :param pulumi.Input[str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_apns_sandbox_channel.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

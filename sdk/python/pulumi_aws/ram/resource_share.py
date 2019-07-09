@@ -34,6 +34,8 @@ class ResourceShare(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_external_principals: Indicates whether principals outside your organization can be associated with a resource share.
         :param pulumi.Input[str] name: The name of the resource share.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource share.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ram_resource_share.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

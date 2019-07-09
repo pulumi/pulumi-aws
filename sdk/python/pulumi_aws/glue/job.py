@@ -75,6 +75,8 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration to be associated with the job. 
         :param pulumi.Input[float] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours).
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_job.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

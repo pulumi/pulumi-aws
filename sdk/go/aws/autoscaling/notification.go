@@ -11,6 +11,8 @@ import (
 // Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
 // the `notifications` map to a [Notification Configuration][2] inside Amazon Web
 // Services, and are applied to each AutoScaling Group you supply.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_notification.html.markdown.
 type Notification struct {
 	s *pulumi.ResourceState
 }

@@ -11,6 +11,8 @@ import (
 // 
 // > **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
 // See the [`aws_db_cluster_snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_cluster_snapshot.html) for DB Cluster snapshots.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_snapshot.html.markdown.
 func LookupSnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

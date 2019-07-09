@@ -9,6 +9,8 @@ import (
 
 // The ECS container definition data source allows access to details of
 // a specific container within an AWS ECS service.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_container_definition.html.markdown.
 func LookupContainerDefinition(ctx *pulumi.Context, args *GetContainerDefinitionArgs) (*GetContainerDefinitionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

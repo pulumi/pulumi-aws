@@ -4,48 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage VPC peering connection options.
- * 
- * > **NOTE on VPC Peering Connections and VPC Peering Connection Options:** Terraform provides
- * both a standalone VPC Peering Connection Options and a VPC Peering Connection
- * resource with `accepter` and `requester` attributes. Do not manage options for the same VPC peering
- * connection in both a VPC Peering Connection resource and a VPC Peering Connection Options resource.
- * Doing so will cause a conflict of options and will overwrite the options.
- * Using a VPC Peering Connection Options resource decouples management of the connection options from
- * management of the VPC Peering Connection and allows options to be set correctly in cross-account scenarios.
- * 
- * Basic usage:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const bar = new aws.ec2.Vpc("bar", {
- *     cidrBlock: "10.1.0.0/16",
- * });
- * const fooVpc = new aws.ec2.Vpc("foo", {
- *     cidrBlock: "10.0.0.0/16",
- * });
- * const fooVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("foo", {
- *     autoAccept: true,
- *     peerVpcId: bar.id,
- *     vpcId: fooVpc.id,
- * });
- * const fooPeeringConnectionOptions = new aws.ec2.PeeringConnectionOptions("foo", {
- *     accepter: {
- *         allowRemoteVpcDnsResolution: true,
- *     },
- *     requester: {
- *         allowClassicLinkToRemoteVpc: true,
- *         allowVpcToRemoteClassicLink: true,
- *     },
- *     vpcPeeringConnectionId: fooVpcPeeringConnection.id,
- * });
- * ```
- * 
- * Basic cross-account usage:
- */
 export class PeeringConnectionOptions extends pulumi.CustomResource {
     /**
      * Get an existing PeeringConnectionOptions resource's state with the given name, ID, and optional extra

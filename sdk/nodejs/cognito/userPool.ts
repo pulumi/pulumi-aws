@@ -17,6 +17,8 @@ import * as utilities from "../utilities";
  * 
  * const pool = new aws.cognito.UserPool("pool", {});
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool.html.markdown.
  */
 export class UserPool extends pulumi.CustomResource {
     /**

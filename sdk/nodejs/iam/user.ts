@@ -39,6 +39,8 @@ import * as utilities from "../utilities";
  *     user: lbUser.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user.html.markdown.
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -72,9 +74,7 @@ export class User extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * When destroying this user, destroy even if it
-     * has non-Terraform-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
-     * a user with non-Terraform-managed access keys and login profile will fail to be destroyed.
+     * Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
      */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
@@ -140,9 +140,7 @@ export interface UserState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * When destroying this user, destroy even if it
-     * has non-Terraform-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
-     * a user with non-Terraform-managed access keys and login profile will fail to be destroyed.
+     * Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
      */
     readonly forceDestroy?: pulumi.Input<boolean>;
     /**
@@ -172,9 +170,7 @@ export interface UserState {
  */
 export interface UserArgs {
     /**
-     * When destroying this user, destroy even if it
-     * has non-Terraform-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
-     * a user with non-Terraform-managed access keys and login profile will fail to be destroyed.
+     * Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
      */
     readonly forceDestroy?: pulumi.Input<boolean>;
     /**

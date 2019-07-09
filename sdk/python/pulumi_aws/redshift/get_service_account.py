@@ -33,6 +33,8 @@ async def get_service_account(region=None,opts=None):
     """
     Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
     in a given region for the purpose of allowing Redshift to store audit data in S3.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/redshift_service_account.html.markdown.
     """
     __args__ = dict()
 

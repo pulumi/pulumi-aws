@@ -48,6 +48,8 @@ async def get_security_group(filters=None,id=None,name=None,tags=None,vpc_id=Non
     This resource can prove useful when a module accepts a Security Group id as
     an input variable and needs to, for example, determine the id of the
     VPC that the security group belongs to.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_group.html.markdown.
     """
     __args__ = dict()
 

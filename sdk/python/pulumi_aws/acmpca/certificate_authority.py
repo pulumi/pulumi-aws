@@ -67,9 +67,7 @@ class CertificateAuthority(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, certificate_authority_configuration=None, enabled=None, permanent_deletion_time_in_days=None, revocation_configuration=None, tags=None, type=None, __name__=None, __opts__=None):
         """
-        Provides a resource to manage AWS Certificate Manager Private Certificate Authorities (ACM PCA Certificate Authorities).
-        
-        > **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificate_signing_request` attribute and import the signed certificate outside of Terraform. Terraform can support another resource to manage that workflow automatically in the future.
+        Create a CertificateAuthority resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -79,6 +77,8 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.Input[dict] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[dict] tags: Specifies a key-value map of user-defined tags that are attached to the certificate authority.
         :param pulumi.Input[str] type: The type of the certificate authority. Currently, this must be `SUBORDINATE`.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acmpca_certificate_authority.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

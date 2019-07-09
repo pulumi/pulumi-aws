@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an API Gateway Method Settings, e.g. logging or monitoring.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method_settings.html.markdown.
 type MethodSettings struct {
 	s *pulumi.ResourceState
 }

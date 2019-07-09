@@ -84,6 +84,8 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[dict] schema_change_policy: Policy for the crawler's update and deletion behavior.
         :param pulumi.Input[str] security_configuration: The name of Security Configuration to be used by the crawler
         :param pulumi.Input[str] table_prefix: The table prefix used for catalog tables that are created.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_crawler.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -9,6 +9,8 @@ import (
 )
 
 // Creates a Snapshot of an EBS Volume.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_snapshot.html.markdown.
 type Snapshot struct {
 	s *pulumi.ResourceState
 }

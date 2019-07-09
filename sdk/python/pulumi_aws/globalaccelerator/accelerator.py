@@ -39,6 +39,8 @@ class Accelerator(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
         :param pulumi.Input[str] ip_address_type: The value for the address type must be `IPV4`.
         :param pulumi.Input[str] name: The name of the accelerator.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_accelerator.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

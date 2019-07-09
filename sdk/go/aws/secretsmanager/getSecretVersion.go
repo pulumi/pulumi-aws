@@ -8,6 +8,8 @@ import (
 )
 
 // Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`aws_secretsmanager_secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret_version.html.markdown.
 func LookupSecretVersion(ctx *pulumi.Context, args *GetSecretVersionArgs) (*GetSecretVersionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

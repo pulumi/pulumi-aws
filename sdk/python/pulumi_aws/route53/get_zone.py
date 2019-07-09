@@ -64,6 +64,8 @@ async def get_zone(caller_reference=None,comment=None,name=None,private_zone=Non
     `aws_route53_zone` provides details about a specific Route 53 Hosted Zone.
     
     This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_zone.html.markdown.
     """
     __args__ = dict()
 

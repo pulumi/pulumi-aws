@@ -30,6 +30,8 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] name: A name for the association that you're creating between a resolver rule and a VPC.
         :param pulumi.Input[str] resolver_rule_id: The ID of the resolver rule that you want to associate with the VPC.
         :param pulumi.Input[str] vpc_id: The ID of the VPC that you want to associate the resolver rule with.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_rule_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

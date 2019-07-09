@@ -47,6 +47,8 @@ class GetCustomerGatewayResult:
 async def get_customer_gateway(filters=None,id=None,tags=None,opts=None):
     """
     Get an existing AWS Customer Gateway.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/customer_gateway.html.markdown.
     """
     __args__ = dict()
 

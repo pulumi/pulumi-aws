@@ -30,6 +30,8 @@ class DocumentationPart(pulumi.CustomResource):
         :param pulumi.Input[dict] location: The location of the targeted API entity of the to-be-created documentation part. See below.
         :param pulumi.Input[str] properties: A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
         :param pulumi.Input[str] rest_api_id: The ID of the associated Rest API
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_documentation_part.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

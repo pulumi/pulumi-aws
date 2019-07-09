@@ -20,9 +20,6 @@ class LogGroup(pulumi.CustomResource):
     permissions for the CMK whenever the encrypted data is requested.
     """
     name: pulumi.Output[str]
-    """
-    The name of the log group. If omitted, Terraform will assign a random, unique name.
-    """
     name_prefix: pulumi.Output[str]
     """
     Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -45,11 +42,12 @@ class LogGroup(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
                AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
                permissions for the CMK whenever the encrypted data is requested.
-        :param pulumi.Input[str] name: The name of the log group. If omitted, Terraform will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[float] retention_in_days: Specifies the number of days
                you want to retain log events in the specified log group.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

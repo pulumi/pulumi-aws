@@ -11,8 +11,7 @@ from .. import utilities, tables
 class RolePolicy(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
-    The name of the role policy. If omitted, Terraform will
-    assign a random, unique name.
+    The name of the policy.
     """
     name_prefix: pulumi.Output[str]
     """
@@ -21,7 +20,7 @@ class RolePolicy(pulumi.CustomResource):
     """
     policy: pulumi.Output[str]
     """
-    The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
+    The policy document attached to the role.
     """
     role: pulumi.Output[str]
     """
@@ -33,12 +32,13 @@ class RolePolicy(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the role policy. If omitted, Terraform will
-               assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the policy.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
+        :param pulumi.Input[str] policy: The policy document attached to the role.
         :param pulumi.Input[str] role: The IAM role to attach to the policy.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

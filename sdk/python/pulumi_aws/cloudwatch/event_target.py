@@ -77,6 +77,8 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[list] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         :param pulumi.Input[dict] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] target_id: The unique target assignment ID.  If missing, will generate a random, unique id.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_event_target.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

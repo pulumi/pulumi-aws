@@ -10,6 +10,8 @@ import (
 // Use this data source to get the ARN of a topic in AWS Simple Notification
 // Service (SNS). By using this data source, you can reference SNS topics
 // without having to hard code the ARNs as input.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sns_topic.html.markdown.
 func LookupTopic(ctx *pulumi.Context, args *GetTopicArgs) (*GetTopicResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

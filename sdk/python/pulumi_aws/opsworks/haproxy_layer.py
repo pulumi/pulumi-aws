@@ -125,6 +125,8 @@ class HaproxyLayer(pulumi.CustomResource):
         :param pulumi.Input[str] stats_user: The username for HAProxy stats. Defaults to "opsworks".
         :param pulumi.Input[list] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_haproxy_layer.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

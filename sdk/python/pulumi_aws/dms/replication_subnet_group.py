@@ -40,6 +40,8 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] replication_subnet_group_id: The name for the replication subnet group. This value is stored as a lowercase string.
         :param pulumi.Input[list] subnet_ids: A list of the EC2 subnet IDs for the subnet group.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_replication_subnet_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

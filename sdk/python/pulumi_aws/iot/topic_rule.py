@@ -55,6 +55,8 @@ class TopicRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[str] sql: The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
         :param pulumi.Input[str] sql_version: The version of the SQL rules engine to use when evaluating the rule.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_topic_rule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

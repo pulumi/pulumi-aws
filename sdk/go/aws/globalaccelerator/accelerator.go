@@ -8,6 +8,8 @@ import (
 )
 
 // Provides a Global Accelerator accelerator.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_accelerator.html.markdown.
 type Accelerator struct {
 	s *pulumi.ResourceState
 }

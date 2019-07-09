@@ -30,6 +30,8 @@ import * as utilities from "../utilities";
  *     engineVersion: "5.15.0",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/mq_configuration.html.markdown.
  */
 export class Configuration extends pulumi.CustomResource {
     /**

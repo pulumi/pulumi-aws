@@ -40,6 +40,8 @@ import * as utilities from "../utilities";
  *     roleArn: aws_iam_role_example.arn,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_smb_file_share.html.markdown.
  */
 export class SmbFileShare extends pulumi.CustomResource {
     /**

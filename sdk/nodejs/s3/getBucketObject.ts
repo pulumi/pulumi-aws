@@ -52,6 +52,8 @@ import * as utilities from "../utilities";
  *     s3ObjectVersion: lambda.versionId,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_object.html.markdown.
  */
 export function getBucketObject(args: GetBucketObjectArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketObjectResult> {
     return pulumi.runtime.invoke("aws:s3/getBucketObject:getBucketObject", {

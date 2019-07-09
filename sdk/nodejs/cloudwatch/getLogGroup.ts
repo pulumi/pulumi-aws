@@ -17,6 +17,8 @@ import * as utilities from "../utilities";
  *     name: "MyImportantLogs",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudwatch_log_group.html.markdown.
  */
 export function getLogGroup(args: GetLogGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLogGroupResult> {
     return pulumi.runtime.invoke("aws:cloudwatch/getLogGroup:getLogGroup", {

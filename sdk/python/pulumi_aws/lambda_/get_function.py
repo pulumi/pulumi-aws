@@ -152,6 +152,8 @@ class GetFunctionResult:
 async def get_function(function_name=None,qualifier=None,tags=None,opts=None):
     """
     Provides information about a Lambda Function.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_function.html.markdown.
     """
     __args__ = dict()
 

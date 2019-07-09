@@ -12,6 +12,8 @@ import (
 // 
 // To help you understand the charges for your Spot instances, Amazon EC2 provides a data feed that describes your Spot instance usage and pricing.
 // This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_datafeed_subscription.html.markdown.
 type SpotDatafeedSubscription struct {
 	s *pulumi.ResourceState
 }

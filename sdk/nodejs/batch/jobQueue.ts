@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  *     state: "ENABLED",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_job_queue.html.markdown.
  */
 export class JobQueue extends pulumi.CustomResource {
     /**

@@ -122,6 +122,8 @@ async def get_cluster_snapshot(db_cluster_identifier=None,db_cluster_snapshot_id
     
     > **NOTE:** This data source does not apply to snapshots created on DB Instances. 
     See the [`aws_db_snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_snapshot.html) for DB Instance snapshots.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_cluster_snapshot.html.markdown.
     """
     __args__ = dict()
 

@@ -35,6 +35,8 @@ import * as utilities from "../utilities";
  *     roleArn: role.arn,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_recorder.html.markdown.
  */
 export class Recorder extends pulumi.CustomResource {
     /**

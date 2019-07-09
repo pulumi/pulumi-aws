@@ -44,6 +44,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] health_check_config: A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
         :param pulumi.Input[dict] health_check_custom_config: A complex type that contains settings for ECS managed health checks.
         :param pulumi.Input[str] name: The name of the service.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/service_discovery_service.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

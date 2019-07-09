@@ -68,6 +68,8 @@ async def get_key(grant_tokens=None,key_id=None,opts=None):
     the specified KMS Key with flexible key id input. 
     This can be useful to reference key alias 
     without having to hard code the ARN as input.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_key.html.markdown.
     """
     __args__ = dict()
 

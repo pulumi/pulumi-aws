@@ -62,9 +62,6 @@ class Bucket(pulumi.CustomResource):
     A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
     """
     policy: pulumi.Output[str]
-    """
-    A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-    """
     region: pulumi.Output[str]
     """
     If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
@@ -122,7 +119,6 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[list] lifecycle_rules: A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
         :param pulumi.Input[list] loggings: A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
         :param pulumi.Input[dict] object_lock_configuration: A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
-        :param pulumi.Input[str] policy: A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
         :param pulumi.Input[str] region: If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
         :param pulumi.Input[dict] replication_configuration: A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
         :param pulumi.Input[str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
@@ -136,6 +132,8 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[dict] website: A website object (documented below).
         :param pulumi.Input[str] website_domain: The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
         :param pulumi.Input[str] website_endpoint: The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

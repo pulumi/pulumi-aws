@@ -33,6 +33,8 @@ class GcmChannel(pulumi.CustomResource):
         :param pulumi.Input[str] api_key: Platform credential API key from Google.
         :param pulumi.Input[str] application_id: The application ID.
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_gcm_channel.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

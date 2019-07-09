@@ -35,6 +35,8 @@ class GetDirectConnectGatewayAttachmentResult:
 async def get_direct_connect_gateway_attachment(dx_gateway_id=None,tags=None,transit_gateway_id=None,opts=None):
     """
     Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_dx_gateway_attachment.html.markdown.
     """
     __args__ = dict()
 

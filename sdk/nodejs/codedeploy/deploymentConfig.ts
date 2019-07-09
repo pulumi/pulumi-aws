@@ -80,6 +80,8 @@ import * as utilities from "../utilities";
  *     serviceRoleArn: aws_iam_role_foo_role.arn,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codedeploy_deployment_config.html.markdown.
  */
 export class DeploymentConfig extends pulumi.CustomResource {
     /**

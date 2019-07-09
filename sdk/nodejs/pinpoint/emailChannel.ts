@@ -57,6 +57,8 @@ import * as utilities from "../utilities";
  *     roleArn: role.arn,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_email_channel.html.markdown.
  */
 export class EmailChannel extends pulumi.CustomResource {
     /**

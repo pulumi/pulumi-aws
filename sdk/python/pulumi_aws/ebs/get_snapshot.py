@@ -104,6 +104,8 @@ class GetSnapshotResult:
 async def get_snapshot(filters=None,most_recent=None,owners=None,restorable_by_user_ids=None,snapshot_ids=None,tags=None,opts=None):
     """
     Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot.html.markdown.
     """
     __args__ = dict()
 

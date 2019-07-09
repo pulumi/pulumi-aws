@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a SageMaker Endpoint resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_endpoint.html.markdown.
 type Endpoint struct {
 	s *pulumi.ResourceState
 }
@@ -75,7 +77,7 @@ func (r *Endpoint) EndpointConfigName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["endpointConfigName"])
 }
 
-// The name of the endpoint. If omitted, Terraform will assign a random, unique name.
+// The name of the endpoint.
 func (r *Endpoint) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -91,7 +93,7 @@ type EndpointState struct {
 	Arn interface{}
 	// The name of the endpoint configuration to use.
 	EndpointConfigName interface{}
-	// The name of the endpoint. If omitted, Terraform will assign a random, unique name.
+	// The name of the endpoint.
 	Name interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -101,7 +103,7 @@ type EndpointState struct {
 type EndpointArgs struct {
 	// The name of the endpoint configuration to use.
 	EndpointConfigName interface{}
-	// The name of the endpoint. If omitted, Terraform will assign a random, unique name.
+	// The name of the endpoint.
 	Name interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

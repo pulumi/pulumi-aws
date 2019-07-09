@@ -9,6 +9,8 @@ import (
 
 // The ECS task definition data source allows access to details of
 // a specific AWS ECS task definition.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_task_definition.html.markdown.
 func LookupTaskDefinition(ctx *pulumi.Context, args *GetTaskDefinitionArgs) (*GetTaskDefinitionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

@@ -42,13 +42,7 @@ class PlatformApplication(pulumi.CustomResource):
     The platform that the app is registered with. See [Platform][1] for supported platforms.
     """
     platform_credential: pulumi.Output[str]
-    """
-    Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-    """
     platform_principal: pulumi.Output[str]
-    """
-    Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-    """
     success_feedback_role_arn: pulumi.Output[str]
     """
     The IAM role permitted to receive success feedback for this application.
@@ -70,10 +64,10 @@ class PlatformApplication(pulumi.CustomResource):
         :param pulumi.Input[str] failure_feedback_role_arn: The IAM role permitted to receive failure feedback for this application.
         :param pulumi.Input[str] name: The friendly name for the SNS platform application
         :param pulumi.Input[str] platform: The platform that the app is registered with. See [Platform][1] for supported platforms.
-        :param pulumi.Input[str] platform_credential: Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        :param pulumi.Input[str] platform_principal: Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         :param pulumi.Input[str] success_feedback_role_arn: The IAM role permitted to receive success feedback for this application.
         :param pulumi.Input[str] success_feedback_sample_rate: The percentage of success to sample (0-100)
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_platform_application.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

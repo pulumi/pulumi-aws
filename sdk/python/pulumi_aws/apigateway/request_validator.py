@@ -35,6 +35,8 @@ class RequestValidator(pulumi.CustomResource):
         :param pulumi.Input[str] rest_api: The ID of the associated Rest API
         :param pulumi.Input[bool] validate_request_body: Boolean whether to validate request body. Defaults to `false`.
         :param pulumi.Input[bool] validate_request_parameters: Boolean whether to validate request parameters. Defaults to `false`.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_request_validator.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

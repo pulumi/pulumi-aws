@@ -7,47 +7,6 @@ import * as utilities from "../utilities";
 import {Bucket} from "../s3/bucket";
 import {Application} from "./application";
 
-/**
- * Provides an Elastic Beanstalk Application Version Resource. Elastic Beanstalk allows
- * you to deploy and manage applications in the AWS cloud without worrying about
- * the infrastructure that runs those applications.
- * 
- * This resource creates a Beanstalk Application Version that can be deployed to a Beanstalk
- * Environment.
- * 
- * > **NOTE on Application Version Resource:**  When using the Application Version resource with multiple 
- * Elastic Beanstalk Environments it is possible that an error may be returned
- * when attempting to delete an Application Version while it is still in use by a different environment.
- * To work around this you can:
- * <ol>
- * <li>Create each environment in a separate AWS account</li>
- * <li>Create your `aws_elastic_beanstalk_application_version` resources with a unique names in your 
- * Elastic Beanstalk Application. For example &lt;revision&gt;-&lt;environment&gt;.</li>
- * </ol>
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const defaultApplication = new aws.elasticbeanstalk.Application("default", {
- *     description: "tf-test-desc",
- * });
- * const defaultBucket = new aws.s3.Bucket("default", {});
- * const defaultBucketObject = new aws.s3.BucketObject("default", {
- *     bucket: defaultBucket.id,
- *     key: "beanstalk/go-v1.zip",
- *     source: new pulumi.asset.FileAsset("go-v1.zip"),
- * });
- * const defaultApplicationVersion = new aws.elasticbeanstalk.ApplicationVersion("default", {
- *     application: "tf-test-name",
- *     bucket: defaultBucket.id,
- *     description: "application version created by terraform",
- *     key: defaultBucketObject.id,
- * });
- * ```
- */
 export class ApplicationVersion extends pulumi.CustomResource {
     /**
      * Get an existing ApplicationVersion resource's state with the given name, ID, and optional extra

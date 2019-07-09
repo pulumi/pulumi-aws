@@ -27,7 +27,7 @@ class Model(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    The name of the model (must be unique). If omitted, Terraform will assign a random, unique name.
+    The name of the model.
     """
     primary_container: pulumi.Output[dict]
     """
@@ -50,10 +50,12 @@ class Model(pulumi.CustomResource):
         :param pulumi.Input[list] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         :param pulumi.Input[bool] enable_network_isolation: Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
         :param pulumi.Input[str] execution_role_arn: A role that SageMaker can assume to access model artifacts and docker images for deployment.
-        :param pulumi.Input[str] name: The name of the model (must be unique). If omitted, Terraform will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the model.
         :param pulumi.Input[dict] primary_container: The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] vpc_config: Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_model.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

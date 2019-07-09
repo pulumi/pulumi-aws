@@ -40,6 +40,8 @@ class Model(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the model
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] schema: The schema of the model in a JSON form
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_model.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

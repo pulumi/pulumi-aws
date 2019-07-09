@@ -34,6 +34,8 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the resource group.
         :param pulumi.Input[str] name: The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
         :param pulumi.Input[dict] resource_query: A `resource_query` block. Resource queries are documented below.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/resourcegroups_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

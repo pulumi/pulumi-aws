@@ -63,7 +63,7 @@ class ClusterInstance(pulumi.CustomResource):
     """
     identifier: pulumi.Output[str]
     """
-    The indentifier for the RDS instance, if omitted, Terraform will assign a random, unique identifier.
+    The Instance identifier
     """
     identifier_prefix: pulumi.Output[str]
     """
@@ -134,20 +134,7 @@ class ClusterInstance(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, cluster_identifier=None, copy_tags_to_snapshot=None, db_parameter_group_name=None, db_subnet_group_name=None, engine=None, engine_version=None, identifier=None, identifier_prefix=None, instance_class=None, monitoring_interval=None, monitoring_role_arn=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, preferred_backup_window=None, preferred_maintenance_window=None, promotion_tier=None, publicly_accessible=None, tags=None, __name__=None, __opts__=None):
         """
-        Provides an RDS Cluster Instance Resource. A Cluster Instance Resource defines
-        attributes that are specific to a single instance in a [RDS Cluster][3],
-        specifically running Amazon Aurora.
-        
-        Unlike other RDS resources that support replication, with Amazon Aurora you do
-        not designate a primary and subsequent replicas. Instead, you simply add RDS
-        Instances and Aurora manages the replication. You can use the [count][5]
-        meta-parameter to make multiple instances and join them all to the same RDS
-        Cluster, or you may specify different Cluster Instance resources with various
-        `instance_class` sizes.
-        
-        For more information on Amazon Aurora, see [Aurora on Amazon RDS][2] in the Amazon RDS User Guide.
-        
-        > **NOTE:** Deletion Protection from the RDS service can only be enabled at the cluster level, not for individual cluster instances. You can still add the [`prevent_destroy` lifecycle behavior](https://www.terraform.io/docs/configuration/resources.html#prevent_destroy) to your Terraform resource configuration if you desire protection from accidental deletion.
+        Create a ClusterInstance resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,7 +151,7 @@ class ClusterInstance(pulumi.CustomResource):
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
         :param pulumi.Input[str] engine_version: The database engine version.
-        :param pulumi.Input[str] identifier: The indentifier for the RDS instance, if omitted, Terraform will assign a random, unique identifier.
+        :param pulumi.Input[str] identifier: The Instance identifier
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU
                and memory, see [Scaling Aurora DB Instances][4]. Aurora uses `db.*` instance classes/types. Please see [AWS Documentation][7] for currently available instance classes and complete details.
@@ -183,6 +170,8 @@ class ClusterInstance(pulumi.CustomResource):
                Default `false`. See the documentation on [Creating DB Instances][6] for more
                details on controlling this property.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the instance.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_instance.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

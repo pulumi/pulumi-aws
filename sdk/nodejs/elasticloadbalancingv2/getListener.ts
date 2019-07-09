@@ -33,6 +33,8 @@ import * as utilities from "../utilities";
  *     port: 443,
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_listener.html.markdown.
  */
 export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> {
     args = args || {};

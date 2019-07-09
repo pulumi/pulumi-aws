@@ -23,6 +23,8 @@ import * as utilities from "../utilities";
  *     subnetId: aws_subnet_public_a.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_interface.html.markdown.
  */
 export class NetworkInterface extends pulumi.CustomResource {
     /**

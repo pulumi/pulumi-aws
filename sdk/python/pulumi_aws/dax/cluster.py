@@ -133,6 +133,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the
                cluster
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_cluster.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

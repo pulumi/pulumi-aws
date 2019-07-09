@@ -41,9 +41,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, connections_bandwidth=None, force_destroy=None, location=None, name=None, tags=None, __name__=None, __opts__=None):
         """
-        Provides a Direct Connect LAG. Connections can be added to the LAG via the [`aws_dx_connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) and [`aws_dx_connection_association`](https://www.terraform.io/docs/providers/aws/r/dx_connection_association.html) resources.
-        
-        > *NOTE:* When creating a LAG, Direct Connect requires creating a Connection. Terraform will remove this unmanaged connection during resource creation.
+        Create a LinkAggregationGroup resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -52,6 +50,8 @@ class LinkAggregationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] location: The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
         :param pulumi.Input[str] name: The name of the LAG.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_lag.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

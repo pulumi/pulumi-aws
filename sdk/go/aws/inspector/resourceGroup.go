@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a Inspector resource group
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/inspector_resource_group.html.markdown.
 type ResourceGroup struct {
 	s *pulumi.ResourceState
 }

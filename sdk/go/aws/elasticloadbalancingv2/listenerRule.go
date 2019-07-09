@@ -11,6 +11,8 @@ import (
 // Provides a Load Balancer Listener Rule resource.
 // 
 // > **Note:** `aws_alb_listener_rule` is known as `aws_lb_listener_rule`. The functionality is identical.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_listener_rule.html.markdown.
 type ListenerRule struct {
 	s *pulumi.ResourceState
 }

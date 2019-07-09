@@ -30,6 +30,8 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
         :param pulumi.Input[float] instance_port: The instance port to apply the policy to.
         :param pulumi.Input[str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[list] policy_names: List of Policy Names to apply to the backend server.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/load_balancer_backend_server_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

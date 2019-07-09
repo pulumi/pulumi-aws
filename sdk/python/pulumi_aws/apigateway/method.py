@@ -71,6 +71,8 @@ class Method(pulumi.CustomResource):
         :param pulumi.Input[str] request_validator_id: The ID of a `aws_api_gateway_request_validator`
         :param pulumi.Input[str] resource_id: The API resource ID
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

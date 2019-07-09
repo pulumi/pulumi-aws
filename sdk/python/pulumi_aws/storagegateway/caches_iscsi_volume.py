@@ -63,15 +63,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, gateway_arn=None, network_interface_id=None, snapshot_id=None, source_volume_arn=None, target_name=None, volume_size_in_bytes=None, __name__=None, __opts__=None):
         """
-        Manages an AWS Storage Gateway cached iSCSI volume.
-        
-        > **NOTE:** The gateway must have cache added (e.g. via the [`aws_storagegateway_cache`](https://www.terraform.io/docs/providers/aws/r/storagegateway_cache.html) resource) before creating volumes otherwise the Storage Gateway API will return an error.
-        
-        > **NOTE:** The gateway must have an upload buffer added (e.g. via the [`aws_storagegateway_upload_buffer`](https://www.terraform.io/docs/providers/aws/r/storagegateway_upload_buffer.html) resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `UPLOAD BUFFER NOT CONFIGURED`.
-        
-        ## Example Usage
-        
-        > **NOTE:** These examples are referencing the [`aws_storagegateway_cache`](https://www.terraform.io/docs/providers/aws/r/storagegateway_cache.html) resource `gateway_arn` attribute to ensure Terraform properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `depends_on = ["aws_storagegateway_cache.example"]`) to ensure proper ordering.
+        Create a CachesIscsiVolume resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -81,6 +73,8 @@ class CachesIscsiVolume(pulumi.CustomResource):
         :param pulumi.Input[str] source_volume_arn: The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         :param pulumi.Input[str] target_name: The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         :param pulumi.Input[float] volume_size_in_bytes: The size of the volume in bytes.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_cached_iscsi_volume.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

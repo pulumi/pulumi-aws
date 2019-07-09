@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  *     samlMetadataDocument: fs.readFileSync("saml-metadata.xml", "utf-8"),
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_saml_provider.html.markdown.
  */
 export class SamlProvider extends pulumi.CustomResource {
     /**

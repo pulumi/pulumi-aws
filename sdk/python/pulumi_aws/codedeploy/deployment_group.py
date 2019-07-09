@@ -71,9 +71,7 @@ class DeploymentGroup(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, alarm_configuration=None, app_name=None, auto_rollback_configuration=None, autoscaling_groups=None, blue_green_deployment_config=None, deployment_config_name=None, deployment_group_name=None, deployment_style=None, ec2_tag_filters=None, ec2_tag_sets=None, ecs_service=None, load_balancer_info=None, on_premises_instance_tag_filters=None, service_role_arn=None, trigger_configurations=None, __name__=None, __opts__=None):
         """
-        Provides a CodeDeploy Deployment Group for a CodeDeploy Application
-        
-        > **NOTE on blue/green deployments:** When using `green_fleet_provisioning_option` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by terraform and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
+        Create a DeploymentGroup resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -92,6 +90,8 @@ class DeploymentGroup(pulumi.CustomResource):
         :param pulumi.Input[list] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
         :param pulumi.Input[str] service_role_arn: The service role ARN that allows deployments.
         :param pulumi.Input[list] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codedeploy_deployment_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

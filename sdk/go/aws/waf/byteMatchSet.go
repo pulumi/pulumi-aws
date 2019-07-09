@@ -8,6 +8,8 @@ import (
 )
 
 // Provides a WAF Byte Match Set Resource
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_byte_match_set.html.markdown.
 type ByteMatchSet struct {
 	s *pulumi.ResourceState
 }

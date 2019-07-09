@@ -8,6 +8,8 @@ import (
 )
 
 // Provides a resource to create an organization.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_organization.html.markdown.
 type Organization struct {
 	s *pulumi.ResourceState
 }

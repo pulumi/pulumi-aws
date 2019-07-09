@@ -11,6 +11,8 @@ import (
 // API Gateway. To fetch the REST API you must provide a name to match against. 
 // As there is no unique name constraint on REST APIs this data source will 
 // error if there is more than one match.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_rest_api.html.markdown.
 func LookupRestApi(ctx *pulumi.Context, args *GetRestApiArgs) (*GetRestApiResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

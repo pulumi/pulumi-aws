@@ -136,10 +136,6 @@ class Instance(pulumi.CustomResource):
     accounts is enabled.
     """
     identifier: pulumi.Output[str]
-    """
-    The name of the RDS instance,
-    if omitted, Terraform will assign a random, unique identifier.
-    """
     identifier_prefix: pulumi.Output[str]
     """
     Creates a unique
@@ -315,32 +311,7 @@ class Instance(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, allocated_storage=None, allow_major_version_upgrade=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, backup_window=None, character_set_name=None, copy_tags_to_snapshot=None, db_subnet_group_name=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, identifier=None, identifier_prefix=None, instance_class=None, iops=None, kms_key_id=None, license_model=None, maintenance_window=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, name=None, option_group_name=None, parameter_group_name=None, password=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, publicly_accessible=None, replicate_source_db=None, s3_import=None, security_group_names=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, username=None, vpc_security_group_ids=None, __name__=None, __opts__=None):
         """
-        Provides an RDS instance resource.  A DB instance is an isolated database
-        environment in the cloud.  A DB instance can contain multiple user-created
-        databases.
-        
-        Changes to a DB instance can occur when you manually change a parameter, such as
-        `allocated_storage`, and are reflected in the next maintenance window. Because
-        of this, Terraform may report a difference in its planning phase because a
-        modification has not yet taken place. You can use the `apply_immediately` flag
-        to instruct the service to apply the change immediately (see documentation
-        below).
-        
-        When upgrading the major version of an engine, `allow_major_version_upgrade`
-        must be set to `true`.
-        
-        > **Note:** using `apply_immediately` can result in a brief downtime as the
-        server reboots. See the AWS Docs on [RDS Maintenance][2] for more information.
-        
-        > **Note:** All arguments including the username and password will be stored in
-        the raw state as plain-text. [Read more about sensitive data in
-        state](https://www.terraform.io/docs/state/sensitive-data.html).
-        
-        ## RDS Instance Class Types
-        
-        Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
-        and Burstable Performance. For more information please read the AWS RDS documentation
-        about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
+        Create a Instance resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -394,8 +365,6 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether or
                mappings of AWS Identity and Access Management (IAM) accounts to database
                accounts is enabled.
-        :param pulumi.Input[str] identifier: The name of the RDS instance,
-               if omitted, Terraform will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique
                identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance type of the RDS instance.
@@ -470,6 +439,8 @@ class Instance(pulumi.CustomResource):
                is provided) Username for the master DB user.
         :param pulumi.Input[list] vpc_security_group_ids: List of VPC security groups to
                associate.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_instance.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -42,6 +42,8 @@ class VirtualService(pulumi.CustomResource):
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the virtual service.
         :param pulumi.Input[str] name: The name to use for the virtual service.
         :param pulumi.Input[dict] spec: The virtual service specification to apply.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_virtual_service.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

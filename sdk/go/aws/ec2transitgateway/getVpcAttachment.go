@@ -8,6 +8,8 @@ import (
 )
 
 // Get information on an EC2 Transit Gateway VPC Attachment.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpc_attachment.html.markdown.
 func LookupVpcAttachment(ctx *pulumi.Context, args *GetVpcAttachmentArgs) (*GetVpcAttachmentResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

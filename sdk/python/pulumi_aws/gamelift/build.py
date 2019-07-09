@@ -35,6 +35,8 @@ class Build(pulumi.CustomResource):
         :param pulumi.Input[str] operating_system: Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
         :param pulumi.Input[dict] storage_location: Information indicating where your game build files are stored. See below.
         :param pulumi.Input[str] version: Version that is associated with this build.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_build.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

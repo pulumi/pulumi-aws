@@ -8,12 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides an Elastic MapReduce Cluster Instance Group configuration.
-// See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
-// 
-// > **NOTE:** At this time, Instance Groups cannot be destroyed through the API nor
-// web interface. Instance Groups are destroyed when the EMR Cluster is destroyed.
-// Terraform will resize any Instance Group to zero when destroying the resource.
 type InstanceGroup struct {
 	s *pulumi.ResourceState
 }

@@ -4,35 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to lookup information about IAM Server Certificates.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const my_domain = pulumi.output(aws.iam.getServerCertificate({
- *     latest: true,
- *     namePrefix: "my-domain.org",
- * }));
- * const elb = new aws.elasticloadbalancing.LoadBalancer("elb", {
- *     listeners: [{
- *         instancePort: 8000,
- *         instanceProtocol: "https",
- *         lbPort: 443,
- *         lbProtocol: "https",
- *         sslCertificateId: my_domain.arn,
- *     }],
- * });
- * ```
- * 
- * ## Import 
- * 
- * The terraform import function will read in certificate body, certificate chain (if it exists), id, name, path, and arn. 
- * It will not retrieve the private key which is not available through the AWS API.   
- */
 export function getServerCertificate(args?: GetServerCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCertificateResult> {
     args = args || {};
     return pulumi.runtime.invoke("aws:iam/getServerCertificate:getServerCertificate", {

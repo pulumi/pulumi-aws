@@ -8,6 +8,8 @@ import (
 )
 
 // Provides details about a specific redshift cluster.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/redshift_cluster.html.markdown.
 func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

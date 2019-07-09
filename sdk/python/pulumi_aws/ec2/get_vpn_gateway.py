@@ -39,6 +39,8 @@ async def get_vpn_gateway(amazon_side_asn=None,attached_vpc_id=None,availability
     """
     The VPN Gateway data source provides details about
     a specific VPN gateway.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpn_gateway.html.markdown.
     """
     __args__ = dict()
 

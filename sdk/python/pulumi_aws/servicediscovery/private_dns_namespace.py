@@ -38,6 +38,8 @@ class PrivateDnsNamespace(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.
         :param pulumi.Input[str] name: The name of the namespace.
         :param pulumi.Input[str] vpc: The ID of VPC that you want to associate the namespace with.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/service_discovery_private_dns_namespace.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

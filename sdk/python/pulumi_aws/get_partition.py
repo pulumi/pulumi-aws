@@ -24,9 +24,6 @@ class GetPartitionResult:
         """
 
 async def get_partition(opts=None):
-    """
-    Use this data source to lookup current AWS partition in which Terraform is working
-    """
     __args__ = dict()
 
     __ret__ = await pulumi.runtime.invoke('aws:index/getPartition:getPartition', __args__, opts=opts)

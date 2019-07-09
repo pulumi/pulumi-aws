@@ -26,6 +26,8 @@ import * as utilities from "../utilities";
  *     requireUppercaseCharacters: true,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_account_password_policy.html.markdown.
  */
 export class AccountPasswordPolicy extends pulumi.CustomResource {
     /**

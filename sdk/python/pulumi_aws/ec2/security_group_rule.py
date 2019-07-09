@@ -59,19 +59,7 @@ class SecurityGroupRule(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, cidr_blocks=None, description=None, from_port=None, ipv6_cidr_blocks=None, prefix_list_ids=None, protocol=None, security_group_id=None, self=None, source_security_group_id=None, to_port=None, type=None, __name__=None, __opts__=None):
         """
-        Provides a security group rule resource. Represents a single `ingress` or
-        `egress` group rule, which can be added to external Security Groups.
-        
-        > **NOTE on Security Groups and Security Group Rules:** Terraform currently
-        provides both a standalone Security Group Rule resource (a single `ingress` or
-        `egress` rule), and a Security Group resource with `ingress` and `egress` rules
-        defined in-line. At this time you cannot use a Security Group with in-line rules
-        in conjunction with any Security Group Rule resources. Doing so will cause
-        a conflict of rule settings and will overwrite rules.
-        
-        > **NOTE:** Setting `protocol = "all"` or `protocol = -1` with `from_port` and `to_port` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by Terraform and may generate warnings in the future.
-        
-        > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
+        Create a SecurityGroupRule resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -90,6 +78,8 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param pulumi.Input[float] to_port: The end port (or ICMP code if protocol is "icmp").
         :param pulumi.Input[str] type: The type of rule being created. Valid options are `ingress` (inbound)
                or `egress` (outbound).
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group_rule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

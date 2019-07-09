@@ -16,6 +16,8 @@ import (
 // * To actually use the DHCP Options Set you need to associate it to a VPC using [`aws_vpc_dhcp_options_association`](https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association.html).
 // * If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set.
 // * In most cases unless you're configuring your own DNS you'll want to set `domain_name_servers` to `AmazonProvidedDNS`.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_dhcp_options.html.markdown.
 type VpcDhcpOptions struct {
 	s *pulumi.ResourceState
 }

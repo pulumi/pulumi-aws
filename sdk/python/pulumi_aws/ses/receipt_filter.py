@@ -30,6 +30,8 @@ class ReceiptFilter(pulumi.CustomResource):
         :param pulumi.Input[str] cidr: The IP address or address range to filter, in CIDR notation
         :param pulumi.Input[str] name: The name of the filter
         :param pulumi.Input[str] policy: Block or Allow
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_receipt_filter.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

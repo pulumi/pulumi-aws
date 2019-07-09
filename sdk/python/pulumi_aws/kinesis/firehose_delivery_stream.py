@@ -73,6 +73,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                is redshift). More details are given below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_firehose_delivery_stream.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

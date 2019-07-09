@@ -50,6 +50,8 @@ import * as utilities from "../utilities";
  *     vpcId: var_vpc_id,
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_acls.html.markdown.
  */
 export function getNetworkAcls(args?: GetNetworkAclsArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAclsResult> {
     args = args || {};

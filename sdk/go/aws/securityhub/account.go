@@ -7,11 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Enables Security Hub for this AWS account.
-// 
-// > **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
-// 
-// > **NOTE:** This AWS service is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between Terraform AWS Provider releases.
 type Account struct {
 	s *pulumi.ResourceState
 }

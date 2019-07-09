@@ -29,6 +29,8 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_policy.html.markdown.
  */
 export class Policy extends pulumi.CustomResource {
     /**
@@ -70,7 +72,7 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
+     * The policy document.
      */
     public readonly policy!: pulumi.Output<string>;
 
@@ -121,7 +123,7 @@ export interface PolicyState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
+     * The policy document.
      */
     readonly policy?: pulumi.Input<string>;
 }
@@ -135,7 +137,7 @@ export interface PolicyArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
+     * The policy document.
      */
     readonly policy: pulumi.Input<string>;
 }

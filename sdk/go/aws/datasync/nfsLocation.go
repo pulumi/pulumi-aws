@@ -11,6 +11,8 @@ import (
 // Manages an NFS Location within AWS DataSync.
 // 
 // > **NOTE:** The DataSync Agents must be available before creating this resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_nfs.html.markdown.
 type NfsLocation struct {
 	s *pulumi.ResourceState
 }

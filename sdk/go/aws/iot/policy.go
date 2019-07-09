@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an IoT policy.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_policy.html.markdown.
 type Policy struct {
 	s *pulumi.ResourceState
 }
@@ -79,7 +81,7 @@ func (r *Policy) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
+// The policy document.
 func (r *Policy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -92,7 +94,7 @@ type PolicyState struct {
 	DefaultVersionId interface{}
 	// The name of the policy.
 	Name interface{}
-	// The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
+	// The policy document.
 	Policy interface{}
 }
 
@@ -100,6 +102,6 @@ type PolicyState struct {
 type PolicyArgs struct {
 	// The name of the policy.
 	Name interface{}
-	// The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
+	// The policy document.
 	Policy interface{}
 }

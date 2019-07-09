@@ -36,6 +36,8 @@ class Recorder(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role.
                used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
                See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_recorder.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

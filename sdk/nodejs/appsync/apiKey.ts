@@ -21,6 +21,8 @@ import * as utilities from "../utilities";
  *     expires: "2018-05-03T04:00:00Z",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_api_key.html.markdown.
  */
 export class ApiKey extends pulumi.CustomResource {
     /**
@@ -53,9 +55,6 @@ export class ApiKey extends pulumi.CustomResource {
      * The ID of the associated AppSync API
      */
     public readonly apiId!: pulumi.Output<string>;
-    /**
-     * The API key description. Defaults to "Managed by Terraform".
-     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
@@ -104,9 +103,6 @@ export interface ApiKeyState {
      * The ID of the associated AppSync API
      */
     readonly apiId?: pulumi.Input<string>;
-    /**
-     * The API key description. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
@@ -126,9 +122,6 @@ export interface ApiKeyArgs {
      * The ID of the associated AppSync API
      */
     readonly apiId: pulumi.Input<string>;
-    /**
-     * The API key description. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.

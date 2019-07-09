@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  *     subnetId: aws_subnet_example.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_client_vpn_network_association.html.markdown.
  */
 export class NetworkAssociation extends pulumi.CustomResource {
     /**

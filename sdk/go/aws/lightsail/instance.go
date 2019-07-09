@@ -96,6 +96,8 @@ import (
 // - us-east-1: `2_0`
 // - us-east-2: `2_0`
 // - us-west-2: `2_0`
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_instance.html.markdown.
 type Instance struct {
 	s *pulumi.ResourceState
 }

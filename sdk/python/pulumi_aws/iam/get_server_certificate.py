@@ -51,14 +51,6 @@ class GetServerCertificateResult:
         """
 
 async def get_server_certificate(latest=None,name=None,name_prefix=None,path_prefix=None,opts=None):
-    """
-    Use this data source to lookup information about IAM Server Certificates.
-    
-    ## Import 
-    
-    The terraform import function will read in certificate body, certificate chain (if it exists), id, name, path, and arn. 
-    It will not retrieve the private key which is not available through the AWS API.   
-    """
     __args__ = dict()
 
     __args__['latest'] = latest

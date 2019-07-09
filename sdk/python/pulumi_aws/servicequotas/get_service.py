@@ -32,6 +32,8 @@ class GetServiceResult:
 async def get_service(service_name=None,opts=None):
     """
     Retrieve information about a Service Quotas Service.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/servicequotas_service.html.markdown.
     """
     __args__ = dict()
 

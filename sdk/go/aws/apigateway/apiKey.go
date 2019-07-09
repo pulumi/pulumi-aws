@@ -10,6 +10,8 @@ import (
 // Provides an API Gateway API Key.
 // 
 // > **NOTE:** Since the API Gateway usage plans feature was launched on August 11, 2016, usage plans are now **required** to associate an API key with an API stage.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_api_key.html.markdown.
 type ApiKey struct {
 	s *pulumi.ResourceState
 }
@@ -73,7 +75,6 @@ func (r *ApiKey) CreatedDate() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["createdDate"])
 }
 
-// The API key description. Defaults to "Managed by Terraform".
 func (r *ApiKey) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -102,7 +103,6 @@ func (r *ApiKey) Value() *pulumi.StringOutput {
 type ApiKeyState struct {
 	// The creation date of the API key
 	CreatedDate interface{}
-	// The API key description. Defaults to "Managed by Terraform".
 	Description interface{}
 	// Specifies whether the API key can be used by callers. Defaults to `true`.
 	Enabled interface{}
@@ -116,7 +116,6 @@ type ApiKeyState struct {
 
 // The set of arguments for constructing a ApiKey resource.
 type ApiKeyArgs struct {
-	// The API key description. Defaults to "Managed by Terraform".
 	Description interface{}
 	// Specifies whether the API key can be used by callers. Defaults to `true`.
 	Enabled interface{}

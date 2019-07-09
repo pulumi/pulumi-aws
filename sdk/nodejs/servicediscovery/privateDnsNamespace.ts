@@ -21,6 +21,8 @@ import * as utilities from "../utilities";
  *     vpc: exampleVpc.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/service_discovery_private_dns_namespace.html.markdown.
  */
 export class PrivateDnsNamespace extends pulumi.CustomResource {
     /**

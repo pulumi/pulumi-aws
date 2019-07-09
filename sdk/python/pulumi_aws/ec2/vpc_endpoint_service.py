@@ -55,14 +55,7 @@ class VpcEndpointService(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, acceptance_required=None, allowed_principals=None, network_load_balancer_arns=None, tags=None, __name__=None, __opts__=None):
         """
-        Provides a VPC Endpoint Service resource.
-        Service consumers can create an _Interface_ VPC Endpoint to connect to the service.
-        
-        > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** Terraform provides
-        both a standalone VPC Endpoint Service Allowed Principal resource
-        and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
-        a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
-        and will overwrite the association.
+        Create a VpcEndpointService resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -70,6 +63,8 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.Input[list] allowed_principals: The ARNs of one or more principals allowed to discover the endpoint service.
         :param pulumi.Input[list] network_load_balancer_arns: The ARNs of one or more Network Load Balancers for the endpoint service.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_service.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

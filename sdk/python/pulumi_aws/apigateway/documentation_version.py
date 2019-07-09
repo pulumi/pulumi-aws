@@ -30,6 +30,8 @@ class DocumentationVersion(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the API documentation version.
         :param pulumi.Input[str] rest_api_id: The ID of the associated Rest API
         :param pulumi.Input[str] version: The version identifier of the API documentation snapshot.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_documentation_version.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

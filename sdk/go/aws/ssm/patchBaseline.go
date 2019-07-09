@@ -12,6 +12,8 @@ import (
 // > **NOTE on Patch Baselines:** The `approved_patches` and `approval_rule` are 
 // both marked as optional fields, but the Patch Baseline requires that at least one
 // of them is specified.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_patch_baseline.html.markdown.
 type PatchBaseline struct {
 	s *pulumi.ResourceState
 }

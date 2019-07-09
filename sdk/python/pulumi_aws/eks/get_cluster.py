@@ -80,6 +80,8 @@ class GetClusterResult:
 async def get_cluster(name=None,opts=None):
     """
     Retrieve information about an EKS Cluster.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eks_cluster.html.markdown.
     """
     __args__ = dict()
 

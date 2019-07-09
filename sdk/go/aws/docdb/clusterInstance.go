@@ -16,6 +16,8 @@ import (
 // meta-parameter to make multiple instances and join them all to the same DocDB
 // Cluster, or you may specify different Cluster Instance resources with various
 // `instance_class` sizes.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster_instance.html.markdown.
 type ClusterInstance struct {
 	s *pulumi.ResourceState
 }
@@ -170,7 +172,6 @@ func (r *ClusterInstance) EngineVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
 }
 
-// The indentifier for the DocDB instance, if omitted, Terraform will assign a random, unique identifier.
 func (r *ClusterInstance) Identifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["identifier"])
 }
@@ -260,7 +261,6 @@ type ClusterInstanceState struct {
 	Engine interface{}
 	// The database engine version
 	EngineVersion interface{}
-	// The indentifier for the DocDB instance, if omitted, Terraform will assign a random, unique identifier.
 	Identifier interface{}
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
 	IdentifierPrefix interface{}
@@ -306,7 +306,6 @@ type ClusterInstanceArgs struct {
 	ClusterIdentifier interface{}
 	// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
 	Engine interface{}
-	// The indentifier for the DocDB instance, if omitted, Terraform will assign a random, unique identifier.
 	Identifier interface{}
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
 	IdentifierPrefix interface{}

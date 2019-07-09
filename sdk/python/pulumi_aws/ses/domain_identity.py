@@ -18,15 +18,6 @@ class DomainIdentity(pulumi.CustomResource):
     The domain name to assign to SES
     """
     verification_token: pulumi.Output[str]
-    """
-    A code which when added to the domain as a TXT record
-    will signal to SES that the owner of the domain has authorised SES to act on
-    their behalf. The domain identity will be in state "verification pending"
-    until this is done. See below for an example of how this might be achieved
-    when the domain is hosted in Route 53 and managed by Terraform.  Find out
-    more about verifying domains in Amazon SES in the [AWS SES
-    docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
-    """
     def __init__(__self__, resource_name, opts=None, domain=None, __name__=None, __opts__=None):
         """
         Provides an SES domain identity resource
@@ -34,6 +25,8 @@ class DomainIdentity(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain: The domain name to assign to SES
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_identity.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

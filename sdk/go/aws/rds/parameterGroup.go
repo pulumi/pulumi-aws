@@ -14,6 +14,8 @@ import (
 // * [MariaDB Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Parameters.html)
 // * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
 // * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_parameter_group.html.markdown.
 type ParameterGroup struct {
 	s *pulumi.ResourceState
 }
@@ -84,7 +86,6 @@ func (r *ParameterGroup) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The description of the DB parameter group. Defaults to "Managed by Terraform".
 func (r *ParameterGroup) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -118,7 +119,6 @@ func (r *ParameterGroup) Tags() *pulumi.MapOutput {
 type ParameterGroupState struct {
 	// The ARN of the db parameter group.
 	Arn interface{}
-	// The description of the DB parameter group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// The family of the DB parameter group.
 	Family interface{}
@@ -134,7 +134,6 @@ type ParameterGroupState struct {
 
 // The set of arguments for constructing a ParameterGroup resource.
 type ParameterGroupArgs struct {
-	// The description of the DB parameter group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// The family of the DB parameter group.
 	Family interface{}

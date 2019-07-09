@@ -30,6 +30,8 @@ import * as utilities from "../utilities";
  *     vpnGatewayId: main.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/customer_gateway.html.markdown.
  */
 export function getCustomerGateway(args?: GetCustomerGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerGatewayResult> {
     args = args || {};

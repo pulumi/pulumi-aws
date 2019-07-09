@@ -60,6 +60,8 @@ class Preset(pulumi.CustomResource):
         :param pulumi.Input[dict] video: Video parameters object (documented below)
         :param pulumi.Input[list] video_watermarks: Watermark parameters for the video parameters (documented below)
                * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastictranscoder_preset.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

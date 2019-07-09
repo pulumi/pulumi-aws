@@ -30,6 +30,8 @@ import * as utilities from "../utilities";
  *     dbSnapshotIdentifier: "testsnapshot1234",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_snapshot.html.markdown.
  */
 export class Snapshot extends pulumi.CustomResource {
     /**

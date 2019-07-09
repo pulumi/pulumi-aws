@@ -34,6 +34,8 @@ import * as utilities from "../utilities";
  *     resourceOwner: "SELF",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ram_resource_share.html.markdown.
  */
 export function getResourceShare(args: GetResourceShareArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceShareResult> {
     return pulumi.runtime.invoke("aws:ram/getResourceShare:getResourceShare", {

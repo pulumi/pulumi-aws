@@ -14,9 +14,6 @@ class Domain(pulumi.CustomResource):
     The domain description.
     """
     name: pulumi.Output[str]
-    """
-    The name of the domain. If omitted, Terraform will assign a random, unique name.
-    """
     name_prefix: pulumi.Output[str]
     """
     Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -32,9 +29,10 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The domain description.
-        :param pulumi.Input[str] name: The name of the domain. If omitted, Terraform will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] workflow_execution_retention_period_in_days: Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/swf_domain.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -10,17 +10,11 @@ from .. import utilities, tables
 
 class Zone(pulumi.CustomResource):
     comment: pulumi.Output[str]
-    """
-    A comment for the hosted zone. Defaults to 'Managed by Terraform'.
-    """
     delegation_set_id: pulumi.Output[str]
     """
     The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
     """
     force_destroy: pulumi.Output[bool]
-    """
-    Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone.
-    """
     name: pulumi.Output[str]
     """
     This is the name of the hosted zone.
@@ -48,12 +42,12 @@ class Zone(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] comment: A comment for the hosted zone. Defaults to 'Managed by Terraform'.
         :param pulumi.Input[str] delegation_set_id: The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
-        :param pulumi.Input[bool] force_destroy: Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone.
         :param pulumi.Input[str] name: This is the name of the hosted zone.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the zone.
         :param pulumi.Input[list] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`aws_route53_zone_association` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

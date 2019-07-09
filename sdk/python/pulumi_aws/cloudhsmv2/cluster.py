@@ -69,6 +69,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] source_backup_identifier: The id of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[list] subnet_ids: The IDs of subnets in which cluster will operate.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudhsm_v2_cluster.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

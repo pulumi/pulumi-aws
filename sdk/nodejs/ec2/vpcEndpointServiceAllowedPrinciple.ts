@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to allow a principal to discover a VPC endpoint service.
- * 
- * > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** Terraform provides
- * both a standalone VPC Endpoint Service Allowed Principal resource
- * and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
- * a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
- * and will overwrite the association.
- * 
- * ## Example Usage
- * 
- * Basic usage:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const current = pulumi.output(aws.getCallerIdentity({}));
- * const allowMeToFoo = new aws.ec2.VpcEndpointServiceAllowedPrinciple("allow_me_to_foo", {
- *     principalArn: current.arn,
- *     vpcEndpointServiceId: aws_vpc_endpoint_service_foo.id,
- * });
- * ```
- */
 export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
     /**
      * Get an existing VpcEndpointServiceAllowedPrinciple resource's state with the given name, ID, and optional extra

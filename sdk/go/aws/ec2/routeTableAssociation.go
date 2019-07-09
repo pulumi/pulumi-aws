@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a resource to create an association between a subnet and routing table.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route_table_association.html.markdown.
 type RouteTableAssociation struct {
 	s *pulumi.ResourceState
 }

@@ -28,6 +28,8 @@ import * as utilities from "../utilities";
  *     name: lbName,
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb.html.markdown.
  */
 export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
     args = args || {};

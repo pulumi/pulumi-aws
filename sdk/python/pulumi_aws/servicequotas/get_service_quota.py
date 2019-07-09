@@ -68,6 +68,8 @@ class GetServiceQuotaResult:
 async def get_service_quota(quota_code=None,quota_name=None,service_code=None,opts=None):
     """
     Retrieve information about a Service Quota.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/servicequotas_service_quota.html.markdown.
     """
     __args__ = dict()
 

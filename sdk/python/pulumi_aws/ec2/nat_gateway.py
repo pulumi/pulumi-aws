@@ -42,6 +42,8 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the gateway.
         :param pulumi.Input[str] subnet_id: The Subnet ID of the subnet in which to place the gateway.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/nat_gateway.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

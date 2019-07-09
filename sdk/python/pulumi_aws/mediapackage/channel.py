@@ -38,6 +38,8 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[str] channel_id: A unique identifier describing the channel
         :param pulumi.Input[str] description: A description of the channel
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/media_package_channel.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

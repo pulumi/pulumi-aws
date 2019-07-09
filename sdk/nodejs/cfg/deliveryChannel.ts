@@ -60,6 +60,8 @@ import * as utilities from "../utilities";
  *     role: role.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_delivery_channel.html.markdown.
  */
 export class DeliveryChannel extends pulumi.CustomResource {
     /**

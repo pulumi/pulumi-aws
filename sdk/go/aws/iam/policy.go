@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an IAM policy.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_policy.html.markdown.
 type Policy struct {
 	s *pulumi.ResourceState
 }
@@ -81,7 +83,7 @@ func (r *Policy) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
-// The name of the policy. If omitted, Terraform will assign a random, unique name.
+// The name of the policy.
 func (r *Policy) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -97,7 +99,7 @@ func (r *Policy) Path() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["path"])
 }
 
-// The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
+// The policy document.
 func (r *Policy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -108,14 +110,14 @@ type PolicyState struct {
 	Arn interface{}
 	// Description of the IAM policy.
 	Description interface{}
-	// The name of the policy. If omitted, Terraform will assign a random, unique name.
+	// The name of the policy.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
 	// Path in which to create the policy.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path interface{}
-	// The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
+	// The policy document.
 	Policy interface{}
 }
 
@@ -123,13 +125,13 @@ type PolicyState struct {
 type PolicyArgs struct {
 	// Description of the IAM policy.
 	Description interface{}
-	// The name of the policy. If omitted, Terraform will assign a random, unique name.
+	// The name of the policy.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
 	// Path in which to create the policy.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path interface{}
-	// The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
+	// The policy document.
 	Policy interface{}
 }

@@ -194,6 +194,8 @@ import {RoutingRule} from "./routingRules";
  *     },
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket.html.markdown.
  */
 export class Bucket extends pulumi.CustomResource {
     /**
@@ -274,9 +276,6 @@ export class Bucket extends pulumi.CustomResource {
      * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
      */
     public readonly objectLockConfiguration!: pulumi.Output<{ objectLockEnabled: string, rule?: { defaultRetention: { days?: number, mode: string, years?: number } } } | undefined>;
-    /**
-     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     public readonly policy!: pulumi.Output<string | undefined>;
     /**
      * If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
@@ -440,9 +439,6 @@ export interface BucketState {
      * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
      */
     readonly objectLockConfiguration?: pulumi.Input<{ objectLockEnabled: pulumi.Input<string>, rule?: pulumi.Input<{ defaultRetention: pulumi.Input<{ days?: pulumi.Input<number>, mode: pulumi.Input<string>, years?: pulumi.Input<number> }> }> }>;
-    /**
-     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
@@ -534,9 +530,6 @@ export interface BucketArgs {
      * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
      */
     readonly objectLockConfiguration?: pulumi.Input<{ objectLockEnabled: pulumi.Input<string>, rule?: pulumi.Input<{ defaultRetention: pulumi.Input<{ days?: pulumi.Input<number>, mode: pulumi.Input<string>, years?: pulumi.Input<number> }> }> }>;
-    /**
-     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a `terraform plan`. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.

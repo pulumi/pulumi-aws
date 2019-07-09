@@ -92,6 +92,8 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] db_instance_identifier: The DB Instance Identifier from which to take the snapshot.
         :param pulumi.Input[str] db_snapshot_identifier: The Identifier for the snapshot.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_snapshot.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

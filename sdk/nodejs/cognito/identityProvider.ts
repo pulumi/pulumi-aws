@@ -31,6 +31,8 @@ import * as utilities from "../utilities";
  *     userPoolId: example.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_provider.html.markdown.
  */
 export class IdentityProvider extends pulumi.CustomResource {
     /**

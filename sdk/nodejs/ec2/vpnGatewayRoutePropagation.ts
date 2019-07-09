@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  *     vpnGatewayId: aws_vpn_gateway_example.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_route_propagation.html.markdown.
  */
 export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
     /**

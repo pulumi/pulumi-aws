@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  *     mountTargetId: mountTargetId,
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_mount_target.html.markdown.
  */
 export function getMountTarget(args: GetMountTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetMountTargetResult> {
     return pulumi.runtime.invoke("aws:efs/getMountTarget:getMountTarget", {

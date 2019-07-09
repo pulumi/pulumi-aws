@@ -43,19 +43,7 @@ class LifecycleHook(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, autoscaling_group_name=None, default_result=None, heartbeat_timeout=None, lifecycle_transition=None, name=None, notification_metadata=None, notification_target_arn=None, role_arn=None, __name__=None, __opts__=None):
         """
-        Provides an AutoScaling Lifecycle Hook resource.
-        
-        > **NOTE:** Terraform has two types of ways you can add lifecycle hooks - via
-        the `initial_lifecycle_hook` attribute from the
-        [`aws_autoscaling_group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html)
-        resource, or via this one. Hooks added via this resource will not be added
-        until the autoscaling group has been created, and depending on your
-        [capacity](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html#waiting-for-capacity)
-        settings, after the initial instances have been launched, creating unintended
-        behavior. If you need hooks to run on all instances, add them with
-        `initial_lifecycle_hook` in
-        [`aws_autoscaling_group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
-        but take care to not duplicate those hooks with this resource.
+        Create a LifecycleHook resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -67,6 +55,8 @@ class LifecycleHook(pulumi.CustomResource):
         :param pulumi.Input[str] notification_metadata: Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
         :param pulumi.Input[str] notification_target_arn: The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_lifecycle_hook.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

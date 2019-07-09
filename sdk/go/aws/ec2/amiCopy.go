@@ -19,6 +19,8 @@ import (
 // 
 // Copying an AMI can take several minutes. The creation of this resource will
 // block until the new AMI is available for use on new instances.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_copy.html.markdown.
 type AmiCopy struct {
 	s *pulumi.ResourceState
 }

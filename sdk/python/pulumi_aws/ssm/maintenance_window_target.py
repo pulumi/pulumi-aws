@@ -45,6 +45,8 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         :param pulumi.Input[str] resource_type: The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
         :param pulumi.Input[list] targets: The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
         :param pulumi.Input[str] window_id: The Id of the maintenance window to register the target with.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window_target.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

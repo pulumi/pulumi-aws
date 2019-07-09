@@ -8,6 +8,8 @@ import (
 )
 
 // Provides an IAM user.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user.html.markdown.
 type User struct {
 	s *pulumi.ResourceState
 }
@@ -74,9 +76,7 @@ func (r *User) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// When destroying this user, destroy even if it
-// has non-Terraform-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
-// a user with non-Terraform-managed access keys and login profile will fail to be destroyed.
+// Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
 func (r *User) ForceDestroy() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["forceDestroy"])
 }
@@ -110,9 +110,7 @@ func (r *User) UniqueId() *pulumi.StringOutput {
 type UserState struct {
 	// The ARN assigned by AWS for this user.
 	Arn interface{}
-	// When destroying this user, destroy even if it
-	// has non-Terraform-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
-	// a user with non-Terraform-managed access keys and login profile will fail to be destroyed.
+	// Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
 	ForceDestroy interface{}
 	// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
 	Name interface{}
@@ -128,9 +126,7 @@ type UserState struct {
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// When destroying this user, destroy even if it
-	// has non-Terraform-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
-	// a user with non-Terraform-managed access keys and login profile will fail to be destroyed.
+	// Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
 	ForceDestroy interface{}
 	// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
 	Name interface{}

@@ -9,61 +9,6 @@ import {Group} from "./group";
 import {Role} from "./role";
 import {User} from "./user";
 
-/**
- * Attaches a Managed IAM Policy to user(s), role(s), and/or group(s)
- * 
- * !> **WARNING:** The aws_iam_policy_attachment resource creates **exclusive** attachments of IAM policies. Across the entire AWS account, all of the users/roles/groups to which a single policy is attached must be declared by a single aws_iam_policy_attachment resource. This means that even any users/roles/groups that have the attached policy via any other mechanism (including other Terraform resources) will have that attached policy revoked by this resource. Consider `aws_iam_role_policy_attachment`, `aws_iam_user_policy_attachment`, or `aws_iam_group_policy_attachment` instead. These resources do not enforce exclusive attachment of an IAM policy.
- * 
- * > **NOTE:** The usage of this resource conflicts with the `aws_iam_group_policy_attachment`, `aws_iam_role_policy_attachment`, and `aws_iam_user_policy_attachment` resources and will permanently show a difference if both are defined.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const group = new aws.iam.Group("group", {});
- * const policy = new aws.iam.Policy("policy", {
- *     description: "A test policy",
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "ec2:Describe*"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "*"
- *     }
- *   ]
- * }
- * `,
- * });
- * const role = new aws.iam.Role("role", {
- *     assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "ec2.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `,
- * });
- * const user = new aws.iam.User("user", {});
- * const test_attach = new aws.iam.PolicyAttachment("test-attach", {
- *     groups: [group.name],
- *     policyArn: policy.arn,
- *     roles: [role.name],
- *     users: [user.name],
- * });
- * ```
- */
 export class PolicyAttachment extends pulumi.CustomResource {
     /**
      * Get an existing PolicyAttachment resource's state with the given name, ID, and optional extra

@@ -17,6 +17,8 @@ import * as utilities from "./utilities";
  *     arn: "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/arn.html.markdown.
  */
 export function getArn(args: GetArnArgs, opts?: pulumi.InvokeOptions): Promise<GetArnResult> {
     return pulumi.runtime.invoke("aws:index/getArn:getArn", {

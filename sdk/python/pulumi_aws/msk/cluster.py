@@ -81,6 +81,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] kafka_version: Specify the desired Kafka software version.
         :param pulumi.Input[float] number_of_broker_nodes: The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/msk_cluster.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

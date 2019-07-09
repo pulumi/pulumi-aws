@@ -41,6 +41,8 @@ class GetParameterResult:
 async def get_parameter(name=None,with_decryption=None,opts=None):
     """
     Provides an SSM Parameter data source.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_parameter.html.markdown.
     """
     __args__ = dict()
 

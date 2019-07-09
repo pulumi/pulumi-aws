@@ -40,6 +40,8 @@ class Permission(pulumi.CustomResource):
         :param pulumi.Input[str] level: The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
         :param pulumi.Input[str] stack_id: The stack to set the permissions for
         :param pulumi.Input[str] user_arn: The user's IAM ARN to set permissions for
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_permission.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

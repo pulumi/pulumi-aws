@@ -26,6 +26,8 @@ import {ARN} from "../index";
  *     thing: example.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_thing_principal_attachment.html.markdown.
  */
 export class ThingPrincipalAttachment extends pulumi.CustomResource {
     /**

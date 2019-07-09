@@ -39,6 +39,8 @@ class AssessmentTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the assessment template.
         :param pulumi.Input[list] rules_package_arns: The rules to be used during the run.
         :param pulumi.Input[str] target_arn: The assessment target ARN to attach the template to.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/inspector_assessment_template.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -68,6 +68,8 @@ async def get_vpc_peering_connection(cidr_block=None,filters=None,id=None,owner_
     """
     The VPC Peering Connection data source provides details about
     a specific VPC peering connection.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_peering_connection.html.markdown.
     """
     __args__ = dict()
 

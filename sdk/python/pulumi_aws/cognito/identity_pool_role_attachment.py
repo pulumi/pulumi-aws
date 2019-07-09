@@ -30,6 +30,8 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] identity_pool_id: An identity pool ID in the format REGION:GUID.
         :param pulumi.Input[list] role_mappings: A List of Role Mapping.
         :param pulumi.Input[dict] roles: The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_pool_roles_attachment.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

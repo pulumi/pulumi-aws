@@ -24,6 +24,8 @@ import (
 // <li>Create your `aws_elastic_beanstalk_application_version` resources with a unique names in your 
 // Elastic Beanstalk Application. For example &lt;revision&gt;-&lt;environment&gt;.</li>
 // </ol>
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application_version.html.markdown.
 type ApplicationVersion struct {
 	s *pulumi.ResourceState
 }

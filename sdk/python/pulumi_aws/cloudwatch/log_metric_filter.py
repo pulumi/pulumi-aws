@@ -39,6 +39,8 @@ class LogMetricFilter(pulumi.CustomResource):
         :param pulumi.Input[str] name: A name for the metric filter.
         :param pulumi.Input[str] pattern: A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
                for extracting metric data out of ingested log events.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_metric_filter.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

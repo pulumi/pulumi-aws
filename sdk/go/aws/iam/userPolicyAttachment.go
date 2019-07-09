@@ -11,6 +11,8 @@ import (
 // Attaches a Managed IAM Policy to an IAM user
 // 
 // > **NOTE:** The usage of this resource conflicts with the `aws_iam_policy_attachment` resource and will permanently show a difference if both are defined.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_policy_attachment.html.markdown.
 type UserPolicyAttachment struct {
 	s *pulumi.ResourceState
 }

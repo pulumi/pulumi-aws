@@ -12,6 +12,8 @@ import (
 // Manages Password Policy for the AWS Account.
 // See more about [Account Password Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html)
 // in the official AWS docs.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_account_password_policy.html.markdown.
 type AccountPasswordPolicy struct {
 	s *pulumi.ResourceState
 }

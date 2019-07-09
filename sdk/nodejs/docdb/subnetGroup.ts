@@ -23,6 +23,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_subnet_group.html.markdown.
  */
 export class SubnetGroup extends pulumi.CustomResource {
     /**
@@ -55,13 +57,7 @@ export class SubnetGroup extends pulumi.CustomResource {
      * The ARN of the docDB subnet group.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The description of the docDB subnet group. Defaults to "Managed by Terraform".
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the docDB subnet group. If omitted, Terraform will assign a random, unique name.
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -118,13 +114,7 @@ export interface SubnetGroupState {
      * The ARN of the docDB subnet group.
      */
     readonly arn?: pulumi.Input<string>;
-    /**
-     * The description of the docDB subnet group. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
-    /**
-     * The name of the docDB subnet group. If omitted, Terraform will assign a random, unique name.
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -144,13 +134,7 @@ export interface SubnetGroupState {
  * The set of arguments for constructing a SubnetGroup resource.
  */
 export interface SubnetGroupArgs {
-    /**
-     * The description of the docDB subnet group. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
-    /**
-     * The name of the docDB subnet group. If omitted, Terraform will assign a random, unique name.
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.

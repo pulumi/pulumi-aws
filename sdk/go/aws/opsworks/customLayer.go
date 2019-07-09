@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an OpsWorks custom layer resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_custom_layer.html.markdown.
 type CustomLayer struct {
 	s *pulumi.ResourceState
 }

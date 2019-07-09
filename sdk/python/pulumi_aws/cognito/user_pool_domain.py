@@ -46,6 +46,8 @@ class UserPoolDomain(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
         :param pulumi.Input[str] domain: The domain string.
         :param pulumi.Input[str] user_pool_id: The user pool ID.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_domain.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

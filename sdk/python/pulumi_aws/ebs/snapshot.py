@@ -54,6 +54,8 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of what the snapshot is.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the snapshot
         :param pulumi.Input[str] volume_id: The Volume ID of which to make a snapshot.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_snapshot.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

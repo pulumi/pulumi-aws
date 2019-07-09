@@ -121,6 +121,8 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] tunnel2_preshared_key: The preshared key of the second VPN tunnel.
         :param pulumi.Input[str] type: The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
         :param pulumi.Input[str] vpn_gateway_id: The ID of the Virtual Private Gateway.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_connection.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

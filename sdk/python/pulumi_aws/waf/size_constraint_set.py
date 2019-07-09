@@ -25,6 +25,8 @@ class SizeConstraintSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name or description of the Size Constraint Set.
         :param pulumi.Input[list] size_constraints: Specifies the parts of web requests that you want to inspect the size of.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_size_constraint_set.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

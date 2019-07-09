@@ -37,6 +37,8 @@ class BucketNotification(pulumi.CustomResource):
         :param pulumi.Input[list] lambda_functions: Used to configure notifications to a Lambda Function (documented below).
         :param pulumi.Input[list] queues: The notification configuration to SQS Queue (documented below).
         :param pulumi.Input[list] topics: The notification configuration to SNS Topic (documented below).
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_notification.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -42,6 +42,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_subnet_group.html.markdown.
  */
 export class SubnetGroup extends pulumi.CustomResource {
     /**
@@ -74,9 +76,6 @@ export class SubnetGroup extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of the Redshift Subnet group name
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The description of the Redshift Subnet group. Defaults to "Managed by Terraform".
-     */
     public readonly description!: pulumi.Output<string>;
     /**
      * The name of the Redshift Subnet group.
@@ -131,9 +130,6 @@ export interface SubnetGroupState {
      * Amazon Resource Name (ARN) of the Redshift Subnet group name
      */
     readonly arn?: pulumi.Input<string>;
-    /**
-     * The description of the Redshift Subnet group. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * The name of the Redshift Subnet group.
@@ -153,9 +149,6 @@ export interface SubnetGroupState {
  * The set of arguments for constructing a SubnetGroup resource.
  */
 export interface SubnetGroupArgs {
-    /**
-     * The description of the Redshift Subnet group. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * The name of the Redshift Subnet group.

@@ -218,35 +218,9 @@ class SpotInstanceRequest(pulumi.CustomResource):
     A list of security group IDs to associate with.
     """
     wait_for_fulfillment: pulumi.Output[bool]
-    """
-    If set, Terraform will
-    wait for the Spot Request to be fulfilled, and will throw an error if the
-    timeout of 10m is reached.
-    """
     def __init__(__self__, resource_name, opts=None, ami=None, associate_public_ip_address=None, availability_zone=None, block_duration_minutes=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_interruption_behaviour=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, launch_group=None, monitoring=None, network_interfaces=None, placement_group=None, private_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, spot_price=None, spot_type=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, valid_from=None, valid_until=None, volume_tags=None, vpc_security_group_ids=None, wait_for_fulfillment=None, __name__=None, __opts__=None):
         """
-        Provides an EC2 Spot Instance Request resource. This allows instances to be
-        requested on the spot market.
-        
-        By default Terraform creates Spot Instance Requests with a `persistent` type,
-        which means that for the duration of their lifetime, AWS will launch an
-        instance with the configured details if and when the spot market will accept
-        the requested price.
-        
-        On destruction, Terraform will make an attempt to terminate the associated Spot
-        Instance if there is one present.
-        
-        Spot Instances requests with a `one-time` type will close the spot request
-        when the instance is terminated either by the request being below the current spot
-        price availability or by a user.
-        
-        > **NOTE:** Because their behavior depends on the live status of the spot
-        market, Spot Instance Requests have a unique lifecycle that makes them behave
-        differently than other Terraform resources. Most importantly: there is __no
-        guarantee__ that a Spot Instance exists to fulfill the request at any given
-        point in time. See the [AWS Spot Instance
-        documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
-        for more information.
+        Create a SpotInstanceRequest resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -309,9 +283,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[str] valid_until: The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
         :param pulumi.Input[dict] volume_tags: A mapping of tags to assign to the devices created by the instance at launch time.
         :param pulumi.Input[list] vpc_security_group_ids: A list of security group IDs to associate with.
-        :param pulumi.Input[bool] wait_for_fulfillment: If set, Terraform will
-               wait for the Spot Request to be fulfilled, and will throw an error if the
-               timeout of 10m is reached.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_instance_request.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -19,6 +19,8 @@ import {RestApi} from "./restApi";
  * 
  * const myDemoApiKey = new aws.apigateway.ApiKey("MyDemoApiKey", {});
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_api_key.html.markdown.
  */
 export class ApiKey extends pulumi.CustomResource {
     /**
@@ -51,9 +53,6 @@ export class ApiKey extends pulumi.CustomResource {
      * The creation date of the API key
      */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
-    /**
-     * The API key description. Defaults to "Managed by Terraform".
-     */
     public readonly description!: pulumi.Output<string>;
     /**
      * Specifies whether the API key can be used by callers. Defaults to `true`.
@@ -111,9 +110,6 @@ export interface ApiKeyState {
      * The creation date of the API key
      */
     readonly createdDate?: pulumi.Input<string>;
-    /**
-     * The API key description. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * Specifies whether the API key can be used by callers. Defaults to `true`.
@@ -137,9 +133,6 @@ export interface ApiKeyState {
  * The set of arguments for constructing a ApiKey resource.
  */
 export interface ApiKeyArgs {
-    /**
-     * The API key description. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * Specifies whether the API key can be used by callers. Defaults to `true`.

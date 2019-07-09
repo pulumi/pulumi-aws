@@ -34,6 +34,8 @@ import * as utilities from "../utilities";
  *     location: pulumi.interpolate`https://s3.amazonaws.com/${myThreatIntelSetBucketObject.bucket}/${myThreatIntelSetBucketObject.key}`,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/guardduty_threatintelset.html.markdown.
  */
 export class ThreatIntelSet extends pulumi.CustomResource {
     /**

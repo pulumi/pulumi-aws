@@ -38,6 +38,8 @@ class UsagePlanKey(pulumi.CustomResource):
         :param pulumi.Input[str] key_id: The identifier of the API key resource.
         :param pulumi.Input[str] key_type: The type of the API key resource. Currently, the valid key type is API_KEY.
         :param pulumi.Input[str] usage_plan_id: The Id of the usage plan resource representing to associate the key to.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_usage_plan_key.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

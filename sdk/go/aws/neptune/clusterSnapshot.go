@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a Neptune database cluster snapshot.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster_snapshot.html.markdown.
 type ClusterSnapshot struct {
 	s *pulumi.ResourceState
 }

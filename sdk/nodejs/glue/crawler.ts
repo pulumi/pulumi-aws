@@ -54,6 +54,8 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_crawler.html.markdown.
  */
 export class Crawler extends pulumi.CustomResource {
     /**

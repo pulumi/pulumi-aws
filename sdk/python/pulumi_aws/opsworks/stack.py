@@ -141,6 +141,8 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[bool] use_opsworks_security_groups: Boolean value controlling whether the standard OpsWorks
                security groups apply to created instances.
         :param pulumi.Input[str] vpc_id: The id of the VPC that this stack belongs to.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_stack.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

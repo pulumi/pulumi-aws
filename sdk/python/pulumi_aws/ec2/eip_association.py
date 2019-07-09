@@ -69,6 +69,8 @@ class EipAssociation(pulumi.CustomResource):
                specified, the Elastic IP address is associated with the primary private IP
                address.
         :param pulumi.Input[str] public_ip: The Elastic IP address. This is required for EC2-Classic.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eip_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -62,6 +62,8 @@ class ResolverRule(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[list] target_ips: Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
                This argument should only be specified for `FORWARD` type rules.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_rule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

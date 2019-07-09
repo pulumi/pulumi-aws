@@ -40,6 +40,8 @@ class CatalogDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] location_uri: The location of the database (for example, an HDFS path).
         :param pulumi.Input[str] name: The name of the database.
         :param pulumi.Input[dict] parameters: A list of key-value pairs that define parameters and properties of the database.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_catalog_database.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

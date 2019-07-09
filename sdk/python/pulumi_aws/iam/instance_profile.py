@@ -19,7 +19,7 @@ class InstanceProfile(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    The profile's name. If omitted, Terraform will assign a random, unique name.
+    The instance profile's name.
     """
     name_prefix: pulumi.Output[str]
     """
@@ -35,9 +35,7 @@ class InstanceProfile(pulumi.CustomResource):
     """
     roles: pulumi.Output[list]
     """
-    
-    A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
-    WARNING: This is deprecated since [version 0.9.3 (April 12, 2017)](https://github.com/hashicorp/terraform/blob/master/CHANGELOG.md#093-april-12-2017), as >= 2 roles are not possible. See [issue #11575](https://github.com/hashicorp/terraform/issues/11575).
+    The list of roles assigned to the instance profile. (**Deprecated**)
     """
     unique_id: pulumi.Output[str]
     """
@@ -51,13 +49,13 @@ class InstanceProfile(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The profile's name. If omitted, Terraform will assign a random, unique name.
+        :param pulumi.Input[str] name: The instance profile's name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: Path in which to create the profile.
         :param pulumi.Input[str] role: The role name to include in the profile.
-        :param pulumi.Input[list] roles: 
-               A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
-               WARNING: This is deprecated since [version 0.9.3 (April 12, 2017)](https://github.com/hashicorp/terraform/blob/master/CHANGELOG.md#093-april-12-2017), as >= 2 roles are not possible. See [issue #11575](https://github.com/hashicorp/terraform/issues/11575).
+        :param pulumi.Input[list] roles: The list of roles assigned to the instance profile. (**Deprecated**)
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_instance_profile.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

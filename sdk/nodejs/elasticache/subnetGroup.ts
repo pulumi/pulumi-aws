@@ -35,6 +35,8 @@ import * as utilities from "../utilities";
  *     subnetIds: [fooSubnet.id],
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_subnet_group.html.markdown.
  */
 export class SubnetGroup extends pulumi.CustomResource {
     /**
@@ -63,9 +65,6 @@ export class SubnetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubnetGroup.__pulumiType;
     }
 
-    /**
-     * Description for the cache subnet group. Defaults to "Managed by Terraform".
-     */
     public readonly description!: pulumi.Output<string>;
     /**
      * Name for the cache subnet group. Elasticache converts this name to lowercase.
@@ -108,9 +107,6 @@ export class SubnetGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SubnetGroup resources.
  */
 export interface SubnetGroupState {
-    /**
-     * Description for the cache subnet group. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * Name for the cache subnet group. Elasticache converts this name to lowercase.
@@ -126,9 +122,6 @@ export interface SubnetGroupState {
  * The set of arguments for constructing a SubnetGroup resource.
  */
 export interface SubnetGroupArgs {
-    /**
-     * Description for the cache subnet group. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * Name for the cache subnet group. Elasticache converts this name to lowercase.

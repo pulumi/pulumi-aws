@@ -29,6 +29,8 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] route_table_id: The id of the `aws_route_table` to propagate routes into.
         :param pulumi.Input[str] vpn_gateway_id: The id of the `aws_vpn_gateway` to propagate routes from.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_route_propagation.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -10,9 +10,6 @@ from .. import utilities, tables
 
 class SubnetGroup(pulumi.CustomResource):
     description: pulumi.Output[str]
-    """
-    Description for the cache subnet group. Defaults to "Managed by Terraform".
-    """
     name: pulumi.Output[str]
     """
     Name for the cache subnet group. Elasticache converts this name to lowercase.
@@ -31,9 +28,10 @@ class SubnetGroup(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description for the cache subnet group. Defaults to "Managed by Terraform".
         :param pulumi.Input[str] name: Name for the cache subnet group. Elasticache converts this name to lowercase.
         :param pulumi.Input[list] subnet_ids: List of VPC Subnet IDs for the cache subnet group
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_subnet_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

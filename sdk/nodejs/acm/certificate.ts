@@ -4,42 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * The ACM certificate resource allows requesting and management of certificates
- * from the Amazon Certificate Manager.
- * 
- * It deals with requesting certificates and managing their attributes and life-cycle.
- * This resource does not deal with validation of a certificate but can provide inputs
- * for other resources implementing the validation. It does not wait for a certificate to be issued.
- * Use a `aws_acm_certificate_validation` resource for this.
- * 
- * Most commonly, this resource is used to together with `aws_route53_record` and
- * `aws_acm_certificate_validation` to request a DNS validated certificate,
- * deploy the required validation records and wait for validation to complete.
- * 
- * Domain validation through E-Mail is also supported but should be avoided as it requires a manual step outside
- * of Terraform.
- * 
- * It's recommended to specify `create_before_destroy = true` in a [lifecycle][1] block to replace a certificate
- * which is currently in use (eg, by `aws_lb_listener`).
- * 
- * ## Example Usage
- * 
- * ### Certificate creation
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const cert = new aws.acm.Certificate("cert", {
- *     domainName: "example.com",
- *     tags: {
- *         Environment: "test",
- *     },
- *     validationMethod: "DNS",
- * });
- * ```
- */
 export class Certificate extends pulumi.CustomResource {
     /**
      * Get an existing Certificate resource's state with the given name, ID, and optional extra
@@ -103,10 +67,6 @@ export class Certificate extends pulumi.CustomResource {
      * A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
      */
     public /*out*/ readonly validationEmails!: pulumi.Output<string[]>;
-    /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into Terraform.
-     * * Importing an existing certificate
-     */
     public readonly validationMethod!: pulumi.Output<string>;
 
     /**
@@ -188,10 +148,6 @@ export interface CertificateState {
      * A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
      */
     readonly validationEmails?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into Terraform.
-     * * Importing an existing certificate
-     */
     readonly validationMethod?: pulumi.Input<string>;
 }
 
@@ -223,9 +179,5 @@ export interface CertificateArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
-    /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into Terraform.
-     * * Importing an existing certificate
-     */
     readonly validationMethod?: pulumi.Input<string>;
 }

@@ -39,6 +39,8 @@ class GameSessionQueue(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the session queue.
         :param pulumi.Input[list] player_latency_policies: One or more policies used to choose fleet based on player latency. See below.
         :param pulumi.Input[float] timeout_in_seconds: Maximum time a game session request can remain in the queue.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_game_session_queue.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

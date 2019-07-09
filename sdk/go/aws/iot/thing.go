@@ -8,6 +8,8 @@ import (
 )
 
 // Creates and manages an AWS IoT Thing.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_thing.html.markdown.
 type Thing struct {
 	s *pulumi.ResourceState
 }

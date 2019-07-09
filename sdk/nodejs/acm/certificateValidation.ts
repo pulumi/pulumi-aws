@@ -117,6 +117,8 @@ import * as utilities from "../utilities";
  *     certificateArn: certCertificate.arn,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate_validation.html.markdown.
  */
 export class CertificateValidation extends pulumi.CustomResource {
     /**

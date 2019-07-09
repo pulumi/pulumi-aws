@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// The IAM Account Alias data source allows access to the account alias
-// for the effective account in which Terraform is working.
 func LookupAccountAlias(ctx *pulumi.Context) (*GetAccountAliasResult, error) {
 	outputs, err := ctx.Invoke("aws:iam/getAccountAlias:getAccountAlias", nil)
 	if err != nil {

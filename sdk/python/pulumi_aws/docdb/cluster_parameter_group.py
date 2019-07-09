@@ -14,9 +14,6 @@ class ClusterParameterGroup(pulumi.CustomResource):
     The ARN of the documentDB cluster parameter group.
     """
     description: pulumi.Output[str]
-    """
-    The description of the documentDB cluster parameter group. Defaults to "Managed by Terraform".
-    """
     family: pulumi.Output[str]
     """
     The family of the documentDB cluster parameter group.
@@ -43,12 +40,13 @@ class ClusterParameterGroup(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the documentDB cluster parameter group. Defaults to "Managed by Terraform".
         :param pulumi.Input[str] family: The family of the documentDB cluster parameter group.
         :param pulumi.Input[str] name: The name of the documentDB parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[list] parameters: A list of documentDB parameters to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster_parameter_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

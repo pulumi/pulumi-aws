@@ -34,6 +34,8 @@ class LogDestination(pulumi.CustomResource):
         :param pulumi.Input[str] name: A name for the log destination
         :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
         :param pulumi.Input[str] target_arn: The ARN of the target Amazon Kinesis stream or Amazon Lambda resource for the destination
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_destination.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

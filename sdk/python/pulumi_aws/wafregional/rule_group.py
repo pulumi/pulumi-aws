@@ -30,6 +30,8 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[list] activated_rules: A list of activated rules, see below
         :param pulumi.Input[str] metric_name: A friendly name for the metrics from the rule group
         :param pulumi.Input[str] name: A friendly name of the rule group
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_rule_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

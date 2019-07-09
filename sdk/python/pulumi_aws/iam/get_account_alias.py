@@ -27,10 +27,6 @@ class GetAccountAliasResult:
         """
 
 async def get_account_alias(opts=None):
-    """
-    The IAM Account Alias data source allows access to the account alias
-    for the effective account in which Terraform is working.
-    """
     __args__ = dict()
 
     __ret__ = await pulumi.runtime.invoke('aws:iam/getAccountAlias:getAccountAlias', __args__, opts=opts)

@@ -13,6 +13,8 @@ import (
 // 
 // This is different from the `aws_availability_zone` (singular) data source,
 // which provides some details about a specific availability zone.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
 func LookupAvailabilityZones(ctx *pulumi.Context, args *GetAvailabilityZonesArgs) (*GetAvailabilityZonesResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

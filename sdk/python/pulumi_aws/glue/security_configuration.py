@@ -25,6 +25,8 @@ class SecurityConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
         :param pulumi.Input[str] name: Name of the security configuration.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_security_configuration.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

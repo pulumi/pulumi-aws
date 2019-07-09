@@ -15,6 +15,8 @@ import * as utilities from "../utilities";
  * 
  * const test = new aws.ses.ConfgurationSet("test", {});
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_configuration_set.html.markdown.
  */
 export class ConfgurationSet extends pulumi.CustomResource {
     /**

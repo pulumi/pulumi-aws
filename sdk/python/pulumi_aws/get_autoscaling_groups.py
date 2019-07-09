@@ -39,6 +39,8 @@ async def get_autoscaling_groups(filters=None,opts=None):
     """
     The Autoscaling Groups data source allows access to the list of AWS
     ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_groups.html.markdown.
     """
     __args__ = dict()
 

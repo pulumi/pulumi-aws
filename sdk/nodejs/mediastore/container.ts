@@ -15,6 +15,8 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.mediastore.Container("example", {});
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/media_store_container.html.markdown.
  */
 export class Container extends pulumi.CustomResource {
     /**

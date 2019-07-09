@@ -23,6 +23,8 @@ import * as utilities from "../utilities";
  *     stackId: aws_opsworks_stack_my_stack.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_rds_db_instance.html.markdown.
  */
 export class RdsDbInstance extends pulumi.CustomResource {
     /**

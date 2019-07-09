@@ -45,6 +45,8 @@ class UsagePlan(pulumi.CustomResource):
         :param pulumi.Input[str] product_code: The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         :param pulumi.Input[dict] quota_settings: The quota settings of the usage plan.
         :param pulumi.Input[dict] throttle_settings: The throttling limits of the usage plan.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_usage_plan.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

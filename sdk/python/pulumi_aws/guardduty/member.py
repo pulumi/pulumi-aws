@@ -30,9 +30,6 @@ class Member(pulumi.CustomResource):
     Message for invitation.
     """
     invite: pulumi.Output[bool]
-    """
-    Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the Terraform state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
-    """
     relationship_status: pulumi.Output[str]
     """
     The status of the relationship between the member account and its master account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
@@ -48,7 +45,8 @@ class Member(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_email_notification: Boolean whether an email notification is sent to the accounts. Defaults to `false`.
         :param pulumi.Input[str] email: Email address for member account.
         :param pulumi.Input[str] invitation_message: Message for invitation.
-        :param pulumi.Input[bool] invite: Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the Terraform state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/guardduty_member.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_endpoint.html.markdown.
  */
 export class Endpoint extends pulumi.CustomResource {
     /**
@@ -59,7 +61,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly endpointConfigName!: pulumi.Output<string>;
     /**
-     * The name of the endpoint. If omitted, Terraform will assign a random, unique name.
+     * The name of the endpoint.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -110,7 +112,7 @@ export interface EndpointState {
      */
     readonly endpointConfigName?: pulumi.Input<string>;
     /**
-     * The name of the endpoint. If omitted, Terraform will assign a random, unique name.
+     * The name of the endpoint.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -128,7 +130,7 @@ export interface EndpointArgs {
      */
     readonly endpointConfigName: pulumi.Input<string>;
     /**
-     * The name of the endpoint. If omitted, Terraform will assign a random, unique name.
+     * The name of the endpoint.
      */
     readonly name?: pulumi.Input<string>;
     /**

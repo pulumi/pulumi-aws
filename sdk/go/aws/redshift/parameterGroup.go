@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a Redshift Cluster parameter group resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_parameter_group.html.markdown.
 type ParameterGroup struct {
 	s *pulumi.ResourceState
 }
@@ -76,7 +78,6 @@ func (r *ParameterGroup) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The description of the Redshift parameter group. Defaults to "Managed by Terraform".
 func (r *ParameterGroup) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -105,7 +106,6 @@ func (r *ParameterGroup) Tags() *pulumi.MapOutput {
 type ParameterGroupState struct {
 	// Amazon Resource Name (ARN) of parameter group
 	Arn interface{}
-	// The description of the Redshift parameter group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// The family of the Redshift parameter group.
 	Family interface{}
@@ -119,7 +119,6 @@ type ParameterGroupState struct {
 
 // The set of arguments for constructing a ParameterGroup resource.
 type ParameterGroupArgs struct {
-	// The description of the Redshift parameter group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// The family of the Redshift parameter group.
 	Family interface{}

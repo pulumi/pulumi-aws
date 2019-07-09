@@ -39,6 +39,8 @@ import * as utilities from "../utilities";
  * 
  * export const secret = lbAccessKey.encryptedSecret;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_access_key.html.markdown.
  */
 export class AccessKey extends pulumi.CustomResource {
     /**
@@ -67,11 +69,6 @@ export class AccessKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessKey.__pulumiType;
     }
 
-    /**
-     * The encrypted secret, base64 encoded.
-     * > **NOTE:** The encrypted secret may be decrypted using the command line,
-     * for example: `terraform output encrypted_secret | base64 --decode | keybase pgp decrypt`.
-     */
     public /*out*/ readonly encryptedSecret!: pulumi.Output<string>;
     /**
      * The fingerprint of the PGP key used to encrypt
@@ -145,11 +142,6 @@ export class AccessKey extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccessKey resources.
  */
 export interface AccessKeyState {
-    /**
-     * The encrypted secret, base64 encoded.
-     * > **NOTE:** The encrypted secret may be decrypted using the command line,
-     * for example: `terraform output encrypted_secret | base64 --decode | keybase pgp decrypt`.
-     */
     readonly encryptedSecret?: pulumi.Input<string>;
     /**
      * The fingerprint of the PGP key used to encrypt

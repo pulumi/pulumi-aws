@@ -57,6 +57,8 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
         :param pulumi.Input[str] subnet_id: Subnet ID to create the ENI in.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_interface.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

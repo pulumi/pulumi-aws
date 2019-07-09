@@ -40,6 +40,8 @@ class TableItem(pulumi.CustomResource):
                Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         :param pulumi.Input[str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         :param pulumi.Input[str] table_name: The name of the table to contain the item.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_table_item.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

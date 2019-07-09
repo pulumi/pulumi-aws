@@ -35,6 +35,8 @@ import * as utilities from "../utilities";
  *     resourceArn: exampleInstance.arn,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/licensemanager_association.html.markdown.
  */
 export class Association extends pulumi.CustomResource {
     /**

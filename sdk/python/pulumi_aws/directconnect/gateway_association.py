@@ -69,6 +69,8 @@ class GatewayAssociation(pulumi.CustomResource):
                Used for cross-account Direct Connect gateway associations.
         :param pulumi.Input[str] vpn_gateway_id: *Deprecated:* Use `associated_gateway_id` instead. The ID of the VGW with which to associate the gateway.
                Used for single account Direct Connect gateway associations.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_gateway_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

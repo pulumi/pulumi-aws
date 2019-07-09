@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the [`aws_dx_gateway_association` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association.html).
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_gateway_association_proposal.html.markdown.
 type GatewayAssociationProposal struct {
 	s *pulumi.ResourceState
 }

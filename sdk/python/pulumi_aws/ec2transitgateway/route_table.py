@@ -33,6 +33,8 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] tags: Key-value tags for the EC2 Transit Gateway Route Table.
         :param pulumi.Input[str] transit_gateway_id: Identifier of EC2 Transit Gateway.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_route_table.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

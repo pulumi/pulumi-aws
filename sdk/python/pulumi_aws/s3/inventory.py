@@ -55,6 +55,8 @@ class Inventory(pulumi.CustomResource):
         :param pulumi.Input[str] name: Unique identifier of the inventory configuration for the bucket.
         :param pulumi.Input[list] optional_fields: Contains the optional fields that are included in the inventory results.
         :param pulumi.Input[dict] schedule: Contains the frequency for generating inventory results (documented below).
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_inventory.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

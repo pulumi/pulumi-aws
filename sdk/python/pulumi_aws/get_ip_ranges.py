@@ -57,6 +57,8 @@ class GetIpRangesResult:
 async def get_ip_ranges(regions=None,services=None,url=None,opts=None):
     """
     Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention][1].
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ip_ranges.html.markdown.
     """
     __args__ = dict()
 

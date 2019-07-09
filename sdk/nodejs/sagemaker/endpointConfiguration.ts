@@ -28,6 +28,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_endpoint_configuration.html.markdown.
  */
 export class EndpointConfiguration extends pulumi.CustomResource {
     /**
@@ -65,7 +67,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
      */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
-     * The name of the endpoint configuration. If omitted, Terraform will assign a random, unique name.
+     * The name of the endpoint configuration.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -122,7 +124,7 @@ export interface EndpointConfigurationState {
      */
     readonly kmsKeyArn?: pulumi.Input<string>;
     /**
-     * The name of the endpoint configuration. If omitted, Terraform will assign a random, unique name.
+     * The name of the endpoint configuration.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -144,7 +146,7 @@ export interface EndpointConfigurationArgs {
      */
     readonly kmsKeyArn?: pulumi.Input<string>;
     /**
-     * The name of the endpoint configuration. If omitted, Terraform will assign a random, unique name.
+     * The name of the endpoint configuration.
      */
     readonly name?: pulumi.Input<string>;
     /**

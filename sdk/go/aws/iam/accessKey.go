@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_access_key.html.markdown.
 type AccessKey struct {
 	s *pulumi.ResourceState
 }
@@ -71,9 +73,6 @@ func (r *AccessKey) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The encrypted secret, base64 encoded.
-// > **NOTE:** The encrypted secret may be decrypted using the command line,
-// for example: `terraform output encrypted_secret | base64 --decode | keybase pgp decrypt`.
 func (r *AccessKey) EncryptedSecret() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["encryptedSecret"])
 }
@@ -117,9 +116,6 @@ func (r *AccessKey) User() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering AccessKey resources.
 type AccessKeyState struct {
-	// The encrypted secret, base64 encoded.
-	// > **NOTE:** The encrypted secret may be decrypted using the command line,
-	// for example: `terraform output encrypted_secret | base64 --decode | keybase pgp decrypt`.
 	EncryptedSecret interface{}
 	// The fingerprint of the PGP key used to encrypt
 	// the secret

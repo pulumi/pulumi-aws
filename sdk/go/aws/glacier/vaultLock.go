@@ -8,11 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a Glacier Vault Lock. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html) for a full explanation of the Glacier Vault Lock functionality.
-// 
-// > **NOTE:** This resource allows you to test Glacier Vault Lock policies by setting the `complete_lock` argument to `false`. When testing policies in this manner, the Glacier Vault Lock automatically expires after 24 hours and Terraform will show this resource as needing recreation after that time. To permanently apply the policy, set the `complete_lock` argument to `true`. When changing `complete_lock` to `true`, it is expected the resource will show as recreating.
-// 
-// !> **WARNING:** Once a Glacier Vault Lock is completed, it is immutable. The deletion of the Glacier Vault Lock is not be possible and attempting to remove it from Terraform will return an error. Set the `ignore_deletion_error` argument to `true` and apply this configuration before attempting to delete this resource via Terraform or use `terraform state rm` to remove this resource from Terraform management.
 type VaultLock struct {
 	s *pulumi.ResourceState
 }
@@ -76,12 +71,10 @@ func (r *VaultLock) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the Terraform resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
 func (r *VaultLock) CompleteLock() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["completeLock"])
 }
 
-// Allow Terraform to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via Terraform, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
 func (r *VaultLock) IgnoreDeletionError() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["ignoreDeletionError"])
 }
@@ -98,9 +91,7 @@ func (r *VaultLock) VaultName() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering VaultLock resources.
 type VaultLockState struct {
-	// Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the Terraform resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
 	CompleteLock interface{}
-	// Allow Terraform to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via Terraform, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
 	IgnoreDeletionError interface{}
 	// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
 	Policy interface{}
@@ -110,9 +101,7 @@ type VaultLockState struct {
 
 // The set of arguments for constructing a VaultLock resource.
 type VaultLockArgs struct {
-	// Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the Terraform resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
 	CompleteLock interface{}
-	// Allow Terraform to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via Terraform, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
 	IgnoreDeletionError interface{}
 	// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
 	Policy interface{}

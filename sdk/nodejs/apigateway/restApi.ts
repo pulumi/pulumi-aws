@@ -32,6 +32,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_rest_api.html.markdown.
  */
 export class RestApi extends pulumi.CustomResource {
     /**
@@ -98,9 +100,6 @@ export class RestApi extends pulumi.CustomResource {
      * The name of the REST API
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
-     */
     public readonly policy!: pulumi.Output<string | undefined>;
     /**
      * The resource ID of the REST API's root
@@ -190,9 +189,6 @@ export interface RestApiState {
      * The name of the REST API
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
-     */
     readonly policy?: pulumi.Input<string>;
     /**
      * The resource ID of the REST API's root
@@ -232,8 +228,5 @@ export interface RestApiArgs {
      * The name of the REST API
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
-     */
     readonly policy?: pulumi.Input<string>;
 }

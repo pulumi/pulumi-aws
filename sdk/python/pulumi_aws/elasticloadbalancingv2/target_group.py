@@ -31,7 +31,7 @@ class TargetGroup(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    The name of the target group. If omitted, Terraform will assign a random, unique name.
+    The name of the Target Group
     """
     name_prefix: pulumi.Output[str]
     """
@@ -85,7 +85,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[float] deregistration_delay: The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         :param pulumi.Input[dict] health_check: A Health Check block. Health Check blocks are documented below.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
-        :param pulumi.Input[str] name: The name of the target group. If omitted, Terraform will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the Target Group
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         :param pulumi.Input[float] port: The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
         :param pulumi.Input[str] protocol: The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
@@ -100,6 +100,8 @@ class TargetGroup(pulumi.CustomResource):
                the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
                You can't specify publicly routable IP addresses.
         :param pulumi.Input[str] vpc_id: The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

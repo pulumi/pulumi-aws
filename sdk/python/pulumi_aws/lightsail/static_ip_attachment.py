@@ -27,6 +27,8 @@ class StaticIpAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] instance_name: The name of the Lightsail instance to attach the IP to
         :param pulumi.Input[str] static_ip_name: The name of the allocated static IP
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_static_ip_attachment.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a Glue Security Configuration.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_security_configuration.html.markdown.
 type SecurityConfiguration struct {
 	s *pulumi.ResourceState
 }

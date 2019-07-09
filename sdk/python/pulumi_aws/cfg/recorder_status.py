@@ -27,6 +27,8 @@ class RecorderStatus(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] is_enabled: Whether the configuration recorder should be enabled or disabled.
         :param pulumi.Input[str] name: The name of the recorder
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_recorder_status.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

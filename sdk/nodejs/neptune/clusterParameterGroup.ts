@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster_parameter_group.html.markdown.
  */
 export class ClusterParameterGroup extends pulumi.CustomResource {
     /**
@@ -54,9 +56,6 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
      * The ARN of the neptune cluster parameter group.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The description of the neptune cluster parameter group. Defaults to "Managed by Terraform".
-     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The family of the neptune cluster parameter group.
@@ -123,9 +122,6 @@ export interface ClusterParameterGroupState {
      * The ARN of the neptune cluster parameter group.
      */
     readonly arn?: pulumi.Input<string>;
-    /**
-     * The description of the neptune cluster parameter group. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * The family of the neptune cluster parameter group.
@@ -153,9 +149,6 @@ export interface ClusterParameterGroupState {
  * The set of arguments for constructing a ClusterParameterGroup resource.
  */
 export interface ClusterParameterGroupArgs {
-    /**
-     * The description of the neptune cluster parameter group. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * The family of the neptune cluster parameter group.

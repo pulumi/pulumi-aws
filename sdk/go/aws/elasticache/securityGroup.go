@@ -14,6 +14,8 @@ import (
 // > **NOTE:** ElastiCache Security Groups are for use only when working with an
 // ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
 // ElastiCache Subnet Group resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_security_group.html.markdown.
 type SecurityGroup struct {
 	s *pulumi.ResourceState
 }
@@ -68,7 +70,6 @@ func (r *SecurityGroup) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// description for the cache security group. Defaults to "Managed by Terraform".
 func (r *SecurityGroup) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -86,7 +87,6 @@ func (r *SecurityGroup) SecurityGroupNames() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering SecurityGroup resources.
 type SecurityGroupState struct {
-	// description for the cache security group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// Name for the cache security group. This value is stored as a lowercase string.
 	Name interface{}
@@ -97,7 +97,6 @@ type SecurityGroupState struct {
 
 // The set of arguments for constructing a SecurityGroup resource.
 type SecurityGroupArgs struct {
-	// description for the cache security group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// Name for the cache security group. This value is stored as a lowercase string.
 	Name interface{}

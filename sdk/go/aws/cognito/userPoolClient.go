@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a Cognito User Pool Client resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_client.html.markdown.
 type UserPoolClient struct {
 	s *pulumi.ResourceState
 }

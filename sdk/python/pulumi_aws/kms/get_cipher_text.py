@@ -44,6 +44,8 @@ async def get_cipher_text(context=None,key_id=None,plaintext=None,opts=None):
     
     > **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
     [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_ciphertext.html.markdown.
     """
     __args__ = dict()
 

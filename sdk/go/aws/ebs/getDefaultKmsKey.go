@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to get the default EBS encryption KMS key in the current region.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_default_kms_key.html.markdown.
 func LookupDefaultKmsKey(ctx *pulumi.Context) (*GetDefaultKmsKeyResult, error) {
 	outputs, err := ctx.Invoke("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", nil)
 	if err != nil {

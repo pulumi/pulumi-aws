@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an API Gateway Gateway Response for a REST API Gateway.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_gateway_response.html.markdown.
 type Response struct {
 	s *pulumi.ResourceState
 }

@@ -8,6 +8,8 @@ import (
 )
 
 // Retrieve information about a Service Quotas Service.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/servicequotas_service.html.markdown.
 func LookupService(ctx *pulumi.Context, args *GetServiceArgs) (*GetServiceResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

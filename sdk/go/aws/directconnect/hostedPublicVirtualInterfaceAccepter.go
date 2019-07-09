@@ -10,6 +10,8 @@ import (
 
 // Provides a resource to manage the accepter's side of a Direct Connect hosted public virtual interface.
 // This resource accepts ownership of a public virtual interface created by another AWS account.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_hosted_public_virtual_interface_accepter.html.markdown.
 type HostedPublicVirtualInterfaceAccepter struct {
 	s *pulumi.ResourceState
 }

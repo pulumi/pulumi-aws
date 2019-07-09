@@ -28,6 +28,8 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr_block: The additional IPv4 CIDR block to associate with the VPC.
         :param pulumi.Input[str] vpc_id: The ID of the VPC to make the association with.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_ipv4_cidr_block_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

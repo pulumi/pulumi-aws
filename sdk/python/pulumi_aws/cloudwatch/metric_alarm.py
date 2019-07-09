@@ -140,6 +140,8 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[float] threshold: The value against which the specified statistic is compared.
         :param pulumi.Input[str] treat_missing_data: Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
         :param pulumi.Input[str] unit: The unit for this metric.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_metric_alarm.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

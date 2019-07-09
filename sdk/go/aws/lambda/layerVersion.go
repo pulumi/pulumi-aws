@@ -23,6 +23,8 @@ import (
 // 
 // For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
 // large files efficiently.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_layer_version.html.markdown.
 type LayerVersion struct {
 	s *pulumi.ResourceState
 }
@@ -160,7 +162,6 @@ func (r *LayerVersion) S3ObjectVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["s3ObjectVersion"])
 }
 
-// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256("file.zip")}` (Terraform 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (Terraform 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
 func (r *LayerVersion) SourceCodeHash() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceCodeHash"])
 }
@@ -199,7 +200,6 @@ type LayerVersionState struct {
 	S3Key interface{}
 	// The object version containing the function's deployment package. Conflicts with `filename`.
 	S3ObjectVersion interface{}
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256("file.zip")}` (Terraform 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (Terraform 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
 	SourceCodeHash interface{}
 	// The size in bytes of the function .zip file.
 	SourceCodeSize interface{}
@@ -225,6 +225,5 @@ type LayerVersionArgs struct {
 	S3Key interface{}
 	// The object version containing the function's deployment package. Conflicts with `filename`.
 	S3ObjectVersion interface{}
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256("file.zip")}` (Terraform 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (Terraform 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
 	SourceCodeHash interface{}
 }

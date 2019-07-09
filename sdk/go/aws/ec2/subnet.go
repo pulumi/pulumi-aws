@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an VPC subnet resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/subnet.html.markdown.
 type Subnet struct {
 	s *pulumi.ResourceState
 }

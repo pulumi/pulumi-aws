@@ -11,6 +11,8 @@ import (
 // Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 and Amazon Redshift.
 // 
 // For more details, see the [Amazon Kinesis Firehose Documentation][1].
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_firehose_delivery_stream.html.markdown.
 type FirehoseDeliveryStream struct {
 	s *pulumi.ResourceState
 }

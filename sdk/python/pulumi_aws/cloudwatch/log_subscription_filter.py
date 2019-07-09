@@ -45,6 +45,8 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         :param pulumi.Input[str] log_group: The name of the log group to associate the subscription filter with
         :param pulumi.Input[str] name: A name for the subscription filter
         :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws_lambda_permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_subscription_filter.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

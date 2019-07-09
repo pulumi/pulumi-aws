@@ -8,6 +8,8 @@ import (
 )
 
 // Provides a SimpleDB domain resource
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/simpledb_domain.html.markdown.
 type Domain struct {
 	s *pulumi.ResourceState
 }

@@ -24,6 +24,8 @@ import * as utilities from "../utilities";
  *     privateKey: fs.readFileSync("./private_key.key", "utf-8"),
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_apns_channel.html.markdown.
  */
 export class ApnsChannel extends pulumi.CustomResource {
     /**

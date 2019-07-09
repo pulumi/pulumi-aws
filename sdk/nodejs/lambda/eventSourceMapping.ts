@@ -49,6 +49,8 @@ import * as utilities from "../utilities";
  *     functionName: aws_lambda_function_example.arn,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_event_source_mapping.html.markdown.
  */
 export class EventSourceMapping extends pulumi.CustomResource {
     /**

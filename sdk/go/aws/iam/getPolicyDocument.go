@@ -7,36 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Generates an IAM policy document in JSON format.
-// 
-// This is a data source which can be used to construct a JSON representation of
-// an IAM policy document, for use with resources which expect policy documents,
-// such as the `aws_iam_policy` resource.
-// 
-// > For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-// 
-// 
-// Using this data source to generate policy documents is *optional*. It is also
-// valid to use literal JSON strings within your configuration, or to use the
-// `file` interpolation function to read a raw JSON policy document from a file.
-// 
-// ## Context Variable Interpolation
-// 
-// The IAM policy document format allows context variables to be interpolated
-// into various strings within a statement. The native IAM policy document format
-// uses `${...}`-style syntax that is in conflict with Terraform's interpolation
-// syntax, so this data source instead uses `&{...}` syntax for interpolations that
-// should be processed by AWS rather than by Terraform.
-// 
-// ## Wildcard Principal
-// 
-// In order to define wildcard principal (a.k.a. anonymous user) use `type = "*"` and
-// `identifiers = ["*"]`. In that case the rendered json will contain `"Principal": "*"`.
-// Note, that even though the [IAM Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html)
-// states that `"Principal": "*"` and `"Principal": {"AWS": "*"}` are equivalent,
-// those principals have different behavior for IAM Role Trust Policy. Therefore
-// Terraform will normalize the principal field only in above-mentioned case and principals
-// like `type = "AWS"` and `identifiers = ["*"]` will be rendered as `"Principal": {"AWS": "*"}`.
 func LookupPolicyDocument(ctx *pulumi.Context, args *GetPolicyDocumentArgs) (*GetPolicyDocumentResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

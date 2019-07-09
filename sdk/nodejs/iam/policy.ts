@@ -33,6 +33,8 @@ import {PolicyDocument} from "./documents";
  * `,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_policy.html.markdown.
  */
 export class Policy extends pulumi.CustomResource {
     /**
@@ -70,7 +72,7 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The name of the policy. If omitted, Terraform will assign a random, unique name.
+     * The name of the policy.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -83,7 +85,7 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly path!: pulumi.Output<string | undefined>;
     /**
-     * The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
+     * The policy document.
      */
     public readonly policy!: pulumi.Output<string>;
 
@@ -134,7 +136,7 @@ export interface PolicyState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The name of the policy. If omitted, Terraform will assign a random, unique name.
+     * The name of the policy.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -147,7 +149,7 @@ export interface PolicyState {
      */
     readonly path?: pulumi.Input<string>;
     /**
-     * The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
+     * The policy document.
      */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
 }
@@ -161,7 +163,7 @@ export interface PolicyArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The name of the policy. If omitted, Terraform will assign a random, unique name.
+     * The name of the policy.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -174,7 +176,7 @@ export interface PolicyArgs {
      */
     readonly path?: pulumi.Input<string>;
     /**
-     * The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html)
+     * The policy document.
      */
     readonly policy: pulumi.Input<string | PolicyDocument>;
 }

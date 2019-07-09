@@ -23,6 +23,8 @@ import * as utilities from "../utilities";
  *     query: pulumi.interpolate`SELECT * FROM ${hogeDatabase.name} limit 10;`,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_named_query.html.markdown.
  */
 export class NamedQuery extends pulumi.CustomResource {
     /**

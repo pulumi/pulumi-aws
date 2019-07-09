@@ -66,6 +66,8 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] name: A region-unique name for the AMI.
         :param pulumi.Input[dict] network: Provide this to allow manage the company network configuration for the fleet. Fields documented below.
         :param pulumi.Input[bool] optimize_for_end_user_location: The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/worklink_fleet.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -8,6 +8,8 @@ import (
 )
 
 // Provides a CloudFormation Stack resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudformation_stack.html.markdown.
 type Stack struct {
 	s *pulumi.ResourceState
 }

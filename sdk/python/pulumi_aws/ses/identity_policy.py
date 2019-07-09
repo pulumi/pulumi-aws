@@ -18,9 +18,6 @@ class IdentityPolicy(pulumi.CustomResource):
     Name of the policy.
     """
     policy: pulumi.Output[str]
-    """
-    JSON string of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-    """
     def __init__(__self__, resource_name, opts=None, identity=None, name=None, policy=None, __name__=None, __opts__=None):
         """
         Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
@@ -29,7 +26,8 @@ class IdentityPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
         :param pulumi.Input[str] name: Name of the policy.
-        :param pulumi.Input[str] policy: JSON string of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_identity_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

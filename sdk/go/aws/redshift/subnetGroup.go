@@ -9,6 +9,8 @@ import (
 )
 
 // Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_subnet_group.html.markdown.
 type SubnetGroup struct {
 	s *pulumi.ResourceState
 }
@@ -73,7 +75,6 @@ func (r *SubnetGroup) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The description of the Redshift Subnet group. Defaults to "Managed by Terraform".
 func (r *SubnetGroup) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -97,7 +98,6 @@ func (r *SubnetGroup) Tags() *pulumi.MapOutput {
 type SubnetGroupState struct {
 	// Amazon Resource Name (ARN) of the Redshift Subnet group name
 	Arn interface{}
-	// The description of the Redshift Subnet group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// The name of the Redshift Subnet group.
 	Name interface{}
@@ -109,7 +109,6 @@ type SubnetGroupState struct {
 
 // The set of arguments for constructing a SubnetGroup resource.
 type SubnetGroupArgs struct {
-	// The description of the Redshift Subnet group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// The name of the Redshift Subnet group.
 	Name interface{}

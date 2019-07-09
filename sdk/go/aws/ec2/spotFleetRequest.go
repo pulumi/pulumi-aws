@@ -10,6 +10,8 @@ import (
 
 // Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
 // instances to be requested on the Spot market.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_fleet_request.html.markdown.
 type SpotFleetRequest struct {
 	s *pulumi.ResourceState
 }
@@ -216,9 +218,6 @@ func (r *SpotFleetRequest) ValidUntil() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["validUntil"])
 }
 
-// If set, Terraform will
-// wait for the Spot Request to be fulfilled, and will throw an error if the
-// timeout of 10m is reached.
 func (r *SpotFleetRequest) WaitForFulfillment() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["waitForFulfillment"])
 }
@@ -277,9 +276,6 @@ type SpotFleetRequestState struct {
 	ValidFrom interface{}
 	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
 	ValidUntil interface{}
-	// If set, Terraform will
-	// wait for the Spot Request to be fulfilled, and will throw an error if the
-	// timeout of 10m is reached.
 	WaitForFulfillment interface{}
 }
 
@@ -334,8 +330,5 @@ type SpotFleetRequestArgs struct {
 	ValidFrom interface{}
 	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
 	ValidUntil interface{}
-	// If set, Terraform will
-	// wait for the Spot Request to be fulfilled, and will throw an error if the
-	// timeout of 10m is reached.
 	WaitForFulfillment interface{}
 }

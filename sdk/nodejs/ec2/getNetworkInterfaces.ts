@@ -49,6 +49,8 @@ import * as utilities from "../utilities";
  * 
  * export const example = exampleNetworkInterfaces.ids;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_interfaces.html.markdown.
  */
 export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfacesResult> {
     args = args || {};

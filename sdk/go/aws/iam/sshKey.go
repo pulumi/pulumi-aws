@@ -9,6 +9,8 @@ import (
 )
 
 // Uploads an SSH public key and associates it with the specified IAM user.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_ssh_key.html.markdown.
 type SshKey struct {
 	s *pulumi.ResourceState
 }

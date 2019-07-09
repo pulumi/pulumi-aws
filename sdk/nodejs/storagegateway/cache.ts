@@ -4,23 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an AWS Storage Gateway cache.
- * 
- * > **NOTE:** The Storage Gateway API provides no method to remove a cache disk. Destroying this Terraform resource does not perform any Storage Gateway actions.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.storagegateway.Cache("example", {
- *     diskId: aws_storagegateway_local_disk_example.id,
- *     gatewayArn: aws_storagegateway_gateway_example.arn,
- * });
- * ```
- */
 export class Cache extends pulumi.CustomResource {
     /**
      * Get an existing Cache resource's state with the given name, ID, and optional extra

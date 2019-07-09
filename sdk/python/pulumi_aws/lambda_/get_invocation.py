@@ -31,9 +31,6 @@ class GetInvocationResult:
         if result_map and not isinstance(result_map, dict):
             raise TypeError("Expected argument 'result_map' to be a dict")
         __self__.result_map = result_map
-        """
-        This field is set only if result is a map of primitive types, where the map is string keys and string values. In Terraform 0.12 and later, use the [`jsondecode()` function](https://www.terraform.io/docs/configuration/functions/jsondecode.html) with the `result` attribute instead to convert the result to all supported native Terraform types.
-        """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
@@ -46,6 +43,8 @@ async def get_invocation(function_name=None,input=None,qualifier=None,opts=None)
     Use this data source to invoke custom lambda functions as data source.
     The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
     invocation type.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_invocation.html.markdown.
     """
     __args__ = dict()
 

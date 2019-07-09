@@ -8,6 +8,8 @@ import (
 )
 
 // Provides a WAF Regional Regex Match Set Resource
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_regex_match_set.html.markdown.
 type RegexMatchSet struct {
 	s *pulumi.ResourceState
 }

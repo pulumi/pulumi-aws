@@ -42,6 +42,8 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[str] name: The name or description of the rule.
         :param pulumi.Input[list] predicates: The objects to include in a rule (documented below).
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_rule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

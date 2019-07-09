@@ -4,24 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an EC2 Transit Gateway VPC Attachment. For examples of custom route table association and propagation, see the EC2 Transit Gateway Networking Examples Guide.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ec2transitgateway.VpcAttachment("example", {
- *     subnetIds: [aws_subnet_example.id],
- *     transitGatewayId: aws_ec2_transit_gateway_example.id,
- *     vpcId: aws_vpc_example.id,
- * });
- * ```
- * 
- * A full example of how to how to create a Transit Gateway in one AWS account, share it with a second AWS account, and attach a VPC in the second account to the Transit Gateway via the `aws_ec2_transit_gateway_vpc_attachment` and `aws_ec2_transit_gateway_vpc_attachment_accepter` resources can be found in [the `./examples/transit-gateway-cross-account-vpc-attachment` directory within the Github Repository](https://github.com/terraform-providers/terraform-provider-aws/tree/master/examples/transit-gateway-cross-account-vpc-attachment).
- */
 export class VpcAttachment extends pulumi.CustomResource {
     /**
      * Get an existing VpcAttachment resource's state with the given name, ID, and optional extra

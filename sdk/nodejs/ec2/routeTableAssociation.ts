@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  *     subnetId: aws_subnet_foo.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route_table_association.html.markdown.
  */
 export class RouteTableAssociation extends pulumi.CustomResource {
     /**

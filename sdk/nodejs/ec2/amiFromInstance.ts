@@ -33,6 +33,8 @@ import * as utilities from "../utilities";
  *     sourceInstanceId: "i-xxxxxxxx",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_from_instance.html.markdown.
  */
 export class AmiFromInstance extends pulumi.CustomResource {
     /**

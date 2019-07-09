@@ -12,6 +12,8 @@ import (
 // EC2-Classic Platform. For instances inside a VPC, use the
 // [`aws_db_instance.vpc_security_group_ids`](https://www.terraform.io/docs/providers/aws/r/db_instance.html#vpc_security_group_ids)
 // attribute instead.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_security_group.html.markdown.
 type SecurityGroup struct {
 	s *pulumi.ResourceState
 }
@@ -76,7 +78,6 @@ func (r *SecurityGroup) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The description of the DB security group. Defaults to "Managed by Terraform".
 func (r *SecurityGroup) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -100,7 +101,6 @@ func (r *SecurityGroup) Tags() *pulumi.MapOutput {
 type SecurityGroupState struct {
 	// The arn of the DB security group.
 	Arn interface{}
-	// The description of the DB security group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// A list of ingress rules.
 	Ingress interface{}
@@ -112,7 +112,6 @@ type SecurityGroupState struct {
 
 // The set of arguments for constructing a SecurityGroup resource.
 type SecurityGroupArgs struct {
-	// The description of the DB security group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// A list of ingress rules.
 	Ingress interface{}

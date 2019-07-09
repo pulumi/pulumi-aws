@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  *     name: "an_example_role_name",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_role.html.markdown.
  */
 export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
     return pulumi.runtime.invoke("aws:iam/getRole:getRole", {

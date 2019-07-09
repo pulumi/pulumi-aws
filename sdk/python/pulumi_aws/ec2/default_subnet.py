@@ -42,12 +42,7 @@ class DefaultSubnet(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, availability_zone=None, map_public_ip_on_launch=None, tags=None, __name__=None, __opts__=None):
         """
-        Provides a resource to manage a [default AWS VPC subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics)
-        in the current region.
-        
-        The `aws_default_subnet` behaves differently from normal resources, in that
-        Terraform does not _create_ this resource, but instead "adopts" it
-        into management.
+        Create a DefaultSubnet resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -55,6 +50,8 @@ class DefaultSubnet(pulumi.CustomResource):
                that instances launched into the subnet should be assigned
                a public IP address.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_subnet.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

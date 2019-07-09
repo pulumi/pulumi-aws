@@ -72,6 +72,8 @@ async def get_subnet(availability_zone=None,availability_zone_id=None,cidr_block
     This resource can prove useful when a module accepts a subnet id as
     an input variable and needs to, for example, determine the id of the
     VPC that the subnet belongs to.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet.html.markdown.
     """
     __args__ = dict()
 

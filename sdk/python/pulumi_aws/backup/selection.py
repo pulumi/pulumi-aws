@@ -40,6 +40,8 @@ class Selection(pulumi.CustomResource):
         :param pulumi.Input[str] plan_id: The backup plan ID to be associated with the selection of resources.
         :param pulumi.Input[list] resources: An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
         :param pulumi.Input[list] selection_tags: Tag-based conditions used to specify a set of resources to assign to a backup plan.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_selection.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

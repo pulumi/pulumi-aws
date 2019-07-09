@@ -14,9 +14,6 @@ class ApiKey(pulumi.CustomResource):
     The ID of the associated AppSync API
     """
     description: pulumi.Output[str]
-    """
-    The API key description. Defaults to "Managed by Terraform".
-    """
     expires: pulumi.Output[str]
     """
     RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
@@ -32,8 +29,9 @@ class ApiKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The ID of the associated AppSync API
-        :param pulumi.Input[str] description: The API key description. Defaults to "Managed by Terraform".
         :param pulumi.Input[str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_api_key.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

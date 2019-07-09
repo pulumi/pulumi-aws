@@ -8,9 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides an SNS topic policy resource
-// 
-// > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future terraform plans to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
 type TopicPolicy struct {
 	s *pulumi.ResourceState
 }
@@ -70,7 +67,6 @@ func (r *TopicPolicy) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 func (r *TopicPolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -79,7 +75,6 @@ func (r *TopicPolicy) Policy() *pulumi.StringOutput {
 type TopicPolicyState struct {
 	// The ARN of the SNS topic
 	Arn interface{}
-	// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 	Policy interface{}
 }
 
@@ -87,6 +82,5 @@ type TopicPolicyState struct {
 type TopicPolicyArgs struct {
 	// The ARN of the SNS topic
 	Arn interface{}
-	// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 	Policy interface{}
 }

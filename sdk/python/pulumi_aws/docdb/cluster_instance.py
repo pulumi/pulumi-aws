@@ -51,9 +51,6 @@ class ClusterInstance(pulumi.CustomResource):
     The database engine version
     """
     identifier: pulumi.Output[str]
-    """
-    The indentifier for the DocDB instance, if omitted, Terraform will assign a random, unique identifier.
-    """
     identifier_prefix: pulumi.Output[str]
     """
     Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
@@ -122,7 +119,6 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
         :param pulumi.Input[str] cluster_identifier: The identifier of the [`aws_docdb_cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
-        :param pulumi.Input[str] identifier: The indentifier for the DocDB instance, if omitted, Terraform will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
         :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances][2]. DocDB currently
                supports the below instance classes. Please see [AWS Documentation][4] for complete details.
@@ -136,6 +132,8 @@ class ClusterInstance(pulumi.CustomResource):
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         :param pulumi.Input[float] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the instance.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster_instance.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

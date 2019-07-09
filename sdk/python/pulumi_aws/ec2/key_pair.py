@@ -42,6 +42,8 @@ class KeyPair(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: The name for the key pair.
         :param pulumi.Input[str] key_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
         :param pulumi.Input[str] public_key: The public key material.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/key_pair.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

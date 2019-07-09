@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  *     memberAccountId: "123456789012",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/macie_member_account_association.html.markdown.
  */
 export class MemberAccountAssociation extends pulumi.CustomResource {
     /**

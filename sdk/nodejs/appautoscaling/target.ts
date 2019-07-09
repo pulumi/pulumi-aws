@@ -71,6 +71,8 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "rds",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appautoscaling_target.html.markdown.
  */
 export class Target extends pulumi.CustomResource {
     /**

@@ -34,6 +34,8 @@ import * as utilities from "../utilities";
  *     assumeRolePolicy: assumeRole.json,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_model.html.markdown.
  */
 export class Model extends pulumi.CustomResource {
     /**
@@ -79,7 +81,7 @@ export class Model extends pulumi.CustomResource {
      */
     public readonly executionRoleArn!: pulumi.Output<string>;
     /**
-     * The name of the model (must be unique). If omitted, Terraform will assign a random, unique name.
+     * The name of the model.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -154,7 +156,7 @@ export interface ModelState {
      */
     readonly executionRoleArn?: pulumi.Input<string>;
     /**
-     * The name of the model (must be unique). If omitted, Terraform will assign a random, unique name.
+     * The name of the model.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -188,7 +190,7 @@ export interface ModelArgs {
      */
     readonly executionRoleArn: pulumi.Input<string>;
     /**
-     * The name of the model (must be unique). If omitted, Terraform will assign a random, unique name.
+     * The name of the model.
      */
     readonly name?: pulumi.Input<string>;
     /**

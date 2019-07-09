@@ -59,6 +59,8 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[dict] scope: Scope defines which resources can trigger an evaluation for the rule as documented below.
         :param pulumi.Input[dict] source: Source specifies the rule owner, the rule identifier, and the notifications that cause
                the function to evaluate your AWS resources as documented below.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_config_rule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

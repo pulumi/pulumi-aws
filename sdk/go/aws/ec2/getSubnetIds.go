@@ -10,6 +10,8 @@ import (
 // `aws_subnet_ids` provides a list of ids for a vpc_id
 // 
 // This resource can be useful for getting back a list of subnet ids for a vpc.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet_ids.html.markdown.
 func LookupSubnetIds(ctx *pulumi.Context, args *GetSubnetIdsArgs) (*GetSubnetIdsResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

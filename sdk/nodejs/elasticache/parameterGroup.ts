@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an ElastiCache parameter group resource.
- * 
- * > **NOTE:** Attempting to remove the `reserved-memory` parameter when `family` is set to `redis2.6` or `redis2.8` may show a perpetual difference in Terraform due to an Elasticache API limitation. Leave that parameter configured with any value to workaround the issue.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const defaultParameterGroup = new aws.elasticache.ParameterGroup("default", {
- *     family: "redis2.8",
- *     parameters: [
- *         {
- *             name: "activerehashing",
- *             value: "yes",
- *         },
- *         {
- *             name: "min-slaves-to-write",
- *             value: "2",
- *         },
- *     ],
- * });
- * ```
- */
 export class ParameterGroup extends pulumi.CustomResource {
     /**
      * Get an existing ParameterGroup resource's state with the given name, ID, and optional extra
@@ -57,9 +31,6 @@ export class ParameterGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ParameterGroup.__pulumiType;
     }
 
-    /**
-     * The description of the ElastiCache parameter group. Defaults to "Managed by Terraform".
-     */
     public readonly description!: pulumi.Output<string>;
     /**
      * The family of the ElastiCache parameter group.
@@ -108,9 +79,6 @@ export class ParameterGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ParameterGroup resources.
  */
 export interface ParameterGroupState {
-    /**
-     * The description of the ElastiCache parameter group. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * The family of the ElastiCache parameter group.
@@ -130,9 +98,6 @@ export interface ParameterGroupState {
  * The set of arguments for constructing a ParameterGroup resource.
  */
 export interface ParameterGroupArgs {
-    /**
-     * The description of the ElastiCache parameter group. Defaults to "Managed by Terraform".
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * The family of the ElastiCache parameter group.

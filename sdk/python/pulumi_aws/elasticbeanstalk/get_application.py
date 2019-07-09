@@ -41,6 +41,8 @@ class GetApplicationResult:
 async def get_application(name=None,opts=None):
     """
     Retrieve information about an Elastic Beanstalk Application.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_application.html.markdown.
     """
     __args__ = dict()
 

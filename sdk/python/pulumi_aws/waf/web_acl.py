@@ -41,6 +41,8 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
         :param pulumi.Input[str] name: The name or description of the web ACL.
         :param pulumi.Input[list] rules: Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_web_acl.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

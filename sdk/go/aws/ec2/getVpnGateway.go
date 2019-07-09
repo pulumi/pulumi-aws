@@ -9,6 +9,8 @@ import (
 
 // The VPN Gateway data source provides details about
 // a specific VPN gateway.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpn_gateway.html.markdown.
 func LookupVpnGateway(ctx *pulumi.Context, args *GetVpnGatewayArgs) (*GetVpnGatewayResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

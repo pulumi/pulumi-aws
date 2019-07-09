@@ -53,6 +53,8 @@ class GetImageResult:
 async def get_image(image_digest=None,image_tag=None,registry_id=None,repository_name=None,opts=None):
     """
     The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_image.html.markdown.
     """
     __args__ = dict()
 

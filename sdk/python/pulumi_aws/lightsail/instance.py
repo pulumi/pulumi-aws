@@ -155,6 +155,8 @@ class Instance(pulumi.CustomResource):
                Lightsail console (cannot use `aws_key_pair` at this time)
         :param pulumi.Input[str] name: The name of the Lightsail Instance
         :param pulumi.Input[str] user_data: launch script to configure server with additional user data
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_instance.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

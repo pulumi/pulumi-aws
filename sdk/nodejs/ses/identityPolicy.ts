@@ -34,6 +34,8 @@ import * as utilities from "../utilities";
  *     policy: examplePolicyDocument.json,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_identity_policy.html.markdown.
  */
 export class IdentityPolicy extends pulumi.CustomResource {
     /**
@@ -70,9 +72,6 @@ export class IdentityPolicy extends pulumi.CustomResource {
      * Name of the policy.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * JSON string of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -118,9 +117,6 @@ export interface IdentityPolicyState {
      * Name of the policy.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * JSON string of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     readonly policy?: pulumi.Input<string>;
 }
 
@@ -136,8 +132,5 @@ export interface IdentityPolicyArgs {
      * Name of the policy.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * JSON string of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-     */
     readonly policy: pulumi.Input<string>;
 }

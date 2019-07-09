@@ -79,6 +79,8 @@ class SamplingRule(pulumi.CustomResource):
         :param pulumi.Input[str] service_type: Matches the `origin` that the service uses to identify its type in segments.
         :param pulumi.Input[str] url_path: Matches the path from a request URL.
         :param pulumi.Input[float] version: The version of the sampling rule format (`1` )
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/xray_sampling_rule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -238,6 +238,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         :param pulumi.Input[dict] volume_tags: A mapping of tags to assign to the devices created by the instance at launch time.
         :param pulumi.Input[list] vpc_security_group_ids: A list of security group IDs to associate with.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/instance.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

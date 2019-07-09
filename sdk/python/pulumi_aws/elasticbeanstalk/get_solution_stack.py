@@ -35,6 +35,8 @@ class GetSolutionStackResult:
 async def get_solution_stack(most_recent=None,name_regex=None,opts=None):
     """
     Use this data source to get the name of a elastic beanstalk solution stack.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_solution_stack.html.markdown.
     """
     __args__ = dict()
 

@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to get information about an Elasticache Cluster
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_cluster.html.markdown.
 func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

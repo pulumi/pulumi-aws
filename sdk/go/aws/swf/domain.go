@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an SWF Domain resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/swf_domain.html.markdown.
 type Domain struct {
 	s *pulumi.ResourceState
 }
@@ -71,7 +73,6 @@ func (r *Domain) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
-// The name of the domain. If omitted, Terraform will assign a random, unique name.
 func (r *Domain) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -90,7 +91,6 @@ func (r *Domain) WorkflowExecutionRetentionPeriodInDays() *pulumi.StringOutput {
 type DomainState struct {
 	// The domain description.
 	Description interface{}
-	// The name of the domain. If omitted, Terraform will assign a random, unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
@@ -102,7 +102,6 @@ type DomainState struct {
 type DomainArgs struct {
 	// The domain description.
 	Description interface{}
-	// The name of the domain. If omitted, Terraform will assign a random, unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}

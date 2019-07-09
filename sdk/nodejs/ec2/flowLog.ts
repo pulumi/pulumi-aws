@@ -77,6 +77,8 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_example.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/flow_log.html.markdown.
  */
 export class FlowLog extends pulumi.CustomResource {
     /**

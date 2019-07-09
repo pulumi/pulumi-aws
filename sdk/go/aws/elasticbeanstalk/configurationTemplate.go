@@ -20,6 +20,8 @@ import (
 // * `name` - name of the configuration option
 // * `value` - value for the configuration option
 // * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_configuration_template.html.markdown.
 type ConfigurationTemplate struct {
 	s *pulumi.ResourceState
 }

@@ -25,6 +25,8 @@ import * as utilities from "../utilities";
  *     snapshotId: exampleSnapshot.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/snapshot_create_volume_permission.html.markdown.
  */
 export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
     /**

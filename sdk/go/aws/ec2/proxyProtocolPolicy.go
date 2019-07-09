@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/proxy_protocol_policy.html.markdown.
 type ProxyProtocolPolicy struct {
 	s *pulumi.ResourceState
 }

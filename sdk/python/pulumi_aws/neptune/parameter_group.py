@@ -14,9 +14,6 @@ class ParameterGroup(pulumi.CustomResource):
     The Neptune parameter group Amazon Resource Name (ARN).
     """
     description: pulumi.Output[str]
-    """
-    The description of the Neptune parameter group. Defaults to "Managed by Terraform".
-    """
     family: pulumi.Output[str]
     """
     The family of the Neptune parameter group.
@@ -39,11 +36,12 @@ class ParameterGroup(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the Neptune parameter group. Defaults to "Managed by Terraform".
         :param pulumi.Input[str] family: The family of the Neptune parameter group.
         :param pulumi.Input[str] name: The name of the Neptune parameter.
         :param pulumi.Input[list] parameters: A list of Neptune parameters to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_parameter_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

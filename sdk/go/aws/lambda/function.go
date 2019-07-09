@@ -24,6 +24,8 @@ import (
 // 
 // For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
 // large files efficiently.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_function.html.markdown.
 type Function struct {
 	s *pulumi.ResourceState
 }
@@ -251,7 +253,7 @@ func (r *Function) S3ObjectVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["s3ObjectVersion"])
 }
 
-// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` (Terraform 0.11.12 and later) or `base64sha256(file("file.zip"))` (Terraform 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
+// Base64-encoded representation of raw SHA-256 sum of the zip file, provided either via `filename` or `s3_*` parameters.
 func (r *Function) SourceCodeHash() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceCodeHash"])
 }
@@ -328,7 +330,7 @@ type FunctionState struct {
 	S3Key interface{}
 	// The object version containing the function's deployment package. Conflicts with `filename`.
 	S3ObjectVersion interface{}
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` (Terraform 0.11.12 and later) or `base64sha256(file("file.zip"))` (Terraform 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
+	// Base64-encoded representation of raw SHA-256 sum of the zip file, provided either via `filename` or `s3_*` parameters.
 	SourceCodeHash interface{}
 	// The size in bytes of the function .zip file.
 	SourceCodeSize interface{}
@@ -377,7 +379,7 @@ type FunctionArgs struct {
 	S3Key interface{}
 	// The object version containing the function's deployment package. Conflicts with `filename`.
 	S3ObjectVersion interface{}
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` (Terraform 0.11.12 and later) or `base64sha256(file("file.zip"))` (Terraform 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
+	// Base64-encoded representation of raw SHA-256 sum of the zip file, provided either via `filename` or `s3_*` parameters.
 	SourceCodeHash interface{}
 	// A mapping of tags to assign to the object.
 	Tags interface{}

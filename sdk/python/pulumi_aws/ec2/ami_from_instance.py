@@ -116,6 +116,8 @@ class AmiFromInstance(pulumi.CustomResource):
                guarantees that no filesystem writes will be underway at the time of snapshot.
         :param pulumi.Input[str] source_instance_id: The id of the instance to use as the basis of the AMI.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_from_instance.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -33,6 +33,8 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_tables.html.markdown.
  */
 export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTablesResult> {
     args = args || {};

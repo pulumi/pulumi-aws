@@ -76,6 +76,8 @@ class Policy(pulumi.CustomResource):
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
         :param pulumi.Input[dict] target_tracking_configuration: A target tracking policy. These have the following structure:
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

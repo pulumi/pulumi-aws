@@ -39,10 +39,6 @@ class GetCallerIdentityResult:
         """
 
 async def get_caller_identity(opts=None):
-    """
-    Use this data source to get the access to the effective Account ID, User ID, and ARN in
-    which Terraform is authorized.
-    """
     __args__ = dict()
 
     __ret__ = await pulumi.runtime.invoke('aws:index/getCallerIdentity:getCallerIdentity', __args__, opts=opts)

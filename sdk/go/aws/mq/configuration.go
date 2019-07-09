@@ -11,6 +11,8 @@ import (
 // Provides an MQ Configuration Resource. 
 // 
 // For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/mq_configuration.html.markdown.
 type Configuration struct {
 	s *pulumi.ResourceState
 }

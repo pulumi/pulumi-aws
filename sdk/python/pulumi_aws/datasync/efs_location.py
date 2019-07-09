@@ -42,6 +42,8 @@ class EfsLocation(pulumi.CustomResource):
         :param pulumi.Input[str] efs_file_system_arn: Amazon Resource Name (ARN) of EFS File System.
         :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Default `/`.
         :param pulumi.Input[dict] tags: Key-value pairs of resource tags to assign to the DataSync Location.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_efs.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

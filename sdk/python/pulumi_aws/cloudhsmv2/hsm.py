@@ -47,6 +47,8 @@ class Hsm(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_id: The ID of Cloud HSM v2 cluster to which HSM will be added.
         :param pulumi.Input[str] ip_address: The IP address of HSM module. Must be within the CIDR of selected subnet.
         :param pulumi.Input[str] subnet_id: The ID of subnet in which HSM module will be located.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudhsm_v2_hsm.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  *     networkInterfaceId: aws_network_interface_test.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_interface_attachment.html.markdown.
  */
 export class NetworkInterfaceAttachment extends pulumi.CustomResource {
     /**

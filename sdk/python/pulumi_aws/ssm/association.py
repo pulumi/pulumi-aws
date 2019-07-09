@@ -71,6 +71,8 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[dict] parameters: A block of arbitrary string parameters to pass to the SSM document.
         :param pulumi.Input[str] schedule_expression: A cron expression when the association will be applied to the target(s).
         :param pulumi.Input[list] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

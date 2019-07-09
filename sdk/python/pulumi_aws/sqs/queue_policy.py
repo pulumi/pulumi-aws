@@ -10,9 +10,6 @@ from .. import utilities, tables
 
 class QueuePolicy(pulumi.CustomResource):
     policy: pulumi.Output[str]
-    """
-    The JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-    """
     queue_url: pulumi.Output[str]
     """
     The URL of the SQS Queue to which to attach the policy
@@ -24,8 +21,9 @@ class QueuePolicy(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy: The JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
         :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sqs_queue_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

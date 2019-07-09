@@ -44,6 +44,8 @@ class GetScriptResult:
 async def get_script(dag_edges=None,dag_nodes=None,language=None,opts=None):
     """
     Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/glue_script.html.markdown.
     """
     __args__ = dict()
 

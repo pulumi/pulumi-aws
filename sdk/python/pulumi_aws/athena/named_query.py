@@ -35,6 +35,8 @@ class NamedQuery(pulumi.CustomResource):
         :param pulumi.Input[str] description: A brief explanation of the query. Maximum length of 1024.
         :param pulumi.Input[str] name: The plain language name for the query. Maximum length of 128.
         :param pulumi.Input[str] query: The text of the query itself. In other words, all query statements. Maximum length of 262144.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_named_query.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

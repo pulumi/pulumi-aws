@@ -25,6 +25,8 @@ class VpnConnectionRoute(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
         :param pulumi.Input[str] vpn_connection_id: The ID of the VPN connection.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_connection_route.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

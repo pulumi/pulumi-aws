@@ -60,6 +60,8 @@ class PatchBaseline(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the patch baseline.
         :param pulumi.Input[str] operating_system: Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
         :param pulumi.Input[list] rejected_patches: A list of rejected patches.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_patch_baseline.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

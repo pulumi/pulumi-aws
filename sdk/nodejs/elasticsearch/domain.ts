@@ -6,170 +6,6 @@ import * as utilities from "../utilities";
 
 import {PolicyDocument} from "../iam/documents";
 
-/**
- * Manages an AWS Elasticsearch Domain.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.elasticsearch.Domain("example", {
- *     clusterConfig: {
- *         instanceType: "r4.large.elasticsearch",
- *     },
- *     elasticsearchVersion: "1.5",
- *     snapshotOptions: {
- *         automatedSnapshotStartHour: 23,
- *     },
- *     tags: {
- *         Domain: "TestDomain",
- *     },
- * });
- * ```
- * 
- * ### Access Policy
- * 
- * > See also: [`aws_elasticsearch_domain_policy` resource](https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain_policy.html)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const domain = config.get("domain") || "tf-test";
- * 
- * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({}));
- * const currentRegion = pulumi.output(aws.getRegion({}));
- * const example = new aws.elasticsearch.Domain("example", {
- *     accessPolicies: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "es:*",
- *       "Principal": "*",
- *       "Effect": "Allow",
- *       "Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*",
- *       "Condition": {
- *         "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
- *       }
- *     }
- *   ]
- * }
- * `,
- * });
- * ```
- * 
- * ### Log Publishing to CloudWatch Logs
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {});
- * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("example", {
- *     policyDocument: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "es.amazonaws.com"
- *       },
- *       "Action": [
- *         "logs:PutLogEvents",
- *         "logs:PutLogEventsBatch",
- *         "logs:CreateLogStream"
- *       ],
- *       "Resource": "arn:aws:logs:*"
- *     }
- *   ]
- * }
- * `,
- *     policyName: "example",
- * });
- * const exampleDomain = new aws.elasticsearch.Domain("example", {
- *     logPublishingOptions: [{
- *         cloudwatchLogGroupArn: exampleLogGroup.arn,
- *         logType: "INDEX_SLOW_LOGS",
- *     }],
- * });
- * ```
- * ### VPC based ES
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const domain = config.get("domain") || "tf-test";
- * const vpc = config.require("vpc");
- * 
- * const esServiceLinkedRole = new aws.iam.ServiceLinkedRole("es", {
- *     awsServiceName: "es.amazonaws.com",
- * });
- * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({}));
- * const currentRegion = pulumi.output(aws.getRegion({}));
- * const selectedVpc = pulumi.output(aws.ec2.getVpc({
- *     tags: {
- *         Name: vpc,
- *     },
- * }));
- * const selectedSubnetIds = selectedVpc.apply(selectedVpc => aws.ec2.getSubnetIds({
- *     tags: {
- *         Tier: "private",
- *     },
- *     vpcId: selectedVpc.id,
- * }));
- * const esDomain = new aws.elasticsearch.Domain("es", {
- *     accessPolicies: pulumi.interpolate`{
- * 	"Version": "2012-10-17",
- * 	"Statement": [
- * 		{
- * 			"Action": "es:*",
- * 			"Principal": "*",
- * 			"Effect": "Allow",
- * 			"Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*"
- * 		}
- * 	]
- * }
- * `,
- *     advancedOptions: {
- *         "rest.action.multi.allow_explicit_index": "true",
- *     },
- *     clusterConfig: {
- *         instanceType: "m4.large.elasticsearch",
- *     },
- *     elasticsearchVersion: "6.3",
- *     snapshotOptions: {
- *         automatedSnapshotStartHour: 23,
- *     },
- *     tags: {
- *         Domain: "TestDomain",
- *     },
- *     vpcOptions: {
- *         securityGroupIds: [aws_security_group_elasticsearch.id],
- *         subnetIds: [
- *             selectedSubnetIds.apply(selectedSubnetIds => selectedSubnetIds.ids[0]),
- *             selectedSubnetIds.apply(selectedSubnetIds => selectedSubnetIds.ids[1]),
- *         ],
- *     },
- * }, {dependsOn: [esServiceLinkedRole]});
- * const esSecurityGroup = new aws.ec2.SecurityGroup("es", {
- *     description: "Managed by Terraform",
- *     ingress: [{
- *         cidrBlocks: [selectedVpc.cidrBlocks],
- *         fromPort: 443,
- *         protocol: "tcp",
- *         toPort: 443,
- *     }],
- *     vpcId: selectedVpc.id,
- * });
- * ```
- */
 export class Domain extends pulumi.CustomResource {
     /**
      * Get an existing Domain resource's state with the given name, ID, and optional extra
@@ -201,12 +37,6 @@ export class Domain extends pulumi.CustomResource {
      * IAM policy document specifying the access policies for the domain
      */
     public readonly accessPolicies!: pulumi.Output<string>;
-    /**
-     * Key-value string pairs to specify advanced configuration options.
-     * Note that the values for these configuration options must be strings (wrapped in quotes) or they
-     * may be wrong and cause a perpetual diff, causing Terraform to want to recreate your Elasticsearch
-     * domain on every apply.
-     */
     public readonly advancedOptions!: pulumi.Output<{[key: string]: any}>;
     /**
      * Amazon Resource Name (ARN) of the domain.
@@ -329,12 +159,6 @@ export interface DomainState {
      * IAM policy document specifying the access policies for the domain
      */
     readonly accessPolicies?: pulumi.Input<string | PolicyDocument>;
-    /**
-     * Key-value string pairs to specify advanced configuration options.
-     * Note that the values for these configuration options must be strings (wrapped in quotes) or they
-     * may be wrong and cause a perpetual diff, causing Terraform to want to recreate your Elasticsearch
-     * domain on every apply.
-     */
     readonly advancedOptions?: pulumi.Input<{[key: string]: any}>;
     /**
      * Amazon Resource Name (ARN) of the domain.
@@ -405,12 +229,6 @@ export interface DomainArgs {
      * IAM policy document specifying the access policies for the domain
      */
     readonly accessPolicies?: pulumi.Input<string | PolicyDocument>;
-    /**
-     * Key-value string pairs to specify advanced configuration options.
-     * Note that the values for these configuration options must be strings (wrapped in quotes) or they
-     * may be wrong and cause a perpetual diff, causing Terraform to want to recreate your Elasticsearch
-     * domain on every apply.
-     */
     readonly advancedOptions?: pulumi.Input<{[key: string]: any}>;
     /**
      * Cluster configuration of the domain, see below.

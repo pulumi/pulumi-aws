@@ -4,66 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Route53 Hosted Zone.
- * 
- * ## Example Usage
- * 
- * ### Public Zone
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const primary = new aws.route53.Zone("primary", {});
- * ```
- * 
- * ### Public Subdomain Zone
- * 
- * For use in subdomains, note that you need to create a
- * `aws_route53_record` of type `NS` as well as the subdomain
- * zone.
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const dev = new aws.route53.Zone("dev", {
- *     tags: {
- *         Environment: "dev",
- *     },
- * });
- * const main = new aws.route53.Zone("main", {});
- * const dev_ns = new aws.route53.Record("dev-ns", {
- *     records: [
- *         dev.nameServers[0],
- *         dev.nameServers[1],
- *         dev.nameServers[2],
- *         dev.nameServers[3],
- *     ],
- *     ttl: 30,
- *     type: "NS",
- *     zoneId: main.zoneId,
- * });
- * ```
- * 
- * ### Private Zone
- * 
- * > **NOTE:** Terraform provides both exclusive VPC associations defined in-line in this resource via `vpc` configuration blocks and a separate [Zone VPC Association](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) resource. At this time, you cannot use in-line VPC associations in conjunction with any `aws_route53_zone_association` resources with the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use the generic Terraform resource [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html#lifecycle) with `ignore_changes` to manage additional associations via the `aws_route53_zone_association` resource.
- * 
- * > **NOTE:** Private zones require at least one VPC association at all times.
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const privateZone = new aws.route53.Zone("private", {
- *     vpcs: [{
- *         vpcId: aws_vpc_example.id,
- *     }],
- * });
- * ```
- */
 export class Zone extends pulumi.CustomResource {
     /**
      * Get an existing Zone resource's state with the given name, ID, and optional extra
@@ -91,17 +31,11 @@ export class Zone extends pulumi.CustomResource {
         return obj['__pulumiType'] === Zone.__pulumiType;
     }
 
-    /**
-     * A comment for the hosted zone. Defaults to 'Managed by Terraform'.
-     */
     public readonly comment!: pulumi.Output<string>;
     /**
      * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
      */
     public readonly delegationSetId!: pulumi.Output<string | undefined>;
-    /**
-     * Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone.
-     */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * This is the name of the hosted zone.
@@ -164,17 +98,11 @@ export class Zone extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Zone resources.
  */
 export interface ZoneState {
-    /**
-     * A comment for the hosted zone. Defaults to 'Managed by Terraform'.
-     */
     readonly comment?: pulumi.Input<string>;
     /**
      * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
      */
     readonly delegationSetId?: pulumi.Input<string>;
-    /**
-     * Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone.
-     */
     readonly forceDestroy?: pulumi.Input<boolean>;
     /**
      * This is the name of the hosted zone.
@@ -203,17 +131,11 @@ export interface ZoneState {
  * The set of arguments for constructing a Zone resource.
  */
 export interface ZoneArgs {
-    /**
-     * A comment for the hosted zone. Defaults to 'Managed by Terraform'.
-     */
     readonly comment?: pulumi.Input<string>;
     /**
      * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
      */
     readonly delegationSetId?: pulumi.Input<string>;
-    /**
-     * Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone.
-     */
     readonly forceDestroy?: pulumi.Input<boolean>;
     /**
      * This is the name of the hosted zone.

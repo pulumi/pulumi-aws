@@ -48,6 +48,8 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         :param pulumi.Input[str] dx_gateway_id: Direct Connect Gateway identifier.
         :param pulumi.Input[str] dx_gateway_owner_account_id: AWS Account identifier of the Direct Connect Gateway's owner.
         :param pulumi.Input[str] vpn_gateway_id: *Deprecated:* Use `associated_gateway_id` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_gateway_association_proposal.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

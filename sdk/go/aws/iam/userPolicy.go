@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an IAM policy attached to a user.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_policy.html.markdown.
 type UserPolicy struct {
 	s *pulumi.ResourceState
 }
@@ -69,7 +71,7 @@ func (r *UserPolicy) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The name of the policy. If omitted, Terraform will assign a random, unique name.
+// The name of the policy (always set).
 func (r *UserPolicy) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -79,7 +81,6 @@ func (r *UserPolicy) NamePrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
-// The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 func (r *UserPolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -91,11 +92,10 @@ func (r *UserPolicy) User() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering UserPolicy resources.
 type UserPolicyState struct {
-	// The name of the policy. If omitted, Terraform will assign a random, unique name.
+	// The name of the policy (always set).
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 	Policy interface{}
 	// IAM user to which to attach this policy.
 	User interface{}
@@ -103,11 +103,10 @@ type UserPolicyState struct {
 
 // The set of arguments for constructing a UserPolicy resource.
 type UserPolicyArgs struct {
-	// The name of the policy. If omitted, Terraform will assign a random, unique name.
+	// The name of the policy (always set).
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
 	Policy interface{}
 	// IAM user to which to attach this policy.
 	User interface{}

@@ -34,6 +34,8 @@ class Notification(pulumi.CustomResource):
         :param pulumi.Input[list] notifications: A list of Notification Types that trigger
                notifications. Acceptable values are documented [in the AWS documentation here][1]
         :param pulumi.Input[str] topic_arn: The Topic ARN for notifications to be sent through
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_notification.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

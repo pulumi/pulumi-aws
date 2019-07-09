@@ -37,14 +37,7 @@ class NetworkAcl(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, egress=None, ingress=None, subnet_ids=None, tags=None, vpc_id=None, __name__=None, __opts__=None):
         """
-        Provides an network ACL resource. You might set up network ACLs with rules similar
-        to your security groups in order to add an additional layer of security to your VPC.
-        
-        > **NOTE on Network ACLs and Network ACL Rules:** Terraform currently
-        provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
-        defined in-line. At this time you cannot use a Network ACL with in-line rules
-        in conjunction with any Network ACL Rule resources. Doing so will cause
-        a conflict of rule settings and will overwrite rules.
+        Create a NetworkAcl resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -55,6 +48,8 @@ class NetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[list] subnet_ids: A list of Subnet IDs to apply the ACL to
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the associated VPC.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_acl.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

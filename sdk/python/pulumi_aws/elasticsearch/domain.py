@@ -14,12 +14,6 @@ class Domain(pulumi.CustomResource):
     IAM policy document specifying the access policies for the domain
     """
     advanced_options: pulumi.Output[dict]
-    """
-    Key-value string pairs to specify advanced configuration options.
-    Note that the values for these configuration options must be strings (wrapped in quotes) or they
-    may be wrong and cause a perpetual diff, causing Terraform to want to recreate your Elasticsearch
-    domain on every apply.
-    """
     arn: pulumi.Output[str]
     """
     Amazon Resource Name (ARN) of the domain.
@@ -86,10 +80,6 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain
-        :param pulumi.Input[dict] advanced_options: Key-value string pairs to specify advanced configuration options.
-               Note that the values for these configuration options must be strings (wrapped in quotes) or they
-               may be wrong and cause a perpetual diff, causing Terraform to want to recreate your Elasticsearch
-               domain on every apply.
         :param pulumi.Input[dict] cluster_config: Cluster configuration of the domain, see below.
         :param pulumi.Input[str] domain_name: Name of the domain.
         :param pulumi.Input[dict] ebs_options: EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
@@ -100,6 +90,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[dict] snapshot_options: Snapshot related options, see below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
         :param pulumi.Input[dict] vpc_options: VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticsearch_domain.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

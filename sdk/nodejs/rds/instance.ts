@@ -6,55 +6,6 @@ import * as utilities from "../utilities";
 
 import {InstanceType} from "./instanceType";
 
-/**
- * Provides an RDS instance resource.  A DB instance is an isolated database
- * environment in the cloud.  A DB instance can contain multiple user-created
- * databases.
- * 
- * Changes to a DB instance can occur when you manually change a parameter, such as
- * `allocated_storage`, and are reflected in the next maintenance window. Because
- * of this, Terraform may report a difference in its planning phase because a
- * modification has not yet taken place. You can use the `apply_immediately` flag
- * to instruct the service to apply the change immediately (see documentation
- * below).
- * 
- * When upgrading the major version of an engine, `allow_major_version_upgrade`
- * must be set to `true`.
- * 
- * > **Note:** using `apply_immediately` can result in a brief downtime as the
- * server reboots. See the AWS Docs on [RDS Maintenance][2] for more information.
- * 
- * > **Note:** All arguments including the username and password will be stored in
- * the raw state as plain-text. [Read more about sensitive data in
- * state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
- * ## RDS Instance Class Types
- * 
- * Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
- * and Burstable Performance. For more information please read the AWS RDS documentation
- * about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const defaultInstance = new aws.rds.Instance("default", {
- *     allocatedStorage: 20,
- *     engine: "mysql",
- *     engineVersion: "5.7",
- *     instanceClass: "db.t2.micro",
- *     name: "mydb",
- *     parameterGroupName: "default.mysql5.7",
- *     password: "foobarbaz",
- *     storageType: "gp2",
- *     username: "foo",
- * });
- * ```
- */
 export class Instance extends pulumi.CustomResource {
     /**
      * Get an existing Instance resource's state with the given name, ID, and optional extra
@@ -208,10 +159,6 @@ export class Instance extends pulumi.CustomResource {
      * accounts is enabled.
      */
     public readonly iamDatabaseAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * The name of the RDS instance,
-     * if omitted, Terraform will assign a random, unique identifier.
-     */
     public readonly identifier!: pulumi.Output<string>;
     /**
      * Creates a unique
@@ -653,10 +600,6 @@ export interface InstanceState {
      * accounts is enabled.
      */
     readonly iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
-    /**
-     * The name of the RDS instance,
-     * if omitted, Terraform will assign a random, unique identifier.
-     */
     readonly identifier?: pulumi.Input<string>;
     /**
      * Creates a unique
@@ -941,10 +884,6 @@ export interface InstanceArgs {
      * accounts is enabled.
      */
     readonly iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
-    /**
-     * The name of the RDS instance,
-     * if omitted, Terraform will assign a random, unique identifier.
-     */
     readonly identifier?: pulumi.Input<string>;
     /**
      * Creates a unique

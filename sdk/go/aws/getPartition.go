@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to lookup current AWS partition in which Terraform is working
 func LookupPartition(ctx *pulumi.Context) (*GetPartitionResult, error) {
 	outputs, err := ctx.Invoke("aws:index/getPartition:getPartition", nil)
 	if err != nil {

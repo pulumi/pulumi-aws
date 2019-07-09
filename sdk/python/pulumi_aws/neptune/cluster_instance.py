@@ -51,9 +51,6 @@ class ClusterInstance(pulumi.CustomResource):
     The neptune engine version.
     """
     identifier: pulumi.Output[str]
-    """
-    The indentifier for the neptune instance, if omitted, Terraform will assign a random, unique identifier.
-    """
     identifier_prefix: pulumi.Output[str]
     """
     Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -123,7 +120,6 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_identifier: The identifier of the [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
         :param pulumi.Input[str] engine_version: The neptune engine version.
-        :param pulumi.Input[str] identifier: The indentifier for the neptune instance, if omitted, Terraform will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance class to use.
         :param pulumi.Input[str] neptune_parameter_group_name: The name of the neptune parameter group to associate with this instance.
@@ -135,6 +131,8 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[float] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly accessible. Default is `false`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the instance.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster_instance.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

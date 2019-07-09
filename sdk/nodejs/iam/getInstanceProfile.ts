@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  *     name: "an_example_instance_profile_name",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_instance_profile.html.markdown.
  */
 export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceProfileResult> {
     return pulumi.runtime.invoke("aws:iam/getInstanceProfile:getInstanceProfile", {

@@ -8,9 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages an AWS Storage Gateway upload buffer.
-// 
-// > **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this Terraform resource does not perform any Storage Gateway actions.
 type UploadBuffer struct {
 	s *pulumi.ResourceState
 }

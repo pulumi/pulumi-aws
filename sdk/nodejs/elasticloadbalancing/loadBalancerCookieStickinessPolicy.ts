@@ -28,6 +28,8 @@ import * as utilities from "../utilities";
  *     loadBalancer: lb.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_cookie_stickiness_policy.html.markdown.
  */
 export class LoadBalancerCookieStickinessPolicy extends pulumi.CustomResource {
     /**

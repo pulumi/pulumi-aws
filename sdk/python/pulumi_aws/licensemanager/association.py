@@ -27,6 +27,8 @@ class Association(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] license_configuration_arn: ARN of the license configuration.
         :param pulumi.Input[str] resource_arn: ARN of the resource associated with the license configuration.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/licensemanager_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

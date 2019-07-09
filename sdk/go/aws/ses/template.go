@@ -8,6 +8,8 @@ import (
 )
 
 // Provides a resource to create a SES template.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_template.html.markdown.
 type Template struct {
 	s *pulumi.ResourceState
 }

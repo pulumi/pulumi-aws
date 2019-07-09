@@ -8,6 +8,8 @@ import (
 )
 
 // Provides a Step Function Activity resource
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sfn_activity.html.markdown.
 type Activity struct {
 	s *pulumi.ResourceState
 }

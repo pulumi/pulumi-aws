@@ -30,6 +30,8 @@ import * as utilities from "../utilities";
  * 
  * export const example = exampleEventCategories.eventCategories;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_event_categories.html.markdown.
  */
 export function getEventCategories(args?: GetEventCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetEventCategoriesResult> {
     args = args || {};

@@ -8,6 +8,8 @@ import (
 )
 
 // Get an existing AWS Customer Gateway.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/customer_gateway.html.markdown.
 func LookupCustomerGateway(ctx *pulumi.Context, args *GetCustomerGatewayArgs) (*GetCustomerGatewayResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

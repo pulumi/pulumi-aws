@@ -10,6 +10,8 @@ import (
 // Provides an IAM instance profile.
 // 
 // > **NOTE:** Either `role` or `roles` (**deprecated**) must be specified.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_instance_profile.html.markdown.
 type InstanceProfile struct {
 	s *pulumi.ResourceState
 }
@@ -83,7 +85,7 @@ func (r *InstanceProfile) CreateDate() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["createDate"])
 }
 
-// The profile's name. If omitted, Terraform will assign a random, unique name.
+// The instance profile's name.
 func (r *InstanceProfile) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -103,9 +105,7 @@ func (r *InstanceProfile) Role() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["role"])
 }
 
-// 
-// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
-// WARNING: This is deprecated since [version 0.9.3 (April 12, 2017)](https://github.com/hashicorp/terraform/blob/master/CHANGELOG.md#093-april-12-2017), as >= 2 roles are not possible. See [issue #11575](https://github.com/hashicorp/terraform/issues/11575).
+// The list of roles assigned to the instance profile. (**Deprecated**)
 func (r *InstanceProfile) Roles() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["roles"])
 }
@@ -121,7 +121,7 @@ type InstanceProfileState struct {
 	Arn interface{}
 	// The creation timestamp of the instance profile.
 	CreateDate interface{}
-	// The profile's name. If omitted, Terraform will assign a random, unique name.
+	// The instance profile's name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
@@ -129,9 +129,7 @@ type InstanceProfileState struct {
 	Path interface{}
 	// The role name to include in the profile.
 	Role interface{}
-	// 
-	// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
-	// WARNING: This is deprecated since [version 0.9.3 (April 12, 2017)](https://github.com/hashicorp/terraform/blob/master/CHANGELOG.md#093-april-12-2017), as >= 2 roles are not possible. See [issue #11575](https://github.com/hashicorp/terraform/issues/11575).
+	// The list of roles assigned to the instance profile. (**Deprecated**)
 	Roles interface{}
 	// The [unique ID][1] assigned by AWS.
 	UniqueId interface{}
@@ -139,7 +137,7 @@ type InstanceProfileState struct {
 
 // The set of arguments for constructing a InstanceProfile resource.
 type InstanceProfileArgs struct {
-	// The profile's name. If omitted, Terraform will assign a random, unique name.
+	// The instance profile's name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
@@ -147,8 +145,6 @@ type InstanceProfileArgs struct {
 	Path interface{}
 	// The role name to include in the profile.
 	Role interface{}
-	// 
-	// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
-	// WARNING: This is deprecated since [version 0.9.3 (April 12, 2017)](https://github.com/hashicorp/terraform/blob/master/CHANGELOG.md#093-april-12-2017), as >= 2 roles are not possible. See [issue #11575](https://github.com/hashicorp/terraform/issues/11575).
+	// The list of roles assigned to the instance profile. (**Deprecated**)
 	Roles interface{}
 }

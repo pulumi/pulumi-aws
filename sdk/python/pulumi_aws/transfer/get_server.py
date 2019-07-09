@@ -63,6 +63,8 @@ async def get_server(server_id=None,opts=None):
     """
     Use this data source to get the ARN of an AWS Transfer Server for use in other
     resources.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/transfer_server.html.markdown.
     """
     __args__ = dict()
 

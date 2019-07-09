@@ -28,6 +28,8 @@ import * as utilities from "../utilities";
  *     }],
  * }, {dependsOn: [ipset]});
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_rule.html.markdown.
  */
 export class Rule extends pulumi.CustomResource {
     /**

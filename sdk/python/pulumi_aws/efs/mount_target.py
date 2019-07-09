@@ -51,6 +51,8 @@ class MountTarget(pulumi.CustomResource):
         :param pulumi.Input[list] security_groups: A list of up to 5 VPC security group IDs (that must
                be for the same VPC as subnet specified) in effect for the mount target.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to add the mount target in.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/efs_mount_target.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

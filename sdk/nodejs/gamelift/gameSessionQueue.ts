@@ -30,6 +30,8 @@ import * as utilities from "../utilities";
  *     timeoutInSeconds: 60,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_game_session_queue.html.markdown.
  */
 export class GameSessionQueue extends pulumi.CustomResource {
     /**

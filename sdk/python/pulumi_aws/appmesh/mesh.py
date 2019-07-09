@@ -42,6 +42,8 @@ class Mesh(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name to use for the service mesh.
         :param pulumi.Input[dict] spec: The service mesh specification to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_mesh.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

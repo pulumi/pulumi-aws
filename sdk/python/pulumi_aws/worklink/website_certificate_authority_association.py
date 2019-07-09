@@ -34,6 +34,8 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] certificate: The root certificate of the Certificate Authority.
         :param pulumi.Input[str] display_name: The certificate name to display.
         :param pulumi.Input[str] fleet_arn: The ARN of the fleet.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/worklink_website_certificate_authority_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

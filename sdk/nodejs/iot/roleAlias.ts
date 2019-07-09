@@ -31,6 +31,8 @@ import * as utilities from "../utilities";
  *     roleArn: role.arn,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_role_alias.html.markdown.
  */
 export class RoleAlias extends pulumi.CustomResource {
     /**

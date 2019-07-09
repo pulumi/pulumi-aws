@@ -31,10 +31,6 @@ class LoadBalancer(pulumi.CustomResource):
     This is a `network` load balancer feature. Defaults to `false`.
     """
     enable_deletion_protection: pulumi.Output[bool]
-    """
-    If true, deletion of the load balancer will be disabled via
-    the AWS API. This will prevent Terraform from deleting the load balancer. Defaults to `false`.
-    """
     enable_http2: pulumi.Output[bool]
     """
     Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
@@ -56,11 +52,6 @@ class LoadBalancer(pulumi.CustomResource):
     The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
     """
     name: pulumi.Output[str]
-    """
-    The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-    must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-    Terraform will autogenerate a name beginning with `tf-lb`.
-    """
     name_prefix: pulumi.Output[str]
     """
     Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -99,16 +90,11 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[dict] access_logs: An Access Logs block. Access Logs documented below.
         :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled.
                This is a `network` load balancer feature. Defaults to `false`.
-        :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via
-               the AWS API. This will prevent Terraform from deleting the load balancer. Defaults to `false`.
         :param pulumi.Input[bool] enable_http2: Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
         :param pulumi.Input[float] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[bool] internal: If true, the LB will be internal.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
         :param pulumi.Input[str] load_balancer_type: The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
-        :param pulumi.Input[str] name: The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-               must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-               Terraform will autogenerate a name beginning with `tf-lb`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[list] security_groups: A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[list] subnet_mappings: A subnet mapping block as documented below.
@@ -116,6 +102,8 @@ class LoadBalancer(pulumi.CustomResource):
                cannot be updated for Load Balancers of type `network`. Changing this value
                for load balancers of type `network` will force a recreation of the resource.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

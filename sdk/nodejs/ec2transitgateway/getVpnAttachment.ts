@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  *     vpnConnectionId: aws_vpn_connection_exampleId,
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpn_attachment.html.markdown.
  */
 export function getVpnAttachment(args: GetVpnAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnAttachmentResult> {
     return pulumi.runtime.invoke("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", {

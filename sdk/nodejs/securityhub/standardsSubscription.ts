@@ -4,23 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Subscribes to a Security Hub standard.
- * 
- * > **NOTE:** This AWS service is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between Terraform AWS Provider releases.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleAccount = new aws.securityhub.Account("example", {});
- * const exampleStandardsSubscription = new aws.securityhub.StandardsSubscription("example", {
- *     standardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
- * }, {dependsOn: [exampleAccount]});
- * ```
- */
 export class StandardsSubscription extends pulumi.CustomResource {
     /**
      * Get an existing StandardsSubscription resource's state with the given name, ID, and optional extra

@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  *     fleetArn: aws_worklink_fleet_test.arn,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/worklink_website_certificate_authority_association.html.markdown.
  */
 export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResource {
     /**

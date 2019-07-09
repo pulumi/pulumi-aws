@@ -10,17 +10,11 @@ from .. import utilities, tables
 
 class Agent(pulumi.CustomResource):
     activation_key: pulumi.Output[str]
-    """
-    DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, Terraform will retrieve the `activation_key` as part of the resource creation.
-    """
     arn: pulumi.Output[str]
     """
     Amazon Resource Name (ARN) of the DataSync Agent.
     """
     ip_address: pulumi.Output[str]
-    """
-    DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where Terraform is running.
-    """
     name: pulumi.Output[str]
     """
     Name of the DataSync Agent.
@@ -31,16 +25,14 @@ class Agent(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, activation_key=None, ip_address=None, name=None, tags=None, __name__=None, __opts__=None):
         """
-        Manages an AWS DataSync Agent deployed on premises.
-        
-        > **NOTE:** One of `activation_key` or `ip_address` must be provided for resource creation (agent activation). Neither is required for resource import. If using `ip_address`, Terraform must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running. The agent will turn off that HTTP server after activation.
+        Create a Agent resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] activation_key: DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, Terraform will retrieve the `activation_key` as part of the resource creation.
-        :param pulumi.Input[str] ip_address: DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where Terraform is running.
         :param pulumi.Input[str] name: Name of the DataSync Agent.
         :param pulumi.Input[dict] tags: Key-value pairs of resource tags to assign to the DataSync Agent.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_agent.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

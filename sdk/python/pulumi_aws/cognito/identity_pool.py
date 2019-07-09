@@ -56,6 +56,8 @@ class IdentityPool(pulumi.CustomResource):
         :param pulumi.Input[list] openid_connect_provider_arns: A list of OpendID Connect provider ARNs.
         :param pulumi.Input[list] saml_provider_arns: An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         :param pulumi.Input[dict] supported_login_providers: Key-Value pairs mapping provider names to provider app IDs.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_pool.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

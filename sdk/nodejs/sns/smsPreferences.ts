@@ -15,6 +15,8 @@ import * as utilities from "../utilities";
  * 
  * const updateSmsPrefs = new aws.sns.SmsPreferences("update_sms_prefs", {});
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_sms_preferences.html.markdown.
  */
 export class SmsPreferences extends pulumi.CustomResource {
     /**

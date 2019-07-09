@@ -35,6 +35,8 @@ import * as utilities from "../utilities";
  * See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
  * and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
  * guides for more information.
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_attachment.html.markdown.
  */
 export class VpnGatewayAttachment extends pulumi.CustomResource {
     /**

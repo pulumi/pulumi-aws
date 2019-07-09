@@ -8,6 +8,8 @@ import (
 )
 
 // Provides information about a Lambda Function.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_function.html.markdown.
 func LookupFunction(ctx *pulumi.Context, args *GetFunctionArgs) (*GetFunctionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

@@ -8,6 +8,8 @@ import (
 )
 
 // Provides a lifecycle configuration for SageMaker Notebook Instances.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_notebook_instance_lifecycle_configuration.html.markdown.
 type NotebookInstanceLifecycleConfiguration struct {
 	s *pulumi.ResourceState
 }
@@ -66,7 +68,6 @@ func (r *NotebookInstanceLifecycleConfiguration) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The name of the lifecycle configuration (must be unique). If omitted, Terraform will assign a random, unique name.
 func (r *NotebookInstanceLifecycleConfiguration) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -85,7 +86,6 @@ func (r *NotebookInstanceLifecycleConfiguration) OnStart() *pulumi.StringOutput 
 type NotebookInstanceLifecycleConfigurationState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
 	Arn interface{}
-	// The name of the lifecycle configuration (must be unique). If omitted, Terraform will assign a random, unique name.
 	Name interface{}
 	// A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
 	OnCreate interface{}
@@ -95,7 +95,6 @@ type NotebookInstanceLifecycleConfigurationState struct {
 
 // The set of arguments for constructing a NotebookInstanceLifecycleConfiguration resource.
 type NotebookInstanceLifecycleConfigurationArgs struct {
-	// The name of the lifecycle configuration (must be unique). If omitted, Terraform will assign a random, unique name.
 	Name interface{}
 	// A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
 	OnCreate interface{}

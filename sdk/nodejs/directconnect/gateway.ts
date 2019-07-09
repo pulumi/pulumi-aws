@@ -17,6 +17,8 @@ import * as utilities from "../utilities";
  *     amazonSideAsn: "64512",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_gateway.html.markdown.
  */
 export class Gateway extends pulumi.CustomResource {
     /**

@@ -4,15 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to create a routing table entry (a route) in a VPC routing table.
- * 
- * > **NOTE on Route Tables and Routes:** Terraform currently
- * provides both a standalone Route resource and a Route Table resource with routes
- * defined in-line. At this time you cannot use a Route Table with in-line routes
- * in conjunction with any Route resources. Doing so will cause
- * a conflict of rule settings and will overwrite rules.
- */
 export class Route extends pulumi.CustomResource {
     /**
      * Get an existing Route resource's state with the given name, ID, and optional extra

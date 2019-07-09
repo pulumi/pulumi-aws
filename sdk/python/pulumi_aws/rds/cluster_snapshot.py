@@ -71,6 +71,8 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
         :param pulumi.Input[str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_cluster_snapshot.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

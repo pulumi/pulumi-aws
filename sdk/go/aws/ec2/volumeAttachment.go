@@ -8,10 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides an AWS EBS Volume Attachment as a top level resource, to attach and
-// detach volumes from AWS Instances.
-// 
-// > **NOTE on EBS block devices:** If you use `ebs_block_device` on an `aws_instance`, Terraform will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `aws_ebs_volume` + `aws_ebs_volume_attachment` resources for a given instance.
 type VolumeAttachment struct {
 	s *pulumi.ResourceState
 }
@@ -97,11 +93,6 @@ func (r *VolumeAttachment) InstanceId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["instanceId"])
 }
 
-// Set this to true if you do not wish
-// to detach the volume from the instance to which it is attached at destroy
-// time, and instead just remove the attachment from Terraform state. This is
-// useful when destroying an instance which has volumes created by some other
-// means attached.
 func (r *VolumeAttachment) SkipDestroy() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["skipDestroy"])
 }
@@ -123,11 +114,6 @@ type VolumeAttachmentState struct {
 	ForceDetach interface{}
 	// ID of the Instance to attach to
 	InstanceId interface{}
-	// Set this to true if you do not wish
-	// to detach the volume from the instance to which it is attached at destroy
-	// time, and instead just remove the attachment from Terraform state. This is
-	// useful when destroying an instance which has volumes created by some other
-	// means attached.
 	SkipDestroy interface{}
 	// ID of the Volume to be attached
 	VolumeId interface{}
@@ -145,11 +131,6 @@ type VolumeAttachmentArgs struct {
 	ForceDetach interface{}
 	// ID of the Instance to attach to
 	InstanceId interface{}
-	// Set this to true if you do not wish
-	// to detach the volume from the instance to which it is attached at destroy
-	// time, and instead just remove the attachment from Terraform state. This is
-	// useful when destroying an instance which has volumes created by some other
-	// means attached.
 	SkipDestroy interface{}
 	// ID of the Volume to be attached
 	VolumeId interface{}

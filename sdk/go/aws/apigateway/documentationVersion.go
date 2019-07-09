@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a resource to manage an API Gateway Documentation Version.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_documentation_version.html.markdown.
 type DocumentationVersion struct {
 	s *pulumi.ResourceState
 }

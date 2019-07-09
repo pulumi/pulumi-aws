@@ -7,16 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides a security group resource.
-// 
-// > **NOTE on Security Groups and Security Group Rules:** Terraform currently
-// provides both a standalone Security Group Rule resource (a single `ingress` or
-// `egress` rule), and a Security Group resource with `ingress` and `egress` rules
-// defined in-line. At this time you cannot use a Security Group with in-line rules
-// in conjunction with any Security Group Rule resources. Doing so will cause
-// a conflict of rule settings and will overwrite rules.
-// 
-// > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
 type SecurityGroup struct {
 	s *pulumi.ResourceState
 }
@@ -92,10 +82,7 @@ func (r *SecurityGroup) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The security group description. Defaults to
-// "Managed by Terraform". Cannot be "". __NOTE__: This field maps to the AWS
-// `GroupDescription` attribute, for which there is no Update API. If you'd like
-// to classify your security groups in a way that can be updated, use `tags`.
+// The description of the security group
 func (r *SecurityGroup) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -114,8 +101,7 @@ func (r *SecurityGroup) Ingress() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ingress"])
 }
 
-// The name of the security group. If omitted, Terraform will
-// assign a random, unique name
+// The name of the security group
 func (r *SecurityGroup) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -131,13 +117,6 @@ func (r *SecurityGroup) OwnerId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ownerId"])
 }
 
-// Instruct Terraform to revoke all of the
-// Security Groups attached ingress and egress rules before deleting the rule
-// itself. This is normally not needed, however certain AWS services such as
-// Elastic Map Reduce may automatically add required rules to security groups used
-// with the service, and those rules may contain a cyclic dependency that prevent
-// the security groups from being destroyed without removing the dependency first.
-// Default `false`
 func (r *SecurityGroup) RevokeRulesOnDelete() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["revokeRulesOnDelete"])
 }
@@ -156,10 +135,7 @@ func (r *SecurityGroup) VpcId() *pulumi.StringOutput {
 type SecurityGroupState struct {
 	// The ARN of the security group
 	Arn interface{}
-	// The security group description. Defaults to
-	// "Managed by Terraform". Cannot be "". __NOTE__: This field maps to the AWS
-	// `GroupDescription` attribute, for which there is no Update API. If you'd like
-	// to classify your security groups in a way that can be updated, use `tags`.
+	// The description of the security group
 	Description interface{}
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
@@ -169,21 +145,13 @@ type SecurityGroupState struct {
 	// ingress rule. Each ingress block supports fields documented below.
 	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Ingress interface{}
-	// The name of the security group. If omitted, Terraform will
-	// assign a random, unique name
+	// The name of the security group
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix interface{}
 	// The owner ID.
 	OwnerId interface{}
-	// Instruct Terraform to revoke all of the
-	// Security Groups attached ingress and egress rules before deleting the rule
-	// itself. This is normally not needed, however certain AWS services such as
-	// Elastic Map Reduce may automatically add required rules to security groups used
-	// with the service, and those rules may contain a cyclic dependency that prevent
-	// the security groups from being destroyed without removing the dependency first.
-	// Default `false`
 	RevokeRulesOnDelete interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -193,10 +161,7 @@ type SecurityGroupState struct {
 
 // The set of arguments for constructing a SecurityGroup resource.
 type SecurityGroupArgs struct {
-	// The security group description. Defaults to
-	// "Managed by Terraform". Cannot be "". __NOTE__: This field maps to the AWS
-	// `GroupDescription` attribute, for which there is no Update API. If you'd like
-	// to classify your security groups in a way that can be updated, use `tags`.
+	// The description of the security group
 	Description interface{}
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
@@ -206,19 +171,11 @@ type SecurityGroupArgs struct {
 	// ingress rule. Each ingress block supports fields documented below.
 	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Ingress interface{}
-	// The name of the security group. If omitted, Terraform will
-	// assign a random, unique name
+	// The name of the security group
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// Instruct Terraform to revoke all of the
-	// Security Groups attached ingress and egress rules before deleting the rule
-	// itself. This is normally not needed, however certain AWS services such as
-	// Elastic Map Reduce may automatically add required rules to security groups used
-	// with the service, and those rules may contain a cyclic dependency that prevent
-	// the security groups from being destroyed without removing the dependency first.
-	// Default `false`
 	RevokeRulesOnDelete interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

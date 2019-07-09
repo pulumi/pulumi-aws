@@ -4,21 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * The IAM Account Alias data source allows access to the account alias
- * for the effective account in which Terraform is working.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const current = pulumi.output(aws.iam.getAccountAlias({}));
- * 
- * export const accountId = current.accountAlias;
- * ```
- */
 export function getAccountAlias(opts?: pulumi.InvokeOptions): Promise<GetAccountAliasResult> {
     return pulumi.runtime.invoke("aws:iam/getAccountAlias:getAccountAlias", {
     }, opts);

@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a single EBS volume.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_volume.html.markdown.
 type Volume struct {
 	s *pulumi.ResourceState
 }

@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage whether default EBS encryption is enabled for your AWS account in the current AWS region. To manage the default KMS key for the region, see the [`aws_ebs_default_kms_key` resource](https://www.terraform.io/docs/providers/aws/r/ebs_default_kms_key.html).
- * 
- * > **NOTE:** Removing this Terraform resource disables default EBS encryption.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ebs.EncryptionByDefault("example", {
- *     enabled: true,
- * });
- * ```
- */
 export class EncryptionByDefault extends pulumi.CustomResource {
     /**
      * Get an existing EncryptionByDefault resource's state with the given name, ID, and optional extra

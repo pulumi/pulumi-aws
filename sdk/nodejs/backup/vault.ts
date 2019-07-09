@@ -17,6 +17,8 @@ import * as utilities from "../utilities";
  *     kmsKeyArn: aws_kms_key_example.arn,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_vault.html.markdown.
  */
 export class Vault extends pulumi.CustomResource {
     /**

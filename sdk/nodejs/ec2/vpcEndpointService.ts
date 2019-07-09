@@ -4,45 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a VPC Endpoint Service resource.
- * Service consumers can create an _Interface_ VPC Endpoint to connect to the service.
- * 
- * > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** Terraform provides
- * both a standalone VPC Endpoint Service Allowed Principal resource
- * and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
- * a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
- * and will overwrite the association.
- * 
- * ## Example Usage
- * 
- * ### Basic
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ec2.VpcEndpointService("example", {
- *     acceptanceRequired: false,
- *     networkLoadBalancerArns: [aws_lb_example.arn],
- * });
- * ```
- * 
- * ### Basic w/ Tags
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.ec2.VpcEndpointService("example", {
- *     acceptanceRequired: false,
- *     networkLoadBalancerArns: [aws_lb_example.arn],
- *     tags: {
- *         Environment: "test",
- *     },
- * });
- * ```
- */
 export class VpcEndpointService extends pulumi.CustomResource {
     /**
      * Get an existing VpcEndpointService resource's state with the given name, ID, and optional extra

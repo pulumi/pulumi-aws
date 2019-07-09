@@ -68,6 +68,8 @@ class GetVpcAttachmentResult:
 async def get_vpc_attachment(filters=None,id=None,tags=None,opts=None):
     """
     Get information on an EC2 Transit Gateway VPC Attachment.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpc_attachment.html.markdown.
     """
     __args__ = dict()
 

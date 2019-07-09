@@ -8,6 +8,8 @@ import (
 )
 
 // Provides information about a Lambda Layer Version.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_layer_version.html.markdown.
 func LookupLayerVersion(ctx *pulumi.Context, args *GetLayerVersionArgs) (*GetLayerVersionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

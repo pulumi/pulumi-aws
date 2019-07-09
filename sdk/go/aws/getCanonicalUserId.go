@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
-// for the effective account in which Terraform is working.  
 func LookupCanonicalUserId(ctx *pulumi.Context) (*GetCanonicalUserIdResult, error) {
 	outputs, err := ctx.Invoke("aws:index/getCanonicalUserId:getCanonicalUserId", nil)
 	if err != nil {

@@ -39,6 +39,8 @@ class DeploymentConfig(pulumi.CustomResource):
         :param pulumi.Input[str] deployment_config_name: The name of the deployment config.
         :param pulumi.Input[dict] minimum_healthy_hosts: A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
         :param pulumi.Input[dict] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codedeploy_deployment_config.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

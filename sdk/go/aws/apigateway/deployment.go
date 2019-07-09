@@ -12,6 +12,8 @@ import (
 // 
 // > **Note:** Depends on having `aws_api_gateway_integration` inside your rest api (which in turn depends on `aws_api_gateway_method`). To avoid race conditions
 // you might need to add an explicit `depends_on = ["aws_api_gateway_integration.name"]`.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_deployment.html.markdown.
 type Deployment struct {
 	s *pulumi.ResourceState
 }

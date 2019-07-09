@@ -54,6 +54,8 @@ class ResolverEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] name: The friendly name of the Route 53 Resolver endpoint.
         :param pulumi.Input[list] security_group_ids: The ID of one or more security groups that you want to use to control access to this VPC.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_endpoint.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

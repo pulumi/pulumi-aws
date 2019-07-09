@@ -17,6 +17,8 @@ import * as utilities from "../utilities";
  *     name: "example",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dx_gateway.html.markdown.
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
     return pulumi.runtime.invoke("aws:directconnect/getGateway:getGateway", {

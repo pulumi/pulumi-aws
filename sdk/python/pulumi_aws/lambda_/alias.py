@@ -51,6 +51,8 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[str] function_version: Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
         :param pulumi.Input[str] name: Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
         :param pulumi.Input[dict] routing_config: The Lambda alias' route configuration settings. Fields documented below
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_alias.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

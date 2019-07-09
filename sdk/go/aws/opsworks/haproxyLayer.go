@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an OpsWorks haproxy layer resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_haproxy_layer.html.markdown.
 type HaproxyLayer struct {
 	s *pulumi.ResourceState
 }

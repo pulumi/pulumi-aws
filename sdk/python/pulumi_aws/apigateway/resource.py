@@ -34,6 +34,8 @@ class Resource(pulumi.CustomResource):
         :param pulumi.Input[str] parent_id: The ID of the parent API resource
         :param pulumi.Input[str] path_part: The last path segment of this API resource.
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_resource.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

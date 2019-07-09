@@ -59,6 +59,8 @@ class NotebookInstance(pulumi.CustomResource):
         :param pulumi.Input[list] security_groups: The associated security groups.
         :param pulumi.Input[str] subnet_id: The VPC subnet ID.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_notebook_instance.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

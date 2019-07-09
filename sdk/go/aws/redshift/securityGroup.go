@@ -9,6 +9,8 @@ import (
 )
 
 // Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_security_group.html.markdown.
 type SecurityGroup struct {
 	s *pulumi.ResourceState
 }
@@ -63,7 +65,6 @@ func (r *SecurityGroup) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The description of the Redshift security group. Defaults to "Managed by Terraform".
 func (r *SecurityGroup) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -80,7 +81,6 @@ func (r *SecurityGroup) Name() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering SecurityGroup resources.
 type SecurityGroupState struct {
-	// The description of the Redshift security group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// A list of ingress rules.
 	Ingress interface{}
@@ -90,7 +90,6 @@ type SecurityGroupState struct {
 
 // The set of arguments for constructing a SecurityGroup resource.
 type SecurityGroupArgs struct {
-	// The description of the Redshift security group. Defaults to "Managed by Terraform".
 	Description interface{}
 	// A list of ingress rules.
 	Ingress interface{}

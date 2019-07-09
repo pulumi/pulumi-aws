@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an SNS platform application resource
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_platform_application.html.markdown.
 type PlatformApplication struct {
 	s *pulumi.ResourceState
 }
@@ -132,12 +134,10 @@ func (r *PlatformApplication) Platform() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["platform"])
 }
 
-// Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 func (r *PlatformApplication) PlatformCredential() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["platformCredential"])
 }
 
-// Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 func (r *PlatformApplication) PlatformPrincipal() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["platformPrincipal"])
 }
@@ -170,9 +170,7 @@ type PlatformApplicationState struct {
 	Name interface{}
 	// The platform that the app is registered with. See [Platform][1] for supported platforms.
 	Platform interface{}
-	// Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformCredential interface{}
-	// Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformPrincipal interface{}
 	// The IAM role permitted to receive success feedback for this application.
 	SuccessFeedbackRoleArn interface{}
@@ -196,9 +194,7 @@ type PlatformApplicationArgs struct {
 	Name interface{}
 	// The platform that the app is registered with. See [Platform][1] for supported platforms.
 	Platform interface{}
-	// Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformCredential interface{}
-	// Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the Terraform state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformPrincipal interface{}
 	// The IAM role permitted to receive success feedback for this application.
 	SuccessFeedbackRoleArn interface{}

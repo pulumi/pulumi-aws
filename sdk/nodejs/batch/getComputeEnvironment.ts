@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  *     computeEnvironmentName: "batch-mongo-production",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_compute_environment.html.markdown.
  */
 export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeEnvironmentResult> {
     return pulumi.runtime.invoke("aws:batch/getComputeEnvironment:getComputeEnvironment", {

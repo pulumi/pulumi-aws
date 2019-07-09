@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  * export const arn = example.arn;
  * export const description = example.description;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_application.html.markdown.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     return pulumi.runtime.invoke("aws:elasticbeanstalk/getApplication:getApplication", {

@@ -108,6 +108,8 @@ async def get_vpc_endpoint(id=None,service_name=None,state=None,tags=None,vpc_id
     """
     The VPC Endpoint data source provides details about
     a specific VPC endpoint.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint.html.markdown.
     """
     __args__ = dict()
 

@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  *     clusterName: "ecs-mongo-production",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_cluster.html.markdown.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     return pulumi.runtime.invoke("aws:ecs/getCluster:getCluster", {

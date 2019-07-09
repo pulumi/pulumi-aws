@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  *     type: "ipsec.1",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/customer_gateway.html.markdown.
  */
 export class CustomerGateway extends pulumi.CustomResource {
     /**

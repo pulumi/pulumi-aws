@@ -43,6 +43,8 @@ class StateMachine(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the state machine.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sfn_state_machine.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

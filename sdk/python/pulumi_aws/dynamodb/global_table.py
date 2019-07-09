@@ -31,6 +31,8 @@ class GlobalTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
         :param pulumi.Input[list] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_global_table.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

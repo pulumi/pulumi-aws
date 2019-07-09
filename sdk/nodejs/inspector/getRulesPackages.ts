@@ -32,6 +32,8 @@ import * as utilities from "../utilities";
  *     targetArn: assessmentAssessmentTarget.arn,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/inspector_rules_packages.html.markdown.
  */
 export function getRulesPackages(opts?: pulumi.InvokeOptions): Promise<GetRulesPackagesResult> {
     return pulumi.runtime.invoke("aws:inspector/getRulesPackages:getRulesPackages", {

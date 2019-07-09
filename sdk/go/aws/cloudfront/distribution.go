@@ -19,6 +19,8 @@ import (
 // after creation or modification. During this time, deletes to resources will be
 // blocked. If you need to delete a distribution that is enabled and you do not
 // want to wait, you need to use the `retain_on_delete` flag.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudfront_distribution.html.markdown.
 type Distribution struct {
 	s *pulumi.ResourceState
 }
@@ -284,9 +286,6 @@ func (r *Distribution) Restrictions() *pulumi.Output {
 	return r.s.State["restrictions"]
 }
 
-// Disables the distribution instead of
-// deleting it when destroying the resource through Terraform. If this is set,
-// the distribution needs to be deleted manually afterwards. Default: `false`.
 func (r *Distribution) RetainOnDelete() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["retainOnDelete"])
 }
@@ -395,9 +394,6 @@ type DistributionState struct {
 	// The restriction
 	// configuration for this distribution (maximum one).
 	Restrictions interface{}
-	// Disables the distribution instead of
-	// deleting it when destroying the resource through Terraform. If this is set,
-	// the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete interface{}
 	// The current status of the distribution. `Deployed` if the
 	// distribution's information is fully propagated throughout the Amazon
@@ -466,9 +462,6 @@ type DistributionArgs struct {
 	// The restriction
 	// configuration for this distribution (maximum one).
 	Restrictions interface{}
-	// Disables the distribution instead of
-	// deleting it when destroying the resource through Terraform. If this is set,
-	// the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

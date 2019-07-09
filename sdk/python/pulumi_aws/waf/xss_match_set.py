@@ -25,6 +25,8 @@ class XssMatchSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name or description of the SizeConstraintSet.
         :param pulumi.Input[list] xss_match_tuples: The parts of web requests that you want to inspect for cross-site scripting attacks.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_xss_match_set.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

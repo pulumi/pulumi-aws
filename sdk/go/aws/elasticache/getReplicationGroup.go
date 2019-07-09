@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to get information about an Elasticache Replication Group.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_replication_group.html.markdown.
 func LookupReplicationGroup(ctx *pulumi.Context, args *GetReplicationGroupArgs) (*GetReplicationGroupResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

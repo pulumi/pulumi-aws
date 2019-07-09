@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  *     userArn: aws_iam_user_user.arn,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_user_profile.html.markdown.
  */
 export class UserProfile extends pulumi.CustomResource {
     /**

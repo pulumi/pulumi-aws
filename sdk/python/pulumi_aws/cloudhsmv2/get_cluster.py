@@ -59,6 +59,8 @@ class GetClusterResult:
 async def get_cluster(cluster_id=None,cluster_state=None,opts=None):
     """
     Use this data source to get information about a CloudHSM v2 cluster
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudhsm_v2_cluster.html.markdown.
     """
     __args__ = dict()
 

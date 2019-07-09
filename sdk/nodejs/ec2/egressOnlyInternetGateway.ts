@@ -24,6 +24,8 @@ import * as utilities from "../utilities";
  *     vpcId: fooVpc.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/egress_only_internet_gateway.html.markdown.
  */
 export class EgressOnlyInternetGateway extends pulumi.CustomResource {
     /**

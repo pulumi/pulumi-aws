@@ -61,6 +61,8 @@ class BgpPeer(pulumi.CustomResource):
         :param pulumi.Input[str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic.
                Required for IPv4 BGP peers on public virtual interfaces.
         :param pulumi.Input[str] virtual_interface_id: The ID of the Direct Connect virtual interface on which to create the BGP peer.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_bgp_peer.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -80,6 +80,8 @@ import * as utilities from "../utilities";
  *     type: "Query",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_resolver.html.markdown.
  */
 export class Resolver extends pulumi.CustomResource {
     /**

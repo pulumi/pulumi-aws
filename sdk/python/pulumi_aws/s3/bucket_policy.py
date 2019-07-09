@@ -14,9 +14,6 @@ class BucketPolicy(pulumi.CustomResource):
     The name of the bucket to which to apply the policy.
     """
     policy: pulumi.Output[str]
-    """
-    The text of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
-    """
     def __init__(__self__, resource_name, opts=None, bucket=None, policy=None, __name__=None, __opts__=None):
         """
         Attaches a policy to an S3 bucket resource.
@@ -24,7 +21,8 @@ class BucketPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: The name of the bucket to which to apply the policy.
-        :param pulumi.Input[str] policy: The text of the policy. For more information about building AWS IAM policy documents with Terraform, see the [AWS IAM Policy Document Guide](https://www.terraform.io/docs/providers/aws/guides/iam-policy-documents.html).
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

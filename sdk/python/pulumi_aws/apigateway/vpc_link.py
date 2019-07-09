@@ -30,6 +30,8 @@ class VpcLink(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the VPC link.
         :param pulumi.Input[str] name: The name used to label and identify the VPC link.
         :param pulumi.Input[str] target_arn: The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_vpc_link.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
