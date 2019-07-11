@@ -63,7 +63,7 @@ class CertificateAuthority(pulumi.CustomResource):
     """
     type: pulumi.Output[str]
     """
-    The type of the certificate authority. Currently, this must be `SUBORDINATE`.
+    The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
     """
     def __init__(__self__, resource_name, opts=None, certificate_authority_configuration=None, enabled=None, permanent_deletion_time_in_days=None, revocation_configuration=None, tags=None, type=None, __name__=None, __opts__=None):
         """
@@ -76,7 +76,7 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.Input[float] permanent_deletion_time_in_days: The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         :param pulumi.Input[dict] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[dict] tags: Specifies a key-value map of user-defined tags that are attached to the certificate authority.
-        :param pulumi.Input[str] type: The type of the certificate authority. Currently, this must be `SUBORDINATE`.
+        :param pulumi.Input[str] type: The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acmpca_certificate_authority.html.markdown.
         """

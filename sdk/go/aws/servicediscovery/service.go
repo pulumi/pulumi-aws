@@ -4,7 +4,6 @@
 package servicediscovery
 
 import (
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -18,9 +17,6 @@ type Service struct {
 // NewService registers a new resource with the given unique name, arguments, and options.
 func NewService(ctx *pulumi.Context,
 	name string, args *ServiceArgs, opts ...pulumi.ResourceOpt) (*Service, error) {
-	if args == nil || args.DnsConfig == nil {
-		return nil, errors.New("missing required argument 'DnsConfig'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["description"] = nil
@@ -28,12 +24,14 @@ func NewService(ctx *pulumi.Context,
 		inputs["healthCheckConfig"] = nil
 		inputs["healthCheckCustomConfig"] = nil
 		inputs["name"] = nil
+		inputs["namespaceId"] = nil
 	} else {
 		inputs["description"] = args.Description
 		inputs["dnsConfig"] = args.DnsConfig
 		inputs["healthCheckConfig"] = args.HealthCheckConfig
 		inputs["healthCheckCustomConfig"] = args.HealthCheckCustomConfig
 		inputs["name"] = args.Name
+		inputs["namespaceId"] = args.NamespaceId
 	}
 	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:servicediscovery/service:Service", name, true, inputs, opts...)
@@ -55,6 +53,7 @@ func GetService(ctx *pulumi.Context,
 		inputs["healthCheckConfig"] = state.HealthCheckConfig
 		inputs["healthCheckCustomConfig"] = state.HealthCheckCustomConfig
 		inputs["name"] = state.Name
+		inputs["namespaceId"] = state.NamespaceId
 	}
 	s, err := ctx.ReadResource("aws:servicediscovery/service:Service", name, id, inputs, opts...)
 	if err != nil {
@@ -103,6 +102,11 @@ func (r *Service) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// The ID of the namespace to use for DNS configuration.
+func (r *Service) NamespaceId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["namespaceId"])
+}
+
 // Input properties used for looking up and filtering Service resources.
 type ServiceState struct {
 	// The ARN of the service.
@@ -117,6 +121,8 @@ type ServiceState struct {
 	HealthCheckCustomConfig interface{}
 	// The name of the service.
 	Name interface{}
+	// The ID of the namespace to use for DNS configuration.
+	NamespaceId interface{}
 }
 
 // The set of arguments for constructing a Service resource.
@@ -131,4 +137,6 @@ type ServiceArgs struct {
 	HealthCheckCustomConfig interface{}
 	// The name of the service.
 	Name interface{}
+	// The ID of the namespace to use for DNS configuration.
+	NamespaceId interface{}
 }

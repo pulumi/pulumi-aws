@@ -84,7 +84,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
-     * The type of the certificate authority. Currently, this must be `SUBORDINATE`.
+     * The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
 
@@ -195,7 +195,7 @@ export interface CertificateAuthorityState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The type of the certificate authority. Currently, this must be `SUBORDINATE`.
+     * The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      */
     readonly type?: pulumi.Input<string>;
 }
@@ -225,7 +225,7 @@ export interface CertificateAuthorityArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The type of the certificate authority. Currently, this must be `SUBORDINATE`.
+     * The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      */
     readonly type?: pulumi.Input<string>;
 }

@@ -33,7 +33,11 @@ class Account(pulumi.CustomResource):
     """
     role_name: pulumi.Output[str]
     status: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, email=None, iam_user_access_to_billing=None, name=None, parent_id=None, role_name=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags.
+    """
+    def __init__(__self__, resource_name, opts=None, email=None, iam_user_access_to_billing=None, name=None, parent_id=None, role_name=None, tags=None, __name__=None, __opts__=None):
         """
         Create a Account resource with the given unique name, props, and options.
         
@@ -43,6 +47,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] iam_user_access_to_billing: If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
         :param pulumi.Input[str] name: A friendly name for the member account.
         :param pulumi.Input[str] parent_id: Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_account.html.markdown.
         """
@@ -72,6 +77,8 @@ class Account(pulumi.CustomResource):
         __props__['parent_id'] = parent_id
 
         __props__['role_name'] = role_name
+
+        __props__['tags'] = tags
 
         __props__['arn'] = None
         __props__['joined_method'] = None

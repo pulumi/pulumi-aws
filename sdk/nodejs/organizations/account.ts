@@ -55,6 +55,10 @@ export class Account extends pulumi.CustomResource {
     public readonly parentId!: pulumi.Output<string>;
     public readonly roleName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * Key-value mapping of resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -77,6 +81,7 @@ export class Account extends pulumi.CustomResource {
             inputs["parentId"] = state ? state.parentId : undefined;
             inputs["roleName"] = state ? state.roleName : undefined;
             inputs["status"] = state ? state.status : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
             if (!args || args.email === undefined) {
@@ -87,6 +92,7 @@ export class Account extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["parentId"] = args ? args.parentId : undefined;
             inputs["roleName"] = args ? args.roleName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["joinedMethod"] = undefined /*out*/;
             inputs["joinedTimestamp"] = undefined /*out*/;
@@ -124,6 +130,10 @@ export interface AccountState {
     readonly parentId?: pulumi.Input<string>;
     readonly roleName?: pulumi.Input<string>;
     readonly status?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -147,4 +157,8 @@ export interface AccountArgs {
      */
     readonly parentId?: pulumi.Input<string>;
     readonly roleName?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

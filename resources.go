@@ -59,6 +59,7 @@ const (
 	cognitoMod           = "cognito"                  // Cognito
 	curMod               = "cur"                      // Cost and Usage Report
 	cfgMod               = "cfg"                      // Resource Config
+	datapipelineMod      = "datapipeline"             // Data Pipeline
 	datasyncMod          = "datasync"                 // DataSync
 	dlmMod               = "dlm"                      // Data Lifecycle Manager
 	daxMod               = "dax"                      // DynamoDB Accelerator
@@ -412,6 +413,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_athena_named_query": {Tok: awsResource(athenaMod, "NamedQuery")},
+			"aws_athena_workgroup":   {Tok: awsResource(athenaMod, "Workgroup")},
 			// Auto Scaling
 			"aws_autoscaling_attachment": {Tok: awsResource(autoscalingMod, "Attachment")},
 			"aws_autoscaling_group": {
@@ -624,6 +626,7 @@ func Provider() tfbridge.ProviderInfo {
 			// DirectoryService
 			"aws_directory_service_conditional_forwarder": {Tok: awsResource(directoryserviceMod, "ConditionalForwader")},
 			"aws_directory_service_directory":             {Tok: awsResource(directoryserviceMod, "Directory")},
+			"aws_directory_service_log_subscription":      {Tok: awsResource(directoryserviceMod, "LogService")},
 			// Document DB
 			"aws_docdb_cluster":                 {Tok: awsResource(docdbMod, "Cluster")},
 			"aws_docdb_cluster_instance":        {Tok: awsResource(docdbMod, "ClusterInstance")},
@@ -1795,6 +1798,8 @@ func Provider() tfbridge.ProviderInfo {
 			// MSK
 			"aws_msk_cluster":       {Tok: awsResource(mskMod, "Cluster")},
 			"aws_msk_configuration": {Tok: awsResource(mskMod, "Configuration")},
+			// Datapipeline
+			"aws_datapipeline_pipeline": {Tok: awsResource(datapipelineMod, "Pipeline")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// AWS
@@ -2009,6 +2014,8 @@ func Provider() tfbridge.ProviderInfo {
 			// Service Quotas
 			"aws_servicequotas_service":       {Tok: awsDataSource(servicequotasMod, "getService")},
 			"aws_servicequotas_service_quota": {Tok: awsDataSource(servicequotasMod, "getServiceQuota")},
+			// MSK
+			"aws_msk_configuration": {Tok: awsDataSource(mskMod, "getConfiguration")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

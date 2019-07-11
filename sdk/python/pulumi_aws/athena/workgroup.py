@@ -8,47 +8,44 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class VirtualRouter(pulumi.CustomResource):
+class Workgroup(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
-    The ARN of the virtual router.
+    Amazon Resource Name (ARN) of the workgroup
     """
-    created_date: pulumi.Output[str]
+    configuration: pulumi.Output[dict]
     """
-    The creation date of the virtual router.
+    Configuration block with various settings for the workgroup. Documented below.
     """
-    last_updated_date: pulumi.Output[str]
+    description: pulumi.Output[str]
     """
-    The last update date of the virtual router.
-    """
-    mesh_name: pulumi.Output[str]
-    """
-    The name of the service mesh in which to create the virtual router.
+    Description of the workgroup.
     """
     name: pulumi.Output[str]
     """
-    The name to use for the virtual router.
+    Name of the workgroup.
     """
-    spec: pulumi.Output[dict]
+    state: pulumi.Output[str]
     """
-    The virtual router specification to apply.
+    State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    Key-value mapping of resource tags for the workgroup.
     """
-    def __init__(__self__, resource_name, opts=None, mesh_name=None, name=None, spec=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, configuration=None, description=None, name=None, state=None, tags=None, __name__=None, __opts__=None):
         """
-        Create a VirtualRouter resource with the given unique name, props, and options.
+        Provides an Athena Workgroup.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the virtual router.
-        :param pulumi.Input[str] name: The name to use for the virtual router.
-        :param pulumi.Input[dict] spec: The virtual router specification to apply.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] configuration: Configuration block with various settings for the workgroup. Documented below.
+        :param pulumi.Input[str] description: Description of the workgroup.
+        :param pulumi.Input[str] name: Name of the workgroup.
+        :param pulumi.Input[str] state: State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags for the workgroup.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_virtual_router.html.markdown.
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_workgroup.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,24 +62,20 @@ class VirtualRouter(pulumi.CustomResource):
 
         __props__ = dict()
 
-        if mesh_name is None:
-            raise TypeError("Missing required property 'mesh_name'")
-        __props__['mesh_name'] = mesh_name
+        __props__['configuration'] = configuration
+
+        __props__['description'] = description
 
         __props__['name'] = name
 
-        if spec is None:
-            raise TypeError("Missing required property 'spec'")
-        __props__['spec'] = spec
+        __props__['state'] = state
 
         __props__['tags'] = tags
 
         __props__['arn'] = None
-        __props__['created_date'] = None
-        __props__['last_updated_date'] = None
 
-        super(VirtualRouter, __self__).__init__(
-            'aws:appmesh/virtualRouter:VirtualRouter',
+        super(Workgroup, __self__).__init__(
+            'aws:athena/workgroup:Workgroup',
             resource_name,
             __props__,
             opts)

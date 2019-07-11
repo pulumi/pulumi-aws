@@ -5,3 +5,4 @@
 export * from "./cluster";
 export * from "./configuration";
 export * from "./getCluster";
+export * from "./getConfiguration";

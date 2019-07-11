@@ -25,12 +25,14 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["parentId"] = nil
 		inputs["roleName"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["email"] = args.Email
 		inputs["iamUserAccessToBilling"] = args.IamUserAccessToBilling
 		inputs["name"] = args.Name
 		inputs["parentId"] = args.ParentId
 		inputs["roleName"] = args.RoleName
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	inputs["joinedMethod"] = nil
@@ -58,6 +60,7 @@ func GetAccount(ctx *pulumi.Context,
 		inputs["parentId"] = state.ParentId
 		inputs["roleName"] = state.RoleName
 		inputs["status"] = state.Status
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:organizations/account:Account", name, id, inputs, opts...)
 	if err != nil {
@@ -117,6 +120,11 @@ func (r *Account) Status() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["status"])
 }
 
+// Key-value mapping of resource tags.
+func (r *Account) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering Account resources.
 type AccountState struct {
 	// The ARN for this account.
@@ -133,6 +141,8 @@ type AccountState struct {
 	ParentId interface{}
 	RoleName interface{}
 	Status interface{}
+	// Key-value mapping of resource tags.
+	Tags interface{}
 }
 
 // The set of arguments for constructing a Account resource.
@@ -146,4 +156,6 @@ type AccountArgs struct {
 	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
 	ParentId interface{}
 	RoleName interface{}
+	// Key-value mapping of resource tags.
+	Tags interface{}
 }

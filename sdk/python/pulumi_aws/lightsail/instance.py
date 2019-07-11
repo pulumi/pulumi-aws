@@ -48,12 +48,16 @@ class Instance(pulumi.CustomResource):
     private_ip_address: pulumi.Output[str]
     public_ip_address: pulumi.Output[str]
     ram_size: pulumi.Output[float]
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
     user_data: pulumi.Output[str]
     """
     launch script to configure server with additional user data
     """
     username: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, availability_zone=None, blueprint_id=None, bundle_id=None, key_pair_name=None, name=None, user_data=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, availability_zone=None, blueprint_id=None, bundle_id=None, key_pair_name=None, name=None, tags=None, user_data=None, __name__=None, __opts__=None):
         """
         Provides a Lightsail Instance. Amazon Lightsail is a service to provide easy virtual private servers
         with custom software already setup. See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail)
@@ -154,6 +158,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] key_pair_name: The name of your key pair. Created in the
                Lightsail console (cannot use `aws_key_pair` at this time)
         :param pulumi.Input[str] name: The name of the Lightsail Instance
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] user_data: launch script to configure server with additional user data
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_instance.html.markdown.
@@ -188,6 +193,8 @@ class Instance(pulumi.CustomResource):
         __props__['key_pair_name'] = key_pair_name
 
         __props__['name'] = name
+
+        __props__['tags'] = tags
 
         __props__['user_data'] = user_data
 

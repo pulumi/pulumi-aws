@@ -23,6 +23,9 @@ import * as utilities from "../utilities";
  *     blueprintId: "string",
  *     bundleId: "string",
  *     keyPairName: "some_key_name",
+ *     tags: {
+ *         foo: "bar",
+ *     },
  * });
  * ```
  * 
@@ -178,6 +181,10 @@ export class Instance extends pulumi.CustomResource {
     public /*out*/ readonly publicIpAddress!: pulumi.Output<string>;
     public /*out*/ readonly ramSize!: pulumi.Output<number>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * launch script to configure server with additional user data
      */
     public readonly userData!: pulumi.Output<string | undefined>;
@@ -208,6 +215,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
             inputs["publicIpAddress"] = state ? state.publicIpAddress : undefined;
             inputs["ramSize"] = state ? state.ramSize : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["userData"] = state ? state.userData : undefined;
             inputs["username"] = state ? state.username : undefined;
         } else {
@@ -226,6 +234,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["bundleId"] = args ? args.bundleId : undefined;
             inputs["keyPairName"] = args ? args.keyPairName : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["userData"] = args ? args.userData : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["cpuCount"] = undefined /*out*/;
@@ -285,6 +294,10 @@ export interface InstanceState {
     readonly publicIpAddress?: pulumi.Input<string>;
     readonly ramSize?: pulumi.Input<number>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * launch script to configure server with additional user data
      */
     readonly userData?: pulumi.Input<string>;
@@ -318,6 +331,10 @@ export interface InstanceArgs {
      * The name of the Lightsail Instance
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * launch script to configure server with additional user data
      */

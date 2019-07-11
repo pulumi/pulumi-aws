@@ -39,6 +39,7 @@ func NewProject(ctx *pulumi.Context,
 		inputs["description"] = nil
 		inputs["encryptionKey"] = nil
 		inputs["environment"] = nil
+		inputs["logsConfig"] = nil
 		inputs["name"] = nil
 		inputs["secondaryArtifacts"] = nil
 		inputs["secondarySources"] = nil
@@ -54,6 +55,7 @@ func NewProject(ctx *pulumi.Context,
 		inputs["description"] = args.Description
 		inputs["encryptionKey"] = args.EncryptionKey
 		inputs["environment"] = args.Environment
+		inputs["logsConfig"] = args.LogsConfig
 		inputs["name"] = args.Name
 		inputs["secondaryArtifacts"] = args.SecondaryArtifacts
 		inputs["secondarySources"] = args.SecondarySources
@@ -86,6 +88,7 @@ func GetProject(ctx *pulumi.Context,
 		inputs["description"] = state.Description
 		inputs["encryptionKey"] = state.EncryptionKey
 		inputs["environment"] = state.Environment
+		inputs["logsConfig"] = state.LogsConfig
 		inputs["name"] = state.Name
 		inputs["secondaryArtifacts"] = state.SecondaryArtifacts
 		inputs["secondarySources"] = state.SecondarySources
@@ -156,6 +159,11 @@ func (r *Project) Environment() *pulumi.Output {
 	return r.s.State["environment"]
 }
 
+// Configuration for the builds to store log data to CloudWatch or S3.
+func (r *Project) LogsConfig() *pulumi.Output {
+	return r.s.State["logsConfig"]
+}
+
 // The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 func (r *Project) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -211,6 +219,8 @@ type ProjectState struct {
 	EncryptionKey interface{}
 	// Information about the project's build environment. Environment blocks are documented below.
 	Environment interface{}
+	// Configuration for the builds to store log data to CloudWatch or S3.
+	LogsConfig interface{}
 	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 	Name interface{}
 	// A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
@@ -243,6 +253,8 @@ type ProjectArgs struct {
 	EncryptionKey interface{}
 	// Information about the project's build environment. Environment blocks are documented below.
 	Environment interface{}
+	// Configuration for the builds to store log data to CloudWatch or S3.
+	LogsConfig interface{}
 	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 	Name interface{}
 	// A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.

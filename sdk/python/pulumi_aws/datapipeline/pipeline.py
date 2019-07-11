@@ -8,47 +8,30 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class VirtualRouter(pulumi.CustomResource):
-    arn: pulumi.Output[str]
+class Pipeline(pulumi.CustomResource):
+    description: pulumi.Output[str]
     """
-    The ARN of the virtual router.
-    """
-    created_date: pulumi.Output[str]
-    """
-    The creation date of the virtual router.
-    """
-    last_updated_date: pulumi.Output[str]
-    """
-    The last update date of the virtual router.
-    """
-    mesh_name: pulumi.Output[str]
-    """
-    The name of the service mesh in which to create the virtual router.
+    The description of Pipeline.
     """
     name: pulumi.Output[str]
     """
-    The name to use for the virtual router.
-    """
-    spec: pulumi.Output[dict]
-    """
-    The virtual router specification to apply.
+    The name of Pipeline.
     """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, mesh_name=None, name=None, spec=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, name=None, tags=None, __name__=None, __opts__=None):
         """
-        Create a VirtualRouter resource with the given unique name, props, and options.
+        Provides a Data Pipeline resource.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the virtual router.
-        :param pulumi.Input[str] name: The name to use for the virtual router.
-        :param pulumi.Input[dict] spec: The virtual router specification to apply.
+        :param pulumi.Input[str] description: The description of Pipeline.
+        :param pulumi.Input[str] name: The name of Pipeline.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_virtual_router.html.markdown.
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datapipeline_pipeline.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,24 +48,14 @@ class VirtualRouter(pulumi.CustomResource):
 
         __props__ = dict()
 
-        if mesh_name is None:
-            raise TypeError("Missing required property 'mesh_name'")
-        __props__['mesh_name'] = mesh_name
+        __props__['description'] = description
 
         __props__['name'] = name
 
-        if spec is None:
-            raise TypeError("Missing required property 'spec'")
-        __props__['spec'] = spec
-
         __props__['tags'] = tags
 
-        __props__['arn'] = None
-        __props__['created_date'] = None
-        __props__['last_updated_date'] = None
-
-        super(VirtualRouter, __self__).__init__(
-            'aws:appmesh/virtualRouter:VirtualRouter',
+        super(Pipeline, __self__).__init__(
+            'aws:datapipeline/pipeline:Pipeline',
             resource_name,
             __props__,
             opts)

@@ -26,10 +26,12 @@ func NewVirtualRouter(ctx *pulumi.Context,
 		inputs["meshName"] = nil
 		inputs["name"] = nil
 		inputs["spec"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["meshName"] = args.MeshName
 		inputs["name"] = args.Name
 		inputs["spec"] = args.Spec
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	inputs["createdDate"] = nil
@@ -53,6 +55,7 @@ func GetVirtualRouter(ctx *pulumi.Context,
 		inputs["meshName"] = state.MeshName
 		inputs["name"] = state.Name
 		inputs["spec"] = state.Spec
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:appmesh/virtualRouter:VirtualRouter", name, id, inputs, opts...)
 	if err != nil {
@@ -101,6 +104,11 @@ func (r *VirtualRouter) Spec() *pulumi.Output {
 	return r.s.State["spec"]
 }
 
+// A mapping of tags to assign to the resource.
+func (r *VirtualRouter) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering VirtualRouter resources.
 type VirtualRouterState struct {
 	// The ARN of the virtual router.
@@ -115,6 +123,8 @@ type VirtualRouterState struct {
 	Name interface{}
 	// The virtual router specification to apply.
 	Spec interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }
 
 // The set of arguments for constructing a VirtualRouter resource.
@@ -125,4 +135,6 @@ type VirtualRouterArgs struct {
 	Name interface{}
 	// The virtual router specification to apply.
 	Spec interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }
