@@ -634,6 +634,7 @@
         "rds/roleAssociation.ts",
         "rds/securityGroup.ts",
         "rds/snapshot.ts",
+        "rds/storageType.ts",
         "rds/subnetGroup.ts",
         "redshift/cluster.ts",
         "redshift/eventSubscription.ts",

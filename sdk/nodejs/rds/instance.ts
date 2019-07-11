@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 import {InstanceType} from "./instanceType";
+import {StorageType} from "./storageType";
 
 export class Instance extends pulumi.CustomResource {
     /**
@@ -751,7 +752,7 @@ export interface InstanceState {
      * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
      * specified, "gp2" if not.
      */
-    readonly storageType?: pulumi.Input<string>;
+    readonly storageType?: pulumi.Input<string | StorageType>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -1026,7 +1027,7 @@ export interface InstanceArgs {
      * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
      * specified, "gp2" if not.
      */
-    readonly storageType?: pulumi.Input<string>;
+    readonly storageType?: pulumi.Input<string | StorageType>;
     /**
      * A mapping of tags to assign to the resource.
      */
