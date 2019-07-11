@@ -23,4 +23,5 @@ export * from "./parameterGroup";
 export * from "./roleAssociation";
 export * from "./securityGroup";
 export * from "./snapshot";
+export * from "./storageType";
 export * from "./subnetGroup";

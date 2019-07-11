@@ -1483,6 +1483,10 @@ func Provider() tfbridge.ProviderInfo {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsType(rdsMod+"/instanceType", "InstanceType")},
 					},
+					"storage_type": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(rdsMod+"/storageType", "StorageType")},
+					},
 				},
 			},
 			"aws_db_option_group": {
@@ -2093,6 +2097,7 @@ func Provider() tfbridge.ProviderInfo {
 							"engineMode.ts",
 							"engineType.ts",
 							"instanceType.ts",
+							"storageType.ts",
 						},
 					},
 					"route53": {
