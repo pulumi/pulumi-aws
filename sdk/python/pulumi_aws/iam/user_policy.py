@@ -10,9 +10,6 @@ from .. import utilities, tables
 
 class UserPolicy(pulumi.CustomResource):
     name: pulumi.Output[str]
-    """
-    The name of the policy (always set).
-    """
     name_prefix: pulumi.Output[str]
     """
     Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -28,7 +25,6 @@ class UserPolicy(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the policy (always set).
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] user: IAM user to which to attach this policy.
 

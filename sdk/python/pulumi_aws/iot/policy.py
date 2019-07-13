@@ -22,9 +22,6 @@ class Policy(pulumi.CustomResource):
     The name of the policy.
     """
     policy: pulumi.Output[str]
-    """
-    The policy document.
-    """
     def __init__(__self__, resource_name, opts=None, name=None, policy=None, __name__=None, __opts__=None):
         """
         Provides an IoT policy.
@@ -32,7 +29,6 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the policy.
-        :param pulumi.Input[str] policy: The policy document.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_policy.html.markdown.
         """

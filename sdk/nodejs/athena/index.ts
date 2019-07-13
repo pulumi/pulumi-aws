@@ -4,3 +4,4 @@
 // Export members:
 export * from "./database";
 export * from "./namedQuery";
+export * from "./workgroup";

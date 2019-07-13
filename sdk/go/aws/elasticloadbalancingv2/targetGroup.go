@@ -122,7 +122,6 @@ func (r *TargetGroup) LambdaMultiValueHeadersEnabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["lambdaMultiValueHeadersEnabled"])
 }
 
-// The name of the Target Group
 func (r *TargetGroup) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -189,7 +188,6 @@ type TargetGroupState struct {
 	HealthCheck interface{}
 	// Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
 	LambdaMultiValueHeadersEnabled interface{}
-	// The name of the Target Group
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
 	NamePrefix interface{}
@@ -224,7 +222,6 @@ type TargetGroupArgs struct {
 	HealthCheck interface{}
 	// Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
 	LambdaMultiValueHeadersEnabled interface{}
-	// The name of the Target Group
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
 	NamePrefix interface{}

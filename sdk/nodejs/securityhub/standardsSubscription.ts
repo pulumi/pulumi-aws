@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_standards_subscription.html.markdown.
+ */
 export class StandardsSubscription extends pulumi.CustomResource {
     /**
      * Get an existing StandardsSubscription resource's state with the given name, ID, and optional extra

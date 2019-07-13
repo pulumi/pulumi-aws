@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_vpc_attachment_accepter.html.markdown.
+ */
 export class VpcAttachmentAccepter extends pulumi.CustomResource {
     /**
      * Get an existing VpcAttachmentAccepter resource's state with the given name, ID, and optional extra

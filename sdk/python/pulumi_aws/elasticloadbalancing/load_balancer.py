@@ -58,9 +58,6 @@ class LoadBalancer(pulumi.CustomResource):
     A list of listener blocks. Listeners documented below.
     """
     name: pulumi.Output[str]
-    """
-    The name of the ELB
-    """
     name_prefix: pulumi.Output[str]
     """
     Creates a unique name beginning with the specified
@@ -111,7 +108,6 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[list] instances: A list of instance ids to place in the ELB pool.
         :param pulumi.Input[bool] internal: If true, ELB will be an internal ELB.
         :param pulumi.Input[list] listeners: A list of listener blocks. Listeners documented below.
-        :param pulumi.Input[str] name: The name of the ELB
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[list] security_groups: A list of security group IDs to assign to the ELB.

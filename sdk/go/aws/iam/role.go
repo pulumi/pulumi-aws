@@ -9,6 +9,8 @@ import (
 )
 
 // Provides an IAM role.
+// 
+// > *NOTE:* If policies are attached to the role via the [`aws_iam_policy_attachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html) and you are modifying the role `name` or `path`, the `force_detach_policies` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The [`aws_iam_role_policy_attachment` resource (recommended)](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html) does not have this requirement.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role.html.markdown.
 type Role struct {
@@ -119,7 +121,6 @@ func (r *Role) MaxSessionDuration() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["maxSessionDuration"])
 }
 
-// The name of the role.
 func (r *Role) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -164,7 +165,6 @@ type RoleState struct {
 	ForceDetachPolicies interface{}
 	// The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	MaxSessionDuration interface{}
-	// The name of the role.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
@@ -189,7 +189,6 @@ type RoleArgs struct {
 	ForceDetachPolicies interface{}
 	// The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	MaxSessionDuration interface{}
-	// The name of the role.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}

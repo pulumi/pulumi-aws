@@ -121,6 +121,7 @@ func NewInstance(ctx *pulumi.Context,
 		inputs["bundleId"] = nil
 		inputs["keyPairName"] = nil
 		inputs["name"] = nil
+		inputs["tags"] = nil
 		inputs["userData"] = nil
 	} else {
 		inputs["availabilityZone"] = args.AvailabilityZone
@@ -128,6 +129,7 @@ func NewInstance(ctx *pulumi.Context,
 		inputs["bundleId"] = args.BundleId
 		inputs["keyPairName"] = args.KeyPairName
 		inputs["name"] = args.Name
+		inputs["tags"] = args.Tags
 		inputs["userData"] = args.UserData
 	}
 	inputs["arn"] = nil
@@ -165,6 +167,7 @@ func GetInstance(ctx *pulumi.Context,
 		inputs["privateIpAddress"] = state.PrivateIpAddress
 		inputs["publicIpAddress"] = state.PublicIpAddress
 		inputs["ramSize"] = state.RamSize
+		inputs["tags"] = state.Tags
 		inputs["userData"] = state.UserData
 		inputs["username"] = state.Username
 	}
@@ -251,6 +254,11 @@ func (r *Instance) RamSize() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["ramSize"])
 }
 
+// A mapping of tags to assign to the resource.
+func (r *Instance) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // launch script to configure server with additional user data
 func (r *Instance) UserData() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["userData"])
@@ -289,6 +297,8 @@ type InstanceState struct {
 	PrivateIpAddress interface{}
 	PublicIpAddress interface{}
 	RamSize interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// launch script to configure server with additional user data
 	UserData interface{}
 	Username interface{}
@@ -309,6 +319,8 @@ type InstanceArgs struct {
 	KeyPairName interface{}
 	// The name of the Lightsail Instance
 	Name interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// launch script to configure server with additional user data
 	UserData interface{}
 }

@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_server_certificate.html.markdown.
+ */
 export class ServerCertificate extends pulumi.CustomResource {
     /**
      * Get an existing ServerCertificate resource's state with the given name, ID, and optional extra
@@ -46,9 +49,6 @@ export class ServerCertificate extends pulumi.CustomResource {
      * of the chain.
      */
     public readonly certificateChain!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the Server Certificate
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified
@@ -125,9 +125,6 @@ export interface ServerCertificateState {
      * of the chain.
      */
     readonly certificateChain?: pulumi.Input<string>;
-    /**
-     * The name of the Server Certificate
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified
@@ -166,9 +163,6 @@ export interface ServerCertificateArgs {
      * of the chain.
      */
     readonly certificateChain?: pulumi.Input<string>;
-    /**
-     * The name of the Server Certificate
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified

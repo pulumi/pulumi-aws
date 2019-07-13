@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/caller_identity.html.markdown.
 func LookupCallerIdentity(ctx *pulumi.Context) (*GetCallerIdentityResult, error) {
 	outputs, err := ctx.Invoke("aws:index/getCallerIdentity:getCallerIdentity", nil)
 	if err != nil {

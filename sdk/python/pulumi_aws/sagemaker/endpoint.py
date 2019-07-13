@@ -18,9 +18,6 @@ class Endpoint(pulumi.CustomResource):
     The name of the endpoint configuration to use.
     """
     name: pulumi.Output[str]
-    """
-    The name of the endpoint.
-    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
@@ -32,7 +29,6 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_config_name: The name of the endpoint configuration to use.
-        :param pulumi.Input[str] name: The name of the endpoint.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_endpoint.html.markdown.

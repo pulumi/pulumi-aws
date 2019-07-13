@@ -6,6 +6,9 @@ import * as utilities from "../utilities";
 
 import {ARN} from "../index";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_task.html.markdown.
+ */
 export class Task extends pulumi.CustomResource {
     /**
      * Get an existing Task resource's state with the given name, ID, and optional extra

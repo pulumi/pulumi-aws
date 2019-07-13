@@ -8,6 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elb.html.markdown.
 type LoadBalancer struct {
 	s *pulumi.ResourceState
 }
@@ -169,7 +170,6 @@ func (r *LoadBalancer) Listeners() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["listeners"])
 }
 
-// The name of the ELB
 func (r *LoadBalancer) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -241,7 +241,6 @@ type LoadBalancerState struct {
 	Internal interface{}
 	// A list of listener blocks. Listeners documented below.
 	Listeners interface{}
-	// The name of the ELB
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -287,7 +286,6 @@ type LoadBalancerArgs struct {
 	Internal interface{}
 	// A list of listener blocks. Listeners documented below.
 	Listeners interface{}
-	// The name of the ELB
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.

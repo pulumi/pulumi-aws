@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group.html.markdown.
 type SecurityGroup struct {
 	s *pulumi.ResourceState
 }
@@ -82,7 +83,6 @@ func (r *SecurityGroup) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The description of the security group
 func (r *SecurityGroup) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -101,7 +101,6 @@ func (r *SecurityGroup) Ingress() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ingress"])
 }
 
-// The name of the security group
 func (r *SecurityGroup) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -135,7 +134,6 @@ func (r *SecurityGroup) VpcId() *pulumi.StringOutput {
 type SecurityGroupState struct {
 	// The ARN of the security group
 	Arn interface{}
-	// The description of the security group
 	Description interface{}
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
@@ -145,7 +143,6 @@ type SecurityGroupState struct {
 	// ingress rule. Each ingress block supports fields documented below.
 	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Ingress interface{}
-	// The name of the security group
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -161,7 +158,6 @@ type SecurityGroupState struct {
 
 // The set of arguments for constructing a SecurityGroup resource.
 type SecurityGroupArgs struct {
-	// The description of the security group
 	Description interface{}
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
@@ -171,7 +167,6 @@ type SecurityGroupArgs struct {
 	// ingress rule. Each ingress block supports fields documented below.
 	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Ingress interface{}
-	// The name of the security group
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.

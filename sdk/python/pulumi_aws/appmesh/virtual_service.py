@@ -33,7 +33,11 @@ class VirtualService(pulumi.CustomResource):
     """
     The virtual service specification to apply.
     """
-    def __init__(__self__, resource_name, opts=None, mesh_name=None, name=None, spec=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
+    def __init__(__self__, resource_name, opts=None, mesh_name=None, name=None, spec=None, tags=None, __name__=None, __opts__=None):
         """
         Provides an AWS App Mesh virtual service resource.
         
@@ -42,6 +46,7 @@ class VirtualService(pulumi.CustomResource):
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the virtual service.
         :param pulumi.Input[str] name: The name to use for the virtual service.
         :param pulumi.Input[dict] spec: The virtual service specification to apply.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_virtual_service.html.markdown.
         """
@@ -69,6 +74,8 @@ class VirtualService(pulumi.CustomResource):
         if spec is None:
             raise TypeError("Missing required property 'spec'")
         __props__['spec'] = spec
+
+        __props__['tags'] = tags
 
         __props__['arn'] = None
         __props__['created_date'] = None

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudformation_export.html.markdown.
 func LookupExport(ctx *pulumi.Context, args *GetExportArgs) (*GetExportResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

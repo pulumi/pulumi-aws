@@ -99,7 +99,6 @@ func (r *Model) ExecutionRoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["executionRoleArn"])
 }
 
-// The name of the model.
 func (r *Model) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -129,7 +128,6 @@ type ModelState struct {
 	EnableNetworkIsolation interface{}
 	// A role that SageMaker can assume to access model artifacts and docker images for deployment.
 	ExecutionRoleArn interface{}
-	// The name of the model.
 	Name interface{}
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer interface{}
@@ -147,7 +145,6 @@ type ModelArgs struct {
 	EnableNetworkIsolation interface{}
 	// A role that SageMaker can assume to access model artifacts and docker images for deployment.
 	ExecutionRoleArn interface{}
-	// The name of the model.
 	Name interface{}
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer interface{}

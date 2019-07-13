@@ -98,6 +98,10 @@ export class VirtualService extends pulumi.CustomResource {
      * The virtual service specification to apply.
      */
     public readonly spec!: pulumi.Output<{ provider?: { virtualNode?: { virtualNodeName: string }, virtualRouter?: { virtualRouterName: string } } }>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a VirtualService resource with the given unique name, arguments, and options.
@@ -117,6 +121,7 @@ export class VirtualService extends pulumi.CustomResource {
             inputs["meshName"] = state ? state.meshName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["spec"] = state ? state.spec : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as VirtualServiceArgs | undefined;
             if (!args || args.meshName === undefined) {
@@ -128,6 +133,7 @@ export class VirtualService extends pulumi.CustomResource {
             inputs["meshName"] = args ? args.meshName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["spec"] = args ? args.spec : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createdDate"] = undefined /*out*/;
             inputs["lastUpdatedDate"] = undefined /*out*/;
@@ -164,6 +170,10 @@ export interface VirtualServiceState {
      * The virtual service specification to apply.
      */
     readonly spec?: pulumi.Input<{ provider?: pulumi.Input<{ virtualNode?: pulumi.Input<{ virtualNodeName: pulumi.Input<string> }>, virtualRouter?: pulumi.Input<{ virtualRouterName: pulumi.Input<string> }> }> }>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -182,4 +192,8 @@ export interface VirtualServiceArgs {
      * The virtual service specification to apply.
      */
     readonly spec: pulumi.Input<{ provider?: pulumi.Input<{ virtualNode?: pulumi.Input<{ virtualNodeName: pulumi.Input<string> }>, virtualRouter?: pulumi.Input<{ virtualRouterName: pulumi.Input<string> }> }> }>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

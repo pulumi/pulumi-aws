@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/canonical_user_id.html.markdown.
+ */
 export function getCanonicalUserId(opts?: pulumi.InvokeOptions): Promise<GetCanonicalUserIdResult> {
     return pulumi.runtime.invoke("aws:index/getCanonicalUserId:getCanonicalUserId", {
     }, opts);

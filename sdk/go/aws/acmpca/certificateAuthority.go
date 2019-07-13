@@ -8,6 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acmpca_certificate_authority.html.markdown.
 type CertificateAuthority struct {
 	s *pulumi.ResourceState
 }
@@ -152,7 +153,7 @@ func (r *CertificateAuthority) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// The type of the certificate authority. Currently, this must be `SUBORDINATE`.
+// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 func (r *CertificateAuthority) Type() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["type"])
 }
@@ -185,7 +186,7 @@ type CertificateAuthorityState struct {
 	Status interface{}
 	// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
 	Tags interface{}
-	// The type of the certificate authority. Currently, this must be `SUBORDINATE`.
+	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type interface{}
 }
 
@@ -201,6 +202,6 @@ type CertificateAuthorityArgs struct {
 	RevocationConfiguration interface{}
 	// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
 	Tags interface{}
-	// The type of the certificate authority. Currently, this must be `SUBORDINATE`.
+	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type interface{}
 }

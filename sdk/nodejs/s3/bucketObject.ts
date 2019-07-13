@@ -6,6 +6,9 @@ import * as utilities from "../utilities";
 
 import {Bucket} from "./bucket";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_object.html.markdown.
+ */
 export class BucketObject extends pulumi.CustomResource {
     /**
      * Get an existing BucketObject resource's state with the given name, ID, and optional extra
@@ -69,9 +72,6 @@ export class BucketObject extends pulumi.CustomResource {
      * A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
      */
     public readonly contentType!: pulumi.Output<string>;
-    /**
-     * the ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
-     */
     public readonly etag!: pulumi.Output<string>;
     /**
      * The name of the object once it is in the bucket.
@@ -209,9 +209,6 @@ export interface BucketObjectState {
      * A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
      */
     readonly contentType?: pulumi.Input<string>;
-    /**
-     * the ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
-     */
     readonly etag?: pulumi.Input<string>;
     /**
      * The name of the object once it is in the bucket.
@@ -292,9 +289,6 @@ export interface BucketObjectArgs {
      * A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
      */
     readonly contentType?: pulumi.Input<string>;
-    /**
-     * the ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
-     */
     readonly etag?: pulumi.Input<string>;
     /**
      * The name of the object once it is in the bucket.

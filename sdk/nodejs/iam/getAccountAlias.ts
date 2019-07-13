@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_account_alias.html.markdown.
+ */
 export function getAccountAlias(opts?: pulumi.InvokeOptions): Promise<GetAccountAliasResult> {
     return pulumi.runtime.invoke("aws:iam/getAccountAlias:getAccountAlias", {
     }, opts);

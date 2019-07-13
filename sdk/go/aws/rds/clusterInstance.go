@@ -8,6 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_instance.html.markdown.
 type ClusterInstance struct {
 	s *pulumi.ResourceState
 }
@@ -197,7 +198,6 @@ func (r *ClusterInstance) EngineVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
 }
 
-// The Instance identifier
 func (r *ClusterInstance) Identifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["identifier"])
 }
@@ -314,7 +314,6 @@ type ClusterInstanceState struct {
 	Engine interface{}
 	// The database engine version.
 	EngineVersion interface{}
-	// The Instance identifier
 	Identifier interface{}
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix interface{}
@@ -379,7 +378,6 @@ type ClusterInstanceArgs struct {
 	Engine interface{}
 	// The database engine version.
 	EngineVersion interface{}
-	// The Instance identifier
 	Identifier interface{}
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix interface{}

@@ -58,6 +58,16 @@ import * as utilities from "../utilities";
  *         imagePullCredentialsType: "CODEBUILD",
  *         type: "LINUX_CONTAINER",
  *     },
+ *     logsConfig: {
+ *         cloudwatchLogs: {
+ *             groupName: "log-group",
+ *             streamName: "log-stream",
+ *         },
+ *         s3Logs: {
+ *             location: pulumi.interpolate`${exampleBucket.id}/build-log`,
+ *             status: "ENABLED",
+ *         },
+ *     },
  *     serviceRole: exampleRole.arn,
  *     source: {
  *         gitCloneDepth: 1,
@@ -221,7 +231,11 @@ export class Project extends pulumi.CustomResource {
     /**
      * Information about the project's build environment. Environment blocks are documented below.
      */
-    public readonly environment!: pulumi.Output<{ certificate?: string, computeType: string, environmentVariables: { name: string, type?: string, value: string }[], image: string, imagePullCredentialsType?: string, privilegedMode?: boolean, type: string }>;
+    public readonly environment!: pulumi.Output<{ certificate?: string, computeType: string, environmentVariables: { name: string, type?: string, value: string }[], image: string, imagePullCredentialsType?: string, privilegedMode?: boolean, registryCredential?: { credential: string, credentialProvider: string }, type: string }>;
+    /**
+     * Configuration for the builds to store log data to CloudWatch or S3.
+     */
+    public readonly logsConfig!: pulumi.Output<{ cloudwatchLogs?: { groupName?: string, status?: string, streamName?: string }, s3Logs?: { encryptionDisabled?: boolean, location?: string, status?: string } } | undefined>;
     /**
      * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
      */
@@ -272,6 +286,7 @@ export class Project extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["encryptionKey"] = state ? state.encryptionKey : undefined;
             inputs["environment"] = state ? state.environment : undefined;
+            inputs["logsConfig"] = state ? state.logsConfig : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["secondaryArtifacts"] = state ? state.secondaryArtifacts : undefined;
             inputs["secondarySources"] = state ? state.secondarySources : undefined;
@@ -300,6 +315,7 @@ export class Project extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
             inputs["environment"] = args ? args.environment : undefined;
+            inputs["logsConfig"] = args ? args.logsConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["secondaryArtifacts"] = args ? args.secondaryArtifacts : undefined;
             inputs["secondarySources"] = args ? args.secondarySources : undefined;
@@ -353,7 +369,11 @@ export interface ProjectState {
     /**
      * Information about the project's build environment. Environment blocks are documented below.
      */
-    readonly environment?: pulumi.Input<{ certificate?: pulumi.Input<string>, computeType: pulumi.Input<string>, environmentVariables?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, image: pulumi.Input<string>, imagePullCredentialsType?: pulumi.Input<string>, privilegedMode?: pulumi.Input<boolean>, type: pulumi.Input<string> }>;
+    readonly environment?: pulumi.Input<{ certificate?: pulumi.Input<string>, computeType: pulumi.Input<string>, environmentVariables?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, image: pulumi.Input<string>, imagePullCredentialsType?: pulumi.Input<string>, privilegedMode?: pulumi.Input<boolean>, registryCredential?: pulumi.Input<{ credential: pulumi.Input<string>, credentialProvider: pulumi.Input<string> }>, type: pulumi.Input<string> }>;
+    /**
+     * Configuration for the builds to store log data to CloudWatch or S3.
+     */
+    readonly logsConfig?: pulumi.Input<{ cloudwatchLogs?: pulumi.Input<{ groupName?: pulumi.Input<string>, status?: pulumi.Input<string>, streamName?: pulumi.Input<string> }>, s3Logs?: pulumi.Input<{ encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, status?: pulumi.Input<string> }> }>;
     /**
      * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
      */
@@ -415,7 +435,11 @@ export interface ProjectArgs {
     /**
      * Information about the project's build environment. Environment blocks are documented below.
      */
-    readonly environment: pulumi.Input<{ certificate?: pulumi.Input<string>, computeType: pulumi.Input<string>, environmentVariables?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, image: pulumi.Input<string>, imagePullCredentialsType?: pulumi.Input<string>, privilegedMode?: pulumi.Input<boolean>, type: pulumi.Input<string> }>;
+    readonly environment: pulumi.Input<{ certificate?: pulumi.Input<string>, computeType: pulumi.Input<string>, environmentVariables?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type?: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, image: pulumi.Input<string>, imagePullCredentialsType?: pulumi.Input<string>, privilegedMode?: pulumi.Input<boolean>, registryCredential?: pulumi.Input<{ credential: pulumi.Input<string>, credentialProvider: pulumi.Input<string> }>, type: pulumi.Input<string> }>;
+    /**
+     * Configuration for the builds to store log data to CloudWatch or S3.
+     */
+    readonly logsConfig?: pulumi.Input<{ cloudwatchLogs?: pulumi.Input<{ groupName?: pulumi.Input<string>, status?: pulumi.Input<string>, streamName?: pulumi.Input<string> }>, s3Logs?: pulumi.Input<{ encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, status?: pulumi.Input<string> }> }>;
     /**
      * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
      */

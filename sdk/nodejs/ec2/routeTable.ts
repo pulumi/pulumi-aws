@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route_table.html.markdown.
+ */
 export class RouteTable extends pulumi.CustomResource {
     /**
      * Get an existing RouteTable resource's state with the given name, ID, and optional extra

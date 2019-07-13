@@ -34,9 +34,6 @@ class Role(pulumi.CustomResource):
     The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
     """
     name: pulumi.Output[str]
-    """
-    The name of the role.
-    """
     name_prefix: pulumi.Output[str]
     """
     Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -62,13 +59,14 @@ class Role(pulumi.CustomResource):
         """
         Provides an IAM role.
         
+        > *NOTE:* If policies are attached to the role via the [`aws_iam_policy_attachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html) and you are modifying the role `name` or `path`, the `force_detach_policies` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The [`aws_iam_role_policy_attachment` resource (recommended)](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html) does not have this requirement.
+        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assume_role_policy: The policy that grants an entity permission to assume the role.
         :param pulumi.Input[str] description: The description of the role.
         :param pulumi.Input[bool] force_detach_policies: Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
         :param pulumi.Input[float] max_session_duration: The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
-        :param pulumi.Input[str] name: The name of the role.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: The path to the role.
                See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.

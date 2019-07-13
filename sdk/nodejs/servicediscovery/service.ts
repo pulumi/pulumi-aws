@@ -100,7 +100,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      */
-    public readonly dnsConfig!: pulumi.Output<{ dnsRecords: { ttl: number, type: string }[], namespaceId: string, routingPolicy?: string }>;
+    public readonly dnsConfig!: pulumi.Output<{ dnsRecords: { ttl: number, type: string }[], namespaceId: string, routingPolicy?: string } | undefined>;
     /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      */
@@ -113,6 +113,10 @@ export class Service extends pulumi.CustomResource {
      * The name of the service.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ID of the namespace to use for DNS configuration.
+     */
+    public readonly namespaceId!: pulumi.Output<string>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -121,7 +125,7 @@ export class Service extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: ServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
@@ -132,16 +136,15 @@ export class Service extends pulumi.CustomResource {
             inputs["healthCheckConfig"] = state ? state.healthCheckConfig : undefined;
             inputs["healthCheckCustomConfig"] = state ? state.healthCheckCustomConfig : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["namespaceId"] = state ? state.namespaceId : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
-            if (!args || args.dnsConfig === undefined) {
-                throw new Error("Missing required property 'dnsConfig'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["dnsConfig"] = args ? args.dnsConfig : undefined;
             inputs["healthCheckConfig"] = args ? args.healthCheckConfig : undefined;
             inputs["healthCheckCustomConfig"] = args ? args.healthCheckCustomConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["namespaceId"] = args ? args.namespaceId : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         super(Service.__pulumiType, name, inputs, opts);
@@ -176,6 +179,10 @@ export interface ServiceState {
      * The name of the service.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The ID of the namespace to use for DNS configuration.
+     */
+    readonly namespaceId?: pulumi.Input<string>;
 }
 
 /**
@@ -189,7 +196,7 @@ export interface ServiceArgs {
     /**
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      */
-    readonly dnsConfig: pulumi.Input<{ dnsRecords: pulumi.Input<pulumi.Input<{ ttl: pulumi.Input<number>, type: pulumi.Input<string> }>[]>, namespaceId: pulumi.Input<string>, routingPolicy?: pulumi.Input<string> }>;
+    readonly dnsConfig?: pulumi.Input<{ dnsRecords: pulumi.Input<pulumi.Input<{ ttl: pulumi.Input<number>, type: pulumi.Input<string> }>[]>, namespaceId: pulumi.Input<string>, routingPolicy?: pulumi.Input<string> }>;
     /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      */
@@ -202,4 +209,8 @@ export interface ServiceArgs {
      * The name of the service.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The ID of the namespace to use for DNS configuration.
+     */
+    readonly namespaceId?: pulumi.Input<string>;
 }

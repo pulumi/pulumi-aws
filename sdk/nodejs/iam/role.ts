@@ -9,6 +9,8 @@ import {PolicyDocument} from "./documents";
 /**
  * Provides an IAM role.
  * 
+ * > *NOTE:* If policies are attached to the role via the [`aws_iam_policy_attachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html) and you are modifying the role `name` or `path`, the `force_detach_policies` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The [`aws_iam_role_policy_attachment` resource (recommended)](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html) does not have this requirement.
+ * 
  * ## Example Usage
  * 
  * ```typescript
@@ -110,9 +112,6 @@ export class Role extends pulumi.CustomResource {
      * The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
      */
     public readonly maxSessionDuration!: pulumi.Output<number | undefined>;
-    /**
-     * The name of the role.
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -210,9 +209,6 @@ export interface RoleState {
      * The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
      */
     readonly maxSessionDuration?: pulumi.Input<number>;
-    /**
-     * The name of the role.
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -257,9 +253,6 @@ export interface RoleArgs {
      * The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
      */
     readonly maxSessionDuration?: pulumi.Input<number>;
-    /**
-     * The name of the role.
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.

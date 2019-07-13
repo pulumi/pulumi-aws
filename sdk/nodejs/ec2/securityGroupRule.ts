@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group_rule.html.markdown.
+ */
 export class SecurityGroupRule extends pulumi.CustomResource {
     /**
      * Get an existing SecurityGroupRule resource's state with the given name, ID, and optional extra

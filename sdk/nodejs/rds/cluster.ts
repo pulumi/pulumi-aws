@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 import {EngineMode} from "./engineMode";
 import {EngineType} from "./engineType";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster.html.markdown.
+ */
 export class Cluster extends pulumi.CustomResource {
     /**
      * Get an existing Cluster resource's state with the given name, ID, and optional extra
@@ -44,9 +47,6 @@ export class Cluster extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of cluster
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The availability zone of the instance
-     */
     public readonly availabilityZones!: pulumi.Output<string[]>;
     /**
      * The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
@@ -56,9 +56,6 @@ export class Cluster extends pulumi.CustomResource {
      * The days to retain backups for. Default `1`
      */
     public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
-    /**
-     * The RDS Cluster Identifier
-     */
     public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
@@ -314,9 +311,6 @@ export interface ClusterState {
      * Amazon Resource Name (ARN) of cluster
      */
     readonly arn?: pulumi.Input<string>;
-    /**
-     * The availability zone of the instance
-     */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
@@ -326,9 +320,6 @@ export interface ClusterState {
      * The days to retain backups for. Default `1`
      */
     readonly backupRetentionPeriod?: pulumi.Input<number>;
-    /**
-     * The RDS Cluster Identifier
-     */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
@@ -482,9 +473,6 @@ export interface ClusterArgs {
      * `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      */
     readonly applyImmediately?: pulumi.Input<boolean>;
-    /**
-     * The availability zone of the instance
-     */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
@@ -494,9 +482,6 @@ export interface ClusterArgs {
      * The days to retain backups for. Default `1`
      */
     readonly backupRetentionPeriod?: pulumi.Input<number>;
-    /**
-     * The RDS Cluster Identifier
-     */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.

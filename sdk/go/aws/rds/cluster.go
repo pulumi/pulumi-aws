@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster.html.markdown.
 type Cluster struct {
 	s *pulumi.ResourceState
 }
@@ -176,7 +177,6 @@ func (r *Cluster) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The availability zone of the instance
 func (r *Cluster) AvailabilityZones() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["availabilityZones"])
 }
@@ -191,7 +191,6 @@ func (r *Cluster) BackupRetentionPeriod() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["backupRetentionPeriod"])
 }
 
-// The RDS Cluster Identifier
 func (r *Cluster) ClusterIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterIdentifier"])
 }
@@ -380,13 +379,11 @@ type ClusterState struct {
 	ApplyImmediately interface{}
 	// Amazon Resource Name (ARN) of cluster
 	Arn interface{}
-	// The availability zone of the instance
 	AvailabilityZones interface{}
 	// The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow interface{}
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod interface{}
-	// The RDS Cluster Identifier
 	ClusterIdentifier interface{}
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
 	ClusterIdentifierPrefix interface{}
@@ -470,13 +467,11 @@ type ClusterArgs struct {
 	// are applied immediately, or during the next maintenance window. Default is
 	// `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
 	ApplyImmediately interface{}
-	// The availability zone of the instance
 	AvailabilityZones interface{}
 	// The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow interface{}
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod interface{}
-	// The RDS Cluster Identifier
 	ClusterIdentifier interface{}
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
 	ClusterIdentifierPrefix interface{}

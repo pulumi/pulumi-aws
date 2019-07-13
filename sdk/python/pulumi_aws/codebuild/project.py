@@ -45,6 +45,10 @@ class Project(pulumi.CustomResource):
     """
     Information about the project's build environment. Environment blocks are documented below.
     """
+    logs_config: pulumi.Output[dict]
+    """
+    Configuration for the builds to store log data to CloudWatch or S3.
+    """
     name: pulumi.Output[str]
     """
     The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
@@ -73,7 +77,7 @@ class Project(pulumi.CustomResource):
     """
     Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
     """
-    def __init__(__self__, resource_name, opts=None, artifacts=None, badge_enabled=None, build_timeout=None, cache=None, description=None, encryption_key=None, environment=None, name=None, secondary_artifacts=None, secondary_sources=None, service_role=None, source=None, tags=None, vpc_config=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, artifacts=None, badge_enabled=None, build_timeout=None, cache=None, description=None, encryption_key=None, environment=None, logs_config=None, name=None, secondary_artifacts=None, secondary_sources=None, service_role=None, source=None, tags=None, vpc_config=None, __name__=None, __opts__=None):
         """
         Provides a CodeBuild Project resource. See also the [`aws_codebuild_webhook` resource](https://www.terraform.io/docs/providers/aws/r/codebuild_webhook.html), which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
         
@@ -86,6 +90,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] description: A short description of the project.
         :param pulumi.Input[str] encryption_key: The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
         :param pulumi.Input[dict] environment: Information about the project's build environment. Environment blocks are documented below.
+        :param pulumi.Input[dict] logs_config: Configuration for the builds to store log data to CloudWatch or S3.
         :param pulumi.Input[str] name: The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
         :param pulumi.Input[list] secondary_artifacts: A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
         :param pulumi.Input[list] secondary_sources: A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
@@ -128,6 +133,8 @@ class Project(pulumi.CustomResource):
         if environment is None:
             raise TypeError("Missing required property 'environment'")
         __props__['environment'] = environment
+
+        __props__['logs_config'] = logs_config
 
         __props__['name'] = name
 

@@ -71,9 +71,6 @@ export class Policy extends pulumi.CustomResource {
      * The name of the policy.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The policy document.
-     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -122,9 +119,6 @@ export interface PolicyState {
      * The name of the policy.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * The policy document.
-     */
     readonly policy?: pulumi.Input<string>;
 }
 
@@ -136,8 +130,5 @@ export interface PolicyArgs {
      * The name of the policy.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * The policy document.
-     */
     readonly policy: pulumi.Input<string>;
 }

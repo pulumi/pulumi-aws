@@ -66,9 +66,6 @@ export class EndpointConfiguration extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the endpoint configuration.
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Fields are documented below.
@@ -123,9 +120,6 @@ export interface EndpointConfigurationState {
      * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      */
     readonly kmsKeyArn?: pulumi.Input<string>;
-    /**
-     * The name of the endpoint configuration.
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Fields are documented below.
@@ -145,9 +139,6 @@ export interface EndpointConfigurationArgs {
      * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      */
     readonly kmsKeyArn?: pulumi.Input<string>;
-    /**
-     * The name of the endpoint configuration.
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Fields are documented below.

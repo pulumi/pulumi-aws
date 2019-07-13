@@ -70,9 +70,6 @@ export class SecurityConfiguration extends pulumi.CustomResource {
      * Date the Security Configuration was created
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
-    /**
-     * The Name of the EMR Security Configuration
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified
@@ -122,9 +119,6 @@ export interface SecurityConfigurationState {
      * Date the Security Configuration was created
      */
     readonly creationDate?: pulumi.Input<string>;
-    /**
-     * The Name of the EMR Security Configuration
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified
@@ -141,9 +135,6 @@ export interface SecurityConfigurationArgs {
      * A JSON formatted Security Configuration
      */
     readonly configuration: pulumi.Input<string>;
-    /**
-     * The Name of the EMR Security Configuration
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified

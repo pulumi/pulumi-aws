@@ -8,6 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_group.html.markdown.
 type Group struct {
 	s *pulumi.ResourceState
 }
@@ -237,7 +238,6 @@ func (r *Group) MixedInstancesPolicy() *pulumi.Output {
 	return r.s.State["mixedInstancesPolicy"]
 }
 
-// The name of the autoscale group
 func (r *Group) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -347,7 +347,6 @@ type GroupState struct {
 	MinSize interface{}
 	// Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
 	MixedInstancesPolicy interface{}
-	// The name of the autoscale group
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -418,7 +417,6 @@ type GroupArgs struct {
 	MinSize interface{}
 	// Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
 	MixedInstancesPolicy interface{}
-	// The name of the autoscale group
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.

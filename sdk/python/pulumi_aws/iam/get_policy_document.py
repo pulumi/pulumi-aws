@@ -42,6 +42,9 @@ class GetPolicyDocumentResult:
         """
 
 async def get_policy_document(override_json=None,policy_id=None,source_json=None,statements=None,version=None,opts=None):
+    """
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy_document.html.markdown.
+    """
     __args__ = dict()
 
     __args__['overrideJson'] = override_json

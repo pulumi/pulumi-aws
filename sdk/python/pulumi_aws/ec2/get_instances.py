@@ -48,6 +48,9 @@ class GetInstancesResult:
         """
 
 async def get_instances(filters=None,instance_state_names=None,instance_tags=None,opts=None):
+    """
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instances.html.markdown.
+    """
     __args__ = dict()
 
     __args__['filters'] = filters

@@ -33,7 +33,11 @@ class Service(pulumi.CustomResource):
     """
     The name of the service.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, dns_config=None, health_check_config=None, health_check_custom_config=None, name=None, __name__=None, __opts__=None):
+    namespace_id: pulumi.Output[str]
+    """
+    The ID of the namespace to use for DNS configuration.
+    """
+    def __init__(__self__, resource_name, opts=None, description=None, dns_config=None, health_check_config=None, health_check_custom_config=None, name=None, namespace_id=None, __name__=None, __opts__=None):
         """
         Provides a Service Discovery Service resource.
         
@@ -44,6 +48,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] health_check_config: A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
         :param pulumi.Input[dict] health_check_custom_config: A complex type that contains settings for ECS managed health checks.
         :param pulumi.Input[str] name: The name of the service.
+        :param pulumi.Input[str] namespace_id: The ID of the namespace to use for DNS configuration.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/service_discovery_service.html.markdown.
         """
@@ -64,8 +69,6 @@ class Service(pulumi.CustomResource):
 
         __props__['description'] = description
 
-        if dns_config is None:
-            raise TypeError("Missing required property 'dns_config'")
         __props__['dns_config'] = dns_config
 
         __props__['health_check_config'] = health_check_config
@@ -73,6 +76,8 @@ class Service(pulumi.CustomResource):
         __props__['health_check_custom_config'] = health_check_custom_config
 
         __props__['name'] = name
+
+        __props__['namespace_id'] = namespace_id
 
         __props__['arn'] = None
 

@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group.html.markdown.
+ */
 export class SecurityGroup extends pulumi.CustomResource {
     /**
      * Get an existing SecurityGroup resource's state with the given name, ID, and optional extra
@@ -35,9 +38,6 @@ export class SecurityGroup extends pulumi.CustomResource {
      * The ARN of the security group
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The description of the security group
-     */
     public readonly description!: pulumi.Output<string>;
     /**
      * Can be specified multiple times for each
@@ -51,9 +51,6 @@ export class SecurityGroup extends pulumi.CustomResource {
      * This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
     public readonly ingress!: pulumi.Output<{ cidrBlocks?: string[], description?: string, fromPort: number, ipv6CidrBlocks?: string[], prefixListIds?: string[], protocol: string, securityGroups?: string[], self?: boolean, toPort: number }[]>;
-    /**
-     * The name of the security group
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified
@@ -121,9 +118,6 @@ export interface SecurityGroupState {
      * The ARN of the security group
      */
     readonly arn?: pulumi.Input<string>;
-    /**
-     * The description of the security group
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * Can be specified multiple times for each
@@ -137,9 +131,6 @@ export interface SecurityGroupState {
      * This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
     readonly ingress?: pulumi.Input<pulumi.Input<{ cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, description?: pulumi.Input<string>, fromPort: pulumi.Input<number>, ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, prefixListIds?: pulumi.Input<pulumi.Input<string>[]>, protocol: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, self?: pulumi.Input<boolean>, toPort: pulumi.Input<number> }>[]>;
-    /**
-     * The name of the security group
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified
@@ -165,9 +156,6 @@ export interface SecurityGroupState {
  * The set of arguments for constructing a SecurityGroup resource.
  */
 export interface SecurityGroupArgs {
-    /**
-     * The description of the security group
-     */
     readonly description?: pulumi.Input<string>;
     /**
      * Can be specified multiple times for each
@@ -181,9 +169,6 @@ export interface SecurityGroupArgs {
      * This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
     readonly ingress?: pulumi.Input<pulumi.Input<{ cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, description?: pulumi.Input<string>, fromPort: pulumi.Input<number>, ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>, prefixListIds?: pulumi.Input<pulumi.Input<string>[]>, protocol: pulumi.Input<string>, securityGroups?: pulumi.Input<pulumi.Input<string>[]>, self?: pulumi.Input<boolean>, toPort: pulumi.Input<number> }>[]>;
-    /**
-     * The name of the security group
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified

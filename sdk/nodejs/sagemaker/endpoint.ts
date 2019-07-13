@@ -60,9 +60,6 @@ export class Endpoint extends pulumi.CustomResource {
      * The name of the endpoint configuration to use.
      */
     public readonly endpointConfigName!: pulumi.Output<string>;
-    /**
-     * The name of the endpoint.
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
@@ -111,9 +108,6 @@ export interface EndpointState {
      * The name of the endpoint configuration to use.
      */
     readonly endpointConfigName?: pulumi.Input<string>;
-    /**
-     * The name of the endpoint.
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
@@ -129,9 +123,6 @@ export interface EndpointArgs {
      * The name of the endpoint configuration to use.
      */
     readonly endpointConfigName: pulumi.Input<string>;
-    /**
-     * The name of the endpoint.
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.

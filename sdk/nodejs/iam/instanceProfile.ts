@@ -76,9 +76,6 @@ export class InstanceProfile extends pulumi.CustomResource {
      * The creation timestamp of the instance profile.
      */
     public /*out*/ readonly createDate!: pulumi.Output<string>;
-    /**
-     * The instance profile's name.
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -92,9 +89,6 @@ export class InstanceProfile extends pulumi.CustomResource {
      * The role name to include in the profile.
      */
     public readonly role!: pulumi.Output<string>;
-    /**
-     * The list of roles assigned to the instance profile. (**Deprecated**)
-     */
     public readonly roles!: pulumi.Output<string[]>;
     /**
      * The [unique ID][1] assigned by AWS.
@@ -148,9 +142,6 @@ export interface InstanceProfileState {
      * The creation timestamp of the instance profile.
      */
     readonly createDate?: pulumi.Input<string>;
-    /**
-     * The instance profile's name.
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -164,9 +155,6 @@ export interface InstanceProfileState {
      * The role name to include in the profile.
      */
     readonly role?: pulumi.Input<string | Role>;
-    /**
-     * The list of roles assigned to the instance profile. (**Deprecated**)
-     */
     readonly roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
     /**
      * The [unique ID][1] assigned by AWS.
@@ -178,9 +166,6 @@ export interface InstanceProfileState {
  * The set of arguments for constructing a InstanceProfile resource.
  */
 export interface InstanceProfileArgs {
-    /**
-     * The instance profile's name.
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -194,8 +179,5 @@ export interface InstanceProfileArgs {
      * The role name to include in the profile.
      */
     readonly role?: pulumi.Input<string | Role>;
-    /**
-     * The list of roles assigned to the instance profile. (**Deprecated**)
-     */
     readonly roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
 }

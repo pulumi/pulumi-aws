@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elb.html.markdown.
+ */
 export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Get an existing LoadBalancer resource's state with the given name, ID, and optional extra
@@ -79,9 +82,6 @@ export class LoadBalancer extends pulumi.CustomResource {
      * A list of listener blocks. Listeners documented below.
      */
     public readonly listeners!: pulumi.Output<{ instancePort: number, instanceProtocol: string, lbPort: number, lbProtocol: string, sslCertificateId?: string }[]>;
-    /**
-     * The name of the ELB
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified
@@ -232,9 +232,6 @@ export interface LoadBalancerState {
      * A list of listener blocks. Listeners documented below.
      */
     readonly listeners?: pulumi.Input<pulumi.Input<{ instancePort: pulumi.Input<number>, instanceProtocol: pulumi.Input<string>, lbPort: pulumi.Input<number>, lbProtocol: pulumi.Input<string>, sslCertificateId?: pulumi.Input<string> }>[]>;
-    /**
-     * The name of the ELB
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified
@@ -316,9 +313,6 @@ export interface LoadBalancerArgs {
      * A list of listener blocks. Listeners documented below.
      */
     readonly listeners: pulumi.Input<pulumi.Input<{ instancePort: pulumi.Input<number>, instanceProtocol: pulumi.Input<string>, lbPort: pulumi.Input<number>, lbProtocol: pulumi.Input<string>, sslCertificateId?: pulumi.Input<string> }>[]>;
-    /**
-     * The name of the ELB
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified

@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Provides an IAM user.
  * 
+ * > *NOTE:* If policies are attached to the user via the [`aws_iam_policy_attachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html) and you are modifying the user `name` or `path`, the `force_destroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The [`aws_iam_user_policy_attachment` resource (recommended)](https://www.terraform.io/docs/providers/aws/r/iam_user_policy_attachment.html) does not have this requirement.
+ * 
  * ## Example Usage
  * 
  * ```typescript

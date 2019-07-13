@@ -77,7 +77,6 @@ func (r *SecurityConfiguration) CreationDate() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["creationDate"])
 }
 
-// The Name of the EMR Security Configuration
 func (r *SecurityConfiguration) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -94,7 +93,6 @@ type SecurityConfigurationState struct {
 	Configuration interface{}
 	// Date the Security Configuration was created
 	CreationDate interface{}
-	// The Name of the EMR Security Configuration
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -105,7 +103,6 @@ type SecurityConfigurationState struct {
 type SecurityConfigurationArgs struct {
 	// A JSON formatted Security Configuration
 	Configuration interface{}
-	// The Name of the EMR Security Configuration
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
