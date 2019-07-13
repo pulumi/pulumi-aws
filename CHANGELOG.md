@@ -2,6 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+___NULL___
+
+---
+
+## 0.18.21 (2019-07-12)
 * Add Lambda runtime constants to the Go SDK.
 * Add module containing constants for RDS DB Instance StorageType.
 * Upgrade to v2.19.0 of the AWS Terraform Provider.
