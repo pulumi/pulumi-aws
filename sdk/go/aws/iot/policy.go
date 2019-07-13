@@ -81,7 +81,6 @@ func (r *Policy) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The policy document.
 func (r *Policy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -94,7 +93,6 @@ type PolicyState struct {
 	DefaultVersionId interface{}
 	// The name of the policy.
 	Name interface{}
-	// The policy document.
 	Policy interface{}
 }
 
@@ -102,6 +100,5 @@ type PolicyState struct {
 type PolicyArgs struct {
 	// The name of the policy.
 	Name interface{}
-	// The policy document.
 	Policy interface{}
 }

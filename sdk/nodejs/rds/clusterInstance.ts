@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 import {EngineType} from "./engineType";
 import {InstanceType} from "./instanceType";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_instance.html.markdown.
+ */
 export class ClusterInstance extends pulumi.CustomResource {
     /**
      * Get an existing ClusterInstance resource's state with the given name, ID, and optional extra
@@ -86,9 +89,6 @@ export class ClusterInstance extends pulumi.CustomResource {
      * The database engine version.
      */
     public readonly engineVersion!: pulumi.Output<string>;
-    /**
-     * The Instance identifier
-     */
     public readonly identifier!: pulumi.Output<string>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -295,9 +295,6 @@ export interface ClusterInstanceState {
      * The database engine version.
      */
     readonly engineVersion?: pulumi.Input<string>;
-    /**
-     * The Instance identifier
-     */
     readonly identifier?: pulumi.Input<string>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -412,9 +409,6 @@ export interface ClusterInstanceArgs {
      * The database engine version.
      */
     readonly engineVersion?: pulumi.Input<string>;
-    /**
-     * The Instance identifier
-     */
     readonly identifier?: pulumi.Input<string>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.

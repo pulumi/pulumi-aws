@@ -49,9 +49,6 @@ class LaunchConfiguration(pulumi.CustomResource):
     The key name that should be used for the instance.
     """
     name: pulumi.Output[str]
-    """
-    The name of the launch configuration.
-    """
     name_prefix: pulumi.Output[str]
     """
     Creates a unique name beginning with the specified
@@ -110,7 +107,6 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
-        :param pulumi.Input[str] name: The name of the launch configuration.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are

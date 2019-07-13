@@ -71,7 +71,6 @@ func (r *RolePolicy) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The name of the policy.
 func (r *RolePolicy) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -82,7 +81,6 @@ func (r *RolePolicy) NamePrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
-// The policy document attached to the role.
 func (r *RolePolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -94,12 +92,10 @@ func (r *RolePolicy) Role() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering RolePolicy resources.
 type RolePolicyState struct {
-	// The name of the policy.
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// The policy document attached to the role.
 	Policy interface{}
 	// The IAM role to attach to the policy.
 	Role interface{}
@@ -107,12 +103,10 @@ type RolePolicyState struct {
 
 // The set of arguments for constructing a RolePolicy resource.
 type RolePolicyArgs struct {
-	// The name of the policy.
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// The policy document attached to the role.
 	Policy interface{}
 	// The IAM role to attach to the policy.
 	Role interface{}

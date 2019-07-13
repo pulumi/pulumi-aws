@@ -6,6 +6,9 @@ import * as utilities from "../utilities";
 
 import {InstanceProfile} from "../iam";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_configuration.html.markdown.
+ */
 export class LaunchConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing LaunchConfiguration resource's state with the given name, ID, and optional extra
@@ -72,9 +75,6 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      * The key name that should be used for the instance.
      */
     public readonly keyName!: pulumi.Output<string>;
-    /**
-     * The name of the launch configuration.
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified
@@ -223,9 +223,6 @@ export interface LaunchConfigurationState {
      * The key name that should be used for the instance.
      */
     readonly keyName?: pulumi.Input<string>;
-    /**
-     * The name of the launch configuration.
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified
@@ -312,9 +309,6 @@ export interface LaunchConfigurationArgs {
      * The key name that should be used for the instance.
      */
     readonly keyName?: pulumi.Input<string>;
-    /**
-     * The name of the launch configuration.
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified

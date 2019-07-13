@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 import {Bucket} from "../s3/bucket";
 import {Application} from "./application";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application_version.html.markdown.
+ */
 export class ApplicationVersion extends pulumi.CustomResource {
     /**
      * Get an existing ApplicationVersion resource's state with the given name, ID, and optional extra

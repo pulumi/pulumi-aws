@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_subnet_association.html.markdown.
+ */
 export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
     /**
      * Get an existing VpcEndpointSubnetAssociation resource's state with the given name, ID, and optional extra

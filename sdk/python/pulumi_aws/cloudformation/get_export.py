@@ -36,6 +36,9 @@ class GetExportResult:
         """
 
 async def get_export(name=None,opts=None):
+    """
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudformation_export.html.markdown.
+    """
     __args__ = dict()
 
     __args__['name'] = name

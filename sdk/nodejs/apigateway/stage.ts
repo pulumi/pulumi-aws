@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 import {Deployment} from "./deployment";
 import {RestApi} from "./restApi";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_stage.html.markdown.
+ */
 export class Stage extends pulumi.CustomResource {
     /**
      * Get an existing Stage resource's state with the given name, ID, and optional extra

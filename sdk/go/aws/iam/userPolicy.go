@@ -71,7 +71,6 @@ func (r *UserPolicy) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The name of the policy (always set).
 func (r *UserPolicy) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -92,7 +91,6 @@ func (r *UserPolicy) User() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering UserPolicy resources.
 type UserPolicyState struct {
-	// The name of the policy (always set).
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
@@ -103,7 +101,6 @@ type UserPolicyState struct {
 
 // The set of arguments for constructing a UserPolicy resource.
 type UserPolicyArgs struct {
-	// The name of the policy (always set).
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}

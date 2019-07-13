@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_security_group.html.markdown.
+ */
 export class DefaultSecurityGroup extends pulumi.CustomResource {
     /**
      * Get an existing DefaultSecurityGroup resource's state with the given name, ID, and optional extra

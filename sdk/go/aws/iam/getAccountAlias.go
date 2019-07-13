@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_account_alias.html.markdown.
 func LookupAccountAlias(ctx *pulumi.Context) (*GetAccountAliasResult, error) {
 	outputs, err := ctx.Invoke("aws:iam/getAccountAlias:getAccountAlias", nil)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_configuration.html.markdown.
 type LaunchConfiguration struct {
 	s *pulumi.ResourceState
 }
@@ -161,7 +162,6 @@ func (r *LaunchConfiguration) KeyName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keyName"])
 }
 
-// The name of the launch configuration.
 func (r *LaunchConfiguration) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -238,7 +238,6 @@ type LaunchConfigurationState struct {
 	InstanceType interface{}
 	// The key name that should be used for the instance.
 	KeyName interface{}
-	// The name of the launch configuration.
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -287,7 +286,6 @@ type LaunchConfigurationArgs struct {
 	InstanceType interface{}
 	// The key name that should be used for the instance.
 	KeyName interface{}
-	// The name of the launch configuration.
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.

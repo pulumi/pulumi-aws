@@ -76,7 +76,6 @@ func (r *GroupPolicy) Group() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["group"])
 }
 
-// The name of the policy.
 func (r *GroupPolicy) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -87,7 +86,6 @@ func (r *GroupPolicy) NamePrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
-// The policy document attached to the group.
 func (r *GroupPolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -96,12 +94,10 @@ func (r *GroupPolicy) Policy() *pulumi.StringOutput {
 type GroupPolicyState struct {
 	// The IAM group to attach to the policy.
 	Group interface{}
-	// The name of the policy.
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// The policy document attached to the group.
 	Policy interface{}
 }
 
@@ -109,11 +105,9 @@ type GroupPolicyState struct {
 type GroupPolicyArgs struct {
 	// The IAM group to attach to the policy.
 	Group interface{}
-	// The name of the policy.
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix interface{}
-	// The policy document attached to the group.
 	Policy interface{}
 }

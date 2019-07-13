@@ -20,9 +20,6 @@ class Cluster(pulumi.CustomResource):
     Amazon Resource Name (ARN) of cluster
     """
     availability_zones: pulumi.Output[list]
-    """
-    The availability zone of the instance
-    """
     backtrack_window: pulumi.Output[float]
     """
     The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
@@ -32,9 +29,6 @@ class Cluster(pulumi.CustomResource):
     The days to retain backups for. Default `1`
     """
     cluster_identifier: pulumi.Output[str]
-    """
-    The RDS Cluster Identifier
-    """
     cluster_identifier_prefix: pulumi.Output[str]
     """
     Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
@@ -184,10 +178,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications
                are applied immediately, or during the next maintenance window. Default is
                `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
-        :param pulumi.Input[list] availability_zones: The availability zone of the instance
         :param pulumi.Input[float] backtrack_window: The target backtrack window, in seconds. Only available for `aurora` engine currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
         :param pulumi.Input[float] backup_retention_period: The days to retain backups for. Default `1`
-        :param pulumi.Input[str] cluster_identifier: The RDS Cluster Identifier
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[list] cluster_members: List of RDS Instances that are a part of this cluster
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Cluster `tags` to snapshots. Default is `false`.

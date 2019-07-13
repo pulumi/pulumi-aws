@@ -253,7 +253,6 @@ func (r *Function) S3ObjectVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["s3ObjectVersion"])
 }
 
-// Base64-encoded representation of raw SHA-256 sum of the zip file, provided either via `filename` or `s3_*` parameters.
 func (r *Function) SourceCodeHash() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceCodeHash"])
 }
@@ -330,7 +329,6 @@ type FunctionState struct {
 	S3Key interface{}
 	// The object version containing the function's deployment package. Conflicts with `filename`.
 	S3ObjectVersion interface{}
-	// Base64-encoded representation of raw SHA-256 sum of the zip file, provided either via `filename` or `s3_*` parameters.
 	SourceCodeHash interface{}
 	// The size in bytes of the function .zip file.
 	SourceCodeSize interface{}
@@ -379,7 +377,6 @@ type FunctionArgs struct {
 	S3Key interface{}
 	// The object version containing the function's deployment package. Conflicts with `filename`.
 	S3ObjectVersion interface{}
-	// Base64-encoded representation of raw SHA-256 sum of the zip file, provided either via `filename` or `s3_*` parameters.
 	SourceCodeHash interface{}
 	// A mapping of tags to assign to the object.
 	Tags interface{}

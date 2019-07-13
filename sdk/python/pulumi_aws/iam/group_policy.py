@@ -14,18 +14,12 @@ class GroupPolicy(pulumi.CustomResource):
     The IAM group to attach to the policy.
     """
     name: pulumi.Output[str]
-    """
-    The name of the policy.
-    """
     name_prefix: pulumi.Output[str]
     """
     Creates a unique name beginning with the specified
     prefix. Conflicts with `name`.
     """
     policy: pulumi.Output[str]
-    """
-    The policy document attached to the group.
-    """
     def __init__(__self__, resource_name, opts=None, group=None, name=None, name_prefix=None, policy=None, __name__=None, __opts__=None):
         """
         Provides an IAM policy attached to a group.
@@ -33,10 +27,8 @@ class GroupPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group: The IAM group to attach to the policy.
-        :param pulumi.Input[str] name: The name of the policy.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
-        :param pulumi.Input[str] policy: The policy document attached to the group.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_policy.html.markdown.
         """

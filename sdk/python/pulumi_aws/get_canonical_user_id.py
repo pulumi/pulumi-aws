@@ -27,6 +27,9 @@ class GetCanonicalUserIdResult:
         """
 
 async def get_canonical_user_id(opts=None):
+    """
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/canonical_user_id.html.markdown.
+    """
     __args__ = dict()
 
     __ret__ = await pulumi.runtime.invoke('aws:index/getCanonicalUserId:getCanonicalUserId', __args__, opts=opts)

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_server_certificate.html.markdown.
 func LookupServerCertificate(ctx *pulumi.Context, args *GetServerCertificateArgs) (*GetServerCertificateResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

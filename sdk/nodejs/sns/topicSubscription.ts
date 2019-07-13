@@ -6,6 +6,9 @@ import * as utilities from "../utilities";
 
 import {Topic} from "./topic";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_topic_subscription.html.markdown.
+ */
 export class TopicSubscription extends pulumi.CustomResource {
     /**
      * Get an existing TopicSubscription resource's state with the given name, ID, and optional extra

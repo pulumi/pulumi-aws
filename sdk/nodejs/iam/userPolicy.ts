@@ -68,9 +68,6 @@ export class UserPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserPolicy.__pulumiType;
     }
 
-    /**
-     * The name of the policy (always set).
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -119,9 +116,6 @@ export class UserPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserPolicy resources.
  */
 export interface UserPolicyState {
-    /**
-     * The name of the policy (always set).
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -138,9 +132,6 @@ export interface UserPolicyState {
  * The set of arguments for constructing a UserPolicy resource.
  */
 export interface UserPolicyArgs {
-    /**
-     * The name of the policy (always set).
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.

@@ -6,6 +6,9 @@ import * as utilities from "../utilities";
 
 import {ARN} from "../index";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_function.html.markdown.
+ */
 export class Function extends pulumi.CustomResource {
     /**
      * Get an existing Function resource's state with the given name, ID, and optional extra
@@ -114,9 +117,6 @@ export class Function extends pulumi.CustomResource {
      * The object version containing the function's deployment package. Conflicts with `filename`.
      */
     public readonly s3ObjectVersion!: pulumi.Output<string | undefined>;
-    /**
-     * Base64-encoded representation of raw SHA-256 sum of the zip file, provided either via `filename` or `s3_*` parameters.
-     */
     public readonly sourceCodeHash!: pulumi.Output<string>;
     /**
      * The size in bytes of the function .zip file.
@@ -307,9 +307,6 @@ export interface FunctionState {
      * The object version containing the function's deployment package. Conflicts with `filename`.
      */
     readonly s3ObjectVersion?: pulumi.Input<string>;
-    /**
-     * Base64-encoded representation of raw SHA-256 sum of the zip file, provided either via `filename` or `s3_*` parameters.
-     */
     readonly sourceCodeHash?: pulumi.Input<string>;
     /**
      * The size in bytes of the function .zip file.
@@ -402,9 +399,6 @@ export interface FunctionArgs {
      * The object version containing the function's deployment package. Conflicts with `filename`.
      */
     readonly s3ObjectVersion?: pulumi.Input<string>;
-    /**
-     * Base64-encoded representation of raw SHA-256 sum of the zip file, provided either via `filename` or `s3_*` parameters.
-     */
     readonly sourceCodeHash?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the object.

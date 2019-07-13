@@ -83,7 +83,6 @@ func (r *Policy) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
-// The name of the policy.
 func (r *Policy) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -99,7 +98,6 @@ func (r *Policy) Path() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["path"])
 }
 
-// The policy document.
 func (r *Policy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -110,14 +108,12 @@ type PolicyState struct {
 	Arn interface{}
 	// Description of the IAM policy.
 	Description interface{}
-	// The name of the policy.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
 	// Path in which to create the policy.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path interface{}
-	// The policy document.
 	Policy interface{}
 }
 
@@ -125,13 +121,11 @@ type PolicyState struct {
 type PolicyArgs struct {
 	// Description of the IAM policy.
 	Description interface{}
-	// The name of the policy.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
 	// Path in which to create the policy.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path interface{}
-	// The policy document.
 	Policy interface{}
 }

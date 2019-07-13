@@ -79,9 +79,6 @@ class Group(pulumi.CustomResource):
     Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
     """
     name: pulumi.Output[str]
-    """
-    The name of the autoscale group
-    """
     name_prefix: pulumi.Output[str]
     """
     Creates a unique name beginning with the specified
@@ -157,7 +154,6 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[float] min_size: The minimum size of the auto scale group.
                (See also Waiting for Capacity below.)
         :param pulumi.Input[dict] mixed_instances_policy: Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
-        :param pulumi.Input[str] name: The name of the autoscale group
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] placement_group: The name of the placement group into which you'll launch your instances, if any.

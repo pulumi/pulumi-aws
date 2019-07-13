@@ -14,9 +14,6 @@ class SecurityGroup(pulumi.CustomResource):
     The ARN of the security group
     """
     description: pulumi.Output[str]
-    """
-    The description of the security group
-    """
     egress: pulumi.Output[list]
     """
     Can be specified multiple times for each
@@ -30,9 +27,6 @@ class SecurityGroup(pulumi.CustomResource):
     This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
     """
     name: pulumi.Output[str]
-    """
-    The name of the security group
-    """
     name_prefix: pulumi.Output[str]
     """
     Creates a unique name beginning with the specified
@@ -57,14 +51,12 @@ class SecurityGroup(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the security group
         :param pulumi.Input[list] egress: Can be specified multiple times for each
                egress rule. Each egress block supports fields documented below.
                This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[list] ingress: Can be specified multiple times for each
                ingress rule. Each ingress block supports fields documented below.
                This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-        :param pulumi.Input[str] name: The name of the security group
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/partition.html.markdown.
 func LookupPartition(ctx *pulumi.Context) (*GetPartitionResult, error) {
 	outputs, err := ctx.Invoke("aws:index/getPartition:getPartition", nil)
 	if err != nil {

@@ -85,7 +85,6 @@ func (r *InstanceProfile) CreateDate() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["createDate"])
 }
 
-// The instance profile's name.
 func (r *InstanceProfile) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -105,7 +104,6 @@ func (r *InstanceProfile) Role() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["role"])
 }
 
-// The list of roles assigned to the instance profile. (**Deprecated**)
 func (r *InstanceProfile) Roles() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["roles"])
 }
@@ -121,7 +119,6 @@ type InstanceProfileState struct {
 	Arn interface{}
 	// The creation timestamp of the instance profile.
 	CreateDate interface{}
-	// The instance profile's name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
@@ -129,7 +126,6 @@ type InstanceProfileState struct {
 	Path interface{}
 	// The role name to include in the profile.
 	Role interface{}
-	// The list of roles assigned to the instance profile. (**Deprecated**)
 	Roles interface{}
 	// The [unique ID][1] assigned by AWS.
 	UniqueId interface{}
@@ -137,7 +133,6 @@ type InstanceProfileState struct {
 
 // The set of arguments for constructing a InstanceProfile resource.
 type InstanceProfileArgs struct {
-	// The instance profile's name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
@@ -145,6 +140,5 @@ type InstanceProfileArgs struct {
 	Path interface{}
 	// The role name to include in the profile.
 	Role interface{}
-	// The list of roles assigned to the instance profile. (**Deprecated**)
 	Roles interface{}
 }

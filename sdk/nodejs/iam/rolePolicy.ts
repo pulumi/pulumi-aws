@@ -79,18 +79,12 @@ export class RolePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RolePolicy.__pulumiType;
     }
 
-    /**
-     * The name of the policy.
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
-    /**
-     * The policy document attached to the role.
-     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * The IAM role to attach to the policy.
@@ -134,18 +128,12 @@ export class RolePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RolePolicy resources.
  */
 export interface RolePolicyState {
-    /**
-     * The name of the policy.
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
-    /**
-     * The policy document attached to the role.
-     */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * The IAM role to attach to the policy.
@@ -157,18 +145,12 @@ export interface RolePolicyState {
  * The set of arguments for constructing a RolePolicy resource.
  */
 export interface RolePolicyArgs {
-    /**
-     * The name of the policy.
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
-    /**
-     * The policy document attached to the role.
-     */
     readonly policy: pulumi.Input<string | PolicyDocument>;
     /**
      * The IAM role to attach to the policy.

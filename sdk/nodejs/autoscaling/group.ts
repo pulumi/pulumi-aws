@@ -8,6 +8,9 @@ import {LaunchConfiguration} from "../ec2/launchConfiguration";
 import {PlacementGroup} from "../ec2/placementGroup";
 import {Metric, MetricsGranularity} from "./metrics";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_group.html.markdown.
+ */
 export class Group extends pulumi.CustomResource {
     /**
      * Get an existing Group resource's state with the given name, ID, and optional extra
@@ -104,9 +107,6 @@ export class Group extends pulumi.CustomResource {
      * Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
      */
     public readonly mixedInstancesPolicy!: pulumi.Output<{ instancesDistribution?: { onDemandAllocationStrategy?: string, onDemandBaseCapacity?: number, onDemandPercentageAboveBaseCapacity?: number, spotAllocationStrategy?: string, spotInstancePools: number, spotMaxPrice?: string }, launchTemplate: { launchTemplateSpecification: { launchTemplateId: string, launchTemplateName: string, version?: string }, overrides?: { instanceType?: string }[] } } | undefined>;
-    /**
-     * The name of the autoscale group
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified
@@ -313,9 +313,6 @@ export interface GroupState {
      * Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
      */
     readonly mixedInstancesPolicy?: pulumi.Input<{ instancesDistribution?: pulumi.Input<{ onDemandAllocationStrategy?: pulumi.Input<string>, onDemandBaseCapacity?: pulumi.Input<number>, onDemandPercentageAboveBaseCapacity?: pulumi.Input<number>, spotAllocationStrategy?: pulumi.Input<string>, spotInstancePools?: pulumi.Input<number>, spotMaxPrice?: pulumi.Input<string> }>, launchTemplate: pulumi.Input<{ launchTemplateSpecification: pulumi.Input<{ launchTemplateId?: pulumi.Input<string>, launchTemplateName?: pulumi.Input<string>, version?: pulumi.Input<string> }>, overrides?: pulumi.Input<pulumi.Input<{ instanceType?: pulumi.Input<string> }>[]> }> }>;
-    /**
-     * The name of the autoscale group
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified
@@ -434,9 +431,6 @@ export interface GroupArgs {
      * Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
      */
     readonly mixedInstancesPolicy?: pulumi.Input<{ instancesDistribution?: pulumi.Input<{ onDemandAllocationStrategy?: pulumi.Input<string>, onDemandBaseCapacity?: pulumi.Input<number>, onDemandPercentageAboveBaseCapacity?: pulumi.Input<number>, spotAllocationStrategy?: pulumi.Input<string>, spotInstancePools?: pulumi.Input<number>, spotMaxPrice?: pulumi.Input<string> }>, launchTemplate: pulumi.Input<{ launchTemplateSpecification: pulumi.Input<{ launchTemplateId?: pulumi.Input<string>, launchTemplateName?: pulumi.Input<string>, version?: pulumi.Input<string> }>, overrides?: pulumi.Input<pulumi.Input<{ instanceType?: pulumi.Input<string> }>[]> }> }>;
-    /**
-     * The name of the autoscale group
-     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified

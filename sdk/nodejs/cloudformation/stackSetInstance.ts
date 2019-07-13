@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudformation_stack_set_instance.html.markdown.
+ */
 export class StackSetInstance extends pulumi.CustomResource {
     /**
      * Get an existing StackSetInstance resource's state with the given name, ID, and optional extra
