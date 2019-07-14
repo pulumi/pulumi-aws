@@ -44,12 +44,18 @@
  */
 export interface PolicyDocument {
     // The version of the policy language that you want to use. As a best practice, use the latest `2012-10-17` version.
-    Version: "2008-10-17" | "2012-10-17";
+    Version: PolicyVersion;
     // An optional document ID.
     Id?: string;
     // One or more policy statements, describing the effect, principal, action, resource, and condition.
     Statement: PolicyStatement[];
 }
+
+/**
+ * PolicyVersion is a union type of all possible IAM policy document versions supported. As a best practice,
+ * always use the latest supported version.
+ */
+export type PolicyVersion = "2008-10-17" | "2012-10-17";
 
 /**
  * The Statement element is the main element for a policy. This element is required. It can include multiple elements
@@ -167,6 +173,9 @@ export interface FederatedPrincipal {
     Federated: string | string[];
 }
 
+// latestPolicyVersion contains the latest version that will be preferred by factory methods, etc.
+const latestPolicyVersion: PolicyVersion = "2012-10-17";
+
 /**
  * assumeRolePolicyForPrincipal returns a well-formed policy document which can be
  * used to control which principals may assume an IAM Role, by granting the `sts:AssumeRole`
@@ -176,15 +185,114 @@ export interface FederatedPrincipal {
  * @returns {PolicyDocument} A policy document allowing principals to invoke `sts:AssumeRole`
  */
 export function assumeRolePolicyForPrincipal(principal: Principal): PolicyDocument {
+    return createPolicy({ sid: "AllowAssumeRole", action: "sts:AssumeRole", principal: principal });
+}
+
+/**
+ * createPolicy returns a well-formed policy document, given a set of specifications as inputs.
+ * This makes it much easier to create policy specifications without needing to resort to JSON.
+ */
+export function createPolicy(spec: CreatePolicySpecification |
+        CreateStatementSpecification | CreateStatementSpecification[]): PolicyDocument {
+    // First do a type test to figure out the shape, and pluck out the spec elements.
+    let version: PolicyVersion;
+    let id: string | undefined;
+    let stmtSpec: CreateStatementSpecification | CreateStatementSpecification[];
+    if (Array.isArray(spec) ||
+            (!(spec as CreatePolicySpecification).id &&
+                !(spec as CreatePolicySpecification).version &&
+                !(spec as CreatePolicySpecification).statement)) {
+        version = latestPolicyVersion;
+        stmtSpec = (spec as CreateStatementSpecification | CreateStatementSpecification[]);
+    } else {
+        id = (spec as CreatePolicySpecification).id;
+        version = (spec as CreatePolicySpecification).version;
+        stmtSpec = (spec as CreatePolicySpecification).statement;
+    }
+
+    // Now translate all policy statements into the full blown JSON form, ready to return.
+    let stmts: PolicyStatement[] = [];
+    if (Array.isArray(stmtSpec)) {
+        for (const oneStmtSpec of stmtSpec) {
+            stmts.push(createStatement(oneStmtSpec));
+        }
+    } else {
+        stmts.push(createStatement(stmtSpec));
+    }
+
     return {
-        Version: "2012-10-17",
-        Statement: [
-            {
-                Sid: "AllowAssumeRole",
-                Effect: "Allow",
-                Principal: principal,
-                Action: "sts:AssumeRole"
-            }
-        ]
+        Version: version,
+        Id: id,
+        Statement: stmts,
     };
+}
+
+/**
+ * createStatement returns a single well-formed policy statement, given an easier to specify
+ * shape as input. This makes it easier than dealing with the JSON shapes directly.
+ */
+export function createStatement(spec: CreateStatementSpecification): PolicyStatement {
+    // TODO: should the above typing permit e.g. "AWS" *and* "Service".
+    let principal: Principal | undefined =
+        spec.principal ? spec.principal :
+        spec.allPrincipals ? "*" :
+        spec.awsPrincipal ? { AWS: spec.awsPrincipal } :
+        spec.servicePrincipal ? { Service: spec.servicePrincipal } :
+        spec.federatedPrincipal ? { Federated: spec.federatedPrincipal } :
+        undefined;
+
+    let notPrincipal: Principal | undefined =
+        spec.notPrincipal ? spec.notPrincipal :
+        spec.notAllPrincipals ? "*" :
+        spec.notAwsPrincipal ? { AWS: spec.notAwsPrincipal } :
+        spec.notServicePrincipal ? { Service: spec.notServicePrincipal } :
+        spec.notFederatedPrincipal ? { Federated: spec.notFederatedPrincipal } :
+        undefined;
+
+    return {
+        Sid: spec.sid,
+        Effect: spec.effect || "Allow",
+        Action: spec.action,
+        NotAction: spec.notAction,
+        Resource: spec.resource,
+        NotResource: spec.notResource,
+        Condition: spec.condition,
+        Principal: principal,
+        NotPrincipal: notPrincipal,
+    };
+}
+
+export interface CreateStatementSpecification {
+    // These properties are effectively the same as PolicyStatement:
+
+    sid?: string;
+
+    // effect permits you to negate (Deny) IAM rights through this policy (defaults to Allow if unspecified).
+    effect?: "Allow" | "Deny";
+
+    action?: string | string[];
+    notAction?: string | string[];
+    resource?: string | string[];
+    notResource?: string | string[];
+    condition?: Conditions;
+
+    principal?: Principal;
+    notPrincipal?: Principal;
+
+    // These properties are modified to have slight usability benefits:
+
+    allPrincipals?: boolean;
+    notAllPrincipals?: boolean;
+    awsPrincipal?: string | string[];
+    notAwsPrincipal?: string | string[];
+    servicePrincipal?: string | string[];
+    notServicePrincipal?: string | string[];
+    federatedPrincipal?: string | string[];
+    notFederatedPrincipal?: string | string[];
+}
+
+export interface CreatePolicySpecification {
+    id?: string;
+    version?: PolicyVersion;
+    statement?: CreateStatementSpecification | CreateStatementSpecification[];
 }
