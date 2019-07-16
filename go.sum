@@ -516,11 +516,15 @@ github.com/mattn/go-colorable v0.0.0-20160220075935-9cbef7c35391/go.mod h1:9vuHe
 github.com/mattn/go-colorable v0.0.9/go.mod h1:9vuHe8Xs5qXnSaW/c/ABM9alt+Vo+STaOChaDxuIBZU=
 github.com/mattn/go-colorable v0.1.1 h1:G1f5SKeVxmagw/IyvzvtZE4Gybcc4Tr1tf7I8z0XgOg=
 github.com/mattn/go-colorable v0.1.1/go.mod h1:FuOcm+DKB9mbwrcAfNl7/TZVBZ6rcnceauSikq3lYCQ=
+github.com/mattn/go-colorable v0.1.2 h1:/bC9yWikZXAL9uJdulbSfyVNIR3n3trXl+v8+1sx8mU=
+github.com/mattn/go-colorable v0.1.2/go.mod h1:U0ppj6V5qS13XJ6of8GYAs25YV2eR4EVcfRqFIhoBtE=
 github.com/mattn/go-isatty v0.0.0-20161123143637-30a891c33c7c/go.mod h1:M+lRXTBqGeGNdLjl/ufCoiOlB5xdOkqRJdNxMWT7Zi4=
 github.com/mattn/go-isatty v0.0.3/go.mod h1:M+lRXTBqGeGNdLjl/ufCoiOlB5xdOkqRJdNxMWT7Zi4=
 github.com/mattn/go-isatty v0.0.4/go.mod h1:M+lRXTBqGeGNdLjl/ufCoiOlB5xdOkqRJdNxMWT7Zi4=
 github.com/mattn/go-isatty v0.0.5 h1:tHXDdz1cpzGaovsTB+TVB8q90WEokoVmfMqoVcrLUgw=
 github.com/mattn/go-isatty v0.0.5/go.mod h1:Iq45c/XA43vh69/j3iqttzPXn0bhXyGjM0Hdxcsrc5s=
+github.com/mattn/go-isatty v0.0.8 h1:HLtExJ+uU2HOZ+wI0Tt5DtUDrx8yhUqDcp7fYERX4CE=
+github.com/mattn/go-isatty v0.0.8/go.mod h1:Iq45c/XA43vh69/j3iqttzPXn0bhXyGjM0Hdxcsrc5s=
 github.com/mattn/go-runewidth v0.0.2/go.mod h1:LwmH8dsx7+W8Uxz3IHJYH5QSwggIsqBzpuz5H//U1FU=
 github.com/mattn/go-runewidth v0.0.3/go.mod h1:LwmH8dsx7+W8Uxz3IHJYH5QSwggIsqBzpuz5H//U1FU=
 github.com/mattn/go-runewidth v0.0.4/go.mod h1:LwmH8dsx7+W8Uxz3IHJYH5QSwggIsqBzpuz5H//U1FU=
@@ -641,6 +645,8 @@ github.com/pulumi/pulumi v0.17.6-0.20190410045519-ef5e148a73c0 h1:NqGT9rxjyADqq2
 github.com/pulumi/pulumi v0.17.6-0.20190410045519-ef5e148a73c0/go.mod h1:RIy1gmz8Vyy7H5w2ffHJ23aZHCOggF2zk2c+KD1GMtY=
 github.com/pulumi/pulumi v0.17.22-0.20190702185104-ebceea93a5da h1:8j8kMQncrqAfspsfmmjcEQVzeWYDYFHF8O545CcXEG4=
 github.com/pulumi/pulumi v0.17.22-0.20190702185104-ebceea93a5da/go.mod h1:YUZl+EG25I3Zs337/O7gRiGfquphPBOrMG6QZYAWW9g=
+github.com/pulumi/pulumi v0.17.23-0.20190715212628-02ffff88409f h1:3K/cssb6A3pEEDcNPEZSOVF70jPIdgftGX9UcSINZ/0=
+github.com/pulumi/pulumi v0.17.23-0.20190715212628-02ffff88409f/go.mod h1:d+ivoM5WASR34nx+EJwBMfWtuU8oczAY5lMTrXsdboM=
 github.com/pulumi/pulumi-terraform v0.14.1-dev.0.20190410060834-0ef064af4d04 h1:iTc5H/fZf/AacCOxFtVef7MvhEgAHTiR8RiZXRKDnZk=
 github.com/pulumi/pulumi-terraform v0.14.1-dev.0.20190410060834-0ef064af4d04/go.mod h1:bJ2tsYQlSMzMCEDb2kP1rDHaadG3O7JUnBUYH/yx2Io=
 github.com/pulumi/pulumi-terraform v0.14.1-dev.0.20190506205940-21108d2d0be2 h1:VdG9S3rFg7tbmsR3gY3pKmTFaKgBw4vyyEdoldHs9aY=
@@ -666,6 +672,8 @@ github.com/pulumi/pulumi-terraform v0.18.4-0.20190709052202-629f7c54269d h1:Pmw7
 github.com/pulumi/pulumi-terraform v0.18.4-0.20190709052202-629f7c54269d/go.mod h1:5QshR5Q/a3gJiSPx1d+AblvcvfJCYC7255q8DtnvJv4=
 github.com/pulumi/pulumi-terraform v0.18.4-0.20190712224712-f106438be1cf h1:9F1mRnYWVdCMYo0Kos4UcvgzoWj11w+nWMHKqo98wbg=
 github.com/pulumi/pulumi-terraform v0.18.4-0.20190712224712-f106438be1cf/go.mod h1:5QshR5Q/a3gJiSPx1d+AblvcvfJCYC7255q8DtnvJv4=
+github.com/pulumi/pulumi-terraform v0.18.4-0.20190716112909-08d502e9b427 h1:zCNael1dbtaWcWWXdoxChRaFaXeKDu2F4dycNr/rT5A=
+github.com/pulumi/pulumi-terraform v0.18.4-0.20190716112909-08d502e9b427/go.mod h1:HZZfntNPhurepaYfYpimuN4KGSuEJm6/EUOopwS8oUM=
 github.com/pulumi/terraform-provider-aws v1.3.2-0.20190407171755-cf2ef8807a4b h1:2g4TbpkKIzm8wqcvnrvh5FY1I/bO5x0k5iswWSCH6Ek=
 github.com/pulumi/terraform-provider-aws v1.3.2-0.20190407171755-cf2ef8807a4b/go.mod h1:q6jzd2kIAdFH8V10Y8N3NRf4wVQ6DTCN/kjE0L9eHLY=
 github.com/pulumi/terraform-provider-aws v1.3.2-0.20190417135458-30039de05cc7 h1:aac7CF4/uYxKoGIATUPNhdWqrntHMH+pqrODc7ZcBvM=
