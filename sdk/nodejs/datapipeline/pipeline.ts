@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Data Pipeline resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- *
+ * 
  * const defaultPipeline = new aws.datapipeline.Pipeline("default", {});
  * ```
  *

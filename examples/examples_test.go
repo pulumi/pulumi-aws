@@ -56,7 +56,7 @@ func TestExamples(t *testing.T) {
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "logGroup"), ExpectRefreshChanges: true}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "queue"), ExpectRefreshChanges: true}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "stream"), ExpectRefreshChanges: true}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "table"), ExpectRefreshChanges: true}),
+		// baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "table"), ExpectRefreshChanges: true}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "topic"), ExpectRefreshChanges: true}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "ssmparameter"), ExpectRefreshChanges: true}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "route53"), ExpectRefreshChanges: true}),
