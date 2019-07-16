@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodeBuild Project resource. See also the [`aws_codebuild_webhook` resource](https://www.terraform.io/docs/providers/aws/r/codebuild_webhook.html), which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleRole = new aws.iam.Role("example", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -58,16 +58,16 @@ import * as utilities from "../utilities";
  *         imagePullCredentialsType: "CODEBUILD",
  *         type: "LINUX_CONTAINER",
  *     },
- *     logsConfig: [{
- *         cloudwatchLogs: [{
+ *     logsConfig: {
+ *         cloudwatchLogs: {
  *             groupName: "log-group",
  *             streamName: "log-stream",
- *         }],
- *         s3Logs: [{
+ *         },
+ *         s3Logs: {
  *             location: pulumi.interpolate`${exampleBucket.id}/build-log`,
  *             status: "ENABLED",
- *         }],
- *     }],
+ *         },
+ *     },
  *     serviceRole: exampleRole.arn,
  *     source: {
  *         gitCloneDepth: 1,
