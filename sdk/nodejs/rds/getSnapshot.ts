@@ -41,9 +41,9 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_snapshot.html.markdown.
  */
-export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
+export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> & GetSnapshotResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:rds/getSnapshot:getSnapshot", {
+    const promise: Promise<GetSnapshotResult> = pulumi.runtime.invoke("aws:rds/getSnapshot:getSnapshot", {
         "dbInstanceIdentifier": args.dbInstanceIdentifier,
         "dbSnapshotIdentifier": args.dbSnapshotIdentifier,
         "includePublic": args.includePublic,
@@ -51,6 +51,8 @@ export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions)
         "mostRecent": args.mostRecent,
         "snapshotType": args.snapshotType,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

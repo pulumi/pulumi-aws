@@ -31,9 +31,9 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instance.html.markdown.
  */
-export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
+export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> & GetInstanceResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:ec2/getInstance:getInstance", {
+    const promise: Promise<GetInstanceResult> = pulumi.runtime.invoke("aws:ec2/getInstance:getInstance", {
         "filters": args.filters,
         "getPasswordData": args.getPasswordData,
         "getUserData": args.getUserData,
@@ -41,6 +41,8 @@ export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions)
         "instanceTags": args.instanceTags,
         "tags": args.tags,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

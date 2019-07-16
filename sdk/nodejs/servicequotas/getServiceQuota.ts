@@ -25,12 +25,14 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/servicequotas_service_quota.html.markdown.
  */
-export function getServiceQuota(args: GetServiceQuotaArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceQuotaResult> {
-    return pulumi.runtime.invoke("aws:servicequotas/getServiceQuota:getServiceQuota", {
+export function getServiceQuota(args: GetServiceQuotaArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceQuotaResult> & GetServiceQuotaResult {
+    const promise: Promise<GetServiceQuotaResult> = pulumi.runtime.invoke("aws:servicequotas/getServiceQuota:getServiceQuota", {
         "quotaCode": args.quotaCode,
         "quotaName": args.quotaName,
         "serviceCode": args.serviceCode,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

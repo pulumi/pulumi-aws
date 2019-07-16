@@ -22,10 +22,12 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_user.html.markdown.
  */
-export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
-    return pulumi.runtime.invoke("aws:iam/getUser:getUser", {
+export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> & GetUserResult {
+    const promise: Promise<GetUserResult> = pulumi.runtime.invoke("aws:iam/getUser:getUser", {
         "userName": args.userName,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

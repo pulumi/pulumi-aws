@@ -23,10 +23,12 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_rest_api.html.markdown.
  */
-export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): Promise<GetRestApiResult> {
-    return pulumi.runtime.invoke("aws:apigateway/getRestApi:getRestApi", {
+export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): Promise<GetRestApiResult> & GetRestApiResult {
+    const promise: Promise<GetRestApiResult> = pulumi.runtime.invoke("aws:apigateway/getRestApi:getRestApi", {
         "name": args.name,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

@@ -67,13 +67,15 @@ import * as utilities from "./utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zone.html.markdown.
  */
-export function getAvailabilityZone(args?: GetAvailabilityZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityZoneResult> {
+export function getAvailabilityZone(args?: GetAvailabilityZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityZoneResult> & GetAvailabilityZoneResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:index/getAvailabilityZone:getAvailabilityZone", {
+    const promise: Promise<GetAvailabilityZoneResult> = pulumi.runtime.invoke("aws:index/getAvailabilityZone:getAvailabilityZone", {
         "name": args.name,
         "state": args.state,
         "zoneId": args.zoneId,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

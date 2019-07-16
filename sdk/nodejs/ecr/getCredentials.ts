@@ -4,10 +4,12 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-export function getCredentials(args: GetCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialsResult> {
-    return pulumi.runtime.invoke("aws:ecr/getCredentials:getCredentials", {
+export function getCredentials(args: GetCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialsResult> & GetCredentialsResult {
+    const promise: Promise<GetCredentialsResult> = pulumi.runtime.invoke("aws:ecr/getCredentials:getCredentials", {
         "registryId": args.registryId,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

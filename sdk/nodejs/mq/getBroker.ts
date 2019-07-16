@@ -27,14 +27,16 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/mq_broker.html.markdown.
  */
-export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> {
+export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> & GetBrokerResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:mq/getBroker:getBroker", {
+    const promise: Promise<GetBrokerResult> = pulumi.runtime.invoke("aws:mq/getBroker:getBroker", {
         "brokerId": args.brokerId,
         "brokerName": args.brokerName,
         "logs": args.logs,
         "tags": args.tags,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

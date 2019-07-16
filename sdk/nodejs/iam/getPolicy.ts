@@ -21,10 +21,12 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy.html.markdown.
  */
-export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
-    return pulumi.runtime.invoke("aws:iam/getPolicy:getPolicy", {
+export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> & GetPolicyResult {
+    const promise: Promise<GetPolicyResult> = pulumi.runtime.invoke("aws:iam/getPolicy:getPolicy", {
         "arn": args.arn,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

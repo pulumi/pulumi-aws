@@ -39,11 +39,13 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/redshift_cluster.html.markdown.
  */
-export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    return pulumi.runtime.invoke("aws:redshift/getCluster:getCluster", {
+export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> & GetClusterResult {
+    const promise: Promise<GetClusterResult> = pulumi.runtime.invoke("aws:redshift/getCluster:getCluster", {
         "clusterIdentifier": args.clusterIdentifier,
         "tags": args.tags,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

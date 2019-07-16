@@ -36,9 +36,9 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_cluster_snapshot.html.markdown.
  */
-export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSnapshotResult> {
+export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSnapshotResult> & GetClusterSnapshotResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:rds/getClusterSnapshot:getClusterSnapshot", {
+    const promise: Promise<GetClusterSnapshotResult> = pulumi.runtime.invoke("aws:rds/getClusterSnapshot:getClusterSnapshot", {
         "dbClusterIdentifier": args.dbClusterIdentifier,
         "dbClusterSnapshotIdentifier": args.dbClusterSnapshotIdentifier,
         "includePublic": args.includePublic,
@@ -46,6 +46,8 @@ export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.
         "mostRecent": args.mostRecent,
         "snapshotType": args.snapshotType,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

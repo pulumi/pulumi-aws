@@ -32,9 +32,9 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_zone.html.markdown.
  */
-export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
+export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> & GetZoneResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:route53/getZone:getZone", {
+    const promise: Promise<GetZoneResult> = pulumi.runtime.invoke("aws:route53/getZone:getZone", {
         "callerReference": args.callerReference,
         "comment": args.comment,
         "name": args.name,
@@ -44,6 +44,8 @@ export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): Promis
         "vpcId": args.vpcId,
         "zoneId": args.zoneId,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

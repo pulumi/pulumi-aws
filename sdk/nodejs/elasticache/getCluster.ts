@@ -20,11 +20,13 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_cluster.html.markdown.
  */
-export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    return pulumi.runtime.invoke("aws:elasticache/getCluster:getCluster", {
+export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> & GetClusterResult {
+    const promise: Promise<GetClusterResult> = pulumi.runtime.invoke("aws:elasticache/getCluster:getCluster", {
         "clusterId": args.clusterId,
         "tags": args.tags,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

@@ -58,16 +58,16 @@ import * as utilities from "../utilities";
  *         imagePullCredentialsType: "CODEBUILD",
  *         type: "LINUX_CONTAINER",
  *     },
- *     logsConfig: {
- *         cloudwatchLogs: {
+ *     logsConfig: [{
+ *         cloudwatchLogs: [{
  *             groupName: "log-group",
  *             streamName: "log-stream",
- *         },
- *         s3Logs: {
+ *         }],
+ *         s3Logs: [{
  *             location: pulumi.interpolate`${exampleBucket.id}/build-log`,
  *             status: "ENABLED",
- *         },
- *     },
+ *         }],
+ *     }],
  *     serviceRole: exampleRole.arn,
  *     source: {
  *         gitCloneDepth: 1,

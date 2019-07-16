@@ -33,12 +33,14 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret.html.markdown.
  */
-export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
+export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> & GetSecretResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:secretsmanager/getSecret:getSecret", {
+    const promise: Promise<GetSecretResult> = pulumi.runtime.invoke("aws:secretsmanager/getSecret:getSecret", {
         "arn": args.arn,
         "name": args.name,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

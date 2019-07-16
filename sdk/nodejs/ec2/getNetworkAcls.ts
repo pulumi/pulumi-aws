@@ -53,13 +53,15 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_acls.html.markdown.
  */
-export function getNetworkAcls(args?: GetNetworkAclsArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAclsResult> {
+export function getNetworkAcls(args?: GetNetworkAclsArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAclsResult> & GetNetworkAclsResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:ec2/getNetworkAcls:getNetworkAcls", {
+    const promise: Promise<GetNetworkAclsResult> = pulumi.runtime.invoke("aws:ec2/getNetworkAcls:getNetworkAcls", {
         "filters": args.filters,
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

@@ -24,14 +24,16 @@ import * as utilities from "./utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami_ids.html.markdown.
  */
-export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> {
-    return pulumi.runtime.invoke("aws:index/getAmiIds:getAmiIds", {
+export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> & GetAmiIdsResult {
+    const promise: Promise<GetAmiIdsResult> = pulumi.runtime.invoke("aws:index/getAmiIds:getAmiIds", {
         "executableUsers": args.executableUsers,
         "filters": args.filters,
         "nameRegex": args.nameRegex,
         "owners": args.owners,
         "sortAscending": args.sortAscending,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**
