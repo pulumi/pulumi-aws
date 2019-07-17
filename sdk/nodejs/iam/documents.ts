@@ -73,7 +73,7 @@ export interface PolicyStatement {
     NotAction?: string | string[];
 
     // A list of resources to which the actions apply.
-    Resource?: string | string[];
+        Resource?: string | string[];
     // A list of resources that are specifically excluded by this policy.
     NotResource?: string | string[];
 

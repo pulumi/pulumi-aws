@@ -937,7 +937,16 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_ecr_lifecycle_policy": {Tok: awsResource(ecrMod, "LifecyclePolicy")},
+			"aws_ecr_lifecycle_policy": {
+				Tok: awsResource(ecrMod, "LifecyclePolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(ecrMod+"/lifecyclePolicyDocument", "LifecyclePolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
+					},
+				},
+			},
 			// Elastic Container Service
 			"aws_ecs_cluster": {Tok: awsResource(ecsMod, "Cluster")},
 			"aws_ecs_service": {
@@ -2074,6 +2083,11 @@ func Provider() tfbridge.ProviderInfo {
 							"placementStrategy.ts", // PlacementStrategy union type and constants
 							"protocolType.ts",
 							"tenancy.ts", // Tenancy union type and constants
+						},
+					},
+					"ecr": {
+						DestFiles: []string{
+							"lifecyclePolicyDocument.ts",
 						},
 					},
 					"ecs": {

@@ -351,6 +351,7 @@
         "ecr/getRepository.ts",
         "ecr/index.ts",
         "ecr/lifecyclePolicy.ts",
+        "ecr/lifecyclePolicyDocument.ts",
         "ecr/repository.ts",
         "ecr/repositoryPolicy.ts",
         "ecs/cluster.ts",
