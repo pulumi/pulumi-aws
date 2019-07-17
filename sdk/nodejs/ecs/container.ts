@@ -183,5 +183,5 @@ export interface VolumeFrom {
 
 // See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RepositoryCredentials.html
 export interface RepositoryCredentials {
-    credentialsParameter?: string;
+    credentialsParameter: string;
 }
