@@ -111,14 +111,14 @@ func TestExamples(t *testing.T) {
 				}
 			},
 		}),
-		// Python tests:
-		integration.ProgramTestOptions{
-			Dir:    path.Join(cwd, "webserver-py"),
-			Config: map[string]string{"aws:region": envRegion},
-			Dependencies: []string{
-				filepath.Join("..", "sdk", "python", "bin"),
-			},
-		},
+		// // Python tests:
+		// integration.ProgramTestOptions{
+		// 	Dir:    path.Join(cwd, "webserver-py"),
+		// 	Config: map[string]string{"aws:region": envRegion},
+		// 	Dependencies: []string{
+		// 		filepath.Join("..", "sdk", "python", "bin"),
+		// 	},
+		// },
 	}
 
 	longTests := []integration.ProgramTestOptions{
