@@ -66,3 +66,43 @@ export function withAliases<T extends HasAliases>(opts: T, aliases: pulumi.Input
 
     return { ...opts, aliases };
 }
+
+/**
+ * Synchronously blocks until the result of this promise is computed.  If the promise is rejected,
+ * this will throw the error the promise was rejected with.  If this promise does not complete this
+ * will block indefinitely.
+ *
+ * Be very careful with this function.  Only wait on a promise if you are certain it is safe to do
+ * so.
+ *
+ * This is an advanced compat function for libraries and should not generally be used by normal
+ * Pulumi application.
+ */
+export function promiseResult<T>(promise: Promise<T>): T {
+    enum State {
+        running,
+        finishedSuccessfully,
+        finishedWithError,
+    }
+
+    let result: T;
+    let error = undefined;
+    let state = <State>State.running;
+
+    promise.then(
+        val => {
+            result = val;
+            state = State.finishedSuccessfully;
+        },
+        err => {
+            error = err;
+            state = State.finishedWithError;
+        });
+
+    deasync.loopWhile(() => state === State.running);
+    if (state === State.finishedWithError) {
+        throw error;
+    }
+
+    return result!;
+}
