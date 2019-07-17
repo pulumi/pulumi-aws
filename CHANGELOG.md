@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-___NULL___
+* Add support for RepositoryCredentials in ECS container definitions.
 
 ---
 
