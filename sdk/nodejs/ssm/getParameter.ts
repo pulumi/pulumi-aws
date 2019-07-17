@@ -3,17 +3,18 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_parameter.html.markdown.
  */
-export function getParameter(args: GetParameterArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterResult> & GetParameterResult {
+export function getParameter(args: GetParameterArgs, opts?: pulumi.InvokeOptions): GetParameterResult {
     const promise: Promise<GetParameterResult> = pulumi.runtime.invoke("aws:ssm/getParameter:getParameter", {
         "name": args.name,
         "withDecryption": args.withDecryption,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

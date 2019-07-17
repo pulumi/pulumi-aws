@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
@@ -201,14 +202,14 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/glue_script.html.markdown.
  */
-export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> & GetScriptResult {
+export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): GetScriptResult {
     const promise: Promise<GetScriptResult> = pulumi.runtime.invoke("aws:glue/getScript:getScript", {
         "dagEdges": args.dagEdges,
         "dagNodes": args.dagNodes,
         "language": args.language,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

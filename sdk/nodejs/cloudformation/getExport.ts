@@ -3,16 +3,17 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudformation_export.html.markdown.
  */
-export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> & GetExportResult {
+export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): GetExportResult {
     const promise: Promise<GetExportResult> = pulumi.runtime.invoke("aws:cloudformation/getExport:getExport", {
         "name": args.name,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Creates a Lambda function alias. Creates an alias that points to the specified Lambda function version.

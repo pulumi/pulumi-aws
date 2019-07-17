@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
+import * as utils from "./utils";
 
 /**
  * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of whitelisting in S3 bucket policy.
@@ -52,11 +53,11 @@ import * as utilities from "./utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/billing_service_account.html.markdown.
  */
-export function getBillingServiceAccount(opts?: pulumi.InvokeOptions): Promise<GetBillingServiceAccountResult> & GetBillingServiceAccountResult {
+export function getBillingServiceAccount(opts?: pulumi.InvokeOptions): GetBillingServiceAccountResult {
     const promise: Promise<GetBillingServiceAccountResult> = pulumi.runtime.invoke("aws:index/getBillingServiceAccount:getBillingServiceAccount", {
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

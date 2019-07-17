@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * The ECS Service data source allows access to details of a specific
@@ -22,13 +23,13 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_service.html.markdown.
  */
-export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> & GetServiceResult {
+export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): GetServiceResult {
     const promise: Promise<GetServiceResult> = pulumi.runtime.invoke("aws:ecs/getService:getService", {
         "clusterArn": args.clusterArn,
         "serviceName": args.serviceName,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

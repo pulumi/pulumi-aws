@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Use this data source to get the id of a Resource in API Gateway. 
@@ -25,13 +26,13 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_resource.html.markdown.
  */
-export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> & GetResourceResult {
+export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): GetResourceResult {
     const promise: Promise<GetResourceResult> = pulumi.runtime.invoke("aws:apigateway/getResource:getResource", {
         "path": args.path,
         "restApiId": args.restApiId,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

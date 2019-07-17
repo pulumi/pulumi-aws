@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
@@ -36,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_cluster_snapshot.html.markdown.
  */
-export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSnapshotResult> & GetClusterSnapshotResult {
+export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.InvokeOptions): GetClusterSnapshotResult {
     args = args || {};
     const promise: Promise<GetClusterSnapshotResult> = pulumi.runtime.invoke("aws:rds/getClusterSnapshot:getClusterSnapshot", {
         "dbClusterIdentifier": args.dbClusterIdentifier,
@@ -47,7 +48,7 @@ export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.
         "snapshotType": args.snapshotType,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

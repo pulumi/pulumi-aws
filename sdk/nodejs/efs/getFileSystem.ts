@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Provides information about an Elastic File System (EFS).
@@ -23,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_file_system.html.markdown.
  */
-export function getFileSystem(args?: GetFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetFileSystemResult> & GetFileSystemResult {
+export function getFileSystem(args?: GetFileSystemArgs, opts?: pulumi.InvokeOptions): GetFileSystemResult {
     args = args || {};
     const promise: Promise<GetFileSystemResult> = pulumi.runtime.invoke("aws:efs/getFileSystem:getFileSystem", {
         "creationToken": args.creationToken,
@@ -31,7 +32,7 @@ export function getFileSystem(args?: GetFileSystemArgs, opts?: pulumi.InvokeOpti
         "tags": args.tags,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

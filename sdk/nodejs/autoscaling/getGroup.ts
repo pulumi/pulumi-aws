@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Use this data source to get information on an existing autoscaling group.
@@ -20,12 +21,12 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_group.html.markdown.
  */
-export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> & GetGroupResult {
+export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): GetGroupResult {
     const promise: Promise<GetGroupResult> = pulumi.runtime.invoke("aws:autoscaling/getGroup:getGroup", {
         "name": args.name,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

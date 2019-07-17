@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Provides information about a Lambda Function.
@@ -23,14 +24,14 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_function.html.markdown.
  */
-export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> & GetFunctionResult {
+export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): GetFunctionResult {
     const promise: Promise<GetFunctionResult> = pulumi.runtime.invoke("aws:lambda/getFunction:getFunction", {
         "functionName": args.functionName,
         "qualifier": args.qualifier,
         "tags": args.tags,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

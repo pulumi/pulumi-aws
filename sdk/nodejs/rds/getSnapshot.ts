@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Use this data source to get information about a DB Snapshot for use when provisioning DB instances
@@ -41,7 +42,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_snapshot.html.markdown.
  */
-export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> & GetSnapshotResult {
+export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): GetSnapshotResult {
     args = args || {};
     const promise: Promise<GetSnapshotResult> = pulumi.runtime.invoke("aws:rds/getSnapshot:getSnapshot", {
         "dbInstanceIdentifier": args.dbInstanceIdentifier,
@@ -52,7 +53,7 @@ export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions)
         "snapshotType": args.snapshotType,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

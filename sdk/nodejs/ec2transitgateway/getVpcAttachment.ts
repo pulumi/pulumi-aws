@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Get information on an EC2 Transit Gateway VPC Attachment.
@@ -36,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpc_attachment.html.markdown.
  */
-export function getVpcAttachment(args?: GetVpcAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcAttachmentResult> & GetVpcAttachmentResult {
+export function getVpcAttachment(args?: GetVpcAttachmentArgs, opts?: pulumi.InvokeOptions): GetVpcAttachmentResult {
     args = args || {};
     const promise: Promise<GetVpcAttachmentResult> = pulumi.runtime.invoke("aws:ec2transitgateway/getVpcAttachment:getVpcAttachment", {
         "filters": args.filters,
@@ -44,7 +45,7 @@ export function getVpcAttachment(args?: GetVpcAttachmentArgs, opts?: pulumi.Invo
         "tags": args.tags,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

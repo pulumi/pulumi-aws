@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Get information on an Amazon MSK Cluster.
@@ -20,13 +21,13 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_cluster.html.markdown.
  */
-export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> & GetClusterResult {
+export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): GetClusterResult {
     const promise: Promise<GetClusterResult> = pulumi.runtime.invoke("aws:msk/getCluster:getCluster", {
         "clusterName": args.clusterName,
         "tags": args.tags,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

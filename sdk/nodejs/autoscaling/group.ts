@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 import {LaunchConfiguration} from "../ec2/launchConfiguration";
 import {PlacementGroup} from "../ec2/placementGroup";

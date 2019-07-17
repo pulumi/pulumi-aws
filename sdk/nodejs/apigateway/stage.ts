@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 import {Deployment} from "./deployment";
 import {RestApi} from "./restApi";

@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Retrieve information about an EC2 DHCP Options configuration.
@@ -42,7 +43,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_dhcp_options.html.markdown.
  */
-export function getVpcDhcpOptions(args?: GetVpcDhcpOptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcDhcpOptionsResult> & GetVpcDhcpOptionsResult {
+export function getVpcDhcpOptions(args?: GetVpcDhcpOptionsArgs, opts?: pulumi.InvokeOptions): GetVpcDhcpOptionsResult {
     args = args || {};
     const promise: Promise<GetVpcDhcpOptionsResult> = pulumi.runtime.invoke("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", {
         "dhcpOptionsId": args.dhcpOptionsId,
@@ -50,7 +51,7 @@ export function getVpcDhcpOptions(args?: GetVpcDhcpOptionsArgs, opts?: pulumi.In
         "tags": args.tags,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * `aws_vpc` provides details about a specific VPC.
@@ -39,7 +40,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc.html.markdown.
  */
-export function getVpc(args?: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcResult> & GetVpcResult {
+export function getVpc(args?: GetVpcArgs, opts?: pulumi.InvokeOptions): GetVpcResult {
     args = args || {};
     const promise: Promise<GetVpcResult> = pulumi.runtime.invoke("aws:ec2/getVpc:getVpc", {
         "cidrBlock": args.cidrBlock,
@@ -51,7 +52,7 @@ export function getVpc(args?: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<
         "tags": args.tags,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

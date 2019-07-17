@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Retrieve information about an EKS Cluster.
@@ -23,12 +24,12 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eks_cluster.html.markdown.
  */
-export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> & GetClusterResult {
+export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): GetClusterResult {
     const promise: Promise<GetClusterResult> = pulumi.runtime.invoke("aws:eks/getCluster:getCluster", {
         "name": args.name,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

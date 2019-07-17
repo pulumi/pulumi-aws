@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * `aws_route53_zone` provides details about a specific Route 53 Hosted Zone.
@@ -32,7 +33,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_zone.html.markdown.
  */
-export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> & GetZoneResult {
+export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): GetZoneResult {
     args = args || {};
     const promise: Promise<GetZoneResult> = pulumi.runtime.invoke("aws:route53/getZone:getZone", {
         "callerReference": args.callerReference,
@@ -45,7 +46,7 @@ export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): Promis
         "zoneId": args.zoneId,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

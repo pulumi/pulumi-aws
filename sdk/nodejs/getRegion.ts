@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
+import * as utils from "./utils";
 
 /**
  * `aws_region` provides details about a specific AWS region.
@@ -26,14 +27,14 @@ import * as utilities from "./utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/region.html.markdown.
  */
-export function getRegion(args?: GetRegionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegionResult> & GetRegionResult {
+export function getRegion(args?: GetRegionArgs, opts?: pulumi.InvokeOptions): GetRegionResult {
     args = args || {};
     const promise: Promise<GetRegionResult> = pulumi.runtime.invoke("aws:index/getRegion:getRegion", {
         "endpoint": args.endpoint,
         "name": args.name,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

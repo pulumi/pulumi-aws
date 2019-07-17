@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Provides details about a specific Nat Gateway.
@@ -37,7 +38,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/nat_gateway.html.markdown.
  */
-export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> & GetNatGatewayResult {
+export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): GetNatGatewayResult {
     args = args || {};
     const promise: Promise<GetNatGatewayResult> = pulumi.runtime.invoke("aws:ec2/getNatGateway:getNatGateway", {
         "filters": args.filters,
@@ -48,7 +49,7 @@ export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOpti
         "vpcId": args.vpcId,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * This data source can be used to fetch information about a specific
@@ -21,12 +22,12 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy.html.markdown.
  */
-export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> & GetPolicyResult {
+export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): GetPolicyResult {
     const promise: Promise<GetPolicyResult> = pulumi.runtime.invoke("aws:iam/getPolicy:getPolicy", {
         "arn": args.arn,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

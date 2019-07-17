@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * > **Note:** `aws_alb` is known as `aws_lb`. The functionality is identical.
@@ -31,7 +32,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb.html.markdown.
  */
-export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> & GetLoadBalancerResult {
+export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): GetLoadBalancerResult {
     args = args || {};
     const promise: Promise<GetLoadBalancerResult> = pulumi.runtime.invoke("aws:elasticloadbalancingv2/getLoadBalancer:getLoadBalancer", {
         "arn": args.arn,
@@ -39,7 +40,7 @@ export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.Invoke
         "tags": args.tags,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

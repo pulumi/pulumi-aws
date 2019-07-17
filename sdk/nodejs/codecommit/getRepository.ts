@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
@@ -20,12 +21,12 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/codecommit_repository.html.markdown.
  */
-export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> & GetRepositoryResult {
+export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): GetRepositoryResult {
     const promise: Promise<GetRepositoryResult> = pulumi.runtime.invoke("aws:codecommit/getRepository:getRepository", {
         "repositoryName": args.repositoryName,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

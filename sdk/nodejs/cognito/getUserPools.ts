@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Use this data source to get a list of cognito user pools.
@@ -28,12 +29,12 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cognito_user_pools.html.markdown.
  */
-export function getUserPools(args: GetUserPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolsResult> & GetUserPoolsResult {
+export function getUserPools(args: GetUserPoolsArgs, opts?: pulumi.InvokeOptions): GetUserPoolsResult {
     const promise: Promise<GetUserPoolsResult> = pulumi.runtime.invoke("aws:cognito/getUserPools:getUserPools", {
         "name": args.name,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

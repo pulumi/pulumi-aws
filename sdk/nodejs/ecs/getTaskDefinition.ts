@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * The ECS task definition data source allows access to details of
@@ -50,12 +51,12 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_task_definition.html.markdown.
  */
-export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskDefinitionResult> & GetTaskDefinitionResult {
+export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): GetTaskDefinitionResult {
     const promise: Promise<GetTaskDefinitionResult> = pulumi.runtime.invoke("aws:ecs/getTaskDefinition:getTaskDefinition", {
         "taskDefinition": args.taskDefinition,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

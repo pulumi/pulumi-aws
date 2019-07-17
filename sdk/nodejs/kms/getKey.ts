@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Use this data source to get detailed information about 
@@ -23,13 +24,13 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_key.html.markdown.
  */
-export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> & GetKeyResult {
+export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): GetKeyResult {
     const promise: Promise<GetKeyResult> = pulumi.runtime.invoke("aws:kms/getKey:getKey", {
         "grantTokens": args.grantTokens,
         "keyId": args.keyId,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

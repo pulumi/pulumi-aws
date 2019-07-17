@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Use this data source to get information about a Network Interface.
@@ -20,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_interface.html.markdown.
  */
-export function getNetworkInterface(args?: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> & GetNetworkInterfaceResult {
+export function getNetworkInterface(args?: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): GetNetworkInterfaceResult {
     args = args || {};
     const promise: Promise<GetNetworkInterfaceResult> = pulumi.runtime.invoke("aws:ec2/getNetworkInterface:getNetworkInterface", {
         "filters": args.filters,
@@ -28,7 +29,7 @@ export function getNetworkInterface(args?: GetNetworkInterfaceArgs, opts?: pulum
         "tags": args.tags,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

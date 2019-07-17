@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
@@ -31,7 +32,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot.html.markdown.
  */
-export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> & GetSnapshotResult {
+export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): GetSnapshotResult {
     args = args || {};
     const promise: Promise<GetSnapshotResult> = pulumi.runtime.invoke("aws:ebs/getSnapshot:getSnapshot", {
         "filters": args.filters,
@@ -42,7 +43,7 @@ export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions)
         "tags": args.tags,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

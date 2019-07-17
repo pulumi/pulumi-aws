@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Use this data source to get the pricing information of all products in AWS.
@@ -66,13 +67,13 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/pricing_product.html.markdown.
  */
-export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> & GetProductResult {
+export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): GetProductResult {
     const promise: Promise<GetProductResult> = pulumi.runtime.invoke("aws:pricing/getProduct:getProduct", {
         "filters": args.filters,
         "serviceCode": args.serviceCode,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

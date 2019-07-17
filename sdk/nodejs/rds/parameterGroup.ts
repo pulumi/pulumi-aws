@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Provides an RDS DB parameter group resource .Documentation of the available parameters for various RDS engines can be found at:

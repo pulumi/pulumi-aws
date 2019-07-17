@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
@@ -21,14 +22,14 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/storagegateway_local_disk.html.markdown.
  */
-export function getLocalDisk(args: GetLocalDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalDiskResult> & GetLocalDiskResult {
+export function getLocalDisk(args: GetLocalDiskArgs, opts?: pulumi.InvokeOptions): GetLocalDiskResult {
     const promise: Promise<GetLocalDiskResult> = pulumi.runtime.invoke("aws:storagegateway/getLocalDisk:getLocalDisk", {
         "diskNode": args.diskNode,
         "diskPath": args.diskPath,
         "gatewayArn": args.gatewayArn,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

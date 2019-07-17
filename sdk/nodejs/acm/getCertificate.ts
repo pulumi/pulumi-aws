@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Use this data source to get the ARN of a certificate in AWS Certificate
@@ -24,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acm_certificate.html.markdown.
  */
-export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> & GetCertificateResult {
+export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): GetCertificateResult {
     const promise: Promise<GetCertificateResult> = pulumi.runtime.invoke("aws:acm/getCertificate:getCertificate", {
         "domain": args.domain,
         "keyTypes": args.keyTypes,
@@ -33,7 +34,7 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
         "types": args.types,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

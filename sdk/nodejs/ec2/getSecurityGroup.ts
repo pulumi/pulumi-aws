@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * `aws_security_group` provides details about a specific Security Group.
@@ -34,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_group.html.markdown.
  */
-export function getSecurityGroup(args?: GetSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupResult> & GetSecurityGroupResult {
+export function getSecurityGroup(args?: GetSecurityGroupArgs, opts?: pulumi.InvokeOptions): GetSecurityGroupResult {
     args = args || {};
     const promise: Promise<GetSecurityGroupResult> = pulumi.runtime.invoke("aws:ec2/getSecurityGroup:getSecurityGroup", {
         "filters": args.filters,
@@ -44,7 +45,7 @@ export function getSecurityGroup(args?: GetSecurityGroupArgs, opts?: pulumi.Invo
         "vpcId": args.vpcId,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

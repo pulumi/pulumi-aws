@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * ## Example Usage
@@ -33,13 +34,13 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_event_categories.html.markdown.
  */
-export function getEventCategories(args?: GetEventCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetEventCategoriesResult> & GetEventCategoriesResult {
+export function getEventCategories(args?: GetEventCategoriesArgs, opts?: pulumi.InvokeOptions): GetEventCategoriesResult {
     args = args || {};
     const promise: Promise<GetEventCategoriesResult> = pulumi.runtime.invoke("aws:rds/getEventCategories:getEventCategories", {
         "sourceType": args.sourceType,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

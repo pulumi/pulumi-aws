@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * The VPC Endpoint data source provides details about
@@ -27,7 +28,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint.html.markdown.
  */
-export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointResult> & GetVpcEndpointResult {
+export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOptions): GetVpcEndpointResult {
     args = args || {};
     const promise: Promise<GetVpcEndpointResult> = pulumi.runtime.invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", {
         "id": args.id,
@@ -37,7 +38,7 @@ export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOp
         "vpcId": args.vpcId,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

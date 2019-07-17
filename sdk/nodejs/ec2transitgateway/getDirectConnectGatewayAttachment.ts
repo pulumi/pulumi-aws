@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
@@ -23,14 +24,14 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_dx_gateway_attachment.html.markdown.
  */
-export function getDirectConnectGatewayAttachment(args: GetDirectConnectGatewayAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectConnectGatewayAttachmentResult> & GetDirectConnectGatewayAttachmentResult {
+export function getDirectConnectGatewayAttachment(args: GetDirectConnectGatewayAttachmentArgs, opts?: pulumi.InvokeOptions): GetDirectConnectGatewayAttachmentResult {
     const promise: Promise<GetDirectConnectGatewayAttachmentResult> = pulumi.runtime.invoke("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", {
         "dxGatewayId": args.dxGatewayId,
         "tags": args.tags,
         "transitGatewayId": args.transitGatewayId,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

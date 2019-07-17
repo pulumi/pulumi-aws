@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
@@ -22,12 +23,12 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sqs_queue.html.markdown.
  */
-export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> & GetQueueResult {
+export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): GetQueueResult {
     const promise: Promise<GetQueueResult> = pulumi.runtime.invoke("aws:sqs/getQueue:getQueue", {
         "name": args.name,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Get information on an EC2 Transit Gateway.
@@ -36,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway.html.markdown.
  */
-export function getTransitGateway(args?: GetTransitGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayResult> & GetTransitGatewayResult {
+export function getTransitGateway(args?: GetTransitGatewayArgs, opts?: pulumi.InvokeOptions): GetTransitGatewayResult {
     args = args || {};
     const promise: Promise<GetTransitGatewayResult> = pulumi.runtime.invoke("aws:ec2transitgateway/getTransitGateway:getTransitGateway", {
         "filters": args.filters,
@@ -44,7 +45,7 @@ export function getTransitGateway(args?: GetTransitGatewayArgs, opts?: pulumi.In
         "tags": args.tags,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

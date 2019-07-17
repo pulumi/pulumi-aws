@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * The ECS Cluster data source allows access to details of a specific
@@ -21,12 +22,12 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_cluster.html.markdown.
  */
-export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> & GetClusterResult {
+export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): GetClusterResult {
     const promise: Promise<GetClusterResult> = pulumi.runtime.invoke("aws:ecs/getCluster:getCluster", {
         "clusterName": args.clusterName,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

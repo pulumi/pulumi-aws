@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * `aws_route53_delegation_set` provides details about a specific Route 53 Delegation Set.
@@ -24,12 +25,12 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_delegation_set.html.markdown.
  */
-export function getDelegationSet(args: GetDelegationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegationSetResult> & GetDelegationSetResult {
+export function getDelegationSet(args: GetDelegationSetArgs, opts?: pulumi.InvokeOptions): GetDelegationSetResult {
     const promise: Promise<GetDelegationSetResult> = pulumi.runtime.invoke("aws:route53/getDelegationSet:getDelegationSet", {
         "id": args.id,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

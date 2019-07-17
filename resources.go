@@ -2025,10 +2025,12 @@ func Provider() tfbridge.ProviderInfo {
 				"builtin-modules":   "3.0.0",
 				"read-package-tree": "^5.2.1",
 				"resolve":           "^1.7.1",
+				"deasync":           "^0.1.15",
 			},
 			DevDependencies: map[string]string{
-				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
-				"@types/mime": "^2.0.0",
+				"@types/node":    "^10.0.0", // so we can access strongly typed node definitions.
+				"@types/mime":    "^2.0.0",
+				"@types/deasync": "^0.1.0",
 			},
 			Overlay: &tfbridge.OverlayInfo{
 				DestFiles: []string{

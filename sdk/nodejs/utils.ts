@@ -22,6 +22,7 @@ import "./awsMixins";
 
 import * as pulumi from "@pulumi/pulumi";
 import * as crypto from "crypto";
+import * as deasync from "deasync";
 
 type Diff<T extends string | number | symbol, U extends string | number | symbol> =
   ({ [P in T]: P } & { [P in U]: never } & { [x: string]: never })[T];

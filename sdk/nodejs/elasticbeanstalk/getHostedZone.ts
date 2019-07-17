@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
@@ -18,13 +19,13 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_hosted_zone.html.markdown.
  */
-export function getHostedZone(args?: GetHostedZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneResult> & GetHostedZoneResult {
+export function getHostedZone(args?: GetHostedZoneArgs, opts?: pulumi.InvokeOptions): GetHostedZoneResult {
     args = args || {};
     const promise: Promise<GetHostedZoneResult> = pulumi.runtime.invoke("aws:elasticbeanstalk/getHostedZone:getHostedZone", {
         "region": args.region,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

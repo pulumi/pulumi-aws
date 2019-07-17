@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Provides information about a DynamoDB table.
@@ -20,14 +21,14 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dynamodb_table.html.markdown.
  */
-export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> & GetTableResult {
+export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): GetTableResult {
     const promise: Promise<GetTableResult> = pulumi.runtime.invoke("aws:dynamodb/getTable:getTable", {
         "name": args.name,
         "serverSideEncryption": args.serverSideEncryption,
         "tags": args.tags,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

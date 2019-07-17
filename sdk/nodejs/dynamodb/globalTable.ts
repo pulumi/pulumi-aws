@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Provides a resource to manage a DynamoDB Global Table. These are layered on top of existing DynamoDB Tables.

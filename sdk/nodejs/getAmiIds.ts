@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
+import * as utils from "./utils";
 
 /**
  * Use this data source to get a list of AMI IDs matching the specified criteria.
@@ -24,7 +25,7 @@ import * as utilities from "./utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami_ids.html.markdown.
  */
-export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> & GetAmiIdsResult {
+export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): GetAmiIdsResult {
     const promise: Promise<GetAmiIdsResult> = pulumi.runtime.invoke("aws:index/getAmiIds:getAmiIds", {
         "executableUsers": args.executableUsers,
         "filters": args.filters,
@@ -33,7 +34,7 @@ export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Pro
         "sortAscending": args.sortAscending,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

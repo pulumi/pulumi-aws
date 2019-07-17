@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * Use this data source to get information about an EBS volume for use in other
@@ -31,7 +32,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.
  */
-export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> & GetVolumeResult {
+export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): GetVolumeResult {
     args = args || {};
     const promise: Promise<GetVolumeResult> = pulumi.runtime.invoke("aws:ebs/getVolume:getVolume", {
         "filters": args.filters,
@@ -39,7 +40,7 @@ export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Pr
         "tags": args.tags,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**

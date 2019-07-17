@@ -3,18 +3,19 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
+import * as utils from "../utils";
 
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_groups.html.markdown.
  */
-export function getSecurityGroups(args?: GetSecurityGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupsResult> & GetSecurityGroupsResult {
+export function getSecurityGroups(args?: GetSecurityGroupsArgs, opts?: pulumi.InvokeOptions): GetSecurityGroupsResult {
     args = args || {};
     const promise: Promise<GetSecurityGroupsResult> = pulumi.runtime.invoke("aws:ec2/getSecurityGroups:getSecurityGroups", {
         "filters": args.filters,
         "tags": args.tags,
     }, opts);
 
-    return pulumi.utils.liftProperties(promise);
+    return utils.promiseResult(promise);
 }
 
 /**
