@@ -3,7 +3,6 @@ module github.com/pulumi/pulumi-aws
 go 1.12
 
 require (
-	github.com/aws/aws-sdk-go v1.20.17
 	github.com/chzyer/logex v1.1.11-0.20160617073814-96a4d311aa9b // indirect
 	github.com/coreos/bbolt v1.3.1-coreos.1 // indirect
 	github.com/gopherjs/gopherjs v0.0.0-20181103185306-d547d1d9531e // indirect
