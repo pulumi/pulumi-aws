@@ -8,14 +8,14 @@ import * as utils from "../utils";
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_groups.html.markdown.
  */
-export function getSecurityGroups(args?: GetSecurityGroupsArgs, opts?: pulumi.InvokeOptions): GetSecurityGroupsResult {
+export function getSecurityGroups(args?: GetSecurityGroupsArgs, opts: pulumi.InvokeOptions = {}): Promise<GetSecurityGroupsResult> & GetSecurityGroupsResult {
     args = args || {};
     const promise: Promise<GetSecurityGroupsResult> = pulumi.runtime.invoke("aws:ec2/getSecurityGroups:getSecurityGroups", {
         "filters": args.filters,
         "tags": args.tags,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

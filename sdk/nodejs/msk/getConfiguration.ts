@@ -21,12 +21,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_configuration.html.markdown.
  */
-export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): GetConfigurationResult {
+export function getConfiguration(args: GetConfigurationArgs, opts: pulumi.InvokeOptions = {}): Promise<GetConfigurationResult> & GetConfigurationResult {
     const promise: Promise<GetConfigurationResult> = pulumi.runtime.invoke("aws:msk/getConfiguration:getConfiguration", {
         "name": args.name,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

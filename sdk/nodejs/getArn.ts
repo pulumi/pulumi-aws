@@ -21,12 +21,12 @@ import * as utils from "./utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/arn.html.markdown.
  */
-export function getArn(args: GetArnArgs, opts?: pulumi.InvokeOptions): GetArnResult {
+export function getArn(args: GetArnArgs, opts: pulumi.InvokeOptions = {}): Promise<GetArnResult> & GetArnResult {
     const promise: Promise<GetArnResult> = pulumi.runtime.invoke("aws:index/getArn:getArn", {
         "arn": args.arn,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

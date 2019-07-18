@@ -22,12 +22,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/transfer_server.html.markdown.
  */
-export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): GetServerResult {
+export function getServer(args: GetServerArgs, opts: pulumi.InvokeOptions = {}): Promise<GetServerResult> & GetServerResult {
     const promise: Promise<GetServerResult> = pulumi.runtime.invoke("aws:transfer/getServer:getServer", {
         "serverId": args.serverId,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

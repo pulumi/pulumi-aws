@@ -8,11 +8,11 @@ import * as utils from "./utils";
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/canonical_user_id.html.markdown.
  */
-export function getCanonicalUserId(opts?: pulumi.InvokeOptions): GetCanonicalUserIdResult {
+export function getCanonicalUserId(opts: pulumi.InvokeOptions = {}): Promise<GetCanonicalUserIdResult> & GetCanonicalUserIdResult {
     const promise: Promise<GetCanonicalUserIdResult> = pulumi.runtime.invoke("aws:index/getCanonicalUserId:getCanonicalUserId", {
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

@@ -39,7 +39,7 @@ import * as utils from "./utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami.html.markdown.
  */
-export function getAmi(args: GetAmiArgs, opts?: pulumi.InvokeOptions): GetAmiResult {
+export function getAmi(args: GetAmiArgs, opts: pulumi.InvokeOptions = {}): Promise<GetAmiResult> & GetAmiResult {
     const promise: Promise<GetAmiResult> = pulumi.runtime.invoke("aws:index/getAmi:getAmi", {
         "executableUsers": args.executableUsers,
         "filters": args.filters,
@@ -49,7 +49,7 @@ export function getAmi(args: GetAmiArgs, opts?: pulumi.InvokeOptions): GetAmiRes
         "tags": args.tags,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

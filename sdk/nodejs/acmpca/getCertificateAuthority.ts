@@ -21,14 +21,14 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acmpca_certificate_authority.html.markdown.
  */
-export function getCertificateAuthority(args: GetCertificateAuthorityArgs, opts?: pulumi.InvokeOptions): GetCertificateAuthorityResult {
+export function getCertificateAuthority(args: GetCertificateAuthorityArgs, opts: pulumi.InvokeOptions = {}): Promise<GetCertificateAuthorityResult> & GetCertificateAuthorityResult {
     const promise: Promise<GetCertificateAuthorityResult> = pulumi.runtime.invoke("aws:acmpca/getCertificateAuthority:getCertificateAuthority", {
         "arn": args.arn,
         "revocationConfigurations": args.revocationConfigurations,
         "tags": args.tags,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

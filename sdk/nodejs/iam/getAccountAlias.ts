@@ -8,11 +8,11 @@ import * as utils from "../utils";
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_account_alias.html.markdown.
  */
-export function getAccountAlias(opts?: pulumi.InvokeOptions): GetAccountAliasResult {
+export function getAccountAlias(opts: pulumi.InvokeOptions = {}): Promise<GetAccountAliasResult> & GetAccountAliasResult {
     const promise: Promise<GetAccountAliasResult> = pulumi.runtime.invoke("aws:iam/getAccountAlias:getAccountAlias", {
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

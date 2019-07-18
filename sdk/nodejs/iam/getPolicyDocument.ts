@@ -8,7 +8,7 @@ import * as utils from "../utils";
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy_document.html.markdown.
  */
-export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.InvokeOptions): GetPolicyDocumentResult {
+export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts: pulumi.InvokeOptions = {}): Promise<GetPolicyDocumentResult> & GetPolicyDocumentResult {
     args = args || {};
     const promise: Promise<GetPolicyDocumentResult> = pulumi.runtime.invoke("aws:iam/getPolicyDocument:getPolicyDocument", {
         "overrideJson": args.overrideJson,
@@ -18,7 +18,7 @@ export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.In
         "version": args.version,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

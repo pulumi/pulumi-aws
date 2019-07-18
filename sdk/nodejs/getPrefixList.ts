@@ -44,14 +44,14 @@ import * as utils from "./utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/prefix_list.html.markdown.
  */
-export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOptions): GetPrefixListResult {
+export function getPrefixList(args?: GetPrefixListArgs, opts: pulumi.InvokeOptions = {}): Promise<GetPrefixListResult> & GetPrefixListResult {
     args = args || {};
     const promise: Promise<GetPrefixListResult> = pulumi.runtime.invoke("aws:index/getPrefixList:getPrefixList", {
         "name": args.name,
         "prefixListId": args.prefixListId,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

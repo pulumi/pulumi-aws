@@ -23,12 +23,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sns_topic.html.markdown.
  */
-export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): GetTopicResult {
+export function getTopic(args: GetTopicArgs, opts: pulumi.InvokeOptions = {}): Promise<GetTopicResult> & GetTopicResult {
     const promise: Promise<GetTopicResult> = pulumi.runtime.invoke("aws:sns/getTopic:getTopic", {
         "name": args.name,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

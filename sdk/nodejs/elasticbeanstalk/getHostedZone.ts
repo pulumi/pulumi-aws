@@ -19,13 +19,13 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_hosted_zone.html.markdown.
  */
-export function getHostedZone(args?: GetHostedZoneArgs, opts?: pulumi.InvokeOptions): GetHostedZoneResult {
+export function getHostedZone(args?: GetHostedZoneArgs, opts: pulumi.InvokeOptions = {}): Promise<GetHostedZoneResult> & GetHostedZoneResult {
     args = args || {};
     const promise: Promise<GetHostedZoneResult> = pulumi.runtime.invoke("aws:elasticbeanstalk/getHostedZone:getHostedZone", {
         "region": args.region,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

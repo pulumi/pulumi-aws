@@ -12,14 +12,14 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_invocation.html.markdown.
  */
-export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptions): GetInvocationResult {
+export function getInvocation(args: GetInvocationArgs, opts: pulumi.InvokeOptions = {}): Promise<GetInvocationResult> & GetInvocationResult {
     const promise: Promise<GetInvocationResult> = pulumi.runtime.invoke("aws:lambda/getInvocation:getInvocation", {
         "functionName": args.functionName,
         "input": args.input,
         "qualifier": args.qualifier,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

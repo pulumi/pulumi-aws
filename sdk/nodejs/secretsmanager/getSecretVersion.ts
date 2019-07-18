@@ -37,14 +37,14 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret_version.html.markdown.
  */
-export function getSecretVersion(args: GetSecretVersionArgs, opts?: pulumi.InvokeOptions): GetSecretVersionResult {
+export function getSecretVersion(args: GetSecretVersionArgs, opts: pulumi.InvokeOptions = {}): Promise<GetSecretVersionResult> & GetSecretVersionResult {
     const promise: Promise<GetSecretVersionResult> = pulumi.runtime.invoke("aws:secretsmanager/getSecretVersion:getSecretVersion", {
         "secretId": args.secretId,
         "versionId": args.versionId,
         "versionStage": args.versionStage,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

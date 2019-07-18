@@ -21,12 +21,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/workspaces_bundle.html.markdown.
  */
-export function getBundle(args: GetBundleArgs, opts?: pulumi.InvokeOptions): GetBundleResult {
+export function getBundle(args: GetBundleArgs, opts: pulumi.InvokeOptions = {}): Promise<GetBundleResult> & GetBundleResult {
     const promise: Promise<GetBundleResult> = pulumi.runtime.invoke("aws:workspaces/getBundle:getBundle", {
         "bundleId": args.bundleId,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

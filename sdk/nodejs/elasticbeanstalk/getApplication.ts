@@ -24,12 +24,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_application.html.markdown.
  */
-export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): GetApplicationResult {
+export function getApplication(args: GetApplicationArgs, opts: pulumi.InvokeOptions = {}): Promise<GetApplicationResult> & GetApplicationResult {
     const promise: Promise<GetApplicationResult> = pulumi.runtime.invoke("aws:elasticbeanstalk/getApplication:getApplication", {
         "name": args.name,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

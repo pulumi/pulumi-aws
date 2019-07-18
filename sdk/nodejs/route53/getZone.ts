@@ -33,7 +33,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_zone.html.markdown.
  */
-export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): GetZoneResult {
+export function getZone(args?: GetZoneArgs, opts: pulumi.InvokeOptions = {}): Promise<GetZoneResult> & GetZoneResult {
     args = args || {};
     const promise: Promise<GetZoneResult> = pulumi.runtime.invoke("aws:route53/getZone:getZone", {
         "callerReference": args.callerReference,
@@ -46,7 +46,7 @@ export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): GetZon
         "zoneId": args.zoneId,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

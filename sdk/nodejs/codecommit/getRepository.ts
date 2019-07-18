@@ -21,12 +21,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/codecommit_repository.html.markdown.
  */
-export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): GetRepositoryResult {
+export function getRepository(args: GetRepositoryArgs, opts: pulumi.InvokeOptions = {}): Promise<GetRepositoryResult> & GetRepositoryResult {
     const promise: Promise<GetRepositoryResult> = pulumi.runtime.invoke("aws:codecommit/getRepository:getRepository", {
         "repositoryName": args.repositoryName,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

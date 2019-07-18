@@ -37,7 +37,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway.html.markdown.
  */
-export function getTransitGateway(args?: GetTransitGatewayArgs, opts?: pulumi.InvokeOptions): GetTransitGatewayResult {
+export function getTransitGateway(args?: GetTransitGatewayArgs, opts: pulumi.InvokeOptions = {}): Promise<GetTransitGatewayResult> & GetTransitGatewayResult {
     args = args || {};
     const promise: Promise<GetTransitGatewayResult> = pulumi.runtime.invoke("aws:ec2transitgateway/getTransitGateway:getTransitGateway", {
         "filters": args.filters,
@@ -45,7 +45,7 @@ export function getTransitGateway(args?: GetTransitGatewayArgs, opts?: pulumi.In
         "tags": args.tags,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

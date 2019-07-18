@@ -8,7 +8,7 @@ import * as utils from "../utils";
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instances.html.markdown.
  */
-export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOptions): GetInstancesResult {
+export function getInstances(args?: GetInstancesArgs, opts: pulumi.InvokeOptions = {}): Promise<GetInstancesResult> & GetInstancesResult {
     args = args || {};
     const promise: Promise<GetInstancesResult> = pulumi.runtime.invoke("aws:ec2/getInstances:getInstances", {
         "filters": args.filters,
@@ -16,7 +16,7 @@ export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOption
         "instanceTags": args.instanceTags,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

@@ -21,14 +21,14 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dynamodb_table.html.markdown.
  */
-export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): GetTableResult {
+export function getTable(args: GetTableArgs, opts: pulumi.InvokeOptions = {}): Promise<GetTableResult> & GetTableResult {
     const promise: Promise<GetTableResult> = pulumi.runtime.invoke("aws:dynamodb/getTable:getTable", {
         "name": args.name,
         "serverSideEncryption": args.serverSideEncryption,
         "tags": args.tags,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

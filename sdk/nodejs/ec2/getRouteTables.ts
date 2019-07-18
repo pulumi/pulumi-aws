@@ -37,7 +37,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_tables.html.markdown.
  */
-export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOptions): GetRouteTablesResult {
+export function getRouteTables(args?: GetRouteTablesArgs, opts: pulumi.InvokeOptions = {}): Promise<GetRouteTablesResult> & GetRouteTablesResult {
     args = args || {};
     const promise: Promise<GetRouteTablesResult> = pulumi.runtime.invoke("aws:ec2/getRouteTables:getRouteTables", {
         "filters": args.filters,
@@ -45,7 +45,7 @@ export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOp
         "vpcId": args.vpcId,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

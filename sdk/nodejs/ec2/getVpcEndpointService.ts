@@ -45,7 +45,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint_service.html.markdown.
  */
-export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: pulumi.InvokeOptions): GetVpcEndpointServiceResult {
+export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts: pulumi.InvokeOptions = {}): Promise<GetVpcEndpointServiceResult> & GetVpcEndpointServiceResult {
     args = args || {};
     const promise: Promise<GetVpcEndpointServiceResult> = pulumi.runtime.invoke("aws:ec2/getVpcEndpointService:getVpcEndpointService", {
         "service": args.service,
@@ -53,7 +53,7 @@ export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: p
         "tags": args.tags,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

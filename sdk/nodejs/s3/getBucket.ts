@@ -54,12 +54,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket.html.markdown.
  */
-export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): GetBucketResult {
+export function getBucket(args: GetBucketArgs, opts: pulumi.InvokeOptions = {}): Promise<GetBucketResult> & GetBucketResult {
     const promise: Promise<GetBucketResult> = pulumi.runtime.invoke("aws:s3/getBucket:getBucket", {
         "bucket": args.bucket,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

@@ -21,12 +21,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_instance.html.markdown.
  */
-export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): GetInstanceResult {
+export function getInstance(args: GetInstanceArgs, opts: pulumi.InvokeOptions = {}): Promise<GetInstanceResult> & GetInstanceResult {
     const promise: Promise<GetInstanceResult> = pulumi.runtime.invoke("aws:rds/getInstance:getInstance", {
         "dbInstanceIdentifier": args.dbInstanceIdentifier,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

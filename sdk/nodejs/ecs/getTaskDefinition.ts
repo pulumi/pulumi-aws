@@ -51,12 +51,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_task_definition.html.markdown.
  */
-export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): GetTaskDefinitionResult {
+export function getTaskDefinition(args: GetTaskDefinitionArgs, opts: pulumi.InvokeOptions = {}): Promise<GetTaskDefinitionResult> & GetTaskDefinitionResult {
     const promise: Promise<GetTaskDefinitionResult> = pulumi.runtime.invoke("aws:ecs/getTaskDefinition:getTaskDefinition", {
         "taskDefinition": args.taskDefinition,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

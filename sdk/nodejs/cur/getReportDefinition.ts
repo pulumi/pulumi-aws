@@ -25,12 +25,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cur_report_definition.html.markdown.
  */
-export function getReportDefinition(args: GetReportDefinitionArgs, opts?: pulumi.InvokeOptions): GetReportDefinitionResult {
+export function getReportDefinition(args: GetReportDefinitionArgs, opts: pulumi.InvokeOptions = {}): Promise<GetReportDefinitionResult> & GetReportDefinitionResult {
     const promise: Promise<GetReportDefinitionResult> = pulumi.runtime.invoke("aws:cur/getReportDefinition:getReportDefinition", {
         "reportName": args.reportName,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

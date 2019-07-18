@@ -57,14 +57,14 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet_ids.html.markdown.
  */
-export function getSubnetIds(args: GetSubnetIdsArgs, opts?: pulumi.InvokeOptions): GetSubnetIdsResult {
+export function getSubnetIds(args: GetSubnetIdsArgs, opts: pulumi.InvokeOptions = {}): Promise<GetSubnetIdsResult> & GetSubnetIdsResult {
     const promise: Promise<GetSubnetIdsResult> = pulumi.runtime.invoke("aws:ec2/getSubnetIds:getSubnetIds", {
         "filters": args.filters,
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

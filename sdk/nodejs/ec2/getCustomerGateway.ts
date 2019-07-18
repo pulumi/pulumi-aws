@@ -34,7 +34,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/customer_gateway.html.markdown.
  */
-export function getCustomerGateway(args?: GetCustomerGatewayArgs, opts?: pulumi.InvokeOptions): GetCustomerGatewayResult {
+export function getCustomerGateway(args?: GetCustomerGatewayArgs, opts: pulumi.InvokeOptions = {}): Promise<GetCustomerGatewayResult> & GetCustomerGatewayResult {
     args = args || {};
     const promise: Promise<GetCustomerGatewayResult> = pulumi.runtime.invoke("aws:ec2/getCustomerGateway:getCustomerGateway", {
         "filters": args.filters,
@@ -42,7 +42,7 @@ export function getCustomerGateway(args?: GetCustomerGatewayArgs, opts?: pulumi.
         "tags": args.tags,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

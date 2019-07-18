@@ -24,12 +24,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_rest_api.html.markdown.
  */
-export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): GetRestApiResult {
+export function getRestApi(args: GetRestApiArgs, opts: pulumi.InvokeOptions = {}): Promise<GetRestApiResult> & GetRestApiResult {
     const promise: Promise<GetRestApiResult> = pulumi.runtime.invoke("aws:apigateway/getRestApi:getRestApi", {
         "name": args.name,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

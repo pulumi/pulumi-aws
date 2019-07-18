@@ -23,13 +23,13 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_service.html.markdown.
  */
-export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): GetServiceResult {
+export function getService(args: GetServiceArgs, opts: pulumi.InvokeOptions = {}): Promise<GetServiceResult> & GetServiceResult {
     const promise: Promise<GetServiceResult> = pulumi.runtime.invoke("aws:ecs/getService:getService", {
         "clusterArn": args.clusterArn,
         "serviceName": args.serviceName,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

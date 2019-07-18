@@ -8,12 +8,12 @@ import * as utils from "../utils";
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_secret.html.markdown.
  */
-export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): GetSecretResult {
+export function getSecret(args: GetSecretArgs, opts: pulumi.InvokeOptions = {}): Promise<GetSecretResult> & GetSecretResult {
     const promise: Promise<GetSecretResult> = pulumi.runtime.invoke("aws:kms/getSecret:getSecret", {
         "secrets": args.secrets,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

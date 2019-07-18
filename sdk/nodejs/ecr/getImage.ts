@@ -22,7 +22,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_image.html.markdown.
  */
-export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): GetImageResult {
+export function getImage(args: GetImageArgs, opts: pulumi.InvokeOptions = {}): Promise<GetImageResult> & GetImageResult {
     const promise: Promise<GetImageResult> = pulumi.runtime.invoke("aws:ecr/getImage:getImage", {
         "imageDigest": args.imageDigest,
         "imageTag": args.imageTag,
@@ -30,7 +30,7 @@ export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): GetIm
         "repositoryName": args.repositoryName,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

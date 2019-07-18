@@ -23,12 +23,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sqs_queue.html.markdown.
  */
-export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): GetQueueResult {
+export function getQueue(args: GetQueueArgs, opts: pulumi.InvokeOptions = {}): Promise<GetQueueResult> & GetQueueResult {
     const promise: Promise<GetQueueResult> = pulumi.runtime.invoke("aws:sqs/getQueue:getQueue", {
         "name": args.name,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

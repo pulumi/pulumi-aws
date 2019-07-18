@@ -25,7 +25,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acm_certificate.html.markdown.
  */
-export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): GetCertificateResult {
+export function getCertificate(args: GetCertificateArgs, opts: pulumi.InvokeOptions = {}): Promise<GetCertificateResult> & GetCertificateResult {
     const promise: Promise<GetCertificateResult> = pulumi.runtime.invoke("aws:acm/getCertificate:getCertificate", {
         "domain": args.domain,
         "keyTypes": args.keyTypes,
@@ -34,7 +34,7 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
         "types": args.types,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

@@ -36,11 +36,11 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/inspector_rules_packages.html.markdown.
  */
-export function getRulesPackages(opts?: pulumi.InvokeOptions): GetRulesPackagesResult {
+export function getRulesPackages(opts: pulumi.InvokeOptions = {}): Promise<GetRulesPackagesResult> & GetRulesPackagesResult {
     const promise: Promise<GetRulesPackagesResult> = pulumi.runtime.invoke("aws:inspector/getRulesPackages:getRulesPackages", {
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

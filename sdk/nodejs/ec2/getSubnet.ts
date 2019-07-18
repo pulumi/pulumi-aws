@@ -41,7 +41,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet.html.markdown.
  */
-export function getSubnet(args?: GetSubnetArgs, opts?: pulumi.InvokeOptions): GetSubnetResult {
+export function getSubnet(args?: GetSubnetArgs, opts: pulumi.InvokeOptions = {}): Promise<GetSubnetResult> & GetSubnetResult {
     args = args || {};
     const promise: Promise<GetSubnetResult> = pulumi.runtime.invoke("aws:ec2/getSubnet:getSubnet", {
         "availabilityZone": args.availabilityZone,
@@ -56,7 +56,7 @@ export function getSubnet(args?: GetSubnetArgs, opts?: pulumi.InvokeOptions): Ge
         "vpcId": args.vpcId,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

@@ -38,14 +38,14 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ram_resource_share.html.markdown.
  */
-export function getResourceShare(args: GetResourceShareArgs, opts?: pulumi.InvokeOptions): GetResourceShareResult {
+export function getResourceShare(args: GetResourceShareArgs, opts: pulumi.InvokeOptions = {}): Promise<GetResourceShareResult> & GetResourceShareResult {
     const promise: Promise<GetResourceShareResult> = pulumi.runtime.invoke("aws:ram/getResourceShare:getResourceShare", {
         "filters": args.filters,
         "name": args.name,
         "resourceOwner": args.resourceOwner,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

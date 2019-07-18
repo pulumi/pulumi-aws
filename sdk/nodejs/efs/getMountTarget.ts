@@ -24,12 +24,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_mount_target.html.markdown.
  */
-export function getMountTarget(args: GetMountTargetArgs, opts?: pulumi.InvokeOptions): GetMountTargetResult {
+export function getMountTarget(args: GetMountTargetArgs, opts: pulumi.InvokeOptions = {}): Promise<GetMountTargetResult> & GetMountTargetResult {
     const promise: Promise<GetMountTargetResult> = pulumi.runtime.invoke("aws:efs/getMountTarget:getMountTarget", {
         "mountTargetId": args.mountTargetId,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

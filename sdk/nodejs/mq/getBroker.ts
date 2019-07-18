@@ -28,7 +28,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/mq_broker.html.markdown.
  */
-export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): GetBrokerResult {
+export function getBroker(args?: GetBrokerArgs, opts: pulumi.InvokeOptions = {}): Promise<GetBrokerResult> & GetBrokerResult {
     args = args || {};
     const promise: Promise<GetBrokerResult> = pulumi.runtime.invoke("aws:mq/getBroker:getBroker", {
         "brokerId": args.brokerId,
@@ -37,7 +37,7 @@ export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Ge
         "tags": args.tags,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

@@ -34,13 +34,13 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_event_categories.html.markdown.
  */
-export function getEventCategories(args?: GetEventCategoriesArgs, opts?: pulumi.InvokeOptions): GetEventCategoriesResult {
+export function getEventCategories(args?: GetEventCategoriesArgs, opts: pulumi.InvokeOptions = {}): Promise<GetEventCategoriesResult> & GetEventCategoriesResult {
     args = args || {};
     const promise: Promise<GetEventCategoriesResult> = pulumi.runtime.invoke("aws:rds/getEventCategories:getEventCategories", {
         "sourceType": args.sourceType,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

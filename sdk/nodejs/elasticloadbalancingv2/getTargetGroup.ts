@@ -32,7 +32,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_target_group.html.markdown.
  */
-export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): GetTargetGroupResult {
+export function getTargetGroup(args?: GetTargetGroupArgs, opts: pulumi.InvokeOptions = {}): Promise<GetTargetGroupResult> & GetTargetGroupResult {
     args = args || {};
     const promise: Promise<GetTargetGroupResult> = pulumi.runtime.invoke("aws:elasticloadbalancingv2/getTargetGroup:getTargetGroup", {
         "arn": args.arn,
@@ -40,7 +40,7 @@ export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOp
         "tags": args.tags,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

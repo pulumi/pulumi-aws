@@ -24,14 +24,14 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_dx_gateway_attachment.html.markdown.
  */
-export function getDirectConnectGatewayAttachment(args: GetDirectConnectGatewayAttachmentArgs, opts?: pulumi.InvokeOptions): GetDirectConnectGatewayAttachmentResult {
+export function getDirectConnectGatewayAttachment(args: GetDirectConnectGatewayAttachmentArgs, opts: pulumi.InvokeOptions = {}): Promise<GetDirectConnectGatewayAttachmentResult> & GetDirectConnectGatewayAttachmentResult {
     const promise: Promise<GetDirectConnectGatewayAttachmentResult> = pulumi.runtime.invoke("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", {
         "dxGatewayId": args.dxGatewayId,
         "tags": args.tags,
         "transitGatewayId": args.transitGatewayId,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

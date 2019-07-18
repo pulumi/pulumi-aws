@@ -24,12 +24,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_vpc_link.html.markdown.
  */
-export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): GetVpcLinkResult {
+export function getVpcLink(args: GetVpcLinkArgs, opts: pulumi.InvokeOptions = {}): Promise<GetVpcLinkResult> & GetVpcLinkResult {
     const promise: Promise<GetVpcLinkResult> = pulumi.runtime.invoke("aws:apigateway/getVpcLink:getVpcLink", {
         "name": args.name,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

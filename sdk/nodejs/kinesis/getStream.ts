@@ -24,12 +24,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kinesis_stream.html.markdown.
  */
-export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): GetStreamResult {
+export function getStream(args: GetStreamArgs, opts: pulumi.InvokeOptions = {}): Promise<GetStreamResult> & GetStreamResult {
     const promise: Promise<GetStreamResult> = pulumi.runtime.invoke("aws:kinesis/getStream:getStream", {
         "name": args.name,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

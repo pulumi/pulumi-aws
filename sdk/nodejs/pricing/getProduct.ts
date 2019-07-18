@@ -67,13 +67,13 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/pricing_product.html.markdown.
  */
-export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): GetProductResult {
+export function getProduct(args: GetProductArgs, opts: pulumi.InvokeOptions = {}): Promise<GetProductResult> & GetProductResult {
     const promise: Promise<GetProductResult> = pulumi.runtime.invoke("aws:pricing/getProduct:getProduct", {
         "filters": args.filters,
         "serviceCode": args.serviceCode,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

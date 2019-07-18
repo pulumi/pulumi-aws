@@ -27,14 +27,14 @@ import * as utils from "./utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/region.html.markdown.
  */
-export function getRegion(args?: GetRegionArgs, opts?: pulumi.InvokeOptions): GetRegionResult {
+export function getRegion(args?: GetRegionArgs, opts: pulumi.InvokeOptions = {}): Promise<GetRegionResult> & GetRegionResult {
     args = args || {};
     const promise: Promise<GetRegionResult> = pulumi.runtime.invoke("aws:index/getRegion:getRegion", {
         "endpoint": args.endpoint,
         "name": args.name,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

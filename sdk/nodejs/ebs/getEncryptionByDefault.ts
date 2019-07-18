@@ -19,11 +19,11 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_encryption_by_default.html.markdown.
  */
-export function getEncryptionByDefault(opts?: pulumi.InvokeOptions): GetEncryptionByDefaultResult {
+export function getEncryptionByDefault(opts: pulumi.InvokeOptions = {}): Promise<GetEncryptionByDefaultResult> & GetEncryptionByDefaultResult {
     const promise: Promise<GetEncryptionByDefaultResult> = pulumi.runtime.invoke("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", {
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

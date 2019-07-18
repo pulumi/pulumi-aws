@@ -22,12 +22,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_compute_environment.html.markdown.
  */
-export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pulumi.InvokeOptions): GetComputeEnvironmentResult {
+export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts: pulumi.InvokeOptions = {}): Promise<GetComputeEnvironmentResult> & GetComputeEnvironmentResult {
     const promise: Promise<GetComputeEnvironmentResult> = pulumi.runtime.invoke("aws:batch/getComputeEnvironment:getComputeEnvironment", {
         "computeEnvironmentName": args.computeEnvironmentName,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

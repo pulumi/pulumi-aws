@@ -8,11 +8,11 @@ import * as utils from "./utils";
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/caller_identity.html.markdown.
  */
-export function getCallerIdentity(opts?: pulumi.InvokeOptions): GetCallerIdentityResult {
+export function getCallerIdentity(opts: pulumi.InvokeOptions = {}): Promise<GetCallerIdentityResult> & GetCallerIdentityResult {
     const promise: Promise<GetCallerIdentityResult> = pulumi.runtime.invoke("aws:index/getCallerIdentity:getCallerIdentity", {
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

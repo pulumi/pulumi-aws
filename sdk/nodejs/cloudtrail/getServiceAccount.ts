@@ -47,13 +47,13 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudtrail_service_account.html.markdown.
  */
-export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): GetServiceAccountResult {
+export function getServiceAccount(args?: GetServiceAccountArgs, opts: pulumi.InvokeOptions = {}): Promise<GetServiceAccountResult> & GetServiceAccountResult {
     args = args || {};
     const promise: Promise<GetServiceAccountResult> = pulumi.runtime.invoke("aws:cloudtrail/getServiceAccount:getServiceAccount", {
         "region": args.region,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

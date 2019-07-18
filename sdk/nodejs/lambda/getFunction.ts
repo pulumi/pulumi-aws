@@ -24,14 +24,14 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_function.html.markdown.
  */
-export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): GetFunctionResult {
+export function getFunction(args: GetFunctionArgs, opts: pulumi.InvokeOptions = {}): Promise<GetFunctionResult> & GetFunctionResult {
     const promise: Promise<GetFunctionResult> = pulumi.runtime.invoke("aws:lambda/getFunction:getFunction", {
         "functionName": args.functionName,
         "qualifier": args.qualifier,
         "tags": args.tags,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

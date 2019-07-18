@@ -23,13 +23,13 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_container_definition.html.markdown.
  */
-export function getContainerDefinition(args: GetContainerDefinitionArgs, opts?: pulumi.InvokeOptions): GetContainerDefinitionResult {
+export function getContainerDefinition(args: GetContainerDefinitionArgs, opts: pulumi.InvokeOptions = {}): Promise<GetContainerDefinitionResult> & GetContainerDefinitionResult {
     const promise: Promise<GetContainerDefinitionResult> = pulumi.runtime.invoke("aws:ecs/getContainerDefinition:getContainerDefinition", {
         "containerName": args.containerName,
         "taskDefinition": args.taskDefinition,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**

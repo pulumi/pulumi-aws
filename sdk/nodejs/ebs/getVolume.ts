@@ -32,7 +32,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.
  */
-export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): GetVolumeResult {
+export function getVolume(args?: GetVolumeArgs, opts: pulumi.InvokeOptions = {}): Promise<GetVolumeResult> & GetVolumeResult {
     args = args || {};
     const promise: Promise<GetVolumeResult> = pulumi.runtime.invoke("aws:ebs/getVolume:getVolume", {
         "filters": args.filters,
@@ -40,7 +40,7 @@ export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Ge
         "tags": args.tags,
     }, opts);
 
-    return utils.promiseResult(promise);
+    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
 }
 
 /**
