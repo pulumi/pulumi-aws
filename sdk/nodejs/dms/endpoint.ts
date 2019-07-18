@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Provides a DMS (Data Migration Service) endpoint resource. DMS endpoints can be created, updated, deleted, and imported.

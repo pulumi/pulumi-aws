@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Provides a Simple or Managed Microsoft directory in AWS Directory Service.

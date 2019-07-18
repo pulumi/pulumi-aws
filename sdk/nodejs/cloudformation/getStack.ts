@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * The CloudFormation Stack data source allows access to stack
@@ -30,12 +29,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudformation_stack.html.markdown.
  */
-export function getStack(args: GetStackArgs, opts: pulumi.InvokeOptions = {}): Promise<GetStackResult> & GetStackResult {
+export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promise<GetStackResult> & GetStackResult {
     const promise: Promise<GetStackResult> = pulumi.runtime.invoke("aws:cloudformation/getStack:getStack", {
         "name": args.name,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

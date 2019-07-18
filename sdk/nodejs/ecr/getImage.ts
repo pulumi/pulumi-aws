@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
@@ -22,7 +21,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_image.html.markdown.
  */
-export function getImage(args: GetImageArgs, opts: pulumi.InvokeOptions = {}): Promise<GetImageResult> & GetImageResult {
+export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> & GetImageResult {
     const promise: Promise<GetImageResult> = pulumi.runtime.invoke("aws:ecr/getImage:getImage", {
         "imageDigest": args.imageDigest,
         "imageTag": args.imageTag,
@@ -30,7 +29,7 @@ export function getImage(args: GetImageArgs, opts: pulumi.InvokeOptions = {}): P
         "repositoryName": args.repositoryName,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Provides a load balancer policy, which can be attached to an ELB listener or backend server.

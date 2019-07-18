@@ -3,16 +3,15 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
-import * as utils from "./utils";
 
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/partition.html.markdown.
  */
-export function getPartition(opts: pulumi.InvokeOptions = {}): Promise<GetPartitionResult> & GetPartitionResult {
+export function getPartition(opts?: pulumi.InvokeOptions): Promise<GetPartitionResult> & GetPartitionResult {
     const promise: Promise<GetPartitionResult> = pulumi.runtime.invoke("aws:index/getPartition:getPartition", {
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

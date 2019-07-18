@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * The VPC Endpoint Service data source details about a specific service that
@@ -45,7 +44,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint_service.html.markdown.
  */
-export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts: pulumi.InvokeOptions = {}): Promise<GetVpcEndpointServiceResult> & GetVpcEndpointServiceResult {
+export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointServiceResult> & GetVpcEndpointServiceResult {
     args = args || {};
     const promise: Promise<GetVpcEndpointServiceResult> = pulumi.runtime.invoke("aws:ec2/getVpcEndpointService:getVpcEndpointService", {
         "service": args.service,
@@ -53,7 +52,7 @@ export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts: pu
         "tags": args.tags,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

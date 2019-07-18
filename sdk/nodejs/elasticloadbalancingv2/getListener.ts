@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * > **Note:** `aws_alb_listener` is known as `aws_lb_listener`. The functionality is identical.
@@ -37,7 +36,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_listener.html.markdown.
  */
-export function getListener(args?: GetListenerArgs, opts: pulumi.InvokeOptions = {}): Promise<GetListenerResult> & GetListenerResult {
+export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> & GetListenerResult {
     args = args || {};
     const promise: Promise<GetListenerResult> = pulumi.runtime.invoke("aws:elasticloadbalancingv2/getListener:getListener", {
         "arn": args.arn,
@@ -45,7 +44,7 @@ export function getListener(args?: GetListenerArgs, opts: pulumi.InvokeOptions =
         "port": args.port,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

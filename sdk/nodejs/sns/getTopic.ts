@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Use this data source to get the ARN of a topic in AWS Simple Notification
@@ -23,12 +22,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sns_topic.html.markdown.
  */
-export function getTopic(args: GetTopicArgs, opts: pulumi.InvokeOptions = {}): Promise<GetTopicResult> & GetTopicResult {
+export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> & GetTopicResult {
     const promise: Promise<GetTopicResult> = pulumi.runtime.invoke("aws:sns/getTopic:getTopic", {
         "name": args.name,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

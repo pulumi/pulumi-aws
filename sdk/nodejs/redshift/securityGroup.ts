@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters

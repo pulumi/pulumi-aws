@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * The VPC Peering Connection data source provides details about
@@ -34,7 +33,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_peering_connection.html.markdown.
  */
-export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts: pulumi.InvokeOptions = {}): Promise<GetVpcPeeringConnectionResult> & GetVpcPeeringConnectionResult {
+export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcPeeringConnectionResult> & GetVpcPeeringConnectionResult {
     args = args || {};
     const promise: Promise<GetVpcPeeringConnectionResult> = pulumi.runtime.invoke("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", {
         "cidrBlock": args.cidrBlock,
@@ -51,7 +50,7 @@ export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts
         "vpcId": args.vpcId,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

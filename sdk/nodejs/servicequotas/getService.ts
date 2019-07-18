@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Retrieve information about a Service Quotas Service.
@@ -21,12 +20,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/servicequotas_service.html.markdown.
  */
-export function getService(args: GetServiceArgs, opts: pulumi.InvokeOptions = {}): Promise<GetServiceResult> & GetServiceResult {
+export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> & GetServiceResult {
     const promise: Promise<GetServiceResult> = pulumi.runtime.invoke("aws:servicequotas/getService:getService", {
         "serviceName": args.serviceName,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

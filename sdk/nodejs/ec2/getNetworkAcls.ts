@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * ## Example Usage
@@ -54,7 +53,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_acls.html.markdown.
  */
-export function getNetworkAcls(args?: GetNetworkAclsArgs, opts: pulumi.InvokeOptions = {}): Promise<GetNetworkAclsResult> & GetNetworkAclsResult {
+export function getNetworkAcls(args?: GetNetworkAclsArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAclsResult> & GetNetworkAclsResult {
     args = args || {};
     const promise: Promise<GetNetworkAclsResult> = pulumi.runtime.invoke("aws:ec2/getNetworkAcls:getNetworkAcls", {
         "filters": args.filters,
@@ -62,7 +61,7 @@ export function getNetworkAcls(args?: GetNetworkAclsArgs, opts: pulumi.InvokeOpt
         "vpcId": args.vpcId,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

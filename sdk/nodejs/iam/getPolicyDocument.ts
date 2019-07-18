@@ -3,12 +3,11 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy_document.html.markdown.
  */
-export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts: pulumi.InvokeOptions = {}): Promise<GetPolicyDocumentResult> & GetPolicyDocumentResult {
+export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDocumentResult> & GetPolicyDocumentResult {
     args = args || {};
     const promise: Promise<GetPolicyDocumentResult> = pulumi.runtime.invoke("aws:iam/getPolicyDocument:getPolicyDocument", {
         "overrideJson": args.overrideJson,
@@ -18,7 +17,7 @@ export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts: pulumi.Inv
         "version": args.version,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

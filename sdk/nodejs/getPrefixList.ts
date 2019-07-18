@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
-import * as utils from "./utils";
 
 /**
  * `aws_prefix_list` provides details about a specific prefix list (PL)
@@ -44,14 +43,14 @@ import * as utils from "./utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/prefix_list.html.markdown.
  */
-export function getPrefixList(args?: GetPrefixListArgs, opts: pulumi.InvokeOptions = {}): Promise<GetPrefixListResult> & GetPrefixListResult {
+export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixListResult> & GetPrefixListResult {
     args = args || {};
     const promise: Promise<GetPrefixListResult> = pulumi.runtime.invoke("aws:index/getPrefixList:getPrefixList", {
         "name": args.name,
         "prefixListId": args.prefixListId,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

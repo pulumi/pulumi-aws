@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Get an authentication token to communicate with an EKS cluster.
@@ -15,12 +14,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eks_cluster_auth.html.markdown.
  */
-export function getClusterAuth(args: GetClusterAuthArgs, opts: pulumi.InvokeOptions = {}): Promise<GetClusterAuthResult> & GetClusterAuthResult {
+export function getClusterAuth(args: GetClusterAuthArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterAuthResult> & GetClusterAuthResult {
     const promise: Promise<GetClusterAuthResult> = pulumi.runtime.invoke("aws:eks/getClusterAuth:getClusterAuth", {
         "name": args.name,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -3,12 +3,11 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_server_certificate.html.markdown.
  */
-export function getServerCertificate(args?: GetServerCertificateArgs, opts: pulumi.InvokeOptions = {}): Promise<GetServerCertificateResult> & GetServerCertificateResult {
+export function getServerCertificate(args?: GetServerCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCertificateResult> & GetServerCertificateResult {
     args = args || {};
     const promise: Promise<GetServerCertificateResult> = pulumi.runtime.invoke("aws:iam/getServerCertificate:getServerCertificate", {
         "latest": args.latest,
@@ -17,7 +16,7 @@ export function getServerCertificate(args?: GetServerCertificateArgs, opts: pulu
         "pathPrefix": args.pathPrefix,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

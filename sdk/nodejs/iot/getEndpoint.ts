@@ -3,20 +3,19 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Returns a unique endpoint specific to the AWS account making the call.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iot_endpoint.html.markdown.
  */
-export function getEndpoint(args?: GetEndpointArgs, opts: pulumi.InvokeOptions = {}): Promise<GetEndpointResult> & GetEndpointResult {
+export function getEndpoint(args?: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> & GetEndpointResult {
     args = args || {};
     const promise: Promise<GetEndpointResult> = pulumi.runtime.invoke("aws:iot/getEndpoint:getEndpoint", {
         "endpointType": args.endpointType,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

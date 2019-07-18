@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`aws_secretsmanager_secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
@@ -37,14 +36,14 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret_version.html.markdown.
  */
-export function getSecretVersion(args: GetSecretVersionArgs, opts: pulumi.InvokeOptions = {}): Promise<GetSecretVersionResult> & GetSecretVersionResult {
+export function getSecretVersion(args: GetSecretVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretVersionResult> & GetSecretVersionResult {
     const promise: Promise<GetSecretVersionResult> = pulumi.runtime.invoke("aws:secretsmanager/getSecretVersion:getSecretVersion", {
         "secretId": args.secretId,
         "versionId": args.versionId,
         "versionStage": args.versionStage,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
@@ -36,14 +35,14 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_ciphertext.html.markdown.
  */
-export function getCipherText(args: GetCipherTextArgs, opts: pulumi.InvokeOptions = {}): Promise<GetCipherTextResult> & GetCipherTextResult {
+export function getCipherText(args: GetCipherTextArgs, opts?: pulumi.InvokeOptions): Promise<GetCipherTextResult> & GetCipherTextResult {
     const promise: Promise<GetCipherTextResult> = pulumi.runtime.invoke("aws:kms/getCipherText:getCipherText", {
         "context": args.context,
         "keyId": args.keyId,
         "plaintext": args.plaintext,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

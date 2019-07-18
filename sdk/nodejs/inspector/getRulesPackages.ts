@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * The AWS Inspector Rules Packages data source allows access to the list of AWS
@@ -36,11 +35,11 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/inspector_rules_packages.html.markdown.
  */
-export function getRulesPackages(opts: pulumi.InvokeOptions = {}): Promise<GetRulesPackagesResult> & GetRulesPackagesResult {
+export function getRulesPackages(opts?: pulumi.InvokeOptions): Promise<GetRulesPackagesResult> & GetRulesPackagesResult {
     const promise: Promise<GetRulesPackagesResult> = pulumi.runtime.invoke("aws:inspector/getRulesPackages:getRulesPackages", {
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

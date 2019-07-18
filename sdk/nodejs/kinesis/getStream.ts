@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Use this data source to get information about a Kinesis Stream for use in other
@@ -24,12 +23,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kinesis_stream.html.markdown.
  */
-export function getStream(args: GetStreamArgs, opts: pulumi.InvokeOptions = {}): Promise<GetStreamResult> & GetStreamResult {
+export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamResult> & GetStreamResult {
     const promise: Promise<GetStreamResult> = pulumi.runtime.invoke("aws:kinesis/getStream:getStream", {
         "name": args.name,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

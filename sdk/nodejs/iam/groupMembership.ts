@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * > **WARNING:** Multiple aws_iam_group_membership resources with the same group name will produce inconsistent behavior!

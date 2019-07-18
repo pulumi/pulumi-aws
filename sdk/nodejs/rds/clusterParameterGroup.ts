@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Provides an RDS DB cluster parameter group resource. Documentation of the available parameters for various Aurora engines can be found at:

@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
-import * as utils from "./utils";
 
 /**
  * `aws_eip` provides details about a specific Elastic IP.
@@ -61,7 +60,7 @@ import * as utils from "./utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eip.html.markdown.
  */
-export function getElasticIp(args?: GetElasticIpArgs, opts: pulumi.InvokeOptions = {}): Promise<GetElasticIpResult> & GetElasticIpResult {
+export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticIpResult> & GetElasticIpResult {
     args = args || {};
     const promise: Promise<GetElasticIpResult> = pulumi.runtime.invoke("aws:index/getElasticIp:getElasticIp", {
         "filters": args.filters,
@@ -70,7 +69,7 @@ export function getElasticIp(args?: GetElasticIpArgs, opts: pulumi.InvokeOptions
         "tags": args.tags,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

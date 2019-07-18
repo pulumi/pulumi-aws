@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * A Cluster Instance Resource defines attributes that are specific to a single instance in a Neptune Cluster.

@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 import {InstanceProfile} from "../iam";
 import {InstanceType} from "./instanceType";

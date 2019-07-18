@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
-import * as utils from "./utils";
 
 /**
  * Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention][1].
@@ -38,14 +37,14 @@ import * as utils from "./utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ip_ranges.html.markdown.
  */
-export function getIpRanges(args: GetIpRangesArgs, opts: pulumi.InvokeOptions = {}): Promise<GetIpRangesResult> & GetIpRangesResult {
+export function getIpRanges(args: GetIpRangesArgs, opts?: pulumi.InvokeOptions): Promise<GetIpRangesResult> & GetIpRangesResult {
     const promise: Promise<GetIpRangesResult> = pulumi.runtime.invoke("aws:index/getIpRanges:getIpRanges", {
         "regions": args.regions,
         "services": args.services,
         "url": args.url,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

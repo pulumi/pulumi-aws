@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * `aws_ram_resource_share` Retrieve information about a RAM Resource Share.
@@ -38,14 +37,14 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ram_resource_share.html.markdown.
  */
-export function getResourceShare(args: GetResourceShareArgs, opts: pulumi.InvokeOptions = {}): Promise<GetResourceShareResult> & GetResourceShareResult {
+export function getResourceShare(args: GetResourceShareArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceShareResult> & GetResourceShareResult {
     const promise: Promise<GetResourceShareResult> = pulumi.runtime.invoke("aws:ram/getResourceShare:getResourceShare", {
         "filters": args.filters,
         "name": args.name,
         "resourceOwner": args.resourceOwner,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

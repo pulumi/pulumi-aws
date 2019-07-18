@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
@@ -21,14 +20,14 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acmpca_certificate_authority.html.markdown.
  */
-export function getCertificateAuthority(args: GetCertificateAuthorityArgs, opts: pulumi.InvokeOptions = {}): Promise<GetCertificateAuthorityResult> & GetCertificateAuthorityResult {
+export function getCertificateAuthority(args: GetCertificateAuthorityArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateAuthorityResult> & GetCertificateAuthorityResult {
     const promise: Promise<GetCertificateAuthorityResult> = pulumi.runtime.invoke("aws:acmpca/getCertificateAuthority:getCertificateAuthority", {
         "arn": args.arn,
         "revocationConfigurations": args.revocationConfigurations,
         "tags": args.tags,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * The VPN Gateway data source provides details about
@@ -27,7 +26,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpn_gateway.html.markdown.
  */
-export function getVpnGateway(args?: GetVpnGatewayArgs, opts: pulumi.InvokeOptions = {}): Promise<GetVpnGatewayResult> & GetVpnGatewayResult {
+export function getVpnGateway(args?: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> & GetVpnGatewayResult {
     args = args || {};
     const promise: Promise<GetVpnGatewayResult> = pulumi.runtime.invoke("aws:ec2/getVpnGateway:getVpnGateway", {
         "amazonSideAsn": args.amazonSideAsn,
@@ -39,7 +38,7 @@ export function getVpnGateway(args?: GetVpnGatewayArgs, opts: pulumi.InvokeOptio
         "tags": args.tags,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

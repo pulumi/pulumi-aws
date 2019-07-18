@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * The S3 object data source allows access to the metadata and
@@ -56,7 +55,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_object.html.markdown.
  */
-export function getBucketObject(args: GetBucketObjectArgs, opts: pulumi.InvokeOptions = {}): Promise<GetBucketObjectResult> & GetBucketObjectResult {
+export function getBucketObject(args: GetBucketObjectArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketObjectResult> & GetBucketObjectResult {
     const promise: Promise<GetBucketObjectResult> = pulumi.runtime.invoke("aws:s3/getBucketObject:getBucketObject", {
         "bucket": args.bucket,
         "key": args.key,
@@ -65,7 +64,7 @@ export function getBucketObject(args: GetBucketObjectArgs, opts: pulumi.InvokeOp
         "versionId": args.versionId,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

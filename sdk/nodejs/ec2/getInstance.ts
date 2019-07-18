@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Use this data source to get the ID of an Amazon EC2 Instance for use in other
@@ -32,7 +31,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instance.html.markdown.
  */
-export function getInstance(args?: GetInstanceArgs, opts: pulumi.InvokeOptions = {}): Promise<GetInstanceResult> & GetInstanceResult {
+export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> & GetInstanceResult {
     args = args || {};
     const promise: Promise<GetInstanceResult> = pulumi.runtime.invoke("aws:ec2/getInstance:getInstance", {
         "filters": args.filters,
@@ -43,7 +42,7 @@ export function getInstance(args?: GetInstanceArgs, opts: pulumi.InvokeOptions =
         "tags": args.tags,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

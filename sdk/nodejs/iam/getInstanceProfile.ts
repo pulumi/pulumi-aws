@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * This data source can be used to fetch information about a specific
@@ -23,12 +22,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_instance_profile.html.markdown.
  */
-export function getInstanceProfile(args: GetInstanceProfileArgs, opts: pulumi.InvokeOptions = {}): Promise<GetInstanceProfileResult> & GetInstanceProfileResult {
+export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceProfileResult> & GetInstanceProfileResult {
     const promise: Promise<GetInstanceProfileResult> = pulumi.runtime.invoke("aws:iam/getInstanceProfile:getInstanceProfile", {
         "name": args.name,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

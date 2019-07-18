@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Provides a resource to manage the default customer master key (CMK) that your AWS account uses to encrypt EBS volumes.

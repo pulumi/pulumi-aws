@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Gets the contents of the specified Systems Manager document.
@@ -37,14 +36,14 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_document.html.markdown.
  */
-export function getDocument(args: GetDocumentArgs, opts: pulumi.InvokeOptions = {}): Promise<GetDocumentResult> & GetDocumentResult {
+export function getDocument(args: GetDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentResult> & GetDocumentResult {
     const promise: Promise<GetDocumentResult> = pulumi.runtime.invoke("aws:ssm/getDocument:getDocument", {
         "documentFormat": args.documentFormat,
         "documentVersion": args.documentVersion,
         "name": args.name,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
-import * as utils from "./utils";
 
 /**
  * Parses an Amazon Resource Name (ARN) into its constituent parts.
@@ -21,12 +20,12 @@ import * as utils from "./utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/arn.html.markdown.
  */
-export function getArn(args: GetArnArgs, opts: pulumi.InvokeOptions = {}): Promise<GetArnResult> & GetArnResult {
+export function getArn(args: GetArnArgs, opts?: pulumi.InvokeOptions): Promise<GetArnResult> & GetArnResult {
     const promise: Promise<GetArnResult> = pulumi.runtime.invoke("aws:index/getArn:getArn", {
         "arn": args.arn,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

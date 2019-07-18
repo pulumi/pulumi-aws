@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * `aws_internet_gateway` provides details about a specific Internet Gateway.
@@ -27,7 +26,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/internet_gateway.html.markdown.
  */
-export function getInternetGateway(args?: GetInternetGatewayArgs, opts: pulumi.InvokeOptions = {}): Promise<GetInternetGatewayResult> & GetInternetGatewayResult {
+export function getInternetGateway(args?: GetInternetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetInternetGatewayResult> & GetInternetGatewayResult {
     args = args || {};
     const promise: Promise<GetInternetGatewayResult> = pulumi.runtime.invoke("aws:ec2/getInternetGateway:getInternetGateway", {
         "filters": args.filters,
@@ -35,7 +34,7 @@ export function getInternetGateway(args?: GetInternetGatewayArgs, opts: pulumi.I
         "tags": args.tags,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

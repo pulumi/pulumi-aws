@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Provides information about an Elastic File System Mount Target (EFS).
@@ -24,12 +23,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_mount_target.html.markdown.
  */
-export function getMountTarget(args: GetMountTargetArgs, opts: pulumi.InvokeOptions = {}): Promise<GetMountTargetResult> & GetMountTargetResult {
+export function getMountTarget(args: GetMountTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetMountTargetResult> & GetMountTargetResult {
     const promise: Promise<GetMountTargetResult> = pulumi.runtime.invoke("aws:efs/getMountTarget:getMountTarget", {
         "mountTargetId": args.mountTargetId,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

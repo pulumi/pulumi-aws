@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Retrieve information about a Direct Connect Gateway.
@@ -21,12 +20,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dx_gateway.html.markdown.
  */
-export function getGateway(args: GetGatewayArgs, opts: pulumi.InvokeOptions = {}): Promise<GetGatewayResult> & GetGatewayResult {
+export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> & GetGatewayResult {
     const promise: Promise<GetGatewayResult> = pulumi.runtime.invoke("aws:directconnect/getGateway:getGateway", {
         "name": args.name,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Use this data source to get a list of EBS Snapshot IDs matching the specified
@@ -32,7 +31,7 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot_ids.html.markdown.
  */
-export function getSnapshotIds(args?: GetSnapshotIdsArgs, opts: pulumi.InvokeOptions = {}): Promise<GetSnapshotIdsResult> & GetSnapshotIdsResult {
+export function getSnapshotIds(args?: GetSnapshotIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotIdsResult> & GetSnapshotIdsResult {
     args = args || {};
     const promise: Promise<GetSnapshotIdsResult> = pulumi.runtime.invoke("aws:ebs/getSnapshotIds:getSnapshotIds", {
         "filters": args.filters,
@@ -40,7 +39,7 @@ export function getSnapshotIds(args?: GetSnapshotIdsArgs, opts: pulumi.InvokeOpt
         "restorableByUserIds": args.restorableByUserIds,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

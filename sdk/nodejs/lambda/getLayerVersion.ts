@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Provides information about a Lambda Layer Version.
@@ -24,14 +23,14 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_layer_version.html.markdown.
  */
-export function getLayerVersion(args: GetLayerVersionArgs, opts: pulumi.InvokeOptions = {}): Promise<GetLayerVersionResult> & GetLayerVersionResult {
+export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerVersionResult> & GetLayerVersionResult {
     const promise: Promise<GetLayerVersionResult> = pulumi.runtime.invoke("aws:lambda/getLayerVersion:getLayerVersion", {
         "compatibleRuntime": args.compatibleRuntime,
         "layerName": args.layerName,
         "version": args.version,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

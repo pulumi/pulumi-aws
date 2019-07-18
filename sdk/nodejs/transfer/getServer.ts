@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Use this data source to get the ARN of an AWS Transfer Server for use in other
@@ -22,12 +21,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/transfer_server.html.markdown.
  */
-export function getServer(args: GetServerArgs, opts: pulumi.InvokeOptions = {}): Promise<GetServerResult> & GetServerResult {
+export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> & GetServerResult {
     const promise: Promise<GetServerResult> = pulumi.runtime.invoke("aws:transfer/getServer:getServer", {
         "serverId": args.serverId,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

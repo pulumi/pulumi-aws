@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
-import * as utils from "./utils";
 
 /**
  * `aws_availability_zone` provides details about a specific availability zone (AZ)
@@ -68,7 +67,7 @@ import * as utils from "./utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zone.html.markdown.
  */
-export function getAvailabilityZone(args?: GetAvailabilityZoneArgs, opts: pulumi.InvokeOptions = {}): Promise<GetAvailabilityZoneResult> & GetAvailabilityZoneResult {
+export function getAvailabilityZone(args?: GetAvailabilityZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityZoneResult> & GetAvailabilityZoneResult {
     args = args || {};
     const promise: Promise<GetAvailabilityZoneResult> = pulumi.runtime.invoke("aws:index/getAvailabilityZone:getAvailabilityZone", {
         "name": args.name,
@@ -76,7 +75,7 @@ export function getAvailabilityZone(args?: GetAvailabilityZoneArgs, opts: pulumi
         "zoneId": args.zoneId,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

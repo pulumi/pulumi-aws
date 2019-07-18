@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Use this data source to get information about a Workspaces Bundle.
@@ -21,12 +20,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/workspaces_bundle.html.markdown.
  */
-export function getBundle(args: GetBundleArgs, opts: pulumi.InvokeOptions = {}): Promise<GetBundleResult> & GetBundleResult {
+export function getBundle(args: GetBundleArgs, opts?: pulumi.InvokeOptions): Promise<GetBundleResult> & GetBundleResult {
     const promise: Promise<GetBundleResult> = pulumi.runtime.invoke("aws:workspaces/getBundle:getBundle", {
         "bundleId": args.bundleId,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

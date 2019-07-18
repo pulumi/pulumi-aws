@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Get information on an EC2 Transit Gateway VPN Attachment.
@@ -24,14 +23,14 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpn_attachment.html.markdown.
  */
-export function getVpnAttachment(args: GetVpnAttachmentArgs, opts: pulumi.InvokeOptions = {}): Promise<GetVpnAttachmentResult> & GetVpnAttachmentResult {
+export function getVpnAttachment(args: GetVpnAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnAttachmentResult> & GetVpnAttachmentResult {
     const promise: Promise<GetVpnAttachmentResult> = pulumi.runtime.invoke("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", {
         "tags": args.tags,
         "transitGatewayId": args.transitGatewayId,
         "vpnConnectionId": args.vpnConnectionId,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

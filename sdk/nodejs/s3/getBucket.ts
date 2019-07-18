@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Provides details about a specific S3 bucket.
@@ -54,12 +53,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket.html.markdown.
  */
-export function getBucket(args: GetBucketArgs, opts: pulumi.InvokeOptions = {}): Promise<GetBucketResult> & GetBucketResult {
+export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> & GetBucketResult {
     const promise: Promise<GetBucketResult> = pulumi.runtime.invoke("aws:s3/getBucket:getBucket", {
         "bucket": args.bucket,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

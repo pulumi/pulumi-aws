@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Use this data source to get the name and value of a pre-existing API Key, for
@@ -22,12 +21,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_api_key.html.markdown.
  */
-export function getKey(args: GetKeyArgs, opts: pulumi.InvokeOptions = {}): Promise<GetKeyResult> & GetKeyResult {
+export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> & GetKeyResult {
     const promise: Promise<GetKeyResult> = pulumi.runtime.invoke("aws:apigateway/getKey:getKey", {
         "id": args.id,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

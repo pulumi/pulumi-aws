@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * This data source can be used to fetch information about a specific
@@ -23,12 +22,12 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_role.html.markdown.
  */
-export function getRole(args: GetRoleArgs, opts: pulumi.InvokeOptions = {}): Promise<GetRoleResult> & GetRoleResult {
+export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> & GetRoleResult {
     const promise: Promise<GetRoleResult> = pulumi.runtime.invoke("aws:iam/getRole:getRole", {
         "name": args.name,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

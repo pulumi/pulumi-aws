@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
@@ -29,13 +28,13 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_hosted_zone_id.html.markdown.
  */
-export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts: pulumi.InvokeOptions = {}): Promise<GetHostedZoneIdResult> & GetHostedZoneIdResult {
+export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneIdResult> & GetHostedZoneIdResult {
     args = args || {};
     const promise: Promise<GetHostedZoneIdResult> = pulumi.runtime.invoke("aws:elasticloadbalancing/getHostedZoneId:getHostedZoneId", {
         "region": args.region,
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

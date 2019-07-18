@@ -3,7 +3,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
-import * as utils from "../utils";
 
 /**
  * Use this data source to get the default EBS encryption KMS key in the current region.
@@ -24,11 +23,11 @@ import * as utils from "../utils";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_default_kms_key.html.markdown.
  */
-export function getDefaultKmsKey(opts: pulumi.InvokeOptions = {}): Promise<GetDefaultKmsKeyResult> & GetDefaultKmsKeyResult {
+export function getDefaultKmsKey(opts?: pulumi.InvokeOptions): Promise<GetDefaultKmsKeyResult> & GetDefaultKmsKeyResult {
     const promise: Promise<GetDefaultKmsKeyResult> = pulumi.runtime.invoke("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", {
     }, opts);
 
-    return <any>((<any>opts).async ? promise : utils.promiseResult(promise));
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
