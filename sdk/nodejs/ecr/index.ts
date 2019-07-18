@@ -6,5 +6,6 @@ export * from "./getCredentials";
 export * from "./getImage";
 export * from "./getRepository";
 export * from "./lifecyclePolicy";
+export * from "./lifecyclePolicyDocument";
 export * from "./repository";
 export * from "./repositoryPolicy";

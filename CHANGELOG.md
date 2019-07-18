@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-___NULL___
+* Add ECR LifecyclePolicy Document Type
 
 ---
 
