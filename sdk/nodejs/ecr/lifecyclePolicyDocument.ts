@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import {Input} from "@pulumi/pulumi";
+
 /**
  * Amazon ECR lifecycle policies enable you to specify the lifecycle management of images in a repository.
  * A lifecycle policy is a set of one or more rules, where each rule defines an action for Amazon ECR.
@@ -27,13 +29,21 @@ export interface LifecyclePolicyDocument {
 }
 
 export interface PolicyRule {
-    // Indicate the Rule Priority - each rule must have a different priority.
-    rulePriority: number;
-    // An optional description for the rule.
-    description?: string;
-    // The selection criteria for the rule.
+    /**
+     * Indicate the Rule Priority - each rule must have a different priority.
+     */
+    rulePriority: Input<number>;
+    /**
+     * An optional description for the rule.
+     */
+    description?: Input<string>;
+    /**
+     * The selection criteria for the rule.
+     */
     selection: Selection;
-    // The action to perform when selection criteria is met.
+    /**
+     * The action to perform when selection criteria is met.
+     */
     action: Action;
 }
 
@@ -41,19 +51,31 @@ export interface PolicyRule {
  * Selection is the selection criteria for the rule and is the mart part of the policy.
  */
 export interface Selection {
-    // Indicate whether to select `tagged`, `untagged` or `any` images in the repository.
-    tagStatus: "tagged" | "untagged" | "any";
-    // Specify one or more image tag prefixes for selection.
-    tagPrefixList?: string | string[];
-    // Indicate whether to evaluate the rule based on `imageCountMoreThan` or `sinceImagePushed`.
-    countType: "imageCountMoreThan" | "sinceImagePushed";
-    // The unit of time e.g. days for which to apply the selection.
-    countUnit?: string;
-    // The maximum number of images or the max age for which to apply the image selection.
-    countNumber: number;
+    /**
+     * Indicate whether to select `tagged`, `untagged` or `any` images in the repository.
+     */
+    tagStatus: Input<"tagged" | "untagged" | "any">;
+    /**
+     * Specify one or more image tag prefixes for selection.
+     */
+    tagPrefixList?: Input<string> | Input<string>[];
+    /**
+     * Indicate whether to evaluate the rule based on `imageCountMoreThan` or `sinceImagePushed`.
+     */
+    countType: Input<"imageCountMoreThan" | "sinceImagePushed">;
+    /**
+     * The unit of time e.g. days for which to apply the selection.
+     */
+    countUnit?: Input<string>;
+    /**
+     * The maximum number of images or the max age for which to apply the image selection.
+     */
+    countNumber: Input<number>;
 }
 
 export interface Action {
-    // The specified action type - the only supported value is `expire`.
-    type: "expire";
+    /**
+     * The specified action type - the only supported value is `expire`.
+     */
+    type: Input<"expire">;
 }
