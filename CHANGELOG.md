@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add ECR LifecyclePolicy Document Type
+* Add ECR LifecyclePolicy Document Type.
+* Upgrade to v2.20.0 of the AWS Terraform Provider.
 
 ---
 

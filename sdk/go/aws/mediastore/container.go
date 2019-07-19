@@ -20,8 +20,10 @@ func NewContainer(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["name"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["name"] = args.Name
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	inputs["endpoint"] = nil
@@ -41,6 +43,7 @@ func GetContainer(ctx *pulumi.Context,
 		inputs["arn"] = state.Arn
 		inputs["endpoint"] = state.Endpoint
 		inputs["name"] = state.Name
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:mediastore/container:Container", name, id, inputs, opts...)
 	if err != nil {
@@ -74,6 +77,11 @@ func (r *Container) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// A mapping of tags to assign to the resource.
+func (r *Container) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering Container resources.
 type ContainerState struct {
 	// The ARN of the container.
@@ -82,10 +90,14 @@ type ContainerState struct {
 	Endpoint interface{}
 	// The name of the container. Must contain alphanumeric characters or underscores.
 	Name interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }
 
 // The set of arguments for constructing a Container resource.
 type ContainerArgs struct {
 	// The name of the container. Must contain alphanumeric characters or underscores.
 	Name interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }

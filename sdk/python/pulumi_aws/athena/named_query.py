@@ -25,7 +25,11 @@ class NamedQuery(pulumi.CustomResource):
     """
     The text of the query itself. In other words, all query statements. Maximum length of 262144.
     """
-    def __init__(__self__, resource_name, opts=None, database=None, description=None, name=None, query=None, __name__=None, __opts__=None):
+    workgroup: pulumi.Output[str]
+    """
+    The workgroup to which the query belongs. Defaults to `primary`
+    """
+    def __init__(__self__, resource_name, opts=None, database=None, description=None, name=None, query=None, workgroup=None, __name__=None, __opts__=None):
         """
         Provides an Athena Named Query resource.
         
@@ -35,6 +39,7 @@ class NamedQuery(pulumi.CustomResource):
         :param pulumi.Input[str] description: A brief explanation of the query. Maximum length of 1024.
         :param pulumi.Input[str] name: The plain language name for the query. Maximum length of 128.
         :param pulumi.Input[str] query: The text of the query itself. In other words, all query statements. Maximum length of 262144.
+        :param pulumi.Input[str] workgroup: The workgroup to which the query belongs. Defaults to `primary`
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_named_query.html.markdown.
         """
@@ -64,6 +69,8 @@ class NamedQuery(pulumi.CustomResource):
         if query is None:
             raise TypeError("Missing required property 'query'")
         __props__['query'] = query
+
+        __props__['workgroup'] = workgroup
 
         super(NamedQuery, __self__).__init__(
             'aws:athena/namedQuery:NamedQuery',

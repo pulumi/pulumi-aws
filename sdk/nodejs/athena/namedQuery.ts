@@ -13,14 +13,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
+ * const testKey = new aws.kms.Key("test", {
+ *     deletionWindowInDays: 7,
+ *     description: "Athena KMS Key",
+ * });
  * const hogeBucket = new aws.s3.Bucket("hoge", {});
  * const hogeDatabase = new aws.athena.Database("hoge", {
  *     bucket: hogeBucket.bucket,
  *     name: "users",
  * });
+ * const testWorkgroup = new aws.athena.Workgroup("test", {
+ *     configuration: {
+ *         resultConfiguration: {
+ *             encryptionConfiguration: {
+ *                 encryptionOption: "SSE_KMS",
+ *                 kmsKeyArn: testKey.arn,
+ *             },
+ *         },
+ *     },
+ * });
  * const foo = new aws.athena.NamedQuery("foo", {
  *     database: hogeDatabase.name,
  *     query: pulumi.interpolate`SELECT * FROM ${hogeDatabase.name} limit 10;`,
+ *     workgroup: testWorkgroup.id,
  * });
  * ```
  *
@@ -69,6 +84,10 @@ export class NamedQuery extends pulumi.CustomResource {
      * The text of the query itself. In other words, all query statements. Maximum length of 262144.
      */
     public readonly query!: pulumi.Output<string>;
+    /**
+     * The workgroup to which the query belongs. Defaults to `primary`
+     */
+    public readonly workgroup!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NamedQuery resource with the given unique name, arguments, and options.
@@ -86,6 +105,7 @@ export class NamedQuery extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["query"] = state ? state.query : undefined;
+            inputs["workgroup"] = state ? state.workgroup : undefined;
         } else {
             const args = argsOrState as NamedQueryArgs | undefined;
             if (!args || args.database === undefined) {
@@ -98,6 +118,7 @@ export class NamedQuery extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["query"] = args ? args.query : undefined;
+            inputs["workgroup"] = args ? args.workgroup : undefined;
         }
         super(NamedQuery.__pulumiType, name, inputs, opts);
     }
@@ -123,6 +144,10 @@ export interface NamedQueryState {
      * The text of the query itself. In other words, all query statements. Maximum length of 262144.
      */
     readonly query?: pulumi.Input<string>;
+    /**
+     * The workgroup to which the query belongs. Defaults to `primary`
+     */
+    readonly workgroup?: pulumi.Input<string>;
 }
 
 /**
@@ -145,4 +170,8 @@ export interface NamedQueryArgs {
      * The text of the query itself. In other words, all query statements. Maximum length of 262144.
      */
     readonly query: pulumi.Input<string>;
+    /**
+     * The workgroup to which the query belongs. Defaults to `primary`
+     */
+    readonly workgroup?: pulumi.Input<string>;
 }

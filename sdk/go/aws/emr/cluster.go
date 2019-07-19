@@ -275,7 +275,7 @@ func (r *Cluster) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// Switch on/off termination protection (default is off)
+// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
 func (r *Cluster) TerminationProtection() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["terminationProtection"])
 }
@@ -339,7 +339,7 @@ type ClusterState struct {
 	Steps interface{}
 	// list of tags to apply to the EMR Cluster
 	Tags interface{}
-	// Switch on/off termination protection (default is off)
+	// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
 	TerminationProtection interface{}
 	// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
 	VisibleToAllUsers interface{}
@@ -395,7 +395,7 @@ type ClusterArgs struct {
 	Steps interface{}
 	// list of tags to apply to the EMR Cluster
 	Tags interface{}
-	// Switch on/off termination protection (default is off)
+	// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
 	TerminationProtection interface{}
 	// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
 	VisibleToAllUsers interface{}

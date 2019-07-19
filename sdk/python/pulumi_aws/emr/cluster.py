@@ -111,7 +111,7 @@ class Cluster(pulumi.CustomResource):
     """
     termination_protection: pulumi.Output[bool]
     """
-    Switch on/off termination protection (default is off)
+    Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
     """
     visible_to_all_users: pulumi.Output[bool]
     """
@@ -146,7 +146,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] security_configuration: The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater
         :param pulumi.Input[str] service_role: IAM role that will be assumed by the Amazon EMR service to access AWS resources
         :param pulumi.Input[dict] tags: list of tags to apply to the EMR Cluster
-        :param pulumi.Input[bool] termination_protection: Switch on/off termination protection (default is off)
+        :param pulumi.Input[bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         :param pulumi.Input[bool] visible_to_all_users: Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/emr_cluster.html.markdown.

@@ -57,6 +57,10 @@ export class Container extends pulumi.CustomResource {
      * The name of the container. Must contain alphanumeric characters or underscores.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Container resource with the given unique name, arguments, and options.
@@ -73,9 +77,11 @@ export class Container extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ContainerArgs | undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
         }
@@ -99,6 +105,10 @@ export interface ContainerState {
      * The name of the container. Must contain alphanumeric characters or underscores.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -109,4 +119,8 @@ export interface ContainerArgs {
      * The name of the container. Must contain alphanumeric characters or underscores.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

@@ -233,6 +233,10 @@ export class DomainName extends pulumi.CustomResource {
      * The hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
      */
     public /*out*/ readonly regionalZoneId!: pulumi.Output<string>;
+    /**
+     * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+     */
+    public readonly securityPolicy!: pulumi.Output<string>;
 
     /**
      * Create a DomainName resource with the given unique name, arguments, and options.
@@ -260,6 +264,7 @@ export class DomainName extends pulumi.CustomResource {
             inputs["regionalCertificateName"] = state ? state.regionalCertificateName : undefined;
             inputs["regionalDomainName"] = state ? state.regionalDomainName : undefined;
             inputs["regionalZoneId"] = state ? state.regionalZoneId : undefined;
+            inputs["securityPolicy"] = state ? state.securityPolicy : undefined;
         } else {
             const args = argsOrState as DomainNameArgs | undefined;
             if (!args || args.domainName === undefined) {
@@ -274,6 +279,7 @@ export class DomainName extends pulumi.CustomResource {
             inputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
             inputs["regionalCertificateArn"] = args ? args.regionalCertificateArn : undefined;
             inputs["regionalCertificateName"] = args ? args.regionalCertificateName : undefined;
+            inputs["securityPolicy"] = args ? args.securityPolicy : undefined;
             inputs["certificateUploadDate"] = undefined /*out*/;
             inputs["cloudfrontDomainName"] = undefined /*out*/;
             inputs["cloudfrontZoneId"] = undefined /*out*/;
@@ -355,6 +361,10 @@ export interface DomainNameState {
      * The hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
      */
     readonly regionalZoneId?: pulumi.Input<string>;
+    /**
+     * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+     */
+    readonly securityPolicy?: pulumi.Input<string>;
 }
 
 /**
@@ -406,4 +416,8 @@ export interface DomainNameArgs {
      * `certificate_private_key`.
      */
     readonly regionalCertificateName?: pulumi.Input<string>;
+    /**
+     * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+     */
+    readonly securityPolicy?: pulumi.Input<string>;
 }

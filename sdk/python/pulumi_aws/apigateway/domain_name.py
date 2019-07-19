@@ -76,7 +76,11 @@ class DomainName(pulumi.CustomResource):
     """
     The hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
     """
-    def __init__(__self__, resource_name, opts=None, certificate_arn=None, certificate_body=None, certificate_chain=None, certificate_name=None, certificate_private_key=None, domain_name=None, endpoint_configuration=None, regional_certificate_arn=None, regional_certificate_name=None, __name__=None, __opts__=None):
+    security_policy: pulumi.Output[str]
+    """
+    The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+    """
+    def __init__(__self__, resource_name, opts=None, certificate_arn=None, certificate_body=None, certificate_chain=None, certificate_name=None, certificate_private_key=None, domain_name=None, endpoint_configuration=None, regional_certificate_arn=None, regional_certificate_name=None, security_policy=None, __name__=None, __opts__=None):
         """
         Registers a custom domain name for use with AWS API Gateway. Additional information about this functionality
         can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
@@ -122,6 +126,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[str] regional_certificate_arn: The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         :param pulumi.Input[str] regional_certificate_name: The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
                `certificate_private_key`.
+        :param pulumi.Input[str] security_policy: The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_domain_name.html.markdown.
         """
@@ -159,6 +164,8 @@ class DomainName(pulumi.CustomResource):
         __props__['regional_certificate_arn'] = regional_certificate_arn
 
         __props__['regional_certificate_name'] = regional_certificate_name
+
+        __props__['security_policy'] = security_policy
 
         __props__['certificate_upload_date'] = None
         __props__['cloudfront_domain_name'] = None
