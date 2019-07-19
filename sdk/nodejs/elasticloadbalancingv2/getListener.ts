@@ -36,13 +36,15 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_listener.html.markdown.
  */
-export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> {
+export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> & GetListenerResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:elasticloadbalancingv2/getListener:getListener", {
+    const promise: Promise<GetListenerResult> = pulumi.runtime.invoke("aws:elasticloadbalancingv2/getListener:getListener", {
         "arn": args.arn,
         "loadBalancerArn": args.loadBalancerArn,
         "port": args.port,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

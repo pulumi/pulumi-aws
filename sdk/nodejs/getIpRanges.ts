@@ -37,12 +37,14 @@ import * as utilities from "./utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ip_ranges.html.markdown.
  */
-export function getIpRanges(args: GetIpRangesArgs, opts?: pulumi.InvokeOptions): Promise<GetIpRangesResult> {
-    return pulumi.runtime.invoke("aws:index/getIpRanges:getIpRanges", {
+export function getIpRanges(args: GetIpRangesArgs, opts?: pulumi.InvokeOptions): Promise<GetIpRangesResult> & GetIpRangesResult {
+    const promise: Promise<GetIpRangesResult> = pulumi.runtime.invoke("aws:index/getIpRanges:getIpRanges", {
         "regions": args.regions,
         "services": args.services,
         "url": args.url,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -31,13 +31,15 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_target_group.html.markdown.
  */
-export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> {
+export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> & GetTargetGroupResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:elasticloadbalancingv2/getTargetGroup:getTargetGroup", {
+    const promise: Promise<GetTargetGroupResult> = pulumi.runtime.invoke("aws:elasticloadbalancingv2/getTargetGroup:getTargetGroup", {
         "arn": args.arn,
         "name": args.name,
         "tags": args.tags,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

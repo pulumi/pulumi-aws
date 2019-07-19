@@ -7,9 +7,11 @@ import * as utilities from "./utilities";
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/partition.html.markdown.
  */
-export function getPartition(opts?: pulumi.InvokeOptions): Promise<GetPartitionResult> {
-    return pulumi.runtime.invoke("aws:index/getPartition:getPartition", {
+export function getPartition(opts?: pulumi.InvokeOptions): Promise<GetPartitionResult> & GetPartitionResult {
+    const promise: Promise<GetPartitionResult> = pulumi.runtime.invoke("aws:index/getPartition:getPartition", {
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

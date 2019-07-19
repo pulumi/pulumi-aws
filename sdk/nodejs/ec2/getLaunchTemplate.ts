@@ -20,11 +20,13 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_template.html.markdown.
  */
-export function getLaunchTemplate(args: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> {
-    return pulumi.runtime.invoke("aws:ec2/getLaunchTemplate:getLaunchTemplate", {
+export function getLaunchTemplate(args: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> & GetLaunchTemplateResult {
+    const promise: Promise<GetLaunchTemplateResult> = pulumi.runtime.invoke("aws:ec2/getLaunchTemplate:getLaunchTemplate", {
         "name": args.name,
         "tags": args.tags,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

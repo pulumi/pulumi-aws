@@ -14,7 +14,7 @@ class Provider(pulumi.ProviderResource):
         The provider type for the aws package. By default, resources use package-wide configuration
         settings, however an explicit `Provider` instance may be created and passed during resource
         construction to achieve fine-grained programmatic control over provider settings. See the
-        [documentation](https://pulumi.io/reference/programming-model.html#providers) for more information.
+        [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

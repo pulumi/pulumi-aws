@@ -26,9 +26,9 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpn_gateway.html.markdown.
  */
-export function getVpnGateway(args?: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
+export function getVpnGateway(args?: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> & GetVpnGatewayResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:ec2/getVpnGateway:getVpnGateway", {
+    const promise: Promise<GetVpnGatewayResult> = pulumi.runtime.invoke("aws:ec2/getVpnGateway:getVpnGateway", {
         "amazonSideAsn": args.amazonSideAsn,
         "attachedVpcId": args.attachedVpcId,
         "availabilityZone": args.availabilityZone,
@@ -37,6 +37,8 @@ export function getVpnGateway(args?: GetVpnGatewayArgs, opts?: pulumi.InvokeOpti
         "state": args.state,
         "tags": args.tags,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
