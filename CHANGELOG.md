@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add ECR LifecyclePolicy Document Type.
-* Upgrade to v2.20.0 of the AWS Terraform Provider.
+___NULL__
 
 ---
+
+## 0.18.22 (2019-07-19)
+* Add ECR LifecyclePolicy Document Type.
+* Upgrade to v2.20.0 of the AWS Terraform Provider.
 
 ## 0.18.21 (2019-07-12)
 * Add Lambda runtime constants to the Go SDK.
