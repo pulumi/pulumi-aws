@@ -99,7 +99,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master). Cannot be specified if `master_instance_type` argument or `instance_group` configuration blocks are set. Detailed below.
      */
-    public readonly masterInstanceGroup!: pulumi.Output<{ bidPrice?: string, ebsConfigs: { iops?: number, size: number, type: string, volumesPerInstance?: number }[], id: string, instanceType: string, name?: string }>;
+    public readonly masterInstanceGroup!: pulumi.Output<{ bidPrice?: string, ebsConfigs: { iops?: number, size: number, type: string, volumesPerInstance?: number }[], id: string, instanceCount?: number, instanceType: string, name?: string }>;
     /**
      * Use the `master_instance_group` configuration block `instance_type` argument instead. The EC2 instance type of the master node. Cannot be specified if `master_instance_group` or `instance_group` configuration blocks are set.
      */
@@ -135,7 +135,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
-     * Switch on/off termination protection (default is off)
+     * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
      */
     public readonly terminationProtection!: pulumi.Output<boolean>;
     /**
@@ -295,7 +295,7 @@ export interface ClusterState {
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master). Cannot be specified if `master_instance_type` argument or `instance_group` configuration blocks are set. Detailed below.
      */
-    readonly masterInstanceGroup?: pulumi.Input<{ bidPrice?: pulumi.Input<string>, ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>, id?: pulumi.Input<string>, instanceType: pulumi.Input<string>, name?: pulumi.Input<string> }>;
+    readonly masterInstanceGroup?: pulumi.Input<{ bidPrice?: pulumi.Input<string>, ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>, id?: pulumi.Input<string>, instanceCount?: pulumi.Input<number>, instanceType: pulumi.Input<string>, name?: pulumi.Input<string> }>;
     /**
      * Use the `master_instance_group` configuration block `instance_type` argument instead. The EC2 instance type of the master node. Cannot be specified if `master_instance_group` or `instance_group` configuration blocks are set.
      */
@@ -331,7 +331,7 @@ export interface ClusterState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Switch on/off termination protection (default is off)
+     * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
      */
     readonly terminationProtection?: pulumi.Input<boolean>;
     /**
@@ -408,7 +408,7 @@ export interface ClusterArgs {
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master). Cannot be specified if `master_instance_type` argument or `instance_group` configuration blocks are set. Detailed below.
      */
-    readonly masterInstanceGroup?: pulumi.Input<{ bidPrice?: pulumi.Input<string>, ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>, id?: pulumi.Input<string>, instanceType: pulumi.Input<string>, name?: pulumi.Input<string> }>;
+    readonly masterInstanceGroup?: pulumi.Input<{ bidPrice?: pulumi.Input<string>, ebsConfigs?: pulumi.Input<pulumi.Input<{ iops?: pulumi.Input<number>, size: pulumi.Input<number>, type: pulumi.Input<string>, volumesPerInstance?: pulumi.Input<number> }>[]>, id?: pulumi.Input<string>, instanceCount?: pulumi.Input<number>, instanceType: pulumi.Input<string>, name?: pulumi.Input<string> }>;
     /**
      * Use the `master_instance_group` configuration block `instance_type` argument instead. The EC2 instance type of the master node. Cannot be specified if `master_instance_group` or `instance_group` configuration blocks are set.
      */
@@ -439,7 +439,7 @@ export interface ClusterArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Switch on/off termination protection (default is off)
+     * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
      */
     readonly terminationProtection?: pulumi.Input<boolean>;
     /**

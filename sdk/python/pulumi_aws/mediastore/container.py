@@ -21,13 +21,18 @@ class Container(pulumi.CustomResource):
     """
     The name of the container. Must contain alphanumeric characters or underscores.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
+    def __init__(__self__, resource_name, opts=None, name=None, tags=None, __name__=None, __opts__=None):
         """
         Provides a MediaStore Container.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the container. Must contain alphanumeric characters or underscores.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/media_store_container.html.markdown.
         """
@@ -47,6 +52,8 @@ class Container(pulumi.CustomResource):
         __props__ = dict()
 
         __props__['name'] = name
+
+        __props__['tags'] = tags
 
         __props__['arn'] = None
         __props__['endpoint'] = None

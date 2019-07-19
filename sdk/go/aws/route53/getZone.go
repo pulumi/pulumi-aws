@@ -15,8 +15,6 @@ import (
 func LookupZone(ctx *pulumi.Context, args *GetZoneArgs) (*GetZoneResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
-		inputs["callerReference"] = args.CallerReference
-		inputs["comment"] = args.Comment
 		inputs["name"] = args.Name
 		inputs["privateZone"] = args.PrivateZone
 		inputs["resourceRecordSetCount"] = args.ResourceRecordSetCount
@@ -31,6 +29,8 @@ func LookupZone(ctx *pulumi.Context, args *GetZoneArgs) (*GetZoneResult, error) 
 	return &GetZoneResult{
 		CallerReference: outputs["callerReference"],
 		Comment: outputs["comment"],
+		LinkedServiceDescription: outputs["linkedServiceDescription"],
+		LinkedServicePrincipal: outputs["linkedServicePrincipal"],
 		Name: outputs["name"],
 		NameServers: outputs["nameServers"],
 		PrivateZone: outputs["privateZone"],
@@ -44,8 +44,6 @@ func LookupZone(ctx *pulumi.Context, args *GetZoneArgs) (*GetZoneResult, error) 
 
 // A collection of arguments for invoking getZone.
 type GetZoneArgs struct {
-	CallerReference interface{}
-	Comment interface{}
 	// The Hosted Zone name of the desired Hosted Zone.
 	Name interface{}
 	// Used with `name` field to get a private Hosted Zone.
@@ -66,11 +64,15 @@ type GetZoneResult struct {
 	CallerReference interface{}
 	// The comment field of the Hosted Zone.
 	Comment interface{}
+	// The description provided by the service that created the Hosted Zone (e.g. `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
+	LinkedServiceDescription interface{}
+	// The service that created the Hosted Zone (e.g. `servicediscovery.amazonaws.com`).
+	LinkedServicePrincipal interface{}
 	Name interface{}
 	// The list of DNS name servers for the Hosted Zone.
 	NameServers interface{}
 	PrivateZone interface{}
-	// the number of Record Set in the Hosted Zone
+	// The number of Record Set in the Hosted Zone.
 	ResourceRecordSetCount interface{}
 	Tags interface{}
 	VpcId interface{}

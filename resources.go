@@ -108,6 +108,7 @@ const (
 	organizationsMod     = "organizations"            // Organizations
 	pinpointMod          = "pinpoint"                 // Pinpoint
 	pricingMod           = "pricing"                  // Pricing
+	quicksightMod        = "quicksight"               // Quicksight
 	ramMod               = "ram"                      // Resource Access Manager
 	rdsMod               = "rds"                      // Relational Database Service (RDS)
 	redshiftMod          = "redshift"                 // RedShift
@@ -1809,6 +1810,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_msk_configuration": {Tok: awsResource(mskMod, "Configuration")},
 			// Datapipeline
 			"aws_datapipeline_pipeline": {Tok: awsResource(datapipelineMod, "Pipeline")},
+			// Quicksight
+			"aws_quicksight_group": {Tok: awsResource(quicksightMod, "Group")},
+			// Service Quotas
+			"aws_servicequotas_service_quota": {Tok: awsResource(servicequotasMod, "ServiceQuota")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// AWS
@@ -2025,6 +2030,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_servicequotas_service_quota": {Tok: awsDataSource(servicequotasMod, "getServiceQuota")},
 			// MSK
 			"aws_msk_configuration": {Tok: awsDataSource(mskMod, "getConfiguration")},
+			// WAF
+			"aws_waf_rule":    {Tok: awsDataSource(wafMod, "getRule")},
+			"aws_waf_web_acl": {Tok: awsDataSource(wafMod, "getWebAcl")},
+			// WAF Regional
+			"aws_wafregional_rule":    {Tok: awsDataSource(wafregionalMod, "getRule")},
+			"aws_wafregional_web_acl": {Tok: awsDataSource(wafregionalMod, "getWebAcl")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

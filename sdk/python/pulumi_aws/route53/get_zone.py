@@ -12,7 +12,7 @@ class GetZoneResult:
     """
     A collection of values returned by getZone.
     """
-    def __init__(__self__, caller_reference=None, comment=None, name=None, name_servers=None, private_zone=None, resource_record_set_count=None, tags=None, vpc_id=None, zone_id=None, id=None):
+    def __init__(__self__, caller_reference=None, comment=None, linked_service_description=None, linked_service_principal=None, name=None, name_servers=None, private_zone=None, resource_record_set_count=None, tags=None, vpc_id=None, zone_id=None, id=None):
         if caller_reference and not isinstance(caller_reference, str):
             raise TypeError("Expected argument 'caller_reference' to be a str")
         __self__.caller_reference = caller_reference
@@ -24,6 +24,18 @@ class GetZoneResult:
         __self__.comment = comment
         """
         The comment field of the Hosted Zone.
+        """
+        if linked_service_description and not isinstance(linked_service_description, str):
+            raise TypeError("Expected argument 'linked_service_description' to be a str")
+        __self__.linked_service_description = linked_service_description
+        """
+        The description provided by the service that created the Hosted Zone (e.g. `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
+        """
+        if linked_service_principal and not isinstance(linked_service_principal, str):
+            raise TypeError("Expected argument 'linked_service_principal' to be a str")
+        __self__.linked_service_principal = linked_service_principal
+        """
+        The service that created the Hosted Zone (e.g. `servicediscovery.amazonaws.com`).
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -41,7 +53,7 @@ class GetZoneResult:
             raise TypeError("Expected argument 'resource_record_set_count' to be a float")
         __self__.resource_record_set_count = resource_record_set_count
         """
-        the number of Record Set in the Hosted Zone
+        The number of Record Set in the Hosted Zone.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -59,7 +71,7 @@ class GetZoneResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_zone(caller_reference=None,comment=None,name=None,private_zone=None,resource_record_set_count=None,tags=None,vpc_id=None,zone_id=None,opts=None):
+async def get_zone(name=None,private_zone=None,resource_record_set_count=None,tags=None,vpc_id=None,zone_id=None,opts=None):
     """
     `aws_route53_zone` provides details about a specific Route 53 Hosted Zone.
     
@@ -69,8 +81,6 @@ async def get_zone(caller_reference=None,comment=None,name=None,private_zone=Non
     """
     __args__ = dict()
 
-    __args__['callerReference'] = caller_reference
-    __args__['comment'] = comment
     __args__['name'] = name
     __args__['privateZone'] = private_zone
     __args__['resourceRecordSetCount'] = resource_record_set_count
@@ -82,6 +92,8 @@ async def get_zone(caller_reference=None,comment=None,name=None,private_zone=Non
     return GetZoneResult(
         caller_reference=__ret__.get('callerReference'),
         comment=__ret__.get('comment'),
+        linked_service_description=__ret__.get('linkedServiceDescription'),
+        linked_service_principal=__ret__.get('linkedServicePrincipal'),
         name=__ret__.get('name'),
         name_servers=__ret__.get('nameServers'),
         private_zone=__ret__.get('privateZone'),
