@@ -20,10 +20,12 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_web_acl.html.markdown.
  */
-export function getWebAcl(args: GetWebAclArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAclResult> {
-    return pulumi.runtime.invoke("aws:wafregional/getWebAcl:getWebAcl", {
+export function getWebAcl(args: GetWebAclArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAclResult> & GetWebAclResult {
+    const promise: Promise<GetWebAclResult> = pulumi.runtime.invoke("aws:wafregional/getWebAcl:getWebAcl", {
         "name": args.name,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

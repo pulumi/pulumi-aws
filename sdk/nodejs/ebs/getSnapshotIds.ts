@@ -31,13 +31,15 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot_ids.html.markdown.
  */
-export function getSnapshotIds(args?: GetSnapshotIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotIdsResult> {
+export function getSnapshotIds(args?: GetSnapshotIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotIdsResult> & GetSnapshotIdsResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:ebs/getSnapshotIds:getSnapshotIds", {
+    const promise: Promise<GetSnapshotIdsResult> = pulumi.runtime.invoke("aws:ebs/getSnapshotIds:getSnapshotIds", {
         "filters": args.filters,
         "owners": args.owners,
         "restorableByUserIds": args.restorableByUserIds,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

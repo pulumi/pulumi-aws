@@ -31,13 +31,15 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.
  */
-export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
+export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> & GetVolumeResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:ebs/getVolume:getVolume", {
+    const promise: Promise<GetVolumeResult> = pulumi.runtime.invoke("aws:ebs/getVolume:getVolume", {
         "filters": args.filters,
         "mostRecent": args.mostRecent,
         "tags": args.tags,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

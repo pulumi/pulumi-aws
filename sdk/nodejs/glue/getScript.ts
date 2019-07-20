@@ -201,12 +201,14 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/glue_script.html.markdown.
  */
-export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> {
-    return pulumi.runtime.invoke("aws:glue/getScript:getScript", {
+export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> & GetScriptResult {
+    const promise: Promise<GetScriptResult> = pulumi.runtime.invoke("aws:glue/getScript:getScript", {
         "dagEdges": args.dagEdges,
         "dagNodes": args.dagNodes,
         "language": args.language,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
