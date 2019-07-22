@@ -1,24 +1,42 @@
 # Copyright 2016-2018, Pulumi Corporation.  All rights reserved.
 
 import pulumi
-from pulumi_aws import applicationloadbalancing, ec2, get_aws_az
+from pulumi_aws import applicationloadbalancing, ec2, util
 
 vpc = ec2.Vpc('test',
     cidr_block="10.10.0.0/16",
     enable_dns_hostnames=True,
     enable_dns_support=True)
 
+internet_gateway = ec2.InternetGateway('test',
+    vpc_id=vpc.id)
+
+route_table = ec2.RouteTable('test',
+    vpc_id=vpc.id,
+    routes=[{
+        "cidrBlock": "0.0.0.0/0",
+        "gatewayId": internet_gateway.id
+    }])
+
 subnet0 = ec2.Subnet("test0",
     vpc_id=vpc.id,
-    availability_zone=get_aws_az(0),
+    availability_zone=util.get_aws_az(0),
     cidr_block="10.10.0.0/24",
     map_public_ip_on_launch=True)
 
 subnet1 = ec2.Subnet("test1",
     vpc_id=vpc.id,
-    availability_zone=get_aws_az(1),
+    availability_zone=util.get_aws_az(1),
     cidr_block="10.10.1.0/24",
     map_public_ip_on_launch=True)
+
+route_table_association0 = ec2.RouteTableAssociation('test0',
+    subnet_id=subnet0.id,
+    route_table_id=route_table.id)
+
+route_table_association1 = ec2.RouteTableAssociation('test1',
+    subnet_id=subnet1.id,
+    route_table_id=route_table.id)
 
 group = applicationloadbalancing.LoadBalancer('test',
     load_balancer_type='application',
