@@ -2,14 +2,5 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./getListener";
-export * from "./getLoadBalancer";
-export * from "./getTargetGroup";
 export * from "./ipAddressType";
-export * from "./listener";
-export * from "./listenerCertificate";
-export * from "./listenerRule";
-export * from "./loadBalancer";
 export * from "./loadBalancerType";
-export * from "./targetGroup";
-export * from "./targetGroupAttachment";

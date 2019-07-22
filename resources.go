@@ -1890,25 +1890,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_elb_hosted_zone_id":  {Tok: awsDataSource(elbMod, "getHostedZoneId")},
 			"aws_elb_service_account": {Tok: awsDataSource(elbMod, "getServiceAccount")},
 			"aws_elb":                 {Tok: awsDataSource(elbMod, "getLoadBalancer")},
-			// Elastic Load Balancing (v2: Application)
-			"aws_alb": {
-				Tok: awsDataSource(albMod, "getLoadBalancer"),
-				Docs: &tfbridge.DocInfo{
-					Source: "lb.html.markdown",
-				},
-			},
-			"aws_alb_listener": {
-				Tok: awsDataSource(albMod, "getListener"),
-				Docs: &tfbridge.DocInfo{
-					Source: "lb_listener.html.markdown",
-				},
-			},
-			"aws_alb_target_group": {
-				Tok: awsDataSource(albMod, "getTargetGroup"),
-				Docs: &tfbridge.DocInfo{
-					Source: "lb_target_group.html.markdown",
-				},
-			},
 			// Glue
 			"aws_glue_script": {Tok: awsDataSource(glueMod, "getScript")},
 			// IOT
@@ -2017,12 +1998,6 @@ func Provider() tfbridge.ProviderInfo {
 						DestFiles: []string{
 							"metrics.ts",          // Metric and MetricsGranularity union types and constants
 							"notificationType.ts", // NotificationType union type and constants
-						},
-					},
-					"applicationloadbalancing": {
-						DestFiles: []string{
-							"ipAddressType.ts",
-							"loadBalancerType.ts",
 						},
 					},
 					"cloudwatch": {
