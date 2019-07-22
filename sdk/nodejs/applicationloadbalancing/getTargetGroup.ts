@@ -4,33 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * > **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
- * 
- * Provides information about a Load Balancer Target Group.
- * 
- * This data source can prove useful when a module accepts an LB Target Group as an
- * input variable and needs to know its attributes. It can also be used to get the ARN of
- * an LB Target Group for use in other resources, given LB Target Group name.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const lbTgArn = config.get("lbTgArn") || "";
- * const lbTgName = config.get("lbTgName") || "";
- * 
- * const test = pulumi.output(aws.elasticloadbalancingv2.getTargetGroup({
- *     arn: lbTgArn,
- *     name: lbTgName,
- * }));
- * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb_target_group.html.markdown.
- */
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> & GetTargetGroupResult {
     args = args || {};
     const promise: Promise<GetTargetGroupResult> = pulumi.runtime.invoke("aws:applicationloadbalancing/getTargetGroup:getTargetGroup", {
@@ -42,9 +16,7 @@ export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOp
     return pulumi.utils.liftProperties(promise, opts);
 }
 
-/**
- * A collection of arguments for invoking getTargetGroup.
- */
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export interface GetTargetGroupArgs {
     /**
      * The full ARN of the target group.
@@ -57,9 +29,7 @@ export interface GetTargetGroupArgs {
     readonly tags?: {[key: string]: any};
 }
 
-/**
- * A collection of values returned by getTargetGroup.
- */
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export interface GetTargetGroupResult {
     readonly arn: string;
     readonly arnSuffix: string;

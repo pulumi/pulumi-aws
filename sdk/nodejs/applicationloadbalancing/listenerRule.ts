@@ -4,9 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_listener_rule.html.markdown.
- */
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export class ListenerRule extends pulumi.CustomResource {
     /**
      * Get an existing ListenerRule resource's state with the given name, ID, and optional extra
@@ -93,9 +91,7 @@ export class ListenerRule extends pulumi.CustomResource {
     }
 }
 
-/**
- * Input properties used for looking up and filtering ListenerRule resources.
- */
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export interface ListenerRuleState {
     /**
      * An Action block. Action blocks are documented below.
@@ -119,9 +115,7 @@ export interface ListenerRuleState {
     readonly priority?: pulumi.Input<number>;
 }
 
-/**
- * The set of arguments for constructing a ListenerRule resource.
- */
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export interface ListenerRuleArgs {
     /**
      * An Action block. Action blocks are documented below.

@@ -12,9 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export const Ipv4:      IpAddressType = "ipv4";
+
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export const Dualstack: IpAddressType = "dualstack";
 
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export type IpAddressType =
     "ipv4"      |
     "dualstack" ;

@@ -4,33 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * > **Note:** `aws_alb` is known as `aws_lb`. The functionality is identical.
- * 
- * Provides information about a Load Balancer.
- * 
- * This data source can prove useful when a module accepts an LB as an input
- * variable and needs to, for example, determine the security groups associated
- * with it, etc.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const lbArn = config.get("lbArn") || "";
- * const lbName = config.get("lbName") || "";
- * 
- * const test = pulumi.output(aws.elasticloadbalancingv2.getLoadBalancer({
- *     arn: lbArn,
- *     name: lbName,
- * }));
- * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb.html.markdown.
- */
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> & GetLoadBalancerResult {
     args = args || {};
     const promise: Promise<GetLoadBalancerResult> = pulumi.runtime.invoke("aws:applicationloadbalancing/getLoadBalancer:getLoadBalancer", {
@@ -42,9 +16,7 @@ export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.Invoke
     return pulumi.utils.liftProperties(promise, opts);
 }
 
-/**
- * A collection of arguments for invoking getLoadBalancer.
- */
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export interface GetLoadBalancerArgs {
     /**
      * The full ARN of the load balancer.
@@ -57,9 +29,7 @@ export interface GetLoadBalancerArgs {
     readonly tags?: {[key: string]: any};
 }
 
-/**
- * A collection of values returned by getLoadBalancer.
- */
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export interface GetLoadBalancerResult {
     readonly accessLogs: { bucket: string, enabled: boolean, prefix: string };
     readonly arn: string;

@@ -82,7 +82,6 @@ const (
 	elasticsearchMod     = "elasticsearch"            // ElasticSearch
 	elastictranscoderMod = "elastictranscoder"        // Elastic Transcoder
 	elbMod               = "elasticloadbalancing"     // Elastic Load Balancing
-	albMod               = "applicationloadbalancing" // Elastic Load Balancing (V2: Application)
 	elbv2Mod             = "elasticloadbalancingv2"   // Elastic Load Balancing (V2: Application and Network)
 	emrMod               = "emr"                      // Elastic MapReduce
 	gameliftMod          = "gamelift"                 // Gamelift
@@ -982,51 +981,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_load_balancer_backend_server_policy": {Tok: awsResource(elbMod, "LoadBalancerBackendServerPolicy")},
 			"aws_load_balancer_listener_policy":       {Tok: awsResource(elbMod, "ListenerPolicy")},
 			"aws_lb_ssl_negotiation_policy":           {Tok: awsResource(elbMod, "SslNegotiationPolicy")},
-			// Elastic Load Balancing (V2: Application)
-			"aws_alb": {
-				Tok: awsResource(albMod, "LoadBalancer"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"load_balancer_type": {
-						Type: awsResource(albMod, "LoadBalancerType"),
-					},
-					"ip_address_type": {
-						Type: awsResource(albMod, "IpAddressType"),
-					},
-				},
-				Docs: &tfbridge.DocInfo{
-					Source: "lb.html.markdown",
-				},
-			},
-			"aws_alb_listener": {
-				Tok: awsResource(albMod, "Listener"),
-				Docs: &tfbridge.DocInfo{
-					Source: "lb_listener.html.markdown",
-				},
-			},
-			"aws_alb_listener_certificate": {
-				Tok: awsResource(albMod, "ListenerCertificate"),
-				Docs: &tfbridge.DocInfo{
-					Source: "lb_listener_certificate.html.markdown",
-				},
-			},
-			"aws_alb_listener_rule": {
-				Tok: awsResource(albMod, "ListenerRule"),
-				Docs: &tfbridge.DocInfo{
-					Source: "lb_listener_rule.html.markdown",
-				},
-			},
-			"aws_alb_target_group": {
-				Tok: awsResource(albMod, "TargetGroup"),
-				Docs: &tfbridge.DocInfo{
-					Source: "lb_target_group.html.markdown",
-				},
-			},
-			"aws_alb_target_group_attachment": {
-				Tok: awsResource(albMod, "TargetGroupAttachment"),
-				Docs: &tfbridge.DocInfo{
-					Source: "lb_target_group_attachment.html.markdown",
-				},
-			},
 			// Load Balancing (Application and Network)
 			"aws_lb":                         {Tok: awsResource(elbv2Mod, "LoadBalancer")},
 			"aws_lb_listener":                {Tok: awsResource(elbv2Mod, "Listener")},

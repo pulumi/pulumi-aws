@@ -7,76 +7,7 @@ import * as utilities from "../utilities";
 import {IpAddressType} from "./ipAddressType";
 import {LoadBalancerType} from "./loadBalancerType";
 
-/**
- * Provides a Load Balancer resource.
- * 
- * > **Note:** `aws_alb` is known as `aws_lb`. The functionality is identical.
- * 
- * ## Example Usage
- * 
- * ### Application Load Balancer
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const test = new aws.elasticloadbalancingv2.LoadBalancer("test", {
- *     accessLogs: {
- *         bucket: aws_s3_bucket_lb_logs.bucket,
- *         enabled: true,
- *         prefix: "test-lb",
- *     },
- *     enableDeletionProtection: true,
- *     internal: false,
- *     loadBalancerType: "application",
- *     securityGroups: [aws_security_group_lb_sg.id],
- *     subnets: [aws_subnet_public.map(v => v.id)],
- *     tags: {
- *         Environment: "production",
- *     },
- * });
- * ```
- * 
- * ### Network Load Balancer
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const test = new aws.elasticloadbalancingv2.LoadBalancer("test", {
- *     enableDeletionProtection: true,
- *     internal: false,
- *     loadBalancerType: "network",
- *     subnets: [aws_subnet_public.map(v => v.id)],
- *     tags: {
- *         Environment: "production",
- *     },
- * });
- * ```
- * 
- * ### Specifying Elastic IPs
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const example = new aws.elasticloadbalancingv2.LoadBalancer("example", {
- *     loadBalancerType: "network",
- *     subnetMappings: [
- *         {
- *             allocationId: aws_eip_example1.id,
- *             subnetId: aws_subnet_example1.id,
- *         },
- *         {
- *             allocationId: aws_eip_example2.id,
- *             subnetId: aws_subnet_example2.id,
- *         },
- *     ],
- * });
- * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb.html.markdown.
- */
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Get an existing LoadBalancer resource's state with the given name, ID, and optional extra
@@ -232,9 +163,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     }
 }
 
-/**
- * Input properties used for looking up and filtering LoadBalancer resources.
- */
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export interface LoadBalancerState {
     /**
      * An Access Logs block. Access Logs documented below.
@@ -308,9 +237,7 @@ export interface LoadBalancerState {
     readonly zoneId?: pulumi.Input<string>;
 }
 
-/**
- * The set of arguments for constructing a LoadBalancer resource.
- */
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export interface LoadBalancerArgs {
     /**
      * An Access Logs block. Access Logs documented below.

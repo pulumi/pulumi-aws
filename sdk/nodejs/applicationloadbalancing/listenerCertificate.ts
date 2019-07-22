@@ -4,30 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Load Balancer Listener Certificate resource.
- * 
- * This resource is for additional certificates and does not replace the default certificate on the listener.
- * 
- * > **Note:** `aws_alb_listener_certificate` is known as `aws_lb_listener_certificate`. The functionality is identical.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const exampleCertificate = new aws.acm.Certificate("example", {});
- * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
- * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {});
- * const exampleListenerCertificate = new aws.elasticloadbalancingv2.ListenerCertificate("example", {
- *     certificateArn: exampleCertificate.arn,
- *     listenerArn: frontEndListener.arn,
- * });
- * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_listener_certificate.html.markdown.
- */
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export class ListenerCertificate extends pulumi.CustomResource {
     /**
      * Get an existing ListenerCertificate resource's state with the given name, ID, and optional extra
@@ -93,9 +70,7 @@ export class ListenerCertificate extends pulumi.CustomResource {
     }
 }
 
-/**
- * Input properties used for looking up and filtering ListenerCertificate resources.
- */
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export interface ListenerCertificateState {
     /**
      * The ARN of the certificate to attach to the listener.
@@ -107,9 +82,7 @@ export interface ListenerCertificateState {
     readonly listenerArn?: pulumi.Input<string>;
 }
 
-/**
- * The set of arguments for constructing a ListenerCertificate resource.
- */
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export interface ListenerCertificateArgs {
     /**
      * The ARN of the certificate to attach to the listener.

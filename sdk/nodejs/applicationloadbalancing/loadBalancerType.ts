@@ -12,9 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export const ApplicationLoadBalancer: LoadBalancerType = "application";
+
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export const NetworkLoadBalancer:     LoadBalancerType = "network";
 
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export type LoadBalancerType =
     "application" |
     "network"     ;

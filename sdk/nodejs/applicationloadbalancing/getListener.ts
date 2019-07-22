@@ -4,38 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * > **Note:** `aws_alb_listener` is known as `aws_lb_listener`. The functionality is identical.
- * 
- * Provides information about a Load Balancer Listener.
- * 
- * This data source can prove useful when a module accepts an LB Listener as an
- * input variable and needs to know the LB it is attached to, or other
- * information specific to the listener in question.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const config = new pulumi.Config();
- * const listenerArn = config.require("listenerArn");
- * 
- * const selected = pulumi.output(aws.elasticloadbalancingv2.getLoadBalancer({
- *     name: "default-public",
- * }));
- * const listener = pulumi.output(aws.elasticloadbalancingv2.getListener({
- *     arn: listenerArn,
- * }));
- * const selected443 = selected.apply(selected => aws.elasticloadbalancingv2.getListener({
- *     loadBalancerArn: selected.arn,
- *     port: 443,
- * }));
- * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb_listener.html.markdown.
- */
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> & GetListenerResult {
     args = args || {};
     const promise: Promise<GetListenerResult> = pulumi.runtime.invoke("aws:applicationloadbalancing/getListener:getListener", {
@@ -47,9 +16,7 @@ export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions)
     return pulumi.utils.liftProperties(promise, opts);
 }
 
-/**
- * A collection of arguments for invoking getListener.
- */
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export interface GetListenerArgs {
     /**
      * The arn of the listener. Required if `load_balancer_arn` and `port` is not set.
@@ -65,9 +32,7 @@ export interface GetListenerArgs {
     readonly port?: number;
 }
 
-/**
- * A collection of values returned by getListener.
- */
+/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
 export interface GetListenerResult {
     readonly arn: string;
     readonly certificateArn: string;
