@@ -3,6 +3,13 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to pulumi-terraform@98fabcf506
+* `aws.elasticloadbalancing.*` module is now also exported as `aws.elb.*` for brevity.
+* `aws.elasticloadbalancingv2.*` module is now also exported as `aws.elbv2.*` for brevity.
+
+### Compat
+
+* `aws.applicationloadbalancing.*` has been deprecated.  All it's types can be found in
+  `aws.elbv2.*`.
 
 ---
 
