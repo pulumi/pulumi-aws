@@ -126,6 +126,7 @@ func TestExamples(t *testing.T) {
 			Dependencies: []string{
 				filepath.Join("..", "sdk", "python", "bin"),
 			},
+			ExpectRefreshChanges: true,
 		},
 	}
 
