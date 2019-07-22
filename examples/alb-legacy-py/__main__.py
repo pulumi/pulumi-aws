@@ -1,7 +1,7 @@
 # Copyright 2016-2018, Pulumi Corporation.  All rights reserved.
 
 import pulumi
-from pulumi_aws import applicationloadbalancing, ec2, util
+from pulumi_aws import applicationloadbalancing, get_availability_zones, ec2, util
 
 vpc = ec2.Vpc('test',
     cidr_block="10.10.0.0/16",
@@ -20,13 +20,13 @@ route_table = ec2.RouteTable('test',
 
 subnet0 = ec2.Subnet("test0",
     vpc_id=vpc.id,
-    availability_zone=util.get_aws_az(0),
+    availability_zone=get_availability_zones().names[0],
     cidr_block="10.10.0.0/24",
     map_public_ip_on_launch=True)
 
 subnet1 = ec2.Subnet("test1",
     vpc_id=vpc.id,
-    availability_zone=util.get_aws_az(1),
+    availability_zone=get_availability_zones().names[1],
     cidr_block="10.10.1.0/24",
     map_public_ip_on_launch=True)
 
