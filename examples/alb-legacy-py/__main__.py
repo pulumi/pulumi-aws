@@ -1,7 +1,9 @@
 # Copyright 2016-2018, Pulumi Corporation.  All rights reserved.
 
 import pulumi
-from pulumi_aws import applicationloadbalancing, get_availability_zones, ec2, Output
+
+from pulumi import Output
+from pulumi_aws import applicationloadbalancing, get_availability_zones, ec2
 
 vpc = ec2.Vpc('test',
     cidr_block="10.10.0.0/16",
