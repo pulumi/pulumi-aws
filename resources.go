@@ -2102,6 +2102,11 @@ func Provider() tfbridge.ProviderInfo {
 			Requires: map[string]string{
 				"pulumi": ">=0.17.12,<0.18.0",
 			},
+			Overlay: &tfbridge.OverlayInfo{
+				DestFiles: []string{
+					"extra_imports.py",
+				},
+			},
 		},
 	}
 

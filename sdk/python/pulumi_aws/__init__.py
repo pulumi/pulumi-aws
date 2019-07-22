@@ -24,4 +24,5 @@ from .get_ip_ranges import *
 from .get_partition import *
 from .get_prefix_list import *
 from .get_region import *
+from .sdk/python/pulumi_aws/extra_imports.py import *
 from .provider import *
