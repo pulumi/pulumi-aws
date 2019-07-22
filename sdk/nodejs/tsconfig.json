@@ -91,6 +91,7 @@
         "autoscaling/notificationType.ts",
         "autoscaling/policy.ts",
         "autoscaling/schedule.ts",
+        "backCompat.ts",
         "backup/index.ts",
         "backup/plan.ts",
         "backup/selection.ts",

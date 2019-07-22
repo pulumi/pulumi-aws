@@ -22,13 +22,13 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const listenerArn = config.require("listenerArn");
  * 
- * const selected = pulumi.output(aws.elasticloadbalancingv2.getLoadBalancer({
+ * const selected = pulumi.output(aws.elbv2.getLoadBalancer({
  *     name: "default-public",
  * }));
- * const listener = pulumi.output(aws.elasticloadbalancingv2.getListener({
+ * const listener = pulumi.output(aws.elbv2.getListener({
  *     arn: listenerArn,
  * }));
- * const selected443 = selected.apply(selected => aws.elasticloadbalancingv2.getListener({
+ * const selected443 = selected.apply(selected => aws.elbv2.getListener({
  *     loadBalancerArn: selected.arn,
  *     port: 443,
  * }));

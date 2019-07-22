@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const main = pulumi.output(aws.elasticloadbalancing.getServiceAccount({}));
+ * const main = pulumi.output(aws.elb.getServiceAccount({}));
  * const elbLogs = new aws.s3.Bucket("elb_logs", {
  *     acl: "private",
  *     policy: pulumi.interpolate`{
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const bar = new aws.elasticloadbalancing.LoadBalancer("bar", {
+ * const bar = new aws.elb.LoadBalancer("bar", {
  *     accessLogs: {
  *         bucket: elbLogs.bucket,
  *         interval: 5,

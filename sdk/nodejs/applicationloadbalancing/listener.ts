@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
- * const frontEndTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("front_end", {});
- * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {
+ * const frontEndLoadBalancer = new aws.elbv2.LoadBalancer("front_end", {});
+ * const frontEndTargetGroup = new aws.elbv2.TargetGroup("front_end", {});
+ * const frontEndListener = new aws.elbv2.Listener("front_end", {
  *     certificateArn: "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
  *     defaultActions: [{
  *         targetGroupArn: frontEndTargetGroup.arn,
@@ -38,8 +38,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
- * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {
+ * const frontEndLoadBalancer = new aws.elbv2.LoadBalancer("front_end", {});
+ * const frontEndListener = new aws.elbv2.Listener("front_end", {
  *     defaultActions: [{
  *         redirect: {
  *             port: "443",
@@ -60,8 +60,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
- * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {
+ * const frontEndLoadBalancer = new aws.elbv2.LoadBalancer("front_end", {});
+ * const frontEndListener = new aws.elbv2.Listener("front_end", {
  *     defaultActions: [{
  *         fixedResponse: {
  *             contentType: "text/plain",
@@ -85,9 +85,9 @@ import * as utilities from "../utilities";
  * const pool = new aws.cognito.UserPool("pool", {});
  * const client = new aws.cognito.UserPoolClient("client", {});
  * const domain = new aws.cognito.UserPoolDomain("domain", {});
- * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
- * const frontEndTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("front_end", {});
- * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {
+ * const frontEndLoadBalancer = new aws.elbv2.LoadBalancer("front_end", {});
+ * const frontEndTargetGroup = new aws.elbv2.TargetGroup("front_end", {});
+ * const frontEndListener = new aws.elbv2.Listener("front_end", {
  *     defaultActions: [
  *         {
  *             authenticateCognito: {
@@ -114,9 +114,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
- * const frontEndTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("front_end", {});
- * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {
+ * const frontEndLoadBalancer = new aws.elbv2.LoadBalancer("front_end", {});
+ * const frontEndTargetGroup = new aws.elbv2.TargetGroup("front_end", {});
+ * const frontEndListener = new aws.elbv2.Listener("front_end", {
  *     defaultActions: [
  *         {
  *             authenticateOidc: {

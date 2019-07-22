@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * const lbTgArn = config.get("lbTgArn") || "";
  * const lbTgName = config.get("lbTgName") || "";
  * 
- * const test = pulumi.output(aws.elasticloadbalancingv2.getTargetGroup({
+ * const test = pulumi.output(aws.elbv2.getTargetGroup({
  *     arn: lbTgArn,
  *     name: lbTgName,
  * }));

@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const lbName = config.get("lbName") || "";
  * 
- * const test = pulumi.output(aws.elasticloadbalancing.getLoadBalancer({
+ * const test = pulumi.output(aws.elb.getLoadBalancer({
  *     name: lbName,
  * }));
  * ```

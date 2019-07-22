@@ -18,9 +18,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const exampleCertificate = new aws.acm.Certificate("example", {});
- * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
- * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {});
- * const exampleListenerCertificate = new aws.elasticloadbalancingv2.ListenerCertificate("example", {
+ * const frontEndLoadBalancer = new aws.elbv2.LoadBalancer("front_end", {});
+ * const frontEndListener = new aws.elbv2.Listener("front_end", {});
+ * const exampleListenerCertificate = new aws.elbv2.ListenerCertificate("example", {
  *     certificateArn: exampleCertificate.arn,
  *     listenerArn: frontEndListener.arn,
  * });

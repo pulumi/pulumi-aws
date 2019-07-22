@@ -12,6 +12,4 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { elb as elasticloadbalancing } from ".";
-export { elbv2 as elasticloadbalancingv2 } from ".";
-export { elbv2 as applicationloadbalancing } from ".";
+export { elasticloadbalancingv2 as elbv2 } from ".";

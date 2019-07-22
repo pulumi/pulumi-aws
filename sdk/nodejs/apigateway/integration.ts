@@ -139,7 +139,7 @@ import {RestApi} from "./restApi";
  *     resourceId: testResource.id,
  *     restApi: testRestApi.id,
  * });
- * const testLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("test", {
+ * const testLoadBalancer = new aws.elbv2.LoadBalancer("test", {
  *     internal: true,
  *     loadBalancerType: "network",
  *     subnets: [subnetId],

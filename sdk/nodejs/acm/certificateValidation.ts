@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *     certificateArn: certCertificate.arn,
  *     validationRecordFqdns: [certValidation.fqdn],
  * });
- * const frontEnd = new aws.elasticloadbalancingv2.Listener("front_end", {
+ * const frontEnd = new aws.elbv2.Listener("front_end", {
  *     // [...]
  *     certificateArn: certCertificateValidation.certificateArn,
  * });
@@ -95,7 +95,7 @@ import * as utilities from "../utilities";
  *         certValidationAlt2.fqdn,
  *     ],
  * });
- * const frontEnd = new aws.elasticloadbalancingv2.Listener("front_end", {
+ * const frontEnd = new aws.elbv2.Listener("front_end", {
  *     // [...]
  *     certificateArn: certCertificateValidation.certificateArn,
  * });
