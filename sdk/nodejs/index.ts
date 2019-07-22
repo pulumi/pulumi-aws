@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./arn";
+export * from "./backCompat";
 export * from "./getAmi";
 export * from "./getAmiIds";
 export * from "./getArn";
@@ -27,7 +28,6 @@ import * as acm from "./acm/index";
 import * as acmpca from "./acmpca/index";
 import * as apigateway from "./apigateway/index";
 import * as appautoscaling from "./appautoscaling/index";
-import * as applicationloadbalancing from "./applicationloadbalancing/index";
 import * as appmesh from "./appmesh/index";
 import * as appsync from "./appsync/index";
 import * as athena from "./athena/index";
@@ -69,10 +69,10 @@ import * as efs from "./efs/index";
 import * as eks from "./eks/index";
 import * as elasticache from "./elasticache/index";
 import * as elasticbeanstalk from "./elasticbeanstalk/index";
-import * as elasticloadbalancing from "./elasticloadbalancing/index";
-import * as elasticloadbalancingv2 from "./elasticloadbalancingv2/index";
 import * as elasticsearch from "./elasticsearch/index";
 import * as elastictranscoder from "./elastictranscoder/index";
+import * as elb from "./elb/index";
+import * as elbv2 from "./elbv2/index";
 import * as emr from "./emr/index";
 import * as gamelift from "./gamelift/index";
 import * as glacier from "./glacier/index";
@@ -126,4 +126,4 @@ import * as wafregional from "./wafregional/index";
 import * as worklink from "./worklink/index";
 import * as workspaces from "./workspaces/index";
 import * as xray from "./xray/index";
-export {acm, acmpca, apigateway, appautoscaling, applicationloadbalancing, appmesh, appsync, athena, autoscaling, backup, batch, budgets, cfg, cloud9, cloudformation, cloudfront, cloudhsmv2, cloudtrail, cloudwatch, codebuild, codecommit, codedeploy, codepipeline, cognito, config, cur, datapipeline, datasync, dax, devicefarm, directconnect, directoryservice, dlm, dms, docdb, dynamodb, ebs, ec2, ec2clientvpn, ec2transitgateway, ecr, ecs, efs, eks, elasticache, elasticbeanstalk, elasticloadbalancing, elasticloadbalancingv2, elasticsearch, elastictranscoder, emr, gamelift, glacier, globalaccelerator, glue, guardduty, iam, inspector, iot, kinesis, kms, lambda, licensemanager, lightsail, macie, mediapackage, mediastore, mq, msk, neptune, opsworks, organizations, pinpoint, pricing, quicksight, ram, rds, redshift, resourcegroups, route53, s3, sagemaker, secretsmanager, securityhub, serverless, servicecatalog, servicediscovery, servicequotas, ses, sfn, shield, simpledb, sns, sqs, ssm, storagegateway, swf, transfer, waf, wafregional, worklink, workspaces, xray};
+export {acm, acmpca, apigateway, appautoscaling, appmesh, appsync, athena, autoscaling, backup, batch, budgets, cfg, cloud9, cloudformation, cloudfront, cloudhsmv2, cloudtrail, cloudwatch, codebuild, codecommit, codedeploy, codepipeline, cognito, config, cur, datapipeline, datasync, dax, devicefarm, directconnect, directoryservice, dlm, dms, docdb, dynamodb, ebs, ec2, ec2clientvpn, ec2transitgateway, ecr, ecs, efs, eks, elasticache, elasticbeanstalk, elasticsearch, elastictranscoder, elb, elbv2, emr, gamelift, glacier, globalaccelerator, glue, guardduty, iam, inspector, iot, kinesis, kms, lambda, licensemanager, lightsail, macie, mediapackage, mediastore, mq, msk, neptune, opsworks, organizations, pinpoint, pricing, quicksight, ram, rds, redshift, resourcegroups, route53, s3, sagemaker, secretsmanager, securityhub, serverless, servicecatalog, servicediscovery, servicequotas, ses, sfn, shield, simpledb, sns, sqs, ssm, storagegateway, swf, transfer, waf, wafregional, worklink, workspaces, xray};
