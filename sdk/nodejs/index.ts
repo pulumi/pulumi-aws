@@ -19,6 +19,7 @@ export * from "./getPrefixList";
 export * from "./getRegion";
 export * from "./provider";
 export * from "./region";
+export * from "./renamedModules";
 export * from "./tags";
 export * from "./utils";
 

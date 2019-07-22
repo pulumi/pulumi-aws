@@ -2052,10 +2052,11 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			Overlay: &tfbridge.OverlayInfo{
 				DestFiles: []string{
-					"arn.ts",    // ARN typedef
-					"region.ts", // Region union type and constants
-					"tags.ts",   // Tags typedef (currently unused but left for compatibility)
-					"utils.ts",  // Helpers,
+					"arn.ts",            // ARN typedef
+					"region.ts",         // Region union type and constants
+					"renamedModules.ts",
+					"tags.ts",           // Tags typedef (currently unused but left for compatibility)
+					"utils.ts",          // Helpers,
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
 					"autoscaling": {

@@ -654,6 +654,7 @@
         "redshift/snapshotCopyGrant.ts",
         "redshift/subnetGroup.ts",
         "region.ts",
+        "renamedModules.ts",
         "resourcegroups/group.ts",
         "resourcegroups/index.ts",
         "route53/delegationSet.ts",
