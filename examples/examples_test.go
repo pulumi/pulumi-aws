@@ -14,7 +14,6 @@ import (
 	"github.com/stretchr/testify/assert"
 
 	"github.com/pulumi/pulumi/pkg/testing/integration"
-
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/lambda"
@@ -119,6 +118,16 @@ func TestExamples(t *testing.T) {
 			Dependencies: []string{
 				filepath.Join("..", "sdk", "python", "bin"),
 			},
+		},
+		integration.ProgramTestOptions{
+			Dir:    path.Join(cwd, "alb-legacy-py"),
+			Config: map[string]string{"aws:region": envRegion},
+			Dependencies: []string{
+				filepath.Join("..", "sdk", "python", "bin"),
+			},
+			ExpectRefreshChanges: true,
+			SkipRefresh:          true,
+			Quick:                true,
 		},
 	}
 
