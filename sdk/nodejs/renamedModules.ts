@@ -15,10 +15,5 @@
 // Export elasticloadbalancingv2 as elbv2 fo brevity.  But keep around the old module for compat.
 // Note: it's easier for us to generate into elasticloadbalancingv2 and then rexport as elbv2 (as
 // opposed to the opposite), as this means no urns change and thus need aliases.
+export { elasticloadbalancing as elb } from ".";
 export { elasticloadbalancingv2 as elbv2 } from ".";
-
-// `applicationloadbalancing` was a copy of what was in elasticloadbalancingv2.  No need to have
-// bother.  So we've deprecated `applicationloadbalancing` but still keep the code around for compat
-// for now.
-import * as applicationloadbalancing from "./applicationloadbalancing";
-export { applicationloadbalancing };
