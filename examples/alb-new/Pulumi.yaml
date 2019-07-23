@@ -1,0 +1,3 @@
+name: alb-new
+runtime: javascript
+description: Test to ensure that an alb can be created through the elasticloadbalancingv2 module

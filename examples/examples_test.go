@@ -37,6 +37,9 @@ func TestExamples(t *testing.T) {
 			"aws:region":    "INVALID_REGION",
 			"aws:envRegion": envRegion,
 		},
+		ExpectRefreshChanges: true,
+		SkipRefresh:          true,
+		Quick:                true,
 	}
 
 	baseJS := base.With(integration.ProgramTestOptions{
@@ -50,18 +53,19 @@ func TestExamples(t *testing.T) {
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "express")}),
 		// TODO[pulumi/pulumi#1900]: This should be the default value, every test we have causes some sort of
 		// change during a `pulumi refresh` for reasons outside our control.
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "alb-legacy"), ExpectRefreshChanges: true}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "bucket"), ExpectRefreshChanges: true}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "cloudwatch"), ExpectRefreshChanges: true}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "logGroup"), ExpectRefreshChanges: true}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "queue"), ExpectRefreshChanges: true}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "stream"), ExpectRefreshChanges: true}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "table"), ExpectRefreshChanges: true}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "topic"), ExpectRefreshChanges: true}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "ssmparameter"), ExpectRefreshChanges: true}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "route53"), ExpectRefreshChanges: true}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "lambda-layer"), ExpectRefreshChanges: true}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "ecr"), ExpectRefreshChanges: true}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "alb-legacy")}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "alb-new")}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "bucket")}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "cloudwatch")}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "logGroup")}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "queue")}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "stream")}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "table")}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "topic")}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "ssmparameter")}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "route53")}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "lambda-layer")}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "ecr")}),
 		baseJS.With(integration.ProgramTestOptions{
 			Dir: path.Join(cwd, "delete_before_create", "mount_target", "step1"),
 			EditDirs: []integration.EditDir{
@@ -126,9 +130,13 @@ func TestExamples(t *testing.T) {
 			Dependencies: []string{
 				filepath.Join("..", "sdk", "python", "bin"),
 			},
-			ExpectRefreshChanges: true,
-			SkipRefresh:          true,
-			Quick:                true,
+		},
+		integration.ProgramTestOptions{
+			Dir:    path.Join(cwd, "alb-new-py"),
+			Config: map[string]string{"aws:region": envRegion},
+			Dependencies: []string{
+				filepath.Join("..", "sdk", "python", "bin"),
+			},
 		},
 	}
 

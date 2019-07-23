@@ -19,7 +19,7 @@ const config = new pulumi.Config("aws");
 const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
 const vpc = new aws.ec2.Vpc('test', {
-    cidrBlock: "10.10.0.0/16",
+    cidrBlock: "10.12.0.0/16",
     enableDnsHostnames: true,
     enableDnsSupport: true,
 }, providerOpts)
@@ -39,14 +39,14 @@ const route_table = new aws.ec2.RouteTable('test', {
 const subnet0 =new aws.ec2.Subnet("test0", {
     vpcId: vpc.id,
     availabilityZone: aws.getAvailabilityZones().names[0],
-    cidrBlock: "10.10.0.0/24",
+    cidrBlock: "10.12.0.0/24",
     mapPublicIpOnLaunch: true,
 }, providerOpts);
 
 const subnet1 = new aws.ec2.Subnet("test1", {
     vpcId: vpc.id,
     availabilityZone: aws.getAvailabilityZones().names[1],
-    cidrBlock: "10.10.1.0/24",
+    cidrBlock: "10.12.1.0/24",
     mapPublicIpOnLaunch: true,
 }, providerOpts);
 
@@ -60,7 +60,7 @@ const route_table_association1 = new aws.ec2.RouteTableAssociation('test1', {
     routeTableId: route_table.id,
 }, providerOpts);
 
-const group = new aws.applicationloadbalancing.LoadBalancer('test', {
+const group = new aws.elasticloadbalancingv2.LoadBalancer('test', {
     loadBalancerType: 'application',
     internal: false,
     subnets: [subnet0.id, subnet1.id],
