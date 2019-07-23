@@ -14,7 +14,6 @@ import (
 	"github.com/stretchr/testify/assert"
 
 	"github.com/pulumi/pulumi/pkg/testing/integration"
-
 	// "github.com/aws/aws-sdk-go/aws"
 	// "github.com/aws/aws-sdk-go/aws/session"
 	// "github.com/aws/aws-sdk-go/service/lambda"
@@ -127,6 +126,8 @@ func TestExamples(t *testing.T) {
 				filepath.Join("..", "sdk", "python", "bin"),
 			},
 			ExpectRefreshChanges: true,
+			SkipRefresh:          true,
+			Quick:                true,
 		},
 	}
 
