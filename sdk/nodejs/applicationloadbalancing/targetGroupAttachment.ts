@@ -4,7 +4,50 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
+/**
+ * Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the [`aws_elb_attachment` resource](https://www.terraform.io/docs/providers/aws/r/elb_attachment.html).
+ * 
+ * > **Note:** `aws_alb_target_group_attachment` is known as `aws_lb_target_group_attachment`. The functionality is identical.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const testInstance = new aws.ec2.Instance("test", {});
+ * const testTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("test", {});
+ * const testTargetGroupAttachment = new aws.elasticloadbalancingv2.TargetGroupAttachment("test", {
+ *     port: 80,
+ *     targetGroupArn: testTargetGroup.arn,
+ *     targetId: testInstance.id,
+ * });
+ * ```
+ * 
+ * ## Usage with lambda
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const testFunction = new aws.lambda.Function("test", {});
+ * const testTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("test", {
+ *     targetType: "lambda",
+ * });
+ * const withLb = new aws.lambda.Permission("with_lb", {
+ *     action: "lambda:InvokeFunction",
+ *     function: testFunction.arn,
+ *     principal: "elasticloadbalancing.amazonaws.com",
+ *     sourceArn: testTargetGroup.arn,
+ * });
+ * const testTargetGroupAttachment = new aws.elasticloadbalancingv2.TargetGroupAttachment("test", {
+ *     targetGroupArn: testTargetGroup.arn,
+ *     targetId: testFunction.arn,
+ * }, {dependsOn: [withLb]});
+ * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_target_group_attachment.html.markdown.
+ */
 export class TargetGroupAttachment extends pulumi.CustomResource {
     /**
      * Get an existing TargetGroupAttachment resource's state with the given name, ID, and optional extra
@@ -82,7 +125,9 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
     }
 }
 
-/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
+/**
+ * Input properties used for looking up and filtering TargetGroupAttachment resources.
+ */
 export interface TargetGroupAttachmentState {
     /**
      * The Availability Zone where the IP address of the target is to be registered.
@@ -102,7 +147,9 @@ export interface TargetGroupAttachmentState {
     readonly targetId?: pulumi.Input<string>;
 }
 
-/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
+/**
+ * The set of arguments for constructing a TargetGroupAttachment resource.
+ */
 export interface TargetGroupAttachmentArgs {
     /**
      * The Availability Zone where the IP address of the target is to be registered.

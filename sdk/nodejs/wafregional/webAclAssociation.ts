@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     cidrBlock: "10.1.1.0/24",
  *     vpcId: fooVpc.id,
  * });
- * const fooAlb = new aws.Alb("foo", {
+ * const fooLoadBalancer = new aws.applicationloadbalancing.LoadBalancer("foo", {
  *     internal: true,
  *     subnets: [
  *         fooSubnet.id,
@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const fooWebAclAssociation = new aws.wafregional.WebAclAssociation("foo", {
- *     resourceArn: fooAlb.arn,
+ *     resourceArn: fooLoadBalancer.arn,
  *     webAclId: fooWebAcl.id,
  * });
  * ```

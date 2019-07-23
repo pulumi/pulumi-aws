@@ -4,7 +4,59 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
+/**
+ * Provides a Target Group resource for use with Load Balancer resources.
+ * 
+ * > **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
+ * 
+ * ## Example Usage
+ * 
+ * ### Instance Target Group
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const main = new aws.ec2.Vpc("main", {
+ *     cidrBlock: "10.0.0.0/16",
+ * });
+ * const test = new aws.elasticloadbalancingv2.TargetGroup("test", {
+ *     port: 80,
+ *     protocol: "HTTP",
+ *     vpcId: main.id,
+ * });
+ * ```
+ * 
+ * ### IP Target Group
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const main = new aws.ec2.Vpc("main", {
+ *     cidrBlock: "10.0.0.0/16",
+ * });
+ * const ip_example = new aws.elasticloadbalancingv2.TargetGroup("ip-example", {
+ *     port: 80,
+ *     protocol: "HTTP",
+ *     targetType: "ip",
+ *     vpcId: main.id,
+ * });
+ * ```
+ * 
+ * ### Lambda Target Group
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const lambda_example = new aws.elasticloadbalancingv2.TargetGroup("lambda-example", {
+ *     targetType: "lambda",
+ * });
+ * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_target_group.html.markdown.
+ */
 export class TargetGroup extends pulumi.CustomResource {
     /**
      * Get an existing TargetGroup resource's state with the given name, ID, and optional extra
@@ -144,7 +196,9 @@ export class TargetGroup extends pulumi.CustomResource {
     }
 }
 
-/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
+/**
+ * Input properties used for looking up and filtering TargetGroup resources.
+ */
 export interface TargetGroupState {
     /**
      * The ARN of the Target Group (matches `id`)
@@ -210,7 +264,9 @@ export interface TargetGroupState {
     readonly vpcId?: pulumi.Input<string>;
 }
 
-/** @deprecated Use the equivalent functionality in `aws.elbv2` instead. */
+/**
+ * The set of arguments for constructing a TargetGroup resource.
+ */
 export interface TargetGroupArgs {
     /**
      * The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
