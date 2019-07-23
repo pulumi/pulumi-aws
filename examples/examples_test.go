@@ -14,9 +14,9 @@ import (
 	"github.com/stretchr/testify/assert"
 
 	"github.com/pulumi/pulumi/pkg/testing/integration"
-	// "github.com/aws/aws-sdk-go/aws"
-	// "github.com/aws/aws-sdk-go/aws/session"
-	// "github.com/aws/aws-sdk-go/service/lambda"
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/lambda"
 )
 
 func TestExamples(t *testing.T) {
@@ -46,71 +46,71 @@ func TestExamples(t *testing.T) {
 	})
 
 	shortTests := []integration.ProgramTestOptions{
-		// baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
-		// baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "express")}),
-		// // TODO[pulumi/pulumi#1900]: This should be the default value, every test we have causes some sort of
-		// // change during a `pulumi refresh` for reasons outside our control.
-		// baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "bucket"), ExpectRefreshChanges: true}),
-		// baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "cloudwatch"), ExpectRefreshChanges: true}),
-		// baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "logGroup"), ExpectRefreshChanges: true}),
-		// baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "queue"), ExpectRefreshChanges: true}),
-		// baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "stream"), ExpectRefreshChanges: true}),
-		// baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "table"), ExpectRefreshChanges: true}),
-		// baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "topic"), ExpectRefreshChanges: true}),
-		// baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "ssmparameter"), ExpectRefreshChanges: true}),
-		// baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "route53"), ExpectRefreshChanges: true}),
-		// baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "lambda-layer"), ExpectRefreshChanges: true}),
-		// baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "ecr"), ExpectRefreshChanges: true}),
-		// baseJS.With(integration.ProgramTestOptions{
-		// 	Dir: path.Join(cwd, "delete_before_create", "mount_target", "step1"),
-		// 	EditDirs: []integration.EditDir{
-		// 		{
-		// 			Dir:      "step2",
-		// 			Additive: true,
-		// 		},
-		// 		{
-		// 			Dir:      "step3",
-		// 			Additive: true,
-		// 		},
-		// 	},
-		// }),
-		// baseJS.With(integration.ProgramTestOptions{
-		// 	Dir: path.Join(cwd, "ignoreChanges"),
-		// 	EditDirs: []integration.EditDir{
-		// 		{
-		// 			Dir:      path.Join(cwd, "ignoreChanges", "step1"),
-		// 			Additive: true,
-		// 			ExtraRuntimeValidation: func(t *testing.T, info integration.RuntimeValidationStackInfo) {
-		// 				// Verify that the change to `"bar"` was succesfully ignored.
-		// 				assert.Equal(t, "foo", info.Deployment.Resources[2].Inputs["bucketPrefix"])
-		// 				assert.Equal(t, "foo", info.Deployment.Resources[2].Outputs["bucketPrefix"])
-		// 			},
-		// 		},
-		// 	},
-		// }),
-		// baseJS.With(integration.ProgramTestOptions{
-		// 	Dir: path.Join(cwd, "serverless_functions"),
-		// 	ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-		// 		cfg := &aws.Config{
-		// 			Region: aws.String("us-west-2"),
-		// 		}
-		// 		sess, err := session.NewSession(cfg)
-		// 		if !assert.NoError(t, err) {
-		// 			return
-		// 		}
-		// 		lambdaSvc := lambda.New(sess)
-		// 		out, err := lambdaSvc.Invoke(&lambda.InvokeInput{
-		// 			FunctionName: aws.String(stack.Outputs["functionARN"].(string)),
-		// 		})
-		// 		if !assert.NoError(t, err) {
-		// 			return
-		// 		}
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "express")}),
+		// TODO[pulumi/pulumi#1900]: This should be the default value, every test we have causes some sort of
+		// change during a `pulumi refresh` for reasons outside our control.
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "bucket"), ExpectRefreshChanges: true}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "cloudwatch"), ExpectRefreshChanges: true}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "logGroup"), ExpectRefreshChanges: true}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "queue"), ExpectRefreshChanges: true}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "stream"), ExpectRefreshChanges: true}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "table"), ExpectRefreshChanges: true}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "topic"), ExpectRefreshChanges: true}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "ssmparameter"), ExpectRefreshChanges: true}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "route53"), ExpectRefreshChanges: true}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "lambda-layer"), ExpectRefreshChanges: true}),
+		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "ecr"), ExpectRefreshChanges: true}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir: path.Join(cwd, "delete_before_create", "mount_target", "step1"),
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      "step2",
+					Additive: true,
+				},
+				{
+					Dir:      "step3",
+					Additive: true,
+				},
+			},
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir: path.Join(cwd, "ignoreChanges"),
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      path.Join(cwd, "ignoreChanges", "step1"),
+					Additive: true,
+					ExtraRuntimeValidation: func(t *testing.T, info integration.RuntimeValidationStackInfo) {
+						// Verify that the change to `"bar"` was succesfully ignored.
+						assert.Equal(t, "foo", info.Deployment.Resources[2].Inputs["bucketPrefix"])
+						assert.Equal(t, "foo", info.Deployment.Resources[2].Outputs["bucketPrefix"])
+					},
+				},
+			},
+		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir: path.Join(cwd, "serverless_functions"),
+			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+				cfg := &aws.Config{
+					Region: aws.String("us-west-2"),
+				}
+				sess, err := session.NewSession(cfg)
+				if !assert.NoError(t, err) {
+					return
+				}
+				lambdaSvc := lambda.New(sess)
+				out, err := lambdaSvc.Invoke(&lambda.InvokeInput{
+					FunctionName: aws.String(stack.Outputs["functionARN"].(string)),
+				})
+				if !assert.NoError(t, err) {
+					return
+				}
 
-		// 		if out.FunctionError != nil {
-		// 			assert.Nil(t, out.FunctionError, "Function error: %q\n", *out.FunctionError)
-		// 		}
-		// 	},
-		// }),
+				if out.FunctionError != nil {
+					assert.Nil(t, out.FunctionError, "Function error: %q\n", *out.FunctionError)
+				}
+			},
+		}),
 		// Python tests:
 		integration.ProgramTestOptions{
 			Dir:    path.Join(cwd, "webserver-py"),

@@ -6,11 +6,6 @@ CHANGELOG
 * `aws.elasticloadbalancing.*` module is now also exported as `aws.elb.*` for brevity.
 * `aws.elasticloadbalancingv2.*` module is now also exported as `aws.elbv2.*` for brevity.
 
-### Compat
-
-* `aws.applicationloadbalancing.*` has been deprecated.  All it's types can be found in
-  `aws.elbv2.*`.
-
 ---
 
 ## 0.18.22 (2019-07-19)
