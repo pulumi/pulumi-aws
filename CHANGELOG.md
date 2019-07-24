@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to pulumi-terraform@98fabcf506
+* Change PolicyDocument helper to allow passing of outputs from other resources
 
 ---
 
