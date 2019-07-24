@@ -124,20 +124,20 @@ func TestExamples(t *testing.T) {
 				filepath.Join("..", "sdk", "python", "bin"),
 			},
 		},
-		integration.ProgramTestOptions{
+		baseJS.With(integration.ProgramTestOptions{
 			Dir:    path.Join(cwd, "alb-legacy-py"),
 			Config: map[string]string{"aws:region": envRegion},
 			Dependencies: []string{
 				filepath.Join("..", "sdk", "python", "bin"),
 			},
-		},
-		integration.ProgramTestOptions{
+		}),
+		baseJS.With(integration.ProgramTestOptions{
 			Dir:    path.Join(cwd, "alb-new-py"),
 			Config: map[string]string{"aws:region": envRegion},
 			Dependencies: []string{
 				filepath.Join("..", "sdk", "python", "bin"),
 			},
-		},
+		}),
 	}
 
 	longTests := []integration.ProgramTestOptions{
