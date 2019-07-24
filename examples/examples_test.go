@@ -13,10 +13,10 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/pulumi/pulumi/pkg/testing/integration"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/lambda"
+	"github.com/pulumi/pulumi/pkg/testing/integration"
 )
 
 func TestExamples(t *testing.T) {
@@ -33,18 +33,25 @@ func TestExamples(t *testing.T) {
 	// base options shared amongst all tests. Explicitly set region to an invalid value to ensure
 	// that we're only using the region given by an explicit provider in code.
 	base := integration.ProgramTestOptions{
-		Config: map[string]string{
-			"aws:region":    "INVALID_REGION",
-			"aws:envRegion": envRegion,
-		},
 		ExpectRefreshChanges: true,
 		SkipRefresh:          true,
 		Quick:                true,
 	}
 
 	baseJS := base.With(integration.ProgramTestOptions{
+		Config: map[string]string{
+			"aws:region":    "INVALID_REGION",
+			"aws:envRegion": envRegion,
+		},
 		Dependencies: []string{
 			"@pulumi/aws",
+		},
+	})
+
+	basePython := base.With(integration.ProgramTestOptions{
+		Config: map[string]string{"aws:region": envRegion},
+		Dependencies: []string{
+			filepath.Join("..", "sdk", "python", "bin"),
 		},
 	})
 
@@ -117,27 +124,9 @@ func TestExamples(t *testing.T) {
 			},
 		}),
 		// Python tests:
-		integration.ProgramTestOptions{
-			Dir:    path.Join(cwd, "webserver-py"),
-			Config: map[string]string{"aws:region": envRegion},
-			Dependencies: []string{
-				filepath.Join("..", "sdk", "python", "bin"),
-			},
-		},
-		baseJS.With(integration.ProgramTestOptions{
-			Dir:    path.Join(cwd, "alb-legacy-py"),
-			Config: map[string]string{"aws:region": envRegion},
-			Dependencies: []string{
-				filepath.Join("..", "sdk", "python", "bin"),
-			},
-		}),
-		baseJS.With(integration.ProgramTestOptions{
-			Dir:    path.Join(cwd, "alb-new-py"),
-			Config: map[string]string{"aws:region": envRegion},
-			Dependencies: []string{
-				filepath.Join("..", "sdk", "python", "bin"),
-			},
-		}),
+		basePython.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-py")}),
+		basePython.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "alb-legacy-py")}),
+		basePython.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "alb-new-py")}),
 	}
 
 	longTests := []integration.ProgramTestOptions{
