@@ -2,10 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to pulumi-terraform@98fabcf506
 * Change PolicyDocument helper to allow passing of outputs from other resources
 
 ---
+
+## 0.18.23 (2019-07-19)
+* Upgrade to pulumi-terraform@98fabcf506
 
 ## 0.18.22 (2019-07-19)
 * Add ECR LifecyclePolicy Document Type.
