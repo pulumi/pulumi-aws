@@ -51,6 +51,7 @@ class Attachment(pulumi.CustomResource):
             raise TypeError("Missing required property 'instance'")
         __props__['instance'] = instance
 
+        opts = pulumi.with_aliases(opts, [pulumi.Alias(type_="aws:elasticloadbalancing/attachment:Attachment")])
         super(Attachment, __self__).__init__(
             'aws:elb/attachment:Attachment',
             resource_name,

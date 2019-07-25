@@ -121,6 +121,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
             inputs["targetGroupArn"] = args ? args.targetGroupArn : undefined;
             inputs["targetId"] = args ? args.targetId : undefined;
         }
+        opts = pulumi.withAliases(opts, [{ type: "aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment" }]);
         super(TargetGroupAttachment.__pulumiType, name, inputs, opts);
     }
 }

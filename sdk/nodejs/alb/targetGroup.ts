@@ -192,6 +192,7 @@ export class TargetGroup extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["arnSuffix"] = undefined /*out*/;
         }
+        opts = pulumi.withAliases(opts, [{ type: "aws:applicationloadbalancing/targetGroup:TargetGroup" }]);
         super(TargetGroup.__pulumiType, name, inputs, opts);
     }
 }

@@ -58,6 +58,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
 
         __props__['policy_names'] = policy_names
 
+        opts = pulumi.with_aliases(opts, [pulumi.Alias(type_="aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy")])
         super(LoadBalancerBackendServerPolicy, __self__).__init__(
             'aws:elb/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy',
             resource_name,

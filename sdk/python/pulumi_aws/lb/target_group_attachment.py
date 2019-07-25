@@ -67,6 +67,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
             raise TypeError("Missing required property 'target_id'")
         __props__['target_id'] = target_id
 
+        opts = pulumi.with_aliases(opts, [pulumi.Alias(type_="aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment")])
         super(TargetGroupAttachment, __self__).__init__(
             'aws:lb/targetGroupAttachment:TargetGroupAttachment',
             resource_name,

@@ -75,6 +75,7 @@ class ListenerRule(pulumi.CustomResource):
 
         __props__['arn'] = None
 
+        opts = pulumi.with_aliases(opts, [pulumi.Alias(type_="aws:applicationloadbalancing/listenerRule:ListenerRule")])
         super(ListenerRule, __self__).__init__(
             'aws:alb/listenerRule:ListenerRule',
             resource_name,

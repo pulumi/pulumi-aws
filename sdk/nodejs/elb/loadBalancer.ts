@@ -176,6 +176,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["sourceSecurityGroupId"] = undefined /*out*/;
             inputs["zoneId"] = undefined /*out*/;
         }
+        opts = pulumi.withAliases(opts, [{ type: "aws:elasticloadbalancing/loadBalancer:LoadBalancer" }]);
         super(LoadBalancer.__pulumiType, name, inputs, opts);
     }
 }

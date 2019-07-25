@@ -67,6 +67,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
             raise TypeError("Missing required property 'policy_type_name'")
         __props__['policy_type_name'] = policy_type_name
 
+        opts = pulumi.with_aliases(opts, [pulumi.Alias(type_="aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy")])
         super(LoadBalancerPolicy, __self__).__init__(
             'aws:elb/loadBalancerPolicy:LoadBalancerPolicy',
             resource_name,

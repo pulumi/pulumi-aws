@@ -154,6 +154,7 @@ class LoadBalancer(pulumi.CustomResource):
         __props__['vpc_id'] = None
         __props__['zone_id'] = None
 
+        opts = pulumi.with_aliases(opts, [pulumi.Alias(type_="aws:applicationloadbalancing/loadBalancer:LoadBalancer")])
         super(LoadBalancer, __self__).__init__(
             'aws:alb/loadBalancer:LoadBalancer',
             resource_name,

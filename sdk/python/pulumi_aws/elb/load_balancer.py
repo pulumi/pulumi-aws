@@ -174,6 +174,7 @@ class LoadBalancer(pulumi.CustomResource):
         __props__['source_security_group_id'] = None
         __props__['zone_id'] = None
 
+        opts = pulumi.with_aliases(opts, [pulumi.Alias(type_="aws:elasticloadbalancing/loadBalancer:LoadBalancer")])
         super(LoadBalancer, __self__).__init__(
             'aws:elb/loadBalancer:LoadBalancer',
             resource_name,

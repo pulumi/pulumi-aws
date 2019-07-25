@@ -108,6 +108,7 @@ export class LoadBalancerCookieStickinessPolicy extends pulumi.CustomResource {
             inputs["loadBalancer"] = args ? args.loadBalancer : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
+        opts = pulumi.withAliases(opts, [{ type: "aws:elasticloadbalancing/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy" }]);
         super(LoadBalancerCookieStickinessPolicy.__pulumiType, name, inputs, opts);
     }
 }

@@ -143,6 +143,7 @@ class TargetGroup(pulumi.CustomResource):
         __props__['arn'] = None
         __props__['arn_suffix'] = None
 
+        opts = pulumi.with_aliases(opts, [pulumi.Alias(type_="aws:applicationloadbalancing/targetGroup:TargetGroup")])
         super(TargetGroup, __self__).__init__(
             'aws:alb/targetGroup:TargetGroup',
             resource_name,

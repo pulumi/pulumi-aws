@@ -58,6 +58,7 @@ class ListenerPolicy(pulumi.CustomResource):
 
         __props__['policy_names'] = policy_names
 
+        opts = pulumi.with_aliases(opts, [pulumi.Alias(type_="aws:elasticloadbalancing/listenerPolicy:ListenerPolicy")])
         super(ListenerPolicy, __self__).__init__(
             'aws:elb/listenerPolicy:ListenerPolicy',
             resource_name,
