@@ -23,13 +23,13 @@ import * as utilities from "../utilities";
  * const lbTgArn = config.get("lbTgArn") || "";
  * const lbTgName = config.get("lbTgName") || "";
  * 
- * const test = pulumi.output(aws.elasticloadbalancingv2.getTargetGroup({
+ * const test = pulumi.output(aws.lb.getTargetGroup({
  *     arn: lbTgArn,
  *     name: lbTgName,
  * }));
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb_target_group.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb_target_group_legacy.html.markdown.
  */
 export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> & GetTargetGroupResult {
     args = args || {};

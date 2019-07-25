@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const lb = new aws.elasticloadbalancing.LoadBalancer("lb", {
+ * const lb = new aws.elb.LoadBalancer("lb", {
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [{
  *         instancePort: 8000,
@@ -22,14 +22,14 @@ import * as utilities from "../utilities";
  *         lbProtocol: "http",
  *     }],
  * });
- * const foo = new aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy("foo", {
+ * const foo = new aws.elb.LoadBalancerCookieStickinessPolicy("foo", {
  *     cookieExpirationPeriod: 600,
  *     lbPort: 80,
  *     loadBalancer: lb.id,
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_cookie_stickiness_policy_current.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_cookie_stickiness_policy.html.markdown.
  */
 export class LoadBalancerCookieStickinessPolicy extends pulumi.CustomResource {
     /**

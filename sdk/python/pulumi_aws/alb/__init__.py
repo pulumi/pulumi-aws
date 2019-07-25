@@ -4,11 +4,11 @@
 
 # Export this package's modules as members:
 from .load_balancer import *
-from .listener_certificate import *
 from .listener import *
+from .listener_certificate import *
 from .listener_rule import *
-from .target_group_attachment import *
 from .target_group import *
+from .target_group_attachment import *
 from .get_load_balancer import *
 from .get_listener import *
 from .get_target_group import *

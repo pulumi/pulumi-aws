@@ -31,7 +31,7 @@ class ListenerPolicy(pulumi.CustomResource):
         :param pulumi.Input[float] load_balancer_port: The load balancer listener port to apply the policy to.
         :param pulumi.Input[list] policy_names: List of Policy Names to apply to the backend server.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/load_balancer_listener_policy_current.html.markdown.
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/load_balancer_listener_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

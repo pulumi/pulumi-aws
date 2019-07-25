@@ -18,15 +18,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const exampleCertificate = new aws.acm.Certificate("example", {});
- * const frontEndLoadBalancer = new aws.elasticloadbalancingv2.LoadBalancer("front_end", {});
- * const frontEndListener = new aws.elasticloadbalancingv2.Listener("front_end", {});
- * const exampleListenerCertificate = new aws.elasticloadbalancingv2.ListenerCertificate("example", {
+ * const frontEndLoadBalancer = new aws.lb.LoadBalancer("front_end", {});
+ * const frontEndListener = new aws.lb.Listener("front_end", {});
+ * const exampleListenerCertificate = new aws.lb.ListenerCertificate("example", {
  *     certificateArn: exampleCertificate.arn,
  *     listenerArn: frontEndListener.arn,
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_listener_certificate_current.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_listener_certificate.html.markdown.
  */
 export class ListenerCertificate extends pulumi.CustomResource {
     /**

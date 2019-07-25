@@ -22,12 +22,12 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const lbName = config.get("lbName") || "";
  * 
- * const test = pulumi.output(aws.elasticloadbalancing.getLoadBalancer({
+ * const test = pulumi.output(aws.elb.getLoadBalancer({
  *     name: lbName,
  * }));
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_legacy.html.markdown.
  */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> & GetLoadBalancerResult {
     const promise: Promise<GetLoadBalancerResult> = pulumi.runtime.invoke("aws:elasticloadbalancing/getLoadBalancer:getLoadBalancer", {

@@ -75,7 +75,7 @@ async def get_load_balancer(arn=None,name=None,tags=None,opts=None):
     variable and needs to, for example, determine the security groups associated
     with it, etc.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb.html.markdown.
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_legacy.html.markdown.
     """
     __args__ = dict()
 

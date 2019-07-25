@@ -4,8 +4,8 @@
 
 # Export this package's modules as members:
 from .app_cookie_stickiness_policy import *
-from .attachment import *
 from .load_balancer import *
+from .attachment import *
 from .load_balancer_cookie_stickiness_policy import *
 from .ssl_negotiation_policy import *
 from .load_balancer_backend_server_policy import *

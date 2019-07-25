@@ -2123,59 +2123,59 @@ func updateLegacyModuleNames(prov *tfbridge.ProviderInfo) {
 	updateModuleName := func(
 		tfName string,
 		tokName string,
-		origModule string,
+		legacyModule string,
 		currentModule string,
 		info *tfbridge.ResourceInfo) {
 
-		currentTFName := tfName + "_current"
+		legacyTFName := tfName + "_legacy"
 
 		if info == nil {
 			info = &tfbridge.ResourceInfo{}
 		}
-		info1 := *info
-		info2 := *info
+		legacyInfo := *info
+		currentInfo := *info
 
-		info1.Tok = awsResource(origModule, tokName)
-		info2.Tok = awsResource(currentModule, tokName)
+		legacyInfo.Tok = awsResource(legacyModule, tokName)
+		currentInfo.Tok = awsResource(currentModule, tokName)
 
-		if info2.Docs == nil {
-			info2.Docs = &tfbridge.DocInfo{
+		if legacyInfo.Docs == nil {
+			legacyInfo.Docs = &tfbridge.DocInfo{
 				Source:  tfName[len("aws_"):] + ".html.markdown",
 			}
 		}
 
-		prov.Resources[tfName] = &info1
-		prov.P.ResourcesMap[currentTFName] = prov.P.ResourcesMap[tfName]
-		prov.Resources[currentTFName] = &info2
+		prov.Resources[tfName] = &currentInfo
+		prov.Resources[legacyTFName] = &legacyInfo
+		prov.P.ResourcesMap[legacyTFName] = prov.P.ResourcesMap[tfName]
 	}
 
 	updateDataSourceName := func(
 		tfName string,
 		tokName string,
-		origModule string,
+		legacyModule string,
 		currentModule string,
 		info *tfbridge.DataSourceInfo) {
 
-		currentTFName := tfName + "_current"
+		legacyTFName := tfName + "_legacy"
 
 		if info == nil {
 			info = &tfbridge.DataSourceInfo{}
 		}
-		info1 := *info
-		info2 := *info
+		legacyInfo := *info
+		currentInfo := *info
 
-		info1.Tok = awsDataSource(origModule, tokName)
-		info2.Tok = awsDataSource(currentModule, tokName)
+		legacyInfo.Tok = awsDataSource(legacyModule, tokName)
+		currentInfo.Tok = awsDataSource(currentModule, tokName)
 
-		if info2.Docs == nil {
-			info2.Docs = &tfbridge.DocInfo{
+		if legacyInfo.Docs == nil {
+			legacyInfo.Docs = &tfbridge.DocInfo{
 				Source:  tfName[len("aws_"):] + ".html.markdown",
 			}
 		}
 
-		prov.DataSources[tfName] = &info1
-		prov.P.DataSourcesMap[currentTFName] = prov.P.DataSourcesMap[tfName]
-		prov.DataSources[currentTFName] = &info2
+		prov.DataSources[tfName] = &currentInfo
+		prov.DataSources[legacyTFName] = &legacyInfo
+		prov.P.DataSourcesMap[legacyTFName]= prov.P.DataSourcesMap[tfName]
 	}
 
 	// Define the tf `elb` resources.  For legacy compat we also export them from the `elasticloadbalancing` module

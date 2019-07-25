@@ -51,7 +51,7 @@ async def get_listener(arn=None,load_balancer_arn=None,port=None,opts=None):
     input variable and needs to know the LB it is attached to, or other
     information specific to the listener in question.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_listener.html.markdown.
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_listener_legacy.html.markdown.
     """
     __args__ = dict()
 

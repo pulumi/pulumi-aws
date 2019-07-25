@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const testInstance = new aws.ec2.Instance("test", {});
- * const testTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("test", {});
- * const testTargetGroupAttachment = new aws.elasticloadbalancingv2.TargetGroupAttachment("test", {
+ * const testTargetGroup = new aws.lb.TargetGroup("test", {});
+ * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("test", {
  *     port: 80,
  *     targetGroupArn: testTargetGroup.arn,
  *     targetId: testInstance.id,
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const testFunction = new aws.lambda.Function("test", {});
- * const testTargetGroup = new aws.elasticloadbalancingv2.TargetGroup("test", {
+ * const testTargetGroup = new aws.lb.TargetGroup("test", {
  *     targetType: "lambda",
  * });
  * const withLb = new aws.lambda.Permission("with_lb", {
@@ -40,13 +40,13 @@ import * as utilities from "../utilities";
  *     principal: "elasticloadbalancing.amazonaws.com",
  *     sourceArn: testTargetGroup.arn,
  * });
- * const testTargetGroupAttachment = new aws.elasticloadbalancingv2.TargetGroupAttachment("test", {
+ * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("test", {
  *     targetGroupArn: testTargetGroup.arn,
  *     targetId: testFunction.arn,
  * }, {dependsOn: [withLb]});
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group_attachment.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group_attachment_legacy.html.markdown.
  */
 export class TargetGroupAttachment extends pulumi.CustomResource {
     /**

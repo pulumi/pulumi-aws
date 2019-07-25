@@ -72,7 +72,7 @@ async def get_target_group(arn=None,name=None,tags=None,opts=None):
     input variable and needs to know its attributes. It can also be used to get the ARN of
     an LB Target Group for use in other resources, given LB Target Group name.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_target_group.html.markdown.
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_target_group_legacy.html.markdown.
     """
     __args__ = dict()
 

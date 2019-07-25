@@ -11,7 +11,7 @@ import (
 // 
 // > **Note:** `aws_alb` is known as `aws_lb`. The functionality is identical.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb.html.markdown.
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_legacy.html.markdown.
 type LoadBalancer struct {
 	s *pulumi.ResourceState
 }
