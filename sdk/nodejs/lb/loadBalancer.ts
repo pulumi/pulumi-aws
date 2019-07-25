@@ -4,9 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {IpAddressType} from "../alb/ipAddressType";
-import {LoadBalancerType} from "../alb/loadBalancerType";
-
 /**
  * Provides a Load Balancer resource.
  * 
@@ -75,7 +72,7 @@ import {LoadBalancerType} from "../alb/loadBalancerType";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_current.html.markdown.
  */
 export class LoadBalancer extends pulumi.CustomResource {
     /**
@@ -91,7 +88,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws:applicationloadbalancing/loadBalancer:LoadBalancer';
+    public static readonly __pulumiType = 'aws:lb/loadBalancer:LoadBalancer';
 
     /**
      * Returns true if the given object is an instance of LoadBalancer.  This is designed to work even
@@ -141,11 +138,11 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
      */
-    public readonly ipAddressType!: pulumi.Output<IpAddressType>;
+    public readonly ipAddressType!: pulumi.Output<string>;
     /**
      * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
      */
-    public readonly loadBalancerType!: pulumi.Output<LoadBalancerType | undefined>;
+    public readonly loadBalancerType!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -273,11 +270,11 @@ export interface LoadBalancerState {
     /**
      * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
      */
-    readonly ipAddressType?: pulumi.Input<IpAddressType>;
+    readonly ipAddressType?: pulumi.Input<string>;
     /**
      * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
      */
-    readonly loadBalancerType?: pulumi.Input<LoadBalancerType>;
+    readonly loadBalancerType?: pulumi.Input<string>;
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -337,11 +334,11 @@ export interface LoadBalancerArgs {
     /**
      * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
      */
-    readonly ipAddressType?: pulumi.Input<IpAddressType>;
+    readonly ipAddressType?: pulumi.Input<string>;
     /**
      * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
      */
-    readonly loadBalancerType?: pulumi.Input<LoadBalancerType>;
+    readonly loadBalancerType?: pulumi.Input<string>;
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.

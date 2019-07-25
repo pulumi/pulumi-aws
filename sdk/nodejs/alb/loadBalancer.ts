@@ -4,8 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {IpAddressType} from "../alb/ipAddressType";
-import {LoadBalancerType} from "../alb/loadBalancerType";
+import {IpAddressType} from "./ipAddressType";
+import {LoadBalancerType} from "./loadBalancerType";
 
 /**
  * Provides a Load Balancer resource.
@@ -75,7 +75,7 @@ import {LoadBalancerType} from "../alb/loadBalancerType";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_current.html.markdown.
  */
 export class LoadBalancer extends pulumi.CustomResource {
     /**
@@ -91,7 +91,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws:applicationloadbalancing/loadBalancer:LoadBalancer';
+    public static readonly __pulumiType = 'aws:alb/loadBalancer:LoadBalancer';
 
     /**
      * Returns true if the given object is an instance of LoadBalancer.  This is designed to work even
