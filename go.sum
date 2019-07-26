@@ -655,6 +655,8 @@ github.com/pulumi/pulumi v0.17.22-0.20190702185104-ebceea93a5da h1:8j8kMQncrqAfs
 github.com/pulumi/pulumi v0.17.22-0.20190702185104-ebceea93a5da/go.mod h1:YUZl+EG25I3Zs337/O7gRiGfquphPBOrMG6QZYAWW9g=
 github.com/pulumi/pulumi v0.17.23-0.20190715212628-02ffff88409f h1:3K/cssb6A3pEEDcNPEZSOVF70jPIdgftGX9UcSINZ/0=
 github.com/pulumi/pulumi v0.17.23-0.20190715212628-02ffff88409f/go.mod h1:d+ivoM5WASR34nx+EJwBMfWtuU8oczAY5lMTrXsdboM=
+github.com/pulumi/pulumi v0.17.26-0.20190723034217-ed5b8437d126 h1:ZeaZksXFGJEHznfEEjGm5y0vW4hih6NxxYERmpnSZ0I=
+github.com/pulumi/pulumi v0.17.26-0.20190723034217-ed5b8437d126/go.mod h1:KWwOOr07OHTwyPA4cACn8zLfZ9tTEktb0wu3P7nfSto=
 github.com/pulumi/pulumi-terraform v0.14.1-dev.0.20190410060834-0ef064af4d04 h1:iTc5H/fZf/AacCOxFtVef7MvhEgAHTiR8RiZXRKDnZk=
 github.com/pulumi/pulumi-terraform v0.14.1-dev.0.20190410060834-0ef064af4d04/go.mod h1:bJ2tsYQlSMzMCEDb2kP1rDHaadG3O7JUnBUYH/yx2Io=
 github.com/pulumi/pulumi-terraform v0.14.1-dev.0.20190506205940-21108d2d0be2 h1:VdG9S3rFg7tbmsR3gY3pKmTFaKgBw4vyyEdoldHs9aY=
@@ -684,6 +686,8 @@ github.com/pulumi/pulumi-terraform v0.18.4-0.20190716112909-08d502e9b427 h1:zCNa
 github.com/pulumi/pulumi-terraform v0.18.4-0.20190716112909-08d502e9b427/go.mod h1:HZZfntNPhurepaYfYpimuN4KGSuEJm6/EUOopwS8oUM=
 github.com/pulumi/pulumi-terraform v0.18.4-0.20190719221554-98fabcf5067b h1:Ov3gaKYgWAFAoaGe2+oZdytlnQcgnTB5gSB3LaZY9Xw=
 github.com/pulumi/pulumi-terraform v0.18.4-0.20190719221554-98fabcf5067b/go.mod h1:HZZfntNPhurepaYfYpimuN4KGSuEJm6/EUOopwS8oUM=
+github.com/pulumi/pulumi-terraform v0.18.4-0.20190724233644-fdafc00b3f6a h1:fFz3Sn1a2iUfjFmkfDp7TzIbln6QaN6htFMzw9v2If0=
+github.com/pulumi/pulumi-terraform v0.18.4-0.20190724233644-fdafc00b3f6a/go.mod h1:IKBdpRr5RrmkXPJDtM6LvIrGiaLnbJ06h3Lwm3HCZyg=
 github.com/pulumi/terraform-provider-aws v1.3.2-0.20190407171755-cf2ef8807a4b h1:2g4TbpkKIzm8wqcvnrvh5FY1I/bO5x0k5iswWSCH6Ek=
 github.com/pulumi/terraform-provider-aws v1.3.2-0.20190407171755-cf2ef8807a4b/go.mod h1:q6jzd2kIAdFH8V10Y8N3NRf4wVQ6DTCN/kjE0L9eHLY=
 github.com/pulumi/terraform-provider-aws v1.3.2-0.20190417135458-30039de05cc7 h1:aac7CF4/uYxKoGIATUPNhdWqrntHMH+pqrODc7ZcBvM=
@@ -729,6 +733,7 @@ github.com/russross/blackfriday v1.5.1/go.mod h1:JO/DiYxRf+HjHt06OyowR9PTA263kcR
 github.com/russross/blackfriday v1.5.2/go.mod h1:JO/DiYxRf+HjHt06OyowR9PTA263kcR/rfWxYHBV53g=
 github.com/ryanuber/columnize v0.0.0-20161220214920-0fbbb3f0e3fb/go.mod h1:sm1tb6uqfes/u+d4ooFouqFdy9/2g9QGwK3SQygK0Ts=
 github.com/ryanuber/go-glob v0.0.0-20170128012129-256dc444b735/go.mod h1:807d1WSdnB0XRJzKNil9Om6lcp/3a0v4qIHxIXzX/Yc=
+github.com/sabhiram/go-gitignore v0.0.0-20180611051255-d3107576ba94/go.mod h1:b18R55ulyQ/h3RaWyloPyER7fWQVZvimKKhnI5OfrJQ=
 github.com/satori/go.uuid v0.0.0-20160927100844-b061729afc07/go.mod h1:dA0hQrYB0VpLJoorglMZABFdXlWrHn1NEOzdhQKdks0=
 github.com/satori/go.uuid v1.2.0 h1:0uYX9dsZ2yD7q2RtLRtPSdGDWzjeM3TbMJP9utgA0ww=
 github.com/satori/go.uuid v1.2.0/go.mod h1:dA0hQrYB0VpLJoorglMZABFdXlWrHn1NEOzdhQKdks0=
