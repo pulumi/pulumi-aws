@@ -55,7 +55,8 @@ class ListenerCertificate(pulumi.CustomResource):
             raise TypeError("Missing required property 'listener_arn'")
         __props__['listener_arn'] = listener_arn
 
-        opts = pulumi.with_aliases(opts, [pulumi.Alias(type_="aws:applicationloadbalancing/listenerCertificate:ListenerCertificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:applicationloadbalancing/listenerCertificate:ListenerCertificate")])
+        opts = alias_opts if opts is None else opts.merge(alias_opts)
         super(ListenerCertificate, __self__).__init__(
             'aws:alb/listenerCertificate:ListenerCertificate',
             resource_name,

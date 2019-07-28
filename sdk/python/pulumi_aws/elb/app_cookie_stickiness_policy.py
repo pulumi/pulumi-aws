@@ -73,7 +73,8 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        opts = pulumi.with_aliases(opts, [pulumi.Alias(type_="aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy")])
+        opts = alias_opts if opts is None else opts.merge(alias_opts)
         super(AppCookieStickinessPolicy, __self__).__init__(
             'aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy',
             resource_name,

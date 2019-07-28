@@ -68,7 +68,8 @@ export class Attachment extends pulumi.CustomResource {
             inputs["elb"] = args ? args.elb : undefined;
             inputs["instance"] = args ? args.instance : undefined;
         }
-        opts = pulumi.withAliases(opts, [{ type: "aws:elasticloadbalancing/attachment:Attachment" }]);
+        const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/attachment:Attachment" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Attachment.__pulumiType, name, inputs, opts);
     }
 }

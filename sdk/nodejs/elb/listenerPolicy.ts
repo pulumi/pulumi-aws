@@ -157,7 +157,8 @@ export class ListenerPolicy extends pulumi.CustomResource {
             inputs["loadBalancerPort"] = args ? args.loadBalancerPort : undefined;
             inputs["policyNames"] = args ? args.policyNames : undefined;
         }
-        opts = pulumi.withAliases(opts, [{ type: "aws:elasticloadbalancing/listenerPolicy:ListenerPolicy" }]);
+        const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/listenerPolicy:ListenerPolicy" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ListenerPolicy.__pulumiType, name, inputs, opts);
     }
 }

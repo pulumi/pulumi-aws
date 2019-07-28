@@ -71,7 +71,8 @@ class SslNegotiationPolicy(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        opts = pulumi.with_aliases(opts, [pulumi.Alias(type_="aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy")])
+        opts = alias_opts if opts is None else opts.merge(alias_opts)
         super(SslNegotiationPolicy, __self__).__init__(
             'aws:elb/sslNegotiationPolicy:SslNegotiationPolicy',
             resource_name,

@@ -236,7 +236,8 @@ export class Listener extends pulumi.CustomResource {
             inputs["sslPolicy"] = args ? args.sslPolicy : undefined;
             inputs["arn"] = undefined /*out*/;
         }
-        opts = pulumi.withAliases(opts, [{ type: "aws:applicationloadbalancing/listener:Listener" }]);
+        const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/listener:Listener" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Listener.__pulumiType, name, inputs, opts);
     }
 }

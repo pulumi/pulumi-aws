@@ -89,7 +89,8 @@ export class ListenerCertificate extends pulumi.CustomResource {
             inputs["certificateArn"] = args ? args.certificateArn : undefined;
             inputs["listenerArn"] = args ? args.listenerArn : undefined;
         }
-        opts = pulumi.withAliases(opts, [{ type: "aws:applicationloadbalancing/listenerCertificate:ListenerCertificate" }]);
+        const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/listenerCertificate:ListenerCertificate" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ListenerCertificate.__pulumiType, name, inputs, opts);
     }
 }
