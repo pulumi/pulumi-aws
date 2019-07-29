@@ -2,6 +2,10 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+
+---
+
+## 0.18.24 (2019-07-29)
 * Change PolicyDocument helper to allow passing of outputs from other resources
 * Update pulumi-terraform to fdafc00b3f
 * Several modules have been renamed to better align with their terraform equivalents.  The existing
@@ -11,8 +15,6 @@ CHANGELOG
   * `applicationloadbalancing -> alb`
   * `elasticloadbalancing     -> elb`
   * `elasticloadbalancingv2   -> lb`
-
----
 
 ## 0.18.23 (2019-07-19)
 * Upgrade to pulumi-terraform@98fabcf506
