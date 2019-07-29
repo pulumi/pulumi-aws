@@ -2191,9 +2191,10 @@ func updateLegacyModuleNames(prov *tfbridge.ProviderInfo) {
 	updateModuleName("aws_elb_attachment", "Attachment", legacyElbMod, elbMod, nil)
 	updateModuleName("aws_lb_cookie_stickiness_policy", "LoadBalancerCookieStickinessPolicy", legacyElbMod, elbMod, nil)
 	updateModuleName("aws_load_balancer_policy", "LoadBalancerPolicy", legacyElbMod, elbMod, nil)
-	updateModuleName("aws_load_balancer_backend_server_policy", "LoadBalancerBackendServerPolicy", legacyElbMod, elbMod, nil)
 	updateModuleName("aws_load_balancer_listener_policy", "ListenerPolicy", legacyElbMod, elbMod, nil)
 	updateModuleName("aws_lb_ssl_negotiation_policy", "SslNegotiationPolicy", legacyElbMod, elbMod, nil)
+	updateModuleName("aws_load_balancer_backend_server_policy", "LoadBalancerBackendServerPolicy",
+		legacyElbMod, elbMod, nil)
 
 	// elb data sources.
 	updateDataSourceName("aws_elb_hosted_zone_id", "getHostedZoneId", legacyElbMod, elbMod, nil)
