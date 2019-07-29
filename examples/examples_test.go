@@ -61,7 +61,6 @@ func TestExamples(t *testing.T) {
 		// TODO[pulumi/pulumi#1900]: This should be the default value, every test we have causes some sort of
 		// change during a `pulumi refresh` for reasons outside our control.
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "alb-legacy")}),
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "alb-new")}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "bucket")}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "cloudwatch")}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "logGroup")}),
@@ -73,6 +72,16 @@ func TestExamples(t *testing.T) {
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "route53")}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "lambda-layer")}),
 		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "ecr")}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir: path.Join(cwd, "alb-new"),
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      "step2",
+					Additive: true,
+					ExpectNoChanges: true,
+				},
+			},
+		}),
 		baseJS.With(integration.ProgramTestOptions{
 			Dir: path.Join(cwd, "delete_before_create", "mount_target", "step1"),
 			EditDirs: []integration.EditDir{
@@ -126,7 +135,16 @@ func TestExamples(t *testing.T) {
 		// Python tests:
 		basePython.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver-py")}),
 		basePython.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "alb-legacy-py")}),
-		basePython.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "alb-new-py")}),
+		basePython.With(integration.ProgramTestOptions{
+			Dir: path.Join(cwd, "alb-new-py"),
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      "step2",
+					Additive: true,
+					ExpectNoChanges: true,
+				},
+			},
+		}),
 	}
 
 	longTests := []integration.ProgramTestOptions{
