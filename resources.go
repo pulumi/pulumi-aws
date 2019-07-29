@@ -2139,7 +2139,7 @@ func updateLegacyModuleNames(prov *tfbridge.ProviderInfo) {
 		legacyType := legacyInfo.Tok.String()
 		currentInfo.Tok = awsResource(currentModule, tokName)
 		currentInfo.Aliases = []tfbridge.AliasInfo{
-			tfbridge.AliasInfo{Type: &legacyType},
+			{Type: &legacyType},
 		}
 
 		if legacyInfo.Docs == nil {
