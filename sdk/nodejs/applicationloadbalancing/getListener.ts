@@ -22,19 +22,19 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const listenerArn = config.require("listenerArn");
  * 
- * const selected = pulumi.output(aws.elasticloadbalancingv2.getLoadBalancer({
+ * const selected = pulumi.output(aws.lb.getLoadBalancer({
  *     name: "default-public",
  * }));
- * const listener = pulumi.output(aws.elasticloadbalancingv2.getListener({
+ * const listener = pulumi.output(aws.lb.getListener({
  *     arn: listenerArn,
  * }));
- * const selected443 = selected.apply(selected => aws.elasticloadbalancingv2.getListener({
+ * const selected443 = selected.apply(selected => aws.lb.getListener({
  *     loadBalancerArn: selected.arn,
  *     port: 443,
  * }));
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb_listener.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb_listener_legacy.html.markdown.
  */
 export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> & GetListenerResult {
     args = args || {};

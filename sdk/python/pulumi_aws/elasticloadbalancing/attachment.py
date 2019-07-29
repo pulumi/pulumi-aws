@@ -26,7 +26,7 @@ class Attachment(pulumi.CustomResource):
         :param pulumi.Input[str] elb: The name of the ELB.
         :param pulumi.Input[str] instance: Instance ID to place in the ELB pool.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elb_attachment.html.markdown.
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elb_attachment_legacy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

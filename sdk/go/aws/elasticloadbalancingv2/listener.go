@@ -12,7 +12,7 @@ import (
 // 
 // > **Note:** `aws_alb_listener` is known as `aws_lb_listener`. The functionality is identical.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_listener.html.markdown.
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_listener_legacy.html.markdown.
 type Listener struct {
 	s *pulumi.ResourceState
 }

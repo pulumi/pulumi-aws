@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const main = pulumi.output(aws.elasticloadbalancing.getServiceAccount({}));
+ * const main = pulumi.output(aws.elb.getServiceAccount({}));
  * const elbLogs = new aws.s3.Bucket("elb_logs", {
  *     acl: "private",
  *     policy: pulumi.interpolate`{
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const bar = new aws.elasticloadbalancing.LoadBalancer("bar", {
+ * const bar = new aws.elb.LoadBalancer("bar", {
  *     accessLogs: {
  *         bucket: elbLogs.bucket,
  *         interval: 5,
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_service_account.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_service_account_legacy.html.markdown.
  */
 export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> & GetServiceAccountResult {
     args = args || {};

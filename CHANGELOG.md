@@ -4,6 +4,13 @@ CHANGELOG
 ## HEAD (Unreleased)
 * Change PolicyDocument helper to allow passing of outputs from other resources
 * Update pulumi-terraform to fdafc00b3f
+* Several modules have been renamed to better align with their terraform equivalents.  The existing
+  modules are still available, but will be deprecated and removed in the future. 'Aliases' have been
+  used to ensure that moving to the new modules will not result in any changes to existing
+  resources.  The renamed modules are:
+  * `applicationloadbalancing -> alb`
+  * `elasticloadbalancing     -> elb`
+  * `elasticloadbalancingv2   -> lb`
 
 ---
 
