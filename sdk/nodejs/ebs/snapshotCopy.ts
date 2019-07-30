@@ -147,6 +147,13 @@ export class SnapshotCopy extends pulumi.CustomResource {
             inputs["volumeId"] = undefined /*out*/;
             inputs["volumeSize"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(SnapshotCopy.__pulumiType, name, inputs, opts);
     }
 }

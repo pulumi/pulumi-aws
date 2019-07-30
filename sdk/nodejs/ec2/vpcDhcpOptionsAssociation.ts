@@ -87,6 +87,13 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
             inputs["dhcpOptionsId"] = args ? args.dhcpOptionsId : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(VpcDhcpOptionsAssociation.__pulumiType, name, inputs, opts);
     }
 }

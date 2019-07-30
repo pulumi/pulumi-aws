@@ -35,6 +35,13 @@ import * as utilities from "../utilities";
  */
 export function getEventCategories(args?: GetEventCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetEventCategoriesResult> & GetEventCategoriesResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetEventCategoriesResult> = pulumi.runtime.invoke("aws:rds/getEventCategories:getEventCategories", {
         "sourceType": args.sourceType,
     }, opts);

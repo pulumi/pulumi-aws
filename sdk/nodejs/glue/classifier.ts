@@ -121,6 +121,13 @@ export class Classifier extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["xmlClassifier"] = args ? args.xmlClassifier : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Classifier.__pulumiType, name, inputs, opts);
     }
 }

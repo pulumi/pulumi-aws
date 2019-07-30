@@ -43,6 +43,13 @@ import * as utilities from "../utilities";
  */
 export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> & GetSnapshotResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetSnapshotResult> = pulumi.runtime.invoke("aws:rds/getSnapshot:getSnapshot", {
         "dbInstanceIdentifier": args.dbInstanceIdentifier,
         "dbSnapshotIdentifier": args.dbSnapshotIdentifier,

@@ -85,6 +85,13 @@ export class ByteMatchSet extends pulumi.CustomResource {
             inputs["byteMatchTuples"] = args ? args.byteMatchTuples : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ByteMatchSet.__pulumiType, name, inputs, opts);
     }
 }

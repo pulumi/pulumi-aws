@@ -1945,9 +1945,13 @@ func Provider() tfbridge.ProviderInfo {
 			// WAF
 			"aws_waf_rule":    {Tok: awsDataSource(wafMod, "getRule")},
 			"aws_waf_web_acl": {Tok: awsDataSource(wafMod, "getWebAcl")},
+			"aws_waf_ipset":   {Tok: awsDataSource(wafMod, "getIpset")},
 			// WAF Regional
 			"aws_wafregional_rule":    {Tok: awsDataSource(wafregionalMod, "getRule")},
 			"aws_wafregional_web_acl": {Tok: awsDataSource(wafregionalMod, "getWebAcl")},
+			"aws_wafregional_ipset":   {Tok: awsDataSource(wafregionalMod, "getIpset")},
+			// Organizations
+			"aws_organizations_organization": {Tok: awsDataSource(organizationsMod, "getOrganization")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

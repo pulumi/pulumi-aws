@@ -73,6 +73,13 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
             inputs["onStart"] = args ? args.onStart : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(NotebookInstanceLifecycleConfiguration.__pulumiType, name, inputs, opts);
     }
 }

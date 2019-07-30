@@ -114,6 +114,13 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(LogSubscriptionFilter.__pulumiType, name, inputs, opts);
     }
 }

@@ -91,6 +91,13 @@ export class Certificate extends pulumi.CustomResource {
             inputs["csr"] = args ? args.csr : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Certificate.__pulumiType, name, inputs, opts);
     }
 }

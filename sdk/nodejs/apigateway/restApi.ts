@@ -143,6 +143,13 @@ export class RestApi extends pulumi.CustomResource {
             inputs["executionArn"] = undefined /*out*/;
             inputs["rootResourceId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(RestApi.__pulumiType, name, inputs, opts);
     }
 }

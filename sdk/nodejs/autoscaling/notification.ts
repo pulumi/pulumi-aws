@@ -110,6 +110,13 @@ export class Notification extends pulumi.CustomResource {
             inputs["notifications"] = args ? args.notifications : undefined;
             inputs["topicArn"] = args ? args.topicArn : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Notification.__pulumiType, name, inputs, opts);
     }
 }

@@ -71,6 +71,13 @@ export class Attachment extends pulumi.CustomResource {
             inputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
             inputs["elb"] = args ? args.elb : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Attachment.__pulumiType, name, inputs, opts);
     }
 }

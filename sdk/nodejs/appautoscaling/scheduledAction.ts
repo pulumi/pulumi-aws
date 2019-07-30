@@ -166,6 +166,13 @@ export class ScheduledAction extends pulumi.CustomResource {
             inputs["startTime"] = args ? args.startTime : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ScheduledAction.__pulumiType, name, inputs, opts);
     }
 }

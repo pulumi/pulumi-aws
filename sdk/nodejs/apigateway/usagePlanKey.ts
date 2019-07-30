@@ -112,6 +112,13 @@ export class UsagePlanKey extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["value"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(UsagePlanKey.__pulumiType, name, inputs, opts);
     }
 }

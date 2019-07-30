@@ -159,6 +159,13 @@ export class DeploymentConfig extends pulumi.CustomResource {
             inputs["trafficRoutingConfig"] = args ? args.trafficRoutingConfig : undefined;
             inputs["deploymentConfigId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DeploymentConfig.__pulumiType, name, inputs, opts);
     }
 }

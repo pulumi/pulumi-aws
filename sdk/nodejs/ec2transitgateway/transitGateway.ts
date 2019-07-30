@@ -137,6 +137,13 @@ export class TransitGateway extends pulumi.CustomResource {
             inputs["ownerId"] = undefined /*out*/;
             inputs["propagationDefaultRouteTableId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(TransitGateway.__pulumiType, name, inputs, opts);
     }
 }

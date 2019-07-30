@@ -50,6 +50,13 @@ export class Account extends pulumi.CustomResource {
         } else {
             const args = argsOrState as AccountArgs | undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Account.__pulumiType, name, inputs, opts);
     }
 }

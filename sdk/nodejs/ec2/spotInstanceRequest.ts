@@ -365,6 +365,13 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["spotInstanceId"] = undefined /*out*/;
             inputs["spotRequestState"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(SpotInstanceRequest.__pulumiType, name, inputs, opts);
     }
 }

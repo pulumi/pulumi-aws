@@ -98,6 +98,13 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
             inputs["associatedGatewayOwnerAccountId"] = undefined /*out*/;
             inputs["associatedGatewayType"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(GatewayAssociationProposal.__pulumiType, name, inputs, opts);
     }
 }

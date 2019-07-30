@@ -101,6 +101,13 @@ export class PublicKey extends pulumi.CustomResource {
             inputs["callerReference"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(PublicKey.__pulumiType, name, inputs, opts);
     }
 }

@@ -87,6 +87,13 @@ export class Protection extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceArn"] = args ? args.resourceArn : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Protection.__pulumiType, name, inputs, opts);
     }
 }

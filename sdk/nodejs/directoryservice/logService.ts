@@ -103,6 +103,13 @@ export class LogService extends pulumi.CustomResource {
             inputs["directoryId"] = args ? args.directoryId : undefined;
             inputs["logGroupName"] = args ? args.logGroupName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(LogService.__pulumiType, name, inputs, opts);
     }
 }

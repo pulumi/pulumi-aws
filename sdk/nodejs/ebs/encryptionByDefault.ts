@@ -56,6 +56,13 @@ export class EncryptionByDefault extends pulumi.CustomResource {
             const args = argsOrState as EncryptionByDefaultArgs | undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(EncryptionByDefault.__pulumiType, name, inputs, opts);
     }
 }

@@ -78,6 +78,13 @@ export class EmailIdentity extends pulumi.CustomResource {
             inputs["email"] = args ? args.email : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(EmailIdentity.__pulumiType, name, inputs, opts);
     }
 }

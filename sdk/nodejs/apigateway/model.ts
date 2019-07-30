@@ -110,6 +110,13 @@ export class Model extends pulumi.CustomResource {
             inputs["restApi"] = args ? args.restApi : undefined;
             inputs["schema"] = args ? args.schema : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Model.__pulumiType, name, inputs, opts);
     }
 }

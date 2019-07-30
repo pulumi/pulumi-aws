@@ -45,6 +45,13 @@ import * as utilities from "./utilities";
  */
 export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixListResult> & GetPrefixListResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetPrefixListResult> = pulumi.runtime.invoke("aws:index/getPrefixList:getPrefixList", {
         "name": args.name,
         "prefixListId": args.prefixListId,

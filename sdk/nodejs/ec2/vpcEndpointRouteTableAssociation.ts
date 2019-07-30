@@ -82,6 +82,13 @@ export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
             inputs["routeTableId"] = args ? args.routeTableId : undefined;
             inputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(VpcEndpointRouteTableAssociation.__pulumiType, name, inputs, opts);
     }
 }

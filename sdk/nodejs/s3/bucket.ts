@@ -379,6 +379,13 @@ export class Bucket extends pulumi.CustomResource {
             inputs["bucketDomainName"] = undefined /*out*/;
             inputs["bucketRegionalDomainName"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Bucket.__pulumiType, name, inputs, opts);
     }
 }

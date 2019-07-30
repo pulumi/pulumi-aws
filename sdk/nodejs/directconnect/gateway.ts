@@ -84,6 +84,13 @@ export class Gateway extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["ownerAccountId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Gateway.__pulumiType, name, inputs, opts);
     }
 }

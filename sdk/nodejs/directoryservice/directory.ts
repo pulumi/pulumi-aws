@@ -256,6 +256,13 @@ export class Directory extends pulumi.CustomResource {
             inputs["dnsIpAddresses"] = undefined /*out*/;
             inputs["securityGroupId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Directory.__pulumiType, name, inputs, opts);
     }
 }

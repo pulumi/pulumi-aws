@@ -39,6 +39,13 @@ import * as utilities from "../utilities";
  */
 export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> & GetNatGatewayResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetNatGatewayResult> = pulumi.runtime.invoke("aws:ec2/getNatGateway:getNatGateway", {
         "filters": args.filters,
         "id": args.id,

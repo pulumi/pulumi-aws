@@ -4,6 +4,7 @@
 // Export members:
 export * from "./byteMatchSet";
 export * from "./geoMatchSet";
+export * from "./getIpset";
 export * from "./getRule";
 export * from "./getWebAcl";
 export * from "./ipSet";

@@ -190,6 +190,13 @@ export class Crawler extends pulumi.CustomResource {
             inputs["tablePrefix"] = args ? args.tablePrefix : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Crawler.__pulumiType, name, inputs, opts);
     }
 }

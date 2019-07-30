@@ -138,6 +138,13 @@ export class IdentityPool extends pulumi.CustomResource {
             inputs["supportedLoginProviders"] = args ? args.supportedLoginProviders : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(IdentityPool.__pulumiType, name, inputs, opts);
     }
 }

@@ -126,6 +126,13 @@ export class RecorderStatus extends pulumi.CustomResource {
             inputs["isEnabled"] = args ? args.isEnabled : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(RecorderStatus.__pulumiType, name, inputs, opts);
     }
 }

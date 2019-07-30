@@ -158,6 +158,13 @@ export class Selection extends pulumi.CustomResource {
             inputs["resources"] = args ? args.resources : undefined;
             inputs["selectionTags"] = args ? args.selectionTags : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Selection.__pulumiType, name, inputs, opts);
     }
 }

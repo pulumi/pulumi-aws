@@ -210,6 +210,13 @@ export class GraphQLApi extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["uris"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(GraphQLApi.__pulumiType, name, inputs, opts);
     }
 }

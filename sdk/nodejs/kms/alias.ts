@@ -84,6 +84,13 @@ export class Alias extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["targetKeyArn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Alias.__pulumiType, name, inputs, opts);
     }
 }

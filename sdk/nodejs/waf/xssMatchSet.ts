@@ -88,6 +88,13 @@ export class XssMatchSet extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["xssMatchTuples"] = args ? args.xssMatchTuples : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(XssMatchSet.__pulumiType, name, inputs, opts);
     }
 }

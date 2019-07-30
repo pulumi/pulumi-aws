@@ -65,6 +65,13 @@ export class TopicPolicy extends pulumi.CustomResource {
             inputs["arn"] = args ? args.arn : undefined;
             inputs["policy"] = args ? args.policy : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(TopicPolicy.__pulumiType, name, inputs, opts);
     }
 }

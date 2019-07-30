@@ -93,6 +93,13 @@ export class Zone extends pulumi.CustomResource {
             inputs["nameServers"] = undefined /*out*/;
             inputs["zoneId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Zone.__pulumiType, name, inputs, opts);
     }
 }

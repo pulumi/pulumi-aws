@@ -128,6 +128,13 @@ export class ServiceQuota extends pulumi.CustomResource {
             inputs["requestStatus"] = undefined /*out*/;
             inputs["serviceName"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ServiceQuota.__pulumiType, name, inputs, opts);
     }
 }

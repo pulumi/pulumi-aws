@@ -115,6 +115,13 @@ export class TopicSubscription extends pulumi.CustomResource {
             inputs["topic"] = args ? args.topic : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(TopicSubscription.__pulumiType, name, inputs, opts);
     }
 }

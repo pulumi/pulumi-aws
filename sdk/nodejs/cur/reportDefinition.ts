@@ -152,6 +152,13 @@ export class ReportDefinition extends pulumi.CustomResource {
             inputs["s3Region"] = args ? args.s3Region : undefined;
             inputs["timeUnit"] = args ? args.timeUnit : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ReportDefinition.__pulumiType, name, inputs, opts);
     }
 }

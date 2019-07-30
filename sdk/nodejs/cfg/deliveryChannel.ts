@@ -139,6 +139,13 @@ export class DeliveryChannel extends pulumi.CustomResource {
             inputs["snapshotDeliveryProperties"] = args ? args.snapshotDeliveryProperties : undefined;
             inputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DeliveryChannel.__pulumiType, name, inputs, opts);
     }
 }

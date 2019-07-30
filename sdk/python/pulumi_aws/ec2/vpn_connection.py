@@ -80,7 +80,7 @@ class VpnConnection(pulumi.CustomResource):
     """
     tunnel2_inside_cidr: pulumi.Output[str]
     """
-    The CIDR block of the second IP addresses for the first VPN tunnel.
+    The CIDR block of the inside IP addresses for the second VPN tunnel.
     """
     tunnel2_preshared_key: pulumi.Output[str]
     """
@@ -117,7 +117,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
         :param pulumi.Input[str] tunnel1_inside_cidr: The CIDR block of the inside IP addresses for the first VPN tunnel.
         :param pulumi.Input[str] tunnel1_preshared_key: The preshared key of the first VPN tunnel.
-        :param pulumi.Input[str] tunnel2_inside_cidr: The CIDR block of the second IP addresses for the first VPN tunnel.
+        :param pulumi.Input[str] tunnel2_inside_cidr: The CIDR block of the inside IP addresses for the second VPN tunnel.
         :param pulumi.Input[str] tunnel2_preshared_key: The preshared key of the second VPN tunnel.
         :param pulumi.Input[str] type: The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
         :param pulumi.Input[str] vpn_gateway_id: The ID of the Virtual Private Gateway.

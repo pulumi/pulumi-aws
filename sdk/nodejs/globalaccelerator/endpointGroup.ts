@@ -121,6 +121,13 @@ export class EndpointGroup extends pulumi.CustomResource {
             inputs["thresholdCount"] = args ? args.thresholdCount : undefined;
             inputs["trafficDialPercentage"] = args ? args.trafficDialPercentage : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(EndpointGroup.__pulumiType, name, inputs, opts);
     }
 }

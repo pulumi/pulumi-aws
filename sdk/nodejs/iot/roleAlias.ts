@@ -107,6 +107,13 @@ export class RoleAlias extends pulumi.CustomResource {
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(RoleAlias.__pulumiType, name, inputs, opts);
     }
 }

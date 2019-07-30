@@ -114,6 +114,13 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(EnvironmentEC2.__pulumiType, name, inputs, opts);
     }
 }

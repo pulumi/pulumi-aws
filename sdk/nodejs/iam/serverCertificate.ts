@@ -102,6 +102,13 @@ export class ServerCertificate extends pulumi.CustomResource {
             inputs["path"] = args ? args.path : undefined;
             inputs["privateKey"] = args ? args.privateKey : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ServerCertificate.__pulumiType, name, inputs, opts);
     }
 }

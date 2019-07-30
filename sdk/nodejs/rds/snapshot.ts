@@ -196,6 +196,13 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["storageType"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Snapshot.__pulumiType, name, inputs, opts);
     }
 }

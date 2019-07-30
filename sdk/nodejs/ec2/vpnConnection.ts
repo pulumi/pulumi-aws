@@ -158,7 +158,7 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly tunnel2CgwInsideAddress!: pulumi.Output<string>;
     /**
-     * The CIDR block of the second IP addresses for the first VPN tunnel.
+     * The CIDR block of the inside IP addresses for the second VPN tunnel.
      */
     public readonly tunnel2InsideCidr!: pulumi.Output<string>;
     /**
@@ -248,6 +248,13 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["tunnel2VgwInsideAddress"] = undefined /*out*/;
             inputs["vgwTelemetries"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(VpnConnection.__pulumiType, name, inputs, opts);
     }
 }
@@ -326,7 +333,7 @@ export interface VpnConnectionState {
      */
     readonly tunnel2CgwInsideAddress?: pulumi.Input<string>;
     /**
-     * The CIDR block of the second IP addresses for the first VPN tunnel.
+     * The CIDR block of the inside IP addresses for the second VPN tunnel.
      */
     readonly tunnel2InsideCidr?: pulumi.Input<string>;
     /**
@@ -377,7 +384,7 @@ export interface VpnConnectionArgs {
      */
     readonly tunnel1PresharedKey?: pulumi.Input<string>;
     /**
-     * The CIDR block of the second IP addresses for the first VPN tunnel.
+     * The CIDR block of the inside IP addresses for the second VPN tunnel.
      */
     readonly tunnel2InsideCidr?: pulumi.Input<string>;
     /**

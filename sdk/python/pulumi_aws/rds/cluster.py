@@ -115,7 +115,7 @@ class Cluster(pulumi.CustomResource):
     """
     master_username: pulumi.Output[str]
     """
-    Username for the master DB user. Please refer to the [RDS Naming Constraints][5]
+    Username for the master DB user. Please refer to the [RDS Naming Constraints][5]. This argument does not support in-place updates and cannot be changed during a restore from snapshot.
     """
     port: pulumi.Output[float]
     """
@@ -201,7 +201,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
         :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may
                show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints][5]
-        :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints][5]
+        :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints][5]. This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         :param pulumi.Input[float] port: The port on which the DB accepts connections
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
                Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00

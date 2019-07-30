@@ -97,6 +97,13 @@ export class DocumentationPart extends pulumi.CustomResource {
             inputs["properties"] = args ? args.properties : undefined;
             inputs["restApiId"] = args ? args.restApiId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DocumentationPart.__pulumiType, name, inputs, opts);
     }
 }

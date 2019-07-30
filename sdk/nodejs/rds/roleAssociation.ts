@@ -97,6 +97,13 @@ export class RoleAssociation extends pulumi.CustomResource {
             inputs["featureName"] = args ? args.featureName : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(RoleAssociation.__pulumiType, name, inputs, opts);
     }
 }

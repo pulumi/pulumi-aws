@@ -137,6 +137,13 @@ export class Activation extends pulumi.CustomResource {
             inputs["expired"] = undefined /*out*/;
             inputs["registrationCount"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Activation.__pulumiType, name, inputs, opts);
     }
 }

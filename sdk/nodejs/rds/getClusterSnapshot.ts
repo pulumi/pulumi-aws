@@ -38,6 +38,13 @@ import * as utilities from "../utilities";
  */
 export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSnapshotResult> & GetClusterSnapshotResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetClusterSnapshotResult> = pulumi.runtime.invoke("aws:rds/getClusterSnapshot:getClusterSnapshot", {
         "dbClusterIdentifier": args.dbClusterIdentifier,
         "dbClusterSnapshotIdentifier": args.dbClusterSnapshotIdentifier,

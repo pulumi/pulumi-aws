@@ -126,6 +126,13 @@ export class InstanceProfile extends pulumi.CustomResource {
             inputs["createDate"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(InstanceProfile.__pulumiType, name, inputs, opts);
     }
 }

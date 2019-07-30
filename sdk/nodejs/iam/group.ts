@@ -87,6 +87,13 @@ export class Group extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Group.__pulumiType, name, inputs, opts);
     }
 }

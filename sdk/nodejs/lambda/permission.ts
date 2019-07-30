@@ -222,6 +222,13 @@ export class Permission extends pulumi.CustomResource {
             inputs["statementId"] = args ? args.statementId : undefined;
             inputs["statementIdPrefix"] = args ? args.statementIdPrefix : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Permission.__pulumiType, name, inputs, opts);
     }
 }

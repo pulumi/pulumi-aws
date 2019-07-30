@@ -97,6 +97,13 @@ export class DocumentationVersion extends pulumi.CustomResource {
             inputs["restApiId"] = args ? args.restApiId : undefined;
             inputs["version"] = args ? args.version : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DocumentationVersion.__pulumiType, name, inputs, opts);
     }
 }

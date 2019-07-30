@@ -147,6 +147,13 @@ export class Service extends pulumi.CustomResource {
             inputs["namespaceId"] = args ? args.namespaceId : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Service.__pulumiType, name, inputs, opts);
     }
 }

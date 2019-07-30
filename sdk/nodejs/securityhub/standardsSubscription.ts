@@ -59,6 +59,13 @@ export class StandardsSubscription extends pulumi.CustomResource {
             }
             inputs["standardsArn"] = args ? args.standardsArn : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(StandardsSubscription.__pulumiType, name, inputs, opts);
     }
 }

@@ -246,6 +246,13 @@ export class Instance extends pulumi.CustomResource {
             inputs["ramSize"] = undefined /*out*/;
             inputs["username"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Instance.__pulumiType, name, inputs, opts);
     }
 }

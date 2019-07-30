@@ -120,6 +120,13 @@ export class RolePolicy extends pulumi.CustomResource {
             inputs["policy"] = args ? args.policy : undefined;
             inputs["role"] = args ? args.role : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(RolePolicy.__pulumiType, name, inputs, opts);
     }
 }

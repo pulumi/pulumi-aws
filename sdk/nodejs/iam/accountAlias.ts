@@ -74,6 +74,13 @@ export class AccountAlias extends pulumi.CustomResource {
             }
             inputs["accountAlias"] = args ? args.accountAlias : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(AccountAlias.__pulumiType, name, inputs, opts);
     }
 }

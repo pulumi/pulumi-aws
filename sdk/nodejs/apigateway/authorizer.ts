@@ -187,6 +187,13 @@ export class Authorizer extends pulumi.CustomResource {
             inputs["restApi"] = args ? args.restApi : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Authorizer.__pulumiType, name, inputs, opts);
     }
 }

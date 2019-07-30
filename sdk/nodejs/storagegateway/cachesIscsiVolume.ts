@@ -140,6 +140,13 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
             inputs["volumeArn"] = undefined /*out*/;
             inputs["volumeId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(CachesIscsiVolume.__pulumiType, name, inputs, opts);
     }
 }

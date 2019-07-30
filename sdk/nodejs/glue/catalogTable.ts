@@ -193,6 +193,13 @@ export class CatalogTable extends pulumi.CustomResource {
             inputs["viewExpandedText"] = args ? args.viewExpandedText : undefined;
             inputs["viewOriginalText"] = args ? args.viewOriginalText : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(CatalogTable.__pulumiType, name, inputs, opts);
     }
 }

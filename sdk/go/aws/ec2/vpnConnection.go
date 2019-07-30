@@ -212,7 +212,7 @@ func (r *VpnConnection) Tunnel2CgwInsideAddress() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["tunnel2CgwInsideAddress"])
 }
 
-// The CIDR block of the second IP addresses for the first VPN tunnel.
+// The CIDR block of the inside IP addresses for the second VPN tunnel.
 func (r *VpnConnection) Tunnel2InsideCidr() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["tunnel2InsideCidr"])
 }
@@ -278,7 +278,7 @@ type VpnConnectionState struct {
 	Tunnel2BgpHoldtime interface{}
 	// The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
 	Tunnel2CgwInsideAddress interface{}
-	// The CIDR block of the second IP addresses for the first VPN tunnel.
+	// The CIDR block of the inside IP addresses for the second VPN tunnel.
 	Tunnel2InsideCidr interface{}
 	// The preshared key of the second VPN tunnel.
 	Tunnel2PresharedKey interface{}
@@ -305,7 +305,7 @@ type VpnConnectionArgs struct {
 	Tunnel1InsideCidr interface{}
 	// The preshared key of the first VPN tunnel.
 	Tunnel1PresharedKey interface{}
-	// The CIDR block of the second IP addresses for the first VPN tunnel.
+	// The CIDR block of the inside IP addresses for the second VPN tunnel.
 	Tunnel2InsideCidr interface{}
 	// The preshared key of the second VPN tunnel.
 	Tunnel2PresharedKey interface{}

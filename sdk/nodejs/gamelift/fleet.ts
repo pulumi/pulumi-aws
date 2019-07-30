@@ -145,6 +145,13 @@ export class Fleet extends pulumi.CustomResource {
             inputs["logPaths"] = undefined /*out*/;
             inputs["operatingSystem"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Fleet.__pulumiType, name, inputs, opts);
     }
 }

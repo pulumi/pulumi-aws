@@ -9,6 +9,13 @@ import * as utilities from "../utilities";
  */
 export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancesResult> & GetInstancesResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetInstancesResult> = pulumi.runtime.invoke("aws:ec2/getInstances:getInstances", {
         "filters": args.filters,
         "instanceStateNames": args.instanceStateNames,

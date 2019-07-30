@@ -129,6 +129,13 @@ export class EventStream extends pulumi.CustomResource {
             inputs["destinationStreamArn"] = args ? args.destinationStreamArn : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(EventStream.__pulumiType, name, inputs, opts);
     }
 }

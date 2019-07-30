@@ -165,6 +165,13 @@ export class Subnet extends pulumi.CustomResource {
             inputs["ipv6CidrBlockAssociationId"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Subnet.__pulumiType, name, inputs, opts);
     }
 }

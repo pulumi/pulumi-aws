@@ -177,6 +177,13 @@ export class Service extends pulumi.CustomResource {
             inputs["taskDefinition"] = args ? args.taskDefinition : undefined;
             inputs["waitForSteadyState"] = args ? args.waitForSteadyState : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Service.__pulumiType, name, inputs, opts);
     }
 }

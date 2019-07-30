@@ -112,6 +112,13 @@ export class EfsLocation extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["uri"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(EfsLocation.__pulumiType, name, inputs, opts);
     }
 }

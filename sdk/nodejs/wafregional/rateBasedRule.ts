@@ -115,6 +115,13 @@ export class RateBasedRule extends pulumi.CustomResource {
             inputs["rateKey"] = args ? args.rateKey : undefined;
             inputs["rateLimit"] = args ? args.rateLimit : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(RateBasedRule.__pulumiType, name, inputs, opts);
     }
 }

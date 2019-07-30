@@ -87,6 +87,13 @@ export class DefaultRouteTable extends pulumi.CustomResource {
             inputs["ownerId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DefaultRouteTable.__pulumiType, name, inputs, opts);
     }
 }

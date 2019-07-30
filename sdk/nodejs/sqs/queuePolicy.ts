@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *       "Resource": "${queue.arn}",
  *       "Condition": {
  *         "ArnEquals": {
- *           "aws:SourceArn": "${queue.arn}"
+ *           "aws:SourceArn": "${aws_sns_topic_example.arn}"
  *         }
  *       }
  *     }
@@ -98,6 +98,13 @@ export class QueuePolicy extends pulumi.CustomResource {
             }
             inputs["policy"] = args ? args.policy : undefined;
             inputs["queueUrl"] = args ? args.queueUrl : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super(QueuePolicy.__pulumiType, name, inputs, opts);
     }

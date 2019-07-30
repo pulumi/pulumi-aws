@@ -47,6 +47,13 @@ import * as utilities from "../utilities";
  */
 export function getVpcs(args?: GetVpcsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcsResult> & GetVpcsResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetVpcsResult> = pulumi.runtime.invoke("aws:ec2/getVpcs:getVpcs", {
         "filters": args.filters,
         "tags": args.tags,

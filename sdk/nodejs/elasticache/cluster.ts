@@ -228,6 +228,13 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterAddress"] = undefined /*out*/;
             inputs["configurationEndpoint"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Cluster.__pulumiType, name, inputs, opts);
     }
 }

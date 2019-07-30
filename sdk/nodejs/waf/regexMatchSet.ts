@@ -89,6 +89,13 @@ export class RegexMatchSet extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["regexMatchTuples"] = args ? args.regexMatchTuples : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(RegexMatchSet.__pulumiType, name, inputs, opts);
     }
 }

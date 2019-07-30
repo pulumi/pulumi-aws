@@ -128,6 +128,13 @@ export class Model extends pulumi.CustomResource {
             inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Model.__pulumiType, name, inputs, opts);
     }
 }

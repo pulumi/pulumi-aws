@@ -111,6 +111,13 @@ export class Preset extends pulumi.CustomResource {
             inputs["videoWatermarks"] = args ? args.videoWatermarks : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Preset.__pulumiType, name, inputs, opts);
     }
 }

@@ -116,6 +116,13 @@ export class FileSystem extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["dnsName"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(FileSystem.__pulumiType, name, inputs, opts);
     }
 }

@@ -461,6 +461,13 @@ export class Distribution extends pulumi.CustomResource {
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Distribution.__pulumiType, name, inputs, opts);
     }
 }

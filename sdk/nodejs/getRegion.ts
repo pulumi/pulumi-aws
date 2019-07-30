@@ -28,6 +28,13 @@ import * as utilities from "./utilities";
  */
 export function getRegion(args?: GetRegionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegionResult> & GetRegionResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetRegionResult> = pulumi.runtime.invoke("aws:index/getRegion:getRegion", {
         "endpoint": args.endpoint,
         "name": args.name,

@@ -73,6 +73,13 @@ export class LifecyclePolicy extends pulumi.CustomResource {
             inputs["repository"] = args ? args.repository : undefined;
             inputs["registryId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(LifecyclePolicy.__pulumiType, name, inputs, opts);
     }
 }

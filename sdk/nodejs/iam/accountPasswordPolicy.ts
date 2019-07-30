@@ -135,6 +135,13 @@ export class AccountPasswordPolicy extends pulumi.CustomResource {
             inputs["requireUppercaseCharacters"] = args ? args.requireUppercaseCharacters : undefined;
             inputs["expirePasswords"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(AccountPasswordPolicy.__pulumiType, name, inputs, opts);
     }
 }

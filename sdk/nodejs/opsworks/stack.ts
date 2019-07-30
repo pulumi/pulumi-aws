@@ -204,6 +204,13 @@ export class Stack extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["stackEndpoint"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Stack.__pulumiType, name, inputs, opts);
     }
 }

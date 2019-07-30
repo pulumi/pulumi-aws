@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  */
 export function getHostedZone(args?: GetHostedZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneResult> & GetHostedZoneResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetHostedZoneResult> = pulumi.runtime.invoke("aws:elasticbeanstalk/getHostedZone:getHostedZone", {
         "region": args.region,
     }, opts);

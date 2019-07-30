@@ -207,6 +207,13 @@ export class Document extends pulumi.CustomResource {
             inputs["schemaVersion"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Document.__pulumiType, name, inputs, opts);
     }
 }

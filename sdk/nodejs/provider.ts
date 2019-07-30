@@ -59,6 +59,13 @@ export class Provider extends pulumi.ProviderResource {
             inputs["skipRequestingAccountId"] = pulumi.output(args ? args.skipRequestingAccountId : undefined).apply(JSON.stringify);
             inputs["token"] = args ? args.token : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Provider.__pulumiType, name, inputs, opts);
     }
 }

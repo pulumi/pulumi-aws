@@ -92,6 +92,13 @@ export class GroupPolicyAttachment extends pulumi.CustomResource {
             inputs["group"] = args ? args.group : undefined;
             inputs["policyArn"] = args ? args.policyArn : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(GroupPolicyAttachment.__pulumiType, name, inputs, opts);
     }
 }

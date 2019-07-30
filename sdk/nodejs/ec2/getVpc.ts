@@ -41,6 +41,13 @@ import * as utilities from "../utilities";
  */
 export function getVpc(args?: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcResult> & GetVpcResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetVpcResult> = pulumi.runtime.invoke("aws:ec2/getVpc:getVpc", {
         "cidrBlock": args.cidrBlock,
         "default": args.default,

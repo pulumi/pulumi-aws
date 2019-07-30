@@ -9,6 +9,13 @@ import * as utilities from "../utilities";
  */
 export function getSecurityGroups(args?: GetSecurityGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupsResult> & GetSecurityGroupsResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetSecurityGroupsResult> = pulumi.runtime.invoke("aws:ec2/getSecurityGroups:getSecurityGroups", {
         "filters": args.filters,
         "tags": args.tags,

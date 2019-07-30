@@ -326,6 +326,13 @@ export class Project extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["badgeUrl"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Project.__pulumiType, name, inputs, opts);
     }
 }

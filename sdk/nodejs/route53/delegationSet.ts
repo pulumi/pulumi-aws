@@ -83,6 +83,13 @@ export class DelegationSet extends pulumi.CustomResource {
             inputs["referenceName"] = args ? args.referenceName : undefined;
             inputs["nameServers"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DelegationSet.__pulumiType, name, inputs, opts);
     }
 }

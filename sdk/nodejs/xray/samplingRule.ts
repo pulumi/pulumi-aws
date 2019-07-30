@@ -184,6 +184,13 @@ export class SamplingRule extends pulumi.CustomResource {
             inputs["version"] = args ? args.version : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(SamplingRule.__pulumiType, name, inputs, opts);
     }
 }

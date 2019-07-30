@@ -89,6 +89,13 @@ export class DomainDkim extends pulumi.CustomResource {
             inputs["domain"] = args ? args.domain : undefined;
             inputs["dkimTokens"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DomainDkim.__pulumiType, name, inputs, opts);
     }
 }

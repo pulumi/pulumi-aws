@@ -74,6 +74,13 @@ export class ZoneAssociation extends pulumi.CustomResource {
             inputs["vpcRegion"] = args ? args.vpcRegion : undefined;
             inputs["zoneId"] = args ? args.zoneId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ZoneAssociation.__pulumiType, name, inputs, opts);
     }
 }

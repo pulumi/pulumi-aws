@@ -111,6 +111,13 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
             inputs["replicationSubnetGroupArn"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ReplicationSubnetGroup.__pulumiType, name, inputs, opts);
     }
 }

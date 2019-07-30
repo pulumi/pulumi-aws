@@ -174,6 +174,13 @@ export class FlowLog extends pulumi.CustomResource {
             inputs["trafficType"] = args ? args.trafficType : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(FlowLog.__pulumiType, name, inputs, opts);
     }
 }

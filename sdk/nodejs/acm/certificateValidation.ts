@@ -178,6 +178,13 @@ export class CertificateValidation extends pulumi.CustomResource {
             inputs["certificateArn"] = args ? args.certificateArn : undefined;
             inputs["validationRecordFqdns"] = args ? args.validationRecordFqdns : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(CertificateValidation.__pulumiType, name, inputs, opts);
     }
 }

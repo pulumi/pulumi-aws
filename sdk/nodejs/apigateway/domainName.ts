@@ -286,6 +286,13 @@ export class DomainName extends pulumi.CustomResource {
             inputs["regionalDomainName"] = undefined /*out*/;
             inputs["regionalZoneId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DomainName.__pulumiType, name, inputs, opts);
     }
 }

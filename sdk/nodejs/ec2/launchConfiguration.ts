@@ -176,6 +176,13 @@ export class LaunchConfiguration extends pulumi.CustomResource {
             inputs["vpcClassicLinkId"] = args ? args.vpcClassicLinkId : undefined;
             inputs["vpcClassicLinkSecurityGroups"] = args ? args.vpcClassicLinkSecurityGroups : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(LaunchConfiguration.__pulumiType, name, inputs, opts);
     }
 }

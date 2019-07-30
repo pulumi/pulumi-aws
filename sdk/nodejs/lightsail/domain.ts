@@ -84,6 +84,13 @@ export class Domain extends pulumi.CustomResource {
             inputs["domainName"] = args ? args.domainName : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Domain.__pulumiType, name, inputs, opts);
     }
 }

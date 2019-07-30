@@ -110,6 +110,13 @@ export class Route extends pulumi.CustomResource {
             inputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
             inputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Route.__pulumiType, name, inputs, opts);
     }
 }

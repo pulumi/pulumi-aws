@@ -122,6 +122,13 @@ export class ThreatIntelSet extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ThreatIntelSet.__pulumiType, name, inputs, opts);
     }
 }

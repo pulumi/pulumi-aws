@@ -70,6 +70,13 @@ export class InviteAccepter extends pulumi.CustomResource {
             inputs["detectorId"] = args ? args.detectorId : undefined;
             inputs["masterAccountId"] = args ? args.masterAccountId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(InviteAccepter.__pulumiType, name, inputs, opts);
     }
 }

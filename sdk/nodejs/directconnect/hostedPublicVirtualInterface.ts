@@ -163,6 +163,13 @@ export class HostedPublicVirtualInterface extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["awsDevice"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(HostedPublicVirtualInterface.__pulumiType, name, inputs, opts);
     }
 }

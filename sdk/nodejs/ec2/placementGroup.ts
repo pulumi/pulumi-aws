@@ -81,6 +81,13 @@ export class PlacementGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["strategy"] = args ? args.strategy : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(PlacementGroup.__pulumiType, name, inputs, opts);
     }
 }

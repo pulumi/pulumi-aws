@@ -111,6 +111,13 @@ export class S3Location extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["uri"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(S3Location.__pulumiType, name, inputs, opts);
     }
 }
