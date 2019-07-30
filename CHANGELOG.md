@@ -4,8 +4,7 @@ CHANGELOG
 ## HEAD (Unreleased)
 * Upgrade to pulumi-terraform 6bcafb609d
 * Upgrade to v2.21.1 of the AWS Terraform Provider.
-
----
+* Add support for RepositoryCredentials in ECS container definitions.
 
 ## 0.18.24 (2019-07-29)
 * Change PolicyDocument helper to allow passing of outputs from other resources
