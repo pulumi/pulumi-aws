@@ -3,6 +3,8 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to pulumi-terraform 6bcafb609d
+* Upgrade to v2.21.1 of the AWS Terraform Provider.
+
 ---
 
 ## 0.18.24 (2019-07-29)
