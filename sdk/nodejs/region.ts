@@ -12,16 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+export let APEast1Region: Region      = "ap-east-1";
 export let APNortheast1Region: Region = "ap-northeast-1";
 export let APNortheast2Region: Region = "ap-northeast-2";
 export let APSouth1Region: Region     = "ap-south-1";
 export let APSouthEast2Region: Region = "ap-southeast-2";
 export let APSoutheast1Region: Region = "ap-southeast-1";
 export let CACentralRegion: Region    = "ca-central-1";
+export let CNNorth1Region: Region     = "cn-north-1";
+export let CNNorthWest1Region: Region = "cn-northwest-1";
 export let EUCentral1Region: Region   = "eu-central-1";
+export let EUNorth1Region: Region     = "eu-north-1";
 export let EUWest1Region: Region      = "eu-west-1";
 export let EUWest2Region: Region      = "eu-west-2";
 export let EUWest3Region: Region      = "eu-west-3";
+export let MESouth1Region: Region     = "me-south-1";
 export let SAEast1Region: Region      = "sa-east-1";
 export let USEast1Region: Region      = "us-east-1";
 export let USEast2Region: Region      = "us-east-2";
@@ -32,16 +37,21 @@ export let USWest2Region: Region      = "us-west-2";
  * A Region represents any valid Amazon region that may be targeted with deployments.
  */
 export type Region =
+    "ap-east-1"      |
     "ap-northeast-1" |
     "ap-northeast-2" |
     "ap-south-1"     |
     "ap-southeast-2" |
     "ap-southeast-1" |
     "ca-central-1"   |
+    "cn-north-1"     |
+    "cn-northwest-1" |
     "eu-central-1"   |
+    "eu-north-1"     |
     "eu-west-1"      |
     "eu-west-2"      |
     "eu-west-3"      |
+    "me-south-1"     |
     "sa-east-1"      |
     "us-east-1"      |
     "us-east-2"      |
