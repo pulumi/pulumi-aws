@@ -45,6 +45,7 @@ export interface ContainerDefinition {
     user?: string;
     volumesFrom?: VolumeFrom[];
     workingDirectory?: string;
+    repositoryCredentials?: RepositoryCredentials;
 }
 
 // https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KeyValuePair.html
@@ -178,4 +179,9 @@ export type UlimitName = "core" | "cpu" | "data" | "fsize" | "locks" | "memlock"
 export interface VolumeFrom {
     sourceContainer?: string;
     readOnly?: boolean
+}
+
+// See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RepositoryCredentials.html
+export interface RepositoryCredentials {
+    credentialsParameter: string;
 }

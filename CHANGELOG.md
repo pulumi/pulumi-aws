@@ -2,8 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-
----
+* Add support for RepositoryCredentials in ECS container definitions.
 
 ## 0.18.24 (2019-07-29)
 * Change PolicyDocument helper to allow passing of outputs from other resources
