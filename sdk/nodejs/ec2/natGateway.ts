@@ -121,6 +121,13 @@ export class NatGateway extends pulumi.CustomResource {
             inputs["privateIp"] = undefined /*out*/;
             inputs["publicIp"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(NatGateway.__pulumiType, name, inputs, opts);
     }
 }

@@ -35,6 +35,13 @@ import * as utilities from "../utilities";
  */
 export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcPeeringConnectionResult> & GetVpcPeeringConnectionResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetVpcPeeringConnectionResult> = pulumi.runtime.invoke("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", {
         "cidrBlock": args.cidrBlock,
         "filters": args.filters,

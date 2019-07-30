@@ -164,6 +164,13 @@ export class Inventory extends pulumi.CustomResource {
             inputs["optionalFields"] = args ? args.optionalFields : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Inventory.__pulumiType, name, inputs, opts);
     }
 }

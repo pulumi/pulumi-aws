@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acmpca_certificate_authority.html.markdown.
  */
 export function getCertificateAuthority(args: GetCertificateAuthorityArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateAuthorityResult> & GetCertificateAuthorityResult {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetCertificateAuthorityResult> = pulumi.runtime.invoke("aws:acmpca/getCertificateAuthority:getCertificateAuthority", {
         "arn": args.arn,
         "revocationConfigurations": args.revocationConfigurations,

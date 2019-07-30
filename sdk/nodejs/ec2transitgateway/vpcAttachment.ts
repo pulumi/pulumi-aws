@@ -113,6 +113,13 @@ export class VpcAttachment extends pulumi.CustomResource {
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["vpcOwnerId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(VpcAttachment.__pulumiType, name, inputs, opts);
     }
 }

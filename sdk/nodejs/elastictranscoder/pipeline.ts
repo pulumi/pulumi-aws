@@ -141,6 +141,13 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["thumbnailConfigPermissions"] = args ? args.thumbnailConfigPermissions : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Pipeline.__pulumiType, name, inputs, opts);
     }
 }

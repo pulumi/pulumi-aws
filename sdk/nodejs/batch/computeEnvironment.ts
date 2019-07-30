@@ -192,6 +192,13 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["statusReason"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ComputeEnvironment.__pulumiType, name, inputs, opts);
     }
 }

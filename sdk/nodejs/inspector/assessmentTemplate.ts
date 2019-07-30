@@ -109,6 +109,13 @@ export class AssessmentTemplate extends pulumi.CustomResource {
             inputs["targetArn"] = args ? args.targetArn : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(AssessmentTemplate.__pulumiType, name, inputs, opts);
     }
 }

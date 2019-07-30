@@ -99,6 +99,13 @@ export class VpnGatewayAttachment extends pulumi.CustomResource {
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(VpnGatewayAttachment.__pulumiType, name, inputs, opts);
     }
 }

@@ -137,6 +137,13 @@ export class CertificateAuthority extends pulumi.CustomResource {
             inputs["serial"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(CertificateAuthority.__pulumiType, name, inputs, opts);
     }
 }

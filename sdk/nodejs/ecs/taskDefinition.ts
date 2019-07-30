@@ -185,6 +185,13 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["revision"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(TaskDefinition.__pulumiType, name, inputs, opts);
     }
 }

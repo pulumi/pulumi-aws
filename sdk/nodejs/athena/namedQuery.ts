@@ -120,6 +120,13 @@ export class NamedQuery extends pulumi.CustomResource {
             inputs["query"] = args ? args.query : undefined;
             inputs["workgroup"] = args ? args.workgroup : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(NamedQuery.__pulumiType, name, inputs, opts);
     }
 }

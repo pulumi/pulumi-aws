@@ -107,6 +107,13 @@ export class GlobalCluster extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["globalClusterResourceId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(GlobalCluster.__pulumiType, name, inputs, opts);
     }
 }

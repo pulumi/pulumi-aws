@@ -105,6 +105,13 @@ export class LogMetricFilter extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["pattern"] = args ? args.pattern : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(LogMetricFilter.__pulumiType, name, inputs, opts);
     }
 }

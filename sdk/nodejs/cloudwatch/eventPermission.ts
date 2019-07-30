@@ -113,6 +113,13 @@ export class EventPermission extends pulumi.CustomResource {
             inputs["principal"] = args ? args.principal : undefined;
             inputs["statementId"] = args ? args.statementId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(EventPermission.__pulumiType, name, inputs, opts);
     }
 }

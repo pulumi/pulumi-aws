@@ -201,6 +201,13 @@ export class JavaAppLayer extends pulumi.CustomResource {
             inputs["systemPackages"] = args ? args.systemPackages : undefined;
             inputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(JavaAppLayer.__pulumiType, name, inputs, opts);
     }
 }

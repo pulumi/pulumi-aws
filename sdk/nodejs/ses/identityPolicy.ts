@@ -101,6 +101,13 @@ export class IdentityPolicy extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["policy"] = args ? args.policy : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(IdentityPolicy.__pulumiType, name, inputs, opts);
     }
 }

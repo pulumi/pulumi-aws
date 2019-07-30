@@ -34,6 +34,13 @@ import * as utilities from "../utilities";
  */
 export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> & GetZoneResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetZoneResult> = pulumi.runtime.invoke("aws:route53/getZone:getZone", {
         "name": args.name,
         "privateZone": args.privateZone,

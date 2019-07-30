@@ -33,6 +33,13 @@ import * as utilities from "../utilities";
  */
 export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> & GetTargetGroupResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetTargetGroupResult> = pulumi.runtime.invoke("aws:alb/getTargetGroup:getTargetGroup", {
         "arn": args.arn,
         "name": args.name,

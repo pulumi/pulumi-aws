@@ -142,6 +142,13 @@ export class Schedule extends pulumi.CustomResource {
             inputs["startTime"] = args ? args.startTime : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Schedule.__pulumiType, name, inputs, opts);
     }
 }

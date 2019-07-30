@@ -111,6 +111,13 @@ export class JobQueue extends pulumi.CustomResource {
             inputs["state"] = args ? args.state : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(JobQueue.__pulumiType, name, inputs, opts);
     }
 }

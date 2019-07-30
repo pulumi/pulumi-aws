@@ -119,6 +119,13 @@ export class Repository extends pulumi.CustomResource {
             inputs["cloneUrlSsh"] = undefined /*out*/;
             inputs["repositoryId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Repository.__pulumiType, name, inputs, opts);
     }
 }

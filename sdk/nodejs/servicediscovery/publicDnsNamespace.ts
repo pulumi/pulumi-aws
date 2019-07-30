@@ -87,6 +87,13 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["hostedZone"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(PublicDnsNamespace.__pulumiType, name, inputs, opts);
     }
 }

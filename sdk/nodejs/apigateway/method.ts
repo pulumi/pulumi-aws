@@ -186,6 +186,13 @@ export class Method extends pulumi.CustomResource {
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["restApi"] = args ? args.restApi : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Method.__pulumiType, name, inputs, opts);
     }
 }

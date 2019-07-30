@@ -104,6 +104,13 @@ export class LifecycleHook extends pulumi.CustomResource {
             inputs["notificationTargetArn"] = args ? args.notificationTargetArn : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(LifecycleHook.__pulumiType, name, inputs, opts);
     }
 }

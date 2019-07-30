@@ -169,6 +169,13 @@ export class PrivateVirtualInterface extends pulumi.CustomResource {
             inputs["awsDevice"] = undefined /*out*/;
             inputs["jumboFrameCapable"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(PrivateVirtualInterface.__pulumiType, name, inputs, opts);
     }
 }

@@ -114,6 +114,13 @@ export class Hsm extends pulumi.CustomResource {
             inputs["hsmId"] = undefined /*out*/;
             inputs["hsmState"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Hsm.__pulumiType, name, inputs, opts);
     }
 }

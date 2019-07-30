@@ -97,6 +97,13 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
             inputs["ownerId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DefaultNetworkAcl.__pulumiType, name, inputs, opts);
     }
 }

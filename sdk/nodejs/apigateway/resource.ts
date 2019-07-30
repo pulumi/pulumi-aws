@@ -103,6 +103,13 @@ export class Resource extends pulumi.CustomResource {
             inputs["restApi"] = args ? args.restApi : undefined;
             inputs["path"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Resource.__pulumiType, name, inputs, opts);
     }
 }

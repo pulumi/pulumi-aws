@@ -38,6 +38,13 @@ import * as utilities from "../utilities";
  */
 export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTablesResult> & GetRouteTablesResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetRouteTablesResult> = pulumi.runtime.invoke("aws:ec2/getRouteTables:getRouteTables", {
         "filters": args.filters,
         "tags": args.tags,

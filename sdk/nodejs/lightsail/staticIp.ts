@@ -87,6 +87,13 @@ export class StaticIp extends pulumi.CustomResource {
             inputs["ipAddress"] = undefined /*out*/;
             inputs["supportCode"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(StaticIp.__pulumiType, name, inputs, opts);
     }
 }

@@ -100,6 +100,13 @@ export class BucketPolicy extends pulumi.CustomResource {
             inputs["bucket"] = args ? args.bucket : undefined;
             inputs["policy"] = args ? args.policy : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(BucketPolicy.__pulumiType, name, inputs, opts);
     }
 }

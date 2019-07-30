@@ -35,6 +35,13 @@ import * as utilities from "../utilities";
  */
 export function getCustomerGateway(args?: GetCustomerGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerGatewayResult> & GetCustomerGatewayResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetCustomerGatewayResult> = pulumi.runtime.invoke("aws:ec2/getCustomerGateway:getCustomerGateway", {
         "filters": args.filters,
         "id": args.id,

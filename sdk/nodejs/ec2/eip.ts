@@ -210,6 +210,13 @@ export class Eip extends pulumi.CustomResource {
             inputs["publicDns"] = undefined /*out*/;
             inputs["publicIp"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Eip.__pulumiType, name, inputs, opts);
     }
 }

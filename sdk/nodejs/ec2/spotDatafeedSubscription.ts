@@ -83,6 +83,13 @@ export class SpotDatafeedSubscription extends pulumi.CustomResource {
             inputs["bucket"] = args ? args.bucket : undefined;
             inputs["prefix"] = args ? args.prefix : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(SpotDatafeedSubscription.__pulumiType, name, inputs, opts);
     }
 }

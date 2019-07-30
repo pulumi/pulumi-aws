@@ -152,6 +152,13 @@ export class ReplicationTask extends pulumi.CustomResource {
             inputs["targetEndpointArn"] = args ? args.targetEndpointArn : undefined;
             inputs["replicationTaskArn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ReplicationTask.__pulumiType, name, inputs, opts);
     }
 }

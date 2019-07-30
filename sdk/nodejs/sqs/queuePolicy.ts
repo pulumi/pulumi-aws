@@ -99,6 +99,13 @@ export class QueuePolicy extends pulumi.CustomResource {
             inputs["policy"] = args ? args.policy : undefined;
             inputs["queueUrl"] = args ? args.queueUrl : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(QueuePolicy.__pulumiType, name, inputs, opts);
     }
 }

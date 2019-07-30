@@ -142,6 +142,13 @@ export class MethodSettings extends pulumi.CustomResource {
             inputs["settings"] = args ? args.settings : undefined;
             inputs["stageName"] = args ? args.stageName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(MethodSettings.__pulumiType, name, inputs, opts);
     }
 }

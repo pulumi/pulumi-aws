@@ -165,6 +165,13 @@ export class BucketObject extends pulumi.CustomResource {
             inputs["websiteRedirect"] = args ? args.websiteRedirect : undefined;
             inputs["versionId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(BucketObject.__pulumiType, name, inputs, opts);
     }
 }

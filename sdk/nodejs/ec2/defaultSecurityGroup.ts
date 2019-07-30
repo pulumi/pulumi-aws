@@ -96,6 +96,13 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DefaultSecurityGroup.__pulumiType, name, inputs, opts);
     }
 }

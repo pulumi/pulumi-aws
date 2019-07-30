@@ -74,6 +74,13 @@ export class MemberAccountAssociation extends pulumi.CustomResource {
             }
             inputs["memberAccountId"] = args ? args.memberAccountId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(MemberAccountAssociation.__pulumiType, name, inputs, opts);
     }
 }

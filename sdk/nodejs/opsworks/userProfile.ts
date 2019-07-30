@@ -94,6 +94,13 @@ export class UserProfile extends pulumi.CustomResource {
             inputs["sshUsername"] = args ? args.sshUsername : undefined;
             inputs["userArn"] = args ? args.userArn : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(UserProfile.__pulumiType, name, inputs, opts);
     }
 }

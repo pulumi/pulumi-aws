@@ -94,6 +94,13 @@ export class LogDestination extends pulumi.CustomResource {
             inputs["targetArn"] = args ? args.targetArn : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(LogDestination.__pulumiType, name, inputs, opts);
     }
 }

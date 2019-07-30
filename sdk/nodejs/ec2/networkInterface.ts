@@ -126,6 +126,13 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["privateDnsName"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(NetworkInterface.__pulumiType, name, inputs, opts);
     }
 }

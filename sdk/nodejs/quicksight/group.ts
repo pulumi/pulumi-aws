@@ -96,6 +96,13 @@ export class Group extends pulumi.CustomResource {
             inputs["namespace"] = args ? args.namespace : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Group.__pulumiType, name, inputs, opts);
     }
 }

@@ -138,6 +138,13 @@ export class Fleet extends pulumi.CustomResource {
             inputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Fleet.__pulumiType, name, inputs, opts);
     }
 }

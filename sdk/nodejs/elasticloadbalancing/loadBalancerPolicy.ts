@@ -167,6 +167,13 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
             inputs["policyName"] = args ? args.policyName : undefined;
             inputs["policyTypeName"] = args ? args.policyTypeName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(LoadBalancerPolicy.__pulumiType, name, inputs, opts);
     }
 }

@@ -122,6 +122,13 @@ export class VpcEndpointService extends pulumi.CustomResource {
             inputs["serviceType"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(VpcEndpointService.__pulumiType, name, inputs, opts);
     }
 }

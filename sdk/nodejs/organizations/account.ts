@@ -101,6 +101,13 @@ export class Account extends pulumi.CustomResource {
             inputs["joinedTimestamp"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Account.__pulumiType, name, inputs, opts);
     }
 }

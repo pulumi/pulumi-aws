@@ -189,6 +189,13 @@ export class AmiFromInstance extends pulumi.CustomResource {
             inputs["sriovNetSupport"] = undefined /*out*/;
             inputs["virtualizationType"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(AmiFromInstance.__pulumiType, name, inputs, opts);
     }
 }

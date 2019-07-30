@@ -74,6 +74,13 @@ export class HostedPublicVirtualInterfaceAccepter extends pulumi.CustomResource 
             inputs["virtualInterfaceId"] = args ? args.virtualInterfaceId : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(HostedPublicVirtualInterfaceAccepter.__pulumiType, name, inputs, opts);
     }
 }

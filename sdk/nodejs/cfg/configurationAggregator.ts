@@ -126,6 +126,13 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
             inputs["organizationAggregationSource"] = args ? args.organizationAggregationSource : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ConfigurationAggregator.__pulumiType, name, inputs, opts);
     }
 }

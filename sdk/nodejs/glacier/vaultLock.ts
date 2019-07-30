@@ -77,6 +77,13 @@ export class VaultLock extends pulumi.CustomResource {
             inputs["policy"] = args ? args.policy : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(VaultLock.__pulumiType, name, inputs, opts);
     }
 }

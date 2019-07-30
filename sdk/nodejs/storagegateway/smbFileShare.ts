@@ -185,6 +185,13 @@ export class SmbFileShare extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["fileshareId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(SmbFileShare.__pulumiType, name, inputs, opts);
     }
 }

@@ -163,6 +163,13 @@ export class ReceiptRule extends pulumi.CustomResource {
             inputs["tlsPolicy"] = args ? args.tlsPolicy : undefined;
             inputs["workmailActions"] = args ? args.workmailActions : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ReceiptRule.__pulumiType, name, inputs, opts);
     }
 }

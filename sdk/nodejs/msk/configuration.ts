@@ -92,6 +92,13 @@ export class Configuration extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["latestRevision"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Configuration.__pulumiType, name, inputs, opts);
     }
 }

@@ -82,6 +82,13 @@ export class ThingType extends pulumi.CustomResource {
             inputs["properties"] = args ? args.properties : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ThingType.__pulumiType, name, inputs, opts);
     }
 }

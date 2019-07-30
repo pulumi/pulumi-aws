@@ -87,6 +87,13 @@ export class DomainIdentity extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["verificationToken"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DomainIdentity.__pulumiType, name, inputs, opts);
     }
 }

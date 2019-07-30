@@ -162,6 +162,13 @@ export class Cluster extends pulumi.CustomResource {
             inputs["securityGroupId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Cluster.__pulumiType, name, inputs, opts);
     }
 }

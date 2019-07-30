@@ -56,6 +56,13 @@ import * as utilities from "../utilities";
  */
 export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> & GetServiceAccountResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetServiceAccountResult> = pulumi.runtime.invoke("aws:elb/getServiceAccount:getServiceAccount", {
         "region": args.region,
     }, opts);

@@ -174,6 +174,13 @@ export class Ami extends pulumi.CustomResource {
             inputs["manageEbsSnapshots"] = undefined /*out*/;
             inputs["rootSnapshotId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Ami.__pulumiType, name, inputs, opts);
     }
 }

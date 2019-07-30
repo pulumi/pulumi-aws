@@ -97,6 +97,13 @@ export class Channel extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["hlsIngests"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Channel.__pulumiType, name, inputs, opts);
     }
 }

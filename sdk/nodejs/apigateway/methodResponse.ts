@@ -138,6 +138,13 @@ export class MethodResponse extends pulumi.CustomResource {
             inputs["restApi"] = args ? args.restApi : undefined;
             inputs["statusCode"] = args ? args.statusCode : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(MethodResponse.__pulumiType, name, inputs, opts);
     }
 }

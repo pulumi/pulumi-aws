@@ -169,6 +169,13 @@ export class Target extends pulumi.CustomResource {
             inputs["scalableDimension"] = args ? args.scalableDimension : undefined;
             inputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Target.__pulumiType, name, inputs, opts);
     }
 }

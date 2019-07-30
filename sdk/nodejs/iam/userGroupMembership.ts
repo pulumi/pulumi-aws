@@ -98,6 +98,13 @@ export class UserGroupMembership extends pulumi.CustomResource {
             inputs["groups"] = args ? args.groups : undefined;
             inputs["user"] = args ? args.user : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(UserGroupMembership.__pulumiType, name, inputs, opts);
     }
 }

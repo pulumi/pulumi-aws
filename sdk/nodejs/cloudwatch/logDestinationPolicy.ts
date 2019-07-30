@@ -97,6 +97,13 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
             inputs["accessPolicy"] = args ? args.accessPolicy : undefined;
             inputs["destinationName"] = args ? args.destinationName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(LogDestinationPolicy.__pulumiType, name, inputs, opts);
     }
 }

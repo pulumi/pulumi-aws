@@ -238,6 +238,13 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["defaultVersion"] = undefined /*out*/;
             inputs["latestVersion"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(LaunchTemplate.__pulumiType, name, inputs, opts);
     }
 }

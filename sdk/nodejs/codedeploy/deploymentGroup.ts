@@ -149,6 +149,13 @@ export class DeploymentGroup extends pulumi.CustomResource {
             inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             inputs["triggerConfigurations"] = args ? args.triggerConfigurations : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DeploymentGroup.__pulumiType, name, inputs, opts);
     }
 }

@@ -76,6 +76,13 @@ export class QueryLog extends pulumi.CustomResource {
             inputs["cloudwatchLogGroupArn"] = args ? args.cloudwatchLogGroupArn : undefined;
             inputs["zoneId"] = args ? args.zoneId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(QueryLog.__pulumiType, name, inputs, opts);
     }
 }

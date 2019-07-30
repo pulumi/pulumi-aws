@@ -131,6 +131,13 @@ export class ExternalKey extends pulumi.CustomResource {
             inputs["keyState"] = undefined /*out*/;
             inputs["keyUsage"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ExternalKey.__pulumiType, name, inputs, opts);
     }
 }

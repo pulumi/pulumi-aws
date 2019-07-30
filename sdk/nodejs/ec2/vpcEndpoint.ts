@@ -156,6 +156,13 @@ export class VpcEndpoint extends pulumi.CustomResource {
             inputs["requesterManaged"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(VpcEndpoint.__pulumiType, name, inputs, opts);
     }
 }

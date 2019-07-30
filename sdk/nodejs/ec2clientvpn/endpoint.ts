@@ -122,6 +122,13 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["dnsName"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Endpoint.__pulumiType, name, inputs, opts);
     }
 }

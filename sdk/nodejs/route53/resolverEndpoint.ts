@@ -133,6 +133,13 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["hostVpcId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ResolverEndpoint.__pulumiType, name, inputs, opts);
     }
 }

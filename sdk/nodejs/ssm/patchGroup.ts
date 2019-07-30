@@ -85,6 +85,13 @@ export class PatchGroup extends pulumi.CustomResource {
             inputs["baselineId"] = args ? args.baselineId : undefined;
             inputs["patchGroup"] = args ? args.patchGroup : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(PatchGroup.__pulumiType, name, inputs, opts);
     }
 }

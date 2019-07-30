@@ -118,6 +118,13 @@ export class Connection extends pulumi.CustomResource {
             inputs["hasLogicalRedundancy"] = undefined /*out*/;
             inputs["jumboFrameCapable"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Connection.__pulumiType, name, inputs, opts);
     }
 }

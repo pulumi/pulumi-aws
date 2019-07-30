@@ -330,6 +330,13 @@ export class EventTarget extends pulumi.CustomResource {
             inputs["sqsTarget"] = args ? args.sqsTarget : undefined;
             inputs["targetId"] = args ? args.targetId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(EventTarget.__pulumiType, name, inputs, opts);
     }
 }

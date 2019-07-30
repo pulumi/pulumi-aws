@@ -68,6 +68,13 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
             inputs["principalArn"] = args ? args.principalArn : undefined;
             inputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(VpcEndpointServiceAllowedPrinciple.__pulumiType, name, inputs, opts);
     }
 }

@@ -97,6 +97,13 @@ export class SmsPreferences extends pulumi.CustomResource {
             inputs["monthlySpendLimit"] = args ? args.monthlySpendLimit : undefined;
             inputs["usageReportS3Bucket"] = args ? args.usageReportS3Bucket : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(SmsPreferences.__pulumiType, name, inputs, opts);
     }
 }

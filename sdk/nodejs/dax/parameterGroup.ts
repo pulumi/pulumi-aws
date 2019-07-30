@@ -97,6 +97,13 @@ export class ParameterGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ParameterGroup.__pulumiType, name, inputs, opts);
     }
 }

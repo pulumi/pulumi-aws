@@ -168,6 +168,13 @@ export class Parameter extends pulumi.CustomResource {
             inputs["value"] = args ? args.value : undefined;
             inputs["version"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Parameter.__pulumiType, name, inputs, opts);
     }
 }

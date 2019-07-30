@@ -163,6 +163,13 @@ export class Job extends pulumi.CustomResource {
             inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Job.__pulumiType, name, inputs, opts);
     }
 }

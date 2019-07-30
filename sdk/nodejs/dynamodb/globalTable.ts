@@ -75,6 +75,13 @@ export class GlobalTable extends pulumi.CustomResource {
             inputs["replicas"] = args ? args.replicas : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(GlobalTable.__pulumiType, name, inputs, opts);
     }
 }

@@ -90,6 +90,13 @@ export class OrganizationalUnit extends pulumi.CustomResource {
             inputs["accounts"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(OrganizationalUnit.__pulumiType, name, inputs, opts);
     }
 }

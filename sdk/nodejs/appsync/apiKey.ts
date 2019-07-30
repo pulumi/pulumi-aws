@@ -91,6 +91,13 @@ export class ApiKey extends pulumi.CustomResource {
             inputs["expires"] = args ? args.expires : undefined;
             inputs["key"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ApiKey.__pulumiType, name, inputs, opts);
     }
 }

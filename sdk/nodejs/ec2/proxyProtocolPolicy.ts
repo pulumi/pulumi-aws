@@ -104,6 +104,13 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
             inputs["instancePorts"] = args ? args.instancePorts : undefined;
             inputs["loadBalancer"] = args ? args.loadBalancer : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ProxyProtocolPolicy.__pulumiType, name, inputs, opts);
     }
 }

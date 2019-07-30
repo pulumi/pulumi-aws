@@ -74,6 +74,13 @@ export class Trigger extends pulumi.CustomResource {
             inputs["triggers"] = args ? args.triggers : undefined;
             inputs["configurationId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Trigger.__pulumiType, name, inputs, opts);
     }
 }

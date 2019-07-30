@@ -170,6 +170,13 @@ export class IntegrationResponse extends pulumi.CustomResource {
             inputs["selectionPattern"] = args ? args.selectionPattern : undefined;
             inputs["statusCode"] = args ? args.statusCode : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(IntegrationResponse.__pulumiType, name, inputs, opts);
     }
 }

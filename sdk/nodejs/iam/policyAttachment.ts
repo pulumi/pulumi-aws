@@ -88,6 +88,13 @@ export class PolicyAttachment extends pulumi.CustomResource {
             inputs["roles"] = args ? args.roles : undefined;
             inputs["users"] = args ? args.users : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(PolicyAttachment.__pulumiType, name, inputs, opts);
     }
 }

@@ -148,6 +148,13 @@ export class CapacityReservation extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tenancy"] = args ? args.tenancy : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(CapacityReservation.__pulumiType, name, inputs, opts);
     }
 }

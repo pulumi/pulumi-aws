@@ -79,6 +79,13 @@ export class DefaultKmsKey extends pulumi.CustomResource {
             }
             inputs["keyArn"] = args ? args.keyArn : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DefaultKmsKey.__pulumiType, name, inputs, opts);
     }
 }

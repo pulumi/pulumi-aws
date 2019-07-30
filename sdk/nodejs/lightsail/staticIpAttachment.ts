@@ -91,6 +91,13 @@ export class StaticIpAttachment extends pulumi.CustomResource {
             inputs["instanceName"] = args ? args.instanceName : undefined;
             inputs["staticIpName"] = args ? args.staticIpName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(StaticIpAttachment.__pulumiType, name, inputs, opts);
     }
 }

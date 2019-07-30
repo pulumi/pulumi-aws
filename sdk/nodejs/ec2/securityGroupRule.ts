@@ -135,6 +135,13 @@ export class SecurityGroupRule extends pulumi.CustomResource {
             inputs["toPort"] = args ? args.toPort : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(SecurityGroupRule.__pulumiType, name, inputs, opts);
     }
 }

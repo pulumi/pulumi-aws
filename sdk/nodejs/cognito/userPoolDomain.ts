@@ -126,6 +126,13 @@ export class UserPoolDomain extends pulumi.CustomResource {
             inputs["s3Bucket"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(UserPoolDomain.__pulumiType, name, inputs, opts);
     }
 }

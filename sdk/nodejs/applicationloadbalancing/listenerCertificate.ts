@@ -89,6 +89,13 @@ export class ListenerCertificate extends pulumi.CustomResource {
             inputs["certificateArn"] = args ? args.certificateArn : undefined;
             inputs["listenerArn"] = args ? args.listenerArn : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ListenerCertificate.__pulumiType, name, inputs, opts);
     }
 }

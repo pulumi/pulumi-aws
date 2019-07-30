@@ -117,6 +117,13 @@ export class ResourceServer extends pulumi.CustomResource {
             inputs["userPoolId"] = args ? args.userPoolId : undefined;
             inputs["scopeIdentifiers"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ResourceServer.__pulumiType, name, inputs, opts);
     }
 }

@@ -30,6 +30,13 @@ import * as utilities from "../utilities";
  */
 export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneIdResult> & GetHostedZoneIdResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetHostedZoneIdResult> = pulumi.runtime.invoke("aws:elb/getHostedZoneId:getHostedZoneId", {
         "region": args.region,
     }, opts);

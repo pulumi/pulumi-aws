@@ -101,6 +101,13 @@ export class Thing extends pulumi.CustomResource {
             inputs["defaultClientId"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Thing.__pulumiType, name, inputs, opts);
     }
 }

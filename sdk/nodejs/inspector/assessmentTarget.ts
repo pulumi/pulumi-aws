@@ -87,6 +87,13 @@ export class AssessmentTarget extends pulumi.CustomResource {
             inputs["resourceGroupArn"] = args ? args.resourceGroupArn : undefined;
             inputs["arn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(AssessmentTarget.__pulumiType, name, inputs, opts);
     }
 }

@@ -111,6 +111,13 @@ export class GatewayAssociation extends pulumi.CustomResource {
             inputs["dxGatewayAssociationId"] = undefined /*out*/;
             inputs["dxGatewayOwnerAccountId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(GatewayAssociation.__pulumiType, name, inputs, opts);
     }
 }

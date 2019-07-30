@@ -103,6 +103,13 @@ export class SecurityConfiguration extends pulumi.CustomResource {
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["creationDate"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(SecurityConfiguration.__pulumiType, name, inputs, opts);
     }
 }

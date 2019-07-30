@@ -94,6 +94,13 @@ export class RouteTableAssociation extends pulumi.CustomResource {
             inputs["resourceId"] = undefined /*out*/;
             inputs["resourceType"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(RouteTableAssociation.__pulumiType, name, inputs, opts);
     }
 }

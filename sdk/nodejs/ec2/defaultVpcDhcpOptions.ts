@@ -83,6 +83,13 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
             inputs["ntpServers"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DefaultVpcDhcpOptions.__pulumiType, name, inputs, opts);
     }
 }

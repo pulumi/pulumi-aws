@@ -173,6 +173,13 @@ export class Function extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["functionId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Function.__pulumiType, name, inputs, opts);
     }
 }

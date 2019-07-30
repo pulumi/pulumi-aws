@@ -68,6 +68,13 @@ export class UploadBuffer extends pulumi.CustomResource {
             inputs["diskId"] = args ? args.diskId : undefined;
             inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(UploadBuffer.__pulumiType, name, inputs, opts);
     }
 }

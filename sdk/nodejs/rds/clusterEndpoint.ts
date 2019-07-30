@@ -162,6 +162,13 @@ export class ClusterEndpoint extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ClusterEndpoint.__pulumiType, name, inputs, opts);
     }
 }

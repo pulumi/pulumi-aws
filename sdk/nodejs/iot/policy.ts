@@ -99,6 +99,13 @@ export class Policy extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["defaultVersionId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Policy.__pulumiType, name, inputs, opts);
     }
 }

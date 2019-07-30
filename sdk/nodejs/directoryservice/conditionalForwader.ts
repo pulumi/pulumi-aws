@@ -95,6 +95,13 @@ export class ConditionalForwader extends pulumi.CustomResource {
             inputs["dnsIps"] = args ? args.dnsIps : undefined;
             inputs["remoteDomainName"] = args ? args.remoteDomainName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ConditionalForwader.__pulumiType, name, inputs, opts);
     }
 }

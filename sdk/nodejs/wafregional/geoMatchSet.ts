@@ -84,6 +84,13 @@ export class GeoMatchSet extends pulumi.CustomResource {
             inputs["geoMatchConstraints"] = args ? args.geoMatchConstraints : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(GeoMatchSet.__pulumiType, name, inputs, opts);
     }
 }

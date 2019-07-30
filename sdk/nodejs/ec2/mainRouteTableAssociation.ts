@@ -98,6 +98,13 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["originalRouteTableId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(MainRouteTableAssociation.__pulumiType, name, inputs, opts);
     }
 }

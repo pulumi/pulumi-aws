@@ -184,6 +184,13 @@ export class StackSet extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["stackSetId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(StackSet.__pulumiType, name, inputs, opts);
     }
 }

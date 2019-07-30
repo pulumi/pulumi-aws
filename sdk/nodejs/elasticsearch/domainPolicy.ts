@@ -101,6 +101,13 @@ export class DomainPolicy extends pulumi.CustomResource {
             inputs["accessPolicies"] = args ? args.accessPolicies : undefined;
             inputs["domainName"] = args ? args.domainName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DomainPolicy.__pulumiType, name, inputs, opts);
     }
 }
