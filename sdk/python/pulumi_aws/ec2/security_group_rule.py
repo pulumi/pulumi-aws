@@ -41,12 +41,12 @@ class SecurityGroupRule(pulumi.CustomResource):
     self: pulumi.Output[bool]
     """
     If true, the security group itself will be added as
-    a source to this ingress rule.
+    a source to this ingress rule. Cannot be specified with `source_security_group_id`.
     """
     source_security_group_id: pulumi.Output[str]
     """
     The security group id to allow access to/from,
-    depending on the `type`. Cannot be specified with `cidr_blocks`.
+    depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
     """
     to_port: pulumi.Output[float]
     """
@@ -72,9 +72,9 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param pulumi.Input[str] protocol: The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         :param pulumi.Input[str] security_group_id: The security group to apply this rule to.
         :param pulumi.Input[bool] self: If true, the security group itself will be added as
-               a source to this ingress rule.
+               a source to this ingress rule. Cannot be specified with `source_security_group_id`.
         :param pulumi.Input[str] source_security_group_id: The security group id to allow access to/from,
-               depending on the `type`. Cannot be specified with `cidr_blocks`.
+               depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
         :param pulumi.Input[float] to_port: The end port (or ICMP code if protocol is "icmp").
         :param pulumi.Input[str] type: The type of rule being created. Valid options are `ingress` (inbound)
                or `egress` (outbound).

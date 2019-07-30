@@ -142,7 +142,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly masterPassword!: pulumi.Output<string | undefined>;
     /**
-     * Username for the master DB user. Please refer to the [RDS Naming Constraints][5]
+     * Username for the master DB user. Please refer to the [RDS Naming Constraints][5]. This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      */
     public readonly masterUsername!: pulumi.Output<string>;
     /**
@@ -413,7 +413,7 @@ export interface ClusterState {
      */
     readonly masterPassword?: pulumi.Input<string>;
     /**
-     * Username for the master DB user. Please refer to the [RDS Naming Constraints][5]
+     * Username for the master DB user. Please refer to the [RDS Naming Constraints][5]. This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      */
     readonly masterUsername?: pulumi.Input<string>;
     /**
@@ -563,7 +563,7 @@ export interface ClusterArgs {
      */
     readonly masterPassword?: pulumi.Input<string>;
     /**
-     * Username for the master DB user. Please refer to the [RDS Naming Constraints][5]
+     * Username for the master DB user. Please refer to the [RDS Naming Constraints][5]. This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      */
     readonly masterUsername?: pulumi.Input<string>;
     /**

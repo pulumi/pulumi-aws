@@ -299,7 +299,7 @@ func (r *Cluster) MasterPassword() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["masterPassword"])
 }
 
-// Username for the master DB user. Please refer to the [RDS Naming Constraints][5]
+// Username for the master DB user. Please refer to the [RDS Naming Constraints][5]. This argument does not support in-place updates and cannot be changed during a restore from snapshot.
 func (r *Cluster) MasterUsername() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["masterUsername"])
 }
@@ -429,7 +429,7 @@ type ClusterState struct {
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints][5]
 	MasterPassword interface{}
-	// Username for the master DB user. Please refer to the [RDS Naming Constraints][5]
+	// Username for the master DB user. Please refer to the [RDS Naming Constraints][5]. This argument does not support in-place updates and cannot be changed during a restore from snapshot.
 	MasterUsername interface{}
 	// The port on which the DB accepts connections
 	Port interface{}
@@ -511,7 +511,7 @@ type ClusterArgs struct {
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints][5]
 	MasterPassword interface{}
-	// Username for the master DB user. Please refer to the [RDS Naming Constraints][5]
+	// Username for the master DB user. Please refer to the [RDS Naming Constraints][5]. This argument does not support in-place updates and cannot be changed during a restore from snapshot.
 	MasterUsername interface{}
 	// The port on which the DB accepts connections
 	Port interface{}

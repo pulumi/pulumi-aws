@@ -85,6 +85,10 @@ export class BucketObject extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
+     * A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */
     public readonly serverSideEncryption!: pulumi.Output<string>;
@@ -135,6 +139,7 @@ export class BucketObject extends pulumi.CustomResource {
             inputs["etag"] = state ? state.etag : undefined;
             inputs["key"] = state ? state.key : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            inputs["metadata"] = state ? state.metadata : undefined;
             inputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
             inputs["source"] = state ? state.source : undefined;
             inputs["storageClass"] = state ? state.storageClass : undefined;
@@ -158,6 +163,7 @@ export class BucketObject extends pulumi.CustomResource {
             inputs["etag"] = args ? args.etag : undefined;
             inputs["key"] = args ? args.key : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            inputs["metadata"] = args ? args.metadata : undefined;
             inputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             inputs["source"] = args ? args.source : undefined;
             inputs["storageClass"] = args ? args.storageClass : undefined;
@@ -228,6 +234,10 @@ export interface BucketObjectState {
      * `kms_key_id = "${aws_kms_key.foo.arn}"`
      */
     readonly kmsKeyId?: pulumi.Input<string>;
+    /**
+     * A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */
@@ -308,6 +318,10 @@ export interface BucketObjectArgs {
      * `kms_key_id = "${aws_kms_key.foo.arn}"`
      */
     readonly kmsKeyId?: pulumi.Input<string>;
+    /**
+     * A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */

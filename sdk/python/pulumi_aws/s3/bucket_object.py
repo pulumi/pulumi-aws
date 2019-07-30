@@ -57,6 +57,10 @@ class BucketObject(pulumi.CustomResource):
     use the exported `arn` attribute:
     `kms_key_id = "${aws_kms_key.foo.arn}"`
     """
+    metadata: pulumi.Output[dict]
+    """
+    A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+    """
     server_side_encryption: pulumi.Output[str]
     """
     Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
@@ -83,7 +87,7 @@ class BucketObject(pulumi.CustomResource):
     """
     Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
     """
-    def __init__(__self__, resource_name, opts=None, acl=None, bucket=None, cache_control=None, content=None, content_base64=None, content_disposition=None, content_encoding=None, content_language=None, content_type=None, etag=None, key=None, kms_key_id=None, server_side_encryption=None, source=None, storage_class=None, tags=None, website_redirect=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, acl=None, bucket=None, cache_control=None, content=None, content_base64=None, content_disposition=None, content_encoding=None, content_language=None, content_type=None, etag=None, key=None, kms_key_id=None, metadata=None, server_side_encryption=None, source=None, storage_class=None, tags=None, website_redirect=None, __name__=None, __opts__=None):
         """
         Provides a S3 bucket object resource.
         
@@ -103,6 +107,7 @@ class BucketObject(pulumi.CustomResource):
                This value is a fully qualified **ARN** of the KMS Key. If using `aws_kms_key`,
                use the exported `arn` attribute:
                `kms_key_id = "${aws_kms_key.foo.arn}"`
+        :param pulumi.Input[dict] metadata: A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         :param pulumi.Input[str] server_side_encryption: Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         :param pulumi.Input[pulumi.Asset] source: The path to a file that will be read and uploaded as raw bytes for the object content.
         :param pulumi.Input[str] storage_class: Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
@@ -152,6 +157,8 @@ class BucketObject(pulumi.CustomResource):
         __props__['key'] = key
 
         __props__['kms_key_id'] = kms_key_id
+
+        __props__['metadata'] = metadata
 
         __props__['server_side_encryption'] = server_side_encryption
 

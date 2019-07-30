@@ -65,12 +65,12 @@ export class SecurityGroupRule extends pulumi.CustomResource {
     public readonly securityGroupId!: pulumi.Output<string>;
     /**
      * If true, the security group itself will be added as
-     * a source to this ingress rule.
+     * a source to this ingress rule. Cannot be specified with `source_security_group_id`.
      */
     public readonly self!: pulumi.Output<boolean | undefined>;
     /**
      * The security group id to allow access to/from,
-     * depending on the `type`. Cannot be specified with `cidr_blocks`.
+     * depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
      */
     public readonly sourceSecurityGroupId!: pulumi.Output<string>;
     /**
@@ -181,12 +181,12 @@ export interface SecurityGroupRuleState {
     readonly securityGroupId?: pulumi.Input<string>;
     /**
      * If true, the security group itself will be added as
-     * a source to this ingress rule.
+     * a source to this ingress rule. Cannot be specified with `source_security_group_id`.
      */
     readonly self?: pulumi.Input<boolean>;
     /**
      * The security group id to allow access to/from,
-     * depending on the `type`. Cannot be specified with `cidr_blocks`.
+     * depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
      */
     readonly sourceSecurityGroupId?: pulumi.Input<string>;
     /**
@@ -235,12 +235,12 @@ export interface SecurityGroupRuleArgs {
     readonly securityGroupId: pulumi.Input<string>;
     /**
      * If true, the security group itself will be added as
-     * a source to this ingress rule.
+     * a source to this ingress rule. Cannot be specified with `source_security_group_id`.
      */
     readonly self?: pulumi.Input<boolean>;
     /**
      * The security group id to allow access to/from,
-     * depending on the `type`. Cannot be specified with `cidr_blocks`.
+     * depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
      */
     readonly sourceSecurityGroupId?: pulumi.Input<string>;
     /**

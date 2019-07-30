@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *       "Resource": "${queue.arn}",
  *       "Condition": {
  *         "ArnEquals": {
- *           "aws:SourceArn": "${queue.arn}"
+ *           "aws:SourceArn": "${aws_sns_topic_example.arn}"
  *         }
  *       }
  *     }

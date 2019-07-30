@@ -35,6 +35,7 @@ func NewBucketObject(ctx *pulumi.Context,
 		inputs["etag"] = nil
 		inputs["key"] = nil
 		inputs["kmsKeyId"] = nil
+		inputs["metadata"] = nil
 		inputs["serverSideEncryption"] = nil
 		inputs["source"] = nil
 		inputs["storageClass"] = nil
@@ -53,6 +54,7 @@ func NewBucketObject(ctx *pulumi.Context,
 		inputs["etag"] = args.Etag
 		inputs["key"] = args.Key
 		inputs["kmsKeyId"] = args.KmsKeyId
+		inputs["metadata"] = args.Metadata
 		inputs["serverSideEncryption"] = args.ServerSideEncryption
 		inputs["source"] = args.Source
 		inputs["storageClass"] = args.StorageClass
@@ -85,6 +87,7 @@ func GetBucketObject(ctx *pulumi.Context,
 		inputs["etag"] = state.Etag
 		inputs["key"] = state.Key
 		inputs["kmsKeyId"] = state.KmsKeyId
+		inputs["metadata"] = state.Metadata
 		inputs["serverSideEncryption"] = state.ServerSideEncryption
 		inputs["source"] = state.Source
 		inputs["storageClass"] = state.StorageClass
@@ -171,6 +174,11 @@ func (r *BucketObject) KmsKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
 
+// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+func (r *BucketObject) Metadata() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["metadata"])
+}
+
 // Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 func (r *BucketObject) ServerSideEncryption() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["serverSideEncryption"])
@@ -231,6 +239,8 @@ type BucketObjectState struct {
 	// use the exported `arn` attribute:
 	// `kms_key_id = "${aws_kms_key.foo.arn}"`
 	KmsKeyId interface{}
+	// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	Metadata interface{}
 	// Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption interface{}
 	// The path to a file that will be read and uploaded as raw bytes for the object content.
@@ -275,6 +285,8 @@ type BucketObjectArgs struct {
 	// use the exported `arn` attribute:
 	// `kms_key_id = "${aws_kms_key.foo.arn}"`
 	KmsKeyId interface{}
+	// A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
+	Metadata interface{}
 	// Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption interface{}
 	// The path to a file that will be read and uploaded as raw bytes for the object content.

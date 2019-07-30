@@ -136,13 +136,13 @@ func (r *SecurityGroupRule) SecurityGroupId() *pulumi.StringOutput {
 }
 
 // If true, the security group itself will be added as
-// a source to this ingress rule.
+// a source to this ingress rule. Cannot be specified with `source_security_group_id`.
 func (r *SecurityGroupRule) Self() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["self"])
 }
 
 // The security group id to allow access to/from,
-// depending on the `type`. Cannot be specified with `cidr_blocks`.
+// depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
 func (r *SecurityGroupRule) SourceSecurityGroupId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceSecurityGroupId"])
 }
@@ -176,10 +176,10 @@ type SecurityGroupRuleState struct {
 	// The security group to apply this rule to.
 	SecurityGroupId interface{}
 	// If true, the security group itself will be added as
-	// a source to this ingress rule.
+	// a source to this ingress rule. Cannot be specified with `source_security_group_id`.
 	Self interface{}
 	// The security group id to allow access to/from,
-	// depending on the `type`. Cannot be specified with `cidr_blocks`.
+	// depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
 	SourceSecurityGroupId interface{}
 	// The end port (or ICMP code if protocol is "icmp").
 	ToPort interface{}
@@ -206,10 +206,10 @@ type SecurityGroupRuleArgs struct {
 	// The security group to apply this rule to.
 	SecurityGroupId interface{}
 	// If true, the security group itself will be added as
-	// a source to this ingress rule.
+	// a source to this ingress rule. Cannot be specified with `source_security_group_id`.
 	Self interface{}
 	// The security group id to allow access to/from,
-	// depending on the `type`. Cannot be specified with `cidr_blocks`.
+	// depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
 	SourceSecurityGroupId interface{}
 	// The end port (or ICMP code if protocol is "icmp").
 	ToPort interface{}

@@ -16,5 +16,6 @@ from .sql_injection_match_set import *
 from .web_acl import *
 from .web_acl_association import *
 from .xss_match_set import *
+from .get_ipset import *
 from .get_rule import *
 from .get_web_acl import *
