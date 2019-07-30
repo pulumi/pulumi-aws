@@ -23,21 +23,23 @@ import * as utilities from "../utilities";
  * const lbArn = config.get("lbArn") || "";
  * const lbName = config.get("lbName") || "";
  * 
- * const test = pulumi.output(aws.elasticloadbalancingv2.getLoadBalancer({
+ * const test = pulumi.output(aws.lb.getLoadBalancer({
  *     arn: lbArn,
  *     name: lbName,
  * }));
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_legacy.html.markdown.
  */
-export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
+export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> & GetLoadBalancerResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:elasticloadbalancingv2/getLoadBalancer:getLoadBalancer", {
+    const promise: Promise<GetLoadBalancerResult> = pulumi.runtime.invoke("aws:elasticloadbalancingv2/getLoadBalancer:getLoadBalancer", {
         "arn": args.arn,
         "name": args.name,
         "tags": args.tags,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

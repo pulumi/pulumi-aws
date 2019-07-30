@@ -21,10 +21,12 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_api_key.html.markdown.
  */
-export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
-    return pulumi.runtime.invoke("aws:apigateway/getKey:getKey", {
+export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> & GetKeyResult {
+    const promise: Promise<GetKeyResult> = pulumi.runtime.invoke("aws:apigateway/getKey:getKey", {
         "id": args.id,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const lb = new aws.elasticloadbalancing.LoadBalancer("lb", {
+ * const lb = new aws.elb.LoadBalancer("lb", {
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [
  *         {

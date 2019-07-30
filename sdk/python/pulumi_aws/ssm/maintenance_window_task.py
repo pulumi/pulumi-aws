@@ -15,7 +15,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     """
     logging_info: pulumi.Output[dict]
     """
-    A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
+    A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
     """
     max_concurrency: pulumi.Output[str]
     """
@@ -26,13 +26,16 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     The maximum number of errors allowed before this task stops being scheduled.
     """
     name: pulumi.Output[str]
+    """
+    The parameter name.
+    """
     priority: pulumi.Output[float]
     """
     The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
     """
     service_role_arn: pulumi.Output[str]
     """
-    The role that should be assumed when executing the task.
+    The IAM service role to assume during task execution.
     """
     targets: pulumi.Output[list]
     """
@@ -42,9 +45,13 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     """
     The ARN of the task to execute.
     """
+    task_invocation_parameters: pulumi.Output[dict]
+    """
+    The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
+    """
     task_parameters: pulumi.Output[list]
     """
-    A structure containing information about parameters required by the particular `task_arn`. Documented below.
+    A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
     """
     task_type: pulumi.Output[str]
     """
@@ -54,21 +61,23 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     """
     The Id of the maintenance window to register the task with.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, logging_info=None, max_concurrency=None, max_errors=None, name=None, priority=None, service_role_arn=None, targets=None, task_arn=None, task_parameters=None, task_type=None, window_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, logging_info=None, max_concurrency=None, max_errors=None, name=None, priority=None, service_role_arn=None, targets=None, task_arn=None, task_invocation_parameters=None, task_parameters=None, task_type=None, window_id=None, __name__=None, __opts__=None):
         """
         Provides an SSM Maintenance Window Task resource
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the maintenance window task.
-        :param pulumi.Input[dict] logging_info: A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
+        :param pulumi.Input[dict] logging_info: A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
         :param pulumi.Input[str] max_concurrency: The maximum number of targets this task can be run for in parallel.
         :param pulumi.Input[str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
+        :param pulumi.Input[str] name: The parameter name.
         :param pulumi.Input[float] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-        :param pulumi.Input[str] service_role_arn: The role that should be assumed when executing the task.
+        :param pulumi.Input[str] service_role_arn: The IAM service role to assume during task execution.
         :param pulumi.Input[list] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input[str] task_arn: The ARN of the task to execute.
-        :param pulumi.Input[list] task_parameters: A structure containing information about parameters required by the particular `task_arn`. Documented below.
+        :param pulumi.Input[dict] task_invocation_parameters: The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
+        :param pulumi.Input[list] task_parameters: A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
         :param pulumi.Input[str] task_type: The type of task being registered. The only allowed value is `RUN_COMMAND`.
         :param pulumi.Input[str] window_id: The Id of the maintenance window to register the task with.
 
@@ -116,6 +125,8 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         if task_arn is None:
             raise TypeError("Missing required property 'task_arn'")
         __props__['task_arn'] = task_arn
+
+        __props__['task_invocation_parameters'] = task_invocation_parameters
 
         __props__['task_parameters'] = task_parameters
 

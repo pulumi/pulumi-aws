@@ -36,13 +36,15 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway.html.markdown.
  */
-export function getTransitGateway(args?: GetTransitGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayResult> {
+export function getTransitGateway(args?: GetTransitGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayResult> & GetTransitGatewayResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:ec2transitgateway/getTransitGateway:getTransitGateway", {
+    const promise: Promise<GetTransitGatewayResult> = pulumi.runtime.invoke("aws:ec2transitgateway/getTransitGateway:getTransitGateway", {
         "filters": args.filters,
         "id": args.id,
         "tags": args.tags,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -20,10 +20,12 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_replication_group.html.markdown.
  */
-export function getReplicationGroup(args: GetReplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationGroupResult> {
-    return pulumi.runtime.invoke("aws:elasticache/getReplicationGroup:getReplicationGroup", {
+export function getReplicationGroup(args: GetReplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationGroupResult> & GetReplicationGroupResult {
+    const promise: Promise<GetReplicationGroupResult> = pulumi.runtime.invoke("aws:elasticache/getReplicationGroup:getReplicationGroup", {
         "replicationGroupId": args.replicationGroupId,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

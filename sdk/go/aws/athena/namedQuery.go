@@ -30,11 +30,13 @@ func NewNamedQuery(ctx *pulumi.Context,
 		inputs["description"] = nil
 		inputs["name"] = nil
 		inputs["query"] = nil
+		inputs["workgroup"] = nil
 	} else {
 		inputs["database"] = args.Database
 		inputs["description"] = args.Description
 		inputs["name"] = args.Name
 		inputs["query"] = args.Query
+		inputs["workgroup"] = args.Workgroup
 	}
 	s, err := ctx.RegisterResource("aws:athena/namedQuery:NamedQuery", name, true, inputs, opts...)
 	if err != nil {
@@ -53,6 +55,7 @@ func GetNamedQuery(ctx *pulumi.Context,
 		inputs["description"] = state.Description
 		inputs["name"] = state.Name
 		inputs["query"] = state.Query
+		inputs["workgroup"] = state.Workgroup
 	}
 	s, err := ctx.ReadResource("aws:athena/namedQuery:NamedQuery", name, id, inputs, opts...)
 	if err != nil {
@@ -91,6 +94,11 @@ func (r *NamedQuery) Query() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["query"])
 }
 
+// The workgroup to which the query belongs. Defaults to `primary`
+func (r *NamedQuery) Workgroup() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["workgroup"])
+}
+
 // Input properties used for looking up and filtering NamedQuery resources.
 type NamedQueryState struct {
 	// The database to which the query belongs.
@@ -101,6 +109,8 @@ type NamedQueryState struct {
 	Name interface{}
 	// The text of the query itself. In other words, all query statements. Maximum length of 262144.
 	Query interface{}
+	// The workgroup to which the query belongs. Defaults to `primary`
+	Workgroup interface{}
 }
 
 // The set of arguments for constructing a NamedQuery resource.
@@ -113,4 +123,6 @@ type NamedQueryArgs struct {
 	Name interface{}
 	// The text of the query itself. In other words, all query statements. Maximum length of 262144.
 	Query interface{}
+	// The workgroup to which the query belongs. Defaults to `primary`
+	Workgroup interface{}
 }

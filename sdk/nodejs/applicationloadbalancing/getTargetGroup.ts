@@ -23,21 +23,23 @@ import * as utilities from "../utilities";
  * const lbTgArn = config.get("lbTgArn") || "";
  * const lbTgName = config.get("lbTgName") || "";
  * 
- * const test = pulumi.output(aws.elasticloadbalancingv2.getTargetGroup({
+ * const test = pulumi.output(aws.lb.getTargetGroup({
  *     arn: lbTgArn,
  *     name: lbTgName,
  * }));
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb_target_group.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb_target_group_legacy.html.markdown.
  */
-export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> {
+export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> & GetTargetGroupResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:applicationloadbalancing/getTargetGroup:getTargetGroup", {
+    const promise: Promise<GetTargetGroupResult> = pulumi.runtime.invoke("aws:applicationloadbalancing/getTargetGroup:getTargetGroup", {
         "arn": args.arn,
         "name": args.name,
         "tags": args.tags,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

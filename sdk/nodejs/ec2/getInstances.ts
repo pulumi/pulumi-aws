@@ -7,13 +7,15 @@ import * as utilities from "../utilities";
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instances.html.markdown.
  */
-export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancesResult> {
+export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancesResult> & GetInstancesResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:ec2/getInstances:getInstances", {
+    const promise: Promise<GetInstancesResult> = pulumi.runtime.invoke("aws:ec2/getInstances:getInstances", {
         "filters": args.filters,
         "instanceStateNames": args.instanceStateNames,
         "instanceTags": args.instanceTags,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

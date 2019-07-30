@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const main = pulumi.output(aws.elasticloadbalancing.getHostedZoneId({}));
+ * const main = pulumi.output(aws.elb.getHostedZoneId({}));
  * const www = new aws.route53.Record("www", {
  *     aliases: [{
  *         evaluateTargetHealth: true,
@@ -26,13 +26,15 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_hosted_zone_id.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_hosted_zone_id_legacy.html.markdown.
  */
-export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneIdResult> {
+export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneIdResult> & GetHostedZoneIdResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:elasticloadbalancing/getHostedZoneId:getHostedZoneId", {
+    const promise: Promise<GetHostedZoneIdResult> = pulumi.runtime.invoke("aws:elasticloadbalancing/getHostedZoneId:getHostedZoneId", {
         "region": args.region,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

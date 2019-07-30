@@ -23,9 +23,11 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_default_kms_key.html.markdown.
  */
-export function getDefaultKmsKey(opts?: pulumi.InvokeOptions): Promise<GetDefaultKmsKeyResult> {
-    return pulumi.runtime.invoke("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", {
+export function getDefaultKmsKey(opts?: pulumi.InvokeOptions): Promise<GetDefaultKmsKeyResult> & GetDefaultKmsKeyResult {
+    const promise: Promise<GetDefaultKmsKeyResult> = pulumi.runtime.invoke("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", {
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -4,3 +4,4 @@
 // Export members:
 export * from "./getService";
 export * from "./getServiceQuota";
+export * from "./serviceQuota";

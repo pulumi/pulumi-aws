@@ -50,6 +50,7 @@ func NewMaintenanceWindowTask(ctx *pulumi.Context,
 		inputs["serviceRoleArn"] = nil
 		inputs["targets"] = nil
 		inputs["taskArn"] = nil
+		inputs["taskInvocationParameters"] = nil
 		inputs["taskParameters"] = nil
 		inputs["taskType"] = nil
 		inputs["windowId"] = nil
@@ -63,6 +64,7 @@ func NewMaintenanceWindowTask(ctx *pulumi.Context,
 		inputs["serviceRoleArn"] = args.ServiceRoleArn
 		inputs["targets"] = args.Targets
 		inputs["taskArn"] = args.TaskArn
+		inputs["taskInvocationParameters"] = args.TaskInvocationParameters
 		inputs["taskParameters"] = args.TaskParameters
 		inputs["taskType"] = args.TaskType
 		inputs["windowId"] = args.WindowId
@@ -89,6 +91,7 @@ func GetMaintenanceWindowTask(ctx *pulumi.Context,
 		inputs["serviceRoleArn"] = state.ServiceRoleArn
 		inputs["targets"] = state.Targets
 		inputs["taskArn"] = state.TaskArn
+		inputs["taskInvocationParameters"] = state.TaskInvocationParameters
 		inputs["taskParameters"] = state.TaskParameters
 		inputs["taskType"] = state.TaskType
 		inputs["windowId"] = state.WindowId
@@ -115,7 +118,7 @@ func (r *MaintenanceWindowTask) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
-// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
+// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
 func (r *MaintenanceWindowTask) LoggingInfo() *pulumi.Output {
 	return r.s.State["loggingInfo"]
 }
@@ -130,6 +133,7 @@ func (r *MaintenanceWindowTask) MaxErrors() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["maxErrors"])
 }
 
+// The parameter name.
 func (r *MaintenanceWindowTask) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -139,7 +143,7 @@ func (r *MaintenanceWindowTask) Priority() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["priority"])
 }
 
-// The role that should be assumed when executing the task.
+// The IAM service role to assume during task execution.
 func (r *MaintenanceWindowTask) ServiceRoleArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["serviceRoleArn"])
 }
@@ -154,7 +158,12 @@ func (r *MaintenanceWindowTask) TaskArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["taskArn"])
 }
 
-// A structure containing information about parameters required by the particular `task_arn`. Documented below.
+// The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
+func (r *MaintenanceWindowTask) TaskInvocationParameters() *pulumi.Output {
+	return r.s.State["taskInvocationParameters"]
+}
+
+// A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
 func (r *MaintenanceWindowTask) TaskParameters() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["taskParameters"])
 }
@@ -173,22 +182,25 @@ func (r *MaintenanceWindowTask) WindowId() *pulumi.StringOutput {
 type MaintenanceWindowTaskState struct {
 	// The description of the maintenance window task.
 	Description interface{}
-	// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
+	// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
 	LoggingInfo interface{}
 	// The maximum number of targets this task can be run for in parallel.
 	MaxConcurrency interface{}
 	// The maximum number of errors allowed before this task stops being scheduled.
 	MaxErrors interface{}
+	// The parameter name.
 	Name interface{}
 	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
 	Priority interface{}
-	// The role that should be assumed when executing the task.
+	// The IAM service role to assume during task execution.
 	ServiceRoleArn interface{}
 	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 	Targets interface{}
 	// The ARN of the task to execute.
 	TaskArn interface{}
-	// A structure containing information about parameters required by the particular `task_arn`. Documented below.
+	// The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
+	TaskInvocationParameters interface{}
+	// A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
 	TaskParameters interface{}
 	// The type of task being registered. The only allowed value is `RUN_COMMAND`.
 	TaskType interface{}
@@ -200,22 +212,25 @@ type MaintenanceWindowTaskState struct {
 type MaintenanceWindowTaskArgs struct {
 	// The description of the maintenance window task.
 	Description interface{}
-	// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Documented below.
+	// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
 	LoggingInfo interface{}
 	// The maximum number of targets this task can be run for in parallel.
 	MaxConcurrency interface{}
 	// The maximum number of errors allowed before this task stops being scheduled.
 	MaxErrors interface{}
+	// The parameter name.
 	Name interface{}
 	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
 	Priority interface{}
-	// The role that should be assumed when executing the task.
+	// The IAM service role to assume during task execution.
 	ServiceRoleArn interface{}
 	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 	Targets interface{}
 	// The ARN of the task to execute.
 	TaskArn interface{}
-	// A structure containing information about parameters required by the particular `task_arn`. Documented below.
+	// The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
+	TaskInvocationParameters interface{}
+	// A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
 	TaskParameters interface{}
 	// The type of task being registered. The only allowed value is `RUN_COMMAND`.
 	TaskType interface{}

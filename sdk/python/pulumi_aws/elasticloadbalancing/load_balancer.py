@@ -118,7 +118,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[list] subnets: A list of subnet IDs to attach to the ELB.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elb.html.markdown.
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elb_legacy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

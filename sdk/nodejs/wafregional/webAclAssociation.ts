@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     cidrBlock: "10.1.1.0/24",
  *     vpcId: fooVpc.id,
  * });
- * const fooLoadBalancer = new aws.applicationloadbalancing.LoadBalancer("foo", {
+ * const fooLoadBalancer = new aws.alb.LoadBalancer("foo", {
  *     internal: true,
  *     subnets: [
  *         fooSubnet.id,

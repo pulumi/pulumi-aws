@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import {Input} from "@pulumi/pulumi";
+
 /**
  * You manage access in AWS by creating policies and attaching them to IAM identities or AWS resources. A policy is an
  * object in AWS that, when associated with an entity or resource, defines their permissions. AWS evaluates these
@@ -44,11 +46,11 @@
  */
 export interface PolicyDocument {
     // The version of the policy language that you want to use. As a best practice, use the latest `2012-10-17` version.
-    Version: "2008-10-17" | "2012-10-17";
+    Version: Input<"2008-10-17" | "2012-10-17">;
     // An optional document ID.
-    Id?: string;
+    Id?: Input<string>;
     // One or more policy statements, describing the effect, principal, action, resource, and condition.
-    Statement: PolicyStatement[];
+    Statement: Input<Input<PolicyStatement>[]>;
 }
 
 /**
@@ -57,28 +59,28 @@ export interface PolicyDocument {
  */
 export interface PolicyStatement {
     // An optional statement ID to differentiate between your statements.
-    Sid?: string;
+    Sid?: Input<string>;
     // Indicate whether the policy allows or denies access.
-    Effect: "Allow" | "Deny";
+    Effect: Input<"Allow" | "Deny">;
     // Indicate the account, user, role, or federated user to which you would like to allow or deny access. If you are
     // creating a policy to attach to a user or role, you cannot include this element. The principal is implied as that
     // user or role.
-    Principal?: Principal;
+    Principal?: Input<Principal>;
     // Indicate the account, user, role, or federated user to which this policy does not apply.
-    NotPrincipal?: Principal;
+    NotPrincipal?: Input<Principal>;
 
     // Include a list of actions that the policy allows or denies.
-    Action?: string | string[];
+    Action?: Input<string> | Input<Input<string>[]>;
     // Include a list of actions that are not covered by this policy.
-    NotAction?: string | string[];
+    NotAction?: Input<string> | Input<Input<string>[]>;
 
     // A list of resources to which the actions apply.
-    Resource?: string | string[];
+    Resource?: Input<string> | Input<Input<string>[]>;
     // A list of resources that are specifically excluded by this policy.
-    NotResource?: string | string[];
+    NotResource?: Input<string> | Input<Input<string>[]>;
 
     // Specify the circumstances under which the policy grants permission.
-    Condition?: Conditions;
+    Condition?: Input<Conditions>;
 }
 
 /**
@@ -110,7 +112,7 @@ export interface Conditions {
 
 export interface ConditionArguments {
     // e.g. { "aws:MultiFactorAuthPresent": "true" }
-    [value: string]: string;
+    [value: string]: Input<string>;
 }
 
 /**
@@ -147,7 +149,7 @@ export type Principal = "*" | AWSPrincipal | ServicePrincipal | FederatedPrincip
  * consists of the AWS: prefix followed by the account ID.
  */
 export interface AWSPrincipal {
-    AWS: string | string[];
+    AWS: Input<string> | Input<Input<string>[]>;
 }
 
 /**
@@ -160,11 +162,11 @@ export interface AWSPrincipal {
  * service.
  */
 export interface ServicePrincipal {
-    Service: string | string[];
+    Service: Input<string> | Input<Input<string>[]>;
 }
 
 export interface FederatedPrincipal {
-    Federated: string | string[];
+    Federated: Input<string> | Input<Input<string>[]>;
 }
 
 /**

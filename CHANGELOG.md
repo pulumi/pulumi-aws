@@ -4,7 +4,23 @@ CHANGELOG
 ## HEAD (Unreleased)
 * Add support for RepositoryCredentials in ECS container definitions.
 
----
+## 0.18.24 (2019-07-29)
+* Change PolicyDocument helper to allow passing of outputs from other resources
+* Update pulumi-terraform to fdafc00b3f
+* Several modules have been renamed to better align with their terraform equivalents.  The existing
+  modules are still available, but will be deprecated and removed in the future. 'Aliases' have been
+  used to ensure that moving to the new modules will not result in any changes to existing
+  resources.  The renamed modules are:
+  * `applicationloadbalancing -> alb`
+  * `elasticloadbalancing     -> elb`
+  * `elasticloadbalancingv2   -> lb`
+
+## 0.18.23 (2019-07-19)
+* Upgrade to pulumi-terraform@98fabcf506
+
+## 0.18.22 (2019-07-19)
+* Add ECR LifecyclePolicy Document Type.
+* Upgrade to v2.20.0 of the AWS Terraform Provider.
 
 ## 0.18.21 (2019-07-12)
 * Add Lambda runtime constants to the Go SDK.
@@ -164,3 +180,40 @@ compiler complains.
 * Expose the AWS JavaScript SDK from `@pulumi/aws`. After importing `@pulumi/aws` the SDK can be accessed via `aws.sdk`
 * Support Python 3.6 and higher, instead of only Python 3.7
 
+## 0.16.1 (2018-10-23)
+* Update to the v1.14.0 version of the AWS Provider [pulumi/pulumi-aws#355](https://github.com/pulumi/pulumi-aws/pull/355)
+* Add definitions for S3 Canned ACLs [pulumi/pulumi-aws#351](https://github.com/pulumi/pulumi-aws/pull/355)
+* Add serverless methods to Kinesis streams [pulumi/pulumi-aws#345](https://github.com/pulumi/pulumi-aws/pull/345)
+
+## 0.16.0 (2018-10-15)
+* Moved all `@pulumi/aws-serverless` features down into `@pulumi/aws`.  Event handlers are now available as methods like `bucket.onObjectCreated` from instances of `aws.s3.Bucket` and all other Lambda event sources.  In addition, the `aws.apigateway.x.API` type is available for simple construction of API Gateways directly in the `@pulumi/aws` package.
+* Added richer typing for many EC2 and Autoscaling resources.  Thanks to [@jen20](https://github.com/jen20)! [pulumi/pulumi-aws#323](https://github.com/pulumi/pulumi-aws/pull/323) [pulumi/pulumi-aws#324](https://github.com/pulumi/pulumi-aws/pull/324)
+* Adopted `v1.38.0` of the AWS Terraform Provider. [pulumi/pulumi-aws#341](https://github.com/pulumi/pulumi-aws/pull/341)
+
+## 0.15.1 (2018-09-11)
+* Add dotnetcore2.1 as a runtime for AWS lambdas (thanks to **[@Jtango18](https://github.com/Jtango18)**!). [pulumi/pulumi-aws#302](https://github.com/pulumi/pulumi-aws/pull/302)
+* Expose 'factory functions' from pulumi-aws. [pulumi/pulumi-aws#304](https://github.com/pulumi/pulumi-aws/pull/304)
+* Use stronger IAM doc types. [pulumi/pulumi-aws#311](https://github.com/pulumi/pulumi-aws/pull/311)
+* Auto-name aws.elasticache.Cluster#clusterId, [pulumi/pulumi-aws#313](https://github.com/pulumi/pulumi-aws/pull/313)
+
+## 0.15.0 (2018-08-13)
+* Adopted `terraform-provider-aws` version 1.30.0, with new support for Amazon Neptune, AWS Storage Gateway, Amazon Macie, and much more.
+
+## 0.14.5 (2018-07-20)
+* Only apply AutoName to inputs ([pulumi/pulumi-aws#265](https://github.com/pulumi/pulumi-aws/pull/265)). Terraform properties named `name` but are not inputs do not have auto naming applied to them.
+* Switch package inclusion from whitelist to blacklist ([pulumi/pulumi-aws#268](https://github.com/pulumi/pulumi-aws/pull/265)). When serializing a lambda, default to including all dependencies listed in the dependencies section of package.json (and their transitive dependencies) except for all `@pulumi/*` packages. Previously we tried to infer the set of packages by doing a more detailed analysis of the lambda implementation, but this failed in somewhat common cases.
+* Fix null ref when walking packages ([pulumi/pulumi-aws#280](https://github.com/pulumi/pulumi-aws/pull/280)). Fix some issues that could arise when serializing lambdas when a dependent package had no dependencies itself.
+* Add autoscaling NotificationType union and overlay ([pulumi/pulumi-aws#251](https://github.com/pulumi/pulumi/pull/251)). Provide a more strongly typed experience for setting autoscaling notification types. Special thanks to [@jen20](https://github.com/jen20) for this improvement.
+* Add iam.assumeRolePolicyForPrincipal function ([pulumi/pulumi-aws#273](https://github.com/pulumi/pulumi-aws/pull/273)). Add some helpers for authoring policy documents to assume a role. Special thanks to [@jen20](https://github.com/jen20) for this improvement.
+* Add `environment` to `aws.serverless.Function` ([pulumi/pulumi-aws#254](https://github.com/pulumi/pulumi-aws/pull/254). Expose the underlying `Environment` property to allow setting environment variables visible at runtime of a function when using `aws.serverless.Function`. Special thanks to [@jen20](https://github.com/jen20) for this improvement.
+* Override role on RolePolicy to accept a Role ([pulumi/pulumi-aws#278](https://github.com/pulumi/pulumi-aws/pull/278)). When constructing a `RolePolicy` object, allow the `Role` object to set as an argument instead of just a string which is the ARN of the role to use. Special thanks to [@jen20](https://github.com/jen20) for this improvement.
+* Add the .js extension to our generate closure code file. ([pulumi/pulumi-aws#279](https://github.com/pulumi/pulumi-aws/pull/279)). Ensure the generated code uploaded to AWS has a `.js` extension when building a lambda function. This allows the code for the lambda to be viewed in the AWS console.
+
+## 0.14.2 (2018-07-03)
+* The result of calls to data sources now include an `id` property. Special thanks to [@Frassle](https://github.com/Frassle) for adding this support in [pulumi/pulumi-terraform#189](https://github.com/pulumi/pulumi-terraform/pull/189).
+* Adopt [v1.26.0](https://github.com/terraform-providers/terraform-provider-aws/blob/master/CHANGELOG.md#1260-july-04-2018) of the AWS Terraform Provider.
+
+## 0.13.0 (2018-05-19)
+* Allow passing an existing `Role` to `serverless.Function` ([pulumi/pulumi-aws#210](https://github.com/pulumi/pulumi-aws/pull/210)). FunctionOptions now includes a `Role` property, for scenarios where you wish to use an existing `Role` or share one across multiple Lambda functions.
+* (**Breaking**) Support configuring the paths to include in `serverless.Function` ([pulumi/pulumi-aws#210](https://github.com/pulumi/pulumi-aws/pull/210)). Previously, all files in the directory would be included in the Lambda deployment package. With this change, only the generated `__index.js` and `./node_modules` are included by default. To add other files, use the new `includePaths` property in FunctionOptions.
+* (**Breaking**) Rename `aws.s3.Bucket#websites` to the singular `aws.s3.Bucket#website`. ([pulumi/pulumi-aws#207](https://github.com/pulumi/pulumi-aws/pull/207)). Since this property contains only one element, it has been renamed to `website` (singular) and is no longer an array property.

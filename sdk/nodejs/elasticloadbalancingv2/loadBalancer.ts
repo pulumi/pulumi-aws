@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const test = new aws.elasticloadbalancingv2.LoadBalancer("test", {
+ * const test = new aws.lb.LoadBalancer("test", {
  *     accessLogs: {
  *         bucket: aws_s3_bucket_lb_logs.bucket,
  *         enabled: true,
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const test = new aws.elasticloadbalancingv2.LoadBalancer("test", {
+ * const test = new aws.lb.LoadBalancer("test", {
  *     enableDeletionProtection: true,
  *     internal: false,
  *     loadBalancerType: "network",
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = new aws.elasticloadbalancingv2.LoadBalancer("example", {
+ * const example = new aws.lb.LoadBalancer("example", {
  *     loadBalancerType: "network",
  *     subnetMappings: [
  *         {
@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_legacy.html.markdown.
  */
 export class LoadBalancer extends pulumi.CustomResource {
     /**

@@ -32,11 +32,9 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_zone.html.markdown.
  */
-export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
+export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> & GetZoneResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:route53/getZone:getZone", {
-        "callerReference": args.callerReference,
-        "comment": args.comment,
+    const promise: Promise<GetZoneResult> = pulumi.runtime.invoke("aws:route53/getZone:getZone", {
         "name": args.name,
         "privateZone": args.privateZone,
         "resourceRecordSetCount": args.resourceRecordSetCount,
@@ -44,14 +42,14 @@ export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): Promis
         "vpcId": args.vpcId,
         "zoneId": args.zoneId,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
  * A collection of arguments for invoking getZone.
  */
 export interface GetZoneArgs {
-    readonly callerReference?: string;
-    readonly comment?: string;
     /**
      * The Hosted Zone name of the desired Hosted Zone.
      */
@@ -88,6 +86,14 @@ export interface GetZoneResult {
      * The comment field of the Hosted Zone.
      */
     readonly comment: string;
+    /**
+     * The description provided by the service that created the Hosted Zone (e.g. `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
+     */
+    readonly linkedServiceDescription: string;
+    /**
+     * The service that created the Hosted Zone (e.g. `servicediscovery.amazonaws.com`).
+     */
+    readonly linkedServicePrincipal: string;
     readonly name: string;
     /**
      * The list of DNS name servers for the Hosted Zone.
@@ -95,7 +101,7 @@ export interface GetZoneResult {
     readonly nameServers: string[];
     readonly privateZone?: boolean;
     /**
-     * the number of Record Set in the Hosted Zone
+     * The number of Record Set in the Hosted Zone.
      */
     readonly resourceRecordSetCount: number;
     readonly tags: {[key: string]: any};

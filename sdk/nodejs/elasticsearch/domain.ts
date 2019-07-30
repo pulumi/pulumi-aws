@@ -48,7 +48,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Cluster configuration of the domain, see below.
      */
-    public readonly clusterConfig!: pulumi.Output<{ dedicatedMasterCount?: number, dedicatedMasterEnabled?: boolean, dedicatedMasterType?: string, instanceCount?: number, instanceType?: string, zoneAwarenessEnabled?: boolean }>;
+    public readonly clusterConfig!: pulumi.Output<{ dedicatedMasterCount?: number, dedicatedMasterEnabled?: boolean, dedicatedMasterType?: string, instanceCount?: number, instanceType?: string, zoneAwarenessConfig?: { availabilityZoneCount?: number }, zoneAwarenessEnabled?: boolean }>;
     public readonly cognitoOptions!: pulumi.Output<{ enabled?: boolean, identityPoolId: string, roleArn: string, userPoolId: string } | undefined>;
     /**
      * Unique identifier for the domain.
@@ -170,7 +170,7 @@ export interface DomainState {
     /**
      * Cluster configuration of the domain, see below.
      */
-    readonly clusterConfig?: pulumi.Input<{ dedicatedMasterCount?: pulumi.Input<number>, dedicatedMasterEnabled?: pulumi.Input<boolean>, dedicatedMasterType?: pulumi.Input<string>, instanceCount?: pulumi.Input<number>, instanceType?: pulumi.Input<string>, zoneAwarenessEnabled?: pulumi.Input<boolean> }>;
+    readonly clusterConfig?: pulumi.Input<{ dedicatedMasterCount?: pulumi.Input<number>, dedicatedMasterEnabled?: pulumi.Input<boolean>, dedicatedMasterType?: pulumi.Input<string>, instanceCount?: pulumi.Input<number>, instanceType?: pulumi.Input<string>, zoneAwarenessConfig?: pulumi.Input<{ availabilityZoneCount?: pulumi.Input<number> }>, zoneAwarenessEnabled?: pulumi.Input<boolean> }>;
     readonly cognitoOptions?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, identityPoolId: pulumi.Input<string>, roleArn: pulumi.Input<string>, userPoolId: pulumi.Input<string> }>;
     /**
      * Unique identifier for the domain.
@@ -236,7 +236,7 @@ export interface DomainArgs {
     /**
      * Cluster configuration of the domain, see below.
      */
-    readonly clusterConfig?: pulumi.Input<{ dedicatedMasterCount?: pulumi.Input<number>, dedicatedMasterEnabled?: pulumi.Input<boolean>, dedicatedMasterType?: pulumi.Input<string>, instanceCount?: pulumi.Input<number>, instanceType?: pulumi.Input<string>, zoneAwarenessEnabled?: pulumi.Input<boolean> }>;
+    readonly clusterConfig?: pulumi.Input<{ dedicatedMasterCount?: pulumi.Input<number>, dedicatedMasterEnabled?: pulumi.Input<boolean>, dedicatedMasterType?: pulumi.Input<string>, instanceCount?: pulumi.Input<number>, instanceType?: pulumi.Input<string>, zoneAwarenessConfig?: pulumi.Input<{ availabilityZoneCount?: pulumi.Input<number> }>, zoneAwarenessEnabled?: pulumi.Input<boolean> }>;
     readonly cognitoOptions?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, identityPoolId: pulumi.Input<string>, roleArn: pulumi.Input<string>, userPoolId: pulumi.Input<string> }>;
     /**
      * Name of the domain.

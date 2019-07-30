@@ -171,7 +171,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
      */
-    public readonly scalingConfiguration!: pulumi.Output<{ autoPause?: boolean, maxCapacity?: number, minCapacity?: number, secondsUntilAutoPause?: number } | undefined>;
+    public readonly scalingConfiguration!: pulumi.Output<{ autoPause?: boolean, maxCapacity?: number, minCapacity?: number, secondsUntilAutoPause?: number, timeoutAction?: string } | undefined>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      */
@@ -435,7 +435,7 @@ export interface ClusterState {
     /**
      * Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
      */
-    readonly scalingConfiguration?: pulumi.Input<{ autoPause?: pulumi.Input<boolean>, maxCapacity?: pulumi.Input<number>, minCapacity?: pulumi.Input<number>, secondsUntilAutoPause?: pulumi.Input<number> }>;
+    readonly scalingConfiguration?: pulumi.Input<{ autoPause?: pulumi.Input<boolean>, maxCapacity?: pulumi.Input<number>, minCapacity?: pulumi.Input<number>, secondsUntilAutoPause?: pulumi.Input<number>, timeoutAction?: pulumi.Input<string> }>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      */
@@ -580,7 +580,7 @@ export interface ClusterArgs {
     /**
      * Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
      */
-    readonly scalingConfiguration?: pulumi.Input<{ autoPause?: pulumi.Input<boolean>, maxCapacity?: pulumi.Input<number>, minCapacity?: pulumi.Input<number>, secondsUntilAutoPause?: pulumi.Input<number> }>;
+    readonly scalingConfiguration?: pulumi.Input<{ autoPause?: pulumi.Input<boolean>, maxCapacity?: pulumi.Input<number>, minCapacity?: pulumi.Input<number>, secondsUntilAutoPause?: pulumi.Input<number>, timeoutAction?: pulumi.Input<string> }>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      */

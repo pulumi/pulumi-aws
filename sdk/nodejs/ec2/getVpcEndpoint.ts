@@ -27,15 +27,17 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint.html.markdown.
  */
-export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointResult> {
+export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointResult> & GetVpcEndpointResult {
     args = args || {};
-    return pulumi.runtime.invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", {
+    const promise: Promise<GetVpcEndpointResult> = pulumi.runtime.invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", {
         "id": args.id,
         "serviceName": args.serviceName,
         "state": args.state,
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

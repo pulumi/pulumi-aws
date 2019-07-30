@@ -54,6 +54,7 @@ func NewDomainName(ctx *pulumi.Context,
 		inputs["endpointConfiguration"] = nil
 		inputs["regionalCertificateArn"] = nil
 		inputs["regionalCertificateName"] = nil
+		inputs["securityPolicy"] = nil
 	} else {
 		inputs["certificateArn"] = args.CertificateArn
 		inputs["certificateBody"] = args.CertificateBody
@@ -64,6 +65,7 @@ func NewDomainName(ctx *pulumi.Context,
 		inputs["endpointConfiguration"] = args.EndpointConfiguration
 		inputs["regionalCertificateArn"] = args.RegionalCertificateArn
 		inputs["regionalCertificateName"] = args.RegionalCertificateName
+		inputs["securityPolicy"] = args.SecurityPolicy
 	}
 	inputs["certificateUploadDate"] = nil
 	inputs["cloudfrontDomainName"] = nil
@@ -97,6 +99,7 @@ func GetDomainName(ctx *pulumi.Context,
 		inputs["regionalCertificateName"] = state.RegionalCertificateName
 		inputs["regionalDomainName"] = state.RegionalDomainName
 		inputs["regionalZoneId"] = state.RegionalZoneId
+		inputs["securityPolicy"] = state.SecurityPolicy
 	}
 	s, err := ctx.ReadResource("aws:apigateway/domainName:DomainName", name, id, inputs, opts...)
 	if err != nil {
@@ -196,6 +199,11 @@ func (r *DomainName) RegionalZoneId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["regionalZoneId"])
 }
 
+// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+func (r *DomainName) SecurityPolicy() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["securityPolicy"])
+}
+
 // Input properties used for looking up and filtering DomainName resources.
 type DomainNameState struct {
 	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
@@ -237,6 +245,8 @@ type DomainNameState struct {
 	RegionalDomainName interface{}
 	// The hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
 	RegionalZoneId interface{}
+	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+	SecurityPolicy interface{}
 }
 
 // The set of arguments for constructing a DomainName resource.
@@ -268,4 +278,6 @@ type DomainNameArgs struct {
 	// The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
 	// `certificate_private_key`.
 	RegionalCertificateName interface{}
+	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+	SecurityPolicy interface{}
 }

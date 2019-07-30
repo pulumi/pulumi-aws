@@ -11,7 +11,7 @@ import (
 // 
 // > **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group.html.markdown.
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_target_group_legacy.html.markdown.
 type TargetGroup struct {
 	s *pulumi.ResourceState
 }

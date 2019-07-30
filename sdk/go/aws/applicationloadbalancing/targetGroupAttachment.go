@@ -12,7 +12,7 @@ import (
 // 
 // > **Note:** `aws_alb_target_group_attachment` is known as `aws_lb_target_group_attachment`. The functionality is identical.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_target_group_attachment.html.markdown.
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_target_group_attachment_legacy.html.markdown.
 type TargetGroupAttachment struct {
 	s *pulumi.ResourceState
 }
