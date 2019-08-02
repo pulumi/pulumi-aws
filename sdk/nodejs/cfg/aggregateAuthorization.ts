@@ -60,6 +60,10 @@ export class AggregateAuthorization extends pulumi.CustomResource {
      * Region
      */
     public readonly region!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a AggregateAuthorization resource with the given unique name, arguments, and options.
@@ -76,6 +80,7 @@ export class AggregateAuthorization extends pulumi.CustomResource {
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["region"] = state ? state.region : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AggregateAuthorizationArgs | undefined;
             if (!args || args.accountId === undefined) {
@@ -86,6 +91,7 @@ export class AggregateAuthorization extends pulumi.CustomResource {
             }
             inputs["accountId"] = args ? args.accountId : undefined;
             inputs["region"] = args ? args.region : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,6 +121,10 @@ export interface AggregateAuthorizationState {
      * Region
      */
     readonly region?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -129,4 +139,8 @@ export interface AggregateAuthorizationArgs {
      * Region
      */
     readonly region: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

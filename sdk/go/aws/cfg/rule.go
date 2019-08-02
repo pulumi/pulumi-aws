@@ -31,6 +31,7 @@ func NewRule(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["scope"] = nil
 		inputs["source"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["description"] = args.Description
 		inputs["inputParameters"] = args.InputParameters
@@ -38,6 +39,7 @@ func NewRule(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["scope"] = args.Scope
 		inputs["source"] = args.Source
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	inputs["ruleId"] = nil
@@ -62,6 +64,7 @@ func GetRule(ctx *pulumi.Context,
 		inputs["ruleId"] = state.RuleId
 		inputs["scope"] = state.Scope
 		inputs["source"] = state.Source
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:cfg/rule:Rule", name, id, inputs, opts...)
 	if err != nil {
@@ -122,6 +125,11 @@ func (r *Rule) Source() *pulumi.Output {
 	return r.s.State["source"]
 }
 
+// A mapping of tags to assign to the resource.
+func (r *Rule) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering Rule resources.
 type RuleState struct {
 	// The ARN of the config rule
@@ -142,6 +150,8 @@ type RuleState struct {
 	// Source specifies the rule owner, the rule identifier, and the notifications that cause
 	// the function to evaluate your AWS resources as documented below.
 	Source interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }
 
 // The set of arguments for constructing a Rule resource.
@@ -160,4 +170,6 @@ type RuleArgs struct {
 	// Source specifies the rule owner, the rule identifier, and the notifications that cause
 	// the function to evaluate your AWS resources as documented below.
 	Source interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }

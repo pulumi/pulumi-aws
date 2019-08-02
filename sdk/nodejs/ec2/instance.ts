@@ -143,6 +143,9 @@ export class Instance extends pulumi.CustomResource {
      * instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
      */
     public readonly instanceInitiatedShutdownBehavior!: pulumi.Output<string | undefined>;
+    /**
+     * The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
+     */
     public /*out*/ readonly instanceState!: pulumi.Output<string>;
     /**
      * The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -432,6 +435,9 @@ export interface InstanceState {
      * instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
      */
     readonly instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
+    /**
+     * The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
+     */
     readonly instanceState?: pulumi.Input<string>;
     /**
      * The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.

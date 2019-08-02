@@ -259,6 +259,7 @@ func (r *Instance) InstanceInitiatedShutdownBehavior() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["instanceInitiatedShutdownBehavior"])
 }
 
+// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
 func (r *Instance) InstanceState() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["instanceState"])
 }
@@ -433,6 +434,7 @@ type InstanceState struct {
 	// `terminate` for instance-store instances. Cannot be set on instance-store
 	// instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior interface{}
+	// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
 	InstanceState interface{}
 	// The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType interface{}

@@ -131,6 +131,9 @@ export interface GetInstanceResult {
      */
     readonly iamInstanceProfile: string;
     readonly instanceId?: string;
+    /**
+     * The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
+     */
     readonly instanceState: string;
     readonly instanceTags: {[key: string]: any};
     /**

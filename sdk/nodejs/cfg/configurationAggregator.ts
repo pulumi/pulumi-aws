@@ -102,6 +102,10 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
      * The organization to aggregate config data from as documented below.
      */
     public readonly organizationAggregationSource!: pulumi.Output<{ allRegions?: boolean, regions?: string[], roleArn: string } | undefined>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a ConfigurationAggregator resource with the given unique name, arguments, and options.
@@ -119,11 +123,13 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["organizationAggregationSource"] = state ? state.organizationAggregationSource : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ConfigurationAggregatorArgs | undefined;
             inputs["accountAggregationSource"] = args ? args.accountAggregationSource : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["organizationAggregationSource"] = args ? args.organizationAggregationSource : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
@@ -157,6 +163,10 @@ export interface ConfigurationAggregatorState {
      * The organization to aggregate config data from as documented below.
      */
     readonly organizationAggregationSource?: pulumi.Input<{ allRegions?: pulumi.Input<boolean>, regions?: pulumi.Input<pulumi.Input<string>[]>, roleArn: pulumi.Input<string> }>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -175,4 +185,8 @@ export interface ConfigurationAggregatorArgs {
      * The organization to aggregate config data from as documented below.
      */
     readonly organizationAggregationSource?: pulumi.Input<{ allRegions?: pulumi.Input<boolean>, regions?: pulumi.Input<pulumi.Input<string>[]>, roleArn: pulumi.Input<string> }>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

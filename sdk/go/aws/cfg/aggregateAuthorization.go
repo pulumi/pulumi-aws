@@ -28,9 +28,11 @@ func NewAggregateAuthorization(ctx *pulumi.Context,
 	if args == nil {
 		inputs["accountId"] = nil
 		inputs["region"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["accountId"] = args.AccountId
 		inputs["region"] = args.Region
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:cfg/aggregateAuthorization:AggregateAuthorization", name, true, inputs, opts...)
@@ -49,6 +51,7 @@ func GetAggregateAuthorization(ctx *pulumi.Context,
 		inputs["accountId"] = state.AccountId
 		inputs["arn"] = state.Arn
 		inputs["region"] = state.Region
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:cfg/aggregateAuthorization:AggregateAuthorization", name, id, inputs, opts...)
 	if err != nil {
@@ -82,6 +85,11 @@ func (r *AggregateAuthorization) Region() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["region"])
 }
 
+// A mapping of tags to assign to the resource.
+func (r *AggregateAuthorization) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering AggregateAuthorization resources.
 type AggregateAuthorizationState struct {
 	// Account ID
@@ -90,6 +98,8 @@ type AggregateAuthorizationState struct {
 	Arn interface{}
 	// Region
 	Region interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }
 
 // The set of arguments for constructing a AggregateAuthorization resource.
@@ -98,4 +108,6 @@ type AggregateAuthorizationArgs struct {
 	AccountId interface{}
 	// Region
 	Region interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }

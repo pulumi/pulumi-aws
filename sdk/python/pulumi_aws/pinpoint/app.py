@@ -13,6 +13,10 @@ class App(pulumi.CustomResource):
     """
     The Application ID of the Pinpoint App.
     """
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN) of the PinPoint Application
+    """
     campaign_hook: pulumi.Output[dict]
     """
     The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
@@ -30,7 +34,11 @@ class App(pulumi.CustomResource):
     """
     The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
     """
-    def __init__(__self__, resource_name, opts=None, campaign_hook=None, limits=None, name=None, name_prefix=None, quiet_time=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags
+    """
+    def __init__(__self__, resource_name, opts=None, campaign_hook=None, limits=None, name=None, name_prefix=None, quiet_time=None, tags=None, __name__=None, __opts__=None):
         """
         Provides a Pinpoint App resource.
         
@@ -40,6 +48,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[dict] limits: The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
         :param pulumi.Input[str] name_prefix: The name of the Pinpoint application. Conflicts with `name`
         :param pulumi.Input[dict] quiet_time: The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_app.html.markdown.
         """
@@ -68,7 +77,10 @@ class App(pulumi.CustomResource):
 
         __props__['quiet_time'] = quiet_time
 
+        __props__['tags'] = tags
+
         __props__['application_id'] = None
+        __props__['arn'] = None
 
         super(App, __self__).__init__(
             'aws:pinpoint/app:App',
