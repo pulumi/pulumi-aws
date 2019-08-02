@@ -8,34 +8,20 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class AggregateAuthorization(pulumi.CustomResource):
+class AdminAccount(pulumi.CustomResource):
     account_id: pulumi.Output[str]
     """
-    Account ID
+    The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
     """
-    arn: pulumi.Output[str]
-    """
-    The ARN of the authorization
-    """
-    region: pulumi.Output[str]
-    """
-    Region
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, account_id=None, region=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_id=None, __name__=None, __opts__=None):
         """
-        Manages an AWS Config Aggregate Authorization
+        Provides a resource to associate/disassociate an AWS Firewall Manager administrator account. This operation must be performed in the `us-east-1` region.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: Account ID
-        :param pulumi.Input[str] region: Region
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] account_id: The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_aggregate_authorization.html.markdown.
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/fms_admin_account.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -52,20 +38,10 @@ class AggregateAuthorization(pulumi.CustomResource):
 
         __props__ = dict()
 
-        if account_id is None:
-            raise TypeError("Missing required property 'account_id'")
         __props__['account_id'] = account_id
 
-        if region is None:
-            raise TypeError("Missing required property 'region'")
-        __props__['region'] = region
-
-        __props__['tags'] = tags
-
-        __props__['arn'] = None
-
-        super(AggregateAuthorization, __self__).__init__(
-            'aws:cfg/aggregateAuthorization:AggregateAuthorization',
+        super(AdminAccount, __self__).__init__(
+            'aws:fms/adminAccount:AdminAccount',
             resource_name,
             __props__,
             opts)

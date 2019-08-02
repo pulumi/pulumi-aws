@@ -79,14 +79,14 @@ import * as utilities from "../utilities";
  *     },
  *     vpcConfig: {
  *         securityGroupIds: [
- *             "sg-f9f27d91",
- *             "sg-e4f48g23",
+ *             aws_security_group_example1.id,
+ *             aws_security_gorup_example2.id,
  *         ],
  *         subnets: [
- *             "subnet-ba35d2e0",
- *             "subnet-ab129af1",
+ *             aws_subnet_example1.id,
+ *             aws_subnet_example2.id,
  *         ],
- *         vpcId: "vpc-725fca",
+ *         vpcId: aws_vpc_example.id,
  *     },
  * });
  * const project_with_cache = new aws.codebuild.Project("project-with-cache", {
@@ -153,6 +153,24 @@ import * as utilities from "../utilities";
  *     {
  *       "Effect": "Allow",
  *       "Action": [
+ *         "ec2:CreateNetworkInterfacePermission"
+ *       ],
+ *       "Resource": [
+ *         "arn:aws:ec2:us-east-1:123456789012:network-interface/*"
+ *       ]
+ *       "Condition": {
+ *         "StringEquals": {
+ *           "ec2:Subnet": [
+ *             "${aws_subnet_example1.arn}",
+ *             "${aws_subnet_example2.arn}"
+ *           ],
+ *           "ec2:AuthorizedService": "codebuild.amazonaws.com"
+ *         }
+ *       }
+ *     },
+ *     {
+ *       "Effect": "Allow",
+ *       "Action": [
  *         "s3:*"
  *       ],
  *       "Resource": [
@@ -203,7 +221,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Information about the project's build output artifacts. Artifact blocks are documented below.
      */
-    public readonly artifacts!: pulumi.Output<{ encryptionDisabled?: boolean, location?: string, name?: string, namespaceType?: string, packaging?: string, path?: string, type: string }>;
+    public readonly artifacts!: pulumi.Output<{ encryptionDisabled?: boolean, location?: string, name?: string, namespaceType?: string, overrideArtifactName?: boolean, packaging?: string, path?: string, type: string }>;
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
      */
@@ -243,7 +261,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
      */
-    public readonly secondaryArtifacts!: pulumi.Output<{ artifactIdentifier: string, encryptionDisabled?: boolean, location?: string, name?: string, namespaceType?: string, packaging?: string, path?: string, type: string }[] | undefined>;
+    public readonly secondaryArtifacts!: pulumi.Output<{ artifactIdentifier: string, encryptionDisabled?: boolean, location?: string, name?: string, namespaceType?: string, overrideArtifactName?: boolean, packaging?: string, path?: string, type: string }[] | undefined>;
     /**
      * A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
      */
@@ -348,7 +366,7 @@ export interface ProjectState {
     /**
      * Information about the project's build output artifacts. Artifact blocks are documented below.
      */
-    readonly artifacts?: pulumi.Input<{ encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly artifacts?: pulumi.Input<{ encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, overrideArtifactName?: pulumi.Input<boolean>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
      */
@@ -388,7 +406,7 @@ export interface ProjectState {
     /**
      * A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
      */
-    readonly secondaryArtifacts?: pulumi.Input<pulumi.Input<{ artifactIdentifier: pulumi.Input<string>, encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly secondaryArtifacts?: pulumi.Input<pulumi.Input<{ artifactIdentifier: pulumi.Input<string>, encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, overrideArtifactName?: pulumi.Input<boolean>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
      */
@@ -418,7 +436,7 @@ export interface ProjectArgs {
     /**
      * Information about the project's build output artifacts. Artifact blocks are documented below.
      */
-    readonly artifacts: pulumi.Input<{ encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly artifacts: pulumi.Input<{ encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, overrideArtifactName?: pulumi.Input<boolean>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
      */
@@ -454,7 +472,7 @@ export interface ProjectArgs {
     /**
      * A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
      */
-    readonly secondaryArtifacts?: pulumi.Input<pulumi.Input<{ artifactIdentifier: pulumi.Input<string>, encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly secondaryArtifacts?: pulumi.Input<pulumi.Input<{ artifactIdentifier: pulumi.Input<string>, encryptionDisabled?: pulumi.Input<boolean>, location?: pulumi.Input<string>, name?: pulumi.Input<string>, namespaceType?: pulumi.Input<string>, overrideArtifactName?: pulumi.Input<boolean>, packaging?: pulumi.Input<string>, path?: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
      * A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
      */

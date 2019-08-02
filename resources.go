@@ -85,6 +85,7 @@ const (
 	albMod               = "alb"               // Elastic Load Balancing (V2: Application)
 	lbMod                = "lb"                // Elastic Load Balancing (V2: Application and Network)
 	emrMod               = "emr"               // Elastic MapReduce
+	fmsMod               = "fms"               // FMS
 	gameliftMod          = "gamelift"          // Gamelift
 	glacierMod           = "glacier"           // Glacier
 	globalacceleratorMod = "globalaccelerator" // Global Accelerator
@@ -547,8 +548,9 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// CodeBuild
-			"aws_codebuild_project": {Tok: awsResource(codebuildMod, "Project")},
-			"aws_codebuild_webhook": {Tok: awsResource(codebuildMod, "Webhook")},
+			"aws_codebuild_project":           {Tok: awsResource(codebuildMod, "Project")},
+			"aws_codebuild_webhook":           {Tok: awsResource(codebuildMod, "Webhook")},
+			"aws_codebuild_source_credential": {Tok: awsResource(codebuildMod, "SourceCredential")},
 			// CodeDeploy
 			"aws_codedeploy_app":               {Tok: awsResource(codedeployMod, "Application")},
 			"aws_codedeploy_deployment_config": {Tok: awsResource(codedeployMod, "DeploymentConfig")},
@@ -1753,6 +1755,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_quicksight_group": {Tok: awsResource(quicksightMod, "Group")},
 			// Service Quotas
 			"aws_servicequotas_service_quota": {Tok: awsResource(servicequotasMod, "ServiceQuota")},
+			// FMS
+			"aws_fms_admin_account": {Tok: awsResource(fmsMod, "AdminAccount")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// AWS

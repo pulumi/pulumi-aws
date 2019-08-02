@@ -22,10 +22,12 @@ func NewConfigurationAggregator(ctx *pulumi.Context,
 		inputs["accountAggregationSource"] = nil
 		inputs["name"] = nil
 		inputs["organizationAggregationSource"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["accountAggregationSource"] = args.AccountAggregationSource
 		inputs["name"] = args.Name
 		inputs["organizationAggregationSource"] = args.OrganizationAggregationSource
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:cfg/configurationAggregator:ConfigurationAggregator", name, true, inputs, opts...)
@@ -45,6 +47,7 @@ func GetConfigurationAggregator(ctx *pulumi.Context,
 		inputs["arn"] = state.Arn
 		inputs["name"] = state.Name
 		inputs["organizationAggregationSource"] = state.OrganizationAggregationSource
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:cfg/configurationAggregator:ConfigurationAggregator", name, id, inputs, opts...)
 	if err != nil {
@@ -83,6 +86,11 @@ func (r *ConfigurationAggregator) OrganizationAggregationSource() *pulumi.Output
 	return r.s.State["organizationAggregationSource"]
 }
 
+// A mapping of tags to assign to the resource.
+func (r *ConfigurationAggregator) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering ConfigurationAggregator resources.
 type ConfigurationAggregatorState struct {
 	// The account(s) to aggregate config data from as documented below.
@@ -93,6 +101,8 @@ type ConfigurationAggregatorState struct {
 	Name interface{}
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }
 
 // The set of arguments for constructing a ConfigurationAggregator resource.
@@ -103,4 +113,6 @@ type ConfigurationAggregatorArgs struct {
 	Name interface{}
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 }

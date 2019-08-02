@@ -91,6 +91,9 @@ class GetInstanceResult:
         if instance_state and not isinstance(instance_state, str):
             raise TypeError("Expected argument 'instance_state' to be a str")
         __self__.instance_state = instance_state
+        """
+        The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
+        """
         if instance_tags and not isinstance(instance_tags, dict):
             raise TypeError("Expected argument 'instance_tags' to be a dict")
         __self__.instance_tags = instance_tags

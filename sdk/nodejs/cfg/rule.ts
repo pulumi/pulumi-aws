@@ -147,6 +147,10 @@ export class Rule extends pulumi.CustomResource {
      * the function to evaluate your AWS resources as documented below.
      */
     public readonly source!: pulumi.Output<{ owner: string, sourceDetails?: { eventSource?: string, maximumExecutionFrequency?: string, messageType?: string }[], sourceIdentifier: string }>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Rule resource with the given unique name, arguments, and options.
@@ -168,6 +172,7 @@ export class Rule extends pulumi.CustomResource {
             inputs["ruleId"] = state ? state.ruleId : undefined;
             inputs["scope"] = state ? state.scope : undefined;
             inputs["source"] = state ? state.source : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RuleArgs | undefined;
             if (!args || args.source === undefined) {
@@ -179,6 +184,7 @@ export class Rule extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["source"] = args ? args.source : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["ruleId"] = undefined /*out*/;
         }
@@ -231,6 +237,10 @@ export interface RuleState {
      * the function to evaluate your AWS resources as documented below.
      */
     readonly source?: pulumi.Input<{ owner: pulumi.Input<string>, sourceDetails?: pulumi.Input<pulumi.Input<{ eventSource?: pulumi.Input<string>, maximumExecutionFrequency?: pulumi.Input<string>, messageType?: pulumi.Input<string> }>[]>, sourceIdentifier: pulumi.Input<string> }>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -263,4 +273,8 @@ export interface RuleArgs {
      * the function to evaluate your AWS resources as documented below.
      */
     readonly source: pulumi.Input<{ owner: pulumi.Input<string>, sourceDetails?: pulumi.Input<pulumi.Input<{ eventSource?: pulumi.Input<string>, maximumExecutionFrequency?: pulumi.Input<string>, messageType?: pulumi.Input<string> }>[]>, sourceIdentifier: pulumi.Input<string> }>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

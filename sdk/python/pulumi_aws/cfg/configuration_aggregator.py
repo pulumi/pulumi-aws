@@ -25,7 +25,11 @@ class ConfigurationAggregator(pulumi.CustomResource):
     """
     The organization to aggregate config data from as documented below.
     """
-    def __init__(__self__, resource_name, opts=None, account_aggregation_source=None, name=None, organization_aggregation_source=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
+    def __init__(__self__, resource_name, opts=None, account_aggregation_source=None, name=None, organization_aggregation_source=None, tags=None, __name__=None, __opts__=None):
         """
         Manages an AWS Config Configuration Aggregator
         
@@ -34,6 +38,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
         :param pulumi.Input[dict] account_aggregation_source: The account(s) to aggregate config data from as documented below.
         :param pulumi.Input[str] name: The name of the configuration aggregator.
         :param pulumi.Input[dict] organization_aggregation_source: The organization to aggregate config data from as documented below.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_aggregator.html.markdown.
         """
@@ -57,6 +62,8 @@ class ConfigurationAggregator(pulumi.CustomResource):
         __props__['name'] = name
 
         __props__['organization_aggregation_source'] = organization_aggregation_source
+
+        __props__['tags'] = tags
 
         __props__['arn'] = None
 

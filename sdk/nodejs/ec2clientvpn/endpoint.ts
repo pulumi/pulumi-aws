@@ -63,6 +63,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly serverCertificateArn!: pulumi.Output<string>;
     /**
+     * Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
+     */
+    public readonly splitTunnel!: pulumi.Output<boolean | undefined>;
+    /**
      * The current state of the Client VPN endpoint.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -94,6 +98,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["dnsName"] = state ? state.dnsName : undefined;
             inputs["dnsServers"] = state ? state.dnsServers : undefined;
             inputs["serverCertificateArn"] = state ? state.serverCertificateArn : undefined;
+            inputs["splitTunnel"] = state ? state.splitTunnel : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["transportProtocol"] = state ? state.transportProtocol : undefined;
@@ -117,6 +122,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["dnsServers"] = args ? args.dnsServers : undefined;
             inputs["serverCertificateArn"] = args ? args.serverCertificateArn : undefined;
+            inputs["splitTunnel"] = args ? args.splitTunnel : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["transportProtocol"] = args ? args.transportProtocol : undefined;
             inputs["dnsName"] = undefined /*out*/;
@@ -166,6 +172,10 @@ export interface EndpointState {
      */
     readonly serverCertificateArn?: pulumi.Input<string>;
     /**
+     * Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
+     */
+    readonly splitTunnel?: pulumi.Input<boolean>;
+    /**
      * The current state of the Client VPN endpoint.
      */
     readonly status?: pulumi.Input<string>;
@@ -207,6 +217,10 @@ export interface EndpointArgs {
      * The ARN of the ACM server certificate.
      */
     readonly serverCertificateArn: pulumi.Input<string>;
+    /**
+     * Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
+     */
+    readonly splitTunnel?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */

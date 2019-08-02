@@ -58,6 +58,10 @@ export class App extends pulumi.CustomResource {
      */
     public /*out*/ readonly applicationId!: pulumi.Output<string>;
     /**
+     * Amazon Resource Name (ARN) of the PinPoint Application
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
      */
     public readonly campaignHook!: pulumi.Output<{ lambdaFunctionName?: string, mode?: string, webUrl?: string } | undefined>;
@@ -74,6 +78,10 @@ export class App extends pulumi.CustomResource {
      * The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
      */
     public readonly quietTime!: pulumi.Output<{ end?: string, start?: string } | undefined>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a App resource with the given unique name, arguments, and options.
@@ -88,11 +96,13 @@ export class App extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as AppState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["campaignHook"] = state ? state.campaignHook : undefined;
             inputs["limits"] = state ? state.limits : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
             inputs["quietTime"] = state ? state.quietTime : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AppArgs | undefined;
             inputs["campaignHook"] = args ? args.campaignHook : undefined;
@@ -100,7 +110,9 @@ export class App extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["quietTime"] = args ? args.quietTime : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["applicationId"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -122,6 +134,10 @@ export interface AppState {
      */
     readonly applicationId?: pulumi.Input<string>;
     /**
+     * Amazon Resource Name (ARN) of the PinPoint Application
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
      */
     readonly campaignHook?: pulumi.Input<{ lambdaFunctionName?: pulumi.Input<string>, mode?: pulumi.Input<string>, webUrl?: pulumi.Input<string> }>;
@@ -138,6 +154,10 @@ export interface AppState {
      * The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
      */
     readonly quietTime?: pulumi.Input<{ end?: pulumi.Input<string>, start?: pulumi.Input<string> }>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -161,4 +181,8 @@ export interface AppArgs {
      * The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
      */
     readonly quietTime?: pulumi.Input<{ end?: pulumi.Input<string>, start?: pulumi.Input<string> }>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

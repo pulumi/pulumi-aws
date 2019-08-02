@@ -24,14 +24,17 @@ func NewApp(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["namePrefix"] = nil
 		inputs["quietTime"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["campaignHook"] = args.CampaignHook
 		inputs["limits"] = args.Limits
 		inputs["name"] = args.Name
 		inputs["namePrefix"] = args.NamePrefix
 		inputs["quietTime"] = args.QuietTime
+		inputs["tags"] = args.Tags
 	}
 	inputs["applicationId"] = nil
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:pinpoint/app:App", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -46,11 +49,13 @@ func GetApp(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["applicationId"] = state.ApplicationId
+		inputs["arn"] = state.Arn
 		inputs["campaignHook"] = state.CampaignHook
 		inputs["limits"] = state.Limits
 		inputs["name"] = state.Name
 		inputs["namePrefix"] = state.NamePrefix
 		inputs["quietTime"] = state.QuietTime
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:pinpoint/app:App", name, id, inputs, opts...)
 	if err != nil {
@@ -72,6 +77,11 @@ func (r *App) ID() *pulumi.IDOutput {
 // The Application ID of the Pinpoint App.
 func (r *App) ApplicationId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["applicationId"])
+}
+
+// Amazon Resource Name (ARN) of the PinPoint Application
+func (r *App) Arn() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
@@ -98,10 +108,17 @@ func (r *App) QuietTime() *pulumi.Output {
 	return r.s.State["quietTime"]
 }
 
+// Key-value mapping of resource tags
+func (r *App) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering App resources.
 type AppState struct {
 	// The Application ID of the Pinpoint App.
 	ApplicationId interface{}
+	// Amazon Resource Name (ARN) of the PinPoint Application
+	Arn interface{}
 	// The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
 	CampaignHook interface{}
 	// The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
@@ -111,6 +128,8 @@ type AppState struct {
 	NamePrefix interface{}
 	// The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
 	QuietTime interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }
 
 // The set of arguments for constructing a App resource.
@@ -124,4 +143,6 @@ type AppArgs struct {
 	NamePrefix interface{}
 	// The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
 	QuietTime interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }

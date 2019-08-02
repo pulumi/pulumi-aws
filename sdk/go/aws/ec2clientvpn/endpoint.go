@@ -39,6 +39,7 @@ func NewEndpoint(ctx *pulumi.Context,
 		inputs["description"] = nil
 		inputs["dnsServers"] = nil
 		inputs["serverCertificateArn"] = nil
+		inputs["splitTunnel"] = nil
 		inputs["tags"] = nil
 		inputs["transportProtocol"] = nil
 	} else {
@@ -48,6 +49,7 @@ func NewEndpoint(ctx *pulumi.Context,
 		inputs["description"] = args.Description
 		inputs["dnsServers"] = args.DnsServers
 		inputs["serverCertificateArn"] = args.ServerCertificateArn
+		inputs["splitTunnel"] = args.SplitTunnel
 		inputs["tags"] = args.Tags
 		inputs["transportProtocol"] = args.TransportProtocol
 	}
@@ -73,6 +75,7 @@ func GetEndpoint(ctx *pulumi.Context,
 		inputs["dnsName"] = state.DnsName
 		inputs["dnsServers"] = state.DnsServers
 		inputs["serverCertificateArn"] = state.ServerCertificateArn
+		inputs["splitTunnel"] = state.SplitTunnel
 		inputs["status"] = state.Status
 		inputs["tags"] = state.Tags
 		inputs["transportProtocol"] = state.TransportProtocol
@@ -129,6 +132,11 @@ func (r *Endpoint) ServerCertificateArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["serverCertificateArn"])
 }
 
+// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
+func (r *Endpoint) SplitTunnel() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["splitTunnel"])
+}
+
 // The current state of the Client VPN endpoint.
 func (r *Endpoint) Status() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["status"])
@@ -160,6 +168,8 @@ type EndpointState struct {
 	DnsServers interface{}
 	// The ARN of the ACM server certificate.
 	ServerCertificateArn interface{}
+	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
+	SplitTunnel interface{}
 	// The current state of the Client VPN endpoint.
 	Status interface{}
 	// A mapping of tags to assign to the resource.
@@ -182,6 +192,8 @@ type EndpointArgs struct {
 	DnsServers interface{}
 	// The ARN of the ACM server certificate.
 	ServerCertificateArn interface{}
+	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
+	SplitTunnel interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
