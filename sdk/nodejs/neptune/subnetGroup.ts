@@ -57,7 +57,13 @@ export class SubnetGroup extends pulumi.CustomResource {
      * The ARN of the neptune subnet group.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The description of the neptune subnet group. Defaults to "Managed by Pulumi".
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the neptune subnet group. If omitted, this provider will assign a random, unique name.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -121,7 +127,13 @@ export interface SubnetGroupState {
      * The ARN of the neptune subnet group.
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The description of the neptune subnet group. Defaults to "Managed by Pulumi".
+     */
     readonly description?: pulumi.Input<string>;
+    /**
+     * The name of the neptune subnet group. If omitted, this provider will assign a random, unique name.
+     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -141,7 +153,13 @@ export interface SubnetGroupState {
  * The set of arguments for constructing a SubnetGroup resource.
  */
 export interface SubnetGroupArgs {
+    /**
+     * The description of the neptune subnet group. Defaults to "Managed by Pulumi".
+     */
     readonly description?: pulumi.Input<string>;
+    /**
+     * The name of the neptune subnet group. If omitted, this provider will assign a random, unique name.
+     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.

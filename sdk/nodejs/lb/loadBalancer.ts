@@ -122,6 +122,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      * This is a `network` load balancer feature. Defaults to `false`.
      */
     public readonly enableCrossZoneLoadBalancing!: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, deletion of the load balancer will be disabled via
+     * the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+     */
     public readonly enableDeletionProtection!: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
@@ -143,6 +147,11 @@ export class LoadBalancer extends pulumi.CustomResource {
      * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
      */
     public readonly loadBalancerType!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
+     * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
+     * this provider will autogenerate a name beginning with `tf-lb`.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -263,6 +272,10 @@ export interface LoadBalancerState {
      * This is a `network` load balancer feature. Defaults to `false`.
      */
     readonly enableCrossZoneLoadBalancing?: pulumi.Input<boolean>;
+    /**
+     * If true, deletion of the load balancer will be disabled via
+     * the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+     */
     readonly enableDeletionProtection?: pulumi.Input<boolean>;
     /**
      * Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
@@ -284,6 +297,11 @@ export interface LoadBalancerState {
      * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
      */
     readonly loadBalancerType?: pulumi.Input<string>;
+    /**
+     * The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
+     * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
+     * this provider will autogenerate a name beginning with `tf-lb`.
+     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -327,6 +345,10 @@ export interface LoadBalancerArgs {
      * This is a `network` load balancer feature. Defaults to `false`.
      */
     readonly enableCrossZoneLoadBalancing?: pulumi.Input<boolean>;
+    /**
+     * If true, deletion of the load balancer will be disabled via
+     * the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+     */
     readonly enableDeletionProtection?: pulumi.Input<boolean>;
     /**
      * Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
@@ -348,6 +370,11 @@ export interface LoadBalancerArgs {
      * The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
      */
     readonly loadBalancerType?: pulumi.Input<string>;
+    /**
+     * The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
+     * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
+     * this provider will autogenerate a name beginning with `tf-lb`.
+     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.

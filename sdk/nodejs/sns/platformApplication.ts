@@ -95,7 +95,13 @@ export class PlatformApplication extends pulumi.CustomResource {
      * The platform that the app is registered with. See [Platform][1] for supported platforms.
      */
     public readonly platform!: pulumi.Output<string>;
+    /**
+     * Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+     */
     public readonly platformCredential!: pulumi.Output<string>;
+    /**
+     * Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+     */
     public readonly platformPrincipal!: pulumi.Output<string | undefined>;
     /**
      * The IAM role permitted to receive success feedback for this application.
@@ -198,7 +204,13 @@ export interface PlatformApplicationState {
      * The platform that the app is registered with. See [Platform][1] for supported platforms.
      */
     readonly platform?: pulumi.Input<string>;
+    /**
+     * Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+     */
     readonly platformCredential?: pulumi.Input<string>;
+    /**
+     * Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+     */
     readonly platformPrincipal?: pulumi.Input<string>;
     /**
      * The IAM role permitted to receive success feedback for this application.
@@ -242,7 +254,13 @@ export interface PlatformApplicationArgs {
      * The platform that the app is registered with. See [Platform][1] for supported platforms.
      */
     readonly platform: pulumi.Input<string>;
+    /**
+     * Application Platform credential. See [Credential][1] for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+     */
     readonly platformCredential: pulumi.Input<string>;
+    /**
+     * Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+     */
     readonly platformPrincipal?: pulumi.Input<string>;
     /**
      * The IAM role permitted to receive success feedback for this application.

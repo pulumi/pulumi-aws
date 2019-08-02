@@ -28,6 +28,9 @@ class GetAccountAliasResult:
 
 async def get_account_alias(opts=None):
     """
+    The IAM Account Alias data source allows access to the account alias
+    for the effective account in which this provider is working.
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_account_alias.html.markdown.
     """
     __args__ = dict()

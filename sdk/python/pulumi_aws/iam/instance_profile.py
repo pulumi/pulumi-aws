@@ -18,6 +18,9 @@ class InstanceProfile(pulumi.CustomResource):
     The creation timestamp of the instance profile.
     """
     name: pulumi.Output[str]
+    """
+    The profile's name. If omitted, this provider will assign a random, unique name.
+    """
     name_prefix: pulumi.Output[str]
     """
     Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -31,6 +34,10 @@ class InstanceProfile(pulumi.CustomResource):
     The role name to include in the profile.
     """
     roles: pulumi.Output[list]
+    """
+    
+    A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
+    """
     unique_id: pulumi.Output[str]
     """
     The [unique ID][1] assigned by AWS.
@@ -43,9 +50,12 @@ class InstanceProfile(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The profile's name. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: Path in which to create the profile.
         :param pulumi.Input[str] role: The role name to include in the profile.
+        :param pulumi.Input[list] roles: 
+               A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_instance_profile.html.markdown.
         """

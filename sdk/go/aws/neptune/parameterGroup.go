@@ -78,6 +78,7 @@ func (r *ParameterGroup) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
+// The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
 func (r *ParameterGroup) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -106,6 +107,7 @@ func (r *ParameterGroup) Tags() *pulumi.MapOutput {
 type ParameterGroupState struct {
 	// The Neptune parameter group Amazon Resource Name (ARN).
 	Arn interface{}
+	// The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
 	Description interface{}
 	// The family of the Neptune parameter group.
 	Family interface{}
@@ -119,6 +121,7 @@ type ParameterGroupState struct {
 
 // The set of arguments for constructing a ParameterGroup resource.
 type ParameterGroupArgs struct {
+	// The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
 	Description interface{}
 	// The family of the Neptune parameter group.
 	Family interface{}

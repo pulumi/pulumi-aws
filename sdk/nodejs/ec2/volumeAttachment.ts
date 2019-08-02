@@ -5,6 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Provides an AWS EBS Volume Attachment as a top level resource, to attach and
+ * detach volumes from AWS Instances.
+ * 
+ * > **NOTE on EBS block devices:** If you use `ebs_block_device` on an `aws_instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `aws_ebs_volume` + `aws_ebs_volume_attachment` resources for a given instance.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.ebs.Volume("example", {
+ *     availabilityZone: "us-west-2a",
+ *     size: 1,
+ * });
+ * const web = new aws.ec2.Instance("web", {
+ *     ami: "ami-21f78e11",
+ *     availabilityZone: "us-west-2a",
+ *     instanceType: "t1.micro",
+ *     tags: {
+ *         Name: "HelloWorld",
+ *     },
+ * });
+ * const ebsAtt = new aws.ec2.VolumeAttachment("ebs_att", {
+ *     deviceName: "/dev/sdh",
+ *     instanceId: web.id,
+ *     volumeId: example.id,
+ * });
+ * ```
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/volume_attachment.html.markdown.
  */
 export class VolumeAttachment extends pulumi.CustomResource {
@@ -50,6 +80,13 @@ export class VolumeAttachment extends pulumi.CustomResource {
      * ID of the Instance to attach to
      */
     public readonly instanceId!: pulumi.Output<string>;
+    /**
+     * Set this to true if you do not wish
+     * to detach the volume from the instance to which it is attached at destroy
+     * time, and instead just remove the attachment from this provider state. This is
+     * useful when destroying an instance which has volumes created by some other
+     * means attached.
+     */
     public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * ID of the Volume to be attached
@@ -121,6 +158,13 @@ export interface VolumeAttachmentState {
      * ID of the Instance to attach to
      */
     readonly instanceId?: pulumi.Input<string>;
+    /**
+     * Set this to true if you do not wish
+     * to detach the volume from the instance to which it is attached at destroy
+     * time, and instead just remove the attachment from this provider state. This is
+     * useful when destroying an instance which has volumes created by some other
+     * means attached.
+     */
     readonly skipDestroy?: pulumi.Input<boolean>;
     /**
      * ID of the Volume to be attached
@@ -148,6 +192,13 @@ export interface VolumeAttachmentArgs {
      * ID of the Instance to attach to
      */
     readonly instanceId: pulumi.Input<string>;
+    /**
+     * Set this to true if you do not wish
+     * to detach the volume from the instance to which it is attached at destroy
+     * time, and instead just remove the attachment from this provider state. This is
+     * useful when destroying an instance which has volumes created by some other
+     * means attached.
+     */
     readonly skipDestroy?: pulumi.Input<boolean>;
     /**
      * ID of the Volume to be attached

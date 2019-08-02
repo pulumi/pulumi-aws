@@ -53,6 +53,9 @@ export class ApiKey extends pulumi.CustomResource {
      * The creation date of the API key
      */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
+     * The API key description. Defaults to "Managed by Pulumi".
+     */
     public readonly description!: pulumi.Output<string>;
     /**
      * Specifies whether the API key can be used by callers. Defaults to `true`.
@@ -117,6 +120,9 @@ export interface ApiKeyState {
      * The creation date of the API key
      */
     readonly createdDate?: pulumi.Input<string>;
+    /**
+     * The API key description. Defaults to "Managed by Pulumi".
+     */
     readonly description?: pulumi.Input<string>;
     /**
      * Specifies whether the API key can be used by callers. Defaults to `true`.
@@ -140,6 +146,9 @@ export interface ApiKeyState {
  * The set of arguments for constructing a ApiKey resource.
  */
 export interface ApiKeyArgs {
+    /**
+     * The API key description. Defaults to "Managed by Pulumi".
+     */
     readonly description?: pulumi.Input<string>;
     /**
      * Specifies whether the API key can be used by callers. Defaults to `true`.

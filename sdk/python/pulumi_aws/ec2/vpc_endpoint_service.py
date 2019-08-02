@@ -55,7 +55,14 @@ class VpcEndpointService(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, acceptance_required=None, allowed_principals=None, network_load_balancer_arns=None, tags=None, __name__=None, __opts__=None):
         """
-        Create a VpcEndpointService resource with the given unique name, props, and options.
+        Provides a VPC Endpoint Service resource.
+        Service consumers can create an _Interface_ VPC Endpoint to connect to the service.
+        
+        > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** This provider provides
+        both a standalone VPC Endpoint Service Allowed Principal resource
+        and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
+        a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
+        and will overwrite the association.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

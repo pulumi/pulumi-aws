@@ -107,6 +107,9 @@ export class LayerVersion extends pulumi.CustomResource {
      * The object version containing the function's deployment package. Conflicts with `filename`.
      */
     public readonly s3ObjectVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
+     */
     public readonly sourceCodeHash!: pulumi.Output<string>;
     /**
      * The size in bytes of the function .zip file.
@@ -222,6 +225,9 @@ export interface LayerVersionState {
      * The object version containing the function's deployment package. Conflicts with `filename`.
      */
     readonly s3ObjectVersion?: pulumi.Input<string>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
+     */
     readonly sourceCodeHash?: pulumi.Input<string>;
     /**
      * The size in bytes of the function .zip file.
@@ -269,5 +275,8 @@ export interface LayerVersionArgs {
      * The object version containing the function's deployment package. Conflicts with `filename`.
      */
     readonly s3ObjectVersion?: pulumi.Input<string>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
+     */
     readonly sourceCodeHash?: pulumi.Input<string>;
 }

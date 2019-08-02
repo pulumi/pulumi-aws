@@ -5,6 +5,28 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Provides a resource to create an association between a VPC endpoint and a subnet.
+ * 
+ * > **NOTE on VPC Endpoints and VPC Endpoint Subnet Associations:** This provider provides
+ * both a standalone VPC Endpoint Subnet Association (an association between a VPC endpoint
+ * and a single `subnet_id`) and a VPC Endpoint resource with a `subnet_ids`
+ * attribute. Do not use the same subnet ID in both a VPC Endpoint resource and a VPC Endpoint Subnet
+ * Association resource. Doing so will cause a conflict of associations and will overwrite the association.
+ * 
+ * ## Example Usage
+ * 
+ * Basic usage:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const snEc2 = new aws.ec2.VpcEndpointSubnetAssociation("sn_ec2", {
+ *     subnetId: aws_subnet_sn.id,
+ *     vpcEndpointId: aws_vpc_endpoint_ec2.id,
+ * });
+ * ```
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_subnet_association.html.markdown.
  */
 export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {

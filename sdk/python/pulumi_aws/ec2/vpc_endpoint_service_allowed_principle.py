@@ -19,7 +19,13 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, principal_arn=None, vpc_endpoint_service_id=None, __name__=None, __opts__=None):
         """
-        Create a VpcEndpointServiceAllowedPrinciple resource with the given unique name, props, and options.
+        Provides a resource to allow a principal to discover a VPC endpoint service.
+        
+        > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** This provider provides
+        both a standalone VPC Endpoint Service Allowed Principal resource
+        and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
+        a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
+        and will overwrite the association.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

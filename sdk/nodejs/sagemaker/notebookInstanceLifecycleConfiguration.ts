@@ -40,6 +40,9 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
      * The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
@@ -92,6 +95,9 @@ export interface NotebookInstanceLifecycleConfigurationState {
      * The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
+     */
     readonly name?: pulumi.Input<string>;
     /**
      * A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
@@ -107,6 +113,9 @@ export interface NotebookInstanceLifecycleConfigurationState {
  * The set of arguments for constructing a NotebookInstanceLifecycleConfiguration resource.
  */
 export interface NotebookInstanceLifecycleConfigurationArgs {
+    /**
+     * The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
+     */
     readonly name?: pulumi.Input<string>;
     /**
      * A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.

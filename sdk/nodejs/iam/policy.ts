@@ -71,6 +71,9 @@ export class Policy extends pulumi.CustomResource {
      * Description of the IAM policy.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the policy. If omitted, this provider will assign a random, unique name.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -81,6 +84,9 @@ export class Policy extends pulumi.CustomResource {
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
     public readonly path!: pulumi.Output<string | undefined>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -136,6 +142,9 @@ export interface PolicyState {
      * Description of the IAM policy.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * The name of the policy. If omitted, this provider will assign a random, unique name.
+     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -146,6 +155,9 @@ export interface PolicyState {
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
     readonly path?: pulumi.Input<string>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
 }
 
@@ -157,6 +169,9 @@ export interface PolicyArgs {
      * Description of the IAM policy.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * The name of the policy. If omitted, this provider will assign a random, unique name.
+     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -167,5 +182,8 @@ export interface PolicyArgs {
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
     readonly path?: pulumi.Input<string>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     readonly policy: pulumi.Input<string | PolicyDocument>;
 }

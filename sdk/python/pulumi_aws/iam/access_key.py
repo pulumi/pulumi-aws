@@ -10,6 +10,11 @@ from .. import utilities, tables
 
 class AccessKey(pulumi.CustomResource):
     encrypted_secret: pulumi.Output[str]
+    """
+    The encrypted secret, base64 encoded.
+    > **NOTE:** The encrypted secret may be decrypted using the command line,
+    for example: `... | base64 --decode | keybase pgp decrypt`.
+    """
     key_fingerprint: pulumi.Output[str]
     """
     The fingerprint of the PGP key used to encrypt

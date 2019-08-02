@@ -14,6 +14,9 @@ class ContainerPolicy(pulumi.CustomResource):
     The name of the container.
     """
     policy: pulumi.Output[str]
+    """
+    The contents of the policy.
+    """
     def __init__(__self__, resource_name, opts=None, container_name=None, policy=None, __name__=None, __opts__=None):
         """
         Provides a MediaStore Container Policy.
@@ -21,6 +24,7 @@ class ContainerPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_name: The name of the container.
+        :param pulumi.Input[str] policy: The contents of the policy.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/media_store_container_policy.html.markdown.
         """

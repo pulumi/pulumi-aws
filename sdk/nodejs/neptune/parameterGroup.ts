@@ -55,6 +55,9 @@ export class ParameterGroup extends pulumi.CustomResource {
      * The Neptune parameter group Amazon Resource Name (ARN).
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The family of the Neptune parameter group.
@@ -122,6 +125,9 @@ export interface ParameterGroupState {
      * The Neptune parameter group Amazon Resource Name (ARN).
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
+     */
     readonly description?: pulumi.Input<string>;
     /**
      * The family of the Neptune parameter group.
@@ -145,6 +151,9 @@ export interface ParameterGroupState {
  * The set of arguments for constructing a ParameterGroup resource.
  */
 export interface ParameterGroupArgs {
+    /**
+     * The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
+     */
     readonly description?: pulumi.Input<string>;
     /**
      * The family of the Neptune parameter group.

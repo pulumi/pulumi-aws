@@ -194,6 +194,12 @@ export class Environment extends pulumi.CustomResource {
      * to use in deployment.
      */
     public readonly version!: pulumi.Output<ApplicationVersion>;
+    /**
+     * The maximum
+     * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+     * wait for an Elastic Beanstalk Environment to be in a ready state before timing
+     * out.
+     */
     public readonly waitForReadyTimeout!: pulumi.Output<string | undefined>;
 
     /**
@@ -369,6 +375,12 @@ export interface EnvironmentState {
      * to use in deployment.
      */
     readonly version?: pulumi.Input<ApplicationVersion>;
+    /**
+     * The maximum
+     * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+     * wait for an Elastic Beanstalk Environment to be in a ready state before timing
+     * out.
+     */
     readonly waitForReadyTimeout?: pulumi.Input<string>;
 }
 
@@ -437,5 +449,11 @@ export interface EnvironmentArgs {
      * to use in deployment.
      */
     readonly version?: pulumi.Input<ApplicationVersion>;
+    /**
+     * The maximum
+     * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+     * wait for an Elastic Beanstalk Environment to be in a ready state before timing
+     * out.
+     */
     readonly waitForReadyTimeout?: pulumi.Input<string>;
 }

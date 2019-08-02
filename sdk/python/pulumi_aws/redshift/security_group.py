@@ -10,6 +10,9 @@ from .. import utilities, tables
 
 class SecurityGroup(pulumi.CustomResource):
     description: pulumi.Output[str]
+    """
+    The description of the Redshift security group. Defaults to "Managed by Pulumi".
+    """
     ingress: pulumi.Output[list]
     """
     A list of ingress rules.
@@ -24,6 +27,7 @@ class SecurityGroup(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the Redshift security group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[list] ingress: A list of ingress rules.
         :param pulumi.Input[str] name: The name of the Redshift security group.
 

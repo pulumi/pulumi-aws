@@ -55,7 +55,13 @@ class NetworkAclRule(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, cidr_block=None, egress=None, from_port=None, icmp_code=None, icmp_type=None, ipv6_cidr_block=None, network_acl_id=None, protocol=None, rule_action=None, rule_number=None, to_port=None, __name__=None, __opts__=None):
         """
-        Create a NetworkAclRule resource with the given unique name, props, and options.
+        Creates an entry (a rule) in a network ACL with the specified rule number.
+        
+        > **NOTE on Network ACLs and Network ACL Rules:** This provider currently
+        provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
+        defined in-line. At this time you cannot use a Network ACL with in-line rules
+        in conjunction with any Network ACL Rule resources. Doing so will cause
+        a conflict of rule settings and will overwrite rules.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

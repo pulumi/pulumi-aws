@@ -42,7 +42,12 @@ class DefaultSubnet(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, availability_zone=None, map_public_ip_on_launch=None, tags=None, __name__=None, __opts__=None):
         """
-        Create a DefaultSubnet resource with the given unique name, props, and options.
+        Provides a resource to manage a [default AWS VPC subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics)
+        in the current region.
+        
+        The `aws_default_subnet` behaves differently from normal resources, in that
+        this provider does not _create_ this resource, but instead "adopts" it
+        into management.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

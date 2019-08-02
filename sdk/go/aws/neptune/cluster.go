@@ -7,6 +7,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Provides an Neptune Cluster Resource. A Cluster Resource defines attributes that are
+// applied to the entire cluster of Neptune Cluster Instances.
+// 
+// Changes to a Neptune Cluster can occur when you manually change a
+// parameter, such as `backup_retention_period`, and are reflected in the next maintenance
+// window. Because of this, this provider may report a difference in its planning
+// phase because a modification has not yet taken place. You can use the
+// `apply_immediately` flag to instruct the service to apply the change immediately
+// (see documentation below).
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster.html.markdown.
 type Cluster struct {
 	s *pulumi.ResourceState
@@ -148,6 +158,7 @@ func (r *Cluster) BackupRetentionPeriod() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["backupRetentionPeriod"])
 }
 
+// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
 func (r *Cluster) ClusterIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterIdentifier"])
 }
@@ -277,6 +288,7 @@ type ClusterState struct {
 	AvailabilityZones interface{}
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod interface{}
+	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier interface{}
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
 	ClusterIdentifierPrefix interface{}
@@ -334,6 +346,7 @@ type ClusterArgs struct {
 	AvailabilityZones interface{}
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod interface{}
+	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier interface{}
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
 	ClusterIdentifierPrefix interface{}

@@ -30,6 +30,9 @@ class GraphQLApi(pulumi.CustomResource):
     Nested argument containing OpenID Connect configuration. Defined below.
     """
     schema: pulumi.Output[str]
+    """
+    The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
@@ -52,6 +55,7 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[dict] log_config: Nested argument containing logging configuration. Defined below.
         :param pulumi.Input[str] name: A user-supplied name for the GraphqlApi.
         :param pulumi.Input[dict] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
+        :param pulumi.Input[str] schema: The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] user_pool_config: The Amazon Cognito User Pool configuration. Defined below.
 

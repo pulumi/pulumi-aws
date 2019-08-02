@@ -34,6 +34,9 @@ class OptionGroup(pulumi.CustomResource):
     A list of Options to apply.
     """
     option_group_description: pulumi.Output[str]
+    """
+    The description of the option group. Defaults to "Managed by Pulumi".
+    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
@@ -53,6 +56,7 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The Name of the setting.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[list] options: A list of Options to apply.
+        :param pulumi.Input[str] option_group_description: The description of the option group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_option_group.html.markdown.

@@ -8,6 +8,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Provides a VPC Endpoint resource.
+// 
+// > **NOTE on VPC Endpoints and VPC Endpoint Associations:** This provider provides both standalone VPC Endpoint Associations for
+// Route Tables - (an association between a VPC endpoint and a single `route_table_id`) and
+// Subnets - (an association between a VPC endpoint and a single `subnet_id`) and
+// a VPC Endpoint resource with `route_table_ids` and `subnet_ids` attributes.
+// Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
+// Doing so will cause a conflict of associations and will overwrite the association.
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint.html.markdown.
 type VpcEndpoint struct {
 	s *pulumi.ResourceState
@@ -126,6 +135,7 @@ func (r *VpcEndpoint) OwnerId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ownerId"])
 }
 
+// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
 func (r *VpcEndpoint) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -198,6 +208,7 @@ type VpcEndpointState struct {
 	NetworkInterfaceIds interface{}
 	// The ID of the AWS account that owns the VPC endpoint.
 	OwnerId interface{}
+	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
 	Policy interface{}
 	// The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
 	PrefixListId interface{}
@@ -228,6 +239,7 @@ type VpcEndpointState struct {
 type VpcEndpointArgs struct {
 	// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
 	AutoAccept interface{}
+	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
 	Policy interface{}
 	// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
 	// Defaults to `false`.

@@ -73,6 +73,7 @@ func (r *Domain) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
+// The name of the domain. If omitted, this provider will assign a random, unique name.
 func (r *Domain) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -91,6 +92,7 @@ func (r *Domain) WorkflowExecutionRetentionPeriodInDays() *pulumi.StringOutput {
 type DomainState struct {
 	// The domain description.
 	Description interface{}
+	// The name of the domain. If omitted, this provider will assign a random, unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
@@ -102,6 +104,7 @@ type DomainState struct {
 type DomainArgs struct {
 	// The domain description.
 	Description interface{}
+	// The name of the domain. If omitted, this provider will assign a random, unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}

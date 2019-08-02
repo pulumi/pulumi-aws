@@ -7,6 +7,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Use this data source to get IDs and VPC membership of Security Groups that are created
+// outside of this provider.
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_groups.html.markdown.
 func LookupSecurityGroups(ctx *pulumi.Context, args *GetSecurityGroupsArgs) (*GetSecurityGroupsResult, error) {
 	inputs := make(map[string]interface{})

@@ -8,6 +8,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Provides a resource to manage VPC peering connection options.
+// 
+// > **NOTE on VPC Peering Connections and VPC Peering Connection Options:** This provider provides
+// both a standalone VPC Peering Connection Options and a VPC Peering Connection
+// resource with `accepter` and `requester` attributes. Do not manage options for the same VPC peering
+// connection in both a VPC Peering Connection resource and a VPC Peering Connection Options resource.
+// Doing so will cause a conflict of options and will overwrite the options.
+// Using a VPC Peering Connection Options resource decouples management of the connection options from
+// management of the VPC Peering Connection and allows options to be set correctly in cross-account scenarios.
+// 
+// Basic usage:
+// 
+// 
+// Basic cross-account usage:
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_options.html.markdown.
 type PeeringConnectionOptions struct {
 	s *pulumi.ResourceState

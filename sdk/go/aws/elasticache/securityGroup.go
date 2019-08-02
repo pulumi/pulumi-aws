@@ -70,6 +70,7 @@ func (r *SecurityGroup) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// description for the cache security group. Defaults to "Managed by Pulumi".
 func (r *SecurityGroup) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -87,6 +88,7 @@ func (r *SecurityGroup) SecurityGroupNames() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering SecurityGroup resources.
 type SecurityGroupState struct {
+	// description for the cache security group. Defaults to "Managed by Pulumi".
 	Description interface{}
 	// Name for the cache security group. This value is stored as a lowercase string.
 	Name interface{}
@@ -97,6 +99,7 @@ type SecurityGroupState struct {
 
 // The set of arguments for constructing a SecurityGroup resource.
 type SecurityGroupArgs struct {
+	// description for the cache security group. Defaults to "Managed by Pulumi".
 	Description interface{}
 	// Name for the cache security group. This value is stored as a lowercase string.
 	Name interface{}

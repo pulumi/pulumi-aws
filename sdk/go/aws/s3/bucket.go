@@ -184,6 +184,7 @@ func (r *Bucket) ObjectLockConfiguration() *pulumi.Output {
 	return r.s.State["objectLockConfiguration"]
 }
 
+// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
 func (r *Bucket) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -265,6 +266,7 @@ type BucketState struct {
 	Loggings interface{}
 	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
 	ObjectLockConfiguration interface{}
+	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
 	Policy interface{}
 	// If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
 	Region interface{}
@@ -314,6 +316,7 @@ type BucketArgs struct {
 	Loggings interface{}
 	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
 	ObjectLockConfiguration interface{}
+	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
 	Policy interface{}
 	// If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
 	Region interface{}

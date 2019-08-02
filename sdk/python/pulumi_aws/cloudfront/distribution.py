@@ -121,6 +121,11 @@ class Distribution(pulumi.CustomResource):
     configuration for this distribution (maximum one).
     """
     retain_on_delete: pulumi.Output[bool]
+    """
+    Disables the distribution instead of
+    deleting it when destroying the resource. If this is set,
+    the distribution needs to be deleted manually afterwards. Default: `false`.
+    """
     status: pulumi.Output[str]
     """
     The current status of the distribution. `Deployed` if the
@@ -196,6 +201,9 @@ class Distribution(pulumi.CustomResource):
                `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
         :param pulumi.Input[dict] restrictions: The restriction
                configuration for this distribution (maximum one).
+        :param pulumi.Input[bool] retain_on_delete: Disables the distribution instead of
+               deleting it when destroying the resource. If this is set,
+               the distribution needs to be deleted manually afterwards. Default: `false`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] viewer_certificate: The SSL
                configuration for this distribution (maximum

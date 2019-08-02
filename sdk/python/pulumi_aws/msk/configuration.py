@@ -35,7 +35,9 @@ class Configuration(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, description=None, kafka_versions=None, name=None, server_properties=None, __name__=None, __opts__=None):
         """
-        Create a Configuration resource with the given unique name, props, and options.
+        Manages an Amazon Managed Streaming for Kafka configuration. More information can be found on the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration.html).
+        
+        > **NOTE:** The API does not support deleting MSK configurations. Removing this resource will only remove the this provider state for it.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

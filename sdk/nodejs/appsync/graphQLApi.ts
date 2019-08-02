@@ -160,6 +160,9 @@ export class GraphQLApi extends pulumi.CustomResource {
      * Nested argument containing OpenID Connect configuration. Defined below.
      */
     public readonly openidConnectConfig!: pulumi.Output<{ authTtl?: number, clientId?: string, iatTtl?: number, issuer: string } | undefined>;
+    /**
+     * The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+     */
     public readonly schema!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
@@ -245,6 +248,9 @@ export interface GraphQLApiState {
      * Nested argument containing OpenID Connect configuration. Defined below.
      */
     readonly openidConnectConfig?: pulumi.Input<{ authTtl?: pulumi.Input<number>, clientId?: pulumi.Input<string>, iatTtl?: pulumi.Input<number>, issuer: pulumi.Input<string> }>;
+    /**
+     * The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+     */
     readonly schema?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
@@ -280,6 +286,9 @@ export interface GraphQLApiArgs {
      * Nested argument containing OpenID Connect configuration. Defined below.
      */
     readonly openidConnectConfig?: pulumi.Input<{ authTtl?: pulumi.Input<number>, clientId?: pulumi.Input<string>, iatTtl?: pulumi.Input<number>, issuer: pulumi.Input<string> }>;
+    /**
+     * The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+     */
     readonly schema?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.

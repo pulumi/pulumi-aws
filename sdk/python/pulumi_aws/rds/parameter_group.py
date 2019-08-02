@@ -14,6 +14,9 @@ class ParameterGroup(pulumi.CustomResource):
     The ARN of the db parameter group.
     """
     description: pulumi.Output[str]
+    """
+    The description of the DB parameter group. Defaults to "Managed by Pulumi".
+    """
     family: pulumi.Output[str]
     """
     The family of the DB parameter group.
@@ -45,6 +48,7 @@ class ParameterGroup(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the DB parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] family: The family of the DB parameter group.
         :param pulumi.Input[str] name: The name of the DB parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.

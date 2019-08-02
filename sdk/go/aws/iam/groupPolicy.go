@@ -76,6 +76,8 @@ func (r *GroupPolicy) Group() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["group"])
 }
 
+// The name of the policy. If omitted, this provider will
+// assign a random, unique name.
 func (r *GroupPolicy) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -86,6 +88,7 @@ func (r *GroupPolicy) NamePrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
+// The policy document. This is a JSON formatted string.
 func (r *GroupPolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -94,10 +97,13 @@ func (r *GroupPolicy) Policy() *pulumi.StringOutput {
 type GroupPolicyState struct {
 	// The IAM group to attach to the policy.
 	Group interface{}
+	// The name of the policy. If omitted, this provider will
+	// assign a random, unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix interface{}
+	// The policy document. This is a JSON formatted string.
 	Policy interface{}
 }
 
@@ -105,9 +111,12 @@ type GroupPolicyState struct {
 type GroupPolicyArgs struct {
 	// The IAM group to attach to the policy.
 	Group interface{}
+	// The name of the policy. If omitted, this provider will
+	// assign a random, unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix interface{}
+	// The policy document. This is a JSON formatted string.
 	Policy interface{}
 }

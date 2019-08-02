@@ -8,6 +8,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Provides an RDS instance resource.  A DB instance is an isolated database
+// environment in the cloud.  A DB instance can contain multiple user-created
+// databases.
+// 
+// Changes to a DB instance can occur when you manually change a parameter, such as
+// `allocated_storage`, and are reflected in the next maintenance window. Because
+// of this, this provider may report a difference in its planning phase because a
+// modification has not yet taken place. You can use the `apply_immediately` flag
+// to instruct the service to apply the change immediately (see documentation
+// below).
+// 
+// When upgrading the major version of an engine, `allow_major_version_upgrade`
+// must be set to `true`.
+// 
+// > **Note:** using `apply_immediately` can result in a brief downtime as the
+// server reboots. See the AWS Docs on [RDS Maintenance][2] for more information.
+// 
+// > **Note:** All arguments including the username and password will be stored in
+// the raw state as plain-text. [Read more about sensitive data in
+// state](https://www.terraform.io/docs/state/sensitive-data.html).
+// 
+// ## RDS Instance Class Types
+// 
+// Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
+// and Burstable Performance. For more information please read the AWS RDS documentation
+// about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_instance.html.markdown.
 type Instance struct {
 	s *pulumi.ResourceState
@@ -366,6 +393,8 @@ func (r *Instance) IamDatabaseAuthenticationEnabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["iamDatabaseAuthenticationEnabled"])
 }
 
+// The name of the RDS instance,
+// if omitted, this provider will assign a random, unique identifier.
 func (r *Instance) Identifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["identifier"])
 }
@@ -660,6 +689,8 @@ type InstanceState struct {
 	// mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled interface{}
+	// The name of the RDS instance,
+	// if omitted, this provider will assign a random, unique identifier.
 	Identifier interface{}
 	// Creates a unique
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -842,6 +873,8 @@ type InstanceArgs struct {
 	// mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled interface{}
+	// The name of the RDS instance,
+	// if omitted, this provider will assign a random, unique identifier.
 	Identifier interface{}
 	// Creates a unique
 	// identifier beginning with the specified prefix. Conflicts with `identifier`.

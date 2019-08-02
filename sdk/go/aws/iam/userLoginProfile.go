@@ -8,6 +8,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Manages an IAM User Login Profile with limited support for password creation during this provider resource creation. Uses PGP to encrypt the password for safe transport to the user. PGP keys can be obtained from Keybase.
+// 
+// > To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_login_profile.html.markdown.
 type UserLoginProfile struct {
 	s *pulumi.ResourceState
@@ -73,10 +77,12 @@ func (r *UserLoginProfile) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The encrypted password, base64 encoded. Only available if password was handled on this provider resource creation, not import.
 func (r *UserLoginProfile) EncryptedPassword() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["encryptedPassword"])
 }
 
+// The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
 func (r *UserLoginProfile) KeyFingerprint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keyFingerprint"])
 }
@@ -103,7 +109,9 @@ func (r *UserLoginProfile) User() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering UserLoginProfile resources.
 type UserLoginProfileState struct {
+	// The encrypted password, base64 encoded. Only available if password was handled on this provider resource creation, not import.
 	EncryptedPassword interface{}
+	// The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
 	KeyFingerprint interface{}
 	// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
 	PasswordLength interface{}

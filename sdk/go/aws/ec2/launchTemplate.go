@@ -246,6 +246,7 @@ func (r *LaunchTemplate) Monitoring() *pulumi.Output {
 	return r.s.State["monitoring"]
 }
 
+// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
 func (r *LaunchTemplate) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -346,6 +347,7 @@ type LaunchTemplateState struct {
 	LicenseSpecifications interface{}
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring interface{}
+	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
@@ -412,6 +414,7 @@ type LaunchTemplateArgs struct {
 	LicenseSpecifications interface{}
 	// The monitoring option for the instance. See Monitoring below for more details.
 	Monitoring interface{}
+	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}

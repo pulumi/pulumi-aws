@@ -69,6 +69,7 @@ func (r *RepositoryPolicy) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The policy document. This is a JSON formatted string.
 func (r *RepositoryPolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -85,6 +86,7 @@ func (r *RepositoryPolicy) Repository() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering RepositoryPolicy resources.
 type RepositoryPolicyState struct {
+	// The policy document. This is a JSON formatted string.
 	Policy interface{}
 	// The registry ID where the repository was created.
 	RegistryId interface{}
@@ -94,6 +96,7 @@ type RepositoryPolicyState struct {
 
 // The set of arguments for constructing a RepositoryPolicy resource.
 type RepositoryPolicyArgs struct {
+	// The policy document. This is a JSON formatted string.
 	Policy interface{}
 	// Name of the repository to apply the policy.
 	Repository interface{}

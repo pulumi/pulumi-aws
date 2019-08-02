@@ -70,6 +70,7 @@ func (r *BucketPolicy) Bucket() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["bucket"])
 }
 
+// The text of the policy.
 func (r *BucketPolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -78,6 +79,7 @@ func (r *BucketPolicy) Policy() *pulumi.StringOutput {
 type BucketPolicyState struct {
 	// The name of the bucket to which to apply the policy.
 	Bucket interface{}
+	// The text of the policy.
 	Policy interface{}
 }
 
@@ -85,5 +87,6 @@ type BucketPolicyState struct {
 type BucketPolicyArgs struct {
 	// The name of the bucket to which to apply the policy.
 	Bucket interface{}
+	// The text of the policy.
 	Policy interface{}
 }

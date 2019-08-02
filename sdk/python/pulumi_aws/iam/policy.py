@@ -18,6 +18,9 @@ class Policy(pulumi.CustomResource):
     Description of the IAM policy.
     """
     name: pulumi.Output[str]
+    """
+    The name of the policy. If omitted, this provider will assign a random, unique name.
+    """
     name_prefix: pulumi.Output[str]
     """
     Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -28,6 +31,9 @@ class Policy(pulumi.CustomResource):
     See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
     """
     policy: pulumi.Output[str]
+    """
+    The policy document. This is a JSON formatted string.
+    """
     def __init__(__self__, resource_name, opts=None, description=None, name=None, name_prefix=None, path=None, policy=None, __name__=None, __opts__=None):
         """
         Provides an IAM policy.
@@ -35,9 +41,11 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the IAM policy.
+        :param pulumi.Input[str] name: The name of the policy. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: Path in which to create the policy.
                See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_policy.html.markdown.
         """

@@ -80,6 +80,9 @@ export class Model extends pulumi.CustomResource {
      * A role that SageMaker can assume to access model artifacts and docker images for deployment.
      */
     public readonly executionRoleArn!: pulumi.Output<string>;
+    /**
+     * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
@@ -159,6 +162,9 @@ export interface ModelState {
      * A role that SageMaker can assume to access model artifacts and docker images for deployment.
      */
     readonly executionRoleArn?: pulumi.Input<string>;
+    /**
+     * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+     */
     readonly name?: pulumi.Input<string>;
     /**
      * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
@@ -190,6 +196,9 @@ export interface ModelArgs {
      * A role that SageMaker can assume to access model artifacts and docker images for deployment.
      */
     readonly executionRoleArn: pulumi.Input<string>;
+    /**
+     * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+     */
     readonly name?: pulumi.Input<string>;
     /**
      * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.

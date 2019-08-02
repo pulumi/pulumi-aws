@@ -65,6 +65,7 @@ func (r *SecurityGroup) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The description of the Redshift security group. Defaults to "Managed by Pulumi".
 func (r *SecurityGroup) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -81,6 +82,7 @@ func (r *SecurityGroup) Name() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering SecurityGroup resources.
 type SecurityGroupState struct {
+	// The description of the Redshift security group. Defaults to "Managed by Pulumi".
 	Description interface{}
 	// A list of ingress rules.
 	Ingress interface{}
@@ -90,6 +92,7 @@ type SecurityGroupState struct {
 
 // The set of arguments for constructing a SecurityGroup resource.
 type SecurityGroupArgs struct {
+	// The description of the Redshift security group. Defaults to "Managed by Pulumi".
 	Description interface{}
 	// A list of ingress rules.
 	Ingress interface{}

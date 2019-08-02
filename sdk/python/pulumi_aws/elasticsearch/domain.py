@@ -14,6 +14,12 @@ class Domain(pulumi.CustomResource):
     IAM policy document specifying the access policies for the domain
     """
     advanced_options: pulumi.Output[dict]
+    """
+    Key-value string pairs to specify advanced configuration options.
+    Note that the values for these configuration options must be strings (wrapped in quotes) or they
+    may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
+    domain on every apply.
+    """
     arn: pulumi.Output[str]
     """
     Amazon Resource Name (ARN) of the domain.
@@ -80,6 +86,10 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain
+        :param pulumi.Input[dict] advanced_options: Key-value string pairs to specify advanced configuration options.
+               Note that the values for these configuration options must be strings (wrapped in quotes) or they
+               may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
+               domain on every apply.
         :param pulumi.Input[dict] cluster_config: Cluster configuration of the domain, see below.
         :param pulumi.Input[str] domain_name: Name of the domain.
         :param pulumi.Input[dict] ebs_options: EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.

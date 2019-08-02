@@ -19,7 +19,9 @@ class WorkingStorage(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, disk_id=None, gateway_arn=None, __name__=None, __opts__=None):
         """
-        Create a WorkingStorage resource with the given unique name, props, and options.
+        Manages an AWS Storage Gateway working storage.
+        
+        > **NOTE:** The Storage Gateway API provides no method to remove a working storage disk. Destroying this resource does not perform any Storage Gateway actions.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

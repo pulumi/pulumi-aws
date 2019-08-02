@@ -14,7 +14,13 @@ class SubnetGroup(pulumi.CustomResource):
     The ARN of the neptune subnet group.
     """
     description: pulumi.Output[str]
+    """
+    The description of the neptune subnet group. Defaults to "Managed by Pulumi".
+    """
     name: pulumi.Output[str]
+    """
+    The name of the neptune subnet group. If omitted, this provider will assign a random, unique name.
+    """
     name_prefix: pulumi.Output[str]
     """
     Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -33,6 +39,8 @@ class SubnetGroup(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the neptune subnet group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] name: The name of the neptune subnet group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[list] subnet_ids: A list of VPC subnet IDs.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.

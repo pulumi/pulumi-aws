@@ -249,6 +249,10 @@ func (r *Environment) Version() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["version"])
 }
 
+// The maximum
+// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+// wait for an Elastic Beanstalk Environment to be in a ready state before timing
+// out.
 func (r *Environment) WaitForReadyTimeout() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["waitForReadyTimeout"])
 }
@@ -311,6 +315,10 @@ type EnvironmentState struct {
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
 	Version interface{}
+	// The maximum
+	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
+	// out.
 	WaitForReadyTimeout interface{}
 }
 
@@ -353,5 +361,9 @@ type EnvironmentArgs struct {
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
 	Version interface{}
+	// The maximum
+	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
+	// out.
 	WaitForReadyTimeout interface{}
 }

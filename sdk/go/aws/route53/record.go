@@ -109,6 +109,7 @@ func (r *Record) Aliases() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["aliases"])
 }
 
+// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 func (r *Record) AllowOverwrite() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["allowOverwrite"])
 }
@@ -148,6 +149,7 @@ func (r *Record) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
 func (r *Record) Records() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["records"])
 }
@@ -182,6 +184,7 @@ type RecordState struct {
 	// An alias block. Conflicts with `ttl` & `records`.
 	// Alias record documented below.
 	Aliases interface{}
+	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 	AllowOverwrite interface{}
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
 	FailoverRoutingPolicies interface{}
@@ -197,6 +200,7 @@ type RecordState struct {
 	MultivalueAnswerRoutingPolicy interface{}
 	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
 	Name interface{}
+	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
 	Records interface{}
 	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
 	SetIdentifier interface{}
@@ -215,6 +219,7 @@ type RecordArgs struct {
 	// An alias block. Conflicts with `ttl` & `records`.
 	// Alias record documented below.
 	Aliases interface{}
+	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 	AllowOverwrite interface{}
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
 	FailoverRoutingPolicies interface{}
@@ -228,6 +233,7 @@ type RecordArgs struct {
 	MultivalueAnswerRoutingPolicy interface{}
 	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
 	Name interface{}
+	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
 	Records interface{}
 	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
 	SetIdentifier interface{}

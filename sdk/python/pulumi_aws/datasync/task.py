@@ -39,7 +39,7 @@ class Task(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, cloudwatch_log_group_arn=None, destination_location_arn=None, name=None, options=None, source_location_arn=None, tags=None, __name__=None, __opts__=None):
         """
-        Create a Task resource with the given unique name, props, and options.
+        Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

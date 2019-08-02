@@ -8,6 +8,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Provides a resource to create an association between a VPC endpoint and a subnet.
+// 
+// > **NOTE on VPC Endpoints and VPC Endpoint Subnet Associations:** This provider provides
+// both a standalone VPC Endpoint Subnet Association (an association between a VPC endpoint
+// and a single `subnet_id`) and a VPC Endpoint resource with a `subnet_ids`
+// attribute. Do not use the same subnet ID in both a VPC Endpoint resource and a VPC Endpoint Subnet
+// Association resource. Doing so will cause a conflict of associations and will overwrite the association.
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_subnet_association.html.markdown.
 type VpcEndpointSubnetAssociation struct {
 	s *pulumi.ResourceState

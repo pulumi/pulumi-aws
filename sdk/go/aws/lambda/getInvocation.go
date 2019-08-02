@@ -51,6 +51,7 @@ type GetInvocationResult struct {
 	Qualifier interface{}
 	// String result of the lambda function invocation.
 	Result interface{}
+	// This field is set only if result is a map of primitive types, where the map is string keys and string values.
 	ResultMap interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

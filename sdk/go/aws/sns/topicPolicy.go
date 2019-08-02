@@ -8,6 +8,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Provides an SNS topic policy resource
+// 
+// > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_topic_policy.html.markdown.
 type TopicPolicy struct {
 	s *pulumi.ResourceState
@@ -68,6 +72,7 @@ func (r *TopicPolicy) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
+// The fully-formed AWS policy as JSON.
 func (r *TopicPolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -76,6 +81,7 @@ func (r *TopicPolicy) Policy() *pulumi.StringOutput {
 type TopicPolicyState struct {
 	// The ARN of the SNS topic
 	Arn interface{}
+	// The fully-formed AWS policy as JSON.
 	Policy interface{}
 }
 
@@ -83,5 +89,6 @@ type TopicPolicyState struct {
 type TopicPolicyArgs struct {
 	// The ARN of the SNS topic
 	Arn interface{}
+	// The fully-formed AWS policy as JSON.
 	Policy interface{}
 }

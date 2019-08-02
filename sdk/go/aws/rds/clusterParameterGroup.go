@@ -84,6 +84,7 @@ func (r *ClusterParameterGroup) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
+// The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
 func (r *ClusterParameterGroup) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -117,6 +118,7 @@ func (r *ClusterParameterGroup) Tags() *pulumi.MapOutput {
 type ClusterParameterGroupState struct {
 	// The ARN of the db cluster parameter group.
 	Arn interface{}
+	// The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
 	Description interface{}
 	// The family of the DB cluster parameter group.
 	Family interface{}
@@ -132,6 +134,7 @@ type ClusterParameterGroupState struct {
 
 // The set of arguments for constructing a ClusterParameterGroup resource.
 type ClusterParameterGroupArgs struct {
+	// The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
 	Description interface{}
 	// The family of the DB cluster parameter group.
 	Family interface{}

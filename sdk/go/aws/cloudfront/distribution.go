@@ -286,6 +286,9 @@ func (r *Distribution) Restrictions() *pulumi.Output {
 	return r.s.State["restrictions"]
 }
 
+// Disables the distribution instead of
+// deleting it when destroying the resource. If this is set,
+// the distribution needs to be deleted manually afterwards. Default: `false`.
 func (r *Distribution) RetainOnDelete() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["retainOnDelete"])
 }
@@ -394,6 +397,9 @@ type DistributionState struct {
 	// The restriction
 	// configuration for this distribution (maximum one).
 	Restrictions interface{}
+	// Disables the distribution instead of
+	// deleting it when destroying the resource. If this is set,
+	// the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete interface{}
 	// The current status of the distribution. `Deployed` if the
 	// distribution's information is fully propagated throughout the Amazon
@@ -462,6 +468,9 @@ type DistributionArgs struct {
 	// The restriction
 	// configuration for this distribution (maximum one).
 	Restrictions interface{}
+	// Disables the distribution instead of
+	// deleting it when destroying the resource. If this is set,
+	// the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

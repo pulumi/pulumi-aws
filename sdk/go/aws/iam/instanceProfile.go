@@ -85,6 +85,7 @@ func (r *InstanceProfile) CreateDate() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["createDate"])
 }
 
+// The profile's name. If omitted, this provider will assign a random, unique name.
 func (r *InstanceProfile) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -104,6 +105,8 @@ func (r *InstanceProfile) Role() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["role"])
 }
 
+// 
+// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
 func (r *InstanceProfile) Roles() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["roles"])
 }
@@ -119,6 +122,7 @@ type InstanceProfileState struct {
 	Arn interface{}
 	// The creation timestamp of the instance profile.
 	CreateDate interface{}
+	// The profile's name. If omitted, this provider will assign a random, unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
@@ -126,6 +130,8 @@ type InstanceProfileState struct {
 	Path interface{}
 	// The role name to include in the profile.
 	Role interface{}
+	// 
+	// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
 	Roles interface{}
 	// The [unique ID][1] assigned by AWS.
 	UniqueId interface{}
@@ -133,6 +139,7 @@ type InstanceProfileState struct {
 
 // The set of arguments for constructing a InstanceProfile resource.
 type InstanceProfileArgs struct {
+	// The profile's name. If omitted, this provider will assign a random, unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
@@ -140,5 +147,7 @@ type InstanceProfileArgs struct {
 	Path interface{}
 	// The role name to include in the profile.
 	Role interface{}
+	// 
+	// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
 	Roles interface{}
 }

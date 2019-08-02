@@ -97,6 +97,9 @@ class LaunchTemplate(pulumi.CustomResource):
     The monitoring option for the instance. See Monitoring below for more details.
     """
     name: pulumi.Output[str]
+    """
+    The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
+    """
     name_prefix: pulumi.Output[str]
     """
     Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -165,6 +168,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: The key name to use for the instance.
         :param pulumi.Input[list] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
         :param pulumi.Input[dict] monitoring: The monitoring option for the instance. See Monitoring below for more details.
+        :param pulumi.Input[str] name: The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[list] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network
                Interfaces below for more details.

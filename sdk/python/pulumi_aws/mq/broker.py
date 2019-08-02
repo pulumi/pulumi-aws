@@ -88,7 +88,22 @@ class Broker(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, apply_immediately=None, auto_minor_version_upgrade=None, broker_name=None, configuration=None, deployment_mode=None, engine_type=None, engine_version=None, host_instance_type=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, subnet_ids=None, tags=None, users=None, __name__=None, __opts__=None):
         """
-        Create a Broker resource with the given unique name, props, and options.
+        Provides an MQ Broker Resource. This resources also manages users for the broker.
+        
+        For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
+        
+        Changes to an MQ Broker can occur when you change a
+        parameter, such as `configuration` or `user`, and are reflected in the next maintenance
+        window. Because of this, this provider may report a difference in its planning
+        phase because a modification has not yet taken place. You can use the
+        `apply_immediately` flag to instruct the service to apply the change immediately
+        (see documentation below).
+        
+        > **Note:** using `apply_immediately` can result in a
+        brief downtime as the broker reboots.
+        
+        > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
+        [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

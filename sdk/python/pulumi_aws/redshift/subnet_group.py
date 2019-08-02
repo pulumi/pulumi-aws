@@ -14,6 +14,9 @@ class SubnetGroup(pulumi.CustomResource):
     Amazon Resource Name (ARN) of the Redshift Subnet group name
     """
     description: pulumi.Output[str]
+    """
+    The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
+    """
     name: pulumi.Output[str]
     """
     The name of the Redshift Subnet group.
@@ -32,6 +35,7 @@ class SubnetGroup(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] name: The name of the Redshift Subnet group.
         :param pulumi.Input[list] subnet_ids: An array of VPC subnet IDs.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.

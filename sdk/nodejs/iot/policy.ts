@@ -71,6 +71,9 @@ export class Policy extends pulumi.CustomResource {
      * The name of the policy.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
+     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -126,6 +129,9 @@ export interface PolicyState {
      * The name of the policy.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
+     */
     readonly policy?: pulumi.Input<string>;
 }
 
@@ -137,5 +143,8 @@ export interface PolicyArgs {
      * The name of the policy.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
+     */
     readonly policy: pulumi.Input<string>;
 }

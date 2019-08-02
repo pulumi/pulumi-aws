@@ -71,6 +71,7 @@ func (r *UserPolicy) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The name of the policy. If omitted, this provider will assign a random, unique name.
 func (r *UserPolicy) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -80,6 +81,7 @@ func (r *UserPolicy) NamePrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
+// The policy document. This is a JSON formatted string.
 func (r *UserPolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -91,9 +93,11 @@ func (r *UserPolicy) User() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering UserPolicy resources.
 type UserPolicyState struct {
+	// The name of the policy. If omitted, this provider will assign a random, unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
+	// The policy document. This is a JSON formatted string.
 	Policy interface{}
 	// IAM user to which to attach this policy.
 	User interface{}
@@ -101,9 +105,11 @@ type UserPolicyState struct {
 
 // The set of arguments for constructing a UserPolicy resource.
 type UserPolicyArgs struct {
+	// The name of the policy. If omitted, this provider will assign a random, unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
+	// The policy document. This is a JSON formatted string.
 	Policy interface{}
 	// IAM user to which to attach this policy.
 	User interface{}

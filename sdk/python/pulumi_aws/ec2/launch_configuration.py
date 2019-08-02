@@ -49,6 +49,10 @@ class LaunchConfiguration(pulumi.CustomResource):
     The key name that should be used for the instance.
     """
     name: pulumi.Output[str]
+    """
+    The name of the launch configuration. If you leave
+    this blank, this provider will auto-generate a unique name.
+    """
     name_prefix: pulumi.Output[str]
     """
     Creates a unique name beginning with the specified
@@ -91,7 +95,62 @@ class LaunchConfiguration(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, image_id=None, instance_type=None, key_name=None, name=None, name_prefix=None, placement_tenancy=None, root_block_device=None, security_groups=None, spot_price=None, user_data=None, user_data_base64=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None, __name__=None, __opts__=None):
         """
-        Create a LaunchConfiguration resource with the given unique name, props, and options.
+        Provides a resource to create a new launch configuration, used for autoscaling groups.
+        
+        ## Block devices
+        
+        Each of the `*_block_device` attributes controls a portion of the AWS
+        Launch Configuration's "Block Device Mapping". It's a good idea to familiarize yourself with [AWS's Block Device
+        Mapping docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)
+        to understand the implications of using these attributes.
+        
+        The `root_block_device` mapping supports the following:
+        
+        * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
+          or `"io1"`. (Default: `"standard"`).
+        * `volume_size` - (Optional) The size of the volume in gigabytes.
+        * `iops` - (Optional) The amount of provisioned
+          [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+          This must be set with a `volume_type` of `"io1"`.
+        * `delete_on_termination` - (Optional) Whether the volume should be destroyed
+          on instance termination (Default: `true`).
+        
+        Modifying any of the `root_block_device` settings requires resource
+        replacement.
+        
+        Each `ebs_block_device` supports the following:
+        
+        * `device_name` - (Required) The name of the device to mount.
+        * `snapshot_id` - (Optional) The Snapshot ID to mount.
+        * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
+          or `"io1"`. (Default: `"standard"`).
+        * `volume_size` - (Optional) The size of the volume in gigabytes.
+        * `iops` - (Optional) The amount of provisioned
+          [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+          This must be set with a `volume_type` of `"io1"`.
+        * `delete_on_termination` - (Optional) Whether the volume should be destroyed
+          on instance termination (Default: `true`).
+        * `encrypted` - (Optional) Whether the volume should be encrypted or not. Do not use this option if you are using `snapshot_id` as the encrypted flag will be determined by the snapshot. (Default: `false`).
+        
+        Modifying any `ebs_block_device` currently requires resource replacement.
+        
+        Each `ephemeral_block_device` supports the following:
+        
+        * `device_name` - The name of the block device to mount on the instance.
+        * `virtual_name` - The [Instance Store Device
+          Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
+          (e.g. `"ephemeral0"`)
+        
+        Each AWS Instance type has a different set of Instance Store block devices
+        available for attachment. AWS [publishes a
+        list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes)
+        of which ephemeral devices are available on each type. The devices are always
+        identified by the `virtual_name` in the format `"ephemeral{0..N}"`.
+        
+        > **NOTE:** Changes to `*_block_device` configuration of _existing_ resources
+        cannot currently be detected by this provider. After updating to block device
+        configuration, resource recreation can be manually triggered by using the
+        [`taint` command](https://www.terraform.io/docs/commands/taint.html).
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -107,6 +166,8 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
+        :param pulumi.Input[str] name: The name of the launch configuration. If you leave
+               this blank, this provider will auto-generate a unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are

@@ -172,6 +172,7 @@ func (r *ClusterInstance) EngineVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
 }
 
+// The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
 func (r *ClusterInstance) Identifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["identifier"])
 }
@@ -261,6 +262,7 @@ type ClusterInstanceState struct {
 	Engine interface{}
 	// The database engine version
 	EngineVersion interface{}
+	// The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier interface{}
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
 	IdentifierPrefix interface{}
@@ -306,6 +308,7 @@ type ClusterInstanceArgs struct {
 	ClusterIdentifier interface{}
 	// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
 	Engine interface{}
+	// The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier interface{}
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
 	IdentifierPrefix interface{}

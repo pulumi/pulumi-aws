@@ -41,7 +41,30 @@ class DefaultNetworkAcl(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, default_network_acl_id=None, egress=None, ingress=None, subnet_ids=None, tags=None, __name__=None, __opts__=None):
         """
-        Create a DefaultNetworkAcl resource with the given unique name, props, and options.
+        Provides a resource to manage the default AWS Network ACL. VPC Only.
+        
+        Each VPC created in AWS comes with a Default Network ACL that can be managed, but not
+        destroyed. **This is an advanced resource**, and has special caveats to be aware
+        of when using it. Please read this document in its entirety before using this
+        resource.
+        
+        The `aws_default_network_acl` behaves differently from normal resources, in that
+        this provider does not _create_ this resource, but instead attempts to "adopt" it
+        into management. We can do this because each VPC created has a Default Network
+        ACL that cannot be destroyed, and is created with a known set of default rules.
+        
+        When this provider first adopts the Default Network ACL, it **immediately removes all
+        rules in the ACL**. It then proceeds to create any rules specified in the
+        configuration. This step is required so that only the rules specified in the
+        configuration are created.
+        
+        This resource treats its inline rules as absolute; only the rules defined
+        inline are created, and any additions/removals external to this resource will
+        result in diffs being shown. For these reasons, this resource is incompatible with the
+        `aws_network_acl_rule` resource.
+        
+        For more information about Network ACLs, see the AWS Documentation on
+        [Network ACLs][aws-network-acls].
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

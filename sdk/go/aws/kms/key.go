@@ -115,6 +115,7 @@ func (r *Key) KeyUsage() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keyUsage"])
 }
 
+// A valid policy JSON document.
 func (r *Key) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -143,6 +144,7 @@ type KeyState struct {
 	// Specifies the intended use of the key.
 	// Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
 	KeyUsage interface{}
+	// A valid policy JSON document.
 	Policy interface{}
 	// A mapping of tags to assign to the object.
 	Tags interface{}
@@ -163,6 +165,7 @@ type KeyArgs struct {
 	// Specifies the intended use of the key.
 	// Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
 	KeyUsage interface{}
+	// A valid policy JSON document.
 	Policy interface{}
 	// A mapping of tags to assign to the object.
 	Tags interface{}
