@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-___NULL___
+* Upgrade to v2.22.0 of the AWS Terraform Provider.
 
 ---
 
