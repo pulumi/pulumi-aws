@@ -7,6 +7,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// The ACM certificate resource allows requesting and management of certificates
+// from the Amazon Certificate Manager.
+// 
+// It deals with requesting certificates and managing their attributes and life-cycle.
+// This resource does not deal with validation of a certificate but can provide inputs
+// for other resources implementing the validation. It does not wait for a certificate to be issued.
+// Use a `aws_acm_certificate_validation` resource for this.
+// 
+// Most commonly, this resource is used to together with `aws_route53_record` and
+// `aws_acm_certificate_validation` to request a DNS validated certificate,
+// deploy the required validation records and wait for validation to complete.
+// 
+// Domain validation through E-Mail is also supported but should be avoided as it requires a manual step outside
+// of this provider.
+// 
+// It's recommended to specify `create_before_destroy = true` in a [lifecycle][1] block to replace a certificate
+// which is currently in use (eg, by `aws_lb_listener`).
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate.html.markdown.
 type Certificate struct {
 	s *pulumi.ResourceState
@@ -122,6 +140,8 @@ func (r *Certificate) ValidationEmails() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["validationEmails"])
 }
 
+// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
+// * Importing an existing certificate
 func (r *Certificate) ValidationMethod() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["validationMethod"])
 }
@@ -146,6 +166,8 @@ type CertificateState struct {
 	Tags interface{}
 	// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
 	ValidationEmails interface{}
+	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
+	// * Importing an existing certificate
 	ValidationMethod interface{}
 }
 
@@ -163,5 +185,7 @@ type CertificateArgs struct {
 	SubjectAlternativeNames interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
+	// * Importing an existing certificate
 	ValidationMethod interface{}
 }

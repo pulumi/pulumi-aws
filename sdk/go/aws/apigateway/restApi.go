@@ -129,6 +129,7 @@ func (r *RestApi) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// JSON formatted policy document that controls access to the API Gateway.
 func (r *RestApi) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -160,6 +161,7 @@ type RestApiState struct {
 	MinimumCompressionSize interface{}
 	// The name of the REST API
 	Name interface{}
+	// JSON formatted policy document that controls access to the API Gateway.
 	Policy interface{}
 	// The resource ID of the REST API's root
 	RootResourceId interface{}
@@ -181,5 +183,6 @@ type RestApiArgs struct {
 	MinimumCompressionSize interface{}
 	// The name of the REST API
 	Name interface{}
+	// JSON formatted policy document that controls access to the API Gateway.
 	Policy interface{}
 }

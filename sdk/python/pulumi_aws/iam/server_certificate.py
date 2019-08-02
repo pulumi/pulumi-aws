@@ -25,6 +25,10 @@ class ServerCertificate(pulumi.CustomResource):
     of the chain.
     """
     name: pulumi.Output[str]
+    """
+    The name of the Server Certificate. Do not include the
+    path in this value. If omitted, this provider will assign a random, unique name.
+    """
     name_prefix: pulumi.Output[str]
     """
     Creates a unique name beginning with the specified
@@ -65,6 +69,8 @@ class ServerCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_chain: The contents of the certificate chain.
                This is typically a concatenation of the PEM-encoded public key certificates
                of the chain.
+        :param pulumi.Input[str] name: The name of the Server Certificate. Do not include the
+               path in this value. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: The IAM path for the server certificate.  If it is not

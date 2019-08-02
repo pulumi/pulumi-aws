@@ -5,6 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a DocDB Cluster.
+ * 
+ * Changes to a DocDB Cluster can occur when you manually change a
+ * parameter, such as `port`, and are reflected in the next maintenance
+ * window. Because of this, this provider may report a difference in its planning
+ * phase because a modification has not yet taken place. You can use the
+ * `apply_immediately` flag to instruct the service to apply the change immediately
+ * (see documentation below).
+ * 
+ * > **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
+ * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
+ * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const docdb = new aws.docdb.Cluster("docdb", {
+ *     backupRetentionPeriod: 5,
+ *     clusterIdentifier: "my-docdb-cluster",
+ *     engine: "docdb",
+ *     masterPassword: "mustbeeightchars",
+ *     masterUsername: "foo",
+ *     preferredBackupWindow: "07:00-09:00",
+ *     skipFinalSnapshot: true,
+ * });
+ * ```
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster.html.markdown.
  */
 export class Cluster extends pulumi.CustomResource {
@@ -53,6 +83,9 @@ export class Cluster extends pulumi.CustomResource {
      * The days to retain backups for. Default `1`
      */
     public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
+    /**
+     * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+     */
     public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
@@ -255,6 +288,9 @@ export interface ClusterState {
      * The days to retain backups for. Default `1`
      */
     readonly backupRetentionPeriod?: pulumi.Input<number>;
+    /**
+     * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+     */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
@@ -372,6 +408,9 @@ export interface ClusterArgs {
      * The days to retain backups for. Default `1`
      */
     readonly backupRetentionPeriod?: pulumi.Input<number>;
+    /**
+     * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+     */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.

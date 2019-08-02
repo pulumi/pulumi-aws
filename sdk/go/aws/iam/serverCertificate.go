@@ -110,6 +110,8 @@ func (r *ServerCertificate) CertificateChain() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["certificateChain"])
 }
 
+// The name of the Server Certificate. Do not include the
+// path in this value. If omitted, this provider will assign a random, unique name.
 func (r *ServerCertificate) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -144,6 +146,8 @@ type ServerCertificateState struct {
 	// This is typically a concatenation of the PEM-encoded public key certificates
 	// of the chain.
 	CertificateChain interface{}
+	// The name of the Server Certificate. Do not include the
+	// path in this value. If omitted, this provider will assign a random, unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -168,6 +172,8 @@ type ServerCertificateArgs struct {
 	// This is typically a concatenation of the PEM-encoded public key certificates
 	// of the chain.
 	CertificateChain interface{}
+	// The name of the Server Certificate. Do not include the
+	// path in this value. If omitted, this provider will assign a random, unique name.
 	Name interface{}
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.

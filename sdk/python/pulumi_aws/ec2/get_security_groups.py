@@ -41,6 +41,9 @@ class GetSecurityGroupsResult:
 
 async def get_security_groups(filters=None,tags=None,opts=None):
     """
+    Use this data source to get IDs and VPC membership of Security Groups that are created
+    outside of this provider.
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_groups.html.markdown.
     """
     __args__ = dict()

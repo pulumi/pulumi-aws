@@ -10,6 +10,9 @@ from .. import utilities, tables
 
 class LifecyclePolicy(pulumi.CustomResource):
     policy: pulumi.Output[str]
+    """
+    The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
+    """
     registry_id: pulumi.Output[str]
     """
     The registry ID where the repository was created.
@@ -20,10 +23,15 @@ class LifecyclePolicy(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, policy=None, repository=None, __name__=None, __opts__=None):
         """
-        Create a LifecyclePolicy resource with the given unique name, props, and options.
+        Manages an ECR repository lifecycle policy.
+        
+        > **NOTE:** Only one `aws_ecr_lifecycle_policy` resource can be used with the same ECR repository. To apply multiple rules, they must be combined in the `policy` JSON.
+        
+        > **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
         :param pulumi.Input[str] repository: Name of the repository to apply the policy.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_lifecycle_policy.html.markdown.

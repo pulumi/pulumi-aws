@@ -7,6 +7,75 @@ import * as utilities from "../utilities";
 import {ARN} from "../index";
 
 /**
+ * Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS. The Lambda Function itself includes source code and runtime configuration.
+ * 
+ * For information about Lambda and how to use it, see [What is AWS Lambda?][1]
+ * 
+ * ## Example Usage
+ * 
+ * ### Basic Example
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "lambda.amazonaws.com"
+ *       },
+ *       "Effect": "Allow",
+ *       "Sid": ""
+ *     }
+ *   ]
+ * }
+ * `,
+ * });
+ * const testLambda = new aws.lambda.Function("test_lambda", {
+ *     environment: {
+ *         variables: {
+ *             foo: "bar",
+ *         },
+ *     },
+ *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
+ *     handler: "exports.test",
+ *     role: iamForLambda.arn,
+ *     runtime: "nodejs8.10",
+ * });
+ * ```
+ * 
+ * ### Lambda Layers
+ * 
+ * > **NOTE:** The `aws_lambda_layer_version` attribute values for `arn` and `layer_arn` were swapped in version 2.0.0 of the this provider AWS Provider. For version 1.x, use `layer_arn` references. For version 2.x, use `arn` references.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const exampleLayerVersion = new aws.lambda.LayerVersion("example", {});
+ * const exampleFunction = new aws.lambda.Function("example", {
+ *     // ... other configuration ...
+ *     layers: [exampleLayerVersion.arn],
+ * });
+ * ```
+ * 
+ * ## Specifying the Deployment Package
+ * 
+ * AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use.
+ * See [Runtimes][6] for the valid values of `runtime`. The expected structure of the deployment package can be found in
+ * [the AWS Lambda documentation for each runtime][8].
+ * 
+ * Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
+ * indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
+ * package via S3 it may be useful to use the `aws_s3_bucket_object` resource to upload it.
+ * 
+ * For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
+ * large files efficiently.
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_function.html.markdown.
  */
 export class Function extends pulumi.CustomResource {
@@ -117,6 +186,9 @@ export class Function extends pulumi.CustomResource {
      * The object version containing the function's deployment package. Conflicts with `filename`.
      */
     public readonly s3ObjectVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
+     */
     public readonly sourceCodeHash!: pulumi.Output<string>;
     /**
      * The size in bytes of the function .zip file.
@@ -314,6 +386,9 @@ export interface FunctionState {
      * The object version containing the function's deployment package. Conflicts with `filename`.
      */
     readonly s3ObjectVersion?: pulumi.Input<string>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
+     */
     readonly sourceCodeHash?: pulumi.Input<string>;
     /**
      * The size in bytes of the function .zip file.
@@ -406,6 +481,9 @@ export interface FunctionArgs {
      * The object version containing the function's deployment package. Conflicts with `filename`.
      */
     readonly s3ObjectVersion?: pulumi.Input<string>;
+    /**
+     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
+     */
     readonly sourceCodeHash?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the object.

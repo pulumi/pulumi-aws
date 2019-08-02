@@ -19,7 +19,9 @@ class UploadBuffer(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, disk_id=None, gateway_arn=None, __name__=None, __opts__=None):
         """
-        Create a UploadBuffer resource with the given unique name, props, and options.
+        Manages an AWS Storage Gateway upload buffer.
+        
+        > **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

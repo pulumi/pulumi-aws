@@ -14,6 +14,9 @@ class ParameterGroup(pulumi.CustomResource):
     Amazon Resource Name (ARN) of parameter group
     """
     description: pulumi.Output[str]
+    """
+    The description of the Redshift parameter group. Defaults to "Managed by Pulumi".
+    """
     family: pulumi.Output[str]
     """
     The family of the Redshift parameter group.
@@ -36,6 +39,7 @@ class ParameterGroup(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the Redshift parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] family: The family of the Redshift parameter group.
         :param pulumi.Input[str] name: The name of the Redshift parameter.
         :param pulumi.Input[list] parameters: A list of Redshift parameters to apply.

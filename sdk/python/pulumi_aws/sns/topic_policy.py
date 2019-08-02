@@ -14,13 +14,19 @@ class TopicPolicy(pulumi.CustomResource):
     The ARN of the SNS topic
     """
     policy: pulumi.Output[str]
+    """
+    The fully-formed AWS policy as JSON.
+    """
     def __init__(__self__, resource_name, opts=None, arn=None, policy=None, __name__=None, __opts__=None):
         """
-        Create a TopicPolicy resource with the given unique name, props, and options.
+        Provides an SNS topic policy resource
+        
+        > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the SNS topic
+        :param pulumi.Input[str] policy: The fully-formed AWS policy as JSON.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_topic_policy.html.markdown.
         """

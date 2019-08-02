@@ -51,6 +51,9 @@ class ClusterInstance(pulumi.CustomResource):
     The neptune engine version.
     """
     identifier: pulumi.Output[str]
+    """
+    The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+    """
     identifier_prefix: pulumi.Output[str]
     """
     Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -120,6 +123,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_identifier: The identifier of the [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
         :param pulumi.Input[str] engine_version: The neptune engine version.
+        :param pulumi.Input[str] identifier: The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance class to use.
         :param pulumi.Input[str] neptune_parameter_group_name: The name of the neptune parameter group to associate with this instance.

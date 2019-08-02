@@ -53,6 +53,9 @@ export class SecurityGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityGroup.__pulumiType;
     }
 
+    /**
+     * description for the cache security group. Defaults to "Managed by Pulumi".
+     */
     public readonly description!: pulumi.Output<string>;
     /**
      * Name for the cache security group. This value is stored as a lowercase string.
@@ -103,6 +106,9 @@ export class SecurityGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SecurityGroup resources.
  */
 export interface SecurityGroupState {
+    /**
+     * description for the cache security group. Defaults to "Managed by Pulumi".
+     */
     readonly description?: pulumi.Input<string>;
     /**
      * Name for the cache security group. This value is stored as a lowercase string.
@@ -119,6 +125,9 @@ export interface SecurityGroupState {
  * The set of arguments for constructing a SecurityGroup resource.
  */
 export interface SecurityGroupArgs {
+    /**
+     * description for the cache security group. Defaults to "Managed by Pulumi".
+     */
     readonly description?: pulumi.Input<string>;
     /**
      * Name for the cache security group. This value is stored as a lowercase string.

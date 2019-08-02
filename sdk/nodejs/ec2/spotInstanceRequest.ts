@@ -5,6 +5,47 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Provides an EC2 Spot Instance Request resource. This allows instances to be
+ * requested on the spot market.
+ * 
+ * By default this provider creates Spot Instance Requests with a `persistent` type,
+ * which means that for the duration of their lifetime, AWS will launch an
+ * instance with the configured details if and when the spot market will accept
+ * the requested price.
+ * 
+ * On destruction, this provider will make an attempt to terminate the associated Spot
+ * Instance if there is one present.
+ * 
+ * Spot Instances requests with a `one-time` type will close the spot request
+ * when the instance is terminated either by the request being below the current spot
+ * price availability or by a user.
+ * 
+ * > **NOTE:** Because their behavior depends on the live status of the spot
+ * market, Spot Instance Requests have a unique lifecycle that makes them behave
+ * differently than other resources. Most importantly: there is __no
+ * guarantee__ that a Spot Instance exists to fulfill the request at any given
+ * point in time. See the [AWS Spot Instance
+ * documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+ * for more information.
+ * 
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * // Request a spot instance at $0.03
+ * const cheapWorker = new aws.ec2.SpotInstanceRequest("cheap_worker", {
+ *     ami: "ami-1234",
+ *     instanceType: "c4.xlarge",
+ *     spotPrice: "0.03",
+ *     tags: {
+ *         Name: "CheapWorker",
+ *     },
+ * });
+ * ```
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_instance_request.html.markdown.
  */
 export class SpotInstanceRequest extends pulumi.CustomResource {
@@ -242,6 +283,11 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      * A list of security group IDs to associate with.
      */
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
+    /**
+     * If set, this provider will
+     * wait for the Spot Request to be fulfilled, and will throw an error if the
+     * timeout of 10m is reached.
+     */
     public readonly waitForFulfillment!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -588,6 +634,11 @@ export interface SpotInstanceRequestState {
      * A list of security group IDs to associate with.
      */
     readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * If set, this provider will
+     * wait for the Spot Request to be fulfilled, and will throw an error if the
+     * timeout of 10m is reached.
+     */
     readonly waitForFulfillment?: pulumi.Input<boolean>;
 }
 
@@ -769,5 +820,10 @@ export interface SpotInstanceRequestArgs {
      * A list of security group IDs to associate with.
      */
     readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * If set, this provider will
+     * wait for the Spot Request to be fulfilled, and will throw an error if the
+     * timeout of 10m is reached.
+     */
     readonly waitForFulfillment?: pulumi.Input<boolean>;
 }

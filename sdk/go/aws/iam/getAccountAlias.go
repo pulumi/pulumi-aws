@@ -7,6 +7,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// The IAM Account Alias data source allows access to the account alias
+// for the effective account in which this provider is working.
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_account_alias.html.markdown.
 func LookupAccountAlias(ctx *pulumi.Context) (*GetAccountAliasResult, error) {
 	outputs, err := ctx.Invoke("aws:iam/getAccountAlias:getAccountAlias", nil)

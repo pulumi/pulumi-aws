@@ -68,11 +68,17 @@ export class UserPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserPolicy.__pulumiType;
     }
 
+    /**
+     * The name of the policy. If omitted, this provider will assign a random, unique name.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * IAM user to which to attach this policy.
@@ -123,11 +129,17 @@ export class UserPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserPolicy resources.
  */
 export interface UserPolicyState {
+    /**
+     * The name of the policy. If omitted, this provider will assign a random, unique name.
+     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * IAM user to which to attach this policy.
@@ -139,11 +151,17 @@ export interface UserPolicyState {
  * The set of arguments for constructing a UserPolicy resource.
  */
 export interface UserPolicyArgs {
+    /**
+     * The name of the policy. If omitted, this provider will assign a random, unique name.
+     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     readonly policy: pulumi.Input<string | PolicyDocument>;
     /**
      * IAM user to which to attach this policy.

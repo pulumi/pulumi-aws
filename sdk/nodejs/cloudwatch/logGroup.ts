@@ -60,6 +60,9 @@ export class LogGroup extends pulumi.CustomResource {
      * permissions for the CMK whenever the encrypted data is requested.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the log group. If omitted, this provider will assign a random, unique name.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -127,6 +130,9 @@ export interface LogGroupState {
      * permissions for the CMK whenever the encrypted data is requested.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The name of the log group. If omitted, this provider will assign a random, unique name.
+     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -153,6 +159,9 @@ export interface LogGroupArgs {
      * permissions for the CMK whenever the encrypted data is requested.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The name of the log group. If omitted, this provider will assign a random, unique name.
+     */
     readonly name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.

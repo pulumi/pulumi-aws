@@ -43,7 +43,19 @@ class LifecycleHook(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, autoscaling_group_name=None, default_result=None, heartbeat_timeout=None, lifecycle_transition=None, name=None, notification_metadata=None, notification_target_arn=None, role_arn=None, __name__=None, __opts__=None):
         """
-        Create a LifecycleHook resource with the given unique name, props, and options.
+        Provides an AutoScaling Lifecycle Hook resource.
+        
+        > **NOTE:** This provider has two types of ways you can add lifecycle hooks - via
+        the `initial_lifecycle_hook` attribute from the
+        [`aws_autoscaling_group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html)
+        resource, or via this one. Hooks added via this resource will not be added
+        until the autoscaling group has been created, and depending on your
+        [capacity](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html#waiting-for-capacity)
+        settings, after the initial instances have been launched, creating unintended
+        behavior. If you need hooks to run on all instances, add them with
+        `initial_lifecycle_hook` in
+        [`aws_autoscaling_group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
+        but take care to not duplicate those hooks with this resource.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

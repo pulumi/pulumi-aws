@@ -19,7 +19,13 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, subnet_id=None, vpc_endpoint_id=None, __name__=None, __opts__=None):
         """
-        Create a VpcEndpointSubnetAssociation resource with the given unique name, props, and options.
+        Provides a resource to create an association between a VPC endpoint and a subnet.
+        
+        > **NOTE on VPC Endpoints and VPC Endpoint Subnet Associations:** This provider provides
+        both a standalone VPC Endpoint Subnet Association (an association between a VPC endpoint
+        and a single `subnet_id`) and a VPC Endpoint resource with a `subnet_ids`
+        attribute. Do not use the same subnet ID in both a VPC Endpoint resource and a VPC Endpoint Subnet
+        Association resource. Doing so will cause a conflict of associations and will overwrite the association.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

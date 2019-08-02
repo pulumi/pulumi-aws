@@ -26,6 +26,9 @@ class Cluster(pulumi.CustomResource):
     The days to retain backups for. Default `1`
     """
     cluster_identifier: pulumi.Output[str]
+    """
+    The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+    """
     cluster_identifier_prefix: pulumi.Output[str]
     """
     Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
@@ -120,13 +123,22 @@ class Cluster(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, apply_immediately=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_arn=None, neptune_cluster_parameter_group_name=None, neptune_subnet_group_name=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, replication_source_identifier=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None, __name__=None, __opts__=None):
         """
-        Create a Cluster resource with the given unique name, props, and options.
+        Provides an Neptune Cluster Resource. A Cluster Resource defines attributes that are
+        applied to the entire cluster of Neptune Cluster Instances.
+        
+        Changes to a Neptune Cluster can occur when you manually change a
+        parameter, such as `backup_retention_period`, and are reflected in the next maintenance
+        window. Because of this, this provider may report a difference in its planning
+        phase because a modification has not yet taken place. You can use the
+        `apply_immediately` flag to instruct the service to apply the change immediately
+        (see documentation below).
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[list] availability_zones: A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
         :param pulumi.Input[float] backup_retention_period: The days to retain backups for. Default `1`
+        :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         :param pulumi.Input[str] engine_version: The database engine version.

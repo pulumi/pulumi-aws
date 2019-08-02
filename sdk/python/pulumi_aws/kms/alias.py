@@ -32,7 +32,9 @@ class Alias(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, name=None, name_prefix=None, target_key_id=None, __name__=None, __opts__=None):
         """
-        Create a Alias resource with the given unique name, props, and options.
+        Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases & keys,
+        but API (hence this provider too) allows you to create as many aliases as
+        the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

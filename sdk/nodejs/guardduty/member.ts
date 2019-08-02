@@ -56,6 +56,9 @@ export class Member extends pulumi.CustomResource {
      * Message for invitation.
      */
     public readonly invitationMessage!: pulumi.Output<string | undefined>;
+    /**
+     * Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+     */
     public readonly invite!: pulumi.Output<boolean | undefined>;
     /**
      * The status of the relationship between the member account and its master account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
@@ -135,6 +138,9 @@ export interface MemberState {
      * Message for invitation.
      */
     readonly invitationMessage?: pulumi.Input<string>;
+    /**
+     * Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+     */
     readonly invite?: pulumi.Input<boolean>;
     /**
      * The status of the relationship between the member account and its master account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
@@ -166,5 +172,8 @@ export interface MemberArgs {
      * Message for invitation.
      */
     readonly invitationMessage?: pulumi.Input<string>;
+    /**
+     * Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+     */
     readonly invite?: pulumi.Input<boolean>;
 }

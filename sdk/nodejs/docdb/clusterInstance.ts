@@ -110,6 +110,9 @@ export class ClusterInstance extends pulumi.CustomResource {
      * The database engine version
      */
     public /*out*/ readonly engineVersion!: pulumi.Output<string>;
+    /**
+     * The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+     */
     public readonly identifier!: pulumi.Output<string>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
@@ -282,6 +285,9 @@ export interface ClusterInstanceState {
      * The database engine version
      */
     readonly engineVersion?: pulumi.Input<string>;
+    /**
+     * The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+     */
     readonly identifier?: pulumi.Input<string>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
@@ -359,6 +365,9 @@ export interface ClusterInstanceArgs {
      * The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      */
     readonly engine?: pulumi.Input<string>;
+    /**
+     * The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+     */
     readonly identifier?: pulumi.Input<string>;
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.

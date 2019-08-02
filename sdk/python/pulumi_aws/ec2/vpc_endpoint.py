@@ -30,6 +30,9 @@ class VpcEndpoint(pulumi.CustomResource):
     The ID of the AWS account that owns the VPC endpoint.
     """
     policy: pulumi.Output[str]
+    """
+    A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+    """
     prefix_list_id: pulumi.Output[str]
     """
     The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
@@ -77,11 +80,19 @@ class VpcEndpoint(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, auto_accept=None, policy=None, private_dns_enabled=None, route_table_ids=None, security_group_ids=None, service_name=None, subnet_ids=None, tags=None, vpc_endpoint_type=None, vpc_id=None, __name__=None, __opts__=None):
         """
-        Create a VpcEndpoint resource with the given unique name, props, and options.
+        Provides a VPC Endpoint resource.
+        
+        > **NOTE on VPC Endpoints and VPC Endpoint Associations:** This provider provides both standalone VPC Endpoint Associations for
+        Route Tables - (an association between a VPC endpoint and a single `route_table_id`) and
+        Subnets - (an association between a VPC endpoint and a single `subnet_id`) and
+        a VPC Endpoint resource with `route_table_ids` and `subnet_ids` attributes.
+        Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
+        Doing so will cause a conflict of associations and will overwrite the association.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
+        :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         :param pulumi.Input[bool] private_dns_enabled: Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
                Defaults to `false`.
         :param pulumi.Input[list] route_table_ids: One or more route table IDs. Applicable for endpoints of type `Gateway`.

@@ -10,7 +10,13 @@ from .. import utilities, tables
 
 class UserLoginProfile(pulumi.CustomResource):
     encrypted_password: pulumi.Output[str]
+    """
+    The encrypted password, base64 encoded. Only available if password was handled on this provider resource creation, not import.
+    """
     key_fingerprint: pulumi.Output[str]
+    """
+    The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
+    """
     password_length: pulumi.Output[float]
     """
     The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
@@ -29,7 +35,9 @@ class UserLoginProfile(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, password_length=None, password_reset_required=None, pgp_key=None, user=None, __name__=None, __opts__=None):
         """
-        Create a UserLoginProfile resource with the given unique name, props, and options.
+        Manages an IAM User Login Profile with limited support for password creation during this provider resource creation. Uses PGP to encrypt the password for safe transport to the user. PGP keys can be obtained from Keybase.
+        
+        > To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -132,6 +132,8 @@ func (r *LoadBalancer) EnableCrossZoneLoadBalancing() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enableCrossZoneLoadBalancing"])
 }
 
+// If true, deletion of the load balancer will be disabled via
+// the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
 func (r *LoadBalancer) EnableDeletionProtection() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enableDeletionProtection"])
 }
@@ -161,6 +163,9 @@ func (r *LoadBalancer) LoadBalancerType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["loadBalancerType"])
 }
 
+// The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
+// must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
+// this provider will autogenerate a name beginning with `tf-lb`.
 func (r *LoadBalancer) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -214,6 +219,8 @@ type LoadBalancerState struct {
 	// If true, cross-zone load balancing of the load balancer will be enabled.
 	// This is a `network` load balancer feature. Defaults to `false`.
 	EnableCrossZoneLoadBalancing interface{}
+	// If true, deletion of the load balancer will be disabled via
+	// the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
 	EnableDeletionProtection interface{}
 	// Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
 	EnableHttp2 interface{}
@@ -225,6 +232,9 @@ type LoadBalancerState struct {
 	IpAddressType interface{}
 	// The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
 	LoadBalancerType interface{}
+	// The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
+	// must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
+	// this provider will autogenerate a name beginning with `tf-lb`.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}
@@ -250,6 +260,8 @@ type LoadBalancerArgs struct {
 	// If true, cross-zone load balancing of the load balancer will be enabled.
 	// This is a `network` load balancer feature. Defaults to `false`.
 	EnableCrossZoneLoadBalancing interface{}
+	// If true, deletion of the load balancer will be disabled via
+	// the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
 	EnableDeletionProtection interface{}
 	// Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
 	EnableHttp2 interface{}
@@ -261,6 +273,9 @@ type LoadBalancerArgs struct {
 	IpAddressType interface{}
 	// The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
 	LoadBalancerType interface{}
+	// The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
+	// must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
+	// this provider will autogenerate a name beginning with `tf-lb`.
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix interface{}

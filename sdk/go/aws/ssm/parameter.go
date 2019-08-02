@@ -116,6 +116,7 @@ func (r *Parameter) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
 func (r *Parameter) Overwrite() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["overwrite"])
 }
@@ -157,6 +158,7 @@ type ParameterState struct {
 	KeyId interface{}
 	// The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
 	Name interface{}
+	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
 	Overwrite interface{}
 	// A mapping of tags to assign to the object.
 	Tags interface{}
@@ -182,6 +184,7 @@ type ParameterArgs struct {
 	KeyId interface{}
 	// The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
 	Name interface{}
+	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
 	Overwrite interface{}
 	// A mapping of tags to assign to the object.
 	Tags interface{}

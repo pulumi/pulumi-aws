@@ -138,7 +138,17 @@ class ReplicationGroup(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, apply_immediately=None, at_rest_encryption_enabled=None, auth_token=None, auto_minor_version_upgrade=None, automatic_failover_enabled=None, availability_zones=None, cluster_mode=None, engine=None, engine_version=None, maintenance_window=None, node_type=None, notification_topic_arn=None, number_cache_clusters=None, parameter_group_name=None, port=None, replication_group_description=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_arns=None, snapshot_name=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None, transit_encryption_enabled=None, __name__=None, __opts__=None):
         """
-        Create a ReplicationGroup resource with the given unique name, props, and options.
+        Provides an ElastiCache Replication Group resource.
+        For working with Memcached or single primary Redis instances (Cluster Mode Disabled), see the
+        [`aws_elasticache_cluster` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_cluster.html).
+        
+        > **Note:** When you change an attribute, such as `engine_version`, by
+        default the ElastiCache API applies it in the next maintenance window. Because
+        of this, this provider may report a difference in its planning phase because the
+        actual modification has not yet taken place. You can use the
+        `apply_immediately` flag to instruct the service to apply the change
+        immediately. Using `apply_immediately` can result in a brief downtime as
+        servers reboots.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

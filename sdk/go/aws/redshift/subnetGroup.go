@@ -75,6 +75,7 @@ func (r *SubnetGroup) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
+// The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
 func (r *SubnetGroup) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -98,6 +99,7 @@ func (r *SubnetGroup) Tags() *pulumi.MapOutput {
 type SubnetGroupState struct {
 	// Amazon Resource Name (ARN) of the Redshift Subnet group name
 	Arn interface{}
+	// The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
 	Description interface{}
 	// The name of the Redshift Subnet group.
 	Name interface{}
@@ -109,6 +111,7 @@ type SubnetGroupState struct {
 
 // The set of arguments for constructing a SubnetGroup resource.
 type SubnetGroupArgs struct {
+	// The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
 	Description interface{}
 	// The name of the Redshift Subnet group.
 	Name interface{}

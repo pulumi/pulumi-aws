@@ -18,6 +18,9 @@ class EndpointConfiguration(pulumi.CustomResource):
     Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
     """
     name: pulumi.Output[str]
+    """
+    The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
+    """
     production_variants: pulumi.Output[list]
     """
     Fields are documented below.
@@ -33,6 +36,7 @@ class EndpointConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+        :param pulumi.Input[str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[list] production_variants: Fields are documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 

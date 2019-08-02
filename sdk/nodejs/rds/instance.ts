@@ -8,6 +8,68 @@ import {InstanceType} from "./instanceType";
 import {StorageType} from "./storageType";
 
 /**
+ * Provides an RDS instance resource.  A DB instance is an isolated database
+ * environment in the cloud.  A DB instance can contain multiple user-created
+ * databases.
+ * 
+ * Changes to a DB instance can occur when you manually change a parameter, such as
+ * `allocated_storage`, and are reflected in the next maintenance window. Because
+ * of this, this provider may report a difference in its planning phase because a
+ * modification has not yet taken place. You can use the `apply_immediately` flag
+ * to instruct the service to apply the change immediately (see documentation
+ * below).
+ * 
+ * When upgrading the major version of an engine, `allow_major_version_upgrade`
+ * must be set to `true`.
+ * 
+ * > **Note:** using `apply_immediately` can result in a brief downtime as the
+ * server reboots. See the AWS Docs on [RDS Maintenance][2] for more information.
+ * 
+ * > **Note:** All arguments including the username and password will be stored in
+ * the raw state as plain-text. [Read more about sensitive data in
+ * state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * 
+ * ## RDS Instance Class Types
+ * 
+ * Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
+ * and Burstable Performance. For more information please read the AWS RDS documentation
+ * about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
+ * 
+ * ## Example Usage
+ * 
+ * ### Basic Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const defaultInstance = new aws.rds.Instance("default", {
+ *     allocatedStorage: 20,
+ *     engine: "mysql",
+ *     engineVersion: "5.7",
+ *     instanceClass: "db.t2.micro",
+ *     name: "mydb",
+ *     parameterGroupName: "default.mysql5.7",
+ *     password: "foobarbaz",
+ *     storageType: "gp2",
+ *     username: "foo",
+ * });
+ * ```
+ * 
+ * ### Storage Autoscaling
+ * 
+ * To enable Storage Autoscaling with instances that support the feature, define the `max_allocated_storage` argument higher than the `allocated_storage` argument. This provider will automatically hide differences with the `allocated_storage` argument value if autoscaling occurs.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.rds.Instance("example", {
+ *     allocatedStorage: 50,
+ *     maxAllocatedStorage: 100,
+ * });
+ * ```
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_instance.html.markdown.
  */
 export class Instance extends pulumi.CustomResource {
@@ -163,6 +225,10 @@ export class Instance extends pulumi.CustomResource {
      * accounts is enabled.
      */
     public readonly iamDatabaseAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the RDS instance,
+     * if omitted, this provider will assign a random, unique identifier.
+     */
     public readonly identifier!: pulumi.Output<string>;
     /**
      * Creates a unique
@@ -611,6 +677,10 @@ export interface InstanceState {
      * accounts is enabled.
      */
     readonly iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the RDS instance,
+     * if omitted, this provider will assign a random, unique identifier.
+     */
     readonly identifier?: pulumi.Input<string>;
     /**
      * Creates a unique
@@ -895,6 +965,10 @@ export interface InstanceArgs {
      * accounts is enabled.
      */
     readonly iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the RDS instance,
+     * if omitted, this provider will assign a random, unique identifier.
+     */
     readonly identifier?: pulumi.Input<string>;
     /**
      * Creates a unique

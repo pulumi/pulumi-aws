@@ -343,6 +343,11 @@ export class Distribution extends pulumi.CustomResource {
      * configuration for this distribution (maximum one).
      */
     public readonly restrictions!: pulumi.Output<{ geoRestriction: { locations?: string[], restrictionType: string } }>;
+    /**
+     * Disables the distribution instead of
+     * deleting it when destroying the resource. If this is set,
+     * the distribution needs to be deleted manually afterwards. Default: `false`.
+     */
     public readonly retainOnDelete!: pulumi.Output<boolean | undefined>;
     /**
      * The current status of the distribution. `Deployed` if the
@@ -587,6 +592,11 @@ export interface DistributionState {
      * configuration for this distribution (maximum one).
      */
     readonly restrictions?: pulumi.Input<{ geoRestriction: pulumi.Input<{ locations?: pulumi.Input<pulumi.Input<string>[]>, restrictionType: pulumi.Input<string> }> }>;
+    /**
+     * Disables the distribution instead of
+     * deleting it when destroying the resource. If this is set,
+     * the distribution needs to be deleted manually afterwards. Default: `false`.
+     */
     readonly retainOnDelete?: pulumi.Input<boolean>;
     /**
      * The current status of the distribution. `Deployed` if the
@@ -695,6 +705,11 @@ export interface DistributionArgs {
      * configuration for this distribution (maximum one).
      */
     readonly restrictions: pulumi.Input<{ geoRestriction: pulumi.Input<{ locations?: pulumi.Input<pulumi.Input<string>[]>, restrictionType: pulumi.Input<string> }> }>;
+    /**
+     * Disables the distribution instead of
+     * deleting it when destroying the resource. If this is set,
+     * the distribution needs to be deleted manually afterwards. Default: `false`.
+     */
     readonly retainOnDelete?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.

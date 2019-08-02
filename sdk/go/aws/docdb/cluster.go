@@ -7,6 +7,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Manages a DocDB Cluster.
+// 
+// Changes to a DocDB Cluster can occur when you manually change a
+// parameter, such as `port`, and are reflected in the next maintenance
+// window. Because of this, this provider may report a difference in its planning
+// phase because a modification has not yet taken place. You can use the
+// `apply_immediately` flag to instruct the service to apply the change immediately
+// (see documentation below).
+// 
+// > **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
+// > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
+// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster.html.markdown.
 type Cluster struct {
 	s *pulumi.ResourceState
@@ -152,6 +165,7 @@ func (r *Cluster) BackupRetentionPeriod() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["backupRetentionPeriod"])
 }
 
+// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
 func (r *Cluster) ClusterIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterIdentifier"])
 }
@@ -289,6 +303,7 @@ type ClusterState struct {
 	AvailabilityZones interface{}
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod interface{}
+	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier interface{}
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
 	ClusterIdentifierPrefix interface{}
@@ -354,6 +369,7 @@ type ClusterArgs struct {
 	AvailabilityZones interface{}
 	// The days to retain backups for. Default `1`
 	BackupRetentionPeriod interface{}
+	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier interface{}
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
 	ClusterIdentifierPrefix interface{}

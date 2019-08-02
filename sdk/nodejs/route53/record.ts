@@ -7,6 +7,107 @@ import * as utilities from "../utilities";
 import {RecordType} from "./recordType";
 
 /**
+ * Provides a Route53 record resource.
+ * 
+ * ## Example Usage
+ * 
+ * ### Simple routing policy
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const www = new aws.route53.Record("www", {
+ *     records: [aws_eip_lb.publicIp],
+ *     ttl: 300,
+ *     type: "A",
+ *     zoneId: aws_route53_zone_primary.zoneId,
+ * });
+ * ```
+ * 
+ * ### Weighted routing policy
+ * Other routing policies are configured similarly. See [AWS Route53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const www_dev = new aws.route53.Record("www-dev", {
+ *     records: ["dev.example.com"],
+ *     setIdentifier: "dev",
+ *     ttl: 5,
+ *     type: "CNAME",
+ *     weightedRoutingPolicies: [{
+ *         weight: 10,
+ *     }],
+ *     zoneId: aws_route53_zone_primary.zoneId,
+ * });
+ * const www_live = new aws.route53.Record("www-live", {
+ *     records: ["live.example.com"],
+ *     setIdentifier: "live",
+ *     ttl: 5,
+ *     type: "CNAME",
+ *     weightedRoutingPolicies: [{
+ *         weight: 90,
+ *     }],
+ *     zoneId: aws_route53_zone_primary.zoneId,
+ * });
+ * ```
+ * 
+ * ### Alias record
+ * See [related part of AWS Route53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
+ * to understand differences between alias and non-alias records.
+ * 
+ * TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
+ * you cannot change this, therefore `ttl` has to be omitted in alias records.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const main = new aws.elb.LoadBalancer("main", {
+ *     availabilityZones: ["us-east-1c"],
+ *     listeners: [{
+ *         instancePort: 80,
+ *         instanceProtocol: "http",
+ *         lbPort: 80,
+ *         lbProtocol: "http",
+ *     }],
+ * });
+ * const www = new aws.route53.Record("www", {
+ *     aliases: [{
+ *         evaluateTargetHealth: true,
+ *         name: main.dnsName,
+ *         zoneId: main.zoneId,
+ *     }],
+ *     type: "A",
+ *     zoneId: aws_route53_zone_primary.zoneId,
+ * });
+ * ```
+ * 
+ * ### NS and SOA Record Management
+ * 
+ * When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allow_overwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const exampleZone = new aws.route53.Zone("example", {});
+ * const exampleRecord = new aws.route53.Record("example", {
+ *     allowOverwrite: true,
+ *     records: [
+ *         exampleZone.nameServers[0],
+ *         exampleZone.nameServers[1],
+ *         exampleZone.nameServers[2],
+ *         exampleZone.nameServers[3],
+ *     ],
+ *     ttl: 30,
+ *     type: "NS",
+ *     zoneId: exampleZone.zoneId,
+ * });
+ * ```
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_record.html.markdown.
  */
 export class Record extends pulumi.CustomResource {
@@ -41,6 +142,9 @@ export class Record extends pulumi.CustomResource {
      * Alias record documented below.
      */
     public readonly aliases!: pulumi.Output<{ evaluateTargetHealth: boolean, name: string, zoneId: string }[] | undefined>;
+    /**
+     * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+     */
     public readonly allowOverwrite!: pulumi.Output<boolean>;
     /**
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
@@ -70,6 +174,9 @@ export class Record extends pulumi.CustomResource {
      * DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
+     */
     public readonly records!: pulumi.Output<string[] | undefined>;
     /**
      * Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
@@ -163,6 +270,9 @@ export interface RecordState {
      * Alias record documented below.
      */
     readonly aliases?: pulumi.Input<pulumi.Input<{ evaluateTargetHealth: pulumi.Input<boolean>, name: pulumi.Input<string>, zoneId: pulumi.Input<string> }>[]>;
+    /**
+     * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+     */
     readonly allowOverwrite?: pulumi.Input<boolean>;
     /**
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
@@ -192,6 +302,9 @@ export interface RecordState {
      * DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
+     */
     readonly records?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
@@ -224,6 +337,9 @@ export interface RecordArgs {
      * Alias record documented below.
      */
     readonly aliases?: pulumi.Input<pulumi.Input<{ evaluateTargetHealth: pulumi.Input<boolean>, name: pulumi.Input<string>, zoneId: pulumi.Input<string> }>[]>;
+    /**
+     * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+     */
     readonly allowOverwrite?: pulumi.Input<boolean>;
     /**
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
@@ -249,6 +365,9 @@ export interface RecordArgs {
      * DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
+     */
     readonly records?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.

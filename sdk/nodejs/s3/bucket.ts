@@ -68,7 +68,7 @@ import {RoutingRule} from "./routingRules";
  *             "PUT",
  *             "POST",
  *         ],
- *         allowedOrigins: ["https://s3-website-test.hashicorp.com"],
+ *         allowedOrigins: ["https://s3-website-test.mydomain.com"],
  *         exposeHeaders: ["ETag"],
  *         maxAgeSeconds: 3000,
  *     }],
@@ -276,6 +276,9 @@ export class Bucket extends pulumi.CustomResource {
      * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
      */
     public readonly objectLockConfiguration!: pulumi.Output<{ objectLockEnabled: string, rule?: { defaultRetention: { days?: number, mode: string, years?: number } } } | undefined>;
+    /**
+     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
+     */
     public readonly policy!: pulumi.Output<string | undefined>;
     /**
      * If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
@@ -446,6 +449,9 @@ export interface BucketState {
      * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
      */
     readonly objectLockConfiguration?: pulumi.Input<{ objectLockEnabled: pulumi.Input<string>, rule?: pulumi.Input<{ defaultRetention: pulumi.Input<{ days?: pulumi.Input<number>, mode: pulumi.Input<string>, years?: pulumi.Input<number> }> }> }>;
+    /**
+     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
+     */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
@@ -537,6 +543,9 @@ export interface BucketArgs {
      * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
      */
     readonly objectLockConfiguration?: pulumi.Input<{ objectLockEnabled: pulumi.Input<string>, rule?: pulumi.Input<{ defaultRetention: pulumi.Input<{ days?: pulumi.Input<number>, mode: pulumi.Input<string>, years?: pulumi.Input<number> }> }> }>;
+    /**
+     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
+     */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.

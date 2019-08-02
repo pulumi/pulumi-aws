@@ -107,6 +107,7 @@ func (r *Gateway) GatewayId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["gatewayId"])
 }
 
+// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 func (r *Gateway) GatewayIpAddress() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["gatewayIpAddress"])
 }
@@ -135,10 +136,12 @@ func (r *Gateway) SmbActiveDirectorySettings() *pulumi.Output {
 	return r.s.State["smbActiveDirectorySettings"]
 }
 
+// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
 func (r *Gateway) SmbGuestPassword() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["smbGuestPassword"])
 }
 
+// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 func (r *Gateway) TapeDriveType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["tapeDriveType"])
 }
@@ -151,6 +154,7 @@ type GatewayState struct {
 	Arn interface{}
 	// Identifier of the gateway.
 	GatewayId interface{}
+	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	GatewayIpAddress interface{}
 	// Name of the gateway.
 	GatewayName interface{}
@@ -161,7 +165,9 @@ type GatewayState struct {
 	MediumChangerType interface{}
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings interface{}
+	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
 	SmbGuestPassword interface{}
+	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType interface{}
 }
 
@@ -169,6 +175,7 @@ type GatewayState struct {
 type GatewayArgs struct {
 	// Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	ActivationKey interface{}
+	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	GatewayIpAddress interface{}
 	// Name of the gateway.
 	GatewayName interface{}
@@ -179,6 +186,8 @@ type GatewayArgs struct {
 	MediumChangerType interface{}
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings interface{}
+	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
 	SmbGuestPassword interface{}
+	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType interface{}
 }

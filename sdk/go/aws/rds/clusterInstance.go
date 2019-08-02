@@ -198,6 +198,7 @@ func (r *ClusterInstance) EngineVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["engineVersion"])
 }
 
+// The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
 func (r *ClusterInstance) Identifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["identifier"])
 }
@@ -314,6 +315,7 @@ type ClusterInstanceState struct {
 	Engine interface{}
 	// The database engine version.
 	EngineVersion interface{}
+	// The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier interface{}
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix interface{}
@@ -378,6 +380,7 @@ type ClusterInstanceArgs struct {
 	Engine interface{}
 	// The database engine version.
 	EngineVersion interface{}
+	// The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier interface{}
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix interface{}

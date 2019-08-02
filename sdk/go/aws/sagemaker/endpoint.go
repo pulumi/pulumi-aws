@@ -77,6 +77,7 @@ func (r *Endpoint) EndpointConfigName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["endpointConfigName"])
 }
 
+// The name of the endpoint. If omitted, this provider will assign a random, unique name.
 func (r *Endpoint) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -92,6 +93,7 @@ type EndpointState struct {
 	Arn interface{}
 	// The name of the endpoint configuration to use.
 	EndpointConfigName interface{}
+	// The name of the endpoint. If omitted, this provider will assign a random, unique name.
 	Name interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -101,6 +103,7 @@ type EndpointState struct {
 type EndpointArgs struct {
 	// The name of the endpoint configuration to use.
 	EndpointConfigName interface{}
+	// The name of the endpoint. If omitted, this provider will assign a random, unique name.
 	Name interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

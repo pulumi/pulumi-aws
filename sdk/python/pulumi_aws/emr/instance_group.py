@@ -45,7 +45,12 @@ class InstanceGroup(pulumi.CustomResource):
     status: pulumi.Output[str]
     def __init__(__self__, resource_name, opts=None, autoscaling_policy=None, bid_price=None, cluster_id=None, ebs_configs=None, ebs_optimized=None, instance_count=None, instance_type=None, name=None, __name__=None, __opts__=None):
         """
-        Create a InstanceGroup resource with the given unique name, props, and options.
+        Provides an Elastic MapReduce Cluster Instance Group configuration.
+        See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
+        
+        > **NOTE:** At this time, Instance Groups cannot be destroyed through the API nor
+        web interface. Instance Groups are destroyed when the EMR Cluster is destroyed.
+        this provider will resize any Instance Group to zero when destroying the resource.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

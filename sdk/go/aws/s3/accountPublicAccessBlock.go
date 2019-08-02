@@ -7,6 +7,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Manages S3 account-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
+// 
+// > **NOTE:** Each AWS account may only have one S3 Public Access Block configuration. Multiple configurations of the resource against the same AWS account will cause a perpetual difference.
+// 
+// > Advanced usage: To use a custom API endpoint for this resource, use the [`s3control` endpoint provider configuration](https://www.terraform.io/docs/providers/aws/index.html#s3control), not the `s3` endpoint provider configuration.
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_account_public_access_block.html.markdown.
 type AccountPublicAccessBlock struct {
 	s *pulumi.ResourceState
@@ -65,6 +71,7 @@ func (r *AccountPublicAccessBlock) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
 func (r *AccountPublicAccessBlock) AccountId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["accountId"])
 }
@@ -96,6 +103,7 @@ func (r *AccountPublicAccessBlock) RestrictPublicBuckets() *pulumi.BoolOutput {
 
 // Input properties used for looking up and filtering AccountPublicAccessBlock resources.
 type AccountPublicAccessBlockState struct {
+	// AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
 	AccountId interface{}
 	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
 	// * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
@@ -114,6 +122,7 @@ type AccountPublicAccessBlockState struct {
 
 // The set of arguments for constructing a AccountPublicAccessBlock resource.
 type AccountPublicAccessBlockArgs struct {
+	// AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
 	AccountId interface{}
 	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
 	// * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.

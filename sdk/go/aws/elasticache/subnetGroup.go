@@ -69,6 +69,7 @@ func (r *SubnetGroup) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// Description for the cache subnet group. Defaults to "Managed by Pulumi".
 func (r *SubnetGroup) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -85,6 +86,7 @@ func (r *SubnetGroup) SubnetIds() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering SubnetGroup resources.
 type SubnetGroupState struct {
+	// Description for the cache subnet group. Defaults to "Managed by Pulumi".
 	Description interface{}
 	// Name for the cache subnet group. Elasticache converts this name to lowercase.
 	Name interface{}
@@ -94,6 +96,7 @@ type SubnetGroupState struct {
 
 // The set of arguments for constructing a SubnetGroup resource.
 type SubnetGroupArgs struct {
+	// Description for the cache subnet group. Defaults to "Managed by Pulumi".
 	Description interface{}
 	// Name for the cache subnet group. Elasticache converts this name to lowercase.
 	Name interface{}

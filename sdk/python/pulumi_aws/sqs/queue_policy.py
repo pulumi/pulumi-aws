@@ -10,6 +10,9 @@ from .. import utilities, tables
 
 class QueuePolicy(pulumi.CustomResource):
     policy: pulumi.Output[str]
+    """
+    The JSON policy for the SQS queue.
+    """
     queue_url: pulumi.Output[str]
     """
     The URL of the SQS Queue to which to attach the policy
@@ -21,6 +24,7 @@ class QueuePolicy(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
         :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sqs_queue_policy.html.markdown.

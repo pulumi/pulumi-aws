@@ -7,6 +7,74 @@ import * as utilities from "../utilities";
 import {LifecyclePolicyDocument} from "./lifecyclePolicyDocument";
 
 /**
+ * Manages an ECR repository lifecycle policy.
+ * 
+ * > **NOTE:** Only one `aws_ecr_lifecycle_policy` resource can be used with the same ECR repository. To apply multiple rules, they must be combined in the `policy` JSON.
+ * 
+ * > **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
+ * 
+ * ## Example Usage
+ * 
+ * ### Policy on untagged image
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const foo = new aws.ecr.Repository("foo", {});
+ * const foopolicy = new aws.ecr.LifecyclePolicy("foopolicy", {
+ *     policy: `{
+ *     "rules": [
+ *         {
+ *             "rulePriority": 1,
+ *             "description": "Expire images older than 14 days",
+ *             "selection": {
+ *                 "tagStatus": "untagged",
+ *                 "countType": "sinceImagePushed",
+ *                 "countUnit": "days",
+ *                 "countNumber": 14
+ *             },
+ *             "action": {
+ *                 "type": "expire"
+ *             }
+ *         }
+ *     ]
+ * }
+ * `,
+ *     repository: foo.name,
+ * });
+ * ```
+ * 
+ * ### Policy on tagged image
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const foo = new aws.ecr.Repository("foo", {});
+ * const foopolicy = new aws.ecr.LifecyclePolicy("foopolicy", {
+ *     policy: `{
+ *     "rules": [
+ *         {
+ *             "rulePriority": 1,
+ *             "description": "Keep last 30 images",
+ *             "selection": {
+ *                 "tagStatus": "tagged",
+ *                 "tagPrefixList": ["v"],
+ *                 "countType": "imageCountMoreThan",
+ *                 "countNumber": 30
+ *             },
+ *             "action": {
+ *                 "type": "expire"
+ *             }
+ *         }
+ *     ]
+ * }
+ * `,
+ *     repository: foo.name,
+ * });
+ * ```
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_lifecycle_policy.html.markdown.
  */
 export class LifecyclePolicy extends pulumi.CustomResource {
@@ -36,6 +104,9 @@ export class LifecyclePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === LifecyclePolicy.__pulumiType;
     }
 
+    /**
+     * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
+     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * The registry ID where the repository was created.
@@ -88,6 +159,9 @@ export class LifecyclePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LifecyclePolicy resources.
  */
 export interface LifecyclePolicyState {
+    /**
+     * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
+     */
     readonly policy?: pulumi.Input<string | LifecyclePolicyDocument>;
     /**
      * The registry ID where the repository was created.
@@ -103,6 +177,9 @@ export interface LifecyclePolicyState {
  * The set of arguments for constructing a LifecyclePolicy resource.
  */
 export interface LifecyclePolicyArgs {
+    /**
+     * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
+     */
     readonly policy: pulumi.Input<string | LifecyclePolicyDocument>;
     /**
      * Name of the repository to apply the policy.

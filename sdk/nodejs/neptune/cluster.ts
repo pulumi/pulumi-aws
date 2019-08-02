@@ -5,6 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Provides an Neptune Cluster Resource. A Cluster Resource defines attributes that are
+ * applied to the entire cluster of Neptune Cluster Instances.
+ * 
+ * Changes to a Neptune Cluster can occur when you manually change a
+ * parameter, such as `backup_retention_period`, and are reflected in the next maintenance
+ * window. Because of this, this provider may report a difference in its planning
+ * phase because a modification has not yet taken place. You can use the
+ * `apply_immediately` flag to instruct the service to apply the change immediately
+ * (see documentation below).
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const defaultCluster = new aws.neptune.Cluster("default", {
+ *     applyImmediately: true,
+ *     backupRetentionPeriod: 5,
+ *     clusterIdentifier: "neptune-cluster-demo",
+ *     engine: "neptune",
+ *     iamDatabaseAuthenticationEnabled: true,
+ *     preferredBackupWindow: "07:00-09:00",
+ *     skipFinalSnapshot: true,
+ * });
+ * ```
+ * 
+ * > **Note:** AWS Neptune does not support user name/password–based access control.
+ * See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster.html.markdown.
  */
 export class Cluster extends pulumi.CustomResource {
@@ -50,6 +80,9 @@ export class Cluster extends pulumi.CustomResource {
      * The days to retain backups for. Default `1`
      */
     public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
+    /**
+     * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+     */
     public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
@@ -246,6 +279,9 @@ export interface ClusterState {
      * The days to retain backups for. Default `1`
      */
     readonly backupRetentionPeriod?: pulumi.Input<number>;
+    /**
+     * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+     */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
@@ -357,6 +393,9 @@ export interface ClusterArgs {
      * The days to retain backups for. Default `1`
      */
     readonly backupRetentionPeriod?: pulumi.Input<number>;
+    /**
+     * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+     */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.

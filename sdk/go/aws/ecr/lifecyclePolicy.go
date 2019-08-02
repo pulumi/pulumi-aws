@@ -8,6 +8,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Manages an ECR repository lifecycle policy.
+// 
+// > **NOTE:** Only one `aws_ecr_lifecycle_policy` resource can be used with the same ECR repository. To apply multiple rules, they must be combined in the `policy` JSON.
+// 
+// > **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_lifecycle_policy.html.markdown.
 type LifecyclePolicy struct {
 	s *pulumi.ResourceState
@@ -65,6 +71,7 @@ func (r *LifecyclePolicy) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
 func (r *LifecyclePolicy) Policy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["policy"])
 }
@@ -81,6 +88,7 @@ func (r *LifecyclePolicy) Repository() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering LifecyclePolicy resources.
 type LifecyclePolicyState struct {
+	// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
 	Policy interface{}
 	// The registry ID where the repository was created.
 	RegistryId interface{}
@@ -90,6 +98,7 @@ type LifecyclePolicyState struct {
 
 // The set of arguments for constructing a LifecyclePolicy resource.
 type LifecyclePolicyArgs struct {
+	// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
 	Policy interface{}
 	// Name of the repository to apply the policy.
 	Repository interface{}

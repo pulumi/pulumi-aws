@@ -65,6 +65,9 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
      * The ARN of the db cluster parameter group.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+     */
     public readonly description!: pulumi.Output<string>;
     /**
      * The family of the DB cluster parameter group.
@@ -138,6 +141,9 @@ export interface ClusterParameterGroupState {
      * The ARN of the db cluster parameter group.
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+     */
     readonly description?: pulumi.Input<string>;
     /**
      * The family of the DB cluster parameter group.
@@ -165,6 +171,9 @@ export interface ClusterParameterGroupState {
  * The set of arguments for constructing a ClusterParameterGroup resource.
  */
 export interface ClusterParameterGroupArgs {
+    /**
+     * The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+     */
     readonly description?: pulumi.Input<string>;
     /**
      * The family of the DB cluster parameter group.

@@ -5,6 +5,63 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a CloudFormation Stack Set Instance. Instances are managed in the account and region of the Stack Set after the target account permissions have been configured. Additional information about Stack Sets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
+ * 
+ * > **NOTE:** All target accounts must have an IAM Role created that matches the name of the execution role configured in the Stack Set (the `execution_role_name` argument in the `aws_cloudformation_stack_set` resource) in a trust relationship with the administrative account or administration IAM Role. The execution role must have appropriate permissions to manage resources defined in the template along with those required for Stack Sets to operate. See the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html) for more details.
+ * 
+ * > **NOTE:** To retain the Stack during resource destroy, ensure `retain_stack` has been set to `true` in the state first. This must be completed _before_ a deployment that would destroy the resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.cloudformation.StackSetInstance("example", {
+ *     accountId: "123456789012",
+ *     region: "us-east-1",
+ *     stackSetName: aws_cloudformation_stack_set_example.name,
+ * });
+ * ```
+ * 
+ * ### Example IAM Setup in Target Account
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * // Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html
+ * // Additional IAM permissions necessary depend on the resources defined in the Stack Set template
+ * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument = pulumi.output(aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: [
+ *             "cloudformation:*",
+ *             "s3:*",
+ *             "sns:*",
+ *         ],
+ *         effect: "Allow",
+ *         resources: ["*"],
+ *     }],
+ * }));
+ * const aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy = aws_iam_role_AWSCloudFormationStackSetAdministrationRole.arn.apply(arn => aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sts:AssumeRole"],
+ *         effect: "Allow",
+ *         principals: [{
+ *             identifiers: [arn],
+ *             type: "AWS",
+ *         }],
+ *     }],
+ * }));
+ * const aWSCloudFormationStackSetExecutionRole = new aws.iam.Role("AWSCloudFormationStackSetExecutionRole", {
+ *     assumeRolePolicy: aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.json,
+ * });
+ * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new aws.iam.RolePolicy("AWSCloudFormationStackSetExecutionRole_MinimumExecutionPolicy", {
+ *     policy: aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.json,
+ *     role: aWSCloudFormationStackSetExecutionRole.name,
+ * });
+ * ```
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudformation_stack_set_instance.html.markdown.
  */
 export class StackSetInstance extends pulumi.CustomResource {
@@ -46,6 +103,9 @@ export class StackSetInstance extends pulumi.CustomResource {
      * Target AWS Region to create a Stack based on the Stack Set. Defaults to current region.
      */
     public readonly region!: pulumi.Output<string>;
+    /**
+     * During resource destroy, remove Instance from Stack Set while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new Stack Set. Defaults to `false`.
+     */
     public readonly retainStack!: pulumi.Output<boolean | undefined>;
     /**
      * Stack identifier
@@ -113,6 +173,9 @@ export interface StackSetInstanceState {
      * Target AWS Region to create a Stack based on the Stack Set. Defaults to current region.
      */
     readonly region?: pulumi.Input<string>;
+    /**
+     * During resource destroy, remove Instance from Stack Set while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new Stack Set. Defaults to `false`.
+     */
     readonly retainStack?: pulumi.Input<boolean>;
     /**
      * Stack identifier
@@ -140,6 +203,9 @@ export interface StackSetInstanceArgs {
      * Target AWS Region to create a Stack based on the Stack Set. Defaults to current region.
      */
     readonly region?: pulumi.Input<string>;
+    /**
+     * During resource destroy, remove Instance from Stack Set while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new Stack Set. Defaults to `false`.
+     */
     readonly retainStack?: pulumi.Input<boolean>;
     /**
      * Name of the Stack Set.

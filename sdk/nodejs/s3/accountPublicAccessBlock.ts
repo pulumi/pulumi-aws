@@ -5,6 +5,24 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages S3 account-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
+ * 
+ * > **NOTE:** Each AWS account may only have one S3 Public Access Block configuration. Multiple configurations of the resource against the same AWS account will cause a perpetual difference.
+ * 
+ * > Advanced usage: To use a custom API endpoint for this resource, use the [`s3control` endpoint provider configuration](https://www.terraform.io/docs/providers/aws/index.html#s3control), not the `s3` endpoint provider configuration.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const example = new aws.s3.AccountPublicAccessBlock("example", {
+ *     blockPublicAcls: true,
+ *     blockPublicPolicy: true,
+ * });
+ * ```
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_account_public_access_block.html.markdown.
  */
 export class AccountPublicAccessBlock extends pulumi.CustomResource {
@@ -34,6 +52,9 @@ export class AccountPublicAccessBlock extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccountPublicAccessBlock.__pulumiType;
     }
 
+    /**
+     * AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
+     */
     public readonly accountId!: pulumi.Output<string>;
     /**
      * Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
@@ -97,6 +118,9 @@ export class AccountPublicAccessBlock extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccountPublicAccessBlock resources.
  */
 export interface AccountPublicAccessBlockState {
+    /**
+     * AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
+     */
     readonly accountId?: pulumi.Input<string>;
     /**
      * Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
@@ -125,6 +149,9 @@ export interface AccountPublicAccessBlockState {
  * The set of arguments for constructing a AccountPublicAccessBlock resource.
  */
 export interface AccountPublicAccessBlockArgs {
+    /**
+     * AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
+     */
     readonly accountId?: pulumi.Input<string>;
     /**
      * Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:

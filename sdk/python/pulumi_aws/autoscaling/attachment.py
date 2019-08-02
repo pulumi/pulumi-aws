@@ -23,7 +23,14 @@ class Attachment(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, alb_target_group_arn=None, autoscaling_group_name=None, elb=None, __name__=None, __opts__=None):
         """
-        Create a Attachment resource with the given unique name, props, and options.
+        Provides an AutoScaling Attachment resource.
+        
+        > **NOTE on AutoScaling Groups and ASG Attachments:** This provider currently provides
+        both a standalone ASG Attachment resource (describing an ASG attached to
+        an ELB), and an AutoScaling Group resource with
+        `load_balancers` defined in-line. At this time you cannot use an ASG with in-line
+        load balancers in conjunction with an ASG Attachment resource. Doing so will cause a
+        conflict and will overwrite attachments.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

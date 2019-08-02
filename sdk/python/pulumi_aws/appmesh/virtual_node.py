@@ -39,7 +39,18 @@ class VirtualNode(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, mesh_name=None, name=None, spec=None, tags=None, __name__=None, __opts__=None):
         """
-        Create a VirtualNode resource with the given unique name, props, and options.
+        Provides an AWS App Mesh virtual node resource.
+        
+        ## Breaking Changes
+        
+        Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), `aws_appmesh_virtual_node` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
+        
+        * Rename the `service_name` attribute of the `dns` object to `hostname`.
+        
+        * Replace the `backends` attribute of the `spec` object with one or more `backend` configuration blocks,
+        setting `virtual_service_name` to the name of the service.
+        
+        The state associated with existing resources will automatically be migrated.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -31,6 +31,9 @@ class GetInvocationResult:
         if result_map and not isinstance(result_map, dict):
             raise TypeError("Expected argument 'result_map' to be a dict")
         __self__.result_map = result_map
+        """
+        This field is set only if result is a map of primitive types, where the map is string keys and string values.
+        """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id

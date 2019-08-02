@@ -116,6 +116,7 @@ func (r *OptionGroup) Options() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["options"])
 }
 
+// The description of the option group. Defaults to "Managed by Pulumi".
 func (r *OptionGroup) OptionGroupDescription() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["optionGroupDescription"])
 }
@@ -139,6 +140,7 @@ type OptionGroupState struct {
 	NamePrefix interface{}
 	// A list of Options to apply.
 	Options interface{}
+	// The description of the option group. Defaults to "Managed by Pulumi".
 	OptionGroupDescription interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -156,6 +158,7 @@ type OptionGroupArgs struct {
 	NamePrefix interface{}
 	// A list of Options to apply.
 	Options interface{}
+	// The description of the option group. Defaults to "Managed by Pulumi".
 	OptionGroupDescription interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

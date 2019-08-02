@@ -58,6 +58,9 @@ export interface GetInvocationResult {
      * String result of the lambda function invocation.
      */
     readonly result: string;
+    /**
+     * This field is set only if result is a map of primitive types, where the map is string keys and string values.
+     */
     readonly resultMap: {[key: string]: string};
     /**
      * id is the provider-assigned unique ID for this managed resource.

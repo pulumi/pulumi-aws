@@ -10,6 +10,9 @@ from .. import utilities, tables
 
 class AccountPublicAccessBlock(pulumi.CustomResource):
     account_id: pulumi.Output[str]
+    """
+    AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
+    """
     block_public_acls: pulumi.Output[bool]
     """
     Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
@@ -33,10 +36,15 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, account_id=None, block_public_acls=None, block_public_policy=None, ignore_public_acls=None, restrict_public_buckets=None, __name__=None, __opts__=None):
         """
-        Create a AccountPublicAccessBlock resource with the given unique name, props, and options.
+        Manages S3 account-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
+        
+        > **NOTE:** Each AWS account may only have one S3 Public Access Block configuration. Multiple configurations of the resource against the same AWS account will cause a perpetual difference.
+        
+        > Advanced usage: To use a custom API endpoint for this resource, use the [`s3control` endpoint provider configuration](https://www.terraform.io/docs/providers/aws/index.html#s3control), not the `s3` endpoint provider configuration.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_id: AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
         :param pulumi.Input[bool] block_public_acls: Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
                * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
                * PUT Object calls will fail if the request includes an object ACL.

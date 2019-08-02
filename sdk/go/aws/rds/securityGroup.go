@@ -78,6 +78,7 @@ func (r *SecurityGroup) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
+// The description of the DB security group. Defaults to "Managed by Pulumi".
 func (r *SecurityGroup) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -101,6 +102,7 @@ func (r *SecurityGroup) Tags() *pulumi.MapOutput {
 type SecurityGroupState struct {
 	// The arn of the DB security group.
 	Arn interface{}
+	// The description of the DB security group. Defaults to "Managed by Pulumi".
 	Description interface{}
 	// A list of ingress rules.
 	Ingress interface{}
@@ -112,6 +114,7 @@ type SecurityGroupState struct {
 
 // The set of arguments for constructing a SecurityGroup resource.
 type SecurityGroupArgs struct {
+	// The description of the DB security group. Defaults to "Managed by Pulumi".
 	Description interface{}
 	// A list of ingress rules.
 	Ingress interface{}

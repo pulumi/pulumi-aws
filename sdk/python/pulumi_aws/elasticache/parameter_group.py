@@ -10,6 +10,9 @@ from .. import utilities, tables
 
 class ParameterGroup(pulumi.CustomResource):
     description: pulumi.Output[str]
+    """
+    The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
+    """
     family: pulumi.Output[str]
     """
     The family of the ElastiCache parameter group.
@@ -24,10 +27,13 @@ class ParameterGroup(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, description=None, family=None, name=None, parameters=None, __name__=None, __opts__=None):
         """
-        Create a ParameterGroup resource with the given unique name, props, and options.
+        Provides an ElastiCache parameter group resource.
+        
+        > **NOTE:** Attempting to remove the `reserved-memory` parameter when `family` is set to `redis2.6` or `redis2.8` may show a perpetual difference in this provider due to an Elasticache API limitation. Leave that parameter configured with any value to workaround the issue.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] family: The family of the ElastiCache parameter group.
         :param pulumi.Input[str] name: The name of the ElastiCache parameter.
         :param pulumi.Input[list] parameters: A list of ElastiCache parameters to apply.
