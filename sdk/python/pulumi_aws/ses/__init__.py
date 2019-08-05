@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .active_receipt_rule_set import *
+from .configuration_set import *
 from .confguration_set import *
 from .domain_dkim import *
 from .domain_identity import *

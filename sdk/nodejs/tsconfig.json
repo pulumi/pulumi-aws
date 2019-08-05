@@ -751,6 +751,7 @@
         "servicequotas/serviceQuota.ts",
         "ses/activeReceiptRuleSet.ts",
         "ses/confgurationSet.ts",
+        "ses/configurationSet.ts",
         "ses/domainDkim.ts",
         "ses/domainIdentity.ts",
         "ses/domainIdentityVerification.ts",

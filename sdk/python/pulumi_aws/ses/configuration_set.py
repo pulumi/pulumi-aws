@@ -8,14 +8,20 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class ConfgurationSet(pulumi.CustomResource):
+class ConfigurationSet(pulumi.CustomResource):
     name: pulumi.Output[str]
+    """
+    The name of the configuration set
+    """
     def __init__(__self__, resource_name, opts=None, name=None, __name__=None, __opts__=None):
         """
-        Create a ConfgurationSet resource with the given unique name, props, and options.
+        Provides an SES configuration set resource
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The name of the configuration set
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_configuration_set.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -34,8 +40,10 @@ class ConfgurationSet(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        super(ConfgurationSet, __self__).__init__(
-            'aws:ses/confgurationSet:ConfgurationSet',
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:ses/confgurationSet:ConfgurationSet")])
+        opts = alias_opts if opts is None else opts.merge(alias_opts)
+        super(ConfigurationSet, __self__).__init__(
+            'aws:ses/configurationSet:ConfigurationSet',
             resource_name,
             __props__,
             opts)

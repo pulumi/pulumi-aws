@@ -3,6 +3,8 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to v2.22.0 of the AWS Terraform Provider.
+* Rename `aws.ses.Confguration` to `aws.ses.Configuration`. 
+  This includes an alias to keep compatibility with existing code
 
 ---
 

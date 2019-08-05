@@ -7,9 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides an SES configuration set resource
-//
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_configuration_set.html.markdown.
 type ConfgurationSet struct {
 	s *pulumi.ResourceState
 }
@@ -55,19 +52,16 @@ func (r *ConfgurationSet) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The name of the configuration set
 func (r *ConfgurationSet) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering ConfgurationSet resources.
 type ConfgurationSetState struct {
-	// The name of the configuration set
 	Name interface{}
 }
 
 // The set of arguments for constructing a ConfgurationSet resource.
 type ConfgurationSetArgs struct {
-	// The name of the configuration set
 	Name interface{}
 }

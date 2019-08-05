@@ -145,6 +145,16 @@ func TestExamples(t *testing.T) {
 				},
 			},
 		}),
+		baseJS.With(integration.ProgramTestOptions{
+			Dir: path.Join(cwd, "rename-ses-configuration-set"),
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      "step2",
+					Additive: true,
+					ExpectNoChanges: true,
+				},
+			},
+		}),
 	}
 
 	longTests := []integration.ProgramTestOptions{

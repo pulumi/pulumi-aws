@@ -4,6 +4,7 @@
 // Export members:
 export * from "./activeReceiptRuleSet";
 export * from "./confgurationSet";
+export * from "./configurationSet";
 export * from "./domainDkim";
 export * from "./domainIdentity";
 export * from "./domainIdentityVerification";
