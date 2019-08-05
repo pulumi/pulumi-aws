@@ -23,7 +23,15 @@ class GetDelegationSetResult:
             raise TypeError("Expected argument 'name_servers' to be a list")
         __self__.name_servers = name_servers
 
-async def get_delegation_set(id=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_delegation_set(id=None,opts=None):
     """
     `aws_route53_delegation_set` provides details about a specific Route 53 Delegation Set.
     
@@ -34,7 +42,11 @@ async def get_delegation_set(id=None,opts=None):
     __args__ = dict()
 
     __args__['id'] = id
-    __ret__ = await pulumi.runtime.invoke('aws:route53/getDelegationSet:getDelegationSet', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:route53/getDelegationSet:getDelegationSet', __args__, opts=opts).value
 
     return GetDelegationSetResult(
         caller_reference=__ret__.get('callerReference'),

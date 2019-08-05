@@ -29,11 +29,23 @@ class GetEventCategoriesResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_event_categories(source_type=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_event_categories(source_type=None,opts=None):
     __args__ = dict()
 
     __args__['sourceType'] = source_type
-    __ret__ = await pulumi.runtime.invoke('aws:rds/getEventCategories:getEventCategories', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:rds/getEventCategories:getEventCategories', __args__, opts=opts).value
 
     return GetEventCategoriesResult(
         event_categories=__ret__.get('eventCategories'),

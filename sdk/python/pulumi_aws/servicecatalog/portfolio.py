@@ -66,6 +66,10 @@ class Portfolio(pulumi.CustomResource):
         __props__['arn'] = None
         __props__['created_time'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Portfolio, __self__).__init__(
             'aws:servicecatalog/portfolio:Portfolio',
             resource_name,

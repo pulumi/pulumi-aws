@@ -104,6 +104,10 @@ class EventSubscription(pulumi.CustomResource):
         __props__['arn'] = None
         __props__['customer_aws_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(EventSubscription, __self__).__init__(
             'aws:rds/eventSubscription:EventSubscription',
             resource_name,

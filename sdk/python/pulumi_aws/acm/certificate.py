@@ -116,6 +116,10 @@ class Certificate(pulumi.CustomResource):
         __props__['domain_validation_options'] = None
         __props__['validation_emails'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Certificate, __self__).__init__(
             'aws:acm/certificate:Certificate',
             resource_name,

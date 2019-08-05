@@ -71,7 +71,15 @@ class GetSecretResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_secret(arn=None,name=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_secret(arn=None,name=None,opts=None):
     """
     Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`aws_secretsmanager_secret_version` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
 
@@ -81,7 +89,11 @@ async def get_secret(arn=None,name=None,opts=None):
 
     __args__['arn'] = arn
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:secretsmanager/getSecret:getSecret', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecret:getSecret', __args__, opts=opts).value
 
     return GetSecretResult(
         arn=__ret__.get('arn'),

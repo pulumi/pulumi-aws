@@ -56,6 +56,10 @@ class UserGroupMembership(pulumi.CustomResource):
             raise TypeError("Missing required property 'user'")
         __props__['user'] = user
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(UserGroupMembership, __self__).__init__(
             'aws:iam/userGroupMembership:UserGroupMembership',
             resource_name,

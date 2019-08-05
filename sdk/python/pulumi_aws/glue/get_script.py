@@ -41,7 +41,15 @@ class GetScriptResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_script(dag_edges=None,dag_nodes=None,language=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_script(dag_edges=None,dag_nodes=None,language=None,opts=None):
     """
     Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
 
@@ -52,7 +60,11 @@ async def get_script(dag_edges=None,dag_nodes=None,language=None,opts=None):
     __args__['dagEdges'] = dag_edges
     __args__['dagNodes'] = dag_nodes
     __args__['language'] = language
-    __ret__ = await pulumi.runtime.invoke('aws:glue/getScript:getScript', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:glue/getScript:getScript', __args__, opts=opts).value
 
     return GetScriptResult(
         dag_edges=__ret__.get('dagEdges'),

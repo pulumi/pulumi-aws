@@ -75,6 +75,10 @@ class ListenerRule(pulumi.CustomResource):
 
         __props__['arn'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ListenerRule, __self__).__init__(
             'aws:elasticloadbalancingv2/listenerRule:ListenerRule',
             resource_name,

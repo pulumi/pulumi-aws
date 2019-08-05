@@ -53,6 +53,10 @@ class WebAclAssociation(pulumi.CustomResource):
             raise TypeError("Missing required property 'web_acl_id'")
         __props__['web_acl_id'] = web_acl_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(WebAclAssociation, __self__).__init__(
             'aws:wafregional/webAclAssociation:WebAclAssociation',
             resource_name,

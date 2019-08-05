@@ -23,7 +23,15 @@ class GetSecretResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_secret(secrets=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_secret(secrets=None,opts=None):
     """
     !> **WARNING:** This data source was removed in version 2.0.0 of the AWS Provider. You can migrate existing configurations to the [`aws_kms_secrets` data source](https://www.terraform.io/docs/providers/aws/d/kms_secrets.html) following instructions available in the [Version 2 Upgrade Guide](https://www.terraform.io/docs/providers/aws/guides/version-2-upgrade.html#data-source-aws_kms_secret).
 
@@ -32,7 +40,11 @@ async def get_secret(secrets=None,opts=None):
     __args__ = dict()
 
     __args__['secrets'] = secrets
-    __ret__ = await pulumi.runtime.invoke('aws:kms/getSecret:getSecret', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:kms/getSecret:getSecret', __args__, opts=opts).value
 
     return GetSecretResult(
         secrets=__ret__.get('secrets'),

@@ -48,6 +48,10 @@ class EmailIdentity(pulumi.CustomResource):
 
         __props__['arn'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(EmailIdentity, __self__).__init__(
             'aws:ses/emailIdentity:EmailIdentity',
             resource_name,

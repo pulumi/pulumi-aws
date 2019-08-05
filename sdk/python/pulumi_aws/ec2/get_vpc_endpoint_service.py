@@ -86,7 +86,15 @@ class GetVpcEndpointServiceResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_vpc_endpoint_service(service=None,service_name=None,tags=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_vpc_endpoint_service(service=None,service_name=None,tags=None,opts=None):
     """
     The VPC Endpoint Service data source details about a specific service that
     can be specified when creating a VPC endpoint within the region configured in the provider.
@@ -98,7 +106,11 @@ async def get_vpc_endpoint_service(service=None,service_name=None,tags=None,opts
     __args__['service'] = service
     __args__['serviceName'] = service_name
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpcEndpointService:getVpcEndpointService', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcEndpointService:getVpcEndpointService', __args__, opts=opts).value
 
     return GetVpcEndpointServiceResult(
         acceptance_required=__ret__.get('acceptanceRequired'),

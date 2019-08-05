@@ -35,7 +35,15 @@ class GetLocalDiskResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_local_disk(disk_node=None,disk_path=None,gateway_arn=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_local_disk(disk_node=None,disk_path=None,gateway_arn=None,opts=None):
     """
     Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
 
@@ -46,7 +54,11 @@ async def get_local_disk(disk_node=None,disk_path=None,gateway_arn=None,opts=Non
     __args__['diskNode'] = disk_node
     __args__['diskPath'] = disk_path
     __args__['gatewayArn'] = gateway_arn
-    __ret__ = await pulumi.runtime.invoke('aws:storagegateway/getLocalDisk:getLocalDisk', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:storagegateway/getLocalDisk:getLocalDisk', __args__, opts=opts).value
 
     return GetLocalDiskResult(
         disk_id=__ret__.get('diskId'),

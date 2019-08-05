@@ -29,7 +29,15 @@ class GetServiceResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_service(service_name=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_service(service_name=None,opts=None):
     """
     Retrieve information about a Service Quotas Service.
 
@@ -38,7 +46,11 @@ async def get_service(service_name=None,opts=None):
     __args__ = dict()
 
     __args__['serviceName'] = service_name
-    __ret__ = await pulumi.runtime.invoke('aws:servicequotas/getService:getService', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:servicequotas/getService:getService', __args__, opts=opts).value
 
     return GetServiceResult(
         service_code=__ret__.get('serviceCode'),

@@ -104,7 +104,15 @@ class GetVpcEndpointResult:
             raise TypeError("Expected argument 'vpc_id' to be a str")
         __self__.vpc_id = vpc_id
 
-async def get_vpc_endpoint(id=None,service_name=None,state=None,tags=None,vpc_id=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_vpc_endpoint(id=None,service_name=None,state=None,tags=None,vpc_id=None,opts=None):
     """
     The VPC Endpoint data source provides details about
     a specific VPC endpoint.
@@ -118,7 +126,11 @@ async def get_vpc_endpoint(id=None,service_name=None,state=None,tags=None,vpc_id
     __args__['state'] = state
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpcEndpoint:getVpcEndpoint', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcEndpoint:getVpcEndpoint', __args__, opts=opts).value
 
     return GetVpcEndpointResult(
         cidr_blocks=__ret__.get('cidrBlocks'),

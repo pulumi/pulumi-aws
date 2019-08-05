@@ -23,7 +23,15 @@ class GetPartitionResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_partition(opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_partition(opts=None):
     """
     Use this data source to lookup current AWS partition in which this provider is working
 
@@ -31,7 +39,11 @@ async def get_partition(opts=None):
     """
     __args__ = dict()
 
-    __ret__ = await pulumi.runtime.invoke('aws:index/getPartition:getPartition', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:index/getPartition:getPartition', __args__, opts=opts).value
 
     return GetPartitionResult(
         partition=__ret__.get('partition'),

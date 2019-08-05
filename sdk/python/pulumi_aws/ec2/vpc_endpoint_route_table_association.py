@@ -51,6 +51,10 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
             raise TypeError("Missing required property 'vpc_endpoint_id'")
         __props__['vpc_endpoint_id'] = vpc_endpoint_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VpcEndpointRouteTableAssociation, __self__).__init__(
             'aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation',
             resource_name,

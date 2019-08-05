@@ -38,7 +38,15 @@ class GetResourceResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_resource(path=None,rest_api_id=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_resource(path=None,rest_api_id=None,opts=None):
     """
     Use this data source to get the id of a Resource in API Gateway. 
     To fetch the Resource, you must provide the REST API id as well as the full path.  
@@ -49,7 +57,11 @@ async def get_resource(path=None,rest_api_id=None,opts=None):
 
     __args__['path'] = path
     __args__['restApiId'] = rest_api_id
-    __ret__ = await pulumi.runtime.invoke('aws:apigateway/getResource:getResource', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:apigateway/getResource:getResource', __args__, opts=opts).value
 
     return GetResourceResult(
         parent_id=__ret__.get('parentId'),

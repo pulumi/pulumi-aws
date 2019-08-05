@@ -138,6 +138,10 @@ class LayerVersion(pulumi.CustomResource):
         __props__['source_code_size'] = None
         __props__['version'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(LayerVersion, __self__).__init__(
             'aws:lambda/layerVersion:LayerVersion',
             resource_name,

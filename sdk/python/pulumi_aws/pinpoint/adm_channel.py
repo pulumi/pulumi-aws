@@ -70,6 +70,10 @@ class AdmChannel(pulumi.CustomResource):
 
         __props__['enabled'] = enabled
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(AdmChannel, __self__).__init__(
             'aws:pinpoint/admChannel:AdmChannel',
             resource_name,

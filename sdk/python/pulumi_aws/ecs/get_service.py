@@ -56,7 +56,15 @@ class GetServiceResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_service(cluster_arn=None,service_name=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_service(cluster_arn=None,service_name=None,opts=None):
     """
     The ECS Service data source allows access to details of a specific
     Service within a AWS ECS Cluster.
@@ -67,7 +75,11 @@ async def get_service(cluster_arn=None,service_name=None,opts=None):
 
     __args__['clusterArn'] = cluster_arn
     __args__['serviceName'] = service_name
-    __ret__ = await pulumi.runtime.invoke('aws:ecs/getService:getService', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:ecs/getService:getService', __args__, opts=opts).value
 
     return GetServiceResult(
         arn=__ret__.get('arn'),

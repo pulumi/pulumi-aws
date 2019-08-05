@@ -74,7 +74,15 @@ class GetTableResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_table(name=None,server_side_encryption=None,tags=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_table(name=None,server_side_encryption=None,tags=None,opts=None):
     """
     Provides information about a DynamoDB table.
 
@@ -85,7 +93,11 @@ async def get_table(name=None,server_side_encryption=None,tags=None,opts=None):
     __args__['name'] = name
     __args__['serverSideEncryption'] = server_side_encryption
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:dynamodb/getTable:getTable', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:dynamodb/getTable:getTable', __args__, opts=opts).value
 
     return GetTableResult(
         arn=__ret__.get('arn'),

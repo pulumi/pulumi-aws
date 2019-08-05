@@ -117,6 +117,10 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
         __props__['version_id'] = version_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(FirehoseDeliveryStream, __self__).__init__(
             'aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream',
             resource_name,

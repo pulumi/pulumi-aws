@@ -181,7 +181,15 @@ class GetLaunchTemplateResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_launch_template(name=None,tags=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_launch_template(name=None,tags=None,opts=None):
     """
     Provides information about a Launch Template.
 
@@ -191,7 +199,11 @@ async def get_launch_template(name=None,tags=None,opts=None):
 
     __args__['name'] = name
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getLaunchTemplate:getLaunchTemplate', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:ec2/getLaunchTemplate:getLaunchTemplate', __args__, opts=opts).value
 
     return GetLaunchTemplateResult(
         arn=__ret__.get('arn'),

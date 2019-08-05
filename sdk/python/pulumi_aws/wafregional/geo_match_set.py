@@ -47,6 +47,10 @@ class GeoMatchSet(pulumi.CustomResource):
 
         __props__['name'] = name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(GeoMatchSet, __self__).__init__(
             'aws:wafregional/geoMatchSet:GeoMatchSet',
             resource_name,

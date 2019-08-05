@@ -88,6 +88,10 @@ class InstanceProfile(pulumi.CustomResource):
         __props__['create_date'] = None
         __props__['unique_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(InstanceProfile, __self__).__init__(
             'aws:iam/instanceProfile:InstanceProfile',
             resource_name,

@@ -99,6 +99,10 @@ class EipAssociation(pulumi.CustomResource):
 
         __props__['public_ip'] = public_ip
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(EipAssociation, __self__).__init__(
             'aws:ec2/eipAssociation:EipAssociation',
             resource_name,

@@ -82,6 +82,10 @@ class EmailChannel(pulumi.CustomResource):
 
         __props__['messages_per_second'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(EmailChannel, __self__).__init__(
             'aws:pinpoint/emailChannel:EmailChannel',
             resource_name,

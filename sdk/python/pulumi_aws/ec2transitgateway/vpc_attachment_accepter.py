@@ -100,6 +100,10 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
         __props__['vpc_id'] = None
         __props__['vpc_owner_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VpcAttachmentAccepter, __self__).__init__(
             'aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter',
             resource_name,

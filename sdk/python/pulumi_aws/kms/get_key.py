@@ -62,7 +62,15 @@ class GetKeyResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_key(grant_tokens=None,key_id=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_key(grant_tokens=None,key_id=None,opts=None):
     """
     Use this data source to get detailed information about 
     the specified KMS Key with flexible key id input. 
@@ -75,7 +83,11 @@ async def get_key(grant_tokens=None,key_id=None,opts=None):
 
     __args__['grantTokens'] = grant_tokens
     __args__['keyId'] = key_id
-    __ret__ = await pulumi.runtime.invoke('aws:kms/getKey:getKey', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:kms/getKey:getKey', __args__, opts=opts).value
 
     return GetKeyResult(
         arn=__ret__.get('arn'),

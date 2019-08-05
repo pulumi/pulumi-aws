@@ -26,7 +26,15 @@ class GetAccountAliasResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_account_alias(opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_account_alias(opts=None):
     """
     The IAM Account Alias data source allows access to the account alias
     for the effective account in which this provider is working.
@@ -35,7 +43,11 @@ async def get_account_alias(opts=None):
     """
     __args__ = dict()
 
-    __ret__ = await pulumi.runtime.invoke('aws:iam/getAccountAlias:getAccountAlias', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:iam/getAccountAlias:getAccountAlias', __args__, opts=opts).value
 
     return GetAccountAliasResult(
         account_alias=__ret__.get('accountAlias'),

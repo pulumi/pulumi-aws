@@ -77,7 +77,15 @@ class GetClusterResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_cluster(name=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_cluster(name=None,opts=None):
     """
     Retrieve information about an EKS Cluster.
 
@@ -86,7 +94,11 @@ async def get_cluster(name=None,opts=None):
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:eks/getCluster:getCluster', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:eks/getCluster:getCluster', __args__, opts=opts).value
 
     return GetClusterResult(
         arn=__ret__.get('arn'),

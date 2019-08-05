@@ -29,7 +29,15 @@ class GetRestApiResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_rest_api(name=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_rest_api(name=None,opts=None):
     """
     Use this data source to get the id and root_resource_id of a REST API in
     API Gateway. To fetch the REST API you must provide a name to match against. 
@@ -41,7 +49,11 @@ async def get_rest_api(name=None,opts=None):
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:apigateway/getRestApi:getRestApi', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:apigateway/getRestApi:getRestApi', __args__, opts=opts).value
 
     return GetRestApiResult(
         name=__ret__.get('name'),

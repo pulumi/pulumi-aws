@@ -35,7 +35,15 @@ class GetVpnGatewayResult:
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
 
-async def get_vpn_gateway(amazon_side_asn=None,attached_vpc_id=None,availability_zone=None,filters=None,id=None,state=None,tags=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_vpn_gateway(amazon_side_asn=None,attached_vpc_id=None,availability_zone=None,filters=None,id=None,state=None,tags=None,opts=None):
     """
     The VPN Gateway data source provides details about
     a specific VPN gateway.
@@ -51,7 +59,11 @@ async def get_vpn_gateway(amazon_side_asn=None,attached_vpc_id=None,availability
     __args__['id'] = id
     __args__['state'] = state
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpnGateway:getVpnGateway', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:ec2/getVpnGateway:getVpnGateway', __args__, opts=opts).value
 
     return GetVpnGatewayResult(
         amazon_side_asn=__ret__.get('amazonSideAsn'),

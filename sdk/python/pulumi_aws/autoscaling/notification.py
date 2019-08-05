@@ -64,6 +64,10 @@ class Notification(pulumi.CustomResource):
             raise TypeError("Missing required property 'topic_arn'")
         __props__['topic_arn'] = topic_arn
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Notification, __self__).__init__(
             'aws:autoscaling/notification:Notification',
             resource_name,

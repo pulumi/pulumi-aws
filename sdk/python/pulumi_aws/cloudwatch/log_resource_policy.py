@@ -51,6 +51,10 @@ class LogResourcePolicy(pulumi.CustomResource):
             raise TypeError("Missing required property 'policy_name'")
         __props__['policy_name'] = policy_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(LogResourcePolicy, __self__).__init__(
             'aws:cloudwatch/logResourcePolicy:LogResourcePolicy',
             resource_name,

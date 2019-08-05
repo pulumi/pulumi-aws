@@ -83,7 +83,15 @@ class GetStackResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_stack(name=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_stack(name=None,opts=None):
     """
     The CloudFormation Stack data source allows access to stack
     outputs and other useful data including the template body.
@@ -93,7 +101,11 @@ async def get_stack(name=None,opts=None):
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:cloudformation/getStack:getStack', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:cloudformation/getStack:getStack', __args__, opts=opts).value
 
     return GetStackResult(
         capabilities=__ret__.get('capabilities'),

@@ -83,6 +83,10 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         __props__['associated_gateway_owner_account_id'] = None
         __props__['associated_gateway_type'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(GatewayAssociationProposal, __self__).__init__(
             'aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal',
             resource_name,

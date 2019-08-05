@@ -41,7 +41,15 @@ class GetAvailabilityZonesResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_availability_zones(blacklisted_names=None,blacklisted_zone_ids=None,state=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_availability_zones(blacklisted_names=None,blacklisted_zone_ids=None,state=None,opts=None):
     """
     The Availability Zones data source allows access to the list of AWS
     Availability Zones which can be accessed by an AWS account within the region
@@ -57,7 +65,11 @@ async def get_availability_zones(blacklisted_names=None,blacklisted_zone_ids=Non
     __args__['blacklistedNames'] = blacklisted_names
     __args__['blacklistedZoneIds'] = blacklisted_zone_ids
     __args__['state'] = state
-    __ret__ = await pulumi.runtime.invoke('aws:index/getAvailabilityZones:getAvailabilityZones', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:index/getAvailabilityZones:getAvailabilityZones', __args__, opts=opts).value
 
     return GetAvailabilityZonesResult(
         blacklisted_names=__ret__.get('blacklistedNames'),

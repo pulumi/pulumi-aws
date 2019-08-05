@@ -267,6 +267,10 @@ class Cluster(pulumi.CustomResource):
         __props__['cluster_address'] = None
         __props__['configuration_endpoint'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Cluster, __self__).__init__(
             'aws:elasticache/cluster:Cluster',
             resource_name,

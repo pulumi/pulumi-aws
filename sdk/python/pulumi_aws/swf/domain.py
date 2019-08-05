@@ -63,6 +63,10 @@ class Domain(pulumi.CustomResource):
             raise TypeError("Missing required property 'workflow_execution_retention_period_in_days'")
         __props__['workflow_execution_retention_period_in_days'] = workflow_execution_retention_period_in_days
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Domain, __self__).__init__(
             'aws:swf/domain:Domain',
             resource_name,

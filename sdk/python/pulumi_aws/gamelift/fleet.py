@@ -113,6 +113,10 @@ class Fleet(pulumi.CustomResource):
         __props__['log_paths'] = None
         __props__['operating_system'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Fleet, __self__).__init__(
             'aws:gamelift/fleet:Fleet',
             resource_name,

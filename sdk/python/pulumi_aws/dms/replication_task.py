@@ -114,6 +114,10 @@ class ReplicationTask(pulumi.CustomResource):
 
         __props__['replication_task_arn'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ReplicationTask, __self__).__init__(
             'aws:dms/replicationTask:ReplicationTask',
             resource_name,

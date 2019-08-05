@@ -74,6 +74,10 @@ class NatGateway(pulumi.CustomResource):
         __props__['private_ip'] = None
         __props__['public_ip'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(NatGateway, __self__).__init__(
             'aws:ec2/natGateway:NatGateway',
             resource_name,

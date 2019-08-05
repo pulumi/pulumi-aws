@@ -32,7 +32,15 @@ class GetSolutionStackResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_solution_stack(most_recent=None,name_regex=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_solution_stack(most_recent=None,name_regex=None,opts=None):
     """
     Use this data source to get the name of a elastic beanstalk solution stack.
 
@@ -42,7 +50,11 @@ async def get_solution_stack(most_recent=None,name_regex=None,opts=None):
 
     __args__['mostRecent'] = most_recent
     __args__['nameRegex'] = name_regex
-    __ret__ = await pulumi.runtime.invoke('aws:elasticbeanstalk/getSolutionStack:getSolutionStack', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:elasticbeanstalk/getSolutionStack:getSolutionStack', __args__, opts=opts).value
 
     return GetSolutionStackResult(
         most_recent=__ret__.get('mostRecent'),

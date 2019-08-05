@@ -55,7 +55,15 @@ class GetArnResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_arn(arn=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_arn(arn=None,opts=None):
     """
     Parses an Amazon Resource Name (ARN) into its constituent parts.
 
@@ -64,7 +72,11 @@ async def get_arn(arn=None,opts=None):
     __args__ = dict()
 
     __args__['arn'] = arn
-    __ret__ = await pulumi.runtime.invoke('aws:index/getArn:getArn', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:index/getArn:getArn', __args__, opts=opts).value
 
     return GetArnResult(
         account=__ret__.get('account'),

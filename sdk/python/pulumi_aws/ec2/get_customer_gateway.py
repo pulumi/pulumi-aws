@@ -44,7 +44,15 @@ class GetCustomerGatewayResult:
         (Optional) The type of customer gateway. The only type AWS supports at this time is "ipsec.1".
         """
 
-async def get_customer_gateway(filters=None,id=None,tags=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_customer_gateway(filters=None,id=None,tags=None,opts=None):
     """
     Get an existing AWS Customer Gateway.
 
@@ -55,7 +63,11 @@ async def get_customer_gateway(filters=None,id=None,tags=None,opts=None):
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['tags'] = tags
-    __ret__ = await pulumi.runtime.invoke('aws:ec2/getCustomerGateway:getCustomerGateway', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:ec2/getCustomerGateway:getCustomerGateway', __args__, opts=opts).value
 
     return GetCustomerGatewayResult(
         bgp_asn=__ret__.get('bgpAsn'),

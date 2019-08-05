@@ -74,6 +74,10 @@ class PublicKey(pulumi.CustomResource):
         __props__['caller_reference'] = None
         __props__['etag'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(PublicKey, __self__).__init__(
             'aws:cloudfront/publicKey:PublicKey',
             resource_name,

@@ -23,7 +23,15 @@ class GetVpcLinkResult:
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
 
-async def get_vpc_link(name=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_vpc_link(name=None,opts=None):
     """
     Use this data source to get the id of a VPC Link in
     API Gateway. To fetch the VPC Link you must provide a name to match against. 
@@ -35,7 +43,11 @@ async def get_vpc_link(name=None,opts=None):
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('aws:apigateway/getVpcLink:getVpcLink', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:apigateway/getVpcLink:getVpcLink', __args__, opts=opts).value
 
     return GetVpcLinkResult(
         id=__ret__.get('id'),

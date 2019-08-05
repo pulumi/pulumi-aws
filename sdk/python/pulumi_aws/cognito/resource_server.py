@@ -67,6 +67,10 @@ class ResourceServer(pulumi.CustomResource):
 
         __props__['scope_identifiers'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ResourceServer, __self__).__init__(
             'aws:cognito/resourceServer:ResourceServer',
             resource_name,

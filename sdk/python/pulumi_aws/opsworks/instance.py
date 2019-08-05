@@ -349,6 +349,10 @@ class Instance(pulumi.CustomResource):
 
         __props__['ec2_instance_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Instance, __self__).__init__(
             'aws:opsworks/instance:Instance',
             resource_name,

@@ -108,6 +108,10 @@ class IntegrationResponse(pulumi.CustomResource):
             raise TypeError("Missing required property 'status_code'")
         __props__['status_code'] = status_code
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(IntegrationResponse, __self__).__init__(
             'aws:apigateway/integrationResponse:IntegrationResponse',
             resource_name,

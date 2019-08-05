@@ -57,6 +57,10 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
             raise TypeError("Missing required property 'vpc_endpoint_id'")
         __props__['vpc_endpoint_id'] = vpc_endpoint_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VpcEndpointSubnetAssociation, __self__).__init__(
             'aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation',
             resource_name,

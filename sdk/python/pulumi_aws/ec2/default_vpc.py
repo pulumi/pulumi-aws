@@ -138,6 +138,10 @@ class DefaultVpc(pulumi.CustomResource):
         __props__['main_route_table_id'] = None
         __props__['owner_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(DefaultVpc, __self__).__init__(
             'aws:ec2/defaultVpc:DefaultVpc',
             resource_name,

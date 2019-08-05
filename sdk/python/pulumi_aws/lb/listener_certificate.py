@@ -55,6 +55,10 @@ class ListenerCertificate(pulumi.CustomResource):
             raise TypeError("Missing required property 'listener_arn'")
         __props__['listener_arn'] = listener_arn
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate")])
         opts = alias_opts if opts is None else opts.merge(alias_opts)
         super(ListenerCertificate, __self__).__init__(

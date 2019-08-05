@@ -62,6 +62,10 @@ class SubnetGroup(pulumi.CustomResource):
             raise TypeError("Missing required property 'subnet_ids'")
         __props__['subnet_ids'] = subnet_ids
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(SubnetGroup, __self__).__init__(
             'aws:elasticache/subnetGroup:SubnetGroup',
             resource_name,

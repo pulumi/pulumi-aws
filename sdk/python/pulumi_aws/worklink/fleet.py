@@ -103,6 +103,10 @@ class Fleet(pulumi.CustomResource):
         __props__['created_time'] = None
         __props__['last_updated_time'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Fleet, __self__).__init__(
             'aws:worklink/fleet:Fleet',
             resource_name,

@@ -89,6 +89,10 @@ class Zone(pulumi.CustomResource):
         __props__['name_servers'] = None
         __props__['zone_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Zone, __self__).__init__(
             'aws:route53/zone:Zone',
             resource_name,

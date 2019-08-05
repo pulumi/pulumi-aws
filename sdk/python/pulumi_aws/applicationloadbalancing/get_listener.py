@@ -41,7 +41,15 @@ class GetListenerResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_listener(arn=None,load_balancer_arn=None,port=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_listener(arn=None,load_balancer_arn=None,port=None,opts=None):
     """
     > **Note:** `aws_alb_listener` is known as `aws_lb_listener`. The functionality is identical.
     
@@ -58,7 +66,11 @@ async def get_listener(arn=None,load_balancer_arn=None,port=None,opts=None):
     __args__['arn'] = arn
     __args__['loadBalancerArn'] = load_balancer_arn
     __args__['port'] = port
-    __ret__ = await pulumi.runtime.invoke('aws:applicationloadbalancing/getListener:getListener', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('aws:applicationloadbalancing/getListener:getListener', __args__, opts=opts).value
 
     return GetListenerResult(
         arn=__ret__.get('arn'),

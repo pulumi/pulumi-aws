@@ -58,6 +58,10 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
             raise TypeError("Missing required property 'roles'")
         __props__['roles'] = roles
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(IdentityPoolRoleAttachment, __self__).__init__(
             'aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment',
             resource_name,

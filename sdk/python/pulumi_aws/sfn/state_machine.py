@@ -76,6 +76,10 @@ class StateMachine(pulumi.CustomResource):
         __props__['creation_date'] = None
         __props__['status'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(StateMachine, __self__).__init__(
             'aws:sfn/stateMachine:StateMachine',
             resource_name,

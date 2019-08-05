@@ -56,6 +56,10 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
             raise TypeError("Missing required property 'vpc_id'")
         __props__['vpc_id'] = vpc_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VpcDhcpOptionsAssociation, __self__).__init__(
             'aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation',
             resource_name,
