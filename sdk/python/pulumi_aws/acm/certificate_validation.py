@@ -22,8 +22,8 @@ class CertificateValidation(pulumi.CustomResource):
         This resource represents a successful validation of an ACM certificate in concert
         with other resources.
         
-        Most commonly, this resource is used together with `aws_route53_record` and
-        `aws_acm_certificate` to request a DNS validated certificate,
+        Most commonly, this resource is used together with `route53.Record` and
+        `acm.Certificate` to request a DNS validated certificate,
         deploy the required validation records and wait for validation to complete.
         
         > **WARNING:** This resource implements a part of the validation workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
@@ -56,6 +56,10 @@ class CertificateValidation(pulumi.CustomResource):
 
         __props__['validation_record_fqdns'] = validation_record_fqdns
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(CertificateValidation, __self__).__init__(
             'aws:acm/certificateValidation:CertificateValidation',
             resource_name,

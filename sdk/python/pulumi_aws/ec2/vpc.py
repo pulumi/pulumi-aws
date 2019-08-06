@@ -71,7 +71,7 @@ class Vpc(pulumi.CustomResource):
     """
     The ID of the main route table associated with
     this VPC. Note that you can change a VPC's main route table by using an
-    [`aws_main_route_table_association`](https://www.terraform.io/docs/providers/aws/r/main_route_table_assoc.html).
+    [`ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_assoc.html).
     """
     owner_id: pulumi.Output[str]
     """
@@ -146,6 +146,10 @@ class Vpc(pulumi.CustomResource):
         __props__['main_route_table_id'] = None
         __props__['owner_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Vpc, __self__).__init__(
             'aws:ec2/vpc:Vpc',
             resource_name,

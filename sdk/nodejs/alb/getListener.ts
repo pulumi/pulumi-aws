@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * > **Note:** `aws_alb_listener` is known as `aws_lb_listener`. The functionality is identical.
+ * > **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
  * 
  * Provides information about a Load Balancer Listener.
  * 
@@ -59,7 +59,7 @@ export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions)
  */
 export interface GetListenerArgs {
     /**
-     * The arn of the listener. Required if `load_balancer_arn` and `port` is not set.
+     * The arn of the listener. Required if `loadBalancerArn` and `port` is not set.
      */
     readonly arn?: string;
     /**

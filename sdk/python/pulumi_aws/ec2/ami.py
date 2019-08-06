@@ -80,10 +80,10 @@ class Ami(pulumi.CustomResource):
         *Amazon Machine Image* (AMI).
         
         If you just want to duplicate an existing AMI, possibly copying it to another
-        region, it's better to use `aws_ami_copy` instead.
+        region, it's better to use `ec2.AmiCopy` instead.
         
         If you just want to share an existing AMI with another AWS account,
-        it's better to use `aws_ami_launch_permission` instead.
+        it's better to use `ec2.AmiLaunchPermission` instead.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,6 +155,10 @@ class Ami(pulumi.CustomResource):
         __props__['manage_ebs_snapshots'] = None
         __props__['root_snapshot_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Ami, __self__).__init__(
             'aws:ec2/ami:Ami',
             resource_name,

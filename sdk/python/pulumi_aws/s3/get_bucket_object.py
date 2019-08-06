@@ -153,6 +153,10 @@ async def get_bucket_object(bucket=None,key=None,range=None,tags=None,version_id
     __args__['range'] = range
     __args__['tags'] = tags
     __args__['versionId'] = version_id
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:s3/getBucketObject:getBucketObject', __args__, opts=opts)
 
     return GetBucketObjectResult(

@@ -27,7 +27,7 @@ class BasePathMapping(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, rest_api=None, base_path=None, domain_name=None, stage_name=None, __name__=None, __opts__=None):
         """
-        Connects a custom domain name registered via `aws_api_gateway_domain_name`
+        Connects a custom domain name registered via `apigateway.DomainName`
         with a deployed API so that its methods can be called via the
         custom domain name.
         
@@ -67,6 +67,10 @@ class BasePathMapping(pulumi.CustomResource):
 
         __props__['stage_name'] = stage_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(BasePathMapping, __self__).__init__(
             'aws:apigateway/basePathMapping:BasePathMapping',
             resource_name,

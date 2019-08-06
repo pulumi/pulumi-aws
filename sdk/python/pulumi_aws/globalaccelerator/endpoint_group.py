@@ -94,6 +94,10 @@ class EndpointGroup(pulumi.CustomResource):
 
         __props__['traffic_dial_percentage'] = traffic_dial_percentage
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(EndpointGroup, __self__).__init__(
             'aws:globalaccelerator/endpointGroup:EndpointGroup',
             resource_name,

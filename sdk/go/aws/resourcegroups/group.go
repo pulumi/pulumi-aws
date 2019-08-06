@@ -82,7 +82,7 @@ func (r *Group) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// A `resource_query` block. Resource queries are documented below.
+// A `resourceQuery` block. Resource queries are documented below.
 func (r *Group) ResourceQuery() *pulumi.Output {
 	return r.s.State["resourceQuery"]
 }
@@ -95,7 +95,7 @@ type GroupState struct {
 	Description interface{}
 	// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
 	Name interface{}
-	// A `resource_query` block. Resource queries are documented below.
+	// A `resourceQuery` block. Resource queries are documented below.
 	ResourceQuery interface{}
 }
 
@@ -105,6 +105,6 @@ type GroupArgs struct {
 	Description interface{}
 	// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
 	Name interface{}
-	// A `resource_query` block. Resource queries are documented below.
+	// A `resourceQuery` block. Resource queries are documented below.
 	ResourceQuery interface{}
 }

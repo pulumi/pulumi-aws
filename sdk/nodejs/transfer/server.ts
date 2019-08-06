@@ -108,7 +108,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly identityProviderType!: pulumi.Output<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+     * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
      */
     public readonly invocationRole!: pulumi.Output<string | undefined>;
     /**
@@ -120,7 +120,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
-     * - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+     * - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
      */
     public readonly url!: pulumi.Output<string | undefined>;
 
@@ -199,7 +199,7 @@ export interface ServerState {
      */
     readonly identityProviderType?: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+     * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
      */
     readonly invocationRole?: pulumi.Input<string>;
     /**
@@ -211,7 +211,7 @@ export interface ServerState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+     * - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
      */
     readonly url?: pulumi.Input<string>;
 }
@@ -237,7 +237,7 @@ export interface ServerArgs {
      */
     readonly identityProviderType?: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+     * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
      */
     readonly invocationRole?: pulumi.Input<string>;
     /**
@@ -249,7 +249,7 @@ export interface ServerArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+     * - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
      */
     readonly url?: pulumi.Input<string>;
 }

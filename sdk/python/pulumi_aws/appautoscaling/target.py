@@ -36,7 +36,7 @@ class Target(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, max_capacity=None, min_capacity=None, resource_id=None, role_arn=None, scalable_dimension=None, service_namespace=None, __name__=None, __opts__=None):
         """
-        Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the [`aws_appautoscaling_policy` resource](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html).
+        Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the [`appautoscaling.Policy` resource](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html).
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -87,6 +87,10 @@ class Target(pulumi.CustomResource):
             raise TypeError("Missing required property 'service_namespace'")
         __props__['service_namespace'] = service_namespace
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Target, __self__).__init__(
             'aws:appautoscaling/target:Target',
             resource_name,

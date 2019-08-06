@@ -37,7 +37,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
         **This is an advanced resource**, and has special caveats to be aware of when
         using it. Please read this document in its entirety before using this resource.
         
-        The `aws_default_vpc_dhcp_options` behaves differently from normal resources, in that
+        The `ec2.DefaultVpcDhcpOptions` behaves differently from normal resources, in that
         this provider does not _create_ this resource, but instead "adopts" it
         into management.
         
@@ -75,6 +75,10 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
         __props__['ntp_servers'] = None
         __props__['owner_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(DefaultVpcDhcpOptions, __self__).__init__(
             'aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions',
             resource_name,

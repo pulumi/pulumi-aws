@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`aws_secretsmanager_secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
+ * Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`aws.secretsmanager.Secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
  * 
  * ## Example Usage
  * 
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const by_version_stage = aws_secretsmanager_secret_example.id.apply(id => aws.secretsmanager.getSecretVersion({
+ * const byVersionStage = aws_secretsmanager_secret_example.id.apply(id => aws.secretsmanager.getSecretVersion({
  *     secretId: id,
  *     versionStage: "example",
  * }));
@@ -62,7 +62,7 @@ export interface GetSecretVersionArgs {
      */
     readonly secretId: string;
     /**
-     * Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
+     * Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
      */
     readonly versionId?: string;
     /**

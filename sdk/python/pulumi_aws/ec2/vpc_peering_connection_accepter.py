@@ -58,8 +58,8 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         When a cross-account (requester's AWS account differs from the accepter's AWS account) or an inter-region
         VPC Peering Connection is created, a VPC Peering Connection resource is automatically created in the
         accepter's account.
-        The requester can use the `aws_vpc_peering_connection` resource to manage its side of the connection
-        and the accepter can use the `aws_vpc_peering_connection_accepter` resource to "adopt" its side of the
+        The requester can use the `ec2.VpcPeeringConnection` resource to manage its side of the connection
+        and the accepter can use the `ec2.VpcPeeringConnectionAccepter` resource to "adopt" its side of the
         connection into management.
         
         :param str resource_name: The name of the resource.
@@ -107,6 +107,10 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         __props__['peer_vpc_id'] = None
         __props__['vpc_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VpcPeeringConnectionAccepter, __self__).__init__(
             'aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter',
             resource_name,

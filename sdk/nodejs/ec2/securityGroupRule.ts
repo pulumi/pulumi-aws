@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * in conjunction with any Security Group Rule resources. Doing so will cause
  * a conflict of rule settings and will overwrite rules.
  * 
- * > **NOTE:** Setting `protocol = "all"` or `protocol = -1` with `from_port` and `to_port` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by this provider and may generate warnings in the future.
+ * > **NOTE:** Setting `protocol = "all"` or `protocol = -1` with `fromPort` and `toPort` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by this provider and may generate warnings in the future.
  * 
  * > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
  * 
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const allowAll = new aws.ec2.SecurityGroupRule("allow_all", {
+ * const allowAll = new aws.ec2.SecurityGroupRule("allowAll", {
  *     // Opening to 0.0.0.0/0 can lead to security vulnerabilities.
  *     cidrBlocks: "", // add a CIDR block here
  *     fromPort: 0,
@@ -50,8 +50,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * // ...
- * const myEndpoint = new aws.ec2.VpcEndpoint("my_endpoint", {});
- * const allowAll = new aws.ec2.SecurityGroupRule("allow_all", {
+ * const myEndpoint = new aws.ec2.VpcEndpoint("myEndpoint", {});
+ * const allowAll = new aws.ec2.SecurityGroupRule("allowAll", {
  *     fromPort: 0,
  *     prefixListIds: [myEndpoint.prefixListId],
  *     protocol: "-1",
@@ -91,7 +91,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
     }
 
     /**
-     * List of CIDR blocks. Cannot be specified with `source_security_group_id`.
+     * List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId`.
      */
     public readonly cidrBlocks!: pulumi.Output<string[] | undefined>;
     /**
@@ -121,12 +121,12 @@ export class SecurityGroupRule extends pulumi.CustomResource {
     public readonly securityGroupId!: pulumi.Output<string>;
     /**
      * If true, the security group itself will be added as
-     * a source to this ingress rule. Cannot be specified with `source_security_group_id`.
+     * a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
      */
     public readonly self!: pulumi.Output<boolean | undefined>;
     /**
      * The security group id to allow access to/from,
-     * depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+     * depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
      */
     public readonly sourceSecurityGroupId!: pulumi.Output<string>;
     /**
@@ -207,7 +207,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
  */
 export interface SecurityGroupRuleState {
     /**
-     * List of CIDR blocks. Cannot be specified with `source_security_group_id`.
+     * List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId`.
      */
     readonly cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -237,12 +237,12 @@ export interface SecurityGroupRuleState {
     readonly securityGroupId?: pulumi.Input<string>;
     /**
      * If true, the security group itself will be added as
-     * a source to this ingress rule. Cannot be specified with `source_security_group_id`.
+     * a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
      */
     readonly self?: pulumi.Input<boolean>;
     /**
      * The security group id to allow access to/from,
-     * depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+     * depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
      */
     readonly sourceSecurityGroupId?: pulumi.Input<string>;
     /**
@@ -261,7 +261,7 @@ export interface SecurityGroupRuleState {
  */
 export interface SecurityGroupRuleArgs {
     /**
-     * List of CIDR blocks. Cannot be specified with `source_security_group_id`.
+     * List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId`.
      */
     readonly cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -291,12 +291,12 @@ export interface SecurityGroupRuleArgs {
     readonly securityGroupId: pulumi.Input<string>;
     /**
      * If true, the security group itself will be added as
-     * a source to this ingress rule. Cannot be specified with `source_security_group_id`.
+     * a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
      */
     readonly self?: pulumi.Input<boolean>;
     /**
      * The security group id to allow access to/from,
-     * depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+     * depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
      */
     readonly sourceSecurityGroupId?: pulumi.Input<string>;
     /**

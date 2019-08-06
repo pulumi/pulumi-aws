@@ -9,7 +9,7 @@ import (
 
 // Provides a Load Balancer resource.
 // 
-// > **Note:** `aws_alb` is known as `aws_lb`. The functionality is identical.
+// > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_legacy.html.markdown.
 type LoadBalancer struct {

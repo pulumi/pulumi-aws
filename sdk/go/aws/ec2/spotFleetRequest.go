@@ -156,7 +156,7 @@ func (r *SpotFleetRequest) InstanceInterruptionBehaviour() *pulumi.StringOutput 
 
 // 
 // The number of Spot pools across which to allocate your target Spot capacity.
-// Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
 // the cheapest Spot pools and evenly allocates your target Spot capacity across
 // the number of Spot pools that you specify.
 func (r *SpotFleetRequest) InstancePoolsToUseCount() *pulumi.IntOutput {
@@ -197,7 +197,7 @@ func (r *SpotFleetRequest) TargetCapacity() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["targetCapacity"])
 }
 
-// A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
+// A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
 func (r *SpotFleetRequest) TargetGroupArns() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["targetGroupArns"])
 }
@@ -250,7 +250,7 @@ type SpotFleetRequestState struct {
 	InstanceInterruptionBehaviour interface{}
 	// 
 	// The number of Spot pools across which to allocate your target Spot capacity.
-	// Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+	// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
 	// the cheapest Spot pools and evenly allocates your target Spot capacity across
 	// the number of Spot pools that you specify.
 	InstancePoolsToUseCount interface{}
@@ -270,7 +270,7 @@ type SpotFleetRequestState struct {
 	// target capacity in terms of instances or a performance characteristic that is
 	// important to your application workload, such as vCPUs, memory, or I/O.
 	TargetCapacity interface{}
-	// A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
+	// A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
 	TargetGroupArns interface{}
 	// Indicates whether running Spot
 	// instances should be terminated when the Spot fleet request expires.
@@ -309,7 +309,7 @@ type SpotFleetRequestArgs struct {
 	InstanceInterruptionBehaviour interface{}
 	// 
 	// The number of Spot pools across which to allocate your target Spot capacity.
-	// Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+	// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
 	// the cheapest Spot pools and evenly allocates your target Spot capacity across
 	// the number of Spot pools that you specify.
 	InstancePoolsToUseCount interface{}
@@ -327,7 +327,7 @@ type SpotFleetRequestArgs struct {
 	// target capacity in terms of instances or a performance characteristic that is
 	// important to your application workload, such as vCPUs, memory, or I/O.
 	TargetCapacity interface{}
-	// A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
+	// A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
 	TargetGroupArns interface{}
 	// Indicates whether running Spot
 	// instances should be terminated when the Spot fleet request expires.

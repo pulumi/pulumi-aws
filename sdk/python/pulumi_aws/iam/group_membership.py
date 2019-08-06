@@ -23,14 +23,14 @@ class GroupMembership(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, group=None, name=None, users=None, __name__=None, __opts__=None):
         """
-        > **WARNING:** Multiple aws_iam_group_membership resources with the same group name will produce inconsistent behavior!
+        > **WARNING:** Multiple iam.GroupMembership resources with the same group name will produce inconsistent behavior!
         
         Provides a top level resource to manage IAM Group membership for IAM Users. For
         more information on managing IAM Groups or IAM Users, see [IAM Groups][1] or
         [IAM Users][2]
         
-        > **Note:** `aws_iam_group_membership` will conflict with itself if used more than once with the same group. To non-exclusively manage the users in a group, see the
-        [`aws_iam_user_group_membership` resource][3].
+        > **Note:** `iam.GroupMembership` will conflict with itself if used more than once with the same group. To non-exclusively manage the users in a group, see the
+        [`iam.UserGroupMembership` resource][3].
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -65,6 +65,10 @@ class GroupMembership(pulumi.CustomResource):
             raise TypeError("Missing required property 'users'")
         __props__['users'] = users
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(GroupMembership, __self__).__init__(
             'aws:iam/groupMembership:GroupMembership',
             resource_name,

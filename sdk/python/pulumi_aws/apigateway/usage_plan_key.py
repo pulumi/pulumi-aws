@@ -71,6 +71,10 @@ class UsagePlanKey(pulumi.CustomResource):
         __props__['name'] = None
         __props__['value'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(UsagePlanKey, __self__).__init__(
             'aws:apigateway/usagePlanKey:UsagePlanKey',
             resource_name,

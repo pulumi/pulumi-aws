@@ -55,8 +55,8 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
         
         When a cross-account (requester's AWS account differs from the accepter's AWS account) EC2 Transit Gateway VPC Attachment
         is created, an EC2 Transit Gateway VPC Attachment resource is automatically created in the accepter's account.
-        The requester can use the `aws_ec2_transit_gateway_vpc_attachment` resource to manage its side of the connection
-        and the accepter can use the `aws_ec2_transit_gateway_vpc_attachment_accepter` resource to "adopt" its side of the
+        The requester can use the `ec2transitgateway.VpcAttachment` resource to manage its side of the connection
+        and the accepter can use the `ec2transitgateway.VpcAttachmentAccepter` resource to "adopt" its side of the
         connection into management.
         
         :param str resource_name: The name of the resource.
@@ -100,6 +100,10 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
         __props__['vpc_id'] = None
         __props__['vpc_owner_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VpcAttachmentAccepter, __self__).__init__(
             'aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter',
             resource_name,

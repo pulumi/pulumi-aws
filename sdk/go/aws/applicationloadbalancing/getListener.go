@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// > **Note:** `aws_alb_listener` is known as `aws_lb_listener`. The functionality is identical.
+// > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
 // 
 // Provides information about a Load Balancer Listener.
 // 
@@ -41,7 +41,7 @@ func LookupListener(ctx *pulumi.Context, args *GetListenerArgs) (*GetListenerRes
 
 // A collection of arguments for invoking getListener.
 type GetListenerArgs struct {
-	// The arn of the listener. Required if `load_balancer_arn` and `port` is not set.
+	// The arn of the listener. Required if `loadBalancerArn` and `port` is not set.
 	Arn interface{}
 	// The arn of the load balancer. Required if `arn` is not set.
 	LoadBalancerArn interface{}

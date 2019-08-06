@@ -64,7 +64,7 @@ class GetTargetGroupResult:
 
 async def get_target_group(arn=None,name=None,tags=None,opts=None):
     """
-    > **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
+    > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
     
     Provides information about a Load Balancer Target Group.
     
@@ -79,6 +79,10 @@ async def get_target_group(arn=None,name=None,tags=None,opts=None):
     __args__['arn'] = arn
     __args__['name'] = name
     __args__['tags'] = tags
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:elasticloadbalancingv2/getTargetGroup:getTargetGroup', __args__, opts=opts)
 
     return GetTargetGroupResult(

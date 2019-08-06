@@ -131,6 +131,10 @@ class Cluster(pulumi.CustomResource):
         __props__['current_version'] = None
         __props__['zookeeper_connect_string'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Cluster, __self__).__init__(
             'aws:msk/cluster:Cluster',
             resource_name,

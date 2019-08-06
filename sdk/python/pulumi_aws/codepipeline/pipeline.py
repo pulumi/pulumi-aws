@@ -35,7 +35,7 @@ class Pipeline(pulumi.CustomResource):
         """
         Provides a CodePipeline.
         
-        > **NOTE on `aws_codepipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
+        > **NOTE on `codepipeline.Pipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -80,6 +80,10 @@ class Pipeline(pulumi.CustomResource):
 
         __props__['arn'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Pipeline, __self__).__init__(
             'aws:codepipeline/pipeline:Pipeline',
             resource_name,

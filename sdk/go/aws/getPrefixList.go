@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `aws_prefix_list` provides details about a specific prefix list (PL)
+// `.getPrefixList` provides details about a specific prefix list (PL)
 // in the current region.
 // 
 // This can be used both to validate a prefix list given in a variable

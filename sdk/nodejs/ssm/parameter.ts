@@ -31,7 +31,7 @@ import {ParameterType} from "./parameterType";
  * 
  * const defaultInstance = new aws.rds.Instance("default", {
  *     allocatedStorage: 10,
- *     dbSubnetGroupName: "my_database_subnet_group",
+ *     dbSubnetGroupName: "myDatabaseSubnetGroup",
  *     engine: "mysql",
  *     engineVersion: "5.7.16",
  *     instanceClass: "db.t2.micro",

@@ -92,7 +92,7 @@ func (r *Gateway) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
+// Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 func (r *Gateway) ActivationKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["activationKey"])
 }
@@ -107,7 +107,7 @@ func (r *Gateway) GatewayId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["gatewayId"])
 }
 
-// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
+// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 func (r *Gateway) GatewayIpAddress() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["gatewayIpAddress"])
 }
@@ -148,13 +148,13 @@ func (r *Gateway) TapeDriveType() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Gateway resources.
 type GatewayState struct {
-	// Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
+	// Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	ActivationKey interface{}
 	// Amazon Resource Name (ARN) of the gateway.
 	Arn interface{}
 	// Identifier of the gateway.
 	GatewayId interface{}
-	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
+	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	GatewayIpAddress interface{}
 	// Name of the gateway.
 	GatewayName interface{}
@@ -173,9 +173,9 @@ type GatewayState struct {
 
 // The set of arguments for constructing a Gateway resource.
 type GatewayArgs struct {
-	// Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
+	// Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	ActivationKey interface{}
-	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
+	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	GatewayIpAddress interface{}
 	// Name of the gateway.
 	GatewayName interface{}

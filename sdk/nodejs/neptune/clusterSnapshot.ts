@@ -77,7 +77,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly engineVersion!: pulumi.Output<string>;
     /**
-     * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+     * If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      */
     public /*out*/ readonly kmsKeyId!: pulumi.Output<string>;
     /**
@@ -198,7 +198,7 @@ export interface ClusterSnapshotState {
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
-     * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+     * If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**

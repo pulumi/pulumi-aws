@@ -9,7 +9,7 @@ import (
 
 // Provides an SSM Patch Baseline resource
 // 
-// > **NOTE on Patch Baselines:** The `approved_patches` and `approval_rule` are 
+// > **NOTE on Patch Baselines:** The `approvedPatches` and `approvalRule` are 
 // both marked as optional fields, but the Patch Baseline requires that at least one
 // of them is specified.
 //
@@ -83,7 +83,7 @@ func (r *PatchBaseline) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
+// A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approvalRule block requires the fields documented below.
 func (r *PatchBaseline) ApprovalRules() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["approvalRules"])
 }
@@ -129,7 +129,7 @@ func (r *PatchBaseline) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering PatchBaseline resources.
 type PatchBaselineState struct {
-	// A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
+	// A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approvalRule block requires the fields documented below.
 	ApprovalRules interface{}
 	// A list of explicitly approved patches for the baseline.
 	ApprovedPatches interface{}
@@ -150,7 +150,7 @@ type PatchBaselineState struct {
 
 // The set of arguments for constructing a PatchBaseline resource.
 type PatchBaselineArgs struct {
-	// A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
+	// A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approvalRule block requires the fields documented below.
 	ApprovalRules interface{}
 	// A list of explicitly approved patches for the baseline.
 	ApprovedPatches interface{}

@@ -17,15 +17,15 @@ import * as utilities from "../utilities";
  *     family: "redshift-1.0",
  *     parameters: [
  *         {
- *             name: "require_ssl",
+ *             name: "requireSsl",
  *             value: "true",
  *         },
  *         {
- *             name: "query_group",
+ *             name: "queryGroup",
  *             value: "example",
  *         },
  *         {
- *             name: "enable_user_activity_logging",
+ *             name: "enableUserActivityLogging",
  *             value: "true",
  *         },
  *     ],

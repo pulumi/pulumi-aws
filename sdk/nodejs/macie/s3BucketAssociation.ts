@@ -62,7 +62,7 @@ export class S3BucketAssociation extends pulumi.CustomResource {
      */
     public readonly classificationType!: pulumi.Output<{ continuous?: string, oneTime?: string }>;
     /**
-     * The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `member_account_id` isn't specified, the action associates specified S3 resources with Macie for the current master account.
+     * The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
      */
     public readonly memberAccountId!: pulumi.Output<string | undefined>;
     /**
@@ -120,7 +120,7 @@ export interface S3BucketAssociationState {
      */
     readonly classificationType?: pulumi.Input<{ continuous?: pulumi.Input<string>, oneTime?: pulumi.Input<string> }>;
     /**
-     * The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `member_account_id` isn't specified, the action associates specified S3 resources with Macie for the current master account.
+     * The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
      */
     readonly memberAccountId?: pulumi.Input<string>;
     /**
@@ -142,7 +142,7 @@ export interface S3BucketAssociationArgs {
      */
     readonly classificationType?: pulumi.Input<{ continuous?: pulumi.Input<string>, oneTime?: pulumi.Input<string> }>;
     /**
-     * The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `member_account_id` isn't specified, the action associates specified S3 resources with Macie for the current master account.
+     * The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
      */
     readonly memberAccountId?: pulumi.Input<string>;
     /**

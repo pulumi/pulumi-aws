@@ -49,7 +49,7 @@ class IntegrationResponse(pulumi.CustomResource):
         """
         Provides an HTTP Method Integration Response for an API Gateway Resource.
         
-        > **Note:** Depends on having `aws_api_gateway_integration` inside your rest api. To ensure this
+        > **Note:** Depends on having `apigateway.Integration` inside your rest api. To ensure this
         you might need to add an explicit `depends_on` for clean runs.
         
         :param str resource_name: The name of the resource.
@@ -108,6 +108,10 @@ class IntegrationResponse(pulumi.CustomResource):
             raise TypeError("Missing required property 'status_code'")
         __props__['status_code'] = status_code
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(IntegrationResponse, __self__).__init__(
             'aws:apigateway/integrationResponse:IntegrationResponse',
             resource_name,

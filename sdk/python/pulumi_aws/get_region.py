@@ -40,7 +40,7 @@ class GetRegionResult:
 
 async def get_region(endpoint=None,name=None,opts=None):
     """
-    `aws_region` provides details about a specific AWS region.
+    `.getRegion` provides details about a specific AWS region.
     
     As well as validating a given region name this resource can be used to
     discover the name of the region configured within the provider. The latter
@@ -53,6 +53,10 @@ async def get_region(endpoint=None,name=None,opts=None):
 
     __args__['endpoint'] = endpoint
     __args__['name'] = name
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:index/getRegion:getRegion', __args__, opts=opts)
 
     return GetRegionResult(

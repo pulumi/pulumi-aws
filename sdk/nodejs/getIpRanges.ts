@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *     ],
  *     services: ["ec2"],
  * }));
- * const fromEurope = new aws.ec2.SecurityGroup("from_europe", {
+ * const fromEurope = new aws.ec2.SecurityGroup("fromEurope", {
  *     ingress: [{
  *         cidrBlocks: europeanEc2.cidrBlocks,
  *         fromPort: 443,
@@ -66,7 +66,7 @@ export interface GetIpRangesArgs {
     readonly regions?: string[];
     /**
      * Filter IP ranges by services. Valid items are `amazon`
-     * (for amazon.com), `cloudfront`, `codebuild`, `ec2`, `route53`, `route53_healthchecks` and `S3`.
+     * (for amazon.com), `cloudfront`, `codebuild`, `ec2`, `route53`, `route53Healthchecks` and `S3`.
      */
     readonly services: string[];
     /**

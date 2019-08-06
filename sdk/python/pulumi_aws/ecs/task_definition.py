@@ -80,7 +80,7 @@ class TaskDefinition(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, container_definitions=None, cpu=None, execution_role_arn=None, family=None, ipc_mode=None, memory=None, network_mode=None, pid_mode=None, placement_constraints=None, proxy_configuration=None, requires_compatibilities=None, tags=None, task_role_arn=None, volumes=None, __name__=None, __opts__=None):
         """
-        Manages a revision of an ECS task definition to be used in `aws_ecs_service`.
+        Manages a revision of an ECS task definition to be used in `ecs.Service`.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,6 +156,10 @@ class TaskDefinition(pulumi.CustomResource):
         __props__['arn'] = None
         __props__['revision'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(TaskDefinition, __self__).__init__(
             'aws:ecs/taskDefinition:TaskDefinition',
             resource_name,

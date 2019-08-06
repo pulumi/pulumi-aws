@@ -88,7 +88,7 @@ class DomainName(pulumi.CustomResource):
         This resource just establishes ownership of and the TLS settings for
         a particular domain name. An API can be attached to a particular path
         under the registered domain name using
-        the `aws_api_gateway_base_path_mapping` resource.
+        the `apigateway.BasePathMapping` resource.
         
         API Gateway domains can be defined as either 'edge-optimized' or 'regional'.  In an edge-optimized configuration,
         API Gateway internally creates and manages a CloudFront distribution to route requests on the given hostname. In
@@ -101,7 +101,7 @@ class DomainName(pulumi.CustomResource):
         given domain name which is an alias (either Route53 alias or traditional CNAME) to the regional domain name exported in
         the `regional_domain_name` attribute.
         
-        > **Note:** API Gateway requires the use of AWS Certificate Manager (ACM) certificates instead of Identity and Access Management (IAM) certificates in regions that support ACM. Regions that support ACM can be found in the [Regions and Endpoints Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#acm_region). To import an existing private key and certificate into ACM or request an ACM certificate, see the [`aws_acm_certificate` resource](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html).
+        > **Note:** API Gateway requires the use of AWS Certificate Manager (ACM) certificates instead of Identity and Access Management (IAM) certificates in regions that support ACM. Regions that support ACM can be found in the [Regions and Endpoints Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#acm_region). To import an existing private key and certificate into ACM or request an ACM certificate, see the [`acm.Certificate` resource](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html).
         
         > **Note:** All arguments including the private key will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
@@ -173,6 +173,10 @@ class DomainName(pulumi.CustomResource):
         __props__['regional_domain_name'] = None
         __props__['regional_zone_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(DomainName, __self__).__init__(
             'aws:apigateway/domainName:DomainName',
             resource_name,

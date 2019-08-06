@@ -91,7 +91,7 @@ func (r *AccountPasswordPolicy) AllowUsersToChangePassword() *pulumi.BoolOutput 
 }
 
 // Indicates whether passwords in the account expire.
-// Returns `true` if `max_password_age` contains a value greater than `0`.
+// Returns `true` if `maxPasswordAge` contains a value greater than `0`.
 // Returns `false` if it is `0` or _not present_.
 func (r *AccountPasswordPolicy) ExpirePasswords() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["expirePasswords"])
@@ -143,7 +143,7 @@ type AccountPasswordPolicyState struct {
 	// Whether to allow users to change their own password
 	AllowUsersToChangePassword interface{}
 	// Indicates whether passwords in the account expire.
-	// Returns `true` if `max_password_age` contains a value greater than `0`.
+	// Returns `true` if `maxPasswordAge` contains a value greater than `0`.
 	// Returns `false` if it is `0` or _not present_.
 	ExpirePasswords interface{}
 	// Whether users are prevented from setting a new password after their password has expired

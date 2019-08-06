@@ -39,7 +39,7 @@ class Function(pulumi.CustomResource):
     """
     invoke_arn: pulumi.Output[str]
     """
-    The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+    The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
     """
     kms_key_arn: pulumi.Output[str]
     """
@@ -129,7 +129,7 @@ class Function(pulumi.CustomResource):
         
         Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
         indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
-        package via S3 it may be useful to use the `aws_s3_bucket_object` resource to upload it.
+        package via S3 it may be useful to use the `s3.BucketObject` resource to upload it.
         
         For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
         large files efficiently.
@@ -229,6 +229,10 @@ class Function(pulumi.CustomResource):
         __props__['source_code_size'] = None
         __props__['version'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Function, __self__).__init__(
             'aws:lambda/function:Function',
             resource_name,

@@ -25,13 +25,17 @@ class GetRuleResult:
 
 async def get_rule(name=None,opts=None):
     """
-    `aws_waf_rule` Retrieves a WAF Rule Resource Id.
+    `waf.Rule` Retrieves a WAF Rule Resource Id.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rule.html.markdown.
     """
     __args__ = dict()
 
     __args__['name'] = name
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:waf/getRule:getRule', __args__, opts=opts)
 
     return GetRuleResult(

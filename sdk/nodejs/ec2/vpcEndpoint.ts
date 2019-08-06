@@ -8,9 +8,9 @@ import * as utilities from "../utilities";
  * Provides a VPC Endpoint resource.
  * 
  * > **NOTE on VPC Endpoints and VPC Endpoint Associations:** This provider provides both standalone VPC Endpoint Associations for
- * Route Tables - (an association between a VPC endpoint and a single `route_table_id`) and
- * Subnets - (an association between a VPC endpoint and a single `subnet_id`) and
- * a VPC Endpoint resource with `route_table_ids` and `subnet_ids` attributes.
+ * Route Tables - (an association between a VPC endpoint and a single `routeTableId`) and
+ * Subnets - (an association between a VPC endpoint and a single `subnetId`) and
+ * a VPC Endpoint resource with `routeTableIds` and `subnetIds` attributes.
  * Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
  * Doing so will cause a conflict of associations and will overwrite the association.
  * 
@@ -64,11 +64,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const ptfeServiceVpcEndpoint = new aws.ec2.VpcEndpoint("ptfe_service", {
+ * const ptfeServiceVpcEndpoint = new aws.ec2.VpcEndpoint("ptfeService", {
  *     privateDnsEnabled: false,
  *     securityGroupIds: [aws_security_group_ptfe_service.id],
  *     serviceName: var_ptfe_service,
- *     subnetIds: [local_subnet_ids],
+ *     subnetIds: [localSubnetIds],
  *     vpcEndpointType: "Interface",
  *     vpcId: var_vpc_id,
  * });
@@ -77,15 +77,15 @@ import * as utilities from "../utilities";
  *     privateZone: true,
  *     vpcId: var_vpc_id,
  * }));
- * const ptfeServiceRecord = new aws.route53.Record("ptfe_service", {
- *     records: [ptfeServiceVpcEndpoint.dnsEntries.apply(dnsEntries => (<any>dnsEntries[0])["dns_name"])],
+ * const ptfeServiceRecord = new aws.route53.Record("ptfeService", {
+ *     records: [ptfeServiceVpcEndpoint.dnsEntries.apply(dnsEntries => (<any>dnsEntries[0])["dnsName"])],
  *     ttl: 300,
  *     type: "CNAME",
  *     zoneId: internal.zoneId,
  * });
  * ```
  * 
- * > **NOTE The `dns_entry` output is a list of maps:** This provider interpolation support for lists of maps requires the `lookup` and `[]` until full support of lists of maps is available
+ * > **NOTE The `dnsEntry` output is a list of maps:** This provider interpolation support for lists of maps requires the `lookup` and `[]` until full support of lists of maps is available
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint.html.markdown.
  */

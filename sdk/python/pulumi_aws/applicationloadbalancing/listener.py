@@ -15,7 +15,7 @@ class Listener(pulumi.CustomResource):
     """
     certificate_arn: pulumi.Output[str]
     """
-    The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+    The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
     """
     default_actions: pulumi.Output[list]
     """
@@ -41,11 +41,11 @@ class Listener(pulumi.CustomResource):
         """
         Provides a Load Balancer Listener resource.
         
-        > **Note:** `aws_alb_listener` is known as `aws_lb_listener`. The functionality is identical.
+        > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_arn: The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws_lb_listener_certificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+        :param pulumi.Input[str] certificate_arn: The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
         :param pulumi.Input[list] default_actions: An Action block. Action blocks are documented below.
         :param pulumi.Input[str] load_balancer_arn: The ARN of the load balancer.
         :param pulumi.Input[float] port: The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
@@ -89,6 +89,10 @@ class Listener(pulumi.CustomResource):
 
         __props__['arn'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Listener, __self__).__init__(
             'aws:applicationloadbalancing/listener:Listener',
             resource_name,

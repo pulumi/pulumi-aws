@@ -25,13 +25,17 @@ class GetIpsetResult:
 
 async def get_ipset(name=None,opts=None):
     """
-    `aws_waf_ipset` Retrieves a WAF IP Set Resource Id.
+    `waf.IpSet` Retrieves a WAF IP Set Resource Id.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_ipset.html.markdown.
     """
     __args__ = dict()
 
     __args__['name'] = name
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:waf/getIpset:getIpset', __args__, opts=opts)
 
     return GetIpsetResult(

@@ -11,9 +11,9 @@ import (
 // Provides a Virtual Private Gateway attachment resource, allowing for an existing
 // hardware VPN gateway to be attached and/or detached from a VPC.
 // 
-// > **Note:** The `aws_vpn_gateway`
+// > **Note:** The `ec2.VpnGateway`
 // resource can also automatically attach the Virtual Private Gateway it creates
-// to an existing VPC by setting the `vpc_id` attribute accordingly.
+// to an existing VPC by setting the `vpcId` attribute accordingly.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_attachment.html.markdown.
 type VpnGatewayAttachment struct {

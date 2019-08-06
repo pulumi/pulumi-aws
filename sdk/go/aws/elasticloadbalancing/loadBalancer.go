@@ -21,7 +21,7 @@ import (
 // 
 // ## Note on ECDSA Key Algorithm
 // 
-// If the ARN of the `ssl_certificate_id` that is pointed to references a
+// If the ARN of the `sslCertificateId` that is pointed to references a
 // certificate that was signed by an ECDSA key, note that ELB only supports the
 // P256 and P384 curves.  Using a certificate signed by a key using a different
 // curve could produce the error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your
@@ -164,7 +164,7 @@ func (r *LoadBalancer) DnsName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dnsName"])
 }
 
-// A health_check block. Health Check documented below.
+// A healthCheck block. Health Check documented below.
 func (r *LoadBalancer) HealthCheck() *pulumi.Output {
 	return r.s.State["healthCheck"]
 }
@@ -251,7 +251,7 @@ type LoadBalancerState struct {
 	CrossZoneLoadBalancing interface{}
 	// The DNS name of the ELB
 	DnsName interface{}
-	// A health_check block. Health Check documented below.
+	// A healthCheck block. Health Check documented below.
 	HealthCheck interface{}
 	// The time in seconds that the connection is allowed to be idle. Default: `60`
 	IdleTimeout interface{}
@@ -297,7 +297,7 @@ type LoadBalancerArgs struct {
 	ConnectionDrainingTimeout interface{}
 	// Enable cross-zone load balancing. Default: `true`
 	CrossZoneLoadBalancing interface{}
-	// A health_check block. Health Check documented below.
+	// A healthCheck block. Health Check documented below.
 	HealthCheck interface{}
 	// The time in seconds that the connection is allowed to be idle. Default: `60`
 	IdleTimeout interface{}

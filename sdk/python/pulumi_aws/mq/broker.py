@@ -186,6 +186,10 @@ class Broker(pulumi.CustomResource):
         __props__['arn'] = None
         __props__['instances'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Broker, __self__).__init__(
             'aws:mq/broker:Broker',
             resource_name,

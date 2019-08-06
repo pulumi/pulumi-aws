@@ -53,7 +53,7 @@ export interface GetLayerVersionArgs {
      */
     readonly layerName: string;
     /**
-     * Specific layer version. Conflicts with `compatible_runtime`. If omitted, the latest available layer version will be used.
+     * Specific layer version. Conflicts with `compatibleRuntime`. If omitted, the latest available layer version will be used.
      */
     readonly version?: number;
 }

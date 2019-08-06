@@ -36,9 +36,9 @@ func LookupImage(ctx *pulumi.Context, args *GetImageArgs) (*GetImageResult, erro
 
 // A collection of arguments for invoking getImage.
 type GetImageArgs struct {
-	// The sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+	// The sha256 digest of the image manifest. At least one of `imageDigest` or `imageTag` must be specified.
 	ImageDigest interface{}
-	// The tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+	// The tag associated with this image. At least one of `imageDigest` or `imageTag` must be specified.
 	ImageTag interface{}
 	// The ID of the Registry where the repository resides.
 	RegistryId interface{}

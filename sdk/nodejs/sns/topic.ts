@@ -15,7 +15,7 @@ import {ARN} from "../index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const userUpdates = new aws.sns.Topic("user_updates", {});
+ * const userUpdates = new aws.sns.Topic("userUpdates", {});
  * ```
  * 
  * ## Example with Delivery Policy
@@ -24,7 +24,7 @@ import {ARN} from "../index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const userUpdates = new aws.sns.Topic("user_updates", {
+ * const userUpdates = new aws.sns.Topic("userUpdates", {
  *     deliveryPolicy: `{
  *   "http": {
  *     "defaultHealthyRetryPolicy": {
@@ -52,7 +52,7 @@ import {ARN} from "../index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const userUpdates = new aws.sns.Topic("user_updates", {
+ * const userUpdates = new aws.sns.Topic("userUpdates", {
  *     kmsMasterKeyId: "alias/aws/sns",
  * });
  * ```

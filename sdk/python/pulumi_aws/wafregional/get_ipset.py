@@ -25,13 +25,17 @@ class GetIpsetResult:
 
 async def get_ipset(name=None,opts=None):
     """
-    `aws_wafregional_ipset` Retrieves a WAF Regional IP Set Resource Id.
+    `wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_ipset.html.markdown.
     """
     __args__ = dict()
 
     __args__['name'] = name
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:wafregional/getIpset:getIpset', __args__, opts=opts)
 
     return GetIpsetResult(

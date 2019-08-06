@@ -65,7 +65,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, db_cluster_identifier=None, db_cluster_snapshot_identifier=None, __name__=None, __opts__=None):
         """
-        Manages a RDS database cluster snapshot for Aurora clusters. For managing RDS database instance snapshots, see the [`aws_db_snapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_snapshot.html).
+        Manages a RDS database cluster snapshot for Aurora clusters. For managing RDS database instance snapshots, see the [`rds.Snapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_snapshot.html).
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,6 +111,10 @@ class ClusterSnapshot(pulumi.CustomResource):
         __props__['storage_encrypted'] = None
         __props__['vpc_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ClusterSnapshot, __self__).__init__(
             'aws:rds/clusterSnapshot:ClusterSnapshot',
             resource_name,

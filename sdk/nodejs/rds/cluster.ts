@@ -8,7 +8,7 @@ import {EngineMode} from "./engineMode";
 import {EngineType} from "./engineType";
 
 /**
- * Manages a [RDS Aurora Cluster][2]. To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the [`aws_rds_cluster_instance` resource](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html). To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the [`aws_db_instance` resource](https://www.terraform.io/docs/providers/aws/r/db_instance.html).
+ * Manages a [RDS Aurora Cluster][2]. To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the [`aws.rds.ClusterInstance` resource](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html). To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the [`aws.rds.Instance` resource](https://www.terraform.io/docs/providers/aws/r/db_instance.html).
  * 
  * For information on the difference between the available Aurora MySQL engines
  * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
@@ -18,10 +18,10 @@ import {EngineType} from "./engineType";
  * parameter, such as `port`, and are reflected in the next maintenance
  * window. Because of this, this provider may report a difference in its planning
  * phase because a modification has not yet taken place. You can use the
- * `apply_immediately` flag to instruct the service to apply the change immediately
+ * `applyImmediately` flag to instruct the service to apply the change immediately
  * (see documentation below).
  * 
- * > **Note:** using `apply_immediately` can result in a
+ * > **Note:** using `applyImmediately` can result in a
  * brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance][4]
  * for more information.
  * 
@@ -136,7 +136,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignore_changes` if necessary.
+     * A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignoreChanges` if necessary.
      */
     public readonly availabilityZones!: pulumi.Output<string[]>;
     /**
@@ -152,7 +152,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
-     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      */
     public readonly clusterIdentifierPrefix!: pulumi.Output<string>;
     /**
@@ -176,7 +176,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly dbClusterParameterGroupName!: pulumi.Output<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every [`aws.rds.ClusterInstance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
      */
     public readonly dbSubnetGroupName!: pulumi.Output<string>;
     /**
@@ -211,7 +211,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * The global cluster identifier specified on [`aws_rds_global_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+     * The global cluster identifier specified on [`aws.rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
      */
     public readonly globalClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -227,7 +227,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly iamRoles!: pulumi.Output<string[] | undefined>;
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
@@ -263,11 +263,11 @@ export class Cluster extends pulumi.CustomResource {
     public readonly replicationSourceIdentifier!: pulumi.Output<string | undefined>;
     public readonly s3Import!: pulumi.Output<{ bucketName: string, bucketPrefix?: string, ingestionRole: string, sourceEngine: string, sourceEngineVersion: string } | undefined>;
     /**
-     * Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+     * Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
      */
     public readonly scalingConfiguration!: pulumi.Output<{ autoPause?: boolean, maxCapacity?: number, minCapacity?: number, secondsUntilAutoPause?: number, timeoutAction?: string } | undefined>;
     /**
-     * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
     public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
     /**
@@ -279,7 +279,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly sourceRegion!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
+     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
      */
     public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     /**
@@ -413,7 +413,7 @@ export interface ClusterState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignore_changes` if necessary.
+     * A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignoreChanges` if necessary.
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -429,7 +429,7 @@ export interface ClusterState {
      */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
-     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      */
     readonly clusterIdentifierPrefix?: pulumi.Input<string>;
     /**
@@ -453,7 +453,7 @@ export interface ClusterState {
      */
     readonly dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every [`aws.rds.ClusterInstance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
@@ -488,7 +488,7 @@ export interface ClusterState {
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * The global cluster identifier specified on [`aws_rds_global_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+     * The global cluster identifier specified on [`aws.rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
      */
     readonly globalClusterIdentifier?: pulumi.Input<string>;
     /**
@@ -504,7 +504,7 @@ export interface ClusterState {
      */
     readonly iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
@@ -540,11 +540,11 @@ export interface ClusterState {
     readonly replicationSourceIdentifier?: pulumi.Input<string>;
     readonly s3Import?: pulumi.Input<{ bucketName: pulumi.Input<string>, bucketPrefix?: pulumi.Input<string>, ingestionRole: pulumi.Input<string>, sourceEngine: pulumi.Input<string>, sourceEngineVersion: pulumi.Input<string> }>;
     /**
-     * Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+     * Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
      */
     readonly scalingConfiguration?: pulumi.Input<{ autoPause?: pulumi.Input<boolean>, maxCapacity?: pulumi.Input<number>, minCapacity?: pulumi.Input<number>, secondsUntilAutoPause?: pulumi.Input<number>, timeoutAction?: pulumi.Input<string> }>;
     /**
-     * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
     readonly skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
@@ -556,7 +556,7 @@ export interface ClusterState {
      */
     readonly sourceRegion?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
+     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**
@@ -581,7 +581,7 @@ export interface ClusterArgs {
      */
     readonly applyImmediately?: pulumi.Input<boolean>;
     /**
-     * A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignore_changes` if necessary.
+     * A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next deployment. It is recommended to specify 3 AZs or use `ignoreChanges` if necessary.
      */
     readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -597,7 +597,7 @@ export interface ClusterArgs {
      */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
-     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      */
     readonly clusterIdentifierPrefix?: pulumi.Input<string>;
     /**
@@ -617,7 +617,7 @@ export interface ClusterArgs {
      */
     readonly dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`aws_rds_cluster_instance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every [`aws.rds.ClusterInstance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
@@ -648,7 +648,7 @@ export interface ClusterArgs {
      */
     readonly finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * The global cluster identifier specified on [`aws_rds_global_cluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+     * The global cluster identifier specified on [`aws.rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
      */
     readonly globalClusterIdentifier?: pulumi.Input<string>;
     /**
@@ -660,7 +660,7 @@ export interface ClusterArgs {
      */
     readonly iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
@@ -691,11 +691,11 @@ export interface ClusterArgs {
     readonly replicationSourceIdentifier?: pulumi.Input<string>;
     readonly s3Import?: pulumi.Input<{ bucketName: pulumi.Input<string>, bucketPrefix?: pulumi.Input<string>, ingestionRole: pulumi.Input<string>, sourceEngine: pulumi.Input<string>, sourceEngineVersion: pulumi.Input<string> }>;
     /**
-     * Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+     * Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
      */
     readonly scalingConfiguration?: pulumi.Input<{ autoPause?: pulumi.Input<boolean>, maxCapacity?: pulumi.Input<number>, minCapacity?: pulumi.Input<number>, secondsUntilAutoPause?: pulumi.Input<number>, timeoutAction?: pulumi.Input<string> }>;
     /**
-     * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
     readonly skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
@@ -707,7 +707,7 @@ export interface ClusterArgs {
      */
     readonly sourceRegion?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`.
+     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`.
      */
     readonly storageEncrypted?: pulumi.Input<boolean>;
     /**

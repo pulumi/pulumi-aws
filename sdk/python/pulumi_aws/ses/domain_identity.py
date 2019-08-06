@@ -59,6 +59,10 @@ class DomainIdentity(pulumi.CustomResource):
         __props__['arn'] = None
         __props__['verification_token'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(DomainIdentity, __self__).__init__(
             'aws:ses/domainIdentity:DomainIdentity',
             resource_name,

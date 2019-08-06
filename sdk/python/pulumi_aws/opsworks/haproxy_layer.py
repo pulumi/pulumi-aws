@@ -199,6 +199,10 @@ class HaproxyLayer(pulumi.CustomResource):
 
         __props__['use_ebs_optimized_instances'] = use_ebs_optimized_instances
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(HaproxyLayer, __self__).__init__(
             'aws:opsworks/haproxyLayer:HaproxyLayer',
             resource_name,

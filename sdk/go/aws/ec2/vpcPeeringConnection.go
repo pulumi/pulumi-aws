@@ -19,13 +19,13 @@ import (
 // management of the VPC Peering Connection and allows options to be set correctly in cross-account scenarios.
 // 
 // > **Note:** For cross-account (requester's AWS account differs from the accepter's AWS account) or inter-region
-// VPC Peering Connections use the `aws_vpc_peering_connection` resource to manage the requester's side of the
-// connection and use the `aws_vpc_peering_connection_accepter` resource to manage the accepter's side of the connection.
+// VPC Peering Connections use the `ec2.VpcPeeringConnection` resource to manage the requester's side of the
+// connection and use the `ec2.VpcPeeringConnectionAccepter` resource to manage the accepter's side of the connection.
 // 
 // ## Notes
 // 
-// If both VPCs are not in the same AWS account do not enable the `auto_accept` attribute.
-// The accepter can manage its side of the connection using the `aws_vpc_peering_connection_accepter` resource
+// If both VPCs are not in the same AWS account do not enable the `autoAccept` attribute.
+// The accepter can manage its side of the connection using the `ec2.VpcPeeringConnectionAccepter` resource
 // or accept the connection manually using the AWS Management Console, AWS CLI, through SDKs, etc.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection.html.markdown.
@@ -126,8 +126,8 @@ func (r *VpcPeeringConnection) PeerOwnerId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["peerOwnerId"])
 }
 
-// The region of the accepter VPC of the [VPC Peering Connection]. `auto_accept` must be `false`,
-// and use the `aws_vpc_peering_connection_accepter` to manage the accepter side.
+// The region of the accepter VPC of the [VPC Peering Connection]. `autoAccept` must be `false`,
+// and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
 func (r *VpcPeeringConnection) PeerRegion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["peerRegion"])
 }
@@ -167,8 +167,8 @@ type VpcPeeringConnectionState struct {
 	// The AWS account ID of the owner of the peer VPC.
 	// Defaults to the account ID the [AWS provider][1] is currently connected to.
 	PeerOwnerId interface{}
-	// The region of the accepter VPC of the [VPC Peering Connection]. `auto_accept` must be `false`,
-	// and use the `aws_vpc_peering_connection_accepter` to manage the accepter side.
+	// The region of the accepter VPC of the [VPC Peering Connection]. `autoAccept` must be `false`,
+	// and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
 	PeerRegion interface{}
 	// The ID of the VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId interface{}
@@ -193,8 +193,8 @@ type VpcPeeringConnectionArgs struct {
 	// The AWS account ID of the owner of the peer VPC.
 	// Defaults to the account ID the [AWS provider][1] is currently connected to.
 	PeerOwnerId interface{}
-	// The region of the accepter VPC of the [VPC Peering Connection]. `auto_accept` must be `false`,
-	// and use the `aws_vpc_peering_connection_accepter` to manage the accepter side.
+	// The region of the accepter VPC of the [VPC Peering Connection]. `autoAccept` must be `false`,
+	// and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
 	PeerRegion interface{}
 	// The ID of the VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId interface{}

@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `aws_ram_resource_share` Retrieve information about a RAM Resource Share.
+// `ram.ResourceShare` Retrieve information about a RAM Resource Share.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ram_resource_share.html.markdown.
 func LookupResourceShare(ctx *pulumi.Context, args *GetResourceShareArgs) (*GetResourceShareResult, error) {

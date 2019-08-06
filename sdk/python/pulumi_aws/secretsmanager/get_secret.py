@@ -73,7 +73,7 @@ class GetSecretResult:
 
 async def get_secret(arn=None,name=None,opts=None):
     """
-    Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`aws_secretsmanager_secret_version` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
+    Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`secretsmanager.SecretVersion` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret.html.markdown.
     """
@@ -81,6 +81,10 @@ async def get_secret(arn=None,name=None,opts=None):
 
     __args__['arn'] = arn
     __args__['name'] = name
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:secretsmanager/getSecret:getSecret', __args__, opts=opts)
 
     return GetSecretResult(

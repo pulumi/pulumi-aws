@@ -71,7 +71,7 @@ func (r *Webhook) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
+// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
 func (r *Webhook) BranchFilter() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["branchFilter"])
 }
@@ -103,7 +103,7 @@ func (r *Webhook) Url() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Webhook resources.
 type WebhookState struct {
-	// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
+	// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
 	BranchFilter interface{}
 	// Information about the webhook's trigger. Filter group blocks are documented below.
 	FilterGroups interface{}
@@ -119,7 +119,7 @@ type WebhookState struct {
 
 // The set of arguments for constructing a Webhook resource.
 type WebhookArgs struct {
-	// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
+	// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
 	BranchFilter interface{}
 	// Information about the webhook's trigger. Filter group blocks are documented below.
 	FilterGroups interface{}

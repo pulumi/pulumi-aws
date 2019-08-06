@@ -90,6 +90,10 @@ async def get_load_balancer(name=None,tags=None,opts=None):
 
     __args__['name'] = name
     __args__['tags'] = tags
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:elb/getLoadBalancer:getLoadBalancer', __args__, opts=opts)
 
     return GetLoadBalancerResult(

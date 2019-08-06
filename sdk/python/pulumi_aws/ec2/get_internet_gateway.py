@@ -40,7 +40,7 @@ class GetInternetGatewayResult:
 
 async def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,opts=None):
     """
-    `aws_internet_gateway` provides details about a specific Internet Gateway.
+    `ec2.InternetGateway` provides details about a specific Internet Gateway.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/internet_gateway.html.markdown.
     """
@@ -49,6 +49,10 @@ async def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,o
     __args__['filters'] = filters
     __args__['internetGatewayId'] = internet_gateway_id
     __args__['tags'] = tags
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ec2/getInternetGateway:getInternetGateway', __args__, opts=opts)
 
     return GetInternetGatewayResult(

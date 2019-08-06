@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `aws_subnet_ids` provides a list of ids for a vpc_id
+ * `aws.ec2.getSubnetIds` provides a list of ids for a vpcId
  * 
  * This resource can be useful for getting back a list of subnet ids for a vpc.
  * 
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * ```
  * 
  * The following example retrieves a list of all subnets in a VPC with a custom
- * tag of `Tier` set to a value of "Private" so that the `aws_instance` resource
+ * tag of `Tier` set to a value of "Private" so that the `aws.ec2.Instance` resource
  * can loop through the subnets, putting instances across availability zones.
  * 
  * ```typescript

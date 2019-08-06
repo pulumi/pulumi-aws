@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides a Direct Connect LAG. Connections can be added to the LAG via the [`aws_dx_connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) and [`aws_dx_connection_association`](https://www.terraform.io/docs/providers/aws/r/dx_connection_association.html) resources.
+// Provides a Direct Connect LAG. Connections can be added to the LAG via the [`directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) and [`directconnect.ConnectionAssociation`](https://www.terraform.io/docs/providers/aws/r/dx_connection_association.html) resources.
 // 
 // > *NOTE:* When creating a LAG, Direct Connect requires creating a Connection. This provider will remove this unmanaged connection during resource creation.
 //
@@ -83,7 +83,7 @@ func (r *LinkAggregationGroup) ID() *pulumi.IDOutput {
 }
 
 // The ARN of the LAG.
-// * `jumbo_frame_capable` -Indicates whether jumbo frames (9001 MTU) are supported.
+// * `jumboFrameCapable` -Indicates whether jumbo frames (9001 MTU) are supported.
 func (r *LinkAggregationGroup) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
@@ -125,7 +125,7 @@ func (r *LinkAggregationGroup) Tags() *pulumi.MapOutput {
 // Input properties used for looking up and filtering LinkAggregationGroup resources.
 type LinkAggregationGroupState struct {
 	// The ARN of the LAG.
-	// * `jumbo_frame_capable` -Indicates whether jumbo frames (9001 MTU) are supported.
+	// * `jumboFrameCapable` -Indicates whether jumbo frames (9001 MTU) are supported.
 	Arn interface{}
 	// The bandwidth of the individual physical connections bundled by the LAG. Available values: 1Gbps, 10Gbps. Case sensitive.
 	ConnectionsBandwidth interface{}

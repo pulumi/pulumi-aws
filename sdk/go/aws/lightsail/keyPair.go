@@ -90,8 +90,8 @@ func (r *KeyPair) EncryptedFingerprint() *pulumi.StringOutput {
 }
 
 // the private key material, base 64 encoded and
-// encrypted with the given `pgp_key`. This is only populated when creating a new
-// key and `pgp_key` is supplied
+// encrypted with the given `pgpKey`. This is only populated when creating a new
+// key and `pgpKey` is supplied
 func (r *KeyPair) EncryptedPrivateKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["encryptedPrivateKey"])
 }
@@ -118,7 +118,7 @@ func (r *KeyPair) PgpKey() *pulumi.StringOutput {
 }
 
 // the private key, base64 encoded. This is only populated
-// when creating a new key, and when no `pgp_key` is provided
+// when creating a new key, and when no `pgpKey` is provided
 func (r *KeyPair) PrivateKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["privateKey"])
 }
@@ -137,8 +137,8 @@ type KeyPairState struct {
 	// private key
 	EncryptedFingerprint interface{}
 	// the private key material, base 64 encoded and
-	// encrypted with the given `pgp_key`. This is only populated when creating a new
-	// key and `pgp_key` is supplied
+	// encrypted with the given `pgpKey`. This is only populated when creating a new
+	// key and `pgpKey` is supplied
 	EncryptedPrivateKey interface{}
 	// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 	Fingerprint interface{}
@@ -150,7 +150,7 @@ type KeyPairState struct {
 	// key material. Only used when creating a new key pair
 	PgpKey interface{}
 	// the private key, base64 encoded. This is only populated
-	// when creating a new key, and when no `pgp_key` is provided
+	// when creating a new key, and when no `pgpKey` is provided
 	PrivateKey interface{}
 	// The public key material. This public key will be
 	// imported into Lightsail

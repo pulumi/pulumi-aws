@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `aws_wafregional_web_acl` Retrieves a WAF Regional Web ACL Resource Id.
+ * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
  * 
  * ## Example Usage
  * 

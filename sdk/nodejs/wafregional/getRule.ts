@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `aws_wafregional_rule` Retrieves a WAF Regional Rule Resource Id.
+ * `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
  * 
  * ## Example Usage
  * 

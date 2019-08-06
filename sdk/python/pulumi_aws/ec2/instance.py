@@ -98,7 +98,7 @@ class Instance(pulumi.CustomResource):
     """
     key_name: pulumi.Output[str]
     """
-    The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
+    The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
     """
     monitoring: pulumi.Output[bool]
     """
@@ -142,7 +142,7 @@ class Instance(pulumi.CustomResource):
     """
     public_ip: pulumi.Output[str]
     """
-    The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws_eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+    The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
     """
     root_block_device: pulumi.Output[dict]
     """
@@ -223,7 +223,7 @@ class Instance(pulumi.CustomResource):
                instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input[str] instance_type: The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[list] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
-        :param pulumi.Input[str] key_name: The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
+        :param pulumi.Input[str] key_name: The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[list] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[str] placement_group: The Placement Group to start the instance in.
@@ -335,6 +335,10 @@ class Instance(pulumi.CustomResource):
         __props__['public_dns'] = None
         __props__['public_ip'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Instance, __self__).__init__(
             'aws:ec2/instance:Instance',
             resource_name,

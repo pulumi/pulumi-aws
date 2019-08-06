@@ -145,7 +145,7 @@ func (r *SmbFileShare) KmsEncrypted() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["kmsEncrypted"])
 }
 
-// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
 func (r *SmbFileShare) KmsKeyArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyArn"])
 }
@@ -198,7 +198,7 @@ type SmbFileShareState struct {
 	InvalidUserLists interface{}
 	// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
 	KmsEncrypted interface{}
-	// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+	// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
 	KmsKeyArn interface{}
 	// The ARN of the backed storage used for storing file data.
 	LocationArn interface{}
@@ -228,7 +228,7 @@ type SmbFileShareArgs struct {
 	InvalidUserLists interface{}
 	// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
 	KmsEncrypted interface{}
-	// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+	// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
 	KmsKeyArn interface{}
 	// The ARN of the backed storage used for storing file data.
 	LocationArn interface{}

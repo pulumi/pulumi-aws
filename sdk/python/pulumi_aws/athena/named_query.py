@@ -72,6 +72,10 @@ class NamedQuery(pulumi.CustomResource):
 
         __props__['workgroup'] = workgroup
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(NamedQuery, __self__).__init__(
             'aws:athena/namedQuery:NamedQuery',
             resource_name,

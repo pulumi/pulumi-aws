@@ -13,10 +13,10 @@ import (
 // parameter, such as `port`, and are reflected in the next maintenance
 // window. Because of this, this provider may report a difference in its planning
 // phase because a modification has not yet taken place. You can use the
-// `apply_immediately` flag to instruct the service to apply the change immediately
+// `applyImmediately` flag to instruct the service to apply the change immediately
 // (see documentation below).
 // 
-// > **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
+// > **Note:** using `applyImmediately` can result in a brief downtime as the server reboots.
 // > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 //
@@ -170,7 +170,7 @@ func (r *Cluster) ClusterIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterIdentifier"])
 }
 
-// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
 func (r *Cluster) ClusterIdentifierPrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterIdentifierPrefix"])
 }
@@ -228,7 +228,7 @@ func (r *Cluster) HostedZoneId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["hostedZoneId"])
 }
 
-// The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 func (r *Cluster) KmsKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
@@ -264,7 +264,7 @@ func (r *Cluster) ReaderEndpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["readerEndpoint"])
 }
 
-// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 func (r *Cluster) SkipFinalSnapshot() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["skipFinalSnapshot"])
 }
@@ -305,7 +305,7 @@ type ClusterState struct {
 	BackupRetentionPeriod interface{}
 	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier interface{}
-	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
 	ClusterIdentifierPrefix interface{}
 	// List of DocDB Instances that are a part of this cluster
 	ClusterMembers interface{}
@@ -330,7 +330,7 @@ type ClusterState struct {
 	FinalSnapshotIdentifier interface{}
 	// The Route53 Hosted Zone ID of the endpoint
 	HostedZoneId interface{}
-	// The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId interface{}
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
@@ -345,7 +345,7 @@ type ClusterState struct {
 	PreferredMaintenanceWindow interface{}
 	// A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
 	ReaderEndpoint interface{}
-	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot interface{}
 	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
 	SnapshotIdentifier interface{}
@@ -371,7 +371,7 @@ type ClusterArgs struct {
 	BackupRetentionPeriod interface{}
 	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier interface{}
-	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifer`.
+	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
 	ClusterIdentifierPrefix interface{}
 	// List of DocDB Instances that are a part of this cluster
 	ClusterMembers interface{}
@@ -390,7 +390,7 @@ type ClusterArgs struct {
 	// when this DB cluster is deleted. If omitted, no final snapshot will be
 	// made.
 	FinalSnapshotIdentifier interface{}
-	// The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId interface{}
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
@@ -403,7 +403,7 @@ type ClusterArgs struct {
 	// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
 	PreferredBackupWindow interface{}
 	PreferredMaintenanceWindow interface{}
-	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot interface{}
 	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
 	SnapshotIdentifier interface{}

@@ -47,7 +47,7 @@ async def get_availability_zones(blacklisted_names=None,blacklisted_zone_ids=Non
     Availability Zones which can be accessed by an AWS account within the region
     configured in the provider.
     
-    This is different from the `aws_availability_zone` (singular) data source,
+    This is different from the `.getAvailabilityZone` (singular) data source,
     which provides some details about a specific availability zone.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
@@ -57,6 +57,10 @@ async def get_availability_zones(blacklisted_names=None,blacklisted_zone_ids=Non
     __args__['blacklistedNames'] = blacklisted_names
     __args__['blacklistedZoneIds'] = blacklisted_zone_ids
     __args__['state'] = state
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:index/getAvailabilityZones:getAvailabilityZones', __args__, opts=opts)
 
     return GetAvailabilityZonesResult(

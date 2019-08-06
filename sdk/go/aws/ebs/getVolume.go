@@ -67,7 +67,7 @@ type GetVolumeResult struct {
 	MostRecent interface{}
 	// The size of the drive in GiBs.
 	Size interface{}
-	// The snapshot_id the EBS volume is based off.
+	// The snapshotId the EBS volume is based off.
 	SnapshotId interface{}
 	// A mapping of tags for the resource.
 	Tags interface{}

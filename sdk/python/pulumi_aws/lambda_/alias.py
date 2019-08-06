@@ -27,7 +27,7 @@ class Alias(pulumi.CustomResource):
     """
     invoke_arn: pulumi.Output[str]
     """
-    The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+    The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
     """
     name: pulumi.Output[str]
     """
@@ -86,6 +86,10 @@ class Alias(pulumi.CustomResource):
         __props__['arn'] = None
         __props__['invoke_arn'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Alias, __self__).__init__(
             'aws:lambda/alias:Alias',
             resource_name,

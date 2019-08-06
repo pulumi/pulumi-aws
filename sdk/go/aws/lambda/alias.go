@@ -101,7 +101,7 @@ func (r *Alias) FunctionVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["functionVersion"])
 }
 
-// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
 func (r *Alias) InvokeArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["invokeArn"])
 }
@@ -126,7 +126,7 @@ type AliasState struct {
 	FunctionName interface{}
 	// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
 	FunctionVersion interface{}
-	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws_api_gateway_integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
 	InvokeArn interface{}
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name interface{}

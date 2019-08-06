@@ -39,7 +39,7 @@ async def get_cipher_text(context=None,key_id=None,plaintext=None,opts=None):
     """
     The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
     by using an AWS KMS customer master key. The value returned by this data source
-    changes every apply. For a stable ciphertext value, see the [`aws_kms_ciphertext`
+    changes every apply. For a stable ciphertext value, see the [`kms.Ciphertext`
     resource](https://www.terraform.io/docs/providers/aws/r/kms_ciphertext.html).
     
     > **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
@@ -52,6 +52,10 @@ async def get_cipher_text(context=None,key_id=None,plaintext=None,opts=None):
     __args__['context'] = context
     __args__['keyId'] = key_id
     __args__['plaintext'] = plaintext
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:kms/getCipherText:getCipherText', __args__, opts=opts)
 
     return GetCipherTextResult(

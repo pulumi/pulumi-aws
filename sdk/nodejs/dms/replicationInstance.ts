@@ -41,13 +41,13 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * }));
- * const dms_access_for_endpoint = new aws.iam.Role("dms-access-for-endpoint", {
+ * const dmsAccessForEndpoint = new aws.iam.Role("dms-access-for-endpoint", {
  *     assumeRolePolicy: dmsAssumeRole.json,
  * });
- * const dms_cloudwatch_logs_role = new aws.iam.Role("dms-cloudwatch-logs-role", {
+ * const dmsCloudwatchLogsRole = new aws.iam.Role("dms-cloudwatch-logs-role", {
  *     assumeRolePolicy: dmsAssumeRole.json,
  * });
- * const dms_vpc_role = new aws.iam.Role("dms-vpc-role", {
+ * const dmsVpcRole = new aws.iam.Role("dms-vpc-role", {
  *     assumeRolePolicy: dmsAssumeRole.json,
  * });
  * const dms_access_for_endpoint_AmazonDMSRedshiftS3Role = new aws.iam.RolePolicyAttachment("dms-access-for-endpoint-AmazonDMSRedshiftS3Role", {
@@ -114,11 +114,11 @@ export class ReplicationInstance extends pulumi.CustomResource {
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
     public readonly kmsKeyArn!: pulumi.Output<string>;
     /**
-     * Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+     * Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
      */
     public readonly multiAz!: pulumi.Output<boolean>;
     /**
@@ -253,11 +253,11 @@ export interface ReplicationInstanceState {
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
     readonly kmsKeyArn?: pulumi.Input<string>;
     /**
-     * Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+     * Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
      */
     readonly multiAz?: pulumi.Input<boolean>;
     /**
@@ -327,11 +327,11 @@ export interface ReplicationInstanceArgs {
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
     readonly kmsKeyArn?: pulumi.Input<string>;
     /**
-     * Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+     * Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
      */
     readonly multiAz?: pulumi.Input<boolean>;
     /**

@@ -99,7 +99,7 @@ func (r *FirehoseDeliveryStream) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
+// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, and `splunk`.
 func (r *FirehoseDeliveryStream) Destination() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["destination"])
 }
@@ -129,13 +129,13 @@ func (r *FirehoseDeliveryStream) Name() *pulumi.StringOutput {
 }
 
 // Configuration options if redshift is the destination.
-// Using `redshift_configuration` requires the user to also specify a
-// `s3_configuration` block. More details are given below.
+// Using `redshiftConfiguration` requires the user to also specify a
+// `s3Configuration` block. More details are given below.
 func (r *FirehoseDeliveryStream) RedshiftConfiguration() *pulumi.Output {
 	return r.s.State["redshiftConfiguration"]
 }
 
-// Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
+// Required for non-S3 destinations. For S3 destination, use `extendedS3Configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
 // is redshift). More details are given below.
 func (r *FirehoseDeliveryStream) S3Configuration() *pulumi.Output {
 	return r.s.State["s3Configuration"]
@@ -159,7 +159,7 @@ func (r *FirehoseDeliveryStream) VersionId() *pulumi.StringOutput {
 type FirehoseDeliveryStreamState struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn interface{}
-	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
+	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, and `splunk`.
 	Destination interface{}
 	DestinationId interface{}
 	ElasticsearchConfiguration interface{}
@@ -171,10 +171,10 @@ type FirehoseDeliveryStreamState struct {
 	// AWS account and region the Stream is created in.
 	Name interface{}
 	// Configuration options if redshift is the destination.
-	// Using `redshift_configuration` requires the user to also specify a
-	// `s3_configuration` block. More details are given below.
+	// Using `redshiftConfiguration` requires the user to also specify a
+	// `s3Configuration` block. More details are given below.
 	RedshiftConfiguration interface{}
-	// Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
+	// Required for non-S3 destinations. For S3 destination, use `extendedS3Configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
 	// is redshift). More details are given below.
 	S3Configuration interface{}
 	SplunkConfiguration interface{}
@@ -188,7 +188,7 @@ type FirehoseDeliveryStreamState struct {
 type FirehoseDeliveryStreamArgs struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn interface{}
-	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
+	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, and `splunk`.
 	Destination interface{}
 	DestinationId interface{}
 	ElasticsearchConfiguration interface{}
@@ -200,10 +200,10 @@ type FirehoseDeliveryStreamArgs struct {
 	// AWS account and region the Stream is created in.
 	Name interface{}
 	// Configuration options if redshift is the destination.
-	// Using `redshift_configuration` requires the user to also specify a
-	// `s3_configuration` block. More details are given below.
+	// Using `redshiftConfiguration` requires the user to also specify a
+	// `s3Configuration` block. More details are given below.
 	RedshiftConfiguration interface{}
-	// Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
+	// Required for non-S3 destinations. For S3 destination, use `extendedS3Configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
 	// is redshift). More details are given below.
 	S3Configuration interface{}
 	SplunkConfiguration interface{}

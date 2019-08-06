@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `aws_route53_zone` provides details about a specific Route 53 Hosted Zone.
+ * `aws.route53.Zone` provides details about a specific Route 53 Hosted Zone.
  * 
  * This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
  * 
@@ -72,7 +72,7 @@ export interface GetZoneArgs {
      */
     readonly tags?: {[key: string]: any};
     /**
-     * Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
+     * Used with `name` field to get a private Hosted Zone associated with the vpcId (in this case, privateZone is not mandatory).
      */
     readonly vpcId?: string;
     /**

@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * A Cluster Instance Resource defines attributes that are specific to a single instance in a Neptune Cluster.
  * 
  * You can simply add neptune instances and Neptune manages the replication. You can use the [count][1]
- * meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instance_class` sizes.
+ * meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instanceClass` sizes.
  * 
  * 
  * ## Example Usage
@@ -90,7 +90,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
-     * The identifier of the [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+     * The identifier of the [`aws.neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
      */
     public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
@@ -130,7 +130,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly neptuneParameterGroupName!: pulumi.Output<string | undefined>;
     /**
-     * A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+     * A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached [`aws.neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
      */
     public readonly neptuneSubnetGroupName!: pulumi.Output<string>;
     /**
@@ -273,7 +273,7 @@ export interface ClusterInstanceState {
      */
     readonly availabilityZone?: pulumi.Input<string>;
     /**
-     * The identifier of the [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+     * The identifier of the [`aws.neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
      */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
@@ -313,7 +313,7 @@ export interface ClusterInstanceState {
      */
     readonly neptuneParameterGroupName?: pulumi.Input<string>;
     /**
-     * A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+     * A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached [`aws.neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
      */
     readonly neptuneSubnetGroupName?: pulumi.Input<string>;
     /**
@@ -369,7 +369,7 @@ export interface ClusterInstanceArgs {
      */
     readonly availabilityZone?: pulumi.Input<string>;
     /**
-     * The identifier of the [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+     * The identifier of the [`aws.neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
      */
     readonly clusterIdentifier: pulumi.Input<string>;
     /**
@@ -397,7 +397,7 @@ export interface ClusterInstanceArgs {
      */
     readonly neptuneParameterGroupName?: pulumi.Input<string>;
     /**
-     * A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws_neptune_cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+     * A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached [`aws.neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
      */
     readonly neptuneSubnetGroupName?: pulumi.Input<string>;
     /**

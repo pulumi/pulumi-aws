@@ -90,6 +90,10 @@ class Route(pulumi.CustomResource):
         __props__['created_date'] = None
         __props__['last_updated_date'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Route, __self__).__init__(
             'aws:appmesh/route:Route',
             resource_name,

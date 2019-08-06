@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const allowTls = new aws.ec2.SecurityGroup("allow_tls", {
+ * const allowTls = new aws.ec2.SecurityGroup("allowTls", {
  *     description: "Allow TLS inbound traffic",
  *     egress: [{
  *         cidrBlocks: ["0.0.0.0/0"],
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const allowTls = new aws.ec2.SecurityGroup("allow_tls", {
+ * const allowTls = new aws.ec2.SecurityGroup("allowTls", {
  *     description: "Allow TLS inbound traffic",
  *     ingress: [{
  *         // Please restrict your ingress to only necessary IPs and ports.
@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *         toPort: 443,
  *     }],
  *     tags: {
- *         Name: "allow_all",
+ *         Name: "allowAll",
  *     },
  * });
  * ```
@@ -80,7 +80,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * // ...
- * const myEndpoint = new aws.ec2.VpcEndpoint("my_endpoint", {});
+ * const myEndpoint = new aws.ec2.VpcEndpoint("myEndpoint", {});
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group.html.markdown.

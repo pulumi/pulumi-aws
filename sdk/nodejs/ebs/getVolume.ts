@@ -98,7 +98,7 @@ export interface GetVolumeResult {
      */
     readonly size: number;
     /**
-     * The snapshot_id the EBS volume is based off.
+     * The snapshotId the EBS volume is based off.
      */
     readonly snapshotId: string;
     /**

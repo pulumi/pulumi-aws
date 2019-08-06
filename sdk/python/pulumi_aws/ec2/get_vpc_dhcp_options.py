@@ -82,6 +82,10 @@ async def get_vpc_dhcp_options(dhcp_options_id=None,filters=None,tags=None,opts=
     __args__['dhcpOptionsId'] = dhcp_options_id
     __args__['filters'] = filters
     __args__['tags'] = tags
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions', __args__, opts=opts)
 
     return GetVpcDhcpOptionsResult(

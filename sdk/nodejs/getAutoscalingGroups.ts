@@ -26,7 +26,7 @@ import * as utilities from "./utilities";
  *         },
  *     ],
  * }));
- * const slackNotifications = new aws.autoscaling.Notification("slack_notifications", {
+ * const slackNotifications = new aws.autoscaling.Notification("slackNotifications", {
  *     groupNames: groups.names,
  *     notifications: [
  *         "autoscaling:EC2_INSTANCE_LAUNCH",

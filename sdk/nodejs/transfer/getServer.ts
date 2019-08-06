@@ -63,7 +63,7 @@ export interface GetServerResult {
      */
     readonly identityProviderType: string;
     /**
-     * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+     * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
      */
     readonly invocationRole: string;
     /**
@@ -72,7 +72,7 @@ export interface GetServerResult {
     readonly loggingRole: string;
     readonly serverId: string;
     /**
-     * URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+     * URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
      */
     readonly url: string;
     /**

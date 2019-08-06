@@ -75,6 +75,10 @@ class SmsPreferences(pulumi.CustomResource):
 
         __props__['usage_report_s3_bucket'] = usage_report_s3_bucket
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(SmsPreferences, __self__).__init__(
             'aws:sns/smsPreferences:SmsPreferences',
             resource_name,

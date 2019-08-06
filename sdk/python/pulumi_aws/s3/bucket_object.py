@@ -57,7 +57,7 @@ class BucketObject(pulumi.CustomResource):
     kms_key_id: pulumi.Output[str]
     """
     Specifies the AWS KMS Key ARN to use for object encryption.
-    This value is a fully qualified **ARN** of the KMS Key. If using `aws_kms_key`,
+    This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`,
     use the exported `arn` attribute:
     `kms_key_id = "${aws_kms_key.foo.arn}"`
     """
@@ -110,7 +110,7 @@ class BucketObject(pulumi.CustomResource):
                This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
         :param pulumi.Input[str] key: The name of the object once it is in the bucket.
         :param pulumi.Input[str] kms_key_id: Specifies the AWS KMS Key ARN to use for object encryption.
-               This value is a fully qualified **ARN** of the KMS Key. If using `aws_kms_key`,
+               This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`,
                use the exported `arn` attribute:
                `kms_key_id = "${aws_kms_key.foo.arn}"`
         :param pulumi.Input[dict] metadata: A mapping of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
@@ -178,6 +178,10 @@ class BucketObject(pulumi.CustomResource):
 
         __props__['version_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(BucketObject, __self__).__init__(
             'aws:s3/bucketObject:BucketObject',
             resource_name,

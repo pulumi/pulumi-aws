@@ -101,6 +101,10 @@ class BgpPeer(pulumi.CustomResource):
         __props__['bgp_peer_id'] = None
         __props__['bgp_status'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(BgpPeer, __self__).__init__(
             'aws:directconnect/bgpPeer:BgpPeer',
             resource_name,

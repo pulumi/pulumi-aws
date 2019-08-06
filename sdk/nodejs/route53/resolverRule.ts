@@ -74,7 +74,7 @@ export class ResolverRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
+     * DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
@@ -86,7 +86,7 @@ export class ResolverRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+     * The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
      * This argument should only be specified for `FORWARD` type rules.
      */
     public readonly resolverEndpointId!: pulumi.Output<string | undefined>;
@@ -168,7 +168,7 @@ export interface ResolverRuleState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
+     * DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
      */
     readonly domainName?: pulumi.Input<string>;
     /**
@@ -180,7 +180,7 @@ export interface ResolverRuleState {
      */
     readonly ownerId?: pulumi.Input<string>;
     /**
-     * The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+     * The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
      * This argument should only be specified for `FORWARD` type rules.
      */
     readonly resolverEndpointId?: pulumi.Input<string>;
@@ -209,7 +209,7 @@ export interface ResolverRuleState {
  */
 export interface ResolverRuleArgs {
     /**
-     * DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
+     * DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
      */
     readonly domainName: pulumi.Input<string>;
     /**
@@ -217,7 +217,7 @@ export interface ResolverRuleArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+     * The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
      * This argument should only be specified for `FORWARD` type rules.
      */
     readonly resolverEndpointId?: pulumi.Input<string>;

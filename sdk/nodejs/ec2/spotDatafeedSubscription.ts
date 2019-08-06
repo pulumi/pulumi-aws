@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const defaultBucket = new aws.s3.Bucket("default", {});
  * const defaultSpotDatafeedSubscription = new aws.ec2.SpotDatafeedSubscription("default", {
  *     bucket: defaultBucket.bucket,
- *     prefix: "my_subdirectory",
+ *     prefix: "mySubdirectory",
  * });
  * ```
  *

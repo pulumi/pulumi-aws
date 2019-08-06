@@ -49,7 +49,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         of when using it. Please read this document in its entirety before using this
         resource.
         
-        The `aws_default_security_group` behaves differently from normal resources, in that
+        The `ec2.DefaultSecurityGroup` behaves differently from normal resources, in that
         this provider does not _create_ this resource, but instead "adopts" it
         into management. We can do this because these default security groups cannot be
         destroyed, and are created with a known set of default ingress/egress rules.
@@ -62,21 +62,21 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         This resource treats its inline rules as absolute; only the rules defined
         inline are created, and any additions/removals external to this resource will
         result in diff shown. For these reasons, this resource is incompatible with the
-        `aws_security_group_rule` resource.
+        `ec2.SecurityGroupRule` resource.
         
         For more information about Default Security Groups, see the AWS Documentation on
         [Default Security Groups][aws-default-security-groups].
         
         ## Usage
         
-        With the exceptions mentioned above, `aws_default_security_group` should
-        identical behavior to `aws_security_group`. Please consult [AWS_SECURITY_GROUP](https://www.terraform.io/docs/providers/aws/r/security_group.html)
+        With the exceptions mentioned above, `ec2.DefaultSecurityGroup` should
+        identical behavior to `ec2.SecurityGroup`. Please consult [AWS_SECURITY_GROUP](https://www.terraform.io/docs/providers/aws/r/security_group.html)
         for further usage documentation.
         
-        ### Removing `aws_default_security_group` from your configuration
+        ### Removing `ec2.DefaultSecurityGroup` from your configuration
         
         Each AWS VPC (or region, if using EC2 Classic) comes with a Default Security
-        Group that cannot be deleted. The `aws_default_security_group` allows you to
+        Group that cannot be deleted. The `ec2.DefaultSecurityGroup` allows you to
         manage this Security Group, but this provider cannot destroy it. Removing this resource
         from your configuration will remove it from your statefile and management, but
         will not destroy the Security Group. All ingress or egress rules will be left as
@@ -124,6 +124,10 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         __props__['name'] = None
         __props__['owner_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(DefaultSecurityGroup, __self__).__init__(
             'aws:ec2/defaultSecurityGroup:DefaultSecurityGroup',
             resource_name,

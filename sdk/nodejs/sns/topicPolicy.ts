@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const test = new aws.sns.Topic("test", {});
- * const sns_topic_policy = test.arn.apply(arn => aws.iam.getPolicyDocument({
+ * const snsTopicPolicy = test.arn.apply(arn => aws.iam.getPolicyDocument({
  *     policyId: "__default_policy_ID",
  *     statements: [{
  *         actions: [
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *         ],
  *         conditions: [{
  *             test: "StringEquals",
- *             values: [var_account_id],
+ *             values: [varAccountId],
  *             variable: "AWS:SourceOwner",
  *         }],
  *         effect: "Allow",

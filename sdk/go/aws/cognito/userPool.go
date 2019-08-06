@@ -122,7 +122,7 @@ func (r *UserPool) AdminCreateUserConfig() *pulumi.Output {
 	return r.s.State["adminCreateUserConfig"]
 }
 
-// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `username_attributes`.
+// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
 func (r *UserPool) AliasAttributes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["aliasAttributes"])
 }
@@ -152,12 +152,12 @@ func (r *UserPool) EmailConfiguration() *pulumi.Output {
 	return r.s.State["emailConfiguration"]
 }
 
-// A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
+// A string representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
 func (r *UserPool) EmailVerificationMessage() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["emailVerificationMessage"])
 }
 
-// A string representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
+// A string representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
 func (r *UserPool) EmailVerificationSubject() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["emailVerificationSubject"])
 }
@@ -207,7 +207,7 @@ func (r *UserPool) SmsConfiguration() *pulumi.Output {
 	return r.s.State["smsConfiguration"]
 }
 
-// A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+// A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
 func (r *UserPool) SmsVerificationMessage() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["smsVerificationMessage"])
 }
@@ -222,7 +222,7 @@ func (r *UserPool) UserPoolAddOns() *pulumi.Output {
 	return r.s.State["userPoolAddOns"]
 }
 
-// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 func (r *UserPool) UsernameAttributes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["usernameAttributes"])
 }
@@ -236,7 +236,7 @@ func (r *UserPool) VerificationMessageTemplate() *pulumi.Output {
 type UserPoolState struct {
 	// The configuration for AdminCreateUser requests.
 	AdminCreateUserConfig interface{}
-	// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `username_attributes`.
+	// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
 	AliasAttributes interface{}
 	// The ARN of the user pool.
 	Arn interface{}
@@ -248,9 +248,9 @@ type UserPoolState struct {
 	DeviceConfiguration interface{}
 	// The Email Configuration.
 	EmailConfiguration interface{}
-	// A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
+	// A string representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
 	EmailVerificationMessage interface{}
-	// A string representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
+	// A string representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
 	EmailVerificationSubject interface{}
 	// The endpoint name of the user pool. Example format: cognito-idp.REGION.amazonaws.com/xxxx_yyyyy
 	Endpoint interface{}
@@ -270,13 +270,13 @@ type UserPoolState struct {
 	SmsAuthenticationMessage interface{}
 	// The SMS Configuration.
 	SmsConfiguration interface{}
-	// A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+	// A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
 	SmsVerificationMessage interface{}
 	// A mapping of tags to assign to the User Pool.
 	Tags interface{}
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
 	UserPoolAddOns interface{}
-	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 	UsernameAttributes interface{}
 	// The verification message templates configuration.
 	VerificationMessageTemplate interface{}
@@ -286,7 +286,7 @@ type UserPoolState struct {
 type UserPoolArgs struct {
 	// The configuration for AdminCreateUser requests.
 	AdminCreateUserConfig interface{}
-	// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `username_attributes`.
+	// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
 	AliasAttributes interface{}
 	// The attributes to be auto-verified. Possible values: email, phone_number.
 	AutoVerifiedAttributes interface{}
@@ -294,9 +294,9 @@ type UserPoolArgs struct {
 	DeviceConfiguration interface{}
 	// The Email Configuration.
 	EmailConfiguration interface{}
-	// A string representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
+	// A string representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
 	EmailVerificationMessage interface{}
-	// A string representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
+	// A string representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
 	EmailVerificationSubject interface{}
 	// A container for the AWS Lambda triggers associated with the user pool.
 	LambdaConfig interface{}
@@ -312,13 +312,13 @@ type UserPoolArgs struct {
 	SmsAuthenticationMessage interface{}
 	// The SMS Configuration.
 	SmsConfiguration interface{}
-	// A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+	// A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
 	SmsVerificationMessage interface{}
 	// A mapping of tags to assign to the User Pool.
 	Tags interface{}
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
 	UserPoolAddOns interface{}
-	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 	UsernameAttributes interface{}
 	// The verification message templates configuration.
 	VerificationMessageTemplate interface{}

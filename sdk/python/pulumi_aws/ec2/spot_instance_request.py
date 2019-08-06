@@ -102,7 +102,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
     """
     key_name: pulumi.Output[str]
     """
-    The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
+    The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
     """
     launch_group: pulumi.Output[str]
     """
@@ -284,7 +284,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[str] instance_interruption_behaviour: Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
         :param pulumi.Input[str] instance_type: The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[list] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
-        :param pulumi.Input[str] key_name: The key name of the Key Pair to use for the instance; which can be managed using the `aws_key_pair` resource.
+        :param pulumi.Input[str] key_name: The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         :param pulumi.Input[str] launch_group: A launch group is a group of spot instances that launch together and terminate together.
                If left empty instances are launched and terminated individually.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -425,6 +425,10 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__['spot_instance_id'] = None
         __props__['spot_request_state'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(SpotInstanceRequest, __self__).__init__(
             'aws:ec2/spotInstanceRequest:SpotInstanceRequest',
             resource_name,

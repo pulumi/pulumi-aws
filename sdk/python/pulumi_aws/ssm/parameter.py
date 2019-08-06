@@ -113,6 +113,10 @@ class Parameter(pulumi.CustomResource):
 
         __props__['version'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Parameter, __self__).__init__(
             'aws:ssm/parameter:Parameter',
             resource_name,

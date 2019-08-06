@@ -43,10 +43,10 @@ class VirtualRouter(pulumi.CustomResource):
         
         ## Breaking Changes
         
-        Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92) and [here](https://github.com/awslabs/aws-app-mesh-examples/issues/94)), `aws_appmesh_virtual_router` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
+        Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92) and [here](https://github.com/awslabs/aws-app-mesh-examples/issues/94)), `appmesh.VirtualRouter` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
         
         * Remove service `service_names` from the `spec` argument.
-        AWS has created a `aws_appmesh_virtual_service` resource for each of service names.
+        AWS has created a `appmesh.VirtualService` resource for each of service names.
         These resource can be imported using `import`.
         
         * Add a `listener` configuration block to the `spec` argument.
@@ -93,6 +93,10 @@ class VirtualRouter(pulumi.CustomResource):
         __props__['created_date'] = None
         __props__['last_updated_date'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VirtualRouter, __self__).__init__(
             'aws:appmesh/virtualRouter:VirtualRouter',
             resource_name,

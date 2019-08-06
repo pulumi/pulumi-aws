@@ -14,20 +14,20 @@ import (
 // This resource just establishes ownership of and the TLS settings for
 // a particular domain name. An API can be attached to a particular path
 // under the registered domain name using
-// the `aws_api_gateway_base_path_mapping` resource.
+// the `apigateway.BasePathMapping` resource.
 // 
 // API Gateway domains can be defined as either 'edge-optimized' or 'regional'.  In an edge-optimized configuration,
 // API Gateway internally creates and manages a CloudFront distribution to route requests on the given hostname. In
 // addition to this resource it's necessary to create a DNS record corresponding to the given domain name which is an alias
-// (either Route53 alias or traditional CNAME) to the Cloudfront domain name exported in the `cloudfront_domain_name`
+// (either Route53 alias or traditional CNAME) to the Cloudfront domain name exported in the `cloudfrontDomainName`
 // attribute.
 // 
 // In a regional configuration, API Gateway does not create a CloudFront distribution to route requests to the API, though
 // a distribution can be created if needed. In either case, it is necessary to create a DNS record corresponding to the
 // given domain name which is an alias (either Route53 alias or traditional CNAME) to the regional domain name exported in
-// the `regional_domain_name` attribute.
+// the `regionalDomainName` attribute.
 // 
-// > **Note:** API Gateway requires the use of AWS Certificate Manager (ACM) certificates instead of Identity and Access Management (IAM) certificates in regions that support ACM. Regions that support ACM can be found in the [Regions and Endpoints Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#acm_region). To import an existing private key and certificate into ACM or request an ACM certificate, see the [`aws_acm_certificate` resource](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html).
+// > **Note:** API Gateway requires the use of AWS Certificate Manager (ACM) certificates instead of Identity and Access Management (IAM) certificates in regions that support ACM. Regions that support ACM can be found in the [Regions and Endpoints Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#acm_region). To import an existing private key and certificate into ACM or request an ACM certificate, see the [`acm.Certificate` resource](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html).
 // 
 // > **Note:** All arguments including the private key will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
@@ -118,35 +118,35 @@ func (r *DomainName) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
+// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
 func (r *DomainName) CertificateArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["certificateArn"])
 }
 
 // The certificate issued for the domain name
-// being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
-// `regional_certificate_name`.
+// being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and
+// `regionalCertificateName`.
 func (r *DomainName) CertificateBody() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["certificateBody"])
 }
 
 // The certificate for the CA that issued the
 // certificate, along with any intermediate CA certificates required to
-// create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`,
-// `regional_certificate_arn`, and `regional_certificate_name`.
+// create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`,
+// `regionalCertificateArn`, and `regionalCertificateName`.
 func (r *DomainName) CertificateChain() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["certificateChain"])
 }
 
 // The unique name to use when registering this
-// certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
-// `regional_certificate_name`. Required if `certificate_arn` is not set.
+// certificate as an IAM server certificate. Conflicts with `certificateArn`, `regionalCertificateArn`, and
+// `regionalCertificateName`. Required if `certificateArn` is not set.
 func (r *DomainName) CertificateName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["certificateName"])
 }
 
 // The private key associated with the
-// domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
+// domain certificate given in `certificateBody`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
 func (r *DomainName) CertificatePrivateKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["certificatePrivateKey"])
 }
@@ -178,13 +178,13 @@ func (r *DomainName) EndpointConfiguration() *pulumi.Output {
 	return r.s.State["endpointConfiguration"]
 }
 
-// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
+// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 func (r *DomainName) RegionalCertificateArn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["regionalCertificateArn"])
 }
 
-// The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
-// `certificate_private_key`.
+// The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and
+// `certificatePrivateKey`.
 func (r *DomainName) RegionalCertificateName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["regionalCertificateName"])
 }
@@ -206,23 +206,23 @@ func (r *DomainName) SecurityPolicy() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering DomainName resources.
 type DomainNameState struct {
-	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
+	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
 	CertificateArn interface{}
 	// The certificate issued for the domain name
-	// being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
-	// `regional_certificate_name`.
+	// being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and
+	// `regionalCertificateName`.
 	CertificateBody interface{}
 	// The certificate for the CA that issued the
 	// certificate, along with any intermediate CA certificates required to
-	// create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`,
-	// `regional_certificate_arn`, and `regional_certificate_name`.
+	// create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`,
+	// `regionalCertificateArn`, and `regionalCertificateName`.
 	CertificateChain interface{}
 	// The unique name to use when registering this
-	// certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
-	// `regional_certificate_name`. Required if `certificate_arn` is not set.
+	// certificate as an IAM server certificate. Conflicts with `certificateArn`, `regionalCertificateArn`, and
+	// `regionalCertificateName`. Required if `certificateArn` is not set.
 	CertificateName interface{}
 	// The private key associated with the
-	// domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
+	// domain certificate given in `certificateBody`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
 	CertificatePrivateKey interface{}
 	// The upload date associated with the domain certificate.
 	CertificateUploadDate interface{}
@@ -236,10 +236,10 @@ type DomainNameState struct {
 	DomainName interface{}
 	// Configuration block defining API endpoint information including type. Defined below.
 	EndpointConfiguration interface{}
-	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
+	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 	RegionalCertificateArn interface{}
-	// The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
-	// `certificate_private_key`.
+	// The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and
+	// `certificatePrivateKey`.
 	RegionalCertificateName interface{}
 	// The hostname for the custom domain's regional endpoint.
 	RegionalDomainName interface{}
@@ -251,32 +251,32 @@ type DomainNameState struct {
 
 // The set of arguments for constructing a DomainName resource.
 type DomainNameArgs struct {
-	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
+	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
 	CertificateArn interface{}
 	// The certificate issued for the domain name
-	// being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
-	// `regional_certificate_name`.
+	// being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and
+	// `regionalCertificateName`.
 	CertificateBody interface{}
 	// The certificate for the CA that issued the
 	// certificate, along with any intermediate CA certificates required to
-	// create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`,
-	// `regional_certificate_arn`, and `regional_certificate_name`.
+	// create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`,
+	// `regionalCertificateArn`, and `regionalCertificateName`.
 	CertificateChain interface{}
 	// The unique name to use when registering this
-	// certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
-	// `regional_certificate_name`. Required if `certificate_arn` is not set.
+	// certificate as an IAM server certificate. Conflicts with `certificateArn`, `regionalCertificateArn`, and
+	// `regionalCertificateName`. Required if `certificateArn` is not set.
 	CertificateName interface{}
 	// The private key associated with the
-	// domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
+	// domain certificate given in `certificateBody`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
 	CertificatePrivateKey interface{}
 	// The fully-qualified domain name to register
 	DomainName interface{}
 	// Configuration block defining API endpoint information including type. Defined below.
 	EndpointConfiguration interface{}
-	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
+	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 	RegionalCertificateArn interface{}
-	// The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
-	// `certificate_private_key`.
+	// The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and
+	// `certificatePrivateKey`.
 	RegionalCertificateName interface{}
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 	SecurityPolicy interface{}

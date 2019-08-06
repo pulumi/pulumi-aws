@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
  * For information about AWS Batch, see [What is AWS Batch?][1] .
  * For information about compute environment, see [Compute Environments][2] .
  * 
- * > **Note:** To prevent a race condition during environment deletion, make sure to set `depends_on` to the related `aws_iam_role_policy_attachment`;
+ * > **Note:** To prevent a race condition during environment deletion, make sure to set `dependsOn` to the related `aws.iam.RolePolicyAttachment`;
  *    otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch][3] .
  * 
  * ## Example Usage
@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const awsBatchServiceRoleRole = new aws.iam.Role("aws_batch_service_role", {
+ * const awsBatchServiceRoleRole = new aws.iam.Role("awsBatchServiceRole", {
  *     assumeRolePolicy: `{
  *     "Version": "2012-10-17",
  *     "Statement": [
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const ecsInstanceRoleRole = new aws.iam.Role("ecs_instance_role", {
+ * const ecsInstanceRoleRole = new aws.iam.Role("ecsInstanceRole", {
  *     assumeRolePolicy: `{
  *     "Version": "2012-10-17",
  *     "Statement": [
@@ -53,10 +53,10 @@ import * as utilities from "../utilities";
  * const sampleVpc = new aws.ec2.Vpc("sample", {
  *     cidrBlock: "10.1.0.0/16",
  * });
- * const ecsInstanceRoleInstanceProfile = new aws.iam.InstanceProfile("ecs_instance_role", {
+ * const ecsInstanceRoleInstanceProfile = new aws.iam.InstanceProfile("ecsInstanceRole", {
  *     role: ecsInstanceRoleRole.name,
  * });
- * const awsBatchServiceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("aws_batch_service_role", {
+ * const awsBatchServiceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("awsBatchServiceRole", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
  *     role: awsBatchServiceRoleRole.name,
  * });
@@ -78,7 +78,7 @@ import * as utilities from "../utilities";
  *     serviceRole: awsBatchServiceRoleRole.arn,
  *     type: "MANAGED",
  * }, {dependsOn: [awsBatchServiceRoleRolePolicyAttachment]});
- * const ecsInstanceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ecs_instance_role", {
+ * const ecsInstanceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ecsInstanceRole", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
  *     role: ecsInstanceRoleRole.name,
  * });

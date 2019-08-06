@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * const example = new aws.neptune.ParameterGroup("example", {
  *     family: "neptune1",
  *     parameters: [{
- *         name: "neptune_query_timeout",
+ *         name: "neptuneQueryTimeout",
  *         value: "25",
  *     }],
  * });

@@ -24,7 +24,7 @@ class UserGroupMembership(pulumi.CustomResource):
         groups.
         
         To exclusively manage the users in a group, see the
-        [`aws_iam_group_membership` resource][3].
+        [`iam.GroupMembership` resource][3].
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -56,6 +56,10 @@ class UserGroupMembership(pulumi.CustomResource):
             raise TypeError("Missing required property 'user'")
         __props__['user'] = user
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(UserGroupMembership, __self__).__init__(
             'aws:iam/userGroupMembership:UserGroupMembership',
             resource_name,

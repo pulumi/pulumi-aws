@@ -85,7 +85,7 @@ func (r *KeyPair) KeyName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keyName"])
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
+// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
 func (r *KeyPair) KeyNamePrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keyNamePrefix"])
 }
@@ -101,7 +101,7 @@ type KeyPairState struct {
 	Fingerprint interface{}
 	// The name for the key pair.
 	KeyName interface{}
-	// Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
 	KeyNamePrefix interface{}
 	// The public key material.
 	PublicKey interface{}
@@ -111,7 +111,7 @@ type KeyPairState struct {
 type KeyPairArgs struct {
 	// The name for the key pair.
 	KeyName interface{}
-	// Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
 	KeyNamePrefix interface{}
 	// The public key material.
 	PublicKey interface{}

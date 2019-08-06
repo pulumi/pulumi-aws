@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `aws_route` provides details about a specific Route.
+// `ec2.Route` provides details about a specific Route.
 // 
 // This resource can prove useful when finding the resource
 // associated with a CIDR. For example, finding the peering

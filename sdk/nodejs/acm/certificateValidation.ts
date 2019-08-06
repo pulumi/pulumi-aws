@@ -8,8 +8,8 @@ import * as utilities from "../utilities";
  * This resource represents a successful validation of an ACM certificate in concert
  * with other resources.
  * 
- * Most commonly, this resource is used together with `aws_route53_record` and
- * `aws_acm_certificate` to request a DNS validated certificate,
+ * Most commonly, this resource is used together with `aws.route53.Record` and
+ * `aws.acm.Certificate` to request a DNS validated certificate,
  * deploy the required validation records and wait for validation to complete.
  * 
  * > **WARNING:** This resource implements a part of the validation workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     name: "example.com.",
  *     privateZone: false,
  * }));
- * const certValidation = new aws.route53.Record("cert_validation", {
+ * const certValidation = new aws.route53.Record("certValidation", {
  *     records: [certCertificate.domainValidationOptions[0].resourceRecordValue],
  *     ttl: 60,
  *     type: certCertificate.domainValidationOptions[0].resourceRecordType,
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *     certificateArn: certCertificate.arn,
  *     validationRecordFqdns: [certValidation.fqdn],
  * });
- * const frontEnd = new aws.lb.Listener("front_end", {
+ * const frontEnd = new aws.lb.Listener("frontEnd", {
  *     // [...]
  *     certificateArn: certCertificateValidation.certificateArn,
  * });
@@ -69,19 +69,19 @@ import * as utilities from "../utilities";
  *     name: "example.org.",
  *     privateZone: false,
  * }));
- * const certValidation = new aws.route53.Record("cert_validation", {
+ * const certValidation = new aws.route53.Record("certValidation", {
  *     records: [certCertificate.domainValidationOptions[0].resourceRecordValue],
  *     ttl: 60,
  *     type: certCertificate.domainValidationOptions[0].resourceRecordType,
  *     zoneId: zone.id,
  * });
- * const certValidationAlt1 = new aws.route53.Record("cert_validation_alt1", {
+ * const certValidationAlt1 = new aws.route53.Record("certValidationAlt1", {
  *     records: [certCertificate.domainValidationOptions[1].resourceRecordValue],
  *     ttl: 60,
  *     type: certCertificate.domainValidationOptions[1].resourceRecordType,
  *     zoneId: zone.id,
  * });
- * const certValidationAlt2 = new aws.route53.Record("cert_validation_alt2", {
+ * const certValidationAlt2 = new aws.route53.Record("certValidationAlt2", {
  *     records: [certCertificate.domainValidationOptions[2].resourceRecordValue],
  *     ttl: 60,
  *     type: certCertificate.domainValidationOptions[2].resourceRecordType,
@@ -95,7 +95,7 @@ import * as utilities from "../utilities";
  *         certValidationAlt2.fqdn,
  *     ],
  * });
- * const frontEnd = new aws.lb.Listener("front_end", {
+ * const frontEnd = new aws.lb.Listener("frontEnd", {
  *     // [...]
  *     certificateArn: certCertificateValidation.certificateArn,
  * });

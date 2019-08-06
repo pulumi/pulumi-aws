@@ -78,7 +78,7 @@ class TargetGroup(pulumi.CustomResource):
         """
         Provides a Target Group resource for use with Load Balancer resources.
         
-        > **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
+        > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,6 +147,10 @@ class TargetGroup(pulumi.CustomResource):
         __props__['arn'] = None
         __props__['arn_suffix'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:applicationloadbalancing/targetGroup:TargetGroup")])
         opts = alias_opts if opts is None else opts.merge(alias_opts)
         super(TargetGroup, __self__).__init__(

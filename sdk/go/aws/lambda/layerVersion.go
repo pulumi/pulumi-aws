@@ -14,12 +14,12 @@ import (
 // 
 // ## Specifying the Deployment Package
 // 
-// AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.
-// See [Runtimes][2] for the valid values of `compatible_runtimes`.
+// AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatibleRuntimes` this layer specifies.
+// See [Runtimes][2] for the valid values of `compatibleRuntimes`.
 // 
 // Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
-// indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
-// package via S3 it may be useful to use the `aws_s3_bucket_object` resource to upload it.
+// indirectly via Amazon S3 (using the `s3Bucket`, `s3Key` and `s3ObjectVersion` arguments). When providing the deployment
+// package via S3 it may be useful to use the `s3.BucketObject` resource to upload it.
 // 
 // For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
 // large files efficiently.
@@ -162,7 +162,7 @@ func (r *LayerVersion) S3ObjectVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["s3ObjectVersion"])
 }
 
-// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
+// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
 func (r *LayerVersion) SourceCodeHash() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceCodeHash"])
 }
@@ -201,7 +201,7 @@ type LayerVersionState struct {
 	S3Key interface{}
 	// The object version containing the function's deployment package. Conflicts with `filename`.
 	S3ObjectVersion interface{}
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
 	SourceCodeHash interface{}
 	// The size in bytes of the function .zip file.
 	SourceCodeSize interface{}
@@ -227,6 +227,6 @@ type LayerVersionArgs struct {
 	S3Key interface{}
 	// The object version containing the function's deployment package. Conflicts with `filename`.
 	S3ObjectVersion interface{}
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
 	SourceCodeHash interface{}
 }

@@ -32,7 +32,7 @@ import {RecordType} from "./recordType";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const www_dev = new aws.route53.Record("www-dev", {
+ * const wwwDev = new aws.route53.Record("www-dev", {
  *     records: ["dev.example.com"],
  *     setIdentifier: "dev",
  *     ttl: 5,
@@ -42,7 +42,7 @@ import {RecordType} from "./recordType";
  *     }],
  *     zoneId: aws_route53_zone_primary.zoneId,
  * });
- * const www_live = new aws.route53.Record("www-live", {
+ * const wwwLive = new aws.route53.Record("www-live", {
  *     records: ["live.example.com"],
  *     setIdentifier: "live",
  *     ttl: 5,
@@ -87,7 +87,7 @@ import {RecordType} from "./recordType";
  * 
  * ### NS and SOA Record Management
  * 
- * When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allow_overwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
+ * When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allowOverwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

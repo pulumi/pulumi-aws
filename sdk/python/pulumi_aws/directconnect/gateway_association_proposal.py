@@ -39,7 +39,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, allowed_prefixes=None, associated_gateway_id=None, dx_gateway_id=None, dx_gateway_owner_account_id=None, vpn_gateway_id=None, __name__=None, __opts__=None):
         """
-        Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the [`aws_dx_gateway_association` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association.html).
+        Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the [`directconnect.GatewayAssociation` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association.html).
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,6 +83,10 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         __props__['associated_gateway_owner_account_id'] = None
         __props__['associated_gateway_type'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(GatewayAssociationProposal, __self__).__init__(
             'aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal',
             resource_name,

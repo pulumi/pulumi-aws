@@ -46,6 +46,10 @@ async def get_local_disk(disk_node=None,disk_path=None,gateway_arn=None,opts=Non
     __args__['diskNode'] = disk_node
     __args__['diskPath'] = disk_path
     __args__['gatewayArn'] = gateway_arn
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:storagegateway/getLocalDisk:getLocalDisk', __args__, opts=opts)
 
     return GetLocalDiskResult(

@@ -47,6 +47,10 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
 
         __props__['sql_injection_match_tuples'] = sql_injection_match_tuples
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(SqlInjectionMatchSet, __self__).__init__(
             'aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet',
             resource_name,

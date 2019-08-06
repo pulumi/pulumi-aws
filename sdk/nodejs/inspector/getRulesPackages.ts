@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * // e.g. Use in aws_inspector_assessment_template
+ * // e.g. Use in aws.inspector.AssessmentTemplate
  * const group = new aws.inspector.ResourceGroup("group", {
  *     tags: {
  *         test: "test",

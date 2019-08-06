@@ -78,7 +78,7 @@ class SpotFleetRequest(pulumi.CustomResource):
     """
     target_group_arns: pulumi.Output[list]
     """
-    A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
+    A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
     """
     terminate_instances_with_expiration: pulumi.Output[bool]
     """
@@ -135,7 +135,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[float] target_capacity: The number of units to request. You can choose to set the
                target capacity in terms of instances or a performance characteristic that is
                important to your application workload, such as vCPUs, memory, or I/O.
-        :param pulumi.Input[list] target_group_arns: A list of `aws_alb_target_group` ARNs, for use with Application Load Balancing.
+        :param pulumi.Input[list] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
         :param pulumi.Input[bool] terminate_instances_with_expiration: Indicates whether running Spot
                instances should be terminated when the Spot fleet request expires.
         :param pulumi.Input[str] valid_from: The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
@@ -202,6 +202,10 @@ class SpotFleetRequest(pulumi.CustomResource):
         __props__['client_token'] = None
         __props__['spot_request_state'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(SpotFleetRequest, __self__).__init__(
             'aws:ec2/spotFleetRequest:SpotFleetRequest',
             resource_name,

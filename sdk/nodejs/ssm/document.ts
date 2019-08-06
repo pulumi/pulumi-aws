@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  * The permissions mapping supports the following:
  * 
  * * `type` - The permission type for the document. The permission type can be `Share`.
- * * `account_ids` - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or `All`.
+ * * `accountIds` - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or `All`.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_document.html.markdown.
  */

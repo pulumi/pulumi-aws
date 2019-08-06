@@ -110,7 +110,7 @@ func (r *Server) IdentityProviderType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["identityProviderType"])
 }
 
-// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
 func (r *Server) InvocationRole() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["invocationRole"])
 }
@@ -125,7 +125,7 @@ func (r *Server) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 func (r *Server) Url() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["url"])
 }
@@ -144,13 +144,13 @@ type ServerState struct {
 	ForceDestroy interface{}
 	// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
 	IdentityProviderType interface{}
-	// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+	// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
 	InvocationRole interface{}
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url interface{}
 }
 
@@ -164,12 +164,12 @@ type ServerArgs struct {
 	ForceDestroy interface{}
 	// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
 	IdentityProviderType interface{}
-	// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+	// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
 	InvocationRole interface{}
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url interface{}
 }

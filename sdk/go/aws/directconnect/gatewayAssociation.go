@@ -10,9 +10,9 @@ import (
 
 // Associates a Direct Connect Gateway with a VGW or transit gateway.
 // 
-// To create a cross-account association, create an [`aws_dx_gateway_association_proposal` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal.html)
+// To create a cross-account association, create an [`directconnect.GatewayAssociationProposal` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal.html)
 // in the AWS account that owns the VGW or transit gateway and then accept the proposal in the AWS account that owns the Direct Connect Gateway
-// by creating an `aws_dx_gateway_association` resource with the `proposal_id` and `associated_gateway_owner_account_id` attributes set.
+// by creating an `directconnect.GatewayAssociation` resource with the `proposalId` and `associatedGatewayOwnerAccountId` attributes set.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_gateway_association.html.markdown.
 type GatewayAssociation struct {
@@ -127,7 +127,7 @@ func (r *GatewayAssociation) ProposalId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["proposalId"])
 }
 
-// *Deprecated:* Use `associated_gateway_id` instead. The ID of the VGW with which to associate the gateway.
+// *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
 // Used for single account Direct Connect gateway associations.
 func (r *GatewayAssociation) VpnGatewayId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vpnGatewayId"])
@@ -154,7 +154,7 @@ type GatewayAssociationState struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId interface{}
-	// *Deprecated:* Use `associated_gateway_id` instead. The ID of the VGW with which to associate the gateway.
+	// *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
 	// Used for single account Direct Connect gateway associations.
 	VpnGatewayId interface{}
 }
@@ -174,7 +174,7 @@ type GatewayAssociationArgs struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId interface{}
-	// *Deprecated:* Use `associated_gateway_id` instead. The ID of the VGW with which to associate the gateway.
+	// *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
 	// Used for single account Direct Connect gateway associations.
 	VpnGatewayId interface{}
 }

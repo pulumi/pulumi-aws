@@ -50,9 +50,9 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * ## retry_strategy
+ * ## retryStrategy
  * 
- * `retry_strategy` supports the following:
+ * `retryStrategy` supports the following:
  * 
  * * `attempts` - (Optional) The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
  * 
@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  * 
  * `timeout` supports the following:
  * 
- * * `attempt_duration_seconds` - (Optional) The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
+ * * `attemptDurationSeconds` - (Optional) The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_job_definition.html.markdown.
  */
@@ -110,7 +110,7 @@ export class JobDefinition extends pulumi.CustomResource {
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-     * Maximum number of `retry_strategy` is `1`.  Defined below.
+     * Maximum number of `retryStrategy` is `1`.  Defined below.
      */
     public readonly retryStrategy!: pulumi.Output<{ attempts?: number } | undefined>;
     /**
@@ -194,7 +194,7 @@ export interface JobDefinitionState {
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-     * Maximum number of `retry_strategy` is `1`.  Defined below.
+     * Maximum number of `retryStrategy` is `1`.  Defined below.
      */
     readonly retryStrategy?: pulumi.Input<{ attempts?: pulumi.Input<number> }>;
     /**
@@ -230,7 +230,7 @@ export interface JobDefinitionArgs {
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-     * Maximum number of `retry_strategy` is `1`.  Defined below.
+     * Maximum number of `retryStrategy` is `1`.  Defined below.
      */
     readonly retryStrategy?: pulumi.Input<{ attempts?: pulumi.Input<number> }>;
     /**

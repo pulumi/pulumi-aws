@@ -24,8 +24,8 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         secondary ENI or one attached as the primary interface on an instance.
         
         > **NOTE on instances, interfaces, and security groups:** This provider currently
-        provides the capability to assign security groups via the [`aws_instance`][1]
-        and the [`aws_network_interface`][2] resources. Using this resource in
+        provides the capability to assign security groups via the [`ec2.Instance`][1]
+        and the [`ec2.NetworkInterface`][2] resources. Using this resource in
         conjunction with security groups provided in-line in those resources will cause
         conflicts, and will lead to spurious diffs and undefined behavior - please use
         one or the other.
@@ -67,6 +67,10 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
             raise TypeError("Missing required property 'security_group_id'")
         __props__['security_group_id'] = security_group_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(NetworkInterfaceSecurityGroupAttachment, __self__).__init__(
             'aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment',
             resource_name,

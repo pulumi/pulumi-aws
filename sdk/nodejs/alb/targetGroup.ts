@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a Target Group resource for use with Load Balancer resources.
  * 
- * > **Note:** `aws_alb_target_group` is known as `aws_lb_target_group`. The functionality is identical.
+ * > **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
  * 
  * ## Example Usage
  * 
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });
- * const ip_example = new aws.lb.TargetGroup("ip-example", {
+ * const ipExample = new aws.lb.TargetGroup("ip-example", {
  *     port: 80,
  *     protocol: "HTTP",
  *     targetType: "ip",
@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const lambda_example = new aws.lb.TargetGroup("lambda-example", {
+ * const lambdaExample = new aws.lb.TargetGroup("lambda-example", {
  *     targetType: "lambda",
  * });
  * ```
@@ -101,7 +101,7 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly healthCheck!: pulumi.Output<{ enabled?: boolean, healthyThreshold?: number, interval?: number, matcher: string, path: string, port?: string, protocol?: string, timeout: number, unhealthyThreshold?: number }>;
     /**
-     * Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+     * Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`.
      */
     public readonly lambdaMultiValueHeadersEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -117,7 +117,7 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number | undefined>;
     /**
-     * The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+     * The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
      */
     public readonly protocol!: pulumi.Output<string | undefined>;
     /**
@@ -146,7 +146,7 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly targetType!: pulumi.Output<string | undefined>;
     /**
-     * The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+     * The identifier of the VPC in which to create the target group. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
      */
     public readonly vpcId!: pulumi.Output<string | undefined>;
 
@@ -229,7 +229,7 @@ export interface TargetGroupState {
      */
     readonly healthCheck?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, healthyThreshold?: pulumi.Input<number>, interval?: pulumi.Input<number>, matcher?: pulumi.Input<string>, path?: pulumi.Input<string>, port?: pulumi.Input<string>, protocol?: pulumi.Input<string>, timeout?: pulumi.Input<number>, unhealthyThreshold?: pulumi.Input<number> }>;
     /**
-     * Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+     * Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`.
      */
     readonly lambdaMultiValueHeadersEnabled?: pulumi.Input<boolean>;
     /**
@@ -245,7 +245,7 @@ export interface TargetGroupState {
      */
     readonly port?: pulumi.Input<number>;
     /**
-     * The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+     * The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
      */
     readonly protocol?: pulumi.Input<string>;
     /**
@@ -274,7 +274,7 @@ export interface TargetGroupState {
      */
     readonly targetType?: pulumi.Input<string>;
     /**
-     * The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+     * The identifier of the VPC in which to create the target group. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
      */
     readonly vpcId?: pulumi.Input<string>;
 }
@@ -292,7 +292,7 @@ export interface TargetGroupArgs {
      */
     readonly healthCheck?: pulumi.Input<{ enabled?: pulumi.Input<boolean>, healthyThreshold?: pulumi.Input<number>, interval?: pulumi.Input<number>, matcher?: pulumi.Input<string>, path?: pulumi.Input<string>, port?: pulumi.Input<string>, protocol?: pulumi.Input<string>, timeout?: pulumi.Input<number>, unhealthyThreshold?: pulumi.Input<number> }>;
     /**
-     * Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+     * Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`.
      */
     readonly lambdaMultiValueHeadersEnabled?: pulumi.Input<boolean>;
     /**
@@ -308,7 +308,7 @@ export interface TargetGroupArgs {
      */
     readonly port?: pulumi.Input<number>;
     /**
-     * The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `target_type` is `lambda`.
+     * The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
      */
     readonly protocol?: pulumi.Input<string>;
     /**
@@ -337,7 +337,7 @@ export interface TargetGroupArgs {
      */
     readonly targetType?: pulumi.Input<string>;
     /**
-     * The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+     * The identifier of the VPC in which to create the target group. Required when `targetType` is `instance` or `ip`. Does not apply when `targetType` is `lambda`.
      */
     readonly vpcId?: pulumi.Input<string>;
 }

@@ -88,6 +88,10 @@ async def get_organization(opts=None):
     """
     __args__ = dict()
 
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:organizations/getOrganization:getOrganization', __args__, opts=opts)
 
     return GetOrganizationResult(

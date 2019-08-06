@@ -43,7 +43,7 @@ class VirtualNode(pulumi.CustomResource):
         
         ## Breaking Changes
         
-        Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), `aws_appmesh_virtual_node` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
+        Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), `appmesh.VirtualNode` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
         
         * Rename the `service_name` attribute of the `dns` object to `hostname`.
         
@@ -92,6 +92,10 @@ class VirtualNode(pulumi.CustomResource):
         __props__['created_date'] = None
         __props__['last_updated_date'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VirtualNode, __self__).__init__(
             'aws:appmesh/virtualNode:VirtualNode',
             resource_name,

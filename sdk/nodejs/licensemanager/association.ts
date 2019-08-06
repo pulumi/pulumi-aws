@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a License Manager association.
  * 
- * > **Note:** License configurations can also be associated with launch templates by specifying the `license_specifications` block for an `aws_launch_template`.
+ * > **Note:** License configurations can also be associated with launch templates by specifying the `licenseSpecifications` block for an `aws.ec2.LaunchTemplate`.
  * 
  * ## Example Usage
  * 

@@ -21,7 +21,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         """
         Attaches a Managed IAM Policy to an IAM group
         
-        > **NOTE:** The usage of this resource conflicts with the `aws_iam_policy_attachment` resource and will permanently show a difference if both are defined.
+        > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -53,6 +53,10 @@ class GroupPolicyAttachment(pulumi.CustomResource):
             raise TypeError("Missing required property 'policy_arn'")
         __props__['policy_arn'] = policy_arn
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(GroupPolicyAttachment, __self__).__init__(
             'aws:iam/groupPolicyAttachment:GroupPolicyAttachment',
             resource_name,

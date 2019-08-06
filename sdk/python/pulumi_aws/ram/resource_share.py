@@ -27,7 +27,7 @@ class ResourceShare(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, allow_external_principals=None, name=None, tags=None, __name__=None, __opts__=None):
         """
-        Manages a Resource Access Manager (RAM) Resource Share. To association principals with the share, see the [`aws_ram_principal_association` resource](https://www.terraform.io/docs/providers/aws/r/ram_principal_association.html). To associate resources with the share, see the [`aws_ram_resource_association` resource](https://www.terraform.io/docs/providers/aws/r/ram_resource_association.html).
+        Manages a Resource Access Manager (RAM) Resource Share. To association principals with the share, see the [`ram.PrincipalAssociation` resource](https://www.terraform.io/docs/providers/aws/r/ram_principal_association.html). To associate resources with the share, see the [`ram.ResourceAssociation` resource](https://www.terraform.io/docs/providers/aws/r/ram_resource_association.html).
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -60,6 +60,10 @@ class ResourceShare(pulumi.CustomResource):
 
         __props__['arn'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ResourceShare, __self__).__init__(
             'aws:ram/resourceShare:ResourceShare',
             resource_name,

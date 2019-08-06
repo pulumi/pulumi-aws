@@ -99,6 +99,10 @@ class FileSystem(pulumi.CustomResource):
         __props__['arn'] = None
         __props__['dns_name'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(FileSystem, __self__).__init__(
             'aws:efs/fileSystem:FileSystem',
             resource_name,

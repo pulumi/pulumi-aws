@@ -9,10 +9,10 @@ import * as utilities from "../utilities";
  * *Amazon Machine Image* (AMI).
  * 
  * If you just want to duplicate an existing AMI, possibly copying it to another
- * region, it's better to use `aws_ami_copy` instead.
+ * region, it's better to use `aws.ec2.AmiCopy` instead.
  * 
  * If you just want to share an existing AMI with another AWS account,
- * it's better to use `aws_ami_launch_permission` instead.
+ * it's better to use `aws.ec2.AmiLaunchPermission` instead.
  * 
  * ## Example Usage
  * 
@@ -64,7 +64,7 @@ export class Ami extends pulumi.CustomResource {
     }
 
     /**
-     * Machine architecture for created instances. Defaults to "x86_64".
+     * Machine architecture for created instances. Defaults to "x8664".
      */
     public readonly architecture!: pulumi.Output<string | undefined>;
     /**
@@ -190,7 +190,7 @@ export class Ami extends pulumi.CustomResource {
  */
 export interface AmiState {
     /**
-     * Machine architecture for created instances. Defaults to "x86_64".
+     * Machine architecture for created instances. Defaults to "x8664".
      */
     readonly architecture?: pulumi.Input<string>;
     /**
@@ -261,7 +261,7 @@ export interface AmiState {
  */
 export interface AmiArgs {
     /**
-     * Machine architecture for created instances. Defaults to "x86_64".
+     * Machine architecture for created instances. Defaults to "x8664".
      */
     readonly architecture?: pulumi.Input<string>;
     /**

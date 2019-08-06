@@ -85,12 +85,12 @@ func (r *DeploymentConfig) DeploymentConfigName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["deploymentConfigName"])
 }
 
-// A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
+// A minimumHealthyHosts block. Minimum Healthy Hosts are documented below.
 func (r *DeploymentConfig) MinimumHealthyHosts() *pulumi.Output {
 	return r.s.State["minimumHealthyHosts"]
 }
 
-// A traffic_routing_config block. Traffic Routing Config is documented below.
+// A trafficRoutingConfig block. Traffic Routing Config is documented below.
 func (r *DeploymentConfig) TrafficRoutingConfig() *pulumi.Output {
 	return r.s.State["trafficRoutingConfig"]
 }
@@ -103,9 +103,9 @@ type DeploymentConfigState struct {
 	DeploymentConfigId interface{}
 	// The name of the deployment config.
 	DeploymentConfigName interface{}
-	// A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
+	// A minimumHealthyHosts block. Minimum Healthy Hosts are documented below.
 	MinimumHealthyHosts interface{}
-	// A traffic_routing_config block. Traffic Routing Config is documented below.
+	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
 	TrafficRoutingConfig interface{}
 }
 
@@ -115,8 +115,8 @@ type DeploymentConfigArgs struct {
 	ComputePlatform interface{}
 	// The name of the deployment config.
 	DeploymentConfigName interface{}
-	// A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
+	// A minimumHealthyHosts block. Minimum Healthy Hosts are documented below.
 	MinimumHealthyHosts interface{}
-	// A traffic_routing_config block. Traffic Routing Config is documented below.
+	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
 	TrafficRoutingConfig interface{}
 }

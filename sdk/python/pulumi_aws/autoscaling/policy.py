@@ -57,7 +57,7 @@ class Policy(pulumi.CustomResource):
         """
         Provides an AutoScaling Scaling Policy resource.
         
-        > **NOTE:** You may want to omit `desired_capacity` attribute from attached `aws_autoscaling_group`
+        > **NOTE:** You may want to omit `desired_capacity` attribute from attached `autoscaling.Group`
         when using autoscaling policies. It's good practice to pick either
         [manual](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-manual-scaling.html)
         or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
@@ -120,6 +120,10 @@ class Policy(pulumi.CustomResource):
 
         __props__['arn'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Policy, __self__).__init__(
             'aws:autoscaling/policy:Policy',
             resource_name,

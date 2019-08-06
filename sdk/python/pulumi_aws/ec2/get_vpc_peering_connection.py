@@ -85,6 +85,10 @@ async def get_vpc_peering_connection(cidr_block=None,filters=None,id=None,owner_
     __args__['status'] = status
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection', __args__, opts=opts)
 
     return GetVpcPeeringConnectionResult(

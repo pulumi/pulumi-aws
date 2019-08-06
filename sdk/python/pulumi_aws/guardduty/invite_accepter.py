@@ -51,6 +51,10 @@ class InviteAccepter(pulumi.CustomResource):
             raise TypeError("Missing required property 'master_account_id'")
         __props__['master_account_id'] = master_account_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(InviteAccepter, __self__).__init__(
             'aws:guardduty/inviteAccepter:InviteAccepter',
             resource_name,

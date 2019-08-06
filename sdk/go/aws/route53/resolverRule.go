@@ -88,7 +88,7 @@ func (r *ResolverRule) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
+// DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
 func (r *ResolverRule) DomainName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["domainName"])
 }
@@ -103,7 +103,7 @@ func (r *ResolverRule) OwnerId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ownerId"])
 }
 
-// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 // This argument should only be specified for `FORWARD` type rules.
 func (r *ResolverRule) ResolverEndpointId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resolverEndpointId"])
@@ -135,13 +135,13 @@ func (r *ResolverRule) TargetIps() *pulumi.ArrayOutput {
 type ResolverRuleState struct {
 	// The ARN (Amazon Resource Name) for the resolver rule.
 	Arn interface{}
-	// DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
+	// DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
 	DomainName interface{}
 	// A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
 	Name interface{}
 	// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
 	OwnerId interface{}
-	// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+	// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 	// This argument should only be specified for `FORWARD` type rules.
 	ResolverEndpointId interface{}
 	// The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
@@ -158,11 +158,11 @@ type ResolverRuleState struct {
 
 // The set of arguments for constructing a ResolverRule resource.
 type ResolverRuleArgs struct {
-	// DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
+	// DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
 	DomainName interface{}
 	// A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
 	Name interface{}
-	// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+	// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 	// This argument should only be specified for `FORWARD` type rules.
 	ResolverEndpointId interface{}
 	// The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.

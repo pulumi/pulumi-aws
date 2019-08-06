@@ -49,7 +49,7 @@ class GetResourceShareResult:
 
 async def get_resource_share(filters=None,name=None,resource_owner=None,opts=None):
     """
-    `aws_ram_resource_share` Retrieve information about a RAM Resource Share.
+    `ram.ResourceShare` Retrieve information about a RAM Resource Share.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ram_resource_share.html.markdown.
     """
@@ -58,6 +58,10 @@ async def get_resource_share(filters=None,name=None,resource_owner=None,opts=Non
     __args__['filters'] = filters
     __args__['name'] = name
     __args__['resourceOwner'] = resource_owner
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ram/getResourceShare:getResourceShare', __args__, opts=opts)
 
     return GetResourceShareResult(

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  * of when using it. Please read this document in its entirety before using this
  * resource.
  * 
- * The `aws_default_network_acl` behaves differently from normal resources, in that
+ * The `aws.ec2.DefaultNetworkAcl` behaves differently from normal resources, in that
  * this provider does not _create_ this resource, but instead attempts to "adopt" it
  * into management. We can do this because each VPC created has a Default Network
  * ACL that cannot be destroyed, and is created with a known set of default rules.
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * This resource treats its inline rules as absolute; only the rules defined
  * inline are created, and any additions/removals external to this resource will
  * result in diffs being shown. For these reasons, this resource is incompatible with the
- * `aws_network_acl_rule` resource.
+ * `aws.ec2.NetworkAclRule` resource.
  * 
  * For more information about Network ACLs, see the AWS Documentation on
  * [Network ACLs][aws-network-acls].
@@ -138,7 +138,7 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
 
     /**
      * The Network ACL ID to manage. This
-     * attribute is exported from `aws_vpc`, or manually found via the AWS Console.
+     * attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
      */
     public readonly defaultNetworkAclId!: pulumi.Output<string>;
     /**
@@ -216,7 +216,7 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
 export interface DefaultNetworkAclState {
     /**
      * The Network ACL ID to manage. This
-     * attribute is exported from `aws_vpc`, or manually found via the AWS Console.
+     * attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
      */
     readonly defaultNetworkAclId?: pulumi.Input<string>;
     /**
@@ -252,7 +252,7 @@ export interface DefaultNetworkAclState {
 export interface DefaultNetworkAclArgs {
     /**
      * The Network ACL ID to manage. This
-     * attribute is exported from `aws_vpc`, or manually found via the AWS Console.
+     * attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
      */
     readonly defaultNetworkAclId: pulumi.Input<string>;
     /**

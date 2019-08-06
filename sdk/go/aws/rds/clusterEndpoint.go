@@ -107,12 +107,12 @@ func (r *ClusterEndpoint) Endpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
-// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
 func (r *ClusterEndpoint) ExcludedMembers() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["excludedMembers"])
 }
 
-// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 func (r *ClusterEndpoint) StaticMembers() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["staticMembers"])
 }
@@ -129,9 +129,9 @@ type ClusterEndpointState struct {
 	CustomEndpointType interface{}
 	// A custom endpoint for the Aurora cluster
 	Endpoint interface{}
-	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
 	ExcludedMembers interface{}
-	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers interface{}
 }
 
@@ -143,8 +143,8 @@ type ClusterEndpointArgs struct {
 	ClusterIdentifier interface{}
 	// The type of the endpoint. One of: READER , ANY .
 	CustomEndpointType interface{}
-	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
 	ExcludedMembers interface{}
-	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers interface{}
 }

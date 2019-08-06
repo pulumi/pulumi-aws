@@ -18,7 +18,7 @@ import (
 // in conjunction with any Security Group Rule resources. Doing so will cause
 // a conflict of rule settings and will overwrite rules.
 // 
-// > **NOTE:** Setting `protocol = "all"` or `protocol = -1` with `from_port` and `to_port` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by this provider and may generate warnings in the future.
+// > **NOTE:** Setting `protocol = "all"` or `protocol = -1` with `fromPort` and `toPort` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by this provider and may generate warnings in the future.
 // 
 // > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
 //
@@ -113,7 +113,7 @@ func (r *SecurityGroupRule) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// List of CIDR blocks. Cannot be specified with `source_security_group_id`.
+// List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId`.
 func (r *SecurityGroupRule) CidrBlocks() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["cidrBlocks"])
 }
@@ -150,13 +150,13 @@ func (r *SecurityGroupRule) SecurityGroupId() *pulumi.StringOutput {
 }
 
 // If true, the security group itself will be added as
-// a source to this ingress rule. Cannot be specified with `source_security_group_id`.
+// a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
 func (r *SecurityGroupRule) Self() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["self"])
 }
 
 // The security group id to allow access to/from,
-// depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+// depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
 func (r *SecurityGroupRule) SourceSecurityGroupId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceSecurityGroupId"])
 }
@@ -174,7 +174,7 @@ func (r *SecurityGroupRule) Type() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering SecurityGroupRule resources.
 type SecurityGroupRuleState struct {
-	// List of CIDR blocks. Cannot be specified with `source_security_group_id`.
+	// List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId`.
 	CidrBlocks interface{}
 	// Description of the rule.
 	Description interface{}
@@ -190,10 +190,10 @@ type SecurityGroupRuleState struct {
 	// The security group to apply this rule to.
 	SecurityGroupId interface{}
 	// If true, the security group itself will be added as
-	// a source to this ingress rule. Cannot be specified with `source_security_group_id`.
+	// a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
 	Self interface{}
 	// The security group id to allow access to/from,
-	// depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+	// depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
 	SourceSecurityGroupId interface{}
 	// The end port (or ICMP code if protocol is "icmp").
 	ToPort interface{}
@@ -204,7 +204,7 @@ type SecurityGroupRuleState struct {
 
 // The set of arguments for constructing a SecurityGroupRule resource.
 type SecurityGroupRuleArgs struct {
-	// List of CIDR blocks. Cannot be specified with `source_security_group_id`.
+	// List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId`.
 	CidrBlocks interface{}
 	// Description of the rule.
 	Description interface{}
@@ -220,10 +220,10 @@ type SecurityGroupRuleArgs struct {
 	// The security group to apply this rule to.
 	SecurityGroupId interface{}
 	// If true, the security group itself will be added as
-	// a source to this ingress rule. Cannot be specified with `source_security_group_id`.
+	// a source to this ingress rule. Cannot be specified with `sourceSecurityGroupId`.
 	Self interface{}
 	// The security group id to allow access to/from,
-	// depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
+	// depending on the `type`. Cannot be specified with `cidrBlocks` and `self`.
 	SourceSecurityGroupId interface{}
 	// The end port (or ICMP code if protocol is "icmp").
 	ToPort interface{}

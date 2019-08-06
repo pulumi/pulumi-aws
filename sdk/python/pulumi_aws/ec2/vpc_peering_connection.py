@@ -31,7 +31,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
     peer_region: pulumi.Output[str]
     """
     The region of the accepter VPC of the [VPC Peering Connection]. `auto_accept` must be `false`,
-    and use the `aws_vpc_peering_connection_accepter` to manage the accepter side.
+    and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
     """
     peer_vpc_id: pulumi.Output[str]
     """
@@ -64,13 +64,13 @@ class VpcPeeringConnection(pulumi.CustomResource):
         management of the VPC Peering Connection and allows options to be set correctly in cross-account scenarios.
         
         > **Note:** For cross-account (requester's AWS account differs from the accepter's AWS account) or inter-region
-        VPC Peering Connections use the `aws_vpc_peering_connection` resource to manage the requester's side of the
-        connection and use the `aws_vpc_peering_connection_accepter` resource to manage the accepter's side of the connection.
+        VPC Peering Connections use the `ec2.VpcPeeringConnection` resource to manage the requester's side of the
+        connection and use the `ec2.VpcPeeringConnectionAccepter` resource to manage the accepter's side of the connection.
         
         ## Notes
         
         If both VPCs are not in the same AWS account do not enable the `auto_accept` attribute.
-        The accepter can manage its side of the connection using the `aws_vpc_peering_connection_accepter` resource
+        The accepter can manage its side of the connection using the `ec2.VpcPeeringConnectionAccepter` resource
         or accept the connection manually using the AWS Management Console, AWS CLI, through SDKs, etc.
         
         :param str resource_name: The name of the resource.
@@ -82,7 +82,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
         :param pulumi.Input[str] peer_owner_id: The AWS account ID of the owner of the peer VPC.
                Defaults to the account ID the [AWS provider][1] is currently connected to.
         :param pulumi.Input[str] peer_region: The region of the accepter VPC of the [VPC Peering Connection]. `auto_accept` must be `false`,
-               and use the `aws_vpc_peering_connection_accepter` to manage the accepter side.
+               and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         :param pulumi.Input[str] peer_vpc_id: The ID of the VPC with which you are creating the VPC Peering Connection.
         :param pulumi.Input[dict] requester: A optional configuration block that allows for [VPC Peering Connection]
                (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options to be set for the VPC that requests
@@ -129,6 +129,10 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
         __props__['accept_status'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VpcPeeringConnection, __self__).__init__(
             'aws:ec2/vpcPeeringConnection:VpcPeeringConnection',
             resource_name,

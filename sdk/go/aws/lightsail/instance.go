@@ -38,34 +38,34 @@ import (
 // 
 // ### OS Only
 // 
-// - `amazon_linux_2018_03_0_2`
-// - `centos_7_1805_01`
-// - `debian_8_7`
-// - `debian_9_5`
-// - `freebsd_11_1`
-// - `opensuse_42_2`
-// - `ubuntu_16_04_2`
-// - `ubuntu_18_04`
+// - `amazonLinux20180302`
+// - `centos7180501`
+// - `debian87`
+// - `debian95`
+// - `freebsd111`
+// - `opensuse422`
+// - `ubuntu16042`
+// - `ubuntu1804`
 // 
 // ### Apps and OS
 // 
-// - `drupal_8_5_6`
-// - `gitlab_11_1_4_1`
-// - `joomla_3_8_11`
-// - `lamp_5_6_37_2`
-// - `lamp_7_1_20_1`
-// - `magento_2_2_5`
-// - `mean_4_0_1`
-// - `nginx_1_14_0_1`
-// - `nodejs_10_8_0`
-// - `plesk_ubuntu_17_8_11_1`
-// - `redmine_3_4_6`
-// - `wordpress_4_9_8`
-// - `wordpress_multisite_4_9_8`
+// - `drupal856`
+// - `gitlab11141`
+// - `joomla3811`
+// - `lamp56372`
+// - `lamp71201`
+// - `magento225`
+// - `mean401`
+// - `nginx11401`
+// - `nodejs1080`
+// - `pleskUbuntu178111`
+// - `redmine346`
+// - `wordpress498`
+// - `wordpressMultisite498`
 // 
 // ## Bundles
 // 
-// Lightsail currently supports the following Bundle IDs (e.g. an instance in `ap-northeast-1` would use `small_2_0`):
+// Lightsail currently supports the following Bundle IDs (e.g. an instance in `ap-northeast-1` would use `small20`):
 // 
 // ### Prefix
 // 
@@ -83,19 +83,19 @@ import (
 // 
 // A Bundle ID ends with one of the following suffixes depending on Availability Zone:
 // 
-// - ap-northeast-1: `2_0`
-// - ap-northeast-2: `2_0`
-// - ap-south-1: `2_1`
-// - ap-southeast-1: `2_0`
-// - ap-southeast-2: `2_2`
-// - ca-central-1: `2_0`
-// - eu-central-1: `2_0`
-// - eu-west-1: `2_0`
-// - eu-west-2: `2_0`
-// - eu-west-3: `2_0`
-// - us-east-1: `2_0`
-// - us-east-2: `2_0`
-// - us-west-2: `2_0`
+// - ap-northeast-1: `20`
+// - ap-northeast-2: `20`
+// - ap-south-1: `21`
+// - ap-southeast-1: `20`
+// - ap-southeast-2: `22`
+// - ca-central-1: `20`
+// - eu-central-1: `20`
+// - eu-west-1: `20`
+// - eu-west-2: `20`
+// - eu-west-3: `20`
+// - us-east-1: `20`
+// - us-east-2: `20`
+// - us-west-2: `20`
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_instance.html.markdown.
 type Instance struct {
@@ -189,11 +189,11 @@ func (r *Instance) ID() *pulumi.IDOutput {
 }
 
 // The ARN of the Lightsail instance (matches `id`).
-// * `availability_zone`
-// * `blueprint_id`
-// * `bundle_id`
-// * `key_pair_name`
-// * `user_data`
+// * `availabilityZone`
+// * `blueprintId`
+// * `bundleId`
+// * `keyPairName`
+// * `userData`
 func (r *Instance) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
@@ -232,7 +232,7 @@ func (r *Instance) IsStaticIp() *pulumi.BoolOutput {
 }
 
 // The name of your key pair. Created in the
-// Lightsail console (cannot use `aws_key_pair` at this time)
+// Lightsail console (cannot use `ec2.KeyPair` at this time)
 func (r *Instance) KeyPairName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keyPairName"])
 }
@@ -271,11 +271,11 @@ func (r *Instance) Username() *pulumi.StringOutput {
 // Input properties used for looking up and filtering Instance resources.
 type InstanceState struct {
 	// The ARN of the Lightsail instance (matches `id`).
-	// * `availability_zone`
-	// * `blueprint_id`
-	// * `bundle_id`
-	// * `key_pair_name`
-	// * `user_data`
+	// * `availabilityZone`
+	// * `blueprintId`
+	// * `bundleId`
+	// * `keyPairName`
+	// * `userData`
 	Arn interface{}
 	// The Availability Zone in which to create your
 	// instance (see list below)
@@ -290,7 +290,7 @@ type InstanceState struct {
 	Ipv6Address interface{}
 	IsStaticIp interface{}
 	// The name of your key pair. Created in the
-	// Lightsail console (cannot use `aws_key_pair` at this time)
+	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName interface{}
 	// The name of the Lightsail Instance
 	Name interface{}
@@ -315,7 +315,7 @@ type InstanceArgs struct {
 	// The bundle of specification information (see list below)
 	BundleId interface{}
 	// The name of your key pair. Created in the
-	// Lightsail console (cannot use `aws_key_pair` at this time)
+	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName interface{}
 	// The name of the Lightsail Instance
 	Name interface{}

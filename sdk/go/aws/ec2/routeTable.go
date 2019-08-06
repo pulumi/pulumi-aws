@@ -16,17 +16,17 @@ import (
 // in conjunction with any Route resources. Doing so will cause
 // a conflict of rule settings and will overwrite rules.
 // 
-// > **NOTE on `gateway_id` and `nat_gateway_id`:** The AWS API is very forgiving with these two
-// attributes and the `aws_route_table` resource can be created with a NAT ID specified as a Gateway ID attribute.
+// > **NOTE on `gatewayId` and `natGatewayId`:** The AWS API is very forgiving with these two
+// attributes and the `ec2.RouteTable` resource can be created with a NAT ID specified as a Gateway ID attribute.
 // This _will_ lead to a permanent diff between your configuration and statefile, as the API returns the correct
-// parameters in the returned route table. If you're experiencing constant diffs in your `aws_route_table` resources,
+// parameters in the returned route table. If you're experiencing constant diffs in your `ec2.RouteTable` resources,
 // the first thing to check is whether or not you're specifying a NAT ID instead of a Gateway ID, or vice-versa.
 // 
-// > **NOTE on `propagating_vgws` and the `aws_vpn_gateway_route_propagation` resource:**
-// If the `propagating_vgws` argument is present, it's not supported to _also_
-// define route propagations using `aws_vpn_gateway_route_propagation`, since
+// > **NOTE on `propagatingVgws` and the `ec2.VpnGatewayRoutePropagation` resource:**
+// If the `propagatingVgws` argument is present, it's not supported to _also_
+// define route propagations using `ec2.VpnGatewayRoutePropagation`, since
 // this resource will delete any propagating gateways not explicitly listed in
-// `propagating_vgws`. Omit this argument when defining route propagation using
+// `propagatingVgws`. Omit this argument when defining route propagation using
 // the separate resource.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route_table.html.markdown.

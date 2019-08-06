@@ -106,6 +106,10 @@ class DataSource(pulumi.CustomResource):
 
         __props__['arn'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(DataSource, __self__).__init__(
             'aws:appsync/dataSource:DataSource',
             resource_name,

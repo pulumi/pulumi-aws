@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  * **This is an advanced resource**, and has special caveats to be aware of when
  * using it. Please read this document in its entirety before using this resource.
  * 
- * The `aws_default_vpc` behaves differently from normal resources, in that
+ * The `aws.ec2.DefaultVpc` behaves differently from normal resources, in that
  * this provider does not _create_ this resource, but instead "adopts" it
  * into management.
  * 
@@ -116,7 +116,7 @@ export class DefaultVpc extends pulumi.CustomResource {
     /**
      * The ID of the main route table associated with
      * this VPC. Note that you can change a VPC's main route table by using an
-     * [`aws_main_route_table_association`](https://www.terraform.io/docs/providers/aws/r/main_route_table_assoc.html)
+     * [`aws.ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_assoc.html)
      */
     public /*out*/ readonly mainRouteTableId!: pulumi.Output<string>;
     /**
@@ -248,7 +248,7 @@ export interface DefaultVpcState {
     /**
      * The ID of the main route table associated with
      * this VPC. Note that you can change a VPC's main route table by using an
-     * [`aws_main_route_table_association`](https://www.terraform.io/docs/providers/aws/r/main_route_table_assoc.html)
+     * [`aws.ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_assoc.html)
      */
     readonly mainRouteTableId?: pulumi.Input<string>;
     /**

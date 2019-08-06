@@ -51,6 +51,10 @@ class ConnectionAssociation(pulumi.CustomResource):
             raise TypeError("Missing required property 'lag_id'")
         __props__['lag_id'] = lag_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ConnectionAssociation, __self__).__init__(
             'aws:directconnect/connectionAssociation:ConnectionAssociation',
             resource_name,

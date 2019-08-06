@@ -40,14 +40,14 @@ class RouteTable(pulumi.CustomResource):
         a conflict of rule settings and will overwrite rules.
         
         > **NOTE on `gateway_id` and `nat_gateway_id`:** The AWS API is very forgiving with these two
-        attributes and the `aws_route_table` resource can be created with a NAT ID specified as a Gateway ID attribute.
+        attributes and the `ec2.RouteTable` resource can be created with a NAT ID specified as a Gateway ID attribute.
         This _will_ lead to a permanent diff between your configuration and statefile, as the API returns the correct
-        parameters in the returned route table. If you're experiencing constant diffs in your `aws_route_table` resources,
+        parameters in the returned route table. If you're experiencing constant diffs in your `ec2.RouteTable` resources,
         the first thing to check is whether or not you're specifying a NAT ID instead of a Gateway ID, or vice-versa.
         
-        > **NOTE on `propagating_vgws` and the `aws_vpn_gateway_route_propagation` resource:**
+        > **NOTE on `propagating_vgws` and the `ec2.VpnGatewayRoutePropagation` resource:**
         If the `propagating_vgws` argument is present, it's not supported to _also_
-        define route propagations using `aws_vpn_gateway_route_propagation`, since
+        define route propagations using `ec2.VpnGatewayRoutePropagation`, since
         this resource will delete any propagating gateways not explicitly listed in
         `propagating_vgws`. Omit this argument when defining route propagation using
         the separate resource.
@@ -88,6 +88,10 @@ class RouteTable(pulumi.CustomResource):
 
         __props__['owner_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(RouteTable, __self__).__init__(
             'aws:ec2/routeTable:RouteTable',
             resource_name,

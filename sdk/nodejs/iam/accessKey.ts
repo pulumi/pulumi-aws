@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     pgpKey: "keybase:some_person_that_exists",
  *     user: lbUser.name,
  * });
- * const lbRo = new aws.iam.UserPolicy("lb_ro", {
+ * const lbRo = new aws.iam.UserPolicy("lbRo", {
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -87,7 +87,7 @@ export class AccessKey extends pulumi.CustomResource {
     public readonly pgpKey!: pulumi.Output<string | undefined>;
     /**
      * The secret access key. Note that this will be written
-     * to the state file. Please supply a `pgp_key` instead, which will prevent the
+     * to the state file. Please supply a `pgpKey` instead, which will prevent the
      * secret from being stored in plain text
      */
     public /*out*/ readonly secret!: pulumi.Output<string>;
@@ -172,7 +172,7 @@ export interface AccessKeyState {
     readonly pgpKey?: pulumi.Input<string>;
     /**
      * The secret access key. Note that this will be written
-     * to the state file. Please supply a `pgp_key` instead, which will prevent the
+     * to the state file. Please supply a `pgpKey` instead, which will prevent the
      * secret from being stored in plain text
      */
     readonly secret?: pulumi.Input<string>;

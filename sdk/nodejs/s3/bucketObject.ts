@@ -18,7 +18,7 @@ import {Bucket} from "./bucket";
  * import * as aws from "@pulumi/aws";
  * 
  * const object = new aws.s3.BucketObject("object", {
- *     bucket: "your_bucket_name",
+ *     bucket: "yourBucketName",
  *     // The filemd5() function is available in this provider 0.11.12 and later
  *     // For this provider 0.11.11 and earlier, use the md5() function and the file() function:
  *     // etag = "${md5(file("path/to/file"))}"
@@ -26,7 +26,7 @@ import {Bucket} from "./bucket";
  *         throw "tf2pulumi error: NYI: call to filemd5";
  *         return (() => { throw "NYI: call to filemd5"; })();
  *     })(),
- *     key: "new_object_key",
+ *     key: "newObjectKey",
  *     source: new pulumi.asset.FileAsset("path/to/file"),
  * });
  * ```
@@ -44,7 +44,7 @@ import {Bucket} from "./bucket";
  * const examplebucket = new aws.s3.Bucket("examplebucket", {
  *     acl: "private",
  * });
- * const examplebucketObject = new aws.s3.BucketObject("examplebucket_object", {
+ * const examplebucketObject = new aws.s3.BucketObject("examplebucketObject", {
  *     bucket: examplebucket.id,
  *     key: "someobject",
  *     kmsKeyId: examplekms.arn,
@@ -61,7 +61,7 @@ import {Bucket} from "./bucket";
  * const examplebucket = new aws.s3.Bucket("examplebucket", {
  *     acl: "private",
  * });
- * const examplebucketObject = new aws.s3.BucketObject("examplebucket_object", {
+ * const examplebucketObject = new aws.s3.BucketObject("examplebucketObject", {
  *     bucket: examplebucket.id,
  *     key: "someobject",
  *     serverSideEncryption: "aws:kms",
@@ -78,7 +78,7 @@ import {Bucket} from "./bucket";
  * const examplebucket = new aws.s3.Bucket("examplebucket", {
  *     acl: "private",
  * });
- * const examplebucketObject = new aws.s3.BucketObject("examplebucket_object", {
+ * const examplebucketObject = new aws.s3.BucketObject("examplebucketObject", {
  *     bucket: examplebucket.id,
  *     key: "someobject",
  *     serverSideEncryption: "AES256",
@@ -124,7 +124,7 @@ export class BucketObject extends pulumi.CustomResource {
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+     * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
     public readonly cacheControl!: pulumi.Output<string | undefined>;
     /**
@@ -136,7 +136,7 @@ export class BucketObject extends pulumi.CustomResource {
      */
     public readonly contentBase64!: pulumi.Output<string | undefined>;
     /**
-     * Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+     * Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
     public readonly contentDisposition!: pulumi.Output<string | undefined>;
     /**
@@ -153,7 +153,7 @@ export class BucketObject extends pulumi.CustomResource {
     public readonly contentType!: pulumi.Output<string>;
     /**
      * Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (this provider 0.11.12 or later) or `${md5(file("path/to/file"))}` (this provider 0.11.11 or earlier).
-     * This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
+     * This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`.
      */
     public readonly etag!: pulumi.Output<string>;
     /**
@@ -162,9 +162,9 @@ export class BucketObject extends pulumi.CustomResource {
     public readonly key!: pulumi.Output<string>;
     /**
      * Specifies the AWS KMS Key ARN to use for object encryption.
-     * This value is a fully qualified **ARN** of the KMS Key. If using `aws_kms_key`,
+     * This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`,
      * use the exported `arn` attribute:
-     * `kms_key_id = "${aws_kms_key.foo.arn}"`
+     * `kmsKeyId = "${aws_kms_key.foo.arn}"`
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
@@ -278,7 +278,7 @@ export interface BucketObjectState {
      */
     readonly bucket?: pulumi.Input<string | Bucket>;
     /**
-     * Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+     * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
     readonly cacheControl?: pulumi.Input<string>;
     /**
@@ -290,7 +290,7 @@ export interface BucketObjectState {
      */
     readonly contentBase64?: pulumi.Input<string>;
     /**
-     * Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+     * Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
     readonly contentDisposition?: pulumi.Input<string>;
     /**
@@ -307,7 +307,7 @@ export interface BucketObjectState {
     readonly contentType?: pulumi.Input<string>;
     /**
      * Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (this provider 0.11.12 or later) or `${md5(file("path/to/file"))}` (this provider 0.11.11 or earlier).
-     * This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
+     * This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`.
      */
     readonly etag?: pulumi.Input<string>;
     /**
@@ -316,9 +316,9 @@ export interface BucketObjectState {
     readonly key?: pulumi.Input<string>;
     /**
      * Specifies the AWS KMS Key ARN to use for object encryption.
-     * This value is a fully qualified **ARN** of the KMS Key. If using `aws_kms_key`,
+     * This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`,
      * use the exported `arn` attribute:
-     * `kms_key_id = "${aws_kms_key.foo.arn}"`
+     * `kmsKeyId = "${aws_kms_key.foo.arn}"`
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
@@ -366,7 +366,7 @@ export interface BucketObjectArgs {
      */
     readonly bucket: pulumi.Input<string | Bucket>;
     /**
-     * Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+     * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
     readonly cacheControl?: pulumi.Input<string>;
     /**
@@ -378,7 +378,7 @@ export interface BucketObjectArgs {
      */
     readonly contentBase64?: pulumi.Input<string>;
     /**
-     * Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+     * Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
     readonly contentDisposition?: pulumi.Input<string>;
     /**
@@ -395,7 +395,7 @@ export interface BucketObjectArgs {
     readonly contentType?: pulumi.Input<string>;
     /**
      * Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (this provider 0.11.12 or later) or `${md5(file("path/to/file"))}` (this provider 0.11.11 or earlier).
-     * This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
+     * This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"`.
      */
     readonly etag?: pulumi.Input<string>;
     /**
@@ -404,9 +404,9 @@ export interface BucketObjectArgs {
     readonly key?: pulumi.Input<string>;
     /**
      * Specifies the AWS KMS Key ARN to use for object encryption.
-     * This value is a fully qualified **ARN** of the KMS Key. If using `aws_kms_key`,
+     * This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`,
      * use the exported `arn` attribute:
-     * `kms_key_id = "${aws_kms_key.foo.arn}"`
+     * `kmsKeyId = "${aws_kms_key.foo.arn}"`
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**

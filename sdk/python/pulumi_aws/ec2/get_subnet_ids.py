@@ -37,7 +37,7 @@ class GetSubnetIdsResult:
 
 async def get_subnet_ids(filters=None,tags=None,vpc_id=None,opts=None):
     """
-    `aws_subnet_ids` provides a list of ids for a vpc_id
+    `ec2.getSubnetIds` provides a list of ids for a vpc_id
     
     This resource can be useful for getting back a list of subnet ids for a vpc.
 
@@ -48,6 +48,10 @@ async def get_subnet_ids(filters=None,tags=None,vpc_id=None,opts=None):
     __args__['filters'] = filters
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ec2/getSubnetIds:getSubnetIds', __args__, opts=opts)
 
     return GetSubnetIdsResult(

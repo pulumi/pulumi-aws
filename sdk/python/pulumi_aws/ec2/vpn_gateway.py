@@ -61,6 +61,10 @@ class VpnGateway(pulumi.CustomResource):
 
         __props__['vpc_id'] = vpc_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VpnGateway, __self__).__init__(
             'aws:ec2/vpnGateway:VpnGateway',
             resource_name,

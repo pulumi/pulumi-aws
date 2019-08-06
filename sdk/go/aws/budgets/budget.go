@@ -104,7 +104,7 @@ func (r *Budget) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The ID of the target account for budget. Will use current user's account_id by default if omitted.
+// The ID of the target account for budget. Will use current user's accountId by default if omitted.
 func (r *Budget) AccountId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["accountId"])
 }
@@ -166,7 +166,7 @@ func (r *Budget) TimeUnit() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Budget resources.
 type BudgetState struct {
-	// The ID of the target account for budget. Will use current user's account_id by default if omitted.
+	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
 	AccountId interface{}
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType interface{}
@@ -194,7 +194,7 @@ type BudgetState struct {
 
 // The set of arguments for constructing a Budget resource.
 type BudgetArgs struct {
-	// The ID of the target account for budget. Will use current user's account_id by default if omitted.
+	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
 	AccountId interface{}
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType interface{}

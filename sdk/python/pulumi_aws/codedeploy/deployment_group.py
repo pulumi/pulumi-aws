@@ -146,6 +146,10 @@ class DeploymentGroup(pulumi.CustomResource):
 
         __props__['trigger_configurations'] = trigger_configurations
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(DeploymentGroup, __self__).__init__(
             'aws:codedeploy/deploymentGroup:DeploymentGroup',
             resource_name,

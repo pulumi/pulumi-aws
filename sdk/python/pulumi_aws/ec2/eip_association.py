@@ -47,9 +47,9 @@ class EipAssociation(pulumi.CustomResource):
         Provides an AWS EIP Association as a top level resource, to associate and
         disassociate Elastic IPs from AWS Instances and Network Interfaces.
         
-        > **NOTE:** Do not use this resource to associate an EIP to `aws_lb` or `aws_nat_gateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
+        > **NOTE:** Do not use this resource to associate an EIP to `lb.LoadBalancer` or `ec2.NatGateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
         
-        > **NOTE:** `aws_eip_association` is useful in scenarios where EIPs are either
+        > **NOTE:** `ec2.EipAssociation` is useful in scenarios where EIPs are either
         pre-existing or distributed to customers or users and therefore cannot be changed.
         
         :param str resource_name: The name of the resource.
@@ -99,6 +99,10 @@ class EipAssociation(pulumi.CustomResource):
 
         __props__['public_ip'] = public_ip
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(EipAssociation, __self__).__init__(
             'aws:ec2/eipAssociation:EipAssociation',
             resource_name,

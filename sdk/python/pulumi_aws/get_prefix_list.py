@@ -38,7 +38,7 @@ class GetPrefixListResult:
 
 async def get_prefix_list(name=None,prefix_list_id=None,opts=None):
     """
-    `aws_prefix_list` provides details about a specific prefix list (PL)
+    `.getPrefixList` provides details about a specific prefix list (PL)
     in the current region.
     
     This can be used both to validate a prefix list given in a variable
@@ -52,6 +52,10 @@ async def get_prefix_list(name=None,prefix_list_id=None,opts=None):
 
     __args__['name'] = name
     __args__['prefixListId'] = prefix_list_id
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:index/getPrefixList:getPrefixList', __args__, opts=opts)
 
     return GetPrefixListResult(

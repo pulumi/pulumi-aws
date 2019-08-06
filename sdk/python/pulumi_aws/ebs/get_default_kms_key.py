@@ -34,6 +34,10 @@ async def get_default_kms_key(opts=None):
     """
     __args__ = dict()
 
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ebs/getDefaultKmsKey:getDefaultKmsKey', __args__, opts=opts)
 
     return GetDefaultKmsKeyResult(

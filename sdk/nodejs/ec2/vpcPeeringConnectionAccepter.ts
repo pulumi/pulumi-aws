@@ -10,8 +10,8 @@ import * as utilities from "../utilities";
  * When a cross-account (requester's AWS account differs from the accepter's AWS account) or an inter-region
  * VPC Peering Connection is created, a VPC Peering Connection resource is automatically created in the
  * accepter's account.
- * The requester can use the `aws_vpc_peering_connection` resource to manage its side of the connection
- * and the accepter can use the `aws_vpc_peering_connection_accepter` resource to "adopt" its side of the
+ * The requester can use the `aws.ec2.VpcPeeringConnection` resource to manage its side of the connection
+ * and the accepter can use the `aws.ec2.VpcPeeringConnectionAccepter` resource to "adopt" its side of the
  * connection into management.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_accepter.html.markdown.

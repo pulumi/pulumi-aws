@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * > **NOTE**: One of `size` or `snapshot_id` is required when specifying an EBS volume
+ * > **NOTE**: One of `size` or `snapshotId` is required when specifying an EBS volume
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_volume.html.markdown.
  */
@@ -70,7 +70,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly iops!: pulumi.Output<number>;
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
@@ -158,7 +158,7 @@ export interface VolumeState {
      */
     readonly iops?: pulumi.Input<number>;
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**
@@ -196,7 +196,7 @@ export interface VolumeArgs {
      */
     readonly iops?: pulumi.Input<number>;
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
     /**

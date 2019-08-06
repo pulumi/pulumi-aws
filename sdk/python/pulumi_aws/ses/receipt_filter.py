@@ -58,6 +58,10 @@ class ReceiptFilter(pulumi.CustomResource):
             raise TypeError("Missing required property 'policy'")
         __props__['policy'] = policy
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ReceiptFilter, __self__).__init__(
             'aws:ses/receiptFilter:ReceiptFilter',
             resource_name,

@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
  * 
  * > **NOTE:** This data source does not apply to snapshots created on DB Instances. 
- * See the [`aws_db_snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_snapshot.html) for DB Instance snapshots.
+ * See the [`aws.rds.Snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_snapshot.html) for DB Instance snapshots.
  * 
  * ## Example Usage
  * 
@@ -17,19 +17,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * 
  * const developmentFinalSnapshot = pulumi.output(aws.rds.getClusterSnapshot({
- *     dbClusterIdentifier: "development_cluster",
+ *     dbClusterIdentifier: "developmentCluster",
  *     mostRecent: true,
  * }));
  * // Use the last snapshot of the dev database before it was destroyed to create
  * // a new dev database.
  * const auroraCluster = new aws.rds.Cluster("aurora", {
- *     clusterIdentifier: "development_cluster",
- *     dbSubnetGroupName: "my_db_subnet_group",
+ *     clusterIdentifier: "developmentCluster",
+ *     dbSubnetGroupName: "myDbSubnetGroup",
  *     snapshotIdentifier: developmentFinalSnapshot.id,
  * });
  * const auroraClusterInstance = new aws.rds.ClusterInstance("aurora", {
  *     clusterIdentifier: auroraCluster.id,
- *     dbSubnetGroupName: "my_db_subnet_group",
+ *     dbSubnetGroupName: "myDbSubnetGroup",
  *     instanceClass: "db.t2.small",
  * });
  * ```
@@ -124,7 +124,7 @@ export interface GetClusterSnapshotResult {
     readonly includePublic?: boolean;
     readonly includeShared?: boolean;
     /**
-     * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+     * If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      */
     readonly kmsKeyId: string;
     /**

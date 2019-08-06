@@ -30,7 +30,7 @@ class Ciphertext(pulumi.CustomResource):
         The KMS ciphertext resource allows you to encrypt plaintext into ciphertext
         by using an AWS KMS customer master key. The value returned by this resource
         is stable across every apply. For a changing ciphertext value each apply, see
-        the [`aws_kms_ciphertext` data source](https://www.terraform.io/docs/providers/aws/d/kms_ciphertext.html).
+        the [`kms.Ciphertext` data source](https://www.terraform.io/docs/providers/aws/d/kms_ciphertext.html).
         
         > **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
@@ -70,6 +70,10 @@ class Ciphertext(pulumi.CustomResource):
 
         __props__['ciphertext_blob'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Ciphertext, __self__).__init__(
             'aws:kms/ciphertext:Ciphertext',
             resource_name,

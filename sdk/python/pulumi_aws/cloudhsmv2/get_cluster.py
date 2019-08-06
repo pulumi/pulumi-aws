@@ -66,6 +66,10 @@ async def get_cluster(cluster_id=None,cluster_state=None,opts=None):
 
     __args__['clusterId'] = cluster_id
     __args__['clusterState'] = cluster_state
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:cloudhsmv2/getCluster:getCluster', __args__, opts=opts)
 
     return GetClusterResult(

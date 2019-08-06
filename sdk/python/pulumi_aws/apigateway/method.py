@@ -33,7 +33,7 @@ class Method(pulumi.CustomResource):
     """
     A map of the API models used for the request's content type
     where key is the content type (e.g. `application/json`)
-    and value is either `Error`, `Empty` (built-in models) or `aws_api_gateway_model`'s `name`.
+    and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
     """
     request_parameters: pulumi.Output[dict]
     """
@@ -42,7 +42,7 @@ class Method(pulumi.CustomResource):
     """
     request_validator_id: pulumi.Output[str]
     """
-    The ID of a `aws_api_gateway_request_validator`
+    The ID of a `apigateway.RequestValidator`
     """
     resource_id: pulumi.Output[str]
     """
@@ -65,10 +65,10 @@ class Method(pulumi.CustomResource):
         :param pulumi.Input[str] http_method: The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[dict] request_models: A map of the API models used for the request's content type
                where key is the content type (e.g. `application/json`)
-               and value is either `Error`, `Empty` (built-in models) or `aws_api_gateway_model`'s `name`.
+               and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
         :param pulumi.Input[dict] request_parameters: A map of request query string parameters and headers that should be passed to the integration.
                For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request
-        :param pulumi.Input[str] request_validator_id: The ID of a `aws_api_gateway_request_validator`
+        :param pulumi.Input[str] request_validator_id: The ID of a `apigateway.RequestValidator`
         :param pulumi.Input[str] resource_id: The API resource ID
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
 
@@ -117,6 +117,10 @@ class Method(pulumi.CustomResource):
             raise TypeError("Missing required property 'rest_api'")
         __props__['rest_api'] = rest_api
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Method, __self__).__init__(
             'aws:apigateway/method:Method',
             resource_name,

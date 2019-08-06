@@ -12,27 +12,27 @@ import (
 // 
 // ## Nested fields
 // 
-// ### `target_tracking_scaling_policy_configuration`
+// ### `targetTrackingScalingPolicyConfiguration`
 // 
-// * `target_value` - (Required) The target value for the metric.
-// * `disable_scale_in` - (Optional) Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
-// * `scale_in_cooldown` - (Optional) The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
-// * `scale_out_cooldown` - (Optional) The amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
-// * `customized_metric_specification` - (Optional) A custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
-// * `predefined_metric_specification` - (Optional) A predefined metric. See supported fields below.
+// * `targetValue` - (Required) The target value for the metric.
+// * `disableScaleIn` - (Optional) Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
+// * `scaleInCooldown` - (Optional) The amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+// * `scaleOutCooldown` - (Optional) The amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
+// * `customizedMetricSpecification` - (Optional) A custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
+// * `predefinedMetricSpecification` - (Optional) A predefined metric. See supported fields below.
 // 
-// ### `customized_metric_specification`
+// ### `customizedMetricSpecification`
 // 
 // * `dimensions` - (Optional) The dimensions of the metric.
-// * `metric_name` - (Required) The name of the metric.
+// * `metricName` - (Required) The name of the metric.
 // * `namespace` - (Required) The namespace of the metric.
 // * `statistic` - (Required) The statistic of the metric.
 // * `unit` - (Optional) The unit of the metric.
 // 
-// ### `predefined_metric_specification`
+// ### `predefinedMetricSpecification`
 // 
-// * `predefined_metric_type` - (Required) The metric type.
-// * `resource_label` - (Optional) Reserved for future use.
+// * `predefinedMetricType` - (Required) The metric type.
+// * `resourceLabel` - (Optional) Reserved for future use.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appautoscaling_policy.html.markdown.
 type Policy struct {
@@ -146,12 +146,12 @@ func (r *Policy) ServiceNamespace() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["serviceNamespace"])
 }
 
-// Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+// Step scaling policy configuration, requires `policyType = "StepScaling"` (default). See supported fields below.
 func (r *Policy) StepScalingPolicyConfiguration() *pulumi.Output {
 	return r.s.State["stepScalingPolicyConfiguration"]
 }
 
-// A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+// A target tracking policy, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
 func (r *Policy) TargetTrackingScalingPolicyConfiguration() *pulumi.Output {
 	return r.s.State["targetTrackingScalingPolicyConfiguration"]
 }
@@ -171,9 +171,9 @@ type PolicyState struct {
 	ScalableDimension interface{}
 	// The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ServiceNamespace interface{}
-	// Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+	// Step scaling policy configuration, requires `policyType = "StepScaling"` (default). See supported fields below.
 	StepScalingPolicyConfiguration interface{}
-	// A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+	// A target tracking policy, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
 	TargetTrackingScalingPolicyConfiguration interface{}
 }
 
@@ -190,8 +190,8 @@ type PolicyArgs struct {
 	ScalableDimension interface{}
 	// The AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ServiceNamespace interface{}
-	// Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+	// Step scaling policy configuration, requires `policyType = "StepScaling"` (default). See supported fields below.
 	StepScalingPolicyConfiguration interface{}
-	// A target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+	// A target tracking policy, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
 	TargetTrackingScalingPolicyConfiguration interface{}
 }

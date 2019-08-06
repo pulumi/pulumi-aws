@@ -57,6 +57,10 @@ class GlobalTable(pulumi.CustomResource):
 
         __props__['arn'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(GlobalTable, __self__).__init__(
             'aws:dynamodb/globalTable:GlobalTable',
             resource_name,

@@ -51,6 +51,10 @@ async def get_vpn_gateway(amazon_side_asn=None,attached_vpc_id=None,availability
     __args__['id'] = id
     __args__['state'] = state
     __args__['tags'] = tags
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ec2/getVpnGateway:getVpnGateway', __args__, opts=opts)
 
     return GetVpnGatewayResult(

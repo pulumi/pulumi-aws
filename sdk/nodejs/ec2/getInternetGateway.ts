@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `aws_internet_gateway` provides details about a specific Internet Gateway.
+ * `aws.ec2.InternetGateway` provides details about a specific Internet Gateway.
  * 
  * ## Example Usage
  * 

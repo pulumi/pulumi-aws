@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
  * groups.
  * 
  * To exclusively manage the users in a group, see the
- * [`aws_iam_group_membership` resource][3].
+ * [`aws.iam.GroupMembership` resource][3].
  * 
  * ## Example usage
  * 

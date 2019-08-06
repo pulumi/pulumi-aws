@@ -85,7 +85,7 @@ class Snapshot(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, db_instance_identifier=None, db_snapshot_identifier=None, tags=None, __name__=None, __opts__=None):
         """
-        Manages a RDS database instance snapshot. For managing RDS database cluster snapshots, see the [`aws_db_cluster_snapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_cluster_snapshot.html).
+        Manages a RDS database instance snapshot. For managing RDS database cluster snapshots, see the [`rds.ClusterSnapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_cluster_snapshot.html).
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,6 +138,10 @@ class Snapshot(pulumi.CustomResource):
         __props__['storage_type'] = None
         __props__['vpc_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Snapshot, __self__).__init__(
             'aws:rds/snapshot:Snapshot',
             resource_name,

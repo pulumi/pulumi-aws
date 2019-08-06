@@ -47,7 +47,7 @@ async def get_policy_document(override_json=None,policy_id=None,source_json=None
     
     This is a data source which can be used to construct a JSON representation of
     an IAM policy document, for use with resources which expect policy documents,
-    such as the `aws_iam_policy` resource.
+    such as the `iam.Policy` resource.
     
     
     Using this data source to generate policy documents is *optional*. It is also
@@ -81,6 +81,10 @@ async def get_policy_document(override_json=None,policy_id=None,source_json=None
     __args__['sourceJson'] = source_json
     __args__['statements'] = statements
     __args__['version'] = version
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:iam/getPolicyDocument:getPolicyDocument', __args__, opts=opts)
 
     return GetPolicyDocumentResult(

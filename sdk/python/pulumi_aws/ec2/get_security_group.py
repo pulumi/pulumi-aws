@@ -43,7 +43,7 @@ class GetSecurityGroupResult:
 
 async def get_security_group(filters=None,id=None,name=None,tags=None,vpc_id=None,opts=None):
     """
-    `aws_security_group` provides details about a specific Security Group.
+    `ec2.SecurityGroup` provides details about a specific Security Group.
     
     This resource can prove useful when a module accepts a Security Group id as
     an input variable and needs to, for example, determine the id of the
@@ -58,6 +58,10 @@ async def get_security_group(filters=None,id=None,name=None,tags=None,vpc_id=Non
     __args__['name'] = name
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:ec2/getSecurityGroup:getSecurityGroup', __args__, opts=opts)
 
     return GetSecurityGroupResult(

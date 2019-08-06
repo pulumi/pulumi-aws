@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const mytopic = new aws.sns.Topic("mytopic", {});
- * const iamPolicyForLambda = new aws.iam.RolePolicy("iam_policy_for_lambda", {
+ * const iamPolicyForLambda = new aws.iam.RolePolicy("iamPolicyForLambda", {
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [

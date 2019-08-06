@@ -10,14 +10,14 @@ import (
 
 // Provides an ElastiCache Replication Group resource.
 // For working with Memcached or single primary Redis instances (Cluster Mode Disabled), see the
-// [`aws_elasticache_cluster` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_cluster.html).
+// [`elasticache.Cluster` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_cluster.html).
 // 
-// > **Note:** When you change an attribute, such as `engine_version`, by
+// > **Note:** When you change an attribute, such as `engineVersion`, by
 // default the ElastiCache API applies it in the next maintenance window. Because
 // of this, this provider may report a difference in its planning phase because the
 // actual modification has not yet taken place. You can use the
-// `apply_immediately` flag to instruct the service to apply the change
-// immediately. Using `apply_immediately` can result in a brief downtime as
+// `applyImmediately` flag to instruct the service to apply the change
+// immediately. Using `applyImmediately` can result in a brief downtime as
 // servers reboots.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_replication_group.html.markdown.
@@ -160,7 +160,7 @@ func (r *ReplicationGroup) AtRestEncryptionEnabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["atRestEncryptionEnabled"])
 }
 
-// The password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+// The password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 func (r *ReplicationGroup) AuthToken() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["authToken"])
 }
@@ -180,7 +180,7 @@ func (r *ReplicationGroup) AvailabilityZones() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["availabilityZones"])
 }
 
-// Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed.
+// Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
 func (r *ReplicationGroup) ClusterMode() *pulumi.Output {
 	return r.s.State["clusterMode"]
 }
@@ -271,7 +271,7 @@ func (r *ReplicationGroup) SnapshotArns() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["snapshotArns"])
 }
 
-// The name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
+// The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
 func (r *ReplicationGroup) SnapshotName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["snapshotName"])
 }
@@ -280,7 +280,7 @@ func (r *ReplicationGroup) SnapshotName() *pulumi.StringOutput {
 // retain automatic cache cluster snapshots before deleting them. For example, if you set
 // SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
 // before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-// Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
 func (r *ReplicationGroup) SnapshotRetentionLimit() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["snapshotRetentionLimit"])
 }
@@ -312,7 +312,7 @@ type ReplicationGroupState struct {
 	ApplyImmediately interface{}
 	// Whether to enable encryption at rest.
 	AtRestEncryptionEnabled interface{}
-	// The password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+	// The password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken interface{}
 	// Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. Defaults to `true`.
 	AutoMinorVersionUpgrade interface{}
@@ -320,7 +320,7 @@ type ReplicationGroupState struct {
 	AutomaticFailoverEnabled interface{}
 	// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
 	AvailabilityZones interface{}
-	// Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed.
+	// Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
 	ClusterMode interface{}
 	// The address of the replication group configuration endpoint when cluster mode is enabled.
 	ConfigurationEndpointAddress interface{}
@@ -360,13 +360,13 @@ type ReplicationGroupState struct {
 	// Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
 	// Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
 	SnapshotArns interface{}
-	// The name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
+	// The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
 	SnapshotName interface{}
 	// The number of days for which ElastiCache will
 	// retain automatic cache cluster snapshots before deleting them. For example, if you set
 	// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
 	// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-	// Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
 	SnapshotRetentionLimit interface{}
 	// The daily time range (in UTC) during which ElastiCache will
 	// begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
@@ -385,7 +385,7 @@ type ReplicationGroupArgs struct {
 	ApplyImmediately interface{}
 	// Whether to enable encryption at rest.
 	AtRestEncryptionEnabled interface{}
-	// The password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
+	// The password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken interface{}
 	// Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. Defaults to `true`.
 	AutoMinorVersionUpgrade interface{}
@@ -393,7 +393,7 @@ type ReplicationGroupArgs struct {
 	AutomaticFailoverEnabled interface{}
 	// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
 	AvailabilityZones interface{}
-	// Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed.
+	// Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
 	ClusterMode interface{}
 	// The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
 	Engine interface{}
@@ -427,13 +427,13 @@ type ReplicationGroupArgs struct {
 	// Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
 	// Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
 	SnapshotArns interface{}
-	// The name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
+	// The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
 	SnapshotName interface{}
 	// The number of days for which ElastiCache will
 	// retain automatic cache cluster snapshots before deleting them. For example, if you set
 	// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
 	// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-	// Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
 	SnapshotRetentionLimit interface{}
 	// The daily time range (in UTC) during which ElastiCache will
 	// begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`

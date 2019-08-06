@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Config Rule.
  * 
- * > **Note:** Config Rule requires an existing [Configuration Recorder](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `depends_on` is recommended (as shown below) to avoid race conditions.
+ * > **Note:** Config Rule requires an existing [Configuration Recorder](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `dependsOn` is recommended (as shown below) to avoid race conditions.
  * 
  * ## Example Usage
  * 
@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  * 
  * ### Custom Rules
  * 
- * Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g. via the [`aws_lambda_permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html). More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
+ * Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g. via the [`aws.lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html). More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -127,7 +127,7 @@ export class Rule extends pulumi.CustomResource {
     public readonly inputParameters!: pulumi.Output<string | undefined>;
     /**
      * The frequency that you want AWS Config to run evaluations for a rule that
-     * is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+     * is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
      */
     public readonly maximumExecutionFrequency!: pulumi.Output<string | undefined>;
     /**
@@ -217,7 +217,7 @@ export interface RuleState {
     readonly inputParameters?: pulumi.Input<string>;
     /**
      * The frequency that you want AWS Config to run evaluations for a rule that
-     * is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+     * is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
      */
     readonly maximumExecutionFrequency?: pulumi.Input<string>;
     /**
@@ -257,7 +257,7 @@ export interface RuleArgs {
     readonly inputParameters?: pulumi.Input<string>;
     /**
      * The frequency that you want AWS Config to run evaluations for a rule that
-     * is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+     * is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
      */
     readonly maximumExecutionFrequency?: pulumi.Input<string>;
     /**

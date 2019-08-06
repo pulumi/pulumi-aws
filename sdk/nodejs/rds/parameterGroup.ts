@@ -22,11 +22,11 @@ import * as utilities from "../utilities";
  *     family: "mysql5.6",
  *     parameters: [
  *         {
- *             name: "character_set_server",
+ *             name: "characterSetServer",
  *             value: "utf8",
  *         },
  *         {
- *             name: "character_set_client",
+ *             name: "characterSetClient",
  *             value: "utf8",
  *         },
  *     ],

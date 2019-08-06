@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `aws_ram_resource_share` Retrieve information about a RAM Resource Share.
+ * `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
  * 
  * ## Example Usage
  * 

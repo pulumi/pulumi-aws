@@ -53,9 +53,9 @@ class GatewayAssociation(pulumi.CustomResource):
         """
         Associates a Direct Connect Gateway with a VGW or transit gateway.
         
-        To create a cross-account association, create an [`aws_dx_gateway_association_proposal` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal.html)
+        To create a cross-account association, create an [`directconnect.GatewayAssociationProposal` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal.html)
         in the AWS account that owns the VGW or transit gateway and then accept the proposal in the AWS account that owns the Direct Connect Gateway
-        by creating an `aws_dx_gateway_association` resource with the `proposal_id` and `associated_gateway_owner_account_id` attributes set.
+        by creating an `directconnect.GatewayAssociation` resource with the `proposal_id` and `associated_gateway_owner_account_id` attributes set.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -105,6 +105,10 @@ class GatewayAssociation(pulumi.CustomResource):
         __props__['dx_gateway_association_id'] = None
         __props__['dx_gateway_owner_account_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(GatewayAssociation, __self__).__init__(
             'aws:directconnect/gatewayAssociation:GatewayAssociation',
             resource_name,

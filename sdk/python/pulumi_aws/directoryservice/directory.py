@@ -138,6 +138,10 @@ class Directory(pulumi.CustomResource):
         __props__['dns_ip_addresses'] = None
         __props__['security_group_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Directory, __self__).__init__(
             'aws:directoryservice/directory:Directory',
             resource_name,

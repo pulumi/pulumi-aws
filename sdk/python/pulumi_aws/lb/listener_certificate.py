@@ -23,7 +23,7 @@ class ListenerCertificate(pulumi.CustomResource):
         
         This resource is for additional certificates and does not replace the default certificate on the listener.
         
-        > **Note:** `aws_alb_listener_certificate` is known as `aws_lb_listener_certificate`. The functionality is identical.
+        > **Note:** `alb.ListenerCertificate` is known as `lb.ListenerCertificate`. The functionality is identical.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -55,6 +55,10 @@ class ListenerCertificate(pulumi.CustomResource):
             raise TypeError("Missing required property 'listener_arn'")
         __props__['listener_arn'] = listener_arn
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate")])
         opts = alias_opts if opts is None else opts.merge(alias_opts)
         super(ListenerCertificate, __self__).__init__(

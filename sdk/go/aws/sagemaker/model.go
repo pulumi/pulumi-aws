@@ -84,7 +84,7 @@ func (r *Model) Arn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
+// Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
 func (r *Model) Containers() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["containers"])
 }
@@ -123,7 +123,7 @@ func (r *Model) VpcConfig() *pulumi.Output {
 type ModelState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this model.
 	Arn interface{}
-	// Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
+	// Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
 	Containers interface{}
 	// Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
 	EnableNetworkIsolation interface{}
@@ -141,7 +141,7 @@ type ModelState struct {
 
 // The set of arguments for constructing a Model resource.
 type ModelArgs struct {
-	// Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
+	// Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
 	Containers interface{}
 	// Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
 	EnableNetworkIsolation interface{}

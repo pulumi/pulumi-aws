@@ -92,7 +92,7 @@ class LoadBalancer(pulumi.CustomResource):
         """
         Provides a Load Balancer resource.
         
-        > **Note:** `aws_alb` is known as `aws_lb`. The functionality is identical.
+        > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,6 +168,10 @@ class LoadBalancer(pulumi.CustomResource):
         __props__['vpc_id'] = None
         __props__['zone_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancingv2/loadBalancer:LoadBalancer")])
         opts = alias_opts if opts is None else opts.merge(alias_opts)
         super(LoadBalancer, __self__).__init__(

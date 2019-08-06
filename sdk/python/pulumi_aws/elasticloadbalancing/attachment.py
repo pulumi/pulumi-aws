@@ -19,7 +19,7 @@ class Attachment(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, elb=None, instance=None, __name__=None, __opts__=None):
         """
-        Attaches an EC2 instance to an Elastic Load Balancer (ELB). For attaching resources with Application Load Balancer (ALB) or Network Load Balancer (NLB), see the [`aws_lb_target_group_attachment` resource](https://www.terraform.io/docs/providers/aws/r/lb_target_group_attachment.html).
+        Attaches an EC2 instance to an Elastic Load Balancer (ELB). For attaching resources with Application Load Balancer (ALB) or Network Load Balancer (NLB), see the [`lb.TargetGroupAttachment` resource](https://www.terraform.io/docs/providers/aws/r/lb_target_group_attachment.html).
         
         > **NOTE on ELB Instances and ELB Attachments:** This provider currently provides
         both a standalone ELB Attachment resource (describing an instance attached to
@@ -58,6 +58,10 @@ class Attachment(pulumi.CustomResource):
             raise TypeError("Missing required property 'instance'")
         __props__['instance'] = instance
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Attachment, __self__).__init__(
             'aws:elasticloadbalancing/attachment:Attachment',
             resource_name,

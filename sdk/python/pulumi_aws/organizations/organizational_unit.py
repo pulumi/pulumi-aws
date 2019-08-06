@@ -60,6 +60,10 @@ class OrganizationalUnit(pulumi.CustomResource):
         __props__['accounts'] = None
         __props__['arn'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(OrganizationalUnit, __self__).__init__(
             'aws:organizations/organizationalUnit:OrganizationalUnit',
             resource_name,

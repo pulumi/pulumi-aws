@@ -45,7 +45,7 @@ class DefaultSubnet(pulumi.CustomResource):
         Provides a resource to manage a [default AWS VPC subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics)
         in the current region.
         
-        The `aws_default_subnet` behaves differently from normal resources, in that
+        The `ec2.DefaultSubnet` behaves differently from normal resources, in that
         this provider does not _create_ this resource, but instead "adopts" it
         into management.
         
@@ -90,6 +90,10 @@ class DefaultSubnet(pulumi.CustomResource):
         __props__['owner_id'] = None
         __props__['vpc_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(DefaultSubnet, __self__).__init__(
             'aws:ec2/defaultSubnet:DefaultSubnet',
             resource_name,

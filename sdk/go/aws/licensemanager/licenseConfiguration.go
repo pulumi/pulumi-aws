@@ -10,7 +10,7 @@ import (
 
 // Provides a License Manager license configuration resource.
 // 
-// > **Note:** Removing the `license_count` attribute is not supported by the License Manager API - recreate the resource instead.
+// > **Note:** Removing the `licenseCount` attribute is not supported by the License Manager API - recreate the resource instead.
 // 
 // ## Rules
 // 

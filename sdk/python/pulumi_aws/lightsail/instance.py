@@ -39,7 +39,7 @@ class Instance(pulumi.CustomResource):
     key_pair_name: pulumi.Output[str]
     """
     The name of your key pair. Created in the
-    Lightsail console (cannot use `aws_key_pair` at this time)
+    Lightsail console (cannot use `ec2.KeyPair` at this time)
     """
     name: pulumi.Output[str]
     """
@@ -156,7 +156,7 @@ class Instance(pulumi.CustomResource):
                (see list below)
         :param pulumi.Input[str] bundle_id: The bundle of specification information (see list below)
         :param pulumi.Input[str] key_pair_name: The name of your key pair. Created in the
-               Lightsail console (cannot use `aws_key_pair` at this time)
+               Lightsail console (cannot use `ec2.KeyPair` at this time)
         :param pulumi.Input[str] name: The name of the Lightsail Instance
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] user_data: launch script to configure server with additional user data
@@ -208,6 +208,10 @@ class Instance(pulumi.CustomResource):
         __props__['ram_size'] = None
         __props__['username'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Instance, __self__).__init__(
             'aws:lightsail/instance:Instance',
             resource_name,

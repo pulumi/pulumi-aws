@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `aws_subnet_ids` provides a list of ids for a vpc_id
+// `ec2.getSubnetIds` provides a list of ids for a vpcId
 // 
 // This resource can be useful for getting back a list of subnet ids for a vpc.
 //

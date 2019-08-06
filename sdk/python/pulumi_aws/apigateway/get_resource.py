@@ -49,6 +49,10 @@ async def get_resource(path=None,rest_api_id=None,opts=None):
 
     __args__['path'] = path
     __args__['restApiId'] = rest_api_id
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:apigateway/getResource:getResource', __args__, opts=opts)
 
     return GetResourceResult(

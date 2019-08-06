@@ -57,7 +57,7 @@ class ApplicationVersion(pulumi.CustomResource):
         To work around this you can:
         <ol>
         <li>Create each environment in a separate AWS account</li>
-        <li>Create your `aws_elastic_beanstalk_application_version` resources with a unique names in your 
+        <li>Create your `elasticbeanstalk.ApplicationVersion` resources with a unique names in your 
         Elastic Beanstalk Application. For example &lt;revision&gt;-&lt;environment&gt;.</li>
         </ol>
         
@@ -111,6 +111,10 @@ class ApplicationVersion(pulumi.CustomResource):
 
         __props__['arn'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ApplicationVersion, __self__).__init__(
             'aws:elasticbeanstalk/applicationVersion:ApplicationVersion',
             resource_name,

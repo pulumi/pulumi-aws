@@ -58,9 +58,9 @@ class Group(pulumi.CustomResource):
     [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
     to attach to the autoscaling group **before** instances are launched. The
     syntax is exactly the same as the separate
-    [`aws_autoscaling_lifecycle_hook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+    [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
     resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
-    a new autoscaling group. For all other use-cases, please use `aws_autoscaling_lifecycle_hook` resource.
+    a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
     """
     launch_configuration: pulumi.Output[str]
     """
@@ -137,7 +137,7 @@ class Group(pulumi.CustomResource):
     """
     target_group_arns: pulumi.Output[list]
     """
-    A list of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing.
+    A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
     """
     termination_policies: pulumi.Output[list]
     """
@@ -248,9 +248,9 @@ class Group(pulumi.CustomResource):
                [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
                to attach to the autoscaling group **before** instances are launched. The
                syntax is exactly the same as the separate
-               [`aws_autoscaling_lifecycle_hook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+               [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
                resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
-               a new autoscaling group. For all other use-cases, please use `aws_autoscaling_lifecycle_hook` resource.
+               a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
         :param pulumi.Input[str] launch_configuration: The name of the launch configuration to use.
         :param pulumi.Input[dict] launch_template: Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
         :param pulumi.Input[list] load_balancers: A list of elastic load balancer names to add to the autoscaling
@@ -276,7 +276,7 @@ class Group(pulumi.CustomResource):
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your autoscaling group from functioning properly.
         :param pulumi.Input[list] tags: A list of tag blocks. Tags documented below.
         :param pulumi.Input[list] tags_collection: A list of tag blocks (maps). Tags documented below.
-        :param pulumi.Input[list] target_group_arns: A list of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing.
+        :param pulumi.Input[list] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
         :param pulumi.Input[list] termination_policies: A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
         :param pulumi.Input[list] vpc_zone_identifiers: A list of subnet IDs to launch resources in.
         :param pulumi.Input[float] wait_for_elb_capacity: Setting this will cause this provider to wait
@@ -366,6 +366,10 @@ class Group(pulumi.CustomResource):
 
         __props__['arn'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Group, __self__).__init__(
             'aws:autoscaling/group:Group',
             resource_name,

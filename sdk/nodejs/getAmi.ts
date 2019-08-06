@@ -98,7 +98,7 @@ export interface GetAmiArgs {
  */
 export interface GetAmiResult {
     /**
-     * The OS architecture of the AMI (ie: `i386` or `x86_64`).
+     * The OS architecture of the AMI (ie: `i386` or `x8664`).
      */
     readonly architecture: string;
     /**

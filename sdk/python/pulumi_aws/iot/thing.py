@@ -70,6 +70,10 @@ class Thing(pulumi.CustomResource):
         __props__['default_client_id'] = None
         __props__['version'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Thing, __self__).__init__(
             'aws:iot/thing:Thing',
             resource_name,

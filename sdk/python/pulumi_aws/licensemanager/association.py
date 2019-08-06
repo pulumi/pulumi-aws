@@ -21,7 +21,7 @@ class Association(pulumi.CustomResource):
         """
         Provides a License Manager association.
         
-        > **Note:** License configurations can also be associated with launch templates by specifying the `license_specifications` block for an `aws_launch_template`.
+        > **Note:** License configurations can also be associated with launch templates by specifying the `license_specifications` block for an `ec2.LaunchTemplate`.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -53,6 +53,10 @@ class Association(pulumi.CustomResource):
             raise TypeError("Missing required property 'resource_arn'")
         __props__['resource_arn'] = resource_arn
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Association, __self__).__init__(
             'aws:licensemanager/association:Association',
             resource_name,

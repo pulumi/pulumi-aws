@@ -83,6 +83,10 @@ async def get_broker(broker_id=None,broker_name=None,logs=None,tags=None,opts=No
     __args__['brokerName'] = broker_name
     __args__['logs'] = logs
     __args__['tags'] = tags
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:mq/getBroker:getBroker', __args__, opts=opts)
 
     return GetBrokerResult(

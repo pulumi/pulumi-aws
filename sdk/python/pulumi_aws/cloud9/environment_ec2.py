@@ -88,6 +88,10 @@ class EnvironmentEC2(pulumi.CustomResource):
         __props__['arn'] = None
         __props__['type'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(EnvironmentEC2, __self__).__init__(
             'aws:cloud9/environmentEC2:EnvironmentEC2',
             resource_name,

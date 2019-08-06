@@ -62,6 +62,10 @@ async def get_configuration(name=None,opts=None):
     __args__ = dict()
 
     __args__['name'] = name
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:msk/getConfiguration:getConfiguration', __args__, opts=opts)
 
     return GetConfigurationResult(

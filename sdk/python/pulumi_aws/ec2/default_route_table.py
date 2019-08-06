@@ -38,11 +38,11 @@ class DefaultRouteTable(pulumi.CustomResource):
         Each VPC created in AWS comes with a Default Route Table that can be managed, but not
         destroyed. **This is an advanced resource**, and has special caveats to be aware
         of when using it. Please read this document in its entirety before using this
-        resource. It is recommended you **do not** use both `aws_default_route_table` to
-        manage the default route table **and** use the `aws_main_route_table_association`,
+        resource. It is recommended you **do not** use both `ec2.DefaultRouteTable` to
+        manage the default route table **and** use the `ec2.MainRouteTableAssociation`,
         due to possible conflict in routes.
         
-        The `aws_default_route_table` behaves differently from normal resources, in that
+        The `ec2.DefaultRouteTable` behaves differently from normal resources, in that
         this provider does not _create_ this resource, but instead attempts to "adopt" it
         into management. We can do this because each VPC created has a Default Route
         Table that cannot be destroyed, and is created with a single route.
@@ -56,7 +56,7 @@ class DefaultRouteTable(pulumi.CustomResource):
         [Route Tables][aws-route-tables].
         
         For more information about managing normal Route Tables in this provider, see our
-        documentation on [aws_route_table][tf-route-tables].
+        documentation on [ec2.RouteTable][tf-route-tables].
         
         > **NOTE on Route Tables and Routes:** This provider currently
         provides both a standalone Route resource and a Route Table resource with routes
@@ -102,6 +102,10 @@ class DefaultRouteTable(pulumi.CustomResource):
         __props__['owner_id'] = None
         __props__['vpc_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(DefaultRouteTable, __self__).__init__(
             'aws:ec2/defaultRouteTable:DefaultRouteTable',
             resource_name,

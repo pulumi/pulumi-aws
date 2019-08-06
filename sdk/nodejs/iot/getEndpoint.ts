@@ -40,8 +40,8 @@ export interface GetEndpointArgs {
  */
 export interface GetEndpointResult {
     /**
-     * The endpoint based on `endpoint_type`:
-     * * No `endpoint_type`: Either `iot:Data` or `iot:Data-ATS` [depending on region](https://aws.amazon.com/blogs/iot/aws-iot-core-ats-endpoints/)
+     * The endpoint based on `endpointType`:
+     * * No `endpointType`: Either `iot:Data` or `iot:Data-ATS` [depending on region](https://aws.amazon.com/blogs/iot/aws-iot-core-ats-endpoints/)
      * * `iot:CredentialsProvider`: `IDENTIFIER.credentials.iot.REGION.amazonaws.com`
      * * `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`
      * * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`

@@ -136,7 +136,7 @@ func (r *Preset) VideoCodecOptions() *pulumi.MapOutput {
 }
 
 // Watermark parameters for the video parameters (documented below)
-// * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
+// * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
 func (r *Preset) VideoWatermarks() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["videoWatermarks"])
 }
@@ -161,7 +161,7 @@ type PresetState struct {
 	Video interface{}
 	VideoCodecOptions interface{}
 	// Watermark parameters for the video parameters (documented below)
-	// * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
+	// * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
 	VideoWatermarks interface{}
 }
 
@@ -184,6 +184,6 @@ type PresetArgs struct {
 	Video interface{}
 	VideoCodecOptions interface{}
 	// Watermark parameters for the video parameters (documented below)
-	// * `video_codec_options` (Optional, Forces new resource) Codec options for the video parameters
+	// * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
 	VideoWatermarks interface{}
 }

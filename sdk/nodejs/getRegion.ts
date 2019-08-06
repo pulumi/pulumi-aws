@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * `aws_region` provides details about a specific AWS region.
+ * `aws..getRegion` provides details about a specific AWS region.
  * 
  * As well as validating a given region name this resource can be used to
  * discover the name of the region configured within the provider. The latter

@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Requests automatic route propagation between a VPN gateway and a route table.
  * 
  * > **Note:** This resource should not be used with a route table that has
- * the `propagating_vgws` argument set. If that argument is set, any route
+ * the `propagatingVgws` argument set. If that argument is set, any route
  * propagation not explicitly listed in its value will be removed.
  * 
  * ## Example Usage
@@ -53,11 +53,11 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
     }
 
     /**
-     * The id of the `aws_route_table` to propagate routes into.
+     * The id of the `aws.ec2.RouteTable` to propagate routes into.
      */
     public readonly routeTableId!: pulumi.Output<string>;
     /**
-     * The id of the `aws_vpn_gateway` to propagate routes from.
+     * The id of the `aws.ec2.VpnGateway` to propagate routes from.
      */
     public readonly vpnGatewayId!: pulumi.Output<string>;
 
@@ -102,11 +102,11 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
  */
 export interface VpnGatewayRoutePropagationState {
     /**
-     * The id of the `aws_route_table` to propagate routes into.
+     * The id of the `aws.ec2.RouteTable` to propagate routes into.
      */
     readonly routeTableId?: pulumi.Input<string>;
     /**
-     * The id of the `aws_vpn_gateway` to propagate routes from.
+     * The id of the `aws.ec2.VpnGateway` to propagate routes from.
      */
     readonly vpnGatewayId?: pulumi.Input<string>;
 }
@@ -116,11 +116,11 @@ export interface VpnGatewayRoutePropagationState {
  */
 export interface VpnGatewayRoutePropagationArgs {
     /**
-     * The id of the `aws_route_table` to propagate routes into.
+     * The id of the `aws.ec2.RouteTable` to propagate routes into.
      */
     readonly routeTableId: pulumi.Input<string>;
     /**
-     * The id of the `aws_vpn_gateway` to propagate routes from.
+     * The id of the `aws.ec2.VpnGateway` to propagate routes from.
      */
     readonly vpnGatewayId: pulumi.Input<string>;
 }

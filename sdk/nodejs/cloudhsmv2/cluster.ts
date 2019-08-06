@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const cloudhsm2Vpc = new aws.ec2.Vpc("cloudhsm2_vpc", {
+ * const cloudhsm2Vpc = new aws.ec2.Vpc("cloudhsm2Vpc", {
  *     cidrBlock: "10.0.0.0/16",
  *     tags: {
  *         Name: "example-aws_cloudhsm_v2_cluster",
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *         vpcId: cloudhsm2Vpc.id,
  *     }));
  * }
- * const cloudhsmV2Cluster = new aws.cloudhsmv2.Cluster("cloudhsm_v2_cluster", {
+ * const cloudhsmV2Cluster = new aws.cloudhsmv2.Cluster("cloudhsmV2Cluster", {
  *     hsmType: "hsm1.medium",
  *     subnetIds: cloudhsm2Subnets.map(v => v.id),
  *     tags: {

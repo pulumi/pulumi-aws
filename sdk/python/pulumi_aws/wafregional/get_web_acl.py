@@ -25,13 +25,17 @@ class GetWebAclResult:
 
 async def get_web_acl(name=None,opts=None):
     """
-    `aws_wafregional_web_acl` Retrieves a WAF Regional Web ACL Resource Id.
+    `wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_web_acl.html.markdown.
     """
     __args__ = dict()
 
     __args__['name'] = name
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('aws:wafregional/getWebAcl:getWebAcl', __args__, opts=opts)
 
     return GetWebAclResult(

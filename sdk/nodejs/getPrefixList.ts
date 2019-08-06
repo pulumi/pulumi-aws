@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * `aws_prefix_list` provides details about a specific prefix list (PL)
+ * `aws..getPrefixList` provides details about a specific prefix list (PL)
  * in the current region.
  * 
  * This can be used both to validate a prefix list given in a variable
@@ -22,14 +22,14 @@ import * as utilities from "./utilities";
  * const bar = new aws.ec2.NetworkAcl("bar", {
  *     vpcId: aws_vpc_foo.id,
  * });
- * const privateS3VpcEndpoint = new aws.ec2.VpcEndpoint("private_s3", {
+ * const privateS3VpcEndpoint = new aws.ec2.VpcEndpoint("privateS3", {
  *     serviceName: "com.amazonaws.us-west-2.s3",
  *     vpcId: aws_vpc_foo.id,
  * });
  * const privateS3PrefixList = privateS3VpcEndpoint.prefixListId.apply(prefixListId => aws.getPrefixList({
  *     prefixListId: prefixListId,
  * }));
- * const privateS3NetworkAclRule = new aws.ec2.NetworkAclRule("private_s3", {
+ * const privateS3NetworkAclRule = new aws.ec2.NetworkAclRule("privateS3", {
  *     cidrBlock: privateS3PrefixList.apply(privateS3PrefixList => privateS3PrefixList.cidrBlocks[0]),
  *     egress: false,
  *     fromPort: 443,

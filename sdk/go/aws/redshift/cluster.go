@@ -261,7 +261,7 @@ func (r *Cluster) EnhancedVpcRouting() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enhancedVpcRouting"])
 }
 
-// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
+// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
 func (r *Cluster) FinalSnapshotIdentifier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["finalSnapshotIdentifier"])
 }
@@ -271,7 +271,7 @@ func (r *Cluster) IamRoles() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["iamRoles"])
 }
 
-// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 func (r *Cluster) KmsKeyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kmsKeyId"])
 }
@@ -396,11 +396,11 @@ type ClusterState struct {
 	Endpoint interface{}
 	// If true , enhanced VPC routing is enabled.
 	EnhancedVpcRouting interface{}
-	// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
+	// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
 	FinalSnapshotIdentifier interface{}
 	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
 	IamRoles interface{}
-	// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId interface{}
 	// Logging, documented below.
 	Logging interface{}
@@ -475,11 +475,11 @@ type ClusterArgs struct {
 	Endpoint interface{}
 	// If true , enhanced VPC routing is enabled.
 	EnhancedVpcRouting interface{}
-	// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
+	// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
 	FinalSnapshotIdentifier interface{}
 	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
 	IamRoles interface{}
-	// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
+	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId interface{}
 	// Logging, documented below.
 	Logging interface{}

@@ -25,7 +25,7 @@ class MailFrom(pulumi.CustomResource):
         """
         Provides an SES domain MAIL FROM resource.
         
-        > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the [aws_ses_domain_identity resource](https://www.terraform.io/docs/providers/aws/r/ses_domain_identity.html). To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html) for more information.
+        > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the [ses.DomainIdentity resource](https://www.terraform.io/docs/providers/aws/r/ses_domain_identity.html). To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html) for more information.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -60,6 +60,10 @@ class MailFrom(pulumi.CustomResource):
             raise TypeError("Missing required property 'mail_from_domain'")
         __props__['mail_from_domain'] = mail_from_domain
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(MailFrom, __self__).__init__(
             'aws:ses/mailFrom:MailFrom',
             resource_name,

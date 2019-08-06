@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  * 
  * This is a data source which can be used to construct a JSON representation of
  * an IAM policy document, for use with resources which expect policy documents,
- * such as the `aws_iam_policy` resource.
+ * such as the `aws.iam.Policy` resource.
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -92,7 +92,7 @@ import * as utilities from "../utilities";
  *                 type: "Service",
  *             },
  *             {
- *                 identifiers: [var_trusted_role_arn],
+ *                 identifiers: [varTrustedRoleArn],
  *                 type: "AWS",
  *             },
  *         ],
@@ -102,7 +102,7 @@ import * as utilities from "../utilities";
  * 
  * ## Example with Source and Override
  * 
- * Showing how you can use `source_json` and `override_json`
+ * Showing how you can use `sourceJson` and `overrideJson`
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -170,7 +170,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * ```
  * 
- * You can also combine `source_json` and `override_json` in the same document.
+ * You can also combine `sourceJson` and `overrideJson` in the same document.
  * 
  * ## Example without Statement
  * 

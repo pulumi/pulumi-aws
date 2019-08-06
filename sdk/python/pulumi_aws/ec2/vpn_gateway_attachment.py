@@ -22,7 +22,7 @@ class VpnGatewayAttachment(pulumi.CustomResource):
         Provides a Virtual Private Gateway attachment resource, allowing for an existing
         hardware VPN gateway to be attached and/or detached from a VPC.
         
-        > **Note:** The `aws_vpn_gateway`
+        > **Note:** The `ec2.VpnGateway`
         resource can also automatically attach the Virtual Private Gateway it creates
         to an existing VPC by setting the `vpc_id` attribute accordingly.
         
@@ -56,6 +56,10 @@ class VpnGatewayAttachment(pulumi.CustomResource):
             raise TypeError("Missing required property 'vpn_gateway_id'")
         __props__['vpn_gateway_id'] = vpn_gateway_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VpnGatewayAttachment, __self__).__init__(
             'aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment',
             resource_name,

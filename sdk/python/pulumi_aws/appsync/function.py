@@ -101,6 +101,10 @@ class Function(pulumi.CustomResource):
         __props__['arn'] = None
         __props__['function_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Function, __self__).__init__(
             'aws:appsync/function:Function',
             resource_name,

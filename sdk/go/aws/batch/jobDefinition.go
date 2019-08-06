@@ -10,9 +10,9 @@ import (
 
 // Provides a Batch Job Definition resource.
 // 
-// ## retry_strategy
+// ## retryStrategy
 // 
-// `retry_strategy` supports the following:
+// `retryStrategy` supports the following:
 // 
 // * `attempts` - (Optional) The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
 // 
@@ -20,7 +20,7 @@ import (
 // 
 // `timeout` supports the following:
 // 
-// * `attempt_duration_seconds` - (Optional) The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
+// * `attemptDurationSeconds` - (Optional) The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_job_definition.html.markdown.
 type JobDefinition struct {
@@ -112,7 +112,7 @@ func (r *JobDefinition) Parameters() *pulumi.MapOutput {
 }
 
 // Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-// Maximum number of `retry_strategy` is `1`.  Defined below.
+// Maximum number of `retryStrategy` is `1`.  Defined below.
 func (r *JobDefinition) RetryStrategy() *pulumi.Output {
 	return r.s.State["retryStrategy"]
 }
@@ -144,7 +144,7 @@ type JobDefinitionState struct {
 	// Specifies the parameter substitution placeholders to set in the job definition.
 	Parameters interface{}
 	// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-	// Maximum number of `retry_strategy` is `1`.  Defined below.
+	// Maximum number of `retryStrategy` is `1`.  Defined below.
 	RetryStrategy interface{}
 	// The revision of the job definition.
 	Revision interface{}
@@ -164,7 +164,7 @@ type JobDefinitionArgs struct {
 	// Specifies the parameter substitution placeholders to set in the job definition.
 	Parameters interface{}
 	// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-	// Maximum number of `retry_strategy` is `1`.  Defined below.
+	// Maximum number of `retryStrategy` is `1`.  Defined below.
 	RetryStrategy interface{}
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout interface{}

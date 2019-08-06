@@ -79,6 +79,10 @@ class Hsm(pulumi.CustomResource):
         __props__['hsm_id'] = None
         __props__['hsm_state'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Hsm, __self__).__init__(
             'aws:cloudhsmv2/hsm:Hsm',
             resource_name,

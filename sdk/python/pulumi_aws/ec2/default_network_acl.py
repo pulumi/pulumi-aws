@@ -12,7 +12,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
     default_network_acl_id: pulumi.Output[str]
     """
     The Network ACL ID to manage. This
-    attribute is exported from `aws_vpc`, or manually found via the AWS Console.
+    attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
     """
     egress: pulumi.Output[list]
     """
@@ -48,7 +48,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         of when using it. Please read this document in its entirety before using this
         resource.
         
-        The `aws_default_network_acl` behaves differently from normal resources, in that
+        The `ec2.DefaultNetworkAcl` behaves differently from normal resources, in that
         this provider does not _create_ this resource, but instead attempts to "adopt" it
         into management. We can do this because each VPC created has a Default Network
         ACL that cannot be destroyed, and is created with a known set of default rules.
@@ -61,7 +61,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         This resource treats its inline rules as absolute; only the rules defined
         inline are created, and any additions/removals external to this resource will
         result in diffs being shown. For these reasons, this resource is incompatible with the
-        `aws_network_acl_rule` resource.
+        `ec2.NetworkAclRule` resource.
         
         For more information about Network ACLs, see the AWS Documentation on
         [Network ACLs][aws-network-acls].
@@ -69,7 +69,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_network_acl_id: The Network ACL ID to manage. This
-               attribute is exported from `aws_vpc`, or manually found via the AWS Console.
+               attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
         :param pulumi.Input[list] egress: Specifies an egress rule. Parameters defined below.
         :param pulumi.Input[list] ingress: Specifies an ingress rule. Parameters defined below.
         :param pulumi.Input[list] subnet_ids: A list of Subnet IDs to apply the ACL to. See the
@@ -108,6 +108,10 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         __props__['owner_id'] = None
         __props__['vpc_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(DefaultNetworkAcl, __self__).__init__(
             'aws:ec2/defaultNetworkAcl:DefaultNetworkAcl',
             resource_name,

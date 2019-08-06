@@ -141,7 +141,7 @@ class Cluster(pulumi.CustomResource):
         """
         Provides an ElastiCache Cluster resource, which manages a Memcached cluster or Redis instance.
         For working with Redis (Cluster Mode Enabled) replication groups, see the
-        [`aws_elasticache_replication_group` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group.html).
+        [`elasticache.ReplicationGroup` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group.html).
         
         > **Note:** When you change an attribute, such as `node_type`, by default
         it is applied in the next maintenance window. Because of this, this provider may report
@@ -267,6 +267,10 @@ class Cluster(pulumi.CustomResource):
         __props__['cluster_address'] = None
         __props__['configuration_endpoint'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Cluster, __self__).__init__(
             'aws:elasticache/cluster:Cluster',
             resource_name,
